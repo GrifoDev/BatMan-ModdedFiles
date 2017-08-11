@@ -47,13 +47,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity$2;->this$0:Lcom/samsung/android/settings/display/PocBalanceProgressActivity;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->-get2(Lcom/samsung/android/settings/display/PocBalanceProgressActivity;)Lcom/samsung/android/hardware/display/SemMdnieManager;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/samsung/android/settings/display/SecDisplayUtils;->getPocEstimatedTime(Lcom/samsung/android/hardware/display/SemMdnieManager;)J
-
-    move-result-wide v4
+    iget-wide v4, v3, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mEstimatedTime:J
 
     const-wide/16 v6, 0x64
 
@@ -71,6 +65,16 @@
 
     if-ge v3, v4, :cond_1
 
+    iget-object v3, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity$2;->this$0:Lcom/samsung/android/settings/display/PocBalanceProgressActivity;
+
+    iget-boolean v3, v3, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mIsProgressStop:Z
+
+    if-eqz v3, :cond_2
+
+    :cond_1
+    return-void
+
+    :cond_2
     iget-object v3, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity$2;->this$0:Lcom/samsung/android/settings/display/PocBalanceProgressActivity;
 
     invoke-static {v3}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->-get1(Lcom/samsung/android/settings/display/PocBalanceProgressActivity;)Z
@@ -108,7 +112,4 @@
     invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
 
     goto :goto_0
-
-    :cond_1
-    return-void
 .end method

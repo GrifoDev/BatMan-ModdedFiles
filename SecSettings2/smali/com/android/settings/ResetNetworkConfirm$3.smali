@@ -79,7 +79,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm$3;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {v0, v1}, Lcom/android/settings/ResetNetworkConfirm;->-set3(Lcom/android/settings/ResetNetworkConfirm;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;
+    invoke-static {v0, v1}, Lcom/android/settings/ResetNetworkConfirm;->-set4(Lcom/android/settings/ResetNetworkConfirm;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm$3;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
@@ -87,7 +87,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b15a3
+    const v1, 0x7f0b163f
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -107,7 +107,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/settings/ResetNetworkConfirm;->-set2(Lcom/android/settings/ResetNetworkConfirm;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settings/ResetNetworkConfirm;->-set3(Lcom/android/settings/ResetNetworkConfirm;Z)Z
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm$3;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 

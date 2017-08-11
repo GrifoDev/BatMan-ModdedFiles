@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$d小時 %2$d分鐘</string>
-    <string name="battery_history_minutes_no_seconds">%d 分</string>
+    <string name="battery_history_hours_no_seconds">%1$d 小時 %2$d 分鐘</string>
+    <string name="battery_history_minutes_no_seconds">%d 分鐘</string>
     <string name="wifi_fail_to_scan">無法掃描網路</string>
     <string name="wifi_failed_to_obtain_IP">無法取得 IP 位址</string>
     <string name="wifi_security_none">無</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">無法連接至 %s。</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">無法連接至 %1$s。請檢查您的 %2$s 設定並重試。</string>
     <string name="bluetooth_pairing_rejected_error_message">配對被%s拒絕。</string>
+    <string name="bluetooth_getting_remote_device_name">正在取得裝置名稱…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">裝置連接時將顯示裝置名稱。</string>
     <string name="accessibility_wifi_off">已關閉 Wi-Fi。</string>
     <string name="accessibility_no_wifi">Wi-Fi 連線已中斷。</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi 訊號強度一格。</string>
@@ -386,7 +388,8 @@
     <string name="support">支援</string>
     <string name="reset_network_settings_list_summary">將 Wi-Fi、藍牙、與其他網路設定重置為預設值。</string>
     <string name="master_clear_list_summary">將裝置重置為原廠預設設定。這將清除所有資料，包括檔案與已下載的應用程式。</string>
-    <string name="auto_restart_summary">在設定的時間點自動重新啟動以最佳化您的裝置。裝置重新啟動時，所有未儲存的數據將會遺失。</string>
+    <string name="auto_restart_summary">每週自動重新啟動一次以最佳化您的手機。手機重新啟動時，所有未儲存的資料將會遺失。</string>
+    <string name="auto_restart_summary_tablet">每週自動重新啟動一次以最佳化您的平板。平板重新啟動時，所有未儲存的資料將會遺失。</string>
     <string name="search_settings">搜尋</string>
     <string name="related_results">%d 個相關項目</string>
     <string name="no_results_found">無搜尋結果</string>
@@ -456,7 +459,7 @@
     <string name="sound_balance_right_message">音效平衡偏向右側百分之 %d。請使用兩指拖曳滑桿。</string>
     <string name="sound_balance_set">設定</string>
     <string name="accessibility_assistant_menu">輔助快選</string>
-    <string name="assistant_menu_summary">為協助使用上較不靈活的使用者，請啟用可加強裝置輔助使用的功能。</string>
+    <string name="assistant_menu_summary">針對反應較不靈活的使用者改善手機協助工具。</string>
     <string name="color_blind_title">色彩調整</string>
     <string name="no_result">若您讀取顯示內容有困難，請調整螢幕色彩。</string>
     <string name="you_are_normal">無需色彩調整。</string>
@@ -652,6 +655,7 @@
     <string name="direct_access_actions_accessibility_title">協助工具</string>
     <string name="direct_access_actions_negative_title">負片</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">直接存取與縮小螢幕尺寸無法同時啟用。將停用縮小螢幕尺寸。</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s 與 %2$s 無法同時啟用。將停用 %3$s。</string>
     <string name="direct_access_actions_color_adjustment_summary">在 [視覺] 中設定 [色彩調整] 以於直接存取中使用</string>
     <string name="direct_access_actions_screen_reader_summary">啟用頁面閱讀器以於直接存取中使用。</string>
     <string name="direct_access_actions_accesscontrol_title">互動控制</string>
@@ -849,7 +853,9 @@
     <string name="premium_sms_values_ask">確認</string>
     <string name="premium_sms_values_never">永不允許</string>
     <string name="premium_sms_values_allow">永遠允許</string>
-    <string name="assist_and_voice_input_summary">裝置輔助應用程式提供更多關於各畫面的選項與資訊。</string>
+    <string name="assist_and_voice_input_summary">選擇當您觸碰並按住首頁按鈕時欲使用的應用程式。</string>
+    <string name="assist_footer_phone">選擇當您觸碰並按住首頁按鈕時欲使用的應用程式。裝置輔助應用程式將透過蒐集目前顯示於您手機螢幕上的資訊來提供協助。</string>
+    <string name="assist_footer_tablet">選擇當您觸碰並按住首頁按鈕時欲使用的應用程式。裝置輔助應用程式將透過蒐集目前顯示於您平板螢幕上的資訊來提供協助。</string>
     <string name="default_app_title">設為預設</string>
     <string name="premium_sms_title">傳送 Premium SMS</string>
     <string name="default_app_selection">預設應用程式選取</string>
@@ -938,7 +944,7 @@
 
 連接的 2 部裝置之輸出音源可能略有差異。"</string>
     <string name="bluetooth_dual_play_ask_popup_title">關閉媒體音量同步嗎？</string>
-    <string name="bluetooth_dual_play_ask_popup_content">若要使用雙聲道，需關閉媒體音量同步。</string>
+    <string name="bluetooth_dual_play_ask_popup_content">若要分別控制每個音訊裝置音量，需關閉媒體音量同步。</string>
     <string name="bluetooth_avc_title">媒體音量同步</string>
     <string name="bluetooth_avc_description">若連接的藍牙裝置可控制手機的媒體音量，將與您的手機同步藍牙裝置設定的音量。</string>
     <string name="bluetooth_avc_volume_change_description">開啟此功能可能導致非預期的音量變更。</string>
@@ -947,6 +953,7 @@
     <string name="bluetooth_avc_ask_popup_title">關閉雙聲道嗎？</string>
     <string name="bluetooth_avc_ask_popup_content">若要使用媒體音量同步，需關閉雙聲道。</string>
     <string name="bluetooth_avc_disable_description">連接的藍牙裝置不支援媒體音量同步。您無法將手機音量與連接的藍牙裝置同步。</string>
+    <string name="bluetooth_avc_available_description">若連接的藍牙裝置支援媒體音量同步，將與您的手機同步藍牙裝置設定的音量。</string>
     <string name="bluetooth_enter_pin_msg">輸入與%s密碼配對（試用 0000 或 1234）。</string>
     <string name="bluetooth_pin_maximum_number_message">已達字元數量上限。</string>
     <string name="settings_menu_done">完成</string>
@@ -1030,11 +1037,12 @@
     <string name="swipe_to_call_title">滑動以通話或傳送訊息</string>
     <string name="swipe_to_call_summary">在 [電話]、[聯絡人] 或 [訊息] 中，將聯絡人或號碼向右滑動即可撥打電話，向左滑動則可傳送訊息。</string>
     <string name="swipe_to_call_summary_dcm">在 [撥號]、[聯絡人] 或 [訊息] 中，將聯絡人或號碼向右滑動即可撥打電話，向左滑動則可傳送訊息。</string>
-    <string name="swipe_to_call_summary_kddi">在 [電話] 或 [聯絡人] 中，將聯絡人或號碼向右滑動即可撥打電話，向左滑動則可傳送訊息。</string>
+    <string name="swipe_to_call_summary_kddi">在 [撥號] 或 [聯絡人] 中，向右滑動聯絡人或號碼即可撥打電話，向左滑動則可傳送訊息。</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">以兩個不同帳號使用相同的應用程式。</string>
     <string name="finger_sensor_gesture_title">指紋感應器手勢</string>
     <string name="finger_sensor_gesture_summary">透過指紋感應器來開啟及關閉應用程式與功能。</string>
+    <string name="finger_sensor_gesture_summary_noapp">透過指紋感應器來開啟及關閉通知面板。</string>
     <string name="finger_sensor_gesture_description">在指紋感應器上向上或向下即可開啟或關閉通知面板。</string>
     <string name="open_samsung_pay_title">開啟 Samsung Pay。</string>
     <string name="open_samsung_pay_summary">請透過主螢幕的指紋感應器向上滑動來開啟 Samsung Pay。</string>
@@ -1069,6 +1077,7 @@
 %s"</string>
     <string name="enable_ps_title">啟用%s</string>
     <string name="setup_wizard">設定精靈</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">正常</string>
     <string name="large">大</string>
     <string name="small">小</string>
@@ -1415,6 +1424,7 @@
     <string name="navigationbar_summary">管理首頁、返回與最近使用的應用程式按鈕。</string>
     <string name="navigationbar_theme_switch">套用目前主題</string>
     <string name="navigationbar_color_title">背景色彩</string>
+    <string name="navigationbar_color_summary">您所選的背景顏色可能無法套用至所有應用程式。</string>
     <string name="navigationbar_order_title">按鈕版面配置</string>
     <string name="navigationbar_order_default">最近項目 - 首頁 - 返回</string>
     <string name="navigationbar_order_mirrored">返回 - 首頁 - 最近項目</string>
@@ -1446,7 +1456,8 @@
     <string name="blue_light_filter_enable_now">立即開啟</string>
     <string name="blue_light_filter_enable_as_scheduled">依排定時間開啟</string>
     <string name="blue_light_filter_scheduled_toast">已開啟藍光濾光器。將在排定的結束時間自動關閉。</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s 與藍光濾光器無法同時啟用。將停用藍光濾光器。</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">關閉藍光濾光器嗎？</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">若要使用 %s，需關閉藍光濾光器。</string>
     <string name="blue_light_filter_dlg_turn_on_location">若要使用 [日落至日出]，必須開啟定位。</string>
     <string name="dlg_turn_on">開啟</string>
     <string name="screen_resolution_title">螢幕解析度</string>
@@ -1663,6 +1674,7 @@
     <string name="crypt_keeper_last_warn_wipe">您只剩 1 次機會來啟動裝置，之後將重置回原廠預設設定。此動作將清除所有資料，包含檔案與已下載的應用程式。</string>
     <string name="crypt_keeper_failed_title_dec">解密失敗</string>
     <string name="crypt_keeper_failed_summary_dec">因為發生中斷，無法完成解密。使用前執行原廠資料重設（清除所有的資料）。</string>
+    <string name="crypt_keeper_set_screen_lock_type">設定螢幕鎖定類型</string>
     <string name="encryption_interstitial_message">"您可以要求在手機啟動前先輸入您的 %s 來進一步保護手機。如此可於手機遺失或遭竊時，保護您資料的安全。部分應用程式可能根據裝置加密政策要求 [安全啟動] 以存取電子郵件同步等功能。
 
 您將無法收到任何來電、簡訊或通知，且在手機啟動前，鬧鐘不會響鈴。"</string>
@@ -1901,6 +1913,7 @@
     <string name="verify_fingerprint_btn">使用指紋</string>
     <string name="wifi_ap_close">關閉</string>
     <string name="fingerscanner_add_summary">新增您的指紋。</string>
+    <string name="fingerscanner_register_1_finger_summary">已新增 1 個指紋。</string>
     <string name="fingerscanner_register_summary">已新增 %d 個指紋。</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">使用指紋或輸入目前的數字密碼。</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">使用指紋或畫出目前的圖案。</string>
@@ -1927,6 +1940,7 @@
     <string name="facelock_without_swipe_to_unlock_summary">螢幕開啟時隨即以臉部辨識解除手機鎖定，而無須先滑動螢幕。</string>
     <string name="facelock_recognition_speed_up">加快辨識</string>
     <string name="facelock_recognition_speed_up_summary">開啟以加速辨識。關閉即可增加安全性，使其難以透過圖像或影片來解鎖。</string>
+    <string name="facelock_samsungpass_summary">使用臉部辨識透過 %s 與其他支援的應用程式來驗證您的身分。</string>
     <string name="face_remove_face_popup_title">移除臉部資料嗎？</string>
     <string name="face_remove_face_popup_message_1">將無法再辨識您的臉部，且將關閉臉部鎖定功能。</string>
     <string name="face_remove_face_popup_message_2">將關閉使用臉部辨識的功能。</string>
@@ -2067,7 +2081,7 @@
     <string name="biometrics_backup_locktype_title">設定虹膜安全性</string>
     <string name="biometrics_register_your_iris">註冊您的虹膜。</string>
     <string name="biometrics_backup_locktype_summary">若要使用您的虹膜解鎖裝置，必須設定圖形、數字密碼或密碼。</string>
-    <string name="biometrics_backup_locktype_message">若要使用您的虹膜解鎖手機或進行安全驗證，將需要：</string>
+    <string name="biometrics_backup_locktype_message">若要使用您的虹膜解除手機鎖定或在應用程式內驗證身分，將需要：</string>
     <string name="iris_delete_popup_title">移除虹膜資料？</string>
     <string name="iris_delete_popup_message">移除虹膜資料？</string>
     <string name="iris_delete_popup_message_with_related_func">將關閉使用虹膜的功能。</string>
@@ -2075,7 +2089,7 @@
     <string name="iris_timeout_popop_title">稍後再試</string>
     <string name="iris_timeout_popop_message">無法辨識虹膜。虹膜相機有髒污。請清潔螢幕上方的區域並重試。</string>
     <string name="iris_timeout_popop_message_1">虹膜攝影機有髒污。請清潔螢幕上方的區域並重試。</string>
-    <string name="iris_proximity_restriction_popop_message">無法辨識虹膜。手機太靠近臉部，或近接感應器髒污。請清潔螢幕上方的區域並重試。</string>
+    <string name="iris_proximity_restriction_popop_message">將手機遠離臉部並重試。</string>
     <string name="iris_proximity_restriction_popop_message_1">"近接感應器可能有髒汙。
 請清潔螢幕上方的區域。"</string>
     <string name="iris_try_again">請重試</string>
@@ -2083,6 +2097,8 @@
     <string name="iris_failed_to_verity_identify">無法驗證您的身分</string>
     <string name="iris_failed_popup_description">您已嘗試驗證虹膜 %1$d 次。請在 %2$d 秒後重試。</string>
     <string name="iris_no_match">不符合</string>
+    <string name="iris_eye_safety_msg">無法辨識您的虹膜。</string>
+    <string name="iris_timeout_msg">未偵測到您的虹膜。</string>
     <string name="biometrics_registered">已註冊</string>
     <string name="iris_turn_on_toast_message">已啟用虹膜鎖定來取代指紋鎖定。</string>
     <string name="iris_wrong_backup_password">備份密碼錯誤</string>
@@ -2274,6 +2290,8 @@
     <string name="aod_off_summary">於待機畫面上顯示首頁按鈕以及時鐘或資訊。</string>
     <string name="aod_feature_off_popup_title">關閉 %s 嗎？</string>
     <string name="aod_feature_off_popup_description">若要使用 %1$s，需關閉 %2$s。</string>
+    <string name="aod_features_off_popup_title">關閉其他功能嗎？</string>
+    <string name="aod_features_off_popup_description">若要使用 Always On Display，需關閉下列功能：</string>
     <string name="aod_features_off_popup_btn_ok">關閉</string>
     <string name="aod_disable_by_negative_colors">負色開啟時無法使用。</string>
     <string name="aod_disable_by_powersaving_mode">省電模式開啟時無法使用。</string>
@@ -2297,6 +2315,9 @@
     <string name="unlock_effect_colour_droplet">彩色雨滴</string>
     <string name="lock_screen_show_information_summary_wifi_only">在鎖定螢幕上顯示裝置擁有者資訊或應用程式捷徑。</string>
     <string name="lock_screen_sview_show_information_summary">在鎖定螢幕與 S View 視窗上顯示雙時鐘、裝置擁有者資訊或應用程式捷徑。</string>
+    <string name="lock_screen_sview_show_information_summary_aod">在鎖定螢幕與 S View 視窗上顯示漫遊時鐘或手機擁有者的聯絡資訊。</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">請選擇在鎖定螢幕與 S View 視窗上顯示的應用程式捷徑。</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">在鎖定螢幕與 S View 視窗上顯示通知。</string>
     <string name="lock_screen_and_cover_show_information_summary">在鎖定螢幕上並透過 Clear View 感應皮套顯示雙時鐘。</string>
     <string name="lock_screen_secured_lock_settings_title">安全鎖定設定</string>
     <string name="lock_screen_secured_lock_settings_summary">設定您的安全鎖定功能，例如自動鎖定以及使用電源鍵立即鎖定。</string>
@@ -2313,6 +2334,7 @@
     <string name="set_home_city">本地時區</string>
     <string name="contact_info_settings_title">聯絡資訊</string>
     <string name="show_contact_info_on_lockscreen_label">在鎖定螢幕上顯示電話號碼或電子郵件地址等資訊。</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">在鎖定螢幕與 Always On Display 上顯示如電話號碼或電子郵件地址等資訊。</string>
     <string name="unlock_effect">解鎖效果</string>
     <string name="walking_mate_title">健走器</string>
     <string name="help_text_title">說明文字</string>
@@ -2412,7 +2434,7 @@
     <string name="toast_set_lock_pattern">若您忘記解鎖圖形，所有資料都會遭清除且手機將重設。</string>
     <string name="toast_set_lock_password">若您忘記密碼，將清除所有資料，並重設手機。</string>
     <string name="toast_set_lock_pin">若您忘記數字密碼，將清除所有資料，並重設手機。</string>
-    <string name="chooselock_warning_text">記住此 %s。將於此裝置重新啟動後要求輸入。</string>
+    <string name="chooselock_warning_text">請記住您的 %s。手機重新啟動後會要求輸入解鎖方式。</string>
     <string name="lockpassword_password_exists_history">密碼已用過。請輸入新密碼。</string>
     <string name="lockpassword_pin_repeating_nums">數字密碼不得包含重複數字。</string>
     <string name="lockpassword_pin_sequential_nums">數字密碼不得包含連續數字。</string>
@@ -2528,6 +2550,9 @@
     <string name="data_usage_disable_mobile_warning_ktt">將關閉行動數據 (WCDMA/LTE)。除非您使用 Wi-Fi，否則將無法再使用需要數據連線的應用程式。您仍可傳送與接收多媒體訊息。</string>
     <string name="data_usage_disable_mobile_warning_ktt_jb">將關閉行動數據 (WCDMA/LTE)。除非您使用 Wi-Fi，否則將無法再使用需要數據連線的應用程式。將限制傳送與接收多媒體訊息。</string>
     <string name="data_usage_disable_mobile_warning_lgt">"除非您使用 Wi-Fi，否則將無法繼續使用網際網路、電子郵件或其他需要數據連線的應用程式。
+
+將關閉行動數據。"</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"若行動數據關閉，您的裝置必須連接至 Wi-Fi 網路才能使用需要網路連線的服務。
 
 將關閉行動數據。"</string>
     <string name="mobile_data_off_dialog_text_vzw">除非連接 Wi-Fi，否則您將無法再使用網際網路、電子郵件或其他需要數據連線的應用程式。關閉行動數據連線嗎？</string>
@@ -2689,10 +2714,12 @@
     <string name="maximum_volume_title">自訂音量限制</string>
     <string name="volume_limiter_descryption">以媒體音量上限來保護您的聽力。此上限只會在您使用耳機或藍牙音訊裝置時套用。</string>
     <string name="multi_sound_title">隔離應用程式音效</string>
-    <string name="multi_sound_summary">隔離裝置上其他的音效，在揚聲器或耳機上播放一個應用程式的音效。</string>
-    <string name="multi_sound_descryption">"隔離其他應用程式的媒體音效，在揚聲器或耳機上播放一個應用程式的媒體音效。
+    <string name="multi_sound_summary">在音訊裝置上播放與您手機的主要音訊輸出裝置不同的應用程式媒體音效。</string>
+    <string name="multi_sound_descryption">"隔離手機的主要音訊輸出裝置，在音訊裝置上播放另一個應用程式的媒體音效。請選擇應用程式與音訊裝置來開啟此功能。
 
-若您選擇藍牙音效裝置，如未連接藍牙裝置，將透過預設音訊裝置來播放音效。"</string>
+只有在所選音訊裝置與手機的主要音訊輸出裝置不同的情況下，才能執行隔離應用程式音訊。
+
+您可於快速設定面板中變更手機的主要音訊輸出裝置。如未顯示音訊輸出，請前往 [Samsung Connect] > [設定] > [Samsung Connect 面板] 開啟。"</string>
     <string name="set_application_title">應用程式</string>
     <string name="set_application_summary">請選擇要在不同音訊裝置上播放其音效的應用程式。</string>
     <string name="set_application_descryption">請於下方選擇要在不同音訊裝置上播放其音效的多媒體應用程式。</string>
@@ -2703,9 +2730,11 @@
     <string name="multi_sound_popup_msg">若要開啟 %s，需選擇應用程式與音訊裝置。</string>
     <string name="multi_sound_network_msg">若要查看可用應用程式，您的手機需連接至網路。請檢查您的網路設定並重試。</string>
     <string name="multi_sound_wifi_msg">若要查看可用的應用程式，您的手機需連接至網路。使用行動數據可能會產生額外費用。</string>
+    <string name="multi_sound_add_application">新增應用程式</string>
     <string name="dlg_btn_select">選擇</string>
-    <string name="audio_device_type_descryption">選擇欲播放此應用程式音效的音訊裝置。藍牙裝置僅於連接後可用。</string>
+    <string name="audio_device_type_descryption">選擇所選應用程式欲使用的音訊裝置。藍牙裝置僅於其連接後可用。</string>
     <string name="my_phone_title">電話</string>
+    <string name="my_phone_summary">揚聲器/耳機/USB 音訊裝置</string>
     <string name="bluetooth_device_title">藍牙裝置</string>
     <string name="no_connected_devices">無已連接的裝置</string>
     <string name="two_hours">2 小時</string>
@@ -2713,7 +2742,8 @@
     <string name="stop_setup_popup_msg">將不會套用您所變更的任何設定。</string>
     <string name="app_turned_on">%s已開啟</string>
     <string name="force_touch_title">按下震動回饋</string>
-    <string name="volume_key_control_title">預設音量鍵控制</string>
+    <string name="volume_key_control_title">使用媒體音量鍵</string>
+    <string name="volume_key_control_summary">當您按下音量鍵時控制媒體音量。</string>
     <string name="sound_mode">聲音模式</string>
     <string name="sound_mode_vibrate">震動</string>
     <string name="sound_mode_mute">靜音</string>
@@ -2926,12 +2956,13 @@
     <string name="text_biometrics_title_enterprise">當您選擇 %1$s 時，將不支援生物辨識作為 %2$s 的解鎖方式。</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s 不支援以指紋作為 %2$s 的解鎖方式。</string>
     <string name="edge_feeds_title">資訊流</string>
-    <string name="screensaver_settings_summary">控制裝置插入底座及/或充電時的行為。螢幕逾時後將顯示螢幕保護程式。</string>
-    <string name="screensaver_settings_summary_wo_dock">手機充電時，在螢幕自動關閉後顯示螢幕保護程式。</string>
+    <string name="screensaver_settings_summary">手機充電時，在螢幕自動關閉後顯示螢幕保護程式。</string>
+    <string name="screensaver_settings_summary_wo_dock">在手機插入底座或充電期間螢幕自動關閉後顯示螢幕保護程式。</string>
     <string name="apn_already_exists">已存在。</string>
     <string name="error_unavailable_apn">本裝置不允許此 APN。請於另一部裝置嘗試。</string>
     <string name="error_message_port_out_of_range">連接埠編號需介於 %1$d 至 %2$d 間。</string>
     <string name="apn_restore_warning">將移除您已新增的所有 APN。其他 APN 將重設為預設設定。</string>
+    <string name="apn_restore_title">重設 APN 設定嗎？</string>
     <string name="master_clear_desc_google_account">Google帳戶</string>
     <string name="first_use_tether_title">檢視 USB 網路共享說明</string>
     <string name="first_use_usb_tether_msg">輕觸 [確定] 以深入瞭解 USB 網路共享的使用。</string>
@@ -2943,7 +2974,8 @@
     <string name="sound_balance_summary">調整耳機的左右音效平衡。</string>
     <string name="backup_samsung_account_title">備份設置</string>
     <string name="restore_samsung_account_title">還原</string>
-    <string name="auto_restart_header">裝置管理</string>
+    <string name="auto_restart_header">手機管理</string>
+    <string name="auto_restart_header_tablet">平板管理</string>
     <string name="auto_restart_title">自動重新啟動</string>
     <string name="switch_turn_on_text">開啟</string>
     <string name="switch_turn_off_text">關閉</string>
@@ -3066,6 +3098,14 @@
     <string name="tether_settings_summary_usb_bt">透過 USB 或藍牙分享裝置的行動數據連接</string>
     <string name="dialog_tethering_warning">&lt;b>網路共享簡介&lt;/b>&lt;br/>&lt;br/> 網路共享可讓您的 Android 裝置作為數據機使用，外出時也能經筆記型電腦連接網際網路。此功能會消耗電力並增加數據用量。此服務需要訂購適用的網路分享方案。在使用前，請確認您已訂購適合的數據方案。若您需要協助，請撥打 1-877-872-2249。使用服務即表示您同意&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html>智慧型手機數據機條款。&lt;/a></string>
     <string name="dialog_hotspot_button_accept">接受</string>
+    <string name="bluetooth_tethering_off_subtext_phone">使用藍牙共享手機的網際網路連線。</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">使用藍牙共享平板的網際網路連線。</string>
+    <string name="bluetooth_tethering_available_subtext_phone">準備分享手機的網際網路連線。</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">準備分享平板的網際網路連線。</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">與 1 部裝置共享手機的網際網路連線。</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">與 1 部裝置共享平板的網際網路連線。</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">與 %d 部裝置共享手機的網際網路連線。</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">與 %d 部裝置共享平板的網際網路連線。</string>
     <string name="onehand_settings_title">單手模式</string>
     <string name="onehand_settings_text_1">自螢幕左或右下角以對角線方式向上滑動，即可縮小顯示螢幕大小。</string>
     <string name="onehand_settings_text_2">快速輕觸 3 次首頁鍵即可縮小顯示螢幕大小。</string>
@@ -3393,12 +3433,14 @@
     <string name="wifi_settings_dialog_radio_off">關</string>
     <string name="wifi_or_mobile_network">Wi-Fi 或手機網路</string>
     <string name="wifi_network_only">僅使用 Wi-Fi 網路</string>
+    <string name="wifi_adps_title">Wi-Fi 省電模式</string>
+    <string name="wifi_adps_summary">分析 Wi-Fi 流量模式來降低電池用量。</string>
     <string name="wifi_auto_reconnect">自動重新連接</string>
     <string name="wifi_enable_warning_chn">開啟 WLAN 將停用行動無線基地台。</string>
     <string name="wifi_enable_warning_vzw">開啟 Wi-Fi 將停用手機無線基地台。繼續嗎？</string>
     <string name="wifi_enable_warning_tmo">當行動無線基地台為使用中時，Wi-Fi 為關閉狀態。若要開啟 Wi-Fi，請關閉行動無線基地台。</string>
     <string name="wifi_enable_warning_spr">開啟 Wi-Fi 將停用無線基地台。</string>
-    <string name="wifi_enable_warning_mtr">啟用行動無線基地台時，Wi-Fi 為關閉狀態。若要開啟 Wi-Fi，請關閉行動無線基地台。</string>
+    <string name="wifi_enable_warning_mtr">行動無線基地台啟用時，Wi-Fi 為關閉狀態。若要開啟 Wi-Fi，請關閉行動無線基地台。</string>
     <string name="wifi_enable_warning_usc">開啟 Wi-Fi 將停用可攜式 Wi-Fi 無線基地台。繼續嗎？</string>
     <string name="wifi_enable_warning">開啟 Wi-Fi 將停用行動無線基地台。</string>
     <string name="wifi_control_history_title">Wi-Fi 控制歷程記錄</string>
@@ -3598,6 +3640,10 @@
     <string name="wifi_wps_pin_client_mobileap">以數字密碼 %1$s 連接至用戶端。此設定最多可能需要 %2$d 分鐘的時間完成。</string>
     <string name="wifi_wps_complete_mobileap">其他裝置現已連接到您的裝置。</string>
     <string name="wifi_ap_disconnect_warn">中斷連接裝置</string>
+    <string name="wifi_ap_change_policy_warn_chn">目前連接的裝置將自動從可攜式 WLAN 無線基地台中斷連接。</string>
+    <string name="wifi_ap_change_policy_warn_att">目前連接的裝置將從可攜式 Wi-Fi 無線基地台中斷連接。</string>
+    <string name="wifi_ap_change_policy_warn_tmo">將自行動無線基地台中斷目前連接的所有裝置連接。</string>
+    <string name="wifi_ap_change_policy_warn_mtr">目前連接的裝置將從可攜式 Wi-Fi 無線基地台中斷連接。</string>
     <string name="wifi_ap_change_policy_warn">將自行動無線基地台中斷目前連接的所有裝置連接。</string>
     <string name="wifi_ap_warn_max_whitelist">已達允許的裝置數量上限（%d）。</string>
     <string name="wifiap_one_item_deleted">將刪除 1 個項目。</string>
@@ -3733,6 +3779,8 @@ Wi-Fi 已開啟。"</string>
     <string name="wifi_ap_first_time_configuration">無線基地台初次設定</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi 與行動無線基地台</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">請輸入正確的數字密碼。</string>
+    <string name="open_mobileap_warning">此行動 AP 不安全。</string>
+    <string name="hidden_mobileap_warning">當使用者設定為隱藏 SSID 時，將停用 WSP。</string>
     <string name="wifi_ssid_max_byte_error">已達字元數量上限。</string>
     <string name="tethering_attention_title">注意</string>
     <string name="wfd_select_device">選擇裝置</string>
@@ -3963,6 +4011,14 @@ Wi-Fi 已開啟。"</string>
     <string name="quick_tile_sync_title">同步處理</string>
     <string name="permission_usage">權限用量</string>
     <string name="draw_overlay_settings_description">此權限允許應用程式可於您正在使用的應用程式上方顯示內容。此動作可能會干擾其他應用程式的使用。</string>
+    <string name="write_settings_body_description">允許此應用程式變更系統設定，如開啟或關閉藍牙。</string>
+    <string name="reset_app_preferences_desc1">這將重設以下所有偏好設定：</string>
+    <string name="reset_app_preferences_desc2">已停用應用程式</string>
+    <string name="reset_app_preferences_desc3">應用程式通知限制</string>
+    <string name="reset_app_preferences_desc4">預設應用程式</string>
+    <string name="reset_app_preferences_desc5">應用程式背景資料限制</string>
+    <string name="reset_app_preferences_desc6">權限限制</string>
+    <string name="reset_app_preferences_desc7">您將不會遺失現有應用程式資料。</string>
     <string name="knox_security_mode_title">Knox 安全性</string>
     <string name="kap_title">Knox 主動防護</string>
     <string name="kap_eula_title">隱私權政策</string>
@@ -3977,6 +4033,13 @@ Wi-Fi 已開啟。"</string>
     <string name="my_profile_summary">管理您的個人資訊與三星帳號詳細資料。</string>
     <string name="my_profile_summary_jpn">管理您的個人資訊與 Galaxy 帳號詳細資料。</string>
     <string name="arbitration_agreement">仲裁協議</string>
+    <string name="activation_title">啟用狀態</string>
+    <string name="activation_summary">已於 %1$s 啟用。如需更多資訊，請造訪 %2$s。</string>
+    <string name="wifi_ap_pmf_on">PMF 開啟</string>
+    <string name="edit_event_start_short">開始</string>
+    <string name="edit_event_end_short">結束</string>
+    <string name="select_date_to_view">選擇欲檢視的日期</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="create">建立</string>
@@ -5467,7 +5530,7 @@ Wi-Fi 已開啟。"</string>
     <string name="app_notification_block_title">允許通知</string>
     <string name="app_notification_block_summary">透過此應用程式接收包括通知訊息、音效與震動在內的通知。</string>
     <string name="app_notification_override_dnd_title">設為優先</string>
-    <string name="app_notification_override_dnd_summary">請勿打擾啟用時，允許此應用程式發出通知音效並開啟螢幕。</string>
+    <string name="app_notification_override_dnd_summary">在通知面板頂端顯示通知，並將其加入請勿打擾模式啟用時的允許清單。</string>
     <string name="app_notification_visibility_override_title">於鎖定螢幕上</string>
     <string name="app_notifications_dialog_done">完成</string>
     <string name="zen_mode_choose_rule_type">選擇規則類型</string>
@@ -5504,6 +5567,7 @@ Wi-Fi 已開啟。"</string>
     <string name="restr_pin_enter_admin_pin">輸入管理員數字密碼</string>
     <string name="switch_on_text">開</string>
     <string name="switch_off_text">關</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">此工作設定檔管理者為：</string>
     <string name="managing_admin">由 %s 管理</string>
     <string name="display_auto_rotate_title">螢幕旋轉</string>
     <string name="display_auto_rotate_rotate">旋轉螢幕內容</string>
@@ -5540,9 +5604,9 @@ Wi-Fi 已開啟。"</string>
     <string name="encrypt_talkback_dialog_require_pin">需要數字密碼</string>
     <string name="encrypt_talkback_dialog_require_pattern">需要圖形</string>
     <string name="encrypt_talkback_dialog_require_password">需要密碼</string>
-    <string name="encrypt_talkback_dialog_message_pin">當您在裝置開機後輸入 PIN 碼時，如 %1$s 等協助工具功能將暫時停用。</string>
-    <string name="encrypt_talkback_dialog_message_pattern">當您在裝置開機後畫出圖案時，如 %1$s 等協助工具功能將暫時停用。</string>
-    <string name="encrypt_talkback_dialog_message_password">當您在裝置開機後輸入密碼時，如 %1$s 等協助工具功能將暫時停用。</string>
+    <string name="encrypt_talkback_dialog_message_pin">裝置開機時將要求數字密碼。在裝置啟動前將無法使用協助工具功能。</string>
+    <string name="encrypt_talkback_dialog_message_pattern">裝置開機時將要求圖形。在裝置啟動前將無法使用協助工具功能。</string>
+    <string name="encrypt_talkback_dialog_message_password">裝置開機時將要求密碼。在裝置啟動前將無法使用協助工具功能。</string>
     <string name="slot_number">(插槽 %d)</string>
     <string name="app_launch_domain_links_title">應用程式連結</string>
     <string name="app_launch_open_domain_urls_title">前往支援的網址</string>
@@ -5618,18 +5682,18 @@ Wi-Fi 已開啟。"</string>
     <string name="usb_use_power_only">為連接的裝置充電</string>
     <string name="usb_use_power_only_desc">透過 USB 為連接的裝置充電。</string>
     <string name="usb_use_file_transfers_vzw">檔案傳輸</string>
-    <string name="usb_use_file_transfers">傳輸媒體檔案</string>
+    <string name="usb_use_file_transfers">傳輸檔案</string>
     <string name="usb_use_photo_transfers_vzw">相片傳輸</string>
     <string name="usb_use_photo_transfers">傳輸圖像</string>
     <string name="usb_use_photo_transfers_summary_vzw">將相機照片傳輸至電腦。</string>
-    <string name="usb_use_photo_transfers_summary">如傳輸媒體檔案無法運作，請選擇此模式。您只能傳輸圖像檔案。</string>
+    <string name="usb_use_photo_transfers_summary">如傳輸檔案無法運作，請選擇此模式。您僅可於此模式中傳輸圖像檔案。</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">請連接 MIDI 裝置</string>
-    <string name="usb_use">使用 USB 作為</string>
-    <string name="assist_access_context_title">讀取螢幕上的文字</string>
-    <string name="assist_access_context_summary">允許裝置輔助應用程式來讀取螢幕上顯示的任何文字。</string>
-    <string name="assist_access_screenshot_title">拍攝/存取螢幕截圖</string>
-    <string name="assist_access_screenshot_summary">允許裝置輔助應用程式來擷取並使用截圖。</string>
+    <string name="usb_use">使用 USB 來</string>
+    <string name="assist_access_context_title">分析螢幕上的文字</string>
+    <string name="assist_access_context_summary">允許裝置輔助應用程式分析螢幕上顯示的文字以提供相關內容。</string>
+    <string name="assist_access_screenshot_title">分析螢幕上的圖像</string>
+    <string name="assist_access_screenshot_summary">允許裝置輔助應用程式拍攝並使用螢幕上的圖像。</string>
     <string name="assist_footer">裝置輔助應用程式可從目前顯示於手機上的畫面蒐集資訊來協助您使用手機。部分裝置輔助應用程式可用來開啟其他應用程式並使用語音輸入來輸入文字，提供您整合式輔助。</string>
     <string name="average_memory_use">平均 RAM 用量</string>
     <string name="maximum_memory_use">RAM 用量上限</string>
@@ -5658,7 +5722,7 @@ Wi-Fi 已開啟。"</string>
     <string name="ignore_optimizations_on_desc">可能增加耗電量</string>
     <string name="ignore_optimizations_off_desc">可節省電力</string>
     <string name="app_list_preference_none">無</string>
-    <string name="allow_overlay_description">選擇應用程式，以允許其按鈕、彈出視窗或其他內容優先顯示於目前使用中的應用程式。</string>
+    <string name="allow_overlay_description">此權限允許應用程式可於您正在使用的應用程式上方顯示內容。此動作可能會干擾其他應用程式的使用。</string>
     <string name="overlay_settings">可顯示於頂端的應用程式</string>
     <string name="filter_overlay_apps">獲權限的應用程式</string>
     <string name="filter_write_settings_apps">獲權限的應用程式</string>
@@ -5705,14 +5769,14 @@ Wi-Fi 已開啟。"</string>
     <string name="ethernet_data_template">%1$s 的乙太網路數據</string>
     <string name="cell_warning_only">%s 數據用量警告</string>
     <string name="cell_warning_and_limit">%1$s 數據用量警告/%2$s 數據用量限制</string>
-    <string name="billing_cycle">帳單週期</string>
+    <string name="billing_cycle">帳單週期與數據警告</string>
     <string name="billing_cycle_summary">每月第 %s 天</string>
     <string name="billing_cycle_fragment_summary">每月第 %s 天</string>
     <string name="network_restrictions">限制網路</string>
     <string name="operator_warning">數據用量是由您的裝置所測量。用量計算方式將視電信業者而有所不同。</string>
     <string name="data_used_template">%s 已使用</string>
     <string name="data_warning">數據警告</string>
-    <string name="set_data_limit">數據上限</string>
+    <string name="set_data_limit">設定數據限制</string>
     <string name="data_limit">數據上限</string>
     <string name="data_usage_template">%1$s 期間用量 %2$s</string>
     <string name="data_usage_other_apps">用量中包含的相關應用程式</string>
@@ -5754,5 +5818,4 @@ Wi-Fi 已開啟。"</string>
     <string name="enable_iris_lock_desc_3">"已將指紋設為您目前的螢幕鎖定類型。
 
 若要將您的螢幕鎖定類型設為虹膜來取代指紋，請輕觸 [啟用]。隨即可使用您的虹膜或 %s 來解除裝置鎖定。"</string>
-    <string name="my_phone_summary">揚聲器/耳機/USB 音訊裝置</string>
 </resources>

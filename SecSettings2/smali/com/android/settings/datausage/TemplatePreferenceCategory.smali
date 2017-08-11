@@ -70,6 +70,59 @@
     return-void
 .end method
 
+.method protected onCreateView(Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 5
+
+    invoke-super {p0, p1}, Lcom/android/settings/DividedCategory;->onCreateView(Landroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "DCM"
+
+    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const v3, 0x1020016
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/TemplatePreferenceCategory;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v3, "Wi-Fi"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setAllCaps(Z)V
+
+    :cond_0
+    return-object v2
+.end method
+
 .method public pushTemplates(Lcom/android/settings/datausage/TemplatePreference$NetworkServices;)V
     .locals 4
 

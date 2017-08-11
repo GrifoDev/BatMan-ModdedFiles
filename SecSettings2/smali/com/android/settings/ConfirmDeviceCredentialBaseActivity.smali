@@ -41,7 +41,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f110587
+    const v2, 0x7f110589
 
     invoke-virtual {v1, v2}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -193,7 +193,7 @@
     return-void
 
     :cond_3
-    const v2, 0x7f0f031b
+    const v2, 0x7f0f031e
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ConfirmDeviceCredentialBaseActivity;->setTheme(I)V
 

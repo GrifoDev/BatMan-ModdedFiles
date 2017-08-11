@@ -39,21 +39,21 @@
 
     const/4 v2, 0x1
 
-    const/4 v1, 0x0
+    check-cast p2, Ljava/lang/Boolean;
 
-    check-cast p2, Ljava/lang/String;
-
-    invoke-static {p2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    iget-object v3, p0, Lcom/samsung/android/settings/notification/SoundSettings$18;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
+    iget-object v1, p0, Lcom/samsung/android/settings/notification/SoundSettings$18;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/notification/SoundSettings;->-get18(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/media/SemSoundAssistantManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get19(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/media/SemSoundAssistantManager;
 
     move-result-object v3
 
     if-nez v0, :cond_0
+
+    const/4 v1, 0x0
 
     :goto_0
     invoke-virtual {v3, v1}, Lcom/samsung/android/media/SemSoundAssistantManager;->setVolumeKeyMode(I)V

@@ -66,7 +66,9 @@
 .end method
 
 .method public onStreamValueChanged(II)V
-    .locals 7
+    .locals 8
+
+    const/16 v7, 0x9
 
     const/16 v6, 0x8
 
@@ -135,7 +137,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings$VolumePreferenceCallback;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get1(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -147,7 +149,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings$VolumePreferenceCallback;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get4(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
 
     move-result-object v0
 
@@ -155,7 +157,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings$VolumePreferenceCallback;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get4(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
 
     move-result-object v0
 
@@ -196,7 +198,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings$VolumePreferenceCallback;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get4(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
 
     move-result-object v0
 
@@ -204,7 +206,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings$VolumePreferenceCallback;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get4(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
 
     move-result-object v0
 
@@ -219,7 +221,7 @@
     :cond_3
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_4
 
     const-string/jumbo v0, "VolumeSettings"
 
@@ -245,7 +247,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings$VolumePreferenceCallback;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get4(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
 
     move-result-object v0
 
@@ -253,11 +255,60 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings$VolumePreferenceCallback;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get4(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
 
     move-result-object v0
 
     invoke-virtual {v0, v5, p2, v3}, Lcom/samsung/android/settings/notification/VolumeSettings$H;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    goto/16 :goto_0
+
+    :cond_4
+    const/16 v0, 0xd
+
+    if-ne p1, v0, :cond_0
+
+    const-string/jumbo v0, "VolumeSettings"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "onStreamValueChanged : AudioManager.STREAM_VOICENOTE : progress : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings$VolumePreferenceCallback;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v7}, Lcom/samsung/android/settings/notification/VolumeSettings$H;->removeMessages(I)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings$VolumePreferenceCallback;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v7, p2, v3}, Lcom/samsung/android/settings/notification/VolumeSettings$H;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 

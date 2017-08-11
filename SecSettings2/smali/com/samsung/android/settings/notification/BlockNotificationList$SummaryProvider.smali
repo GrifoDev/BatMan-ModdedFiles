@@ -47,7 +47,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/BlockNotificationList$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b04bc
+    const v2, 0x7f0b051f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

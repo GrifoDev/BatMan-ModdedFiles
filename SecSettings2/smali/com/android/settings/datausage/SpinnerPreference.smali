@@ -78,7 +78,7 @@
 
     iput-object v0, p0, Lcom/android/settings/datausage/SpinnerPreference;->mOnSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    const v0, 0x7f0400ae
+    const v0, 0x7f0400af
 
     invoke-virtual {p0, v0}, Lcom/android/settings/datausage/SpinnerPreference;->setLayoutResource(I)V
 

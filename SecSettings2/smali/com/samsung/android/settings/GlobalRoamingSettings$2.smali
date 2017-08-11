@@ -44,13 +44,13 @@
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/android/settings/GlobalRoamingSettings$2;->this$0:Lcom/samsung/android/settings/GlobalRoamingSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/GlobalRoamingSettings;->-get0(Lcom/samsung/android/settings/GlobalRoamingSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v0}, Lcom/samsung/android/settings/GlobalRoamingSettings;->-get0(Lcom/samsung/android/settings/GlobalRoamingSettings;)Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
     move-result-object v0
 
-    const v1, 0x7f0b102b
+    const v1, 0x7f0b10b8
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setSummary(I)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/GlobalRoamingSettings$2;->this$0:Lcom/samsung/android/settings/GlobalRoamingSettings;
 

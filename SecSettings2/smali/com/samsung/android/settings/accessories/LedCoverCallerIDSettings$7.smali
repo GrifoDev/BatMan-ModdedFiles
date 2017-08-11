@@ -53,7 +53,7 @@
 
     move-result v1
 
-    const v3, 0x7f110520
+    const v3, 0x7f110522
 
     invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 

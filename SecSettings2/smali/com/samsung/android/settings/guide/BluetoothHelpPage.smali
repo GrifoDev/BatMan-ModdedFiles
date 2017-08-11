@@ -179,7 +179,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v2, 0x7f040059
+    const v2, 0x7f04005a
 
     const/4 v3, 0x0
 

@@ -55,7 +55,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f100264
+    const v3, 0x7f10026a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -97,7 +97,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/face/FaceSettings$5;->this$0:Lcom/samsung/android/settings/face/FaceSettings;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/face/FaceSettings;->-get6(Lcom/samsung/android/settings/face/FaceSettings;)I
+    invoke-static {v2}, Lcom/samsung/android/settings/face/FaceSettings;->-get7(Lcom/samsung/android/settings/face/FaceSettings;)I
 
     move-result v2
 
@@ -115,7 +115,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/face/FaceSettings$5;->this$0:Lcom/samsung/android/settings/face/FaceSettings;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/face/FaceSettings;->-get5(Lcom/samsung/android/settings/face/FaceSettings;)Lcom/samsung/android/bio/face/SemBioFaceManager$RemovalCallback;
+    invoke-static {v2}, Lcom/samsung/android/settings/face/FaceSettings;->-get6(Lcom/samsung/android/settings/face/FaceSettings;)Lcom/samsung/android/bio/face/SemBioFaceManager$RemovalCallback;
 
     move-result-object v2
 

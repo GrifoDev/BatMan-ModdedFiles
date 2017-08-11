@@ -59,6 +59,12 @@
 
     if-eqz v1, :cond_0
 
+    const-string/jumbo v7, "ResetNetworkConfirm"
+
+    const-string/jumbo v8, "ConnectivityManager Reset started."
+
+    invoke-static {v7, v8}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-virtual {v1}, Landroid/net/ConnectivityManager;->factoryReset()V
 
     :cond_0
@@ -104,6 +110,12 @@
 
     if-eqz v5, :cond_2
 
+    const-string/jumbo v7, "ResetNetworkConfirm"
+
+    const-string/jumbo v8, "TelephonyManager Reset is started."
+
+    invoke-static {v7, v8}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v7, p0, Lcom/android/settings/ResetNetworkConfirm$4;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
     invoke-static {v7}, Lcom/android/settings/ResetNetworkConfirm;->-get8(Lcom/android/settings/ResetNetworkConfirm;)I
@@ -130,6 +142,12 @@
     if-eqz v3, :cond_3
 
     if-eqz v5, :cond_3
+
+    const-string/jumbo v7, "ResetNetworkConfirm"
+
+    const-string/jumbo v8, "NetworkPolicyManager Reset is started."
+
+    invoke-static {v7, v8}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v7, p0, Lcom/android/settings/ResetNetworkConfirm$4;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
@@ -159,6 +177,12 @@
     check-cast v0, Landroid/bluetooth/BluetoothManager;
 
     if-eqz v0, :cond_4
+
+    const-string/jumbo v7, "ResetNetworkConfirm"
+
+    const-string/jumbo v8, "BluetoothManager Reset is started."
+
+    invoke-static {v7, v8}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothManager;->getAdapter()Landroid/bluetooth/BluetoothAdapter;
 
@@ -190,10 +214,28 @@
     invoke-virtual {v7, v8}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
     :cond_5
+    const-string/jumbo v7, "ResetNetworkConfirm"
+
+    const-string/jumbo v8, "resetNetwork process done"
+
+    invoke-static {v7, v8}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v7, p0, Lcom/android/settings/ResetNetworkConfirm$4;->this$0:Lcom/android/settings/ResetNetworkConfirm;
+
+    const/4 v8, 0x0
+
+    invoke-static {v7, v8}, Lcom/android/settings/ResetNetworkConfirm;->-set2(Lcom/android/settings/ResetNetworkConfirm;Z)Z
+
     return-void
 
     :cond_6
+    const-string/jumbo v7, "ResetNetworkConfirm"
+
+    const-string/jumbo v8, "WifiManager Reset is started."
+
+    invoke-static {v7, v8}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-virtual {v6}, Landroid/net/wifi/WifiManager;->factoryReset()V
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method

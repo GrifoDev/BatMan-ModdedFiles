@@ -96,7 +96,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040324
+    const v2, 0x7f040328
 
     invoke-virtual {v1, v2, p4, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -106,7 +106,7 @@
 
     invoke-direct {v0, p0, v5}, Lcom/android/settings/TrustedCredentialsSettings$GroupAdapter$ViewHolder;-><init>(Lcom/android/settings/TrustedCredentialsSettings$GroupAdapter;Lcom/android/settings/TrustedCredentialsSettings$GroupAdapter$ViewHolder;)V
 
-    const v2, 0x7f1107cf
+    const v2, 0x7f1107d2
 
     invoke-virtual {p3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -116,7 +116,7 @@
 
     invoke-static {v0, v2}, Lcom/android/settings/TrustedCredentialsSettings$GroupAdapter$ViewHolder;->-set0(Lcom/android/settings/TrustedCredentialsSettings$GroupAdapter$ViewHolder;Landroid/widget/TextView;)Landroid/widget/TextView;
 
-    const v2, 0x7f1107d0
+    const v2, 0x7f1107d3
 
     invoke-virtual {p3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -126,7 +126,7 @@
 
     invoke-static {v0, v2}, Lcom/android/settings/TrustedCredentialsSettings$GroupAdapter$ViewHolder;->-set1(Lcom/android/settings/TrustedCredentialsSettings$GroupAdapter$ViewHolder;Landroid/widget/TextView;)Landroid/widget/TextView;
 
-    const v2, 0x7f1107d1
+    const v2, 0x7f1107d4
 
     invoke-virtual {p3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -542,7 +542,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0b00a1
+    const v2, 0x7f0b00fe
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -554,7 +554,7 @@
     return-object p3
 
     :cond_1
-    const v2, 0x7f0b00a0
+    const v2, 0x7f0b00fd
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

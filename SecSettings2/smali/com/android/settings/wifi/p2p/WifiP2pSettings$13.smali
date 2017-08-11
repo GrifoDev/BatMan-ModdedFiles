@@ -43,7 +43,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, " remove client fail "
+    const-string/jumbo v2, " remove group fail "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -67,7 +67,7 @@
 
     const-string/jumbo v0, "WifiP2pSettings"
 
-    const-string/jumbo v1, " remove client success"
+    const-string/jumbo v1, " remove group success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

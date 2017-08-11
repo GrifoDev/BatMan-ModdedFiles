@@ -22,9 +22,9 @@
 
     const/4 v3, 0x0
 
-    const v5, 0x7f040226
+    const v5, 0x7f04022a
 
-    const v6, 0x7f11065a
+    const v6, 0x7f110660
 
     move-object v0, p0
 
@@ -58,7 +58,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f11065a
+    const v1, 0x7f110660
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

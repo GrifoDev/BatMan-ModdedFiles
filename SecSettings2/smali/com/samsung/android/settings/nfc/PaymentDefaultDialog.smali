@@ -266,7 +266,7 @@
 
     if-nez v1, :cond_8
 
-    const v9, 0x7f0b19e8
+    const v9, 0x7f0b1a84
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -292,7 +292,7 @@
 
     iput-object v3, v4, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
-    const v9, 0x7f0b19e7
+    const v9, 0x7f0b1a83
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -300,7 +300,7 @@
 
     iput-object v9, v4, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    const v9, 0x7f0b046a
+    const v9, 0x7f0b04cd
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -309,7 +309,7 @@
     iput-object v9, v4, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
     :goto_1
-    const v9, 0x7f0b1177
+    const v9, 0x7f0b1212
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -326,7 +326,7 @@
     return v11
 
     :cond_8
-    const v9, 0x7f0b19e9
+    const v9, 0x7f0b1a85
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -366,7 +366,7 @@
 
     iput-object v3, v4, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
-    const v9, 0x7f0b0a94
+    const v9, 0x7f0b0b03
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -374,7 +374,7 @@
 
     iput-object v9, v4, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    const v9, 0x7f0b0a95
+    const v9, 0x7f0b0b04
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->getString(I)Ljava/lang/String;
 
@@ -533,6 +533,11 @@
 
     iput-boolean v0, p0, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->mNeedDialogDismiss:Z
 
+    :goto_1
+    const/4 v0, -0x1
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->setResult(I)V
+
     goto :goto_0
 
     :cond_1
@@ -542,11 +547,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/nfc/PaymentBackend;->setDefaultPaymentApp(Landroid/content/ComponentName;)V
 
-    const/4 v0, -0x1
-
-    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nfc/PaymentDefaultDialog;->setResult(I)V
-
-    goto :goto_0
+    goto :goto_1
 
     :pswitch_data_0
     .packed-switch -0x2

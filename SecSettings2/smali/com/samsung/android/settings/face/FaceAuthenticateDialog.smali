@@ -491,7 +491,7 @@
 
     check-cast v6, Landroid/view/LayoutInflater;
 
-    const v0, 0x7f0400f6
+    const v0, 0x7f0400f8
 
     invoke-virtual {v6, v0, v8, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -762,7 +762,7 @@
 
     const/4 v3, 0x0
 
-    const v6, 0x7f0b124f
+    const v6, 0x7f0b12ea
 
     const v5, 0x10302d2
 
@@ -782,7 +782,7 @@
     return-object v0
 
     :pswitch_0
-    const v2, 0x7f0400f7
+    const v2, 0x7f0400f9
 
     invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -823,7 +823,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v2, 0x7f0400f5
+    const v2, 0x7f0400f7
 
     invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -857,7 +857,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/face/FaceAuthenticateDialog$14;-><init>(Lcom/samsung/android/settings/face/FaceAuthenticateDialog;)V
 
-    const v4, 0x7f0b0810
+    const v4, 0x7f0b0878
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1140,7 +1140,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0809
+    const v3, 0x7f0b0871
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1232,7 +1232,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v4, 0x7f110386
+    const v4, 0x7f110388
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1244,7 +1244,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v4, 0x7f110389
+    const v4, 0x7f11038b
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1256,7 +1256,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v4, 0x7f110387
+    const v4, 0x7f110389
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1268,7 +1268,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v4, 0x7f11038a
+    const v4, 0x7f11038c
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1280,7 +1280,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v4, 0x7f110388
+    const v4, 0x7f11038a
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1319,7 +1319,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mAlert:Landroid/app/AlertDialog;
 
-    const v4, 0x7f0b0805
+    const v4, 0x7f0b086d
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog;->setTitle(I)V
 
@@ -1530,7 +1530,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v2, 0x7f110394
+    const v2, 0x7f110396
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1542,7 +1542,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v2, 0x7f110395
+    const v2, 0x7f110397
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1560,7 +1560,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v2, 0x7f110392
+    const v2, 0x7f110394
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1572,7 +1572,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v2, 0x7f11038d
+    const v2, 0x7f11038f
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1584,7 +1584,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v2, 0x7f110391
+    const v2, 0x7f110393
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1596,7 +1596,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v2, 0x7f110393
+    const v2, 0x7f110395
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1608,7 +1608,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v2, 0x7f11038f
+    const v2, 0x7f110391
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1620,7 +1620,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v2, 0x7f110390
+    const v2, 0x7f110392
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1632,7 +1632,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mDialogView:Landroid/view/View;
 
-    const v2, 0x7f11038e
+    const v2, 0x7f110390
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1663,7 +1663,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b080d
+    const v3, 0x7f0b0875
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1696,7 +1696,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mInfoText:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0808
+    const v2, 0x7f0b0870
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -1735,7 +1735,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mInfoImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f020133
+    const v2, 0x7f020158
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1751,7 +1751,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0812
+    const v3, 0x7f0b087a
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1961,7 +1961,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mInfoText:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0808
+    const v2, 0x7f0b0870
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -1972,7 +1972,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mInfoImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f020133
+    const v2, 0x7f020158
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1995,7 +1995,7 @@
 
     move-result-object v11
 
-    const v1, 0x7f0b124f
+    const v1, 0x7f0b12ea
 
     invoke-virtual {v11, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -2015,9 +2015,9 @@
 
     if-ne v0, v1, :cond_12
 
-    const v14, 0x7f0b0814
+    const v14, 0x7f0b087c
 
-    const v9, 0x7f0b0813
+    const v9, 0x7f0b087b
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mContext:Landroid/content/Context;
 
@@ -2202,7 +2202,7 @@
 
     move-result-object v11
 
-    const v1, 0x7f0b0810
+    const v1, 0x7f0b0878
 
     invoke-virtual {v11, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -2211,9 +2211,9 @@
     :cond_12
     if-eqz p2, :cond_9
 
-    const v14, 0x7f0b080c
+    const v14, 0x7f0b0874
 
-    const v9, 0x7f0b0811
+    const v9, 0x7f0b0879
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mContext:Landroid/content/Context;
 
@@ -2246,7 +2246,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b080c
+    const v3, 0x7f0b0874
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2297,7 +2297,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mAlert:Landroid/app/AlertDialog;
 
-    const v2, 0x7f0b080c
+    const v2, 0x7f0b0874
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setTitle(I)V
 
@@ -2337,7 +2337,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mBackupCancelButton:Landroid/widget/Button;
 
-    const v2, 0x7f0b0810
+    const v2, 0x7f0b0878
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
 
@@ -2425,7 +2425,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b080f
+    const v3, 0x7f0b0877
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2557,7 +2557,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b080e
+    const v5, 0x7f0b0876
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

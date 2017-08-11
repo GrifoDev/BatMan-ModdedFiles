@@ -72,7 +72,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/DefaultAssistPreference;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
 
-    const v0, 0x7f0b03c5
+    const v0, 0x7f0b0426
 
     invoke-virtual {p0, v0}, Lcom/android/settings/applications/DefaultAssistPreference;->setResDescription(I)V
 
@@ -449,7 +449,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1b93
+    const v1, 0x7f0b1c2f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

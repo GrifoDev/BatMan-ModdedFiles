@@ -70,7 +70,7 @@
 
     iput-object v3, p0, Lcom/android/settingslib/drawer/UserAdapter$UserDetails;->mName:Ljava/lang/String;
 
-    const v3, 0x10803c7
+    const v3, 0x10803b1
 
     invoke-virtual {p3, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

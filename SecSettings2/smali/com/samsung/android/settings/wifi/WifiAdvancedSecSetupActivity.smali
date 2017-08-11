@@ -327,13 +327,13 @@
 .method private refreshWifiInfo()V
     .locals 13
 
-    const v12, 0x7f0b14fe
+    const v12, 0x7f0b159a
 
-    const v11, 0x7f0b13fd
+    const v11, 0x7f0b1498
 
-    const v9, 0x7f0b13fc
+    const v9, 0x7f0b1497    # 1.848696E38f
 
-    const v10, 0x7f0b0d93
+    const v10, 0x7f0b0e1e
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/wifi/WifiAdvancedSecSetupActivity;->getActivity()Landroid/app/Activity;
 
@@ -651,7 +651,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01e2
+    const v3, 0x7f0d01e3
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -682,7 +682,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01e3
+    const v3, 0x7f0d01e4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -752,7 +752,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiAdvancedSecSetupActivity;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b04f7
+    const v5, 0x7f0b055a
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -773,7 +773,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiAdvancedSecSetupActivity;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b04f8
+    const v5, 0x7f0b055b
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1038,13 +1038,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0dd5
+    const v1, 0x7f0b0e60
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b0dd6
+    const v1, 0x7f0b0e61
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1189,7 +1189,7 @@
     :catch_0
     move-exception v2
 
-    const v5, 0x7f0b1397
+    const v5, 0x7f0b1432
 
     invoke-static {v1, v5, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

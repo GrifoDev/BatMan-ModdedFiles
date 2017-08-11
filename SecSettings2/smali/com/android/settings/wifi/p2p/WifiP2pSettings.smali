@@ -44,8 +44,6 @@
 
 .field private mAvailablePeers:Landroid/net/wifi/p2p/WifiP2pDeviceList;
 
-.field private mBixbyNotFoundTimer:Landroid/os/CountDownTimer;
-
 .field private mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
 .field private mConnectedGroup:Landroid/net/wifi/p2p/WifiP2pGroup;
@@ -122,23 +120,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get10()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mInvited:Z
-
-    return v0
-.end method
-
-.method static synthetic -get11(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mIsRegisteredMotionListener:Z
-
-    return v0
-.end method
-
-.method static synthetic -get12(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/hardware/motion/MRListener;
+.method static synthetic -get10(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/hardware/motion/MRListener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mMotionListener:Landroid/hardware/motion/MRListener;
@@ -146,7 +128,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get13()Landroid/hardware/motion/MotionRecognitionManager;
+.method static synthetic -get11()Landroid/hardware/motion/MotionRecognitionManager;
     .locals 1
 
     sget-object v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
@@ -154,7 +136,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get14(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/net/NetworkInfo;
+.method static synthetic -get12(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/net/NetworkInfo;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mNetworkInfo:Landroid/net/NetworkInfo;
@@ -162,7 +144,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15()Landroid/net/wifi/p2p/WifiP2pDeviceList;
+.method static synthetic -get13()Landroid/net/wifi/p2p/WifiP2pDeviceList;
     .locals 1
 
     sget-object v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeers:Landroid/net/wifi/p2p/WifiP2pDeviceList;
@@ -170,7 +152,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Z
+.method static synthetic -get14(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mReceivedStickyEnabled:Z
@@ -178,7 +160,7 @@
     return v0
 .end method
 
-.method static synthetic -get17(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/os/CountDownTimer;
+.method static synthetic -get15(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/os/CountDownTimer;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mScanTimer:Landroid/os/CountDownTimer;
@@ -186,7 +168,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/speech/tts/TextToSpeech;
+.method static synthetic -get16(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/speech/tts/TextToSpeech;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
@@ -194,7 +176,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get19(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/net/wifi/p2p/WifiP2pManager;
+.method static synthetic -get17(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/net/wifi/p2p/WifiP2pManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
@@ -205,28 +187,12 @@
 .method static synthetic -get2()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyDeviceName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/os/CountDownTimer;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyNotFoundTimer:Landroid/os/CountDownTimer;
-
-    return-object v0
-.end method
-
-.method static synthetic -get4()Ljava/lang/String;
-    .locals 1
-
     sget-object v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyStateId:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+.method static synthetic -get3(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
@@ -234,7 +200,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6()Landroid/net/wifi/p2p/WifiP2pGroup;
+.method static synthetic -get4()Landroid/net/wifi/p2p/WifiP2pGroup;
     .locals 1
 
     sget-object v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
@@ -242,7 +208,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+.method static synthetic -get5(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -250,7 +216,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get8()I
+.method static synthetic -get6()I
     .locals 1
 
     sget v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mIdleStartCnt:I
@@ -258,12 +224,28 @@
     return v0
 .end method
 
-.method static synthetic -get9(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/os/CountDownTimer;
+.method static synthetic -get7(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/os/CountDownTimer;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mIdleTimer:Landroid/os/CountDownTimer;
 
     return-object v0
+.end method
+
+.method static synthetic -get8()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mInvited:Z
+
+    return v0
+.end method
+
+.method static synthetic -get9(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mIsRegisteredMotionListener:Z
+
+    return v0
 .end method
 
 .method static synthetic -set0(Ljava/lang/String;)Ljava/lang/String;
@@ -392,15 +374,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p5}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->sendNlgAndResponse(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap8(Lcom/android/settings/wifi/p2p/WifiP2pSettings;ZZ)V
+.method static synthetic -wrap7(Lcom/android/settings/wifi/p2p/WifiP2pSettings;ZZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->setScanTimer(ZZ)V
@@ -408,7 +382,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap9(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
+.method static synthetic -wrap8(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->triggerFullScan(Z)V
@@ -515,9 +489,9 @@
 .method private addMyDeviceCenterText(Z)V
     .locals 3
 
-    const v0, 0x7f0b0dcb
+    const v0, 0x7f0b0e56
 
-    const v1, 0x7f0b0dce
+    const v1, 0x7f0b0e59
 
     const/4 v2, 0x0
 
@@ -567,7 +541,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f040394
+    const v2, 0x7f040399
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -667,7 +641,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mNoDevicesPreference:Landroid/preference/Preference;
 
-    const v1, 0x7f040399
+    const v1, 0x7f04039e
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -677,7 +651,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0e31
+    const v2, 0x7f0b0ebe
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -706,57 +680,6 @@
     return-void
 .end method
 
-.method private areTheseSimilar(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 3
-
-    const-string/jumbo v0, "\\s"
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "\\[.*\\]"
-
-    const-string/jumbo v2, ""
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "\\s"
-
-    const-string/jumbo v2, ""
-
-    invoke-virtual {p2, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method private cancelConnect()V
     .locals 3
 
@@ -778,9 +701,9 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    new-instance v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings$15;
+    new-instance v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings$14;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$15;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$14;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/p2p/WifiP2pManager;->cancelConnect(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
 
@@ -1035,9 +958,9 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    new-instance v3, Lcom/android/settings/wifi/p2p/WifiP2pSettings$13;
+    new-instance v3, Lcom/android/settings/wifi/p2p/WifiP2pSettings$12;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$13;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-direct {v3, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$12;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     invoke-virtual {v1, v2, v0, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->removeClient(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Landroid/net/wifi/p2p/WifiP2pConfig;Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
 
@@ -1054,9 +977,9 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    new-instance v3, Lcom/android/settings/wifi/p2p/WifiP2pSettings$14;
+    new-instance v3, Lcom/android/settings/wifi/p2p/WifiP2pSettings$13;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$14;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-direct {v3, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$13;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     invoke-virtual {v1, v2, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->removeGroup(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
 
@@ -1378,7 +1301,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->progressBarItem:Landroid/view/MenuItem;
 
-    const v1, 0x7f04039a
+    const v1, 0x7f04039f
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setActionView(I)Landroid/view/MenuItem;
 
@@ -1447,134 +1370,6 @@
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->finish()V
-
-    goto :goto_0
-.end method
-
-.method private sendNlgAndResponse(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-    .locals 4
-
-    const/4 v3, 0x0
-
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    if-eqz v0, :cond_3
-
-    const-string/jumbo v0, "WifiP2pSettings"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "EmSettingsManager sendNlgAndResponse "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz p5, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    invoke-virtual {v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    invoke-virtual {v0, p2, p3, p4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    sget-object v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyDeviceName:Ljava/lang/String;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    sget-object v1, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyDeviceName:Ljava/lang/String;
-
-    invoke-virtual {v0, p2, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    invoke-virtual {v0, p1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_2
-    if-eqz p5, :cond_4
-
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    sget-object v1, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    :goto_0
-    sput-object v3, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyDeviceName:Ljava/lang/String;
-
-    sput-object v3, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyStateId:Ljava/lang/String;
-
-    :cond_3
-    return-void
-
-    :cond_4
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    sget-object v1, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto :goto_0
 .end method
@@ -1658,9 +1453,9 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    new-instance v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings$11;
+    new-instance v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings$10;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$11;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$10;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     const/16 v3, 0x64b
 
@@ -1712,7 +1507,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
-    const v1, 0x7f0b0dc4
+    const v1, 0x7f0b0e4f
 
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getString(I)Ljava/lang/String;
 
@@ -1746,9 +1541,9 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    new-instance v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings$12;
+    new-instance v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings$11;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$12;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$11;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/net/wifi/p2p/WifiP2pManager;->discoverPeers(Landroid/net/wifi/p2p/WifiP2pManager$Channel;ILandroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
 
@@ -1830,7 +1625,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f02065b
+    const v6, 0x7f0206c4
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1955,7 +1750,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f02065a
+    const v6, 0x7f0206c3
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1967,19 +1762,17 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 14
-
-    const-wide/16 v2, 0x2710
-
-    const/4 v13, 0x0
+    .locals 10
 
     const-wide/16 v4, 0x3e8
+
+    const/4 v9, 0x0
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     invoke-virtual {p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v12
+    move-result-object v8
 
     invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
 
@@ -2043,35 +1836,33 @@
 
     new-instance v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$4;
 
+    const-wide/16 v2, 0x2710
+
     move-object v1, p0
 
     invoke-direct/range {v0 .. v5}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$4;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;JJ)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mScanTimer:Landroid/os/CountDownTimer;
 
-    new-instance v6, Lcom/android/settings/wifi/p2p/WifiP2pSettings$5;
+    new-instance v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings$5;
 
-    move-object v7, p0
+    move-object v3, p0
 
-    move-wide v8, v4
+    move-wide v6, v4
 
-    move-wide v10, v4
+    invoke-direct/range {v2 .. v7}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$5;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;JJ)V
 
-    invoke-direct/range {v6 .. v11}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$5;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;JJ)V
+    iput-object v2, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mFullScanTimer:Landroid/os/CountDownTimer;
 
-    iput-object v6, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mFullScanTimer:Landroid/os/CountDownTimer;
+    new-instance v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$6;
 
-    new-instance v6, Lcom/android/settings/wifi/p2p/WifiP2pSettings$6;
+    const-wide/16 v2, 0x1388
 
-    const-wide/16 v8, 0x1388
+    move-object v1, p0
 
-    move-object v7, p0
+    invoke-direct/range {v0 .. v5}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$6;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;JJ)V
 
-    move-wide v10, v4
-
-    invoke-direct/range {v6 .. v11}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$6;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;JJ)V
-
-    iput-object v6, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mIdleTimer:Landroid/os/CountDownTimer;
+    iput-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mIdleTimer:Landroid/os/CountDownTimer;
 
     const-string/jumbo v0, "wifip2p"
 
@@ -2097,7 +1888,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v12, v1, v13}, Landroid/net/wifi/p2p/WifiP2pManager;->initialize(Landroid/content/Context;Landroid/os/Looper;Landroid/net/wifi/p2p/WifiP2pManager$ChannelListener;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+    invoke-virtual {v0, v8, v1, v9}, Landroid/net/wifi/p2p/WifiP2pManager;->initialize(Landroid/content/Context;Landroid/os/Looper;Landroid/net/wifi/p2p/WifiP2pManager$ChannelListener;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     move-result-object v0
 
@@ -2113,7 +1904,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-object v13, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
+    iput-object v9, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     :cond_0
     :goto_0
@@ -2122,14 +1913,6 @@
     invoke-direct {v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    new-instance v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$7;
-
-    move-object v1, p0
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$7;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;JJ)V
-
-    iput-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyNotFoundTimer:Landroid/os/CountDownTimer;
 
     const-string/jumbo v0, "motion_recognition"
 
@@ -2141,9 +1924,9 @@
 
     sput-object v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
-    new-instance v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;
+    new-instance v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$7;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$7;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mMotionListener:Landroid/hardware/motion/MRListener;
 
@@ -2164,11 +1947,11 @@
 
     const/4 v3, 0x0
 
-    const v2, 0x7f04039a
+    const v2, 0x7f04039f
 
     const/4 v1, 0x0
 
-    const v0, 0x7f140012
+    const v0, 0x7f140013
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -2268,10 +2051,6 @@
     invoke-virtual {v0}, Landroid/os/CountDownTimer;->cancel()V
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mIdleTimer:Landroid/os/CountDownTimer;
-
-    invoke-virtual {v0}, Landroid/os/CountDownTimer;->cancel()V
-
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyNotFoundTimer:Landroid/os/CountDownTimer;
 
     invoke-virtual {v0}, Landroid/os/CountDownTimer;->cancel()V
 
@@ -2552,723 +2331,476 @@
 .end method
 
 .method public onPeersAvailable(Landroid/net/wifi/p2p/WifiP2pDeviceList;)V
-    .locals 21
+    .locals 18
 
-    const-string/jumbo v2, "WifiP2pSettings"
+    const-string/jumbo v15, "WifiP2pSettings"
 
-    const-string/jumbo v3, "onPeersAvailable"
+    const-string/jumbo v16, "onPeersAvailable"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->isP2pEnabled()Z
 
-    move-result v2
+    move-result v15
 
-    if-eqz v2, :cond_0
+    if-eqz v15, :cond_0
 
     if-nez p1, :cond_1
 
     :cond_0
-    const-string/jumbo v2, "WifiP2pSettings"
+    const-string/jumbo v15, "WifiP2pSettings"
 
-    const-string/jumbo v3, "Return, P2P is not enabled or peer list is empty"
+    const-string/jumbo v16, "Return, P2P is not enabled or peer list is empty"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Landroid/preference/PreferenceGroup;
+    iget-object v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Landroid/preference/PreferenceGroup;
 
-    invoke-virtual {v2}, Landroid/preference/PreferenceGroup;->removeAll()V
+    invoke-virtual {v15}, Landroid/preference/PreferenceGroup;->removeAll()V
 
     return-void
 
     :cond_1
     invoke-virtual/range {p1 .. p1}, Landroid/net/wifi/p2p/WifiP2pDeviceList;->isEmpty()Z
 
-    move-result v2
+    move-result v15
 
-    if-eqz v2, :cond_2
+    if-eqz v15, :cond_2
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->isP2pConnected()Z
 
-    move-result v2
+    move-result v15
 
-    if-eqz v2, :cond_0
+    if-eqz v15, :cond_0
 
     :cond_2
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->isAdded()Z
 
-    move-result v2
+    move-result v15
 
-    if-eqz v2, :cond_0
+    if-eqz v15, :cond_0
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v17
-
-    const/4 v2, 0x0
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v2}, Landroid/preference/PreferenceScreen;->setOrderingAsAdded(Z)V
-
-    invoke-virtual/range {v17 .. v17}, Landroid/preference/PreferenceScreen;->removeAll()V
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Landroid/preference/PreferenceGroup;
-
-    invoke-virtual {v2}, Landroid/preference/PreferenceGroup;->removeAll()V
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mAvailablePeers:Landroid/net/wifi/p2p/WifiP2pDeviceList;
-
-    invoke-virtual {v2}, Landroid/net/wifi/p2p/WifiP2pDeviceList;->clear()Z
-
-    const/4 v2, 0x1
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->addMyDeviceCenterText(Z)V
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
-
-    if-eqz v2, :cond_4
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->isP2pConnected()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    const-string/jumbo v2, "WifiP2pSettings"
-
-    const-string/jumbo v3, "show connected devices"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v2, 0x0
-
-    sput-boolean v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mInvited:Z
-
-    const/4 v2, 0x1
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->hideProgressBar(Z)V
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
-
-    if-eqz v2, :cond_b
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
-
-    invoke-virtual {v2}, Landroid/net/wifi/p2p/WifiP2pGroup;->isGroupOwner()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_e
-
-    const-string/jumbo v2, "WifiP2pSettings"
-
-    const-string/jumbo v3, "I am GO"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
-
-    invoke-virtual {v2}, Landroid/net/wifi/p2p/WifiP2pGroup;->getClientList()Ljava/util/Collection;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v12
-
-    :cond_3
-    :goto_0
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v11
 
-    check-cast v11, Landroid/net/wifi/p2p/WifiP2pDevice;
+    const/4 v15, 0x0
 
-    const/4 v2, 0x0
+    invoke-virtual {v11, v15}, Landroid/preference/PreferenceScreen;->setOrderingAsAdded(Z)V
 
-    iput v2, v11, Landroid/net/wifi/p2p/WifiP2pDevice;->status:I
-
-    new-instance v19, Lcom/android/settings/wifi/p2p/WifiP2pPeer;
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mContext:Landroid/content/Context;
-
-    move-object/from16 v0, v19
-
-    invoke-direct {v0, v2, v11}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;-><init>(Landroid/content/Context;Landroid/net/wifi/p2p/WifiP2pDevice;)V
+    invoke-virtual {v11}, Landroid/preference/PreferenceScreen;->removeAll()V
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Landroid/preference/PreferenceGroup;
+    iget-object v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Landroid/preference/PreferenceGroup;
 
-    move-object/from16 v0, v19
-
-    invoke-virtual {v2, v0}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyDeviceName:Ljava/lang/String;
-
-    if-eqz v2, :cond_3
-
-    move-object/from16 v0, v19
-
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->mDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
-
-    iget-object v2, v2, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceName:Ljava/lang/String;
-
-    sget-object v3, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyDeviceName:Ljava/lang/String;
+    invoke-virtual {v15}, Landroid/preference/PreferenceGroup;->removeAll()V
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2, v3}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->areTheseSimilar(Ljava/lang/String;Ljava/lang/String;)Z
+    iget-object v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mAvailablePeers:Landroid/net/wifi/p2p/WifiP2pDeviceList;
 
-    move-result v2
+    invoke-virtual {v15}, Landroid/net/wifi/p2p/WifiP2pDeviceList;->clear()Z
 
-    if-eqz v2, :cond_3
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyStateId:Ljava/lang/String;
-
-    if-eqz v2, :cond_d
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyStateId:Ljava/lang/String;
-
-    const-string/jumbo v3, "WiFiDirectDisconnect"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_d
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v2
+    const/4 v15, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    invoke-direct {v0, v15}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->addMyDeviceCenterText(Z)V
 
-    invoke-virtual {v0, v2, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    sget-object v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
 
-    const-string/jumbo v3, "WiFiDirectSettings"
+    if-eqz v15, :cond_3
 
-    const-string/jumbo v4, "Name"
+    invoke-direct/range {p0 .. p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->isP2pConnected()Z
 
-    const-string/jumbo v5, "AlreadyConnected"
+    move-result v15
 
-    const-string/jumbo v6, "yes"
+    if-eqz v15, :cond_3
 
-    const/4 v7, 0x1
+    const-string/jumbo v15, "WifiP2pSettings"
 
-    move-object/from16 v2, p0
+    const-string/jumbo v16, "show connected devices"
 
-    invoke-direct/range {v2 .. v7}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->sendNlgAndResponse(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_1
+    const/4 v15, 0x0
+
+    sput-boolean v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mInvited:Z
+
+    const/4 v15, 0x1
+
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyNotFoundTimer:Landroid/os/CountDownTimer;
+    invoke-direct {v0, v15}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->hideProgressBar(Z)V
 
-    invoke-virtual {v2}, Landroid/os/CountDownTimer;->cancel()V
+    sget-object v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
 
-    goto :goto_0
+    if-eqz v15, :cond_9
 
-    :cond_4
-    const/4 v8, 0x0
+    sget-object v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
 
-    const/4 v9, 0x0
+    invoke-virtual {v15}, Landroid/net/wifi/p2p/WifiP2pGroup;->isGroupOwner()Z
 
-    const/4 v14, 0x0
+    move-result v15
 
-    invoke-virtual/range {p1 .. p1}, Landroid/net/wifi/p2p/WifiP2pDeviceList;->getDeviceList()Ljava/util/Collection;
+    if-eqz v15, :cond_b
 
-    move-result-object v2
+    const-string/jumbo v15, "WifiP2pSettings"
 
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    const-string/jumbo v16, "I am GO"
 
-    move-result-object v16
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
-    :goto_2
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
+    sget-object v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
 
-    move-result v2
-
-    if-eqz v2, :cond_a
-
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v15}, Landroid/net/wifi/p2p/WifiP2pGroup;->getClientList()Ljava/util/Collection;
 
     move-result-object v15
 
-    check-cast v15, Landroid/net/wifi/p2p/WifiP2pDevice;
+    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    iget-object v2, v15, Landroid/net/wifi/p2p/WifiP2pDevice;->GOdeviceName:Ljava/lang/String;
+    move-result-object v6
 
-    if-nez v2, :cond_6
+    :goto_0
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v15}, Landroid/net/wifi/p2p/WifiP2pDevice;->isGroupClient()Ljava/lang/String;
+    move-result v15
 
-    move-result-object v2
+    if-eqz v15, :cond_9
 
-    if-eqz v2, :cond_8
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    :cond_6
-    invoke-virtual {v15}, Landroid/net/wifi/p2p/WifiP2pDevice;->isGroupOwner()Z
+    move-result-object v5
 
-    move-result v2
+    check-cast v5, Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    if-nez v2, :cond_8
+    const/4 v15, 0x0
 
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mThisDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
+    iput v15, v5, Landroid/net/wifi/p2p/WifiP2pDevice;->status:I
 
-    iget-object v2, v2, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
+    new-instance v13, Lcom/android/settings/wifi/p2p/WifiP2pPeer;
 
-    iget-object v3, v15, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
+    sget-object v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_7
-
-    new-instance v10, Lcom/android/settings/wifi/p2p/WifiP2pPeer;
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mContext:Landroid/content/Context;
-
-    invoke-direct {v10, v2, v15}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;-><init>(Landroid/content/Context;Landroid/net/wifi/p2p/WifiP2pDevice;)V
+    invoke-direct {v13, v15, v5}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;-><init>(Landroid/content/Context;Landroid/net/wifi/p2p/WifiP2pDevice;)V
 
     move-object/from16 v0, p0
 
-    iget-boolean v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mTalkback:Z
+    iget-object v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Landroid/preference/PreferenceGroup;
 
-    invoke-virtual {v10, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setTalkback(Z)V
+    invoke-virtual {v15, v13}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    add-int/lit8 v9, v9, 0x1
+    goto :goto_0
 
-    :cond_7
-    :goto_3
-    iget v2, v15, Landroid/net/wifi/p2p/WifiP2pDevice;->status:I
-
-    const/4 v3, 0x1
-
-    if-ne v2, v3, :cond_5
-
-    const/4 v14, 0x1
-
-    goto :goto_2
-
-    :cond_8
-    new-instance v18, Lcom/android/settings/wifi/p2p/WifiP2pPeer;
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mContext:Landroid/content/Context;
-
-    move-object/from16 v0, v18
-
-    invoke-direct {v0, v2, v15}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;-><init>(Landroid/content/Context;Landroid/net/wifi/p2p/WifiP2pDevice;)V
-
-    add-int/lit8 v8, v8, 0x1
-
-    move-object/from16 v0, p0
-
-    iget-boolean v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mTalkback:Z
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setTalkback(Z)V
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Landroid/preference/PreferenceGroup;
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v2, v0}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mAvailablePeers:Landroid/net/wifi/p2p/WifiP2pDeviceList;
-
-    move-object/from16 v0, v18
-
-    iget-object v3, v0, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->mDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
-
-    invoke-virtual {v2, v3}, Landroid/net/wifi/p2p/WifiP2pDeviceList;->update(Landroid/net/wifi/p2p/WifiP2pDevice;)V
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyDeviceName:Ljava/lang/String;
-
-    if-eqz v2, :cond_7
-
-    move-object/from16 v0, v18
-
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->mDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
-
-    iget-object v2, v2, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceName:Ljava/lang/String;
-
-    sget-object v3, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyDeviceName:Ljava/lang/String;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v2, v3}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->areTheseSimilar(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_7
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyStateId:Ljava/lang/String;
-
-    if-eqz v2, :cond_9
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyStateId:Ljava/lang/String;
-
-    const-string/jumbo v3, "WiFiDirectConnect"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_9
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v2
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v2, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
-
-    const-string/jumbo v3, "WiFiDirectSettings"
-
-    const-string/jumbo v4, "Name"
-
-    const-string/jumbo v5, "AlreadyConnected"
-
-    const-string/jumbo v6, "no"
-
-    const/4 v7, 0x1
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->sendNlgAndResponse(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-
-    :goto_4
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyNotFoundTimer:Landroid/os/CountDownTimer;
-
-    invoke-virtual {v2}, Landroid/os/CountDownTimer;->cancel()V
-
-    goto :goto_3
-
-    :cond_9
-    const-string/jumbo v3, "WiFiDirectSettings"
-
-    const-string/jumbo v4, "Name"
-
-    const-string/jumbo v5, "AlreadyConnected"
-
-    const-string/jumbo v6, "no"
-
-    const/4 v7, 0x0
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->sendNlgAndResponse(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-
-    goto :goto_4
-
-    :cond_a
-    if-eqz v14, :cond_c
-
-    const/4 v2, 0x1
-
-    sput-boolean v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mInvited:Z
-
+    :cond_3
     const/4 v2, 0x0
 
     const/4 v3, 0x0
 
+    const/4 v8, 0x0
+
+    invoke-virtual/range {p1 .. p1}, Landroid/net/wifi/p2p/WifiP2pDeviceList;->getDeviceList()Ljava/util/Collection;
+
+    move-result-object v15
+
+    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v10
+
+    :cond_4
+    :goto_1
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v15
+
+    if-eqz v15, :cond_8
+
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/net/wifi/p2p/WifiP2pDevice;
+
+    iget-object v15, v9, Landroid/net/wifi/p2p/WifiP2pDevice;->GOdeviceName:Ljava/lang/String;
+
+    if-nez v15, :cond_5
+
+    invoke-virtual {v9}, Landroid/net/wifi/p2p/WifiP2pDevice;->isGroupClient()Ljava/lang/String;
+
+    move-result-object v15
+
+    if-eqz v15, :cond_7
+
+    :cond_5
+    invoke-virtual {v9}, Landroid/net/wifi/p2p/WifiP2pDevice;->isGroupOwner()Z
+
+    move-result v15
+
+    if-nez v15, :cond_7
+
+    sget-object v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mThisDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
+
+    iget-object v15, v15, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
+
+    iget-object v0, v9, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v15
+
+    if-nez v15, :cond_6
+
+    new-instance v4, Lcom/android/settings/wifi/p2p/WifiP2pPeer;
+
+    sget-object v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mContext:Landroid/content/Context;
+
+    invoke-direct {v4, v15, v9}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;-><init>(Landroid/content/Context;Landroid/net/wifi/p2p/WifiP2pDevice;)V
+
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2, v3}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->setScanTimer(ZZ)V
+    iget-boolean v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mTalkback:Z
 
-    const/4 v2, 0x1
+    invoke-virtual {v4, v15}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setTalkback(Z)V
+
+    add-int/lit8 v3, v3, 0x1
+
+    :cond_6
+    :goto_2
+    iget v15, v9, Landroid/net/wifi/p2p/WifiP2pDevice;->status:I
+
+    const/16 v16, 0x1
+
+    move/from16 v0, v16
+
+    if-ne v15, v0, :cond_4
+
+    const/4 v8, 0x1
+
+    goto :goto_1
+
+    :cond_7
+    new-instance v12, Lcom/android/settings/wifi/p2p/WifiP2pPeer;
+
+    sget-object v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mContext:Landroid/content/Context;
+
+    invoke-direct {v12, v15, v9}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;-><init>(Landroid/content/Context;Landroid/net/wifi/p2p/WifiP2pDevice;)V
+
+    add-int/lit8 v2, v2, 0x1
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->hideProgressBar(Z)V
+    iget-boolean v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mTalkback:Z
 
-    :cond_b
-    :goto_5
+    invoke-virtual {v12, v15}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setTalkback(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Landroid/preference/PreferenceGroup;
+
+    invoke-virtual {v15, v12}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mAvailablePeers:Landroid/net/wifi/p2p/WifiP2pDeviceList;
+
+    iget-object v0, v12, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->mDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v15 .. v16}, Landroid/net/wifi/p2p/WifiP2pDeviceList;->update(Landroid/net/wifi/p2p/WifiP2pDevice;)V
+
+    goto :goto_2
+
+    :cond_8
+    if-eqz v8, :cond_a
+
+    const/4 v15, 0x1
+
+    sput-boolean v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mInvited:Z
+
+    const/4 v15, 0x0
+
+    const/16 v16, 0x0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v16
+
+    invoke-direct {v0, v15, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->setScanTimer(ZZ)V
+
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v15}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->hideProgressBar(Z)V
+
+    :cond_9
+    :goto_3
     sput-object p1, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeers:Landroid/net/wifi/p2p/WifiP2pDeviceList;
 
     return-void
 
-    :cond_c
-    const/4 v2, 0x0
+    :cond_a
+    const/4 v15, 0x0
 
-    sput-boolean v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mInvited:Z
+    sput-boolean v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mInvited:Z
 
-    goto :goto_5
+    goto :goto_3
 
-    :cond_d
-    const-string/jumbo v3, "WiFiDirectSettings"
+    :cond_b
+    sget-object v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
 
-    const-string/jumbo v4, "Name"
-
-    const-string/jumbo v5, "AlreadyConnected"
-
-    const-string/jumbo v6, "yes"
-
-    const/4 v7, 0x0
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->sendNlgAndResponse(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-
-    goto/16 :goto_1
-
-    :cond_e
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
-
-    invoke-virtual {v2}, Landroid/net/wifi/p2p/WifiP2pGroup;->getOwner()Landroid/net/wifi/p2p/WifiP2pDevice;
-
-    move-result-object v2
-
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mGoDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mGoDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
-
-    iget-object v2, v2, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->convertDevAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v13
-
-    if-nez v13, :cond_f
-
-    const-string/jumbo v13, ""
-
-    :cond_f
-    const-string/jumbo v2, "WifiP2pSettings"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "I am GC, my GO addr : "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mGoDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
-
-    iget-object v4, v4, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v4}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getSecuredMacAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ", converted : "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v13}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getSecuredMacAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual/range {p1 .. p1}, Landroid/net/wifi/p2p/WifiP2pDeviceList;->getDeviceList()Ljava/util/Collection;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v16
-
-    :cond_10
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v15}, Landroid/net/wifi/p2p/WifiP2pGroup;->getOwner()Landroid/net/wifi/p2p/WifiP2pDevice;
 
     move-result-object v15
 
-    check-cast v15, Landroid/net/wifi/p2p/WifiP2pDevice;
+    move-object/from16 v0, p0
+
+    iput-object v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mGoDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mGoDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
+    iget-object v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mGoDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    iget-object v2, v2, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
-
-    iget-object v3, v15, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_11
-
-    iget-object v2, v15, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
-
-    invoke-virtual {v13, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_10
-
-    :cond_11
-    const/4 v2, 0x0
-
-    iput v2, v15, Landroid/net/wifi/p2p/WifiP2pDevice;->status:I
-
-    new-instance v20, Lcom/android/settings/wifi/p2p/WifiP2pPeer;
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mContext:Landroid/content/Context;
-
-    move-object/from16 v0, v20
-
-    invoke-direct {v0, v2, v15}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;-><init>(Landroid/content/Context;Landroid/net/wifi/p2p/WifiP2pDevice;)V
+    iget-object v15, v15, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Landroid/preference/PreferenceGroup;
+    invoke-direct {v0, v15}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->convertDevAddress(Ljava/lang/String;)Ljava/lang/String;
 
-    move-object/from16 v0, v20
+    move-result-object v7
 
-    invoke-virtual {v2, v0}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
+    if-nez v7, :cond_c
 
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyDeviceName:Ljava/lang/String;
+    const-string/jumbo v7, ""
 
-    if-eqz v2, :cond_b
+    :cond_c
+    const-string/jumbo v15, "WifiP2pSettings"
 
-    move-object/from16 v0, v20
+    new-instance v16, Ljava/lang/StringBuilder;
 
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->mDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, v2, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceName:Ljava/lang/String;
+    const-string/jumbo v17, "I am GC, my GO addr : "
 
-    sget-object v3, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyDeviceName:Ljava/lang/String;
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v2, v3}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->areTheseSimilar(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyStateId:Ljava/lang/String;
-
-    if-eqz v2, :cond_12
-
-    sget-object v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyStateId:Ljava/lang/String;
-
-    const-string/jumbo v3, "WiFiDirectDisconnect"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_12
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v2
+    move-result-object v16
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    iget-object v0, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mGoDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    invoke-virtual {v0, v2, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    move-object/from16 v17, v0
 
-    const-string/jumbo v3, "WiFiDirectSettings"
+    move-object/from16 v0, v17
 
-    const-string/jumbo v4, "Name"
+    iget-object v0, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
 
-    const-string/jumbo v5, "AlreadyConnected"
+    move-object/from16 v17, v0
 
-    const-string/jumbo v6, "yes"
-
-    const/4 v7, 0x1
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->sendNlgAndResponse(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-
-    :goto_6
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mBixbyNotFoundTimer:Landroid/os/CountDownTimer;
+    move-object/from16 v1, v17
 
-    invoke-virtual {v2}, Landroid/os/CountDownTimer;->cancel()V
+    invoke-direct {v0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getSecuredMacAddress(Ljava/lang/String;)Ljava/lang/String;
 
-    goto/16 :goto_5
+    move-result-object v17
 
-    :cond_12
-    const-string/jumbo v3, "WiFiDirectSettings"
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "Name"
+    move-result-object v16
 
-    const-string/jumbo v5, "AlreadyConnected"
+    const-string/jumbo v17, ", converted : "
 
-    const-string/jumbo v6, "yes"
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v7, 0x0
+    move-result-object v16
 
-    move-object/from16 v2, p0
+    move-object/from16 v0, p0
 
-    invoke-direct/range {v2 .. v7}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->sendNlgAndResponse(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-direct {v0, v7}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getSecuredMacAddress(Ljava/lang/String;)Ljava/lang/String;
 
-    goto :goto_6
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual/range {p1 .. p1}, Landroid/net/wifi/p2p/WifiP2pDeviceList;->getDeviceList()Ljava/util/Collection;
+
+    move-result-object v15
+
+    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v10
+
+    :cond_d
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v15
+
+    if-eqz v15, :cond_9
+
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/net/wifi/p2p/WifiP2pDevice;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mGoDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
+
+    iget-object v15, v15, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
+
+    iget-object v0, v9, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v15
+
+    if-nez v15, :cond_e
+
+    iget-object v15, v9, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
+
+    invoke-virtual {v7, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v15
+
+    if-eqz v15, :cond_d
+
+    :cond_e
+    const/4 v15, 0x0
+
+    iput v15, v9, Landroid/net/wifi/p2p/WifiP2pDevice;->status:I
+
+    new-instance v14, Lcom/android/settings/wifi/p2p/WifiP2pPeer;
+
+    sget-object v15, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mContext:Landroid/content/Context;
+
+    invoke-direct {v14, v15, v9}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;-><init>(Landroid/content/Context;Landroid/net/wifi/p2p/WifiP2pDevice;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Landroid/preference/PreferenceGroup;
+
+    invoke-virtual {v15, v14}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
+
+    goto/16 :goto_3
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
@@ -3373,7 +2905,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0dca
+    const v11, 0x7f0b0e55
 
     const/4 v12, 0x1
 
@@ -3402,7 +2934,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0dcd
+    const v11, 0x7f0b0e58
 
     const/4 v12, 0x1
 
@@ -3460,7 +2992,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f100477
+    const v12, 0x7f10047d
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3528,9 +3060,9 @@
 
     iget-object v11, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    new-instance v12, Lcom/android/settings/wifi/p2p/WifiP2pSettings$10;
+    new-instance v12, Lcom/android/settings/wifi/p2p/WifiP2pSettings$9;
 
-    invoke-direct {v12, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$10;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-direct {v12, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$9;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     invoke-virtual {v10, v11, v1, v12}, Landroid/net/wifi/p2p/WifiP2pManager;->connect(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Landroid/net/wifi/p2p/WifiP2pConfig;Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
 
@@ -3748,9 +3280,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings$9;
+    new-instance v2, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$9;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     invoke-direct {v0, v1, v2}, Landroid/speech/tts/TextToSpeech;-><init>(Landroid/content/Context;Landroid/speech/tts/TextToSpeech$OnInitListener;)V
 

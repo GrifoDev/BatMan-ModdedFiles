@@ -57,7 +57,7 @@
 
     iput-object p7, p0, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->mFragmentArguments:Landroid/os/Bundle;
 
-    const v0, 0x7f04032a
+    const v0, 0x7f04032e
 
     invoke-virtual {p0, v0}, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->setLayoutResource(I)V
 

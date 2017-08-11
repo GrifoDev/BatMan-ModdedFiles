@@ -168,15 +168,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set2(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmParam:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic -set3(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
+.method static synthetic -set2(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mRequestConnectionByUser:Z
@@ -184,7 +176,7 @@
     return p1
 .end method
 
-.method static synthetic -set4(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
+.method static synthetic -set3(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWillRespondToEm:Z
@@ -232,15 +224,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap4(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->connectByBixby(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap5(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
+.method static synthetic -wrap4(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->forceScanByBixby()V
@@ -248,7 +232,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap6(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
+.method static synthetic -wrap5(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->startP2pNlgForBixby()V
@@ -429,9 +413,9 @@
 .method private WifiAdvancetts(Z)V
     .locals 5
 
-    const v4, 0x7f0b0df1
+    const v4, 0x7f0b0e7c
 
-    const v3, 0x7f0b0234
+    const v3, 0x7f0b0292
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->getActivity()Landroid/app/Activity;
 
@@ -541,7 +525,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0dcf
+    const v3, 0x7f0b0e5a
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -561,9 +545,9 @@
 .method private WifiDirectTts(Z)V
     .locals 5
 
-    const v3, 0x7f0b13a4
+    const v3, 0x7f0b143f
 
-    const v4, 0x7f0b0234
+    const v4, 0x7f0b0292
 
     const-string/jumbo v1, ""
 
@@ -656,7 +640,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0dcf
+    const v3, 0x7f0b0e5a
 
     invoke-virtual {v0, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -678,260 +662,6 @@
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     goto :goto_1
-.end method
-
-.method private connectByBixby(Ljava/lang/String;)V
-    .locals 10
-
-    const/4 v8, 0x0
-
-    const/4 v9, -0x1
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWifiTracker:Lcom/android/settingslib/wifi/WifiTracker;
-
-    invoke-virtual {v2}, Lcom/android/settingslib/wifi/WifiTracker;->getAccessPoints()Ljava/util/List;
-
-    move-result-object v7
-
-    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    :cond_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settingslib/wifi/AccessPoint;
-
-    invoke-virtual {v1}, Lcom/android/settingslib/wifi/AccessPoint;->getSsidStr()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const-string/jumbo v2, "WifiSettingsBase"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "mEmCallback, getSsidStr: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v1}, Lcom/android/settingslib/wifi/AccessPoint;->getSsidStr()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v8, 0x1
-
-    invoke-virtual {v1}, Lcom/android/settingslib/wifi/AccessPoint;->getNetworkId()I
-
-    move-result v9
-
-    invoke-virtual {v1}, Lcom/android/settingslib/wifi/AccessPoint;->isActive()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "Name"
-
-    const-string/jumbo v4, "AlreadyConnected"
-
-    const-string/jumbo v5, "yes"
-
-    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "Name"
-
-    invoke-virtual {v2, v3, p1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "WiFiSettings"
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    return-void
-
-    :cond_1
-    const/4 v2, -0x1
-
-    if-eq v9, v2, :cond_3
-
-    invoke-virtual {p0, v9}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->connect(I)V
-
-    :goto_0
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "Name"
-
-    const-string/jumbo v4, "AlreadyConnected"
-
-    const-string/jumbo v5, "no"
-
-    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "Name"
-
-    invoke-virtual {v2, v3, p1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "WiFiSettings"
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_2
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    return-void
-
-    :cond_3
-    new-instance v0, Lcom/android/settings/wifi/LongPressAccessPointPreference;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->getPrefContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mUserBadgeCache:Lcom/samsung/android/settingslib/wifi/AccessPointPreference$UserBadgeCache;
-
-    const/4 v4, 0x0
-
-    move-object v5, p0
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/settings/wifi/LongPressAccessPointPreference;-><init>(Lcom/android/settingslib/wifi/AccessPoint;Landroid/content/Context;Lcom/samsung/android/settingslib/wifi/AccessPointPreference$UserBadgeCache;ZLandroid/app/Fragment;)V
-
-    if-eqz v0, :cond_4
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2, v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
-
-    goto :goto_0
-
-    :cond_4
-    const-string/jumbo v2, "WifiSettingsBase"
-
-    const-string/jumbo v3, "preference is nul"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "Name"
-
-    const-string/jumbo v4, "Match"
-
-    const-string/jumbo v5, "no"
-
-    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "Name"
-
-    invoke-virtual {v2, v3, p1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "WiFiSettings"
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    return-void
-
-    :cond_5
-    if-nez v8, :cond_6
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "Name"
-
-    const-string/jumbo v4, "Match"
-
-    const-string/jumbo v5, "no"
-
-    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "Name"
-
-    invoke-virtual {v2, v3, p1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v3, "WiFiSettings"
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    return-void
-
-    :cond_6
-    return-void
 .end method
 
 .method private forceScanByBixby()V
@@ -1398,7 +1128,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0da6
+    const v5, 0x7f0b0e31
 
     invoke-static {v4, v5, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1421,7 +1151,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0da8
+    const v5, 0x7f0b0e33
 
     invoke-static {v4, v5, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1468,7 +1198,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0da7
+    const v5, 0x7f0b0e32
 
     invoke-static {v4, v5, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1687,7 +1417,7 @@
 
     move-result v0
 
-    const v1, 0x7f0b13a6
+    const v1, 0x7f0b1441
 
     invoke-interface {p1, v3, v5, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1720,13 +1450,13 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0b19ee
+    const v1, 0x7f0b1a8a
 
     invoke-interface {p1, v3, v7, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    const v2, 0x7f02017f
+    const v2, 0x7f0201a4
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1957,7 +1687,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0b13ae
+    const v0, 0x7f0b1449
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->addMessagePreference(I)V
 
@@ -1998,36 +1728,6 @@
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method protected connect(I)V
-    .locals 2
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mShowRetryDialog:Z
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    const/16 v1, 0x87
-
-    invoke-static {v0, v1}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;I)V
-
-    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mConnectListener:Landroid/net/wifi/WifiManager$ActionListener;
-
-    invoke-virtual {v0, p1, v1}, Landroid/net/wifi/WifiManager;->connect(ILandroid/net/wifi/WifiManager$ActionListener;)V
-
-    invoke-static {}, Landroid/os/SystemClock;->currentThreadTimeMillis()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mScrollTimer:J
-
-    return-void
 .end method
 
 .method protected connect(Landroid/net/wifi/WifiConfiguration;)V
@@ -2111,13 +1811,13 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mAddPreference:Landroid/preference/Preference;
 
-    const v1, 0x7f0201e9
+    const v1, 0x7f02020e
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setIcon(I)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mAddPreference:Landroid/preference/Preference;
 
-    const v1, 0x7f0b139d
+    const v1, 0x7f0b1438
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -3062,7 +2762,7 @@
 
     if-eqz v5, :cond_12
 
-    const v5, 0x7f0b0da4
+    const v5, 0x7f0b0e2f
 
     move-object/from16 v0, v18
 
@@ -3140,7 +2840,7 @@
     goto :goto_5
 
     :cond_12
-    const v5, 0x7f0b0d92
+    const v5, 0x7f0b0e1d
 
     move-object/from16 v0, v18
 
@@ -3149,7 +2849,7 @@
     goto :goto_6
 
     :cond_13
-    const v5, 0x7f0b002c
+    const v5, 0x7f0b0087
 
     move-object/from16 v0, v18
 
@@ -3322,7 +3022,7 @@
     goto :goto_b
 
     :pswitch_2
-    const v5, 0x7f0b1386
+    const v5, 0x7f0b1421
 
     move-object/from16 v0, p0
 
@@ -3483,7 +3183,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f020654
+    const v1, 0x7f0206bd
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3510,7 +3210,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0290
+    const v2, 0x7f0f0291
 
     invoke-virtual {v9, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
@@ -3522,7 +3222,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d013a
+    const v2, 0x7f0d013b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3561,7 +3261,7 @@
 
     check-cast v8, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f04037f
+    const v1, 0x7f040384
 
     const/4 v2, 0x0
 
@@ -3865,7 +3565,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0e14
+    const v2, 0x7f0b0e9f
 
     invoke-static {v1, v2, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -4854,7 +4554,7 @@
 
     const/4 v6, 0x0
 
-    const v3, 0x7f0b13a4
+    const v3, 0x7f0b143f
 
     const/4 v2, 0x0
 
@@ -5144,7 +4844,7 @@
 
     if-nez v5, :cond_3
 
-    const v5, 0x7f0b1381
+    const v5, 0x7f0b141c
 
     invoke-virtual {v0, v5}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -5327,7 +5027,7 @@
     return-void
 
     :cond_a
-    const v5, 0x7f0b0e04
+    const v5, 0x7f0b0e8f
 
     invoke-virtual {v0, v5}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -5383,7 +5083,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWifiDirect:Landroid/widget/TextView;
 
-    const v1, 0x1080753
+    const v1, 0x108073e
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -5475,7 +5175,7 @@
     return-void
 
     :pswitch_0
-    const v0, 0x7f0b1385
+    const v0, 0x7f0b1420
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->addMessagePreference(I)V
 
@@ -5536,12 +5236,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4
 
     invoke-direct {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->forceScanByBixby()V
 
     :cond_4
-    :goto_2
     iput-object v3, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmParam:Ljava/lang/String;
 
     iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWillRespondToEm:Z
@@ -5565,25 +5264,32 @@
 
     goto :goto_1
 
-    :cond_6
-    const-string/jumbo v0, "WiFiSelectScanedAp"
-
-    iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmLastStateID:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mEmParam:Ljava/lang/String;
-
-    invoke-direct {p0, v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->connectByBixby(Ljava/lang/String;)V
-
-    goto :goto_2
-
     :pswitch_2
     iget-boolean v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mInPickerDialog:Z
+
+    if-eqz v0, :cond_6
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+
+    return-void
+
+    :cond_6
+    const v0, 0x7f0b1421
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->addMessagePreference(I)V
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->setProgressBarVisible(Z)V
+
+    goto :goto_0
+
+    :pswitch_3
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->dismissDialog(I)V
+
+    iget-boolean v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mInManageNetwork:Z
 
     if-eqz v0, :cond_7
 
@@ -5596,17 +5302,6 @@
     return-void
 
     :cond_7
-    const v0, 0x7f0b1386
-
-    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->addMessagePreference(I)V
-
-    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->setProgressBarVisible(Z)V
-
-    goto/16 :goto_0
-
-    :pswitch_3
-    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->dismissDialog(I)V
-
     invoke-virtual {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->setOffMessage()V
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->setProgressBarVisible(Z)V
@@ -5769,6 +5464,13 @@
     return-void
 
     :cond_0
+    iget-boolean v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mInManageNetwork:Z
+
+    if-eqz v0, :cond_1
+
+    return-void
+
+    :cond_1
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecRestrictedSettingsFragment;->setEmptyView(Landroid/view/View;)V
 
     return-void
@@ -5815,7 +5517,7 @@
     return-void
 
     :cond_1
-    const v6, 0x7f0b13ad
+    const v6, 0x7f0b1448
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->getText(I)Ljava/lang/CharSequence;
 
@@ -5901,7 +5603,7 @@
 
     invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v6, 0x7f0b1393
+    const v6, 0x7f0b142e
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->getText(I)Ljava/lang/CharSequence;
 
@@ -5934,218 +5636,6 @@
 .method protected abstract setProgressBarVisible(Z)V
 .end method
 
-.method protected setSecBssidWhitelist(Lcom/android/settingslib/wifi/AccessPoint;)V
-    .locals 11
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/AccessPoint;->getSsidStr()Ljava/lang/String;
-
-    move-result-object v8
-
-    if-nez v8, :cond_1
-
-    :cond_0
-    return-void
-
-    :cond_1
-    const-string/jumbo v8, "iptime"
-
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/AccessPoint;->getSsidStr()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_2
-
-    const-string/jumbo v8, "iptime5G"
-
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/AccessPoint;->getSsidStr()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_5
-
-    :cond_2
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/AccessPoint;->getSecurity()I
-
-    move-result v8
-
-    if-nez v8, :cond_5
-
-    const-string/jumbo v1, ""
-
-    iget-object v8, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v8}, Landroid/net/wifi/WifiManager;->getScanResults()Ljava/util/List;
-
-    move-result-object v7
-
-    const/4 v2, 0x0
-
-    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    :cond_3
-    :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_4
-
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/net/wifi/ScanResult;
-
-    const/16 v8, 0x64
-
-    if-le v2, v8, :cond_6
-
-    :cond_4
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/AccessPoint;->getSsidStr()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, " "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string/jumbo v8, "WifiSettingsBase"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "setSecBssidWhitelist : "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/AccessPoint;->getSsidStr()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, " "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v4, Landroid/os/Message;
-
-    invoke-direct {v4}, Landroid/os/Message;-><init>()V
-
-    const/16 v8, 0x52
-
-    iput v8, v4, Landroid/os/Message;->what:I
-
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    const-string/jumbo v8, "BSSID"
-
-    invoke-virtual {v0, v8, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    iput-object v0, v4, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    iget-object v8, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v8, v4}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
-
-    :cond_5
-    return-void
-
-    :cond_6
-    iget-object v8, v5, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
-
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/AccessPoint;->getSsidStr()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, " "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-object v9, v5, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto/16 :goto_0
-.end method
-
 .method protected abstract showDialogForModify()V
 .end method
 
@@ -6176,7 +5666,7 @@
 .method protected startScanningSettings()V
     .locals 10
 
-    const v3, 0x7f0b08df
+    const v3, 0x7f0b0949
 
     const/4 v2, 0x0
 
@@ -6236,7 +5726,7 @@
 .method protected startWifiAdvancedScreen()V
     .locals 10
 
-    const v3, 0x7f0b0df1
+    const v3, 0x7f0b0e7c
 
     const/4 v2, 0x0
 
@@ -6296,7 +5786,7 @@
 .method protected startWifiConfigSettings()V
     .locals 10
 
-    const v3, 0x7f0b13fb
+    const v3, 0x7f0b1496
 
     const/4 v2, 0x0
 
@@ -6382,7 +5872,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0e42
+    const v3, 0x7f0b0ecf
 
     const/4 v4, -0x1
 
@@ -6588,7 +6078,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f040383
+    const v10, 0x7f040388
 
     const/4 v11, 0x0
 
@@ -6608,7 +6098,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f110918
+    const v10, 0x7f11091e
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6630,7 +6120,7 @@
     invoke-virtual {v0, v9}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
     :cond_1
-    const v9, 0x7f110918
+    const v9, 0x7f11091e
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6771,7 +6261,7 @@
 
     const/16 v9, 0xd
 
-    const v10, 0x108074d
+    const v10, 0x1080738
 
     invoke-virtual {v2, v9, v10}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -6900,7 +6390,7 @@
 
     const/16 v9, 0xd
 
-    const v10, 0x108074d
+    const v10, 0x1080738
 
     invoke-virtual {v2, v9, v10}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -6932,7 +6422,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWifiAdvanced:Landroid/widget/TextView;
 
-    const v10, 0x1080753
+    const v10, 0x108073e
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -7007,7 +6497,7 @@
     return-void
 
     :cond_c
-    const v9, 0x7f110919
+    const v9, 0x7f11091f
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -58,7 +58,7 @@
 
     const-string/jumbo v2, "template"
 
-    invoke-static {p0}, Lcom/android/settings/datausage/BillingCycleSettings;->-get5(Lcom/android/settings/datausage/BillingCycleSettings;)Landroid/net/NetworkTemplate;
+    invoke-static {p0}, Lcom/android/settings/datausage/BillingCycleSettings;->-get3(Lcom/android/settings/datausage/BillingCycleSettings;)Landroid/net/NetworkTemplate;
 
     move-result-object v3
 
@@ -186,7 +186,7 @@
 
     move-result-object v4
 
-    const v11, 0x7f0400ac
+    const v11, 0x7f0400ad
 
     const/4 v12, 0x0
 
@@ -297,7 +297,7 @@
 
     iget-object v11, p0, Lcom/android/settings/datausage/BillingCycleSettings$CycleEditorFragment;->mCycleDayPicker:Lcom/samsung/android/widget/SemNumberPicker;
 
-    const v12, 0x102045d
+    const v12, 0x1020466
 
     invoke-virtual {v11, v12}, Lcom/samsung/android/widget/SemNumberPicker;->findViewById(I)Landroid/view/View;
 
@@ -315,7 +315,7 @@
 
     invoke-virtual {v5, v11}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
 
-    const v11, 0x7f0b193a
+    const v11, 0x7f0b19d6
 
     invoke-virtual {v0, v11}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -325,7 +325,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b193c
+    const v12, 0x7f0b19d8
 
     invoke-virtual {v11, v12, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

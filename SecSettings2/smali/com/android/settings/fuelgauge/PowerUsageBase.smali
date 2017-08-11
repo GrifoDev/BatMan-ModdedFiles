@@ -166,7 +166,7 @@
 
     const/4 v1, 0x2
 
-    const v2, 0x7f0b1817
+    const v2, 0x7f0b18b3
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

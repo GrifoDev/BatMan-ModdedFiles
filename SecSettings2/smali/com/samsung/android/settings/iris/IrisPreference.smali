@@ -11,7 +11,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v3, 0x7f110627
+    const v3, 0x7f110629
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

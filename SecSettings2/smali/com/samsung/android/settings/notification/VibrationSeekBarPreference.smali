@@ -64,9 +64,9 @@
 
     iput-boolean v1, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mInitFinish:Z
 
-    const v0, 0x7f040346
+    const v0, 0x7f04034b
 
-    const v1, 0x7f040346
+    const v1, 0x7f04034b
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->setLayoutResource(I)V
 
@@ -109,297 +109,6 @@
 
     :cond_1
     return-void
-.end method
-
-.method private setCurrentProgress()V
-    .locals 6
-
-    const/4 v5, 0x5
-
-    const/4 v4, 0x4
-
-    const-string/jumbo v0, "VibrationSeekBarPreference"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "setCurrentProgress() type : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mType:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mType:I
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "VIB_RECVCALL_MAGNITUDE"
-
-    iget v3, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mMaxIntensity:I
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
-
-    const-string/jumbo v0, "VibrationSeekBarPreference"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "setCurrentProgress() VIB_RECVCALL_MAGNITUDE : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "VIB_RECVCALL_MAGNITUDE"
-
-    iget v4, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mMaxIntensity:I
-
-    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mType:I
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_2
-
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "SEM_VIBRATION_NOTIFICATION_INTENSITY"
-
-    invoke-static {v1, v2, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
-
-    const-string/jumbo v0, "VibrationSeekBarPreference"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "setCurrentProgress() SEM_VIBRATION_NOTIFICATION_INTENSITY : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "SEM_VIBRATION_NOTIFICATION_INTENSITY"
-
-    invoke-static {v2, v3, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_2
-    iget v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mType:I
-
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_3
-
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "VIB_FEEDBACK_MAGNITUDE"
-
-    iget v3, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mMaxIntensity:I
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
-
-    const-string/jumbo v0, "VibrationSeekBarPreference"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "setCurrentProgress() VIB_FEEDBACK_MAGNITUDE : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "VIB_FEEDBACK_MAGNITUDE"
-
-    iget v4, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mMaxIntensity:I
-
-    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :cond_3
-    iget v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mType:I
-
-    const/4 v1, 0x3
-
-    if-ne v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "SEM_VIBRATION_FORCE_TOUCH_INTENSITY"
-
-    invoke-static {v1, v2, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
-
-    const-string/jumbo v0, "VibrationSeekBarPreference"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "setCurrentProgress() VIB_FEEDBACK_MAGNITUDE : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "SEM_VIBRATION_FORCE_TOUCH_INTENSITY"
-
-    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
 .end method
 
 .method private setVibrationIntensity(I)V
@@ -844,7 +553,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SeekBarPreference;->onBindView(Landroid/view/View;)V
 
-    const v1, 0x1020468
+    const v1, 0x1020471
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -875,7 +584,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setMax(I)V
 
-    invoke-direct {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->setCurrentProgress()V
+    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->setCurrentProgress()V
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
 
@@ -897,6 +606,297 @@
 
     :cond_0
     return-void
+.end method
+
+.method public setCurrentProgress()V
+    .locals 6
+
+    const/4 v5, 0x5
+
+    const/4 v4, 0x4
+
+    const-string/jumbo v0, "VibrationSeekBarPreference"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setCurrentProgress() type : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mType:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mType:I
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "VIB_RECVCALL_MAGNITUDE"
+
+    iget v3, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mMaxIntensity:I
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
+
+    const-string/jumbo v0, "VibrationSeekBarPreference"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setCurrentProgress() VIB_RECVCALL_MAGNITUDE : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "VIB_RECVCALL_MAGNITUDE"
+
+    iget v4, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mMaxIntensity:I
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mType:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_2
+
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "SEM_VIBRATION_NOTIFICATION_INTENSITY"
+
+    invoke-static {v1, v2, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
+
+    const-string/jumbo v0, "VibrationSeekBarPreference"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setCurrentProgress() SEM_VIBRATION_NOTIFICATION_INTENSITY : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "SEM_VIBRATION_NOTIFICATION_INTENSITY"
+
+    invoke-static {v2, v3, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_2
+    iget v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mType:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_3
+
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "VIB_FEEDBACK_MAGNITUDE"
+
+    iget v3, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mMaxIntensity:I
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
+
+    const-string/jumbo v0, "VibrationSeekBarPreference"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setCurrentProgress() VIB_FEEDBACK_MAGNITUDE : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "VIB_FEEDBACK_MAGNITUDE"
+
+    iget v4, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mMaxIntensity:I
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :cond_3
+    iget v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mType:I
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "SEM_VIBRATION_FORCE_TOUCH_INTENSITY"
+
+    invoke-static {v1, v2, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
+
+    const-string/jumbo v0, "VibrationSeekBarPreference"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setCurrentProgress() VIB_FEEDBACK_MAGNITUDE : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "SEM_VIBRATION_FORCE_TOUCH_INTENSITY"
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
 .end method
 
 .method public setInitFinish(Z)V

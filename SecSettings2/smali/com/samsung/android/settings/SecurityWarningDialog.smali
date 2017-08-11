@@ -103,7 +103,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b09be
+    const v3, 0x7f0b0a2c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -113,7 +113,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/SecurityWarningDialog;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f0400d7
+    const v3, 0x7f0400d9
 
     const/4 v4, 0x0
 
@@ -131,7 +131,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b09bf
+    const v3, 0x7f0b0a2d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -143,7 +143,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b09c0
+    const v3, 0x7f0b0a2e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

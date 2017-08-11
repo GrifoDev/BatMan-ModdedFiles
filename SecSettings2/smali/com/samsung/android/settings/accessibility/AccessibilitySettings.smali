@@ -473,7 +473,7 @@
     :cond_4
     iget-object v7, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mCallAnsweringEndingPreference:Landroid/preference/PreferenceScreen;
 
-    const v8, 0x7f0b020b
+    const v8, 0x7f0b0269
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->getString(I)Ljava/lang/String;
 
@@ -734,7 +734,7 @@
     :cond_e
     iget-object v7, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mSingleTapModePreference:Landroid/preference/SwitchPreference;
 
-    const v8, 0x7f0b0257
+    const v8, 0x7f0b02b5
 
     invoke-virtual {v7, v8}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -851,7 +851,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mDirectionLockPreference:Landroid/preference/PreferenceScreen;
 
-    const v7, 0x7f0b12e8
+    const v7, 0x7f0b1383
 
     invoke-virtual {v4, v7}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -908,7 +908,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mNotificationReminderPreference:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b1b37
+    const v5, 0x7f0b1bd3
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -935,7 +935,7 @@
     :cond_6
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mNotificationReminderPreference:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b1b38
+    const v5, 0x7f0b1bd4
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1359,7 +1359,7 @@
 
     move-object/from16 v24, v0
 
-    const v25, 0x7f0b17a2    # 1.848854E38f
+    const v25, 0x7f0b183e
 
     move-object/from16 v0, p0
 
@@ -1478,7 +1478,7 @@
     :goto_2
     if-eqz v18, :cond_8
 
-    const v24, 0x7f0b1b37
+    const v24, 0x7f0b1bd3
 
     move-object/from16 v0, p0
 
@@ -1515,7 +1515,7 @@
     goto :goto_2
 
     :cond_8
-    const v24, 0x7f0b1b38
+    const v24, 0x7f0b1bd4
 
     move-object/from16 v0, p0
 
@@ -1725,7 +1725,7 @@
 
     if-eqz v24, :cond_b
 
-    const v24, 0x7f0b17a3
+    const v24, 0x7f0b183f
 
     move-object/from16 v0, p0
 
@@ -1754,7 +1754,7 @@
 
     const-string/jumbo v24, "settings_title"
 
-    const v25, 0x7f0b1774
+    const v25, 0x7f0b1810
 
     move-object/from16 v0, p0
 
@@ -1887,7 +1887,7 @@
     goto/16 :goto_7
 
     :cond_11
-    const v24, 0x7f0b0200
+    const v24, 0x7f0b025e
 
     move-object/from16 v0, p0
 
@@ -1913,7 +1913,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b19f9
+    const v0, 0x7f0b1a95
 
     return v0
 .end method
@@ -1927,213 +1927,176 @@
 .end method
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
-    .locals 13
+    .locals 9
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v10
-
-    invoke-static {v10}, Lcom/android/settings/Utils;->isRelativeLinkSupported(Landroid/content/Context;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_2
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v10
-
-    invoke-static {v10}, Lcom/android/settings/Utils;->isDeviceProvisioned(Landroid/content/Context;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_2
-
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
-
-    move-result v10
-
-    if-nez v10, :cond_2
-
-    new-instance v10, Lcom/samsung/android/settings/widget/RelativeLinkView;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v11
-
-    invoke-direct {v10, v11}, Lcom/samsung/android/settings/widget/RelativeLinkView;-><init>(Landroid/content/Context;)V
-
-    iput-object v10, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mRelativeLinkView:Lcom/samsung/android/settings/widget/RelativeLinkView;
-
-    new-instance v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;
-
-    invoke-direct {v4}, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;-><init>()V
-
-    new-instance v8, Landroid/content/Intent;
-
-    invoke-direct {v8}, Landroid/content/Intent;-><init>()V
-
-    new-instance v8, Landroid/content/Intent;
-
-    const-string/jumbo v10, "android.intent.action.MAIN"
-
-    invoke-direct {v8, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    new-instance v10, Landroid/content/ComponentName;
-
-    const-string/jumbo v11, "com.android.settings"
-
-    const-string/jumbo v12, "com.android.settings.Settings$EasyModeAppActivity"
-
-    invoke-direct {v10, v11, v12}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v8, v10}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    iput-object v8, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
-
-    const v10, 0x7f0b0672
-
-    iput v10, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
-
-    new-instance v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;
-
-    invoke-direct {v5}, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;-><init>()V
-
-    new-instance v9, Landroid/content/Intent;
-
-    invoke-direct {v9}, Landroid/content/Intent;-><init>()V
-
-    new-instance v9, Landroid/content/Intent;
-
-    const-string/jumbo v10, "android.intent.action.MAIN"
-
-    invoke-direct {v9, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    new-instance v10, Landroid/content/ComponentName;
-
-    const-string/jumbo v11, "com.sec.android.app.safetyassurance"
-
-    const-string/jumbo v12, "com.sec.android.app.safetyassurance.settings.SafetyAssuranceSetting"
-
-    invoke-direct {v10, v11, v12}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v9, v10}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    iput-object v9, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
-
-    const v10, 0x7f0b0bd5
-
-    iput v10, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
-
-    iget-object v10, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mContext:Landroid/content/Context;
-
-    invoke-static {v10}, Lcom/android/settings/Utils;->isEasyModeDisplayed(Landroid/content/Context;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_0
-
-    iget-object v10, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mRelativeLinkView:Lcom/samsung/android/settings/widget/RelativeLinkView;
-
-    invoke-virtual {v10, v4}, Lcom/samsung/android/settings/widget/RelativeLinkView;->pushLinkData(Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;)V
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v7
-
-    const/4 v0, 0x0
-
-    iget-object v10, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mContext:Landroid/content/Context;
-
-    invoke-static {v10}, Lcom/android/settings/Utils;->getMessagePackageName(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v6
 
-    const/16 v10, 0x80
+    invoke-static {v6}, Lcom/android/settings/Utils;->isRelativeLinkSupported(Landroid/content/Context;)Z
 
-    :try_start_0
-    invoke-virtual {v7, v6, v10}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result v6
 
-    move-result-object v0
+    if-eqz v6, :cond_2
 
-    :goto_0
-    if-eqz v0, :cond_1
+    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->getActivity()Landroid/app/Activity;
 
-    iget-boolean v10, v0, Landroid/content/pm/ApplicationInfo;->enabled:Z
+    move-result-object v6
 
-    if-eqz v10, :cond_1
+    invoke-static {v6}, Lcom/android/settings/Utils;->isDeviceProvisioned(Landroid/content/Context;)Z
 
-    invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
+    move-result v6
 
-    move-result v10
+    if-eqz v6, :cond_2
 
-    if-eqz v10, :cond_4
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v6
+
+    if-nez v6, :cond_2
+
+    new-instance v6, Lcom/samsung/android/settings/widget/RelativeLinkView;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Lcom/samsung/android/settings/widget/RelativeLinkView;-><init>(Landroid/content/Context;)V
+
+    iput-object v6, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mRelativeLinkView:Lcom/samsung/android/settings/widget/RelativeLinkView;
+
+    new-instance v2, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;
+
+    invoke-direct {v2}, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;-><init>()V
+
+    new-instance v4, Landroid/content/Intent;
+
+    invoke-direct {v4}, Landroid/content/Intent;-><init>()V
+
+    new-instance v4, Landroid/content/Intent;
+
+    const-string/jumbo v6, "android.intent.action.MAIN"
+
+    invoke-direct {v4, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    new-instance v6, Landroid/content/ComponentName;
+
+    const-string/jumbo v7, "com.android.settings"
+
+    const-string/jumbo v8, "com.android.settings.Settings$EasyModeAppActivity"
+
+    invoke-direct {v6, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v4, v6}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    iput-object v4, v2, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
+
+    const v6, 0x7f0b06d7
+
+    iput v6, v2, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
+
+    new-instance v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;
+
+    invoke-direct {v3}, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;-><init>()V
+
+    new-instance v5, Landroid/content/Intent;
+
+    invoke-direct {v5}, Landroid/content/Intent;-><init>()V
+
+    new-instance v5, Landroid/content/Intent;
+
+    const-string/jumbo v6, "android.intent.action.MAIN"
+
+    invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    new-instance v6, Landroid/content/ComponentName;
+
+    const-string/jumbo v7, "com.sec.android.app.safetyassurance"
+
+    const-string/jumbo v8, "com.sec.android.app.safetyassurance.settings.SafetyAssuranceSetting"
+
+    invoke-direct {v6, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v5, v6}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    iput-object v5, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
+
+    const v6, 0x7f0b0c47
+
+    iput v6, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
+
+    iget-object v6, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/settings/Utils;->isEasyModeDisplayed(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    iget-object v6, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mRelativeLinkView:Lcom/samsung/android/settings/widget/RelativeLinkView;
+
+    invoke-virtual {v6, v2}, Lcom/samsung/android/settings/widget/RelativeLinkView;->pushLinkData(Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;)V
+
+    :cond_0
+    iget-object v6, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/settings/Utils;->isSendSOSMessageSupported(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    iget-object v6, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mRelativeLinkView:Lcom/samsung/android/settings/widget/RelativeLinkView;
+
+    invoke-virtual {v6, v3}, Lcom/samsung/android/settings/widget/RelativeLinkView;->pushLinkData(Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;)V
 
     :cond_1
-    :goto_1
-    iget-object v10, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mRelativeLinkView:Lcom/samsung/android/settings/widget/RelativeLinkView;
+    iget-object v6, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mRelativeLinkView:Lcom/samsung/android/settings/widget/RelativeLinkView;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->getListView()Landroid/widget/ListView;
 
-    move-result-object v11
+    move-result-object v7
 
-    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/widget/RelativeLinkView;->create(Landroid/widget/ListView;)V
+    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/widget/RelativeLinkView;->create(Landroid/widget/ListView;)V
 
     :cond_2
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v10
+    move-result-object v6
 
-    invoke-static {v10}, Lcom/android/settings/Utils;->isDualFolderType(Landroid/content/Context;)Z
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    invoke-static {v6}, Lcom/android/settings/Utils;->isDualFolderType(Landroid/content/Context;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v3
+    move-result v1
 
-    :goto_2
-    if-eqz v3, :cond_3
+    :goto_0
+    if-eqz v1, :cond_3
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->getListView()Landroid/widget/ListView;
 
-    move-result-object v10
+    move-result-object v6
 
-    new-instance v11, Lcom/samsung/android/settings/accessibility/AccessibilitySettings$9;
+    new-instance v7, Lcom/samsung/android/settings/accessibility/AccessibilitySettings$9;
 
-    invoke-direct {v11, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings$9;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettings;)V
+    invoke-direct {v7, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings$9;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettings;)V
 
-    invoke-virtual {v10, v11}, Landroid/widget/ListView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+    invoke-virtual {v6, v7}, Landroid/widget/ListView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
     :cond_3
     return-void
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    invoke-virtual {v1}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
-
-    :cond_4
-    iget-object v10, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mRelativeLinkView:Lcom/samsung/android/settings/widget/RelativeLinkView;
-
-    invoke-virtual {v10, v5}, Lcom/samsung/android/settings/widget/RelativeLinkView;->pushLinkData(Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;)V
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v2
-
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_2
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -2252,13 +2215,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b02a4
+    const v1, 0x7f0b0302
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b02a6
+    const v1, 0x7f0b0304
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2268,7 +2231,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettings$8;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettings;)V
 
-    const v2, 0x7f0b02a5
+    const v2, 0x7f0b0303
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2399,7 +2362,7 @@
     return v6
 
     :pswitch_data_0
-    .packed-switch 0x7f1109b5
+    .packed-switch 0x7f1109bb
         :pswitch_0
         :pswitch_4
     .end packed-switch
@@ -2475,7 +2438,7 @@
 
     move-result-object v1
 
-    const v5, 0x7f100370
+    const v5, 0x7f100376
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2577,7 +2540,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f10036f
+    const v5, 0x7f100375
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2636,12 +2599,12 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f1109b5
+    const v0, 0x7f1109bb
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->removeItem(I)V
 
     :cond_0
-    const v0, 0x7f1109b6
+    const v0, 0x7f1109bc
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->removeItem(I)V
 

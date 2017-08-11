@@ -18,16 +18,22 @@
 
 
 # instance fields
+.field cursorPosition:I
+
 .field final synthetic this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
 
 # direct methods
 .method constructor <init>(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;)V
-    .locals 0
+    .locals 1
 
     iput-object p1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->cursorPosition:I
 
     return-void
 .end method
@@ -69,6 +75,18 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-set1(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;Ljava/lang/String;)Ljava/lang/String;
 
+    iget-object v0, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-get2(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;)Landroid/widget/EditText;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/EditText;->getSelectionEnd()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->cursorPosition:I
+
     :cond_0
     return-void
 .end method
@@ -76,11 +94,11 @@
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 8
 
-    const/4 v7, -0x1
+    const/16 v7, 0x20
 
-    const/16 v6, 0x20
+    const/4 v6, 0x1
 
-    const/4 v5, 0x1
+    const/4 v5, -0x1
 
     const/4 v4, 0x0
 
@@ -138,7 +156,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v7}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v1, v5}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v1
 
@@ -149,7 +167,7 @@
 
     move-result v1
 
-    if-gt v1, v6, :cond_2
+    if-gt v1, v7, :cond_2
 
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
@@ -173,7 +191,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d011e
+    const v3, 0x7f0d011f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -186,7 +204,7 @@
 
     move-result v1
 
-    if-le v1, v6, :cond_6
+    if-le v1, v7, :cond_6
 
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
@@ -210,7 +228,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v7}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v1, v5}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v1
 
@@ -227,11 +245,11 @@
 
     move-result v1
 
-    if-gt v1, v6, :cond_8
+    if-gt v1, v7, :cond_8
 
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
-    invoke-static {v1, v5}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-set0(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;Z)Z
+    invoke-static {v1, v6}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-set0(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;Z)Z
 
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
@@ -307,7 +325,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
-    invoke-static {v1, v5}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-set0(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;Z)Z
+    invoke-static {v1, v6}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-set0(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;Z)Z
 
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
@@ -351,29 +369,22 @@
     invoke-static {v1, v4}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-set0(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;Z)Z
 
     :cond_5
+    iget v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->cursorPosition:I
+
+    if-eq v1, v5, :cond_a
+
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
     invoke-static {v1}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-get2(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;)Landroid/widget/EditText;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-get2(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;)Landroid/widget/EditText;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Landroid/text/Editable;->length()I
-
-    move-result v2
+    iget v2, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->cursorPosition:I
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setSelection(I)V
 
     :cond_6
+    :goto_3
     return-void
 
     :cond_7
@@ -383,18 +394,18 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v7}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v1, v5}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v1
 
-    invoke-virtual {v1, v5}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v6}, Landroid/widget/Button;->setEnabled(Z)V
 
     goto/16 :goto_0
 
     :cond_8
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
-    invoke-static {v1, v5}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-set0(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;Z)Z
+    invoke-static {v1, v6}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-set0(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;Z)Z
 
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
 
@@ -419,11 +430,36 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v4, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v0, v4, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_2
+
+    :cond_a
+    iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-get2(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;)Landroid/widget/EditText;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings$1;->this$0:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->-get2(Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;)Landroid/widget/EditText;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Landroid/text/Editable;->length()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setSelection(I)V
+
+    goto :goto_3
 .end method

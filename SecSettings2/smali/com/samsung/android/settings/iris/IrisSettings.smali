@@ -469,6 +469,108 @@
     goto :goto_0
 .end method
 
+.method private isIrisDisabled()Z
+    .locals 10
+
+    const/4 v5, 0x1
+
+    const/4 v9, 0x0
+
+    const/4 v7, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v6, "device_policy"
+
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/iris/IrisSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v5, "IrisSettings"
+
+    const-string/jumbo v6, "isFingerprintDisabled :  dpm is NULL"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v7
+
+    :cond_0
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v6
+
+    invoke-virtual {v0, v9, v6}, Landroid/app/admin/DevicePolicyManager;->getKeyguardDisabledFeatures(Landroid/content/ComponentName;I)I
+
+    move-result v6
+
+    and-int/lit8 v6, v6, 0x20
+
+    if-eqz v6, :cond_2
+
+    const/4 v2, 0x1
+
+    :goto_0
+    new-array v4, v5, [Ljava/lang/String;
+
+    const/4 v6, 0x2
+
+    invoke-static {v6}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v4, v7
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "content://com.sec.knox.provider/PasswordPolicy2"
+
+    const-string/jumbo v8, "isBiometricAuthenticationEnabled"
+
+    invoke-static {v6, v7, v8, v4}, Lcom/android/settings/Utils;->getEnterprisePolicyEnabled(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v9}, Landroid/app/admin/DevicePolicyManager;->getPasswordQuality(Landroid/content/ComponentName;)I
+
+    move-result v6
+
+    if-lez v6, :cond_1
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v6, "IrisSettings"
+
+    const-string/jumbo v7, "isBiometricAuthenticationEnabled(IRIS) == Utils.EDM_FALSE"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x1
+
+    :cond_1
+    if-nez v3, :cond_3
+
+    :goto_1
+    return v2
+
+    :cond_2
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    move v2, v5
+
+    goto :goto_1
+.end method
+
 .method private isIrisEnrolled()Z
     .locals 1
 
@@ -793,9 +895,9 @@
 .method private setIrisPreference()V
     .locals 10
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    const/4 v9, 0x0
+    const/4 v5, 0x0
 
     const-string/jumbo v4, "iris_manage_category"
 
@@ -819,9 +921,9 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mMyIrises:Landroid/preference/PreferenceScreen;
 
-    const-string/jumbo v5, "registered_iris"
+    const-string/jumbo v7, "registered_iris"
 
-    invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v4, v7}, Landroid/preference/PreferenceScreen;->setKey(Ljava/lang/String;)V
 
     const-string/jumbo v4, "register_irises"
 
@@ -937,13 +1039,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_a
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mIrisManageCategory:Landroid/preference/PreferenceCategory;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mRegisterIriese:Landroid/preference/PreferenceScreen;
+    iget-object v7, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mRegisterIriese:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v4, v5}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v4, v7}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
     :goto_0
     invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getActivity()Landroid/app/Activity;
@@ -954,9 +1056,9 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, "biometrics_backup_type"
+    const-string/jumbo v7, "biometrics_backup_type"
 
-    invoke-static {v4, v5, v9}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v4, v7, v5}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
@@ -964,9 +1066,9 @@
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v5
+    move-result v7
 
-    invoke-virtual {v4, v5}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
+    invoke-virtual {v4, v7}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
 
     move-result v3
 
@@ -980,20 +1082,20 @@
 
     if-nez v3, :cond_1
 
-    if-ne v0, v7, :cond_1
+    if-ne v0, v6, :cond_1
 
     :cond_0
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mIrisManageCategory:Landroid/preference/PreferenceCategory;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mChangeBackupPassword:Landroid/preference/PreferenceScreen;
+    iget-object v7, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mChangeBackupPassword:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v4, v5}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v4, v7}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
     const-string/jumbo v4, "IrisSettings"
 
-    const-string/jumbo v5, "updateAddPreference [remove Change Reset Password]"
+    const-string/jumbo v7, "updateAddPreference [remove Change Reset Password]"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mWebSignIn:Landroid/preference/SwitchPreference;
@@ -1004,9 +1106,9 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, "com.sec.android.app.sbrowser"
+    const-string/jumbo v7, "com.sec.android.app.sbrowser"
 
-    invoke-static {v4, v5}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static {v4, v7}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
 
     move-result v4
 
@@ -1020,20 +1122,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v4
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_b
 
     :cond_2
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mIrisFeatureCategory:Landroid/preference/PreferenceCategory;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mWebSignIn:Landroid/preference/SwitchPreference;
+    iget-object v7, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mWebSignIn:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v4, v5}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v4, v7}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
     :cond_3
     :goto_1
@@ -1041,23 +1143,23 @@
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v5
+    move-result v7
 
-    const/16 v6, 0x10
+    const/16 v8, 0x10
 
-    invoke-virtual {v4, v6, v5}, Lcom/android/internal/widget/LockPatternUtils;->getBiometricLockscreen(II)I
+    invoke-virtual {v4, v8, v7}, Lcom/android/internal/widget/LockPatternUtils;->getBiometricLockscreen(II)I
 
     move-result v4
 
-    if-nez v4, :cond_b
+    if-nez v4, :cond_c
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mScreenLock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v4, v9}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mUseIrisFirstLock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v4, v9}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     :goto_2
     invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getActivity()Landroid/app/Activity;
@@ -1074,21 +1176,21 @@
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v5
+    move-result v7
 
-    invoke-virtual {v4, v5}, Lcom/android/internal/widget/LockPatternUtils;->getBiometricType(I)I
+    invoke-virtual {v4, v7}, Lcom/android/internal/widget/LockPatternUtils;->getBiometricType(I)I
 
     move-result v4
 
-    if-ne v4, v7, :cond_4
+    if-ne v4, v6, :cond_4
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mScreenLock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v4, v9}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mScreenLock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v4, v9}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     :cond_4
     invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getActivity()Landroid/app/Activity;
@@ -1103,32 +1205,58 @@
 
     const-string/jumbo v4, "IrisSettings"
 
-    const-string/jumbo v5, "disabling mUseIrisFirstLock option for SD case"
+    const-string/jumbo v7, "disabling mUseIrisFirstLock option for SD case"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mUseIrisFirstLock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v4, v9}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     :cond_5
+    iget-object v7, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mScreenLock:Landroid/preference/SwitchPreference;
+
+    invoke-direct {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->isIrisDisabled()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_d
+
+    move v4, v5
+
+    :goto_3
+    invoke-virtual {v7, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mScreenLock:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v4}, Landroid/preference/SwitchPreference;->isEnabled()Z
+
+    move-result v4
+
+    if-nez v4, :cond_6
+
+    iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mUseIrisFirstLock:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    :cond_6
     invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
-    const-string/jumbo v5, "use_iris_firstlock"
+    const-string/jumbo v7, "use_iris_firstlock"
 
-    invoke-static {v4, v5, v9}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v4, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2
 
-    if-ne v2, v7, :cond_c
+    if-ne v2, v6, :cond_e
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mUseIrisFirstLock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v4, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v4, v6}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    :goto_3
+    :goto_4
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mScreenLock:Landroid/preference/SwitchPreference;
 
     invoke-virtual {v4, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
@@ -1147,19 +1275,19 @@
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_f
 
     invoke-direct {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getUseIrisSA()Z
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_f
 
     invoke-direct {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getIrisSAConfirmed()Z
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_f
 
     const/4 v4, 0x1
 
@@ -1168,46 +1296,46 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mSamsungAccount:Landroid/preference/SwitchPreference;
 
-    const/4 v5, 0x1
+    const/4 v7, 0x1
 
-    invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v4, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_4
+    :goto_5
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mSamsungPay:Landroid/preference/PreferenceScreen;
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
-    const-string/jumbo v5, "com.samsung.android.spay"
+    const-string/jumbo v7, "com.samsung.android.spay"
 
-    invoke-static {v4, v5}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static {v4, v7}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
 
     move-result v4
 
-    if-nez v4, :cond_e
+    if-nez v4, :cond_10
 
     const-string/jumbo v4, "IrisSettings"
 
-    const-string/jumbo v5, "Remove the SamsungPay"
+    const-string/jumbo v7, "Remove the SamsungPay"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v7}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mIrisFeatureCategory:Landroid/preference/PreferenceCategory;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mSamsungPay:Landroid/preference/PreferenceScreen;
+    iget-object v7, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mSamsungPay:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v4, v5}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v4, v7}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
-    :cond_6
-    :goto_5
+    :cond_7
+    :goto_6
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mSamsungPass:Landroid/preference/PreferenceScreen;
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getActivity()Landroid/app/Activity;
 
@@ -1217,41 +1345,41 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v4
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_11
 
-    :cond_7
+    :cond_8
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mIrisFeatureCategory:Landroid/preference/PreferenceCategory;
 
     iget-object v5, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mSamsungPass:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
-    :cond_8
-    :goto_6
+    :cond_9
+    :goto_7
     return-void
 
-    :cond_9
+    :cond_a
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mIrisManageCategory:Landroid/preference/PreferenceCategory;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mMyIrises:Landroid/preference/PreferenceScreen;
+    iget-object v7, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mMyIrises:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v4, v5}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v4, v7}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mIrisManageCategory:Landroid/preference/PreferenceCategory;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mIrisPreviewStyle:Landroid/preference/PreferenceScreen;
+    iget-object v7, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mIrisPreviewStyle:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v4, v5}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v4, v7}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mWebSignIn:Landroid/preference/SwitchPreference;
 
     invoke-virtual {v4, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
@@ -1260,38 +1388,43 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getIrisVerification()Z
 
-    move-result v5
-
-    invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    goto/16 :goto_1
-
-    :cond_b
-    iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mScreenLock:Landroid/preference/SwitchPreference;
+    move-result v7
 
     invoke-virtual {v4, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
+    goto/16 :goto_1
+
+    :cond_c
+    iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mScreenLock:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v4, v6}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mUseIrisFirstLock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v4, v7}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v6}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     goto/16 :goto_2
 
-    :cond_c
-    iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mUseIrisFirstLock:Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v4, v9}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    :cond_d
+    move v4, v6
 
     goto/16 :goto_3
+
+    :cond_e
+    iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mUseIrisFirstLock:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    goto/16 :goto_4
 
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_d
+    :cond_f
     const/4 v4, 0x0
 
     :try_start_1
@@ -1303,90 +1436,90 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mSamsungAccount:Landroid/preference/SwitchPreference;
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {v4, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v4, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     :catch_1
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
-    :cond_e
+    :cond_10
     :try_start_2
     invoke-direct {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->isSupportSamsungPay()Z
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_7
 
     const-string/jumbo v4, "IrisSettings"
 
-    const-string/jumbo v5, "Remove the SamsungPay"
+    const-string/jumbo v7, "Remove the SamsungPay"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v7}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mIrisFeatureCategory:Landroid/preference/PreferenceCategory;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mSamsungPay:Landroid/preference/PreferenceScreen;
+    iget-object v7, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mSamsungPay:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v4, v5}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v4, v7}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
-    goto :goto_5
+    goto/16 :goto_6
 
     :catch_2
     move-exception v1
 
     const-string/jumbo v4, "IrisSettings"
 
-    const-string/jumbo v5, "Getting information of SamsungPay make the Exception!"
+    const-string/jumbo v7, "Getting information of SamsungPay make the Exception!"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v7}, Landroid/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
-    :cond_f
+    :cond_11
     iget-object v4, p0, Lcom/samsung/android/settings/iris/IrisSettings;->mSamsungPass:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    const v6, 0x7f0b0860
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    new-array v6, v7, [Ljava/lang/Object;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getResources()Landroid/content/res/Resources;
 
     move-result-object v7
 
-    const v8, 0x7f0b0861
+    const v8, 0x7f0b08c8
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    aput-object v7, v6, v9
+    new-array v6, v6, [Ljava/lang/Object;
 
-    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, 0x7f0b08c9
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    aput-object v8, v6, v5
+
+    invoke-static {v7, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 .end method
 
 .method private setIrisSAConfirmed(I)V
@@ -1536,7 +1669,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0893
+    const v4, 0x7f0b08fd
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1586,13 +1719,13 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b08a7
+    const v2, 0x7f0b0911
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b08a8
+    const v2, 0x7f0b0912
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1602,7 +1735,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/iris/IrisSettings$11;-><init>(Lcom/samsung/android/settings/iris/IrisSettings;)V
 
-    const v3, 0x7f0b046a
+    const v3, 0x7f0b04cd
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1640,7 +1773,7 @@
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0875
+    const v3, 0x7f0b08dd
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/iris/IrisSettings;->getString(I)Ljava/lang/String;
 
@@ -1667,20 +1800,20 @@
     if-eqz v3, :cond_1
 
     :cond_0
-    const v3, 0x7f0b0876
+    const v3, 0x7f0b08de
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/iris/IrisSettings;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     :cond_1
-    const v3, 0x7f0b0874
+    const v3, 0x7f0b08dc
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b0468
+    const v3, 0x7f0b04cb
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/iris/IrisSettings;->getString(I)Ljava/lang/String;
 
@@ -1732,7 +1865,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1002ad
+    const v2, 0x7f1002b3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1750,7 +1883,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1002aa
+    const v1, 0x7f1002b0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2198,14 +2331,14 @@
     :cond_0
     const/4 v0, 0x1
 
-    const v1, 0x7f0b046e
+    const v1, 0x7f0b04d1
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     :cond_1
     const/4 v0, 0x2
 
-    const v1, 0x7f0b0893
+    const v1, 0x7f0b08fd
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2266,7 +2399,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1002ac
+    const v4, 0x7f1002b2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2344,7 +2477,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1002ab
+    const v4, 0x7f1002b1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2511,7 +2644,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f1002b2
+    const v9, 0x7f1002b8
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2562,7 +2695,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f1002b5
+    const v9, 0x7f1002bb
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2618,7 +2751,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f1002b3
+    const v9, 0x7f1002b9
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2683,7 +2816,7 @@
 
     move-result-object v5
 
-    const v9, 0x7f1002b0
+    const v9, 0x7f1002b6
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2960,7 +3093,7 @@
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0b0856
+    const v5, 0x7f0b08be
 
     move-object v6, v3
 
@@ -2974,7 +3107,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f1002ae
+    const v3, 0x7f1002b4
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3003,7 +3136,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f1002af
+    const v3, 0x7f1002b5
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3032,7 +3165,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f1002b4
+    const v3, 0x7f1002ba
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3088,7 +3221,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f1002b1
+    const v3, 0x7f1002b7
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3237,15 +3370,15 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b089c
+    const v2, 0x7f0b0906
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b089d
+    const v2, 0x7f0b0907
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b0c36
+    const v2, 0x7f0b0caa
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/iris/IrisSettings;->getString(I)Ljava/lang/String;
 

@@ -73,7 +73,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0802
+    const v4, 0x7f0b086a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -113,7 +113,7 @@
 
     aput-object v1, v4, v5
 
-    const v5, 0x7f0b0801
+    const v5, 0x7f0b0869
 
     invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -148,7 +148,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b12df
+    const v4, 0x7f0b137a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -161,7 +161,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b12e1
+    const v4, 0x7f0b137c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -174,7 +174,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b12dd
+    const v4, 0x7f0b1378
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -199,7 +199,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b12da
+    const v4, 0x7f0b1375
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -212,7 +212,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b12db
+    const v4, 0x7f0b1376
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -225,7 +225,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0282
+    const v4, 0x7f0b02e0
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -528,7 +528,7 @@
 
     const-string/jumbo v0, "FcstUseFaceLockSettings"
 
-    const v1, 0x7f0b08a3
+    const v1, 0x7f0b090d
 
     invoke-static {p0, v1, v0}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -553,7 +553,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/face/UseFaceLockSettings;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
-    const v0, 0x7f0402a9
+    const v0, 0x7f0402ad
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->setContentView(I)V
 
@@ -623,7 +623,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f110738
+    const v0, 0x7f11073b
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -641,7 +641,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f110739
+    const v0, 0x7f11073c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -651,7 +651,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/face/UseFaceLockSettings;->mLockTypeArea:Landroid/widget/RadioGroup;
 
-    const v0, 0x7f11073b
+    const v0, 0x7f11073e
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -659,7 +659,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/face/UseFaceLockSettings;->mFaceUnlockBtnArea:Landroid/view/View;
 
-    const v0, 0x7f11073d
+    const v0, 0x7f110740
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -667,7 +667,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/face/UseFaceLockSettings;->mIrisUnlockBtnArea:Landroid/view/View;
 
-    const v0, 0x7f11073c
+    const v0, 0x7f11073f
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -677,7 +677,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/face/UseFaceLockSettings;->mFaceUnlock:Landroid/widget/CheckedTextView;
 
-    const v0, 0x7f11073a
+    const v0, 0x7f11073d
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -687,7 +687,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/face/UseFaceLockSettings;->mIrisUnlock:Landroid/widget/CheckedTextView;
 
-    const v0, 0x7f110724
+    const v0, 0x7f110727
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -697,7 +697,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/face/UseFaceLockSettings;->mOneBtnContainer:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f11073e
+    const v0, 0x7f110741
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -707,7 +707,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/face/UseFaceLockSettings;->mTwoBtnContainer:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f1103e9
+    const v0, 0x7f1103eb
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -717,7 +717,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/face/UseFaceLockSettings;->mLaterBtn:Landroid/widget/Button;
 
-    const v0, 0x7f11073f
+    const v0, 0x7f110742
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -727,7 +727,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/face/UseFaceLockSettings;->mTurnOnBtn:Landroid/widget/Button;
 
-    const v0, 0x7f1103ea
+    const v0, 0x7f1103ec
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -741,7 +741,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0b0800
+    const v0, 0x7f0b0868
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->setTitle(I)V
 
@@ -798,7 +798,7 @@
     return-void
 
     :cond_2
-    const v0, 0x7f0b07ff
+    const v0, 0x7f0b0867
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->setTitle(I)V
 

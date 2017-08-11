@@ -224,6 +224,7 @@
     <color name="bluetooth_progress_circle_color1">#ff56c0e5</color>
     <color name="bluetooth_progress_circle_color2">#ff24a455</color>
     <color name="bluetooth_settings_empty_view_text_color">#ff313131</color>
+    <color name="bluetooth_help_icon_tint_color">#ff59b3e9</color>
     <color name="body_text_color">#ff505050</color>
     <color name="body_text_disabled_color">#64505050</color>
     <color name="bottom_bar_btn_mask_ripple">#29000000</color>

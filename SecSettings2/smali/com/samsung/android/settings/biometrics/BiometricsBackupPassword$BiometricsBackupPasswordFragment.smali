@@ -684,7 +684,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b075e
+    const v6, 0x7f0b07c4
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/biometrics/BiometricsBackupPassword$BiometricsBackupPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -904,9 +904,9 @@
 .method private updateUi()V
     .locals 11
 
-    const v10, 0x7f0b07bb
+    const v10, 0x7f0b0821
 
-    const v9, 0x7f0b072a
+    const v9, 0x7f0b0790
 
     const/4 v4, 0x1
 
@@ -949,7 +949,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/biometrics/BiometricsBackupPassword$BiometricsBackupPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v7, 0x7f0b131b
+    const v7, 0x7f0b13b6
 
     invoke-virtual {v6, v7}, Landroid/widget/Button;->setText(I)V
 
@@ -1021,7 +1021,7 @@
     :cond_2
     iget-object v6, p0, Lcom/samsung/android/settings/biometrics/BiometricsBackupPassword$BiometricsBackupPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v7, 0x7f0b07b2
+    const v7, 0x7f0b0818
 
     invoke-virtual {v6, v7}, Landroid/widget/Button;->setText(I)V
 
@@ -1047,7 +1047,7 @@
     :cond_4
     iget-object v5, p0, Lcom/samsung/android/settings/biometrics/BiometricsBackupPassword$BiometricsBackupPasswordFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v6, 0x7f0b095f
+    const v6, 0x7f0b09c9
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -1194,7 +1194,7 @@
 
     if-eqz v28, :cond_0
 
-    const v28, 0x7f0b07a3
+    const v28, 0x7f0b0809
 
     move-object/from16 v0, p0
 
@@ -1213,7 +1213,7 @@
 
     if-eqz v28, :cond_1
 
-    const v28, 0x7f0b07c1
+    const v28, 0x7f0b0827
 
     move-object/from16 v0, p0
 
@@ -1264,7 +1264,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b130d
+    const v29, 0x7f0b13a8
 
     move-object/from16 v0, p0
 
@@ -1317,7 +1317,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b1310
+    const v29, 0x7f0b13ab
 
     move-object/from16 v0, p0
 
@@ -1378,7 +1378,7 @@
     if-le v6, v0, :cond_5
 
     :cond_4
-    const v28, 0x7f0b1314
+    const v28, 0x7f0b13af
 
     move-object/from16 v0, p0
 
@@ -1477,7 +1477,7 @@
     if-lez v26, :cond_b
 
     :cond_a
-    const v28, 0x7f0b1312
+    const v28, 0x7f0b13ad
 
     move-object/from16 v0, p0
 
@@ -1923,7 +1923,7 @@
     :cond_12
     if-nez v19, :cond_15
 
-    const v28, 0x7f0b1315
+    const v28, 0x7f0b13b0
 
     move-object/from16 v0, p0
 
@@ -1950,7 +1950,7 @@
 
     if-nez v22, :cond_16
 
-    const v28, 0x7f0b1316
+    const v28, 0x7f0b13b1
 
     move-object/from16 v0, p0
 
@@ -2236,7 +2236,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b09b1
+    const v29, 0x7f0b0a1f
 
     move-object/from16 v0, p0
 
@@ -2287,7 +2287,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b09b0
+    const v29, 0x7f0b0a1e
 
     move-object/from16 v0, p0
 
@@ -2324,7 +2324,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b09b3
+    const v29, 0x7f0b0a21
 
     move-object/from16 v0, p0
 
@@ -2345,7 +2345,7 @@
 
     if-ne v13, v0, :cond_1d
 
-    const v28, 0x7f0b09b2
+    const v28, 0x7f0b0a20
 
     move-object/from16 v0, p0
 
@@ -2382,7 +2382,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b09b4
+    const v29, 0x7f0b0a22
 
     move-object/from16 v0, p0
 
@@ -2399,7 +2399,7 @@
     :cond_1e
     if-nez v18, :cond_19
 
-    const v28, 0x7f0b09b5
+    const v28, 0x7f0b0a23
 
     move-object/from16 v0, p0
 
@@ -3204,7 +3204,7 @@
 
     invoke-static {v7, v8}, Lcom/android/settings/Utils;->applyLandscapeFullScreen(Landroid/content/Context;Landroid/view/Window;)V
 
-    const v7, 0x7f04029d
+    const v7, 0x7f0402a1
 
     const/4 v8, 0x0
 
@@ -3279,13 +3279,13 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/biometrics/BiometricsBackupPassword$BiometricsBackupPasswordFragment;->mCancelButton:Landroid/widget/Button;
 
-    const v8, 0x7f020390
+    const v8, 0x7f0203b6
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setBackgroundResource(I)V
 
     iget-object v7, p0, Lcom/samsung/android/settings/biometrics/BiometricsBackupPassword$BiometricsBackupPasswordFragment;->mNextButton:Landroid/widget/Button;
 
-    const v8, 0x7f020390
+    const v8, 0x7f0203b6
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -3454,7 +3454,7 @@
 
     if-eqz v7, :cond_7
 
-    const v5, 0x7f0b075d
+    const v5, 0x7f0b07c3
 
     :goto_2
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/biometrics/BiometricsBackupPassword$BiometricsBackupPasswordFragment;->getText(I)Ljava/lang/CharSequence;
@@ -3531,7 +3531,7 @@
     goto/16 :goto_1
 
     :cond_7
-    const v5, 0x7f0b0729
+    const v5, 0x7f0b078f
 
     goto :goto_2
 .end method

@@ -158,7 +158,7 @@
 
     move-result-object v19
 
-    const v2, 0x7f0400ed
+    const v2, 0x7f0400ef
 
     const/4 v3, 0x0
 
@@ -184,7 +184,7 @@
 
     move-result-object v20
 
-    const v2, 0x7f11036e
+    const v2, 0x7f110370
 
     move-object/from16 v0, v17
 
@@ -243,7 +243,7 @@
 
     invoke-virtual {v9, v2}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    const v2, 0x7f11036d
+    const v2, 0x7f11036f
 
     move-object/from16 v0, v17
 
@@ -285,7 +285,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0591
+    const v3, 0x7f0a0590
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -295,7 +295,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0592
+    const v3, 0x7f0a0591
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -340,7 +340,7 @@
 
     invoke-direct {v2, v14}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b128b
+    const v3, 0x7f0b1326
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -437,7 +437,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0203d7
+    const v3, 0x7f0203fd
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

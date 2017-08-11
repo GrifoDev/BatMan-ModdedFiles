@@ -251,7 +251,7 @@
 .method private updateAssistantMenuSaving()V
     .locals 10
 
-    const v9, 0x7f0b02ad
+    const v9, 0x7f0b030b
 
     const/4 v8, 0x2
 
@@ -386,7 +386,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b01f9
+    const v5, 0x7f0b0257
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -427,7 +427,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b01fb
+    const v5, 0x7f0b0259
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -514,7 +514,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b02ae
+    const v5, 0x7f0b030c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -529,7 +529,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b02af
+    const v5, 0x7f0b030d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -544,7 +544,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b01fa
+    const v5, 0x7f0b0258
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -559,7 +559,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b01fc
+    const v5, 0x7f0b025a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -574,7 +574,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b01fd
+    const v5, 0x7f0b025b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -589,7 +589,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b02ae
+    const v5, 0x7f0b030c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -604,7 +604,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b02af
+    const v5, 0x7f0b030d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -642,7 +642,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b02ae
+    const v5, 0x7f0b030c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -657,7 +657,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b02af
+    const v5, 0x7f0b030d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -674,7 +674,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0206
+    const v5, 0x7f0b0264
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -691,7 +691,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0203
+    const v5, 0x7f0b0261
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -895,7 +895,7 @@
 
     new-array v4, v8, [Ljava/lang/CharSequence;
 
-    const v5, 0x7f0b01fb
+    const v5, 0x7f0b0259
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -903,7 +903,7 @@
 
     aput-object v5, v4, v3
 
-    const v5, 0x7f0b01fc
+    const v5, 0x7f0b025a
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -911,7 +911,7 @@
 
     aput-object v5, v4, v2
 
-    const v5, 0x7f0b01fd
+    const v5, 0x7f0b025b
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -966,7 +966,7 @@
 
     new-array v4, v7, [Ljava/lang/CharSequence;
 
-    const v5, 0x7f0b01f9
+    const v5, 0x7f0b0257
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -974,7 +974,7 @@
 
     aput-object v5, v4, v3
 
-    const v5, 0x7f0b01fa
+    const v5, 0x7f0b0258
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1025,7 +1025,7 @@
 
     new-array v4, v8, [Ljava/lang/CharSequence;
 
-    const v5, 0x7f0b02ad
+    const v5, 0x7f0b030b
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1033,7 +1033,7 @@
 
     aput-object v5, v4, v3
 
-    const v5, 0x7f0b02ae
+    const v5, 0x7f0b030c
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1041,7 +1041,7 @@
 
     aput-object v5, v4, v2
 
-    const v5, 0x7f0b02af
+    const v5, 0x7f0b030d
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1108,7 +1108,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0b01f6
+    const v4, 0x7f0b0254
 
     invoke-virtual {v1, v4}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1131,7 +1131,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0b029d
+    const v4, 0x7f0b02fb
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1238,7 +1238,7 @@
 
     new-array v4, v8, [Ljava/lang/CharSequence;
 
-    const v5, 0x7f0b02ad
+    const v5, 0x7f0b030b
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1246,7 +1246,7 @@
 
     aput-object v5, v4, v3
 
-    const v5, 0x7f0b02ae
+    const v5, 0x7f0b030c
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1254,7 +1254,7 @@
 
     aput-object v5, v4, v2
 
-    const v5, 0x7f0b02af
+    const v5, 0x7f0b030d
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1307,7 +1307,7 @@
 
     new-array v4, v4, [Ljava/lang/CharSequence;
 
-    const v5, 0x7f0b02ad
+    const v5, 0x7f0b030b
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1315,7 +1315,7 @@
 
     aput-object v5, v4, v3
 
-    const v5, 0x7f0b02ae
+    const v5, 0x7f0b030c
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1323,7 +1323,7 @@
 
     aput-object v5, v4, v2
 
-    const v5, 0x7f0b02af
+    const v5, 0x7f0b030d
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1331,7 +1331,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x7f0b0206
+    const v5, 0x7f0b0264
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -1339,7 +1339,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x7f0b0203
+    const v5, 0x7f0b0261
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->getString(I)Ljava/lang/String;
 

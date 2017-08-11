@@ -51,6 +51,8 @@
 
 .field private mHelpDialogC:Lcom/samsung/android/settings/helpdialog/TwHelpDialog;
 
+.field private mMultiWindowManager:Lcom/samsung/android/app/SemMultiWindowManager;
+
 .field private mReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mRestorePrevDialog:Lcom/samsung/android/settings/guide/WifiSettingsGuider$GuideStates;
@@ -420,98 +422,136 @@
 .end method
 
 .method private initHelpDialogContent(II)V
-    .locals 8
+    .locals 11
 
-    const/4 v7, 0x1
+    const/4 v10, 0x1
 
-    const/4 v6, 0x0
+    const/4 v8, 0x0
 
-    iget-object v5, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+    iget-object v7, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    invoke-virtual {v7}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, p2, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v7, p2, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
-    const v5, 0x7f11001c
+    const v7, 0x7f11001c
 
-    invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v5
 
-    check-cast v3, Landroid/widget/TextView;
+    check-cast v5, Landroid/widget/TextView;
 
-    if-nez v3, :cond_0
+    if-nez v5, :cond_0
 
-    const v5, 0x7f110417
+    const v7, 0x7f110419
 
-    invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v5
 
-    check-cast v3, Landroid/widget/TextView;
+    check-cast v5, Landroid/widget/TextView;
 
     :cond_0
-    if-eqz v3, :cond_1
+    if-eqz v5, :cond_1
 
-    invoke-virtual {v3, p1}, Landroid/widget/TextView;->setText(I)V
+    invoke-virtual {v5, p1}, Landroid/widget/TextView;->setText(I)V
 
     :cond_1
-    iget-object v5, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+    :try_start_0
+    iget-object v7, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mMultiWindowManager:Lcom/samsung/android/app/SemMultiWindowManager;
 
-    iget-object v6, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mHelpDialog:Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;
+    if-eqz v7, :cond_4
 
-    invoke-virtual {v6}, Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;->getWindow()Landroid/view/Window;
+    iget-object v7, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mMultiWindowManager:Lcom/samsung/android/app/SemMultiWindowManager;
 
-    move-result-object v6
+    invoke-virtual {v7}, Lcom/samsung/android/app/SemMultiWindowManager;->getMode()I
 
-    invoke-static {v5, v6}, Lcom/android/settings/Utils;->applyLandscapeFullScreen(Landroid/content/Context;Landroid/view/Window;)V
+    move-result v3
+
+    const-string/jumbo v7, "WifiSettingsGuider"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "initHelpDialogContent :: multi window mode = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v3, :cond_2
+
+    iget-object v7, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+
+    iget-object v8, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mHelpDialog:Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {v8}, Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Lcom/android/settings/Utils;->applyLandscapeFullScreen(Landroid/content/Context;Landroid/view/Window;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v7}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v7}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v5
+    move-result-object v7
 
-    iget v2, v5, Landroid/content/res/Configuration;->orientation:I
+    iget v4, v7, Landroid/content/res/Configuration;->orientation:I
 
-    if-ne v2, v7, :cond_2
+    if-ne v4, v10, :cond_2
 
-    iget-object v5, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mHelpDialog:Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;
+    iget-object v7, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mHelpDialog:Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v5}, Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v7}, Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v4
+    move-result-object v6
 
-    const/high16 v5, 0x4000000
+    const/high16 v7, 0x4000000
 
-    invoke-virtual {v4, v5}, Landroid/view/Window;->clearFlags(I)V
+    invoke-virtual {v6, v7}, Landroid/view/Window;->clearFlags(I)V
 
-    const/high16 v5, -0x80000000
+    const/high16 v7, -0x80000000
 
-    invoke-virtual {v4, v5}, Landroid/view/Window;->addFlags(I)V
+    invoke-virtual {v6, v7}, Landroid/view/Window;->addFlags(I)V
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {v4, v5}, Landroid/view/Window;->setStatusBarColor(I)V
+    invoke-virtual {v6, v7}, Landroid/view/Window;->setStatusBarColor(I)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_2
-    iget-object v5, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mHelpDialog:Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;
+    :goto_0
+    iget-object v7, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mHelpDialog:Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v5, v1}, Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;->setContentView(Landroid/view/View;)V
+    invoke-virtual {v7, v1}, Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;->setContentView(Landroid/view/View;)V
 
-    const v5, 0x7f110017
+    const v7, 0x7f110017
 
-    invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -519,28 +559,69 @@
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {v0, v7}, Landroid/widget/ImageButton;->semSetHoverPopupType(I)V
+    invoke-virtual {v0, v10}, Landroid/widget/ImageButton;->semSetHoverPopupType(I)V
 
-    new-instance v5, Lcom/samsung/android/settings/guide/WifiSettingsGuider$7;
+    new-instance v7, Lcom/samsung/android/settings/guide/WifiSettingsGuider$7;
 
-    invoke-direct {v5, p0}, Lcom/samsung/android/settings/guide/WifiSettingsGuider$7;-><init>(Lcom/samsung/android/settings/guide/WifiSettingsGuider;)V
+    invoke-direct {v7, p0}, Lcom/samsung/android/settings/guide/WifiSettingsGuider$7;-><init>(Lcom/samsung/android/settings/guide/WifiSettingsGuider;)V
 
-    invoke-virtual {v0, v5}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v7}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_3
     return-void
+
+    :cond_4
+    :try_start_1
+    const-string/jumbo v7, "WifiSettingsGuider"
+
+    const-string/jumbo v8, "initHelpDialogContent :: mMultiWindowManager is null"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v2
+
+    const-string/jumbo v7, "WifiSettingsGuider"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "IllegalArgumentException "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v2}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+
+    goto :goto_0
 .end method
 
 .method private invalidateHelpDialog(Lcom/samsung/android/settings/guide/WifiSettingsGuider$GuideStates;)V
-    .locals 6
-
-    const/4 v0, -0x1
+    .locals 8
 
     const/4 v1, -0x1
 
-    iget-object v2, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mHelpDialog:Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;
+    const/4 v2, -0x1
 
-    if-nez v2, :cond_0
+    iget-object v3, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mHelpDialog:Lcom/samsung/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    if-nez v3, :cond_0
 
     return-void
 
@@ -549,100 +630,130 @@
 
     invoke-static {}, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->-getcom-samsung-android-settings-guide-WifiSettingsGuider$GuideStatesSwitchesValues()[I
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-virtual {p1}, Lcom/samsung/android/settings/guide/WifiSettingsGuider$GuideStates;->ordinal()I
 
-    move-result v3
+    move-result v4
 
-    aget v2, v2, v3
+    aget v3, v3, v4
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v3, :pswitch_data_0
 
     :cond_1
     :goto_0
     :pswitch_0
-    invoke-direct {p0, v1, v0}, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->initHelpDialogContent(II)V
+    invoke-direct {p0, v2, v1}, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->initHelpDialogContent(II)V
 
     return-void
 
     :pswitch_1
-    const v1, 0x7f0b0dbb
+    const v2, 0x7f0b0e46
 
-    const v0, 0x7f040135
+    const v1, 0x7f040137
 
     goto :goto_0
 
     :pswitch_2
-    const v1, 0x7f0b0dbc
+    const v2, 0x7f0b0e47
 
-    const v0, 0x7f040135
+    const v1, 0x7f040137
 
     goto :goto_0
 
     :pswitch_3
-    const v1, 0x7f0b0dbd
+    const v2, 0x7f0b0e48
 
-    const v0, 0x7f040135
+    const v1, 0x7f040137
 
     goto :goto_0
 
     :pswitch_4
-    const v1, 0x7f0b0dba
+    const v2, 0x7f0b0e45
 
-    const v0, 0x7f040132
+    const v1, 0x7f040134
 
     goto :goto_0
 
     :pswitch_5
-    const v1, 0x7f0b0dbe
+    const v2, 0x7f0b0e49
 
-    const v0, 0x7f040135
+    const v1, 0x7f040137
 
     goto :goto_0
 
     :pswitch_6
-    const v1, 0x7f0b03e5
+    const v2, 0x7f0b0446
 
-    const v0, 0x7f040131
+    const v1, 0x7f040133
 
+    :try_start_0
     invoke-static {}, Lcom/samsung/android/settings/guide/GuideModeHelper;->isTablet()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
-    iget-object v2, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+    iget-object v3, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget v2, v2, Landroid/content/res/Configuration;->orientation:I
+    iget v3, v3, Landroid/content/res/Configuration;->orientation:I
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v3, v4, :cond_1
 
-    new-instance v2, Landroid/os/Handler;
+    new-instance v3, Landroid/os/Handler;
 
-    invoke-direct {v2}, Landroid/os/Handler;-><init>()V
+    invoke-direct {v3}, Landroid/os/Handler;-><init>()V
 
-    new-instance v3, Lcom/samsung/android/settings/guide/WifiSettingsGuider$6;
+    new-instance v4, Lcom/samsung/android/settings/guide/WifiSettingsGuider$6;
 
-    invoke-direct {v3, p0}, Lcom/samsung/android/settings/guide/WifiSettingsGuider$6;-><init>(Lcom/samsung/android/settings/guide/WifiSettingsGuider;)V
+    invoke-direct {v4, p0}, Lcom/samsung/android/settings/guide/WifiSettingsGuider$6;-><init>(Lcom/samsung/android/settings/guide/WifiSettingsGuider;)V
 
-    const-wide/16 v4, 0x96
+    const-wide/16 v6, 0x96
 
-    invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v3, v4, v6, v7}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    nop
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v3, "WifiSettingsGuider"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "NullPointerException "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Ljava/lang/NullPointerException;->printStackTrace()V
+
+    goto :goto_0
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -872,7 +983,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f110419
+    const v3, 0x7f11041b
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1579,6 +1690,12 @@
     iput-object v0, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     :cond_1
+    new-instance v0, Lcom/samsung/android/app/SemMultiWindowManager;
+
+    invoke-direct {v0}, Lcom/samsung/android/app/SemMultiWindowManager;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mMultiWindowManager:Lcom/samsung/android/app/SemMultiWindowManager;
+
     iput-boolean v2, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mClosed:Z
 
     iput-boolean v3, p0, Lcom/samsung/android/settings/guide/WifiSettingsGuider;->mCreate:Z
@@ -2091,7 +2208,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040139
+    const v2, 0x7f04013b
 
     invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -2144,7 +2261,7 @@
 .method public showHelpDialog(Lcom/samsung/android/settings/guide/WifiSettingsGuider$GuideStates;)V
     .locals 6
 
-    const v2, 0x7f040135
+    const v2, 0x7f040137
 
     const/4 v1, 0x0
 
@@ -2268,7 +2385,7 @@
     :pswitch_6
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b0dbb
+    const v1, 0x7f0b0e46
 
     move-object v0, p0
 
@@ -2281,7 +2398,7 @@
     :pswitch_7
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b0dbc
+    const v1, 0x7f0b0e47
 
     move-object v0, p0
 
@@ -2294,7 +2411,7 @@
     :pswitch_8
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b0dbd
+    const v1, 0x7f0b0e48
 
     move-object v0, p0
 
@@ -2307,9 +2424,9 @@
     :pswitch_9
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b0dba
+    const v1, 0x7f0b0e45
 
-    const v2, 0x7f040132
+    const v2, 0x7f040134
 
     move-object v0, p0
 
@@ -2322,7 +2439,7 @@
     :pswitch_a
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b0dbe
+    const v1, 0x7f0b0e49
 
     move-object v0, p0
 
@@ -2335,9 +2452,9 @@
     :pswitch_b
     sget-object v3, Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE_NO_MOVE:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v1, 0x7f0b03e5
+    const v1, 0x7f0b0446
 
-    const v2, 0x7f040131
+    const v2, 0x7f040133
 
     move-object v0, p0
 

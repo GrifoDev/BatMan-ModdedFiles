@@ -124,9 +124,9 @@
 .method private getDescriptionString()Ljava/lang/String;
     .locals 11
 
-    const v10, 0x7f0b0c4c
+    const v10, 0x7f0b0cc0
 
-    const v9, 0x7f0b0c48
+    const v9, 0x7f0b0cbc
 
     const/4 v7, 0x1
 
@@ -146,7 +146,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/handwritingsearch/HandwritingLanguagePreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0c4f
+    const v6, 0x7f0b0cc3
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -212,7 +212,7 @@
     :cond_1
     iget-object v5, p0, Lcom/samsung/android/settings/handwritingsearch/HandwritingLanguagePreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0c4e
+    const v6, 0x7f0b0cc2
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -265,7 +265,7 @@
 
     aput-object v4, v6, v8
 
-    const v7, 0x7f0b0c4d
+    const v7, 0x7f0b0cc1
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -280,7 +280,7 @@
 
     aput-object v4, v6, v8
 
-    const v7, 0x7f0b0c4b
+    const v7, 0x7f0b0cbf
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -327,7 +327,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0b0c4a
+    const v7, 0x7f0b0cbe
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1013,13 +1013,13 @@
 
     move-result-object v11
 
-    const v1, 0x7f0a04ed
+    const v1, 0x7f0a04eb
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a04fa
+    const v3, 0x7f0a04f8
 
     invoke-virtual {v11, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1027,7 +1027,7 @@
 
     add-int/2addr v1, v3
 
-    const v3, 0x7f0a050d
+    const v3, 0x7f0a050c
 
     invoke-virtual {v11, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1199,7 +1199,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1003a9
+    const v1, 0x7f1003af
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1263,7 +1263,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v1, 0x7f040136
+    const v1, 0x7f040138
 
     const/4 v2, 0x0
 
@@ -1271,7 +1271,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f11041d
+    const v1, 0x7f11041f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1281,7 +1281,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/handwritingsearch/HandwritingLanguagePreference;->mTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f11041e
+    const v1, 0x7f110420
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1291,7 +1291,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/handwritingsearch/HandwritingLanguagePreference;->mListView:Landroid/widget/ListView;
 
-    const v1, 0x7f110420
+    const v1, 0x7f110422
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1301,7 +1301,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/handwritingsearch/HandwritingLanguagePreference;->mMoreButton:Lcom/samsung/android/settings/widget/BottomBarButton;
 
-    const v1, 0x7f11041f
+    const v1, 0x7f110421
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1521,7 +1521,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/handwritingsearch/HandwritingLanguagePreference;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f04017d
+    const v8, 0x7f04017f
 
     invoke-direct {v6, v7, v8, v0}, Lcom/samsung/android/settings/handwritingsearch/HandwritingLanguagePreference$HandwritingLanguageListAdapter;-><init>(Landroid/content/Context;I[Lcom/samsung/android/settings/handwritingsearch/HandwritingLanguagePreference$LanguageInfo;)V
 

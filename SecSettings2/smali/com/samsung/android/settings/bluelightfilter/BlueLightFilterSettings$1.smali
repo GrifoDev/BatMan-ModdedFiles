@@ -1390,68 +1390,9 @@
 
     move-result-object v13
 
-    invoke-virtual {v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamsSize()I
+    const-string/jumbo v14, "SetStartTime"
 
-    move-result v13
-
-    const/4 v14, 0x2
-
-    if-ge v13, v14, :cond_22
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;->-get5(Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "BlueLightFilterControl"
-
-    const-string/jumbo v15, "Valid"
-
-    const-string/jumbo v16, "No"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;->-get5(Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "BlueLightFilter"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;->-get5(Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    return-void
-
-    :cond_22
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;->-get5(Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamString(I)Ljava/lang/String;
+    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v10
 
@@ -1463,9 +1404,9 @@
 
     move-result-object v13
 
-    const/4 v14, 0x1
+    const-string/jumbo v14, "SetEndTime"
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamString(I)Ljava/lang/String;
+    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -1489,7 +1430,7 @@
 
     new-instance v9, Ljava/text/SimpleDateFormat;
 
-    const-string/jumbo v13, "HH:MM"
+    const-string/jumbo v13, "HH:mm"
 
     sget-object v14, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
@@ -1499,6 +1440,14 @@
 
     const/4 v7, 0x0
 
+    if-eqz v10, :cond_22
+
+    invoke-virtual {v10}, Ljava/lang/String;->length()I
+
+    move-result v13
+
+    if-lez v13, :cond_22
+
     :try_start_1
     const-string/jumbo v13, "BlueLightFilterSettings"
 
@@ -1506,7 +1455,7 @@
 
     invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "start time calendar.getTime()"
+    const-string/jumbo v15, "start time calendar.getTime() : "
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1523,21 +1472,56 @@
     invoke-static {v13, v14}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v9, v10}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
-
-    move-result-object v11
-
-    invoke-virtual {v9, v6}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
     :try_end_1
     .catch Ljava/text/ParseException; {:try_start_1 .. :try_end_1} :catch_1
 
+    move-result-object v11
+
+    :cond_22
+    :goto_1
+    if-eqz v6, :cond_23
+
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v13
+
+    if-lez v13, :cond_23
+
+    :try_start_2
+    const-string/jumbo v13, "BlueLightFilterSettings"
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "end time calendar.getTime() : "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v9, v6}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
+    :try_end_2
+    .catch Ljava/text/ParseException; {:try_start_2 .. :try_end_2} :catch_2
+
     move-result-object v7
 
-    :goto_1
-    if-eqz v11, :cond_23
+    :cond_23
+    :goto_2
+    if-nez v11, :cond_24
 
     if-nez v7, :cond_24
 
-    :cond_23
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
@@ -1548,9 +1532,9 @@
 
     const-string/jumbo v14, "Schedule"
 
-    const-string/jumbo v15, "Valid"
+    const-string/jumbo v15, "Exist"
 
-    const-string/jumbo v16, "No"
+    const-string/jumbo v16, "no"
 
     invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1587,7 +1571,104 @@
 
     goto :goto_1
 
+    :catch_2
+    move-exception v5
+
+    invoke-virtual {v5}, Ljava/text/ParseException;->printStackTrace()V
+
+    goto :goto_2
+
     :cond_24
+    if-nez v11, :cond_25
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
+
+    invoke-static {v13}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;->-get5(Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "StartTime"
+
+    const-string/jumbo v15, "Exist"
+
+    const-string/jumbo v16, "no"
+
+    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
+
+    invoke-static {v13}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;->-get5(Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "BlueLightFilter"
+
+    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
+
+    invoke-static {v13}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;->-get5(Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v13
+
+    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_25
+    if-nez v7, :cond_26
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
+
+    invoke-static {v13}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;->-get5(Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "EndTime"
+
+    const-string/jumbo v15, "Exist"
+
+    const-string/jumbo v16, "no"
+
+    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
+
+    invoke-static {v13}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;->-get5(Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "BlueLightFilter"
+
+    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;
+
+    invoke-static {v13}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;->-get5(Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v13
+
+    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_26
     const-string/jumbo v13, "BlueLightFilterSettings"
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -1622,7 +1703,7 @@
 
     move-result-object v14
 
-    const-string/jumbo v15, ","
+    const-string/jumbo v15, " , "
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1704,7 +1785,7 @@
 
     move-result-object v14
 
-    const-string/jumbo v15, ","
+    const-string/jumbo v15, " , "
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1764,7 +1845,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_25
+    if-eqz v13, :cond_27
 
     move-object/from16 v0, p0
 
@@ -1774,11 +1855,11 @@
 
     move-result-object v13
 
-    const-string/jumbo v14, "Schedule"
+    const-string/jumbo v14, "EndTime"
 
-    const-string/jumbo v15, "Valid"
+    const-string/jumbo v15, "Exist"
 
-    const-string/jumbo v16, "Yes"
+    const-string/jumbo v16, "yes"
 
     invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1818,7 +1899,7 @@
 
     invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_25
+    :cond_27
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings$1;->this$0:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterSettings;

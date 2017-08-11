@@ -40,7 +40,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/SecDisplaySettings$12;->this$0:Lcom/samsung/android/settings/display/SecDisplaySettings;
 
-    const v1, 0x7f0b02a8
+    const v1, 0x7f0b0306
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I)Ljava/lang/String;
 

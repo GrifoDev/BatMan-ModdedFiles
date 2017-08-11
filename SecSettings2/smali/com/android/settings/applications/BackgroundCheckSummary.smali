@@ -35,7 +35,7 @@
 
     iget-object v2, p0, Lcom/android/settings/applications/BackgroundCheckSummary;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040047
+    const v3, 0x7f040048
 
     const/4 v4, 0x0
 

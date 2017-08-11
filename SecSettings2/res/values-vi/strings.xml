@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d giờ %2$d phút</string>
+    <string name="battery_history_minutes_no_seconds">%d phút</string>
     <string name="wifi_fail_to_scan">Không thể dò tìm mạng</string>
     <string name="wifi_failed_to_obtain_IP">Không nhận được địa chỉ IP.</string>
     <string name="wifi_security_none">Không dùng</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Không thể kết nối với %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Không thể kết nối với %1$s. Hãy kiểm tra cài đặt trong %2$s và thử lại.</string>
     <string name="bluetooth_pairing_rejected_error_message">Việc ghép đôi bị từ chối bởi %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Đang tải thông tin tên thiết bị…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Tên thiết bị sẽ xuất hiện khi thiết bị này được kết nối.</string>
     <string name="accessibility_wifi_off">Đã tắt Wi-Fi.</string>
     <string name="accessibility_no_wifi">Đã ngắt kết nối Wi-Fi.</string>
     <string name="accessibility_wifi_one_bar">Tín hiệu Wi-Fi một vạch.</string>
@@ -387,7 +389,8 @@ Hãy nhập mã mà bạn nhận được từ Verizon:"</string>
     <string name="support">Hỗ trợ</string>
     <string name="reset_network_settings_list_summary">Đặt lại Wi-Fi, Bluetooth và các cài đặt mạng khác về mặc định.</string>
     <string name="master_clear_list_summary">Khôi phục thiết bị về cài đặt gốc. Quá trình này sẽ xóa tất cả dữ liệu, bao gồm file và ứng dụng đã tải về.</string>
-    <string name="auto_restart_summary">Tối ưu hóa thiết bị của bạn bằng cách tự khởi động lại vào thời gian đã đặt. Mọi dữ liệu chưa lưu sẽ mất khi thiết bị khởi động lại.</string>
+    <string name="auto_restart_summary">Tối ưu điện thoại bằng cách tự động khởi động lại điện thoại mỗi tuần một lần. Mọi dữ liệu chưa lưu sẽ bị mất khi điện thoại của bạn khởi động lại.</string>
+    <string name="auto_restart_summary_tablet">Tối ưu máy tính bảng bằng cách tự động khởi động lại máy tính bảng mỗi tuần một lần. Mọi dữ liệu chưa lưu sẽ bị mất khi máy tính bảng của bạn khởi động lại.</string>
     <string name="search_settings">Tìm kiếm</string>
     <string name="related_results">%d mục liên quan</string>
     <string name="no_results_found">Không tìm thấy kết quả</string>
@@ -457,7 +460,7 @@ Hãy nhập mã mà bạn nhận được từ Verizon:"</string>
     <string name="sound_balance_right_message">Cân bằng âm thanh đạt %d phần trăm sang bên phải. Hãy dùng hai ngón tay để kéo thanh trượt.</string>
     <string name="sound_balance_set">Đặt</string>
     <string name="accessibility_assistant_menu">Menu hỗ trợ</string>
-    <string name="assistant_menu_summary">Bật các chức năng cải thiện hỗ trợ người dùng gặp khó khăn về thao tác tay.</string>
+    <string name="assistant_menu_summary">Cải thiện hỗ trợ điện thoại cho người dùng cử động khó khăn.</string>
     <string name="color_blind_title">Điều chỉnh màu sắc</string>
     <string name="no_result">Điều chỉnh màu màn hình nếu bạn cảm thấy khó đọc nội dung hiển thị.</string>
     <string name="you_are_normal">Không cần thiết phải chỉnh màu.</string>
@@ -653,6 +656,7 @@ Khi bật chức năng này, Tự động xoay màn hình sẽ tắt. Tất cả
     <string name="direct_access_actions_accessibility_title">Hỗ trợ</string>
     <string name="direct_access_actions_negative_title">Màu âm bản</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Không thể bật Truy cập trực tiếp và Giảm kích cỡ màn hình cùng lúc. Giảm kích cỡ màn hình sẽ tắt.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s và %2$s không thể được bật đồng thời. %3$s sẽ bị tắt.</string>
     <string name="direct_access_actions_color_adjustment_summary">Thiết lập Điều chỉnh màu trong Thị giác để dùng trong Truy cập trực tiếp</string>
     <string name="direct_access_actions_screen_reader_summary">Bật Đọc trang để sử dụng trong Truy cập trực tiếp.</string>
     <string name="direct_access_actions_accesscontrol_title">Kiểm soát tương tác</string>
@@ -850,7 +854,9 @@ Wi-Fi và Bluetooth cũng sẽ tắt nhưng bạn có thể bật lại trong C�
     <string name="premium_sms_values_ask">Hỏi</string>
     <string name="premium_sms_values_never">Không cho phép</string>
     <string name="premium_sms_values_allow">Luôn cho phép</string>
-    <string name="assist_and_voice_input_summary">Ứng dụng hỗ trợ thiết bị cung cấp thêm tùy chọn và thông tin về mỗi màn hình.</string>
+    <string name="assist_and_voice_input_summary">Chọn ứng dụng để sử dụng khi bạn chạm và giữ phím Trang chính.</string>
+    <string name="assist_footer_phone">Chọn ứng dụng để sử dụng khi bạn chạm và giữ phím Trang chính. Các ứng dụng hỗ trợ thiết bị có thể giúp bạn bằng cách thu thập thông tin từ màn hình đang hiển thị trên điện thoại của bạn.</string>
+    <string name="assist_footer_tablet">Chọn ứng dụng để sử dụng khi bạn chạm và giữ phím Trang chính. Ứng dụng hỗ trợ thiết bị có thể giúp bạn bằng cách thu thập thông tin từ màn hình đang hiển thị trên máy tính bảng của bạn.</string>
     <string name="default_app_title">Đặt làm mặc định</string>
     <string name="premium_sms_title">Gửi premium SMS</string>
     <string name="default_app_selection">Chọn ứng dụng mặc định</string>
@@ -939,7 +945,7 @@ Bạn có thể thay đổi điều này bằng cách đến Cài đặt Bluetoo
 
 Có thể có chút khác biệt giữa âm thanh phát ra từ 2 thiết bị được kết nối."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Tắt Đồng bộ âm lượng media?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Để sử dụng Âm thanh kép, cần tắt Đồng bộ âm lượng media.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Để điều khiển âm lượng trên từng thiết bị âm thanh riêng biệt, bạn cần tắt Đồng bộ âm lượng media.</string>
     <string name="bluetooth_avc_title">Đồng bộ â.lượng media</string>
     <string name="bluetooth_avc_description">Nếu thiết bị Bluetooth được kết nối có thể điều chỉnh âm lượng media của điện thoại, âm lượng do thiết bị Bluetooth đặt sẽ đồng bộ với điện thoại của bạn.</string>
     <string name="bluetooth_avc_volume_change_description">Việc bật chức năng này có thể làm thay đổi âm lượng không mong muốn.</string>
@@ -948,6 +954,7 @@ Có thể có chút khác biệt giữa âm thanh phát ra từ 2 thiết bị �
     <string name="bluetooth_avc_ask_popup_title">Tắt Âm thanh kép?</string>
     <string name="bluetooth_avc_ask_popup_content">Để sử dụng Đồng bộ âm lượng media, cần tắt Âm thanh kép.</string>
     <string name="bluetooth_avc_disable_description">Thiết bị Bluetooth đã kết nối không hỗ trợ Đồng bộ âm lượng media. Bạn không thể đồng bộ âm lượng điện thoại với thiết bị Bluetooth đã kết nối.</string>
+    <string name="bluetooth_avc_available_description">Thiết bị Bluetooth được kết nối hỗ trợ Đồng bộ âm lượng media và mức âm lượng được thiết lập bởi thiết bị Bluetooth sẽ đồng bộ với điện thoại của bạn.</string>
     <string name="bluetooth_enter_pin_msg">Nhập mã PIN để ghép đôi với %s (thử 0000 hoặc 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Đã đạt số ký tự tối đa.</string>
     <string name="settings_menu_done">Hoàn tất</string>
@@ -1031,11 +1038,12 @@ Ngay cả khi tắt Chụp thông minh, bạn vẫn có thể truy cập các t�
     <string name="swipe_to_call_title">Vuốt để gọi hoặc gửi tin nhắn</string>
     <string name="swipe_to_call_summary">Vuốt danh bạ hoặc số điện thoại sang phải để thực hiện cuộc gọi hoặc sang trái để gửi tin nhắn trong Điện thoại, Danh bạ hoặc Tin nhắn.</string>
     <string name="swipe_to_call_summary_dcm">Vuốt danh bạ hoặc số điện thoại sang phải để thực hiện cuộc gọi hoặc sang trái để gửi tin nhắn trên màn hình Quay số, Danh bạ hoặc Tin nhắn.</string>
-    <string name="swipe_to_call_summary_kddi">Vuốt danh bạ hoặc số điện thoại sang phải để thực hiện cuộc gọi hoặc sang trái để gửi tin nhắn trên màn hình Điện thoại hoặc Danh bạ.</string>
+    <string name="swipe_to_call_summary_kddi">Vuốt một danh bạ hoặc số điện thoại sang phải để thực hiện cuộc gọi hoặc sang trái để gửi tin nhắn trong ứng dụng Điện thoại hoặc Danh bạ.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">Dùng hai tài khoản riêng biệt cho cùng một ứng dụng.</string>
     <string name="finger_sensor_gesture_title">Thao tác cảm biến vân tay</string>
     <string name="finger_sensor_gesture_summary">Mở và đóng ứng dụng cùng các tính năng bằng cảm biến vân tay.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Mở và đóng bảng thông báo bằng cảm biến vân tay.</string>
     <string name="finger_sensor_gesture_description">Vuốt lên hoặc xuống trên cảm biến vân tay để mở hoặc đóng bảng thông báo.</string>
     <string name="open_samsung_pay_title">Mở Samsung Pay</string>
     <string name="open_samsung_pay_summary">Từ Màn hình chờ, vuốt lên từ cảm biến vân tay để mở Samsung Pay.</string>
@@ -1070,6 +1078,7 @@ Ngay cả khi tắt Chụp thông minh, bạn vẫn có thể truy cập các t�
 %s"</string>
     <string name="enable_ps_title">Bật %s</string>
     <string name="setup_wizard">Hướng dẫn cài đặt</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Bình thường</string>
     <string name="large">Lớn</string>
     <string name="small">Nhỏ</string>
@@ -1215,7 +1224,7 @@ Mức sử dụng dữ liệu được đo bởi điện thoại của bạn. Nh
     <string name="auto_update_summary">Tự động tải về cập nhật phần mềm khi kết nối với mạng Wi-Fi. Bạn sẽ vẫn có thể sử dụng thiết bị trong quá trình tải về.</string>
     <string name="auto_update_over_wifi">Tự động tải về qua Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">Tự động tải về các bản cập nhật phần mềm khi kết nối với mạng Wi-Fi. Tùy thuộc vào nhà cung cấp dịch vụ, các bản cập nhật cũng có thể được tải về bằng dữ liệu di động mà không phát sinh thêm phí. Bạn sẽ vẫn có thể sử dụng điện thoại trong quá trình tải về.</string>
-    <string name="scheduled_update">Cập nhật phần mềm đã lên lịch</string>
+    <string name="scheduled_update">Lịch trình cập nhật phần mềm</string>
     <string name="scheduled_update_summary_default">Tắt</string>
     <string name="scheduled_update_summary_set_time">Cập nhật sẽ bắt đầu lúc %s</string>
     <string name="scheduled_update_summary_set_time_everyday">Cập nhật sẽ bắt đầu lúc %s mỗi ngày</string>
@@ -1359,7 +1368,7 @@ Chạm OK để cho phép tăng độ sáng trên mức an toàn."</string>
     <string name="adjust_your_display_colour">Điều chỉnh màu sắc của màn hình để thay đổi sắc thái của màu trắng.</string>
     <string name="display_temperature_preset_cool">Lạnh</string>
     <string name="display_temperature_preset_warm">Nóng</string>
-    <string name="display_advanced_option">Tùy chọn chuyên sâu</string>
+    <string name="display_advanced_option">Tùy chọn nâng cao</string>
     <string name="color_balance_subtext_1">Bạn chỉ có thể điều chỉnh Cân bằng màu trong chế độ Tối ưu hiển thị.</string>
     <string name="color_balance_subtext_2">Những điều chỉnh của bạn sẽ không được áp dụng khi bật Bộ lọc ánh sáng xanh.</string>
     <string name="poc_balance_title">Cân bằng màu Cạnh màn hình</string>
@@ -1417,6 +1426,7 @@ Chạm OK để cho phép tăng độ sáng trên mức an toàn."</string>
     <string name="navigationbar_summary">Quản lý phím Trang chính, Trở về và Gần đây.</string>
     <string name="navigationbar_theme_switch">Áp dụng theme hiện tại</string>
     <string name="navigationbar_color_title">Màu nền</string>
+    <string name="navigationbar_color_summary">Màu nền bạn chọn có thể không được áp dụng cho tất cả ứng dụng.</string>
     <string name="navigationbar_order_title">Bố cục phím</string>
     <string name="navigationbar_order_default">Gần đây - Tr.chính - Trở về</string>
     <string name="navigationbar_order_mirrored">Trở về - Tr.chính - Gần đây</string>
@@ -1435,7 +1445,7 @@ Chạm OK để cho phép tăng độ sáng trên mức an toàn."</string>
     <string name="full_screen_apps_item_summary_may_not_work">Ứng dụng này có thể không hoạt động đúng ở chế độ toàn màn hình.</string>
     <string name="full_screen_apps_sort_by_type">Xếp theo loại</string>
     <string name="full_screen_apps_sort_by_name">Xếp theo tên</string>
-    <string name="blue_light_filter_title">Bộ lọc ánh sáng xanh</string>
+    <string name="blue_light_filter_title">Lọc ánh sáng xanh</string>
     <string name="blue_light_filter_summary_off">Giảm mỏi mắt bằng cách hạn chế lượng ánh sáng xanh phát ra từ màn hình.</string>
     <string name="blue_light_filter_summary_on">Bật</string>
     <string name="blue_light_filter_seekbar">Độ mờ</string>
@@ -1444,11 +1454,12 @@ Chạm OK để cho phép tăng độ sáng trên mức an toàn."</string>
     <string name="blue_light_filter_off_time_next_day_summary_format">%s ngày tới</string>
     <string name="blue_light_filter_user_schedule_title">Lịch biểu tùy chỉnh</string>
     <string name="blue_light_filter_auto_schedule_title">Hoàng hôn đến bình minh</string>
-    <string name="blue_light_filter_desc">Sử dụng Bộ lọc ánh sáng xanh vào ban đêm giúp bạn ngủ ngon hơn. Bạn có thể đặt lịch sử dụng Bộ lọc ánh sáng xanh. Để sử dụng Hoàng hôn đến bình minh, bạn cần bật Vị trí.</string>
+    <string name="blue_light_filter_desc">Sử dụng Lọc ánh sáng xanh vào ban đêm giúp bạn ngủ ngon hơn. Bạn có thể đặt lịch sử dụng Lọc ánh sáng xanh. Để sử dụng Hoàng hôn đến bình minh, bạn cần bật Vị trí.</string>
     <string name="blue_light_filter_enable_now">Bật ngay</string>
     <string name="blue_light_filter_enable_as_scheduled">Bật theo lịch</string>
     <string name="blue_light_filter_scheduled_toast">Đã bật Bộ lọc ánh sáng xanh. Bộ lọc này sẽ tự động tắt vào thời gian kết thúc đã đặt.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">Không thể dùng Bộ lọc ánh sáng xanh và %s cùng lúc. Bộ lọc ánh sáng xanh sẽ tắt.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Tắt Bộ lọc ánh sáng xanh?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Để sử dụng %s, cần tắt Bộ lọc ánh sáng xanh.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Để sử dụng Hoàng hôn đến bình minh, bạn cần bật Vị trí.</string>
     <string name="dlg_turn_on">Bật</string>
     <string name="screen_resolution_title">Độ phân giải màn hình</string>
@@ -1665,6 +1676,7 @@ Việc mã hóa mất một giờ hoặc hơn. Trước khi bắt đầu, hãy �
     <string name="crypt_keeper_last_warn_wipe">Bạn chỉ còn 1 lần thử để khởi động thiết bị trước khi thiết bị khôi phục cài đặt gốc. Quá trình này sẽ xóa tất cả dữ liệu, bao gồm file và ứng dụng đã tải về.</string>
     <string name="crypt_keeper_failed_title_dec">Lỗi giải mã.</string>
     <string name="crypt_keeper_failed_summary_dec">Không thể hoàn tất giải mã do bị gián đoạn. Khôi phục lại cài đặt gốc (xóa tất cả dữ liệu) trước khi sử dụng.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Đặt kiểu khóa màn hình</string>
     <string name="encryption_interstitial_message">"Bạn có thể tăng cường bảo vệ cho điện thoại này bằng cách yêu cầu nhập %s trước khi điện thoại khởi động. Điều này giúp bảo vệ dữ liệu nếu điện thoại của bạn bị mất hoặc bị đánh cắp. Một số ứng dụng có thể yêu cầu Khởi động bảo mật theo Chính sách mã hóa thiết bị để truy cập vào các tính năng như đồng bộ email.
 
 Bạn sẽ không nhận được bất kỳ cuộc gọi, tin nhắn hoặc thông báo nào và chuông báo sẽ không phát âm thanh cho đến khi điện thoại đã khởi động."</string>
@@ -1735,7 +1747,7 @@ Bạn sẽ không nhận được bất kỳ cuộc gọi, tin nhắn và thông
     <string name="fingerprint_register_success">Đã thêm vân tay</string>
     <string name="fingerprint_register_add_another_fingerprint">Thêm vân tay khác?</string>
     <string name="fingerprint_register_add">Thêm</string>
-    <string name="fingerprint_register_done">Hoàn tất</string>
+    <string name="fingerprint_register_done">H.tất</string>
     <string name="fingerprint_register_dex_guide_msg">Đăng ký vân tay của bạn trên điện thoại.</string>
     <string name="remove_mobile_keyboard">Để sử dụng %s, hãy tháo thiết bị khỏi vỏ bàn phím.</string>
     <string name="fingerprint_already_registered_title">Không thể đăng ký dấu vân tay</string>
@@ -1903,6 +1915,7 @@ Bạn cũng sẽ cần kiểu khóa này khi:"</string>
     <string name="verify_fingerprint_btn">Dùng vân tay</string>
     <string name="wifi_ap_close">Đóng</string>
     <string name="fingerscanner_add_summary">Thêm vân tay của bạn.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 vân tay đã được thêm.</string>
     <string name="fingerscanner_register_summary">%d vân tay đã được thêm.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Dùng vân tay hoặc nhập mã PIN hiện tại.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Dùng vân tay hoặc vẽ mẫu hình hiện tại.</string>
@@ -1929,6 +1942,7 @@ Bạn cũng sẽ cần kiểu khóa này khi:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Mở khóa điện thoại của bạn bằng tính năng nhận diện khuôn mặt ngay khi màn hình bật mà không cần vuốt trước.</string>
     <string name="facelock_recognition_speed_up">Nhận diện nhanh hơn</string>
     <string name="facelock_recognition_speed_up_summary">Bật để nhận diện nhanh hơn. Tắt để tăng cường bảo mật và làm cho việc mở khóa bằng hình ảnh hoặc video trở nên khó hơn.</string>
+    <string name="facelock_samsungpass_summary">Dùng tính năng nhận diện khuôn mặt để xác thực danh tính của bạn với %s và các ứng dụng được hỗ trợ khác.</string>
     <string name="face_remove_face_popup_title">Xóa dữ liệu khuôn mặt?</string>
     <string name="face_remove_face_popup_message_1">Điện thoại sẽ không thể nhận diện khuôn mặt của bạn được nữa và Kiểu khóa bằng khuôn mặt sẽ bị tắt.</string>
     <string name="face_remove_face_popup_message_2">Các tính năng sử dụng nhận diện khuôn mặt sẽ bị tắt.</string>
@@ -1941,7 +1955,7 @@ Bạn cũng sẽ cần kiểu khóa này khi:"</string>
 - Tránh để môi trường ánh sáng mờ, hoặc ống kính camera bẩn khi đăng ký
 - Đảm bảo hình ảnh của bạn không bị nhòe để cho kết quả trùng khớp tốt hơn"</string>
     <string name="facelock_setup_title">Thiết lập bảo mật nhận diện khuôn mặt</string>
-    <string name="facelock_setup_desc">Để sử dụng tính năng nhận diện khuôn mặt để mở khóa điện thoại hoặc xác thực danh tính của bạn trong các ứng dụng, bạn sẽ cần:</string>
+    <string name="facelock_setup_desc">Sử dụng tính năng nhận diện khuôn mặt để mở khóa điện thoại hoặc xác thực danh tính của bạn trong các ứng dụng, bạn sẽ cần:</string>
     <string name="facelock_setup_sub_desc2">Đăng ký khuôn mặt của bạn.</string>
     <string name="face_chooselock_help_text_1">Để dùng tính năng nhận diện khuôn mặt an toàn, bạn cần đặt mẫu hình, mã PIN hoặc mật mã.</string>
     <string name="face_chooselock_help_text_2">Hãy nhớ thông tin này. Bạn sẽ cần nó để mở khóa điện thoại sau khi khởi động lại hoặc khi điện thoại không được dùng trong hơn %d giờ.</string>
@@ -2052,7 +2066,7 @@ Trước khi yêu cầu bảo hành, bạn phải tắt Khóa kích hoạt lại
     <string name="iris_use_samsung_pass_description_internet">Internet</string>
     <string name="iris_unlock">Mở khóa bằng mống mắt</string>
     <string name="iris_unlock_summary">Mở khóa điện thoại bằng mống mắt.</string>
-    <string name="tips_for_iris">Mẹo sử dụng nhận dạng mống mắt</string>
+    <string name="tips_for_iris">Gợi ý sử dụng nhận dạng mống mắt</string>
     <string name="iris_remove_popup_1">Dữ liệu mống mắt của bạn sẽ bị xóa. Kiểu khóa màn hình sẽ được đổi thành %s.</string>
     <string name="iris_remove_popup_2">Dữ liệu mống mắt của bạn sẽ bị xóa và tất cả chức năng liên quan đến mống mắt sẽ bị tắt. Kiểu khóa màn hình sẽ được đổi thành %s.</string>
     <string name="biometrics">Sinh trắc học</string>
@@ -2070,7 +2084,7 @@ Bật Mở khóa bằng mống mắt để sử dụng dữ liệu sinh trắc h
     <string name="biometrics_backup_locktype_title">Thiết lập bảo mật bằng mống mắt</string>
     <string name="biometrics_register_your_iris">Đăng ký mống mắt của bạn.</string>
     <string name="biometrics_backup_locktype_summary">Để dùng các mống mắt của bạn mở khóa thiết bị, bạn phải đặt mẫu hình, mã PIN hoặc mật mã.</string>
-    <string name="biometrics_backup_locktype_message">Để sử dụng mống mắt mở khóa điện thoại hoặc xác thực bảo mật, bạn sẽ cần:</string>
+    <string name="biometrics_backup_locktype_message">Sử dụng mống mắt để mở khóa điện thoại hoặc xác thực danh tính của bạn trong các ứng dụng, bạn sẽ cần:</string>
     <string name="iris_delete_popup_title">Xóa dữ liệu mống mắt?</string>
     <string name="iris_delete_popup_message">Xóa dữ liệu mống mắt?</string>
     <string name="iris_delete_popup_message_with_related_func">Các tính năng sử dụng mống mắt sẽ bị tắt.</string>
@@ -2078,7 +2092,7 @@ Bật Mở khóa bằng mống mắt để sử dụng dữ liệu sinh trắc h
     <string name="iris_timeout_popop_title">Hãy thử lại sau</string>
     <string name="iris_timeout_popop_message">Không nhận dạng được mống mắt. Ống kính máy ảnh nhận dạng mống mắt có thể bị bẩn. Hãy làm sạch khu vực phía trên màn hình và thử lại.</string>
     <string name="iris_timeout_popop_message_1">Ống kính máy ảnh nhận diện mống mắt có thể bị bẩn. Hãy làm sạch khu vực trên màn hình và thử lại.</string>
-    <string name="iris_proximity_restriction_popop_message">Không nhận dạng được mống mắt. Điện thoại ở quá gần mặt hoặc cảm biến tiệm cận có thể bị bẩn. Hãy làm sạch khu vực phía trên màn hình và thử lại.</string>
+    <string name="iris_proximity_restriction_popop_message">Giữ điện thoại cách xa mặt hơn và thử lại.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Cảm biến tiệm cận có thể bị bẩn.
 Hãy lau sạch khu vực phía trên màn hình."</string>
     <string name="iris_try_again">Thử lại</string>
@@ -2086,6 +2100,8 @@ Hãy lau sạch khu vực phía trên màn hình."</string>
     <string name="iris_failed_to_verity_identify">Không thể xác thực danh tính của bạn</string>
     <string name="iris_failed_popup_description">Đã thử xác thực mống mắt của bạn %1$d lần. Hãy thử lại sau %2$d giây.</string>
     <string name="iris_no_match">Không khớp</string>
+    <string name="iris_eye_safety_msg">Không nhận dạng được mống mắt của bạn.</string>
+    <string name="iris_timeout_msg">Không phát hiện được mống mắt của bạn.</string>
     <string name="biometrics_registered">Đã đăng ký</string>
     <string name="iris_turn_on_toast_message">Đã bật Khóa bằng mống mắt thay vì Khóa bằng vân tay.</string>
     <string name="iris_wrong_backup_password">Mật mã dự phòng không đúng</string>
@@ -2277,6 +2293,8 @@ Việc xác định vị trí của bạn sẽ sử dụng mạng di động. D�
     <string name="aod_off_summary">Hiển thị phím Trang chính và đồng hồ hoặc thông tin trên màn hình chờ.</string>
     <string name="aod_feature_off_popup_title">Tắt %s?</string>
     <string name="aod_feature_off_popup_description">Để sử dụng %1$s, cần phải tắt %2$s.</string>
+    <string name="aod_features_off_popup_title">Tắt các chức năng khác?</string>
+    <string name="aod_features_off_popup_description">Để sử dụng Always On Display, cần phải tắt các chức năng sau:</string>
     <string name="aod_features_off_popup_btn_ok">Tắt</string>
     <string name="aod_disable_by_negative_colors">Không thể sử dụng khi đang bật Màu âm bản.</string>
     <string name="aod_disable_by_powersaving_mode">Không thể sử dụng khi đang bật chế độ Tiết kiệm pin.</string>
@@ -2300,6 +2318,9 @@ Việc xác định vị trí của bạn sẽ sử dụng mạng di động. D�
     <string name="unlock_effect_colour_droplet">Giọt nước màu</string>
     <string name="lock_screen_show_information_summary_wifi_only">Hiển thị thông tin của chủ sở hữu thiết bị hoặc phím tắt ứng dụng trên màn hình khóa.</string>
     <string name="lock_screen_sview_show_information_summary">Hiển thị đồng hồ kép, thông tin của chủ sở hữu thiết bị hoặc phím tắt ứng dụng trên màn hình khóa và qua cửa sổ S View.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Hiển thị đồng hồ chuyển vùng hoặc thông tin danh bạ của người sở hữu điện thoại trên Màn hình khóa và qua cửa sổ S View.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Chọn các phím tắt ứng dụng để hiển thị trên Màn hình khóa và qua cửa sổ S View.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Hiển thị thông báo trên Màn hình khóa và qua cửa sổ S View.</string>
     <string name="lock_screen_and_cover_show_information_summary">Hiển thị đồng hồ kép trên màn hình khóa và qua Vỏ Clear View.</string>
     <string name="lock_screen_secured_lock_settings_title">Cài đặt khóa bảo mật</string>
     <string name="lock_screen_secured_lock_settings_summary">Đặt chức năng khóa bảo mật của bạn như Tự động khóa và Khóa nhanh với Phím nguồn.</string>
@@ -2316,6 +2337,7 @@ Việc xác định vị trí của bạn sẽ sử dụng mạng di động. D�
     <string name="set_home_city">Múi giờ quê nhà</string>
     <string name="contact_info_settings_title">Thông tin danh bạ</string>
     <string name="show_contact_info_on_lockscreen_label">Hiển thị các thông tin như số điện thoại hoặc địa chỉ email trên Màn hình khóa.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Hiển thị những thông tin như số điện thoại hoặc địa chỉ email của bạn trên Màn hình khóa và Always On Display.</string>
     <string name="unlock_effect">Hiệu ứng mở khóa</string>
     <string name="walking_mate_title">Máy đếm bước</string>
     <string name="help_text_title">Văn bản trợ giúp</string>
@@ -2415,7 +2437,7 @@ Bạn nên xóa dữ liệu sinh trắc học, tuy nhiên bạn có thể giữ 
     <string name="toast_set_lock_pattern">Tất cả dữ liệu sẽ bị xóa và điện thoại sẽ được đặt lại nếu bạn quên mẫu hình.</string>
     <string name="toast_set_lock_password">Tất cả dữ liệu sẽ bị xóa và điện thoại sẽ được đặt lại nếu bạn quên mật mã.</string>
     <string name="toast_set_lock_pin">Tất cả dữ liệu sẽ bị xóa và điện thoại sẽ được đặt lại nếu bạn quên mã PIN.</string>
-    <string name="chooselock_warning_text">Hãy nhớ %s này. Bạn sẽ cần dùng đến sau khi khởi động lại thiết bị.</string>
+    <string name="chooselock_warning_text">Hãy nhớ %s này. Bạn sẽ cần dùng đến sau khi khởi động lại điện thoại.</string>
     <string name="lockpassword_password_exists_history">Mật mã đã dùng trước đây. Nhập mật mã mới.</string>
     <string name="lockpassword_pin_repeating_nums">PIN không được chứa các số lặp lại.</string>
     <string name="lockpassword_pin_sequential_nums">PIN không được chứa các số theo thứ tự.</string>
@@ -2533,6 +2555,9 @@ Dữ liệu di động sẽ bị tắt."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Trừ khi sử dụng Wi-Fi, bạn sẽ không thể tiếp tục sử dụng Internet, Email hoặc các ứng dụng khác cần có kết nối dữ liệu.
 
 Dữ liệu di động sẽ bị tắt."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"Nếu tắt Dữ liệu di động, thiết bị của bạn phải kết nối với mạng Wi-Fi để sử dụng các dịch vụ cần có kết nối mạng.
+
+Dữ liệu di động sẽ tắt."</string>
     <string name="mobile_data_off_dialog_text_vzw">Nếu không dùng Wi-Fi, bạn sẽ không thể sử dụng Internet, Email hoặc các ứng dụng khác cần có kết nối dữ liệu. Tắt kết nối dữ liệu di động?</string>
     <string name="mobile_data_off_dialog_text_volte">Chức năng Cuộc gọi video trên điện thoại của bạn sẽ không hoạt động khi dữ liệu di động tắt. Bạn cũng sẽ không thể sử dụng Internet, Email hoặc các ứng dụng khác cần kết nối dữ liệu trừ khi bạn dùng Wi-Fi. Tắt kết nối dữ liệu di động?</string>
     <string name="mobile_data_off_dialog_text_common">Trừ khi bạn kết nối với mạng Wi-Fi, bạn sẽ không thể sử dụng Internet, Email hoặc các ứng dụng khác yêu cầu kết nối mạng.</string>
@@ -2691,10 +2716,12 @@ Một số giao dịch NFC và dịch vụ thanh toán di động có thể cầ
     <string name="maximum_volume_title">G.hạn âm lượng tùy chỉnh</string>
     <string name="volume_limiter_descryption">Bảo vệ tai của bạn với giới hạn âm lượng tối đa cho media. Giới hạn này chỉ được áp dụng khi sử dụng tai nghe hoặc thiết bị âm thanh Bluetooth.</string>
     <string name="multi_sound_title">Âm thanh ứng dụng riêng biệt</string>
-    <string name="multi_sound_summary">Phát âm thanh từ một ứng dụng trên loa hoặc tai nghe riêng biệt với các âm thanh còn lại trên thiết bị của bạn.</string>
-    <string name="multi_sound_descryption">"Phát âm thanh media từ một ứng dụng trên loa hoặc tai nghe tách biệt với âm thanh media từ các ứng dụng khác.
+    <string name="multi_sound_summary">Phát âm thanh media từ một ứng dụng trên thiết bị âm thanh riêng biệt với thiết bị xuất âm thanh chính của điện thoại.</string>
+    <string name="multi_sound_descryption">"Phát âm thanh media từ một ứng dụng ra thiết bị âm thanh riêng biệt với thiết bị xuất âm thanh chính của điện thoại. Chọn ứng dụng và thiết bị âm thanh để bật chức năng này.
 
-Nếu bạn chọn thiết bị âm thanh Bluetooth, âm thanh sẽ được phát trên thiết bị âm thanh mặc định nếu thiết bị Bluetooth không được kết nối."</string>
+Âm thanh ứng dụng riêng biệt chỉ hoạt động khi thiết bị âm thanh bạn chọn khác với thiết bị xuất âm thanh chính của điện thoại.
+
+Bạn có thể thay đổi thiết bị xuất âm thanh chính của điện thoại trong bảng cài đặt nhanh. Nếu thiết bị xuất âm thanh không hiển thị, hãy bật nó trong Samsung Connect > Cài đặt > Bảng Samsung Connect."</string>
     <string name="set_application_title">Ứng dụng</string>
     <string name="set_application_summary">Chọn một ứng dụng để phát âm thanh của ứng dụng đó trên một thiết bị âm thanh riêng biệt.</string>
     <string name="set_application_descryption">Chọn một ứng dụng đa phương tiện bên dưới để phát âm thanh của ứng dụng đó trên một thiết bị âm thanh riêng biệt.</string>
@@ -2705,9 +2732,11 @@ Nếu bạn chọn thiết bị âm thanh Bluetooth, âm thanh sẽ được ph�
     <string name="multi_sound_popup_msg">Để bật %s, bạn cần chọn một ứng dụng và thiết bị âm thanh.</string>
     <string name="multi_sound_network_msg">Để kiểm tra các ứng dụng có sẵn, bạn cần kết nối điện thoại với mạng. Kiểm tra cài đặt mạng của bạn và thử lại.</string>
     <string name="multi_sound_wifi_msg">Để kiểm tra các ứng dụng hiện có, điện thoại cần kết nối với mạng. Việc dùng dữ liệu di động có thể phát sinh thêm phí.</string>
+    <string name="multi_sound_add_application">Thêm ứng dụng</string>
     <string name="dlg_btn_select">Chọn</string>
-    <string name="audio_device_type_descryption">Chọn thiết bị âm thanh bạn muốn sử dụng cho ứng dụng này. Thiết bị Bluetooth sẽ chỉ khả dụng khi chúng được kết nối.</string>
+    <string name="audio_device_type_descryption">Chọn thiết bị âm thanh bạn muốn sử dụng cho ứng dụng đã chọn này. Thiết bị Bluetooth sẽ chỉ khả dụng khi chúng được kết nối.</string>
     <string name="my_phone_title">Điện thoại</string>
+    <string name="my_phone_summary">Loa/tai nghe/thiết bị âm thanh USB</string>
     <string name="bluetooth_device_title">Thiết bị Bluetooth</string>
     <string name="no_connected_devices">Không có thiết bị nào được kết nối</string>
     <string name="two_hours">2 giờ</string>
@@ -2715,7 +2744,8 @@ Nếu bạn chọn thiết bị âm thanh Bluetooth, âm thanh sẽ được ph�
     <string name="stop_setup_popup_msg">Bất kỳ cài đặt nào bạn đã thay đổi sẽ không được áp dụng.</string>
     <string name="app_turned_on">%s đã bật.</string>
     <string name="force_touch_title">Rung phản hồi khi nhấn mạnh</string>
-    <string name="volume_key_control_title">Đ.khiển phím âm lượng mặc định</string>
+    <string name="volume_key_control_title">Sử dụng phím Âm lượng cho media</string>
+    <string name="volume_key_control_summary">Điều khiển âm lượng media khi bạn nhấn phím Âm lượng.</string>
     <string name="sound_mode">Chế độ âm thanh</string>
     <string name="sound_mode_vibrate">Rung</string>
     <string name="sound_mode_mute">Tắt âm</string>
@@ -2929,14 +2959,13 @@ Thử lại."</string>
     <string name="text_biometrics_title_enterprise">Khi bạn chọn %1$s, dữ liệu sinh trắc học sẽ không được hỗ trợ làm phương pháp mở khóa cho %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s không hỗ trợ phương pháp mở khóa bằng vân tay đối với %2$s.</string>
     <string name="edge_feeds_title">Nguồn cấp ở cạnh</string>
-    <string name="screensaver_settings_summary">"Lựa chọn hoạt động sẽ diễn ra khi thiết bị được cắm vào đế sạc và/hoặc đang sạc. Màn hình bảo vệ sẽ hiển thị sau khi hết thời gian sáng màn hình.
-
-Chức năng này còn được gọi là Chế độ bảo vệ màn hình."</string>
-    <string name="screensaver_settings_summary_wo_dock">Hiển thị màn hình bảo vệ sau khi màn hình tự động tắt trong lúc điện thoại đang sạc.</string>
+    <string name="screensaver_settings_summary">Hiển thị màn hình bảo vệ sau khi màn hình tự động tắt trong lúc điện thoại đang sạc.</string>
+    <string name="screensaver_settings_summary_wo_dock">Hiển thị màn hình bảo vệ sau khi màn hình tự động tắt trong lúc điện thoại đang sạc hoặc được gắn vào đế.</string>
     <string name="apn_already_exists">Đã tồn tại.</string>
     <string name="error_unavailable_apn">Không cho phép APN này trên thiết bị. Vui lòng thử một APN khác.</string>
     <string name="error_message_port_out_of_range">Số port phải trong khoảng %1$d và %2$d.</string>
     <string name="apn_restore_warning">Tất cả APN bạn đã thêm sẽ bị xóa. Các APN khác sẽ được khôi phục cài đặt mặc định.</string>
+    <string name="apn_restore_title">Khôi phục cài đặt APN?</string>
     <string name="master_clear_desc_google_account">Tài khoản Google</string>
     <string name="first_use_tether_title">Xem trợ giúp Kết nối USB internet</string>
     <string name="first_use_usb_tether_msg">Chạm OK để tìm hiểu thêm về sử dụng Kết nối USB internet.</string>
@@ -2948,7 +2977,8 @@ Chức năng này còn được gọi là Chế độ bảo vệ màn hình."</s
     <string name="sound_balance_summary">Điều chỉnh cân bằng âm thanh bên trái và bên phải cho tai nghe.</string>
     <string name="backup_samsung_account_title">Cài đặt sao lưu</string>
     <string name="restore_samsung_account_title">Khôi phục</string>
-    <string name="auto_restart_header">Quản lý thiết bị</string>
+    <string name="auto_restart_header">Quản lý điện thoại</string>
+    <string name="auto_restart_header_tablet">Quản lý máy tính bảng</string>
     <string name="auto_restart_title">Tự khởi động lại</string>
     <string name="switch_turn_on_text">Bật</string>
     <string name="switch_turn_off_text">Tắt</string>
@@ -3071,6 +3101,14 @@ Dữ liệu cá nhân của bạn và cài đặt của các ứng dụng đã t
     <string name="tether_settings_summary_usb_bt">Chia sẻ kết nối dữ liệu di động của thiết bị qua USB hoặc Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Giới thiệu về Chia sẻ kết nối internet&lt;/b>&lt;br/>&lt;br/> Chia sẻ kết nối internet cho phép sử dụng các thiết bị chạy Android làm modem để truy cập Internet trên máy tính xác tay khi di chuyển. Tính năng này tiêu tốn nhiều pin và tăng mức sử dụng dữ liệu của bạn. Dịch vụ này cần một gói cước thích hợp. Hãy đảm bảo bạn đã đăng ký gói dữ liệu phù hợp trước khi sử dụng. Hãy gọi số 1-877-872-2249 nếu bạn cần trợ giúp. Việc sử dụng dịch vụ đồng nghĩa bạn chấp nhận&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Điều khoản modem điện thoại thông minh.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Chấp nhận</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Chia sẻ kết nối internet của điện thoại qua Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Chia sẻ kết nối internet của máy tính bảng qua Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Đã sẵn sàng để chia sẻ kết nối internet của điện thoại này.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Đã sẵn sàng để chia sẻ kết nối internet của máy tính bảng này.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Chia sẻ kết nối internet của điện thoại này với 1 thiết bị.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Chia sẻ kết nối internet của máy tính bảng này với 1 thiết bị.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Chia sẻ kết nối internet của điện thoại này với %d thiết bị.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Chia sẻ kết nối internet của máy tính bảng này với %d thiết bị.</string>
     <string name="onehand_settings_title">Chế độ Một tay</string>
     <string name="onehand_settings_text_1">Vuốt chéo lên từ một trong hai góc dưới màn hình để giảm kích thước màn hình.</string>
     <string name="onehand_settings_text_2">Chạm nhanh phím Trang chính 3 lần để giảm kích thước màn hình.</string>
@@ -3398,6 +3436,8 @@ Tải về qua mạng di động có thể phát sinh thêm phí tùy vào gói 
     <string name="wifi_settings_dialog_radio_off">Tắt</string>
     <string name="wifi_or_mobile_network">Mạng Wi-Fi hoặc di động</string>
     <string name="wifi_network_only">Chỉ mạng Wi-Fi</string>
+    <string name="wifi_adps_title">Chế độ Tiết kiệm pin Wi-Fi</string>
+    <string name="wifi_adps_summary">Giảm mức sử dụng pin bằng cách phân tích lưu lượng Wi-Fi.</string>
     <string name="wifi_auto_reconnect">Tự động kết nối lại</string>
     <string name="wifi_enable_warning_chn">Bật WLAN sẽ tắt Điểm truy cập di động.</string>
     <string name="wifi_enable_warning_vzw">Bật Wi-Fi sẽ tắt Điểm truy cập Di động. Tiếp tục?</string>
@@ -3603,6 +3643,10 @@ Sau khi đổi tên hoặc mật mã của điểm truy cập di động, cần 
     <string name="wifi_wps_pin_client_mobileap">Kết nối với máy khách bằng mã PIN %1$s. Có thể mất đến %2$d phút để hoàn tất việc thiết lập.</string>
     <string name="wifi_wps_complete_mobileap">Thiết bị khác hiện đã được kết nối với thiết bị của bạn.</string>
     <string name="wifi_ap_disconnect_warn">Ngắt kết nối thiết bị</string>
+    <string name="wifi_ap_change_policy_warn_chn">Thiết bị hiện đang kết nối sẽ bị ngắt kết nối khỏi Điểm truy cập WLAN di động.</string>
+    <string name="wifi_ap_change_policy_warn_att">Thiết bị hiện đang kết nối sẽ bị ngắt kết nối với Điểm truy cập Wi-Fi di động.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Tất cả thiết bị đang kết nối sẽ bị ngắt kết nối khỏi Điểm truy cập di động.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">Thiết bị hiện đang kết nối sẽ bị ngắt kết nối với Điểm truy cập Wi-Fi di động.</string>
     <string name="wifi_ap_change_policy_warn">Tất cả thiết bị đang kết nối sẽ bị ngắt kết nối khỏi Điểm truy cập di động.</string>
     <string name="wifi_ap_warn_max_whitelist">Đã đạt đến số lượng tối đa các thiết bị được cho phép (%d).</string>
     <string name="wifiap_one_item_deleted">1 mục sẽ bị xóa.</string>
@@ -3738,6 +3782,8 @@ Sử dụng Điểm truy cập di động sẽ làm tăng mức tiêu thụ pin 
     <string name="wifi_ap_first_time_configuration">Cấu hình HotSpot lần đầu tiên</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi và Điểm truy cập di động</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Hãy nhập đúng mã PIN.</string>
+    <string name="open_mobileap_warning">Điểm truy cập di động này không bảo mật.</string>
+    <string name="hidden_mobileap_warning">WPS sẽ tắt khi người dùng đặt SSID ẩn.</string>
     <string name="wifi_ssid_max_byte_error">Đã đạt số ký tự tối đa.</string>
     <string name="tethering_attention_title">Chú ý</string>
     <string name="wfd_select_device">Chọn thiết bị</string>
@@ -3968,6 +4014,14 @@ Nhận tin nhắn SMS"</string>
     <string name="quick_tile_sync_title">Đồng bộ</string>
     <string name="permission_usage">Sử dụng quyền</string>
     <string name="draw_overlay_settings_description">Quyền này cho phép ứng dụng hiển thị nội dung lên trên cùng của các ứng dụng khác mà bạn đang sử dụng. Điều này có thể ảnh hưởng đến việc sử dụng các ứng dụng khác của bạn.</string>
+    <string name="write_settings_body_description">Cho phép ứng dụng này thay đổi cài đặt hệ thống như bật hoặc tắt Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Thao tác này sẽ đặt lại tất cả tùy chọn của bạn đối với:</string>
+    <string name="reset_app_preferences_desc2">Ứng dụng bị tắt</string>
+    <string name="reset_app_preferences_desc3">Hạn chế thông báo đối với ứng dụng</string>
+    <string name="reset_app_preferences_desc4">Ứng dụng mặc định</string>
+    <string name="reset_app_preferences_desc5">Hạn chế dữ liệu nền đối với ứng dụng</string>
+    <string name="reset_app_preferences_desc6">Hạn chế quyền</string>
+    <string name="reset_app_preferences_desc7">Bạn sẽ không mất dữ liệu ứng dụng hiện có.</string>
     <string name="knox_security_mode_title">Bảo mật Knox</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">Chính sách riêng tư</string>
@@ -3982,6 +4036,13 @@ Nhận tin nhắn SMS"</string>
     <string name="my_profile_summary">Quản lý thông tin cá nhân của bạn và chi tiết Samsung account.</string>
     <string name="my_profile_summary_jpn">Quản lý thông tin cá nhân của bạn và chi tiết Galaxy account.</string>
     <string name="arbitration_agreement">Thỏa thuận trọng tài</string>
+    <string name="activation_title">Trạng thái kích hoạt</string>
+    <string name="activation_summary">Đã kích hoạt vào %1$s. Để biết thêm thông tin, hãy truy cập %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF bật</string>
+    <string name="edit_event_start_short">B.đầu</string>
+    <string name="edit_event_end_short">K.thúc</string>
+    <string name="select_date_to_view">Chọn ngày để xem</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">OK</string>
     <string name="no">Không</string>
     <string name="create">Tạo mới</string>
@@ -5474,7 +5535,7 @@ Bất kỳ người dùng nào cũng có thể thay mặt tất cả người d�
     <string name="app_notification_block_title">Cho phép thông báo</string>
     <string name="app_notification_block_summary">Nhận thông báo từ ứng dụng này, bao gồm nội dung thông báo, âm thanh và rung.</string>
     <string name="app_notification_override_dnd_title">Đặt là ưu tiên</string>
-    <string name="app_notification_override_dnd_summary">Cho phép thông báo từ ứng dụng này phát âm thanh và bật màn hình trong khi bật Không làm phiền.</string>
+    <string name="app_notification_override_dnd_summary">Hiện các thông báo ở đầu bảng thông báo và bao gồm chúng trong danh sách được phép khi chế độ Không làm phiền được bật.</string>
     <string name="app_notification_visibility_override_title">Trên màn hình khóa</string>
     <string name="app_notifications_dialog_done">H.tất</string>
     <string name="zen_mode_choose_rule_type">Chọn loại quy luật</string>
@@ -5511,6 +5572,7 @@ Bất kỳ người dùng nào cũng có thể thay mặt tất cả người d�
     <string name="restr_pin_enter_admin_pin">Nhập mã PIN người quản trị</string>
     <string name="switch_on_text">Bật</string>
     <string name="switch_off_text">Tắt</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Hồ sơ công việc này được quản lý bởi:</string>
     <string name="managing_admin">Được quản lý bởi %s</string>
     <string name="display_auto_rotate_title">Xoay màn hình</string>
     <string name="display_auto_rotate_rotate">Xoay nội dung màn hình</string>
@@ -5547,9 +5609,9 @@ Bạn sẽ không nhận được cuộc gọi, tin nhắn và thông báo, đ�
     <string name="encrypt_talkback_dialog_require_pin">Cần mã PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Cần mẫu hình</string>
     <string name="encrypt_talkback_dialog_require_password">Cần mật mã</string>
-    <string name="encrypt_talkback_dialog_message_pin">Khi bạn nhập mã PIN sau khi bật nguồn thiết bị, các chức năng hỗ trợ như %1$s sẽ tạm thời bị tắt.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Khi bạn vẽ mẫu hình sau khi bật nguồn thiết bị, các chức năng hỗ trợ như %1$s sẽ tạm thời bị tắt.</string>
-    <string name="encrypt_talkback_dialog_message_password">Khi bạn nhập mật mã sau khi bật nguồn thiết bị, các chức năng hỗ trợ như %1$s sẽ tạm thời bị tắt.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Bạn sẽ được yêu cầu nhập mã PIN khi thiết bị bật nguồn. Chức năng Hỗ trợ sẽ không khả dụng cho đến khi thiết bị đã khởi động.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Bạn sẽ được yêu cầu vẽ mẫu hình khi thiết bị bật nguồn. Chức năng Hỗ trợ sẽ không khả dụng cho đến khi thiết bị đã khởi động.</string>
+    <string name="encrypt_talkback_dialog_message_password">Bạn sẽ được yêu cầu nhập mật mã khi thiết bị bật nguồn. Chức năng Hỗ trợ sẽ không khả dụng cho đến khi thiết bị đã khởi động.</string>
     <string name="slot_number">(khe %d)</string>
     <string name="app_launch_domain_links_title">Liên kết ứng dụng</string>
     <string name="app_launch_open_domain_urls_title">Truy cập URL được hỗ trợ</string>
@@ -5625,18 +5687,18 @@ Bạn sẽ không nhận được cuộc gọi, tin nhắn và thông báo, đ�
     <string name="usb_use_power_only">Sạc thiết bị đã kết nối</string>
     <string name="usb_use_power_only_desc">Sạc thiết bị được kết nối qua USB.</string>
     <string name="usb_use_file_transfers_vzw">Truyền file</string>
-    <string name="usb_use_file_transfers">Truyền file media</string>
+    <string name="usb_use_file_transfers">Truyền file</string>
     <string name="usb_use_photo_transfers_vzw">Truyền ảnh</string>
     <string name="usb_use_photo_transfers">Truyền ảnh</string>
     <string name="usb_use_photo_transfers_summary_vzw">Truyền ảnh chụp từ máy ảnh sang máy tính.</string>
-    <string name="usb_use_photo_transfers_summary">Chọn chế độ này nếu Truyền file media không hoạt động. Bạn chỉ có thể truyền các file ảnh.</string>
+    <string name="usb_use_photo_transfers_summary">Chọn chế độ này nếu Truyền file không hoạt động. Bạn chỉ có thể truyền các file ảnh ở chế độ này.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Kết nối thiết bị MIDI</string>
-    <string name="usb_use">Dùng USB cho</string>
-    <string name="assist_access_context_title">Đọc văn bản trên màn hình</string>
-    <string name="assist_access_context_summary">Cho phép ứng dụng hỗ trợ thiết bị đọc bất kỳ văn bản nào trên màn hình.</string>
-    <string name="assist_access_screenshot_title">Chụp/truy cập ảnh chụp màn hình</string>
-    <string name="assist_access_screenshot_summary">Cho phép ứng dụng hỗ trợ thiết bị chụp và truy cập ảnh chụp màn hình.</string>
+    <string name="usb_use">Dùng USB để</string>
+    <string name="assist_access_context_title">Phân tích văn bản trên màn hình</string>
+    <string name="assist_access_context_summary">Cho phép ứng dụng hỗ trợ thiết bị phân tích văn bản hiển thị trên màn hình để cung cấp nội dung liên quan.</string>
+    <string name="assist_access_screenshot_title">Phân tích ảnh trên màn hình</string>
+    <string name="assist_access_screenshot_summary">Cho phép ứng dụng hỗ trợ thiết bị nhận và sử dụng hình ảnh trên màn hình.</string>
     <string name="assist_footer">Các ứng dụng hỗ trợ thiết bị có thể giúp bạn bằng cách thu thập thông tin từ màn hình hiện đang hiển thị trên điện thoại của bạn. Một số ứng dụng hỗ trợ thiết bị có thể được dùng để mở các ứng dụng khác và nhập văn bản bằng giọng nói, cung cấp cho bạn sự hỗ trợ tích hợp.</string>
     <string name="average_memory_use">Mức sử dụng RAM trung bình</string>
     <string name="maximum_memory_use">Mức sử dụng RAM tối đa</string>
@@ -5665,7 +5727,7 @@ Bạn sẽ không nhận được cuộc gọi, tin nhắn và thông báo, đ�
     <string name="ignore_optimizations_on_desc">Có thể tăng mức tiêu thụ pin</string>
     <string name="ignore_optimizations_off_desc">Được đề xuất để tiết kiệm pin</string>
     <string name="app_list_preference_none">Không dùng</string>
-    <string name="allow_overlay_description">Chọn các ứng dụng để cho phép các phím, pop-up hoặc các thành phần khác của chúng xuất hiện bên trên các ứng dụng còn lại mà bạn đang sử dụng.</string>
+    <string name="allow_overlay_description">Quyền này cho phép ứng dụng hiển thị nội dung lên trên cùng của các ứng dụng khác mà bạn đang sử dụng. Điều này có thể ảnh hưởng đến việc sử dụng các ứng dụng khác của bạn.</string>
     <string name="overlay_settings">Ứng dụng có thể xuất hiện trên cùng</string>
     <string name="filter_overlay_apps">Ứng dụng với quyền</string>
     <string name="filter_write_settings_apps">Ứng dụng với quyền</string>
@@ -5712,14 +5774,14 @@ Bạn sẽ không nhận được cuộc gọi, tin nhắn và thông báo, đ�
     <string name="ethernet_data_template">%1$s dữ liệu Ethernet</string>
     <string name="cell_warning_only">Cảnh báo dữ liệu ở mức %s</string>
     <string name="cell_warning_and_limit">%1$s Cảnh báo sử dụng dữ liệu/%2$s Giới hạn sử dụng dữ liệu</string>
-    <string name="billing_cycle">Chu kỳ thanh toán</string>
+    <string name="billing_cycle">Chu kỳ tính phí và c.báo d.liệu</string>
     <string name="billing_cycle_summary">Ngày %s của mỗi tháng</string>
     <string name="billing_cycle_fragment_summary">Ngày %s của mỗi tháng</string>
     <string name="network_restrictions">Hạn chế mạng</string>
     <string name="operator_warning">Mức sử dụng dữ liệu được đo bởi thiết bị của bạn. Nhà cung cấp dịch vụ của bạn có thể tính khác.</string>
     <string name="data_used_template">%s đã được dùng</string>
     <string name="data_warning">Cảnh báo về dữ liệu</string>
-    <string name="set_data_limit">Giới hạn dữ liệu</string>
+    <string name="set_data_limit">Đặt giới hạn dữ liệu</string>
     <string name="data_limit">Giới hạn dữ liệu</string>
     <string name="data_usage_template">%1$s đã được dùng trong khoảng %2$s</string>
     <string name="data_usage_other_apps">Ứ.dụng l.quan có trong t.tin s.dụng</string>
@@ -5761,5 +5823,4 @@ Thiết bị của bạn có phần mềm chẩn đoán có thể tự động t
     <string name="enable_iris_lock_desc_3">"Vân tay hiện đang được đặt làm kiểu khóa màn hình.
 
 Để đặt kiểu khóa màn hình là Mống mắt thay vì Vân tay, hãy chạm BẬT. Sau đó bạn có thể mở khóa thiết bị bằng mống mắt hoặc %s của bạn."</string>
-    <string name="my_phone_summary">Loa/tai nghe/thiết bị âm thanh USB</string>
 </resources>

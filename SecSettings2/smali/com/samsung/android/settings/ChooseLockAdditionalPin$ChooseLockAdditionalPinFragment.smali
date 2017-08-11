@@ -1079,7 +1079,7 @@
 
     aput-object v6, v4, v5
 
-    const v6, 0x7f0b130e
+    const v6, 0x7f0b13a9
 
     invoke-virtual {p0, v6, v4}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1124,7 +1124,7 @@
     :cond_1
     iget-object v5, p0, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v6, 0x7f0b095f
+    const v6, 0x7f0b09c9
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -1185,7 +1185,7 @@
 
     aput-object v7, v6, v5
 
-    const v5, 0x7f0b130e
+    const v5, 0x7f0b13a9
 
     invoke-virtual {p0, v5, v6}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1212,7 +1212,7 @@
 
     aput-object v7, v6, v5
 
-    const v5, 0x7f0b1311
+    const v5, 0x7f0b13ac
 
     invoke-virtual {p0, v5, v6}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1249,7 +1249,7 @@
     if-le v0, v6, :cond_3
 
     :cond_2
-    const v5, 0x7f0b1314
+    const v5, 0x7f0b13af
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I)Ljava/lang/String;
 
@@ -1316,7 +1316,7 @@
     if-lez v4, :cond_9
 
     :cond_8
-    const v5, 0x7f0b1312
+    const v5, 0x7f0b13ad
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I)Ljava/lang/String;
 
@@ -1336,7 +1336,7 @@
     if-lez v4, :cond_b
 
     :cond_a
-    const v5, 0x7f0b09a9
+    const v5, 0x7f0b0a17
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I)Ljava/lang/String;
 
@@ -1363,7 +1363,7 @@
 
     if-eqz v5, :cond_e
 
-    const v5, 0x7f0b1313
+    const v5, 0x7f0b13ae
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I)Ljava/lang/String;
 
@@ -1798,7 +1798,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 11
 
-    const v9, 0x7f020390
+    const v9, 0x7f0203b6
 
     const/4 v10, 0x0
 
@@ -1806,7 +1806,7 @@
 
     const/4 v7, 0x0
 
-    const v5, 0x7f040066
+    const v5, 0x7f040067
 
     invoke-virtual {p1, v5, p2, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -2166,7 +2166,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->mLockText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b09ae
+    const v1, 0x7f0b0a1c
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -2200,7 +2200,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->mLockText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b09ad
+    const v1, 0x7f0b0a1b
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -2215,7 +2215,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->mLockText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0b58
+    const v1, 0x7f0b0bca
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -2230,7 +2230,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->mLockText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0cab
+    const v1, 0x7f0b0d1f
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -2239,7 +2239,7 @@
     :cond_3
     iget-object v0, p0, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->mLockText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b09ac
+    const v1, 0x7f0b0a1a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

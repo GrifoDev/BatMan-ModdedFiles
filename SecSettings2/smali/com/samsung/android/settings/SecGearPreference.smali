@@ -30,7 +30,7 @@
 
     iput v0, p0, Lcom/samsung/android/settings/SecGearPreference;->misVisible:I
 
-    const v0, 0x7f040239
+    const v0, 0x7f04023d
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SecGearPreference;->setWidgetLayoutResource(I)V
 
@@ -44,7 +44,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v1, 0x7f110676
+    const v1, 0x7f110679
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -70,7 +70,7 @@
 
     move-result v0
 
-    const v1, 0x7f110676
+    const v1, 0x7f110679
 
     if-ne v0, v1, :cond_0
 

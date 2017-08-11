@@ -66,23 +66,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/settings/datausage/BillingCycleSettings;)Landroid/preference/Preference;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mDataLimit:Landroid/preference/Preference;
-
-    return-object v0
-.end method
-
-.method static synthetic -get2(Lcom/android/settings/datausage/BillingCycleSettings;)Landroid/preference/Preference;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mDataWarning:Landroid/preference/Preference;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/settings/datausage/BillingCycleSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+.method static synthetic -get1(Lcom/android/settings/datausage/BillingCycleSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -90,7 +74,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/settings/datausage/BillingCycleSettings;)Landroid/preference/SwitchPreference;
+.method static synthetic -get2(Lcom/android/settings/datausage/BillingCycleSettings;)Landroid/preference/SwitchPreference;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mEnableDataLimit:Landroid/preference/SwitchPreference;
@@ -98,7 +82,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/settings/datausage/BillingCycleSettings;)Landroid/net/NetworkTemplate;
+.method static synthetic -get3(Lcom/android/settings/datausage/BillingCycleSettings;)Landroid/net/NetworkTemplate;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mNetworkTemplate:Landroid/net/NetworkTemplate;
@@ -126,18 +110,18 @@
     return-wide v0
 .end method
 
-.method static synthetic -wrap2(Lcom/android/settings/datausage/BillingCycleSettings;J)V
-    .locals 1
+.method static synthetic -wrap2(Lcom/android/settings/datausage/BillingCycleSettings;I)V
+    .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/datausage/BillingCycleSettings;->bixbySetByte(J)V
+    invoke-direct {p0, p1}, Lcom/android/settings/datausage/BillingCycleSettings;->bixbySetCycle(I)V
 
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/settings/datausage/BillingCycleSettings;I)V
-    .locals 0
+.method static synthetic -wrap3(Lcom/android/settings/datausage/BillingCycleSettings;JZ)V
+    .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/settings/datausage/BillingCycleSettings;->bixbySetCycle(I)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/datausage/BillingCycleSettings;->bixbySetDataWarning(JZ)V
 
     return-void
 .end method
@@ -232,21 +216,6 @@
     return v0
 .end method
 
-.method private bixbySetByte(J)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mBytesEditorFragment:Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mBytesEditorFragment:Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->bixbySetByte(J)V
-
-    :cond_0
-    return-void
-.end method
-
 .method private bixbySetCycle(I)V
     .locals 1
 
@@ -260,6 +229,142 @@
 
     :cond_0
     return-void
+.end method
+
+.method private bixbySetDataWarning(JZ)V
+    .locals 13
+
+    const-wide/16 v10, -0x1
+
+    iget-object v6, p0, Lcom/android/settings/datausage/BillingCycleSettings;->services:Lcom/android/settings/datausage/TemplatePreference$NetworkServices;
+
+    iget-object v0, v6, Lcom/android/settings/datausage/TemplatePreference$NetworkServices;->mPolicyEditor:Lcom/android/settingslib/NetworkPolicyEditor;
+
+    iget-object v1, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mNetworkTemplate:Landroid/net/NetworkTemplate;
+
+    const-string/jumbo v6, "BillingCycleSettings"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "set warning byte"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    long-to-float v6, p1
+
+    const/high16 v7, 0x53800000
+
+    cmpl-float v6, v6, v7
+
+    if-lez v6, :cond_0
+
+    const-wide p1, 0x10000000000L
+
+    :cond_0
+    if-eqz v1, :cond_2
+
+    if-eqz p3, :cond_3
+
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/NetworkPolicyEditor;->getPolicyWarningBytes(Landroid/net/NetworkTemplate;)J
+
+    move-result-wide v4
+
+    cmp-long v6, v4, v10
+
+    if-eqz v6, :cond_1
+
+    cmp-long v6, v4, p1
+
+    if-lez v6, :cond_1
+
+    invoke-virtual {v0, v1, p1, p2}, Lcom/android/settingslib/NetworkPolicyEditor;->setPolicyWarningBytes(Landroid/net/NetworkTemplate;J)V
+
+    :cond_1
+    const-string/jumbo v6, "BillingCycleSettings"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "setPolicyLimitBytes() limitBytes"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0, v1, p1, p2}, Lcom/android/settingslib/NetworkPolicyEditor;->setPolicyLimitBytes(Landroid/net/NetworkTemplate;J)V
+
+    :cond_2
+    :goto_0
+    invoke-direct {p0}, Lcom/android/settings/datausage/BillingCycleSettings;->updatePrefs()V
+
+    return-void
+
+    :cond_3
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/NetworkPolicyEditor;->getPolicyLimitBytes(Landroid/net/NetworkTemplate;)J
+
+    move-result-wide v2
+
+    cmp-long v6, v2, v10
+
+    if-eqz v6, :cond_4
+
+    cmp-long v6, v2, p1
+
+    if-gez v6, :cond_4
+
+    move-wide p1, v2
+
+    :cond_4
+    const-string/jumbo v6, "BillingCycleSettings"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "setPolicyWarningBytes() WarningBytes"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0, v1, p1, p2}, Lcom/android/settingslib/NetworkPolicyEditor;->setPolicyWarningBytes(Landroid/net/NetworkTemplate;J)V
+
+    goto :goto_0
 .end method
 
 .method private setPolicyLimitBytes(J)V
@@ -352,7 +457,7 @@
 
     aput-object v3, v6, v9
 
-    const v3, 0x7f0b1c64
+    const v3, 0x7f0b1d00
 
     invoke-virtual {p0, v3, v6}, Lcom/android/settings/datausage/BillingCycleSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -658,7 +763,7 @@
     :cond_4
     iget-object v2, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mEnableDataLimit:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b04ef
+    const v3, 0x7f0b0552
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setTitle(I)V
 
@@ -669,7 +774,7 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mEnableDataLimit:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b04f0
+    const v3, 0x7f0b0553
 
     invoke-virtual {p0, v3}, Lcom/android/settings/datausage/BillingCycleSettings;->getString(I)Ljava/lang/String;
 

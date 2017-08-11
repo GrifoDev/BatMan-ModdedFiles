@@ -85,7 +85,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x10900cd
+    const v3, 0x10900ce
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -146,7 +146,7 @@
 
     invoke-virtual {p1, p0}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    const v1, 0x1020468
+    const v1, 0x1020471
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -207,7 +207,7 @@
     return v2
 
     :cond_0
-    const v1, 0x1020468
+    const v1, 0x1020471
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

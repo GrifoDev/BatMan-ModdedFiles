@@ -86,7 +86,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/FontPreview$9;->this$0:Lcom/samsung/android/settings/display/FontPreview;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/display/FontPreview;->-wrap3(Lcom/samsung/android/settings/display/FontPreview;)V
+    invoke-static {v0}, Lcom/samsung/android/settings/display/FontPreview;->-wrap2(Lcom/samsung/android/settings/display/FontPreview;)V
 
     return-void
 .end method

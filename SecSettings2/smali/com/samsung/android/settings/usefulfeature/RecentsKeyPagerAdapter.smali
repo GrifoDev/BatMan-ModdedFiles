@@ -56,9 +56,9 @@
 .method private setDescriptions()V
     .locals 6
 
-    const v4, 0x7f0203e2
+    const v4, 0x7f020408
 
-    const v5, 0x7f0203e1
+    const v5, 0x7f020407
 
     new-instance v0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter$Description;
 
@@ -84,7 +84,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter$Description;->key:Ljava/lang/String;
 
-    const v2, 0x7f0b0a50
+    const v2, 0x7f0b0abe
 
     iput v2, v0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter$Description;->title:I
 
@@ -98,7 +98,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0a45
+    const v4, 0x7f0b0ab3
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -116,7 +116,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0a46
+    const v4, 0x7f0b0ab4
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -145,7 +145,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter$Description;->key:Ljava/lang/String;
 
-    const v2, 0x7f0b0a51
+    const v2, 0x7f0b0abf
 
     iput v2, v0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter$Description;->title:I
 
@@ -159,7 +159,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0a4d
+    const v4, 0x7f0b0abb
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -177,7 +177,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0a4e
+    const v4, 0x7f0b0abc
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -209,7 +209,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0a43
+    const v4, 0x7f0b0ab1
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -227,7 +227,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0a44
+    const v4, 0x7f0b0ab2
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -254,7 +254,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0a4b
+    const v4, 0x7f0b0ab9
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -272,7 +272,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0a4c
+    const v4, 0x7f0b0aba
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -399,7 +399,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f0401d0
+    const v5, 0x7f0401d2
 
     const/4 v6, 0x0
 
@@ -413,7 +413,7 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    const v4, 0x7f1105d6
+    const v4, 0x7f1105d8
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -421,7 +421,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v4, 0x7f1105d7
+    const v4, 0x7f1105d9
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -429,7 +429,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v4, 0x7f1105d5
+    const v4, 0x7f1105d7
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

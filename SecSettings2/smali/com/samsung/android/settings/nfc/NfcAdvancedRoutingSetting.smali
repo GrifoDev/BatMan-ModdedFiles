@@ -10,6 +10,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$1;,
+        Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;,
         Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$RadioAdapter;
     }
 .end annotation
@@ -29,6 +30,10 @@
 .field private mCurrentKey:Ljava/lang/String;
 
 .field private mCurrentRoute:Ljava/lang/String;
+
+.field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+.field private mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
 .field private mFilter:Landroid/content/IntentFilter;
 
@@ -96,7 +101,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)Landroid/widget/ListView;
+.method static synthetic -get4(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)Landroid/widget/ListView;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mListView:Landroid/widget/ListView;
@@ -104,7 +117,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)Landroid/nfc/NfcAdapter;
+.method static synthetic -get6(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)Landroid/nfc/NfcAdapter;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mNfcAdapter:Landroid/nfc/NfcAdapter;
@@ -151,11 +164,21 @@
 
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
     new-instance v0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$1;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$1;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)V
 
     iput-object v0, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance v0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;
+
+    invoke-direct {v0, p0}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)V
+
+    iput-object v0, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
     return-void
 .end method
@@ -296,7 +319,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f0401ad
+    const v1, 0x7f0401af
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->setContentView(I)V
 
@@ -352,7 +375,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0a9f
+    const v3, 0x7f0b0b0e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -372,7 +395,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0aa1
+    const v3, 0x7f0b0b10
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -416,7 +439,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0aa2
+    const v3, 0x7f0b0b11
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -437,7 +460,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0aa4
+    const v3, 0x7f0b0b13
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -451,7 +474,7 @@
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v1, 0x7f110592
+    const v1, 0x7f110594
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->findViewById(I)Landroid/view/View;
 
@@ -465,13 +488,13 @@
 
     move-result-object v10
 
-    const v1, 0x7f0a0505
+    const v1, 0x7f0a0504
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0a04fa
+    const v2, 0x7f0a04f8
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -479,7 +502,7 @@
 
     add-int/2addr v1, v2
 
-    const v2, 0x7f0a050d
+    const v2, 0x7f0a050c
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -532,7 +555,7 @@
 
     new-instance v1, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$RadioAdapter;
 
-    const v2, 0x7f04017d
+    const v2, 0x7f04017f
 
     invoke-direct {v1, p0, v2, v9}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$RadioAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/String;)V
 
@@ -542,7 +565,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0401ae
+    const v2, 0x7f0401b0
 
     const/4 v3, 0x0
 
@@ -622,6 +645,12 @@
     const/4 v2, 0x2
 
     invoke-virtual {v1, v2}, Landroid/widget/ListView;->setOverScrollMode(I)V
+
+    new-instance v1, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-direct {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     return-void
 
@@ -840,7 +869,7 @@
 .end method
 
 .method public onPause()V
-    .locals 1
+    .locals 2
 
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -848,11 +877,17 @@
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
+    iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "NfcDefaultNfcSettings"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
+
     return-void
 .end method
 
 .method protected onResume()V
-    .locals 3
+    .locals 4
 
     const/16 v2, 0x400
 
@@ -894,6 +929,16 @@
 
     invoke-static {v0, v1}, Lcom/android/settings/Utils;->insertFlowLog(Landroid/content/Context;I)V
 
+    iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v1, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v3, "NfcDefaultNfcSettings"
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
+
     return-void
 
     :cond_1
@@ -933,31 +978,31 @@
 
     invoke-direct {v2, p0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0b0a9c
+    const v3, 0x7f0b0b0b
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b0a9d
+    const v3, 0x7f0b0b0c
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    new-instance v3, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;
+    new-instance v3, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$3;
 
-    invoke-direct {v3, p0, p1, v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;Ljava/lang/String;I)V
+    invoke-direct {v3, p0, p1, v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$3;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;Ljava/lang/String;I)V
 
-    const v4, 0x7f0b1b68
+    const v4, 0x7f0b1c04
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    new-instance v3, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$3;
+    new-instance v3, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$4;
 
-    invoke-direct {v3, p0}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$3;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)V
+    invoke-direct {v3, p0}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$4;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)V
 
     const/high16 v4, 0x1040000
 
@@ -973,9 +1018,9 @@
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
 
-    new-instance v2, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$4;
+    new-instance v2, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$5;
 
-    invoke-direct {v2, p0}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$4;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)V
+    invoke-direct {v2, p0}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$5;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)V
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 

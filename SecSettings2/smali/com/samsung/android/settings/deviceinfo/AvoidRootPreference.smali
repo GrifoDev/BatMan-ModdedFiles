@@ -19,7 +19,7 @@
 
     iput-boolean v0, p0, Lcom/samsung/android/settings/deviceinfo/AvoidRootPreference;->showRedIcon:Z
 
-    const v0, 0x7f040046
+    const v0, 0x7f040047
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/deviceinfo/AvoidRootPreference;->setLayoutResource(I)V
 

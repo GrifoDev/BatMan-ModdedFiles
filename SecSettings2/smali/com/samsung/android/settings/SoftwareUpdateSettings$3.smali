@@ -187,7 +187,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
-    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get5(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get6(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
 
     move-result-object v6
 
@@ -199,7 +199,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
-    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get5(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get6(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
 
     move-result-object v6
 
@@ -211,7 +211,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
-    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get5(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get6(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
 
     move-result-object v6
 
@@ -355,7 +355,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
-    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get5(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get6(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
 
     move-result-object v6
 
@@ -367,7 +367,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
-    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get5(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get6(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
 
     move-result-object v6
 
@@ -379,7 +379,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
-    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get5(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get6(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
 
     move-result-object v6
 
@@ -837,7 +837,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_13
+    if-nez v6, :cond_14
 
     iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
@@ -849,7 +849,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_13
+    if-eqz v6, :cond_14
 
     iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
@@ -861,82 +861,29 @@
 
     move-result v6
 
-    if-nez v6, :cond_14
+    if-nez v6, :cond_13
 
     const-string/jumbo v6, "SoftwareUpdateSettings"
 
-    const-string/jumbo v7, "Schedule update is off. Need to turn on first"
+    const-string/jumbo v7, "Schedule update is off. Turn on automatically"
 
     invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
-    iget-object v6, v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get0(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
 
-    const-string/jumbo v7, "ScheduleSoftwareUpdate"
+    move-result-object v6
 
-    const-string/jumbo v8, "AlreadyON"
+    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
-    const-string/jumbo v9, "No"
+    invoke-virtual {v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v6, v7, v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v7
 
-    iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
-
-    iget-object v6, v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v7, "SoftwareUpdate"
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
-
-    iget-object v6, v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    sget-object v7, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_0
+    invoke-virtual {v6, v7}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
 
     :cond_13
-    const-string/jumbo v6, "SoftwareUpdateSettings"
-
-    const-string/jumbo v7, "Schedule software update menu is disabled."
-
-    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
-
-    iget-object v6, v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v7, "SoftwareUpdateSet"
-
-    const-string/jumbo v8, "Enabled"
-
-    const-string/jumbo v9, "No"
-
-    invoke-virtual {v6, v7, v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
-
-    iget-object v6, v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v7, "SoftwareUpdate"
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
-
-    iget-object v6, v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    sget-object v7, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_0
-
-    :cond_14
     iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
     iget-object v6, v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -968,6 +915,43 @@
     const-string/jumbo v8, "Valid"
 
     const-string/jumbo v9, "NO"
+
+    invoke-virtual {v6, v7, v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
+
+    iget-object v6, v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v7, "SoftwareUpdate"
+
+    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
+
+    iget-object v6, v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v7, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_14
+    const-string/jumbo v6, "SoftwareUpdateSettings"
+
+    const-string/jumbo v7, "Schedule software update menu is disabled."
+
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v6, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$3;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
+
+    iget-object v6, v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v7, "SoftwareUpdateSet"
+
+    const-string/jumbo v8, "Enabled"
+
+    const-string/jumbo v9, "No"
 
     invoke-virtual {v6, v7, v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 

@@ -633,11 +633,11 @@
 
     iget-boolean v0, p0, Lcom/android/settings/ApnEditor;->imsRequired:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_10
 
     iget-boolean v0, p0, Lcom/android/settings/ApnEditor;->dunRequired:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_10
 
     if-nez p1, :cond_0
 
@@ -710,7 +710,7 @@
 
     if-eqz v0, :cond_5
 
-    const-string/jumbo v0, "internet"
+    const-string/jumbo v0, "internet + xcap"
 
     return-object v0
 
@@ -723,20 +723,20 @@
 
     if-eqz v0, :cond_6
 
-    const-string/jumbo v0, "mms"
+    const-string/jumbo v0, "internet"
 
     return-object v0
 
     :cond_6
     const-string/jumbo v0, "6"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_7
 
-    const-string/jumbo v0, "dun"
+    const-string/jumbo v0, "mms"
 
     return-object v0
 
@@ -749,20 +749,12 @@
 
     if-eqz v0, :cond_8
 
-    const-string/jumbo v0, "ims"
+    const-string/jumbo v0, "dun"
 
     return-object v0
 
     :cond_8
-    const-string/jumbo v0, "default"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_c
-
-    const-string/jumbo v0, "mms"
+    const-string/jumbo v0, "8"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -770,20 +762,12 @@
 
     if-eqz v0, :cond_9
 
-    const-string/jumbo v0, "dun"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    const-string/jumbo v0, "internet + mms + dun"
+    const-string/jumbo v0, "ims"
 
     return-object v0
 
     :cond_9
-    const-string/jumbo v0, "mms"
+    const-string/jumbo v0, "9"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -791,11 +775,27 @@
 
     if-eqz v0, :cond_a
 
-    const-string/jumbo v0, "internet + mms"
+    const-string/jumbo v0, "xcap"
 
     return-object v0
 
     :cond_a
+    const-string/jumbo v0, "default"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    const-string/jumbo v0, "mms"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
     const-string/jumbo v0, "dun"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -804,53 +804,92 @@
 
     if-eqz v0, :cond_b
 
-    const-string/jumbo v0, "internet + dun"
+    const-string/jumbo v0, "internet + mms + dun"
 
     return-object v0
 
     :cond_b
-    const-string/jumbo v0, "internet"
+    const-string/jumbo v0, "mms"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c
+
+    const-string/jumbo v0, "internet + mms"
 
     return-object v0
 
     :cond_c
-    return-object p1
+    const-string/jumbo v0, "dun"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_d
+
+    const-string/jumbo v0, "internet + dun"
+
+    return-object v0
 
     :cond_d
-    iget-boolean v0, p0, Lcom/android/settings/ApnEditor;->imsRequired:Z
+    const-string/jumbo v0, "xcap"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
 
     if-eqz v0, :cond_e
 
-    iget-boolean v0, p0, Lcom/android/settings/ApnEditor;->dunRequired:Z
+    const-string/jumbo v0, "internet + xcap"
 
-    if-eqz v0, :cond_f
+    return-object v0
 
     :cond_e
-    iget-boolean v0, p0, Lcom/android/settings/ApnEditor;->dunRequired:Z
-
-    if-eqz v0, :cond_24
-
-    if-nez p1, :cond_18
-
-    sget-object v0, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
+    const-string/jumbo v0, "internet"
 
     return-object v0
 
     :cond_f
-    if-nez p1, :cond_10
+    return-object p1
+
+    :cond_10
+    iget-boolean v0, p0, Lcom/android/settings/ApnEditor;->imsRequired:Z
+
+    if-eqz v0, :cond_11
+
+    iget-boolean v0, p0, Lcom/android/settings/ApnEditor;->dunRequired:Z
+
+    if-eqz v0, :cond_12
+
+    :cond_11
+    iget-boolean v0, p0, Lcom/android/settings/ApnEditor;->dunRequired:Z
+
+    if-eqz v0, :cond_2a
+
+    if-nez p1, :cond_1e
 
     sget-object v0, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
 
     return-object v0
 
-    :cond_10
+    :cond_12
+    if-nez p1, :cond_13
+
+    sget-object v0, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
+
+    return-object v0
+
+    :cond_13
     const-string/jumbo v0, "1"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_14
 
     sget-object v0, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
 
@@ -858,49 +897,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_14
 
     const-string/jumbo v0, "*"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_12
-
-    :cond_11
-    const-string/jumbo v0, "internet + mms"
-
-    return-object v0
-
-    :cond_12
-    const-string/jumbo v0, "2"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_13
-
-    const-string/jumbo v0, "internet"
-
-    return-object v0
-
-    :cond_13
-    const-string/jumbo v0, "3"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_14
-
-    const-string/jumbo v0, "mms"
-
-    return-object v0
-
-    :cond_14
-    const-string/jumbo v0, "4"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -908,57 +907,65 @@
 
     if-eqz v0, :cond_15
 
-    const-string/jumbo v0, "ims"
-
-    return-object v0
-
-    :cond_15
-    const-string/jumbo v0, "default"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_17
-
-    const-string/jumbo v0, "mms"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_16
-
+    :cond_14
     const-string/jumbo v0, "internet + mms"
 
     return-object v0
 
-    :cond_16
-    const-string/jumbo v0, "internet"
-
-    return-object v0
-
-    :cond_17
-    return-object p1
-
-    :cond_18
-    const-string/jumbo v0, "1"
+    :cond_15
+    const-string/jumbo v0, "2"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-eqz v0, :cond_16
 
-    sget-object v0, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
+    const-string/jumbo v0, "internet + xcap"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    return-object v0
+
+    :cond_16
+    const-string/jumbo v0, "3"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-eqz v0, :cond_17
 
-    const-string/jumbo v0, "*"
+    const-string/jumbo v0, "internet"
+
+    return-object v0
+
+    :cond_17
+    const-string/jumbo v0, "4"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_18
+
+    const-string/jumbo v0, "mms"
+
+    return-object v0
+
+    :cond_18
+    const-string/jumbo v0, "5"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_19
+
+    const-string/jumbo v0, "ims"
+
+    return-object v0
+
+    :cond_19
+    const-string/jumbo v0, "6"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -966,15 +973,22 @@
 
     if-eqz v0, :cond_1a
 
-    :cond_19
-    const-string/jumbo v0, "internet + mms + dun"
+    const-string/jumbo v0, "xcap"
 
     return-object v0
 
     :cond_1a
-    const-string/jumbo v0, "2"
+    const-string/jumbo v0, "default"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1d
+
+    const-string/jumbo v0, "mms"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
@@ -985,90 +999,60 @@
     return-object v0
 
     :cond_1b
-    const-string/jumbo v0, "3"
+    const-string/jumbo v0, "xcap"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1c
 
-    const-string/jumbo v0, "internet + dun"
+    const-string/jumbo v0, "internet + xcap"
 
     return-object v0
 
     :cond_1c
-    const-string/jumbo v0, "4"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1d
-
     const-string/jumbo v0, "internet"
 
     return-object v0
 
     :cond_1d
-    const-string/jumbo v0, "5"
+    return-object p1
+
+    :cond_1e
+    const-string/jumbo v0, "1"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-nez v0, :cond_1f
 
-    const-string/jumbo v0, "mms"
+    sget-object v0, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
 
-    return-object v0
-
-    :cond_1e
-    const-string/jumbo v0, "6"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-nez v0, :cond_1f
 
-    const-string/jumbo v0, "dun"
+    const-string/jumbo v0, "*"
 
-    return-object v0
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_20
 
     :cond_1f
-    const-string/jumbo v0, "default"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_23
-
-    const-string/jumbo v0, "mms"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_20
-
-    const-string/jumbo v0, "dun"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_20
-
     const-string/jumbo v0, "internet + mms + dun"
 
     return-object v0
 
     :cond_20
-    const-string/jumbo v0, "mms"
+    const-string/jumbo v0, "2"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -1079,9 +1063,9 @@
     return-object v0
 
     :cond_21
-    const-string/jumbo v0, "dun"
+    const-string/jumbo v0, "3"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -1092,67 +1076,48 @@
     return-object v0
 
     :cond_22
+    const-string/jumbo v0, "4"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_23
+
     const-string/jumbo v0, "internet"
 
     return-object v0
 
     :cond_23
-    return-object p1
+    const-string/jumbo v0, "5"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_24
+
+    const-string/jumbo v0, "mms"
+
+    return-object v0
 
     :cond_24
-    if-nez p1, :cond_25
+    const-string/jumbo v0, "6"
 
-    sget-object v0, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_25
+
+    const-string/jumbo v0, "dun"
 
     return-object v0
 
     :cond_25
-    const-string/jumbo v0, "1"
+    const-string/jumbo v0, "default"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_26
-
-    sget-object v0, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_26
-
-    const-string/jumbo v0, "*"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_27
-
-    :cond_26
-    const-string/jumbo v0, "internet + mms + supl"
-
-    return-object v0
-
-    :cond_27
-    const-string/jumbo v0, "2"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_28
-
-    const-string/jumbo v0, "internet"
-
-    return-object v0
-
-    :cond_28
-    const-string/jumbo v0, "3"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
@@ -1160,29 +1125,142 @@
 
     const-string/jumbo v0, "mms"
 
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_26
+
+    const-string/jumbo v0, "dun"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_26
+
+    const-string/jumbo v0, "internet + mms + dun"
+
+    return-object v0
+
+    :cond_26
+    const-string/jumbo v0, "mms"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_27
+
+    const-string/jumbo v0, "internet + mms"
+
+    return-object v0
+
+    :cond_27
+    const-string/jumbo v0, "dun"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_28
+
+    const-string/jumbo v0, "internet + dun"
+
+    return-object v0
+
+    :cond_28
+    const-string/jumbo v0, "internet"
+
     return-object v0
 
     :cond_29
+    return-object p1
+
+    :cond_2a
+    if-nez p1, :cond_2b
+
+    sget-object v0, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
+
+    return-object v0
+
+    :cond_2b
+    const-string/jumbo v0, "1"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2c
+
+    sget-object v0, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2c
+
+    const-string/jumbo v0, "*"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2d
+
+    :cond_2c
+    const-string/jumbo v0, "internet + mms + supl"
+
+    return-object v0
+
+    :cond_2d
+    const-string/jumbo v0, "2"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2e
+
+    const-string/jumbo v0, "internet"
+
+    return-object v0
+
+    :cond_2e
+    const-string/jumbo v0, "3"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2f
+
+    const-string/jumbo v0, "mms"
+
+    return-object v0
+
+    :cond_2f
     const-string/jumbo v0, "4"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_30
 
     const-string/jumbo v0, "supl"
 
     return-object v0
 
-    :cond_2a
+    :cond_30
     const-string/jumbo v0, "default"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_32
 
     const-string/jumbo v0, "mms"
 
@@ -1190,18 +1268,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_31
 
     const-string/jumbo v0, "internet + mms"
 
     return-object v0
 
-    :cond_2b
+    :cond_31
     const-string/jumbo v0, "internet"
 
     return-object v0
 
-    :cond_2c
+    :cond_32
     return-object p1
 .end method
 
@@ -2394,7 +2472,7 @@
 
     move/from16 v0, v29
 
-    if-eq v5, v0, :cond_31
+    if-eq v5, v0, :cond_32
 
     move-object/from16 v0, p0
 
@@ -2476,7 +2554,7 @@
 
     move/from16 v1, v31
 
-    if-ne v0, v1, :cond_35
+    if-ne v0, v1, :cond_36
 
     const/16 v29, 0x1
 
@@ -2521,7 +2599,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_36
+    if-nez v8, :cond_37
 
     move-object/from16 v0, p0
 
@@ -2651,7 +2729,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_38
+    if-eqz v29, :cond_39
 
     :cond_c
     move-object/from16 v0, p0
@@ -3252,7 +3330,7 @@
 
     move/from16 v29, v0
 
-    if-nez v29, :cond_39
+    if-nez v29, :cond_3a
 
     move-object/from16 v0, p0
 
@@ -3291,7 +3369,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_3a
+    if-eqz v6, :cond_3b
 
     invoke-static {v6}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -3522,7 +3600,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_3d
+    if-nez v29, :cond_3e
 
     const-string/jumbo v29, "true"
 
@@ -3534,7 +3612,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_3b
+    if-eqz v29, :cond_3c
 
     move-object/from16 v0, p0
 
@@ -3561,7 +3639,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_3f
+    if-nez v29, :cond_40
 
     const-string/jumbo v29, "true"
 
@@ -3573,7 +3651,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_3e
+    if-eqz v29, :cond_3f
 
     move-object/from16 v0, p0
 
@@ -3639,7 +3717,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_40
+    if-eqz v29, :cond_41
 
     :cond_15
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/ApnEditor;->disableEditItems()V
@@ -3765,13 +3843,13 @@
 
     move-result v29
 
-    if-eqz v29, :cond_48
+    if-eqz v29, :cond_49
 
     const/16 v29, 0x3e8
 
     move/from16 v0, v29
 
-    if-ne v0, v15, :cond_48
+    if-ne v0, v15, :cond_49
 
     const/16 v29, 0x0
 
@@ -3863,7 +3941,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_4d
+    if-eqz v29, :cond_4e
 
     :cond_1d
     move-object/from16 v0, p0
@@ -3872,7 +3950,7 @@
 
     move/from16 v29, v0
 
-    if-eqz v29, :cond_4c
+    if-eqz v29, :cond_4d
 
     sget-object v29, Lcom/android/settings/ApnEditor;->TAG:Ljava/lang/String;
 
@@ -3900,7 +3978,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_5a
+    if-eqz v29, :cond_5c
 
     sget-object v29, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
 
@@ -3982,7 +4060,7 @@
 
     move/from16 v1, v30
 
-    if-ne v0, v1, :cond_5d
+    if-ne v0, v1, :cond_5f
 
     const/4 v3, 0x1
 
@@ -4005,7 +4083,7 @@
 
     move/from16 v1, v30
 
-    if-ne v0, v1, :cond_5e
+    if-ne v0, v1, :cond_60
 
     const/16 v18, 0x1
 
@@ -4018,7 +4096,7 @@
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/ApnEditor;->disableEditItems()V
 
     :cond_21
-    if-eqz v12, :cond_5f
+    if-eqz v12, :cond_61
 
     move-object/from16 v0, p0
 
@@ -4037,7 +4115,7 @@
 
     move/from16 v29, v0
 
-    if-nez v29, :cond_60
+    if-nez v29, :cond_62
 
     const-string/jumbo v29, "CSC"
 
@@ -4301,7 +4379,7 @@
     goto/16 :goto_2
 
     :cond_2c
-    if-eqz v4, :cond_30
+    if-eqz v4, :cond_31
 
     const-string/jumbo v29, "*"
 
@@ -4334,7 +4412,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_2f
+    if-eqz v29, :cond_30
 
     const-string/jumbo v29, "mms"
 
@@ -4359,13 +4437,23 @@
     goto/16 :goto_2
 
     :cond_2e
+    const-string/jumbo v29, "xcap"
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v4, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v29
+
+    if-eqz v29, :cond_2f
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mApnType_list:Landroid/preference/ListPreference;
 
     move-object/from16 v29, v0
 
-    const-string/jumbo v30, "default,supl"
+    const-string/jumbo v30, "default,supl,xcap"
 
     invoke-virtual/range {v29 .. v30}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
@@ -4378,17 +4466,7 @@
 
     move-object/from16 v29, v0
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/ApnEditor;->mCursor:Landroid/database/Cursor;
-
-    move-object/from16 v30, v0
-
-    const/16 v31, 0xf
-
-    invoke-interface/range {v30 .. v31}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v30
+    const-string/jumbo v30, "default,supl"
 
     invoke-virtual/range {v29 .. v30}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
@@ -4420,25 +4498,48 @@
     :cond_31
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/android/settings/ApnEditor;->mApnType_list:Landroid/preference/ListPreference;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/settings/ApnEditor;->mCursor:Landroid/database/Cursor;
+
+    move-object/from16 v30, v0
+
+    const/16 v31, 0xf
+
+    invoke-interface/range {v30 .. v31}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v30
+
+    invoke-virtual/range {v29 .. v30}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
+
+    goto/16 :goto_2
+
+    :cond_32
+    move-object/from16 v0, p0
+
     iget-boolean v0, v0, Lcom/android/settings/ApnEditor;->mNewApn:Z
 
     move/from16 v29, v0
 
-    if-eqz v29, :cond_34
+    if-eqz v29, :cond_35
 
     invoke-static {}, Lcom/android/settings/Utils;->isChinaCTCModel()Z
 
     move-result v29
 
-    if-nez v29, :cond_32
+    if-nez v29, :cond_33
 
     invoke-static {}, Lcom/android/settings/Utils;->isChinaOpen()Z
 
     move-result v29
 
-    if-eqz v29, :cond_34
+    if-eqz v29, :cond_35
 
-    :cond_32
+    :cond_33
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ApnEditor;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v29
@@ -4469,7 +4570,7 @@
 
     move/from16 v29, v0
 
-    if-nez v29, :cond_33
+    if-nez v29, :cond_34
 
     const/16 v29, 0x1
 
@@ -4477,7 +4578,7 @@
 
     move/from16 v1, v29
 
-    if-ne v0, v1, :cond_33
+    if-ne v0, v1, :cond_34
 
     :goto_12
     move-object/from16 v0, p0
@@ -4492,7 +4593,7 @@
 
     goto/16 :goto_3
 
-    :cond_33
+    :cond_34
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/settings/ApnEditor;->mSimSlot:I
@@ -4517,7 +4618,7 @@
 
     goto :goto_12
 
-    :cond_34
+    :cond_35
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mAuthType:Landroid/preference/ListPreference;
@@ -4530,12 +4631,12 @@
 
     goto/16 :goto_3
 
-    :cond_35
+    :cond_36
     const/16 v29, 0x0
 
     goto/16 :goto_4
 
-    :cond_36
+    :cond_37
     const/4 v14, 0x1
 
     :goto_13
@@ -4549,7 +4650,7 @@
 
     move/from16 v1, v30
 
-    if-ne v0, v1, :cond_37
+    if-ne v0, v1, :cond_38
 
     new-instance v29, Ljava/lang/StringBuilder;
 
@@ -4575,14 +4676,14 @@
 
     invoke-virtual {v9, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    :cond_37
+    :cond_38
     shr-int/lit8 v8, v8, 0x1
 
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_13
 
-    :cond_38
+    :cond_39
     invoke-static {v13}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v22
@@ -4629,7 +4730,7 @@
 
     goto/16 :goto_5
 
-    :cond_39
+    :cond_3a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mApnType_list:Landroid/preference/ListPreference;
@@ -4670,7 +4771,7 @@
 
     goto/16 :goto_6
 
-    :cond_3a
+    :cond_3b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mAuthType:Landroid/preference/ListPreference;
@@ -4683,7 +4784,7 @@
 
     goto/16 :goto_7
 
-    :cond_3b
+    :cond_3c
     const-string/jumbo v29, "Predefined"
 
     move-object/from16 v0, v29
@@ -4694,13 +4795,13 @@
 
     move-result v29
 
-    if-eqz v29, :cond_3c
+    if-eqz v29, :cond_3d
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/ApnEditor;->isPredefined()Z
 
     move-result v29
 
-    if-eqz v29, :cond_3c
+    if-eqz v29, :cond_3d
 
     move-object/from16 v0, p0
 
@@ -4709,19 +4810,6 @@
     move-object/from16 v29, v0
 
     const/16 v30, 0x0
-
-    invoke-virtual/range {v29 .. v30}, Landroid/preference/ListPreference;->setEnabled(Z)V
-
-    goto/16 :goto_8
-
-    :cond_3c
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/ApnEditor;->mProtocol:Landroid/preference/ListPreference;
-
-    move-object/from16 v29, v0
-
-    const/16 v30, 0x1
 
     invoke-virtual/range {v29 .. v30}, Landroid/preference/ListPreference;->setEnabled(Z)V
 
@@ -4743,6 +4831,19 @@
     :cond_3e
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/android/settings/ApnEditor;->mProtocol:Landroid/preference/ListPreference;
+
+    move-object/from16 v29, v0
+
+    const/16 v30, 0x1
+
+    invoke-virtual/range {v29 .. v30}, Landroid/preference/ListPreference;->setEnabled(Z)V
+
+    goto/16 :goto_8
+
+    :cond_3f
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mRoamingProtocol:Landroid/preference/ListPreference;
 
     move-object/from16 v29, v0
@@ -4753,7 +4854,7 @@
 
     goto/16 :goto_9
 
-    :cond_3f
+    :cond_40
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mRoamingProtocol:Landroid/preference/ListPreference;
@@ -4766,14 +4867,14 @@
 
     goto/16 :goto_9
 
-    :cond_40
+    :cond_41
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/settings/ApnEditor;->mNewApn:Z
 
     move/from16 v29, v0
 
-    if-nez v29, :cond_41
+    if-nez v29, :cond_42
 
     const-string/jumbo v29, "USC"
 
@@ -4785,13 +4886,13 @@
 
     move-result v29
 
-    if-eqz v29, :cond_41
+    if-eqz v29, :cond_42
 
     invoke-static/range {v20 .. v20}, Lcom/android/settings/Utils;->isUSCSimInserted(Ljava/lang/String;)Z
 
     move-result v29
 
-    if-eqz v29, :cond_41
+    if-eqz v29, :cond_42
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/ApnEditor;->disableEditItems()V
 
@@ -4807,14 +4908,14 @@
 
     goto/16 :goto_a
 
-    :cond_41
+    :cond_42
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/settings/ApnEditor;->mNewApn:Z
 
     move/from16 v29, v0
 
-    if-nez v29, :cond_42
+    if-nez v29, :cond_43
 
     move-object/from16 v0, p0
 
@@ -4822,25 +4923,25 @@
 
     move/from16 v29, v0
 
-    if-eqz v29, :cond_42
+    if-eqz v29, :cond_43
 
     invoke-static {}, Lcom/android/settings/Utils;->isSprModel()Z
 
     move-result v29
 
-    if-eqz v29, :cond_42
+    if-eqz v29, :cond_43
 
     invoke-static/range {v20 .. v20}, Lcom/android/settings/Utils;->isSPRSimInserted(Ljava/lang/String;)Z
 
     move-result v29
 
-    if-eqz v29, :cond_42
+    if-eqz v29, :cond_43
 
     sget-boolean v29, Lcom/android/settings/ApnEditor;->MHSDBG:Z
 
-    if-eqz v29, :cond_43
+    if-eqz v29, :cond_44
 
-    :cond_42
+    :cond_43
     invoke-static {}, Lcom/android/settings/Utils;->isUsOpenModel()Z
 
     move-result v29
@@ -4851,7 +4952,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_45
+    if-eqz v29, :cond_46
 
     move-object/from16 v0, p0
 
@@ -4865,7 +4966,7 @@
 
     goto/16 :goto_a
 
-    :cond_43
+    :cond_44
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/ApnEditor;->disableEditItems()V
 
     const-string/jumbo v29, "APN2 EHRPD internet"
@@ -4884,7 +4985,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_44
+    if-nez v29, :cond_45
 
     const-string/jumbo v29, "APN2 LTE internet"
 
@@ -4904,7 +5005,7 @@
 
     if-eqz v29, :cond_16
 
-    :cond_44
+    :cond_45
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mApn:Landroid/preference/EditTextPreference;
@@ -4927,12 +5028,12 @@
 
     goto/16 :goto_a
 
-    :cond_45
+    :cond_46
     invoke-static/range {v20 .. v20}, Lcom/android/settings/Utils;->isUSCSimInserted(Ljava/lang/String;)Z
 
     move-result v29
 
-    if-eqz v29, :cond_46
+    if-eqz v29, :cond_47
 
     move-object/from16 v0, p0
 
@@ -4956,7 +5057,7 @@
 
     goto/16 :goto_a
 
-    :cond_46
+    :cond_47
     invoke-static/range {v20 .. v20}, Lcom/android/settings/Utils;->isSPRSimInserted(Ljava/lang/String;)Z
 
     move-result v29
@@ -4997,7 +5098,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_47
+    if-nez v29, :cond_48
 
     const-string/jumbo v29, "APN2 LTE internet"
 
@@ -5017,7 +5118,7 @@
 
     if-eqz v29, :cond_16
 
-    :cond_47
+    :cond_48
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mApn:Landroid/preference/EditTextPreference;
@@ -5040,7 +5141,7 @@
 
     goto/16 :goto_a
 
-    :cond_48
+    :cond_49
     const-string/jumbo v29, "45008"
 
     move-object/from16 v0, v29
@@ -5051,7 +5152,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_49
+    if-nez v29, :cond_4a
 
     const-string/jumbo v29, "45002"
 
@@ -5063,22 +5164,22 @@
 
     move-result v29
 
-    if-eqz v29, :cond_4b
+    if-eqz v29, :cond_4c
 
-    :cond_49
+    :cond_4a
     const/16 v29, 0x3e9
 
     move/from16 v0, v29
 
-    if-eq v0, v15, :cond_4a
+    if-eq v0, v15, :cond_4b
 
     const/16 v29, 0x3ea
 
     move/from16 v0, v29
 
-    if-ne v0, v15, :cond_4b
+    if-ne v0, v15, :cond_4c
 
-    :cond_4a
+    :cond_4b
     const/16 v29, 0x0
 
     move/from16 v0, v29
@@ -5089,7 +5190,7 @@
 
     goto/16 :goto_b
 
-    :cond_4b
+    :cond_4c
     const-string/jumbo v29, "45006"
 
     move-object/from16 v0, v29
@@ -5118,7 +5219,7 @@
 
     goto/16 :goto_b
 
-    :cond_4c
+    :cond_4d
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mApn:Landroid/preference/EditTextPreference;
@@ -5131,12 +5232,12 @@
 
     goto/16 :goto_c
 
-    :cond_4d
+    :cond_4e
     invoke-static {}, Lcom/android/settings/Utils;->isSprModel()Z
 
     move-result v29
 
-    if-eqz v29, :cond_50
+    if-eqz v29, :cond_51
 
     move-object/from16 v0, p0
 
@@ -5144,15 +5245,15 @@
 
     move/from16 v29, v0
 
-    if-eqz v29, :cond_4e
+    if-eqz v29, :cond_4f
 
     invoke-static/range {v20 .. v20}, Lcom/android/settings/Utils;->isSPRSimInserted(Ljava/lang/String;)Z
 
     move-result v29
 
-    if-eqz v29, :cond_4f
+    if-eqz v29, :cond_50
 
-    :cond_4e
+    :cond_4f
     :goto_14
     move-object/from16 v0, p0
 
@@ -5188,7 +5289,7 @@
 
     goto/16 :goto_c
 
-    :cond_4f
+    :cond_50
     sget-object v29, Lcom/android/settings/ApnEditor;->TAG:Ljava/lang/String;
 
     const-string/jumbo v30, "isSprEditable = true"
@@ -5211,18 +5312,18 @@
 
     goto :goto_14
 
-    :cond_50
+    :cond_51
     invoke-static {}, Lcom/android/settings/Utils;->isUsOpenModel()Z
 
     move-result v29
 
-    if-eqz v29, :cond_53
+    if-eqz v29, :cond_54
 
     invoke-static/range {v20 .. v20}, Lcom/android/settings/Utils;->isVZWSimInserted(Ljava/lang/String;)Z
 
     move-result v29
 
-    if-eqz v29, :cond_51
+    if-eqz v29, :cond_52
 
     move-object/from16 v0, p0
 
@@ -5230,7 +5331,7 @@
 
     move/from16 v29, v0
 
-    if-eqz v29, :cond_52
+    if-eqz v29, :cond_53
 
     sget-object v29, Lcom/android/settings/ApnEditor;->TAG:Ljava/lang/String;
 
@@ -5252,7 +5353,7 @@
 
     invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    :cond_51
+    :cond_52
     :goto_15
     move-object/from16 v0, p0
 
@@ -5290,7 +5391,7 @@
 
     goto/16 :goto_c
 
-    :cond_52
+    :cond_53
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mApn:Landroid/preference/EditTextPreference;
@@ -5303,7 +5404,7 @@
 
     goto :goto_15
 
-    :cond_53
+    :cond_54
     const-string/jumbo v29, "XSA"
 
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
@@ -5314,11 +5415,11 @@
 
     move-result v29
 
-    if-eqz v29, :cond_1e
+    if-eqz v29, :cond_5b
 
     sget-boolean v29, Lcom/android/settings/ApnEditor;->MHENG:Z
 
-    if-eqz v29, :cond_54
+    if-eqz v29, :cond_55
 
     sget-object v29, Lcom/android/settings/ApnEditor;->TAG:Ljava/lang/String;
 
@@ -5342,7 +5443,7 @@
 
     goto/16 :goto_c
 
-    :cond_54
+    :cond_55
     const-string/jumbo v29, "50501"
 
     move-object/from16 v0, v29
@@ -5353,7 +5454,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_56
+    if-eqz v29, :cond_57
 
     const-string/jumbo v29, "ims"
 
@@ -5371,7 +5472,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_55
+    if-nez v29, :cond_56
 
     const-string/jumbo v29, "hos"
 
@@ -5389,7 +5490,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_55
+    if-nez v29, :cond_56
 
     const-string/jumbo v29, "telstra.wap"
 
@@ -5407,7 +5508,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_55
+    if-nez v29, :cond_56
 
     const-string/jumbo v29, "telstra.mms"
 
@@ -5427,7 +5528,7 @@
 
     if-eqz v29, :cond_1e
 
-    :cond_55
+    :cond_56
     sget-object v29, Lcom/android/settings/ApnEditor;->TAG:Ljava/lang/String;
 
     const-string/jumbo v30, "XSA telstra make noneEditable"
@@ -5450,7 +5551,7 @@
 
     goto/16 :goto_c
 
-    :cond_56
+    :cond_57
     const-string/jumbo v29, "50502"
 
     move-object/from16 v0, v29
@@ -5461,7 +5562,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_58
+    if-eqz v29, :cond_59
 
     const-string/jumbo v29, "yesbusiness"
 
@@ -5479,7 +5580,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_57
+    if-nez v29, :cond_58
 
     const-string/jumbo v29, "yesinternet"
 
@@ -5497,7 +5598,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_57
+    if-nez v29, :cond_58
 
     const-string/jumbo v29, "mms"
 
@@ -5517,7 +5618,7 @@
 
     if-eqz v29, :cond_1e
 
-    :cond_57
+    :cond_58
     sget-object v29, Lcom/android/settings/ApnEditor;->TAG:Ljava/lang/String;
 
     const-string/jumbo v30, "XSA optus make noneEditable"
@@ -5540,7 +5641,7 @@
 
     goto/16 :goto_c
 
-    :cond_58
+    :cond_59
     const-string/jumbo v29, "50503"
 
     move-object/from16 v0, v29
@@ -5569,7 +5670,7 @@
 
     move-result v29
 
-    if-nez v29, :cond_59
+    if-nez v29, :cond_5a
 
     const-string/jumbo v29, "live.vodafone.com"
 
@@ -5589,7 +5690,7 @@
 
     if-eqz v29, :cond_1e
 
-    :cond_59
+    :cond_5a
     sget-object v29, Lcom/android/settings/ApnEditor;->TAG:Ljava/lang/String;
 
     const-string/jumbo v30, "XSA vodafone make noneEditable"
@@ -5612,12 +5713,77 @@
 
     goto/16 :goto_c
 
-    :cond_5a
+    :cond_5b
+    const-string/jumbo v29, "ATT"
+
+    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v30
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v29
+
+    if-eqz v29, :cond_1e
+
+    const-string/jumbo v29, "310150"
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v29
+
+    if-eqz v29, :cond_1e
+
+    const-string/jumbo v29, "ndo"
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/settings/ApnEditor;->mApn:Landroid/preference/EditTextPreference;
+
+    move-object/from16 v30, v0
+
+    invoke-virtual/range {v30 .. v30}, Landroid/preference/EditTextPreference;->getText()Ljava/lang/String;
+
+    move-result-object v30
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v29
+
+    if-eqz v29, :cond_1e
+
+    sget-object v29, Lcom/android/settings/ApnEditor;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v30, "ATT nod make noneEditable"
+
+    invoke-static/range {v29 .. v30}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v29, "apn_edit"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v29
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/ApnEditor;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v29
+
+    const/16 v30, 0x0
+
+    invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    goto/16 :goto_c
+
+    :cond_5c
     invoke-static {}, Lcom/android/settings/Utils;->isJapanKDIModel()Z
 
     move-result v29
 
-    if-eqz v29, :cond_5b
+    if-eqz v29, :cond_5d
 
     sget-object v29, Lcom/android/settings/ApnEditor;->sNotSet:Ljava/lang/String;
 
@@ -5667,7 +5833,7 @@
 
     goto/16 :goto_d
 
-    :cond_5b
+    :cond_5d
     const-string/jumbo v29, "ATT"
 
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
@@ -5678,7 +5844,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_5c
+    if-eqz v29, :cond_5e
 
     move-object/from16 v0, p0
 
@@ -5710,7 +5876,7 @@
 
     goto/16 :goto_d
 
-    :cond_5c
+    :cond_5e
     invoke-static {}, Lcom/android/settings/Utils;->isUsOpenModel()Z
 
     move-result v29
@@ -5753,17 +5919,17 @@
 
     goto/16 :goto_d
 
-    :cond_5d
+    :cond_5f
     const/4 v3, 0x0
 
     goto/16 :goto_e
 
-    :cond_5e
+    :cond_60
     const/16 v18, 0x0
 
     goto/16 :goto_f
 
-    :cond_5f
+    :cond_61
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ApnEditor;->mCarrierEnabled:Landroid/preference/SwitchPreference;
@@ -5776,7 +5942,7 @@
 
     goto/16 :goto_10
 
-    :cond_60
+    :cond_62
     const/16 v29, 0x0
 
     goto/16 :goto_11
@@ -5866,7 +6032,7 @@
 
     iget-object v8, p0, Lcom/android/settings/ApnEditor;->mRes:Landroid/content/res/Resources;
 
-    const v9, 0x7f0b1595
+    const v9, 0x7f0b1631
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5885,7 +6051,7 @@
 
     iget-object v8, p0, Lcom/android/settings/ApnEditor;->mRes:Landroid/content/res/Resources;
 
-    const v9, 0x7f0b1596
+    const v9, 0x7f0b1632
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5904,7 +6070,7 @@
 
     iget-object v8, p0, Lcom/android/settings/ApnEditor;->mRes:Landroid/content/res/Resources;
 
-    const v9, 0x7f0b1597
+    const v9, 0x7f0b1633
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5925,7 +6091,7 @@
 
     iget-object v8, p0, Lcom/android/settings/ApnEditor;->mRes:Landroid/content/res/Resources;
 
-    const v9, 0x7f0b1598
+    const v9, 0x7f0b1634
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5938,7 +6104,7 @@
 
     iget-object v8, p0, Lcom/android/settings/ApnEditor;->mRes:Landroid/content/res/Resources;
 
-    const v9, 0x7f0b0c27
+    const v9, 0x7f0b0c99
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5992,7 +6158,7 @@
     :cond_7
     iget-object v8, p0, Lcom/android/settings/ApnEditor;->mRes:Landroid/content/res/Resources;
 
-    const v9, 0x7f0b0c25
+    const v9, 0x7f0b0c97
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8186,7 +8352,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0b18a7
+    const v4, 0x7f0b1943
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9351,7 +9517,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b18a7
+    const v4, 0x7f0b1943
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9596,7 +9762,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b1575
+    const v10, 0x7f0b1611
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10553,11 +10719,11 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 10
 
-    const v9, 0x7f0b1592
+    const v9, 0x7f0b162e
 
     const/4 v8, 0x2
 
-    const v7, 0x7f0b1590
+    const v7, 0x7f0b162c
 
     const/4 v6, 0x1
 
@@ -10637,23 +10803,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_f
 
     invoke-static {}, Lcom/android/settings/Utils;->isJapanDCMModel()Z
 
     move-result v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_f
 
     if-nez v0, :cond_1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_e
 
     :cond_1
     :goto_3
     const/4 v3, 0x3
 
-    const v4, 0x7f0b1593
+    const v4, 0x7f0b162f
 
     invoke-interface {p1, v5, v3, v5, v4}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -10725,41 +10891,65 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_a
 
     iget-boolean v3, p0, Lcom/android/settings/ApnEditor;->mIsSprEditable:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_8
 
     invoke-static {v2}, Lcom/android/settings/Utils;->isSPRSimInserted(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-nez v3, :cond_0
-
-    invoke-interface {p1, v5, v6, v5, v7}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
-
-    goto :goto_2
+    if-eqz v3, :cond_9
 
     :cond_8
-    invoke-static {}, Lcom/android/settings/Utils;->isUsOpenModel()Z
+    const-string/jumbo v3, "CSC"
+
+    invoke-direct {p0, v3}, Lcom/android/settings/ApnEditor;->isDefinedApn(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-nez v3, :cond_0
 
-    iget-boolean v3, p0, Lcom/android/settings/ApnEditor;->mIsVzwEditable:Z
+    invoke-virtual {p0}, Lcom/android/settings/ApnEditor;->getContext()Landroid/content/Context;
 
-    if-eqz v3, :cond_9
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/samsung/android/settings/networklock/NetworkLockUtils;->isSPRNetworkUnLocked(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
 
     invoke-interface {p1, v5, v6, v5, v7}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     goto :goto_2
 
     :cond_9
+    invoke-interface {p1, v5, v6, v5, v7}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
+
+    goto :goto_2
+
+    :cond_a
+    invoke-static {}, Lcom/android/settings/Utils;->isUsOpenModel()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_d
+
+    iget-boolean v3, p0, Lcom/android/settings/ApnEditor;->mIsVzwEditable:Z
+
+    if-eqz v3, :cond_b
+
+    invoke-interface {p1, v5, v6, v5, v7}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
+
+    goto/16 :goto_2
+
+    :cond_b
     iget-boolean v3, p0, Lcom/android/settings/ApnEditor;->mIsSprEditable:Z
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_c
 
     invoke-static {v2}, Lcom/android/settings/Utils;->isSPRSimInserted(Ljava/lang/String;)Z
 
@@ -10769,9 +10959,9 @@
 
     invoke-interface {p1, v5, v6, v5, v7}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
-    goto :goto_2
+    goto/16 :goto_2
 
-    :cond_a
+    :cond_c
     invoke-static {v2}, Lcom/android/settings/Utils;->isVZWSimInserted(Ljava/lang/String;)Z
 
     move-result v3
@@ -10788,7 +10978,7 @@
 
     goto/16 :goto_2
 
-    :cond_b
+    :cond_d
     invoke-static {}, Lcom/android/settings/Utils;->isLraImsi()Z
 
     move-result v3
@@ -10799,12 +10989,12 @@
 
     goto/16 :goto_2
 
-    :cond_c
+    :cond_e
     invoke-interface {p1, v5, v8, v5, v9}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     goto/16 :goto_3
 
-    :cond_d
+    :cond_f
     invoke-interface {p1, v5, v8, v5, v9}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     goto/16 :goto_3

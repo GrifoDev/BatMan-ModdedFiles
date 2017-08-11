@@ -228,7 +228,7 @@
 
     aput-object v6, v5, v8
 
-    const v6, 0x7f0b02b4
+    const v6, 0x7f0b0312
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -399,7 +399,7 @@
 .method private createConfirmCredentialReasonMessage()Ljava/lang/String;
     .locals 4
 
-    const v0, 0x7f0b179d
+    const v0, 0x7f0b1839
 
     iget-object v1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -445,12 +445,12 @@
     return-object v1
 
     :sswitch_0
-    const v0, 0x7f0b179b
+    const v0, 0x7f0b1837
 
     goto :goto_0
 
     :sswitch_1
-    const v0, 0x7f0b179c
+    const v0, 0x7f0b1838
 
     goto :goto_0
 
@@ -479,7 +479,7 @@
 
     check-cast v15, Landroid/view/LayoutInflater;
 
-    const v18, 0x7f0400f1
+    const v18, 0x7f0400f3
 
     const/16 v19, 0x0
 
@@ -491,7 +491,7 @@
 
     move-result-object v10
 
-    const v18, 0x7f110372
+    const v18, 0x7f110374
 
     move/from16 v0, v18
 
@@ -531,7 +531,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b1799
+    const v19, 0x7f0b1835
 
     move-object/from16 v0, p0
 
@@ -554,7 +554,7 @@
     invoke-virtual {v12, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_0
-    const v18, 0x7f110373
+    const v18, 0x7f110375
 
     move/from16 v0, v18
 
@@ -588,7 +588,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b1797
+    const v19, 0x7f0b1833
 
     move-object/from16 v0, p0
 
@@ -629,7 +629,7 @@
     :cond_0
     invoke-virtual {v5, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v18, 0x7f110374
+    const v18, 0x7f110376
 
     move/from16 v0, v18
 
@@ -665,7 +665,7 @@
 
     move-result-object v18
 
-    const v19, 0x10804df
+    const v19, 0x10804c9
 
     invoke-virtual/range {v18 .. v19}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -695,7 +695,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->setCapabilitiesText(Landroid/widget/TextView;Z)V
 
-    const v18, 0x7f0b179e
+    const v18, 0x7f0b183a
 
     move-object/from16 v0, p0
 
@@ -741,7 +741,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b0251
+    const v19, 0x7f0b02af
 
     move-object/from16 v0, p0
 
@@ -757,7 +757,7 @@
 
     if-eqz v18, :cond_2
 
-    const v18, 0x7f0b01dd
+    const v18, 0x7f0b023b
 
     move-object/from16 v0, p0
 
@@ -819,7 +819,7 @@
 
     move-result-object v18
 
-    const v19, 0x10804df
+    const v19, 0x10804c9
 
     invoke-virtual/range {v18 .. v19}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -917,7 +917,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v18, 0x7f0b179f
+    const v18, 0x7f0b183b
 
     move-object/from16 v0, p0
 
@@ -1099,7 +1099,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0141
+    const v3, 0x7f0d0142
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1111,7 +1111,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0275
+    const v3, 0x7f0a0273
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2265,7 +2265,7 @@
 
     aput-object v18, v17, v19
 
-    const v18, 0x7f0b17a1
+    const v18, 0x7f0b183d
 
     move-object/from16 v0, p0
 
@@ -2326,7 +2326,7 @@
 
     iput v0, v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mShownDialogId:I
 
-    const v16, 0x7f0b0d40
+    const v16, 0x7f0b0dcb
 
     move-object/from16 v0, p0
 
@@ -2336,7 +2336,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b0d41
+    const v16, 0x7f0b0dcc
 
     move-object/from16 v0, p0
 
@@ -2375,7 +2375,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1981
+    const v17, 0x7f0b1a1d
 
     move-object/from16 v0, v16
 
@@ -2422,7 +2422,7 @@
 
     if-nez v16, :cond_4
 
-    const v16, 0x7f0b02b6
+    const v16, 0x7f0b0314
 
     move-object/from16 v0, p0
 
@@ -2432,7 +2432,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b02b7
+    const v16, 0x7f0b0315
 
     move-object/from16 v0, p0
 
@@ -2476,7 +2476,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b16e8
+    const v17, 0x7f0b1784
 
     move-object/from16 v0, v16
 
@@ -2488,7 +2488,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b0463
+    const v17, 0x7f0b04c6
 
     move-object/from16 v0, v16
 
@@ -2529,7 +2529,7 @@
 
     move-object/from16 v16, v0
 
-    const v17, 0x7f0b0252
+    const v17, 0x7f0b02b0
 
     move-object/from16 v0, p0
 
@@ -2543,7 +2543,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b066e
+    const v17, 0x7f0b06d3
 
     move-object/from16 v0, p0
 
@@ -2555,7 +2555,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b02b7
+    const v16, 0x7f0b0315
 
     move-object/from16 v0, p0
 
@@ -2568,7 +2568,7 @@
     goto :goto_1
 
     :cond_5
-    const v16, 0x7f0b02b5
+    const v16, 0x7f0b0313
 
     move-object/from16 v0, p0
 
@@ -2578,7 +2578,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b02b7
+    const v16, 0x7f0b0315
 
     move-object/from16 v0, p0
 
@@ -2623,7 +2623,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b02b4
+    const v17, 0x7f0b0312
 
     move-object/from16 v0, p0
 
@@ -2671,7 +2671,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b02bb
+    const v17, 0x7f0b0319
 
     move-object/from16 v0, p0
 
@@ -2694,7 +2694,7 @@
 
     iput v0, v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mShownDialogId:I
 
-    const v16, 0x7f0b02b8
+    const v16, 0x7f0b0316
 
     move-object/from16 v0, p0
 
@@ -2712,7 +2712,7 @@
 
     if-nez v16, :cond_8
 
-    const v16, 0x7f0b02b6
+    const v16, 0x7f0b0314
 
     move-object/from16 v0, p0
 
@@ -2734,7 +2734,7 @@
 
     aput-object v5, v16, v17
 
-    const v17, 0x7f0b02ba
+    const v17, 0x7f0b0318
 
     move-object/from16 v0, p0
 
@@ -2780,7 +2780,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b16e8
+    const v17, 0x7f0b1784
 
     move-object/from16 v0, v16
 
@@ -2792,7 +2792,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b0463
+    const v17, 0x7f0b04c6
 
     move-object/from16 v0, v16
 
@@ -2833,7 +2833,7 @@
 
     move-object/from16 v16, v0
 
-    const v17, 0x7f0b0252
+    const v17, 0x7f0b02b0
 
     move-object/from16 v0, p0
 
@@ -2847,7 +2847,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b066e
+    const v17, 0x7f0b06d3
 
     move-object/from16 v0, p0
 
@@ -2867,7 +2867,7 @@
 
     move-object/from16 v16, v0
 
-    const v17, 0x7f0b0252
+    const v17, 0x7f0b02b0
 
     move-object/from16 v0, p0
 
@@ -2885,7 +2885,7 @@
 
     aput-object v5, v16, v17
 
-    const v17, 0x7f0b02bb
+    const v17, 0x7f0b0319
 
     move-object/from16 v0, p0
 
@@ -2900,7 +2900,7 @@
     goto/16 :goto_2
 
     :cond_9
-    const v16, 0x7f0b02b5
+    const v16, 0x7f0b0313
 
     move-object/from16 v0, p0
 
@@ -2922,7 +2922,7 @@
 
     aput-object v5, v16, v17
 
-    const v17, 0x7f0b02b9
+    const v17, 0x7f0b0317
 
     move-object/from16 v0, p0
 
@@ -2969,7 +2969,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b02b4
+    const v17, 0x7f0b0312
 
     move-object/from16 v0, p0
 
@@ -3017,7 +3017,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b02bb
+    const v17, 0x7f0b0319
 
     move-object/from16 v0, p0
 
@@ -3089,7 +3089,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b066e
+    const v17, 0x7f0b06d3
 
     move-object/from16 v0, p0
 
@@ -3133,7 +3133,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b02b4
+    const v17, 0x7f0b0312
 
     move-object/from16 v0, p0
 
@@ -3156,7 +3156,7 @@
 
     iput v0, v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mShownDialogId:I
 
-    const v16, 0x7f0b024a
+    const v16, 0x7f0b02a8
 
     move-object/from16 v0, p0
 
@@ -3166,7 +3166,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b024b
+    const v16, 0x7f0b02a9
 
     move-object/from16 v0, p0
 
@@ -3348,7 +3348,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b024a
+    const v17, 0x7f0b02a8
 
     move-object/from16 v0, v16
 
@@ -3360,7 +3360,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1699
+    const v17, 0x7f0b1735
 
     move-object/from16 v0, v16
 
@@ -3534,7 +3534,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f100375
+    const v3, 0x7f10037b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 

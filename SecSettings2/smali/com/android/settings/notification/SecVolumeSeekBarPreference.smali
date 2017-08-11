@@ -238,7 +238,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->mAudioManager:Landroid/media/AudioManager;
 
-    const v0, 0x7f040233
+    const v0, 0x7f040237
 
     invoke-virtual {p0, v0}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->setLayoutResource(I)V
 
@@ -1222,7 +1222,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->mTitleView:Landroid/widget/TextView;
 
-    const v0, 0x1020468
+    const v0, 0x1020471
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1254,7 +1254,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0216
+    const v2, 0x7f0d0217
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1264,7 +1264,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    const v0, 0x7f110673
+    const v0, 0x7f110676
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1448,7 +1448,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0217
+    const v3, 0x7f0d0218
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1479,7 +1479,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0218
+    const v3, 0x7f0d0219
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1495,7 +1495,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0216
+    const v3, 0x7f0d0217
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 

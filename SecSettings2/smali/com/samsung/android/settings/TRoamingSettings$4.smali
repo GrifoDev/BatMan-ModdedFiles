@@ -48,7 +48,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings$4;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/TRoamingSettings;->-get7(Lcom/samsung/android/settings/TRoamingSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v1}, Lcom/samsung/android/settings/TRoamingSettings;->-get7(Lcom/samsung/android/settings/TRoamingSettings;)Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
     move-result-object v1
 
@@ -56,13 +56,13 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings$4;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/TRoamingSettings;->-get7(Lcom/samsung/android/settings/TRoamingSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v1}, Lcom/samsung/android/settings/TRoamingSettings;->-get7(Lcom/samsung/android/settings/TRoamingSettings;)Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
     move-result-object v1
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v1, v2}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setChecked(Z)V
 
     :cond_0
     :goto_0

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dk %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d klst. og %2$d mín.</string>
+    <string name="battery_history_minutes_no_seconds">%d mín.</string>
     <string name="wifi_fail_to_scan">Ekki er hægt að leita að netum</string>
     <string name="wifi_failed_to_obtain_IP">Mistókst að sækja IP-tölu.</string>
     <string name="wifi_security_none">Ekkert</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Ekki er hægt að tengjast „%s“.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Ekki er hægt að tengjast %1$s. Athugaðu stillingar í %2$s og reyndu aftur.</string>
     <string name="bluetooth_pairing_rejected_error_message">Pörun hafnað af %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Sækir heiti tækis …</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Heiti tækisins birtist þegar þetta tæki er tengt.</string>
     <string name="accessibility_wifi_off">Slökkt á Wi-Fi.</string>
     <string name="accessibility_no_wifi">Wi-Fi ótengt.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi: Eitt strik.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Þjónusta</string>
     <string name="reset_network_settings_list_summary">Endurstilltu Wi-Fi, Bluetooth og aðrar netstillingar á sjálfgefnar stillingar.</string>
     <string name="master_clear_list_summary">Endurstilltu tækið á sjálfgefnar grunnstillingar framleiðanda. Þetta mun eyða öllum gögnum þ.m.t. skrám og sóttum forritum.</string>
-    <string name="auto_restart_summary">Fínstilltu tæki með því að endurræsa það sjálfkrafa á tilteknum tímum. Óvistuð gögn glatast þegar tækið er endurræst.</string>
+    <string name="auto_restart_summary">Fínstilla símann með því að endurræsa hann sjálfkrafa einu sinni í viku. Óvistuð gögn glatast þegar síminn er endurræstur.</string>
+    <string name="auto_restart_summary_tablet">Fínstilla spjaldtölvuna með því að endurræsa hana sjálfkrafa einu sinni í viku. Óvistuð gögn glatast þegar spjaldtölvan er endurræst.</string>
     <string name="search_settings">Leit</string>
     <string name="related_results">%d tengd atriði</string>
     <string name="no_results_found">Engar niðurstöður</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Hljómjöfnun er %d%% til hægri. Notaðu tvo fingur til að draga sleðann.</string>
     <string name="sound_balance_set">Stilla</string>
     <string name="accessibility_assistant_menu">Aðstoðarvalmynd</string>
-    <string name="assistant_menu_summary">Kveikir á eiginleikum sem bæta aðgengi notenda með skerta hreyfigetu að tækinu.</string>
+    <string name="assistant_menu_summary">Bæta aðgengi notenda með skerta hreyfigetu að símanum.</string>
     <string name="color_blind_title">Litalagfæring</string>
     <string name="no_result">Aðlagaðu liti skjásins ef þú átt í erfiðleikum með að lesa af skjánum.</string>
     <string name="you_are_normal">Ekki er þörf á litalagfæringu.</string>
@@ -653,6 +656,7 @@ Pikkaðu á %s til að kveikja á fingrafaralás og geta þannig einnig opnað t
     <string name="direct_access_actions_accessibility_title">Aðgengi</string>
     <string name="direct_access_actions_negative_title">Negatífir litir</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Ekki er hægt að hafa kveikt á „Beinn aðgangur“ og „Minnka skjá“ í einu. Slökkt verður á minnkun skjás.</string>
+    <string name="direct_access_exclusive_popup_msg">Ekki er hægt að hafa kveikt á %1$s og %2$s á sama tíma. Slökkt verður á %3$s.</string>
     <string name="direct_access_actions_color_adjustment_summary">Settu litalagfæringu upp í „Sjón“ til þess að nota hana í beinum aðgangi</string>
     <string name="direct_access_actions_screen_reader_summary">Kveiktu á síðulesara til að nota hann í beinum aðgangi.</string>
     <string name="direct_access_actions_accesscontrol_title">Gagnvirknistýring</string>
@@ -851,7 +855,9 @@ Einnig verður slökkt á Wi-Fi og Bluetooth en hægt er að kveikja aftur á þ
     <string name="premium_sms_values_ask">Spyrja</string>
     <string name="premium_sms_values_never">Leyfa aldrei</string>
     <string name="premium_sms_values_allow">Leyfa alltaf</string>
-    <string name="assist_and_voice_input_summary">Hjálparforrit tækisins sýna fleiri valkosti og upplýsingar um hvern skjá fyrir sig.</string>
+    <string name="assist_and_voice_input_summary">Veldu hvaða forrit þú vilt nota þegar þú heldur fingri á heimahnappnum.</string>
+    <string name="assist_footer_phone">Veldu hvaða forrit þú vilt nota þegar þú heldur fingri á heimahnappnum. Hjálparforrit tækisins geta aðstoðað þig með því að safna saman upplýsingum af skjánum sem opinn er í símanum.</string>
+    <string name="assist_footer_tablet">Veldu hvaða forrit þú vilt nota þegar þú heldur fingri á heimahnappnum. Hjálparforrit tækisins geta aðstoðað þig með því að safna saman upplýsingum af skjánum sem opinn er í spjaldtölvunni.</string>
     <string name="default_app_title">Nota sem sjálfgefið</string>
     <string name="premium_sms_title">Senda sérstakt SMS</string>
     <string name="default_app_selection">Val á sjálfgef. forritum</string>
@@ -940,7 +946,7 @@ Hægt er að breyta þessu síðar í stillingum Bluetooth."</string>
 
 Tengdu tækin tvö kunna að skila örlítið mismunandi hljóðúttaki."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Slökkva á samstill. hljóðstyrks spilunar?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Slökkva þarf á samstillingu á hljóðstyrk efnisspilunar til að hægt sé að nota tvöfalt hljóð.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Slökkva þarf á samstillingu á hljóðstyrk efnisspilunar til að hægt sé að stjórna hljóðstyrk hvors hljóðtækis fyrir sig.</string>
     <string name="bluetooth_avc_title">Samst. hljst. efnisspil.</string>
     <string name="bluetooth_avc_description">Ef tengda Bluetooth-tækið getur stjórnað hljóðstyrk efnisspilunar í símanum þínum verður hljóðstyrkur Bluetooth-tækisins samstillur við símann þinn.</string>
     <string name="bluetooth_avc_volume_change_description">Ef kveikt er á þessum eiginleika getur það valdið óvæntum breytingum á hljóðstyrk.</string>
@@ -949,6 +955,7 @@ Tengdu tækin tvö kunna að skila örlítið mismunandi hljóðúttaki."</strin
     <string name="bluetooth_avc_ask_popup_title">Viltu slökkva á tvöföldu hljóði?</string>
     <string name="bluetooth_avc_ask_popup_content">Slökkva þarf á tvöföldu hljóði til að hægt sé að nota samstillingu á hljóðstyrk efnisspilunar.</string>
     <string name="bluetooth_avc_disable_description">Tengda Bluetooth-tækið styður ekki samstillingu á hljóðstyrk efnisspilunar. Ekki er hægt að samstilla hljóð símans með tengda Bluetooth-tækinu.</string>
+    <string name="bluetooth_avc_available_description">Tengda Bluetooth-tækið styður samstillingu hljóðstyrks efnisspilunar og hljóðstyrkur Bluetooth-tækisins verður samstilltur við símann þinn.</string>
     <string name="bluetooth_enter_pin_msg">Sláðu inn PIN-númer til að para við %s (prófaðu 0000 eða 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Hámarksfjölda stafa hefur verið náð.</string>
     <string name="settings_menu_done">Lokið</string>
@@ -1032,11 +1039,12 @@ Jafnvel þótt slökkt sé á snjallmyndatöku geturðu opnað eiginleika hennar
     <string name="swipe_to_call_title">Strjúktu f. símtal eða skilaboð</string>
     <string name="swipe_to_call_summary">Strjúktu til hægri yfir tengilið eða símanúmer til að hringja eða til vinstri til að senda skilaboð í „Sími“, „Tengiliðir“ eða „Skilaboð“.</string>
     <string name="swipe_to_call_summary_dcm">Strjúktu til hægri yfir tengilið eða símanúmer til að hringja eða til vinstri til að senda skilaboð í „Hringja“, „Tengiliðir“ eða „Skilaboð“.</string>
-    <string name="swipe_to_call_summary_kddi">Strjúktu til hægri yfir tengilið eða símanúmer til að hringja eða til vinstri til að senda skilaboð í „Sími“ eða „Tengiliðir“.</string>
+    <string name="swipe_to_call_summary_kddi">Strjúktu til hægri yfir tengilið eða símanúmer til að hringja eða til vinstri til að senda skilaboð í „Hringja“ eða „Tengiliðir“.</string>
     <string name="dual_app_title">Tvöfalt skilaboðaforrit</string>
     <string name="dual_app_summary">Notaðu tvo aðskilda reikninga fyrir sama forritið.</string>
     <string name="finger_sensor_gesture_title">Bendingar á fingrafaranema</string>
     <string name="finger_sensor_gesture_summary">Opna og loka forritum og eiginleikum með fingrafaranemanum.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Opnaðu og lokaðu tilkynningaskjánum með fingrafaranemanum.</string>
     <string name="finger_sensor_gesture_description">Strjúktu upp eða niður á fingrafaranemanum til að opna eða loka tilkynningaskjánum.</string>
     <string name="open_samsung_pay_title">Opna Samsung Pay</string>
     <string name="open_samsung_pay_summary">Strjúka upp á fingrafaranemanum á heimaskjánum til að opna Samsung Pay.</string>
@@ -1071,6 +1079,7 @@ Jafnvel þótt slökkt sé á snjallmyndatöku geturðu opnað eiginleika hennar
 %s"</string>
     <string name="enable_ps_title">Kveikja á %s</string>
     <string name="setup_wizard">Uppsetningarhjálp</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Venjulegt</string>
     <string name="large">Stórt</string>
     <string name="small">Lítið</string>
@@ -1216,7 +1225,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Sæktu hugbúnaðaruppfærslur sjálfkrafa þegar tengt er við Wi-Fi net. Hægt er að nota tækið á meðan niðurhal er í gangi.</string>
     <string name="auto_update_over_wifi">Sjálfvirkt niðurhal um Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">Sækja hugbúnaðaruppfærslur sjálfkrafa þegar tenging næst við Wi-Fi net. Einnig kann að vera hægt að sækja uppfærslur um farsímagögn án þess að þurfa að greiða aukalega fyrir það, allt eftir símafyrirtæki. Hægt er að nota símann á meðan niðurhal stendur yfir.</string>
-    <string name="scheduled_update">Áætlaðar hugbúnaðaruppfærslur</string>
+    <string name="scheduled_update">Skipulagðar hugbúnaðaruppfærslur</string>
     <string name="scheduled_update_summary_default">Slökkt</string>
     <string name="scheduled_update_summary_set_time">Uppfærsla hefst kl. %s</string>
     <string name="scheduled_update_summary_set_time_everyday">Uppfærsla hefst kl. %s á hverjum degi</string>
@@ -1360,7 +1369,7 @@ Pikkaðu á Í LAGI til að gefa leyfi fyrir því að birtustig sé hækkað um
     <string name="adjust_your_display_colour">Stilltu liti skjásins til að breyta því hvernig hvítir tónar birtast.</string>
     <string name="display_temperature_preset_cool">Kalt</string>
     <string name="display_temperature_preset_warm">Hlýtt</string>
-    <string name="display_advanced_option">Fleiri valkostir</string>
+    <string name="display_advanced_option">Ítarlegir valkostir</string>
     <string name="color_balance_subtext_1">Litajöfnun er einungis hægt að stilla í stillingunni „Stillanlegur skjár“.</string>
     <string name="color_balance_subtext_2">Stillingarnar þínar verða ekki notaðar á meðan kveikt er á síu fyrir blátt ljós.</string>
     <string name="poc_balance_title">Litajöfnun skjábrúna</string>
@@ -1418,6 +1427,7 @@ Pikkaðu á Í LAGI til að gefa leyfi fyrir því að birtustig sé hækkað um
     <string name="navigationbar_summary">Sýna heimatakka, bakktakka og takka fyrir nýlegt.</string>
     <string name="navigationbar_theme_switch">Nota núverandi þema</string>
     <string name="navigationbar_color_title">Bakgrunnslitur</string>
+    <string name="navigationbar_color_summary">Bakgrunnsliturinn sem þú velur verður hugsanlega ekki notaður fyrir öll forrit.</string>
     <string name="navigationbar_order_title">Hnappaskipan</string>
     <string name="navigationbar_order_default">Nýlegt - Heim - Til baka</string>
     <string name="navigationbar_order_mirrored">Til baka - Heim - Nýlegt</string>
@@ -1449,7 +1459,8 @@ Pikkaðu á Í LAGI til að gefa leyfi fyrir því að birtustig sé hækkað um
     <string name="blue_light_filter_enable_now">Kveikja núna</string>
     <string name="blue_light_filter_enable_as_scheduled">Kveikja samkvæmt áætlun</string>
     <string name="blue_light_filter_scheduled_toast">Kveikt er á síu fyrir blátt ljós. Slökkt verður sjálfkrafa á henni á áætluðum lokatíma.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">Ekki er hægt að nota %s og síu fyrir blátt ljós á sama tíma. Slökkt verður á síu fyrir blátt ljós.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Viltu slökkva á síu fyrir blátt ljós?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Slökktu á síu fyrir blátt ljós til að hægt sé að nota „%s“.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Kveikja þarf á staðsetningu til að nota „Sólarlag til sólarupprásar“.</string>
     <string name="dlg_turn_on">Kveikja</string>
     <string name="screen_resolution_title">Skjáupplausn</string>
@@ -1666,6 +1677,7 @@ Dulkóðun tekur minnst klukkustund. Áður en hafist er handa skaltu tryggja a�
     <string name="crypt_keeper_last_warn_wipe">Þú átt aðeins 1 tilraun eftir til að ræsa tækið þitt áður en það verður endurstillt á sjálfgefnar grunnstillingar framleiðanda. Öllum gögnum verður eytt, þ.m.t. skrám og sóttum forritum.</string>
     <string name="crypt_keeper_failed_title_dec">Dulráðning mistókst.</string>
     <string name="crypt_keeper_failed_summary_dec">Ekki tókst að ljúka við afkóðun vegna truflunar. Núllstilltu (eyða öllum gögnum) fyrir notkun.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Velja gerð skjáláss</string>
     <string name="encryption_interstitial_message">"Þú getur varið símann enn frekar með því að krefjast þess að %s sé slegið inn áður en hann er ræstur. Þetta ver gögn í símum sem hafa týnst eða hefur verið stolið. Sum forrit krefjast öruggrar ræsingar, allt eftir dulkóðunarreglum tækis, til að hægt sé að komast í eiginleika, s.s. samstillingu tölvupósts.
 
 Þú getur ekki tekið á móti símtölum, skilaboðum eða tilkynningum og engir vekjarar hringja fyrr en síminn hefur verið ræstur."</string>
@@ -1904,6 +1916,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Nota fingrafar</string>
     <string name="wifi_ap_close">Loka</string>
     <string name="fingerscanner_add_summary">Bæta við fingraförum.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 fingrafari var bætt við.</string>
     <string name="fingerscanner_register_summary">%d fingraförum var bætt við.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Notaðu fingrafar eða sláðu inn núverandi PIN-númer.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Notaðu fingrafar eða teiknaðu núverandi mynstur.</string>
@@ -1930,6 +1943,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Taka símann úr lás með andlitsgreiningu þegar kviknar á skjánum, án þess að strjúka fyrst.</string>
     <string name="facelock_recognition_speed_up">Hraðari greining</string>
     <string name="facelock_recognition_speed_up_summary">Kveiktu á henni til að fá sneggri greiningu. Slökktu á henni til að auka öryggi og gera fólki erfiðara fyrir að opna tækið með því að nota mynd eða myndskeið.</string>
+    <string name="facelock_samsungpass_summary">Nota andlitsgreiningu til að staðfesta hver þú ert í %s og öðrum studdum forritum.</string>
     <string name="face_remove_face_popup_title">Viltu fjarlægja andlitsgögn?</string>
     <string name="face_remove_face_popup_message_1">Andlitið þitt verður ekki lengur greint og slökkt verður á andlitslás.</string>
     <string name="face_remove_face_popup_message_2">Slökkt verður á eiginleikum sem nota andlitsgreiningu.</string>
@@ -2053,7 +2067,7 @@ lykilorð"</string>
     <string name="iris_use_samsung_pass">Samsung Pass</string>
     <string name="iris_use_samsung_pass_summary">Notaðu lithimnurnar þínar til að staðfesta hver þú ert í %s og öðrum studdum forritum.</string>
     <string name="iris_use_samsung_pass_description_internet">Internet</string>
-    <string name="iris_unlock">Opnað með lithimnum</string>
+    <string name="iris_unlock">Opna með augnskanna</string>
     <string name="iris_unlock_summary">Nota augnskanna til að taka símann úr lás.</string>
     <string name="tips_for_iris">Notkun lithimnugreiningar</string>
     <string name="iris_remove_popup_1">Lithimnugögn verða fjarlægð. Gerð skjáláss verður breytt í %s.</string>
@@ -2073,7 +2087,7 @@ Kveiktu á lithimnuopnun til að nota lífkenni eða %s til að taka símann úr
     <string name="biometrics_backup_locktype_title">Setja upp lithimnuöryggi</string>
     <string name="biometrics_register_your_iris">Skráðu lithimnurnar þínar.</string>
     <string name="biometrics_backup_locktype_summary">Ef þú vilt nota lithimnur til að opna tækið þarftu að velja mynstur, PIN-númer eða lykilorð.</string>
-    <string name="biometrics_backup_locktype_message">Til að nota augnskanna til að taka símann úr lás eða fyrir örugga staðfestingu þarftu að:</string>
+    <string name="biometrics_backup_locktype_message">Til að nota augnskanna til að taka símann úr lás eða staðfesta hver þú ert í forritum þarftu að:</string>
     <string name="iris_delete_popup_title">Viltu fjarlægja lithimnugögn?</string>
     <string name="iris_delete_popup_message">Viltu fjarlægja lithimnugögn?</string>
     <string name="iris_delete_popup_message_with_related_func">Slökkt verður á eiginleikum sem nota lithimnur.</string>
@@ -2081,7 +2095,7 @@ Kveiktu á lithimnuopnun til að nota lífkenni eða %s til að taka símann úr
     <string name="iris_timeout_popop_title">Reyndu síðar</string>
     <string name="iris_timeout_popop_message">Augnskönnun tókst ekki. Myndavél augnskannans er hugsanlega óhrein. Hreinsaðu svæðið fyrir ofan skjáinn og reyndu aftur.</string>
     <string name="iris_timeout_popop_message_1">Lithimnumyndavél er hugsanlega óhrein. Hreinsaðu svæðið fyrir ofan skjáinn og reyndu aftur.</string>
-    <string name="iris_proximity_restriction_popop_message">Augnskönnun tókst ekki. Símanum er hugsanlega haldið of nálægt andlitinu eða nándarskynjarinn er óhreinn. Hreinsaðu svæðið fyrir ofan skjáinn og reyndu aftur.</string>
+    <string name="iris_proximity_restriction_popop_message">Haltu símanum fjær andlitinu og reyndu aftur.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Nándarskynjari er hugsanlega skítugur.
 Hreinsaðu svæðið fyrir ofan skjáinn."</string>
     <string name="iris_try_again">Reyna aftur</string>
@@ -2089,6 +2103,8 @@ Hreinsaðu svæðið fyrir ofan skjáinn."</string>
     <string name="iris_failed_to_verity_identify">Ekki tókst að staðfesta hver þú ert</string>
     <string name="iris_failed_popup_description">%1$d tilraunir hafa verið gerðar til að staðfesta augnhimnurnar þínar. Reyndu aftur eftir %2$d sekúndur.</string>
     <string name="iris_no_match">Ekkert fannst</string>
+    <string name="iris_eye_safety_msg">Lithimnurnar þínar voru ekki greindar.</string>
+    <string name="iris_timeout_msg">Lithimnurnar þínar voru ekki greindar.</string>
     <string name="biometrics_registered">Skráð</string>
     <string name="iris_turn_on_toast_message">Kveikt er á lithimnulás í staðinn fyrir fingrafaralás.</string>
     <string name="iris_wrong_backup_password">Rangt varalykilorð</string>
@@ -2127,7 +2143,7 @@ Aðrir öryggisvalmöguleikar eru fáanlegir fyrir tækið þitt. Skoðaðu lei�
 3. Birtan er mjög ólík því þegar lithimnan var skráð (t.d. mun bjartara herbergi).
 4. Síminn hallar of mikið eða er á hreyfingu."</string>
     <string name="use_iris_first_lock">Nota augnskanna þegar kv. á skjá</string>
-    <string name="use_iris_first_lock_summary">Taka símann úr lás með lithimnum þegar kviknar á skjánum, án þess að strjúka fyrst.</string>
+    <string name="use_iris_first_lock_summary">Taka símann úr lás með augnskanna þegar kviknar á skjánum, án þess að strjúka fyrst.</string>
     <string name="use_iris_first_lock_dialog_title">Viltu nota lithimnuopnun án stroku?</string>
     <string name="use_iris_first_lock_dialog_msg">Ekki er hægt að nota andlitsopnun þegar kveikt er á „Nota lithimnuopnun án stroku“. Slökkt verður á andlitsopnun.</string>
     <string name="iris_sensor_not_working_popup_title">Augnskanninn virkar ekki</string>
@@ -2280,6 +2296,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Sýna heimahnappinn og klukku eða upplýsingar á biðstöðuskjánum.</string>
     <string name="aod_feature_off_popup_title">Viltu slökkva á %s?</string>
     <string name="aod_feature_off_popup_description">Slökktu á %2$s til að hægt sé að nota %1$s.</string>
+    <string name="aod_features_off_popup_title">Viltu slökkva á öðrum eiginleikum?</string>
+    <string name="aod_features_off_popup_description">Slökkt þarf að vera á eftirfarandi eiginleikum til að hægt sé að nota „Always On Display“:</string>
     <string name="aod_features_off_popup_btn_ok">Slökkva</string>
     <string name="aod_disable_by_negative_colors">Er ekki hægt að nota þegar kveikt er á negatífum litum.</string>
     <string name="aod_disable_by_powersaving_mode">Er ekki hægt að nota þegar kveikt er á orkusparnaðarstillingu.</string>
@@ -2303,6 +2321,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Litadropar</string>
     <string name="lock_screen_show_information_summary_wifi_only">Sýna upplýsingar um eiganda tækisins eða flýtileiðir forrita á lásskjánum.</string>
     <string name="lock_screen_sview_show_information_summary">Sýna tvöfalda klukku, upplýsingar um eiganda tækisins eða flýtileiðir forrita á lásskjánum og í gegnum glugga S View.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Sýna klukku í reiki eða upplýsingar um eiganda símans á lásskjánum og á S View-glugganum.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Velja flýtileiðir forrita sem eiga að birtast á lásskjánum og í S View-glugganum.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Sýna tilkynningar á lásskjánum og í S View-glugganum.</string>
     <string name="lock_screen_and_cover_show_information_summary">Sýna tvöfalda klukku á lásskjánum og í gegnum Clear View hulstrið.</string>
     <string name="lock_screen_secured_lock_settings_title">Stillingar öryggisláss</string>
     <string name="lock_screen_secured_lock_settings_summary">Stilla öryggislása, eins og sjálfvirka læsingu og umsvifalausa læsingu með aflrofa.</string>
@@ -2319,6 +2340,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Heimatímabelti</string>
     <string name="contact_info_settings_title">Samskiptaupplýsingar</string>
     <string name="show_contact_info_on_lockscreen_label">Birta upplýsingar á borð við símanúmerið þitt eða netfang á lásskjánum.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Birta upplýsingar á borð við símanúmerið þitt eða netfang á lásskjánum og Always On Display.</string>
     <string name="unlock_effect">Opnunaráhrif</string>
     <string name="walking_mate_title">Skrefmælir</string>
     <string name="help_text_title">Hjálpartexti</string>
@@ -2418,7 +2440,7 @@ Mælt er með því að lífkenni verði fjarlægð en þú getur haldið þeim 
     <string name="toast_set_lock_pattern">Ef þú gleymir mynstrinu verður öllum gögnum eytt og síminn endurstilltur.</string>
     <string name="toast_set_lock_password">Ef þú gleymir lykilorðinu verður öllum gögnum eytt og síminn endurstilltur.</string>
     <string name="toast_set_lock_pin">Ef þú gleymir PIN-númerinu verður öllum gögnum eytt og síminn endurstilltur.</string>
-    <string name="chooselock_warning_text">Mundu þetta %s. Það verður notað þegar þú kveikir aftur á tækinu.</string>
+    <string name="chooselock_warning_text">Mundu þetta %s. Þú þarft að nota það eftir að þú endurræsir símann.</string>
     <string name="lockpassword_password_exists_history">Lykilorðið hefur verið notað áður. Tilgreindu nýtt lykilorð.</string>
     <string name="lockpassword_pin_repeating_nums">PIN-númer má ekki innihalda endurteknar tölur.</string>
     <string name="lockpassword_pin_sequential_nums">PIN-númer má ekki innihalda tölur í röð.</string>
@@ -2536,6 +2558,9 @@ Slökkt verður á farsímagögnum."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Ekki er hægt að nota internetið, tölvupóst eða önnur forrit sem þarfnast gagnatengingar nema með Wi-Fi.
 
 Slökkt verður á farsímagögnum."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Án Wi-Fi nettengingar er ekki hægt að nota internetið, tölvupóst eða önnur forrit sem þarfnast nettengingar.</string>
@@ -2694,10 +2719,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Sérsniðin hljóðstyrksmörk</string>
     <string name="volume_limiter_descryption">Verndaðu eyrun með því að takmarka hámarkshljóðstyrk efnis. Mörkin eru aðeins virk þegar heyrnartól eða Bluetooth-hljóðtæki eru notuð.</string>
     <string name="multi_sound_title">Aðskilja hljóð forrits</string>
-    <string name="multi_sound_summary">Spila hljóð úr einu forriti í hátalara eða heyrnartólum aðskilið frá öðrum hljóðum í tækinu.</string>
-    <string name="multi_sound_descryption">"Spilaðu hljóð úr einu forriti í hátalara eða heyrnartólum aðskilið frá hljóðum úr öðrum forritum.
+    <string name="multi_sound_summary">Spila hljóðefni úr einu forriti í hljóðtæki sem er ekki hluti af aðalhljóðtæki símans.</string>
+    <string name="multi_sound_descryption">"Spila hljóðefni úr einu forriti í hljóðtæki sem er ekki hluti af aðalhljóðtæki símans. Veldu forrit og hljóðtæki til að kveikja á þessu.
 
-Ef þú velur Bluetooth-hljóðtæki er hljóðið spilað í sjálfgefna hljóðtækinu ef Bluetooth-tækið er ekki tengt."</string>
+Aðeins er hægt að aðskilja hljóð forrits þegar hljóðtækið sem þú velur er ekki það sama og aðalhljóðtæki símans.
+
+Hægt er að skipta um aðalhljóðtæki símans á flýtistillingaskjánum. Ef ekkert hljóðúttak er birt skaltu kveikja á því í „Samsung Connect > Stillingar > Samsung Connect-svæði“."</string>
     <string name="set_application_title">Forrit</string>
     <string name="set_application_summary">Velja forrit til að spila hljóð úr því í aðskildu hljóðtæki.</string>
     <string name="set_application_descryption">Veldu margmiðlunarforrit hér að neðan til að spila hljóð úr því í aðskildu hljóðtæki.</string>
@@ -2708,9 +2735,11 @@ Ef þú velur Bluetooth-hljóðtæki er hljóðið spilað í sjálfgefna hljó�
     <string name="multi_sound_popup_msg">Til að kveikja á %s þarftu að velja forrit og hljóðtæki.</string>
     <string name="multi_sound_network_msg">Til að leita að tiltækum forritum verður síminn að vera tengdur við net. Athugaðu netstillingarnar og reyndu aftur.</string>
     <string name="multi_sound_wifi_msg">Síminn þarf að vera tengdur við netkerfi til að leita að tiltækum forritum. Notkun farsímagagna getur haft viðbótarkostnað í för með sér.</string>
+    <string name="multi_sound_add_application">Bæta við forriti</string>
     <string name="dlg_btn_select">Velja</string>
-    <string name="audio_device_type_descryption">Veldu hvaða hljóðtæki þú vilt nota fyrir þetta forrit. Bluetooth-tæki eru aðeins tiltæk þegar þau eru tengd.</string>
+    <string name="audio_device_type_descryption">Veldu hvaða hljóðtæki þú vilt nota fyrir valda forritið. Bluetooth-tæki eru aðeins í boði á meðan þau eru tengd.</string>
     <string name="my_phone_title">Sími</string>
+    <string name="my_phone_summary">Hátalari/heyrnartól/USB-hljóðtæki</string>
     <string name="bluetooth_device_title">Bluetooth-tæki</string>
     <string name="no_connected_devices">Engin tengd tæki</string>
     <string name="two_hours">2 klukkustundir</string>
@@ -2718,7 +2747,8 @@ Ef þú velur Bluetooth-hljóðtæki er hljóðið spilað í sjálfgefna hljó�
     <string name="stop_setup_popup_msg">Engar breytingar á stillingum verða notaðar.</string>
     <string name="app_turned_on">Kveikt á %s.</string>
     <string name="force_touch_title">Ýtt á titringssvörun</string>
-    <string name="volume_key_control_title">Sjálfgefinn hljóðstyrksstjórn</string>
+    <string name="volume_key_control_title">Nota hljóðstyrkstakka f. efni</string>
+    <string name="volume_key_control_summary">Stjórna hljóðstyrk efnisspilunar þegar ýtt er á hljóðstyrkstakkana.</string>
     <string name="sound_mode">Hljóðstilling</string>
     <string name="sound_mode_vibrate">Titringur</string>
     <string name="sound_mode_mute">Þögn</string>
@@ -2932,12 +2962,13 @@ Reynið aftur."</string>
     <string name="text_biometrics_title_enterprise">Þegar %1$s er valið eru lífkenni ekki studd sem opnunaraðferð fyrir %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">Fingraför eru ekki studd af %1$s sem opnunaraðferð fyrir %2$s.</string>
     <string name="edge_feeds_title">Jaðarstraumar</string>
-    <string name="screensaver_settings_summary">Stjórnaðu því hvað gerist þegar tækið er í dokku og/eða í hleðslu. Skjávarinn birtist þegar slokknar á skjánum.</string>
-    <string name="screensaver_settings_summary_wo_dock">Sýna skjávara eftir að slokknar sjálfkrafa á skjánum þegar síminn er í hleðslu.</string>
+    <string name="screensaver_settings_summary">Sýna skjávara eftir að slokknar sjálfkrafa á skjánum þegar síminn er í hleðslu.</string>
+    <string name="screensaver_settings_summary_wo_dock">Sýna skjávara eftir að slokknar sjálfkrafa á skjánum þegar síminn er í dokku eða í hleðslu.</string>
     <string name="apn_already_exists">Er þegar til.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Númer gáttar þarf að vera á milli %1$d og %2$d.</string>
     <string name="apn_restore_warning">Allir aðgangsstaðir sem þú hefur bætt við verða fjarlægðir. Aðrir aðgangsstaðir verða endurstilltir á sjálfgefnar stillingar.</string>
+    <string name="apn_restore_title">Endurstilla stillingar aðgangsstaðar?</string>
     <string name="master_clear_desc_google_account">Google-reikningar</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2950,6 +2981,7 @@ Reynið aftur."</string>
     <string name="backup_samsung_account_title">Stillingar öryggisafritunar</string>
     <string name="restore_samsung_account_title">Endurbyggja</string>
     <string name="auto_restart_header">Símastjórnun</string>
+    <string name="auto_restart_header_tablet">Spjaldtölvustjórn</string>
     <string name="auto_restart_title">Sjálfvirk endurræsing</string>
     <string name="switch_turn_on_text">Kveikja á</string>
     <string name="switch_turn_off_text">Slökkva</string>
@@ -3072,6 +3104,14 @@ Taktu hleðslutækið úr sambandi til að kveikja/slökkva á þessum eiginleik
     <string name="tether_settings_summary_usb_bt">Deila gagnatengingu tækisins í gegnum USB eða Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Samþykkja</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Deila nettengingu símans í gegnum Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Deila nettengingu spjaldtölvunnar í gegnum Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Nú er hægt að deila nettengingu símans.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Nú er hægt að deila nettengingu spjaldtölvunnar.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Nettengingu símans er deilt með 1 tæki.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Nettengingu spjaldtölvunnar er deilt með 1 tæki.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Nettengingu símans er deilt með %d tækjum.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Nettengingu spjaldtölvunnar er deilt með %d tækjum.</string>
     <string name="onehand_settings_title">Einnar handar stilling</string>
     <string name="onehand_settings_text_1">Strjúktu skáhallt upp frá öðru hvoru neðra horni skjásins til að minnka skjáinn.</string>
     <string name="onehand_settings_text_2">Pikkaðu þrisvar hratt á heimatakkann til að minnka skjáinn.</string>
@@ -3399,10 +3439,12 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Slökkt</string>
     <string name="wifi_or_mobile_network">Wi-Fi eða farsímakerfi</string>
     <string name="wifi_network_only">Aðeins Wi-Fi-netkerfi</string>
+    <string name="wifi_adps_title">Wi-Fi orkusparnaðarstilling</string>
+    <string name="wifi_adps_summary">Minnka rafhlöðunotkun með því að greina notkunarmynstur Wi-Fi netsins.</string>
     <string name="wifi_auto_reconnect">Sjálfvirk endurtenging</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Ef þú kveikir á Wi-Fi slokknar á Mobile Hotspot. Halda áfram?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Slökkt er á Wi-Fi þegar kveikt er á farsímaaðgangsstað. Slökktu á farsímaaðgangsstaðnum til að kveikja á Wi-Fi.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Slökkt er á Wi-Fi þegar kveikt er á farsímaaðgangsstað. Slökktu á farsímaaðgangsstaðnum til að kveikja á Wi-Fi.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
@@ -3604,6 +3646,10 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_wps_pin_client_mobileap">Tengist við biðlara með PIN-númeri %1$s. Uppsetningin getur tekið allt að %2$d mínútur.</string>
     <string name="wifi_wps_complete_mobileap">Hitt tækið er nú tengt við þetta tæki.</string>
     <string name="wifi_ap_disconnect_warn">Aftengja tæki</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Öll tengd tæki verða aftengd frá Mobile hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Öll tengd tæki verða aftengd frá Mobile hotspot.</string>
     <string name="wifi_ap_warn_max_whitelist">Hámarksfjölda leyfðra tækja (%d) er náð.</string>
     <string name="wifiap_one_item_deleted">1 hlut verður eytt.</string>
@@ -3739,6 +3785,8 @@ Notkun farsímaaðgangsstaðar gengur hraðar á rafhlöðuna og eykur gagnanotk
     <string name="wifi_ap_first_time_configuration">Fyrsta grunnstilling aðgangsstaðar</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Sláðu inn rétta PIN-númerið.</string>
+    <string name="open_mobileap_warning">Þessi farsímaaðgangsstaður er ekki öruggur.</string>
+    <string name="hidden_mobileap_warning">Slökkt verður á WPS þegar notandi stillir falið SSID.</string>
     <string name="wifi_ssid_max_byte_error">Hámarksfjölda stafa hefur verið náð.</string>
     <string name="tethering_attention_title">Athuga</string>
     <string name="wfd_select_device">Veldu tæki</string>
@@ -3969,6 +4017,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Samstilla</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Þessi heimild gerir forriti kleift að birta hluti ofan á öðrum forritum sem þú ert að nota. Þetta kann að hafa áhrif á notkun þína á öðrum forritum.</string>
+    <string name="write_settings_body_description">Leyfa þessu forriti að breyta kerfisstillingum, t.d. kveikja eða slökkva á Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Þetta mun endurstilla allar forstillingar fyrir:</string>
+    <string name="reset_app_preferences_desc2">Óvirk forrit</string>
+    <string name="reset_app_preferences_desc3">Takmörkun á tilkynningum fyrir forrit</string>
+    <string name="reset_app_preferences_desc4">Sjálfgefin forrit</string>
+    <string name="reset_app_preferences_desc5">Takmörkun á bakgrunnsgögnum fyrir forrit</string>
+    <string name="reset_app_preferences_desc6">Takmarkanir á heimildum</string>
+    <string name="reset_app_preferences_desc7">Þú tapar ekki fyrirliggjandi forritagögnum.</string>
     <string name="knox_security_mode_title">Knox-öryggi</string>
     <string name="kap_title">Virk vörn Knox</string>
     <string name="kap_eula_title">Persónuverndarstefna</string>
@@ -3983,6 +4039,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Stjórnaðu persónuupplýsingum þínum og Samsung-reikningsupplýsingunum.</string>
     <string name="my_profile_summary_jpn">Stjórna persónuupplýsingum og Galaxy-reikningsupplýsingum.</string>
     <string name="arbitration_agreement">Gerðardómssamningur</string>
+    <string name="activation_title">Virkjunarstaða</string>
+    <string name="activation_summary">Virkjað þann %1$s. Frekari upplýsingar eru á %2$s.</string>
+    <string name="wifi_ap_pmf_on">Kveikt er á PMF</string>
+    <string name="edit_event_start_short">Upphaf</string>
+    <string name="edit_event_end_short">Lok</string>
+    <string name="select_date_to_view">Velja dagsetningu til að skoða</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Já</string>
     <string name="no">Nei</string>
     <string name="create">Búa til</string>
@@ -5473,7 +5536,7 @@ Hvaða notandi sem er getur samþykkt uppfærðar forritsheimildir fyrir hönd a
     <string name="app_notification_block_title">Leyfa tilkynningar</string>
     <string name="app_notification_block_summary">Fá tilkynningar frá þessu forriti, þar á meðal skilaboð, hljóð og titring.</string>
     <string name="app_notification_override_dnd_title">Setja í forgang</string>
-    <string name="app_notification_override_dnd_summary">Leyfa tilkynningum frá þessu forriti að hljóma og kveikja á skjánum þegar kveikt er á „Ónáðið ekki“.</string>
+    <string name="app_notification_override_dnd_summary">Sýna tilkynningar efst á tilkynningaskjánum og setja þær á leyfislistann á meðan kveikt er á stillingunni „Ónáðið ekki“.</string>
     <string name="app_notification_visibility_override_title">Á lásskjá</string>
     <string name="app_notifications_dialog_done">Lokið</string>
     <string name="zen_mode_choose_rule_type">Veldu gerð reglu</string>
@@ -5510,6 +5573,7 @@ Hvaða notandi sem er getur samþykkt uppfærðar forritsheimildir fyrir hönd a
     <string name="restr_pin_enter_admin_pin">Sláðu inn PIN-númer stjórnanda</string>
     <string name="switch_on_text">Kveikt</string>
     <string name="switch_off_text">Slökkt</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Þessu vinnusniði er stjórnað af:</string>
     <string name="managing_admin">Stjórnað af %s</string>
     <string name="display_auto_rotate_title">Skjásnúningur</string>
     <string name="display_auto_rotate_rotate">Snúa innihaldi skjás</string>
@@ -5546,9 +5610,9 @@ Hvaða notandi sem er getur samþykkt uppfærðar forritsheimildir fyrir hönd a
     <string name="encrypt_talkback_dialog_require_pin">Nota PIN-númer</string>
     <string name="encrypt_talkback_dialog_require_pattern">Nota mynstur</string>
     <string name="encrypt_talkback_dialog_require_password">Nota lykilorð</string>
-    <string name="encrypt_talkback_dialog_message_pin">Þegar þú slærð inn PIN-númerið eftir að kveikt er á tækinu er tímabundið slökkt á aðgengiseiginleikum á borð við %1$s.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Þegar þú dregur mynstrið eftir að kveikt er á tækinu er tímabundið slökkt á aðgengiseiginleikum á borð við %1$s.</string>
-    <string name="encrypt_talkback_dialog_message_password">Þegar þú slærð inn aðgangsorðið eftir að kveikt er á tækinu er tímabundið slökkt á aðgengiseiginleikum á borð við %1$s.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Beðið verður um PIN-númerið þitt þegar þú kveikir á tækinu. Aðgengiseiginleikar verða ekki tiltækir fyrr en kveikt hefur verið á tækinu.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Beðið verður um mynstrið þitt þegar þú kveikir á tækinu. Aðgengiseiginleikar verða ekki tiltækir fyrr en kveikt hefur verið á tækinu.</string>
+    <string name="encrypt_talkback_dialog_message_password">Beðið verður um lykilorðið þitt þegar þú kveikir á tækinu. Aðgengiseiginleikar verða ekki tiltækir fyrr en kveikt hefur verið á tækinu.</string>
     <string name="slot_number">(rauf %d)</string>
     <string name="app_launch_domain_links_title">Tenglar í forrit</string>
     <string name="app_launch_open_domain_urls_title">Fara á studdar vefslóðir</string>
@@ -5624,18 +5688,18 @@ Hvaða notandi sem er getur samþykkt uppfærðar forritsheimildir fyrir hönd a
     <string name="usb_use_power_only">Hlaða tengt tæki</string>
     <string name="usb_use_power_only_desc">Hlaða tengt tæki um USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Flytja efnisskrár</string>
+    <string name="usb_use_file_transfers">Flytja skrár</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Flytja myndir</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Velja þessa stillingu ef flutningur efnisskráa virkar ekki. Aðeins er hægt að flytja myndaskrár.</string>
+    <string name="usb_use_photo_transfers_summary">Velja þessa stillingu ef flutningur skráa virkar ekki. Aðeins er hægt að flytja myndaskrár í þessari stillingu.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Tengja MIDI-tæki</string>
-    <string name="usb_use">Nota USB fyrir</string>
-    <string name="assist_access_context_title">Lesa textann á skjánum</string>
-    <string name="assist_access_context_summary">Leyfa hjálparforriti tækis að lesa allan texta sem birtist á skjánum.</string>
-    <string name="assist_access_screenshot_title">Taka/opna skjámyndir</string>
-    <string name="assist_access_screenshot_summary">Leyfa hjálparforriti tækis að taka og opna skjámyndir.</string>
+    <string name="usb_use">Nota USB til að</string>
+    <string name="assist_access_context_title">Greina texta á skjá</string>
+    <string name="assist_access_context_summary">Leyfa hjálparforriti tækis að greina texta sem birtist á skjánum til að útvega skylt efni.</string>
+    <string name="assist_access_screenshot_title">Greina myndir á skjá</string>
+    <string name="assist_access_screenshot_summary">Leyfa hjálparforriti tækisins að taka og nota skjámyndir.</string>
     <string name="assist_footer">Hjálparforrit tækisins geta aðstoðað þig með því að safna saman upplýsingum af skjánum sem opinn er í símanum. Sum hjálparforrit tækja er hægt að nota til að opna önnur forrit og slá inn texta með því að nota raddinntak og þannig býðst þér samþætt aðstoð.</string>
     <string name="average_memory_use">Meðalnotkun á vinnsluminni</string>
     <string name="maximum_memory_use">Hámarksnotkun vinnsluminnis</string>
@@ -5664,7 +5728,7 @@ Hvaða notandi sem er getur samþykkt uppfærðar forritsheimildir fyrir hönd a
     <string name="ignore_optimizations_on_desc">Getur aukið rafhlöðunotkun</string>
     <string name="ignore_optimizations_off_desc">Mælt með fyrir orkusparnað</string>
     <string name="app_list_preference_none">Ekkert</string>
-    <string name="allow_overlay_description">Veldu forrit ef þú vilt leyfa að hnappar, sprettigluggar og fleira frá þeim birtist yfir öðrum forritum sem þú notar.</string>
+    <string name="allow_overlay_description">Þessi heimild gerir forriti kleift að birta hluti ofan á öðrum forritum sem þú ert að nota. Þetta kann að hafa áhrif á notkun þína á öðrum forritum.</string>
     <string name="overlay_settings">Forrit sem geta birst efst</string>
     <string name="filter_overlay_apps">Forrit með heimild</string>
     <string name="filter_write_settings_apps">Forrit með heimild</string>
@@ -5711,14 +5775,14 @@ Hvaða notandi sem er getur samþykkt uppfærðar forritsheimildir fyrir hönd a
     <string name="ethernet_data_template">%1$s af ethernet-gögnum</string>
     <string name="cell_warning_only">Gagnaviðvörun við %s</string>
     <string name="cell_warning_and_limit">%1$s gagnanotkunarviðvörun/%2$s gagnanotkunarmörk</string>
-    <string name="billing_cycle">Greiðslutímabil</string>
+    <string name="billing_cycle">Greiðslutímab. og gagnaviðvörun</string>
     <string name="billing_cycle_summary">%s. dag hvers mánaðar</string>
     <string name="billing_cycle_fragment_summary">%s. dag hvers mánaðar</string>
     <string name="network_restrictions">Takmarka símkerfi</string>
     <string name="operator_warning">Tækið þitt mælir gagnanotkunina. Símafyrirtækið kann að reikna notkunina á annan hátt.</string>
     <string name="data_used_template">%s notuð</string>
     <string name="data_warning">Gagnaviðvörun</string>
-    <string name="set_data_limit">Gagnamörk</string>
+    <string name="set_data_limit">Velja gagnamörk</string>
     <string name="data_limit">Gagnamörk</string>
     <string name="data_usage_template">%1$s notuð %2$s</string>
     <string name="data_usage_other_apps">Forrit innifalin í notkun</string>
@@ -5760,5 +5824,4 @@ Hvaða notandi sem er getur samþykkt uppfærðar forritsheimildir fyrir hönd a
     <string name="enable_iris_lock_desc_3">"Gerð skjálássins er stillt á „Fingraför“.
 
 Til að breyta gerð skjálássins í „Lithimnur“ í staðinn fyrir „Fingraför“ skaltu pikka á KVEIKJA. Eftir það er hægt að opna tækið með því að nota lithimnur eða %s."</string>
-    <string name="my_phone_summary">Hátalari/heyrnartól/USB-hljóðtæki</string>
 </resources>

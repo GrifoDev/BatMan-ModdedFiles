@@ -55,7 +55,7 @@
 
     iput v1, p0, Lcom/android/settings/datausage/ChartDataUsagePreference;->mWarningColor:I
 
-    const v1, 0x7f0400b0
+    const v1, 0x7f0400b2
 
     invoke-virtual {p0, v1}, Lcom/android/settings/datausage/ChartDataUsagePreference;->setLayoutResource(I)V
 
@@ -123,7 +123,7 @@
 
     iget v5, p0, Lcom/android/settings/datausage/ChartDataUsagePreference;->mLimitColor:I
 
-    const v8, 0x7f0b1945
+    const v8, 0x7f0b19e1
 
     invoke-direct {p0, v6, v7, v8, v5}, Lcom/android/settings/datausage/ChartDataUsagePreference;->getLabel(JII)Ljava/lang/CharSequence;
 
@@ -170,7 +170,7 @@
 
     iget v5, p0, Lcom/android/settings/datausage/ChartDataUsagePreference;->mWarningColor:I
 
-    const v8, 0x7f0b1944
+    const v8, 0x7f0b19e0
 
     invoke-direct {p0, v6, v7, v8, v5}, Lcom/android/settings/datausage/ChartDataUsagePreference;->getLabel(JII)Ljava/lang/CharSequence;
 
@@ -725,7 +725,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v2, 0x7f11026a
+    const v2, 0x7f11026d
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

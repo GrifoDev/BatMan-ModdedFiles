@@ -1,5 +1,5 @@
 .class Lcom/samsung/android/settings/notification/VibrationIntensitySettings$1;
-.super Landroid/content/BroadcastReceiver;
+.super Landroid/database/ContentObserver;
 .source "VibrationIntensitySettings.java"
 
 
@@ -19,30 +19,48 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/samsung/android/settings/notification/VibrationIntensitySettings;)V
+.method constructor <init>(Lcom/samsung/android/settings/notification/VibrationIntensitySettings;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/settings/notification/VibrationIntensitySettings$1;->this$0:Lcom/samsung/android/settings/notification/VibrationIntensitySettings;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+.method public onChange(Z)V
+    .locals 1
 
-    const-string/jumbo v0, "VibrationIntensity"
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationIntensitySettings$1;->this$0:Lcom/samsung/android/settings/notification/VibrationIntensitySettings;
 
-    const-string/jumbo v1, "mAoBleChangeReceiver called"
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VibrationIntensitySettings;->-get3(Lcom/samsung/android/settings/notification/VibrationIntensitySettings;)Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v0
 
-    if-nez p2, :cond_0
+    if-eqz v0, :cond_0
 
-    return-void
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationIntensitySettings$1;->this$0:Lcom/samsung/android/settings/notification/VibrationIntensitySettings;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VibrationIntensitySettings;->-get3(Lcom/samsung/android/settings/notification/VibrationIntensitySettings;)Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->getInitFinish()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/VibrationIntensitySettings$1;->this$0:Lcom/samsung/android/settings/notification/VibrationIntensitySettings;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/notification/VibrationIntensitySettings;->-get3(Lcom/samsung/android/settings/notification/VibrationIntensitySettings;)Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/notification/VibrationSeekBarPreference;->setCurrentProgress()V
 
     :cond_0
     return-void

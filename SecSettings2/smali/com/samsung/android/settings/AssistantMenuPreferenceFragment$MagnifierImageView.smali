@@ -40,7 +40,7 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageView;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040192
+    const v0, 0x7f040194
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageView;->setLayoutResource(I)V
 
@@ -56,14 +56,14 @@
 
     :array_0
     .array-data 4
-        0x7f020393
-        0x7f020394
-        0x7f020395
-        0x7f020396
-        0x7f020397
-        0x7f020398
-        0x7f020399
-        0x7f02039a
+        0x7f0203b9
+        0x7f0203ba
+        0x7f0203bb
+        0x7f0203bc
+        0x7f0203bd
+        0x7f0203be
+        0x7f0203bf
+        0x7f0203c0
     .end array-data
 .end method
 
@@ -170,7 +170,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f110554
+    const v0, 0x7f110556
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

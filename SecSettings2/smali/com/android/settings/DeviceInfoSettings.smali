@@ -726,7 +726,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b117d
+    const v3, 0x7f0b1218
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -749,7 +749,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b117d
+    const v3, 0x7f0b1218
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -830,7 +830,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08b9
+    const v29, 0x7f0b0923
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -914,7 +914,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08bc
+    const v29, 0x7f0b0926
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1001,7 +1001,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08bd
+    const v29, 0x7f0b0927
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1100,7 +1100,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08c1
+    const v29, 0x7f0b092b
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1175,7 +1175,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08bb
+    const v29, 0x7f0b0925
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1262,7 +1262,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08c5
+    const v29, 0x7f0b092f
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1349,7 +1349,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08c4
+    const v29, 0x7f0b092e
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1438,7 +1438,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08bf
+    const v29, 0x7f0b0929
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1525,7 +1525,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08c0
+    const v29, 0x7f0b092a
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1608,7 +1608,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08c2
+    const v29, 0x7f0b092c
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1693,7 +1693,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08c3
+    const v29, 0x7f0b092d
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1782,7 +1782,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08c6
+    const v29, 0x7f0b0930
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1998,7 +1998,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08ba
+    const v29, 0x7f0b0924
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2098,7 +2098,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08be
+    const v29, 0x7f0b0928
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2209,7 +2209,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08b9
+    const v29, 0x7f0b0923
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2652,7 +2652,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08ba
+    const v29, 0x7f0b0924
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2705,7 +2705,7 @@
 
     move-result-object v28
 
-    const v29, 0x7f0b08ba
+    const v29, 0x7f0b0924
 
     invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3257,7 +3257,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0b1996
+    const v39, 0x7f0b1a32
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4746,7 +4746,7 @@
 
     move-result-object v39
 
-    const v40, 0x7f0b0542
+    const v40, 0x7f0b05a5
 
     invoke-virtual/range {v39 .. v40}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4877,7 +4877,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0b1995
+    const v39, 0x7f0b1a31
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4890,7 +4890,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0b1994
+    const v39, 0x7f0b1a30
 
     invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4985,7 +4985,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0b117d
+    const v39, 0x7f0b1218
 
     move-object/from16 v0, p0
 
@@ -5049,7 +5049,7 @@
 
     move-result-object v38
 
-    const v39, 0x7f0b117d
+    const v39, 0x7f0b1218
 
     move-object/from16 v0, p0
 
@@ -5680,7 +5680,7 @@
 
     move-result-object v39
 
-    const v40, 0x7f0b117d
+    const v40, 0x7f0b1218
 
     invoke-virtual/range {v39 .. v40}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5729,7 +5729,7 @@
 
     move-result-object v39
 
-    const v40, 0x7f0b117d
+    const v40, 0x7f0b1218
 
     invoke-virtual/range {v39 .. v40}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5924,7 +5924,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b19fb
+    const v0, 0x7f0b1a97
 
     return v0
 .end method
@@ -6021,7 +6021,7 @@
 
     iput-object v0, v2, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v3, 0x7f0b0511
+    const v3, 0x7f0b0574
 
     iput v3, v2, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -6061,7 +6061,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v3, 0x7f0b0465
+    const v3, 0x7f0b023a
 
     iput v3, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -6700,7 +6700,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b117e
+    const v7, 0x7f0b1219
 
     invoke-static {v6, v7, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -6810,7 +6810,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b117f
+    const v7, 0x7f0b121a
 
     invoke-static {v6, v7, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -7155,7 +7155,7 @@
 .method public removePreferencesSimplifiedAboutDevice()V
     .locals 3
 
-    const v2, 0x7f0b0567
+    const v2, 0x7f0b05ca
 
     invoke-static {}, Lcom/samsung/android/settings/deviceinfo/SecDeviceInfoUtils;->isSimplifiedAboutDevice2015()Z
 
@@ -7247,7 +7247,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0568
+    const v1, 0x7f0b05cb
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -7316,7 +7316,7 @@
     if-eqz v1, :cond_3
 
     :cond_0
-    const v0, 0x7f0b0536
+    const v0, 0x7f0b0599
 
     :goto_0
     iget-object v1, p0, Lcom/android/settings/DeviceInfoSettings;->mDeviceNameFragment:Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
@@ -7331,7 +7331,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1003cc
+    const v3, 0x7f1003cf
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -7373,7 +7373,7 @@
     return-void
 
     :cond_3
-    const v0, 0x7f0b0542
+    const v0, 0x7f0b05a5
 
     goto :goto_0
 
@@ -7404,7 +7404,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f040344
+    const v8, 0x7f040349
 
     const/4 v9, 0x0
 
@@ -7412,7 +7412,7 @@
 
     move-result-object v1
 
-    const v7, 0x7f110815
+    const v7, 0x7f110818
 
     invoke-virtual {v1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7432,7 +7432,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b050f
+    const v8, 0x7f0b0572
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7494,7 +7494,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b050e
+    const v9, 0x7f0b0571
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7508,7 +7508,7 @@
 
     invoke-direct {v8, p0, v0, v4}, Lcom/android/settings/DeviceInfoSettings$8;-><init>(Lcom/android/settings/DeviceInfoSettings;Landroid/widget/CheckBox;Landroid/content/SharedPreferences$Editor;)V
 
-    const v9, 0x7f0b046a
+    const v9, 0x7f0b04cd
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -7518,7 +7518,7 @@
 
     invoke-direct {v8, p0}, Lcom/android/settings/DeviceInfoSettings$9;-><init>(Lcom/android/settings/DeviceInfoSettings;)V
 
-    const v9, 0x7f0b124f
+    const v9, 0x7f0b12ea
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

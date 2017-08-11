@@ -45,11 +45,11 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterRadioButtonPreference;->mListener:Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterRadioButtonPreference$OnClickListener;
 
-    const v0, 0x7f04021f
+    const v0, 0x7f040221
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterRadioButtonPreference;->setLayoutResource(I)V
 
-    const v0, 0x7f040238
+    const v0, 0x7f04023c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/bluelightfilter/BlueLightFilterRadioButtonPreference;->setWidgetLayoutResource(I)V
 

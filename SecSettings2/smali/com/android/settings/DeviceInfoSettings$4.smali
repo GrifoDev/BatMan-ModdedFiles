@@ -39,7 +39,7 @@
 
     const/4 v7, 0x1
 
-    const/4 v8, 0x0
+    const/4 v6, 0x0
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -143,11 +143,17 @@
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
+
+    invoke-static {}, Lcom/android/settings/DeviceInfoSettings;->-get4()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    const-string/jumbo v6, "status_info"
+    const-string/jumbo v6, "status_info_root"
 
     invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
@@ -161,6 +167,7 @@
 
     invoke-virtual {v5, v6}, Landroid/preference/Preference;->performClick(Landroid/preference/PreferenceScreen;)V
 
+    :goto_1
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
@@ -175,7 +182,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_d
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -187,7 +194,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
     const/4 v3, -0x1
 
@@ -216,7 +223,7 @@
 
     if-nez v3, :cond_5
 
-    if-eq v3, v7, :cond_8
+    if-eq v3, v7, :cond_9
 
     :cond_5
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
@@ -268,6 +275,25 @@
 
     goto/16 :goto_0
 
+    :cond_7
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    const-string/jumbo v6, "status_info"
+
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-virtual {v6}, Lcom/android/settings/DeviceInfoSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/preference/Preference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    goto/16 :goto_1
+
     :catch_0
     move-exception v0
 
@@ -285,7 +311,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -311,7 +337,7 @@
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_7
+    :cond_8
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -324,7 +350,7 @@
 
     return-void
 
-    :cond_8
+    :cond_9
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -335,7 +361,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_a
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -361,7 +387,7 @@
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_9
+    :cond_a
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -373,37 +399,37 @@
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
-
-    :cond_a
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-virtual {v5, v1}, Lcom/android/settings/DeviceInfoSettings;->startActivity(Landroid/content/Intent;)V
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_b
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "Status"
-
-    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
     :cond_b
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
+    invoke-virtual {v5, v1}, Lcom/android/settings/DeviceInfoSettings;->startActivity(Landroid/content/Intent;)V
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "Status"
+
+    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_c
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v5
@@ -414,7 +440,7 @@
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_d
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-virtual {v5, v1}, Lcom/android/settings/DeviceInfoSettings;->startActivity(Landroid/content/Intent;)V
@@ -429,7 +455,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_e
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -441,7 +467,7 @@
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_d
+    :cond_e
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -454,18 +480,24 @@
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_f
     const-string/jumbo v5, "IMEIInformation"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_18
+    if-eqz v5, :cond_1a
+
+    invoke-static {}, Lcom/android/settings/DeviceInfoSettings;->-get4()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_12
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    const-string/jumbo v6, "status_info"
+    const-string/jumbo v6, "status_info_root"
 
     invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
@@ -479,6 +511,7 @@
 
     invoke-virtual {v5, v6}, Landroid/preference/Preference;->performClick(Landroid/preference/PreferenceScreen;)V
 
+    :goto_2
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
@@ -497,7 +530,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_16
+    if-eqz v5, :cond_18
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -509,7 +542,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_16
 
     const/4 v3, -0x1
 
@@ -528,63 +561,11 @@
 
     move-result v3
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_10
 
-    if-eq v3, v7, :cond_12
-
-    :cond_f
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_10
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "SimCardInfo"
-
-    const-string/jumbo v7, "Match"
-
-    const-string/jumbo v8, "no"
-
-    invoke-virtual {v5, v6, v7, v8}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "IMEIInformation"
-
-    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    if-eq v3, v7, :cond_14
 
     :cond_10
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_0
-
-    :catch_1
-    move-exception v0
-
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -632,9 +613,30 @@
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    return-void
+    goto/16 :goto_0
 
     :cond_12
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    const-string/jumbo v6, "status_info"
+
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-virtual {v6}, Lcom/android/settings/DeviceInfoSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/preference/Preference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v0
+
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -657,7 +659,7 @@
 
     const-string/jumbo v7, "Match"
 
-    const-string/jumbo v8, "yes"
+    const-string/jumbo v8, "no"
 
     invoke-virtual {v5, v6, v7, v8}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -678,11 +680,11 @@
 
     move-result-object v5
 
-    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    goto/16 :goto_0
+    return-void
 
     :cond_14
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
@@ -696,6 +698,20 @@
     move-result v5
 
     if-eqz v5, :cond_15
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "SimCardInfo"
+
+    const-string/jumbo v7, "Match"
+
+    const-string/jumbo v8, "yes"
+
+    invoke-virtual {v5, v6, v7, v8}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -757,13 +773,49 @@
     goto/16 :goto_0
 
     :cond_18
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_19
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "IMEIInformation"
+
+    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_19
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_1a
     const-string/jumbo v5, "LegalInformation"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1a
+    if-eqz v5, :cond_1c
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -791,7 +843,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_19
+    if-eqz v5, :cond_1b
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -801,7 +853,7 @@
 
     invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_19
+    :cond_1b
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -814,14 +866,14 @@
 
     goto/16 :goto_0
 
-    :cond_1a
+    :cond_1c
     const-string/jumbo v5, "DeviceName"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1c
+    if-eqz v5, :cond_1e
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -833,7 +885,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1b
+    if-eqz v5, :cond_1d
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -859,7 +911,7 @@
 
     invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_1b
+    :cond_1d
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -872,14 +924,14 @@
 
     goto/16 :goto_0
 
-    :cond_1c
+    :cond_1e
     const-string/jumbo v5, "DeviceNameChange"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1d
+    if-eqz v5, :cond_1f
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -887,7 +939,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5, v8, v4}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v5, v6, v4}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v2
 
@@ -903,102 +955,20 @@
 
     goto/16 :goto_0
 
-    :cond_1d
+    :cond_1f
     const-string/jumbo v5, "ModelNumber"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1f
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "device_model"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1e
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_1e
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_0
-
-    :cond_1f
-    const-string/jumbo v5, "SoftwareInfo"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_22
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v6, "software_info"
-
-    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
     if-eqz v5, :cond_21
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    const-string/jumbo v6, "software_info"
+    const-string/jumbo v6, "device_model"
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-virtual {v6}, Lcom/android/settings/DeviceInfoSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Landroid/preference/Preference;->performClick(Landroid/preference/PreferenceScreen;)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1034,6 +1004,74 @@
     goto/16 :goto_0
 
     :cond_21
+    const-string/jumbo v5, "SoftwareInfo"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_24
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    const-string/jumbo v6, "software_info"
+
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_23
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    const-string/jumbo v6, "software_info"
+
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-virtual {v6}, Lcom/android/settings/DeviceInfoSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/preference/Preference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_22
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_22
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_23
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -1046,14 +1084,14 @@
 
     goto/16 :goto_0
 
-    :cond_22
+    :cond_24
     const-string/jumbo v5, "BatteryInfo"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_25
+    if-eqz v5, :cond_27
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1063,7 +1101,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_24
+    if-eqz v5, :cond_26
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1091,7 +1129,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_23
+    if-eqz v5, :cond_25
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1101,7 +1139,7 @@
 
     invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_23
+    :cond_25
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -1114,7 +1152,7 @@
 
     goto/16 :goto_0
 
-    :cond_24
+    :cond_26
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -1127,34 +1165,20 @@
 
     goto/16 :goto_0
 
-    :cond_25
+    :cond_27
     const-string/jumbo v5, "MyPhoneNumber"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_27
+    if-eqz v5, :cond_29
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "my_phone_number"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "my_phone_number"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1166,7 +1190,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_26
+    if-eqz v5, :cond_28
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1176,7 +1200,7 @@
 
     invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_26
+    :cond_28
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -1189,14 +1213,14 @@
 
     goto/16 :goto_0
 
-    :cond_27
+    :cond_29
     const-string/jumbo v5, "AboutStatusFocus"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusFocusIPAddress"
 
@@ -1204,7 +1228,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusFocusWiFiMACAddress"
 
@@ -1212,7 +1236,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusFocusBluetoothAddress"
 
@@ -1220,7 +1244,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusFocusEthernetMACAddress"
 
@@ -1228,7 +1252,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusFocusSerialNumber"
 
@@ -1236,7 +1260,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusFocusUptime"
 
@@ -1244,7 +1268,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusFocusDeviceStatusValue"
 
@@ -1252,7 +1276,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusBatteryStatus"
 
@@ -1260,7 +1284,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusBatteryLevel"
 
@@ -1268,7 +1292,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "FactoryDataReset"
 
@@ -1276,7 +1300,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusNetwork"
 
@@ -1284,7 +1308,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusSignalStrength"
 
@@ -1292,7 +1316,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusMobileNetworkType"
 
@@ -1300,7 +1324,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusServiceState"
 
@@ -1308,7 +1332,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusRoaming"
 
@@ -1316,7 +1340,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusMobileNetworkState"
 
@@ -1324,7 +1348,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusERIversion"
 
@@ -1332,7 +1356,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusIMEI"
 
@@ -1340,7 +1364,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusIMEISV"
 
@@ -1348,7 +1372,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusICCID"
 
@@ -1356,7 +1380,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_2a
 
     const-string/jumbo v5, "AboutStatusIMSRegistration"
 
@@ -1364,9 +1388,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2b
+    if-eqz v5, :cond_2d
 
-    :cond_28
+    :cond_2a
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
@@ -1375,7 +1399,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2a
+    if-eqz v5, :cond_2c
 
     const-string/jumbo v5, "com.android.settings"
 
@@ -1383,7 +1407,7 @@
 
     invoke-virtual {v1, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    :goto_1
+    :goto_3
     const-string/jumbo v5, "fromBixby"
 
     invoke-virtual {v1, v5, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
@@ -1406,7 +1430,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_29
+    if-eqz v5, :cond_2b
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1418,7 +1442,7 @@
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_29
+    :cond_2b
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -1431,23 +1455,23 @@
 
     goto/16 :goto_0
 
-    :cond_2a
+    :cond_2c
     const-string/jumbo v5, "com.android.settings"
 
     const-string/jumbo v6, "com.android.settings.Settings$StatusActivity"
 
     invoke-virtual {v1, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    goto :goto_1
+    goto :goto_3
 
-    :cond_2b
+    :cond_2d
     const-string/jumbo v5, "IconGlossary"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2e
+    if-eqz v5, :cond_30
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1457,7 +1481,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_2d
+    if-eqz v5, :cond_2f
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1485,7 +1509,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2c
+    if-eqz v5, :cond_2e
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1495,7 +1519,7 @@
 
     invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_2c
+    :cond_2e
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -1508,7 +1532,7 @@
 
     goto/16 :goto_0
 
-    :cond_2d
+    :cond_2f
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -1521,70 +1545,8 @@
 
     goto/16 :goto_0
 
-    :cond_2e
-    const-string/jumbo v5, "AndroidVersion"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_30
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "firmware_version"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2f
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_2f
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_0
-
     :cond_30
-    const-string/jumbo v5, "SamsungExperienceVersion"
+    const-string/jumbo v5, "AndroidVersion"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1594,23 +1556,9 @@
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "firmware_version"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "samsung_experience_version"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1646,7 +1594,7 @@
     goto/16 :goto_0
 
     :cond_32
-    const-string/jumbo v5, "AndroidSecurityPatchLevel"
+    const-string/jumbo v5, "SamsungExperienceVersion"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1656,23 +1604,9 @@
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "samsung_experience_version"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "security_patch"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1708,7 +1642,7 @@
     goto/16 :goto_0
 
     :cond_34
-    const-string/jumbo v5, "BasebandVersion"
+    const-string/jumbo v5, "AndroidSecurityPatchLevel"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1718,23 +1652,9 @@
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "security_patch"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "baseband_version"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1770,7 +1690,7 @@
     goto/16 :goto_0
 
     :cond_36
-    const-string/jumbo v5, "KernelVersion"
+    const-string/jumbo v5, "BasebandVersion"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1780,23 +1700,9 @@
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "baseband_version"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "kernel_version"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1832,7 +1738,7 @@
     goto/16 :goto_0
 
     :cond_38
-    const-string/jumbo v5, "BuildNumber"
+    const-string/jumbo v5, "KernelVersion"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1842,23 +1748,9 @@
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "kernel_version"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "build_number"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1894,7 +1786,7 @@
     goto/16 :goto_0
 
     :cond_3a
-    const-string/jumbo v5, "SEforAndroidStatus"
+    const-string/jumbo v5, "BuildNumber"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1904,23 +1796,9 @@
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "build_number"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "selinux_status"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -1956,7 +1834,7 @@
     goto/16 :goto_0
 
     :cond_3c
-    const-string/jumbo v5, "SecuritySoftwareVersion"
+    const-string/jumbo v5, "SEforAndroidStatus"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1966,23 +1844,9 @@
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "selinux_status"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "security_sw_version"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -2018,7 +1882,7 @@
     goto/16 :goto_0
 
     :cond_3e
-    const-string/jumbo v5, "KnoxVersion"
+    const-string/jumbo v5, "SecuritySoftwareVersion"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2028,23 +1892,9 @@
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "security_sw_version"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "knox_version"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -2080,21 +1930,9 @@
     goto/16 :goto_0
 
     :cond_40
-    const-string/jumbo v5, "ServiceProviderSWver"
+    const-string/jumbo v5, "KnoxVersion"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_44
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    iget-object v5, v5, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v6, "com.samsung.android.app.omcagent"
-
-    invoke-static {v5, v6}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
 
     move-result v5
 
@@ -2102,23 +1940,9 @@
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "knox_version"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "omc_version"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -2131,20 +1955,6 @@
     move-result v5
 
     if-eqz v5, :cond_41
-
-    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "OMCPackage"
-
-    const-string/jumbo v7, "Available"
-
-    const-string/jumbo v8, "yes"
-
-    invoke-virtual {v5, v6, v7, v8}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -2168,6 +1978,32 @@
     goto/16 :goto_0
 
     :cond_42
+    const-string/jumbo v5, "ServiceProviderSWver"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_46
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    iget-object v5, v5, Lcom/android/settings/DeviceInfoSettings;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "com.samsung.android.app.omcagent"
+
+    invoke-static {v5, v6}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_44
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    const-string/jumbo v6, "omc_version"
+
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
+
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -2179,6 +2015,54 @@
     move-result v5
 
     if-eqz v5, :cond_43
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "OMCPackage"
+
+    const-string/jumbo v7, "Available"
+
+    const-string/jumbo v8, "yes"
+
+    invoke-virtual {v5, v6, v7, v8}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_43
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_44
+    iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
+
+    invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_45
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -2202,7 +2086,7 @@
 
     invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_43
+    :cond_45
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -2215,7 +2099,7 @@
 
     goto/16 :goto_0
 
-    :cond_44
+    :cond_46
     const-string/jumbo v5, "CustomerService"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2236,23 +2120,9 @@
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
+    const-string/jumbo v6, "customer_services"
 
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
-
-    const-string/jumbo v7, "customer_services"
-
-    invoke-virtual {v6, v7}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v8}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+    invoke-virtual {v5, v6}, Lcom/android/settings/DeviceInfoSettings;->bixbyScrollPreference(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -2264,7 +2134,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_45
+    if-eqz v5, :cond_47
 
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
@@ -2274,7 +2144,7 @@
 
     invoke-virtual {v5, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_45
+    :cond_47
     iget-object v5, p0, Lcom/android/settings/DeviceInfoSettings$4;->this$0:Lcom/android/settings/DeviceInfoSettings;
 
     invoke-static {v5}, Lcom/android/settings/DeviceInfoSettings;->-get1(Lcom/android/settings/DeviceInfoSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;

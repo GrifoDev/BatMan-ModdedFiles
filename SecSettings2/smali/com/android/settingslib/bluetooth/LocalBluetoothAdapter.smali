@@ -211,18 +211,6 @@
     return-object v0
 .end method
 
-.method public getProfileConnectionState(I)I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
-
-    invoke-virtual {v0, p1}, Landroid/bluetooth/BluetoothAdapter;->getProfileConnectionState(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)V
     .locals 1
 

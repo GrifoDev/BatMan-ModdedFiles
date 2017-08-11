@@ -199,13 +199,13 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    const v0, 0x7f040244
+    const v0, 0x7f040248
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;->setLayoutResource(I)V
 
     if-nez p2, :cond_0
 
-    const v0, 0x7f0b0e7a
+    const v0, 0x7f0b0f07
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;->setTitle(I)V
 
@@ -297,7 +297,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;->mPreviousSsid:Ljava/lang/String;
 
-    const v3, 0x7f040372
+    const v3, 0x7f040377
 
     const/4 v4, 0x0
 
@@ -305,7 +305,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f110881
+    const v3, 0x7f110884
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -315,7 +315,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;->mSsid:Landroid/widget/EditText;
 
-    const v3, 0x7f110886
+    const v3, 0x7f110889
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -365,7 +365,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
 
-    const v3, 0x7f0b13c1
+    const v3, 0x7f0b145c
 
     invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -379,7 +379,7 @@
 
     invoke-direct {v4, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference$2;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;)V
 
-    const v5, 0x7f0b13f1
+    const v5, 0x7f0b148c
 
     invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -389,7 +389,7 @@
 
     invoke-direct {v4, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference$3;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;)V
 
-    const v5, 0x7f0b13f3
+    const v5, 0x7f0b148e
 
     invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -523,7 +523,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;->mTitle:Landroid/widget/TextView;
 
-    const v0, 0x7f110681
+    const v0, 0x7f110684
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -549,7 +549,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0201e1
+    const v1, 0x7f020206
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -560,7 +560,7 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0201e0
+    const v1, 0x7f020205
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 

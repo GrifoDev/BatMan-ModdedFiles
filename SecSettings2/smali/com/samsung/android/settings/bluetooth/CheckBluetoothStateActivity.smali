@@ -587,7 +587,7 @@
 
     invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v2, 0x7f040054
+    const v2, 0x7f040055
 
     move-object/from16 v0, p0
 
@@ -937,7 +937,7 @@
 
     invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v2, 0x7f0b03e0
+    const v2, 0x7f0b0441
 
     move-object/from16 v0, p0
 

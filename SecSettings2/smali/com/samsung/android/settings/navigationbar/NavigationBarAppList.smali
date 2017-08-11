@@ -198,7 +198,7 @@
 
     new-instance v0, Lcom/samsung/android/settings/navigationbar/NavigationBarAppList$AppListAdapter;
 
-    const v3, 0x7f040189
+    const v3, 0x7f04018b
 
     move-object v1, p0
 

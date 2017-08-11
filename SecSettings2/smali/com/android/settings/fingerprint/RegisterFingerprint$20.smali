@@ -49,7 +49,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get22(Lcom/android/settings/fingerprint/RegisterFingerprint;)Lcom/android/settings/fingerprint/RegisterFingerprint$LiftFingerMessage;
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get23(Lcom/android/settings/fingerprint/RegisterFingerprint;)Lcom/android/settings/fingerprint/RegisterFingerprint$LiftFingerMessage;
 
     move-result-object v0
 
@@ -57,7 +57,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get22(Lcom/android/settings/fingerprint/RegisterFingerprint;)Lcom/android/settings/fingerprint/RegisterFingerprint$LiftFingerMessage;
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get23(Lcom/android/settings/fingerprint/RegisterFingerprint;)Lcom/android/settings/fingerprint/RegisterFingerprint$LiftFingerMessage;
 
     move-result-object v0
 
@@ -70,7 +70,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get32(Lcom/android/settings/fingerprint/RegisterFingerprint;)I
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get33(Lcom/android/settings/fingerprint/RegisterFingerprint;)I
 
     move-result v0
 
@@ -82,7 +82,7 @@
 
     iget-object v1, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v1}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get31(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get32(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -102,7 +102,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get16(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/hardware/fingerprint/FingerprintManager;
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get17(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/hardware/fingerprint/FingerprintManager;
 
     move-result-object v0
 
@@ -118,11 +118,17 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get16(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/hardware/fingerprint/FingerprintManager;
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get17(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/hardware/fingerprint/FingerprintManager;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/hardware/fingerprint/FingerprintManager;->getEnrolledFingerprints()Ljava/util/List;
+    iget-object v1, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
+
+    invoke-static {v1}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get35(Lcom/android/settings/fingerprint/RegisterFingerprint;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/hardware/fingerprint/FingerprintManager;->getEnrolledFingerprints(I)Ljava/util/List;
 
     move-result-object v8
 
@@ -165,7 +171,7 @@
 
     iget-object v2, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v2}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get14(Lcom/android/settings/fingerprint/RegisterFingerprint;)I
+    invoke-static {v2}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get15(Lcom/android/settings/fingerprint/RegisterFingerprint;)I
 
     move-result v2
 
@@ -193,7 +199,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get14(Lcom/android/settings/fingerprint/RegisterFingerprint;)I
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get15(Lcom/android/settings/fingerprint/RegisterFingerprint;)I
 
     move-result v0
 
@@ -213,7 +219,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get18(Lcom/android/settings/fingerprint/RegisterFingerprint;)Z
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get19(Lcom/android/settings/fingerprint/RegisterFingerprint;)Z
 
     move-result v0
 
@@ -221,7 +227,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    const v1, 0x7f1103d1
+    const v1, 0x7f1103d3
 
     invoke-virtual {v0, v1}, Lcom/android/settings/fingerprint/RegisterFingerprint;->findViewById(I)Landroid/view/View;
 
@@ -242,7 +248,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get27(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/widget/LinearLayout;
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get28(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/widget/LinearLayout;
 
     move-result-object v0
 
@@ -250,7 +256,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get18(Lcom/android/settings/fingerprint/RegisterFingerprint;)Z
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get19(Lcom/android/settings/fingerprint/RegisterFingerprint;)Z
 
     move-result v0
 
@@ -258,7 +264,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get27(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/widget/LinearLayout;
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get28(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/widget/LinearLayout;
 
     move-result-object v0
 
@@ -278,7 +284,7 @@
     :cond_5
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    const v1, 0x7f1103cc
+    const v1, 0x7f1103ce
 
     invoke-virtual {v0, v1}, Lcom/android/settings/fingerprint/RegisterFingerprint;->findViewById(I)Landroid/view/View;
 
@@ -299,7 +305,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get18(Lcom/android/settings/fingerprint/RegisterFingerprint;)Z
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get19(Lcom/android/settings/fingerprint/RegisterFingerprint;)Z
 
     move-result v0
 
@@ -307,7 +313,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    const v1, 0x7f1103cf
+    const v1, 0x7f1103d1
 
     invoke-virtual {v0, v1}, Lcom/android/settings/fingerprint/RegisterFingerprint;->findViewById(I)Landroid/view/View;
 
@@ -320,7 +326,7 @@
     :cond_7
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    const v1, 0x7f1103bb
+    const v1, 0x7f1103bd
 
     invoke-virtual {v0, v1}, Lcom/android/settings/fingerprint/RegisterFingerprint;->findViewById(I)Landroid/view/View;
 
@@ -340,7 +346,7 @@
 
     iget-object v1, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$20;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v1}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get31(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get32(Lcom/android/settings/fingerprint/RegisterFingerprint;)Landroid/widget/TextView;
 
     move-result-object v1
 

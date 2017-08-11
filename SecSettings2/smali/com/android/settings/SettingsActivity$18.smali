@@ -53,7 +53,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f0a067a
+    const v31, 0x7f0a0679
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -89,7 +89,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f100476
+    const v31, 0x7f10047c
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -121,7 +121,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f0a05fa
+    const v31, 0x7f0a05f9
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -171,7 +171,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f020622
+    const v31, 0x7f02068b
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1343,7 +1343,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f020621
+    const v31, 0x7f02068a
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1460,7 +1460,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f020621
+    const v31, 0x7f02068a
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

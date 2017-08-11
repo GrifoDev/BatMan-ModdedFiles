@@ -742,7 +742,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mActionBar:Landroid/app/ActionBar;
 
-    const v3, 0x7f04009f
+    const v3, 0x7f0400a0
 
     invoke-virtual {v2, v3}, Landroid/app/ActionBar;->setCustomView(I)V
 
@@ -776,7 +776,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    const v2, 0x7f020100
+    const v2, 0x7f020125
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -828,7 +828,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mSaveButton:Landroid/widget/Button;
 
-    const v3, 0x7f0b0469
+    const v3, 0x7f0b04cc
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
 
@@ -857,7 +857,7 @@
 
     if-ne v1, v2, :cond_0
 
-    const v1, 0x7f0400ea
+    const v1, 0x7f0400ec
 
     invoke-virtual {p1, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -881,7 +881,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0400e9
+    const v1, 0x7f0400eb
 
     invoke-virtual {p1, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1029,7 +1029,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0672
+    const v5, 0x7f0b06d7
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1037,7 +1037,7 @@
 
     aput-object v4, v3, v7
 
-    const v4, 0x7f0b0626
+    const v4, 0x7f0b068b
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1634,7 +1634,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1002eb
+    const v1, 0x7f1002f1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1660,7 +1660,7 @@
 
     move-result v0
 
-    const v1, 0x7f110365
+    const v1, 0x7f110367
 
     if-ne v0, v1, :cond_2
 
@@ -1977,7 +1977,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 6
 
-    const v5, 0x7f020631
+    const v5, 0x7f02069a
 
     const/4 v4, 0x0
 
@@ -2242,7 +2242,7 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mHeaderView:Landroid/view/View;
 
-    const v1, 0x7f1102e5
+    const v1, 0x7f1102e7
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2252,7 +2252,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mModeRadioGroup:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f110364
+    const v1, 0x7f110366
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2262,7 +2262,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mStandardModeLayout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f110367
+    const v1, 0x7f110369
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2272,7 +2272,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mEasyModeLayout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f110365
+    const v1, 0x7f110367
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2282,7 +2282,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mStandardModeRadio:Landroid/widget/RadioButton;
 
-    const v1, 0x7f110368
+    const v1, 0x7f11036a
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2292,7 +2292,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mEasyModeRadio:Landroid/widget/RadioButton;
 
-    const v1, 0x7f11036b
+    const v1, 0x7f11036d
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2302,7 +2302,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mHelpTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f11036a
+    const v1, 0x7f11036c
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2318,7 +2318,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mPreviewImageView:Landroid/widget/ImageView;
 
-    const v2, 0x7f020122
+    const v2, 0x7f020147
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -2332,7 +2332,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0c39
+    const v3, 0x7f0b0cad
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2354,7 +2354,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0c3a
+    const v3, 0x7f0b0cae
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2381,7 +2381,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mPreviewImage:Landroid/graphics/drawable/Drawable;
 
-    const v1, 0x7f110366
+    const v1, 0x7f110368
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2391,7 +2391,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mStdTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f110369
+    const v1, 0x7f11036b
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

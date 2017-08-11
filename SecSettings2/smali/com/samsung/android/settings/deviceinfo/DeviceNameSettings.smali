@@ -156,7 +156,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->mView:Landroid/view/View;
 
-    const v6, 0x7f1102bf
+    const v6, 0x7f1102c1
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -168,7 +168,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->mView:Landroid/view/View;
 
-    const v6, 0x7f1102c2
+    const v6, 0x7f1102c4
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -186,7 +186,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->mView:Landroid/view/View;
 
-    const v6, 0x7f1102c1
+    const v6, 0x7f1102c3
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -454,7 +454,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f02f7
+    const v1, 0x7f0f02fa
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTheme(I)V
 
@@ -466,7 +466,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400d1
+    const v1, 0x7f0400d3
 
     invoke-virtual {v0, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -506,7 +506,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0462
+    const v1, 0x7f0b04c5
 
     invoke-virtual {v0, v1, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

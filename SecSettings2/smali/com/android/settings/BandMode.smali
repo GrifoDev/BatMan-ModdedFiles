@@ -376,7 +376,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v2, 0x7f0b122a
+    const v2, 0x7f0b12c5
 
     invoke-virtual {p0, v2}, Lcom/android/settings/BandMode;->getString(I)Ljava/lang/String;
 
@@ -422,7 +422,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b122b
+    const v2, 0x7f0b12c6
 
     invoke-virtual {p0, v2}, Lcom/android/settings/BandMode;->getString(I)Ljava/lang/String;
 
@@ -468,7 +468,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b122c
+    const v2, 0x7f0b12c7
 
     invoke-virtual {p0, v2}, Lcom/android/settings/BandMode;->getString(I)Ljava/lang/String;
 
@@ -488,7 +488,7 @@
 .method private loadBandList()V
     .locals 4
 
-    const v2, 0x7f0b1229
+    const v2, 0x7f0b12c4
 
     invoke-virtual {p0, v2}, Lcom/android/settings/BandMode;->getString(I)Ljava/lang/String;
 
@@ -534,11 +534,11 @@
 
     invoke-virtual {p0, v0}, Lcom/android/settings/BandMode;->requestWindowFeature(I)Z
 
-    const v0, 0x7f040048
+    const v0, 0x7f040049
 
     invoke-virtual {p0, v0}, Lcom/android/settings/BandMode;->setContentView(I)V
 
-    const v0, 0x7f0b1228
+    const v0, 0x7f0b12c3
 
     invoke-virtual {p0, v0}, Lcom/android/settings/BandMode;->getString(I)Ljava/lang/String;
 

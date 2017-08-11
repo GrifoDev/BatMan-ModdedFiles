@@ -34,7 +34,7 @@
 .method public onChange(Z)V
     .locals 7
 
-    const v1, 0x7f0b044a
+    const v1, 0x7f0b04ac
 
     const/4 v2, 0x1
 
@@ -147,7 +147,7 @@
 
     if-eqz v5, :cond_4
 
-    const v1, 0x7f0b1b37
+    const v1, 0x7f0b1bd3
 
     :cond_4
     invoke-virtual {v4, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V

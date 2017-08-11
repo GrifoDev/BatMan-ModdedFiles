@@ -275,7 +275,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f04024a
+    const v18, 0x7f04024e
 
     const/16 v19, 0x0
 
@@ -390,7 +390,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f0d01cb
+    const v18, 0x7f0d01cc
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -463,7 +463,7 @@
     invoke-virtual {v15, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :goto_0
-    const v17, 0x7f110683
+    const v17, 0x7f110686
 
     move-object/from16 v0, p2
 
@@ -490,7 +490,7 @@
     invoke-virtual {v13, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_1
-    const v17, 0x7f110684
+    const v17, 0x7f110687
 
     move-object/from16 v0, p2
 

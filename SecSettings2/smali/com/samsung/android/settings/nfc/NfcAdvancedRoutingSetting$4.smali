@@ -3,7 +3,7 @@
 .source "NfcAdvancedRoutingSetting.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnCancelListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
@@ -34,30 +34,10 @@
 
 
 # virtual methods
-.method public onCancel(Landroid/content/DialogInterface;)V
-    .locals 3
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$4;->this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
-
-    invoke-static {v0}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->-get4(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)Landroid/widget/ListView;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$4;->this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
-
-    iget-object v2, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$4;->this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->-get3(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->getItemPosition(Ljava/lang/String;)I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
 
     return-void
 .end method

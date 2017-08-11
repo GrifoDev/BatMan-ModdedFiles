@@ -4,11 +4,11 @@
 
 
 # static fields
-.field public static final layout_finger_print_alert_view:I = 0x7f040170
+.field public static final layout_finger_print_alert_view:I = 0x7f040172
 
-.field public static final layout_finger_print_alert_view_homekey:I = 0x7f040171
+.field public static final layout_finger_print_alert_view_homekey:I = 0x7f040173
 
-.field public static final layout_finger_print_alert_view_old:I = 0x7f040172
+.field public static final layout_finger_print_alert_view_old:I = 0x7f040174
 
 
 # direct methods

@@ -58,7 +58,7 @@
 
     const/4 v13, 0x0
 
-    const v10, 0x7f1104dc
+    const v10, 0x7f1104de
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -70,7 +70,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0894
+    const v11, 0x7f0b08fe
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -100,7 +100,7 @@
 
     invoke-virtual {v6, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v10, 0x7f1104de
+    const v10, 0x7f1104e0
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -112,7 +112,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0898
+    const v11, 0x7f0b0902
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -142,7 +142,7 @@
 
     invoke-virtual {v7, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v10, 0x7f1104dd
+    const v10, 0x7f1104df
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -162,7 +162,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0896
+    const v11, 0x7f0b0900
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -181,7 +181,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b0897
+    const v12, 0x7f0b0901
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -197,7 +197,7 @@
 
     invoke-virtual {v8, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v10, 0x7f1104df
+    const v10, 0x7f1104e1
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -209,7 +209,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0899
+    const v11, 0x7f0b0903
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -217,7 +217,7 @@
 
     invoke-virtual {v9, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v10, 0x7f110703
+    const v10, 0x7f110706
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -227,7 +227,7 @@
 
     iput-object v10, p0, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->mSUWBottomBar:Landroid/widget/RelativeLayout;
 
-    const v10, 0x7f110705
+    const v10, 0x7f110708
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -237,7 +237,7 @@
 
     iput-object v10, p0, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->mSUWPrevBtn:Landroid/widget/LinearLayout;
 
-    const v10, 0x7f110707
+    const v10, 0x7f11070a
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -247,7 +247,7 @@
 
     iput-object v10, p0, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->mSUWNextBtn:Landroid/widget/LinearLayout;
 
-    const v10, 0x7f110708
+    const v10, 0x7f11070b
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -257,7 +257,7 @@
 
     iput-object v10, p0, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->mSUWNextText:Landroid/widget/TextView;
 
-    const v10, 0x7f110709
+    const v10, 0x7f11070c
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -267,7 +267,7 @@
 
     iput-object v10, p0, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->mSUWNextBtnImg:Landroid/widget/ImageView;
 
-    const v10, 0x7f11070a
+    const v10, 0x7f11070d
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -279,7 +279,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->mSUWNextText:Landroid/widget/TextView;
 
-    const v11, 0x7f0b130f
+    const v11, 0x7f0b13aa
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
@@ -297,7 +297,7 @@
 
     invoke-direct {p0, v13}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->setEnableNextButton(Z)V
 
-    const v10, 0x7f1104db
+    const v10, 0x7f1104dd
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->findViewById(I)Landroid/view/View;
 
@@ -322,7 +322,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0895
+    const v11, 0x7f0b08ff
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -418,7 +418,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f110705
+    .packed-switch 0x7f110708
         :pswitch_2
         :pswitch_0
         :pswitch_1
@@ -449,7 +449,7 @@
 
     invoke-static {v0}, Lcom/android/setupwizardlib/util/SystemBarHelper;->hideSystemBars(Landroid/view/Window;)V
 
-    const v1, 0x7f04015f
+    const v1, 0x7f040161
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->setContentView(I)V
 

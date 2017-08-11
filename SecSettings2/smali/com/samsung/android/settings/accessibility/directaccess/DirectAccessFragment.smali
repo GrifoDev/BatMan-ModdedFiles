@@ -1569,7 +1569,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b024e
+    const v1, 0x7f0b02ac
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1643,7 +1643,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b02e5
+    const v1, 0x7f0b0344
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->getString(I)Ljava/lang/String;
 
@@ -1706,7 +1706,7 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 8
 
-    const v7, 0x7f100362
+    const v7, 0x7f100368
 
     const/16 v4, 0x3e8
 
@@ -1749,7 +1749,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f100361
+    const v6, 0x7f100367
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1803,7 +1803,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f100363
+    const v6, 0x7f100369
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1860,7 +1860,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f100366
+    const v6, 0x7f10036c
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1917,7 +1917,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f100367
+    const v6, 0x7f10036d
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1974,7 +1974,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f100368
+    const v6, 0x7f10036e
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2031,7 +2031,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f100369
+    const v6, 0x7f10036f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2149,7 +2149,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f100364
+    const v6, 0x7f10036a
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2283,7 +2283,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f100365
+    const v6, 0x7f10036b
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2331,7 +2331,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f10035f
+    const v2, 0x7f100365
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2893,7 +2893,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mDirectAccessGuide:Lcom/samsung/android/settings/UnclickablePreference;
 
-    const v11, 0x7f0b02d9
+    const v11, 0x7f0b0337
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/UnclickablePreference;->setTitle(I)V
 
@@ -2965,7 +2965,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mColorAdjustmentSwitch:Landroid/preference/SwitchPreference;
 
-    const v11, 0x7f0b02df
+    const v11, 0x7f0b033e
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -2992,7 +2992,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mAccessControlSwitch:Landroid/preference/SwitchPreference;
 
-    const v11, 0x7f0b02e2
+    const v11, 0x7f0b0341
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -3005,7 +3005,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mPageReaderSwitch:Landroid/preference/SwitchPreference;
 
-    const v11, 0x7f0b02e0
+    const v11, 0x7f0b033f
 
     invoke-virtual {p0, v11}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->getString(I)Ljava/lang/String;
 
@@ -3233,7 +3233,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mColorAdjustmentSwitch:Landroid/preference/SwitchPreference;
 
-    const v11, 0x7f0b02df
+    const v11, 0x7f0b033e
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -3260,7 +3260,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mAccessControlSwitch:Landroid/preference/SwitchPreference;
 
-    const v11, 0x7f0b02e2
+    const v11, 0x7f0b0341
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

@@ -76,7 +76,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/ChooseLockGeneric;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f11074a
+    const v1, 0x7f11074d
 
     invoke-virtual {p0, v1}, Lcom/android/settings/SetupChooseLockGeneric;->findViewById(I)Landroid/view/View;
 

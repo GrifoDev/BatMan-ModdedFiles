@@ -2564,24 +2564,6 @@
 
     const-string/jumbo v23, "DisplayUnits"
 
-    const-string/jumbo v24, "Exist"
-
-    const-string/jumbo v25, "no"
-
-    invoke-virtual/range {v22 .. v25}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/datausage/DataUsageSummary$7;->this$0:Lcom/android/settings/datausage/DataUsageSummary;
-
-    move-object/from16 v22, v0
-
-    invoke-static/range {v22 .. v22}, Lcom/android/settings/datausage/DataUsageSummary;->-get5(Lcom/android/settings/datausage/DataUsageSummary;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v22
-
-    const-string/jumbo v23, "DisplayUnits"
-
     invoke-virtual/range {v22 .. v23}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
@@ -2618,24 +2600,6 @@
     goto/16 :goto_0
 
     :cond_35
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/datausage/DataUsageSummary$7;->this$0:Lcom/android/settings/datausage/DataUsageSummary;
-
-    move-object/from16 v22, v0
-
-    invoke-static/range {v22 .. v22}, Lcom/android/settings/datausage/DataUsageSummary;->-get5(Lcom/android/settings/datausage/DataUsageSummary;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v22
-
-    const-string/jumbo v23, "DisplayUnits"
-
-    const-string/jumbo v24, "Exist"
-
-    const-string/jumbo v25, "no"
-
-    invoke-virtual/range {v22 .. v25}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/datausage/DataUsageSummary$7;->this$0:Lcom/android/settings/datausage/DataUsageSummary;
@@ -2891,7 +2855,7 @@
 
     move-result-object v22
 
-    const-string/jumbo v23, "DataUsageDetail"
+    const-string/jumbo v23, "ManageAppData"
 
     invoke-virtual/range {v22 .. v23}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 

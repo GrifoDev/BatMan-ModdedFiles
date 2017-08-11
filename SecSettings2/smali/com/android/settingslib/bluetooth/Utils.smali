@@ -688,6 +688,145 @@
     return-object v0
 .end method
 
+.method public static getProfileIndexResourceForSALogging(Ljava/lang/String;)I
+    .locals 1
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_unknown:I
+
+    return v0
+
+    :cond_1
+    const-string/jumbo v0, "HID"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_hid:I
+
+    return v0
+
+    :cond_2
+    const-string/jumbo v0, "BLEAUDIO"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_ble_audio:I
+
+    return v0
+
+    :cond_3
+    const-string/jumbo v0, "MAP"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_map:I
+
+    return v0
+
+    :cond_4
+    const-string/jumbo v0, "PBAP Server"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_pbap:I
+
+    return v0
+
+    :cond_5
+    const-string/jumbo v0, "SAP"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_sap:I
+
+    return v0
+
+    :cond_6
+    const-string/jumbo v0, "A2DP"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_a2dp:I
+
+    return v0
+
+    :cond_7
+    const-string/jumbo v0, "PANNAP"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_pan_nap:I
+
+    return v0
+
+    :cond_8
+    const-string/jumbo v0, "PANU"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_pan_user:I
+
+    return v0
+
+    :cond_9
+    const-string/jumbo v0, "HEADSET"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_hfp:I
+
+    return v0
+
+    :cond_a
+    sget v0, Lcom/android/settingslib/R$string;->detail_bluetooth_bcpt_unknown:I
+
+    return v0
+.end method
+
 .method public static isBlackListDevice(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 3
 

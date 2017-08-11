@@ -120,7 +120,7 @@
 
     invoke-virtual {v2, v4}, Landroid/preference/PreferenceScreen;->setKey(Ljava/lang/String;)V
 
-    const v4, 0x7f0b034a
+    const v4, 0x7f0b03a9
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accounts/AccountPreferenceBase;->getString(I)Ljava/lang/String;
 
@@ -128,7 +128,7 @@
 
     invoke-virtual {v2, v4}, Landroid/preference/PreferenceScreen;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v4, 0x7f0b034b
+    const v4, 0x7f0b03aa
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accounts/AccountPreferenceBase;->getString(I)Ljava/lang/String;
 
@@ -330,7 +330,7 @@
 
     move-result-object v7
 
-    const v22, 0x7f0f02f6
+    const v22, 0x7f0f02f9
 
     const/16 v23, 0x1
 
@@ -439,7 +439,7 @@
 
     if-eqz v22, :cond_0
 
-    const v22, 0x7f0401fa
+    const v22, 0x7f0401fc
 
     move-object/from16 v0, v20
 

@@ -168,7 +168,7 @@
 .method private InitValue()V
     .locals 11
 
-    const v10, 0x7f0b0999
+    const v10, 0x7f0b0a06
 
     const/4 v5, 0x1
 
@@ -212,7 +212,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_a
 
     move v4, v5
 
@@ -231,13 +231,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_b
 
     invoke-static {}, Lcom/android/settings/Utils;->isDomesticSKTModel()Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_b
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -265,7 +265,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0c43
+    const v8, 0x7f0b0cb7
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -302,7 +302,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mDualclock:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v7, 0x7f0b0998
+    const v7, 0x7f0b0a05
 
     invoke-virtual {v4, v7}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setTitle(I)V
 
@@ -315,7 +315,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_d
 
     move v4, v5
 
@@ -343,7 +343,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_e
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
 
@@ -374,7 +374,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    const v5, 0x7f0b099d
+    const v5, 0x7f0b0a0a
 
     invoke-virtual {v4, v5}, Lcom/samsung/android/settingslib/RestrictedPreference;->setTitle(I)V
 
@@ -431,7 +431,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_11
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
 
@@ -441,7 +441,7 @@
 
     move-result v4
 
-    if-lez v4, :cond_c
+    if-lez v4, :cond_11
 
     iget-object v5, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mWeatherSettings:Landroid/preference/PreferenceScreen;
 
@@ -453,9 +453,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_10
 
-    const v4, 0x7f0b1b37
+    const v4, 0x7f0b1bd3
 
     :goto_4
     invoke-virtual {v5, v4}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -481,14 +481,111 @@
     invoke-virtual {v4, v6}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
     :cond_4
-    return-void
+    iget-boolean v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mFromCoverSetting:Z
+
+    if-eqz v4, :cond_9
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/settings/Utils;->hasCoverSettingOwnerInfo(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_5
+
+    iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
+
+    if-eqz v4, :cond_5
+
+    iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
+
+    invoke-virtual {v4, v6}, Lcom/samsung/android/settingslib/RestrictedPreference;->setEnabled(Z)V
 
     :cond_5
+    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/settings/Utils;->hasCoverSettingWeather(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_7
+
+    iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mWeatherSettings:Landroid/preference/PreferenceScreen;
+
+    if-eqz v4, :cond_6
+
+    iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mWeatherSettings:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v4, v6}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+
+    :cond_6
+    const-string/jumbo v4, "lock_screen_menu_weather"
+
+    invoke-virtual {p0, v4}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_7
+
+    const-string/jumbo v4, "lock_screen_menu_weather"
+
+    invoke-virtual {p0, v4}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v6}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    :cond_7
+    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/settings/Utils;->hasCoverSettingAppShortcut(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_8
+
+    iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mLockAppShortcut:Landroid/preference/PreferenceScreen;
+
+    if-eqz v4, :cond_8
+
+    iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mLockAppShortcut:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v4, v6}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+
+    :cond_8
+    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/settings/Utils;->hasCoverSettingAppAOD(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_9
+
+    iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mFaceWidgets:Landroid/preference/PreferenceScreen;
+
+    if-eqz v4, :cond_9
+
+    iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mFaceWidgets:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v4, v6}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+
+    :cond_9
+    return-void
+
+    :cond_a
     move v4, v6
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_b
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -499,7 +596,7 @@
 
     move-result v3
 
-    if-ne v3, v5, :cond_7
+    if-ne v3, v5, :cond_c
 
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mDualclock:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
@@ -515,19 +612,19 @@
 
     goto/16 :goto_1
 
-    :cond_7
+    :cond_c
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mDualclock:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
     invoke-virtual {v4, v10}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_d
     move v4, v6
 
     goto/16 :goto_2
 
-    :cond_9
+    :cond_e
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
 
     invoke-virtual {v4, v9}, Lcom/samsung/android/settingslib/RestrictedPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
@@ -542,26 +639,26 @@
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_f
 
     move v5, v6
 
-    :cond_a
+    :cond_f
     invoke-virtual {v4, v5}, Lcom/samsung/android/settingslib/RestrictedPreference;->setEnabled(Z)V
 
     goto/16 :goto_3
 
-    :cond_b
-    const v4, 0x7f0b1b38
+    :cond_10
+    const v4, 0x7f0b1bd4
 
-    goto :goto_4
+    goto/16 :goto_4
 
-    :cond_c
+    :cond_11
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mWeatherSettings:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {v4, v9}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
 
-    goto :goto_5
+    goto/16 :goto_5
 .end method
 
 .method private RemoveMenu()V
@@ -575,7 +672,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -585,41 +682,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/settings/Utils;->isDreamProject()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/settings/Utils;->isCoverVerified(Landroid/content/Context;)Z
+    iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    move-result v0
-
-    if-nez v0, :cond_8
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     :cond_0
-    iget-boolean v0, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mFromCoverSetting:Z
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/settings/Utils;->hasCoverSettingOwnerInfo(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_8
-
-    :cond_1
-    :goto_0
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -628,13 +701,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     const-string/jumbo v0, "lock_screen_dualclock"
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->removePreference(Ljava/lang/String;)V
 
-    :cond_2
+    :cond_1
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v0
@@ -645,13 +718,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     const-string/jumbo v0, "lock_screen_additional_info"
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->removePreference(Ljava/lang/String;)V
 
-    :cond_3
+    :cond_2
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -660,114 +733,63 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
-
-    iget-boolean v0, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mFromCoverSetting:Z
-
-    if-eqz v0, :cond_4
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/settings/Utils;->hasCoverSettingWeather(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    :cond_4
-    invoke-static {}, Lcom/android/settings/Utils;->isSupportWeatherStateSettings()Z
-
-    move-result v0
-
-    if-nez v0, :cond_a
+    if-nez v0, :cond_5
 
     const-string/jumbo v0, "lock_screen_settings_weather"
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->removePreference(Ljava/lang/String;)V
 
-    :goto_1
+    const-string/jumbo v0, "lock_screen_menu_weather"
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->removePreference(Ljava/lang/String;)V
+
+    :goto_0
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mLockAppShortcut:Landroid/preference/PreferenceScreen;
 
-    if-eqz v0, :cond_7
-
-    iget-boolean v0, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mFromCoverSetting:Z
-
-    if-eqz v0, :cond_5
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/settings/Utils;->hasCoverSettingAppShortcut(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    :cond_5
-    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/settings/Utils;->isCoverVerified(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
+    if-eqz v0, :cond_4
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportLockAppShortcut()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_3
 
     invoke-static {}, Lcom/android/settings/Utils;->isLockscreenMenuTreeForAOD()Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_7
 
-    :cond_6
+    :cond_3
     const-string/jumbo v0, "lock_app_shortcut"
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->removePreference(Ljava/lang/String;)V
 
-    :cond_7
-    :goto_2
+    :cond_4
+    :goto_1
     return-void
 
-    :cond_8
-    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    :cond_5
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportWeatherStateSettings()Z
 
-    move-result-object v0
+    move-result v0
 
-    iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
+    if-nez v0, :cond_6
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    goto :goto_0
-
-    :cond_9
     const-string/jumbo v0, "lock_screen_settings_weather"
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->removePreference(Ljava/lang/String;)V
 
+    goto :goto_0
+
+    :cond_6
     const-string/jumbo v0, "lock_screen_menu_weather"
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->removePreference(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_a
-    const-string/jumbo v0, "lock_screen_menu_weather"
-
-    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->removePreference(Ljava/lang/String;)V
-
-    goto :goto_1
-
-    :cond_b
+    :cond_7
     const-string/jumbo v0, "DCM"
 
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
@@ -778,7 +800,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_4
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mLockAppShortcut:Landroid/preference/PreferenceScreen;
 
@@ -790,19 +812,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x0
 
-    :goto_3
+    :goto_2
     invoke-virtual {v1, v0}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_c
+    :cond_8
     const/4 v0, 0x1
 
-    goto :goto_3
+    goto :goto_2
 .end method
 
 .method public static existWeatherWidgetOnLauncher(Landroid/content/Context;)Z
@@ -1133,14 +1155,14 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0b0979
+    const v2, 0x7f0b09e3
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     :goto_0
-    const v2, 0x7f0b0976
+    const v2, 0x7f0b09e0
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1160,7 +1182,7 @@
 
     invoke-direct {v3}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu$3;-><init>()V
 
-    const v4, 0x7f0b046a
+    const v4, 0x7f0b04cd
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1169,7 +1191,7 @@
     return-void
 
     :cond_1
-    const v2, 0x7f0b097a
+    const v2, 0x7f0b09e4
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1251,26 +1273,26 @@
     goto :goto_0
 
     :cond_2
-    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+    invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    const-string/jumbo v4, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_AOD_LOCK_SHARE_INFO"
+    const-string/jumbo v4, "com.samsung.android.app.aodservice"
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-static {v3, v4}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    const v1, 0x7f0b1284
+    const v2, 0x7f0b0a0b
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    const v1, 0x7f0b099e
+    const v2, 0x7f0b0a0c
 
     :cond_3
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    invoke-virtual {v3, v1}, Lcom/samsung/android/settingslib/RestrictedPreference;->setSummary(I)V
+    invoke-virtual {v3, v2}, Lcom/samsung/android/settingslib/RestrictedPreference;->setSummary(I)V
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
 
@@ -1288,7 +1310,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001ff
+    const v1, 0x7f100205
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1451,7 +1473,7 @@
     :cond_1
     iget-object v2, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mDualclock:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v4, 0x7f0b0999
+    const v4, 0x7f0b0a06
 
     invoke-virtual {v2, v4}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -1679,7 +1701,7 @@
 
     const-string/jumbo v2, "com.android.settings.WeatherSettings"
 
-    const v3, 0x7f0b0976
+    const v3, 0x7f0b09e0
 
     const/4 v4, 0x0
 
@@ -1738,11 +1760,11 @@
 
     move-result v13
 
-    const v12, 0x7f0b1285
+    const v12, 0x7f0b1320
 
     if-eqz v13, :cond_b
 
-    const v12, 0x7f0b099d
+    const v12, 0x7f0b0a0a
 
     :cond_b
     invoke-static {v12}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->newInstance(I)Lcom/samsung/android/settings/lockscreen/OwnerInfo;

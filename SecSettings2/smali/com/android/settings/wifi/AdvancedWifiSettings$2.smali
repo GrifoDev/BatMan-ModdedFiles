@@ -38,7 +38,7 @@
 
     const/4 v5, 0x0
 
-    invoke-static {}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get5()Z
+    invoke-static {}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get4()Z
 
     move-result v4
 
@@ -127,7 +127,7 @@
 
     iget-object v5, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get6(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
+    invoke-static {v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get5(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
 
     move-result v5
 
@@ -239,7 +239,7 @@
 
     iget-object v5, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get6(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
+    invoke-static {v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get5(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
 
     move-result v5
 
@@ -283,7 +283,7 @@
     move v4, v5
 
     :goto_1
-    invoke-static {v7, v4}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set2(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
+    invoke-static {v7, v4}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set1(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
 
     const-string/jumbo v4, "AdvancedWifiSettings"
 
@@ -299,7 +299,7 @@
 
     iget-object v8, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v8}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get6(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
+    invoke-static {v8}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get5(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
 
     move-result v8
 
@@ -321,7 +321,7 @@
 
     iget-object v7, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v7}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get6(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
+    invoke-static {v7}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get5(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
 
     move-result v7
 
@@ -383,7 +383,7 @@
     :cond_9
     iget-object v4, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v4, v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set2(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
+    invoke-static {v4, v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set1(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
 
     iget-object v4, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
@@ -393,7 +393,7 @@
 
     iget-object v5, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get6(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
+    invoke-static {v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get5(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
 
     move-result v5
 

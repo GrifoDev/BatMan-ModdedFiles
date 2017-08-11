@@ -44,7 +44,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04007c
+    const v3, 0x7f04007d
 
     const/4 v4, 0x0
 
@@ -144,7 +144,7 @@
 
     iput-object v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v3, 0x7f0b040f
+    const v3, 0x7f0b0471
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/cpa/CpaErrorActivity;->getString(I)Ljava/lang/String;
 

@@ -141,7 +141,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f110397
+    const v0, 0x7f110399
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -178,7 +178,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/AdditionalInformationSettings;->mDndAnimator:Lcom/samsung/android/animation/SemDragAndDropListAnimator;
 
-    const v1, 0x7f020372
+    const v1, 0x7f020398
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/animation/SemDragAndDropListAnimator;->setDragGrabHandleDrawable(I)V
 
@@ -231,7 +231,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0502
+    const v3, 0x7f0a0501
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -412,7 +412,7 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f0b096a
+    const v2, 0x7f0b09d4
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -446,7 +446,7 @@
 
     check-cast v4, Landroid/view/ViewGroup;
 
-    const v5, 0x7f0400f9
+    const v5, 0x7f0400fb
 
     invoke-virtual {p1, v5, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -462,7 +462,7 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    const v4, 0x7f040024
+    const v4, 0x7f040025
 
     invoke-virtual {v1, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -480,7 +480,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/AdditionalInformationSettings;->imgView:Landroid/widget/ImageView;
 
-    const v5, 0x7f0204b0
+    const v5, 0x7f020519
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

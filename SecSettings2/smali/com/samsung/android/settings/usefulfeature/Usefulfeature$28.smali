@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$28;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap7(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)V
+    invoke-static {v0}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap8(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)V
 
     return-void
 .end method

@@ -41,6 +41,8 @@
 
 .field private mFaceUnlock:Landroid/preference/SwitchPreference;
 
+.field private mFeatureCategory:Landroid/preference/PreferenceCategory;
+
 .field private mIdentifyFace:Z
 
 .field private mIsAfw:Z
@@ -113,7 +115,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/samsung/android/settings/face/FaceSettings;)Lcom/samsung/android/bio/face/SemBioFaceManager$RemovalCallback;
+.method static synthetic -get5(Lcom/samsung/android/settings/face/FaceSettings;)Landroid/preference/SwitchPreference;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6(Lcom/samsung/android/settings/face/FaceSettings;)Lcom/samsung/android/bio/face/SemBioFaceManager$RemovalCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRemovalCallback:Lcom/samsung/android/bio/face/SemBioFaceManager$RemovalCallback;
@@ -121,7 +131,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/samsung/android/settings/face/FaceSettings;)I
+.method static synthetic -get7(Lcom/samsung/android/settings/face/FaceSettings;)I
     .locals 1
 
     iget v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
@@ -129,7 +139,7 @@
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/samsung/android/settings/face/FaceSettings;)Landroid/preference/SwitchPreference;
+.method static synthetic -get8(Lcom/samsung/android/settings/face/FaceSettings;)Landroid/preference/SwitchPreference;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
@@ -348,7 +358,7 @@
 .method private deleteFace()Z
     .locals 5
 
-    const v4, 0x7f0b07e5
+    const v4, 0x7f0b084d
 
     iget-object v2, p0, Lcom/samsung/android/settings/face/FaceSettings;->mDeleteDialog:Landroid/app/AlertDialog;
 
@@ -379,7 +389,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0b07e7
+    const v2, 0x7f0b084f
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/face/FaceSettings;->getString(I)Ljava/lang/String;
 
@@ -396,7 +406,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/face/FaceSettings$5;-><init>(Lcom/samsung/android/settings/face/FaceSettings;)V
 
-    const v3, 0x7f0b0468
+    const v3, 0x7f0b04cb
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -562,7 +572,7 @@
 
     const-string/jumbo v3, "FcstFaceSettings"
 
-    const v4, 0x7f0b08a3
+    const v4, 0x7f0b090d
 
     invoke-static {v2, v4, v3}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -684,411 +694,515 @@
 .end method
 
 .method private setFaceSettingsPreference()V
-    .locals 11
+    .locals 13
 
-    const/4 v10, 0x1
+    const/4 v12, 0x1
 
-    const/4 v9, 0x0
+    const/4 v11, 0x0
 
-    const/4 v8, 0x0
+    const/4 v10, 0x0
 
-    const-string/jumbo v5, "register_category"
+    const-string/jumbo v6, "register_category"
 
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Landroid/preference/PreferenceCategory;
+    check-cast v6, Landroid/preference/PreferenceCategory;
 
-    iput-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRegisterCategory:Landroid/preference/PreferenceCategory;
+    iput-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRegisterCategory:Landroid/preference/PreferenceCategory;
 
-    const-string/jumbo v5, "unlock_category"
+    const-string/jumbo v6, "feature_category"
 
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Landroid/preference/PreferenceCategory;
+    check-cast v6, Landroid/preference/PreferenceCategory;
 
-    iput-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUnlockCategory:Landroid/preference/PreferenceCategory;
+    iput-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFeatureCategory:Landroid/preference/PreferenceCategory;
 
-    const-string/jumbo v5, "key_facelock_password"
+    const-string/jumbo v6, "unlock_category"
 
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Landroid/preference/PreferenceScreen;
+    check-cast v6, Landroid/preference/PreferenceCategory;
 
-    iput-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mChangeBackupPassword:Landroid/preference/PreferenceScreen;
+    iput-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUnlockCategory:Landroid/preference/PreferenceCategory;
+
+    const-string/jumbo v6, "key_facelock_password"
+
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/preference/PreferenceScreen;
+
+    iput-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mChangeBackupPassword:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v6}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v6
 
-    const-string/jumbo v6, "biometrics_backup_type"
+    const-string/jumbo v7, "biometrics_backup_type"
 
-    invoke-static {v5, v6, v8}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v6, v7, v10}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    iget v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
+    iget v7, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
 
-    invoke-virtual {v5, v6}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
+    invoke-virtual {v6, v7}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
 
     move-result v3
 
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mChangeBackupPassword:Landroid/preference/PreferenceScreen;
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mChangeBackupPassword:Landroid/preference/PreferenceScreen;
 
-    if-eqz v5, :cond_1
+    if-eqz v6, :cond_1
 
     if-nez v3, :cond_0
 
     if-nez v3, :cond_1
 
-    if-ne v0, v10, :cond_1
+    if-ne v0, v12, :cond_1
 
     :cond_0
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRegisterCategory:Landroid/preference/PreferenceCategory;
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRegisterCategory:Landroid/preference/PreferenceCategory;
 
-    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mChangeBackupPassword:Landroid/preference/PreferenceScreen;
+    iget-object v7, p0, Lcom/samsung/android/settings/face/FaceSettings;->mChangeBackupPassword:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v5, v6}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v6, v7}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
-    const-string/jumbo v5, "FcstFaceSettings"
+    const-string/jumbo v6, "FcstFaceSettings"
 
-    const-string/jumbo v6, "setFaceSettingsPreference [remove Change Backup Password]"
+    const-string/jumbo v7, "setFaceSettingsPreference [remove Change Backup Password]"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    const-string/jumbo v5, "key_facelock_unlock"
+    const-string/jumbo v6, "key_facelock_unlock"
 
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Landroid/preference/SwitchPreference;
+    check-cast v6, Landroid/preference/SwitchPreference;
 
-    iput-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
+    iput-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    iget v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
+    iget v7, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
 
-    const/16 v7, 0x100
+    const/16 v8, 0x100
 
-    invoke-virtual {v5, v7, v6}, Lcom/android/internal/widget/LockPatternUtils;->getBiometricLockscreen(II)I
+    invoke-virtual {v6, v8, v7}, Lcom/android/internal/widget/LockPatternUtils;->getBiometricLockscreen(II)I
 
-    move-result v5
+    move-result v6
 
-    if-ne v5, v10, :cond_6
+    if-ne v6, v12, :cond_8
 
     const/4 v1, 0x1
 
     :goto_0
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
 
-    if-eqz v5, :cond_2
+    if-eqz v6, :cond_2
 
-    const-string/jumbo v5, "FcstFaceSettings"
+    const-string/jumbo v6, "FcstFaceSettings"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "isFaceScreenLock : "
+    const-string/jumbo v8, "isFaceScreenLock : "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v5, v1}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v6, v1}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v5
+    move-result-object v6
 
-    iget v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
+    iget v7, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
 
-    invoke-static {v5, v6}, Lcom/android/settings/Utils;->isFaceDisabled(Landroid/content/Context;I)Z
+    invoke-static {v6, v7}, Lcom/android/settings/Utils;->isFaceDisabled(Landroid/content/Context;I)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_2
+    if-eqz v6, :cond_2
 
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v5, v8}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v6, v10}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     :cond_2
-    const-string/jumbo v5, "key_facelock_without_swipe_to_unlock"
+    const-string/jumbo v6, "key_facelock_samsung_pass"
 
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
-    check-cast v5, Landroid/preference/SwitchPreference;
-
-    iput-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
-
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
+    check-cast v5, Landroid/preference/PreferenceScreen;
 
     if-eqz v5, :cond_4
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {v6}, Lcom/android/settings/Utils;->isEnabledSamsungPass(Landroid/content/Context;)Z
 
-    move-result-object v5
+    move-result v6
 
-    const-string/jumbo v6, "face_without_swipe_to_unlock"
+    if-eqz v6, :cond_3
 
-    iget v7, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
+    iget v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
 
-    invoke-static {v5, v6, v8, v7}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    if-eqz v6, :cond_9
 
-    move-result v5
+    :cond_3
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFeatureCategory:Landroid/preference/PreferenceCategory;
 
-    if-eqz v5, :cond_7
+    if-eqz v6, :cond_9
+
+    const-string/jumbo v6, "FcstFaceSettings"
+
+    const-string/jumbo v7, "Remove the SamsungPass"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFeatureCategory:Landroid/preference/PreferenceCategory;
+
+    invoke-virtual {v6, v5}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+
+    :cond_4
+    :goto_1
+    const-string/jumbo v6, "key_facelock_without_swipe_to_unlock"
+
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/preference/SwitchPreference;
+
+    iput-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
+
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
+
+    if-eqz v6, :cond_6
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "face_without_swipe_to_unlock"
+
+    iget v8, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
+
+    invoke-static {v6, v7, v10, v8}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v6
+
+    if-eqz v6, :cond_a
 
     const/4 v4, 0x1
 
-    :goto_1
-    const-string/jumbo v5, "FcstFaceSettings"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "isWithoutSwipeToUnlock : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v5, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
-
-    iget v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
-
-    invoke-virtual {v5, v6}, Lcom/samsung/android/bio/face/SemBioFaceManager;->hasEnrolledFaces(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    if-eqz v1, :cond_3
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    iget v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
-
-    invoke-static {v5, v6}, Lcom/android/settings/Utils;->isFaceDisabled(Landroid/content/Context;I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_8
-
-    :cond_3
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v5, v8}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
-
     :goto_2
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
+    const-string/jumbo v6, "FcstFaceSettings"
 
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    :cond_4
-    const-string/jumbo v5, "key_facelock_recognition_speed_up"
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    const-string/jumbo v8, "isWithoutSwipeToUnlock : "
 
-    move-result-object v5
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    check-cast v5, Landroid/preference/SwitchPreference;
+    move-result-object v7
 
-    iput-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+    move-result-object v7
 
-    if-eqz v5, :cond_5
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {}, Lcom/android/settings/Utils;->isSupportBioFaceFasterRecognition()Z
+    move-result-object v7
 
-    move-result v5
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v5, :cond_b
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v6, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "face_recognition_speed_up"
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     iget v7, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
 
-    invoke-static {v5, v6, v8, v7}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-virtual {v6, v7}, Lcom/samsung/android/bio/face/SemBioFaceManager;->hasEnrolledFaces(I)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_9
+    if-eqz v6, :cond_5
+
+    if-eqz v1, :cond_5
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    iget v7, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
+
+    invoke-static {v6, v7}, Lcom/android/settings/Utils;->isFaceDisabled(Landroid/content/Context;I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_b
+
+    :cond_5
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v6, v10}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    :goto_3
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    :cond_6
+    const-string/jumbo v6, "key_facelock_recognition_speed_up"
+
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/face/FaceSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/preference/SwitchPreference;
+
+    iput-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+
+    if-eqz v6, :cond_7
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportBioFaceFasterRecognition()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_e
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "face_recognition_speed_up"
+
+    iget v8, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
+
+    invoke-static {v6, v7, v10, v8}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v6
+
+    if-eqz v6, :cond_c
 
     const/4 v2, 0x1
 
-    :goto_3
-    const-string/jumbo v5, "FcstFaceSettings"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "isRecognitionSpeedUp : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v5, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
-
-    iget v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
-
-    invoke-virtual {v5, v6}, Lcom/samsung/android/bio/face/SemBioFaceManager;->hasEnrolledFaces(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a
-
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v5, v10}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
-
     :goto_4
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+    const-string/jumbo v6, "FcstFaceSettings"
 
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    :cond_5
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "isRecognitionSpeedUp : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v6, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
+
+    iget v7, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
+
+    invoke-virtual {v6, v7}, Lcom/samsung/android/bio/face/SemBioFaceManager;->hasEnrolledFaces(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_d
+
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v6, v12}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
     :goto_5
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    :cond_7
+    :goto_6
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getPreferenceManager()Landroid/preference/PreferenceManager;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Landroid/preference/PreferenceManager;->setStorageDeviceProtected()V
+    invoke-virtual {v6}, Landroid/preference/PreferenceManager;->setStorageDeviceProtected()V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getPreferenceManager()Landroid/preference/PreferenceManager;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Landroid/preference/PreferenceManager;->getSharedPreferences()Landroid/content/SharedPreferences;
+    invoke-virtual {v6}, Landroid/preference/PreferenceManager;->getSharedPreferences()Landroid/content/SharedPreferences;
 
-    move-result-object v5
+    move-result-object v6
 
-    iput-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mSharedPreferences:Landroid/content/SharedPreferences;
+    iput-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mSharedPreferences:Landroid/content/SharedPreferences;
 
     return-void
 
-    :cond_6
+    :cond_8
     const/4 v1, 0x0
 
     goto/16 :goto_0
 
-    :cond_7
-    const/4 v4, 0x0
+    :cond_9
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v7, 0x7f0b084c
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    new-array v7, v12, [Ljava/lang/Object;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, 0x7f0b07e9
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    aput-object v8, v7, v10
+
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_1
 
-    :cond_8
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v5, v10}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
-
-    goto :goto_2
-
-    :cond_9
-    const/4 v2, 0x0
-
-    goto :goto_3
-
     :cond_a
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+    const/4 v4, 0x0
 
-    invoke-virtual {v5, v8}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    goto/16 :goto_2
+
+    :cond_b
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v6, v12}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    goto/16 :goto_3
+
+    :cond_c
+    const/4 v2, 0x0
 
     goto :goto_4
 
-    :cond_b
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUnlockCategory:Landroid/preference/PreferenceCategory;
-
-    if-eqz v5, :cond_5
-
-    iget-object v5, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUnlockCategory:Landroid/preference/PreferenceCategory;
-
+    :cond_d
     iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v5, v6}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
-
-    iput-object v9, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+    invoke-virtual {v6, v10}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     goto :goto_5
+
+    :cond_e
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUnlockCategory:Landroid/preference/PreferenceCategory;
+
+    if-eqz v6, :cond_7
+
+    const-string/jumbo v6, "FcstFaceSettings"
+
+    const-string/jumbo v7, "setFaceSettingsPreference [remove Faster Recognition]"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "face_recognition_speed_up"
+
+    iget v8, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
+
+    invoke-static {v6, v7, v10, v8}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
+    iget-object v6, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUnlockCategory:Landroid/preference/PreferenceCategory;
+
+    iget-object v7, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v6, v7}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+
+    iput-object v11, p0, Lcom/samsung/android/settings/face/FaceSettings;->mRecognitonSpeedUp:Landroid/preference/SwitchPreference;
+
+    goto :goto_6
 .end method
 
 .method private showDisclaimerDialog()V
@@ -1127,7 +1241,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0893
+    const v4, 0x7f0b08fd
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1235,7 +1349,7 @@
 
     invoke-direct {v2, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b07f2
+    const v3, 0x7f0b085a
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1400,6 +1514,67 @@
     goto :goto_0
 .end method
 
+.method private startActivityWrapperWithSessionClose(Landroid/content/Intent;)V
+    .locals 4
+
+    const-string/jumbo v1, "FcstFaceSettings"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "startActivityWrapperWithSessionClose:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v1, "isAfw"
+
+    iget-boolean v2, p0, Lcom/samsung/android/settings/face/FaceSettings;->mIsAfw:Z
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    const-string/jumbo v1, "android.intent.extra.USER_ID"
+
+    iget v2, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    const/4 v1, 0x0
+
+    sput-boolean v1, Lcom/samsung/android/settings/face/FaceSettings;->isKeepEnrollSession:Z
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/content/ActivityNotFoundException;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
 .method private stopFaceSettings()V
     .locals 2
 
@@ -1484,7 +1659,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b19ef
+    const v0, 0x7f0b1a8b
 
     return v0
 .end method
@@ -1496,7 +1671,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f10025e
+    const v1, 0x7f100264
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1520,7 +1695,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0402a0
+    const v19, 0x7f0402a4
 
     const/16 v20, 0x0
 
@@ -1530,7 +1705,7 @@
 
     if-eqz v8, :cond_4
 
-    const v18, 0x7f1104cc
+    const v18, 0x7f1104ce
 
     move/from16 v0, v18
 
@@ -1546,7 +1721,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07e8
+    const v19, 0x7f0b0850
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1589,7 +1764,7 @@
     invoke-virtual {v13, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_0
-    const v18, 0x7f1104ce
+    const v18, 0x7f1104d0
 
     move/from16 v0, v18
 
@@ -1605,7 +1780,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07ec
+    const v19, 0x7f0b0854
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1648,7 +1823,7 @@
     invoke-virtual {v14, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_1
-    const v18, 0x7f1104cd
+    const v18, 0x7f1104cf
 
     move/from16 v0, v18
 
@@ -1664,7 +1839,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07e9
+    const v19, 0x7f0b0851
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1675,7 +1850,7 @@
     invoke-virtual {v0, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_2
-    const v18, 0x7f110722
+    const v18, 0x7f110725
 
     move/from16 v0, v18
 
@@ -1695,7 +1870,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07ea
+    const v19, 0x7f0b0852
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1715,7 +1890,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07eb
+    const v19, 0x7f0b0853
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1732,7 +1907,7 @@
     invoke-virtual {v15, v11}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_3
-    const v18, 0x7f110723
+    const v18, 0x7f110726
 
     move/from16 v0, v18
 
@@ -1748,7 +1923,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07ed
+    const v19, 0x7f0b0855
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1931,7 +2106,7 @@
 
     const-string/jumbo v3, "FcstFaceSettings"
 
-    const v4, 0x7f0b08a3
+    const v4, 0x7f0b090d
 
     invoke-static {v2, v4, v3}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -2138,7 +2313,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f100261
+    const v3, 0x7f100267
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2173,7 +2348,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b0701
+    const v1, 0x7f0b0767
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2334,7 +2509,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f100260
+    const v2, 0x7f100266
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2355,7 +2530,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f10025f
+    const v2, 0x7f100265
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2393,7 +2568,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f110587
+    const v2, 0x7f110589
 
     invoke-virtual {v1, v2}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -2518,7 +2693,7 @@
 
     move-result-object v2
 
-    const v6, 0x7f100265
+    const v6, 0x7f10026b
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2677,7 +2852,7 @@
 
     move-result-object v2
 
-    const v6, 0x7f100266
+    const v6, 0x7f10026c
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2845,7 +3020,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f100262
+    const v5, 0x7f100268
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2899,6 +3074,33 @@
     goto :goto_0
 
     :cond_2
+    const-string/jumbo v3, "key_facelock_samsung_pass"
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v3, "com.samsung.android.samsungpass.ACTION_USE_BIOMETRIC"
+
+    invoke-virtual {v0, v3}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v3, "biometricType"
+
+    const/4 v4, 0x2
+
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/settings/face/FaceSettings;->startActivityWrapperWithSessionClose(Landroid/content/Intent;)V
+
+    goto :goto_0
+
+    :cond_3
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v3
@@ -2911,9 +3113,9 @@
 
     const/4 v2, 0x0
 
-    const/4 v4, 0x0
-
     const/4 v1, 0x1
+
+    const/4 v4, 0x0
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onResume()V
 
@@ -2923,11 +3125,56 @@
 
     invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/Utils;->isDesktopMode(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->isInMultiWindowMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    :cond_0
+    const-string/jumbo v0, "FcstFaceSettings"
+
+    const-string/jumbo v1, "isDesktopMode or isInMultiWindowMode is TRUE."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->isRemoving()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->finish()V
+
+    :cond_1
+    return-void
+
+    :cond_2
     invoke-direct {p0}, Lcom/samsung/android/settings/face/FaceSettings;->updatePreferences()V
 
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mToken:[B
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -2937,13 +3184,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_9
 
-    :cond_0
+    :cond_3
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mToken:[B
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
@@ -2951,13 +3198,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_a
 
-    :cond_1
+    :cond_4
     :goto_1
     iget-boolean v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mNeedTurnOnCheck:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_6
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
 
@@ -2971,20 +3218,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_b
 
     iput-boolean v1, p0, Lcom/samsung/android/settings/face/FaceSettings;->mIsSwipeValueEnable:Z
 
     invoke-direct {p0}, Lcom/samsung/android/settings/face/FaceSettings;->showFaceTurnOnDialog()V
 
-    :cond_2
+    :cond_5
     :goto_2
     iput-boolean v2, p0, Lcom/samsung/android/settings/face/FaceSettings;->mNeedTurnOnCheck:Z
 
-    :cond_3
+    :cond_6
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
 
@@ -2994,7 +3241,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f100267
+    const v4, 0x7f10026d
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3014,7 +3261,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_c
 
     move v0, v1
 
@@ -3025,10 +3272,10 @@
 
     invoke-static {v3, v4, v0}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
 
-    :cond_4
+    :cond_7
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
 
@@ -3038,7 +3285,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f100268
+    const v4, 0x7f10026e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3058,7 +3305,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_d
 
     :goto_4
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -3067,7 +3314,7 @@
 
     invoke-static {v0, v3, v1}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
 
-    :cond_5
+    :cond_8
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getContext()Landroid/content/Context;
@@ -3082,7 +3329,7 @@
 
     return-void
 
-    :cond_6
+    :cond_9
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     iget v3, p0, Lcom/samsung/android/settings/face/FaceSettings;->mUserId:I
@@ -3091,7 +3338,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3
 
     const-string/jumbo v0, "FcstFaceSettings"
 
@@ -3107,7 +3354,7 @@
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_a
     const-string/jumbo v0, "FcstFaceSettings"
 
     const-string/jumbo v3, "Session closed! Token must be null!"
@@ -3118,7 +3365,7 @@
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_b
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -3139,7 +3386,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5
 
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mFaceUnlock:Landroid/preference/SwitchPreference;
 
@@ -3147,7 +3394,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5
 
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceSettings;->mWithoutSwipeToUnlock:Landroid/preference/SwitchPreference;
 
@@ -3159,12 +3406,12 @@
 
     goto/16 :goto_2
 
-    :cond_9
+    :cond_c
     move v0, v2
 
     goto/16 :goto_3
 
-    :cond_a
+    :cond_d
     move v1, v2
 
     goto :goto_4

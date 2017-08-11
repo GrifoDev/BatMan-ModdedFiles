@@ -70,24 +70,24 @@
 
     :array_0
     .array-data 4
-        0x7f0202f7
-        0x7f0202f8
-        0x7f0202f9
-        0x7f0202fa
-        0x7f0202fb
-        0x7f0202fc
-        0x7f0202fd
-        0x7f0202fe
-        0x7f0202ff
-        0x7f020300
-        0x7f020301
-        0x7f020302
-        0x7f020303
-        0x7f020304
-        0x7f020305
-        0x7f020306
-        0x7f020307
-        0x7f020308
+        0x7f02031c
+        0x7f02031d
+        0x7f02031e
+        0x7f02031f
+        0x7f020320
+        0x7f020321
+        0x7f020322
+        0x7f020323
+        0x7f020324
+        0x7f020325
+        0x7f020326
+        0x7f020327
+        0x7f020328
+        0x7f020329
+        0x7f02032a
+        0x7f02032b
+        0x7f02032c
+        0x7f02032d
     .end array-data
 .end method
 
@@ -211,7 +211,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a0533
+    const v8, 0x7f0a0532
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -221,7 +221,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a052e
+    const v8, 0x7f0a052d
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -420,7 +420,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1104d3
+    const v1, 0x7f1104d5
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -444,7 +444,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/iris/IrisPreveiwStyleFragment;->mPreviewImgResIdList:Ljava/util/ArrayList;
 
-    const v3, 0x7f040159
+    const v3, 0x7f04015b
 
     invoke-direct {v0, p0, v1, v2, v3}, Lcom/samsung/android/settings/iris/IrisPreveiwStyleFragment$IrisPreviewAdapter;-><init>(Lcom/samsung/android/settings/iris/IrisPreveiwStyleFragment;Landroid/content/Context;Ljava/util/ArrayList;I)V
 
@@ -482,7 +482,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1002b6
+    const v1, 0x7f1002bc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -522,7 +522,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b08a1
+    const v1, 0x7f0b090b
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -532,7 +532,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f04015a
+    const v0, 0x7f04015c
 
     const/4 v1, 0x0
 
@@ -554,7 +554,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1002b7
+    const v4, 0x7f1002bd
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -605,7 +605,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1002b8
+    const v4, 0x7f1002be
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 

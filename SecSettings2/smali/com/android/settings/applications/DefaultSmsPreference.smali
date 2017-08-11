@@ -22,7 +22,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/DefaultSmsPreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0b03c4
+    const v0, 0x7f0b0425
 
     invoke-virtual {p0, v0}, Lcom/android/settings/applications/DefaultSmsPreference;->setResDescription(I)V
 

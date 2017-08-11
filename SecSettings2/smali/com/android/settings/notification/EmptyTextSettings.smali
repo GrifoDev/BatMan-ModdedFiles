@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/EmptyTextSettings;->mEmpty:Landroid/widget/TextView;
 
-    const v1, 0x7f0f0288
+    const v1, 0x7f0f0289
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextAppearance(I)V
 

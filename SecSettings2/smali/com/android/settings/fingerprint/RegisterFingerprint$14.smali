@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint$14;->this$0:Lcom/android/settings/fingerprint/RegisterFingerprint;
 
-    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get3(Lcom/android/settings/fingerprint/RegisterFingerprint;)Z
+    invoke-static {v0}, Lcom/android/settings/fingerprint/RegisterFingerprint;->-get4(Lcom/android/settings/fingerprint/RegisterFingerprint;)Z
 
     move-result v0
 

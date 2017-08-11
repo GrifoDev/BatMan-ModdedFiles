@@ -4,13 +4,13 @@
 
 
 # static fields
-.field public static final img_alert_bracket:I = 0x7f110511
+.field public static final img_alert_bracket:I = 0x7f110513
 
-.field public static final img_alert_fingerprint_01:I = 0x7f110512
+.field public static final img_alert_fingerprint_01:I = 0x7f110514
 
-.field public static final img_alert_fingerprint_02:I = 0x7f110513
+.field public static final img_alert_fingerprint_02:I = 0x7f110515
 
-.field public static final img_alert_fingerprint_03:I = 0x7f110514
+.field public static final img_alert_fingerprint_03:I = 0x7f110516
 
 
 # direct methods

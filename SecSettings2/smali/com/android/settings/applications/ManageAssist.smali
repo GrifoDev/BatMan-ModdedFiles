@@ -121,7 +121,7 @@
 
     aput-object v0, v7, v10
 
-    const v8, 0x7f0b1b95
+    const v8, 0x7f0b1c31
 
     invoke-virtual {p0, v8, v7}, Lcom/android/settings/applications/ManageAssist;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -131,7 +131,7 @@
 
     aput-object v0, v7, v10
 
-    const v8, 0x7f0b1b96
+    const v8, 0x7f0b1c32
 
     invoke-virtual {p0, v8, v7}, Lcom/android/settings/applications/ManageAssist;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -161,13 +161,13 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b1b97
+    const v8, 0x7f0b1c33
 
     invoke-virtual {v7, v8, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v7
 
-    const v8, 0x7f0b1b98
+    const v8, 0x7f0b1c34
 
     const/4 v9, 0x0
 
@@ -409,7 +409,7 @@
 .end method
 
 .method public exePrefAction()V
-    .locals 20
+    .locals 23
 
     sget-object v2, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -421,7 +421,7 @@
 
     invoke-virtual {v2, v3, v5}, Lcom/samsung/android/settings/applications/EmHandler;->exePrefBasicAction(Landroid/preference/PreferenceScreen;Z)Z
 
-    move-result v16
+    move-result v18
 
     sget-object v2, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -429,7 +429,15 @@
 
     move-result-object v4
 
-    if-nez v16, :cond_0
+    const-string/jumbo v2, "DeviceAssistanceAppList"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_a
+
+    if-nez v18, :cond_0
 
     sget-object v2, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -450,25 +458,17 @@
     return-void
 
     :cond_0
-    const-string/jumbo v2, "DeviceAssistanceAppList"
-
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamsSize()I
 
-    move-result v19
+    move-result v22
 
     const/4 v2, 0x1
 
-    move/from16 v0, v19
+    move/from16 v0, v22
 
     if-ge v0, v2, :cond_1
 
@@ -484,7 +484,7 @@
 
     move-result-object v3
 
-    move/from16 v0, v19
+    move/from16 v0, v22
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -532,10 +532,6 @@
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v12
 
@@ -595,6 +591,7 @@
     invoke-virtual {v2}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
 
     :cond_2
+    :goto_1
     return-void
 
     :cond_3
@@ -612,39 +609,51 @@
 
     move-result-object v13
 
-    const/16 v17, -0x1
+    const/16 v19, -0x1
 
-    const/4 v15, 0x0
+    const/16 v17, 0x0
 
-    :goto_1
+    :goto_2
     array-length v2, v13
 
-    if-ge v15, v2, :cond_4
+    move/from16 v0, v17
 
-    aget-object v2, v13, v15
+    if-ge v0, v2, :cond_4
+
+    invoke-virtual {v12}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v21
+
+    aget-object v2, v13, v17
 
     invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v12, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v14
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-eqz v2, :cond_7
 
-    move/from16 v17, v15
+    move/from16 v19, v17
 
     :cond_4
     const/4 v2, -0x1
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     if-le v0, v2, :cond_9
 
     array-length v2, v13
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     if-ge v0, v2, :cond_9
 
@@ -656,11 +665,11 @@
 
     move-result-object v2
 
-    aget-object v2, v2, v17
+    aget-object v2, v2, v19
 
     invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v20
 
     sget-object v2, Lcom/samsung/android/settings/applications/EmHandler;->TAG:Ljava/lang/String;
 
@@ -674,7 +683,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -686,7 +695,7 @@
 
     move-result-object v3
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -698,7 +707,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->isEmpty()Z
 
     move-result v2
 
@@ -706,7 +715,7 @@
 
     const-string/jumbo v2, ""
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->contentEquals(Ljava/lang/CharSequence;)Z
 
@@ -728,19 +737,21 @@
 
     invoke-virtual {v2}, Lcom/android/settings/applications/DefaultAssistPreference;->getValue()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v16
 
-    if-eqz v14, :cond_8
+    if-eqz v16, :cond_8
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-virtual {v0, v14}, Ljava/lang/String;->contentEquals(Ljava/lang/CharSequence;)Z
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contentEquals(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-eqz v2, :cond_8
 
-    :goto_2
+    :goto_3
     sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
     sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
@@ -760,18 +771,18 @@
     goto/16 :goto_0
 
     :cond_7
-    add-int/lit8 v15, v15, 0x1
+    add-int/lit8 v17, v17, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :cond_8
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v20
 
     invoke-direct {v0, v1}, Lcom/android/settings/applications/ManageAssist;->confirmNewAssist(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_9
     sget-object v2, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
@@ -797,6 +808,488 @@
     invoke-virtual {v2, v3}, Lcom/android/settings/applications/DefaultAssistPreference;->performClick(Landroid/preference/PreferenceScreen;)V
 
     goto/16 :goto_0
+
+    :cond_a
+    const-string/jumbo v2, "DeviceAssistanceAppSetting"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_d
+
+    if-eqz v18, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mDefaultAssitPref:Lcom/android/settings/applications/DefaultAssistPreference;
+
+    invoke-virtual {v2}, Lcom/android/settings/applications/DefaultAssistPreference;->getSettingsIcon()Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
+
+    move-result v2
+
+    if-nez v2, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mDefaultAssitPref:Lcom/android/settings/applications/DefaultAssistPreference;
+
+    invoke-virtual {v2}, Lcom/android/settings/applications/DefaultAssistPreference;->getSettingsIcon()Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/View;->performClick()Z
+
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "Settings"
+
+    const-string/jumbo v9, "Available"
+
+    const-string/jumbo v10, "yes"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_4
+    sget-object v2, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
+
+    goto/16 :goto_1
+
+    :cond_b
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "Settings"
+
+    const-string/jumbo v9, "Available"
+
+    const-string/jumbo v10, "no"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_4
+
+    :cond_c
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "Settings"
+
+    const-string/jumbo v9, "Available"
+
+    const-string/jumbo v10, "no"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_4
+
+    :cond_d
+    const-string/jumbo v2, "AnalyzeOnScreenTextOn"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_10
+
+    const-string/jumbo v2, "context"
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v15
+
+    check-cast v15, Landroid/preference/SwitchPreference;
+
+    if-eqz v18, :cond_f
+
+    if-eqz v15, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v2}, Landroid/preference/SwitchPreference;->isChecked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_e
+
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "AnalyzeOnScreenText"
+
+    const-string/jumbo v9, "AlreadyOn"
+
+    const-string/jumbo v10, "yes"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_5
+    sget-object v2, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
+
+    goto/16 :goto_1
+
+    :cond_e
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/applications/ManageAssist;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "AnalyzeOnScreenText"
+
+    const-string/jumbo v9, "AlreadyOn"
+
+    const-string/jumbo v10, "no"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_5
+
+    :cond_f
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "Settings"
+
+    const-string/jumbo v9, "Available"
+
+    const-string/jumbo v10, "no"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_5
+
+    :cond_10
+    const-string/jumbo v2, "AnalyzeOnScreenTextOff"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_13
+
+    const-string/jumbo v2, "context"
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v15
+
+    check-cast v15, Landroid/preference/SwitchPreference;
+
+    if-eqz v18, :cond_12
+
+    if-eqz v15, :cond_12
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v2}, Landroid/preference/SwitchPreference;->isChecked()Z
+
+    move-result v2
+
+    if-nez v2, :cond_11
+
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "AnalyzeOnScreenText"
+
+    const-string/jumbo v9, "AlreadyOff"
+
+    const-string/jumbo v10, "yes"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_6
+    sget-object v2, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
+
+    goto/16 :goto_1
+
+    :cond_11
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/applications/ManageAssist;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "AnalyzeOnScreenText"
+
+    const-string/jumbo v9, "AlreadyOff"
+
+    const-string/jumbo v10, "no"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_6
+
+    :cond_12
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "Settings"
+
+    const-string/jumbo v9, "Available"
+
+    const-string/jumbo v10, "no"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_6
+
+    :cond_13
+    const-string/jumbo v2, "AnalyzeOnScreenImagesOn"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_16
+
+    const-string/jumbo v2, "screenshot"
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v15
+
+    check-cast v15, Landroid/preference/SwitchPreference;
+
+    if-eqz v18, :cond_15
+
+    if-eqz v15, :cond_15
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mScreenshotPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v2}, Landroid/preference/SwitchPreference;->isChecked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_14
+
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "AnalyzeOnScreenImages"
+
+    const-string/jumbo v9, "AlreadyOn"
+
+    const-string/jumbo v10, "yes"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_7
+    sget-object v2, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
+
+    goto/16 :goto_1
+
+    :cond_14
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mScreenshotPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/applications/ManageAssist;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "AnalyzeOnScreenImages"
+
+    const-string/jumbo v9, "AlreadyOn"
+
+    const-string/jumbo v10, "no"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_7
+
+    :cond_15
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "Settings"
+
+    const-string/jumbo v9, "Available"
+
+    const-string/jumbo v10, "no"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_7
+
+    :cond_16
+    const-string/jumbo v2, "AnalyzeOnScreenImagesOff"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const-string/jumbo v2, "screenshot"
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v15
+
+    check-cast v15, Landroid/preference/SwitchPreference;
+
+    if-eqz v18, :cond_18
+
+    if-eqz v15, :cond_18
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mScreenshotPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v2}, Landroid/preference/SwitchPreference;->isChecked()Z
+
+    move-result v2
+
+    if-nez v2, :cond_17
+
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "AnalyzeOnScreenImages"
+
+    const-string/jumbo v9, "AlreadyOff"
+
+    const-string/jumbo v10, "yes"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_8
+    sget-object v2, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
+
+    goto/16 :goto_1
+
+    :cond_17
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/applications/ManageAssist;->mScreenshotPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/applications/ManageAssist;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "AnalyzeOnScreenImages"
+
+    const-string/jumbo v9, "AlreadyOff"
+
+    const-string/jumbo v10, "no"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_8
+
+    :cond_18
+    sget-object v5, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string/jumbo v7, "DeviceAssistanceApp"
+
+    const-string/jumbo v8, "Settings"
+
+    const-string/jumbo v9, "Available"
+
+    const-string/jumbo v10, "no"
+
+    invoke-virtual/range {v5 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_8
 .end method
 
 .method public exeViewAction()V
@@ -822,101 +1315,120 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 5
+    .locals 6
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f08009f
+    const v1, 0x7f08009f
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/applications/ManageAssist;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v1}, Lcom/android/settings/applications/ManageAssist;->addPreferencesFromResource(I)V
 
-    const-string/jumbo v0, "default_assist"
+    const-string/jumbo v1, "default_assist"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/android/settings/applications/DefaultAssistPreference;
+    check-cast v1, Lcom/android/settings/applications/DefaultAssistPreference;
 
-    iput-object v0, p0, Lcom/android/settings/applications/ManageAssist;->mDefaultAssitPref:Lcom/android/settings/applications/DefaultAssistPreference;
+    iput-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mDefaultAssitPref:Lcom/android/settings/applications/DefaultAssistPreference;
 
-    iget-object v0, p0, Lcom/android/settings/applications/ManageAssist;->mDefaultAssitPref:Lcom/android/settings/applications/DefaultAssistPreference;
+    iget-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mDefaultAssitPref:Lcom/android/settings/applications/DefaultAssistPreference;
 
-    invoke-virtual {v0, p0}, Lcom/android/settings/applications/DefaultAssistPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v1, p0}, Lcom/android/settings/applications/DefaultAssistPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    const-string/jumbo v0, "context"
+    const-string/jumbo v1, "context"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/preference/SwitchPreference;
+    check-cast v1, Landroid/preference/SwitchPreference;
 
-    iput-object v0, p0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
+    iput-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
 
-    iget-object v3, p0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
+    iget-object v4, p0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/applications/ManageAssist;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v4, "assist_structure_enabled"
+    const-string/jumbo v5, "assist_structure_enabled"
 
-    invoke-static {v0, v4, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v1, v5, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_1
 
-    move v0, v1
+    move v1, v2
 
     :goto_0
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    iget-object v0, p0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
+    iget-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    const-string/jumbo v0, "screenshot"
+    const-string/jumbo v1, "screenshot"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/preference/SwitchPreference;
+
+    iput-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mScreenshotPref:Landroid/preference/SwitchPreference;
+
+    iget-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mScreenshotPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v1, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    const-string/jumbo v1, "voice_input_settings"
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/settings/voice/VoiceInputListPreference;
+
+    iput-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mVoiceInputPref:Lcom/android/settings/voice/VoiceInputListPreference;
+
+    const-string/jumbo v1, "assist_description"
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
-    check-cast v0, Landroid/preference/SwitchPreference;
+    check-cast v0, Lcom/samsung/android/settings/UnclickablePreference;
 
-    iput-object v0, p0, Lcom/android/settings/applications/ManageAssist;->mScreenshotPref:Landroid/preference/SwitchPreference;
+    invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
 
-    iget-object v0, p0, Lcom/android/settings/applications/ManageAssist;->mScreenshotPref:Landroid/preference/SwitchPreference;
+    move-result v1
 
-    invoke-virtual {v0, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v0, "voice_input_settings"
+    const v1, 0x7f0b0410
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/applications/ManageAssist;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/UnclickablePreference;->setTitle(I)V
 
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/voice/VoiceInputListPreference;
-
-    iput-object v0, p0, Lcom/android/settings/applications/ManageAssist;->mVoiceInputPref:Lcom/android/settings/voice/VoiceInputListPreference;
-
+    :cond_0
     invoke-direct {p0}, Lcom/android/settings/applications/ManageAssist;->updateUi()V
 
-    new-instance v0, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    new-instance v1, Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-direct {v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+    invoke-direct {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
 
-    iput-object v0, p0, Lcom/android/settings/applications/ManageAssist;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iput-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     return-void
 
-    :cond_0
-    move v0, v2
+    :cond_1
+    move v1, v3
 
     goto :goto_0
 .end method
@@ -1202,7 +1714,98 @@
 .method public setActionType(Ljava/lang/String;)V
     .locals 4
 
+    const/16 v3, 0x7d0
+
+    const/4 v2, 0x1
+
     const-string/jumbo v0, "DeviceAssistanceAppList"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    sget-object v0, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    iget-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mDefaultAssitPref:Lcom/android/settings/applications/DefaultAssistPreference;
+
+    invoke-virtual {v0, v2, v1, v3}, Lcom/samsung/android/settings/applications/EmHandler;->setAction(ILjava/lang/Object;I)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    const-string/jumbo v0, "DeviceAssistanceAppSetting"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    sget-object v0, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    iget-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mDefaultAssitPref:Lcom/android/settings/applications/DefaultAssistPreference;
+
+    invoke-virtual {v0, v2, v1, v3}, Lcom/samsung/android/settings/applications/EmHandler;->setAction(ILjava/lang/Object;I)V
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v0, "AnalyzeOnScreenTextOn"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    sget-object v0, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    iget-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v0, v2, v1, v3}, Lcom/samsung/android/settings/applications/EmHandler;->setAction(ILjava/lang/Object;I)V
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v0, "AnalyzeOnScreenTextOff"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    sget-object v0, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    iget-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mContextPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v0, v2, v1, v3}, Lcom/samsung/android/settings/applications/EmHandler;->setAction(ILjava/lang/Object;I)V
+
+    goto :goto_0
+
+    :cond_4
+    const-string/jumbo v0, "AnalyzeOnScreenImagesOn"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    sget-object v0, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    iget-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mScreenshotPref:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v0, v2, v1, v3}, Lcom/samsung/android/settings/applications/EmHandler;->setAction(ILjava/lang/Object;I)V
+
+    goto :goto_0
+
+    :cond_5
+    const-string/jumbo v0, "AnalyzeOnScreenImagesOff"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -1212,16 +1815,11 @@
 
     sget-object v0, Lcom/android/settings/applications/ManageAssist;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
-    iget-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mDefaultAssitPref:Lcom/android/settings/applications/DefaultAssistPreference;
-
-    const/4 v2, 0x1
-
-    const/16 v3, 0x7d0
+    iget-object v1, p0, Lcom/android/settings/applications/ManageAssist;->mScreenshotPref:Landroid/preference/SwitchPreference;
 
     invoke-virtual {v0, v2, v1, v3}, Lcom/samsung/android/settings/applications/EmHandler;->setAction(ILjava/lang/Object;I)V
 
-    :cond_0
-    return-void
+    goto :goto_0
 .end method
 
 .method public stopAction()V

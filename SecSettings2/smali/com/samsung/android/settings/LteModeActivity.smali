@@ -413,7 +413,7 @@
 
     const/16 v6, 0x10
 
-    const v4, 0x7f04022f
+    const v4, 0x7f040233
 
     invoke-virtual {p1, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -433,7 +433,7 @@
 
     invoke-virtual {v3, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v4, 0x7f110627
+    const v4, 0x7f110629
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -447,7 +447,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0c0b
+    const v5, 0x7f0b0c7d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -681,7 +681,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/LteModeActivity;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0370
+    const v3, 0x7f0b03cf
 
     invoke-static {v2, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

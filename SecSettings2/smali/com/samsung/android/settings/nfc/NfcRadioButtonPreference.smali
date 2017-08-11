@@ -45,11 +45,11 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/nfc/NfcRadioButtonPreference;->mListener:Lcom/samsung/android/settings/nfc/NfcRadioButtonPreference$OnClickListener;
 
-    const v0, 0x7f0401b8
+    const v0, 0x7f0401ba
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nfc/NfcRadioButtonPreference;->setLayoutResource(I)V
 
-    const v0, 0x7f040238
+    const v0, 0x7f04023c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nfc/NfcRadioButtonPreference;->setWidgetLayoutResource(I)V
 

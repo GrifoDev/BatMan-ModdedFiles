@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d č %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d minuta</string>
     <string name="wifi_fail_to_scan">Није могуће скенирати мреже</string>
     <string name="wifi_failed_to_obtain_IP">Neuspešno dobijanje IP adrese.</string>
     <string name="wifi_security_none">Nema</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Nije moguće povezivanje sa uređajem %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Ne može da se uspostavi veza sa kompletom %1$s. Proverite podešavanja u kompletu %2$s i pokušajte ponovo.</string>
     <string name="bluetooth_pairing_rejected_error_message">Uparivanje odbacio %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Nabavlja se naziv uređaja…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Naziv uređaja će se pojaviti kada ovaj uređaj bude povezan.</string>
     <string name="accessibility_wifi_off">Wi-Fi је искључен.</string>
     <string name="accessibility_no_wifi">Wi-Fi веза је прекинута.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi сигнал има једну црту.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Podrška</string>
     <string name="reset_network_settings_list_summary">Resetujte podešavanja za Wi-Fi, Bluetooth i druga mrežna podešavanja na njihove podrazumevane vrednosti.</string>
     <string name="master_clear_list_summary">Resetujte uređaj na njegova podrazumevana fabrička podešavanja. Ovo će obrisati sve podatke, uključujući fajlove i preuzete aplikacije.</string>
-    <string name="auto_restart_summary">Optimizujte uređaj njegovim automatskim restartovanjem u podešeno vreme. Kada se uređaj bude restartovao, izgubiće se svi nesačuvani podaci.</string>
+    <string name="auto_restart_summary">Optimizacija telefona njegovim automatskim restartovanjem jedanput nedeljno. Svi podaci koji nisu sačuvani će se izgubiti kada se telefon restartuje.</string>
+    <string name="auto_restart_summary_tablet">Optimizacija tablet računara njegovim automatskim restartovanjem jedanput nedeljno. Svi podaci koji nisu sačuvani će se izgubiti kada se tablet računar restartuje.</string>
     <string name="search_settings">Pretraga</string>
     <string name="related_results">Srodnih stavki: %d</string>
     <string name="no_results_found">Nema rezultata</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Balans zvuka je %d procenata nadesno. Pomeri klizač pomoću dva prsta.</string>
     <string name="sound_balance_set">Podesi</string>
     <string name="accessibility_assistant_menu">Pomoćni meni</string>
-    <string name="assistant_menu_summary">Omogućava funkcijama da poboljšaju pristupačnost uređaja korisnicima sa smanjenom spretnošču ruku.</string>
+    <string name="assistant_menu_summary">Poboljšanje pristupačnosti telefona za korisnike sa smanjenom spretnošću ruku.</string>
     <string name="color_blind_title">Prilagođavanje boja</string>
     <string name="no_result">Prilagodi boje ekrana ako imaš problema prilikom čitanja prikaza.</string>
     <string name="you_are_normal">Prilagođavanje boje nije potrebno.</string>
@@ -653,6 +656,7 @@ Dok je ova funkcija omogućena, opcija Automatski rotiraj ekran će biti onemogu
     <string name="direct_access_actions_accessibility_title">Pristupačnost</string>
     <string name="direct_access_actions_negative_title">Negativne boje</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Ne mogu se istovremeno omogućiti Direktan pristup i Smanjenje veličine ekrana. Smanjenje veličine ekrana će biti onemogućeno.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s i %2$s ne mogu da se omoguće istovremeno. %3$s će biti onemogućen.</string>
     <string name="direct_access_actions_color_adjustment_summary">Konfigurišite Prilagođavanje boje u meniju Vid da biste ga koristili u Direktnom pristupu</string>
     <string name="direct_access_actions_screen_reader_summary">Omogući da se Čitač stranica koristi u Direktnom pristupu.</string>
     <string name="direct_access_actions_accesscontrol_title">Kontrola interakcije</string>
@@ -850,7 +854,9 @@ Wi-Fi i Bluetooth će takođe biti isključeni, ali možete ponovo da ih uključ
     <string name="premium_sms_values_ask">Pitaj</string>
     <string name="premium_sms_values_never">Uvek zabrani</string>
     <string name="premium_sms_values_allow">Uvek dozvoli</string>
-    <string name="assist_and_voice_input_summary">Aplikacije koje pružaju pomoć za uređaj obezbeđuju još opcija i informacija o svakom ekranu.</string>
+    <string name="assist_and_voice_input_summary">Izaberite aplikaciju koju ćete da koristite kada dodirnete i zadržite dugme Početak.</string>
+    <string name="assist_footer_phone">Izaberite aplikaciju koju ćete da koristite kada dodirnete i zadržite dugme Početak. Aplikacije koje pružaju pomoć za uređaj mogu da vam pomognu prikupljanjem informacija sa ekrana koji je trenutno prikazan na telefonu.</string>
+    <string name="assist_footer_tablet">Izaberite aplikaciju koju ćete da koristite kada dodirnete i zadržite dugme Početak. Aplikacije koje pružaju pomoć za uređaj mogu da vam pomognu prikupljanjem informacija sa ekrana koji je trenutno prikazan na tablet računaru.</string>
     <string name="default_app_title">Podesi kao podrazumevano</string>
     <string name="premium_sms_title">Pošalji premium SMS poruku</string>
     <string name="default_app_selection">Izbor podrazumevanih apl.</string>
@@ -939,7 +945,7 @@ Možeš da promeniš ovo kasnije odlaskom na Bluetooth podešavanja."</string>
 
 Dva povezana uređaja mogu neznatno da se razlikuju u pogledu izlaznog zvuka."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Isključiti Sinhroniz. jačine zvuka medija?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Da biste koristili funkciju Dva zvuka, morate da isključite funkciju Sinhronizacija jačine zvuka medija.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Da biste kontrolisali jačinu zvuka na svakom audio uređaju zasebno, morate da isključite funkciju Sinhronizacija jačine zvuka medija.</string>
     <string name="bluetooth_avc_title">Sinh. jačine zvuka medija</string>
     <string name="bluetooth_avc_description">Ukoliko povezani Bluetooth uređaj može da kontroliše jačinu zvuka medija telefona, nivo jačine zvuka koji podešava Bluetooth uređaj će se sinhronizovati sa telefonom.</string>
     <string name="bluetooth_avc_volume_change_description">Ukoliko uključite ovu funkciju, može doći do neočekivanih promena u jačini zvuka.</string>
@@ -948,6 +954,7 @@ Dva povezana uređaja mogu neznatno da se razlikuju u pogledu izlaznog zvuka."</
     <string name="bluetooth_avc_ask_popup_title">Isključiti Dva zvuka?</string>
     <string name="bluetooth_avc_ask_popup_content">Da biste koristili funkciju Sinhronizacija jačine zvuka medija, morate da isključite funkciju Dva zvuka.</string>
     <string name="bluetooth_avc_disable_description">Priključeni Bluetooth uređaj ne podržava funkciju Sinhronizacija jačine zvuka medija. Ne možete da sinhronizujete jačinu zvuka telefona sa priključenim Bluetooth uređajem.</string>
+    <string name="bluetooth_avc_available_description">Priključeni Bluetooth uređaj podržava funkciju Sinhronizacija jačine zvuka medija i nivo jačine zvuka koji je podesio Bluetooth uređaj će se sinhronizovati sa telefonom.</string>
     <string name="bluetooth_enter_pin_msg">Unesi PIN radi uparivanja sa %s (probaj 0000 ili 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Dostignut je maksimalan broj karaktera.</string>
     <string name="settings_menu_done">Gotovo</string>
@@ -1031,11 +1038,12 @@ Dva povezana uređaja mogu neznatno da se razlikuju u pogledu izlaznog zvuka."</
     <string name="swipe_to_call_title">Prevuci za poziv/slanje poruka</string>
     <string name="swipe_to_call_summary">Prevucite kontakt ili broj nadesno da biste uputili poziv ili nalevo da biste poslali poruku u aplikaciji Telefon, Kontakti ili Poruke.</string>
     <string name="swipe_to_call_summary_dcm">Prevucite kontakt ili broj nadesno da biste uputili poziv ili nalevo da biste poslali poruku u aplikaciji Biranje, Kontakti ili Poruke.</string>
-    <string name="swipe_to_call_summary_kddi">Prevucite kontakt ili broj nadesno da biste uputili poziv ili nalevo da biste poslali poruku u aplikaciji Telefon ili Kontakti.</string>
+    <string name="swipe_to_call_summary_kddi">Prevucite kontakt ili broj nadesno da biste uputili poziv ili nalevo da biste poslali poruku u aplikaciji Birač ili Kontakti.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">Koristite dva odvojena naloga za istu aplikaciju.</string>
     <string name="finger_sensor_gesture_title">Pokreti za senzor prsta</string>
     <string name="finger_sensor_gesture_summary">Otvaranje i zatvaranje aplikacija i funkcija pomoću senzora za otisak prsta.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Otvorite i zatvorite panel sa obaveštenjima koristeći senzor otiska prsta.</string>
     <string name="finger_sensor_gesture_description">Prevucite prstom nagore ili nadole na senzoru otiska prsta da biste otvorili ili zatvorili panel sa obaveštenjima.</string>
     <string name="open_samsung_pay_title">Otvori Samsung Pay</string>
     <string name="open_samsung_pay_summary">Na Početnom ekranu, prevucite prstom nagore na senzoru otiska prsta da biste otvorili aplikaciju Samsung Pay.</string>
@@ -1070,6 +1078,7 @@ Dva povezana uređaja mogu neznatno da se razlikuju u pogledu izlaznog zvuka."</
 %s"</string>
     <string name="enable_ps_title">Omogući %s</string>
     <string name="setup_wizard">Konfiguracioni čarobnjak</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normalan</string>
     <string name="large">Velika</string>
     <string name="small">Mala</string>
@@ -1417,6 +1426,7 @@ Kucnite na OK da biste dozvolili da se osvetljenje poveća iznad bezbednih nivoa
     <string name="navigationbar_summary">Upravljajte dugmadima Početak, Nazad i Nedavno.</string>
     <string name="navigationbar_theme_switch">Primeni aktuelnu temu</string>
     <string name="navigationbar_color_title">Boja pozadine</string>
+    <string name="navigationbar_color_summary">Boja pozadine koju izaberete možda neće biti primenjena na sve aplikacije.</string>
     <string name="navigationbar_order_title">Izgled dugmeta</string>
     <string name="navigationbar_order_default">Nedavno – Početak – Nazad</string>
     <string name="navigationbar_order_mirrored">Nazad – Početak – Nedavno</string>
@@ -1448,7 +1458,8 @@ Kucnite na OK da biste dozvolili da se osvetljenje poveća iznad bezbednih nivoa
     <string name="blue_light_filter_enable_now">Uključi sada</string>
     <string name="blue_light_filter_enable_as_scheduled">Uključi prema planu</string>
     <string name="blue_light_filter_scheduled_toast">Funkcija Filter plavog svetla je uključena. Ona će se automatski isključiti u planirano vreme završetka.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">Funkcije %s i Filter plavog svetla ne mogu da se koriste istovremeno. Funkcija Filter plavog svetla će se onemogućiti.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Isključiti Filter plavog svetla?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Da biste koristili funkciju %s, morate da isključite Filter plavog svetla.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Da biste koristili opciju Od zalaska do izlaska sunca, morate da uključite opciju Lokacija.</string>
     <string name="dlg_turn_on">Uključi</string>
     <string name="screen_resolution_title">Rezolucija ekrana</string>
@@ -1665,6 +1676,7 @@ Tokom procesa dešifrovanja, SD kartica ne može da se koristi."</string>
     <string name="crypt_keeper_last_warn_wipe">Preostao vam je još samo 1 pokušaj za pokretanje uređaja pre nego što se on resetuje na svoja podrazumevana fabrička podešavanja. Ovo će obrisati sve podatke, uključujući fajlove i preuzete aplikacije.</string>
     <string name="crypt_keeper_failed_title_dec">Dešifrovanje neuspešno.</string>
     <string name="crypt_keeper_failed_summary_dec">Dešifrovanje nije moguće izvršiti zbog prekidanja. Vrati na fabrička podešavanja (obrisaće se svi podaci) pre upotrebe.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Podesi tip zaključav. ekrana</string>
     <string name="encryption_interstitial_message">"Možete dodatno da zaštitite ovaj telefon tako što ćete zahtevati da se pre pokretanja telefona unese %s. Ova funkcija pomaže u zaštiti podataka ako je telefon izgubljen ili ukraden. Neke aplikacije mogu da zahtevaju funkciju Bezbedno pokretanje u skladu sa Politikama šifrovanja uređaja za pristup funkcijama kao što je sinhronizacija e-pošte.
 
 Dok se telefon ne pokrene, nećete primati pozive, poruke niti obaveštenja i alarmi se neće oglašavati."</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Koristi otisak prsta</string>
     <string name="wifi_ap_close">Zatvori</string>
     <string name="fingerscanner_add_summary">Dodajte otiske prstiju.</string>
+    <string name="fingerscanner_register_1_finger_summary">Jedan otisak prsta je dodat.</string>
     <string name="fingerscanner_register_summary">Dodat je sledeći broj otisaka prstiju: %d.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Koristite otisak prsta ili unesite aktuelni PIN kod.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Koristite otisak prsta ili nacrtajte aktuelni obrazac.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Otključavanje telefona pomoću funkcije prepoznavanja lica čim se ekran uključi, bez prethodnog prevlačenja prstom.</string>
     <string name="facelock_recognition_speed_up">Brže prepoznavanje</string>
     <string name="facelock_recognition_speed_up_summary">Uključite radi bržeg prepoznavanja. Isključite da biste povećali bezbednost i otežali otključavanje pomoću slike ili video zapisa.</string>
+    <string name="facelock_samsungpass_summary">Koristite prepoznavanje lica radi verifikacije identiteta pomoću aplikacije %s i drugih podržanih aplikacija.</string>
     <string name="face_remove_face_popup_title">Ukloniti podatke o licu?</string>
     <string name="face_remove_face_popup_message_1">Vaše lice se više neće prepoznavati i funkcija Zaključavanje licem će se isključiti.</string>
     <string name="face_remove_face_popup_message_2">Funkcije koje koriste prepoznavanje lica će biti isključene.</string>
@@ -2050,7 +2064,7 @@ Pre nego što zatražiš popravku pod garancijom, moraš da onemogućiš opciju 
     <string name="iris_use_samsung_pass">Samsung Pass</string>
     <string name="iris_use_samsung_pass_summary">Koristite svoje dužice da biste verifikovali svoj identitet putem aplikacije %s i drugih podržanih aplikacija.</string>
     <string name="iris_use_samsung_pass_description_internet">Internet</string>
-    <string name="iris_unlock">Otključavanje dužice</string>
+    <string name="iris_unlock">Otključavanje dužicom</string>
     <string name="iris_unlock_summary">Otključajte telefon pomoću dužica.</string>
     <string name="tips_for_iris">Saveti za upotrebu prep. dužice</string>
     <string name="iris_remove_popup_1">Podaci o vašim dužicama će biti uklonjeni. Tip zaključavanja ekrana će biti promenjen na %s.</string>
@@ -2070,7 +2084,7 @@ Uključite funkciju Otključavanje dužicom da biste koristili biometriju ili %s
     <string name="biometrics_backup_locktype_title">Konfigurišite bezbednost za dužicu</string>
     <string name="biometrics_register_your_iris">Registrujte dužice.</string>
     <string name="biometrics_backup_locktype_summary">Da biste koristili svoje dužice za otključavanje uređaja, morate da podesite obrazac, PIN kod ili lozinku.</string>
-    <string name="biometrics_backup_locktype_message">Da biste koristili dužice za otključavanje telefona ili bezbednu verifikaciju, moraćete da:</string>
+    <string name="biometrics_backup_locktype_message">Da biste koristili dužice radi otključavanja telefona ili sopstvene verifikacije u aplikacijama, moraćete da uradite sledeće:</string>
     <string name="iris_delete_popup_title">Ukloniti podatke o dužici?</string>
     <string name="iris_delete_popup_message">Ukloniti podatke o dužici?</string>
     <string name="iris_delete_popup_message_with_related_func">Funkcije koje koriste dužice će biti isključene.</string>
@@ -2078,7 +2092,7 @@ Uključite funkciju Otključavanje dužicom da biste koristili biometriju ili %s
     <string name="iris_timeout_popop_title">Pokušaj kasnije</string>
     <string name="iris_timeout_popop_message">Dužice nisu prepoznate. Kamera dužice je možda prljava. Očistite oblast iznad ekrana i pokušajte ponovo.</string>
     <string name="iris_timeout_popop_message_1">Kamera dužice je možda prljava. Očistite oblast iznad ekrana i pokušajte ponovo.</string>
-    <string name="iris_proximity_restriction_popop_message">Dužice nisu prepoznate. Telefon je suviše blizu lica ili je senzor blizine možda prljav. Očistite oblast iznad ekrana i pokušajte ponovo.</string>
+    <string name="iris_proximity_restriction_popop_message">Držite telefon dalje od lica i pokušajte ponovo.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Senzor blizine je možda prljav.
 Obrišite oblast iznad ekrana."</string>
     <string name="iris_try_again">Ponovi</string>
@@ -2086,6 +2100,8 @@ Obrišite oblast iznad ekrana."</string>
     <string name="iris_failed_to_verity_identify">Vaš identitet nije verifikovan</string>
     <string name="iris_failed_popup_description">Načinili ste %1$d pokušaja da verifikujete dužice. Pokušajte ponovo za %2$d sekunde/i.</string>
     <string name="iris_no_match">Nema podudaranja</string>
+    <string name="iris_eye_safety_msg">Dužice nisu prepoznate.</string>
+    <string name="iris_timeout_msg">Dužice nisu detektovane.</string>
     <string name="biometrics_registered">Registrovano</string>
     <string name="iris_turn_on_toast_message">Zaključavanje pomoću dužice je omogućeno umesto Zaključavanja pomoću otiska prsta.</string>
     <string name="iris_wrong_backup_password">Neispravna alter. lozinka</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Prikažite dugme Početak i sat ili informacije na ekranu u pasivnom režimu.</string>
     <string name="aod_feature_off_popup_title">Isključiti %s?</string>
     <string name="aod_feature_off_popup_description">Da biste koristili %1$s, morate da isključite %2$s.</string>
+    <string name="aod_features_off_popup_title">Isključiti druge funkcije?</string>
+    <string name="aod_features_off_popup_description">Da bi se koristila funkcija Always On Display, sledeće funkcije moraju da se isključe:</string>
     <string name="aod_features_off_popup_btn_ok">Isključi</string>
     <string name="aod_disable_by_negative_colors">Ne može da se koristi dok je uključena funkcija Negativne boje.</string>
     <string name="aod_disable_by_powersaving_mode">Ne može da se koristi dok je uključen režim Ušteda energije.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Obojene kapljice</string>
     <string name="lock_screen_show_information_summary_wifi_only">Prikazuj informacije o vlasniku uređaja ili prečice aplikacija na zaključanom ekranu.</string>
     <string name="lock_screen_sview_show_information_summary">Prikazuj dvostruki sat, informacije o vlasniku uređaja ili prečice aplikacija na zaključanom ekranu i prozoru S prikaz.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Prikaz sata u romingu ili informacija o kontaktima vlasnika telefona na Zaključanom ekranu i prozoru S prikaz.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Izaberite prečice aplikacija koje će se prikazivati na Zaključanom ekranu i prozoru S prikaz.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Prikazivanje Obaveštenja na Zaključanom ekranu i u prozoru S prikaz.</string>
     <string name="lock_screen_and_cover_show_information_summary">Prikaži dvostruki sat na zaključanom ekranu i Providnom poklopcu za ekran.</string>
     <string name="lock_screen_secured_lock_settings_title">Podeš. bezbednog zaključavanja</string>
     <string name="lock_screen_secured_lock_settings_summary">Podesi funkcije bezbednosnog zaključavanja kao što su Automatsko zaključavanje i Trenutno zaključavanje pomoću tastera za uključivanje.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Kućna vremenska zona</string>
     <string name="contact_info_settings_title">Informacije o kontaktu</string>
     <string name="show_contact_info_on_lockscreen_label">Prikaz informacija kao što su broj telefona ili e-adresa na Zaključanom ekranu.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Prikazivanje informacija kao što su broj telefona ili e-adresa na Zaključanom ekranu i u funkciji Always On Display.</string>
     <string name="unlock_effect">Efekat otključavanja</string>
     <string name="walking_mate_title">Pedometar</string>
     <string name="help_text_title">Tekst pomoći</string>
@@ -2415,7 +2437,7 @@ Preporučuje se da uklonite biometrijske podatke, ali možete da ih sačuvate ka
     <string name="toast_set_lock_pattern">Svi podaci će biti obrisani i telefon će se resetovati ukoliko zaboravite obrazac.</string>
     <string name="toast_set_lock_password">Svi podaci će se obrisati i telefon će se resetovati ukoliko zaboravite lozinku.</string>
     <string name="toast_set_lock_pin">Svi podaci će se obrisati i telefon će se resetovati ukoliko zaboravite PIN kod.</string>
-    <string name="chooselock_warning_text">Zapamtite sledeće: %s. Trebaće vam nakon što restartujete uređaj.</string>
+    <string name="chooselock_warning_text">Zapamtite ovu/ovaj %s. Trebaće vam nakon što restartujete telefon.</string>
     <string name="lockpassword_password_exists_history">Šifra je već bila korišćena. Unesi novu šifru.</string>
     <string name="lockpassword_pin_repeating_nums">PIN kod ne sme da sadrži brojeve koji se ponavljaju.</string>
     <string name="lockpassword_pin_sequential_nums">PIN kod ne sme da sadrži niz brojeva.</string>
@@ -2533,6 +2555,9 @@ Prenos podataka putem mobilne mreže će biti isključen."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Ukoliko ne koristiš Wi-Fi, više nećeš moći da koristiš Internet, E-poštu ili druge aplikacije koje zahtevaju vezu za prenos podataka.
 
 Prenos podataka putem mobilne mreže će biti isključen."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Ukoliko niste povezani na Wi-Fi mrežu, nećete moći da koristite Internet, E-poštu ili druge aplikacije koje zahtevaju mrežnu vezu.</string>
@@ -2691,10 +2716,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Prilagodi ogran. jač. zv.</string>
     <string name="volume_limiter_descryption">Zaštitite uši pomoću ograničenja za maksimalnu jačinu zvuka medija. Ograničenje će se primenjivati samo tokom upotrebe slušalica ili Bluetooth audio uređaja.</string>
     <string name="multi_sound_title">Razdvoji zvuk aplikacije</string>
-    <string name="multi_sound_summary">Reprodukovanje zvuka jedne aplikacije na zvučniku ili slušalicama zasebno od svih drugih zvukova u uređaju.</string>
-    <string name="multi_sound_descryption">"Reprodukujte zvuk medija jedne aplikacije na zvučniku ili slušalicama zasebno od zvuka medija drugih aplikacija.
+    <string name="multi_sound_summary">Reprodukovanje zvuka medija jedne aplikacije na audio uređaju zasebno od glavnog uređaja za audio izlaz na telefonu.</string>
+    <string name="multi_sound_descryption">"Reprodukujte zvuk medija jedne aplikacije na audio uređaju odvojeno od glavnog uređaja za audio izlaz na telefonu. Izaberite aplikaciju i audio uređaj da biste uključili ovu funkciju.
 
-Ukoliko izaberete Bluetooth audio uređaj, zvuk će se reprodukovati na podrazumevanom audio uređaju ukoliko Bluetooth uređaj nije povezan."</string>
+Opcija Razdvoji zvuk aplikacije funkcioniše samo kada je audio uređaj koji ste izabrali drugačiji od glavnog uređaja za audio izlaz na telefonu.
+
+Možete da promenite glavni uređaj za audio izlaz na telefonu u panelu za brza podešavanja. Ukoliko se ne prikazuje audio izlaz, uključite ga tako što ćete otići na Samsung Connect > Podešavanja > panel aplikacije Samsung Connect."</string>
     <string name="set_application_title">Aplikacija</string>
     <string name="set_application_summary">Izaberite aplikaciju da biste reprodukovali njen zvuk na zasebnom audio uređaju.</string>
     <string name="set_application_descryption">Izaberite multimedijalnu aplikaciju u nastavku da biste reprodukovali njen zvuk na zasebnom audio uređaju.</string>
@@ -2705,9 +2732,11 @@ Ukoliko izaberete Bluetooth audio uređaj, zvuk će se reprodukovati na podrazum
     <string name="multi_sound_popup_msg">Da biste uključili podešavanje %s, morate da izaberete aplikaciju i audio uređaj.</string>
     <string name="multi_sound_network_msg">Da biste proverili da li ima dostupnih aplikacija, telefon mora da bude povezan na mrežu. Proverite mrežna podešavanja i pokušajte ponovo.</string>
     <string name="multi_sound_wifi_msg">Da bi se proverile dostupne aplikacije, telefon mora da se poveže na mrežu. Korišćenje mobilnih podataka može dovesti do dodatnih troškova.</string>
+    <string name="multi_sound_add_application">Dodaj aplikaciju</string>
     <string name="dlg_btn_select">Izaberi</string>
-    <string name="audio_device_type_descryption">Izaberite audio uređaj koji želite da koristite za ovu aplikaciju. Bluetooth uređaji će biti dostupni samo dok su priključeni.</string>
+    <string name="audio_device_type_descryption">Izaberite audio uređaj koji želite da koristite za izabranu aplikaciju. Bluetooth uređaji će biti dostupni samo dok su priključeni.</string>
     <string name="my_phone_title">Telefon</string>
+    <string name="my_phone_summary">Zvučnik/slušalice/USB audio uređaj</string>
     <string name="bluetooth_device_title">Bluetooth uređaj</string>
     <string name="no_connected_devices">Nema povezanih uređaja</string>
     <string name="two_hours">2 sata</string>
@@ -2715,7 +2744,8 @@ Ukoliko izaberete Bluetooth audio uređaj, zvuk će se reprodukovati na podrazum
     <string name="stop_setup_popup_msg">Neće se primeniti nijedno podešavanje koje ste promenili.</string>
     <string name="app_turned_on">%s uključeno.</string>
     <string name="force_touch_title">Jako pritisnite eho vibracije</string>
-    <string name="volume_key_control_title">Podr. kont. za Tas. za jač. zv.</string>
+    <string name="volume_key_control_title">Upot. Tast. za jač. zv. za med.</string>
+    <string name="volume_key_control_summary">Kontrolišite jačinu zvuka medija kada pritisnete Tastere za jačinu zvuka.</string>
     <string name="sound_mode">Režim zvuka</string>
     <string name="sound_mode_vibrate">Vibracija</string>
     <string name="sound_mode_mute">Isključi ton</string>
@@ -2929,14 +2959,13 @@ Probaj ponovo."</string>
     <string name="text_biometrics_title_enterprise">Kada izaberete karticu %1$s, biometrija neće biti podržana kao način otključavanja za %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">Kartica %1$s ne podržava otiske prstiju kao način otključavanja za %2$s.</string>
     <string name="edge_feeds_title">Edge kanali</string>
-    <string name="screensaver_settings_summary">"Kontrolišite šta se događa kada je uređaj priključen i/ili se puni. Čuvar ekrana će se prikazivati kada se isključi ekran.
-
-Ova funkcija se zove i Sanjarenje."</string>
-    <string name="screensaver_settings_summary_wo_dock">Prikaz čuvara ekrana nakon što se ekran automatski isključi dok se telefon puni.</string>
+    <string name="screensaver_settings_summary">Prikaz čuvara ekrana nakon što se ekran automatski isključi dok se telefon puni.</string>
+    <string name="screensaver_settings_summary_wo_dock">Prikaz čuvara ekrana nakon što se ekran automatski isključi dok je telefon priključen ili se puni.</string>
     <string name="apn_already_exists">Već postoji.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Broj porta mora biti između %1$d i %2$d.</string>
     <string name="apn_restore_warning">Sve pristupne tačke koje ste dodali će biti uklonjene. Ostale pristupne tačke će biti resetovane na svoja podrazumevana podešavanja.</string>
+    <string name="apn_restore_title">Resetovati podešavanja pristupne tačke?</string>
     <string name="master_clear_desc_google_account">Google nalog</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2948,7 +2977,8 @@ Ova funkcija se zove i Sanjarenje."</string>
     <string name="sound_balance_summary">Podešavanje levog i desnog balansa zvuka za slušalice.</string>
     <string name="backup_samsung_account_title">Podešavanja bekapovanja</string>
     <string name="restore_samsung_account_title">Vrati</string>
-    <string name="auto_restart_header">Upravljanje uređajem</string>
+    <string name="auto_restart_header">Upravljanje telefonom</string>
+    <string name="auto_restart_header_tablet">Upravljanje tablet računarom</string>
     <string name="auto_restart_title">Automatsko restartovanje</string>
     <string name="switch_turn_on_text">Uključi</string>
     <string name="switch_turn_off_text">Isključi</string>
@@ -3071,6 +3101,14 @@ To neće uticati na lične podatke i podešavanja preuzetih aplikacija."</string
     <string name="tether_settings_summary_usb_bt">Podeli vezu za prenos mobilnih podataka sa uređaja preko USB-a ili Bluetooth-a</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Prihvati</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Delite internet vezu telefona koristeći Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Delite internet vezu tablet računara koristeći Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Spremni ste da delite internet vezu ovog telefona.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Spremni ste da delite internet vezu ovog tablet računara.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Deljenje internet veze ovog telefona sa 1 uređajem.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Deljenje internet veze ovog tablet računara sa 1 uređajem.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Deljenje internet veze ovog telefona sa sledećim brojem uređaja: %d.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Deljenje internet veze ovog tablet računara sa sledećim brojem uređaja: %d.</string>
     <string name="onehand_settings_title">Režim rada jednom rukom</string>
     <string name="onehand_settings_text_1">Prevucite dijagonalno iz bilo kog donjeg ugla ekrana da biste smanjili veličinu prikaza.</string>
     <string name="onehand_settings_text_2">Kucnite brzo na dugme Početak 3 puta da biste smanjili veličinu prikaza.</string>
@@ -3398,10 +3436,12 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Isključeno</string>
     <string name="wifi_or_mobile_network">Wi-Fi ili mobilne mreže</string>
     <string name="wifi_network_only">Samo Wi-Fi mreža</string>
+    <string name="wifi_adps_title">Režim Wi-Fi uštede energije</string>
+    <string name="wifi_adps_summary">Smanjite upotrebu baterije tako što ćete analizirati obrasce protoka Wi-Fi saobraćaja.</string>
     <string name="wifi_auto_reconnect">Automatsko ponovno povezivanje</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Uključivanje Wi-Fi-ja će onemogućiti Mobile Hotspot. Nastaviti?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Wi-Fi je isključen kada je aktivna funkcija Mobilna pristupna tačka. Da biste isključili Wi-Fi, isključite funkciju Mobilna pristupna tačka.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Wi-Fi je isključen kada je aktivna funkcija Mobilna pristupna tačka. Da biste uključili Wi-Fi, isključite funkciju Mobilna pristupna tačka.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
@@ -3603,6 +3643,10 @@ Nakon promene naziva mobilne pristupne tačke ili lozinke, novi QR kod mora da s
     <string name="wifi_wps_pin_client_mobileap">Povezivanje sa klijentom pomoću PIN koda %1$s. Konfiguracija može da traje i do %2$d minuta.</string>
     <string name="wifi_wps_complete_mobileap">Drugi uređaj je sada povezan na tvoj uređaj.</string>
     <string name="wifi_ap_disconnect_warn">Isključi uređaj</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Prekinuće se veza svih trenutno povezanih uređaja i Mobilne pristupne tačke.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Prekinuće se veza svih trenutno povezanih uređaja i Mobilne pristupne tačke.</string>
     <string name="wifi_ap_warn_max_whitelist">Dostignut je maksimalan broj dozvoljenih uređaja (%d).</string>
     <string name="wifiap_one_item_deleted">1 stavka će biti izbrisana.</string>
@@ -3738,6 +3782,8 @@ Korišćenjem Mobilne pristupne tačke povećava se potrošnja baterije i upotre
     <string name="wifi_ap_first_time_configuration">Prva konfiguracija Pristupne tačke</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Unesite ispravan PIN kod.</string>
+    <string name="open_mobileap_warning">Ova mobilna pristupna tačka nije bezbedna.</string>
+    <string name="hidden_mobileap_warning">WPS će biti onemogućen kada korisnik podesi opciju Skriveni SSID.</string>
     <string name="wifi_ssid_max_byte_error">Dostignut je maksimalan broj karaktera.</string>
     <string name="tethering_attention_title">Pažnja</string>
     <string name="wfd_select_device">Izaberi uređaj</string>
@@ -3968,6 +4014,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Sinhronizacija</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Ova dozvola omogućava nekoj aplikaciji da prikaže stvari na vrhu drugih aplikacija koje koristite. To može da utiče na korišćenje drugih aplikacija.</string>
+    <string name="write_settings_body_description">Dozvolite ovoj aplikaciji da menja sistemska podešavanja kao što je uključivanje ili isključivanje Bluetooth-a.</string>
+    <string name="reset_app_preferences_desc1">Ovo će resetovati sve vaše željene postavke za:</string>
+    <string name="reset_app_preferences_desc2">Onemogućene aplikacije</string>
+    <string name="reset_app_preferences_desc3">Ograničenja obaveštenja za aplikacije</string>
+    <string name="reset_app_preferences_desc4">Podrazumevane aplikacije</string>
+    <string name="reset_app_preferences_desc5">Ograničenje podataka u pozadini za aplikacije</string>
+    <string name="reset_app_preferences_desc6">Ograničenja dozvole</string>
+    <string name="reset_app_preferences_desc7">Nećete izgubiti postojeće podatke aplikacije.</string>
     <string name="knox_security_mode_title">Knox bezbednost</string>
     <string name="kap_title">Knox aktivna zaštita</string>
     <string name="kap_eula_title">Politika privatnosti</string>
@@ -3982,6 +4036,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Upravljajte ličnim podacima i detaljima o Samsung nalogu.</string>
     <string name="my_profile_summary_jpn">Upravljajte ličnim podacima i detaljima o Galaxy nalogu.</string>
     <string name="arbitration_agreement">Ugovor o arbitraži</string>
+    <string name="activation_title">Status aktivacije</string>
+    <string name="activation_summary">Aktivirano %1$s. Za više informacija, posetite %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF je uključen</string>
+    <string name="edit_event_start_short">Počni</string>
+    <string name="edit_event_end_short">Kraj</string>
+    <string name="select_date_to_view">Izaberi datum za prikazivanje</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Da</string>
     <string name="no">Ne</string>
     <string name="create">Kreiraj</string>
@@ -5474,7 +5535,7 @@ Svaki korisnik može da u ime ostalih korisnika prihvati ažurirane dozvole za k
     <string name="app_notification_block_title">Dozvoli obaveštenja</string>
     <string name="app_notification_block_summary">Primaj obaveštenja ove aplikacije, uključujući obaveštenja putem poruka, zvukove i vibracije.</string>
     <string name="app_notification_override_dnd_title">Postavi kao prioritetno</string>
-    <string name="app_notification_override_dnd_summary">Dozvolite da se obaveštenja ove aplikacije oglašavaju i ekran uključi dok je omogućen režim Ne uznemiravaj.</string>
+    <string name="app_notification_override_dnd_summary">Prikaži obaveštenja na vrhu panela sa obaveštenjima i uključi ih u listu dozvoljenih dok je omogućen režim Ne uznemiravaj.</string>
     <string name="app_notification_visibility_override_title">Na zaključanom ekranu</string>
     <string name="app_notifications_dialog_done">Gotovo</string>
     <string name="zen_mode_choose_rule_type">Izaberite tip pravila</string>
@@ -5511,6 +5572,7 @@ Svaki korisnik može da u ime ostalih korisnika prihvati ažurirane dozvole za k
     <string name="restr_pin_enter_admin_pin">Unos PIN-a administratora</string>
     <string name="switch_on_text">Uključeno</string>
     <string name="switch_off_text">Isključeno</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Ovim poslovnim profilom upravlja:</string>
     <string name="managing_admin">Upravlja %s</string>
     <string name="display_auto_rotate_title">Rotacija ekrana</string>
     <string name="display_auto_rotate_rotate">Rotiraj sadržaj ekrana</string>
@@ -5547,9 +5609,9 @@ Dok se uređaj ne pokrene, nećete primati pozive, poruke niti obaveštenja i al
     <string name="encrypt_talkback_dialog_require_pin">Zahtevaj PIN kod</string>
     <string name="encrypt_talkback_dialog_require_pattern">Zahtevaj obrazac</string>
     <string name="encrypt_talkback_dialog_require_password">Zahtevaj lozinku</string>
-    <string name="encrypt_talkback_dialog_message_pin">Kada uneseš svoj PIN kôd nakon uključivanja uređaja, funkcije za pristupanje kao što je %1$s će se privremeno onemogućiti.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Kada nacrtaš svoj obrazac nakon uključivanja uređaja, funkcije za pristupanje kao što je %1$s će se privremeno onemogućiti.</string>
-    <string name="encrypt_talkback_dialog_message_password">Kada uneseš svoju lozinku nakon uključivanja uređaja, funkcije za pristupanje kao što je %1$s će se privremeno onemogućiti.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Kada se uređaj bude uključivao, zahtevaće se vaš PIN kod. Funkcije pristupačnosti neće biti dostupne dok se uređaj ne pokrene.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Kada se uređaj bude uključivao, zahtevaće se vaš obrazac. Funkcije pristupačnosti neće biti dostupne dok se uređaj ne pokrene.</string>
+    <string name="encrypt_talkback_dialog_message_password">Kada se uređaj bude uključivao, zahtevaće se vaša lozinka. Funkcije pristupačnosti neće biti dostupne dok se uređaj ne pokrene.</string>
     <string name="slot_number">(slot %d)</string>
     <string name="app_launch_domain_links_title">Veze za aplikaciju</string>
     <string name="app_launch_open_domain_urls_title">Idi na podržane URL adr.</string>
@@ -5625,18 +5687,18 @@ Dok se uređaj ne pokrene, nećete primati pozive, poruke niti obaveštenja i al
     <string name="usb_use_power_only">Napuni povezani uređaj</string>
     <string name="usb_use_power_only_desc">Punite povezani uređaj putem USB-a.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Prenesi medijske fajlove</string>
+    <string name="usb_use_file_transfers">Prenesi fajlove</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Prenesi slike</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Izaberite ovaj režim ukoliko funkcija Prenos medijskih fajlova ne radi. Možete da prenosite samo fajlove sa slikama.</string>
+    <string name="usb_use_photo_transfers_summary">Izaberite ovaj režim ukoliko funkcija Prenesi fajlove ne radi. U ovom režimu, možete da prenosite samo fajlove sa slikama.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Poveži MIDI uređaj</string>
-    <string name="usb_use">Koristi USB za</string>
-    <string name="assist_access_context_title">Pročitaj tekst na ekranu</string>
-    <string name="assist_access_context_summary">Dozvolite aplikaciji koja pruža pomoć za uređaj da čita svaki tekst prikazan na ekranu.</string>
-    <string name="assist_access_screenshot_title">Snimi/pristupi snimcima ekrana</string>
-    <string name="assist_access_screenshot_summary">Dozvolite aplikaciji koja pruža pomoć za uređaj da snimi snimke ekrana i da im pristupi.</string>
+    <string name="usb_use">Koristite USB za</string>
+    <string name="assist_access_context_title">Analiziraj tekst na ekranu</string>
+    <string name="assist_access_context_summary">Dozvolite aplikaciji koja pruža pomoć za uređaj da analizira tekst koji se prikazuje na ekranu kako bi obezbedila srodan sadržaj.</string>
+    <string name="assist_access_screenshot_title">Analiziraj slike na ekranu</string>
+    <string name="assist_access_screenshot_summary">Dozvolite aplikaciji koja pruža pomoć za uređaj da snima snimke ekrana i da ih koristi.</string>
     <string name="assist_footer">Aplikacije koje pružaju pomoć za uređaj mogu da vam pomognu prikupljanjem informacija sa ekrana koji je trenutno prikazan na telefonu. Neke od njih mogu da se koriste za otvaranje drugih aplikacija i unos teksta pomoću unosa govorom, pružajući vam integrisanu pomoć.</string>
     <string name="average_memory_use">Prosečno korišćenje RAM-a</string>
     <string name="maximum_memory_use">Maksimalna upotreba RAM-a</string>
@@ -5665,7 +5727,7 @@ Dok se uređaj ne pokrene, nećete primati pozive, poruke niti obaveštenja i al
     <string name="ignore_optimizations_on_desc">Može da poveća potrošnju baterije</string>
     <string name="ignore_optimizations_off_desc">Preporučuje se za uštedu energije baterije</string>
     <string name="app_list_preference_none">Nema</string>
-    <string name="allow_overlay_description">Izaberite aplikacije da biste dozvolili da se njihova dugmad, iskačući prozori ili drugi elementi pojavljuju preko drugih aplikacija koje koristite.</string>
+    <string name="allow_overlay_description">Ova dozvola omogućava nekoj aplikaciji da prikaže stvari na vrhu drugih aplikacija koje koristite. To može da utiče na korišćenje drugih aplikacija.</string>
     <string name="overlay_settings">Aplikacije koje mogu da se pojavljuju na vrhu</string>
     <string name="filter_overlay_apps">Aplikacije sa dozvolom</string>
     <string name="filter_write_settings_apps">Aplikacije sa dozvolom</string>
@@ -5712,14 +5774,14 @@ Dok se uređaj ne pokrene, nećete primati pozive, poruke niti obaveštenja i al
     <string name="ethernet_data_template">%1$s Eternet podataka</string>
     <string name="cell_warning_only">Upozorenje o podacima na %s</string>
     <string name="cell_warning_and_limit">%1$s Upozorenje o upotrebi podataka/%2$s Ograničenje upotrebe podataka</string>
-    <string name="billing_cycle">Ciklus plaćanja</string>
+    <string name="billing_cycle">Ciklus plaćanja i upoz. o pod.</string>
     <string name="billing_cycle_summary">%s. dana u svakom mesecu</string>
     <string name="billing_cycle_fragment_summary">%s. dana u svakom mesecu</string>
     <string name="network_restrictions">Ograniči mreže</string>
     <string name="operator_warning">Upotreba podataka je izmerena od strane uređaja. Provajder usluga može drugačije da obračuna upotrebu.</string>
     <string name="data_used_template">%s iskorišćeno</string>
     <string name="data_warning">Upozorenje o podacima</string>
-    <string name="set_data_limit">Ograničenje podataka</string>
+    <string name="set_data_limit">Podesi ogranič. upot. podataka</string>
     <string name="data_limit">Ograničenje podataka</string>
     <string name="data_usage_template">%1$s iskorišćeno u periodu %2$s</string>
     <string name="data_usage_other_apps">Srodne aplikacije u upotrebi</string>
@@ -5761,5 +5823,4 @@ Vaš uređaj sadrži dijagnostički softver koji može da, uz vašu saglasnost, 
     <string name="enable_iris_lock_desc_3">"Otisci prstiju su trenutno podešeni kao tip zaključavanja ekrana.
 
 Da biste podesili Dužice kao tip zaključavanja ekrana umesto Otisaka prstiju, kucnite na opciju OMOGUĆI. Tada možete da otključavate uređaj koristeći dužice ili %s."</string>
-    <string name="my_phone_summary">Zvučnik/slušalice/USB audio uređaj</string>
 </resources>

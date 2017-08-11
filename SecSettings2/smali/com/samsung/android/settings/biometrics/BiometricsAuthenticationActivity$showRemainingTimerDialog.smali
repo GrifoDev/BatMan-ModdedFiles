@@ -86,7 +86,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040160
+    const v1, 0x7f040162
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -94,13 +94,13 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$showRemainingTimerDialog;->mView:Landroid/view/View;
 
-    const v0, 0x7f0b087f
+    const v0, 0x7f0b08e7
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$showRemainingTimerDialog;->setTitle(I)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$showRemainingTimerDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f1104e1
+    const v1, 0x7f1104e3
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

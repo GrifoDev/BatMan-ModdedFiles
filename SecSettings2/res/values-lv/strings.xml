@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$dh %2$dmin</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Nevar skenēt tīklus</string>
     <string name="wifi_failed_to_obtain_IP">Neizdevās iegūt IP adresi.</string>
     <string name="wifi_security_none">Nav</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Nevar izveidot savienojumu ar %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Nevar izveidot savienojumu ar %1$s. Pārbaudiet savus %2$s iestatījumus un mēģiniet vēlreiz.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s noraidīja savienošanu pārī.</string>
+    <string name="bluetooth_getting_remote_device_name">Iegūst ierīces nosaukumu…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Kad ierīce būs savienota, tiks parādīts ierīces nosaukums.</string>
     <string name="accessibility_wifi_off">Wi-Fi savienojums izslēgts</string>
     <string name="accessibility_no_wifi">Wi-Fi savienojums pārtraukts</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi: viena josla</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Atbalsts</string>
     <string name="reset_network_settings_list_summary">Atjaunojiet Wi-Fi, Bluetooth un citu tīkla iestatījumu noklusējuma vērtības.</string>
     <string name="master_clear_list_summary">Atjaunojiet ierīcē tās rūpnīcas noklusējuma iestatījumus. Tādējādi tiks izdzēsti visi dati, tostarp faili un lejupielādētās programmas.</string>
-    <string name="auto_restart_summary">Optimizējiet savu ierīci, automātiski restartējot to iestatītajos laikos. Restartējot ierīci, tiks zaudēti visi nesaglabātie dati.</string>
+    <string name="auto_restart_summary">Optimizējiet tālruni, to automātiski restartējot reizi nedēļā. Restartējot tālruni, tiks zaudēti visi nesaglabātie dati.</string>
+    <string name="auto_restart_summary_tablet">Optimizējiet planšetdatoru, to automātiski restartējot reizi nedēļā. Restartējot planšetdatoru, tiks zaudēti visi nesaglabātie dati.</string>
     <string name="search_settings">Meklēt</string>
     <string name="related_results">%d saistīti objekti</string>
     <string name="no_results_found">Nav atrasts neviens rezultāts</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Skaņas balanss ir %d procenti uz labo pusi. Izmantojiet divus pirkstus, lai vilktu slīdni.</string>
     <string name="sound_balance_set">Iestatīt</string>
     <string name="accessibility_assistant_menu">Palīgizvēlne</string>
-    <string name="assistant_menu_summary">Aktivizē funkcijas, lai uzlabotu ierīces pieejamību mazāk izveicīgiem lietotājiem.</string>
+    <string name="assistant_menu_summary">Uzlabojiet tālruņa pieejamību lietotājiem ar kustību traucējumiem.</string>
     <string name="color_blind_title">Krāsu pielāgošana</string>
     <string name="no_result">Ja jums ir grūti nolasīt ekrānu, pielāgojiet ekrāna krāsas.</string>
     <string name="you_are_normal">Krāsu pielāgošana nav nepieciešama.</string>
@@ -653,6 +656,7 @@ Kamēr ir aktivizēta šī funkcija, automātiskās pagriešanas ekrāns tiks de
     <string name="direct_access_actions_accessibility_title">Pieejamība</string>
     <string name="direct_access_actions_negative_title">Negatīvas krāsas</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Tiešo piekļuvi un ekrāna lieluma samazināšanu nevar aktivizēt vienlaikus. Ekrāna lieluma samazināšana tiks deaktivizēta.</string>
+    <string name="direct_access_exclusive_popup_msg">Funkcijas %1$s un %2$s nevar aktivizēt vienlaikus. Funkcija %3$s tiks deaktivizēta.</string>
     <string name="direct_access_actions_color_adjustment_summary">Izvēlnē Redzamība iestatiet funkciju Krāsu pielāgošana, lai to izmantotu tiešās piekļuves laikā</string>
     <string name="direct_access_actions_screen_reader_summary">Aktivizējiet lapas lasītāju, lai to izmantotu tiešajā piekļuvē.</string>
     <string name="direct_access_actions_accesscontrol_title">Saziņas vadība</string>
@@ -850,7 +854,9 @@ Tiks izslēgtas arī Wi-Fi un Bluetooth funkcijas, taču tās varēs atkal iesl�
     <string name="premium_sms_values_ask">Jautāt</string>
     <string name="premium_sms_values_never">Nekad neļaut</string>
     <string name="premium_sms_values_allow">Vienmēr atļaut</string>
-    <string name="assist_and_voice_input_summary">Ierīces atbalsta programmas nodrošina citas iespējas un informāciju par katru ekrānu.</string>
+    <string name="assist_and_voice_input_summary">Izvēlieties, kuru programmu izmantot, kad pieskaraties sākuma pogai un turiet.</string>
+    <string name="assist_footer_phone">Izvēlieties, kuru programmu izmantot, kad pieskaraties sākuma pogai un turiet. Ierīces atbalsta programmas var palīdzēt jums, apkopojot informāciju no tālrunī šobrīd redzamā ekrāna.</string>
+    <string name="assist_footer_tablet">Izvēlieties, kuru programmu izmantot, kad pieskaraties sākuma pogai un turiet. Ierīces atbalsta programmas var palīdzēt jums, apkopojot informāciju no planšetdatorā šobrīd redzamā ekrāna.</string>
     <string name="default_app_title">Iestatīt kā noklusējumu</string>
     <string name="premium_sms_title">Sūtīt Premium SMS</string>
     <string name="default_app_selection">Noklus. programmas izvēle</string>
@@ -939,7 +945,7 @@ Vēlāk varat mainīt šo iestatījumu sadaļā Bluetooth iestatījumi."</string
 
 Atskaņotā skaņa 2 pievienotajās ierīcēs var mazliet atšķirties."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Vai izslēgt multiv. skaļ. sinhronizāciju?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Lai lietotu Dual audio, multivides skaļuma sinhronizācijai ir jābūt izslēgtai.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Lai katras audio ierīces skaļumu regulētu atsevišķi, ir jāizslēdz multivides skaļuma sinhronizācija.</string>
     <string name="bluetooth_avc_title">Multiv. skaļ. sinhr.</string>
     <string name="bluetooth_avc_description">Ja pievienotā Bluetooth ierīce var vadīt tālruņa multivides skaļumu, Bluetooth ierīces iestatītais skaļuma līmenis tiks sinhronizēts ar tālruni.</string>
     <string name="bluetooth_avc_volume_change_description">Ieslēdzot šo funkciju, var tikt negaidīti mainīts skaļuma līmenis.</string>
@@ -948,6 +954,7 @@ Atskaņotā skaņa 2 pievienotajās ierīcēs var mazliet atšķirties."</string
     <string name="bluetooth_avc_ask_popup_title">Vai izslēgt Dual audio?</string>
     <string name="bluetooth_avc_ask_popup_content">Lai lietotu multivides skaļuma sinhronizāciju, funkcijai Dual audio ir jābūt izslēgtai.</string>
     <string name="bluetooth_avc_disable_description">Savienotā Bluetooth ierīce neatbalsta multivides skaļuma līmeņa sinhronizāciju. Jūs nevarat sinhronizēt tālruņa skaļuma līmeni ar savienoto Bluetooth ierīci.</string>
+    <string name="bluetooth_avc_available_description">Savienotā Bluetooth ierīce atbalsta multivides skaļuma līmeņa sinhronizāciju, un Bluetooth ierīces iestatītais skaļuma līmenis tiks sinhronizēts ar jūsu tālruni.</string>
     <string name="bluetooth_enter_pin_msg">Ievadiet PIN kodu, lai izveidotu savienojumu ar %s (izmēģiniet 0000 vai 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Sasniegts maksimālais rakstzīmju skaits.</string>
     <string name="settings_menu_done">Gatavs</string>
@@ -1031,11 +1038,12 @@ Pat tad, ja Viedā tveršana ir deaktivizēta, jūs varat piekļūt tās funkcij
     <string name="swipe_to_call_title">Velciet, lai zv. vai sūt. ziņas</string>
     <string name="swipe_to_call_summary">Programmā Tālrunis, Kontakti vai Ziņas pavelciet kontaktu vai numuru pa labi, lai veiktu zvanu, vai pa kreisi, lai sūtītu ziņu.</string>
     <string name="swipe_to_call_summary_dcm">Programmā Zvans, Kontakti vai Ziņas pavelciet kontaktu vai numuru pa labi, lai veiktu zvanu, vai pa kreisi, lai sūtītu ziņu.</string>
-    <string name="swipe_to_call_summary_kddi">Programmā Tālrunis vai Kontakti pavelciet kontaktu vai numuru pa labi, lai veiktu zvanu, vai pa kreisi, lai sūtītu ziņu.</string>
+    <string name="swipe_to_call_summary_kddi">Programmā Zvans vai Kontakti pavelciet kontaktu vai numuru pa labi, lai veiktu zvanu, vai pa kreisi, lai sūtītu ziņu.</string>
     <string name="dual_app_title">Duālā ziņapmaiņa</string>
     <string name="dual_app_summary">Izmantojiet divus atsevišķus kontus vienai programmai.</string>
     <string name="finger_sensor_gesture_title">Pirkstu sensora žesti</string>
     <string name="finger_sensor_gesture_summary">Atveriet un aizveriet programmas un funkcijas, izmantojot pirkstu nospiedumu sensoru.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Atveriet un aizveriet paziņojumu paneli, izmantojot pirkstu nospiedumu sensoru.</string>
     <string name="finger_sensor_gesture_description">Pavelciet uz augšu vai uz leju virs pirkstu nospieduma sensora, lai atvērtu vai aizvērtu paziņojumu paneli.</string>
     <string name="open_samsung_pay_title">Atvērt Samsung Pay</string>
     <string name="open_samsung_pay_summary">Sākuma ekrānā pavelciet uz augšu pāri pirkstu nospiedumu sensoram, lai atvērtu programmu Samsung Pay.</string>
@@ -1070,6 +1078,7 @@ Pat tad, ja Viedā tveršana ir deaktivizēta, jūs varat piekļūt tās funkcij
 %s"</string>
     <string name="enable_ps_title">Aktivizēt %s</string>
     <string name="setup_wizard">Iestatīšanas vednis</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Parasts</string>
     <string name="large">Liels</string>
     <string name="small">Mazs</string>
@@ -1215,7 +1224,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Automātiski lejupielādējiet programmatūras atjauninājumus, kad ir izveidots savienojums ar Wi-Fi tīklu. Lejupielādes laikā ierīci varēsit izmantot.</string>
     <string name="auto_update_over_wifi">Autom. lejupielādēt, izm. Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">Automātiski lejupielādējiet programmatūras atjauninājumus, kad ir izveidots savienojums ar Wi-Fi tīklu. Atkarībā no jūsu pakalpojumu sniedzēja, atjauninājumi var tikt lejupielādēti, arī izmantojot mobilos datus, bez papildu maksas. Lejupielādes laikā tālruni var lietot.</string>
-    <string name="scheduled_update">Ieplān. programmat. atjaunin.</string>
+    <string name="scheduled_update">Ieplānotie programmatūras atjauninājumi</string>
     <string name="scheduled_update_summary_default">Izslēgts</string>
     <string name="scheduled_update_summary_set_time">Atjaunināšana tiks sākta plkst. %s</string>
     <string name="scheduled_update_summary_set_time_everyday">Atjaunināšana tiks sākta katru dienu plkst. %s</string>
@@ -1359,7 +1368,7 @@ Pieskarieties pie Labi, lai atļautu palielināt spilgtumu virs drošā līmeņa
     <string name="adjust_your_display_colour">Pielāgojiet displeja krāsas, lai mainītu balto toņu izskatu.</string>
     <string name="display_temperature_preset_cool">Vēss</string>
     <string name="display_temperature_preset_warm">Silts</string>
-    <string name="display_advanced_option">Papildu iespējas</string>
+    <string name="display_advanced_option">Papildiespējas</string>
     <string name="color_balance_subtext_1">Krāsu balansu var pielāgot tikai Pielāgojamā displeja režīmā.</string>
     <string name="color_balance_subtext_2">Jūsu izmaiņas nestāsies spēkā, kamēr ir ieslēgts zilās gaismas filtrs.</string>
     <string name="poc_balance_title">Ekrāna malu krāsu balanss</string>
@@ -1417,6 +1426,7 @@ Pieskarieties pie Labi, lai atļautu palielināt spilgtumu virs drošā līmeņa
     <string name="navigationbar_summary">Pārvaldiet pogas Sākums, Atpakaļ un Pēdējās lietotās programmas.</string>
     <string name="navigationbar_theme_switch">Lietot pašreizējo motīvu</string>
     <string name="navigationbar_color_title">Fona krāsa</string>
+    <string name="navigationbar_color_summary">Izvēlēto fona krāsu, iespējams, nevarēs lietot visām programmām.</string>
     <string name="navigationbar_order_title">Pogu izkārtojums</string>
     <string name="navigationbar_order_default">Pēd. liet. - Sāk. - Atp.</string>
     <string name="navigationbar_order_mirrored">Atp. - Sāk. - Pēd. liet.</string>
@@ -1448,7 +1458,8 @@ Pieskarieties pie Labi, lai atļautu palielināt spilgtumu virs drošā līmeņa
     <string name="blue_light_filter_enable_now">Ieslēgt tūlīt</string>
     <string name="blue_light_filter_enable_as_scheduled">Ieslēgt kā plānots</string>
     <string name="blue_light_filter_scheduled_toast">Zilās gaismas filtrs ir ieslēgts. Tas automātiski tiks izslēgts ieplānotajā beigu laikā.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s un zilās gaismas filtru nevar izmantot vienlaikus. Zilās gaismas filtrs tiks deaktivizēts.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Vai izslēgt zilās gaismas filtru?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Lai izmantotu %s, ir jāizslēdz zilās gaismas filtrs.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Lai izmantotu funkciju No saulrieta līdz saullēktam, jābūt ieslēgtai atrašanās vietas funkcijai.</string>
     <string name="dlg_turn_on">Ieslēgt</string>
     <string name="screen_resolution_title">Ekrāna izšķirtspēja</string>
@@ -1665,6 +1676,7 @@ Atšifrēšanas laikā SD karti nevar izmantot."</string>
     <string name="crypt_keeper_last_warn_wipe">Lai startētu ierīci, jums ir atlicis 1 mēģinājums, pēc tam tajā tiks atjaunoti rūpnīcas noklusējuma iestatījumi. Tādējādi tiks izdzēsti visi dati, tostarp faili un lejupielādētās programmas.</string>
     <string name="crypt_keeper_failed_title_dec">Atšifrēšana neizdevās.</string>
     <string name="crypt_keeper_failed_summary_dec">Nevar pabeigt atšifrēšanu, jo tā tika pārtraukta. Pirms lietošanas atiestatiet sākotnējos datus (izdzēsiet visus datus).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Iestatīt ekrāna bloķ. veidu</string>
     <string name="encryption_interstitial_message">"Lai aizsargātu savu tālruni, varat pieprasīt pirms tālruņa startēšanas ievadīt jūsu %s. Tas palīdz aizsargāt datus, ja tālrunis ir pazaudēts vai nozagts. Dažas programmas saskaņā ar ierīces šifrēšanas politiku var pieprasīt veikt drošo startēšanu, lai piekļūtu funkcijām, piemēram, e-pasta sinhronizācijai.
 
 Jūs nesaņemsit zvanus, ziņas, paziņojumus un signālus, kamēr tālrunis nebūs startēts."</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Izmantot pirksta nospied.</string>
     <string name="wifi_ap_close">Aizvērt</string>
     <string name="fingerscanner_add_summary">Pievienojiet savus pirkstu nospiedumus.</string>
+    <string name="fingerscanner_register_1_finger_summary">Pievienots 1 pirksta nospiedums.</string>
     <string name="fingerscanner_register_summary">Ir pievienoti %d pirkstu nospiedumi.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Izmantojiet pirksta nospiedumu vai ievadiet pašreizējo PIN kodu.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Izmantojiet pirksta nospiedumu vai uzzīmējiet pašreizējo figūru.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Atbloķējiet tālruni ar sejas atpazīšanu, tiklīdz ekrāns tiek ieslēgts, neveicot pavilkšanu.</string>
     <string name="facelock_recognition_speed_up">Ātrāka atpazīšana</string>
     <string name="facelock_recognition_speed_up_summary">Ieslēdziet, lai veiktu ātrāku atpazīšanu. Izslēdziet, lai palielinātu drošību un apgrūtinātu atbloķēšanu, izmantojot attēlu vai videoklipu.</string>
+    <string name="facelock_samsungpass_summary">Izmantojiet sejas atpazīšanu, lai verificētu savu identitāti programmā %s un citās atbalstītajās programmās.</string>
     <string name="face_remove_face_popup_title">Vai noņemt sejas datus?</string>
     <string name="face_remove_face_popup_message_1">Jūsu seja vairs netiks atpazīta, un sejas bloķēšanas funkcija tiks izslēgta.</string>
     <string name="face_remove_face_popup_message_2">Funkcijas, kas izmanto sejas atpazīšanu, tiks izslēgtas.</string>
@@ -2050,7 +2064,7 @@ Pirms pieprasāt garantijas remonta veikšanu, deaktivizējiet atkārtotās akti
     <string name="iris_use_samsung_pass">Samsung Pass</string>
     <string name="iris_use_samsung_pass_summary">Izmantojiet savas varavīksnenes, lai verificētu savu identitāti, izmantojot %s un citas atbalstītās programmas.</string>
     <string name="iris_use_samsung_pass_description_internet">Internets</string>
-    <string name="iris_unlock">Atbloķēš. ar varavīksneni</string>
+    <string name="iris_unlock">Atbloķēšana ar varavīksneni</string>
     <string name="iris_unlock_summary">Atbloķējiet savu tālruni ar savām varavīksnenēm.</string>
     <string name="tips_for_iris">Varavīksnenes atpazīš. ieteik.</string>
     <string name="iris_remove_popup_1">Jūsu varavīksnenes dati tiks noņemti. Ekrāna bloķēšanas veids tiks mainīts uz %s.</string>
@@ -2070,7 +2084,7 @@ Ieslēdziet funkciju Atbloķēšana ar varavīksneni, lai tālruņa atbloķēša
     <string name="biometrics_backup_locktype_title">Iestatīt varavīksnenes drošību</string>
     <string name="biometrics_register_your_iris">Reģistrējiet savas varavīksnenes.</string>
     <string name="biometrics_backup_locktype_summary">Lai ierīces atbloķēšanai izmantotu savas varavīksnenes, ir jāiestata figūra, PIN kods vai parole.</string>
-    <string name="biometrics_backup_locktype_message">Lai tālruņa atbloķēšanai vai drošai verifikācijai izmantotu savas varavīksnenes, rīkojieties šādi:</string>
+    <string name="biometrics_backup_locktype_message">Lai varavīksnenes izmantotu tālruņa atbloķēšanai vai sevis verificēšanai programmās, rīkojieties šādi:</string>
     <string name="iris_delete_popup_title">Vai noņemt varavīksnes datus?</string>
     <string name="iris_delete_popup_message">Vai noņemt varavīksnes datus?</string>
     <string name="iris_delete_popup_message_with_related_func">Funkcijas, kas izmanto varavīksnenes, tiks izslēgtas.</string>
@@ -2078,7 +2092,7 @@ Ieslēdziet funkciju Atbloķēšana ar varavīksneni, lai tālruņa atbloķēša
     <string name="iris_timeout_popop_title">Mēģiniet vēlāk</string>
     <string name="iris_timeout_popop_message">Varavīksnenes nav atpazītas. Varavīksnenes kamera, iespējams, ir netīra. Notīriet vietu virs ekrāna un mēģiniet vēlreiz.</string>
     <string name="iris_timeout_popop_message_1">Varavīksnenes kamera, iespējams, ir netīra. Notīriet vietu virs ekrāna un mēģiniet vēlreiz.</string>
-    <string name="iris_proximity_restriction_popop_message">Varavīksnenes nav atpazītas. Tālrunis ir pārāk tuvu sejai vai tuvuma sensors ir netīrs. Notīriet vietu virs ekrāna un mēģiniet vēlreiz.</string>
+    <string name="iris_proximity_restriction_popop_message">Turiet tālruni tālāk no sejas un mēģiniet vēlreiz.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Tuvuma sensors, iespējams, ir netīrs.
 Notīriet vietu virs ekrāna."</string>
     <string name="iris_try_again">Mēģ. vēlr.</string>
@@ -2086,6 +2100,8 @@ Notīriet vietu virs ekrāna."</string>
     <string name="iris_failed_to_verity_identify">Nevarēja verificēt jūsu identitāti</string>
     <string name="iris_failed_popup_description">Tika veikti %1$d mēģinājumi verificēt jūsu varavīksnenes. Mēģiniet vēlreiz pēc %2$d sekundēm.</string>
     <string name="iris_no_match">Nesakrīt</string>
+    <string name="iris_eye_safety_msg">Jūsu varavīksnenes netika atpazītas.</string>
+    <string name="iris_timeout_msg">Jūsu varavīksnenes netika noteiktas.</string>
     <string name="biometrics_registered">Reģistrēts</string>
     <string name="iris_turn_on_toast_message">Bloķēšanas ar pirksta nospiedumu vietā aktivizēta bloķēšana ar varavīksneni.</string>
     <string name="iris_wrong_backup_password">Nepareiza rezerves parole</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Parādiet sākuma pogu un pulksteni vai informāciju gaidīšanas ekrānā.</string>
     <string name="aod_feature_off_popup_title">Vai izslēgt funkciju %s?</string>
     <string name="aod_feature_off_popup_description">Lai izmantotu %1$s, ir jāizslēdz %2$s.</string>
+    <string name="aod_features_off_popup_title">Vai izslēgt citas funkcijas?</string>
+    <string name="aod_features_off_popup_description">Lai izmantotu Always On Display, ir jāizslēdz šādas funkcijas:</string>
     <string name="aod_features_off_popup_btn_ok">Izslēgt</string>
     <string name="aod_disable_by_negative_colors">Nevar izmantot, kamēr ir ieslēgta funkcija Negatīvas krāsas.</string>
     <string name="aod_disable_by_powersaving_mode">Nevar izmantot, kamēr ir ieslēgts enerģijas taupīšanas režīms.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Krāsaini pilieni</string>
     <string name="lock_screen_show_information_summary_wifi_only">Parādiet bloķēšanas ekrānā ierīces īpašnieka informāciju vai programmu īsceļus.</string>
     <string name="lock_screen_sview_show_information_summary">Parādiet bloķēšanas ekrānā un S View logā duālo pulksteni, ierīces īpašnieka informāciju vai programmu īsceļus.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Parāda viesabonēšanas pulksteni vai tālruņa īpašnieka kontaktinformāciju bloķēšanas ekrānā un S View logā.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Izvēlieties programmu īsceļus, kas jārāda bloķēšanas ekrānā un S View logā.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Bloķēšanas ekrānā un S View logā tiek rādīti paziņojumi.</string>
     <string name="lock_screen_and_cover_show_information_summary">Parādiet duālo pulksteni bloķēšanas ekrānā un cauri tīrā skata vākam.</string>
     <string name="lock_screen_secured_lock_settings_title">Drošās bloķēšanas iestatījumi</string>
     <string name="lock_screen_secured_lock_settings_summary">Iestatiet drošās bloķēšanas funkcijas, piemēram, Automātiska bloķēšana un Bloķēšana, izmantojot ieslēgšanas/izslēgšanas taustiņu.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Māju laika josla</string>
     <string name="contact_info_settings_title">Kontaktinformācija</string>
     <string name="show_contact_info_on_lockscreen_label">Parādiet bloķēšanas ekrānā informāciju, piemēram, savu tālruņa numuru vai e-pasta adresi.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Parādiet bloķēšanas ekrānā un Always On Display informāciju, piemēram, savu tālruņa numuru vai e-pasta adresi.</string>
     <string name="unlock_effect">Atbloķēšanas efekts</string>
     <string name="walking_mate_title">Soļu skaitīt.</string>
     <string name="help_text_title">Palīdzības teksts</string>
@@ -2415,7 +2437,7 @@ Ieteicams noņemt biometrijas datus, taču varat tos paturēt, lai turpinātu li
     <string name="toast_set_lock_pattern">Ja aizmirsīsit figūru, visi dati tiks izdzēsti un tālrunis tiks atiestatīts.</string>
     <string name="toast_set_lock_password">Ja aizmirsīsit paroli, visi dati tiks izdzēsti un tālrunis tiks atiestatīts.</string>
     <string name="toast_set_lock_pin">Ja aizmirsīsit PIN kodu, visi dati tiks izdzēsti un tālrunis tiks atiestatīts.</string>
-    <string name="chooselock_warning_text">Atcerieties %s. To pieprasīs pēc ierīces restartēšanas.</string>
+    <string name="chooselock_warning_text">Neaizmirstiet šo %s! To vajadzēs norādīt pēc tālruņa restartēšanas.</string>
     <string name="lockpassword_password_exists_history">Parole jau ir agrāk lietota. Ievadiet jaunu paroli.</string>
     <string name="lockpassword_pin_repeating_nums">PIN kodā nedrīkst būt cipari, kas atkārtojas.</string>
     <string name="lockpassword_pin_sequential_nums">PIN kodā nedrīkst būt cipari pieaugošā vai dilstoša secībā.</string>
@@ -2533,6 +2555,9 @@ Mobilie dati tiks izslēgti."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Ja vien neizmantojat Wi-Fi, jūs vairs nevarēsit izmantot programmas Internets, E-pasts vai citas programmas, kurām nepieciešams datu savienojums.
 
 Mobilie dati tiks izslēgti."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Ja vien neizveidosit savienojumu ar Wi-Fi tīklu, jūs nevarēsit programmu Internets, E-pasts vai citas programmas, kurām nepieciešams tīkla savienojums.</string>
@@ -2691,10 +2716,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Pielāgots skaļuma ierob.</string>
     <string name="volume_limiter_descryption">Pasargājiet savas ausis, izmantojot maksimālā multivides skaļuma ierobežojumu. Ierobežojums tiks lietots tikai tad, kad izmantosit austiņas vai Bluetooth audio ierīces.</string>
     <string name="multi_sound_title">Atsevišķa programmas skaņa</string>
-    <string name="multi_sound_summary">Atskaņojiet vienas programmas skaņu skaļrunī vai austiņās atsevišķi no pārējām ierīces skaņām.</string>
-    <string name="multi_sound_descryption">"Atskaņojiet vienas programmas multivides skaņu skaļrunī vai austiņās atsevišķi no pārējām multivides skaņām no citām programmām.
+    <string name="multi_sound_summary">Atskaņojiet vienas programmas multivides skaņu audio ierīcē atsevišķi no tālruņa galvenās audio izvades ierīces.</string>
+    <string name="multi_sound_descryption">"Atskaņojiet vienas programmas multivides skaņu audio ierīcē atsevišķi no tālruņa galvenās audio izvades ierīces. Lai ieslēgtu šo funkciju, izvēlieties programmu un audio ierīci.
 
-Ja izvēlēsities Bluetooth audio ierīci un Bluetooth ierīce nebūs pievienota, skaņa tiks atskaņota noklusējuma audio ierīcē."</string>
+Atsevišķa programmas skaņa darbojas tikai tad, ja izvēlētā audio ierīce atšķiras no tālruņa galvenās audio izvades ierīces.
+
+Tālruņa galveno audio izvades ierīci varat mainīt ātro iestatījumu panelī. Ja audio izvade netiek rādīta, ieslēdziet to izvēlnē Samsung Connect > Iestatījumi > Samsung Connect panelis."</string>
     <string name="set_application_title">Programma</string>
     <string name="set_application_summary">Izvēlieties programmu, lai tās skaņu atskaņotu atsevišķā audio ierīcē.</string>
     <string name="set_application_descryption">Izvēlieties multivides programmu, lai tās skaņu atskaņotu atsevišķā audio ierīcē.</string>
@@ -2705,9 +2732,11 @@ Ja izvēlēsities Bluetooth audio ierīci un Bluetooth ierīce nebūs pievienota
     <string name="multi_sound_popup_msg">Lai ieslēgtu %s, izvēlieties programmu un audio ierīci.</string>
     <string name="multi_sound_network_msg">Lai skatītu pieejamās programmas, tālrunim ir jābūt savienotam ar tīklu. Pārbaudiet tīkla iestatījumus un mēģiniet vēlreiz.</string>
     <string name="multi_sound_wifi_msg">Lai skatītu pieejamās programmas, tālrunim ir jābūt savienotam ar tīklu. Mobilo datu izmantošana var radīt papildu izmaksas.</string>
+    <string name="multi_sound_add_application">Pievienot programmu</string>
     <string name="dlg_btn_select">Atlasīt</string>
-    <string name="audio_device_type_descryption">Izvēlieties, kuru audio ierīci izmantot šai programmai. Bluetooth ierīces būs pieejamas tikai tad, kad tās ir savienotas.</string>
+    <string name="audio_device_type_descryption">Izvēlieties, kuru audio ierīci izmantot izvēlētajai programmai. Bluetooth ierīces būs pieejamas tikai tad, kad tās būs savienotas.</string>
     <string name="my_phone_title">Tālrunis</string>
+    <string name="my_phone_summary">Skaļrunis/austiņas/USB audio ierīce</string>
     <string name="bluetooth_device_title">Bluetooth ierīce</string>
     <string name="no_connected_devices">Nav pievienotu ierīču</string>
     <string name="two_hours">2 stundas</string>
@@ -2715,7 +2744,8 @@ Ja izvēlēsities Bluetooth audio ierīci un Bluetooth ierīce nebūs pievienota
     <string name="stop_setup_popup_msg">Mainītie iestatījumi netiks lietoti.</string>
     <string name="app_turned_on">%s ieslēgts.</string>
     <string name="force_touch_title">Nospiediena atbilde ar vibrāc.</string>
-    <string name="volume_key_control_title">Noklus. skaļuma taustiņa vadība</string>
+    <string name="volume_key_control_title">Izm. skaļ. taust. multividei</string>
+    <string name="volume_key_control_summary">Vadīt multivides skaļumu, kad nospiežat skaļuma regulēšanas taustiņus.</string>
     <string name="sound_mode">Skaņas režīms</string>
     <string name="sound_mode_vibrate">Vibrēt</string>
     <string name="sound_mode_mute">"Bez 
@@ -2930,14 +2960,13 @@ Lūdzu, mēģiniet vēlreiz."</string>
     <string name="text_biometrics_title_enterprise">Ja izvēlēsities %1$s, biometrijas dati netiks atbalstīti kā %2$s atbloķēšanas metode.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s neatbalsta pirkstu nospiedumus kā %2$s atbloķēšanas metodi.</string>
     <string name="edge_feeds_title">Edge plūsmas</string>
-    <string name="screensaver_settings_summary">"Izvēlieties darbību, ko palaist, kad ierīce atrodas dokstacijā un/vai tiek uzlādēta. Pēc ekrāna taimauta tiks parādīts ekrānsaudzētājs.
-
-Šo funkciju sauc par Daydream."</string>
-    <string name="screensaver_settings_summary_wo_dock">Parādiet ekrānsaudzētāju, kad tālruņa uzlādes laikā ekrāns automātiski izslēdzas.</string>
+    <string name="screensaver_settings_summary">Parādiet ekrānsaudzētāju, kad tālruņa uzlādes laikā ekrāns automātiski izslēdzas.</string>
+    <string name="screensaver_settings_summary_wo_dock">Parādiet ekrānsaudzētāju, kad tālruņa uzlādes laikā vai tam atrodoties dokstacijā, ekrāns automātiski izslēdzas.</string>
     <string name="apn_already_exists">Jau pastāv.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Porta numuram jābūt no %1$d līdz %2$d.</string>
     <string name="apn_restore_warning">Visi pievienotie APN tiks noņemti. Pārējiem APN tiks atjaunoti to noklusējuma iestatījumi.</string>
+    <string name="apn_restore_title">Vai atiestatīt APN iestatījumus?</string>
     <string name="master_clear_desc_google_account">Google konts</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2949,7 +2978,8 @@ Lūdzu, mēģiniet vēlreiz."</string>
     <string name="sound_balance_summary">Pielāgojiet austiņu kreisās un labās puses skaņas balansu.</string>
     <string name="backup_samsung_account_title">Dublēšanas iestatījumi</string>
     <string name="restore_samsung_account_title">Atjaunot</string>
-    <string name="auto_restart_header">Ierīču pārvaldība</string>
+    <string name="auto_restart_header">Tālruņa pārvaldība</string>
+    <string name="auto_restart_header_tablet">Planšetdatora pārvaldība</string>
     <string name="auto_restart_title">Automātiskā restartēšana</string>
     <string name="switch_turn_on_text">Ieslēgts</string>
     <string name="switch_turn_off_text">Izslēgt</string>
@@ -3072,6 +3102,14 @@ Jūsu personas dati un lejupielādēto programmu iestatījumi netiks ietekmēti.
     <string name="tether_settings_summary_usb_bt">Kopīgojiet ierīces mobilo datu savienojumu, izmantojot USB vai Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Pieņemt</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Kopīgojiet sava tālruņa interneta savienojumu, izmantojot Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Kopīgojiet sava planšetdatora interneta savienojumu, izmantojot Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Gatavs koplietot šī tālruņa interneta savienojumu.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Gatavs koplietot šī planšetdatora interneta savienojumu.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Koplieto šī tālruņa interneta savienojumu ar 1 ierīci.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Koplieto šī planšetdatora interneta savienojumu ar 1 ierīci.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Koplieto šī tālruņa interneta savienojumu ar %d ierīcēm.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Koplieto šī planšetdatora interneta savienojumu ar %d ierīcēm.</string>
     <string name="onehand_settings_title">Vienas rokas režīms</string>
     <string name="onehand_settings_text_1">Lai samazinātu attēlošanas lielumu, pavelciet uz augšu pa diagonāli no kāda no ekrāna apakšējiem stūriem.</string>
     <string name="onehand_settings_text_2">3 reizes ātri pieskarieties sākuma pogai lai samazinātu displeja lielumu.</string>
@@ -3400,12 +3438,14 @@ skaņas"</string>
     <string name="wifi_settings_dialog_radio_off">Izslēgts</string>
     <string name="wifi_or_mobile_network">Wi-Fi vai mobilie tīkli</string>
     <string name="wifi_network_only">Tikai Wi-Fi tīkls</string>
+    <string name="wifi_adps_title">Wi-Fi enerģijas taupīš. režīms</string>
+    <string name="wifi_adps_summary">Samaziniet akumulatora lietojumu, analizējot Wi-Fi datplūsmas modeļus.</string>
     <string name="wifi_auto_reconnect">Automātiski atkārtoti izveidot savienojumu</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Ieslēdzot Wi-Fi, tiks deaktivizēts mobilais tīklājs. Vai turpināt?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Wi-Fi tiek izslēgts, ja ir aktīvs mobilais tīklājs. Lai ieslēgtu Wi-Fi, vispirms jāizslēdz mobilais tīklājs.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">Wi-Fi tiek izslēgts, ja ir aktīvs mobilais tīklājs. Lai ieslēgtu Wi-Fi, izslēdziet mobilo tīklāju.</string>
+    <string name="wifi_enable_warning_mtr">Wi-Fi tiek izslēgts, ja ir aktīvs mobilais tīklājs. Lai ieslēgtu Wi-Fi, lūdzu, izslēdziet mobilo tīklāju.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">Ieslēdzot Wi-Fi, tiks deaktivizēts mobilais tīklājs.</string>
     <string name="wifi_control_history_title">Wi-Fi vadības vēsture</string>
@@ -3605,6 +3645,10 @@ Pēc mobilā tīklāja nosaukuma vai paroles maiņas ir jāģenerē jauns QR kod
     <string name="wifi_wps_pin_client_mobileap">Savieno ar klientu, izmantojot PIN kodu %1$s. Iestatīšana var ilgt %2$d minūtes.</string>
     <string name="wifi_wps_complete_mobileap">Otra ierīce tagad ir savienota ar jūsu ierīci.</string>
     <string name="wifi_ap_disconnect_warn">Atvienot ierīci</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Visas šobrīd pievienotās ierīces tiks atvienotas no mobilā tīklāja.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Visas šobrīd pievienotās ierīces tiks atvienotas no mobilā tīklāja.</string>
     <string name="wifi_ap_warn_max_whitelist">Sasniegts maksimālais atļauto ierīču skaits (%d).</string>
     <string name="wifiap_one_item_deleted">Tiks izdzēsts 1 objekts.</string>
@@ -3740,6 +3784,8 @@ Mobilā tīklāja izmantošana palielina akumulatora enerģijas patēriņu un da
     <string name="wifi_ap_first_time_configuration">Sākotnējā tīklāja konfigurēšana</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Ievadiet pareizu PIN kodu.</string>
+    <string name="open_mobileap_warning">Šis mobilais AP nav drošs.</string>
+    <string name="hidden_mobileap_warning">WPS tiks deaktivizēts, ja lietotājs iestatīs funkciju Slēpts SSID.</string>
     <string name="wifi_ssid_max_byte_error">Sasniegts maksimālais rakstzīmju skaits.</string>
     <string name="tethering_attention_title">Uzmanību</string>
     <string name="wfd_select_device">Izvēlieties ierīci</string>
@@ -3970,6 +4016,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Sinhronizēt</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Šī atļauja ļauj programmai rādīt saturu virs citām šobrīd lietotajām programmām. Tas var traucēt citu programmu lietošanu.</string>
+    <string name="write_settings_body_description">Atļaujiet šai programmai mainīt sistēmas iestatījumus, piemēram, ieslēgt vai izslēgt Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Tādējādi tiks atiestatītas visas preferences:</string>
+    <string name="reset_app_preferences_desc2">Deaktivizētās programmas</string>
+    <string name="reset_app_preferences_desc3">Paziņojumu ierobežojumi programmām</string>
+    <string name="reset_app_preferences_desc4">Noklusējuma programmas</string>
+    <string name="reset_app_preferences_desc5">Fona datu ierobežojumi programmām</string>
+    <string name="reset_app_preferences_desc6">Atļaujas ierobežojumi</string>
+    <string name="reset_app_preferences_desc7">Jūs nezaudēsit esošos programmu datus.</string>
     <string name="knox_security_mode_title">Knox aizsardzība</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">Konfidenc. politika</string>
@@ -3984,6 +4038,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Pārvaldiet savu personas informāciju un Samsung konta datus.</string>
     <string name="my_profile_summary_jpn">Pārvaldiet savu personas informāciju un Galaxy konta datus.</string>
     <string name="arbitration_agreement">Arbitrāžas līgums</string>
+    <string name="activation_title">Aktivizācijas statusu</string>
+    <string name="activation_summary">Aktivizēts: %1$s. Lai saņemtu papildinformāciju, apmeklējiet %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF ir ieslēgts</string>
+    <string name="edit_event_start_short">Sākums</string>
+    <string name="edit_event_end_short">Beigas</string>
+    <string name="select_date_to_view">Izvēlēties datumu, ko skatīt</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Jā</string>
     <string name="no">Nē</string>
     <string name="create">Izveidot</string>
@@ -5476,7 +5537,7 @@ Ikviens lietotājs citu lietotāju vārdā var pieņemt atjauninātu programmu a
     <string name="app_notification_block_title">Atļaut paziņojumus</string>
     <string name="app_notification_block_summary">Saņemiet paziņojumus no šīs programmas, tostarp paziņojumu ziņas, skaņas un vibrāciju.</string>
     <string name="app_notification_override_dnd_title">Iestatīt kā prioritāru</string>
-    <string name="app_notification_override_dnd_summary">Atļaujiet paziņojumiem no šīs programmas atskaņot skaņu un ieslēgt ekrānu, kad ir aktivizēts režīms Netraucēt.</string>
+    <string name="app_notification_override_dnd_summary">Parādiet paziņojumus paziņojumu paneļa augšdaļā un iekļaujiet tos atļauto sarakstā, kad ir aktivizēts režīms Netraucēt.</string>
     <string name="app_notification_visibility_override_title">Bloķēšanas ekrānā</string>
     <string name="app_notifications_dialog_done">Gatavs</string>
     <string name="zen_mode_choose_rule_type">Izvēlēties kārtulas veidu</string>
@@ -5513,6 +5574,7 @@ Ikviens lietotājs citu lietotāju vārdā var pieņemt atjauninātu programmu a
     <string name="restr_pin_enter_admin_pin">Ievadiet administratora PIN kodu</string>
     <string name="switch_on_text">Ieslēgts</string>
     <string name="switch_off_text">Izslēgts</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Šo darba profilu pārvalda:</string>
     <string name="managing_admin">Pārvalda: %s</string>
     <string name="display_auto_rotate_title">Ekrāna pagriešana</string>
     <string name="display_auto_rotate_rotate">Ekrāna satura pagriešana</string>
@@ -5549,9 +5611,9 @@ Jūs nesaņemsit zvanus, ziņas vai paziņojumus, kā arī netiks atskaņota mod
     <string name="encrypt_talkback_dialog_require_pin">Jānorāda PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Jānorāda figūra</string>
     <string name="encrypt_talkback_dialog_require_password">Jānorāda parole</string>
-    <string name="encrypt_talkback_dialog_message_pin">Kad ievadīsit savu PIN kodu pēc ierīces ieslēgšanas, pieejamības funkcijas, piemēram, %1$s, tiks īslaicīgi deaktivizētas.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Kad uzzīmēsit savu figūru pēc ierīces ieslēgšanas, pieejamības funkcijas, piemēram, %1$s, tiks īslaicīgi deaktivizētas.</string>
-    <string name="encrypt_talkback_dialog_message_password">Kad ievadīsit savu paroli pēc ierīces ieslēgšanas, pieejamības funkcijas, piemēram, %1$s, tiks īslaicīgi deaktivizētas.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Ieslēdzot ierīci, tiks prasīts ievadīt PIN kodu. Pieejamības funkcijas nebūs pieejamas, līdz ierīce tiks startēta.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Ieslēdzot ierīci, tiks prasīts uzvilkt figūru. Pieejamības funkcijas nebūs pieejamas, līdz ierīce tiks startēta.</string>
+    <string name="encrypt_talkback_dialog_message_password">Ieslēdzot ierīci, tiks prasīts ievadīt paroli. Pieejamības funkcijas nebūs pieejamas, līdz ierīce tiks startēta.</string>
     <string name="slot_number">(%d. slots)</string>
     <string name="app_launch_domain_links_title">Programmu saites</string>
     <string name="app_launch_open_domain_urls_title">Atbalstītie URL</string>
@@ -5627,18 +5689,18 @@ Jūs nesaņemsit zvanus, ziņas vai paziņojumus, kā arī netiks atskaņota mod
     <string name="usb_use_power_only">Uzlādēt pievien. ierīci</string>
     <string name="usb_use_power_only_desc">Uzlādējiet pievienoto ierīci, izmantojot USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Pārsūtīt multiv. failus</string>
+    <string name="usb_use_file_transfers">Pārsūtīt failus</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Pārsūtīt attēlus</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Izvēlieties šo režīmu, ja funkcija Pārsūtīt multivides failus nedarbojas. Var pārsūtīt tikai attēlu failus.</string>
+    <string name="usb_use_photo_transfers_summary">Izvēlieties šo režīmu, ja funkcija Pārsūtīt failus nedarbojas. Attēlu failus var pārsūtīt tikai šajā režīmā.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Pievien. MIDI ierīci</string>
-    <string name="usb_use">Izmantot USB</string>
-    <string name="assist_access_context_title">Teksta lasīšana ekrānā</string>
-    <string name="assist_access_context_summary">Atļaujiet ierīces atbalsta programmai nolasīt ekrānā redzamo tekstu.</string>
-    <string name="assist_access_screenshot_title">Tvert/piekļūt ekrānuzņēmumiem</string>
-    <string name="assist_access_screenshot_summary">Atļaujiet ierīces atbalsta programmai tvert un piekļūt ekrānuzņēmumiem.</string>
+    <string name="usb_use">Izmantot USB, lai</string>
+    <string name="assist_access_context_title">Ekrāna teksta analīze</string>
+    <string name="assist_access_context_summary">Atļaujiet ierīces atbalsta programmai analizēt ekrānā redzamo tekstu, lai nodrošinātu saistīto saturu.</string>
+    <string name="assist_access_screenshot_title">Ekrāna attēlu analīze</string>
+    <string name="assist_access_screenshot_summary">Atļaujiet ierīces atbalsta programmai tvert un izmantot ekrāna attēlus.</string>
     <string name="assist_footer">Ierīces atbalsta programmas var palīdzēt jums, apkopojot informāciju no tālrunī šobrīd redzamā ekrāna. Dažas ierīces atbalsta programmas var izmantot, lai atvērtu citas programmas un ievadītu tekstu, izmantojot balss ievades funkciju, tādējādi nodrošinot jums visaptverošu palīdzību.</string>
     <string name="average_memory_use">Vidējais RAM lietojums</string>
     <string name="maximum_memory_use">Maksimālais RAM lietojums</string>
@@ -5667,7 +5729,7 @@ Jūs nesaņemsit zvanus, ziņas vai paziņojumus, kā arī netiks atskaņota mod
     <string name="ignore_optimizations_on_desc">Var palielināt akumulatora enerģijas patēriņu</string>
     <string name="ignore_optimizations_off_desc">Ieteicams, lai ietaupītu akumulatora enerģiju</string>
     <string name="app_list_preference_none">Nav</string>
-    <string name="allow_overlay_description">Izvēlieties programmas, lai ļautu parādīt to pogas, uznirstošos logus vai citus elementus virs citām izmantotajām programmām.</string>
+    <string name="allow_overlay_description">Šī atļauja ļauj programmai rādīt saturu virs citām šobrīd lietotajām programmām. Tas var traucēt citu programmu lietošanu.</string>
     <string name="overlay_settings">Programmas, kas var tikt parādītas augšdaļā</string>
     <string name="filter_overlay_apps">Programmas ar atļauju</string>
     <string name="filter_write_settings_apps">Programmas ar atļauju</string>
@@ -5714,14 +5776,14 @@ Jūs nesaņemsit zvanus, ziņas vai paziņojumus, kā arī netiks atskaņota mod
     <string name="ethernet_data_template">%1$s Ethernet datu</string>
     <string name="cell_warning_only">Datu brīdinājums, sasniedzot %s</string>
     <string name="cell_warning_and_limit">%1$s Brīdinājums par datu lietojumu/%2$s Datu lietojuma ierobežojums</string>
-    <string name="billing_cycle">Rēķinu izrakst. periods</string>
+    <string name="billing_cycle">Norēķinu cikla un datu brīdin.</string>
     <string name="billing_cycle_summary">Katra mēneša %s. dienā</string>
     <string name="billing_cycle_fragment_summary">Katra mēneša %s. dienā</string>
     <string name="network_restrictions">Ierobežot tīklus</string>
     <string name="operator_warning">Datu lietojumu uzskaita jūsu ierīce. Pakalpojumu sniedzējs lietojumu var uzskaitīt citādi.</string>
     <string name="data_used_template">Izmantots %s</string>
     <string name="data_warning">Datu brīdinājums</string>
-    <string name="set_data_limit">Datu ierobežojums</string>
+    <string name="set_data_limit">Iestatīt datu ierobežojumu</string>
     <string name="data_limit">Datu ierobežojums</string>
     <string name="data_usage_template">Laika posmā %2$s izmantoti %1$s</string>
     <string name="data_usage_other_apps">Saist. progr., kas iekļ. liet.</string>
@@ -5763,5 +5825,4 @@ Jūsu ierīcē ir diagnostikas programmatūra, kas ar jūsu atļauju automātisk
     <string name="enable_iris_lock_desc_3">"Kā ekrāna bloķēšanas veids šobrīd ir iestatīti pirkstu nospiedumi.
 
 Lai pirkstu nospiedumu vietā kā ekrāna bloķēšanas veidu iestatītu varavīksnenes, pieskarieties pie AKTIVIZĒT. Ierīci pēc tam var atbloķēt, izmantojot varavīksneni vai %s."</string>
-    <string name="my_phone_summary">Skaļrunis/austiņas/USB audio ierīce</string>
 </resources>

@@ -64,7 +64,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$Receiver;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get4(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
 
     move-result-object v3
 
@@ -93,7 +93,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$Receiver;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get4(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
 
     move-result-object v3
 
@@ -120,7 +120,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$Receiver;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
 
     move-result-object v3
 
@@ -134,7 +134,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$Receiver;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/app/NotificationManager;
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/app/NotificationManager;
 
     move-result-object v3
 
@@ -144,7 +144,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/notification/VolumeSettings$Receiver;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/app/NotificationManager;
+    invoke-static {v4}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/app/NotificationManager;
 
     move-result-object v4
 
@@ -167,7 +167,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$Receiver;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get4(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get6(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/notification/VolumeSettings$H;
 
     move-result-object v3
 
@@ -206,7 +206,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/VolumeSettings$Receiver;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get1(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -220,7 +220,7 @@
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/settings/notification/VolumeSettings$Receiver;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get1(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/content/Context;
 
     move-result-object v1
 

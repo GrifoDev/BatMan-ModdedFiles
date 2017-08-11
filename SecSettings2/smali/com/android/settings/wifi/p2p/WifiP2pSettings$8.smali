@@ -3,12 +3,12 @@
 .source "WifiP2pSettings.java"
 
 # interfaces
-.implements Landroid/hardware/motion/MRListener;
+.implements Landroid/speech/tts/TextToSpeech$OnInitListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/wifi/p2p/WifiP2pSettings;->onCreate(Landroid/os/Bundle;)V
+    value = Lcom/android/settings/wifi/p2p/WifiP2pSettings;->onResume()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,61 +34,68 @@
 
 
 # virtual methods
-.method public onMotionListener(Landroid/hardware/motion/MREvent;)V
-    .locals 5
+.method public onInit(I)V
+    .locals 3
 
-    const/4 v4, 0x0
-
-    invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
-
-    move-result v1
-
-    const/16 v2, 0x23
-
-    if-ne v1, v2, :cond_0
+    if-nez p1, :cond_1
 
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    const-string/jumbo v2, "power"
+    invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-get16(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/speech/tts/TextToSpeech;
 
-    invoke-static {v1, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap2(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    check-cast v0, Landroid/os/PowerManager;
+    move-result-object v2
 
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    invoke-virtual {v1, v2}, Landroid/speech/tts/TextToSpeech;->isLanguageAvailable(Ljava/util/Locale;)I
 
-    move-result-wide v2
+    move-result v0
 
-    invoke-virtual {v0, v2, v3, v4}, Landroid/os/PowerManager;->userActivity(JZ)V
+    const/4 v1, -0x1
 
-    iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
+    if-eq v0, v1, :cond_0
 
-    invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap1(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Z
+    const/4 v1, -0x2
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
-
-    invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap0(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
+    if-ne v0, v1, :cond_2
 
     :cond_0
+    const-string/jumbo v1, "WifiP2pSettings"
+
+    const-string/jumbo v2, "TTS : This Language is not supported"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
     :goto_0
     return-void
 
-    :cond_1
-    iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
+    :cond_2
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    if-eq v0, v1, :cond_3
 
-    invoke-static {v1, v2, v4}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap8(Lcom/android/settings/wifi/p2p/WifiP2pSettings;ZZ)V
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_4
+
+    :cond_3
+    const-string/jumbo v1, "WifiP2pSettings"
+
+    const-string/jumbo v2, "TTS : This Language is not downloaded"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_4
+    const-string/jumbo v1, "WifiP2pSettings"
+
+    const-string/jumbo v2, "TTS : Initilization Failed!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

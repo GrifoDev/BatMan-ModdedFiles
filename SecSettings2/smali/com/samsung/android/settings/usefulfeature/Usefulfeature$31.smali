@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$31;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v0}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get26(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v0
 

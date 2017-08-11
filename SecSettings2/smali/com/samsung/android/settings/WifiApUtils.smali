@@ -166,7 +166,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     :cond_0
     :goto_0
@@ -184,515 +184,33 @@
 
     move-result-object v0
 
-    const-string/jumbo v3, "default"
+    const v3, 0x7f0b0eae
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-ne p0, v3, :cond_8
 
-    move-result v3
+    const-string/jumbo v3, "TMO"
 
-    if-eqz v3, :cond_2
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
-    const-string/jumbo v3, "OYN"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    :goto_1
-    if-nez v3, :cond_3
+    if-eqz v3, :cond_3
 
-    return p0
+    const p0, 0x7f0b0eaa
 
     :cond_1
+    :goto_1
+    return p0
+
+    :cond_2
     sput-object v1, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
     goto :goto_0
 
-    :cond_2
-    const/4 v3, 0x0
-
-    goto :goto_1
-
     :cond_3
-    const v3, 0x7f0b0e21
-
-    if-ne p0, v3, :cond_a
-
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    const p0, 0x7f0b0e1d
-
-    :cond_4
-    :goto_2
-    return p0
-
-    :cond_5
     const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_6
-
-    const p0, 0x7f0b0e1f
-
-    goto :goto_2
-
-    :cond_6
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_7
-
-    const p0, 0x7f0b0e1e
-
-    goto :goto_2
-
-    :cond_7
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_8
-
-    const p0, 0x7f0b0e1c
-
-    goto :goto_2
-
-    :cond_8
-    const-string/jumbo v3, "USC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_9
-
-    const p0, 0x7f0b0e20
-
-    goto :goto_2
-
-    :cond_9
-    const-string/jumbo v3, "CMCC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0e1b
-
-    goto :goto_2
-
-    :cond_a
-    const v3, 0x7f0b0f3e
-
-    if-ne p0, v3, :cond_10
-
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_b
-
-    const p0, 0x7f0b0f39
-
-    goto :goto_2
-
-    :cond_b
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_c
-
-    const p0, 0x7f0b0f3a
-
-    goto :goto_2
-
-    :cond_c
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_d
-
-    const p0, 0x7f0b0f3b
-
-    goto :goto_2
-
-    :cond_d
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_e
-
-    const p0, 0x7f0b0f38
-
-    goto/16 :goto_2
-
-    :cond_e
-    const-string/jumbo v3, "USC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_f
-
-    const p0, 0x7f0b0f3d
-
-    goto/16 :goto_2
-
-    :cond_f
-    const-string/jumbo v3, "CMCC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f37
-
-    goto/16 :goto_2
-
-    :cond_10
-    const v3, 0x7f0b0e53
-
-    if-ne p0, v3, :cond_15
-
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_11
-
-    const p0, 0x7f0b0e50
-
-    goto/16 :goto_2
-
-    :cond_11
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_12
-
-    const-string/jumbo v3, "USC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_13
-
-    :cond_12
-    const p0, 0x7f0b0e52
-
-    goto/16 :goto_2
-
-    :cond_13
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_14
-
-    const p0, 0x7f0b0e51
-
-    goto/16 :goto_2
-
-    :cond_14
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0e4f
-
-    goto/16 :goto_2
-
-    :cond_15
-    const v3, 0x7f0b0e92
-
-    if-ne p0, v3, :cond_17
-
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_16
-
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_16
-
-    const-string/jumbo v3, "USC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    :cond_16
-    const p0, 0x7f0b0e91
-
-    goto/16 :goto_2
-
-    :cond_17
-    const v3, 0x7f0b0e9a
-
-    if-ne p0, v3, :cond_1e
-
-    const-string/jumbo v3, "ATT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_18
-
-    const-string/jumbo v3, "USC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_19
-
-    :cond_18
-    const p0, 0x7f0b0e98
-
-    goto/16 :goto_2
-
-    :cond_19
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1a
-
-    const p0, 0x7f0b0e96
-
-    goto/16 :goto_2
-
-    :cond_1a
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1b
-
-    const p0, 0x7f0b0e99
-
-    goto/16 :goto_2
-
-    :cond_1b
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1c
-
-    const p0, 0x7f0b0e95
-
-    goto/16 :goto_2
-
-    :cond_1c
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1d
-
-    const p0, 0x7f0b0e94
-
-    goto/16 :goto_2
-
-    :cond_1d
-    const-string/jumbo v3, "CMCC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0e97
-
-    goto/16 :goto_2
-
-    :cond_1e
-    const v3, 0x7f0b0e9c
-
-    if-ne p0, v3, :cond_1f
-
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0e9b
-
-    goto/16 :goto_2
-
-    :cond_1f
-    const v3, 0x7f0b0ead
-
-    if-ne p0, v3, :cond_23
-
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_20
-
-    const p0, 0x7f0b0eab
-
-    goto/16 :goto_2
-
-    :cond_20
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_21
-
-    const p0, 0x7f0b0eaa
-
-    goto/16 :goto_2
-
-    :cond_21
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_22
-
-    const p0, 0x7f0b0ea9
-
-    goto/16 :goto_2
-
-    :cond_22
-    const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -704,12 +222,281 @@
 
     const p0, 0x7f0b0eac
 
-    goto/16 :goto_2
+    goto :goto_1
 
-    :cond_23
-    const v3, 0x7f0b0ec7
+    :cond_4
+    const-string/jumbo v3, "SPRINT"
 
-    if-ne p0, v3, :cond_29
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    const p0, 0x7f0b0eab
+
+    goto :goto_1
+
+    :cond_5
+    const-string/jumbo v3, "VZW"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    const p0, 0x7f0b0ea9
+
+    goto :goto_1
+
+    :cond_6
+    const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_7
+
+    const p0, 0x7f0b0ead
+
+    goto :goto_1
+
+    :cond_7
+    const-string/jumbo v3, "CMCC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0ea8
+
+    goto :goto_1
+
+    :cond_8
+    const v3, 0x7f0b0fcb
+
+    if-ne p0, v3, :cond_e
+
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9
+
+    const p0, 0x7f0b0fc6
+
+    goto :goto_1
+
+    :cond_9
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a
+
+    const p0, 0x7f0b0fc7
+
+    goto :goto_1
+
+    :cond_a
+    const-string/jumbo v3, "SPRINT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_b
+
+    const p0, 0x7f0b0fc8
+
+    goto :goto_1
+
+    :cond_b
+    const-string/jumbo v3, "VZW"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_c
+
+    const p0, 0x7f0b0fc5
+
+    goto/16 :goto_1
+
+    :cond_c
+    const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_d
+
+    const p0, 0x7f0b0fca
+
+    goto/16 :goto_1
+
+    :cond_d
+    const-string/jumbo v3, "CMCC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0fc4
+
+    goto/16 :goto_1
+
+    :cond_e
+    const v3, 0x7f0b0ee0
+
+    if-ne p0, v3, :cond_13
+
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_f
+
+    const p0, 0x7f0b0edd
+
+    goto/16 :goto_1
+
+    :cond_f
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_10
+
+    const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_11
+
+    :cond_10
+    const p0, 0x7f0b0edf
+
+    goto/16 :goto_1
+
+    :cond_11
+    const-string/jumbo v3, "SPRINT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_12
+
+    const p0, 0x7f0b0ede
+
+    goto/16 :goto_1
+
+    :cond_12
+    const-string/jumbo v3, "VZW"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0edc
+
+    goto/16 :goto_1
+
+    :cond_13
+    const v3, 0x7f0b0f1f
+
+    if-ne p0, v3, :cond_15
+
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_14
+
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_14
+
+    const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    :cond_14
+    const p0, 0x7f0b0f1e
+
+    goto/16 :goto_1
+
+    :cond_15
+    const v3, 0x7f0b0f27
+
+    if-ne p0, v3, :cond_1c
 
     const-string/jumbo v3, "ATT"
 
@@ -719,14 +506,227 @@
 
     move-result v3
 
-    if-eqz v3, :cond_24
+    if-nez v3, :cond_16
 
-    const p0, 0x7f0b0ec5
+    const-string/jumbo v3, "USC"
 
-    goto/16 :goto_2
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
-    :cond_24
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_17
+
+    :cond_16
+    const p0, 0x7f0b0f25
+
+    goto/16 :goto_1
+
+    :cond_17
     const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_18
+
+    const p0, 0x7f0b0f23
+
+    goto/16 :goto_1
+
+    :cond_18
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_19
+
+    const p0, 0x7f0b0f26
+
+    goto/16 :goto_1
+
+    :cond_19
+    const-string/jumbo v3, "SPRINT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1a
+
+    const p0, 0x7f0b0f22
+
+    goto/16 :goto_1
+
+    :cond_1a
+    const-string/jumbo v3, "VZW"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1b
+
+    const p0, 0x7f0b0f21
+
+    goto/16 :goto_1
+
+    :cond_1b
+    const-string/jumbo v3, "CMCC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0f24
+
+    goto/16 :goto_1
+
+    :cond_1c
+    const v3, 0x7f0b0f29
+
+    if-ne p0, v3, :cond_1d
+
+    const-string/jumbo v3, "VZW"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0f28
+
+    goto/16 :goto_1
+
+    :cond_1d
+    const v3, 0x7f0b0f3a
+
+    if-ne p0, v3, :cond_21
+
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1e
+
+    const p0, 0x7f0b0f38
+
+    goto/16 :goto_1
+
+    :cond_1e
+    const-string/jumbo v3, "SPRINT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1f
+
+    const p0, 0x7f0b0f37
+
+    goto/16 :goto_1
+
+    :cond_1f
+    const-string/jumbo v3, "VZW"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_20
+
+    const p0, 0x7f0b0f36
+
+    goto/16 :goto_1
+
+    :cond_20
+    const-string/jumbo v3, "CMCC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0f39
+
+    goto/16 :goto_1
+
+    :cond_21
+    const v3, 0x7f0b0f54
+
+    if-ne p0, v3, :cond_27
+
+    const-string/jumbo v3, "ATT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_22
+
+    const p0, 0x7f0b0f52
+
+    goto/16 :goto_1
+
+    :cond_22
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_23
+
+    const p0, 0x7f0b0f50
+
+    goto/16 :goto_1
+
+    :cond_23
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_24
+
+    const-string/jumbo v3, "USC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -736,37 +736,12 @@
 
     if-eqz v3, :cond_25
 
-    const p0, 0x7f0b0ec3
+    :cond_24
+    const p0, 0x7f0b0f53
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_25
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_26
-
-    const-string/jumbo v3, "USC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_27
-
-    :cond_26
-    const p0, 0x7f0b0ec6
-
-    goto/16 :goto_2
-
-    :cond_27
     const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -775,13 +750,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_26
 
-    const p0, 0x7f0b0ec4
+    const p0, 0x7f0b0f51
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_28
+    :cond_26
     const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -790,16 +765,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0ec2
+    const p0, 0x7f0b0f4f
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_29
-    const v3, 0x7f0b0ecd
+    :cond_27
+    const v3, 0x7f0b0f5a
 
-    if-ne p0, v3, :cond_2f
+    if-ne p0, v3, :cond_2d
 
     const-string/jumbo v3, "ATT"
 
@@ -809,7 +784,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2a
+    if-nez v3, :cond_28
 
     const-string/jumbo v3, "NEWCO"
 
@@ -819,9 +794,40 @@
 
     move-result v3
 
-    if-nez v3, :cond_2a
+    if-nez v3, :cond_28
 
     const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_29
+
+    :cond_28
+    const p0, 0x7f0b0f59
+
+    goto/16 :goto_1
+
+    :cond_29
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2a
+
+    const p0, 0x7f0b0f57
+
+    goto/16 :goto_1
+
+    :cond_2a
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -831,13 +837,12 @@
 
     if-eqz v3, :cond_2b
 
-    :cond_2a
-    const p0, 0x7f0b0ecc
+    const p0, 0x7f0b0f58
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_2b
-    const-string/jumbo v3, "TMO"
+    const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -847,12 +852,12 @@
 
     if-eqz v3, :cond_2c
 
-    const p0, 0x7f0b0eca
+    const p0, 0x7f0b0f56
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_2c
-    const-string/jumbo v3, "SPRINT"
+    const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -860,14 +865,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2d
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0ecb
+    const p0, 0x7f0b0f55
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_2d
-    const-string/jumbo v3, "VZW"
+    const v3, 0x7f0b0f6a
+
+    if-ne p0, v3, :cond_30
+
+    const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -877,45 +886,11 @@
 
     if-eqz v3, :cond_2e
 
-    const p0, 0x7f0b0ec9
+    const p0, 0x7f0b0f69
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_2e
-    const-string/jumbo v3, "CMCC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0ec8
-
-    goto/16 :goto_2
-
-    :cond_2f
-    const v3, 0x7f0b0edd
-
-    if-ne p0, v3, :cond_32
-
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_30
-
-    const p0, 0x7f0b0edc
-
-    goto/16 :goto_2
-
-    :cond_30
     const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -924,13 +899,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_31
+    if-eqz v3, :cond_2f
 
-    const p0, 0x7f0b0eda
+    const p0, 0x7f0b0f67
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_31
+    :cond_2f
     const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -939,16 +914,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0edb
+    const p0, 0x7f0b0f68
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_32
-    const v3, 0x7f0b0f02
+    :cond_30
+    const v3, 0x7f0b0f8f
 
-    if-ne p0, v3, :cond_37
+    if-ne p0, v3, :cond_35
 
     const-string/jumbo v3, "ATT"
 
@@ -958,7 +933,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_33
+    if-nez v3, :cond_31
 
     const-string/jumbo v3, "USC"
 
@@ -968,7 +943,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_33
+    if-nez v3, :cond_31
 
     const-string/jumbo v3, "SPRINT"
 
@@ -978,9 +953,40 @@
 
     move-result v3
 
-    if-nez v3, :cond_33
+    if-nez v3, :cond_31
 
     const-string/jumbo v3, "VZW"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_32
+
+    :cond_31
+    const p0, 0x7f0b0f8c
+
+    goto/16 :goto_1
+
+    :cond_32
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_33
+
+    const p0, 0x7f0b0f8d
+
+    goto/16 :goto_1
+
+    :cond_33
+    const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -990,42 +996,11 @@
 
     if-eqz v3, :cond_34
 
-    :cond_33
-    const p0, 0x7f0b0eff
+    const p0, 0x7f0b0f8b
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_34
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_35
-
-    const p0, 0x7f0b0f00
-
-    goto/16 :goto_2
-
-    :cond_35
-    const-string/jumbo v3, "CMCC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_36
-
-    const p0, 0x7f0b0efe
-
-    goto/16 :goto_2
-
-    :cond_36
     const-string/jumbo v3, "NEWCO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1034,16 +1009,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f01
+    const p0, 0x7f0b0f8e
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_37
-    const v3, 0x7f0b0f52
+    :cond_35
+    const v3, 0x7f0b0fdf
 
-    if-ne p0, v3, :cond_3d
+    if-ne p0, v3, :cond_3b
 
     const-string/jumbo v3, "ATT"
 
@@ -1053,7 +1028,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_38
+    if-nez v3, :cond_36
 
     const-string/jumbo v3, "NEWCO"
 
@@ -1063,9 +1038,40 @@
 
     move-result v3
 
-    if-nez v3, :cond_38
+    if-nez v3, :cond_36
 
     const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_37
+
+    :cond_36
+    const p0, 0x7f0b0fde
+
+    goto/16 :goto_1
+
+    :cond_37
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_38
+
+    const p0, 0x7f0b0fdc
+
+    goto/16 :goto_1
+
+    :cond_38
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1075,13 +1081,12 @@
 
     if-eqz v3, :cond_39
 
-    :cond_38
-    const p0, 0x7f0b0f51
+    const p0, 0x7f0b0fdd
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_39
-    const-string/jumbo v3, "TMO"
+    const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1091,12 +1096,12 @@
 
     if-eqz v3, :cond_3a
 
-    const p0, 0x7f0b0f4f
+    const p0, 0x7f0b0fdb
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_3a
-    const-string/jumbo v3, "SPRINT"
+    const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1104,13 +1109,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3b
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f50
+    const p0, 0x7f0b0fda
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_3b
+    const v3, 0x7f0b0fe3
+
+    if-ne p0, v3, :cond_3f
+
+    const-string/jumbo v3, "ATT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3c
+
     const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1119,88 +1138,44 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3c
+    if-nez v3, :cond_3c
 
-    const p0, 0x7f0b0f4e
+    const-string/jumbo v3, "TMO"
 
-    goto/16 :goto_2
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3c
+
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3c
+
+    const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3d
 
     :cond_3c
-    const-string/jumbo v3, "CMCC"
+    const p0, 0x7f0b0fe2
 
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f4d
-
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_3d
-    const v3, 0x7f0b0f56
-
-    if-ne p0, v3, :cond_41
-
-    const-string/jumbo v3, "ATT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_3e
-
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_3e
-
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_3e
-
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_3e
-
-    const-string/jumbo v3, "USC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3f
-
-    :cond_3e
-    const p0, 0x7f0b0f55
-
-    goto/16 :goto_2
-
-    :cond_3f
     const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1209,13 +1184,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_40
+    if-eqz v3, :cond_3e
 
-    const p0, 0x7f0b0f54
+    const p0, 0x7f0b0fe1
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_40
+    :cond_3e
     const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1224,16 +1199,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f53
+    const p0, 0x7f0b0fe0
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_41
-    const v3, 0x7f0b0f5a
+    :cond_3f
+    const v3, 0x7f0b0fe7
 
-    if-ne p0, v3, :cond_45
+    if-ne p0, v3, :cond_43
 
     const-string/jumbo v3, "ATT"
 
@@ -1243,7 +1218,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_42
+    if-nez v3, :cond_40
 
     const-string/jumbo v3, "VZW"
 
@@ -1253,7 +1228,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_42
+    if-nez v3, :cond_40
 
     const-string/jumbo v3, "TMO"
 
@@ -1263,7 +1238,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_42
+    if-nez v3, :cond_40
 
     const-string/jumbo v3, "NEWCO"
 
@@ -1273,7 +1248,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_42
+    if-nez v3, :cond_40
 
     const-string/jumbo v3, "USC"
 
@@ -1283,15 +1258,49 @@
 
     move-result v3
 
-    if-eqz v3, :cond_43
+    if-eqz v3, :cond_41
+
+    :cond_40
+    const p0, 0x7f0b0fe6
+
+    goto/16 :goto_1
+
+    :cond_41
+    const-string/jumbo v3, "SPRINT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_42
+
+    const p0, 0x7f0b0fe5
+
+    goto/16 :goto_1
 
     :cond_42
-    const p0, 0x7f0b0f59
+    const-string/jumbo v3, "CMCC"
 
-    goto/16 :goto_2
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0fe4
+
+    goto/16 :goto_1
 
     :cond_43
-    const-string/jumbo v3, "SPRINT"
+    const v3, 0x7f0b0fed
+
+    if-ne p0, v3, :cond_49
+
+    const-string/jumbo v3, "ATT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1301,12 +1310,12 @@
 
     if-eqz v3, :cond_44
 
-    const p0, 0x7f0b0f58
+    const p0, 0x7f0b0feb
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_44
-    const-string/jumbo v3, "CMCC"
+    const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1314,18 +1323,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_45
 
-    const p0, 0x7f0b0f57
+    const p0, 0x7f0b0fe9
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_45
-    const v3, 0x7f0b0f60
-
-    if-ne p0, v3, :cond_4b
-
-    const-string/jumbo v3, "ATT"
+    const-string/jumbo v3, "NEWCO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1333,14 +1338,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_46
+    if-nez v3, :cond_46
 
-    const p0, 0x7f0b0f5e
-
-    goto/16 :goto_2
-
-    :cond_46
-    const-string/jumbo v3, "TMO"
+    const-string/jumbo v3, "USC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1350,37 +1350,12 @@
 
     if-eqz v3, :cond_47
 
-    const p0, 0x7f0b0f5c
+    :cond_46
+    const p0, 0x7f0b0fec
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_47
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_48
-
-    const-string/jumbo v3, "USC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_49
-
-    :cond_48
-    const p0, 0x7f0b0f5f
-
-    goto/16 :goto_2
-
-    :cond_49
     const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1389,13 +1364,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4a
+    if-eqz v3, :cond_48
 
-    const p0, 0x7f0b0f5d
+    const p0, 0x7f0b0fea
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_4a
+    :cond_48
     const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1404,16 +1379,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f5b
+    const p0, 0x7f0b0fe8
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_4b
-    const v3, 0x7f0b0f66
+    :cond_49
+    const v3, 0x7f0b0ff3
 
-    if-ne p0, v3, :cond_51
+    if-ne p0, v3, :cond_4f
 
     const-string/jumbo v3, "ATT"
 
@@ -1423,7 +1398,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4c
+    if-nez v3, :cond_4a
 
     const-string/jumbo v3, "NEWCO"
 
@@ -1433,9 +1408,40 @@
 
     move-result v3
 
-    if-nez v3, :cond_4c
+    if-nez v3, :cond_4a
 
     const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4b
+
+    :cond_4a
+    const p0, 0x7f0b0ff2
+
+    goto/16 :goto_1
+
+    :cond_4b
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4c
+
+    const p0, 0x7f0b0ff0
+
+    goto/16 :goto_1
+
+    :cond_4c
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1445,13 +1451,12 @@
 
     if-eqz v3, :cond_4d
 
-    :cond_4c
-    const p0, 0x7f0b0f65
+    const p0, 0x7f0b0ff1
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_4d
-    const-string/jumbo v3, "TMO"
+    const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1461,12 +1466,12 @@
 
     if-eqz v3, :cond_4e
 
-    const p0, 0x7f0b0f63
+    const p0, 0x7f0b0fef
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_4e
-    const-string/jumbo v3, "SPRINT"
+    const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1474,13 +1479,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4f
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f64
+    const p0, 0x7f0b0fee
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_4f
+    const v3, 0x7f0b0ff7
+
+    if-ne p0, v3, :cond_53
+
+    const-string/jumbo v3, "ATT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_50
+
     const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1489,88 +1508,44 @@
 
     move-result v3
 
-    if-eqz v3, :cond_50
+    if-nez v3, :cond_50
 
-    const p0, 0x7f0b0f62
+    const-string/jumbo v3, "TMO"
 
-    goto/16 :goto_2
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_50
+
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_50
+
+    const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_51
 
     :cond_50
-    const-string/jumbo v3, "CMCC"
+    const p0, 0x7f0b0ff6
 
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f61
-
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_51
-    const v3, 0x7f0b0f6a
-
-    if-ne p0, v3, :cond_55
-
-    const-string/jumbo v3, "ATT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_52
-
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_52
-
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_52
-
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_52
-
-    const-string/jumbo v3, "USC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_53
-
-    :cond_52
-    const p0, 0x7f0b0f69
-
-    goto/16 :goto_2
-
-    :cond_53
     const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1579,13 +1554,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_54
+    if-eqz v3, :cond_52
 
-    const p0, 0x7f0b0f68
+    const p0, 0x7f0b0ff5
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_54
+    :cond_52
     const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1594,16 +1569,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f67
+    const p0, 0x7f0b0ff4
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_55
-    const v3, 0x7f0b0f6e
+    :cond_53
+    const v3, 0x7f0b0ffb
 
-    if-ne p0, v3, :cond_59
+    if-ne p0, v3, :cond_57
 
     const-string/jumbo v3, "ATT"
 
@@ -1613,7 +1588,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_56
+    if-nez v3, :cond_54
 
     const-string/jumbo v3, "VZW"
 
@@ -1623,7 +1598,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_56
+    if-nez v3, :cond_54
 
     const-string/jumbo v3, "TMO"
 
@@ -1633,7 +1608,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_56
+    if-nez v3, :cond_54
 
     const-string/jumbo v3, "NEWCO"
 
@@ -1643,7 +1618,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_56
+    if-nez v3, :cond_54
 
     const-string/jumbo v3, "USC"
 
@@ -1653,15 +1628,49 @@
 
     move-result v3
 
-    if-eqz v3, :cond_57
+    if-eqz v3, :cond_55
+
+    :cond_54
+    const p0, 0x7f0b0ffa
+
+    goto/16 :goto_1
+
+    :cond_55
+    const-string/jumbo v3, "SPRINT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_56
+
+    const p0, 0x7f0b0ff9
+
+    goto/16 :goto_1
 
     :cond_56
-    const p0, 0x7f0b0f6d
+    const-string/jumbo v3, "CMCC"
 
-    goto/16 :goto_2
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0ff8
+
+    goto/16 :goto_1
 
     :cond_57
-    const-string/jumbo v3, "SPRINT"
+    const v3, 0x7f0b1001
+
+    if-ne p0, v3, :cond_5d
+
+    const-string/jumbo v3, "ATT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1671,45 +1680,11 @@
 
     if-eqz v3, :cond_58
 
-    const p0, 0x7f0b0f6c
+    const p0, 0x7f0b0fff
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_58
-    const-string/jumbo v3, "CMCC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f6b
-
-    goto/16 :goto_2
-
-    :cond_59
-    const v3, 0x7f0b0f74
-
-    if-ne p0, v3, :cond_5f
-
-    const-string/jumbo v3, "ATT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5a
-
-    const p0, 0x7f0b0f72
-
-    goto/16 :goto_2
-
-    :cond_5a
     const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1718,13 +1693,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5b
+    if-eqz v3, :cond_59
 
-    const p0, 0x7f0b0f70
+    const p0, 0x7f0b0ffd
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_5b
+    :cond_59
     const-string/jumbo v3, "NEWCO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -1733,7 +1708,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_5c
+    if-nez v3, :cond_5a
 
     const-string/jumbo v3, "USC"
 
@@ -1743,15 +1718,49 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5d
+    if-eqz v3, :cond_5b
+
+    :cond_5a
+    const p0, 0x7f0b1000
+
+    goto/16 :goto_1
+
+    :cond_5b
+    const-string/jumbo v3, "SPRINT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5c
+
+    const p0, 0x7f0b0ffe
+
+    goto/16 :goto_1
 
     :cond_5c
-    const p0, 0x7f0b0f73
+    const-string/jumbo v3, "VZW"
 
-    goto/16 :goto_2
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0ffc
+
+    goto/16 :goto_1
 
     :cond_5d
-    const-string/jumbo v3, "SPRINT"
+    const v3, 0x7f0b1004
+
+    if-ne p0, v3, :cond_5f
+
+    const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1761,12 +1770,12 @@
 
     if-eqz v3, :cond_5e
 
-    const p0, 0x7f0b0f71
+    const p0, 0x7f0b1003
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_5e
-    const-string/jumbo v3, "VZW"
+    const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -1774,14 +1783,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f6f
+    const p0, 0x7f0b1002
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_5f
-    const v3, 0x7f0b0f77
+    const v3, 0x7f0b1007
 
     if-ne p0, v3, :cond_61
 
@@ -1795,9 +1804,9 @@
 
     if-eqz v3, :cond_60
 
-    const p0, 0x7f0b0f76
+    const p0, 0x7f0b1006
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_60
     const-string/jumbo v3, "CMCC"
@@ -1808,14 +1817,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f75
+    const p0, 0x7f0b1005
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_61
-    const v3, 0x7f0b0f7a
+    const v3, 0x7f0b100a
 
     if-ne p0, v3, :cond_63
 
@@ -1829,9 +1838,9 @@
 
     if-eqz v3, :cond_62
 
-    const p0, 0x7f0b0f79
+    const p0, 0x7f0b1009
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_62
     const-string/jumbo v3, "CMCC"
@@ -1842,16 +1851,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f78
+    const p0, 0x7f0b1008
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_63
-    const v3, 0x7f0b0f7d
+    const v3, 0x7f0b100c
 
-    if-ne p0, v3, :cond_65
+    if-ne p0, v3, :cond_64
 
     const-string/jumbo v3, "TMO"
 
@@ -1861,29 +1870,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_64
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f7c
+    const p0, 0x7f0b100b
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_64
-    const-string/jumbo v3, "CMCC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f7b
-
-    goto/16 :goto_2
-
-    :cond_65
-    const v3, 0x7f0b0f7f
+    const v3, 0x7f0b100f
 
     if-ne p0, v3, :cond_66
 
@@ -1895,14 +1889,29 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_65
 
-    const p0, 0x7f0b0f7e
+    const p0, 0x7f0b100e
 
-    goto/16 :goto_2
+    goto/16 :goto_1
+
+    :cond_65
+    const-string/jumbo v3, "CMCC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b100d
+
+    goto/16 :goto_1
 
     :cond_66
-    const v3, 0x7f0b0f82
+    const v3, 0x7f0b1012
 
     if-ne p0, v3, :cond_68
 
@@ -1916,9 +1925,9 @@
 
     if-eqz v3, :cond_67
 
-    const p0, 0x7f0b0f81
+    const p0, 0x7f0b1011
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_67
     const-string/jumbo v3, "CMCC"
@@ -1929,14 +1938,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f80
+    const p0, 0x7f0b1010
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_68
-    const v3, 0x7f0b0f85
+    const v3, 0x7f0b1015
 
     if-ne p0, v3, :cond_6a
 
@@ -1950,9 +1959,9 @@
 
     if-eqz v3, :cond_69
 
-    const p0, 0x7f0b0f84
+    const p0, 0x7f0b1014
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_69
     const-string/jumbo v3, "CMCC"
@@ -1963,16 +1972,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f83
+    const p0, 0x7f0b1013
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_6a
-    const v3, 0x7f0b0f88
+    const v3, 0x7f0b1017
 
-    if-ne p0, v3, :cond_6c
+    if-ne p0, v3, :cond_6b
 
     const-string/jumbo v3, "TMO"
 
@@ -1982,50 +1991,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6b
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f87
+    const p0, 0x7f0b1016
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_6b
-    const-string/jumbo v3, "CMCC"
+    const v3, 0x7f0b0f12
 
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f86
-
-    goto/16 :goto_2
-
-    :cond_6c
-    const v3, 0x7f0b0f8a
-
-    if-ne p0, v3, :cond_6d
-
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f89
-
-    goto/16 :goto_2
-
-    :cond_6d
-    const v3, 0x7f0b0e85
-
-    if-ne p0, v3, :cond_74
+    if-ne p0, v3, :cond_72
 
     const-string/jumbo v3, "ATT"
 
@@ -2035,14 +2010,39 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6e
+    if-eqz v3, :cond_6c
 
-    const p0, 0x7f0b0e80
+    const p0, 0x7f0b0f0d
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_6e
+    :cond_6c
     const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6d
+
+    const p0, 0x7f0b0f0f
+
+    goto/16 :goto_1
+
+    :cond_6d
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_6e
+
+    const-string/jumbo v3, "USC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2052,12 +2052,13 @@
 
     if-eqz v3, :cond_6f
 
-    const p0, 0x7f0b0e82
+    :cond_6e
+    const p0, 0x7f0b0f11
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_6f
-    const-string/jumbo v3, "NEWCO"
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2065,9 +2066,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_70
+    if-eqz v3, :cond_70
 
-    const-string/jumbo v3, "USC"
+    const p0, 0x7f0b0f10
+
+    goto/16 :goto_1
+
+    :cond_70
+    const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2077,42 +2083,11 @@
 
     if-eqz v3, :cond_71
 
-    :cond_70
-    const p0, 0x7f0b0e84
+    const p0, 0x7f0b0f0e
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_71
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_72
-
-    const p0, 0x7f0b0e83
-
-    goto/16 :goto_2
-
-    :cond_72
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_73
-
-    const p0, 0x7f0b0e81
-
-    goto/16 :goto_2
-
-    :cond_73
     const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -2121,16 +2096,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0e7f
+    const p0, 0x7f0b0f0c
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_74
-    const v3, 0x7f0b0f2a
+    :cond_72
+    const v3, 0x7f0b0fb7
 
-    if-ne p0, v3, :cond_79
+    if-ne p0, v3, :cond_77
 
     const-string/jumbo v3, "ATT"
 
@@ -2140,7 +2115,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_75
+    if-nez v3, :cond_73
 
     const-string/jumbo v3, "NEWCO"
 
@@ -2150,9 +2125,40 @@
 
     move-result v3
 
-    if-nez v3, :cond_75
+    if-nez v3, :cond_73
 
     const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_74
+
+    :cond_73
+    const p0, 0x7f0b0fb6
+
+    goto/16 :goto_1
+
+    :cond_74
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_75
+
+    const p0, 0x7f0b0fb4
+
+    goto/16 :goto_1
+
+    :cond_75
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2162,13 +2168,12 @@
 
     if-eqz v3, :cond_76
 
-    :cond_75
-    const p0, 0x7f0b0f29
+    const p0, 0x7f0b0fb5
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_76
-    const-string/jumbo v3, "TMO"
+    const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2176,14 +2181,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_77
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f27
+    const p0, 0x7f0b0fb3
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_77
-    const-string/jumbo v3, "SPRINT"
+    const v3, 0x7f0b1029
+
+    if-ne p0, v3, :cond_78
+
+    const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2191,13 +2200,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_78
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f28
+    const p0, 0x7f0b1028
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_78
+    const v3, 0x7f0b0efe
+
+    if-ne p0, v3, :cond_7c
+
+    const-string/jumbo v3, "ATT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_79
+
     const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -2206,37 +2229,45 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-nez v3, :cond_79
 
-    const p0, 0x7f0b0f26
+    const-string/jumbo v3, "NEWCO"
 
-    goto/16 :goto_2
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_79
+
+    const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_79
+
+    const-string/jumbo v3, "SPRINT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_7a
 
     :cond_79
-    const v3, 0x7f0b0f9c
+    const p0, 0x7f0b0efd
 
-    if-ne p0, v3, :cond_7a
-
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f9b
-
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_7a
-    const v3, 0x7f0b0e71
-
-    if-ne p0, v3, :cond_7e
-
-    const-string/jumbo v3, "ATT"
+    const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2244,69 +2275,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_7b
+    if-eqz v3, :cond_7b
 
-    const-string/jumbo v3, "VZW"
+    const p0, 0x7f0b0efc
 
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7b
-
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7b
-
-    const-string/jumbo v3, "USC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7b
-
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_7c
+    goto/16 :goto_1
 
     :cond_7b
-    const p0, 0x7f0b0e70
-
-    goto/16 :goto_2
-
-    :cond_7c
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_7d
-
-    const p0, 0x7f0b0e6f
-
-    goto/16 :goto_2
-
-    :cond_7d
     const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -2315,16 +2290,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0e6e
+    const p0, 0x7f0b0efb
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_7e
-    const v3, 0x7f0b0e75
+    :cond_7c
+    const v3, 0x7f0b0f02
 
-    if-ne p0, v3, :cond_82
+    if-ne p0, v3, :cond_80
 
     const-string/jumbo v3, "ATT"
 
@@ -2334,7 +2309,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_7f
+    if-nez v3, :cond_7d
 
     const-string/jumbo v3, "VZW"
 
@@ -2344,7 +2319,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_7f
+    if-nez v3, :cond_7d
 
     const-string/jumbo v3, "NEWCO"
 
@@ -2354,7 +2329,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_7f
+    if-nez v3, :cond_7d
 
     const-string/jumbo v3, "USC"
 
@@ -2364,7 +2339,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_7f
+    if-nez v3, :cond_7d
 
     const-string/jumbo v3, "SPRINT"
 
@@ -2374,14 +2349,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_80
+    if-eqz v3, :cond_7e
 
-    :cond_7f
-    const p0, 0x7f0b0e74
+    :cond_7d
+    const p0, 0x7f0b0f01
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_80
+    :cond_7e
     const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -2390,50 +2365,50 @@
 
     move-result v3
 
-    if-eqz v3, :cond_81
+    if-eqz v3, :cond_7f
 
-    const p0, 0x7f0b0e73
+    const p0, 0x7f0b0f00
 
-    goto/16 :goto_2
+    goto/16 :goto_1
+
+    :cond_7f
+    const-string/jumbo v3, "CMCC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0eff
+
+    goto/16 :goto_1
+
+    :cond_80
+    const v3, 0x7f0b0f94
+
+    if-ne p0, v3, :cond_81
+
+    const-string/jumbo v3, "CMCC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0f93
+
+    goto/16 :goto_1
 
     :cond_81
-    const-string/jumbo v3, "CMCC"
+    const v3, 0x7f0b1031
 
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0e72
-
-    goto/16 :goto_2
-
-    :cond_82
-    const v3, 0x7f0b0f07
-
-    if-ne p0, v3, :cond_83
-
-    const-string/jumbo v3, "CMCC"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f06
-
-    goto/16 :goto_2
-
-    :cond_83
-    const v3, 0x7f0b0fa4
-
-    if-ne p0, v3, :cond_88
+    if-ne p0, v3, :cond_86
 
     const-string/jumbo v3, "ATT"
 
@@ -2443,7 +2418,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_84
+    if-nez v3, :cond_82
 
     const-string/jumbo v3, "NEWCO"
 
@@ -2453,9 +2428,40 @@
 
     move-result v3
 
-    if-nez v3, :cond_84
+    if-nez v3, :cond_82
 
     const-string/jumbo v3, "USC"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_83
+
+    :cond_82
+    const p0, 0x7f0b1030
+
+    goto/16 :goto_1
+
+    :cond_83
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_84
+
+    const p0, 0x7f0b102e
+
+    goto/16 :goto_1
+
+    :cond_84
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2465,13 +2471,12 @@
 
     if-eqz v3, :cond_85
 
-    :cond_84
-    const p0, 0x7f0b0fa3
+    const p0, 0x7f0b102f
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_85
-    const-string/jumbo v3, "TMO"
+    const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2479,14 +2484,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_86
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0fa1
+    const p0, 0x7f0b102d
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_86
-    const-string/jumbo v3, "SPRINT"
+    const v3, 0x7f0b0edb
+
+    if-ne p0, v3, :cond_87
+
+    const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2494,13 +2503,17 @@
 
     move-result v3
 
-    if-eqz v3, :cond_87
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0fa2
+    const p0, 0x7f0b0eda
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_87
+    const v3, 0x7f0b0eea
+
+    if-ne p0, v3, :cond_88
+
     const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -2509,54 +2522,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0fa0
+    const p0, 0x7f0b0ee9
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_88
-    const v3, 0x7f0b0e4e
+    const v3, 0x7f0b0f40
 
-    if-ne p0, v3, :cond_89
-
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0e4d
-
-    goto/16 :goto_2
-
-    :cond_89
-    const v3, 0x7f0b0e5d
-
-    if-ne p0, v3, :cond_8a
-
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0e5c
-
-    goto/16 :goto_2
-
-    :cond_8a
-    const v3, 0x7f0b0eb3
-
-    if-ne p0, v3, :cond_8e
+    if-ne p0, v3, :cond_8c
 
     const-string/jumbo v3, "ATT"
 
@@ -2566,7 +2541,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_8b
+    if-nez v3, :cond_89
 
     const-string/jumbo v3, "VZW"
 
@@ -2576,7 +2551,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_8b
+    if-nez v3, :cond_89
 
     const-string/jumbo v3, "NEWCO"
 
@@ -2586,15 +2561,49 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8c
+    if-eqz v3, :cond_8a
+
+    :cond_89
+    const p0, 0x7f0b0f3f
+
+    goto/16 :goto_1
+
+    :cond_8a
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_8b
+
+    const p0, 0x7f0b0f3e
+
+    goto/16 :goto_1
 
     :cond_8b
-    const p0, 0x7f0b0eb2
+    const-string/jumbo v3, "SPRINT"
 
-    goto/16 :goto_2
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0f3d
+
+    goto/16 :goto_1
 
     :cond_8c
-    const-string/jumbo v3, "TMO"
+    const v3, 0x7f0b0f78
+
+    if-ne p0, v3, :cond_90
+
+    const-string/jumbo v3, "VZW"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2604,12 +2613,12 @@
 
     if-eqz v3, :cond_8d
 
-    const p0, 0x7f0b0eb1
+    const p0, 0x7f0b0f75
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_8d
-    const-string/jumbo v3, "SPRINT"
+    const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2617,18 +2626,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_8e
 
-    const p0, 0x7f0b0eb0
+    const p0, 0x7f0b0f76
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_8e
-    const v3, 0x7f0b0eeb
-
-    if-ne p0, v3, :cond_92
-
-    const-string/jumbo v3, "VZW"
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -2638,41 +2643,11 @@
 
     if-eqz v3, :cond_8f
 
-    const p0, 0x7f0b0ee8
+    const p0, 0x7f0b0f77
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_8f
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_90
-
-    const p0, 0x7f0b0ee9
-
-    goto/16 :goto_2
-
-    :cond_90
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_91
-
-    const p0, 0x7f0b0eea
-
-    goto/16 :goto_2
-
-    :cond_91
     const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -2681,16 +2656,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0ee7
+    const p0, 0x7f0b0f74
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_92
-    const v3, 0x7f0b0f9a
+    :cond_90
+    const v3, 0x7f0b1027
 
-    if-ne p0, v3, :cond_95
+    if-ne p0, v3, :cond_93
 
     const-string/jumbo v3, "ATT"
 
@@ -2700,7 +2675,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_93
+    if-nez v3, :cond_91
 
     const-string/jumbo v3, "VZW"
 
@@ -2710,7 +2685,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_93
+    if-nez v3, :cond_91
 
     const-string/jumbo v3, "NEWCO"
 
@@ -2720,7 +2695,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_93
+    if-nez v3, :cond_91
 
     const-string/jumbo v3, "USC"
 
@@ -2730,7 +2705,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_93
+    if-nez v3, :cond_91
 
     const-string/jumbo v3, "SPRINT"
 
@@ -2740,12 +2715,46 @@
 
     move-result v3
 
-    if-eqz v3, :cond_94
+    if-eqz v3, :cond_92
+
+    :cond_91
+    const p0, 0x7f0b1025
+
+    goto/16 :goto_1
+
+    :cond_92
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b1026
+
+    goto/16 :goto_1
 
     :cond_93
-    const p0, 0x7f0b0f98
+    const v3, 0x7f0b101b
 
-    goto/16 :goto_2
+    if-ne p0, v3, :cond_95
+
+    const-string/jumbo v3, "VZW"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_94
+
+    const p0, 0x7f0b1019
+
+    goto/16 :goto_1
 
     :cond_94
     const-string/jumbo v3, "TMO"
@@ -2756,50 +2765,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f99
+    const p0, 0x7f0b101a
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_95
-    const v3, 0x7f0b0f8e
+    const v3, 0x7f0b0fc3
 
-    if-ne p0, v3, :cond_97
-
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_96
-
-    const p0, 0x7f0b0f8c
-
-    goto/16 :goto_2
-
-    :cond_96
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f8d
-
-    goto/16 :goto_2
-
-    :cond_97
-    const v3, 0x7f0b0f36
-
-    if-ne p0, v3, :cond_9b
+    if-ne p0, v3, :cond_99
 
     const-string/jumbo v3, "ATT"
 
@@ -2809,7 +2784,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_98
+    if-nez v3, :cond_96
 
     const-string/jumbo v3, "VZW"
 
@@ -2819,7 +2794,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_98
+    if-nez v3, :cond_96
 
     const-string/jumbo v3, "NEWCO"
 
@@ -2829,14 +2804,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_99
+    if-eqz v3, :cond_97
 
-    :cond_98
-    const p0, 0x7f0b0f35
+    :cond_96
+    const p0, 0x7f0b0fc2
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_99
+    :cond_97
     const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -2845,13 +2820,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_9a
+    if-eqz v3, :cond_98
 
-    const p0, 0x7f0b0f33
+    const p0, 0x7f0b0fc0
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_9a
+    :cond_98
     const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -2860,37 +2835,106 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f34
+    const p0, 0x7f0b0fc1
 
-    goto/16 :goto_2
+    goto/16 :goto_1
+
+    :cond_99
+    const v3, 0x7f0b0fcf
+
+    if-ne p0, v3, :cond_9d
+
+    const-string/jumbo v3, "ATT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_9a
+
+    const-string/jumbo v3, "VZW"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_9a
+
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9b
+
+    :cond_9a
+    const p0, 0x7f0b0fce
+
+    goto/16 :goto_1
 
     :cond_9b
-    const v3, 0x7f0b0f42
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9c
+
+    const p0, 0x7f0b0fcc
+
+    goto/16 :goto_1
+
+    :cond_9c
+    const-string/jumbo v3, "SPRINT"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0fcd
+
+    goto/16 :goto_1
+
+    :cond_9d
+    const v3, 0x7f0b101d
+
+    if-ne p0, v3, :cond_9e
+
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b101c
+
+    goto/16 :goto_1
+
+    :cond_9e
+    const v3, 0x7f0b0ef2
 
     if-ne p0, v3, :cond_9f
 
-    const-string/jumbo v3, "ATT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_9c
-
-    const-string/jumbo v3, "VZW"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_9c
-
     const-string/jumbo v3, "NEWCO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -2899,48 +2943,51 @@
 
     move-result v3
 
-    if-eqz v3, :cond_9d
+    if-eqz v3, :cond_1
 
-    :cond_9c
-    const p0, 0x7f0b0f41
+    const p0, 0x7f0b0ef1
 
-    goto/16 :goto_2
-
-    :cond_9d
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_9e
-
-    const p0, 0x7f0b0f3f
-
-    goto/16 :goto_2
-
-    :cond_9e
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f40
-
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_9f
-    const v3, 0x7f0b0f90
+    const v3, 0x7f0b0ef4
 
     if-ne p0, v3, :cond_a0
 
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0ef3
+
+    goto/16 :goto_1
+
+    :cond_a0
+    const v3, 0x7f0b0f2e
+
+    if-ne p0, v3, :cond_a4
+
+    const-string/jumbo v3, "VZW"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a1
+
+    const p0, 0x7f0b0f2a
+
+    goto/16 :goto_1
+
+    :cond_a1
     const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -2949,56 +2996,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_a2
 
-    const p0, 0x7f0b0f8f
+    const p0, 0x7f0b0f2b
 
-    goto/16 :goto_2
-
-    :cond_a0
-    const v3, 0x7f0b0e65
-
-    if-ne p0, v3, :cond_a1
-
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0e64
-
-    goto/16 :goto_2
-
-    :cond_a1
-    const v3, 0x7f0b0e67
-
-    if-ne p0, v3, :cond_a2
-
-    const-string/jumbo v3, "NEWCO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0e66
-
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_a2
-    const v3, 0x7f0b0ea1
-
-    if-ne p0, v3, :cond_a6
-
-    const-string/jumbo v3, "VZW"
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -3008,41 +3013,11 @@
 
     if-eqz v3, :cond_a3
 
-    const p0, 0x7f0b0e9d
+    const p0, 0x7f0b0f2d
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_a3
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_a4
-
-    const p0, 0x7f0b0e9e
-
-    goto/16 :goto_2
-
-    :cond_a4
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_a5
-
-    const p0, 0x7f0b0ea0
-
-    goto/16 :goto_2
-
-    :cond_a5
     const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -3051,18 +3026,56 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0e9f
+    const p0, 0x7f0b0f2c
 
-    goto/16 :goto_2
+    goto/16 :goto_1
+
+    :cond_a4
+    const v3, 0x7f0b0f7a
+
+    if-ne p0, v3, :cond_a5
+
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0f79
+
+    goto/16 :goto_1
+
+    :cond_a5
+    const v3, 0x7f0b0f7c
+
+    if-ne p0, v3, :cond_a6
+
+    const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const p0, 0x7f0b0f7b
+
+    goto/16 :goto_1
 
     :cond_a6
-    const v3, 0x7f0b0eed
+    const v3, 0x7f0b0f96
 
     if-ne p0, v3, :cond_a7
 
-    const-string/jumbo v3, "NEWCO"
+    const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -3070,18 +3083,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0eec
+    const p0, 0x7f0b0f95
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_a7
-    const v3, 0x7f0b0eef
+    const v3, 0x7f0b0f98
 
     if-ne p0, v3, :cond_a8
 
-    const-string/jumbo v3, "NEWCO"
+    const-string/jumbo v3, "CMCC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -3089,14 +3102,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0eee
+    const p0, 0x7f0b0f97
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_a8
-    const v3, 0x7f0b0f09
+    const v3, 0x7f0b0f9a
 
     if-ne p0, v3, :cond_a9
 
@@ -3108,14 +3121,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f08
+    const p0, 0x7f0b0f99
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_a9
-    const v3, 0x7f0b0f0b
+    const v3, 0x7f0b0fa1
 
     if-ne p0, v3, :cond_aa
 
@@ -3127,18 +3140,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f0a
+    const p0, 0x7f0b0fa0
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_aa
-    const v3, 0x7f0b0f0d
+    const v3, 0x7f0b0fac
 
     if-ne p0, v3, :cond_ab
 
-    const-string/jumbo v3, "CMCC"
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -3146,18 +3159,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f0c
+    const p0, 0x7f0b0fab
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_ab
-    const v3, 0x7f0b0f14
+    const v3, 0x7f0b0fae
 
     if-ne p0, v3, :cond_ac
 
-    const-string/jumbo v3, "CMCC"
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -3165,54 +3178,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0f13
+    const p0, 0x7f0b0fad
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_ac
-    const v3, 0x7f0b0f1f
+    const v3, 0x7f0b103b
 
     if-ne p0, v3, :cond_ad
-
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f1e
-
-    goto/16 :goto_2
-
-    :cond_ad
-    const v3, 0x7f0b0f21
-
-    if-ne p0, v3, :cond_ae
-
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const p0, 0x7f0b0f20
-
-    goto/16 :goto_2
-
-    :cond_ae
-    const v3, 0x7f0b0fae
-
-    if-ne p0, v3, :cond_af
 
     const-string/jumbo v3, "NEWCO"
 
@@ -3222,16 +3197,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0fad
+    const p0, 0x7f0b103a
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_af
-    const v3, 0x7f0b0fa9
+    :cond_ad
+    const v3, 0x7f0b1036
 
-    if-ne p0, v3, :cond_b4
+    if-ne p0, v3, :cond_b2
 
     const-string/jumbo v3, "VZW"
 
@@ -3241,9 +3216,40 @@
 
     move-result v3
 
-    if-nez v3, :cond_b0
+    if-nez v3, :cond_ae
 
     const-string/jumbo v3, "NEWCO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_af
+
+    :cond_ae
+    const p0, 0x7f0b1032
+
+    goto/16 :goto_1
+
+    :cond_af
+    const-string/jumbo v3, "TMO"
+
+    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_b0
+
+    const p0, 0x7f0b1033
+
+    goto/16 :goto_1
+
+    :cond_b0
+    const-string/jumbo v3, "SPRINT"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
 
@@ -3253,42 +3259,11 @@
 
     if-eqz v3, :cond_b1
 
-    :cond_b0
-    const p0, 0x7f0b0fa5
+    const p0, 0x7f0b1034
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_b1
-    const-string/jumbo v3, "TMO"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_b2
-
-    const p0, 0x7f0b0fa6
-
-    goto/16 :goto_2
-
-    :cond_b2
-    const-string/jumbo v3, "SPRINT"
-
-    sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_b3
-
-    const p0, 0x7f0b0fa7
-
-    goto/16 :goto_2
-
-    :cond_b3
     const-string/jumbo v3, "USC"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -3297,16 +3272,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0fa8
+    const p0, 0x7f0b1035
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_b4
-    const v3, 0x7f0b0e09
+    :cond_b2
+    const v3, 0x7f0b0e94
 
-    if-ne p0, v3, :cond_b6
+    if-ne p0, v3, :cond_b4
 
     const-string/jumbo v3, "DCM"
 
@@ -3316,13 +3291,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b5
+    if-eqz v3, :cond_b3
 
-    const p0, 0x7f0b0e08
+    const p0, 0x7f0b0e93
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_b5
+    :cond_b3
     const-string/jumbo v3, "TMO"
 
     sget-object v4, Lcom/samsung/android/settings/WifiApUtils;->mMHSCustomer:Ljava/lang/String;
@@ -3331,16 +3306,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    const p0, 0x7f0b0e07
+    const p0, 0x7f0b0e92
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_b6
-    const v3, 0x7f0b0dd8
+    :cond_b4
+    const v3, 0x7f0b0e63
 
-    if-ne p0, v3, :cond_4
+    if-ne p0, v3, :cond_1
 
     const-string/jumbo v3, "TMO"
 
@@ -3350,7 +3325,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_b7
+    if-nez v3, :cond_b5
 
     const-string/jumbo v3, "SPRINT"
 
@@ -3360,7 +3335,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_b7
+    if-nez v3, :cond_b5
 
     const-string/jumbo v3, "NEWCO"
 
@@ -3370,7 +3345,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_b7
+    if-nez v3, :cond_b5
 
     const-string/jumbo v3, "ATT"
 
@@ -3380,7 +3355,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_b7
+    if-nez v3, :cond_b5
 
     const-string/jumbo v3, "USC"
 
@@ -3390,10 +3365,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
-    :cond_b7
-    const p0, 0x7f0b0dd9
+    :cond_b5
+    const p0, 0x7f0b0e64
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 .end method

@@ -326,7 +326,7 @@
 
     iget-object v1, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0580
+    const v2, 0x7f0b05e3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -370,7 +370,7 @@
     :cond_5
     iget-object v1, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0581
+    const v2, 0x7f0b05e4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -398,7 +398,7 @@
     :cond_7
     iget-object v1, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0582
+    const v2, 0x7f0b05e5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -426,7 +426,7 @@
     :cond_9
     iget-object v1, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0583
+    const v2, 0x7f0b05e6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -496,7 +496,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0584
+    const v4, 0x7f0b05e7
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -531,7 +531,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0585
+    const v4, 0x7f0b05e8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -809,7 +809,7 @@
 .method private updateDataState()V
     .locals 5
 
-    const v4, 0x7f0b1199
+    const v4, 0x7f0b1234
 
     iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mPhone:Lcom/android/internal/telephony/Phone;
 
@@ -827,7 +827,7 @@
 
     iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b119b
+    const v3, 0x7f0b1236
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -878,7 +878,7 @@
     :pswitch_1
     iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b119a
+    const v3, 0x7f0b1235
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -889,7 +889,7 @@
     :pswitch_2
     iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b1198
+    const v3, 0x7f0b1233
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -900,7 +900,7 @@
     :pswitch_3
     iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b1197
+    const v3, 0x7f0b1232
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1685,7 +1685,7 @@
 .method private updateServiceState(Landroid/telephony/ServiceState;)V
     .locals 9
 
-    const v8, 0x7f0b1a5b
+    const v8, 0x7f0b1af7
 
     const/4 v4, 0x2
 
@@ -1701,7 +1701,7 @@
 
     iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b119b
+    const v3, 0x7f0b1236
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1743,7 +1743,7 @@
 
     iget-object v3, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b1192
+    const v4, 0x7f0b122d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1766,7 +1766,7 @@
     :pswitch_0
     iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b118e
+    const v3, 0x7f0b1229
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1804,7 +1804,7 @@
     :pswitch_2
     iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b118f
+    const v3, 0x7f0b122a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1815,7 +1815,7 @@
     :pswitch_3
     iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b1191
+    const v3, 0x7f0b122c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1854,7 +1854,7 @@
 
     iget-object v3, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b1193
+    const v4, 0x7f0b122e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1950,7 +1950,7 @@
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/SimStatus;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0b117d
+    const v1, 0x7f0b1218
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2048,7 +2048,7 @@
 
     if-le v8, v9, :cond_0
 
-    const v8, 0x7f040141
+    const v8, 0x7f040143
 
     const/4 v9, 0x0
 
@@ -2056,7 +2056,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f110427
+    const v8, 0x7f110429
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2274,47 +2274,56 @@
 .end method
 
 .method public onPause()V
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onPause()V
 
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/SimStatus;->mPhone:Lcom/android/internal/telephony/Phone;
+    iget-object v1, p0, Lcom/android/settings/deviceinfo/SimStatus;->mPhone:Lcom/android/internal/telephony/Phone;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-direct {p0, v2}, Lcom/android/settings/deviceinfo/SimStatus;->setRssiNoti(I)V
+    invoke-direct {p0, v3}, Lcom/android/settings/deviceinfo/SimStatus;->setRssiNoti(I)V
 
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/SimStatus;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object v1, p0, Lcom/android/settings/deviceinfo/SimStatus;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    iget-object v1, p0, Lcom/android/settings/deviceinfo/SimStatus;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
-    invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
+    invoke-virtual {v1, v2, v3}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/settings/deviceinfo/SimStatus;->mShowLatestAreaInfo:Z
+    iget-boolean v1, p0, Lcom/android/settings/deviceinfo/SimStatus;->mShowLatestAreaInfo:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
+    :try_start_0
     invoke-virtual {p0}, Lcom/android/settings/deviceinfo/SimStatus;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/android/settings/deviceinfo/SimStatus;->mAreaInfoReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mAreaInfoReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_1
+    :goto_0
     invoke-virtual {p0}, Lcom/android/settings/deviceinfo/SimStatus;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/android/settings/deviceinfo/SimStatus;->mSimHotSwapReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/SimStatus;->mSimHotSwapReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method public onResume()V
@@ -2555,7 +2564,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a04f6
+    const v4, 0x7f0a04f4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2565,7 +2574,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a04f4
+    const v5, 0x7f0a04f2
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2985,7 +2994,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b1a5b
+    const v13, 0x7f0b1af7
 
     invoke-virtual {v5, v13, v12}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3115,7 +3124,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b1a5b
+    const v13, 0x7f0b1af7
 
     invoke-virtual {v5, v13, v12}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3315,7 +3324,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0b119e
+    const v13, 0x7f0b1239
 
     invoke-virtual {v5, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3345,7 +3354,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0b119f
+    const v13, 0x7f0b123a
 
     invoke-virtual {v5, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3383,7 +3392,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b1a5b
+    const v13, 0x7f0b1af7
 
     invoke-virtual {v5, v13, v12}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

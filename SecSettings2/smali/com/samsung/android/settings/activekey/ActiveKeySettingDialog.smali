@@ -23,7 +23,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04007c
+    const v3, 0x7f04007d
 
     const/4 v4, 0x0
 
@@ -39,7 +39,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v2, 0x7f0b036f
+    const v2, 0x7f0b03ce
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -59,7 +59,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b036e
+    const v2, 0x7f0b03cd
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -67,7 +67,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/activekey/ActiveKeySettingDialog$1;-><init>(Lcom/samsung/android/settings/activekey/ActiveKeySettingDialog;)V
 
-    const v3, 0x7f0b1253
+    const v3, 0x7f0b12ee
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -75,7 +75,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/activekey/ActiveKeySettingDialog$2;-><init>(Lcom/samsung/android/settings/activekey/ActiveKeySettingDialog;)V
 
-    const v3, 0x7f0b034c
+    const v3, 0x7f0b03ab
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

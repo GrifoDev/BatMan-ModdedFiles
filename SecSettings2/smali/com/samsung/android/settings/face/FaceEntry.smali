@@ -253,7 +253,7 @@
 
     iput-boolean v0, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsWaitingResult:Z
 
-    const v0, 0x7f0b1296
+    const v0, 0x7f0b1331
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
 
@@ -322,7 +322,7 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    const v6, 0x7f0b010b
+    const v6, 0x7f0b0168
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
 
@@ -330,7 +330,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b070c
+    const v6, 0x7f0b0772
 
     invoke-virtual {v4, v6, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -342,7 +342,7 @@
 
     invoke-direct {v4, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0b0703
+    const v5, 0x7f0b0769
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -380,7 +380,7 @@
     :cond_0
     const-string/jumbo v4, "FcstFaceEntry"
 
-    const v5, 0x7f0b08a3
+    const v5, 0x7f0b090d
 
     invoke-static {p0, v5, v4}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -516,7 +516,7 @@
 .method private showSensorErrorDialog(I)V
     .locals 4
 
-    const v1, 0x7f0b0706
+    const v1, 0x7f0b076c
 
     if-ne p1, v1, :cond_0
 
@@ -532,7 +532,7 @@
 
     if-eqz v1, :cond_0
 
-    const p1, 0x7f0b0707
+    const p1, 0x7f0b076d
 
     :cond_0
     new-instance v1, Landroid/app/AlertDialog$Builder;
@@ -541,7 +541,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0703
+    const v2, 0x7f0b0769
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -579,7 +579,7 @@
 .method private startFragment(Landroid/content/Context;)V
     .locals 14
 
-    const v5, 0x7f0b08a3
+    const v5, 0x7f0b090d
 
     const/4 v4, 0x0
 
@@ -943,90 +943,90 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const-string/jumbo v1, "FcstFaceEntry"
+    const-string/jumbo v2, "FcstFaceEntry"
 
-    const-string/jumbo v2, "=====onCreate()"
+    const-string/jumbo v3, "=====onCreate()"
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iput-object p0, p0, Lcom/samsung/android/settings/face/FaceEntry;->mContext:Landroid/content/Context;
 
-    new-instance v1, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    new-instance v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-direct {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+    invoke-direct {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
 
-    iput-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iput-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+    iget-object v3, p0, Lcom/samsung/android/settings/face/FaceEntry;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
-    const-string/jumbo v3, "FaceEntry"
+    const-string/jumbo v4, "FaceEntry"
 
-    invoke-virtual {v1, p0, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
+    invoke-virtual {v2, p0, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->isInMultiWindowMode()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    iget-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/android/settings/Utils;->isDesktopMode(Landroid/content/Context;)Z
+    invoke-static {v2}, Lcom/android/settings/Utils;->isDesktopMode(Landroid/content/Context;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
     :cond_0
-    iget-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/android/settings/Utils;->isDesktopMode(Landroid/content/Context;)Z
+    invoke-static {v2}, Lcom/android/settings/Utils;->isDesktopMode(Landroid/content/Context;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    const-string/jumbo v1, "FcstFaceEntry"
+    const-string/jumbo v2, "FcstFaceEntry"
 
-    const-string/jumbo v2, "onCreate() : isDesktopMode is TRUE."
+    const-string/jumbo v3, "onCreate() : isDesktopMode is TRUE."
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0b08ab
+    const v2, 0x7f0b0915
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    new-array v2, v5, [Ljava/lang/Object;
+    new-array v3, v6, [Ljava/lang/Object;
 
-    const v3, 0x7f0b08a3
+    const v4, 0x7f0b090d
 
-    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v4
+    aput-object v4, v3, v5
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {p0, v1, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {p0, v2, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
     :goto_0
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->finish()V
@@ -1034,247 +1034,247 @@
     return-void
 
     :cond_1
-    const-string/jumbo v1, "FcstFaceEntry"
+    const-string/jumbo v2, "FcstFaceEntry"
 
-    const-string/jumbo v2, "onCreate() : isInMultiWindowMode is TRUE."
+    const-string/jumbo v3, "onCreate() : isInMultiWindowMode is TRUE."
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0b0795
+    const v2, 0x7f0b07fb
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {p0, v1, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {p0, v2, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
+    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
-    if-nez v1, :cond_3
+    if-nez v2, :cond_3
 
-    iget-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/samsung/android/bio/face/SemBioFaceManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/bio/face/SemBioFaceManager;
+    invoke-static {v2}, Lcom/samsung/android/bio/face/SemBioFaceManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/bio/face/SemBioFaceManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
+    iput-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     :cond_3
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->getIntent()Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_4
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->getIntent()Landroid/content/Intent;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ":settings:fragment_args_key"
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
+    if-eqz v2, :cond_4
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->getIntent()Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, ":settings:fragment_args_key"
+    const-string/jumbo v3, ":settings:fragment_args_key"
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
 
-    move-result-object v1
+    move-result v2
 
-    iput-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->key:Ljava/lang/String;
+    if-eqz v2, :cond_4
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->getIntent()Landroid/content/Intent;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ":settings:fragment_args_key"
+
+    invoke-virtual {v2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->key:Ljava/lang/String;
 
     :cond_4
     invoke-static {}, Lcom/android/settings/Utils;->isSupportBioFace()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_5
+    if-nez v2, :cond_5
 
-    const-string/jumbo v1, "FcstFaceEntry"
+    const-string/jumbo v2, "FcstFaceEntry"
 
-    const-string/jumbo v2, "Not support bio face. finish this activity"
+    const-string/jumbo v3, "Not support bio face. finish this activity"
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->finish()V
 
     :cond_5
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->getIntent()Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "isAfw"
+    const-string/jumbo v3, "isAfw"
 
-    invoke-virtual {v1, v2, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {v2, v3, v5}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v1
+    move-result v2
 
-    iput-boolean v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsAfw:Z
+    iput-boolean v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsAfw:Z
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->getIntent()Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "android.intent.extra.USER_ID"
+    const-string/jumbo v3, "android.intent.extra.USER_ID"
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    sput v1, Lcom/samsung/android/settings/face/FaceEntry;->mUserId:I
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->getIntent()Landroid/content/Intent;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "from_switch"
-
-    invoke-virtual {v1, v2, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v1
-
-    iput-boolean v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsFromSwitch:Z
+    sput v2, Lcom/samsung/android/settings/face/FaceEntry;->mUserId:I
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->getIntent()Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "previousStage"
+    const-string/jumbo v3, "from_switch"
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v3, v5}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result-object v1
+    move-result v2
 
-    iput-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mPreviousStage:Ljava/lang/String;
+    iput-boolean v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsFromSwitch:Z
 
-    const-string/jumbo v1, "FcstFaceEntry"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "mUserId : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
-    sget v3, Lcom/samsung/android/settings/face/FaceEntry;->mUserId:I
+    const-string/jumbo v3, "previousStage"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iput-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mPreviousStage:Ljava/lang/String;
 
-    const-string/jumbo v1, "FcstFaceEntry"
+    const-string/jumbo v2, "FcstFaceEntry"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "mIsAfw : "
+    const-string/jumbo v4, "mUserId : "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-boolean v3, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsAfw:Z
+    sget v4, Lcom/samsung/android/settings/face/FaceEntry;->mUserId:I
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v1, "FcstFaceEntry"
+    const-string/jumbo v2, "FcstFaceEntry"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "mIsFromSwitch : "
+    const-string/jumbo v4, "mIsAfw : "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-boolean v3, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsFromSwitch:Z
+    iget-boolean v4, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsAfw:Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
+    const-string/jumbo v2, "FcstFaceEntry"
 
-    if-nez v1, :cond_6
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "FcstFaceEntry"
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Error. mFaceManager is null"
+    const-string/jumbo v4, "mIsFromSwitch : "
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-boolean v4, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsFromSwitch:Z
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
+
+    if-nez v2, :cond_6
+
+    const-string/jumbo v2, "FcstFaceEntry"
+
+    const-string/jumbo v3, "Error. mFaceManager is null"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->finish()V
 
     return-void
 
     :cond_6
-    iget-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
+    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
-    invoke-virtual {v1}, Lcom/samsung/android/bio/face/SemBioFaceManager;->isHardwareDetected()Z
+    invoke-virtual {v2}, Lcom/samsung/android/bio/face/SemBioFaceManager;->isHardwareDetected()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_7
+    if-nez v2, :cond_7
 
-    const v1, 0x7f0b0709
+    const v2, 0x7f0b076f
 
-    invoke-direct {p0, v1}, Lcom/samsung/android/settings/face/FaceEntry;->showSensorErrorDialog(I)V
+    invoke-direct {p0, v2}, Lcom/samsung/android/settings/face/FaceEntry;->showSensorErrorDialog(I)V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->finish()V
 
     return-void
 
     :cond_7
-    iget-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v2, "keyguard"
+    const-string/jumbo v3, "keyguard"
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1282,71 +1282,80 @@
 
     if-eqz p1, :cond_8
 
-    const-string/jumbo v1, "IsWaitingResult"
+    const-string/jumbo v2, "IsWaitingResult"
 
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    iput-boolean v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsWaitingResult:Z
+    iput-boolean v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsWaitingResult:Z
 
-    iget-boolean v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsWaitingResult:Z
+    iget-boolean v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsWaitingResult:Z
 
-    if-eqz v1, :cond_8
+    if-eqz v2, :cond_8
 
     return-void
 
     :cond_8
-    iget-object v1, p0, Lcom/samsung/android/settings/face/FaceEntry;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
+    sget v1, Lcom/samsung/android/settings/face/FaceEntry;->mUserId:I
 
     sget v2, Lcom/samsung/android/settings/face/FaceEntry;->mUserId:I
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/bio/face/SemBioFaceManager;->hasEnrolledFaces(I)Z
+    invoke-static {v2}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_9
+    if-eqz v2, :cond_9
+
+    const/4 v1, 0x0
+
+    :cond_9
+    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
+
+    invoke-virtual {v2, v1}, Lcom/samsung/android/bio/face/SemBioFaceManager;->hasEnrolledFaces(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_a
 
     invoke-direct {p0}, Lcom/samsung/android/settings/face/FaceEntry;->runRegister()V
 
     return-void
 
-    :cond_9
-    const-string/jumbo v1, "face_register_external"
+    :cond_a
+    const-string/jumbo v2, "face_register_external"
 
-    iget-object v2, p0, Lcom/samsung/android/settings/face/FaceEntry;->mPreviousStage:Ljava/lang/String;
+    iget-object v3, p0, Lcom/samsung/android/settings/face/FaceEntry;->mPreviousStage:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_a
+    if-eqz v2, :cond_b
 
-    const-string/jumbo v1, "FcstFaceEntry"
+    const-string/jumbo v2, "FcstFaceEntry"
 
-    const-string/jumbo v2, "Face already registered!"
+    const-string/jumbo v3, "Face already registered!"
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/face/FaceEntry;->finish()V
 
     return-void
 
-    :cond_a
-    sget v1, Lcom/samsung/android/settings/face/FaceEntry;->mUserId:I
-
+    :cond_b
     invoke-virtual {v0, v1}, Landroid/app/KeyguardManager;->isDeviceSecure(I)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_b
+    if-nez v2, :cond_c
 
     invoke-direct {p0}, Lcom/samsung/android/settings/face/FaceEntry;->authenticateFace()V
 
     :goto_1
     return-void
 
-    :cond_b
+    :cond_c
     invoke-direct {p0}, Lcom/samsung/android/settings/face/FaceEntry;->launchChooseOrConfirmLock()V
 
     goto :goto_1

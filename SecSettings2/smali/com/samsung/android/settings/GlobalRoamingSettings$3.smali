@@ -92,11 +92,11 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/GlobalRoamingSettings$3;->this$0:Lcom/samsung/android/settings/GlobalRoamingSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/GlobalRoamingSettings;->-get0(Lcom/samsung/android/settings/GlobalRoamingSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v1}, Lcom/samsung/android/settings/GlobalRoamingSettings;->-get0(Lcom/samsung/android/settings/GlobalRoamingSettings;)Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
     move-result-object v1
 
-    invoke-virtual {v1, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setEnabled(Z)V
 
     :goto_0
     return-void
@@ -130,11 +130,11 @@
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/settings/GlobalRoamingSettings$3;->this$0:Lcom/samsung/android/settings/GlobalRoamingSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/GlobalRoamingSettings;->-get0(Lcom/samsung/android/settings/GlobalRoamingSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v1}, Lcom/samsung/android/settings/GlobalRoamingSettings;->-get0(Lcom/samsung/android/settings/GlobalRoamingSettings;)Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
     move-result-object v1
 
-    invoke-virtual {v1, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setEnabled(Z)V
 
     goto :goto_1
 

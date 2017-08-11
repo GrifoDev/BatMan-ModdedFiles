@@ -34,9 +34,9 @@
 
     const/4 v3, 0x0
 
-    const v5, 0x7f040228
+    const v5, 0x7f04022c
 
-    const v6, 0x7f11065f
+    const v6, 0x7f110665
 
     move-object v0, p0
 
@@ -765,7 +765,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f11065c
+    const v1, 0x7f110662
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -775,7 +775,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/display/ScreenResolutionSeekBarPreference;->mHD:Landroid/widget/TextView;
 
-    const v1, 0x7f110661
+    const v1, 0x7f110667
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -785,7 +785,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/display/ScreenResolutionSeekBarPreference;->mHDpx:Landroid/widget/TextView;
 
-    const v1, 0x7f11065d
+    const v1, 0x7f110663
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -795,7 +795,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/display/ScreenResolutionSeekBarPreference;->mFHD:Landroid/widget/TextView;
 
-    const v1, 0x7f110662
+    const v1, 0x7f110668
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -805,7 +805,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/display/ScreenResolutionSeekBarPreference;->mFHDpx:Landroid/widget/TextView;
 
-    const v1, 0x7f11065e
+    const v1, 0x7f110664
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -815,7 +815,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/display/ScreenResolutionSeekBarPreference;->mWQHD:Landroid/widget/TextView;
 
-    const v1, 0x7f110663
+    const v1, 0x7f110669
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -825,7 +825,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/display/ScreenResolutionSeekBarPreference;->mWQHDpx:Landroid/widget/TextView;
 
-    const v1, 0x7f11065f
+    const v1, 0x7f110665
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -446,7 +446,7 @@
 
     move-result v1
 
-    const v2, 0x7f0400a7
+    const v2, 0x7f0400a8
 
     if-ne v1, v2, :cond_1
 
@@ -693,7 +693,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f0400a0
+    const v0, 0x7f0400a1
 
     const/4 v1, 0x0
 

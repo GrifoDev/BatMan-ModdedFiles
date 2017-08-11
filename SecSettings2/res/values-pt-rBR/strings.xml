@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d min</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Não é possível verificar a existência de redes</string>
     <string name="wifi_failed_to_obtain_IP">Falha ao obter endereço IP.</string>
     <string name="wifi_security_none">Nenhum</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Não é possível conectar-se a %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Não é possível conectar-se ao %1$s. Verifique suas configurações em %2$s e tente novamente.</string>
     <string name="bluetooth_pairing_rejected_error_message">Pareamento rejeitado por %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Obtendo o nome do aparelho…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">O nome do aparelho será exibido quando este aparelho estiver conectado.</string>
     <string name="accessibility_wifi_off">Wi-Fi desligado.</string>
     <string name="accessibility_no_wifi">Wi-Fi desconectado</string>
     <string name="accessibility_wifi_one_bar">Uma barra de Wi-Fi.</string>
@@ -387,7 +389,8 @@ Insira o código recebido da Verizon:"</string>
     <string name="support">Suporte</string>
     <string name="reset_network_settings_list_summary">Redefina as configurações de Wi-Fi, Bluetooth e de outras redes para o padrão.</string>
     <string name="master_clear_list_summary">Redefina o aparelho para suas configurações padrão de fábrica. Isso apagará todos os dados, incluindo arquivo e aplicativos baixados.</string>
-    <string name="auto_restart_summary">Otimiza seu aparelho reiniciando-o automaticamente em horários definidos. Quaisquer dados não salvos serão perdidos quando o aparelho for reiniciado.</string>
+    <string name="auto_restart_summary">Otimize seu telefone reiniciando-o automaticamente uma vez por semana. Quaisquer dados não salvos serão perdidos quando seu telefone for reiniciado.</string>
+    <string name="auto_restart_summary_tablet">Otimize seu tablet reiniciando-o automaticamente uma vez por semana. Quaisquer dados não salvos serão perdidos quando seu tablet for reiniciado.</string>
     <string name="search_settings">Pesquisar</string>
     <string name="related_results">%d itens relacionados</string>
     <string name="no_results_found">Nenhum resultado encontrado</string>
@@ -457,7 +460,7 @@ Insira o código recebido da Verizon:"</string>
     <string name="sound_balance_right_message">O balanço do som está %d por cento à direita. Use dois dedos para arrastar o controle deslizante.</string>
     <string name="sound_balance_set">Definir</string>
     <string name="accessibility_assistant_menu">Menu assistente</string>
-    <string name="assistant_menu_summary">Ativa funções para melhorar a acessibilidade ao dispositivo para usuários com habilidade reduzida.</string>
+    <string name="assistant_menu_summary">Melhore a acessibilidade do telefone para usuários com destreza reduzida.</string>
     <string name="color_blind_title">Ajuste de cor</string>
     <string name="no_result">Ajustar as cores da tela caso encontre dificuldade em ler o visor.</string>
     <string name="you_are_normal">O ajuste de cores não é necessário.</string>
@@ -653,6 +656,7 @@ Enquanto essa função estiver ativada, a Rotação automática de tela estará 
     <string name="direct_access_actions_accessibility_title">Acessibilidade</string>
     <string name="direct_access_actions_negative_title">Cores negativas</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">O Acesso direto e a Redução do tamanho da tela não podem ser ativados ao mesmo tempo. A Redução do tamanho da tela será desativada.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s e %2$s não podem ser ativados ao mesmo tempo. %3$s será desativado.</string>
     <string name="direct_access_actions_color_adjustment_summary">Configurar o Ajuste de cor em Visão para usá-lo no Acesso direto</string>
     <string name="direct_access_actions_screen_reader_summary">Ativar Leitor de página para usá-lo no Acesso direto.</string>
     <string name="direct_access_actions_accesscontrol_title">Controle de interação</string>
@@ -850,7 +854,9 @@ O Wi-Fi e o Bluetooth também serão desativados, mas você poderá ativá-los n
     <string name="premium_sms_values_ask">Perguntar</string>
     <string name="premium_sms_values_never">Nunca permitir</string>
     <string name="premium_sms_values_allow">Permitir sempre</string>
-    <string name="assist_and_voice_input_summary">Os aplicativos de auxílio ao aparelho fornecem mais opções e informações sobre cada tela.</string>
+    <string name="assist_and_voice_input_summary">Selecione o aplicativo que deseja usar quando mantiver pressionado o botão Início.</string>
+    <string name="assist_footer_phone">Selecione o aplicativo que deseja usar quando mantiver pressionado o botão Início. Os aplicativos de assistência do aparelho podem ajudar a reunir informações da tela exibida atualmente no seu telefone.</string>
+    <string name="assist_footer_tablet">Selecione o aplicativo que deseja usar quando mantiver pressionado o botão Início. Os aplicativos de assistência do aparelho podem ajudar a reunir informações da tela exibida atualmente no seu tablet.</string>
     <string name="default_app_title">Definir como padrão</string>
     <string name="premium_sms_title">Enviar SMS premium</string>
     <string name="default_app_selection">Seleção de aplic. padrão</string>
@@ -939,7 +945,7 @@ Os dados de aplicativos podem incluir informações pessoais, como contatos, men
 
 Os 2 aparelhos conectados podem apresentar uma pequena diferença na saída de som."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Desativar a Sincroniz. de volume de mídia?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Para usar o Áudio duplo, a Sincronização de volume de mídia deve estar desativada.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Para controlar o volume de cada aparelho de áudio separadamente, a Sincronização de volume de mídia deve estar desativada.</string>
     <string name="bluetooth_avc_title">Sinc. de volume de mídia</string>
     <string name="bluetooth_avc_description">Se o aparelho Bluetooth conectado puder controlar o volume de mídia do seu telefone, o nível de volume definido pelo aparelho Bluetooth será sincronizado com o seu telefone.</string>
     <string name="bluetooth_avc_volume_change_description">A ativação desta função poderá causar alterações inesperadas de volume.</string>
@@ -948,6 +954,7 @@ Os 2 aparelhos conectados podem apresentar uma pequena diferença na saída de s
     <string name="bluetooth_avc_ask_popup_title">Desativar o Áudio duplo?</string>
     <string name="bluetooth_avc_ask_popup_content">Para usar a Sincronização de volume de mídia, o Áudio duplo deve estar desativado.</string>
     <string name="bluetooth_avc_disable_description">O aparelho Bluetooth conectado não é compatível com a Sincronização de volume de mídia. Você não pode sincronizar o volume do seu telefone com o aparelho Bluetooth conectado.</string>
+    <string name="bluetooth_avc_available_description">O aparelho Bluetooth conectado é compatível com Sincronização do volume de mídia e o nível de volume definido pelo aparelho Bluetooth será sincronizado com o seu telefone.</string>
     <string name="bluetooth_enter_pin_msg">Insira o PIN para parear com %s (tente 0000 ou 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Número máximo de caracteres atingido.</string>
     <string name="settings_menu_done">Concluído</string>
@@ -1031,11 +1038,12 @@ Até mesmo enquanto a Captura inteligente estiver desativada, você poderá aces
     <string name="swipe_to_call_title">Desl. p/ chamar ou enviar msgs.</string>
     <string name="swipe_to_call_summary">Deslize um contato ou um número para a direita para fazer uma chamada, ou para a esquerda para enviar uma mensagem em Telefone, Contatos ou Mensagens.</string>
     <string name="swipe_to_call_summary_dcm">Deslize um contato ou um número para a direita para fazer uma chamada, ou para a esquerda para enviar uma mensagem em Discar, Contatos ou Mensagens.</string>
-    <string name="swipe_to_call_summary_kddi">Deslize um contato ou um número para a direita para fazer uma chamada, ou para a esquerda para enviar uma mensagem em Telefone ou Contatos.</string>
+    <string name="swipe_to_call_summary_kddi">Deslize um contato ou um número para a direita para fazer uma chamada, ou para a esquerda para enviar uma mensagem em Discar ou Contatos.</string>
     <string name="dual_app_title">Messenger duplo</string>
     <string name="dual_app_summary">Use duas contas separadas para o mesmo aplicativo.</string>
     <string name="finger_sensor_gesture_title">Gestos do sensor de digital</string>
     <string name="finger_sensor_gesture_summary">Abre e fecha aplicativos e recursos com o sensor de impressão digital.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Abre e fecha o painel de notificações usando o sensor de impressão digital.</string>
     <string name="finger_sensor_gesture_description">Deslize para cima ou para baixo no sensor de impressão digital para abrir ou fechar o painel de notificações.</string>
     <string name="open_samsung_pay_title">Abrir o Samsung Pay</string>
     <string name="open_samsung_pay_summary">Na Tela inicial, deslize para cima no sensor de impressão digital para abrir o Samsung Pay.</string>
@@ -1070,6 +1078,7 @@ Até mesmo enquanto a Captura inteligente estiver desativada, você poderá aces
 %s"</string>
     <string name="enable_ps_title">Ativar %s</string>
     <string name="setup_wizard">Assistente</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normal</string>
     <string name="large">Grande</string>
     <string name="small">Pequena</string>
@@ -1215,7 +1224,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Baixe atualizações de software automaticamente quando estiver conectado a uma rede Wi-Fi. Você ainda poderá usar o aparelho durante o download.</string>
     <string name="auto_update_over_wifi">Download automático por Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">Baixe as atualizações de software automaticamente quando conectado a uma rede Wi-Fi. Dependendo da sua operadora, as atualizações também podem ser baixadas usando os dados móveis sem cobranças adicionais. Você ainda poderá usar seu telefone durante o download.</string>
-    <string name="scheduled_update">Atualiz. software agendadas</string>
+    <string name="scheduled_update">Atualizações de software agendadas</string>
     <string name="scheduled_update_summary_default">Desativado</string>
     <string name="scheduled_update_summary_set_time">A atualização será iniciada às %s</string>
     <string name="scheduled_update_summary_set_time_everyday">A atualização será iniciada às %s todos os dias</string>
@@ -1365,12 +1374,12 @@ Toque em OK para aumentar o brilho acima dos níveis de segurança."</string>
     <string name="color_balance_subtext_1">O Balanço de cores pode ser ajustado apenas no Modo de exibição adaptável.</string>
     <string name="color_balance_subtext_2">Seus ajustes não serão aplicados enquanto o Filtro de luz azul estiver ativado.</string>
     <string name="poc_balance_title">Balanço de cores borda da tela</string>
-    <string name="poc_balance_summary">Ajuste as cores nas bordas da tela para alterar a aparência dos tons de branco. Use isso apenas se um ajuste adicional for necessário próximo das bordas depois do ajuste do balanço de cor da tela cheia. Podem ser necessários %d minutos para aplicar seus ajustes.</string>
-    <string name="poc_balance_description_1">Ajuste as cores nas bordas da tela para alterar a aparência dos tons de branco. Use isso apenas se um ajuste adicional for necessário próximo das bordas depois do ajuste do balanço de cor da tela cheia.</string>
+    <string name="poc_balance_summary">Ajuste as cores nas bordas da tela para alterar a aparência dos tons de branco. Use isso apenas se um ajuste adicional for necessário próximo às bordas depois do ajuste da proporção de cores da tela cheia. A aplicação dos seus ajustes poderá demorar até %d minutos.</string>
+    <string name="poc_balance_description_1">Ajuste as cores nas bordas da tela para alterar a aparência dos tons de branco. Use isso apenas se um ajuste adicional for necessário próximo às bordas depois do ajuste da proporção de cores da tela cheia.</string>
     <string name="poc_balance_description_2">Isto poderá demorar %d minutos. Seu telefone poderá ser reiniciado até 2 vezes para aplicar seus ajustes.</string>
     <string name="poc_balance_not_enough_battery_title">Bateria fraca</string>
     <string name="poc_balance_not_enough_battery">Carregue a bateria até pelo menos %d%% antes do ajuste de cores nas bordas da tela.</string>
-    <string name="poc_progress_description_1">Otimizando cores da borda da tela…</string>
+    <string name="poc_progress_description_1">Otimizando as cores da borda da tela…</string>
     <string name="poc_progress_description_2">Seu telefone poderá ser reiniciado até 2 vezes para aplicar seus ajustes.</string>
     <string name="poc_progress_description_3">Não saia desta tela durante a otimização.</string>
     <string name="poc_progress_cancel_popup">Tem certeza de que deseja cancelar?</string>
@@ -1380,7 +1389,7 @@ Toque em OK para aumentar o brilho acima dos níveis de segurança."</string>
     <string name="poc_balance_error_occurred_popup_summary_2">Tente novamente.</string>
     <string name="poc_balance_was_stopped_popup_summary">Tente ajustar as cores nas bordas da tela novamente.</string>
     <string name="poc_balance_was_stopped_popup_title">Otimização de tela cancelada</string>
-    <string name="poc_balance_need_restart_popup_title">Otimizar cores da borda da tela?</string>
+    <string name="poc_balance_need_restart_popup_title">Otimizar as cores da borda da tela?</string>
     <string name="led_indicator_settings">Indicador de LED</string>
     <string name="led_indicator_settings_summary">Acende o indicador LED quando a tela está desligada para exibir o status da gravação de som, a existência de notificações não lidas e o status da bateria.</string>
     <string name="screen_resolution_desc">É possível que um conteúdo apareça desfocado ou não seja compatível com FHD ou HD.</string>
@@ -1419,6 +1428,7 @@ Toque em OK para aumentar o brilho acima dos níveis de segurança."</string>
     <string name="navigationbar_summary">Gerencie os botões Início, Voltar e Recentes.</string>
     <string name="navigationbar_theme_switch">Aplicar o tema atual</string>
     <string name="navigationbar_color_title">Cor de fundo</string>
+    <string name="navigationbar_color_summary">A cor de fundo selecionada pode não ser aplicada a todos os aplicativos.</string>
     <string name="navigationbar_order_title">Aparência do botão</string>
     <string name="navigationbar_order_default">Recentes - Início - Voltar</string>
     <string name="navigationbar_order_mirrored">Voltar - Início - Recentes</string>
@@ -1430,7 +1440,7 @@ Toque em OK para aumentar o brilho acima dos níveis de segurança."</string>
     <string name="navigationbar_pressure_low">Mais sensível</string>
     <string name="navigationbar_pressure_high">Menos sensível</string>
     <string name="navigationbar_hide_bar">Exibir e ocultar o botão</string>
-    <string name="navigationbar_hide_bar_summary">Adicione um botão ao lado esquerdo da barra de navegação para exibi-la ou ocultá-la.</string>
+    <string name="navigationbar_hide_bar_summary">Adicione um botão ao lado esquerdo da barra de navegação para exibir ou ocultar a barra.</string>
     <string name="full_screen_apps_title">Aplicativos de tela cheia</string>
     <string name="full_screen_apps_summary">Escolha quais aplicativos deseja usar na proporção de tela cheia.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Este aplicativo é otimizado para ser executado em tela cheia.</string>
@@ -1450,7 +1460,8 @@ Toque em OK para aumentar o brilho acima dos níveis de segurança."</string>
     <string name="blue_light_filter_enable_now">Ativar agora</string>
     <string name="blue_light_filter_enable_as_scheduled">Ativar como agendado</string>
     <string name="blue_light_filter_scheduled_toast">O filtro de luz azul está ativado. Ele será desativado automaticamente na hora final agendada.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s e o filtro de luz azul não podem ser usados ao mesmo tempo. O filtro de luz azul será desativado.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Desativar o Filtro de luz azul?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Para usar %s, o Filtro de luz azul precisa estar desativado.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Para usar Anoitecer ao amanhecer, a Localização precisa estar ativada.</string>
     <string name="dlg_turn_on">Ativar</string>
     <string name="screen_resolution_title">Resolução da tela</string>
@@ -1667,6 +1678,7 @@ A codificação demora uma hora ou mais. Antes de começar, verifique se a bater
     <string name="crypt_keeper_last_warn_wipe">Resta apenas mais 1 tentativa para inicializar o aparelho antes que ele seja redefinido para as configurações padrão de fábrica. Isso apagará todos os dados, incluindo arquivos e aplicativos baixados.</string>
     <string name="crypt_keeper_failed_title_dec">Erro ao decodificar.</string>
     <string name="crypt_keeper_failed_summary_dec">Não foi possível terminar a decodificação por causa da interrupção. Realize o reinício dos dados de fábrica (apagando todos os dados) antes de usar.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Definir tipo bloqueio de tela</string>
     <string name="encryption_interstitial_message">"Você pode proteger ainda mais este telefone exigindo que %s seja inserido(a) antes da inicialização do telefone. Isso ajuda a proteger seus dados se o telefone for perdido ou roubado. Alguns aplicativos podem exigir a Inicialização segura de acordo com as políticas de codificação do aparelho para acesso a recursos como sincronização de e-mail.
 
 Você não receberá nenhuma chamada, mensagem ou notificação e os alarmes não tocarão até que o telefone seja inicializado."</string>
@@ -1737,7 +1749,7 @@ Você não receberá chamadas, mensagens ou notificações e os alarmes não toc
     <string name="fingerprint_register_success">Impressão digital adicionada</string>
     <string name="fingerprint_register_add_another_fingerprint">Adicionar outra impressão digital?</string>
     <string name="fingerprint_register_add">Adicionar</string>
-    <string name="fingerprint_register_done">Concluído</string>
+    <string name="fingerprint_register_done">OK</string>
     <string name="fingerprint_register_dex_guide_msg">Cadastre sua impressão digital no seu telefone.</string>
     <string name="remove_mobile_keyboard">Para usar %s, remova o aparelho da capa do teclado.</string>
     <string name="fingerprint_already_registered_title">Impossível regis. imp. digital</string>
@@ -1905,7 +1917,8 @@ Você também precisará disso quando:"</string>
     <string name="verify_fingerprint_btn">Usar impressão digital</string>
     <string name="wifi_ap_close">Fechar</string>
     <string name="fingerscanner_add_summary">Adicione suas impressões digitais.</string>
-    <string name="fingerscanner_register_summary">%d impressão digital foi adicionada.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 impressão digital foi adicionada.</string>
+    <string name="fingerscanner_register_summary">%d digitais adicionadas.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Use uma impressão digital ou insira o PIN atual.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Use uma impressão digital ou desenhe o padrão atual.</string>
     <string name="lockpassword_confirm_your_password_with_fingerprint">Use uma impressão digital ou insira a senha atual.</string>
@@ -1931,6 +1944,7 @@ Você também precisará disso quando:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Desbloqueie seu telefone com o reconhecimento facial assim que a tela ligar, sem precisar deslizar primeiro.</string>
     <string name="facelock_recognition_speed_up">Reconhecimento mais rápido</string>
     <string name="facelock_recognition_speed_up_summary">Ative para reconhecimento mais rápido. Desative para aumentar a segurança e tornar mais difícil desbloquear usando uma imagem ou um vídeo.</string>
+    <string name="facelock_samsungpass_summary">Use o reconhecimento facial para validar sua identidade com %s e outros aplicativos compatíveis.</string>
     <string name="face_remove_face_popup_title">Remover dados do rosto?</string>
     <string name="face_remove_face_popup_message_1">Seu rosto não será mais reconhecido e o Bloqueio de rosto será desativado.</string>
     <string name="face_remove_face_popup_message_2">Os recursos que usam o reconhecimento facial serão desativados.</string>
@@ -1943,7 +1957,7 @@ Você também precisará disso quando:"</string>
 - Durante o registro, evite lugares com pouca iluminação e limpe a lente da câmera
 - Para ter melhores resultados de correspondência, tome cuidado para que sua foto não fique desfocada"</string>
     <string name="facelock_setup_title">Configurar segurança por reconhecimento facial</string>
-    <string name="facelock_setup_desc">Para usar o reconhecimento facial para desbloquear seu telefone ou para validar você mesmo nos aplicativos, você precisará:</string>
+    <string name="facelock_setup_desc">Para usar o reconhecimento facial para desbloquear seu telefone ou para fazer a sua validação nos aplicativos, você precisará:</string>
     <string name="facelock_setup_sub_desc2">Cadastre seu rosto.</string>
     <string name="face_chooselock_help_text_1">Para usar o reconhecimento facial com segurança, você precisa definir um padrão, um PIN ou uma senha.</string>
     <string name="face_chooselock_help_text_2">Lembre-se de que você precisará desbloquear seu telefone depois que ele reiniciar ou quando não utilizá-lo por mais de %d horas.</string>
@@ -2072,7 +2086,7 @@ Ative o Desbloqueio por íris para usar seus dados biométricos ou seu(sua) %s p
     <string name="biometrics_backup_locktype_title">Configurar a segurança com íris</string>
     <string name="biometrics_register_your_iris">Cadastre suas íris.</string>
     <string name="biometrics_backup_locktype_summary">Para usar as íris para desbloquear o aparelho, defina um padrão, um PIN ou uma senha.</string>
-    <string name="biometrics_backup_locktype_message">Para usar suas íris para desbloquear seu telefone ou para uma validação segura, você precisará:</string>
+    <string name="biometrics_backup_locktype_message">Para usar suas íris para desbloquear seu telefone ou para fazer a sua validação nos aplicativos, você precisará:</string>
     <string name="iris_delete_popup_title">Remover os dados da íris?</string>
     <string name="iris_delete_popup_message">Remover os dados da íris?</string>
     <string name="iris_delete_popup_message_with_related_func">Os recursos que usam íris serão desativados.</string>
@@ -2080,7 +2094,7 @@ Ative o Desbloqueio por íris para usar seus dados biométricos ou seu(sua) %s p
     <string name="iris_timeout_popop_title">Tente nov. dep.</string>
     <string name="iris_timeout_popop_message">As íris não foram reconhecidas. A câmera da íris pode estar suja. Limpe a área na parte de cima da tela e tente novamente.</string>
     <string name="iris_timeout_popop_message_1">A câmera da íris pode estar suja. Limpe a área na parte de cima da tela e tente novamente.</string>
-    <string name="iris_proximity_restriction_popop_message">As íris não foram reconhecidas. O telefone está muito próximo do rosto ou o sensor de proximidade pode estar sujo. Limpe a área na parte de cima da tela e tente novamente.</string>
+    <string name="iris_proximity_restriction_popop_message">Mantenha o telefone mais afastado do rosto e tente novamente.</string>
     <string name="iris_proximity_restriction_popop_message_1">"O sensor de proximidade pode estar sujo.
 Limpe a área acima da tela."</string>
     <string name="iris_try_again">Tente nov.</string>
@@ -2088,6 +2102,8 @@ Limpe a área acima da tela."</string>
     <string name="iris_failed_to_verity_identify">Não foi possível validar sua identidade</string>
     <string name="iris_failed_popup_description">Foram feitas %1$d tentativas para validar suas íris. Tente novamente em %2$d segundos.</string>
     <string name="iris_no_match">Sem correspondência</string>
+    <string name="iris_eye_safety_msg">Suas íris não foram reconhecidas.</string>
+    <string name="iris_timeout_msg">Suas íris não foram detectadas.</string>
     <string name="biometrics_registered">Registrado</string>
     <string name="iris_turn_on_toast_message">Bloqueio por íris ativado em vez do Bloqueio por impressão digital.</string>
     <string name="iris_wrong_backup_password">Senha de backup incorreta</string>
@@ -2279,6 +2295,8 @@ A determinação da sua localização utilizará a rede móvel. O uso de dados s
     <string name="aod_off_summary">Exibe o botão Início e um relógio ou informações na tela de espera.</string>
     <string name="aod_feature_off_popup_title">Desativar %s?</string>
     <string name="aod_feature_off_popup_description">Para usar %1$s, %2$s precisa estar desativado.</string>
+    <string name="aod_features_off_popup_title">Desativar outras funções?</string>
+    <string name="aod_features_off_popup_description">Para usar o Always On Display, as seguintes funções precisam ser desativadas:</string>
     <string name="aod_features_off_popup_btn_ok">Desativar</string>
     <string name="aod_disable_by_negative_colors">Não é possível ser usado enquanto a função Cores negativas estiver ativada.</string>
     <string name="aod_disable_by_powersaving_mode">Não é possível ser usado enquanto o Modo economia de energia estiver ativado.</string>
@@ -2302,6 +2320,9 @@ A determinação da sua localização utilizará a rede móvel. O uso de dados s
     <string name="unlock_effect_colour_droplet">Gota de cor</string>
     <string name="lock_screen_show_information_summary_wifi_only">Exibe as informações do proprietário do aparelho ou atalhos de aplicativos na tela de bloqueio.</string>
     <string name="lock_screen_sview_show_information_summary">Exibe o relógio duplo, as informações do proprietário do aparelho ou atalhos de aplicativos na tela de bloqueio e através da janela do S View.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Exibe o relógio de roaming ou as informações de contato do proprietário do telefone na Tela de bloqueio e através da janela do S View.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Selecione os atalhos dos aplicativos a serem exibidos na Tela de bloqueio e através da janela do S View.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Exibe notificações na Tela de bloqueio e através da janela do S View.</string>
     <string name="lock_screen_and_cover_show_information_summary">Exibir o relógio duplo na tela de bloqueio e através da View Cover Semitransparente.</string>
     <string name="lock_screen_secured_lock_settings_title">Configurações tela de bloqueio</string>
     <string name="lock_screen_secured_lock_settings_summary">Defina suas funções de bloqueio, tais como Bloqueio automático e Bloqueio instantâneo com a Tecla Ligar/Desligar.</string>
@@ -2318,6 +2339,7 @@ A determinação da sua localização utilizará a rede móvel. O uso de dados s
     <string name="set_home_city">Fuso horário local</string>
     <string name="contact_info_settings_title">Informações de contato</string>
     <string name="show_contact_info_on_lockscreen_label">Exibe informações, como seu número de telefone ou seu e-mail, na Tela de bloqueio.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Exibe informações, como número de telefone ou e-mail, na Tela de bloqueio e no Always On Display.</string>
     <string name="unlock_effect">Efeito de desbloqueio</string>
     <string name="walking_mate_title">Pedômetro</string>
     <string name="help_text_title">Texto de ajuda</string>
@@ -2417,7 +2439,7 @@ Se você remover as impressões digitais, os recursos que as utilizam serão des
     <string name="toast_set_lock_pattern">Todos os dados serão apagados e o telefone será redefinido se você esquecer o padrão.</string>
     <string name="toast_set_lock_password">Todos os dados serão apagados e o telefone será redefinido se você esquecer a senha.</string>
     <string name="toast_set_lock_pin">Todos os dados serão apagados e o telefone será redefinido se você esquecer o PIN.</string>
-    <string name="chooselock_warning_text">Lembre-se deste(a) %s. Ele(a) será necessário(a) após o reinício do aparelho.</string>
+    <string name="chooselock_warning_text">Lembre-se deste(a) %s. Ele(a) será necessário(a) após o reinício do seu telefone.</string>
     <string name="lockpassword_password_exists_history">Senha utilizada anteriormente. Insira a senha nova.</string>
     <string name="lockpassword_pin_repeating_nums">O PIN não deve conter números repetidos.</string>
     <string name="lockpassword_pin_sequential_nums">O PIN não deve conter números em ordem.</string>
@@ -2535,6 +2557,9 @@ Os Dados móveis serão desligados."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"A menos que você use Wi-Fi, não será mais possível usar a Internet, E-mail ou outros aplicativos que precisem de uma conexão de dados.
 
 Os Dados móveis serão desligados."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"Se os Dados móveis estiverem desativados, seu aparelho deverá ser conectado a uma rede Wi-Fi para usar os serviços que necessitam de uma conexão de rede.
+
+Os Dados móveis serão desativados."</string>
     <string name="mobile_data_off_dialog_text_vzw">A menos que você use Wi-Fi, não será possível usar a Internet, o E-mail ou outros aplicativos que exigem uma conexão de dados. Desativar a conexão de dados móveis?</string>
     <string name="mobile_data_off_dialog_text_volte">A função Videochamada do seu telefone não funcionará enquanto os dados móveis estiverem desativados. Também não será possível usar a Internet, o E-mail ou outros aplicativos que exigem uma conexão de dados, a menos que você use o Wi-Fi. Desativar a conexão de dados móveis?</string>
     <string name="mobile_data_off_dialog_text_common">A menos que você se conecte a uma rede Wi-Fi, não será possível usar Internet, E-mail ou outros aplicativos que precisam de uma conexão de rede.</string>
@@ -2693,10 +2718,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Personaliz. limite volume</string>
     <string name="volume_limiter_descryption">Proteja seus ouvidos com um limite máximo de volume de mídia. O limite será aplicado apenas enquanto você estiver usando fones de ouvido ou aparelhos de áudio Bluetooth.</string>
     <string name="multi_sound_title">Som do aplicativo separado</string>
-    <string name="multi_sound_summary">Reproduz o som de um aplicativo em um alto-falante ou em fones de ouvido separado de outros sons no seu aparelho.</string>
-    <string name="multi_sound_descryption">"Reproduz o som de mídia de um aplicativo em um alto-falante ou em fones de ouvido, separado do som de mídia dos outros aplicativos.
+    <string name="multi_sound_summary">Reproduz o som de mídia de um aplicativo em um aparelho de áudio separado do aparelho de saída de áudio principal do seu telefone.</string>
+    <string name="multi_sound_descryption">"Reproduza o som de mídia de um aplicativo em um aparelho de áudio separado do aparelho de saída de áudio principal do seu telefone. Selecione um aplicativo e um aparelho de áudio para ativar isso.
 
-Se você selecionar um aparelho de áudio Bluetooth, o som será reproduzido no aparelho de áudio padrão se o aparelho Bluetooth não estiver conectado."</string>
+O som do aplicativo separado só funcionará quando o aparelho de áudio selecionado for diferente do aparelho de saída de áudio principal do seu telefone.
+
+Você poderá alterar o aparelho de saída de áudio principal do seu telefone no painel de configurações rápidas. Se a saída de áudio não for exibida, ative-a em Samsung Connect > Configurações > Painel do Samsung Connect."</string>
     <string name="set_application_title">Aplicativo</string>
     <string name="set_application_summary">Selecione um aplicativo para reproduzir seu som em um aparelho de áudio separado.</string>
     <string name="set_application_descryption">Selecione um aplicativo multimídia abaixo para reproduzir seu som em um aparelho de áudio separado.</string>
@@ -2707,9 +2734,11 @@ Se você selecionar um aparelho de áudio Bluetooth, o som será reproduzido no 
     <string name="multi_sound_popup_msg">Para ativar %s, você precisa selecionar um aplicativo e um aparelho de áudio.</string>
     <string name="multi_sound_network_msg">Para verificar se há aplicativos disponíveis, seu telefone precisa estar conectado a uma rede. Verifique suas configurações de rede e tente novamente.</string>
     <string name="multi_sound_wifi_msg">Para procurar aplicativos disponíveis, seu telefone precisa conectar-se a uma rede. O uso de dados móveis poderá resultar em cobranças adicionais.</string>
+    <string name="multi_sound_add_application">Adicionar aplicativo</string>
     <string name="dlg_btn_select">Selecionar</string>
-    <string name="audio_device_type_descryption">Selecione qual aparelho de áudio deseja usar para este aplicativo. Os aparelhos Bluetooth só estarão disponíveis enquanto estiverem conectados.</string>
+    <string name="audio_device_type_descryption">Selecione qual aparelho de áudio deseja usar para o aplicativo selecionado. Os aparelhos Bluetooth só estarão disponíveis enquanto estiverem conectados.</string>
     <string name="my_phone_title">Telefone</string>
+    <string name="my_phone_summary">Alto-falante/fones de ouvido/aparelho de áudio USB</string>
     <string name="bluetooth_device_title">Aparelho Bluetooth</string>
     <string name="no_connected_devices">Nenhum dispositivo conectado</string>
     <string name="two_hours">2 horas</string>
@@ -2717,7 +2746,8 @@ Se você selecionar um aparelho de áudio Bluetooth, o som será reproduzido no 
     <string name="stop_setup_popup_msg">Qualquer configuração alterada não será aplicada.</string>
     <string name="app_turned_on">%s ligado.</string>
     <string name="force_touch_title">Resposta da pressão do toque</string>
-    <string name="volume_key_control_title">Controle padrão da Tecla de Volume</string>
+    <string name="volume_key_control_title">Usar teclas de volume p/ mídia</string>
+    <string name="volume_key_control_summary">Controla o volume da mídia quando você pressiona as teclas de volume.</string>
     <string name="sound_mode">Modo de som</string>
     <string name="sound_mode_vibrate">Vibrar</string>
     <string name="sound_mode_mute">Silenciar</string>
@@ -2931,14 +2961,13 @@ Tente novamente."</string>
     <string name="text_biometrics_title_enterprise">Quando você selecionar %1$s, os dados biométricos não serão aceitos como método de desbloqueio de %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">As impressões digitais não são aceitas pelo %1$s como um método de desbloqueio para %2$s.</string>
     <string name="edge_feeds_title">Feeds Edge</string>
-    <string name="screensaver_settings_summary">"Controle o que acontece enquanto o aparelho está ancorado e/ou carregando. O protetor de tela será exibido depois que a tela esgotar o tempo.
-
-Essa função também é chamada de Daydream"</string>
-    <string name="screensaver_settings_summary_wo_dock">Exibe uma proteção de tela depois que a tela desliga automaticamente enquanto seu telefone está carregando.</string>
+    <string name="screensaver_settings_summary">Exibe uma proteção de tela depois que a tela desliga automaticamente enquanto seu telefone está carregando.</string>
+    <string name="screensaver_settings_summary_wo_dock">Exibe uma proteção de tela depois que a tela desliga automaticamente enquanto seu telefone está carregando ou na base.</string>
     <string name="apn_already_exists">Já existe.</string>
     <string name="error_unavailable_apn">Este APN não é permitido neste aparelho. Selecione outro.</string>
     <string name="error_message_port_out_of_range">O número da porta deve estar entre %1$d e %2$d.</string>
     <string name="apn_restore_warning">Todos os APNs adicionados serão removidos. Os outros APNs serão redefinidos para suas configurações padrão.</string>
+    <string name="apn_restore_title">Redefinir configurações de APN?</string>
     <string name="master_clear_desc_google_account">Conta Google</string>
     <string name="first_use_tether_title">Exibir ajuda da Ancoragem USB</string>
     <string name="first_use_usb_tether_msg">Toque em OK para saber mais sobre o uso da Ancoragem USB.</string>
@@ -2950,7 +2979,8 @@ Essa função também é chamada de Daydream"</string>
     <string name="sound_balance_summary">Ajuste o balaço de som dos fones de ouvido da esquerda e da direita.</string>
     <string name="backup_samsung_account_title">Configurações de backup</string>
     <string name="restore_samsung_account_title">Restaurar</string>
-    <string name="auto_restart_header">Gerenciamento de dispositivo</string>
+    <string name="auto_restart_header">Gerenciamento de telefone</string>
+    <string name="auto_restart_header_tablet">Gerenciamento de tablets</string>
     <string name="auto_restart_title">Reinício automático</string>
     <string name="switch_turn_on_text">Ativar</string>
     <string name="switch_turn_off_text">Desligar</string>
@@ -3073,6 +3103,14 @@ Seus dados pessoais e as configurações para aplicativos baixados não serão a
     <string name="tether_settings_summary_usb_bt">Compartilhar a conexão de dados móvel do seu dispositivo via USB ou Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introdução à Ancoragem&lt;/b>&lt;br/>&lt;br/> A Ancoragem permite que seu aparelho Android seja usado como um modem para acessar a Internet no seu laptop em qualquer lugar. Esse recurso consome energia da bateria e aumenta o uso dos dados. Esse serviço requer a assinatura do plano de modem apropriado. Certifique-se de ter assinado o plano de dados adequado antes de usar. Ligue para 1-877-872-2249 se precisar de assistência. O uso do serviço constitui a aceitação dos&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Termos do modem do smartphone.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Aceitar</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Compartilhe a conexão com a Internet do seu telefone usando Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Compartilhe a conexão com a Internet do seu tablet usando Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Pronto para compartilhar a conexão com a internet deste telefone.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Pronto para compartilhar a conexão com a internet deste tablet.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Compartilhando a conexão com a Internet deste telefone com 1 aparelho.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Compartilhando a conexão com a Internet deste tablet com 1 aparelho.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Compartilhando a conexão com a Internet deste telefone com %d aparelhos.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Compartilhando a conexão com a Internet deste tablet com %d aparelhos.</string>
     <string name="onehand_settings_title">Modo de operação com uma mão</string>
     <string name="onehand_settings_text_1">Deslize para cima na diagonal a partir do canto inferior da tela para reduzir o tamanho da exibição.</string>
     <string name="onehand_settings_text_2">Toque no botão Início 3 vezes rapidamente para reduzir o tamanho da exibição.</string>
@@ -3400,6 +3438,8 @@ O download através de redes móveis poderá resultar em cobranças adicionais d
     <string name="wifi_settings_dialog_radio_off">Desativado</string>
     <string name="wifi_or_mobile_network">Redes Wi-Fi ou móveis</string>
     <string name="wifi_network_only">Somente rede Wi-Fi</string>
+    <string name="wifi_adps_title">Modo economia de energia Wi-Fi</string>
+    <string name="wifi_adps_summary">Reduza o uso da bateria analisando os padrões de tráfego Wi-Fi.</string>
     <string name="wifi_auto_reconnect">Reconexão automática</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Ativar o Wi-Fi desativará o ponto de acesso Mobile. Continuar?</string>
@@ -3605,6 +3645,10 @@ Após alterar o nome ou a senha do roteador Wi-Fi, será necessário gerar um no
     <string name="wifi_wps_pin_client_mobileap">Conectando ao cliente com o PIN %1$s. A configuração pode demorar até %2$d minutos para ser concluída.</string>
     <string name="wifi_wps_complete_mobileap">O outro dispositivo agora está conectado ao seu dispositivo.</string>
     <string name="wifi_ap_disconnect_warn">Desconectar dispositivo</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">O aparelho conectado no momento será desconectado do Roteador Wi-Fi.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Todos os dispositivos conectados no momento serão desconectados do Roteador Wi-Fi.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">O aparelho conectado no momento será desconectado do Roteador Wi-Fi.</string>
     <string name="wifi_ap_change_policy_warn">Todos os dispositivos conectados no momento serão desconectados do Roteador Wi-Fi.</string>
     <string name="wifi_ap_warn_max_whitelist">Número máximo de dispositivos permitidos (%d) atingido.</string>
     <string name="wifiap_one_item_deleted">1 item será excluído.</string>
@@ -3740,6 +3784,8 @@ O Roteador Wi-Fi aumenta o consumo de bateria e de uso de dados."</string>
     <string name="wifi_ap_first_time_configuration">Primeira configuração do Roteador</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi e Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Insira o PIN correto.</string>
+    <string name="open_mobileap_warning">Este PA móvel não é seguro.</string>
+    <string name="hidden_mobileap_warning">WPS será desativado quando o usuário definir um SSID oculto.</string>
     <string name="wifi_ssid_max_byte_error">Número máximo de caracteres atingido.</string>
     <string name="tethering_attention_title">Atenção</string>
     <string name="wfd_select_device">Selecione o dispositivo</string>
@@ -3970,6 +4016,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Sincronizar</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Esta permissão autoriza um aplicativo a exibir coisas sobre outros aplicativos que você está usando. Isso pode interferir no uso de outros aplicativos.</string>
+    <string name="write_settings_body_description">Permite que este aplicativo altere as configurações do sistema, como ativar ou desativar o Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Isto restaurará todas as suas preferências para:</string>
+    <string name="reset_app_preferences_desc2">Aplicativos desativados</string>
+    <string name="reset_app_preferences_desc3">Restrições de notificações para aplicativos</string>
+    <string name="reset_app_preferences_desc4">Aplicativos padrão</string>
+    <string name="reset_app_preferences_desc5">Restrições de dados em segundo plano para aplicativos</string>
+    <string name="reset_app_preferences_desc6">Restrições de permissão</string>
+    <string name="reset_app_preferences_desc7">Você não perderá seus dados de aplicativo existentes.</string>
     <string name="knox_security_mode_title">Segurança Knox</string>
     <string name="kap_title">Proteção ativa Knox</string>
     <string name="kap_eula_title">Política de Privacidade</string>
@@ -3984,6 +4038,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Gerencie suas informações pessoais e os detalhes da conta Samsung.</string>
     <string name="my_profile_summary_jpn">Gerencie suas informações pessoais e os detalhes da conta Galaxy.</string>
     <string name="arbitration_agreement">Acordo de Arbitragem</string>
+    <string name="activation_title">Status de ativação</string>
+    <string name="activation_summary">Ativado em %1$s. Para obter mais informações, visite %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF ativado</string>
+    <string name="edit_event_start_short">Início</string>
+    <string name="edit_event_end_short">Até</string>
+    <string name="select_date_to_view">Selecionar a data para visualizar</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="create">Criar</string>
@@ -5476,7 +5537,7 @@ Após criar um novo usuário, esta pessoa precisar seguir o processo de configur
     <string name="app_notification_block_title">Permitir notificações</string>
     <string name="app_notification_block_summary">Recebe notificações deste aplicativo, incluindo mensagens de notificação, sons e vibração.</string>
     <string name="app_notification_override_dnd_title">Definir como prioridade</string>
-    <string name="app_notification_override_dnd_summary">Permite que as notificações deste aplicativo toquem e ativem a tela quando a função Não perturbar estiver ativada.</string>
+    <string name="app_notification_override_dnd_summary">Exibe notificações na parte superior do painel de notificações e as inclui na lista de permissões enquanto o Modo Não perturbar estiver ativado.</string>
     <string name="app_notification_visibility_override_title">Na tela de bloqueio</string>
     <string name="app_notifications_dialog_done">Concluído</string>
     <string name="zen_mode_choose_rule_type">Selecionar o tipo de regra</string>
@@ -5513,6 +5574,7 @@ Após criar um novo usuário, esta pessoa precisar seguir o processo de configur
     <string name="restr_pin_enter_admin_pin">Inserir PIN do administrador</string>
     <string name="switch_on_text">Ativado</string>
     <string name="switch_off_text">Desativado</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Este perfil de trabalho é gerenciado por:</string>
     <string name="managing_admin">Gerenciado por %s</string>
     <string name="display_auto_rotate_title">Rotação da tela</string>
     <string name="display_auto_rotate_rotate">Girar conteúdo da tela</string>
@@ -5549,9 +5611,9 @@ Você não receberá nenhuma chamada, mensagem ou notificação e os alarmes nã
     <string name="encrypt_talkback_dialog_require_pin">Solicitar PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Solicit. padrão</string>
     <string name="encrypt_talkback_dialog_require_password">Solicitar senha</string>
-    <string name="encrypt_talkback_dialog_message_pin">Ao inserir seu PIN após a ligação do aparelho, as funções de acessibilidade tais como %1$s serão desativadas temporariamente.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Ao desenhar seu padrão após a ligação do aparelho, as funções de acessibilidade tais como %1$s serão desativadas temporariamente.</string>
-    <string name="encrypt_talkback_dialog_message_password">Ao inserir sua senha após a ligação do aparelho, as funções de acessibilidade tais como %1$s serão desativadas temporariamente.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Seu PIN será solicitado quando seu aparelho for ligado. As funções de acessibilidade não estarão disponíveis até que seu aparelho seja inicializado.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Seu padrão será solicitado quando seu aparelho for ligado. As funções de acessibilidade não estarão disponíveis até que seu aparelho seja inicializado.</string>
+    <string name="encrypt_talkback_dialog_message_password">Sua senha será solicitada quando seu aparelho for ligado. As funções de acessibilidade não estarão disponíveis até que seu aparelho seja inicializado.</string>
     <string name="slot_number">(slot %d)</string>
     <string name="app_launch_domain_links_title">Links para aplicativos</string>
     <string name="app_launch_open_domain_urls_title">Ir para URLs suportados</string>
@@ -5627,18 +5689,18 @@ Você não receberá nenhuma chamada, mensagem ou notificação e os alarmes nã
     <string name="usb_use_power_only">Carreg. apar. conectado</string>
     <string name="usb_use_power_only_desc">Carregue o aparelho conectado via USB.</string>
     <string name="usb_use_file_transfers_vzw">Transferência de arquivo</string>
-    <string name="usb_use_file_transfers">Transfer. arq. de mídia</string>
+    <string name="usb_use_file_transfers">Transferir arquivos</string>
     <string name="usb_use_photo_transfers_vzw">Transferência de fotos</string>
     <string name="usb_use_photo_transfers">Transferir as imagens</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfira fotos da câmera para um computador.</string>
-    <string name="usb_use_photo_transfers_summary">Selecione este modo se Transferir arquivos de mídia não estiver funcionando. Você só pode transferir arquivos de imagem.</string>
+    <string name="usb_use_photo_transfers_summary">Selecione este modo se Transferir arquivos não estiver funcionando. Você só pode transferir arquivos de imagem neste modo.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Conectar aparelho MIDI</string>
     <string name="usb_use">Usar USB para</string>
-    <string name="assist_access_context_title">Ler texto na tela</string>
-    <string name="assist_access_context_summary">Permite que o aplicativo de auxílio ao aparelho leia qualquer texto mostrado na tela.</string>
-    <string name="assist_access_screenshot_title">Fazer/acessar capturas de tela</string>
-    <string name="assist_access_screenshot_summary">Permite que o aplicativo de auxílio ao aparelho capture e acesse as telas.</string>
+    <string name="assist_access_context_title">Analisar o texto na tela</string>
+    <string name="assist_access_context_summary">Permite que o aplicativo de assistência ao aparelho analise o texto exibido na tela para fornecer o conteúdo relacionado.</string>
+    <string name="assist_access_screenshot_title">Analisar as imagens na tela</string>
+    <string name="assist_access_screenshot_summary">Permite que o aplicativo de assistência ao aparelho capture e use imagens da tela.</string>
     <string name="assist_footer">Os aplicativos de auxílio ao aparelho podem ajudá-lo ao reunir informações da tela exibida atualmente no seu telefone. Alguns aplicativos de auxílio ao aparelho podem ser usados para abrir outros aplicativos e inserir texto por meio de entrada de voz, oferecendo auxílio integrado.</string>
     <string name="average_memory_use">Uso médio da RAM</string>
     <string name="maximum_memory_use">Uso máximo da RAM</string>
@@ -5667,7 +5729,7 @@ Você não receberá nenhuma chamada, mensagem ou notificação e os alarmes nã
     <string name="ignore_optimizations_on_desc">Pode aumentar o consumo de bateria</string>
     <string name="ignore_optimizations_off_desc">Recomendado para economizar energia da bateria</string>
     <string name="app_list_preference_none">Nenhum</string>
-    <string name="allow_overlay_description">Selecione os aplicativos para permitir que seus botões, pop-ups ou outros elementos apareçam sobre outros aplicativos que você está usando.</string>
+    <string name="allow_overlay_description">Esta permissão autoriza um aplicativo a exibir coisas sobre outros aplicativos que você está usando. Isso pode interferir no uso de outros aplicativos.</string>
     <string name="overlay_settings">Aplicativos que podem aparecer na parte superior</string>
     <string name="filter_overlay_apps">Aplicativos com permissão</string>
     <string name="filter_write_settings_apps">Aplicativos com permissão</string>
@@ -5714,22 +5776,22 @@ Você não receberá nenhuma chamada, mensagem ou notificação e os alarmes nã
     <string name="ethernet_data_template">%1$s de dados Ethernet</string>
     <string name="cell_warning_only">Aviso de dados em %s</string>
     <string name="cell_warning_and_limit">%1$s Aviso de uso de dados/%2$s Limite de uso de dados</string>
-    <string name="billing_cycle">Ciclo de cobrança</string>
+    <string name="billing_cycle">Ciclo de cobrança e aviso de dados</string>
     <string name="billing_cycle_summary">Dia %s de cada mês</string>
     <string name="billing_cycle_fragment_summary">Dia %s de cada mês</string>
     <string name="network_restrictions">Restringir redes</string>
     <string name="operator_warning">O uso de dados é medido pelo seu aparelho. Sua operadora pode contabilizar o uso de outro modo.</string>
     <string name="data_used_template">%s usado(s)</string>
     <string name="data_warning">Aviso de dados</string>
-    <string name="set_data_limit">Limite de dados</string>
+    <string name="set_data_limit">Definir limite de dados</string>
     <string name="data_limit">Limite de dados</string>
     <string name="data_usage_template">%1$s usado(s) entre %2$s</string>
     <string name="data_usage_other_apps">Apps relac. incluídos em uso</string>
     <string name="data_saver_title">Protetor de dados</string>
-    <string name="unrestricted_data_saver">Perm. app c/ Prot. dados ativado</string>
+    <string name="unrestricted_data_saver">Permitir uso de dados sem restrição</string>
     <string name="restrict_background_blacklisted">A função Restringir dados em segundo plano está ativada</string>
     <string name="data_saver_on">Ativada</string>
-    <string name="unrestricted_app_title">Perm. app c/ Prot. dados ativado</string>
+    <string name="unrestricted_app_title">Permitir uso de dados sem restrição</string>
     <string name="unrestricted_app_summary">Permite que este aplicativo use dados móveis sem restrições mesmo enquanto o Protetor de dados estiver ativado.</string>
     <string name="home_app">Tela inicial</string>
     <string name="no_default_home">Sem tela inicial padrão</string>
@@ -5763,5 +5825,4 @@ Seu aparelho inclui um software de diagnóstico que pode, com a sua autorizaçã
     <string name="enable_iris_lock_desc_3">"Seu tipo de bloqueio de tela está definido atualmente para Impressões digitais.
 
 Para definir o tipo de bloqueio de tela como Íris em vez de Impressões digitais, toque em ATIVAR. Em seguida, o aparelho poderá ser desbloqueado usando sua íris ou %s."</string>
-    <string name="my_phone_summary">Alto-falante/fones de ouvido/aparelho de áudio USB</string>
 </resources>

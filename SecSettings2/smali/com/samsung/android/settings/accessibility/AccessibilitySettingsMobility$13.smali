@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->showAutoClickExclusivePopup()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,18 +19,6 @@
 
 # instance fields
 .field final synthetic this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
-
-
-# direct methods
-.method constructor <init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$13;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
 
 
 # virtual methods
@@ -45,13 +33,17 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$13;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-get1(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Lcom/samsung/android/settings/SettingsSwitchPreference;
+    invoke-static {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-get5(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Lcom/samsung/android/settings/SettingsSwitchPreference;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setChecked(Z)V
 
-    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+    invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
+
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_0
     return v1

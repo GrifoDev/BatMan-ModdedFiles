@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">Nu se poate scana pentru rețele</string>
     <string name="wifi_failed_to_obtain_IP">Imposibil de obținut adresa IP</string>
     <string name="wifi_security_none">Niciuna</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Nu se poate realiza conectarea la %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Nu se poate realiza conectarea la %1$s. Verificați setările din %2$s și încercați din nou.</string>
     <string name="bluetooth_pairing_rejected_error_message">Asocierea a fost respinsă de %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Se obține numele dispozitivului…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Numele dispozitivului va apărea atunci când acestea este conectat.</string>
     <string name="accessibility_wifi_off">Wi-Fi dezactivat.</string>
     <string name="accessibility_no_wifi">Wi-Fi deconectat.</string>
     <string name="accessibility_wifi_one_bar">Semnal Wi-Fi: o bară.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Asistenţă</string>
     <string name="reset_network_settings_list_summary">Resetați la valorile implicite setările pentru conexiunile Wi-Fi, Bluetooth și alte rețele.</string>
     <string name="master_clear_list_summary">Resetați dispozitivul la setările implicite din fabrică. Această acțiune va elimina toate datele, inclusiv fișierele și aplicațiile descărcate.</string>
-    <string name="auto_restart_summary">Optimizați funcționarea dispozitivului repornindu-l automat la intervale stabilite. Toate datele nesalvate se vor pierde atunci când dispozitivul repornește.</string>
+    <string name="auto_restart_summary">Optimizați telefonul repornind-l automat o dată pe săptămână. Toate datele nesalvate se vor pierde atunci când telefonul repornește.</string>
+    <string name="auto_restart_summary_tablet">Optimizați tableta repornind-o automat o dată pe săptămână. Toate datele nesalvate se vor pierde atunci când tableta repornește.</string>
     <string name="search_settings">Căutare</string>
     <string name="related_results">%d elemente corelate</string>
     <string name="no_results_found">Nu au fost găsite rezultate</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Balansul audio este cu %d la sută spre dreapta. Utilizați două degete pentru a glisa cursorul.</string>
     <string name="sound_balance_set">Setare</string>
     <string name="accessibility_assistant_menu">Meniu asistent</string>
-    <string name="assistant_menu_summary">Activează funcții pt. a îmbunătăți accesibilitatea dispozitivelor pt. utiliz. cu dexteritate redusă.</string>
+    <string name="assistant_menu_summary">Accesibilitatea telefonului este îmbunătățită pentru utilizatorii cu dexteritate redusă.</string>
     <string name="color_blind_title">Ajustare culoare</string>
     <string name="no_result">Reglați culorile de pe ecran dacă întâmpinați dificultăți la citire.</string>
     <string name="you_are_normal">Ajustarea culorii nu este necesară.</string>
@@ -653,6 +656,7 @@ Atunci când funcția este activată, opțiunea Rotire automată ecran va fi dez
     <string name="direct_access_actions_accessibility_title">Accesibilitate</string>
     <string name="direct_access_actions_negative_title">Culori negative</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Opțiunile Acces direct și Reducere dimensiune ecran nu pot fi activate simultan. Opțiunea Reducere dimensiune ecran va fi dezactivată.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s și %2$s nu pot fi activate simultan. %3$s va fi dezactivată.</string>
     <string name="direct_access_actions_color_adjustment_summary">Configurați opțiunea Ajustare culoare din Vedere pentru a o utiliza în Acces direct</string>
     <string name="direct_access_actions_screen_reader_summary">Activați Cititorul de pagini pentru a-l utiliza din Acces direct.</string>
     <string name="direct_access_actions_accesscontrol_title">Control interacțiune</string>
@@ -850,7 +854,9 @@ Conexiunile Wi-Fi și Bluetooth vor fi oprite, de asemenea, dar le puteți porni
     <string name="premium_sms_values_ask">Solicitare</string>
     <string name="premium_sms_values_never">Niciodată permis</string>
     <string name="premium_sms_values_allow">Permis întotdeauna</string>
-    <string name="assist_and_voice_input_summary">Aplicațiile de asistență pentru dispozitiv oferă mai multe opțiuni și informații despre fiecare ecran.</string>
+    <string name="assist_and_voice_input_summary">Selectați ce aplicație doriți să utilizați atunci când mențineți apăsat butonul Acasă.</string>
+    <string name="assist_footer_phone">Selectați aplicația pe care doriți să o utilizați atunci când mențineți apăsat buton Acasă. Aplicațiile de asistență pentru dispozitiv vă pot ajuta colectând informații de pe ecranul afișat pe telefon în momentul actual.</string>
+    <string name="assist_footer_tablet">Selectați aplicația pe care doriți să o utilizați atunci când mențineți apăsat buton Acasă. Aplicațiile de asistență pentru dispozitiv vă pot ajuta colectând informații de pe ecranul afișat pe tabletă în momentul actual.</string>
     <string name="default_app_title">Setare ca implicită</string>
     <string name="premium_sms_title">Trimitere SMS premium</string>
     <string name="default_app_selection">Select. aplicație implic.</string>
@@ -939,7 +945,7 @@ Puteți schimba această permisiune ulterior, accesând setările Bluetooth."</s
 
 Este posibil să experimentați o mică diferență între cele 2 surse de ieșire audio."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Opriți funcția Sincronizare volum media?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Pentru a utiliza Sunet dual, funcția Sincronizare volum media trebuie să fie oprită.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Pentru a controla volumul de pe fiecare dispozitiv audio, funcția Sincronizare volum media trebuie oprită.</string>
     <string name="bluetooth_avc_title">Sincronizare volum media</string>
     <string name="bluetooth_avc_description">Dacă dispozitivul Bluetooth conectat poate controla volumul media al telefonului, nivelul volumului setat de dispozitivul Bluetooth se va sincroniza cu telefonul dvs.</string>
     <string name="bluetooth_avc_volume_change_description">Pornirea acestei funcții poate provoca modificări neașteptate ale volumului.</string>
@@ -948,6 +954,7 @@ Este posibil să experimentați o mică diferență între cele 2 surse de ieși
     <string name="bluetooth_avc_ask_popup_title">Opriți Sunet dual?</string>
     <string name="bluetooth_avc_ask_popup_content">Pentru a utiliza Sincronizare volum media, funcția Sunet dual trebuie să fie oprită.</string>
     <string name="bluetooth_avc_disable_description">Dispozitivul Bluetooth conectat nu acceptă funcția Sincronizare volum media. Nu puteți sincroniza volumul telefonului cu dispozitivul Bluetooth conectat.</string>
+    <string name="bluetooth_avc_available_description">Dispozitivul Bluetooth conectat acceptă funcția Sincronizare volum media, iar nivelul volumului setat de dispozitivul Bluetooth se va sincroniza cu telefonul dvs.</string>
     <string name="bluetooth_enter_pin_msg">Introduceți codul PIN pentru asocierea cu %s (încercați 0000 sau 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">A fost atins numărul maxim de caractere.</string>
     <string name="settings_menu_done">Efectuat</string>
@@ -1031,11 +1038,12 @@ Chiar dacă funcția Captură inteligentă este dezactivată, caracteristicile a
     <string name="swipe_to_call_title">Glisați pentru apel sau mesaje</string>
     <string name="swipe_to_call_summary">Glisați un contact sau un număr spre dreapta pentru a efectua un apel sau spre stânga pentru a trimite un mesaj din aplicațiile Telefon, Contacte sau Mesaje.</string>
     <string name="swipe_to_call_summary_dcm">Glisați un contact sau un număr spre dreapta pentru a efectua un apel sau spre stânga pentru a trimite un mesaj din Apelare, Contacte sau Mesaje.</string>
-    <string name="swipe_to_call_summary_kddi">Glisați un contact sau un număr spre dreapta pentru a efectua un apel sau spre stânga pentru a trimite un mesaj din Telefon sau Contacte.</string>
+    <string name="swipe_to_call_summary_kddi">Glisați un contact sau un număr spre dreapta pentru a efectua un apel sau spre stânga pentru a trimite un mesaj din Apelare sau Contacte.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">Utilizați două conturi separate pentru aceeași aplicație.</string>
     <string name="finger_sensor_gesture_title">Gesturi senzor amprentă</string>
     <string name="finger_sensor_gesture_summary">Deschideți și închideți aplicații și caracteristici cu ajutorul senzorului de amprentă.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Deschideți și închideți panoul de notificări utilizând senzorul pentru amprente.</string>
     <string name="finger_sensor_gesture_description">Glisați în sus sau în jos pe senzorul de amprentă pentru a deschide sau a închide panoul de notificare.</string>
     <string name="open_samsung_pay_title">Deschidere serviciu Samsung Pay</string>
     <string name="open_samsung_pay_summary">Din ecranul Acasă, glisați pe senzorul de amprentă pentru a deschide serviciul Samsung Pay.</string>
@@ -1070,6 +1078,7 @@ Chiar dacă funcția Captură inteligentă este dezactivată, caracteristicile a
 %s"</string>
     <string name="enable_ps_title">Activare %s</string>
     <string name="setup_wizard">Expert configurare</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normal</string>
     <string name="large">Mare</string>
     <string name="small">Mic</string>
@@ -1215,7 +1224,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Descărcați automat actualizări software atunci când sunteți conectat la o rețea Wi-Fi. Veți putea să utilizați dispozitivul în continuare în timpul descărcării.</string>
     <string name="auto_update_over_wifi">Descărcare automată prin Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">Descărcați automat actualizări software atunci când sunteți conectat la o rețea Wi-Fi. În funcție de furnizorul de servicii, actualizările pot fi descărcate și prin conexiunea de date mobile, fără costuri suplimentare. Veți putea utiliza în continuare telefonul în timpul descărcării.</string>
-    <string name="scheduled_update">Actualiz. software programate</string>
+    <string name="scheduled_update">Actualizări de software programate</string>
     <string name="scheduled_update_summary_default">Oprit</string>
     <string name="scheduled_update_summary_set_time">Actualizarea va începe la %s</string>
     <string name="scheduled_update_summary_set_time_everyday">Actualizarea va începe zilnic la %s</string>
@@ -1417,6 +1426,7 @@ Atingeți OK pentru a mări luminozitatea peste nivelurile de siguranță."</str
     <string name="navigationbar_summary">Gestionați butoanele Acasă, Înapoi și Aplicații recente.</string>
     <string name="navigationbar_theme_switch">Aplicare temă actuală</string>
     <string name="navigationbar_color_title">Culoare de fundal</string>
+    <string name="navigationbar_color_summary">Culoarea zonei de fundal pe care ați selectat-o poate să nu fie aplicată tuturor aplicațiilor.</string>
     <string name="navigationbar_order_title">Aspect buton</string>
     <string name="navigationbar_order_default">Recente – Acasă – Înapoi</string>
     <string name="navigationbar_order_mirrored">Înapoi – Acasă – Recente</string>
@@ -1448,7 +1458,8 @@ Atingeți OK pentru a mări luminozitatea peste nivelurile de siguranță."</str
     <string name="blue_light_filter_enable_now">Pornire imediată</string>
     <string name="blue_light_filter_enable_as_scheduled">Pornire conform programării</string>
     <string name="blue_light_filter_scheduled_toast">Filtru de lumină albastră pornit. Acesta va fi oprit automat la ora de sfârșit planificată.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">Funcțiile %s și Filtru lumină albastră nu pot fi utilizate simultan. Funcția Filtru lumină albastră va fi dezactivată.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Opriți funcția Filtru lumină albastră?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Pentru a utiliza %s, funcția Filtru lumină albastră trebuie oprită.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Pentru a utiliza funcția De la apus la răsărit, trebuie pornită opțiunea Locație.</string>
     <string name="dlg_turn_on">Pornire</string>
     <string name="screen_resolution_title">Rezoluție ecran</string>
@@ -1665,6 +1676,7 @@ Criptarea durează cel puțin o oră. Înainte de a începe, asigurați-vă că 
     <string name="crypt_keeper_last_warn_wipe">V-a mai rămas 1 încercare de pornire a dispozitivului înainte ca acesta să fie resetat la setările implicite din fabrică. Acest lucru va șterge toate datele, inclusiv fișierele și aplicațiile descărcate.</string>
     <string name="crypt_keeper_failed_title_dec">Decriptare nereușită</string>
     <string name="crypt_keeper_failed_summary_dec">Nu se poate finaliza decriptarea, din cauza unei întreruperi. Efectuați resetarea la datele din fabrică (ștergerea tuturor datelor) înainte de utilizare.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Set. tip de blocare ecran</string>
     <string name="encryption_interstitial_message">"Vă puteți proteja și mai mult telefonul solicitând să se introducă %s înainte de pornirea telefonului. Această acțiune va ajuta la protejarea datelor dvs. în cazul în care telefonul este pierdut sau furat. Este posibil ca unele aplicații să necesite o Pornire securizată conform Politicilor de criptare a dispozitivului pentru a accesa caracteristici, precum sincronizarea e-mailurilor.
 
 Nu veți primi apeluri, mesaje sau notificări, nici alarmele nu vor suna până când telefonul nu pornește."</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Utilizare amprentă</string>
     <string name="wifi_ap_close">Închidere</string>
     <string name="fingerscanner_add_summary">Adăugați amprentele dvs.</string>
+    <string name="fingerscanner_register_1_finger_summary">A fost adăugată o amprentă.</string>
     <string name="fingerscanner_register_summary">Au fost adăugate %d amprente.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Utilizați o amprentă sau introduceți codul PIN actual.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Utilizați o amprentă sau desenați modelul actual.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Deblocați telefonul prin recunoașterea facială imediat ce pornește ecranul, fără a-l glisa mai întâi.</string>
     <string name="facelock_recognition_speed_up">Recunoaștere mai rapidă</string>
     <string name="facelock_recognition_speed_up_summary">Porniți pentru o recunoaștere mai rapidă. Opriți pentru a spori securitatea și a crește dificultatea deblocării cu ajutorul unei imagini sau al unui videoclip.</string>
+    <string name="facelock_samsungpass_summary">Utilizați recunoașterea facială pentru a verifica identitatea dvs. prin %s și alte aplicații acceptate.</string>
     <string name="face_remove_face_popup_title">Eliminați datele privind fața dvs.?</string>
     <string name="face_remove_face_popup_message_1">Fața dvs. nu va mai fi recunoscută, iar funcția Blocare prin recunoașterea feței va fi oprită.</string>
     <string name="face_remove_face_popup_message_2">Caracteristicile care utilizează recunoașterea facială vor fi oprite.</string>
@@ -1941,7 +1955,7 @@ You will also need it when:"</string>
 – În momentul înregistrării, evitați mediile ambiante cu lumină slabă sau obiectivul murdar al camerei
 – Pentru rezultate mai bune la potrivire, asigurați-vă că imaginea dvs. nu este neclară"</string>
     <string name="facelock_setup_title">Configurare securitate recunoaștere facială</string>
-    <string name="facelock_setup_desc">Dacă doriți să utilizați recunoașterea feței pentru a debloca telefonul sau pentru a vă verifica identitatea în aplicații, va trebui să:</string>
+    <string name="facelock_setup_desc">Dacă doriți să utilizați recunoașterea facială pentru a debloca telefonul sau pentru a vă verifica identitatea în aplicații, va trebui să:</string>
     <string name="facelock_setup_sub_desc2">Înregistrați fața dvs.</string>
     <string name="face_chooselock_help_text_1">Dacă doriți să utilizați recunoașterea facială în mod securizat, trebuie să setați un model, un cod PIN sau o parolă.</string>
     <string name="face_chooselock_help_text_2">Rețineți aceste elemente. Va trebui să le utilizați pentru a debloca telefonul după ce repornește sau dacă nu a fost utilizat de peste %d de ore.</string>
@@ -2050,7 +2064,7 @@ Selectați metoda dorită pentru deblocarea telefonului. Deblocarea facială și
     <string name="iris_use_samsung_pass">Samsung Pass</string>
     <string name="iris_use_samsung_pass_summary">Utilizați irisurile pentru verificarea identității prin %s și alte aplicații acceptate.</string>
     <string name="iris_use_samsung_pass_description_internet">Internet</string>
-    <string name="iris_unlock">Iris deblocat</string>
+    <string name="iris_unlock">Deblocare cu iris</string>
     <string name="iris_unlock_summary">Deblocați telefonul prin intermediul irisurilor.</string>
     <string name="tips_for_iris">Sfaturi pt. ut. recun. prin iris</string>
     <string name="iris_remove_popup_1">Datele despre irisul dvs. vor fi eliminate. Tipul de blocare a ecranului se va schimba la %s.</string>
@@ -2070,7 +2084,7 @@ Porniți Deblocare prin iris pentru a utiliza datele dvs. biometrice sau %s pent
     <string name="biometrics_backup_locktype_title">Configurare securitate prin iris</string>
     <string name="biometrics_register_your_iris">Înregistrați irisurile dvs.</string>
     <string name="biometrics_backup_locktype_summary">Dacă doriți să vă utilizați irisurile pentru a debloca dispozitivul, trebuie să setați un model, un cod PIN sau o parolă.</string>
-    <string name="biometrics_backup_locktype_message">Dacă doriți să utilizați autentificarea prin irisuri pentru a debloca telefonul sau pentru verificarea securizată, va trebui să:</string>
+    <string name="biometrics_backup_locktype_message">Dacă doriți să utilizați irisurile pentru a debloca telefonul sau pentru a vă verifica identitatea în aplicații, va trebui să:</string>
     <string name="iris_delete_popup_title">Eliminați datele despre iris?</string>
     <string name="iris_delete_popup_message">Eliminați datele despre iris?</string>
     <string name="iris_delete_popup_message_with_related_func">Caracteristicile care utilizează irisurile vor fi oprite.</string>
@@ -2078,7 +2092,7 @@ Porniți Deblocare prin iris pentru a utiliza datele dvs. biometrice sau %s pent
     <string name="iris_timeout_popop_title">Reîncercați</string>
     <string name="iris_timeout_popop_message">Nu au fost recunoscute irisurile. Camera foto pentru iris poate fi murdară. Curățați zona de deasupra ecranului și încercați din nou.</string>
     <string name="iris_timeout_popop_message_1">Camera foto pentru iris poate fi murdară. Curățați zona de deasupra ecranului și încercați din nou.</string>
-    <string name="iris_proximity_restriction_popop_message">Nu au fost recunoscute irisurile. Telefonul este prea aproape de față sau senzorul de proximitate poate să fie murdar. Curățați zona de deasupra ecranului și încercați din nou.</string>
+    <string name="iris_proximity_restriction_popop_message">Țineți telefonul mai departe de față și încercați din nou.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Senzorul de proximitate poate fi murdar.
 Curățați zona de deasupra ecranului."</string>
     <string name="iris_try_again">Reînc.</string>
@@ -2086,6 +2100,8 @@ Curățați zona de deasupra ecranului."</string>
     <string name="iris_failed_to_verity_identify">Nu s-a putut verifica identitatea</string>
     <string name="iris_failed_popup_description">Au existat %1$d încercări de verificare a irisurilor dvs. Încercați din nou peste %2$d secunde.</string>
     <string name="iris_no_match">Nicio potrivire</string>
+    <string name="iris_eye_safety_msg">Irisurile dvs. nu au fost recunoscute.</string>
+    <string name="iris_timeout_msg">Irisurile dvs. nu au fost detectate.</string>
     <string name="biometrics_registered">Înregistrate</string>
     <string name="iris_turn_on_toast_message">Blocarea prin iris a fost activată în locul Blocării prin amprente.</string>
     <string name="iris_wrong_backup_password">Parolă backup incorectă</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Afișați butonul Acasă și un ceas sau informații pe ecranul de așteptare.</string>
     <string name="aod_feature_off_popup_title">Opriți %s?</string>
     <string name="aod_feature_off_popup_description">Pentru a utiliza %1$s, %2$s trebuie oprit.</string>
+    <string name="aod_features_off_popup_title">Opriți alte funcții?</string>
+    <string name="aod_features_off_popup_description">Pentru a utiliza Always On Display, următoarele funcții trebuie să fie oprite:</string>
     <string name="aod_features_off_popup_btn_ok">Oprire</string>
     <string name="aod_disable_by_negative_colors">Nu se poate utiliza în timp ce opțiunea Culori negative este pornită.</string>
     <string name="aod_disable_by_powersaving_mode">Nu se poate utiliza în timp ce Modul Economisire energie este pornit.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Picături colorate</string>
     <string name="lock_screen_show_information_summary_wifi_only">Afișați pe ecranul de blocare informații despre proprietarul dispozitivului sau comenzi rapide la aplicații.</string>
     <string name="lock_screen_sview_show_information_summary">Afișați pe ecranul de blocare și prin fereastra S View ceasul dual, informații despre proprietarul dispozitivului sau comenzi rapide la aplicații.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Afișați pe ceasul în roaming sau informațiile de contact ale proprietarului dispozitivului pe ecranul de blocare și prin fereastra S View.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Selectați comenzile rapide la aplicații pe care doriți să le afișați pe ecranul de blocare și prin fereastra S View.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Afișați notificări pe ecranul de blocare și prin fereastra S View.</string>
     <string name="lock_screen_and_cover_show_information_summary">Afișați ceasul dual pe ecranul de blocare și prin fereastra Clear View Cover.</string>
     <string name="lock_screen_secured_lock_settings_title">Setări Blocare securizată</string>
     <string name="lock_screen_secured_lock_settings_summary">Configurați funcțiile de blocare, cum ar fi Blocarea automată și Blocarea imediată cu tasta pornire.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Fus orar acasă</string>
     <string name="contact_info_settings_title">Informații de contact</string>
     <string name="show_contact_info_on_lockscreen_label">Afișați informații pe ecranul de blocare, cum ar fi numărul de telefon sau adresa de e-mail.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Afișați informații pe ecranul de blocare și pe Always On Display, cum ar fi numărul de telefon sau adresa de e-mail.</string>
     <string name="unlock_effect">Efect deblocare</string>
     <string name="walking_mate_title">Pedometru</string>
     <string name="help_text_title">Text asistență</string>
@@ -2374,7 +2396,7 @@ Pentru a fixa o aplicație pe ecran:
     <string name="setup_lock_screen_intro_radio_fingerprint">Configurare Scaner de amprente</string>
     <string name="setup_lock_screen_intro_radio_face">Configurare Recunoaștere facială</string>
     <string name="setup_lock_screen_intro_radio_generic">Configurare cod PIN, model sau parolă</string>
-    <string name="setup_lock_screen_intro_radio_no">Nu, mulțumim</string>
+    <string name="setup_lock_screen_intro_radio_no">Nu, mulțumesc</string>
     <string name="setup_lock_screen_intro_success">Configurarea metodei de blocare a ecranului a reușit.</string>
     <string name="setup_lock_screen_intro_dialog_text_frp">"Protecția dispozitivului este activată automat atunci când adăugați un cont Google și setați o metodă de blocare a ecranului. Împreună cu Android Device Manager, aceasta vă ajută să vă localizați telefonul și să ștergeți datele din acesta dacă l-ați pierdut sau a fost furat.
 
@@ -2415,7 +2437,7 @@ Se recomandă eliminarea datelor biometrice, dar le puteți păstra pentru a uti
     <string name="toast_set_lock_pattern">Dacă uitați modelul, toate datele vor fi șterse și telefonul va fi resetat.</string>
     <string name="toast_set_lock_password">Dacă uitați parola, toate datele vor fi șterse și telefonul va fi resetat.</string>
     <string name="toast_set_lock_pin">Dacă uitați codul PIN, toate datele vor fi șterse și telefonul va fi resetat.</string>
-    <string name="chooselock_warning_text">Rețineți acest tip de blocare %s. Vă va fi solicitat după ce reporniți dispozitivul.</string>
+    <string name="chooselock_warning_text">Rețineți acest tip de blocare %s. Va fi solicitat după ce reporniți telefonul.</string>
     <string name="lockpassword_password_exists_history">Parolă utilizată anterior. Introduceți o parolă nouă.</string>
     <string name="lockpassword_pin_repeating_nums">Codul PIN nu trebuie să conțină cifre repetitive.</string>
     <string name="lockpassword_pin_sequential_nums">Codul PIN nu trebuie să conțină cifre în ordine.</string>
@@ -2533,6 +2555,9 @@ Datele mobile vor fi oprite."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Dacă nu utilizați o conexiune Wi-Fi, nu veți mai putea să utilizați Internetul, Emailul sau alte aplicații care necesită o conexiune de date.
 
 Datele mobile vor fi oprite."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Dacă nu vă conectați la o rețea Wi-Fi, nu veți putea să utilizați Internet, Email sau alte aplicații care necesită o conexiune de rețea.</string>
@@ -2691,10 +2716,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Limită volum personalizată</string>
     <string name="volume_limiter_descryption">Protejați-vă auzul cu ajutorul unei limite maxime a volumului conținutului media. Limita va fi aplicată numai atunci când utilizați căști sau dispozitive audio Bluetooth.</string>
     <string name="multi_sound_title">Sunet aplicație separată</string>
-    <string name="multi_sound_summary">Redați sunetul unei aplicații pe un difuzor sau pe o cască separat de restul sunetelor dispozitivului.</string>
-    <string name="multi_sound_descryption">"Redați sunet media de la o aplicație prin difuzor sau prin căști, separat de restul de sunete media de la alte aplicații.
+    <string name="multi_sound_summary">Redați sunetul media unei aplicații pe un dispozitiv audio separat de dispozitivul principal de ieșire audio al telefonului.</string>
+    <string name="multi_sound_descryption">"Redați sunetul media dintr-o aplicație pe un dispozitiv audio separat de dispozitivul principal de ieșire audio al telefonului. Selectați o aplicație și un dispozitiv audio pentru a porni această funcție.
 
-Dacă selectați un dispozitiv audio Bluetooth, sunetul va fi redat prin dispozitivul audio implicit dacă dispozitivul Bluetooth nu este conectat."</string>
+Aplicația audio separată funcționează doar atunci când dispozitivul audio selectat diferă de dispozitivul principal de ieșire audio al telefonului.
+
+Puteți schimba dispozitivul principal de ieșire audio al telefonului din panoul de setări rapide. Dacă ieșirea audio nu este afișată, porniți-o din meniul Samsung Connect > Setări > Panou Samsung Connect."</string>
     <string name="set_application_title">Aplicație</string>
     <string name="set_application_summary">Selectați o aplicație pentru a reda acest sunet pe un dispozitiv audio separat.</string>
     <string name="set_application_descryption">Selectați o aplicație multimedia de mai jos pentru a reda sunetul acesteia pe un dispozitiv audio separat.</string>
@@ -2705,9 +2732,11 @@ Dacă selectați un dispozitiv audio Bluetooth, sunetul va fi redat prin dispozi
     <string name="multi_sound_popup_msg">Pentru a porni %s, trebuie să selectați o aplicație și un dispozitiv audio.</string>
     <string name="multi_sound_network_msg">Pentru a căuta aplicații disponibile, telefonul trebuie să fie conectat la o rețea. Verificați setările de rețea și încercați din nou.</string>
     <string name="multi_sound_wifi_msg">Pentru a căuta aplicații disponibile, telefonul trebuie să fie conectat la o rețea. Utilizarea datelor mobile poate genera costuri suplimentare.</string>
+    <string name="multi_sound_add_application">Adăugare aplicație</string>
     <string name="dlg_btn_select">Selectare</string>
-    <string name="audio_device_type_descryption">Selectați dispozitivul audio pe care doriți să-l utilizați pentru această aplicație. Dispozitivele Bluetooth vor fi disponibile doar atunci când sunt conectate.</string>
+    <string name="audio_device_type_descryption">Selectați dispozitivul audio pe care doriți să-l utilizați pentru aplicația selectată. Dispozitivele Bluetooth vor fi disponibile doar atunci când sunt conectate.</string>
     <string name="my_phone_title">Telefon</string>
+    <string name="my_phone_summary">Difuzor/căști/dispozitiv audio USB</string>
     <string name="bluetooth_device_title">Dispozitiv Bluetooth</string>
     <string name="no_connected_devices">Niciun dispozitiv conectat</string>
     <string name="two_hours">2 ore</string>
@@ -2715,7 +2744,8 @@ Dacă selectați un dispozitiv audio Bluetooth, sunetul va fi redat prin dispozi
     <string name="stop_setup_popup_msg">Toate setările pe care le-ați modificat nu vor fi aplicate.</string>
     <string name="app_turned_on">%s pornită.</string>
     <string name="force_touch_title">Feedback prin vibr. apăs. putern.</string>
-    <string name="volume_key_control_title">Control implicit tastă Volum</string>
+    <string name="volume_key_control_title">Ut. tastele Volum pt. conț. media</string>
+    <string name="volume_key_control_summary">Controlați volumul media atunci când apăsați tastele Volum.</string>
     <string name="sound_mode">Mod sunet</string>
     <string name="sound_mode_vibrate">Vibrare</string>
     <string name="sound_mode_mute">Silențios</string>
@@ -2929,14 +2959,13 @@ Reîncercați."</string>
     <string name="text_biometrics_title_enterprise">Atunci când selectați %1$s, datele biometrice nu vor fi acceptate drept metodă de deblocare pentru %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">Amprentele nu sunt acceptate de %1$s drept metodă de deblocare pentru %2$s.</string>
     <string name="edge_feeds_title">Flux. Ecr. lat.</string>
-    <string name="screensaver_settings_summary">"Controlați ceea ce se întâmplă atunci când dispozitivul este andocat și/sau se încarcă. Economizorul de ecran va fi afișat după ce ecranul intră în repaus.
-
-Această funcție mai este denumită și Daydream."</string>
-    <string name="screensaver_settings_summary_wo_dock">Se afișează un economizor de ecran după ce ecranul se oprește automat în timp ce telefonul se încarcă.</string>
+    <string name="screensaver_settings_summary">Se afișează un economizor de ecran după ce ecranul se oprește automat în timp ce telefonul se încarcă.</string>
+    <string name="screensaver_settings_summary_wo_dock">Se afișează un screensaver după ce ecranul se oprește automat în timp ce telefonul este andocat sau se încarcă.</string>
     <string name="apn_already_exists">Există deja.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Numărul portului trebuie să fie cuprins între %1$d și %2$d.</string>
     <string name="apn_restore_warning">Toate rețelele APN pe care le-ați adăugat vor fi eliminate. Celelalte rețele APN pe care le-ați editat vor fi resetate la setările implicite.</string>
+    <string name="apn_restore_title">Resetați setările APN?</string>
     <string name="master_clear_desc_google_account">Cont Google</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2948,7 +2977,8 @@ Această funcție mai este denumită și Daydream."</string>
     <string name="sound_balance_summary">Ajustați balansul audio în partea stângă și cea dreaptă pentru căști.</string>
     <string name="backup_samsung_account_title">Setări copii de rezervă</string>
     <string name="restore_samsung_account_title">Restaurare</string>
-    <string name="auto_restart_header">Gestionare dispozitiv</string>
+    <string name="auto_restart_header">Gestionare telefon</string>
+    <string name="auto_restart_header_tablet">Gestionare tabletă</string>
     <string name="auto_restart_title">Repornire automată</string>
     <string name="switch_turn_on_text">Activare</string>
     <string name="switch_turn_off_text">Oprire</string>
@@ -3071,6 +3101,16 @@ Datele dvs. personale și setările aplicațiilor descărcate nu vor fi afectate
     <string name="tether_settings_summary_usb_bt">Partajați conexiunea mobilă de date a dispozitivului prin USB sau Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Acce.</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Partajați conexiunea la internet a telefonului dvs. prin Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Partajați conexiunea la internet a tabletei dvs. prin Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Partajarea conexiunii la internet a telefonului este pregătită.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Partajarea conexiunii la internet a tabletei este pregătită.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Se partajează conexiunea la internet a telefonului cu 1 dispozitiv.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Se partajează conexiunea la internet a tabletei cu 1 dispozitiv.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Se partajează conexiunea la internet a telefonului cu %d dispozitive.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Se partajează conexiunea la internet a tabletei cu %d dispozitive.</string>
+    <string name="tether_settings_summary_bt_phone">Partajați conexiunea la internet a telefonului dvs. prin Bluetooth.</string>
+    <string name="tether_settings_summary_bt_tablet">Partajați conexiunea la internet a tabletei dvs. prin Bluetooth.</string>
     <string name="onehand_settings_title">Mod Utilizare cu o mână</string>
     <string name="onehand_settings_text_1">Pentru a reduce dimensiunea afișajului, glisați în sus în diagonală din oricare colț din partea de jos a ecranului.</string>
     <string name="onehand_settings_text_2">Pentru a reduce rapid dimensiunea afișajului, atingeți rapid de 3 ori tasta Acasă.</string>
@@ -3398,12 +3438,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Oprit</string>
     <string name="wifi_or_mobile_network">Rețele Wi-Fi sau mobile</string>
     <string name="wifi_network_only">Numai rețea Wi-Fi</string>
+    <string name="wifi_adps_title">Mod Economisire energie Wi-Fi</string>
+    <string name="wifi_adps_summary">Reduceți utilizarea bateriei analizând modelele traficului Wi-Fi.</string>
     <string name="wifi_auto_reconnect">Reconectare automată</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Activarea Wi-Fi va dezactiva Mobile Hotspot. Continuați?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Conexiunea Wi-Fi este oprită când funcția Hotspot mobil este activă. Pentru a porni Wi-Fi opriți Hotspot mobil.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">Conexiunea Wi-Fi este oprită când funcția Mobile Hotspot este activă. Pentru a porni conexiunea Wi-Fi, opriți funcția Mobile Hotspot.</string>
+    <string name="wifi_enable_warning_mtr">Conexiunea Wi-Fi este oprită când funcția Hotspot mobil este activă. Pentru a porni conexiunea Wi-Fi, opriți funcția Hotspot mobil.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">Activarea Wi-Fi va dezactiva Mobile hotspot.</string>
     <string name="wifi_control_history_title">Istoric control Wi-Fi</string>
@@ -3502,11 +3544,11 @@ After you start the Mobile Hotspot Wi-Fi router, connect using the controls on y
 You can create an allowed device profile and set the connection mode for it.
 
 Using Portable Wi-Fi hotspot consumes more battery power and increases your data usage."</string>
-    <string name="wifi_ap_instruction_changeable_maxclient">"Puteți utiliza dispozitivul ca punct de acces la internet utilizând Mobile hotspot. Aceasta permite unui număr de maximum %d alte dispozitive să se conecteze la acesta prin Wi-Fi. Dispozitivele conectate vor avea acces la internet prin rețeaua dvs. mobilă.
+    <string name="wifi_ap_instruction_changeable_maxclient">"Puteți utiliza dispozitivul ca punct de acces la internet utilizând Hotspot mobil. Aceasta permite unui număr de maximum %d alte dispozitive să se conecteze la acesta prin Wi-Fi. Dispozitivele conectate vor avea acces la internet prin rețeaua dvs. mobilă.
 
 Puteți crea un profil pentru dispozitivele permise și puteți seta un mod de conectare pentru acesta.
 
-Utilizarea Mobile hotspot crește consumul bateriei și utilizarea datelor."</string>
+Utilizarea Hotspot mobil crește consumul bateriei și utilizarea datelor."</string>
     <string name="wifi_ap_instruction_mtr">"Turn your phone into Portable Wi-Fi Hotspot so you can share your mobile data connection with other devices.
 
 To use your phone's Hotspot capability, you must have the Smartphone Mobile Hotspot service added to your rate plan.
@@ -3562,7 +3604,7 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_ap_timeout_message_spr">Disable Hotspot if there is no connection for</string>
     <string name="wifi_ap_timeout_message_att">Automatically disable Mobile Hotspot if there are no connected devices.</string>
     <string name="wifi_ap_timeout_message_mtr">Automatically disable Portable Wi-Fi hotspot if there are no connected devices.</string>
-    <string name="wifi_ap_timeout_message">Dezactivați automat Mobile hotspot dacă nu sunt conectate dispozitive.</string>
+    <string name="wifi_ap_timeout_message">Dezactivați automat Hotspot mobil dacă nu sunt conectate dispozitive.</string>
     <string name="wifi_ap_disconnect_client">Dacă dezactivați Mobile hotspot, dispozitivele conectate nu vor putea să utilizeze conexiunea dvs. la rețeaua mobilă.</string>
     <string name="wifi_ap_qr_code">Cod QR</string>
     <string name="wifi_ap_qr_code_title">Generator coduri QR</string>
@@ -3603,6 +3645,10 @@ După schimbarea numelui sau a parolei hotspotului mobil, trebuie generat un nou
     <string name="wifi_wps_pin_client_mobileap">Se realizează conexiunea la client cu ajutorul codului PIN pentru %1$s. Finalizarea configurării poate dura până la %2$d minute.</string>
     <string name="wifi_wps_complete_mobileap">Celălalt dispozitiv este acum conectat la dispozitivul dvs.</string>
     <string name="wifi_ap_disconnect_warn">Deconectați dispozitivul</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Toate dispozitivele conectate în prezent vor fi deconectate de la Mobile hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Toate dispozitivele conectate în prezent vor fi deconectate de la Mobile hotspot.</string>
     <string name="wifi_ap_warn_max_whitelist">A fost atins numărul maxim de dispozitive permise (%d).</string>
     <string name="wifiap_one_item_deleted">1 element va fi șters.</string>
@@ -3625,7 +3671,7 @@ Wi-Fi is now on."</string>
     <string name="wifiaplan_dlg_restart_required">Restart Sprint Hotspot</string>
     <string name="wifi_menu_wps_pin_client_mobileap">Cod PIN client WPS</string>
     <string name="wifi_tether_checkbox_text_chameleon">Hotspot</string>
-    <string name="dialog_battery_data_warning">Mobile hotspot va fi activat. Aceasta va crește consumul bateriei și utilizarea datelor.</string>
+    <string name="dialog_battery_data_warning">Hotspot mobil va fi activat. Aceasta va crește consumul bateriei și utilizarea datelor.</string>
     <string name="dialog_ssid_warning">Codul SSID conține numărul dvs. de telefon. Pentru a configura codul SSID, accesați Configurare > SSID rețea.</string>
     <string name="wifi_ap_show_advanced">Afișare opțiuni avansate</string>
     <string name="wifi_ap_channel">Difuzare canal</string>
@@ -3738,6 +3784,8 @@ Utilizarea funcției Hotspot mobil crește consumul bateriei și utilizarea date
     <string name="wifi_ap_first_time_configuration">Prima configurare Hotspot</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Introduceți codul PIN corect.</string>
+    <string name="open_mobileap_warning">Acest AP mobil nu este securizat.</string>
+    <string name="hidden_mobileap_warning">WPS va fi dezactivată atunci când un utilizator setează un SSID ascuns.</string>
     <string name="wifi_ssid_max_byte_error">A fost atins numărul maxim de caractere.</string>
     <string name="tethering_attention_title">Atenție</string>
     <string name="wfd_select_device">Selectare dispozitiv</string>
@@ -3968,6 +4016,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Sincronizare</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Această permisiune oferă posibilitatea unei aplicații să afișeze elemente deasupra celorlalte aplicații pe care le utilizați. Acest lucru poate afecta utilizarea altor aplicații.</string>
+    <string name="write_settings_body_description">Permiteți acestei aplicații să modifice setările de sistem, cum ar fi pornirea sau oprirea conexiunii Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Această acțiune va reseta toate preferințele dvs. pentru:</string>
+    <string name="reset_app_preferences_desc2">Aplicații dezactivate</string>
+    <string name="reset_app_preferences_desc3">Restricții notificare pentru aplicații</string>
+    <string name="reset_app_preferences_desc4">Aplicații implicite</string>
+    <string name="reset_app_preferences_desc5">Restricții date de fundal pentru aplicații</string>
+    <string name="reset_app_preferences_desc6">Restricții permisiune</string>
+    <string name="reset_app_preferences_desc7">Nu veți pierde datele existente ale aplicațiilor.</string>
     <string name="knox_security_mode_title">Securitate Knox</string>
     <string name="kap_title">Protecție activă Knox</string>
     <string name="kap_eula_title">Politică de confid.</string>
@@ -3982,6 +4038,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Gestionați informațiile personale și detaliile contului Samsung.</string>
     <string name="my_profile_summary_jpn">Gestionați informațiile personale și detaliile contului Galaxy.</string>
     <string name="arbitration_agreement">Acord de arbitraj</string>
+    <string name="activation_title">Stare activare</string>
+    <string name="activation_summary">Activată pe %1$s. Pentru mai multe informații, accesați %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF activat</string>
+    <string name="edit_event_start_short">Începe</string>
+    <string name="edit_event_end_short">Final</string>
+    <string name="select_date_to_view">Selectare dată de vizualizat</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Da</string>
     <string name="no">Nu</string>
     <string name="create">Creare</string>
@@ -5474,7 +5537,7 @@ Orice utilizator poate accepta permisiunile actualizate pentru aplicație în nu
     <string name="app_notification_block_title">Permitere notificări</string>
     <string name="app_notification_block_summary">Primiți notificări de la această aplicație, inclusiv mesaje de notificare, sunete și vibrații.</string>
     <string name="app_notification_override_dnd_title">Setare ca prioritar</string>
-    <string name="app_notification_override_dnd_summary">Permiteți notificărilor acestei aplicații să sune și să pornească ecranul atunci când Modul Nu deranjați este activat.</string>
+    <string name="app_notification_override_dnd_summary">Afișați notificările noi în partea de sus a panoului de notificare și includeți-le în lista de elemente permise atunci când este activat modul Nu deranjați.</string>
     <string name="app_notification_visibility_override_title">Pe ecranul de blocare</string>
     <string name="app_notifications_dialog_done">Efectuat</string>
     <string name="zen_mode_choose_rule_type">Selectați tipul de regulă</string>
@@ -5511,6 +5574,7 @@ Orice utilizator poate accepta permisiunile actualizate pentru aplicație în nu
     <string name="restr_pin_enter_admin_pin">Introduceți PIN-ul de administrator</string>
     <string name="switch_on_text">Activat</string>
     <string name="switch_off_text">Oprit</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Acest profil de serviciu este gestionat de:</string>
     <string name="managing_admin">Gestionat de %s</string>
     <string name="display_auto_rotate_title">Rotire ecran</string>
     <string name="display_auto_rotate_rotate">Rotire conținut ecran</string>
@@ -5547,9 +5611,9 @@ Nu veți primi niciun apel, mesaj sau notificare și alarmele nu vor suna până
     <string name="encrypt_talkback_dialog_require_pin">Cod PIN necesar</string>
     <string name="encrypt_talkback_dialog_require_pattern">Model necesar</string>
     <string name="encrypt_talkback_dialog_require_password">Parolă necesară</string>
-    <string name="encrypt_talkback_dialog_message_pin">Atunci când introduceţi codul PIN după ce porniţi dispozitivul, funcţiile ca, de exemplu, %1$s vor fi dezactivate temporar.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Atunci când desenaţi modelul după ce porniţi dispozitivul, funcţiile ca, de exemplu, %1$s vor fi dezactivate temporar.</string>
-    <string name="encrypt_talkback_dialog_message_password">Atunci când introduceţi parola după ce porniţi dispozitivul, funcţiile ca, de exemplu, %1$s vor fi dezactivate temporar.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Vi se va solicita codul PIN atunci când dispozitivul pornește. Funcțiile de accesibilitate nu vor fi disponibile până când nu pornește dispozitivul.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Vi se va solicita modelul atunci când dispozitivul pornește. Funcțiile de accesibilitate nu vor fi disponibile până când nu pornește dispozitivul.</string>
+    <string name="encrypt_talkback_dialog_message_password">Vi se va solicita parola atunci când dispozitivul pornește. Funcțiile de accesibilitate nu vor fi disponibile până când nu pornește dispozitivul.</string>
     <string name="slot_number">(slot %d)</string>
     <string name="app_launch_domain_links_title">Linkuri la aplicații</string>
     <string name="app_launch_open_domain_urls_title">Acc. adr. URL acceptate</string>
@@ -5625,18 +5689,18 @@ Nu veți primi niciun apel, mesaj sau notificare și alarmele nu vor suna până
     <string name="usb_use_power_only">Încărcare disp. conectat</string>
     <string name="usb_use_power_only_desc">Dispozitivul conectat se încarcă prin USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Transfer de fișiere media</string>
+    <string name="usb_use_file_transfers">Transfer fișiere</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Transfer de imagini</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Selectați acest mod dacă opțiunea Transfer fișiere media nu funcționează. Puteți transfera doar fișiere imagine.</string>
+    <string name="usb_use_photo_transfers_summary">Selectați acest mod dacă opțiunea Transfer fișiere nu funcționează. În acest mod puteți transfera doar fișiere imagine.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Conectați un disp. MIDI</string>
     <string name="usb_use">Utilizare USB pentru</string>
-    <string name="assist_access_context_title">Citiți textul de pe ecran</string>
-    <string name="assist_access_context_summary">Permiteți aplicației de asistență pentru dispozitiv să citească orice text afișat pe ecran.</string>
-    <string name="assist_access_screenshot_title">Realiz./accesare capturi de ecran</string>
-    <string name="assist_access_screenshot_summary">Permiteți aplicației de asistență pentru dispozitiv să realizeze și să acceseze capturi de ecran.</string>
+    <string name="assist_access_context_title">Analiză text pe ecran</string>
+    <string name="assist_access_context_summary">Permiteți aplicației de asistență pentru dispozitiv să analizeze textul afișat pe ecran pentru a oferi conținut corelat.</string>
+    <string name="assist_access_screenshot_title">Analiză imagini pe ecran</string>
+    <string name="assist_access_screenshot_summary">Permiteți aplicației de asistență pentru dispozitiv să realizeze și să utilizeze imagini ale ecranului.</string>
     <string name="assist_footer">Aplicațiile de asistență pentru dispozitiv vă pot ajuta colectând informații de pe ecranul afișat pe telefon în momentul actual. Anumite aplicații de asistență pentru dispozitiv pot fi utilizate pentru a deschide alte aplicații și a introduce text utilizând comenzile vocale, oferindu-vă asistență integrată.</string>
     <string name="average_memory_use">Utilizare medie memorie RAM</string>
     <string name="maximum_memory_use">Utilizare maximă RAM</string>
@@ -5665,7 +5729,7 @@ Nu veți primi niciun apel, mesaj sau notificare și alarmele nu vor suna până
     <string name="ignore_optimizations_on_desc">Poate crește consumul bateriei</string>
     <string name="ignore_optimizations_off_desc">Recomandat pentru economisirea energiei bateriei</string>
     <string name="app_list_preference_none">Niciuna</string>
-    <string name="allow_overlay_description">Selectați aplicații pentru a permite ca butoanele, ferestrele pop-up sau alte elemente ale acestora să apară deasupra aplicațiilor pe care le utilizați.</string>
+    <string name="allow_overlay_description">Această permisiune oferă posibilitatea unei aplicații să afișeze elemente deasupra celorlalte aplicații pe care le utilizați. Acest lucru poate afecta utilizarea altor aplicații.</string>
     <string name="overlay_settings">Aplicații care pot apărea în partea superioară</string>
     <string name="filter_overlay_apps">Aplicații cu permisiune</string>
     <string name="filter_write_settings_apps">Aplicații cu permisiune</string>
@@ -5712,14 +5776,14 @@ Nu veți primi niciun apel, mesaj sau notificare și alarmele nu vor suna până
     <string name="ethernet_data_template">%1$s de date Ethernet</string>
     <string name="cell_warning_only">Avertizare utilizare date la %s</string>
     <string name="cell_warning_and_limit">%1$s Avertisment utilizare date/%2$s Limită utilizare date</string>
-    <string name="billing_cycle">Ciclu de facturare</string>
+    <string name="billing_cycle">Avertism. ciclu facturare și date</string>
     <string name="billing_cycle_summary">Ziua %s a fiecărei luni</string>
     <string name="billing_cycle_fragment_summary">Ziua %s a fiecărei luni</string>
     <string name="network_restrictions">Restricționare rețele</string>
     <string name="operator_warning">Utilizarea datelor este măsurată de dispozitiv. Evidențele furnizorului de servicii privind utilizarea pot fi diferite.</string>
     <string name="data_used_template">%s utilizat</string>
     <string name="data_warning">Avertizare date</string>
-    <string name="set_data_limit">Limită de date</string>
+    <string name="set_data_limit">Setare limită date</string>
     <string name="data_limit">Limită de date</string>
     <string name="data_usage_template">%1$s utilizați între %2$s</string>
     <string name="data_usage_other_apps">Aplic. corelate incl. în utiliz.</string>
@@ -5761,5 +5825,4 @@ Dispozitivul dvs. include software de diagnosticare cu ajutorul căruia, dacă n
     <string name="enable_iris_lock_desc_3">"Opțiunea Amprente este setată în momentul actual drept tip de blocare a ecranului.
 
 Pentru a seta tipul de blocare a ecranului la Irisuri în loc de Amprente, atingeți ACTIVARE. Dispozitivul poate fi deblocat apoi utilizând irisurile sau %s."</string>
-    <string name="my_phone_summary">Difuzor/căști/dispozitiv audio USB</string>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dω %2$dλ</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d ωρ %2$d λεπ</string>
+    <string name="battery_history_minutes_no_seconds">%d λεπτό</string>
     <string name="wifi_fail_to_scan">Δεν είναι δυνατή η σάρωση για δίκτυα</string>
     <string name="wifi_failed_to_obtain_IP">Αποτυχία λήψης διεύθυνσης IP.</string>
     <string name="wifi_security_none">Κανένα</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Δεν είναι δυνατή η σύνδεση στη συσκευή %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Αδυναμία σύνδεσης στο %1$s. Ελέγξτε τις ρυθμίσεις σας στο %2$s και δοκιμάστε ξανά.</string>
     <string name="bluetooth_pairing_rejected_error_message">Απόρριψη δημιουργίας ζεύγους από %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Λήψη ονόματος συσκευής…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Το όνομα της συσκευής θα εμφανιστεί όταν η συσκευή συνδεθεί.</string>
     <string name="accessibility_wifi_off">Wi-Fi ανενεργό.</string>
     <string name="accessibility_no_wifi">Το Wi-Fi έχει αποσυνδεθεί.</string>
     <string name="accessibility_wifi_one_bar">Μία γραμμή Wi-Fi.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Υποστήριξη</string>
     <string name="reset_network_settings_list_summary">Να γίνει επαναφορά των ρυθμίσεων Wi-Fi, Bluetooth και άλλων ρυθμίσεων δικτύου στις προεπιλεγμένες τιμές τους.</string>
     <string name="master_clear_list_summary">Κάντε επαναφορά της συσκευής σας στις εργοστασιακές προεπιλεγμένες ρυθμίσεις. Αυτή η ενέργεια θα σβήσει όλα τα δεδομένα, συμπεριλαμβανομένων των αρχείων και των εφαρμογών που έχετε κάνει λήψη.</string>
-    <string name="auto_restart_summary">Βελτιστοποιήστε τη λειτουργία της συσκευής σας με την αυτόματη επανεκκίνησή της σε προκαθορισμένες ώρες. Κατά την επανεκκίνηση της συσκευής τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
+    <string name="auto_restart_summary">Βελτιστοποιήστε το τηλέφωνό σας, κάνοντας αυτόματη επανεκκίνηση μία φορά την εβδομάδα. Κατά την επανεκκίνηση του τηλεφώνου τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
+    <string name="auto_restart_summary_tablet">Βελτιστοποιήστε το tablet σας, κάνοντας αυτόματη επανεκκίνηση μία φορά την εβδομάδα. Κατά την επανεκκίνηση του tablet τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
     <string name="search_settings">Αναζήτηση</string>
     <string name="related_results">%d σχετικά στοιχεία</string>
     <string name="no_results_found">Δεν βρέθηκαν αποτελέσματα</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Η εξισορρόπηση ήχου βρίσκεται %d τοις εκατό προς τα δεξιά. Χρησιμοποιήστε δύο δάχτυλα για να σύρετε το ρυθμιστικό.</string>
     <string name="sound_balance_set">Ορισμός</string>
     <string name="accessibility_assistant_menu">Βοηθητικό μενού</string>
-    <string name="assistant_menu_summary">Ενεργ. λειτ. για τη βελτίωση της προσβασιμότητας στη συσκευή για χρήστες με μικρότερη επιδεξιότητα.</string>
+    <string name="assistant_menu_summary">Βελτιώστε την προσβασιμότητα του τηλεφώνου για χρήστες με μειωμένες κινητικές δυνατότητες.</string>
     <string name="color_blind_title">Προσαρμογή χρωμάτων</string>
     <string name="no_result">Προσαρμόστε τα χρώματα της οθόνης αν δυσκολεύεστε να διαβάσετε την οθόνη σας.</string>
     <string name="you_are_normal">Η προσαρμογή χρωμάτων δεν είναι απαραίτητη.</string>
@@ -653,6 +656,7 @@ Enter the code you get from Verizon:"</string>
     <string name="direct_access_actions_accessibility_title">Προσβ/τητα</string>
     <string name="direct_access_actions_negative_title">Αρνητικά χρώματα</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Δεν είναι δυνατή η ταυτόχρονη ενεργοποίηση των λειτουργιών «Απευθείας πρόσβαση» και «Μείωση μεγέθους οθόνης». Η λειτουργία «Μείωση μεγέθους οθόνης» θα απενεργοποιηθεί.</string>
+    <string name="direct_access_exclusive_popup_msg">Δεν είναι δυνατή η ταυτόχρονη ενεργοποίηση της λειτουργίας %1$s και της λειτουργίας %2$s. Η λειτουργία %3$s θα απενεργοποιηθεί.</string>
     <string name="direct_access_actions_color_adjustment_summary">Ρύθμιση προσαρμογής χρώματος στο μενού «Όραση» για χρήση στην Απευθείας πρόσβαση</string>
     <string name="direct_access_actions_screen_reader_summary">Ενεργοποιήστε την εφαρμογή ανάγνωσης σελίδων για χρήση στην Απευθείας πρόσβαση.</string>
     <string name="direct_access_actions_accesscontrol_title">Έλεγχος αλληλεπίδρασης</string>
@@ -850,7 +854,9 @@ Enter the code you get from Verizon:"</string>
     <string name="premium_sms_values_ask">Ερώτηση</string>
     <string name="premium_sms_values_never">Να μην επιτρ. ποτέ</string>
     <string name="premium_sms_values_allow">Επιτρέπεται πάντα</string>
-    <string name="assist_and_voice_input_summary">Οι εφαρμογές βοήθειας της συσκευής παρέχουν περισσότερες επιλογές και πληροφορίες για κάθε οθόνη.</string>
+    <string name="assist_and_voice_input_summary">Επιλέξτε την εφαρμογή που θα χρησιμοποιείται όταν αγγίζετε παρατεταμένα το κεντρικό κουμπί.</string>
+    <string name="assist_footer_phone">Επιλέξτε ποια εφαρμογή θα χρησιμοποιείται όταν αγγίζετε παρατεταμένα το κεντρικό πλήκτρο. Οι εφαρμογές βοήθειας συσκευής μπορούν να σας βοηθήσουν με τη συλλογή πληροφοριών από την οθόνη που εμφανίζεται αυτήν τη στιγμή στο τηλέφωνό σας.</string>
+    <string name="assist_footer_tablet">Επιλέξτε ποια εφαρμογή θα χρησιμοποιείται όταν αγγίζετε παρατεταμένα το κεντρικό κουμπί. Οι εφαρμογές βοήθειας συσκευής μπορούν να σας βοηθήσουν με τη συλλογή πληροφοριών από την οθόνη που εμφανίζεται αυτήν τη στιγμή στο tablet σας.</string>
     <string name="default_app_title">Ορισμός ως προεπιλογής</string>
     <string name="premium_sms_title">Αποστολή premium SMS</string>
     <string name="default_app_selection">Επιλογή προεπ. εφαρμογής</string>
@@ -939,7 +945,7 @@ Enter the code you get from Verizon:"</string>
 
 Οι 2 συνδεδεμένες συσκευές μπορεί να παρουσιάσουν μια ελαφρά διαφορά στον παραγόμενο ήχο."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Να απενεργ. ο συγχρ. έντασης πολυμέσων;</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Για να χρησιμοποιήσετε το Dual audio, πρέπει να απενεργοποιηθεί ο συγχρονισμός έντασης μέσων.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Για να ελέγχετε την ένταση σε κάθε συσκευή ήχου ξεχωριστά, θα πρέπει να απενεργοποιήσετε το συγχρονισμό έντασης μέσων.</string>
     <string name="bluetooth_avc_title">Συγχρον. έντασης μέσων</string>
     <string name="bluetooth_avc_description">Αν η συνδεδεμένη συσκευή Bluetooth μπορεί να ελέγχει την ένταση των πολυμέσων στο τηλέφωνό σας, το επίπεδο έντασης που έχει οριστεί από τη συσκευή Bluetooth θα συγχρονιστεί με το τηλέφωνό σας.</string>
     <string name="bluetooth_avc_volume_change_description">Η ενεργοποίηση αυτής της λειτουργίας μπορεί να προκαλέσει μη αναμενόμενες αλλαγές στην ένταση του ήχου.</string>
@@ -948,6 +954,7 @@ Enter the code you get from Verizon:"</string>
     <string name="bluetooth_avc_ask_popup_title">Να απενεργοποιηθεί το Dual audio;</string>
     <string name="bluetooth_avc_ask_popup_content">Για να χρησιμοποιήσετε το συγχρονισμό έντασης μέσων, πρέπει να απενεργοποιηθεί το Dual audio.</string>
     <string name="bluetooth_avc_disable_description">Η συνδεδεμένη συσκευή Bluetooth δεν υποστηρίζει τη λειτουργία «Συγχρονισμός έντασης πολυμέσων». Δεν είναι δυνατός ο συγχρονισμός της έντασης ήχου του τηλεφώνου σας με τη συνδεδεμένη συσκευή Bluetooth.</string>
+    <string name="bluetooth_avc_available_description">Η συνδεδεμένη συσκευή Bluetooth υποστηρίζει τη λειτουργία «Συγχρονισμός έντασης πολυμέσων» και το επίπεδο έντασης που καθορίστηκε από τη συσκευή Bluetooth θα συγχρονιστεί με το τηλέφωνό σας.</string>
     <string name="bluetooth_enter_pin_msg">Πληκτρολογήστε το PIN για τη δημιουργία ζεύγους με %s. (Δοκιμάστε 0000 ή 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Συμπληρώθηκε ο μέγιστος αριθμός χαρακτήρων.</string>
     <string name="settings_menu_done">Τέλος</string>
@@ -1031,11 +1038,12 @@ Enter the code you get from Verizon:"</string>
     <string name="swipe_to_call_title">Σάρωση για κλήση ή αποστ. μηνυμ.</string>
     <string name="swipe_to_call_summary">Στις εφαρμογές Τηλέφωνο, Επαφές ή Μηνύματα, σαρώστε μια επαφή ή έναν αριθμό προς τα δεξιά για να κάνετε μια κλήση ή προς τα αριστερά για να στείλετε μήνυμα.</string>
     <string name="swipe_to_call_summary_dcm">Στις εφαρμογές Κλήση, Επαφές ή Μηνύματα, σαρώστε μια επαφή ή έναν αριθμό προς τα δεξιά για να κάνετε μια κλήση ή προς τα αριστερά για να στείλετε μήνυμα.</string>
-    <string name="swipe_to_call_summary_kddi">Στις εφαρμογές Τηλέφωνο ή Επαφές, σαρώστε μια επαφή ή έναν αριθμό προς τα δεξιά για να κάνετε μια κλήση ή προς τα αριστερά για να στείλετε μήνυμα.</string>
+    <string name="swipe_to_call_summary_kddi">Στις εφαρμογές Κλήση ή Επαφές, σαρώστε μια επαφή ή έναν αριθμό προς τα δεξιά για να κάνετε μια κλήση ή προς τα αριστερά για να στείλετε μήνυμα.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">Χρησιμοποιήστε δύο ξεχωριστούς λογαριασμούς για την ίδια εφαρμογή.</string>
     <string name="finger_sensor_gesture_title">Χειρον. για αισθ. αποτυπωμάτων</string>
     <string name="finger_sensor_gesture_summary">Ανοίξτε και κλείστε εφαρμογές και λειτουργίες με τον αισθητήρα δαχτυλικών αποτυπωμάτων.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Ανοίξτε και κλείστε τον πίνακα ειδοποιήσεων, χρησιμοποιώντας τον αισθητήρα δαχτυλικών αποτυπωμάτων.</string>
     <string name="finger_sensor_gesture_description">Σαρώστε προς τα επάνω ή προς τα κάτω στον αισθητήρα δαχτυλικών αποτυπωμάτων για να ανοίξετε ή να κλείσετε τον πίνακα ειδοποιήσεων.</string>
     <string name="open_samsung_pay_title">Άνοιγμα Samsung Pay</string>
     <string name="open_samsung_pay_summary">Από την Αρχική οθόνη, κάντε σάρωση προς τα επάνω στον αισθητήρα δαχτυλικών αποτυπωμάτων για να ανοίξετε το Samsung Pay.</string>
@@ -1070,6 +1078,7 @@ Enter the code you get from Verizon:"</string>
 %s"</string>
     <string name="enable_ps_title">Ενεργοποίηση του %s</string>
     <string name="setup_wizard">Οδηγός εγκατάστασης</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Κανονικό</string>
     <string name="large">Μεγάλο</string>
     <string name="small">Μικρό</string>
@@ -1215,7 +1224,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Η λήψη των ενημερώσεων λογισμικού γίνεται αυτόματα όταν υπάρχει σύνδεση σε δίκτυο Wi-Fi. Θα έχετε τη δυνατότητα να χρησιμοποιείτε τη συσκευή σας κατά τη διάρκεια της λήψης.</string>
     <string name="auto_update_over_wifi">Αυτόματη λήψη μέσω Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">Γίνεται αυτόματα λήψη των ενημερώσεων λογισμικού όταν συνδέεστε σε δίκτυο Wi-Fi. Ανάλογα με τον πάροχο υπηρεσιών σας, μπορεί επίσης να γίνει λήψη ενημερώσεων χρησιμοποιώντας τα δεδομένα κινητής τηλεφωνίας χωρίς πρόσθετες χρεώσεις. Θα εξακολουθείτε να έχετε τη δυνατότητα να χρησιμοποιείτε το τηλέφωνο κατά τη διάρκεια της λήψης.</string>
-    <string name="scheduled_update">Προγραμ. ενημερ. λογισμικού</string>
+    <string name="scheduled_update">Προγραμματισμένες ενημερώσεις λογισμικού</string>
     <string name="scheduled_update_summary_default">Ανενεργό</string>
     <string name="scheduled_update_summary_set_time">Η ενημέρωση θα ξεκινήσει στις %s</string>
     <string name="scheduled_update_summary_set_time_everyday">Η ενημέρωση θα ξεκινάει κάθε μέρα στις %s</string>
@@ -1359,7 +1368,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="adjust_your_display_colour">Προσαρμόστε τα χρώματα της οθόνης για να αλλάξετε την εμφάνιση των λευκών τόνων.</string>
     <string name="display_temperature_preset_cool">Ψυχρό</string>
     <string name="display_temperature_preset_warm">Θερμό</string>
-    <string name="display_advanced_option">Προηγμένες επιλογές</string>
+    <string name="display_advanced_option">Σύνθετες επιλογές</string>
     <string name="color_balance_subtext_1">Η ισορροπία χρωμάτων μπορεί να ρυθμιστεί μόνο στη λειτουργία «Προσαρμόσιμη οθόνη».</string>
     <string name="color_balance_subtext_2">Οι ρυθμίσεις σας δεν θα εφαρμοστούν όσο είναι ενεργό το φίλτρο μπλε φωτός.</string>
     <string name="poc_balance_title">Ισορροπία χρωμάτων άκρης οθόνης</string>
@@ -1417,6 +1426,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_summary">Διαχειριστείτε το κεντρικό κουμπί και τα κουμπιά επιστροφής και πρόσφατων.</string>
     <string name="navigationbar_theme_switch">Εφαρμογή τρέχοντος θέματος</string>
     <string name="navigationbar_color_title">Χρώμα φόντου</string>
+    <string name="navigationbar_color_summary">Το χρώμα του φόντου που θα επιλέξετε μπορεί να μην χρησιμοποιηθεί σε όλες τις εφαρμογές.</string>
     <string name="navigationbar_order_title">Διάταξη κουμπιών</string>
     <string name="navigationbar_order_default">Πρόσφατα - Αρχική - Πίσω</string>
     <string name="navigationbar_order_mirrored">Πίσω - Αρχική - Πρόσφατα</string>
@@ -1448,7 +1458,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="blue_light_filter_enable_now">Ενεργοποίηση τώρα</string>
     <string name="blue_light_filter_enable_as_scheduled">Ενεργ. βάσει προγράμ.</string>
     <string name="blue_light_filter_scheduled_toast">Ενεργοποιήθηκε το φίλτρο μπλε φωτός. Θα απενεργοποιηθεί αυτόματα την προγραμματισμένη ώρα λήξης.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">Δεν είναι δυνατή η ταυτόχρονη χρήση της λειτουργίας %s και του φίλτρου μπλε φωτός. Το φίλτρο μπλε φωτός θα απενεργοποιηθεί.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Απενεργοποίηση φίλτρου μπλε φωτός;</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Για να χρησιμοποιήσετε το %s, πρέπει να απενεργοποιήσετε το φίλτρο μπλε φωτός.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Για τη χρήση της επιλογής «Από τη δύση έως την ανατολή του ηλίου», θα πρέπει να ενεργοποιήσετε την Τοποθεσία.</string>
     <string name="dlg_turn_on">Ενεργοπ.</string>
     <string name="screen_resolution_title">Ανάλυση οθόνης</string>
@@ -1665,6 +1676,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">Απομένει μόνο 1 προσπάθεια για την εκκίνηση της συσκευής πριν γίνει επαναφορά της στις προεπιλεγμένες εργοστασιακές ρυθμίσεις. Η ενέργεια θα διαγράψει όλα τα δεδομένα, συμπεριλαμβανομένων των αρχείων και των εφαρμογών που έχετε λάβει.</string>
     <string name="crypt_keeper_failed_title_dec">Αποτυχία αποκρυπτογράφησης.</string>
     <string name="crypt_keeper_failed_summary_dec">Η αποκρυπτογράφηση δεν ολοκληρώθηκε εξαιτίας κάποιας διακοπής. Εκτελέστε επαναφορά των εργοστασιακών ρυθμίσεων (διαγράφοντας όλα τα δεδομένα σας) για να είναι δυνατή η χρήση της συσκευής.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ορισμός τύπου οθόνης κλειδώμ.</string>
     <string name="encryption_interstitial_message">"Μπορείτε να προστατεύσετε ακόμα περισσότερο αυτό το τηλέφωνο, επιβάλλοντας την καταχώρηση του %s πριν από την εκκίνησή του. Αυτή η ενέργεια συμβάλλει στην προστασία των δεδομένων σας σε περίπτωση απώλειας ή κλοπής του τηλεφώνου. Ορισμένες εφαρμογές μπορεί να απαιτούν τη χρήση της Ασφαλούς εκκίνησης με βάση τις πολιτικές κρυπτογράφησης της συσκευής για την πρόσβαση σε λειτουργίες, όπως είναι ο συγχρονισμός των email.
 
 Μέχρι να ολοκληρωθεί η εκκίνηση του τηλεφώνου, δεν θα λαμβάνετε κλήσεις, μηνύματα ή ειδοποιήσεις και δεν θα ηχούν τα ξυπνητήρια."</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Χρήση αποτυπώματος</string>
     <string name="wifi_ap_close">Κλείσιμο</string>
     <string name="fingerscanner_add_summary">Προσθέστε τα δαχτυλικά αποτυπώματά σας.</string>
+    <string name="fingerscanner_register_1_finger_summary">Προστέθηκε 1 δαχτυλικό αποτύπωμα.</string>
     <string name="fingerscanner_register_summary">Προστέθηκαν %d δαχτυλικά αποτυπώματα.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Χρήση δαχτυλικού αποτυπώματος ή εισαγωγή του τρέχοντος PIN.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Χρήση δαχτυλικού αποτυπώματος ή σχεδίαση του τρέχοντος μοτίβου.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Ξεκλειδώστε το τηλέφωνο με την αναγνώριση προσώπου μόλις ενεργοποιηθεί η οθόνη, χωρίς να κάνετε πρώτα σάρωση.</string>
     <string name="facelock_recognition_speed_up">Ταχύτερη αναγνώριση</string>
     <string name="facelock_recognition_speed_up_summary">Ενεργοποιήστε το για ταχύτερη αναγνώριση. Απενεργοποιήστε το για να αυξήσετε την ασφάλεια και για να είναι πιο δύσκολο το ξεκλείδωμα με τη χρήση εικόνας ή βίντεο.</string>
+    <string name="facelock_samsungpass_summary">Χρησιμοποιήστε την αναγνώριση προσώπου για να επαληθεύσετε την ταυτότητά σας με το %s και τις άλλες υποστηριζόμενες εφαρμογές.</string>
     <string name="face_remove_face_popup_title">Κατάργηση δεδομένων προσώπου;</string>
     <string name="face_remove_face_popup_message_1">Το πρόσωπό σας δεν αναγνωρίζεται πλέον και το Κλείδωμα προσώπου θα απενεργοποιηθεί.</string>
     <string name="face_remove_face_popup_message_2">Οι λειτουργίες που χρησιμοποιούν την αναγνώριση προσώπου θα απενεργοποιηθούν.</string>
@@ -2070,7 +2084,7 @@ You will also need it when:"</string>
     <string name="biometrics_backup_locktype_title">Ρύθμιση ασφάλειας με ίριδα</string>
     <string name="biometrics_register_your_iris">Καταχωρίστε τις ίριδές σας.</string>
     <string name="biometrics_backup_locktype_summary">Για να χρησιμοποιήσετε τις ίριδές σας για το ξεκλείδωμα της συσκευής, πρέπει να ορίσετε ένα μοτίβο, ένα PIN ή έναν κωδικό πρόσβασης.</string>
-    <string name="biometrics_backup_locktype_message">Για να χρησιμοποιήσετε τις ίριδές σας για το ξεκλείδωμα του τηλεφώνου ή για την ασφαλή επαλήθευση, θα πρέπει να κάνετε τα εξής:</string>
+    <string name="biometrics_backup_locktype_message">Για να χρησιμοποιήσετε τις ίριδές σας για το ξεκλείδωμα του τηλεφώνου σας ή για την επαλήθευση των στοιχείων σας σε εφαρμογές, πρέπει να κάνετε τα εξής:</string>
     <string name="iris_delete_popup_title">Θέλετε να καταργήσετε τα δεδομένα ιρίδων;</string>
     <string name="iris_delete_popup_message">Θέλετε να καταργήσετε τα δεδομένα ιρίδων;</string>
     <string name="iris_delete_popup_message_with_related_func">Οι λειτουργίες που χρησιμοποιούν ίριδες θα απενεργοποιηθούν.</string>
@@ -2078,7 +2092,7 @@ You will also need it when:"</string>
     <string name="iris_timeout_popop_title">Δοκιμάστε αργ.</string>
     <string name="iris_timeout_popop_message">Οι ίριδες δεν αναγνωρίζονται. Η κάμερα ίριδας μπορεί να είναι βρώμικη. Καθαρίστε την περιοχή πάνω από την οθόνη και δοκιμάστε ξανά.</string>
     <string name="iris_timeout_popop_message_1">Η κάμερα ίριδας μπορεί να είναι βρώμικη. Καθαρίστε την περιοχή πάνω από την οθόνη και δοκιμάστε ξανά.</string>
-    <string name="iris_proximity_restriction_popop_message">Οι ίριδες δεν αναγνωρίζονται. Το τηλέφωνο βρίσκεται πολύ κοντά στο πρόσωπο ή ο αισθητήρας εγγύτητας μπορεί να είναι βρώμικος. Καθαρίστε την περιοχή πάνω από την οθόνη και δοκιμάστε ξανά.</string>
+    <string name="iris_proximity_restriction_popop_message">Κρατήστε το τηλέφωνο πιο μακριά από το πρόσωπό σας και δοκιμάστε ξανά.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Ο αισθητήρας εγγύτητας μπορεί να είναι βρώμικος.
 Καθαρίστε την περιοχή πάνω από την οθόνη."</string>
     <string name="iris_try_again">Δοκ. ξανά</string>
@@ -2086,6 +2100,8 @@ You will also need it when:"</string>
     <string name="iris_failed_to_verity_identify">Αδύνατη η επαλήθευση της ταυτότητάς σας</string>
     <string name="iris_failed_popup_description">Προσπαθήσατε %1$d φορές να επαληθεύσετε τις ίριδές σας. Δοκιμάστε ξανά σε %2$d δευτερόλεπτα.</string>
     <string name="iris_no_match">Κανένα αποτέλεσμα</string>
+    <string name="iris_eye_safety_msg">Οι ίριδές σας δεν αναγνωρίστηκαν.</string>
+    <string name="iris_timeout_msg">Οι ίριδές σας δεν εντοπίστηκαν.</string>
     <string name="biometrics_registered">Έγινε εγγραφή</string>
     <string name="iris_turn_on_toast_message">Το κλείδωμα με ίριδα ενεργοποιήθηκε αντί του κλειδώματος με δαχτυλικά αποτυπώματα.</string>
     <string name="iris_wrong_backup_password">Εσφαλ. εφεδρ. κωδ. πρόσβ.</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Να εμφανίζεται το κουμπί Αρχικής οθόνης και ένα ρολόι ή πληροφορίες στην οθόνη αναμονής.</string>
     <string name="aod_feature_off_popup_title">Απενεργοποίηση λειτουργίας %s;</string>
     <string name="aod_feature_off_popup_description">Για τη χρήση της λειτουργίας %1$s, πρέπει να απενεργοποιήσετε τη λειτουργία %2$s.</string>
+    <string name="aod_features_off_popup_title">Απενεργοποίηση άλλων λειτουργιών;</string>
+    <string name="aod_features_off_popup_description">Για να χρησιμοποιήσετε την οθόνη Always On Display, πρέπει να απενεργοποιηθούν οι ακόλουθες λειτουργίες:</string>
     <string name="aod_features_off_popup_btn_ok">Απενεργ.</string>
     <string name="aod_disable_by_negative_colors">Δεν μπορεί να χρησιμοποιηθεί όσο είναι ενεργά τα Αρνητικά χρώματα.</string>
     <string name="aod_disable_by_powersaving_mode">Δεν μπορεί να χρησιμοποιηθεί όσο είναι ενεργή η λειτουργία εξοικονόμησης ενέργειας.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Χρωματιστές σταγόνες</string>
     <string name="lock_screen_show_information_summary_wifi_only">Να εμφανίζονται οι πληροφορίες κατόχου ή οι συντομεύσεις εφαρμογών στην οθόνη κλειδώματος.</string>
     <string name="lock_screen_sview_show_information_summary">Να εμφανίζεται το διπλό ρολόι, οι πληροφορίες του κατόχου της συσκευής ή οι συντομεύσεις εφαρμογών στην οθόνη κλειδώματος και μέσω του παραθύρου S View.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Να εμφανίζεται το ρολόι περιαγωγής ή τα στοιχεία επικοινωνίας του κατόχου της συσκευής στην οθόνη κλειδώματος και μέσω του παραθύρου S View.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Επιλέξτε τις συντομεύσεις εφαρμογών που θα εμφανίζονται στην οθόνη κλειδώματος και μέσω του παραθύρου του S View.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Να εμφανίζονται ειδοποιήσεις στην οθόνη κλειδώματος και μέσω του παραθύρου του S View.</string>
     <string name="lock_screen_and_cover_show_information_summary">Να εμφανίζεται το διπλό ρολόι στην οθόνη κλειδώματος και μέσω του καλύμματος Clear View.</string>
     <string name="lock_screen_secured_lock_settings_title">Ρυθμίσεις ασφαλούς κλειδώματος</string>
     <string name="lock_screen_secured_lock_settings_summary">Ορίστε τις λειτουργίες ασφαλούς κλειδώματος, όπως είναι το Αυτόματο κλείδωμα και το Άμεσο κλείδωμα με το πλήκτρο ενεργοποίησης.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Ζώνη ώρας χώρας διαμονής</string>
     <string name="contact_info_settings_title">Πληροφορίες επαφής</string>
     <string name="show_contact_info_on_lockscreen_label">Να εμφανίζονται πληροφορίες, όπως είναι ο αριθμός τηλεφώνου ή η διεύθυνση email, στην οθόνη κλειδώματος.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Να εμφανίζονται πληροφορίες, όπως είναι ο αριθμός τηλεφώνου ή η διεύθυνση email, στην οθόνη κλειδώματος και το Always On Display.</string>
     <string name="unlock_effect">Εφέ ξεκλειδώματος</string>
     <string name="walking_mate_title">Μετρ. βημάτων</string>
     <string name="help_text_title">Κείμενο βοήθειας</string>
@@ -2415,7 +2437,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="toast_set_lock_pattern">Σε περίπτωση που ξεχάσετε το μοτίβο σας, θα διαγραφούν όλα τα δεδομένα και θα γίνει επαναφορά του τηλεφώνου σας.</string>
     <string name="toast_set_lock_password">Σε περίπτωση που ξεχάσετε τον κωδικό πρόσβασης, θα διαγραφούν όλα τα δεδομένα και θα γίνει επαναφορά του τηλεφώνου.</string>
     <string name="toast_set_lock_pin">Σε περίπτωση που ξεχάσετε το PIN, θα διαγραφούν όλα τα δεδομένα και θα γίνει επαναφορά του τηλεφώνου.</string>
-    <string name="chooselock_warning_text">Μην ξεχάσετε το %s. Θα σας ζητηθεί μετά την επανεκκίνηση της συσκευής.</string>
+    <string name="chooselock_warning_text">Μην ξεχάσετε το %s. Θα σας ζητηθεί μετά την επανεκκίνηση του τηλεφώνου σας.</string>
     <string name="lockpassword_password_exists_history">Ο κωδικός πρόσβασης έχει χρησιμοποιηθεί. Εισαγάγετε νέο κωδικό πρόσβασης.</string>
     <string name="lockpassword_pin_repeating_nums">Ο κωδικός PIN δεν πρέπει να περιέχει επαναλαμβανόμενους αριθμούς.</string>
     <string name="lockpassword_pin_sequential_nums">Ο κωδικός PIN δεν πρέπει να περιέχει αριθμούς σε σειρά.</string>
@@ -2533,6 +2555,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="data_usage_disable_mobile_warning_lgt">"Εκτός και αν χρησιμοποιείτε Wi-Fi, δεν θα είναι πλέον δυνατή η χρήση του Internet, του Email ή άλλων εφαρμογών που απαιτούν σύνδεση δεδομένων.
 
 Τα δεδομένα κινητής τηλεφωνίας θα απενεργοποιηθούν."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Αν δεν συνδεθείτε σε δίκτυο Wi-Fi, δεν θα έχετε τη δυνατότητα να χρησιμοποιήσετε το Internet, το email ή άλλες εφαρμογές που απαιτούν σύνδεση δικτύου.</string>
@@ -2691,10 +2716,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Προσαρμοσμ. όριο έντασης</string>
     <string name="volume_limiter_descryption">Προστατέψτε τα αυτιά σας με ένα μέγιστο όριο έντασης ήχου μέσου. Το όριο θα εφαρμοστεί μόνο όταν χρησιμοποιείτε ακουστικά ή συσκευές ήχου Bluetooth.</string>
     <string name="multi_sound_title">Διαχωρισμός ήχου εφαρμογής</string>
-    <string name="multi_sound_summary">Αναπαραγάγετε ήχο από μία εφαρμογή σε ένα ηχείο ή ακουστικά ξεχωριστά από τους υπόλοιπους ήχους στη συσκευή σας.</string>
-    <string name="multi_sound_descryption">"Αναπαραγάγετε ήχο πολυμέσων από μία εφαρμογή σε ένα ηχείο ή ακουστικά ξεχωριστά από τους ήχους πολυμέσων από άλλες εφαρμογές.
+    <string name="multi_sound_summary">Αναπαραγάγετε ήχο πολυμέσων από μια εφαρμογή σε μια συσκευή ήχου ξεχωριστά από την κύρια συσκευή εξόδου ήχου του τηλεφώνου.</string>
+    <string name="multi_sound_descryption">"Γίνεται αναπαραγωγή ήχου πολυμέσων από μία εφαρμογή σε μια συσκευή ήχου διαφορετική από την κύρια συσκευή εξόδου ήχου του τηλεφώνου σας. Επιλέξτε μια εφαρμογή και μια συσκευή ήχου για την ενεργοποίηση αυτής της επιλογής.
 
-Αν επιλέξετε μια συσκευή ήχου Bluetooth, ο ήχος θα αναπαράγεται στην προεπιλεγμένη συσκευή ήχου, στην περίπτωση που η συσκευή Bluetooth δεν είναι συνδεδεμένη."</string>
+Ο ήχος ξεχωριστής εφαρμογής λειτουργεί μόνο όταν η συσκευή ήχου που επιλέγετε είναι διαφορετική από την κύρια συσκευή εξόδου ήχου του τηλεφώνου σας.
+
+Μπορείτε να αλλάξετε την κύρια συσκευή εξόδου ήχου του τηλεφώνου σας στον πίνακα γρήγορων ρυθμίσεων. Αν δεν εμφανίζεται η έξοδος ήχου, ενεργοποιήστε την από το μενού Samsung Connect > Ρυθμίσεις > Πίνακας Samsung Connect."</string>
     <string name="set_application_title">Εφαρμογή</string>
     <string name="set_application_summary">Επιλέξτε μια εφαρμογή για να αναπαραγάγετε τον ήχο της σε μια διαφορετική συσκευή ήχου.</string>
     <string name="set_application_descryption">Επιλέξτε μια εφαρμογή πολυμέσων παρακάτω για να αναπαραγάγετε τον ήχο της σε μια διαφορετική συσκευή ήχου.</string>
@@ -2705,9 +2732,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="multi_sound_popup_msg">Για να ενεργοποιήσετε το %s, χρειάζεται να επιλέξετε μια εφαρμογή και μια συσκευή ήχου.</string>
     <string name="multi_sound_network_msg">Για να ελέγξετε για διαθέσιμες εφαρμογές, το τηλέφωνό σας χρειάζεται να συνδεθεί σε δίκτυο. Ελέγξτε τις ρυθμίσεις δικτύου σας και προσπαθήστε ξανά.</string>
     <string name="multi_sound_wifi_msg">Για να δείτε τις διαθέσιμες εφαρμογές, το τηλέφωνό σας πρέπει να συνδεθεί στο δίκτυο. Η χρήση δεδομένων κινητής τηλεφωνίας ενδέχεται να επιφέρει πρόσθετες χρεώσεις.</string>
+    <string name="multi_sound_add_application">Προσθήκη εφαρμογής</string>
     <string name="dlg_btn_select">Επιλογή</string>
-    <string name="audio_device_type_descryption">Επιλέξτε ποια συσκευή ήχου θέλετε να χρησιμοποιήσετε για αυτήν την εφαρμογή. Οι συσκευές Bluetooth θα είναι διαθέσιμες μόνο ενώ είναι συνδεδεμένες.</string>
+    <string name="audio_device_type_descryption">Επιλέξτε ποια συσκευή ήχου θέλετε να χρησιμοποιήσετε για την επιλεγμένη εφαρμογή. Οι συσκευές Bluetooth θα είναι διαθέσιμες μόνο ενώ είναι συνδεδεμένες.</string>
     <string name="my_phone_title">Τηλέφωνο</string>
+    <string name="my_phone_summary">Ηχεία/ακουστικά/συσκευή ήχου USB</string>
     <string name="bluetooth_device_title">Συσκευή Bluetooth</string>
     <string name="no_connected_devices">Δεν υπάρχουν συνδεδεμένες συσκευές</string>
     <string name="two_hours">2 ώρες</string>
@@ -2715,7 +2744,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="stop_setup_popup_msg">Τυχόν ρυθμίσεις που αλλάξατε δεν θα εφαρμοστούν.</string>
     <string name="app_turned_on">%s ενεργοποιημένη.</string>
     <string name="force_touch_title">Ανάδρ. δόνησ. δυνατού πατήματος</string>
-    <string name="volume_key_control_title">Έλεγχος προεπιλ. πλήκτ. έντασης</string>
+    <string name="volume_key_control_title">Χρ. πλήκτρ. έντασ. για πολυμέσα</string>
+    <string name="volume_key_control_summary">Ελέγξτε την ένταση ήχου των πολυμέσων όταν πιέζετε τα πλήκτρα έντασης ήχου.</string>
     <string name="sound_mode">Λειτ. ήχου</string>
     <string name="sound_mode_vibrate">Δόνηση</string>
     <string name="sound_mode_mute">Σίγαση</string>
@@ -2929,14 +2959,13 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="text_biometrics_title_enterprise">Όταν επιλέγετε %1$s, τα βιομετρικά δεδομένα δεν θα υποστηρίζονται ως μέθοδος ξεκλειδώματος για το %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">Τα δαχτυλικά αποτυπώματα δεν υποστηρίζονται από το %1$s ως μέθοδος ξεκλειδώματος για το %2$s.</string>
     <string name="edge_feeds_title">Τροφοδ. Edge</string>
-    <string name="screensaver_settings_summary">"Ελέγξτε τι συμβαίνει όσο η συσκευή είναι συνδεδεμένη στη βάση ή/και φορτίζεται. Η προφύλαξη οθόνης θα εμφανίζεται μετά τη λήξη του χρονικού ορίου της οθόνης.
-
-Η λειτουργία καλείται επίσης Daydream."</string>
-    <string name="screensaver_settings_summary_wo_dock">Να εμφανίζεται μια προφύλαξη οθόνης μετά την αυτόματη απενεργοποίηση της οθόνης όσο το τηλέφωνό σας φορτίζεται.</string>
+    <string name="screensaver_settings_summary">Να εμφανίζεται μια προφύλαξη οθόνης μετά την αυτόματη απενεργοποίηση της οθόνης όσο το τηλέφωνό σας φορτίζεται.</string>
+    <string name="screensaver_settings_summary_wo_dock">Να εμφανίζεται μια προφύλαξη οθόνης μετά την αυτόματη απενεργοποίηση της οθόνης όσο το τηλέφωνό σας βρίσκεται σε βάση ή φορτίζεται.</string>
     <string name="apn_already_exists">Υπάρχει ήδη.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Ο αριθμός της θύρας πρέπει να είναι μεταξύ του %1$d και του %2$d.</string>
     <string name="apn_restore_warning">Όλα τα APN που προσθέσατε θα καταργηθούν. Θα γίνει επαναφορά των υπόλοιπων APN στις προεπιλεγμένες ρυθμίσεις.</string>
+    <string name="apn_restore_title">Επαναφορά ρυθμίσεων APN;</string>
     <string name="master_clear_desc_google_account">Λογαριασμός Google</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2948,7 +2977,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="sound_balance_summary">Προσαρμόστε την ισορροπία του αριστερού και του δεξιού καναλιού ήχου για χρήση με ακουστικά.</string>
     <string name="backup_samsung_account_title">Ρυθμίσεις αντιγράφων ασφαλείας</string>
     <string name="restore_samsung_account_title">Επαν/φορά</string>
-    <string name="auto_restart_header">Διαχείριση συσκευών</string>
+    <string name="auto_restart_header">Διαχείριση τηλεφώνου</string>
+    <string name="auto_restart_header_tablet">Διαχείριση tablet</string>
     <string name="auto_restart_title">Αυτόματη επανεκκίνηση</string>
     <string name="switch_turn_on_text">Ενεργοποίηση</string>
     <string name="switch_turn_off_text">Απενεργοποίηση</string>
@@ -3071,6 +3101,14 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="tether_settings_summary_usb_bt">Κάντε κοινή χρήση της σύνδεσης δεδομένων κινητής τηλεφωνίας της συσκευής σας μέσω USB ή Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Αποδoxή</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Μοιραστείτε τη σύνδεση Internet του τηλεφώνου σας μέσω Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Μοιραστείτε τη σύνδεση Internet του tablet σας μέσω Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Έτοιμο για κοινή χρήση της σύνδεσης Internet αυτού του τηλεφώνου.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Έτοιμο για κοινή χρήση της σύνδεσης Internet αυτού του tablet.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Η σύνδεση Internet αυτού του τηλεφώνου χρησιμοποιείται από κοινού με 1 συσκευή.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Η σύνδεση Internet αυτού του tablet χρησιμοποιείται από κοινού με 1 συσκευή.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Η σύνδεση Internet αυτού του τηλεφώνου χρησιμοποιείται από κοινού με %d συσκευές.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Η σύνδεση Internet αυτού του tablet χρησιμοποιείται από κοινού με %d συσκευές.</string>
     <string name="onehand_settings_title">Λειτουργία με ένα χέρι</string>
     <string name="onehand_settings_text_1">Κάντε σάρωση διαγώνια προς τα επάνω από μια κάτω γωνία της οθόνης για να μειώσετε το μέγεθός της.</string>
     <string name="onehand_settings_text_2">Πατήστε το κεντρικό πλήκτρο 3 φορές γρήγορα για να μειώσετε το μέγεθος της οθόνης.</string>
@@ -3398,10 +3436,12 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Ανενεργό</string>
     <string name="wifi_or_mobile_network">Δίκτυα Wi-Fi ή κινητής τηλεφωνίας</string>
     <string name="wifi_network_only">Μόνο δίκτυο Wi-Fi</string>
+    <string name="wifi_adps_title">Λειτ. εξοικον. ενέργειας Wi-Fi</string>
+    <string name="wifi_adps_summary">Μειώστε τη χρήση της μπαταρίας, αναλύοντας τα μοτίβα κίνησης Wi-Fi.</string>
     <string name="wifi_auto_reconnect">Αυτόματη επανασύνδεση</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Η ενεργοποίηση του Wi-Fi θα απενεργοποιήσει το Mobile Hotspot. Συνέχεια;</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Το Wi-Fi απενεργοποιείται όταν είναι ενεργοποιημένο το Mobile HotSpot. Για να ενεργοποιήσετε το Wi-Fi, απενεργοποιήστε το Mobile HotSpot.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Το Wi-Fi απενεργοποιείται όταν είναι ενεργοποιημένο το Mobile Hotspot. Για να ενεργοποιήσετε το Wi-Fi, απενεργοποιήστε το Mobile Hotspot.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
@@ -3603,6 +3643,10 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_wps_pin_client_mobileap">Γίνεται σύνδεση στην εφαρμογή με το PIN %1$s. Η ρύθμιση ενδέχεται να χρειαστεί έως και %2$d λεπτά για να ολοκληρωθεί.</string>
     <string name="wifi_wps_complete_mobileap">Η άλλη συσκευή έχει συνδεθεί με τη συσκευή σας.</string>
     <string name="wifi_ap_disconnect_warn">Αποσύνδεση συσκευής</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Όλες οι συσκευές που είναι συνδεδεμένες αυτήν τη στιγμή θα αποσυνδεθούν από το Mobile hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Όλες οι συσκευές που είναι συνδεδεμένες αυτήν τη στιγμή θα αποσυνδεθούν από το Mobile hotspot.</string>
     <string name="wifi_ap_warn_max_whitelist">Φτάσατε στο μέγιστο αριθμό (%d) επιτρεπόμενων συσκευών.</string>
     <string name="wifiap_one_item_deleted">Θα γίνει διαγραφή 1 στοιχείου.</string>
@@ -3738,6 +3782,8 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_first_time_configuration">Πρώτη διαμόρφωση HotSpot</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Καταχωρήστε το σωστό PIN.</string>
+    <string name="open_mobileap_warning">Αυτό το κινητό AP δεν είναι ασφαλές.</string>
+    <string name="hidden_mobileap_warning">Το WPS θα απενεργοποιηθεί όταν ο χρήστης ορίσει ένα Κρυφό SSID.</string>
     <string name="wifi_ssid_max_byte_error">Συμπληρώθηκε ο μέγιστος αριθμός χαρακτήρων.</string>
     <string name="tethering_attention_title">Προσοχή</string>
     <string name="wfd_select_device">Επιλογή συσκευής</string>
@@ -3968,6 +4014,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Συγχρονισμός</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Αυτό το δικαίωμα επιτρέπει σε μια εφαρμογή την εμφάνιση στοιχείων πάνω από άλλες εφαρμογές που χρησιμοποιείτε. Αυτό μπορεί να επηρεάσει τη χρήση των άλλων εφαρμογών.</string>
+    <string name="write_settings_body_description">Επιτρέψτε σε αυτήν την εφαρμογή να αλλάζει ρυθμίσεις του συστήματος, όπως είναι η ενεργοποίηση ή η απενεργοποίηση του Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Αυτή η ενέργεια θα επαναφέρει όλες τις προτιμήσεις σας σε:</string>
+    <string name="reset_app_preferences_desc2">Απενεργοποιημένες εφαρμογές</string>
+    <string name="reset_app_preferences_desc3">Περιορισμοί ειδοποιήσεων για εφαρμογές</string>
+    <string name="reset_app_preferences_desc4">Προεπιλεγμένες εφαρμογές</string>
+    <string name="reset_app_preferences_desc5">Περιορισμοί δεδομένων παρασκηνίου για εφαρμογές</string>
+    <string name="reset_app_preferences_desc6">Περιορισμοί δικαιωμάτων</string>
+    <string name="reset_app_preferences_desc7">Δεν θα χάσετε τα υπάρχοντα δεδομένα εφαρμογών.</string>
     <string name="knox_security_mode_title">Ασφάλεια Knox</string>
     <string name="kap_title">Ενεργή προστασία Knox</string>
     <string name="kap_eula_title">Πολιτ. ιδιωτ.απορρ.</string>
@@ -3982,6 +4036,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Διαχειριστείτε τα προσωπικά σας στοιχεία και τις λεπτομέρειες του Samsung account.</string>
     <string name="my_profile_summary_jpn">Διαχειριστείτε τα προσωπικά σας στοιχεία και τις λεπτομέρειες του Galaxy account.</string>
     <string name="arbitration_agreement">Σύμβαση διαιτησίας</string>
+    <string name="activation_title">Κατάσταση ενεργοποίησης</string>
+    <string name="activation_summary">Ενεργοποιήθηκε στις %1$s. Για περισσότερες πληροφορίες, επισκεφτείτε τη διεύθυνση %2$s.</string>
+    <string name="wifi_ap_pmf_on">Ενεργοποίηση PMF</string>
+    <string name="edit_event_start_short">Αρχή</string>
+    <string name="edit_event_end_short">Τέλος</string>
+    <string name="select_date_to_view">Επιλογή ημερομηνίας για προβολή</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Ναι</string>
     <string name="no">Όχι</string>
     <string name="create">Δημ/γία</string>
@@ -5474,7 +5535,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="app_notification_block_title">Να επιτρέπ. ειδοποιήσεις</string>
     <string name="app_notification_block_summary">Λάβετε ειδοποιήσεις από αυτήν την εφαρμογή, όπως είναι τα μηνύματα ειδοποιήσεων, οι ήχοι και η δόνηση.</string>
     <string name="app_notification_override_dnd_title">Ορισμός ως προτεραιότητας</string>
-    <string name="app_notification_override_dnd_summary">Να επιτρέπεται να ακούγεται ήχος και να ενεργοποιείται η οθόνη από τις ειδοποιήσεις αυτής της εφαρμογής όσο είναι ενεργή η λειτουργία «Μην ενοχλείτε».</string>
+    <string name="app_notification_override_dnd_summary">Να εμφανίζονται οι ειδοποιήσεις στο επάνω μέρος του πίνακα ειδοποιήσεων και να συμπεριλαμβάνονται στη λίστα επιτρεπόμενων όταν είναι ενεργοποιημένη η λειτουργία «Μην ενοχλείτε».</string>
     <string name="app_notification_visibility_override_title">Στην οθόνη κλειδώματος</string>
     <string name="app_notifications_dialog_done">Ολοκλ/θηκε</string>
     <string name="zen_mode_choose_rule_type">Επιλογή τύπου κανόνα</string>
@@ -5511,6 +5572,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="restr_pin_enter_admin_pin">Καταχώρηση PIN διαχειριστή</string>
     <string name="switch_on_text">Ενεργό</string>
     <string name="switch_off_text">Ανενεργό</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Η διαχείριση αυτού του προφίλ εργασίας γίνεται από:</string>
     <string name="managing_admin">Διαχείριση από %s</string>
     <string name="display_auto_rotate_title">Περιστροφή οθόνης</string>
     <string name="display_auto_rotate_rotate">Περιστροφή περιεχομένου οθόνης</string>
@@ -5547,9 +5609,9 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="encrypt_talkback_dialog_require_pin">Να απαιτ. PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Να απαιτ. μοτ.</string>
     <string name="encrypt_talkback_dialog_require_password">Να απαιτ. κωδικ.</string>
-    <string name="encrypt_talkback_dialog_message_pin">Την πρώτη φορά που θα καταχωρίσετε το PIN μετά την ενεργοποίηση της συσκευής, οι λειτουργίες προσβασιμότητας, όπως το %1$s, θα είναι απενεργοποιημένες προσωρινά.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Την πρώτη φορά που θα σχεδιάσετε το μοτίβο σας μετά την ενεργοποίηση της συσκευής, οι λειτουργίες προσβασιμότητας, όπως το %1$s, θα είναι απενεργοποιημένες προσωρινά.</string>
-    <string name="encrypt_talkback_dialog_message_password">Την πρώτη φορά που θα καταχωρίσετε τον κωδικό πρόσβασης μετά την ενεργοποίηση της συσκευής, οι λειτουργίες προσβασιμότητας, όπως το %1$s, θα είναι απενεργοποιημένες προσωρινά.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Το PIN θα απαιτείται κατά την ενεργοποίηση της συσκευής. Οι λειτουργίες προσβασιμότητας δεν θα είναι διαθέσιμες μέχρι να ολοκληρωθεί η εκκίνηση της συσκευής.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Το μοτίβο θα απαιτείται κατά την ενεργοποίηση της συσκευής. Οι λειτουργίες προσβασιμότητας δεν θα είναι διαθέσιμες μέχρι να ολοκληρωθεί η εκκίνηση της συσκευής.</string>
+    <string name="encrypt_talkback_dialog_message_password">Ο κωδικός πρόσβασης θα απαιτείται κατά την ενεργοποίηση της συσκευής. Οι λειτουργίες προσβασιμότητας δεν θα είναι διαθέσιμες μέχρι να ολοκληρωθεί η εκκίνηση της συσκευής.</string>
     <string name="slot_number">(υποδοχή %d)</string>
     <string name="app_launch_domain_links_title">Σύνδεσμοι εφαρμογών</string>
     <string name="app_launch_open_domain_urls_title">Μετάβαση σε υποστηρ. URL</string>
@@ -5625,18 +5687,18 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="usb_use_power_only">Φόρτιση συνδ. συσκευής</string>
     <string name="usb_use_power_only_desc">Φορτίστε τη συνδεδεμένη συσκευή μέσω USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Μεταφ. αρχ. πολυμέσων</string>
+    <string name="usb_use_file_transfers">Μεταφορά αρχείων</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Μεταφορά εικόνων</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Επιλέξτε αυτήν τη λειτουργία αν η μεταφορά αρχείων πολυμέσων δεν λειτουργεί. Μπορείτε να μεταφέρετε μόνο αρχεία εικόνων.</string>
+    <string name="usb_use_photo_transfers_summary">Επιλέξτε αυτήν τη λειτουργία αν η μεταφορά αρχείων πολυμέσων δεν λειτουργεί. Μπορείτε να μεταφέρετε μόνο αρχεία εικόνων σε αυτήν τη λειτουργία.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Συνδέστε συσκευή MIDI</string>
-    <string name="usb_use">Χρήση USB για</string>
-    <string name="assist_access_context_title">Ανάγνωση κειμένου οθόνης</string>
-    <string name="assist_access_context_summary">Να επιτρέπεται στην εφαρμογή βοήθειας της συσκευής να διαβάζει τυχόν κείμενο που εμφανίζεται στην οθόνη.</string>
-    <string name="assist_access_screenshot_title">Λήψη/πρόσβαση σε στιγμιότυπο</string>
-    <string name="assist_access_screenshot_summary">Να επιτρέπεται στην εφαρμογή βοήθειας της συσκευής να αποτυπώνει στιγμιότυπα οθόνης και να έχει πρόσβαση σε αυτά.</string>
+    <string name="usb_use">Χρήση του USB για</string>
+    <string name="assist_access_context_title">Ανάλυση κειμένου οθόνης</string>
+    <string name="assist_access_context_summary">Επιτρέψτε στην εφαρμογή βοήθειας της συσκευής να αναλύει το κείμενο που εμφανίζεται στην οθόνη για να παρέχει σχετικό περιεχόμενο.</string>
+    <string name="assist_access_screenshot_title">Ανάλυση εικόνων οθόνης</string>
+    <string name="assist_access_screenshot_summary">Επιτρέψτε στην εφαρμογή βοήθειας της συσκευής να τραβά φωτογραφίες της οθόνης και να τις χρησιμοποιεί.</string>
     <string name="assist_footer">Οι εφαρμογές βοήθειας της συσκευής σάς βοηθούν συλλέγοντας πληροφορίες από την οθόνη που εμφανίζεται τη δεδομένη στιγμή στο τηλέφωνό σας. Ορισμένες εφαρμογές βοήθειας της συσκευής μπορούν να χρησιμοποιηθούν για το άνοιγμα άλλων εφαρμογών και την εισαγωγή κειμένου χρησιμοποιώντας τη φωνητική εισαγωγή, παρέχοντας ενοποιημένη βοήθεια.</string>
     <string name="average_memory_use">Μέση χρήση RAM</string>
     <string name="maximum_memory_use">Μέγιστη χρήση RAM</string>
@@ -5665,7 +5727,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ignore_optimizations_on_desc">Ενδέχεται να αυξήσει την κατανάλωση της μπαταρίας</string>
     <string name="ignore_optimizations_off_desc">Συνιστάται για την εξοικονόμηση ισχύος μπαταρίας</string>
     <string name="app_list_preference_none">Κανένα</string>
-    <string name="allow_overlay_description">Επιλέξτε εφαρμογές για να επιτρέψετε στα κουμπιά, τα αναδυόμενα μηνύματα ή άλλα στοιχεία τους να εμφανίζονται πάνω από άλλες εφαρμογές που χρησιμοποιείτε.</string>
+    <string name="allow_overlay_description">Αυτό το δικαίωμα επιτρέπει σε μια εφαρμογή την εμφάνιση στοιχείων πάνω από άλλες εφαρμογές που χρησιμοποιείτε. Αυτό μπορεί να επηρεάσει τη χρήση των άλλων εφαρμογών.</string>
     <string name="overlay_settings">Εφαρμογές που μπορούν να εμφανιστούν επάνω</string>
     <string name="filter_overlay_apps">Εφαρμογές με άδεια</string>
     <string name="filter_write_settings_apps">Εφαρμογές με άδεια</string>
@@ -5712,14 +5774,14 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ethernet_data_template">%1$s δεδομένα Ethernet</string>
     <string name="cell_warning_only">Προειδοποίηση δεδομένων %s</string>
     <string name="cell_warning_and_limit">Προειδοποίηση χρήσης %1$s δεδομένων/Προειδοποίηση χρήσης %2$s δεδομένων</string>
-    <string name="billing_cycle">Κύκλος χρέωσης</string>
+    <string name="billing_cycle">Προειδ. για κύκλο χρ. και δεδ.</string>
     <string name="billing_cycle_summary">%s ημέρα κάθε μήνα</string>
     <string name="billing_cycle_fragment_summary">%s ημέρα κάθε μήνα</string>
     <string name="network_restrictions">Περιορισμός δικτύων</string>
     <string name="operator_warning">Η μέτρηση της χρήσης δεδομένων έγινε από τη συσκευή σας. Ο παροχέας υπηρεσιών ίσως υπολογίζει διαφορετικά τη χρήση.</string>
     <string name="data_used_template">Χρησιμοποιήθηκαν %s</string>
     <string name="data_warning">Προειδοποίηση δεδομένων</string>
-    <string name="set_data_limit">Όριο δεδομένων</string>
+    <string name="set_data_limit">Ορισμός ορίου δεδομένων</string>
     <string name="data_limit">Όριο δεδομένων</string>
     <string name="data_usage_template">Χρησιμοποιήθηκαν %1$s μεταξύ %2$s</string>
     <string name="data_usage_other_apps">Σχετ. εφ. που περιλ. στη χρήση</string>
@@ -5761,5 +5823,4 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="enable_iris_lock_desc_3">"Τα δαχτυλικά αποτυπώματα έχουν οριστεί αυτήν τη στιγμή ως τύπος κλειδώματος της οθόνης.
 
 Για να ορίσετε τον τύπο ξεκλειδώματος οθόνης ως Ίριδες αντί για Δαχτυλικά αποτυπώματα, πατήστε ΕΝΕΡΓΟΠΟΙΗΣΗ. Στη συνέχεια, μπορείτε να ξεκλειδώσετε τη συσκευή χρησιμοποιώντας τις ίριδες ή το %s."</string>
-    <string name="my_phone_summary">Ηχεία/ακουστικά/συσκευή ήχου USB</string>
 </resources>

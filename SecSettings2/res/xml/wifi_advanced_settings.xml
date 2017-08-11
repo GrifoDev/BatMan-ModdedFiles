@@ -6,6 +6,7 @@
     <SwitchPreference android:persistent="true" android:visibility="gone" android:title="@string/notify_me_available_network" android:key="show_wifi_popup" android:summary="@string/notify_me_available_network_summary" />
     <SwitchPreference android:persistent="true" android:title="@string/wifi_watchdog_connectivity_check" android:key="wifi_poor_network_detection" android:summary="@string/wifi_sns_setting_alert" />
     <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/wifi_watchdog_connectivity_check" android:key="wifi_poor_network_detection_aggressive_mode" android:summary="@string/wifi_sns_setting_alert" />
+    <SwitchPreference android:persistent="true" android:title="@string/wifi_adps_title" android:key="wifi_adps" android:summary="@string/wifi_adps_summary" />
     <SwitchPreference android:persistent="true" android:title="@string/wifi_notify_open_networks" android:key="notify_open_networks" android:summary="@string/wifi_notify_open_networks_summary" />
     <SwitchPreference android:persistent="true" android:title="@string/wifi_hotspot20_enable" android:key="wifi_hs20_enable" android:summary="@string/wifi_hotspot20_summary" />
     <SwitchPreference android:persistent="true" android:title="@string/wlan_permission_available" android:key="wlan_permission_available" android:summary="@string/wlan_permission_available_message" />

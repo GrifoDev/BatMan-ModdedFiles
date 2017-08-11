@@ -41,7 +41,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$11;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
-    invoke-static {v1, v2}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-set3(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-set2(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$11;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -51,7 +51,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b13ee
+    const v1, 0x7f0b1489
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -70,7 +70,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-set3(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-set2(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
 
     return-void
 .end method

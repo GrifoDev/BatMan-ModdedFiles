@@ -70,134 +70,6 @@
     return-void
 .end method
 
-.method public static compareBixbyDeviceNameEquals(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 5
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
-
-    const-string/jumbo v0, "BluetoothUtils"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "compareBixbyDeviceNameEquals :: target = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ", source = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz p1, :cond_0
-
-    if-nez p0, :cond_1
-
-    :cond_0
-    return v3
-
-    :cond_1
-    const-string/jumbo v0, " "
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, " "
-
-    const-string/jumbo v2, ""
-
-    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    const-string/jumbo v0, "BluetoothUtils"
-
-    const-string/jumbo v1, "compareBixbyDeviceNameEquals :: source equals target"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v4
-
-    :cond_2
-    const-string/jumbo v0, " "
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, " "
-
-    const-string/jumbo v2, ""
-
-    invoke-virtual {p1, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const-string/jumbo v0, "BluetoothUtils"
-
-    const-string/jumbo v1, "compareBixbyDeviceNameEquals :: source contains target"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v4
-
-    :cond_3
-    return v3
-.end method
-
 .method public static getContactUri(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
     .locals 9
 
@@ -365,7 +237,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0d00e9
+    const v15, 0x7f0d00ea
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -492,7 +364,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0d00e8
+    const v15, 0x7f0d00e9
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -522,7 +394,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0d00e9
+    const v15, 0x7f0d00ea
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -607,7 +479,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0d00e9
+    const v15, 0x7f0d00ea
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -704,7 +576,7 @@
 
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
-    const v1, 0x7f0f02f7
+    const v1, 0x7f0f02fa
 
     invoke-direct {v0, p0, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
@@ -763,7 +635,7 @@
 
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
-    const v2, 0x7f0f02f7
+    const v2, 0x7f0f02fa
 
     invoke-direct {v0, p0, v2}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 

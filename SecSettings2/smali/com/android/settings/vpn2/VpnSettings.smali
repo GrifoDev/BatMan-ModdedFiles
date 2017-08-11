@@ -853,10 +853,152 @@
 
 
 # virtual methods
+.method public BixbySearchVpn(Ljava/lang/String;)V
+    .locals 12
+
+    const/4 v10, 0x1
+
+    iget-object v8, p0, Lcom/android/settings/vpn2/VpnSettings;->mKeyStore:Landroid/security/KeyStore;
+
+    const/4 v9, 0x0
+
+    new-array v9, v9, [I
+
+    invoke-static {v8, v9}, Lcom/android/settings/vpn2/VpnSettings;->loadVpnProfiles(Landroid/security/KeyStore;[I)Ljava/util/List;
+
+    move-result-object v7
+
+    invoke-virtual {p0}, Lcom/android/settings/vpn2/VpnSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8, v10}, Lcom/android/settings/vpn2/VpnSettings;->getVpnApps(Landroid/content/Context;Z)Ljava/util/List;
+
+    move-result-object v6
+
+    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :cond_0
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/internal/net/VpnProfile;
+
+    invoke-direct {p0, v4}, Lcom/android/settings/vpn2/VpnSettings;->findOrCreatePreference(Lcom/android/internal/net/VpnProfile;)Lcom/android/settings/vpn2/LegacyVpnPreference;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/settings/vpn2/LegacyVpnPreference;->getProfile()Lcom/android/internal/net/VpnProfile;
+
+    move-result-object v8
+
+    iget-object v8, v8, Lcom/android/internal/net/VpnProfile;->name:Ljava/lang/String;
+
+    invoke-virtual {v8, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    invoke-virtual {v2}, Lcom/android/settings/vpn2/LegacyVpnPreference;->getProfile()Lcom/android/internal/net/VpnProfile;
+
+    move-result-object v8
+
+    invoke-static {p0, v8, v10, v10}, Lcom/android/settings/vpn2/ConfigDialogFragment;->show(Lcom/android/settings/vpn2/VpnSettings;Lcom/android/internal/net/VpnProfile;ZZ)V
+
+    iget-object v8, p0, Lcom/android/settings/vpn2/VpnSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v9, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    return-void
+
+    :cond_1
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_2
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settings/vpn2/AppVpnInfo;
+
+    invoke-direct {p0, v0}, Lcom/android/settings/vpn2/VpnSettings;->findOrCreatePreference(Lcom/android/settings/vpn2/AppVpnInfo;)Lcom/android/settings/vpn2/AppPreference;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/settings/vpn2/AppPreference;->getLabel()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/settings/vpn2/VpnSettings;->getPrefContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-static {v8, v3}, Lcom/android/settings/vpn2/AppManagementFragment;->show(Landroid/content/Context;Lcom/android/settings/vpn2/AppPreference;)V
+
+    iget-object v8, p0, Lcom/android/settings/vpn2/VpnSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v9, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    return-void
+
+    :cond_3
+    iget-object v8, p0, Lcom/android/settings/vpn2/VpnSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v9, "VPNName"
+
+    const-string/jumbo v10, "Exist"
+
+    const-string/jumbo v11, "no"
+
+    invoke-virtual {v8, v9, v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v8, p0, Lcom/android/settings/vpn2/VpnSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v9, "EditVPNnetwork"
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v8, p0, Lcom/android/settings/vpn2/VpnSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v9, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    return-void
+.end method
+
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a02
+    const v0, 0x7f0b1a9e
 
     return v0
 .end method
@@ -1008,7 +1150,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SecRestrictedSettingsFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    const v0, 0x7f140011
+    const v0, 0x7f140012
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -1103,7 +1245,7 @@
     return v7
 
     :pswitch_data_0
-    .packed-switch 0x7f1109dc
+    .packed-switch 0x7f1109e2
         :pswitch_0
     .end packed-switch
 .end method
@@ -1169,7 +1311,7 @@
 
     instance-of v11, p1, Lcom/android/settings/vpn2/LegacyVpnPreference;
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_2
 
     move-object v7, p1
 
@@ -1226,20 +1368,51 @@
     invoke-static {v11, v12, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
+    invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
+
+    move-result-object v11
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "VPN_"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    iget-object v13, v8, Lcom/android/internal/net/VpnProfile;->key:Ljava/lang/String;
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Landroid/security/KeyStore;->contains(Ljava/lang/String;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_1
+
     const/4 v11, 0x0
 
     const/4 v12, 0x1
 
     invoke-static {p0, v8, v11, v12}, Lcom/android/settings/vpn2/ConfigDialogFragment;->show(Lcom/android/settings/vpn2/VpnSettings;Lcom/android/internal/net/VpnProfile;ZZ)V
 
+    :cond_1
     const/4 v11, 0x1
 
     return v11
 
-    :cond_1
+    :cond_2
     instance-of v11, p1, Lcom/android/settings/vpn2/AppPreference;
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_5
 
     move-object v6, p1
 
@@ -1251,12 +1424,12 @@
 
     const/4 v12, 0x3
 
-    if-ne v11, v12, :cond_2
+    if-ne v11, v12, :cond_3
 
     const/4 v1, 0x1
 
     :goto_0
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     :try_start_1
     invoke-virtual {v6}, Lcom/android/settings/vpn2/AppPreference;->getUserId()I
@@ -1297,7 +1470,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     invoke-virtual {v10, v0, v9}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
     :try_end_1
@@ -1307,7 +1480,7 @@
 
     return v11
 
-    :cond_2
+    :cond_3
     const/4 v1, 0x0
 
     goto :goto_0
@@ -1341,7 +1514,7 @@
 
     invoke-static {v11, v12, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_3
+    :cond_4
     invoke-virtual {v6}, Lcom/android/settings/vpn2/AppPreference;->getPackageInfo()Landroid/content/pm/PackageInfo;
 
     move-result-object v4
@@ -1358,7 +1531,7 @@
 
     return v11
 
-    :cond_4
+    :cond_5
     const/4 v11, 0x0
 
     return v11
@@ -1425,7 +1598,7 @@
 
     move-result v3
 
-    const v4, 0x7f1109dc
+    const v4, 0x7f1109e2
 
     if-ne v3, v4, :cond_1
 
@@ -1462,7 +1635,7 @@
 .method public onResume()V
     .locals 7
 
-    const v6, 0x7f0f0288
+    const v6, 0x7f0f0289
 
     const/4 v5, 0x0
 
@@ -1504,7 +1677,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b00a7
+    const v3, 0x7f0b0104
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -1532,7 +1705,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1978
+    const v3, 0x7f0b1a14
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

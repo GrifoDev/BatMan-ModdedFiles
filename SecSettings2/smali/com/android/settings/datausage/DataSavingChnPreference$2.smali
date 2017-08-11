@@ -78,7 +78,7 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/DataSavingChnPreference$2;->this$0:Lcom/android/settings/datausage/DataSavingChnPreference;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get1(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/datasaving/IOnSavingStateChangeListener;
+    invoke-static {v2}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get0(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/datasaving/IOnSavingStateChangeListener;
 
     move-result-object v2
 
@@ -95,7 +95,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/settings/datausage/DataSavingChnPreference$2;->this$0:Lcom/android/settings/datausage/DataSavingChnPreference;
 
-    invoke-static {v1}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get2(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
+    invoke-static {v1}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get1(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
 
     move-result-object v1
 
@@ -103,7 +103,7 @@
 
     iget-object v1, p0, Lcom/android/settings/datausage/DataSavingChnPreference$2;->this$0:Lcom/android/settings/datausage/DataSavingChnPreference;
 
-    invoke-static {v1}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get2(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
+    invoke-static {v1}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get1(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
 
     move-result-object v1
 
@@ -169,7 +169,7 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/DataSavingChnPreference$2;->this$0:Lcom/android/settings/datausage/DataSavingChnPreference;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get1(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/datasaving/IOnSavingStateChangeListener;
+    invoke-static {v2}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get0(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/datasaving/IOnSavingStateChangeListener;
 
     move-result-object v2
 

@@ -26,30 +26,48 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .locals 5
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SettingsActivityWrapper;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-static {}, Lcom/android/settings/Utils;->isSupportGraceUXGraceView()Z
+    invoke-virtual {p0}, Lcom/android/settings/Settings$WirelessSettingsActivity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    const-string/jumbo v3, "Wireless_Settings"
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportGraceUXGraceView()Z
 
-    new-instance v0, Landroid/content/Intent;
+    move-result v3
 
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+    if-eqz v3, :cond_0
 
-    const-string/jumbo v1, "com.android.settings"
+    if-eqz v1, :cond_1
 
-    const-string/jumbo v2, "com.android.settings.Settings$ConnectionsSettingsActivity"
+    :cond_0
+    :goto_0
+    return-void
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    :cond_1
+    new-instance v2, Landroid/content/Intent;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/Settings$WirelessSettingsActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-direct {v2}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v3, "com.android.settings"
+
+    const-string/jumbo v4, "com.android.settings.Settings$ConnectionsSettingsActivity"
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    invoke-virtual {p0, v2}, Lcom/android/settings/Settings$WirelessSettingsActivity;->startActivity(Landroid/content/Intent;)V
 
     invoke-virtual {p0}, Lcom/android/settings/Settings$WirelessSettingsActivity;->finish()V
 
-    :cond_0
-    return-void
+    goto :goto_0
 .end method

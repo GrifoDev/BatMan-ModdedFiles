@@ -131,7 +131,7 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/AppDataUsage;->-get7(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    invoke-static {v2}, Lcom/android/settings/datausage/AppDataUsage;->-get8(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
 
     move-result-object v2
 
@@ -145,7 +145,7 @@
 
     iget-object v3, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get7(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get8(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
 
     move-result-object v3
 
@@ -154,7 +154,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/AppDataUsage;->-get10(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    invoke-static {v2}, Lcom/android/settings/datausage/AppDataUsage;->-get11(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
 
     move-result-object v2
 
@@ -168,7 +168,7 @@
 
     iget-object v3, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get10(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get11(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
 
     move-result-object v3
 
@@ -226,7 +226,7 @@
 
     iget-object v3, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get8(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get9(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
 
     move-result-object v3
 
@@ -234,7 +234,7 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/AppDataUsage;->-get7(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    invoke-static {v2}, Lcom/android/settings/datausage/AppDataUsage;->-get8(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
 
     move-result-object v2
 
@@ -250,7 +250,7 @@
 
     iget-object v3, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get7(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get8(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
 
     move-result-object v3
 
@@ -261,7 +261,7 @@
 
     iget-object v3, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get11(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get12(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
 
     move-result-object v3
 
@@ -269,7 +269,7 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/AppDataUsage;->-get10(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    invoke-static {v2}, Lcom/android/settings/datausage/AppDataUsage;->-get11(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
 
     move-result-object v2
 
@@ -285,7 +285,7 @@
 
     iget-object v3, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get10(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    invoke-static {v3}, Lcom/android/settings/datausage/AppDataUsage;->-get11(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
 
     move-result-object v3
 
@@ -293,7 +293,7 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage$1;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/AppDataUsage;->-wrap3(Lcom/android/settings/datausage/AppDataUsage;)V
+    invoke-static {v2}, Lcom/android/settings/datausage/AppDataUsage;->-wrap4(Lcom/android/settings/datausage/AppDataUsage;)V
 
     goto :goto_1
 

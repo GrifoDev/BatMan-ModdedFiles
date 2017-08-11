@@ -268,7 +268,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b0bc3
+    const v2, 0x7f0b0c35
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -293,7 +293,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b0bc5
+    const v2, 0x7f0b0c37
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -365,7 +365,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0d01a8
+    const v3, 0x7f0d01a9
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -505,7 +505,7 @@
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0d01a9
+    const v3, 0x7f0d01aa
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -875,11 +875,11 @@
 
     iput-object p0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0401e3
+    const v0, 0x7f0401e5
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->setContentView(I)V
 
-    const v0, 0x7f110605
+    const v0, 0x7f110607
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -893,7 +893,7 @@
 
     invoke-virtual {v0, v4}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    const v0, 0x7f110606
+    const v0, 0x7f110608
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -903,7 +903,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mPerfmodeAnimIconIv:Lcom/altamirasoft/path_animation/PathLineAnimationView;
 
-    const v0, 0x7f11054c
+    const v0, 0x7f11054e
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -911,7 +911,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f11054d
+    const v0, 0x7f11054f
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -943,7 +943,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0570
+    const v2, 0x7f0a056f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -953,7 +953,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a056e
+    const v3, 0x7f0a056d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -965,7 +965,7 @@
 
     invoke-virtual {v0, p0}, Lcom/samsung/android/visualeffect/circle/CircleContainer;->setCircleListener(Lcom/samsung/android/visualeffect/circle/CircleContainer$CircleListener;)V
 
-    const v0, 0x7f110604
+    const v0, 0x7f110606
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -975,7 +975,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mAnimatedDoneV:Lcom/samsung/android/visualeffect/check/DoneView;
 
-    const v0, 0x7f110607
+    const v0, 0x7f110609
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -983,7 +983,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mDescContainer:Landroid/view/View;
 
-    const v0, 0x7f110608
+    const v0, 0x7f11060a
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -993,7 +993,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mProcessingDescTv:Landroid/widget/TextView;
 
-    const v0, 0x7f110609
+    const v0, 0x7f11060b
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 
@@ -1003,7 +1003,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->mExtendedTimeTv:Landroid/widget/TextView;
 
-    const v0, 0x7f11060a
+    const v0, 0x7f11060c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->findViewById(I)Landroid/view/View;
 

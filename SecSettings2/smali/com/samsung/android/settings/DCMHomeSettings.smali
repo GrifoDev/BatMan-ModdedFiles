@@ -1153,7 +1153,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f04013a
+    const v0, 0x7f04013c
 
     const/4 v1, 0x0
 
@@ -1279,7 +1279,7 @@
 
     aput-object v2, v4, v5
 
-    const v5, 0x7f0b03be
+    const v5, 0x7f0b041f
 
     invoke-virtual {p0, v5, v4}, Lcom/samsung/android/settings/DCMHomeSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

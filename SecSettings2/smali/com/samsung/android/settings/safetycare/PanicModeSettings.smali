@@ -154,7 +154,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b1b37
+    const v1, 0x7f0b1bd3
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -168,7 +168,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b1b38
+    const v1, 0x7f0b1bd4
 
     goto :goto_1
 .end method
@@ -208,7 +208,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0401d0
+    const v2, 0x7f0401d2
 
     invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -285,7 +285,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0401d0
+    const v3, 0x7f0401d2
 
     invoke-static {v2, v3, v4}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -415,7 +415,7 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/safetycare/PanicModeSettings;->mTempView:Landroid/view/View;
 
-    const v4, 0x7f1105d6
+    const v4, 0x7f1105d8
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -423,7 +423,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f1105d7
+    const v4, 0x7f1105d9
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -431,7 +431,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v4, 0x7f1105d5
+    const v4, 0x7f1105d7
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -453,12 +453,12 @@
 
     if-nez v4, :cond_1
 
-    const v4, 0x7f0b04c8
+    const v4, 0x7f0b052b
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
     :goto_0
-    const v4, 0x7f020460
+    const v4, 0x7f020486
 
     invoke-virtual {v1, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -476,7 +476,7 @@
     return-void
 
     :cond_1
-    const v4, 0x7f0b04c7
+    const v4, 0x7f0b052a
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 

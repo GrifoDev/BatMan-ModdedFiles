@@ -38,7 +38,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0402e3
+    const v0, 0x7f0402e7
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardFormatConfirm;->setContentView(I)V
 
@@ -69,7 +69,7 @@
 
     new-array v0, v4, [Ljava/lang/String;
 
-    const v3, 0x7f0b1558
+    const v3, 0x7f0b15f4
 
     invoke-virtual {p0, v3, v0}, Lcom/android/settings/deviceinfo/StorageWizardFormatConfirm;->setHeaderText(I[Ljava/lang/String;)V
 
@@ -91,7 +91,7 @@
 
     aput-object v2, v0, v1
 
-    const v1, 0x7f0b1559
+    const v1, 0x7f0b15f5
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/deviceinfo/StorageWizardFormatConfirm;->setBodyText(I[Ljava/lang/String;)V
 
@@ -100,7 +100,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b155c
+    const v1, 0x7f0b15f8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -108,7 +108,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d027d
+    const v1, 0x7f0d027e
 
     invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/StorageWizardFormatConfirm;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -126,7 +126,7 @@
     :cond_2
     new-array v0, v4, [Ljava/lang/String;
 
-    const v3, 0x7f0b155a
+    const v3, 0x7f0b15f6
 
     invoke-virtual {p0, v3, v0}, Lcom/android/settings/deviceinfo/StorageWizardFormatConfirm;->setHeaderText(I[Ljava/lang/String;)V
 
@@ -158,7 +158,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b155b
+    const v1, 0x7f0b15f7
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/deviceinfo/StorageWizardFormatConfirm;->setBodyText(I[Ljava/lang/String;)V
 

@@ -12,9 +12,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$14;,
-        Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$15;,
-        Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$16;,
+        Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11;,
+        Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$12;,
+        Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$13;,
         Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$1;,
         Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$2;,
         Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$3;,
@@ -404,7 +404,7 @@
 .method private getCurrentSecurityTitle()Ljava/lang/String;
     .locals 6
 
-    const v5, 0x7f0b09c4
+    const v5, 0x7f0b0a32
 
     const/4 v4, 0x1
 
@@ -423,7 +423,7 @@
     sparse-switch v0, :sswitch_data_0
 
     :cond_0
-    const v1, 0x7f0b02d4
+    const v1, 0x7f0b0332
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I)Ljava/lang/String;
 
@@ -434,7 +434,7 @@
     :sswitch_0
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b12df
+    const v2, 0x7f0b137a
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I)Ljava/lang/String;
 
@@ -451,7 +451,7 @@
     :sswitch_1
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b12e1
+    const v2, 0x7f0b137c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I)Ljava/lang/String;
 
@@ -480,7 +480,7 @@
 
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b12dd
+    const v2, 0x7f0b1378
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I)Ljava/lang/String;
 
@@ -508,7 +508,7 @@
 .method private initializeAllPreferences()V
     .locals 10
 
-    const v9, 0x7f0b176d
+    const v9, 0x7f0b1809
 
     const/4 v8, 0x0
 
@@ -844,7 +844,7 @@
     :cond_c
     iget-object v6, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->mToggleAccessControlPreference:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v7, 0x7f0b02c4
+    const v7, 0x7f0b0322
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I)Ljava/lang/String;
 
@@ -860,7 +860,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b02d4
+    const v2, 0x7f0b0332
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I)Ljava/lang/String;
 
@@ -1000,13 +1000,13 @@
 
     invoke-direct {v0, v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v1, 0x7f0b02d2
+    const v1, 0x7f0b0330
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b02d3
+    const v1, 0x7f0b0331
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1016,25 +1016,25 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b046a
+    const v2, 0x7f0b04cd
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v2, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$17;
+    new-instance v2, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$14;
 
-    invoke-direct {v2, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$17;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+    invoke-direct {v2, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$14;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$18;
+    new-instance v1, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$15;
 
-    invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$18;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+    invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$15;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
 
-    const v2, 0x7f0b124f
+    const v2, 0x7f0b12ea
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1046,9 +1046,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$19;
+    new-instance v1, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$16;
 
-    invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$19;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+    invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$16;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1059,219 +1059,6 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->mAccessControlDialog:Landroid/app/AlertDialog;
-
-    return-void
-.end method
-
-.method private showAutoClickExclusivePopup()V
-    .locals 13
-
-    const v12, 0x7f0b1770
-
-    const/4 v11, 0x0
-
-    sput v11, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v12}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    const v9, 0x7f0e0021
-
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result v6
-
-    const-string/jumbo v4, ""
-
-    iget-boolean v8, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->onhandoperation:Z
-
-    if-eqz v8, :cond_0
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "\u2022 "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f0b0cc0
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "\n"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    sget v8, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    add-int/lit8 v8, v8, 0x8
-
-    sput v8, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    :cond_0
-    new-instance v0, Landroid/view/ContextThemeWrapper;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
-
-    move-result-object v8
-
-    const v9, 0x1030132
-
-    invoke-direct {v0, v8, v9}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
-
-    const-string/jumbo v8, "layout_inflater"
-
-    invoke-virtual {v0, v8}, Landroid/view/ContextThemeWrapper;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/view/LayoutInflater;
-
-    const v8, 0x7f04001b
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v5, v8, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/view/ViewGroup;
-
-    const v8, 0x7f110110
-
-    invoke-virtual {v3, v8}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/TextView;
-
-    const v8, 0x7f110111
-
-    invoke-virtual {v3, v8}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    const/4 v8, 0x1
-
-    new-array v8, v8, [Ljava/lang/Object;
-
-    invoke-virtual {p0, v12}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    aput-object v9, v8, v11
-
-    const v9, 0x7f0b02f9
-
-    invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v2, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    new-instance v8, Landroid/app/AlertDialog$Builder;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
-
-    move-result-object v9
-
-    const/4 v10, 0x5
-
-    invoke-direct {v8, v9, v10}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
-
-    invoke-virtual {v8, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v7}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v11}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f0b046a
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    new-instance v10, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11;
-
-    invoke-direct {v10, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
-
-    invoke-virtual {v8, v9, v10}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    new-instance v9, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$12;
-
-    invoke-direct {v9, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$12;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
-
-    const v10, 0x7f0b124f
-
-    invoke-virtual {v8, v10, v9}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v11}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    new-instance v9, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$13;
-
-    invoke-direct {v9, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$13;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
-
-    invoke-virtual {v8, v9}, Landroid/app/AlertDialog$Builder;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->mAutoClickDialog:Landroid/app/AlertDialog;
 
     return-void
 .end method
@@ -1332,7 +1119,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0244
+    const v3, 0x7f0b02a2
 
     invoke-static {v2, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1455,7 +1242,7 @@
 
     if-nez v1, :cond_1
 
-    const v2, 0x7f0b1776
+    const v2, 0x7f0b1812
 
     invoke-virtual {p1, v2}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -1802,7 +1589,7 @@
 
     aput-object v5, v4, v3
 
-    const v5, 0x7f0b0217
+    const v5, 0x7f0b0275
 
     invoke-virtual {p0, v5, v4}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2081,7 +1868,7 @@
 
     invoke-static/range {v20 .. v21}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v20, 0x7f0b024d
+    const v20, 0x7f0b02ab
 
     move-object/from16 v0, p0
 
@@ -2165,7 +1952,7 @@
 
     if-eqz v20, :cond_4
 
-    const v20, 0x7f0b17a3
+    const v20, 0x7f0b183f
 
     move-object/from16 v0, p0
 
@@ -2194,7 +1981,7 @@
 
     const-string/jumbo v20, "settings_title"
 
-    const v21, 0x7f0b1774
+    const v21, 0x7f0b1810
 
     move-object/from16 v0, p0
 
@@ -2322,7 +2109,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f10033f
+    const v1, 0x7f100345
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2713,444 +2500,72 @@
 .end method
 
 .method public onCreateDialog(I)Landroid/app/Dialog;
-    .locals 21
+    .locals 22
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
-    move-result-object v18
+    move-result-object v19
 
-    if-nez v18, :cond_0
+    if-nez v19, :cond_0
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    return-object v18
+    return-object v19
 
     :cond_0
-    packed-switch p1, :pswitch_data_0
-
-    :pswitch_0
-    const/16 v18, 0x0
-
-    return-object v18
-
-    :pswitch_1
-    const/16 v18, 0x0
-
-    sput v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "easy_interaction"
-
-    const/16 v20, 0x0
-
-    invoke-static/range {v18 .. v20}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v16
-
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v18
+    move-result-object v19
 
-    const v19, 0x7f0e0021
+    const v20, 0x7f0e0021
 
-    invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result v13
+    move-result v14
 
     const-string/jumbo v10, ""
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "com.samsung.android.universalswitch"
-
-    invoke-static/range {v18 .. v19}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_1
-
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
-
-    move-result v18
-
-    if-nez v18, :cond_1
-
-    sget v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    add-int/lit8 v18, v18, 0x1
-
-    sput v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\u2022 "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v19
-
-    const v20, 0x7f0b024c
-
-    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\n"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    :cond_1
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "com.google.android.marvin.talkback"
-
-    invoke-static/range {v18 .. v19}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_2
-
-    sget v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    add-int/lit8 v18, v18, 0x2
-
-    sput v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\u2022 "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v19
-
-    const v20, 0x7f0b0ce3
-
-    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\n"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    :cond_2
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "com.samsung.android.app.talkback"
-
-    invoke-static/range {v18 .. v19}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_3
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\u2022 "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v19
-
-    const v20, 0x7f0b0251
-
-    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\n"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    sget v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    add-int/lit8 v18, v18, 0x4
-
-    sput v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    :cond_3
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->onhandoperation:Z
-
-    move/from16 v18, v0
-
-    if-eqz v18, :cond_4
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\u2022 "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v19
-
-    const v20, 0x7f0b0cc0
-
-    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\n"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    sget v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    add-int/lit8 v18, v18, 0x8
-
-    sput v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    :cond_4
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "com.samsung.android.app.accesscontrol"
-
-    invoke-static/range {v18 .. v19}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_5
-
-    sget v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    add-int/lit8 v18, v18, 0x10
-
-    sput v18, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\u2022 "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v19
-
-    const v20, 0x7f0b02c2
-
-    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\n"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    :cond_5
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "com.sec.feature.overlaymagnifier"
-
-    invoke-static/range {v18 .. v19}, Landroid/util/GeneralUtil;->hasSystemFeature(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_6
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "\u2022 "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v19
-
-    const v20, 0x7f0b0239
-
-    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    :cond_6
     new-instance v5, Landroid/view/ContextThemeWrapper;
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
-    move-result-object v18
+    move-result-object v19
 
-    const v19, 0x1030132
+    const v20, 0x1030132
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
     invoke-direct {v5, v0, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const-string/jumbo v18, "layout_inflater"
+    const-string/jumbo v19, "layout_inflater"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v5, v0}, Landroid/view/ContextThemeWrapper;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v13
 
-    check-cast v14, Landroid/view/LayoutInflater;
+    check-cast v13, Landroid/view/LayoutInflater;
 
-    const v18, 0x7f04001b
+    const v19, 0x7f04001b
 
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
-    invoke-virtual {v14, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v13, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v9
 
     check-cast v9, Landroid/view/ViewGroup;
 
-    const v18, 0x7f110110
+    const v19, 0x7f110110
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     invoke-virtual {v9, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3158,9 +2573,9 @@
 
     check-cast v8, Landroid/widget/TextView;
 
-    const v18, 0x7f110111
+    const v19, 0x7f110111
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     invoke-virtual {v9, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3168,105 +2583,476 @@
 
     check-cast v7, Landroid/widget/TextView;
 
-    const v18, 0x7f0b02f9
+    sparse-switch p1, :sswitch_data_0
 
-    move-object/from16 v0, p0
+    const/16 v19, 0x0
 
-    move/from16 v1, v18
+    return-object v19
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I)Ljava/lang/String;
+    :sswitch_0
+    const/16 v19, 0x0
 
-    move-result-object v18
+    sput v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
 
-    move-object/from16 v0, v18
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v8, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    move-result-object v19
 
-    invoke-virtual {v7, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const-string/jumbo v20, "easy_interaction"
 
-    new-instance v18, Landroid/app/AlertDialog$Builder;
+    const/16 v21, 0x0
+
+    invoke-static/range {v19 .. v21}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v16
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
     move-result-object v19
 
-    const/16 v20, 0x5
+    const-string/jumbo v20, "com.samsung.android.universalswitch"
 
-    invoke-direct/range {v18 .. v20}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
+    invoke-static/range {v19 .. v20}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
 
-    move-object/from16 v0, v18
+    move-result v19
 
-    invoke-virtual {v0, v9}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+    if-eqz v19, :cond_1
 
-    move-result-object v18
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    const/16 v19, 0x0
+    move-result v19
 
-    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    if-nez v19, :cond_1
 
-    move-result-object v18
+    sget v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+
+    add-int/lit8 v19, v19, 0x1
+
+    sput v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\u2022 "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v20
+
+    const v21, 0x7f0b02aa
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v19
 
-    const v20, 0x7f0b046a
+    const-string/jumbo v20, "\n"
 
-    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v19
 
-    new-instance v20, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct/range {v20 .. v21}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+    move-result-object v10
 
-    invoke-virtual/range {v18 .. v20}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    :cond_1
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
-    move-result-object v18
+    move-result-object v19
 
-    new-instance v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$21;
+    const-string/jumbo v20, "com.google.android.marvin.talkback"
+
+    invoke-static/range {v19 .. v20}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_2
+
+    sget v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+
+    add-int/lit8 v19, v19, 0x2
+
+    sput v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
     move-object/from16 v0, v19
 
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\u2022 "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0b0d62
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\n"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    :cond_2
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "com.samsung.android.app.talkback"
+
+    invoke-static/range {v19 .. v20}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_3
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\u2022 "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0b02af
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\n"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    sget v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+
+    add-int/lit8 v19, v19, 0x4
+
+    sput v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+
+    :cond_3
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->onhandoperation:Z
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_4
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\u2022 "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0b0d3f
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\n"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    sget v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+
+    add-int/lit8 v19, v19, 0x8
+
+    sput v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+
+    :cond_4
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "com.samsung.android.app.accesscontrol"
+
+    invoke-static/range {v19 .. v20}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_5
+
+    sget v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+
+    add-int/lit8 v19, v19, 0x10
+
+    sput v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\u2022 "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0b0320
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\n"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    :cond_5
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "com.sec.feature.overlaymagnifier"
+
+    invoke-static/range {v19 .. v20}, Landroid/util/GeneralUtil;->hasSystemFeature(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_6
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\u2022 "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0b0297
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    :cond_6
+    const v19, 0x7f0b0358
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v8, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v7, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    new-instance v19, Landroid/app/AlertDialog$Builder;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
+
+    move-result-object v20
+
+    const/16 v21, 0x5
+
+    invoke-direct/range {v19 .. v21}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v9}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    const/16 v20, 0x0
+
+    invoke-virtual/range {v19 .. v20}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0b04cd
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    new-instance v21, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$17;
+
+    invoke-direct/range {v21 .. v22}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$17;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+
+    invoke-virtual/range {v19 .. v21}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    new-instance v20, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$18;
+
+    move-object/from16 v0, v20
+
     move-object/from16 v1, p0
 
-    invoke-direct {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$21;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+    invoke-direct {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$18;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
 
-    const v20, 0x7f0b124f
+    const v21, 0x7f0b12ea
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move/from16 v1, v20
+    move/from16 v1, v21
 
-    move-object/from16 v2, v19
+    move-object/from16 v2, v20
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
-    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v19 .. v20}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v18
+    move-result-object v19
 
-    new-instance v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$22;
+    new-instance v20, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$19;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     move-object/from16 v1, p0
 
-    invoke-direct {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$22;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+    invoke-direct {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$19;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
 
-    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v19 .. v20}, Landroid/app/AlertDialog$Builder;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v4
 
     invoke-virtual {v4}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -3276,56 +3062,56 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->mSingleTapModeDialog:Landroid/app/AlertDialog;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
-    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
+    invoke-virtual/range {v19 .. v20}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->mSingleTapModeDialog:Landroid/app/AlertDialog;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    return-object v18
+    return-object v19
 
-    :pswitch_2
+    :sswitch_1
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-static/range {v18 .. v18}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    invoke-static/range {v19 .. v19}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v15
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, "layout_inflater"
+    const-string/jumbo v20, "layout_inflater"
 
-    invoke-virtual/range {v18 .. v19}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual/range {v19 .. v20}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v12
 
     check-cast v12, Landroid/view/LayoutInflater;
 
-    const v18, 0x7f040205
+    const v19, 0x7f040207
 
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v12, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v6
 
-    const v18, 0x7f11063a
+    const v19, 0x7f11063c
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     invoke-virtual {v6, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3339,139 +3125,366 @@
 
     new-instance v3, Landroid/content/Intent;
 
-    const-string/jumbo v18, "android.intent.action.MAIN"
+    const-string/jumbo v19, "android.intent.action.MAIN"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-direct {v3, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    new-instance v18, Landroid/content/ComponentName;
+    new-instance v19, Landroid/content/ComponentName;
 
-    const-string/jumbo v19, "com.samsung.android.app.assistantmenu"
+    const-string/jumbo v20, "com.samsung.android.app.assistantmenu"
 
-    const-string/jumbo v20, "com.samsung.android.app.assistantmenu.serviceframework.AssistantMenuService"
+    const-string/jumbo v21, "com.samsung.android.app.assistantmenu.serviceframework.AssistantMenuService"
 
-    invoke-direct/range {v18 .. v20}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct/range {v19 .. v21}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v3, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    new-instance v18, Landroid/app/AlertDialog$Builder;
+    new-instance v19, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
-    move-result-object v19
+    move-result-object v20
 
-    invoke-direct/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v19 .. v20}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->mDialogTitle:Ljava/lang/String;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v19 .. v20}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0b02a2
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
     move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v19
-
-    const v20, 0x7f0b0244
-
-    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v18
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0b02a1
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
     move-result-object v19
 
-    invoke-virtual/range {v19 .. v19}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v19
-
-    const v20, 0x7f0b0243
-
-    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v18
+    move-result-object v19
 
-    new-instance v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$23;
+    new-instance v20, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     move-object/from16 v1, p0
 
     move-object/from16 v2, v17
 
-    invoke-direct {v0, v1, v11, v2, v3}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$23;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;Landroid/content/SharedPreferences$Editor;Landroid/widget/CheckBox;Landroid/content/Intent;)V
+    invoke-direct {v0, v1, v11, v2, v3}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;Landroid/content/SharedPreferences$Editor;Landroid/widget/CheckBox;Landroid/content/Intent;)V
 
-    const v20, 0x104000a
+    const v21, 0x104000a
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
+
+    move/from16 v1, v21
+
+    move-object/from16 v2, v20
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    new-instance v20, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$21;
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, p0
+
+    invoke-direct {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$21;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+
+    const v21, 0x7f0b12ea
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v21
+
+    move-object/from16 v2, v20
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v19
+
+    return-object v19
+
+    :sswitch_2
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
+
+    move-result-object v19
+
+    const v20, 0x7f0b180c
+
+    invoke-virtual/range {v19 .. v20}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "any_screen_enabled"
+
+    const/16 v21, 0x0
+
+    invoke-static/range {v19 .. v21}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v19
+
+    const/16 v20, 0x1
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-ne v0, v1, :cond_8
+
+    const/16 v19, 0x1
+
+    :goto_0
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->onhandoperation:Z
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->onhandoperation:Z
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_7
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\u2022 "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0b0d3f
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "\n"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    :cond_7
+    const/16 v19, 0x1
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    const v20, 0x7f0b180c
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    const v20, 0x7f0b02ff
+
+    move-object/from16 v0, p0
 
     move/from16 v1, v20
 
     move-object/from16 v2, v19
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v18
-
-    new-instance v19, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$24;
+    move-result-object v19
 
     move-object/from16 v0, v19
+
+    invoke-virtual {v8, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v7, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    new-instance v19, Landroid/app/AlertDialog$Builder;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
+
+    move-result-object v20
+
+    const/16 v21, 0x5
+
+    invoke-direct/range {v19 .. v21}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v9}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    const/16 v20, 0x0
+
+    invoke-virtual/range {v19 .. v20}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0b04cd
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    new-instance v21, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$22;
+
+    invoke-direct/range {v21 .. v22}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$22;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+
+    invoke-virtual/range {v19 .. v21}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    new-instance v20, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$23;
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, p0
+
+    invoke-direct {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$23;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+
+    const v21, 0x7f0b12ea
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v21
+
+    move-object/from16 v2, v20
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    const/16 v20, 0x0
+
+    invoke-virtual/range {v19 .. v20}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v19
+
+    new-instance v20, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$24;
+
+    move-object/from16 v0, v20
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$24;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
 
-    const v20, 0x7f0b124f
+    invoke-virtual/range {v19 .. v20}, Landroid/app/AlertDialog$Builder;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroid/app/AlertDialog$Builder;
 
-    move-object/from16 v0, v18
+    move-result-object v19
 
-    move/from16 v1, v20
+    invoke-virtual/range {v19 .. v19}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-object/from16 v2, v19
+    move-result-object v19
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    return-object v19
 
-    move-result-object v18
+    :cond_8
+    const/16 v19, 0x0
 
-    invoke-virtual/range {v18 .. v18}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    goto/16 :goto_0
 
-    move-result-object v18
+    nop
 
-    return-object v18
-
-    :pswitch_data_0
-    .packed-switch 0x7
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_2
-    .end packed-switch
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_2
+        0x7 -> :sswitch_0
+        0xa -> :sswitch_1
+    .end sparse-switch
 .end method
 
 .method public onPause()V
@@ -3569,7 +3582,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b02f5
+    const v2, 0x7f0b0354
 
     const/4 v3, 0x0
 
@@ -3681,7 +3694,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f0b021f
+    const v6, 0x7f0b027d
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3691,7 +3704,7 @@
 
     aput-object v4, v3, v6
 
-    const v4, 0x7f0b0626
+    const v4, 0x7f0b068b
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3765,7 +3778,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f100342
+    const v4, 0x7f100348
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3916,7 +3929,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f100343
+    const v4, 0x7f100349
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3992,7 +4005,11 @@
 
     if-eqz v1, :cond_c
 
-    invoke-direct/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->showAutoClickExclusivePopup()V
+    const/4 v1, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->showDialog(I)V
 
     :goto_4
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
@@ -4007,7 +4024,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f100354
+    const v4, 0x7f10035a
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4134,7 +4151,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f100349
+    const v4, 0x7f10034f
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4237,7 +4254,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b176c
+    const v2, 0x7f0b1808
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4259,7 +4276,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b176d
+    const v2, 0x7f0b1809
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4301,7 +4318,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f100346
+    const v4, 0x7f10034c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 

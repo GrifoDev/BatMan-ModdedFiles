@@ -75,7 +75,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f040025
+    const v4, 0x7f040026
 
     invoke-virtual {v3, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -144,7 +144,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040025
+    const v0, 0x7f040026
 
     invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setView(I)Landroid/app/AlertDialog$Builder;
 

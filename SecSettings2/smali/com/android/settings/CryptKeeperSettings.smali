@@ -466,7 +466,7 @@
     return v5
 
     :cond_1
-    const v2, 0x7f0b06be
+    const v2, 0x7f0b0723
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -502,7 +502,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v7/preference/Preference;->setFragment(Ljava/lang/String;)V
 
-    const v1, 0x7f0b06cc
+    const v1, 0x7f0b0731
 
     invoke-virtual {v0, v1}, Landroid/support/v7/preference/Preference;->setTitle(I)V
 
@@ -756,7 +756,7 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f04009c
+    const v0, 0x7f04009d
 
     invoke-virtual {p1, v0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -853,7 +853,7 @@
 
     iget-object v0, p0, Lcom/android/settings/CryptKeeperSettings;->mVzwMessage1:Landroid/widget/TextView;
 
-    const v1, 0x7f0b06c3
+    const v1, 0x7f0b0728
 
     invoke-virtual {p0, v1}, Lcom/android/settings/CryptKeeperSettings;->getString(I)Ljava/lang/String;
 
@@ -865,7 +865,7 @@
 
     iget-object v0, p0, Lcom/android/settings/CryptKeeperSettings;->mVzwMessage2:Landroid/widget/TextView;
 
-    const v1, 0x7f0b06c4
+    const v1, 0x7f0b0729
 
     invoke-virtual {p0, v1}, Lcom/android/settings/CryptKeeperSettings;->getString(I)Ljava/lang/String;
 
@@ -877,7 +877,7 @@
 
     iget-object v0, p0, Lcom/android/settings/CryptKeeperSettings;->mPowerWarning:Landroid/widget/TextView;
 
-    const v1, 0x7f0b06c5
+    const v1, 0x7f0b072a
 
     invoke-virtual {p0, v1}, Lcom/android/settings/CryptKeeperSettings;->getString(I)Ljava/lang/String;
 
@@ -924,7 +924,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0689
+    const v2, 0x7f0b06ee
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/CryptKeeperSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -972,7 +972,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b068b
+    const v2, 0x7f0b06f0
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/CryptKeeperSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1035,7 +1035,7 @@
     return-object v0
 
     :cond_6
-    const v0, 0x7f04009a
+    const v0, 0x7f04009b
 
     invoke-virtual {p1, v0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1056,7 +1056,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b067f
+    const v2, 0x7f0b06e4
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/CryptKeeperSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1079,7 +1079,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0a03
+    const v2, 0x7f0b0a71
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/CryptKeeperSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1118,7 +1118,7 @@
 
     iget-object v0, p0, Lcom/android/settings/CryptKeeperSettings;->mInitiateButton:Landroid/widget/Button;
 
-    const v1, 0x7f0b06c6
+    const v1, 0x7f0b072b
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 

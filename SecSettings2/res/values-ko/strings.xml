@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$d시간%2$d분</string>
+    <string name="battery_history_hours_no_seconds">%1$d시간 %2$d분</string>
     <string name="battery_history_minutes_no_seconds">%d분</string>
     <string name="wifi_fail_to_scan">네트워크를 검색할 수 없습니다.</string>
     <string name="wifi_failed_to_obtain_IP">IP 주소를 받지 못했습니다.</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s 디바이스에 연결할 수 없습니다.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s에 연결할 수 없습니다. %2$s에서 설정을 확인한 후 다시 시도하세요.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s 디바이스에서 등록을 거절했습니다.</string>
+    <string name="bluetooth_getting_remote_device_name">디바이스 이름 가져오는 중…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">이 디바이스가 연결되면 이름이 나타납니다.</string>
     <string name="accessibility_wifi_off">Wi-Fi가 꺼져 있습니다.</string>
     <string name="accessibility_no_wifi">Wi-Fi 연결이 끊어졌습니다.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi 신호 막대가 한 개입니다.</string>
@@ -386,7 +388,8 @@ Verizon에서 제공한 코드를 입력하세요."</string>
     <string name="support">이용 안내</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, 블루투스, 기타 네트워크 설정을 초기화합니다.</string>
     <string name="master_clear_list_summary">디바이스를 초기화합니다. 파일 및 다운로드한 앱을 포함한 모든 데이터가 삭제됩니다.</string>
-    <string name="auto_restart_summary">설정된 시간에 자동으로 다시 시작하여 디바이스를 최적화합니다. 저장하지 않은 데이터는 유실될 수 있습니다.</string>
+    <string name="auto_restart_summary">1주일에 한 번씩 휴대전화를 자동으로 다시 시작하여 최적화합니다. 저장하지 않은 데이터는 손실될 수 있습니다.</string>
+    <string name="auto_restart_summary_tablet">1주일에 한 번씩 태블릿을 자동으로 다시 시작하여 최적화합니다. 저장하지 않은 데이터는 손실될 수 있습니다.</string>
     <string name="search_settings">검색</string>
     <string name="related_results">관련 항목 %d개</string>
     <string name="no_results_found">검색 결과가 없습니다</string>
@@ -456,7 +459,7 @@ Verizon에서 제공한 코드를 입력하세요."</string>
     <string name="sound_balance_right_message">소리 균형은 오른쪽으로 %d%%입니다. 슬라이더를 조절하려면 두 손가락으로 움직이세요.</string>
     <string name="sound_balance_set">설정</string>
     <string name="accessibility_assistant_menu">보조메뉴</string>
-    <string name="assistant_menu_summary">움직임이 자유롭지 못한 사용자를 위해 보조메뉴 모음을 화면에 제공하여 접근성을 향상시킵니다.</string>
+    <string name="assistant_menu_summary">움직임이 자유롭지 못한 사용자를 위해 휴대전화 접근성을 향상시킵니다.</string>
     <string name="color_blind_title">색상조정</string>
     <string name="no_result">화면에서 색상을 쉽게 구분할 수 있도록 색상을 조정합니다.</string>
     <string name="you_are_normal">[색상조정]이 필요하지 않습니다.</string>
@@ -652,6 +655,7 @@ Verizon에서 제공한 코드를 입력하세요."</string>
     <string name="direct_access_actions_accessibility_title">접근성</string>
     <string name="direct_access_actions_negative_title">색상반전</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">[다이렉트 실행]과 [화면 크기 줄이기]는 동시에 실행할 수 없습니다. [화면 크기 줄이기]를 해제합니다.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s 기능과 %2$s 기능은 동시에 실행할 수 없습니다. %3$s 기능을 해제합니다.</string>
     <string name="direct_access_actions_color_adjustment_summary">[다이렉트 실행]에서 사용하려면 [시각]에서 [색상조정] 설정 필요</string>
     <string name="direct_access_actions_screen_reader_summary">[다이렉트 실행]에서 사용할 수 있도록 [화면 읽어주기]를 실행해야 합니다.</string>
     <string name="direct_access_actions_accesscontrol_title">입력 제어</string>
@@ -849,7 +853,9 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="premium_sms_values_ask">묻기</string>
     <string name="premium_sms_values_never">허용 안 함</string>
     <string name="premium_sms_values_allow">항상 허용</string>
-    <string name="assist_and_voice_input_summary">디바이스 도우미 앱은 각 화면에 대한 추가 옵션 및 정보를 제공합니다.</string>
+    <string name="assist_and_voice_input_summary">홈 버튼을 길게 눌러 사용할 앱을 선택하세요.</string>
+    <string name="assist_footer_phone">홈 버튼을 길게 눌러 사용할 디바이스 도우미 앱을 선택하세요. 선택한 앱은 휴대전화의 현재 화면에서 정보를 수집하여 나에게 필요한 작업을 도와줍니다.</string>
+    <string name="assist_footer_tablet">홈 버튼을 길게 눌러 사용할 디바이스 도우미 앱을 선택하세요. 선택한 앱은 태블릿의 현재 화면에서 정보를 수집하여 나에게 필요한 작업을 도와줍니다.</string>
     <string name="default_app_title">기본으로 설정</string>
     <string name="premium_sms_title">Premium SMS 전송</string>
     <string name="default_app_selection">기본 앱 선택</string>
@@ -938,7 +944,7 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
 
 각 디바이스의 소리 출력에 약간의 차이가 있을 수 있습니다."</string>
     <string name="bluetooth_dual_play_ask_popup_title">미디어 음량 동기화 해제</string>
-    <string name="bluetooth_dual_play_ask_popup_content">듀얼 오디오 기능을 사용하려면 미디어 음량 동기화 기능을 해제해야 합니다.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">오디오 디바이스의 소리를 각각 제어하려면 미디어 음량 동기화 기능을 해제하세요.</string>
     <string name="bluetooth_avc_title">미디어 음량 동기화</string>
     <string name="bluetooth_avc_description">연결된 블루투스 디바이스에서 휴대전화의 미디어 음량을 조절할 수 있는 경우, 휴대전화의 음량이 블루투스 디바이스에 설정된 음량으로 적용됩니다.</string>
     <string name="bluetooth_avc_volume_change_description">이 기능을 실행하면 예상치 못한 음량 변경이 발생할 수 있습니다.</string>
@@ -947,6 +953,7 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="bluetooth_avc_ask_popup_title">듀얼 오디오 해제</string>
     <string name="bluetooth_avc_ask_popup_content">미디어 음량 동기화 기능을 사용하려면 듀얼 오디오 기능을 해제해야 합니다.</string>
     <string name="bluetooth_avc_disable_description">연결된 블루투스 디바이스에서는 미디어 음량 동기화 기능이 지원되지 않습니다. 연결된 블루투스 디바이스와 휴대전화의 음량을 동기화할 수 없습니다.</string>
+    <string name="bluetooth_avc_available_description">연결된 블루투스 디바이스에서 미디어 음량 동기화 기능이 지원되어 휴대전화의 음량이 블루투스 디바이스에 설정된 음량으로 적용됩니다.</string>
     <string name="bluetooth_enter_pin_msg">%s 디바이스를 등록하려면 비밀번호(0000 또는 1234)를 입력하세요.</string>
     <string name="bluetooth_pin_maximum_number_message">최대 글자 수에 도달했습니다.</string>
     <string name="settings_menu_done">완료</string>
@@ -1030,11 +1037,12 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="swipe_to_call_title">밀어서 전화걸기 또는 메시지 보내기</string>
     <string name="swipe_to_call_summary">전화, 연락처, 메시지 앱에서 연락처 또는 전화번호를 오른쪽으로 밀어 전화를 걸거나 왼쪽으로 밀어 메시지를 보냅니다.</string>
     <string name="swipe_to_call_summary_dcm">다이얼, 연락처, 메시지 앱에서 연락처 또는 전화번호를 오른쪽으로 밀어 전화를 걸거나 왼쪽으로 밀어 메시지를 보냅니다.</string>
-    <string name="swipe_to_call_summary_kddi">전화, 연락처 앱에서 연락처 또는 전화번호를 오른쪽으로 밀어 전화를 걸거나 왼쪽으로 밀어 메시지를 보냅니다.</string>
+    <string name="swipe_to_call_summary_kddi">연락처 또는 전화번호로 전화를 걸려면 오른쪽으로 미세요. 다이얼 또는 연락처 앱에 왼쪽으로 밀면 메시지를 보낼 수 있습니다.</string>
     <string name="dual_app_title">듀얼 메신저</string>
     <string name="dual_app_summary">동일한 앱을 하나 더 설치하여 각각 다른 계정으로 사용합니다.</string>
     <string name="finger_sensor_gesture_title">지문 센서 제스처</string>
     <string name="finger_sensor_gesture_summary">지문 센서를 사용하여 앱 및 기능을 실행하거나 종료합니다.</string>
+    <string name="finger_sensor_gesture_summary_noapp">지문 센서를 사용하여 알림창을 열거나 닫습니다.</string>
     <string name="finger_sensor_gesture_description">지문 센서에 손가락을 댄 후 위로 올리거나 내리면 알림창을 열거나 닫을 수 있습니다.</string>
     <string name="open_samsung_pay_title">Samsung Pay 실행</string>
     <string name="open_samsung_pay_summary">홈 화면일 때 지문 센서에 손가락을 댄 후 위로 올려 Samsung Pay를 실행합니다.</string>
@@ -1069,6 +1077,7 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
 %s"</string>
     <string name="enable_ps_title">%s 실행</string>
     <string name="setup_wizard">설정 마법사</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">보통</string>
     <string name="large">크게</string>
     <string name="small">작게</string>
@@ -1409,6 +1418,7 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="navigationbar_summary">홈, 뒤로가기, 최근 앱 버튼을 관리합니다.</string>
     <string name="navigationbar_theme_switch">현재 테마 적용</string>
     <string name="navigationbar_color_title">배경 색상</string>
+    <string name="navigationbar_color_summary">선택한 배경 색상이 모든 앱에 적용되지 않을 수 있습니다.</string>
     <string name="navigationbar_order_title">버튼 구성</string>
     <string name="navigationbar_order_default">최근 앱 - 홈 - 뒤로가기</string>
     <string name="navigationbar_order_mirrored">뒤로가기 - 홈 - 최근 앱</string>
@@ -1420,7 +1430,7 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="navigationbar_pressure_low">약하게 누르기</string>
     <string name="navigationbar_pressure_high">강하게 누르기</string>
     <string name="navigationbar_hide_bar">고정/숨기기 버튼</string>
-    <string name="navigationbar_hide_bar_summary">내비게이션 바를 고정하거나 숨길 수 있도록 내비게이션 바의 왼쪽에 버튼을 추가합니다.</string>
+    <string name="navigationbar_hide_bar_summary">내비게이션 바를 고정하거나 숨길 수 있는 버튼을 내비게이션 바 왼쪽에 추가합니다.</string>
     <string name="full_screen_apps_title">전체 화면 비율로 사용할 앱</string>
     <string name="full_screen_apps_summary">전체 화면 비율로 사용할 앱을 선택하세요.</string>
     <string name="full_screen_apps_item_summary_optimized_full">전체 화면으로 실행되도록 이 앱이 최적화된 상태입니다.</string>
@@ -1440,7 +1450,8 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="blue_light_filter_enable_now">지금 실행</string>
     <string name="blue_light_filter_enable_as_scheduled">예약 시간에 실행</string>
     <string name="blue_light_filter_scheduled_toast">블루라이트 필터를 실행했습니다. 설정한 종료 시간에 자동으로 해제됩니다.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s 및 블루라이트 필터는 동시에 사용할 수 없습니다. 블루라이트 필터 기능을 해제합니다.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">블루라이트 필터 해제</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s 기능을 사용하려면 블루라이트 필터를 해제해야 합니다.</string>
     <string name="blue_light_filter_dlg_turn_on_location">[일몰에서 일출까지]를 사용하려면 위치 기능을 실행하세요.</string>
     <string name="dlg_turn_on">실행</string>
     <string name="screen_resolution_title">화면 해상도</string>
@@ -1519,8 +1530,8 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="intelligent_help_summary_1">직사광이 아닌 밝은 곳에 있을 때</string>
     <string name="intelligent_help_summary_2">다른 앱에서 전면 카메라를 사용하지 않을 때</string>
     <string name="enable_smartstay_title">%s 실행</string>
-    <string name="device_visibility_title">휴대전화 검색 설정</string>
-    <string name="device_visibility_text">다른 디바이스에서 내 휴대전화를 찾고 파일을 전송할 수 있도록 허용합니다.</string>
+    <string name="device_visibility_title">휴대전화 검색 허용</string>
+    <string name="device_visibility_text">다른 디바이스에서 내 휴대전화를 검색할 수 있고, 서로 파일을 보내거나 받을 수 있도록 허용합니다.</string>
     <string name="device_visibility_text_full">다른 디바이스에서 내 휴대전화(%s)를 찾고 파일을 전송할 수 있도록 허용합니다. [디바이스에 파일 전송]으로 파일을 보낼 때 연결 가능한 디바이스 목록에 내 휴대전화가 나타납니다.</string>
     <string name="easy_mode">쉬운 사용 모드</string>
     <string name="standard_mode">기본 모드</string>
@@ -1657,6 +1668,7 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="crypt_keeper_last_warn_wipe">디바이스가 초기화되기까지 입력 기회가 1회 남았습니다. 전체 초기화가 진행되면 파일 및 다운로드한 앱을 포함한 모든 데이터를 삭제합니다.</string>
     <string name="crypt_keeper_failed_title_dec">암호화를 해제하지 못했습니다.</string>
     <string name="crypt_keeper_failed_summary_dec">도중에 중지되어 암호화 해제를 완료할 수 없습니다. 사용하기 전에 [디바이스 전체 초기화(모든 데이터 삭제)]를 실행하세요.</string>
+    <string name="crypt_keeper_set_screen_lock_type">화면 잠금 방식 설정</string>
     <string name="encryption_interstitial_message">"%s 방식을 입력해야만 휴대전화를 시작할 수 있도록 설정하여 휴대전화를 더 안전하게 보호할 수 있습니다. 또한, 분실하거나 도난당할 경우 사용자의 데이터를 보호할 수 있습니다. 디바이스 암호화 정책에 따라 일부 앱에서는 이메일 동기화와 같은 기능을 사용하려면 보안 설정이 필요할 수 있습니다.
 
 설정한 방식을 사용하여 휴대전화를 시작하기 전에는 전화, 메시지, 알림 등을 받을 수 없으며, 알람도 울리지 않습니다."</string>
@@ -1897,6 +1909,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="verify_fingerprint_btn">지문으로 인증</string>
     <string name="wifi_ap_close">종료</string>
     <string name="fingerscanner_add_summary">지문을 등록하세요.</string>
+    <string name="fingerscanner_register_1_finger_summary">등록된 지문이 1개 있습니다.</string>
     <string name="fingerscanner_register_summary">등록된 지문이 있습니다.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">지문을 사용하거나 현재 PIN을 입력하세요.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">지문을 사용하거나 현재 패턴을 그리세요.</string>
@@ -1916,13 +1929,14 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="facelock_category_feature">얼굴 인증</string>
     <string name="facelock_category_unlock">얼굴 인식</string>
     <string name="facelock_face_unlock">얼굴 잠금해제</string>
-    <string name="facelock_face_unlock_summary">얼굴이 인식되면 휴대전화 잠금을 해제합니다.</string>
+    <string name="facelock_face_unlock_summary">휴대전화 잠금을 해제할 때 얼굴 인식을 사용합니다.</string>
     <string name="facelock_swipe_to_unlock">밀어서 잠금해제</string>
     <string name="facelock_swipe_to_unlock_summary">얼굴 인식으로 보안 잠금을 해제한 후 화면을 밀어 휴대전화의 잠금화면을 해제합니다.</string>
     <string name="facelock_without_swipe_to_unlock">화면이 켜지면 얼굴로 바로 잠금해제</string>
     <string name="facelock_without_swipe_to_unlock_summary">화면이 켜지면 화면을 밀지 않고 얼굴 인식으로 휴대전화 잠금을 바로 해제합니다.</string>
     <string name="facelock_recognition_speed_up">빠른 얼굴 인식</string>
     <string name="facelock_recognition_speed_up_summary">얼굴 인식 속도를 빠르게 조절합니다. 이 기능을 해제하면 이미지 또는 동영상 속의 얼굴이 인식될 가능성은 낮아지지만 인식 속도가 느려집니다.</string>
+    <string name="facelock_samsungpass_summary">%s 및 지원되는 앱에서 얼굴 인식을 사용하여 본인을 인증합니다.</string>
     <string name="face_remove_face_popup_title">얼굴 데이터 삭제</string>
     <string name="face_remove_face_popup_message_1">더 이상 얼굴이 인식되지 않으며 얼굴 인식 기능이 해제됩니다.</string>
     <string name="face_remove_face_popup_message_2">얼굴 인식 관련 기능이 해제됩니다.</string>
@@ -2044,7 +2058,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="iris_use_samsung_pass_summary">%s 및 지원되는 앱에서 홍채를 사용하여 본인을 인증합니다.</string>
     <string name="iris_use_samsung_pass_description_internet">인터넷</string>
     <string name="iris_unlock">홍채 잠금해제</string>
-    <string name="iris_unlock_summary">홍채를 사용하여 휴대전화 잠금을 해제합니다.</string>
+    <string name="iris_unlock_summary">휴대전화 잠금을 해제할 때 홍채를 사용합니다.</string>
     <string name="tips_for_iris">홍채 인식 사용에 대한 도움말</string>
     <string name="iris_remove_popup_1">홍채 데이터를 삭제합니다. 화면 잠금이 %s 방식으로 변경됩니다.</string>
     <string name="iris_remove_popup_2">홍채 데이터를 삭제합니다. 홍채 관련 기능이 모두 해제되고 화면 잠금이 %s 방식으로 변경됩니다.</string>
@@ -2060,10 +2074,10 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="enable_iris_lock_desc">"홍채를 등록했습니다.
 
 휴대전화 잠금을 해제할 때 생체 인식 또는 %s 방식을 사용하려면 홍채 인식 기능을 실행하세요."</string>
-    <string name="biometrics_backup_locktype_title">홍채 보안 설정</string>
-    <string name="biometrics_register_your_iris">홍채를 등록하세요.</string>
+    <string name="biometrics_backup_locktype_title">안전하게 홍채 인식 사용하기</string>
+    <string name="biometrics_register_your_iris">그 후에 홍채를 등록할 수 있습니다.</string>
     <string name="biometrics_backup_locktype_summary">디바이스 잠금을 해제할 때 홍채를 사용하려면 패턴, PIN, 비밀번호를 설정해야 합니다.</string>
-    <string name="biometrics_backup_locktype_message">휴대전화 잠금을 해제하거나 보안 인증에 홍채를 사용하려면 다음 사항을 확인하세요.</string>
+    <string name="biometrics_backup_locktype_message">휴대전화 잠금 해제 또는 앱에서 본인을 인증할 때 홍채 인식을 사용하려면 먼저 보안기능이 있는 잠금 방식(패턴, PIN, 비밀번호)으로 변경하세요.</string>
     <string name="iris_delete_popup_title">홍채 데이터 삭제</string>
     <string name="iris_delete_popup_message">홍채 데이터를 삭제할까요?</string>
     <string name="iris_delete_popup_message_with_related_func">홍채를 사용하는 기능은 모두 해제됩니다.</string>
@@ -2071,7 +2085,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="iris_timeout_popop_title">나중에 다시 시도하기</string>
     <string name="iris_timeout_popop_message">홍채를 인식할 수 없습니다. 홍채 카메라가 깨끗하지 않을 수 있으니 화면 상단을 닦은 후 다시 시도하세요.</string>
     <string name="iris_timeout_popop_message_1">홍채 카메라가 깨끗하지 않을 수 있습니다. 화면 상단을 닦은 후 다시 시도하세요.</string>
-    <string name="iris_proximity_restriction_popop_message">홍채를 인식할 수 없습니다. 얼굴과 휴대전화의 거리가 너무 가깝거나 근접 센서가 깨끗하지 않을 수 있습니다. 화면 상단을 닦은 후 다시 시도하세요.</string>
+    <string name="iris_proximity_restriction_popop_message">휴대전화를 멀리 떨어뜨린 후 다시 시도하세요.</string>
     <string name="iris_proximity_restriction_popop_message_1">"근접 센서가 깨끗하지 않을 수 있습니다.
 화면 상단을 닦으세요."</string>
     <string name="iris_try_again">다시 시도</string>
@@ -2079,13 +2093,15 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="iris_failed_to_verity_identify">본인 인증 안 됨</string>
     <string name="iris_failed_popup_description">홍채 인증을 %1$d회 시도했습니다. %2$d초 후 다시 시도하세요.</string>
     <string name="iris_no_match">일치하지 않습니다</string>
+    <string name="iris_eye_safety_msg">홍채가 인식되지 않았습니다.</string>
+    <string name="iris_timeout_msg">인식할 홍채가 없습니다.</string>
     <string name="biometrics_registered">등록됨</string>
     <string name="iris_turn_on_toast_message">지문 잠금 대신 홍채 잠금을 실행했습니다.</string>
     <string name="iris_wrong_backup_password">비밀번호를 잘못 입력했습니다</string>
     <string name="iris_backup_password_title">백업 비밀번호 입력</string>
     <string name="iris_backup_password_guide">"비밀번호를 %d자 이상 입력하세요.
 (문자1개 및 숫자 1개 포함)"</string>
-    <string name="iris_backup_lock_type_helptext_1">휴대전화를 다시 시작했거나 24시간 이상 사용하지 않은 경우, 휴대전화 잠금을 해제할 때 보안 잠금 방식이 사용되니 반드시 기억하세요.</string>
+    <string name="iris_backup_lock_type_helptext_1">휴대전화를 다시 시작했거나 24시간 이상 사용하지 않은 경우에는 아래에서 설정한 방식으로만 휴대전화 잠금을 해제할 수 있으니 설정한 암호를 반드시 기억하세요.</string>
     <string name="iris_backup_lock_type_helptext_2">홍채 인식을 안전하게 사용하려면 휴대전화 잠금을 해제할 때 사용하는 잠금 방식을 패턴, PIN, 비밀번호 중 하나로 설정해야 합니다.</string>
     <string name="iris_backup_lock_type_helptext_ppp_directions">홍채 인식을 안전하게 사용하려면 패턴, PIN, 비밀번호, 방향 조합 중 하나를 잠금해제 방식으로 설정해야 합니다.</string>
     <string name="iris_time_attempt_popup_desc">홍채 인식을 %d회 시도했습니다.</string>
@@ -2121,7 +2137,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
 - 홍채 등록할 때와 주변의 밝기가 현저하게 다른 경우
 - 제품이 심하게 흔들리거나 제품을 심하게 기울일 경우"</string>
     <string name="use_iris_first_lock">화면이 켜지면 홍채로 바로 잠금해제</string>
-    <string name="use_iris_first_lock_summary">화면이 켜지면 화면을 밀지 않고 홍채로 휴대전화 잠금을 해제합니다.</string>
+    <string name="use_iris_first_lock_summary">화면이 켜지면 화면을 밀지 않고 홍채로 휴대전화 잠금을 바로 해제합니다.</string>
     <string name="use_iris_first_lock_dialog_title">화면을 밀지 않고 홍채로만 잠금 해제</string>
     <string name="use_iris_first_lock_dialog_msg">화면을 밀지 않고 홍채로만 잠금 해제 기능 사용 중에는 얼굴 인식 기능을 사용할 수 없습니다. 얼굴 인식 기능이 해제됩니다.</string>
     <string name="iris_sensor_not_working_popup_title">홍채 인식 안 됨</string>
@@ -2256,7 +2272,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="device_security_category">휴대전화 보안</string>
     <string name="lock_and_always_category">잠금화면 및 Always On Display</string>
     <string name="information_and_quicktools">정보 및 페이스 위젯</string>
-    <string name="information_and_quicktools_summary">잠금화면 및 Always On Display 화면에 무엇을 표시할지 선택합니다.</string>
+    <string name="information_and_quicktools_summary">잠금화면과 Always On Display 화면에 무엇을 표시할지 선택합니다.</string>
     <string name="other_security_settings">기타 보안 설정</string>
     <string name="other_security_settings_summary">보안 업데이트 및 인증서 저장공간 등 보안 설정을 변경합니다.</string>
     <string name="lockpassword_press_continue">입력을 완료하면 계속 버튼을 누르세요.</string>
@@ -2274,6 +2290,8 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="aod_off_summary">대기화면에 홈 버튼과 시계 또는 정보를 표시합니다.</string>
     <string name="aod_feature_off_popup_title">%s 해제</string>
     <string name="aod_feature_off_popup_description">%1$s 기능을 사용하려면 %2$s 기능을 해제해야 합니다.</string>
+    <string name="aod_features_off_popup_title">다른 기능 해제</string>
+    <string name="aod_features_off_popup_description">Always On Display 기능을 사용하려면 다음 기능을 해제하세요.</string>
     <string name="aod_features_off_popup_btn_ok">해제</string>
     <string name="aod_disable_by_negative_colors">색상 반전 적용 중에는 해당 기능을 사용할 수 없습니다.</string>
     <string name="aod_disable_by_powersaving_mode">절전 모드 실행 중에는 해당 기능을 사용할 수 없습니다.</string>
@@ -2297,6 +2315,9 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="unlock_effect_colour_droplet">퍼지는 물방울</string>
     <string name="lock_screen_show_information_summary_wifi_only">잠금화면에 디바이스 사용자 문구 또는 앱 바로가기를 표시합니다.</string>
     <string name="lock_screen_sview_show_information_summary">잠금화면 및 S뷰 윈도우에 듀얼 시계, 디바이스 사용자 문구, 앱 바로가기를 표시합니다.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">잠금화면 및 S뷰 윈도우에 로밍 시계나 휴대전화 소유자 연락처 정보를 표시합니다.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">잠금 화면과 S뷰 윈도우에 표시할 앱 바로가기를 선택하세요.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">잠금 화면과 S뷰 윈도우에 알림을 표시합니다.</string>
     <string name="lock_screen_and_cover_show_information_summary">클리어 뷰 커버 및 잠금화면에 듀얼 시계를 표시합니다.</string>
     <string name="lock_screen_secured_lock_settings_title">보안 잠금 상세설정</string>
     <string name="lock_screen_secured_lock_settings_summary">자동 잠금 시간, 전원 버튼으로 바로 잠금과 같이 보안 잠금 시 사용 가능한 기능을 설정합니다.</string>
@@ -2313,6 +2334,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="set_home_city">홈 시간대</string>
     <string name="contact_info_settings_title">연락처 정보</string>
     <string name="show_contact_info_on_lockscreen_label">전화번호, 이메일 주소 등의 정보를 잠금화면에 표시합니다.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">전화번호, 이메일 주소 등의 정보를 잠금화면 및 Always On Display 화면에 표시합니다.</string>
     <string name="unlock_effect">잠금해제 효과</string>
     <string name="walking_mate_title">만보계</string>
     <string name="help_text_title">도움말</string>
@@ -2412,7 +2434,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="toast_set_lock_pattern">패턴을 잊어버린 경우, 모든 데이터가 삭제되며 휴대전화가 초기화됩니다.</string>
     <string name="toast_set_lock_password">비밀번호를 잊어버린 경우, 모든 데이터가 삭제되며 휴대전화가 초기화됩니다.</string>
     <string name="toast_set_lock_pin">PIN을 잊어버린 경우, 모든 데이터가 삭제되며 휴대전화가 초기화됩니다.</string>
-    <string name="chooselock_warning_text">이 %s 암호를 기억하세요. 디바이스를 다시 시작할 때 필요합니다.</string>
+    <string name="chooselock_warning_text">%s 잠금 방식을 기억하세요. 휴대전화를 다시 시작할 때 필요합니다.</string>
     <string name="lockpassword_password_exists_history">이전에 사용된 비밀번호입니다. 새 비밀번호를 입력하세요.</string>
     <string name="lockpassword_pin_repeating_nums">PIN에 반복되는 숫자를 포함할 수 없습니다.</string>
     <string name="lockpassword_pin_sequential_nums">PIN에 연속된 숫자가 들어갈 수 없습니다.</string>
@@ -2446,7 +2468,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="mirror_link_uid">디바이스 고유번호</string>
     <string name="mirror_link_help">운전 중에도 내 디바이스 화면을 자동차 화면에서 볼 수 있도록 화면을 미러링합니다. MirrorLink에 특화된 앱을 실행할 수 있도록 디바이스와 자동차를 USB 케이블로 연결하세요. 이 기능은 내 자동차 시스템에서 MirrorLink가 지원되는 경우에만 사용할 수 있습니다. 처음으로 디바이스와 자동차를 연결하는 경우, 디바이스가 모바일 네트워크에 연결된 상태인지 먼저 확인하세요.</string>
     <string name="mirror_link_no_apps">앱 없음</string>
-    <string name="mirror_link_ncm_usb_tethering_title">USB로 자동차에 연결</string>
+    <string name="mirror_link_ncm_usb_tethering_title">USB로 자동차와 연결</string>
     <string name="mirror_link_title">MirrorLink</string>
     <string name="mirror_link_summary">운전 중에 유용한 앱을 사용할 수 있도록 자동차와 디바이스를 연결합니다.</string>
     <string name="mirror_link_applications_title">%s 앱</string>
@@ -2531,6 +2553,9 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="data_usage_disable_mobile_warning_lgt">"모바일 데이터 접속을 차단하면, 모바일 데이터 전용 서비스의 사용이 제한됩니다.
 
 모바일 데이터 접속을 차단하시겠습니까?"</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"모바일 데이터를 해제하면 네트워크 연결이 필요한 서비스를 사용하기 위해 Wi-Fi 네트워크에 연결해야 합니다.
+
+모바일 데이터를 해제합니다."</string>
     <string name="mobile_data_off_dialog_text_vzw">Wi-Fi에 연결하지 않으면 데이터 연결이 필요한 인터넷, 이메일, 기타 앱을 더 이상 사용할 수 없습니다. 모바일 데이터 연결을 해제할까요?</string>
     <string name="mobile_data_off_dialog_text_volte">모바일 데이터가 해제된 상태에서는 영상통화를 사용할 수 없으며, Wi-Fi에 연결하지 않으면 데이터 연결이 필요한 인터넷, 이메일, 기타 앱을 더 이상 사용할 수 없습니다. 모바일 데이터 연결을 해제할까요?</string>
     <string name="mobile_data_off_dialog_text_common">Wi-Fi 네트워크에 연결하지 않으면, 인터넷, 이메일 앱 등과 같이 네트워크 연결이 필요한 앱을 더 이상 사용할 수 없습니다.</string>
@@ -2690,10 +2715,12 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="maximum_volume_title">음량 제한 설정</string>
     <string name="volume_limiter_descryption">청력 보호를 위해 최대 미디어 음량을 제한합니다. 음량 제한은 헤드폰 또는 블루투스 오디오 디바이스를 사용하는 경우에만 적용됩니다.</string>
     <string name="multi_sound_title">앱 소리 분리 재생</string>
-    <string name="multi_sound_summary">선택한 한 개의 앱에서 재생되는 소리를 디바이스와는 별개로 스피커 또는 헤드폰에서 재생합니다.</string>
-    <string name="multi_sound_descryption">"다른 앱에서 재생되는 미디어 소리와 구분하여 들을 수 있도록 특정 앱에서 재생되는 미디어 소리를 스피커 또는 헤드폰에서 개별 재생합니다.
+    <string name="multi_sound_summary">앱 1개의 미디어 사운드를 휴대전화의 주 오디오 출력 디바이스와는 별개로 다른 오디오 디바이스에서 재생합니다.</string>
+    <string name="multi_sound_descryption">"앱 1개의 미디어 사운드를 휴대전화의 주 오디오 출력 디바이스와는 별개로 다른 오디오 디바이스에서 재생합니다. 이 기능을 사용하려면 앱과 오디오 디바이스를 선택하세요.
 
-블루투스 오디오 디바이스를 선택했으나 해당 디바이스가 연결되지 않은 상태에서는 기본 오디오 디바이스에서 소리가 재생됩니다."</string>
+[앱 소리 분리 재생]은 선택한 오디오 디바이스가 휴대전화의 주 오디오 출력 디바이스와 다를 경우에만 작동합니다.
+
+휴대전화의 주 오디오 출력 디바이스는 빠른 설정창에서 변경할 수 있습니다. 오디오 출력 디바이스가 보이지 않는 경우 [Samsung Connect > 설정 > Samsung Connect 패널]에서 오디오 출력을 켜세요."</string>
     <string name="set_application_title">애플리케이션</string>
     <string name="set_application_summary">오디오 디바이스에서 소리를 따로 재생할 앱을 선택하세요.</string>
     <string name="set_application_descryption">오디오 디바이스에서 소리를 따로 재생할 멀티미디어 앱을 아래에서 선택하세요.</string>
@@ -2704,9 +2731,11 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="multi_sound_popup_msg">%s 기능을 실행하려면 앱 및 오디오 디바이스를 선택해야 합니다.</string>
     <string name="multi_sound_network_msg">사용 가능한 앱을 확인하려면 휴대전화가 네트워크에 연결된 상태여야 합니다. 네트워크 설정을 확인한 후 다시 시도하세요.</string>
     <string name="multi_sound_wifi_msg">사용 가능한 앱을 확인하려면 휴대전화를 네트워크에 연결해야 합니다. 모바일 데이터를 사용하면 추가요금이 부과될 수 있습니다.</string>
+    <string name="multi_sound_add_application">애플리케이션 추가</string>
     <string name="dlg_btn_select">선택</string>
-    <string name="audio_device_type_descryption">선택한 앱에 사용할 오디오 디바이스를 선택하세요. 블루투스 디바이스를 선택할 경우 해당 디바이스가 연결된 동안에만 사용할 수 있습니다.</string>
+    <string name="audio_device_type_descryption">선택한 앱에 사용할 오디오 디바이스를 선택하세요. 블루투스 디바이스를 선택한 경우 해당 디바이스가 연결된 동안에만 사용할 수 있습니다.</string>
     <string name="my_phone_title">휴대전화</string>
+    <string name="my_phone_summary">스피커/헤드폰/USB 오디오 디바이스</string>
     <string name="bluetooth_device_title">블루투스 디바이스</string>
     <string name="no_connected_devices">연결된 디바이스가 없습니다</string>
     <string name="two_hours">2시간</string>
@@ -2714,7 +2743,8 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="stop_setup_popup_msg">설정에 대한 변경사항이 없습니다.</string>
     <string name="app_turned_on">%s 기능을 실행했습니다.</string>
     <string name="force_touch_title">세게 눌렀을 때 진동 피드백</string>
-    <string name="volume_key_control_title">음량 버튼 기본 설정</string>
+    <string name="volume_key_control_title">미디어 음량 조절</string>
+    <string name="volume_key_control_summary">음량 버튼으로 항상 미디어 음량을 조절합니다.</string>
     <string name="sound_mode">소리 모드</string>
     <string name="sound_mode_vibrate">진동</string>
     <string name="sound_mode_mute">무음</string>
@@ -2927,12 +2957,13 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="text_biometrics_title_enterprise">%2$s 잠금해제 방식으로 %1$s 방식을 선택하면 생체 인식을 사용할 수 없습니다.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s 잠금해제 방식으로 %1$s 방식과 지문을 함께 사용할 수 없습니다.</string>
     <string name="edge_feeds_title">Edge 정보 모음</string>
-    <string name="screensaver_settings_summary">디바이스가 도킹 또는 충전 중일 때 화면에 이미지 또는 사진을 보여줍니다. 화면보호기는 화면이 자동으로 꺼진 후에만 작동합니다.</string>
-    <string name="screensaver_settings_summary_wo_dock">휴대전화 충전 중일 때 화면이 자동으로 꺼진 후에는 화면에 화면보호기를 표시합니다.</string>
+    <string name="screensaver_settings_summary">휴대전화 충전 중일 때 화면이 자동으로 꺼진 후에는 화면에 화면보호기를 표시합니다.</string>
+    <string name="screensaver_settings_summary_wo_dock">휴대전화가 도킹 또는 충전되는 동안 화면이 자동으로 꺼지면 화면보호기가 켜집니다.</string>
     <string name="apn_already_exists">동일한 항목이 있습니다.</string>
     <string name="error_unavailable_apn">이 APN은 디바이스에서 사용할 수 없습니다. 다른 APN을 사용하세요.</string>
     <string name="error_message_port_out_of_range">포트번호는 %1$d-%2$d 사이의 값이어야 합니다.</string>
     <string name="apn_restore_warning">추가한 모든 APN을 삭제합니다. 다른 APN은 초기화됩니다.</string>
+    <string name="apn_restore_title">APN 설정 초기화</string>
     <string name="master_clear_desc_google_account">Google 계정</string>
     <string name="first_use_tether_title">USB 테더링 도움말 보기</string>
     <string name="first_use_usb_tether_msg">USB 테더링 사용에 대해 자세히 알아보려면 확인 버튼을 누르세요.</string>
@@ -2944,7 +2975,8 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="sound_balance_summary">헤드폰에서 동일한 음량의 소리를 들을 수 있도록 좌우 소리 균형을 조절합니다.</string>
     <string name="backup_samsung_account_title">백업 설정</string>
     <string name="restore_samsung_account_title">복원</string>
-    <string name="auto_restart_header">디바이스 관리</string>
+    <string name="auto_restart_header">일반</string>
+    <string name="auto_restart_header_tablet">일반</string>
     <string name="auto_restart_title">자동 재시작</string>
     <string name="switch_turn_on_text">실행</string>
     <string name="switch_turn_off_text">해제</string>
@@ -3067,6 +3099,14 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="tether_settings_summary_usb_bt">USB 또는 블루투스로 내 디바이스의 모바일 데이터 연결 공유</string>
     <string name="dialog_tethering_warning">&lt;b>테더링 소개&lt;/b>&lt;br/>&lt;br/> 테더링을 이용하면 이동 중에 안드로이드 기반 디바이스를 노트북에서 인터넷을 접속하는 데 모뎀으로 사용할 수 있습니다. 이 기능을 사용하면 배터리가 소모되며 데이터 사용량이 많아집니다. 이 서비스를 사용하려면 해당 모뎀 요금제에 가입해야 합니다. 사용하기 전에 적절한 데이터 요금제에 가입했는지 확인하세요. 도움이 필요한 경우 1-877-872-2249로 연락하세요. 서비스를 사용하면&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> 스마트폰 모뎀 이용약관.&lt;/a>에 동의하게 됩니다.</string>
     <string name="dialog_hotspot_button_accept">수락</string>
+    <string name="bluetooth_tethering_off_subtext_phone">블루투스 기능을 사용하여 내 휴대전화의 인터넷 연결을 공유합니다.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">블루투스 기능을 사용하여 내 태블릿의 인터넷 연결을 공유합니다.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">이 휴대전화의 인터넷 연결을 공유할 수 있습니다.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">이 태블릿의 인터넷 연결을 공유할 수 있습니다.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">디바이스 1개와 이 휴대전화의 인터넷 연결을 공유 중입니다.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">디바이스 1개와 이 태블릿의 인터넷 연결을 공유 중입니다.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">디바이스 %d개와 이 휴대전화의 인터넷 연결을 공유 중입니다.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">디바이스 %d개와 이 태블릿의 인터넷 연결을 공유 중입니다.</string>
     <string name="onehand_settings_title">한 손 조작 모드</string>
     <string name="onehand_settings_text_1">화면 하단의 모서리를 대각선 방향으로 위로 밀면 화면 크기가 줄어듭니다.</string>
     <string name="onehand_settings_text_2">홈 버튼을 빠르게 세 번 누르면 화면 크기가 줄어듭니다.</string>
@@ -3394,12 +3434,14 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="wifi_settings_dialog_radio_off">해제</string>
     <string name="wifi_or_mobile_network">Wi-Fi 또는 모바일 네트워크</string>
     <string name="wifi_network_only">Wi-Fi 네트워크만</string>
+    <string name="wifi_adps_title">Wi-Fi 절전 모드</string>
+    <string name="wifi_adps_summary">Wi-Fi 트래픽 패턴을 분석하여 배터리 사용량을 줄입니다.</string>
     <string name="wifi_auto_reconnect">자동으로 다시 연결</string>
     <string name="wifi_enable_warning_chn">WLAN을 실행하면 모바일 핫스팟 기능이 해제됩니다.</string>
     <string name="wifi_enable_warning_vzw">Wi-Fi를 실행하면 모바일 핫스팟 기능은 해제됩니다. 계속할까요?</string>
     <string name="wifi_enable_warning_tmo">모바일 핫스팟 기능을 실행하면 Wi-Fi를 해제합니다. Wi-Fi를 실행하려면 모바일 핫스팟 기능을 해제하세요.</string>
     <string name="wifi_enable_warning_spr">Wi-Fi를 실행하면 [핫스팟]이 해제됩니다.</string>
-    <string name="wifi_enable_warning_mtr">모바일 핫스팟 기능을 실행하면 Wi-Fi 기능이 해제됩니다. Wi-Fi 기능을 실행하려면 모바일 핫스팟 기능을 해제하세요.</string>
+    <string name="wifi_enable_warning_mtr">모바일 핫스팟 기능을 실행하여 Wi-Fi 기능이 해제된 상태입니다. Wi-Fi 기능을 실행하려면 모바일 핫스팟 기능을 해제하세요.</string>
     <string name="wifi_enable_warning_usc">Wi-Fi를 실행하면 [휴대용 Wi-Fi 핫스팟]을 해제합니다. 계속할까요?</string>
     <string name="wifi_enable_warning">Wi-Fi를 실행하면 모바일 핫스팟 기능이 해제됩니다.</string>
     <string name="wifi_control_history_title">Wi-Fi 실행 기록</string>
@@ -3599,6 +3641,10 @@ Wi-Fi 네트워크에 연결되면 Wi-Fi 공유로 전환됩니다."</string>
     <string name="wifi_wps_pin_client_mobileap">PIN(%1$s)으로 클라이언트에 연결하세요. 설정이 완료되기까지 %2$d분이 걸릴 수 있습니다.</string>
     <string name="wifi_wps_complete_mobileap">디바이스에 다른 디바이스를 연결했습니다.</string>
     <string name="wifi_ap_disconnect_warn">디바이스 연결 해제</string>
+    <string name="wifi_ap_change_policy_warn_chn">[휴대용 WLAN 핫스팟]을 사용 중인 디바이스의 연결을 해제합니다.</string>
+    <string name="wifi_ap_change_policy_warn_att">현재 휴대용 Wi-Fi 핫스팟으로 연결된 디바이스의 연결을 해제합니다.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">현재 모바일 핫스팟에 연결된 디바이스의 연결을 해제합니다.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">현재 휴대용 Wi-Fi 핫스팟으로 연결된 디바이스의 연결을 해제합니다.</string>
     <string name="wifi_ap_change_policy_warn">현재 모바일 핫스팟에 연결된 디바이스의 연결을 해제합니다.</string>
     <string name="wifi_ap_warn_max_whitelist">최대 허용된 디바이스 수(%d)에 도달했습니다.</string>
     <string name="wifiap_one_item_deleted">항목 1개를 삭제합니다.</string>
@@ -3734,6 +3780,8 @@ Wi-Fi를 실행합니다."</string>
     <string name="wifi_ap_first_time_configuration">핫스팟 첫 설정</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi 및 모바일 핫스팟</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">PIN을 정확하게 입력하세요.</string>
+    <string name="open_mobileap_warning">보안되지 않은 모바일 AP입니다.</string>
+    <string name="hidden_mobileap_warning">사용자가 SSID 숨김을 설정하면 WPS 기능을 사용할 수 없습니다.</string>
     <string name="wifi_ssid_max_byte_error">최대 글자 수에 도달했습니다.</string>
     <string name="tethering_attention_title">주의</string>
     <string name="wfd_select_device">디바이스 선택</string>
@@ -3965,6 +4013,14 @@ SMS 수신"</string>
     <string name="quick_tile_sync_title">동기화</string>
     <string name="permission_usage">권한 사용</string>
     <string name="draw_overlay_settings_description">이 앱이 사용 중인 다른 앱 위에 표시되도록 허용합니다. 이 경우, 다른 앱을 사용할 때 방해가 될 수 있습니다.</string>
+    <string name="write_settings_body_description">이 앱에서 블루투스 기능 실행/해제 등 시스템 설정을 변경할 수 있도록 허용하세요.</string>
+    <string name="reset_app_preferences_desc1">다음 설정을 모두 초기화합니다.</string>
+    <string name="reset_app_preferences_desc2">사용 해제된 앱</string>
+    <string name="reset_app_preferences_desc3">알림이 차단된 앱</string>
+    <string name="reset_app_preferences_desc4">기본 앱</string>
+    <string name="reset_app_preferences_desc5">사용 중이 아닐 때 데이터 사용이 제한된 앱</string>
+    <string name="reset_app_preferences_desc6">권한 제한</string>
+    <string name="reset_app_preferences_desc7">기존 앱 데이터는 삭제되지 않습니다.</string>
     <string name="knox_security_mode_title">Knox 보안</string>
     <string name="kap_title">Knox 액티브 프로텍션</string>
     <string name="kap_eula_title">개인정보 처리방침</string>
@@ -3979,6 +4035,13 @@ SMS 수신"</string>
     <string name="my_profile_summary">개인정보 및 삼성 계정의 상세정보를 관리합니다.</string>
     <string name="my_profile_summary_jpn">개인정보 및 Galaxy 계정의 상세정보를 관리합니다.</string>
     <string name="arbitration_agreement">중재 합의서</string>
+    <string name="activation_title">개통 상태</string>
+    <string name="activation_summary">%1$s에 개통되었습니다. 자세한 내용은 다음 웹사이트에서 확인하세요. %2$s</string>
+    <string name="wifi_ap_pmf_on">PMF 실행</string>
+    <string name="edit_event_start_short">시작</string>
+    <string name="edit_event_end_short">종료</string>
+    <string name="select_date_to_view">확인할 날짜 선택</string>
+    <string name="bixby_volume_option_title">빅스비 보이스</string>
     <string name="yes">예</string>
     <string name="no">아니요</string>
     <string name="create">추가</string>
@@ -4850,7 +4913,7 @@ SMS 수신"</string>
     <string name="virtual_keyboard_category">스크린 키보드</string>
     <string name="add_virtual_keyboard">키보드 관리</string>
     <string name="keyboard_assistance_category">키보드 어시스턴트</string>
-    <string name="physical_keyboard_title">외부 키보드</string>
+    <string name="physical_keyboard_title">하드웨어 키보드</string>
     <string name="show_ime">스크린 키보드 표시</string>
     <string name="show_ime_summary">하드웨어 키보드를 사용할 때에도 스크린 키보드를 표시합니다.</string>
     <string name="keyboard_shortcuts_helper">키보드 단축키</string>
@@ -5470,7 +5533,7 @@ SMS 수신"</string>
     <string name="app_notification_block_title">알림 허용</string>
     <string name="app_notification_block_summary">알림 메시지, 소리, 진동을 포함한 앱의 알림을 받습니다.</string>
     <string name="app_notification_override_dnd_title">중요 알림으로 설정</string>
-    <string name="app_notification_override_dnd_summary">방해 금지 모드 실행 중에도 이 앱의 알림을 받으면 소리가 울리고 화면이 켜집니다.</string>
+    <string name="app_notification_override_dnd_summary">알림을 받으면 상태표시줄에 항상 표시합니다. 방해 금지 모드 실행 중에도 이 앱의 알림을 받을 수 있도록 예외 항목으로 설정합니다.</string>
     <string name="app_notification_visibility_override_title">잠금화면에 표시할 내용</string>
     <string name="app_notifications_dialog_done">완료</string>
     <string name="zen_mode_choose_rule_type">적용 조건 선택</string>
@@ -5507,6 +5570,7 @@ SMS 수신"</string>
     <string name="restr_pin_enter_admin_pin">관리자 PIN 입력</string>
     <string name="switch_on_text">사용 중</string>
     <string name="switch_off_text">사용 안 함</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">이 업무 프로필 관리자입니다.</string>
     <string name="managing_admin">%s에서 관리함</string>
     <string name="display_auto_rotate_title">화면 회전</string>
     <string name="display_auto_rotate_rotate">콘텐츠 회전</string>
@@ -5543,9 +5607,9 @@ PIN으로 디바이스를 시작하기 전에는 전화, 메시지, 알림 등�
     <string name="encrypt_talkback_dialog_require_pin">PIN 필요</string>
     <string name="encrypt_talkback_dialog_require_pattern">패턴 필요</string>
     <string name="encrypt_talkback_dialog_require_password">비밀번호 필요</string>
-    <string name="encrypt_talkback_dialog_message_pin">디바이스 전원을 켠 후 PIN을 입력할 때, %1$s 등과 같은 접근성 기능이 일시적으로 해제됩니다.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">디바이스 전원을 켠 후 패턴을 입력할 때, %1$s 등과 같은 접근성 기능이 일시적으로 해제됩니다.</string>
-    <string name="encrypt_talkback_dialog_message_password">디바이스 전원을 켠 후 비밀번호를 입력할 때, %1$s 등과 같은 접근성 기능이 일시적으로 해제됩니다.</string>
+    <string name="encrypt_talkback_dialog_message_pin">디바이스를 시작할 때 PIN을 입력해야만 합니다. PIN으로 디바이스를 시작하기 전에는 접근성 기능을 사용할 수 없습니다.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">디바이스를 시작할 때 패턴을 그려야만 합니다. 패턴으로 디바이스를 시작하기 전에는 접근성 기능을 사용할 수 없습니다.</string>
+    <string name="encrypt_talkback_dialog_message_password">디바이스를 시작할 때 비밀번호를 입력해야 합니다. 비밀번호로 디바이스를 시작하기 전에는 접근성 기능을 사용할 수 없습니다.</string>
     <string name="slot_number">(슬롯%d)</string>
     <string name="app_launch_domain_links_title">앱 링크</string>
     <string name="app_launch_open_domain_urls_title">지원되는 URL로 이동</string>
@@ -5621,18 +5685,18 @@ PIN으로 디바이스를 시작하기 전에는 전화, 메시지, 알림 등�
     <string name="usb_use_power_only">연결된 디바이스 충전</string>
     <string name="usb_use_power_only_desc">USB로 연결된 디바이스를 충전합니다.</string>
     <string name="usb_use_file_transfers_vzw">파일 전송</string>
-    <string name="usb_use_file_transfers">미디어 파일 전송</string>
+    <string name="usb_use_file_transfers">파일 전송</string>
     <string name="usb_use_photo_transfers_vzw">사진 전송</string>
     <string name="usb_use_photo_transfers">이미지 전송</string>
     <string name="usb_use_photo_transfers_summary_vzw">휴대전화 카메라로 촬영한 사진을 컴퓨터로 전송합니다.</string>
-    <string name="usb_use_photo_transfers_summary">미디어 파일 전송 기능이 작동하지 않는 경우, 이 모드를 선택하세요. 이미지 파일만 전송할 수 있습니다.</string>
+    <string name="usb_use_photo_transfers_summary">파일 전송 옵션을 사용할 수 없는 경우에는 이 모드를 선택하세요. 단, 이미지만 전송할 수 있습니다.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">MIDI 디바이스 연결</string>
     <string name="usb_use">USB 사용 용도</string>
-    <string name="assist_access_context_title">화면의 텍스트 읽기</string>
-    <string name="assist_access_context_summary">디바이스 도우미 앱에서 화면에 표시된 글자를 읽습니다.</string>
-    <string name="assist_access_screenshot_title">스크린샷 촬영/사용</string>
-    <string name="assist_access_screenshot_summary">디바이스 도우미 앱에서 화면을 캡처하고 사용합니다.</string>
+    <string name="assist_access_context_title">화면 텍스트 분석</string>
+    <string name="assist_access_context_summary">관련 내용을 제공하기 위해 디바이스 도우미 앱에서 화면에 표시된 텍스트를 분석하는 것을 허용합니다.</string>
+    <string name="assist_access_screenshot_title">화면 이미지 분석</string>
+    <string name="assist_access_screenshot_summary">디바이스 도우미 앱에서 화면의 이미지를 촬영하고 사용하는 것을 허용합니다.</string>
     <string name="assist_footer">디바이스 도우미 앱은 휴대전화의 현재 화면에서 정보를 수집하여 도움을 주는 앱입니다. 일부 도우미 앱은 통합 지원을 제공하여 다른 앱을 실행하거나 음성 입력으로 텍스트를 입력할 때 사용될 수 있습니다.</string>
     <string name="average_memory_use">평균 RAM 사용량</string>
     <string name="maximum_memory_use">최대 RAM 사용량</string>
@@ -5661,7 +5725,7 @@ PIN으로 디바이스를 시작하기 전에는 전화, 메시지, 알림 등�
     <string name="ignore_optimizations_on_desc">배터리 사용량이 증가할 수 있음</string>
     <string name="ignore_optimizations_off_desc">배터리 사용량을 절약할 수 있음</string>
     <string name="app_list_preference_none">설정 안 함</string>
-    <string name="allow_overlay_description">사용 중인 다른 앱 위에 버튼, 팝업 등이 표시되도록 허용할 앱을 선택하세요.</string>
+    <string name="allow_overlay_description">이 앱이 사용 중인 다른 앱 위에 표시되도록 허용합니다. 이 경우, 다른 앱을 사용할 때 방해가 될 수 있습니다.</string>
     <string name="overlay_settings">다른 앱 위에 표시되는 앱</string>
     <string name="filter_overlay_apps">허용된 앱</string>
     <string name="filter_write_settings_apps">허용된 앱</string>
@@ -5708,14 +5772,14 @@ PIN으로 디바이스를 시작하기 전에는 전화, 메시지, 알림 등�
     <string name="ethernet_data_template">이더넷 데이터 %1$s 사용</string>
     <string name="cell_warning_only">데이터 사용량 경고 %s</string>
     <string name="cell_warning_and_limit">데이터 사용량 경고 %1$s/데이터 사용한도 %2$s</string>
-    <string name="billing_cycle">데이터 측정 시작일</string>
+    <string name="billing_cycle">데이터 측정일 및 사용량 경고</string>
     <string name="billing_cycle_summary">매월 %s일</string>
     <string name="billing_cycle_fragment_summary">매월 %s일</string>
     <string name="network_restrictions">네트워크 제한</string>
     <string name="operator_warning">데이터 사용량 정보는 디바이스에서 측정되며 서비스 공급자가 측정한 데이터 사용량과 다를 수 있습니다.</string>
     <string name="data_used_template">%s 사용됨</string>
     <string name="data_warning">데이터 경고</string>
-    <string name="set_data_limit">데이터 사용한도</string>
+    <string name="set_data_limit">데이터 사용한도 설정</string>
     <string name="data_limit">데이터 사용한도</string>
     <string name="data_usage_template">%2$s 동안 %1$s 사용됨</string>
     <string name="data_usage_other_apps">데이터를 함께 사용한 앱</string>
@@ -5757,5 +5821,4 @@ PIN으로 디바이스를 시작하기 전에는 전화, 메시지, 알림 등�
     <string name="enable_iris_lock_desc_3">"화면 잠금 방식이 지문으로 설정된 상태입니다.
 
 지문 대신 홍채로 설정하려면 실행 버튼을 누르세요. 홍채로 설정한 후에는 %s 또는 홍채를 사용하여 잠금을 해제할 수 있습니다."</string>
-    <string name="my_phone_summary">스피커/헤드폰/USB 오디오 디바이스</string>
 </resources>

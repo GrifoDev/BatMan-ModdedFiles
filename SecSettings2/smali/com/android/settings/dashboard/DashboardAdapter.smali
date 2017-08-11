@@ -408,7 +408,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f020633
+    const v3, 0x7f02069c
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -1431,7 +1431,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f1003f3
+    const v9, 0x7f1003f9
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1780,216 +1780,240 @@
 .end method
 
 .method private recountItems()V
-    .locals 13
+    .locals 14
 
-    const/16 v12, 0x7d0
+    const/16 v13, 0x7d0
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardAdapter;->reset()V
 
-    iget-boolean v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mShowSuggestion:Z
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    if-eqz v7, :cond_2
+    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
+    move-result-object v8
 
-    if-eqz v7, :cond_2
+    const-string/jumbo v11, "suggested.completed_category.com.android.settings.suggested.category.DOCOMO"
 
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
+    invoke-static {v8, v11, v10}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-interface {v7}, Ljava/util/List;->size()I
+    move-result v8
 
-    move-result v7
+    if-eq v8, v9, :cond_2
 
-    if-eqz v7, :cond_2
-
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
     :goto_0
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
+    iget-boolean v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mShowSuggestion:Z
 
-    invoke-static {v7}, Lcom/android/settings/Utils;->isEnabledUltraPowerSaving(Landroid/content/Context;)Z
+    if-eqz v8, :cond_3
 
-    move-result v5
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
 
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
+    if-eqz v8, :cond_3
 
-    invoke-static {v7}, Lcom/android/settings/Utils;->isSplitViewSupported(Landroid/content/Context;)Z
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
 
-    move-result v7
+    invoke-interface {v8}, Ljava/util/List;->size()I
 
-    if-nez v7, :cond_0
+    move-result v8
 
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
+    if-eqz v8, :cond_3
 
-    invoke-static {v7}, Lcom/android/settings/Utils;->isSupportGraceUXHeroView(Landroid/content/Context;)Z
+    move v4, v2
 
-    move-result v7
+    :goto_1
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    if-eqz v7, :cond_0
+    invoke-static {v8}, Lcom/android/settings/Utils;->isEnabledUltraPowerSaving(Landroid/content/Context;)Z
 
-    if-eqz v5, :cond_3
+    move-result v6
+
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
+
+    invoke-static {v8}, Lcom/android/settings/Utils;->isSplitViewSupported(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
+
+    invoke-static {v8}, Lcom/android/settings/Utils;->isSupportGraceUXHeroView(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    if-eqz v6, :cond_4
 
     :cond_0
     const/4 v1, 0x0
 
-    :goto_1
-    iget-boolean v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mShowFotaView:Z
+    :goto_2
+    iget-boolean v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mShowFotaView:Z
 
-    if-eqz v7, :cond_1
+    if-eqz v8, :cond_1
 
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    invoke-static {v7}, Lcom/android/settings/Utils;->getFotaBadgeCount(Landroid/content/Context;)I
+    invoke-static {v8}, Lcom/android/settings/Utils;->getFotaBadgeCount(Landroid/content/Context;)I
 
-    move-result v7
+    move-result v8
 
-    if-lez v7, :cond_1
+    if-lez v8, :cond_1
 
-    if-eqz v5, :cond_5
+    if-eqz v6, :cond_6
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    :goto_2
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
+    :goto_3
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    invoke-static {v7}, Lcom/android/settings/Utils;->getFavoriteCount(Landroid/content/Context;)I
+    invoke-static {v8}, Lcom/android/settings/Utils;->getFavoriteCount(Landroid/content/Context;)I
 
     move-result v0
 
-    const v7, 0x7f0402ea
+    const v8, 0x7f0402ee
 
-    invoke-direct {p0, v11, v7, v3, v9}, Lcom/android/settings/dashboard/DashboardAdapter;->countItem(Ljava/lang/Object;IZI)V
+    invoke-direct {p0, v12, v8, v4, v10}, Lcom/android/settings/dashboard/DashboardAdapter;->countItem(Ljava/lang/Object;IZI)V
 
-    const v7, 0x7f040122
+    const v8, 0x7f040124
 
-    const/16 v10, 0x9c4
+    const/16 v11, 0x9c4
 
-    invoke-direct {p0, v11, v7, v2, v10}, Lcom/android/settings/dashboard/DashboardAdapter;->countItem(Ljava/lang/Object;IZI)V
-
-    if-eqz v1, :cond_6
-
-    if-lez v0, :cond_6
-
-    move v7, v8
-
-    :goto_3
-    const v10, 0x7f0400a3
-
-    invoke-direct {p0, v11, v10, v7, v12}, Lcom/android/settings/dashboard/DashboardAdapter;->countItem(Ljava/lang/Object;IZI)V
+    invoke-direct {p0, v12, v8, v3, v11}, Lcom/android/settings/dashboard/DashboardAdapter;->countItem(Ljava/lang/Object;IZI)V
 
     if-eqz v1, :cond_7
 
-    if-nez v0, :cond_7
+    if-lez v0, :cond_7
 
-    move v7, v8
+    move v8, v9
 
     :goto_4
-    const v10, 0x7f0400a4
+    const v11, 0x7f0400a4
 
-    invoke-direct {p0, v11, v10, v7, v12}, Lcom/android/settings/dashboard/DashboardAdapter;->countItem(Ljava/lang/Object;IZI)V
+    invoke-direct {p0, v12, v11, v8, v13}, Lcom/android/settings/dashboard/DashboardAdapter;->countItem(Ljava/lang/Object;IZI)V
 
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
+    if-eqz v1, :cond_8
 
-    if-eqz v7, :cond_9
+    if-nez v0, :cond_8
 
-    iget-boolean v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mShowSuggestion:Z
-
-    if-eqz v7, :cond_9
-
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
-
-    invoke-interface {v7}, Ljava/util/List;->size()I
-
-    move-result v6
-
-    const/4 v4, 0x0
+    move v8, v9
 
     :goto_5
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
+    const v11, 0x7f0400a5
 
-    invoke-interface {v7}, Ljava/util/List;->size()I
+    invoke-direct {p0, v12, v11, v8, v13}, Lcom/android/settings/dashboard/DashboardAdapter;->countItem(Ljava/lang/Object;IZI)V
+
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
+
+    if-eqz v8, :cond_a
+
+    iget-boolean v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mShowSuggestion:Z
+
+    if-eqz v8, :cond_a
+
+    if-eqz v2, :cond_a
+
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
+
+    invoke-interface {v8}, Ljava/util/List;->size()I
 
     move-result v7
 
-    if-ge v4, v7, :cond_9
-
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
-
-    invoke-interface {v7, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v10
-
-    if-ge v4, v6, :cond_8
-
-    move v7, v8
+    const/4 v5, 0x0
 
     :goto_6
-    const v11, 0x7f0402eb
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
 
-    const/16 v12, 0x3e8
+    invoke-interface {v8}, Ljava/util/List;->size()I
 
-    invoke-direct {p0, v10, v11, v7, v12}, Lcom/android/settings/dashboard/DashboardAdapter;->countItem(Ljava/lang/Object;IZI)V
+    move-result v8
 
-    add-int/lit8 v4, v4, 0x1
+    if-ge v5, v8, :cond_a
 
-    goto :goto_5
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mSuggestions:Ljava/util/List;
+
+    invoke-interface {v8, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v11
+
+    if-ge v5, v7, :cond_9
+
+    move v8, v9
+
+    :goto_7
+    const v12, 0x7f0402ef
+
+    const/16 v13, 0x3e8
+
+    invoke-direct {p0, v11, v12, v8, v13}, Lcom/android/settings/dashboard/DashboardAdapter;->countItem(Ljava/lang/Object;IZI)V
+
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_6
 
     :cond_2
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_3
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
+    const/4 v4, 0x0
 
-    invoke-static {v7}, Lcom/android/settings/Utils;->isDesktopMode(Landroid/content/Context;)Z
+    goto/16 :goto_1
 
-    move-result v7
+    :cond_4
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    if-eqz v7, :cond_4
+    invoke-static {v8}, Lcom/android/settings/Utils;->isDesktopMode(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_5
 
     const/4 v1, 0x0
 
-    goto :goto_1
-
-    :cond_4
-    const/4 v1, 0x1
-
-    goto :goto_1
+    goto :goto_2
 
     :cond_5
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     goto :goto_2
 
     :cond_6
-    move v7, v9
+    const/4 v3, 0x1
 
     goto :goto_3
 
     :cond_7
-    move v7, v9
+    move v8, v10
 
     goto :goto_4
 
     :cond_8
-    move v7, v9
+    move v8, v10
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_9
+    move v8, v10
+
+    goto :goto_7
+
+    :cond_a
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardAdapter;->resetCount()V
 
-    iget-object v7, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mCategories:Ljava/util/List;
+    iget-object v8, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mCategories:Ljava/util/List;
 
-    invoke-virtual {p0, v7}, Lcom/android/settings/dashboard/DashboardAdapter;->updateTileList(Ljava/util/List;)V
+    invoke-virtual {p0, v8}, Lcom/android/settings/dashboard/DashboardAdapter;->updateTileList(Ljava/util/List;)V
 
     invoke-virtual {p0}, Lcom/android/settings/dashboard/DashboardAdapter;->notifyDataSetChanged()V
 
@@ -2046,7 +2070,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0bf2
+    const v1, 0x7f0b0c64
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2060,7 +2084,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0c11
+    const v1, 0x7f0b0c83
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2119,7 +2143,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b14d7
+    const v3, 0x7f0b1573
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2149,7 +2173,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f040344
+    const v5, 0x7f040349
 
     const/4 v6, 0x0
 
@@ -2157,7 +2181,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f110815
+    const v4, 0x7f110818
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2173,7 +2197,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f0b10af
+    const v4, 0x7f0b113c
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -2191,7 +2215,7 @@
 
     invoke-direct {v5, p0, v0, p1}, Lcom/android/settings/dashboard/DashboardAdapter$9;-><init>(Lcom/android/settings/dashboard/DashboardAdapter;Landroid/widget/CheckBox;Lcom/android/settingslib/drawer/Tile;)V
 
-    const v6, 0x7f0b046a
+    const v6, 0x7f0b04cd
 
     invoke-virtual {v4, v6, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2201,7 +2225,7 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/dashboard/DashboardAdapter$10;-><init>(Lcom/android/settings/dashboard/DashboardAdapter;)V
 
-    const v6, 0x7f0b0461
+    const v6, 0x7f0b04c4
 
     invoke-virtual {v4, v6, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2233,7 +2257,7 @@
 .method private updateTile(Lcom/android/settingslib/drawer/Tile;)Lcom/android/settingslib/drawer/Tile;
     .locals 2
 
-    const v1, 0x7f0b1468
+    const v1, 0x7f0b1504
 
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
@@ -2282,7 +2306,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b04b8
+    const v1, 0x7f0b051b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2646,7 +2670,7 @@
 
     iget-object v2, p1, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v3, 0x7f020105
+    const v3, 0x7f02012a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2655,7 +2679,7 @@
     :cond_1
     iget-object v2, p1, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v3, 0x7f0204f7
+    const v3, 0x7f020560
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2690,7 +2714,7 @@
     :sswitch_4
     iget-object v2, p1, Lcom/android/settings/dashboard/DashboardAdapter$DashboardItemHolder;->itemView:Landroid/view/View;
 
-    const v3, 0x7f110415
+    const v3, 0x7f110417
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2760,13 +2784,13 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f0400a1 -> :sswitch_0
-        0x7f0400a3 -> :sswitch_5
-        0x7f0400a4 -> :sswitch_6
-        0x7f0400a7 -> :sswitch_1
-        0x7f040122 -> :sswitch_4
-        0x7f0402ea -> :sswitch_2
-        0x7f0402eb -> :sswitch_3
+        0x7f0400a2 -> :sswitch_0
+        0x7f0400a4 -> :sswitch_5
+        0x7f0400a5 -> :sswitch_6
+        0x7f0400a8 -> :sswitch_1
+        0x7f040124 -> :sswitch_4
+        0x7f0402ee -> :sswitch_2
+        0x7f0402ef -> :sswitch_3
     .end sparse-switch
 .end method
 
@@ -3025,7 +3049,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f040344
+    const v8, 0x7f040349
 
     const/4 v9, 0x0
 
@@ -3033,7 +3057,7 @@
 
     move-result-object v1
 
-    const v7, 0x7f110815
+    const v7, 0x7f110818
 
     invoke-virtual {v1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3055,7 +3079,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b050f
+    const v8, 0x7f0b0572
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3071,7 +3095,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04dc
+    const v10, 0x7f0b053f
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3121,7 +3145,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b050e
+    const v9, 0x7f0b0571
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3135,7 +3159,7 @@
 
     invoke-direct {v8, p0, v0, v3, p1}, Lcom/android/settings/dashboard/DashboardAdapter$12;-><init>(Lcom/android/settings/dashboard/DashboardAdapter;Landroid/widget/CheckBox;Landroid/content/SharedPreferences$Editor;Lcom/android/settingslib/drawer/Tile;)V
 
-    const v9, 0x7f0b046a
+    const v9, 0x7f0b04cd
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -3145,7 +3169,7 @@
 
     invoke-direct {v8, p0}, Lcom/android/settings/dashboard/DashboardAdapter$13;-><init>(Lcom/android/settings/dashboard/DashboardAdapter;)V
 
-    const v9, 0x7f0b124f
+    const v9, 0x7f0b12ea
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -3362,7 +3386,7 @@
     goto/16 :goto_2
 
     :cond_6
-    const v10, 0x7f0400a1
+    const v10, 0x7f0400a2
 
     const/4 v11, 0x1
 
@@ -3461,7 +3485,7 @@
     :cond_b
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b04dc
+    const v11, 0x7f0b053f
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3484,7 +3508,7 @@
 
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b149c
+    const v11, 0x7f0b1538
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3513,7 +3537,7 @@
 
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b1290
+    const v11, 0x7f0b132b
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3534,7 +3558,7 @@
 
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f020286
+    const v11, 0x7f0202ab
 
     invoke-static {v10, v11}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 
@@ -3606,7 +3630,7 @@
 
     iget-object v11, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v12, 0x7f0b04ac
+    const v12, 0x7f0b050f
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3628,7 +3652,7 @@
 
     iget-object v11, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v12, 0x7f0b04ad
+    const v12, 0x7f0b0510
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3646,7 +3670,7 @@
 
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f02056d
+    const v11, 0x7f0205d6
 
     invoke-static {v10, v11}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 
@@ -3667,7 +3691,7 @@
     :cond_11
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b04ce
+    const v11, 0x7f0b0531
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3677,7 +3701,7 @@
 
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f020574
+    const v11, 0x7f0205dd
 
     invoke-static {v10, v11}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 
@@ -3698,7 +3722,7 @@
     :cond_12
     const/4 v10, 0x1
 
-    const v11, 0x7f0400a7
+    const v11, 0x7f0400a8
 
     const/16 v12, 0x7d0
 

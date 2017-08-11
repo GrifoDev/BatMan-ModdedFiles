@@ -66,7 +66,7 @@
 
     const-string/jumbo v1, ":android:show_fragment_title"
 
-    const v2, 0x7f0b093d
+    const v2, 0x7f0b09a7
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -95,7 +95,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/InstrumentedActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const v2, 0x7f040067
+    const v2, 0x7f040068
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/ChooseLockBLock;->setContentView(I)V
 

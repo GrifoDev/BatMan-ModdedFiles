@@ -49,11 +49,11 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set0(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Lcom/samsung/android/app/qragent/service/IQRService;)Lcom/samsung/android/app/qragent/service/IQRService;
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Lcom/samsung/android/app/qragent/service/IQRService;)Lcom/samsung/android/app/qragent/service/IQRService;
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$1;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/graphics/Bitmap;
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get4(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
@@ -61,7 +61,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$1;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get4(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get5(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -73,7 +73,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$1;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get4(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get5(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -81,8 +81,33 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set1(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
+    iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$1;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get1(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$1;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set1(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Z)Z
+
+    iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$1;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->updateView(Z)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$1;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$1;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
@@ -93,8 +118,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->updateView(Z)V
 
-    :cond_0
-    return-void
+    goto :goto_0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
@@ -110,7 +134,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set0(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Lcom/samsung/android/app/qragent/service/IQRService;)Lcom/samsung/android/app/qragent/service/IQRService;
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Lcom/samsung/android/app/qragent/service/IQRService;)Lcom/samsung/android/app/qragent/service/IQRService;
 
     return-void
 .end method

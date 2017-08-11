@@ -728,9 +728,9 @@
 .method private handleWriteNfcEvent(Landroid/nfc/Tag;)V
     .locals 7
 
-    const v5, 0x7f0b1a94
+    const v5, 0x7f0b1b30
 
-    const v6, 0x7f0b1a93
+    const v6, 0x7f0b1b2f
 
     invoke-static {p1}, Landroid/nfc/tech/Ndef;->get(Landroid/nfc/Tag;)Landroid/nfc/tech/Ndef;
 
@@ -781,13 +781,13 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mLabelView:Landroid/widget/TextView;
 
-    const v5, 0x7f0b1a92
+    const v5, 0x7f0b1b2e
 
     invoke-direct {p0, v4, v5}, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->setViewText(Landroid/widget/TextView;I)V
 
     iget-object v4, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mCancelButton:Landroid/widget/Button;
 
-    const v5, 0x10405bc
+    const v5, 0x10405be
 
     invoke-direct {p0, v4, v5}, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->setViewText(Landroid/widget/TextView;I)V
     :try_end_0
@@ -975,13 +975,13 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mLabelView:Landroid/widget/TextView;
 
-    const v4, 0x7f0b1a90
+    const v4, 0x7f0b1b2c
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v3, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mView:Landroid/view/View;
 
-    const v4, 0x7f1108ef
+    const v4, 0x7f1108f5
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1211,7 +1211,7 @@
 
     move-result v1
 
-    const v2, 0x7f110884
+    const v2, 0x7f110887
 
     if-ne v1, v2, :cond_0
 
@@ -1394,7 +1394,7 @@
     :cond_2
     iget-object v5, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mPasswordErrorView:Landroid/widget/TextView;
 
-    const v6, 0x7f0b0da5
+    const v6, 0x7f0b0e30
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -1406,7 +1406,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d023c
+    const v7, 0x7f0d023d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -1438,7 +1438,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0403b2
+    const v2, 0x7f0403b7
 
     invoke-virtual {v0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1458,7 +1458,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b1a8e
+    const v2, 0x7f0b1b2a
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1496,7 +1496,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b1a8f
+    const v2, 0x7f0b1b2b
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1514,7 +1514,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b1a8f
+    const v2, 0x7f0b1b2b
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1526,7 +1526,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f11082f
+    const v1, 0x7f110832
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1538,7 +1538,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110987
+    const v1, 0x7f11098d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1550,7 +1550,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110988
+    const v1, 0x7f11098e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1566,7 +1566,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110884
+    const v1, 0x7f110887
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1582,7 +1582,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f1108f1
+    const v1, 0x7f1108f7
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1602,7 +1602,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110989
+    const v1, 0x7f11098f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1614,7 +1614,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110986
+    const v1, 0x7f11098c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1690,7 +1690,7 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/WriteWifiConfigToNfcDialog;->mPasswordErrorView:Landroid/widget/TextView;
 
-    const v3, 0x7f0b0de0
+    const v3, 0x7f0b0e6b
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -1702,7 +1702,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d023c
+    const v4, 0x7f0d023d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -1754,7 +1754,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d011e
+    const v4, 0x7f0d011f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 

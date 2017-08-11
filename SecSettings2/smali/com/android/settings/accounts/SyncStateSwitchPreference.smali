@@ -25,7 +25,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f0f01cd
+    const v1, 0x7f0f01ce
 
     invoke-direct {p0, p1, v0, v2, v1}, Landroid/preference/SwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -53,7 +53,7 @@
 
     const/4 v1, 0x0
 
-    const v0, 0x7f0f01cd
+    const v0, 0x7f0f01ce
 
     invoke-direct {p0, p1, p2, v1, v0}, Landroid/preference/SwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -113,7 +113,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/SwitchPreference;->onBindView(Landroid/view/View;)V
 
-    const v6, 0x7f110679
+    const v6, 0x7f11067c
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -121,7 +121,7 @@
 
     check-cast v4, Lcom/android/settingslib/widget/AnimatedImageView;
 
-    const v6, 0x7f110678
+    const v6, 0x7f11067b
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -194,7 +194,7 @@
 
     aput-object v9, v8, v7
 
-    const v7, 0x7f0b18e3
+    const v7, 0x7f0b197f
 
     invoke-virtual {v6, v7, v8}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

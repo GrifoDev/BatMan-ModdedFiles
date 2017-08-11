@@ -69,7 +69,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0022
+    const v1, 0x7f0b007d
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -86,7 +86,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b1c2c
+    const v1, 0x7f0b1cc8
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

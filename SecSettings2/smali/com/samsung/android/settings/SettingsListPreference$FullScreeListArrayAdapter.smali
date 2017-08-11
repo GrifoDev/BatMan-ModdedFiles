@@ -35,7 +35,7 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/SettingsListPreference$FullScreeListArrayAdapter;->this$0:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v0, 0x7f04017d
+    const v0, 0x7f04017f
 
     const v1, 0x1020014
 

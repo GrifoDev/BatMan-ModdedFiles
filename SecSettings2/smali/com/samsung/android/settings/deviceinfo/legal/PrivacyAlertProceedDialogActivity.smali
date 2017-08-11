@@ -25,7 +25,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f04007c
+    const v7, 0x7f04007d
 
     invoke-virtual {v6, v7, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -49,7 +49,7 @@
 
     move-result-object v0
 
-    const v6, 0x7f0b058b
+    const v6, 0x7f0b05ee
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/deviceinfo/legal/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -92,7 +92,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v6, 0x7f0b0589
+    const v6, 0x7f0b05ec
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/deviceinfo/legal/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -187,14 +187,14 @@
     if-eqz v6, :cond_3
 
     :cond_2
-    const v6, 0x7f0b058a
+    const v6, 0x7f0b05ed
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/deviceinfo/legal/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     :cond_3
-    const v6, 0x7f0b0588
+    const v6, 0x7f0b05eb
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/deviceinfo/legal/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -232,7 +232,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b1021
+    const v2, 0x7f0b10ae
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

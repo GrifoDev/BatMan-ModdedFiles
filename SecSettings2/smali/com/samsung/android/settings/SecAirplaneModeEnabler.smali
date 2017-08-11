@@ -191,7 +191,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/SecAirplaneModeEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v6, 0x7f0b1b37
+    const v6, 0x7f0b1bd3
 
     invoke-virtual {v5, v6}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -221,7 +221,7 @@
     :cond_5
     iget-object v4, p0, Lcom/samsung/android/settings/SecAirplaneModeEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v6, 0x7f0b0371
+    const v6, 0x7f0b03d0
 
     invoke-virtual {v4, v6}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -372,7 +372,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/SecAirplaneModeEnabler;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b0383
+    const v4, 0x7f0b03e2
 
     invoke-static {v3, v4, v7}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

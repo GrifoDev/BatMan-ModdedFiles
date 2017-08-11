@@ -48,6 +48,8 @@
 
 .field private hideSsidDoNotShowAgain:Z
 
+.field private isPMFEnabled:Z
+
 .field private isTimeoutValueChanged:Z
 
 .field private mAdvancedShowLayout:Landroid/widget/LinearLayout;
@@ -65,6 +67,8 @@
 .field private mChannel5gLayoutPrefer:Landroid/widget/LinearLayout;
 
 .field private mChannel5genabled:Z
+
+.field private mChannelBroadcast:Landroid/widget/TextView;
 
 .field public mChecked5GPrefer:Z
 
@@ -95,6 +99,10 @@
 .field private mNumBasedOnCharger:I
 
 .field private mNumBasedOnCountry:I
+
+.field private mPMFCheckBox:Landroid/widget/CheckBox;
+
+.field private mPMFLayout:Landroid/widget/LinearLayout;
 
 .field private mPassword:Landroid/widget/EditText;
 
@@ -175,12 +183,20 @@
 .method static synthetic -get10(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)I
     .locals 1
 
+    iget v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCharger:I
+
+    return v0
+.end method
+
+.method static synthetic -get11(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)I
+    .locals 1
+
     iget v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCountry:I
 
     return v0
 .end method
 
-.method static synthetic -get11(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
+.method static synthetic -get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPassword:Landroid/widget/EditText;
@@ -188,7 +204,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
+.method static synthetic -get13(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPasswordErrorText:Landroid/widget/TextView;
@@ -196,7 +212,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get13(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/SharedPreferences;
+.method static synthetic -get14(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/SharedPreferences;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSharedPref:Landroid/content/SharedPreferences;
@@ -204,7 +220,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get14(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
+.method static synthetic -get15(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSsid:Landroid/widget/EditText;
@@ -212,7 +228,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
+.method static synthetic -get16(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSsidErrorText:Landroid/widget/TextView;
@@ -220,7 +236,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
+.method static synthetic -get17(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempPassworld:Ljava/lang/String;
@@ -228,7 +244,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
+.method static synthetic -get18(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempSsid:Ljava/lang/String;
@@ -236,7 +252,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get19(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)[Ljava/lang/String;
+.method static synthetic -get20(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)[Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItem:[Ljava/lang/String;
@@ -244,7 +260,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get20(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)[Ljava/lang/String;
+.method static synthetic -get21(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)[Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItemBasedOnCharger:[Ljava/lang/String;
@@ -252,7 +268,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get21(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)[Ljava/lang/String;
+.method static synthetic -get22(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)[Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItemBasedOnCountry:[Ljava/lang/String;
@@ -276,7 +292,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/Context;
+.method static synthetic -get5(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannelBroadcast:Landroid/widget/TextView;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
@@ -284,7 +308,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/CheckBox;
+.method static synthetic -get7(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/CheckBox;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mHideSsid:Landroid/widget/CheckBox;
@@ -292,7 +316,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/CheckBox;
+.method static synthetic -get8(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/CheckBox;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mHideSsidDoNotShowAgain:Landroid/widget/CheckBox;
@@ -300,18 +324,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)I
-    .locals 1
-
-    iget v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
-
-    return v0
-.end method
-
 .method static synthetic -get9(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)I
     .locals 1
 
-    iget v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCharger:I
+    iget v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
 
     return v0
 .end method
@@ -403,360 +419,240 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/DialogInterface$OnClickListener;Landroid/net/wifi/WifiConfiguration;)V
-    .locals 4
-
-    const/4 v3, 0x1
-
-    const/4 v0, 0x0
+    .locals 5
 
     const/4 v2, 0x0
 
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
     invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
 
-    iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChecked5GPrefer:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChecked5GPrefer:Z
 
-    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempSecurityTypeIndex:I
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempSecurityTypeIndex:I
 
-    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mMacaddrAcl:I
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mMacaddrAcl:I
 
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempSsid:Ljava/lang/String;
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempSsid:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempPassworld:Ljava/lang/String;
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempPassworld:Ljava/lang/String;
 
-    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
 
-    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast5gChannel:I
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast5gChannel:I
 
-    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedBand:I
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedBand:I
 
-    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedMaxClient:I
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedMaxClient:I
 
-    iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->hideSsidDoNotShowAgain:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->hideSsidDoNotShowAgain:Z
 
-    iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gDoNotShowAgain:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gDoNotShowAgain:Z
 
-    iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel5genabled:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel5genabled:Z
 
-    new-array v0, v3, [Ljava/lang/String;
+    new-array v2, v0, [Ljava/lang/String;
 
-    const-string/jumbo v1, "36"
+    const-string/jumbo v3, "36"
 
-    aput-object v1, v0, v2
+    aput-object v3, v2, v1
 
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItemBasedOnCharger:[Ljava/lang/String;
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItemBasedOnCharger:[Ljava/lang/String;
 
-    new-array v0, v3, [Ljava/lang/String;
+    new-array v2, v0, [Ljava/lang/String;
 
-    const-string/jumbo v1, "149"
+    const-string/jumbo v3, "149"
 
-    aput-object v1, v0, v2
+    aput-object v3, v2, v1
 
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItemBasedOnCountry:[Ljava/lang/String;
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItemBasedOnCountry:[Ljava/lang/String;
 
-    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCharger:I
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCharger:I
 
-    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCountry:I
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCountry:I
 
-    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedTimeoutValue:I
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedTimeoutValue:I
 
-    iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isTimeoutValueChanged:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isTimeoutValueChanged:Z
 
-    iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSaveButtonClicked:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSaveButtonClicked:Z
 
-    iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mUserSelectOpenSecurity:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isPMFEnabled:Z
 
-    iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mDismissIfOpen:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mUserSelectOpenSecurity:Z
 
-    iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->bTimeOutSpinner:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mDismissIfOpen:Z
 
-    new-instance v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$1;
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->bTimeOutSpinner:Z
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$1;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
+    new-instance v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec$1;
 
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mReceiver:Landroid/content/BroadcastReceiver;
+    invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$1;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
 
-    new-instance v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$2;
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$2;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
+    new-instance v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec$2;
 
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->focusListener:Landroid/view/View$OnFocusChangeListener;
+    invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$2;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
 
-    new-instance v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$3;
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->focusListener:Landroid/view/View$OnFocusChangeListener;
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$3;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
+    new-instance v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec$3;
 
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->ssidWatcher:Landroid/text/TextWatcher;
+    invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$3;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
 
-    new-instance v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->ssidWatcher:Landroid/text/TextWatcher;
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
+    new-instance v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;
 
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->passwordWatcher:Landroid/text/TextWatcher;
+    invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
+
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->passwordWatcher:Landroid/text/TextWatcher;
 
     iput-object p2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mListener:Landroid/content/DialogInterface$OnClickListener;
 
     iput-object p3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_5
 
     invoke-static {p1}, Lcom/android/settings/Utils;->isDualFolderType(Landroid/content/Context;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
     invoke-static {p3}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->getSecurityTypeIndex(Landroid/net/wifi/WifiConfiguration;)I
 
-    move-result v0
+    move-result v2
 
-    sput v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSecurityTypeIndex:I
+    sput v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSecurityTypeIndex:I
 
     :cond_0
-    sget-boolean v0, Lcom/android/settings/Utils;->SUPPORT_MOBILEAP_5G_BASED_ON_COUNTRY:Z
+    sget-boolean v2, Lcom/android/settings/Utils;->SUPPORT_MOBILEAP_5G_BASED_ON_COUNTRY:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v2, :cond_6
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v1, "wifi_ap_last_2g_channel"
+    const-string/jumbo v3, "wifi_ap_last_2g_channel"
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
-
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
-
-    :goto_0
-    iget v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
-
-    const/16 v1, 0xb
-
-    if-le v0, v1, :cond_1
-
-    iget v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
-
-    const/16 v1, 0xf
-
-    if-gt v0, v1, :cond_1
+    move-result v2
 
     iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
 
-    sput v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+    :goto_0
+    iget v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
 
-    const-string/jumbo v0, "WifiApDialogSec"
+    const/16 v3, 0xb
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Changing MHS Channel to Auto "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+    if-le v2, v3, :cond_1
 
     iget v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/16 v3, 0xf
 
-    move-result-object v1
+    if-gt v2, v3, :cond_1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
 
-    move-result-object v1
+    sput v1, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v2, "WifiApDialogSec"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Changing MHS Channel to Auto "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
-    iget v0, v0, Landroid/net/wifi/WifiConfiguration;->macaddrAcl:I
+    iget v2, v2, Landroid/net/wifi/WifiConfiguration;->macaddrAcl:I
 
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mMacaddrAcl:I
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mMacaddrAcl:I
 
-    sget-boolean v0, Lcom/android/settings/Utils;->SUPPORT_MOBILEAP_MAXCLIENT_MENU:Z
+    sget-boolean v2, Lcom/android/settings/Utils;->SUPPORT_MOBILEAP_MAXCLIENT_MENU:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
-    iget v0, v0, Landroid/net/wifi/WifiConfiguration;->maxclient:I
+    iget v2, v2, Landroid/net/wifi/WifiConfiguration;->maxclient:I
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedMaxClient:I
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedMaxClient:I
 
     :cond_2
-    const-string/jumbo v0, "TMO"
+    const-string/jumbo v2, "TMO"
 
-    sget-object v1, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v3, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_3
+    if-nez v2, :cond_3
 
-    const-string/jumbo v0, "NEWCO"
+    const-string/jumbo v2, "NEWCO"
 
-    sget-object v1, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v3, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_4
+    if-eqz v2, :cond_4
 
     :cond_3
     invoke-direct {p0, p1}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->getTimeoutValueFromSheredPreference(Landroid/content/Context;)I
 
-    move-result v0
+    move-result v2
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->getTimeoutIndexFromValue(I)I
+    invoke-direct {p0, v2}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->getTimeoutIndexFromValue(I)I
 
-    move-result v0
+    move-result v2
 
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedTimeoutValue:I
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedTimeoutValue:I
 
     :cond_4
-    return-void
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    :cond_5
-    iget v0, p3, Landroid/net/wifi/WifiConfiguration;->apChannel:I
+    move-result-object v2
 
-    sput v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+    const-string/jumbo v3, "wifi_ap_pmf_checked"
 
-    sget v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    const/16 v1, 0xe
+    move-result v2
 
-    if-ge v0, v1, :cond_6
+    if-ne v2, v0, :cond_8
 
-    sget v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
-
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
-
-    goto :goto_0
-
-    :cond_6
-    sget v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
-
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast5gChannel:I
-
-    goto :goto_0
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroid/content/DialogInterface$OnClickListener;Landroid/net/wifi/WifiConfiguration;Landroid/net/wifi/WifiConfiguration;ZZ)V
-    .locals 4
-
-    const/4 v2, 0x1
-
-    const/4 v0, 0x0
-
-    const/4 v3, 0x0
-
-    invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
-
-    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChecked5GPrefer:Z
-
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempSecurityTypeIndex:I
-
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mMacaddrAcl:I
-
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempSsid:Ljava/lang/String;
-
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempPassworld:Ljava/lang/String;
-
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
-
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast5gChannel:I
-
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedBand:I
-
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedMaxClient:I
-
-    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->hideSsidDoNotShowAgain:Z
-
-    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gDoNotShowAgain:Z
-
-    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel5genabled:Z
-
-    new-array v0, v2, [Ljava/lang/String;
-
-    const-string/jumbo v1, "36"
-
-    aput-object v1, v0, v3
-
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItemBasedOnCharger:[Ljava/lang/String;
-
-    new-array v0, v2, [Ljava/lang/String;
-
-    const-string/jumbo v1, "149"
-
-    aput-object v1, v0, v3
-
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItemBasedOnCountry:[Ljava/lang/String;
-
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCharger:I
-
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCountry:I
-
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedTimeoutValue:I
-
-    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isTimeoutValueChanged:Z
-
-    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSaveButtonClicked:Z
-
-    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mUserSelectOpenSecurity:Z
-
-    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mDismissIfOpen:Z
-
-    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->bTimeOutSpinner:Z
-
-    new-instance v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$1;
-
-    invoke-direct {v0, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$1;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
-
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mReceiver:Landroid/content/BroadcastReceiver;
-
-    new-instance v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$2;
-
-    invoke-direct {v0, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$2;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
-
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->focusListener:Landroid/view/View$OnFocusChangeListener;
-
-    new-instance v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$3;
-
-    invoke-direct {v0, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$3;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
-
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->ssidWatcher:Landroid/text/TextWatcher;
-
-    new-instance v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;
-
-    invoke-direct {v0, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
-
-    iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->passwordWatcher:Landroid/text/TextWatcher;
-
-    iput-object p2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mListener:Landroid/content/DialogInterface$OnClickListener;
-
-    if-eqz p4, :cond_5
-
-    iput-object p4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
-
-    :goto_0
-    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
-
-    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->getSecurityTypeIndex(Landroid/net/wifi/WifiConfiguration;)I
-
-    move-result v0
-
-    sput v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSecurityTypeIndex:I
+    :goto_1
+    iput-boolean v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isPMFEnabled:Z
 
     const-string/jumbo v0, "WifiApDialogSec"
 
@@ -764,35 +660,15 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "WifiApDialogSec2 - mSecurityTypeIndex ?  "
+    const-string/jumbo v2, "requirePMF:"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    sget v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSecurityTypeIndex:I
+    iget-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isPMFEnabled:Z
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "   permitDismiss ?   "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "   continueOpen ?   "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -802,50 +678,330 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_5
+    return-void
+
+    :cond_6
+    iget v2, p3, Landroid/net/wifi/WifiConfiguration;->apChannel:I
+
+    sput v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+
+    sget v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+
+    const/16 v3, 0xe
+
+    if-ge v2, v3, :cond_7
+
+    sget v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+
+    goto/16 :goto_0
+
+    :cond_7
+    sget v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast5gChannel:I
+
+    goto/16 :goto_0
+
+    :cond_8
+    move v0, v1
+
+    goto :goto_1
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/content/DialogInterface$OnClickListener;Landroid/net/wifi/WifiConfiguration;Landroid/net/wifi/WifiConfiguration;ZZ)V
+    .locals 5
+
+    const/4 v2, 0x0
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChecked5GPrefer:Z
+
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempSecurityTypeIndex:I
+
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mMacaddrAcl:I
+
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempSsid:Ljava/lang/String;
+
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempPassworld:Ljava/lang/String;
+
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast5gChannel:I
+
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedBand:I
+
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedMaxClient:I
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->hideSsidDoNotShowAgain:Z
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gDoNotShowAgain:Z
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel5genabled:Z
+
+    new-array v2, v0, [Ljava/lang/String;
+
+    const-string/jumbo v3, "36"
+
+    aput-object v3, v2, v1
+
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItemBasedOnCharger:[Ljava/lang/String;
+
+    new-array v2, v0, [Ljava/lang/String;
+
+    const-string/jumbo v3, "149"
+
+    aput-object v3, v2, v1
+
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->wifiAp5gItemBasedOnCountry:[Ljava/lang/String;
+
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCharger:I
+
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mNumBasedOnCountry:I
+
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedTimeoutValue:I
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isTimeoutValueChanged:Z
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSaveButtonClicked:Z
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isPMFEnabled:Z
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mUserSelectOpenSecurity:Z
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mDismissIfOpen:Z
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->bTimeOutSpinner:Z
+
+    new-instance v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec$1;
+
+    invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$1;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
+
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec$2;
+
+    invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$2;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
+
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->focusListener:Landroid/view/View$OnFocusChangeListener;
+
+    new-instance v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec$3;
+
+    invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$3;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
+
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->ssidWatcher:Landroid/text/TextWatcher;
+
+    new-instance v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;
+
+    invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
+
+    iput-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->passwordWatcher:Landroid/text/TextWatcher;
+
+    iput-object p2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mListener:Landroid/content/DialogInterface$OnClickListener;
+
+    if-eqz p4, :cond_6
+
+    iput-object p4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+
+    :goto_0
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+
+    if-eqz v2, :cond_5
+
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->getSecurityTypeIndex(Landroid/net/wifi/WifiConfiguration;)I
+
+    move-result v2
+
+    sput v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSecurityTypeIndex:I
+
+    const-string/jumbo v2, "WifiApDialogSec"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "WifiApDialogSec2 - mSecurityTypeIndex ?  "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    sget v4, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSecurityTypeIndex:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "   permitDismiss ?   "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "   continueOpen ?   "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     iput-boolean p5, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mDismissIfOpen:Z
 
-    if-eqz p6, :cond_6
+    if-eqz p6, :cond_7
 
-    sput v3, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSecurityTypeIndex:I
+    sput v1, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSecurityTypeIndex:I
 
     :cond_0
     :goto_1
-    iget v0, p3, Landroid/net/wifi/WifiConfiguration;->apChannel:I
+    iget v2, p3, Landroid/net/wifi/WifiConfiguration;->apChannel:I
 
-    sput v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+    sput v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
 
-    sget-boolean v0, Lcom/android/settings/Utils;->SUPPORT_MOBILEAP_5G_BASED_ON_COUNTRY:Z
+    sget-boolean v2, Lcom/android/settings/Utils;->SUPPORT_MOBILEAP_5G_BASED_ON_COUNTRY:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v2, :cond_8
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v1, "wifi_ap_last_2g_channel"
+    const-string/jumbo v3, "wifi_ap_last_2g_channel"
 
-    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v2
 
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
 
     :goto_2
-    iget v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+    iget v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
 
-    const/16 v1, 0xb
+    const/16 v3, 0xb
 
-    if-le v0, v1, :cond_1
+    if-le v2, v3, :cond_1
 
-    iget v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+    iget v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
 
-    const/16 v1, 0xf
+    const/16 v3, 0xf
 
-    if-gt v0, v1, :cond_1
+    if-gt v2, v3, :cond_1
 
-    iput v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+    iput v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
 
-    sput v3, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+    sput v1, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+
+    const-string/jumbo v2, "WifiApDialogSec"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Changing MHS Channel to Auto "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+
+    iget v2, v2, Landroid/net/wifi/WifiConfiguration;->macaddrAcl:I
+
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mMacaddrAcl:I
+
+    sget-boolean v2, Lcom/android/settings/Utils;->SUPPORT_MOBILEAP_MAXCLIENT_MENU:Z
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+
+    iget v2, v2, Landroid/net/wifi/WifiConfiguration;->maxclient:I
+
+    add-int/lit8 v2, v2, -0x1
+
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedMaxClient:I
+
+    :cond_2
+    const-string/jumbo v2, "TMO"
+
+    sget-object v3, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "NEWCO"
+
+    sget-object v3, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    :cond_3
+    invoke-direct {p0, p1}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->getTimeoutValueFromSheredPreference(Landroid/content/Context;)I
+
+    move-result v2
+
+    invoke-direct {p0, v2}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->getTimeoutIndexFromValue(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedTimeoutValue:I
+
+    :cond_4
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "wifi_ap_pmf_checked"
+
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v0, :cond_a
+
+    :goto_3
+    iput-boolean v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isPMFEnabled:Z
 
     const-string/jumbo v0, "WifiApDialogSec"
 
@@ -853,15 +1009,15 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Changing MHS Channel to Auto "
+    const-string/jumbo v2, "requirePMF..."
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+    iget-boolean v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isPMFEnabled:Z
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -869,97 +1025,51 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
-
-    iget v0, v0, Landroid/net/wifi/WifiConfiguration;->macaddrAcl:I
-
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mMacaddrAcl:I
-
-    sget-boolean v0, Lcom/android/settings/Utils;->SUPPORT_MOBILEAP_MAXCLIENT_MENU:Z
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
-
-    iget v0, v0, Landroid/net/wifi/WifiConfiguration;->maxclient:I
-
-    add-int/lit8 v0, v0, -0x1
-
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedMaxClient:I
-
-    :cond_2
-    const-string/jumbo v0, "TMO"
-
-    sget-object v1, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    const-string/jumbo v0, "NEWCO"
-
-    sget-object v1, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    :cond_3
-    invoke-direct {p0, p1}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->getTimeoutValueFromSheredPreference(Landroid/content/Context;)I
-
-    move-result v0
-
-    invoke-direct {p0, v0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->getTimeoutIndexFromValue(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedTimeoutValue:I
-
-    :cond_4
-    return-void
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
+    return-void
+
+    :cond_6
     iput-object p3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_7
     if-nez p6, :cond_0
 
-    sget v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSecurityTypeIndex:I
+    sget v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSecurityTypeIndex:I
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mDismissIfOpen:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mDismissIfOpen:Z
 
-    goto :goto_1
-
-    :cond_7
-    sget v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
-
-    const/16 v1, 0xe
-
-    if-ge v0, v1, :cond_8
-
-    sget v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
-
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
-
-    goto :goto_2
+    goto/16 :goto_1
 
     :cond_8
-    sget v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+    sget v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
 
-    iput v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast5gChannel:I
+    const/16 v3, 0xe
 
-    goto :goto_2
+    if-ge v2, v3, :cond_9
+
+    sget v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast2gChannel:I
+
+    goto/16 :goto_2
+
+    :cond_9
+    sget v2, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSelectedChannel:I
+
+    iput v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mLast5gChannel:I
+
+    goto/16 :goto_2
+
+    :cond_a
+    move v0, v1
+
+    goto :goto_3
 .end method
 
 .method private checkMaxFontSize(Landroid/widget/TextView;)V
@@ -1725,7 +1835,7 @@
 .end method
 
 .method private saveTempConfig()V
-    .locals 6
+    .locals 7
 
     const/4 v4, 0x1
 
@@ -1824,12 +1934,44 @@
     iput v2, v0, Landroid/net/wifi/WifiConfiguration;->maxclient:I
 
     :cond_2
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFCheckBox:Landroid/widget/CheckBox;
+
+    if-eqz v2, :cond_6
+
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFCheckBox:Landroid/widget/CheckBox;
+
+    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    iput-boolean v4, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    :goto_2
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "wifi_ap_pmf_checked"
+
+    iget-boolean v2, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    if-eqz v2, :cond_7
+
+    move v2, v4
+
+    :goto_3
+    invoke-static {v5, v6, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
     iget v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempSecurityTypeIndex:I
 
     packed-switch v2, :pswitch_data_0
 
     :cond_3
-    :goto_2
+    :goto_4
     iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mTempWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     return-void
@@ -1850,12 +1992,22 @@
 
     goto :goto_1
 
+    :cond_6
+    iput-boolean v3, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    goto :goto_2
+
+    :cond_7
+    move v2, v3
+
+    goto :goto_3
+
     :pswitch_0
     iget-object v2, v0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
     invoke-virtual {v2, v3}, Ljava/util/BitSet;->set(I)V
 
-    goto :goto_2
+    goto :goto_4
 
     :pswitch_1
     iget-object v2, v0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
@@ -1886,7 +2038,7 @@
 
     iput-object v1, v0, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_4
 
     :pswitch_2
     iget-object v2, v0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
@@ -1919,7 +2071,7 @@
 
     iput-object v1, v0, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_4
 
     nop
 
@@ -1954,7 +2106,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040371
+    const v3, 0x7f040376
 
     invoke-direct {v0, v1, v3, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
@@ -2005,7 +2157,7 @@
 .method private showSecurityFields()V
     .locals 6
 
-    const v5, 0x7f110883
+    const v5, 0x7f110886
 
     const/16 v4, 0x8
 
@@ -2013,7 +2165,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f11088a
+    const v2, 0x7f11088d
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2495,7 +2647,9 @@
 .end method
 
 .method public getConfig()Landroid/net/wifi/WifiConfiguration;
-    .locals 7
+    .locals 8
+
+    const/4 v7, 0x0
 
     const/16 v6, 0x95
 
@@ -2593,6 +2747,38 @@
     iput v2, v0, Landroid/net/wifi/WifiConfiguration;->maxclient:I
 
     :cond_1
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFCheckBox:Landroid/widget/CheckBox;
+
+    if-eqz v2, :cond_7
+
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFCheckBox:Landroid/widget/CheckBox;
+
+    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    iput-boolean v4, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    :goto_4
+    iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "wifi_ap_pmf_checked"
+
+    iget-boolean v2, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    if-eqz v2, :cond_8
+
+    move v2, v4
+
+    :goto_5
+    invoke-static {v5, v6, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
     const-string/jumbo v2, "WifiApDialogSec"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2683,6 +2869,18 @@
 
     move-result-object v5
 
+    const-string/jumbo v6, " "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-boolean v6, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
@@ -2693,9 +2891,7 @@
 
     packed-switch v2, :pswitch_data_0
 
-    const/4 v2, 0x0
-
-    return-object v2
+    return-object v7
 
     :cond_2
     move v2, v4
@@ -2736,6 +2932,16 @@
 
     goto/16 :goto_3
 
+    :cond_7
+    iput-boolean v3, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    goto/16 :goto_4
+
+    :cond_8
+    move v2, v3
+
+    goto/16 :goto_5
+
     :pswitch_0
     iget-object v2, v0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
@@ -2758,7 +2964,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_9
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPassword:Landroid/widget/EditText;
 
@@ -2772,7 +2978,7 @@
 
     iput-object v1, v0, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
 
-    :cond_7
+    :cond_9
     return-object v0
 
     :pswitch_2
@@ -2792,7 +2998,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_a
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPassword:Landroid/widget/EditText;
 
@@ -2806,8 +3012,10 @@
 
     iput-object v1, v0, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
 
-    :cond_8
+    :cond_a
     return-object v0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -2879,7 +3087,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v1, 0x7f110882
+    const v1, 0x7f110885
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3076,7 +3284,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b0faa
+    const v9, 0x7f0b1037
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3154,7 +3362,7 @@
     :sswitch_2
     iget-object v6, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v9, 0x7f11088f
+    const v9, 0x7f110892
 
     invoke-virtual {v6, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3393,14 +3601,46 @@
 
     goto/16 :goto_0
 
+    :sswitch_6
+    const-string/jumbo v6, "WifiApDialogSec"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "isPMFChecked.."
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFCheckBox:Landroid/widget/CheckBox;
+
+    invoke-virtual {v8}, Landroid/widget/CheckBox;->isChecked()Z
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
     :sswitch_data_0
     .sparse-switch
-        0x7f110884 -> :sswitch_0
-        0x7f110888 -> :sswitch_1
-        0x7f11088e -> :sswitch_2
-        0x7f110891 -> :sswitch_5
-        0x7f110894 -> :sswitch_3
-        0x7f110896 -> :sswitch_4
+        0x7f110887 -> :sswitch_0
+        0x7f11088b -> :sswitch_1
+        0x7f110891 -> :sswitch_2
+        0x7f110895 -> :sswitch_5
+        0x7f110898 -> :sswitch_3
+        0x7f11089a -> :sswitch_4
+        0x7f1108a2 -> :sswitch_6
     .end sparse-switch
 .end method
 
@@ -3411,7 +3651,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f040365
+    const v19, 0x7f04036a
 
     const/16 v20, 0x0
 
@@ -3453,7 +3693,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f040366
+    const v19, 0x7f04036b
 
     const/16 v20, 0x0
 
@@ -3473,7 +3713,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f11089d
+    const v19, 0x7f1108a3
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3497,7 +3737,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0d0230
+    const v19, 0x7f0d0231
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3509,7 +3749,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110889
+    const v19, 0x7f11088c
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3555,7 +3795,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110882
+    const v19, 0x7f110885
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3627,7 +3867,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110583
+    const v19, 0x7f110585
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3643,7 +3883,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110881
+    const v19, 0x7f110884
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3663,7 +3903,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110886
+    const v19, 0x7f110889
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3683,7 +3923,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b13c2
+    const v19, 0x7f0b145d
 
     invoke-virtual/range {v18 .. v19}, Landroid/widget/EditText;->setHint(I)V
 
@@ -3693,7 +3933,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f11082f
+    const v19, 0x7f110832
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3713,7 +3953,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f11088b
+    const v19, 0x7f11088e
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3743,7 +3983,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110887
+    const v19, 0x7f11088a
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3773,7 +4013,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110888
+    const v19, 0x7f11088b
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3799,7 +4039,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b0e92
+    const v20, 0x7f0b0f1f
 
     invoke-static/range {v19 .. v20}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -3841,7 +4081,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f11088c
+    const v19, 0x7f11088f
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3871,7 +4111,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f11088d
+    const v19, 0x7f110890
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3901,7 +4141,107 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f11088e
+    const v19, 0x7f1108a1
+
+    invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v18
+
+    check-cast v18, Landroid/widget/LinearLayout;
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFLayout:Landroid/widget/LinearLayout;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
+
+    move-object/from16 v18, v0
+
+    const v19, 0x7f1108a2
+
+    invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v18
+
+    check-cast v18, Landroid/widget/CheckBox;
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFCheckBox:Landroid/widget/CheckBox;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFLayout:Landroid/widget/LinearLayout;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x0
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFCheckBox:Landroid/widget/CheckBox;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v19
+
+    const v20, 0x7f0b1208
+
+    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/CheckBox;->setText(Ljava/lang/CharSequence;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFCheckBox:Landroid/widget/CheckBox;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mPMFCheckBox:Landroid/widget/CheckBox;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->isPMFEnabled:Z
+
+    move/from16 v19, v0
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/CheckBox;->setChecked(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
+
+    move-object/from16 v18, v0
+
+    const v19, 0x7f110891
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3933,7 +4273,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110897
+    const v19, 0x7f11089b
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3997,7 +4337,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110893
+    const v19, 0x7f110897
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4017,7 +4357,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110895
+    const v19, 0x7f110899
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4037,7 +4377,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110890
+    const v19, 0x7f110894
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4057,7 +4397,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110894
+    const v19, 0x7f110898
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4077,7 +4417,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110896
+    const v19, 0x7f11089a
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4097,7 +4437,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110891
+    const v19, 0x7f110895
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4153,7 +4493,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110898
+    const v19, 0x7f11089c
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4173,7 +4513,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110892
+    const v19, 0x7f110896
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4188,6 +4528,26 @@
     iput-object v0, v1, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mBand2gTextView:Landroid/widget/TextView;
 
     const/4 v12, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
+
+    move-object/from16 v18, v0
+
+    const v19, 0x7f110893
+
+    invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v18
+
+    check-cast v18, Landroid/widget/TextView;
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannelBroadcast:Landroid/widget/TextView;
 
     sget-boolean v18, Lcom/android/settings/Utils;->SUPPORT_MOBILEAP_5G_BASED_ON_COUNTRY:Z
 
@@ -4211,6 +4571,16 @@
 
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannelBroadcast:Landroid/widget/TextView;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x8
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/TextView;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel:Landroid/widget/Spinner;
 
     move-object/from16 v18, v0
@@ -4219,19 +4589,9 @@
 
     invoke-virtual/range {v18 .. v19}, Landroid/widget/Spinner;->setVisibility(I)V
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mAdvancedShowLayout:Landroid/widget/LinearLayout;
-
-    move-object/from16 v18, v0
-
-    const/16 v19, 0x8
-
-    invoke-virtual/range {v18 .. v19}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
     :cond_0
     :goto_0
-    const v18, 0x7f0b13f1
+    const v18, 0x7f0b148c
 
     move/from16 v0, v18
 
@@ -4257,7 +4617,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v18, 0x7f0b13f3
+    const v18, 0x7f0b148e
 
     move/from16 v0, v18
 
@@ -4337,7 +4697,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b0fae
+    const v20, 0x7f0b103b
 
     invoke-static/range {v19 .. v20}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -4651,7 +5011,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110884
+    const v19, 0x7f110887
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4678,7 +5038,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110884
+    const v19, 0x7f110887
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4731,7 +5091,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f11089a
+    const v19, 0x7f11089e
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4891,6 +5251,16 @@
 
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannelBroadcast:Landroid/widget/TextView;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x0
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/TextView;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel:Landroid/widget/Spinner;
 
     move-object/from16 v18, v0
@@ -4991,6 +5361,16 @@
 
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannelBroadcast:Landroid/widget/TextView;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x0
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/TextView;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel:Landroid/widget/Spinner;
 
     move-object/from16 v18, v0
@@ -5029,6 +5409,16 @@
 
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannelBroadcast:Landroid/widget/TextView;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x8
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/TextView;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel:Landroid/widget/Spinner;
 
     move-object/from16 v18, v0
@@ -5063,6 +5453,16 @@
 
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannelBroadcast:Landroid/widget/TextView;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x8
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/TextView;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel:Landroid/widget/Spinner;
 
     move-object/from16 v18, v0
@@ -5070,16 +5470,6 @@
     const/16 v19, 0x8
 
     invoke-virtual/range {v18 .. v19}, Landroid/widget/Spinner;->setVisibility(I)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mAdvancedShowLayout:Landroid/widget/LinearLayout;
-
-    move-object/from16 v18, v0
-
-    const/16 v19, 0x8
-
-    invoke-virtual/range {v18 .. v19}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     goto/16 :goto_0
 
@@ -5105,6 +5495,16 @@
     const/16 v19, 0x0
 
     invoke-virtual/range {v18 .. v19}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannelBroadcast:Landroid/widget/TextView;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x8
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/TextView;->setVisibility(I)V
 
     move-object/from16 v0, p0
 
@@ -5405,6 +5805,16 @@
 
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannelBroadcast:Landroid/widget/TextView;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x0
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/TextView;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel:Landroid/widget/Spinner;
 
     move-object/from16 v18, v0
@@ -5458,6 +5868,16 @@
 
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannelBroadcast:Landroid/widget/TextView;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x8
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/TextView;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mChannel:Landroid/widget/Spinner;
 
     move-object/from16 v18, v0
@@ -5491,7 +5911,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b0fa9
+    const v20, 0x7f0b1036
 
     invoke-static/range {v19 .. v20}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -5613,7 +6033,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f040371
+    const v19, 0x7f040376
 
     move-object/from16 v0, v18
 
@@ -5707,7 +6127,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f11089c
+    const v19, 0x7f1108a0
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5884,7 +6304,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f040371
+    const v19, 0x7f040376
 
     move-object/from16 v0, v18
 
@@ -6006,7 +6426,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f110899
+    const v19, 0x7f11089d
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6035,7 +6455,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f11089b
+    const v19, 0x7f11089f
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6133,7 +6553,7 @@
 
     if-nez v4, :cond_3
 
-    const v4, 0x7f0b0e39
+    const v4, 0x7f0b0ec6
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -6313,7 +6733,7 @@
 
     if-nez v4, :cond_7
 
-    const v4, 0x7f0b0e39
+    const v4, 0x7f0b0ec6
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -6580,12 +7000,12 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f110882 -> :sswitch_0
-        0x7f110889 -> :sswitch_1
-        0x7f110897 -> :sswitch_2
-        0x7f110898 -> :sswitch_3
-        0x7f11089a -> :sswitch_4
-        0x7f11089c -> :sswitch_5
+        0x7f110885 -> :sswitch_0
+        0x7f11088c -> :sswitch_1
+        0x7f11089b -> :sswitch_2
+        0x7f11089c -> :sswitch_3
+        0x7f11089e -> :sswitch_4
+        0x7f1108a0 -> :sswitch_5
     .end sparse-switch
 .end method
 
@@ -6641,7 +7061,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f110882
+    const v2, 0x7f110885
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6654,7 +7074,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f110888
+    const v2, 0x7f11088b
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6713,7 +7133,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f110884
+    const v2, 0x7f110887
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6727,7 +7147,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f11088e
+    const v2, 0x7f110891
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6777,7 +7197,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f110884
+    const v2, 0x7f110887
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6791,7 +7211,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v2, 0x7f11088e
+    const v2, 0x7f110891
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6834,13 +7254,13 @@
 .method public show()V
     .locals 3
 
-    const v2, 0x7f11088f
+    const v2, 0x7f110892
 
     invoke-super {p0}, Landroid/app/AlertDialog;->show()V
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mView:Landroid/view/View;
 
-    const v1, 0x7f11088e
+    const v1, 0x7f110891
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6915,7 +7335,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040369
+    const v3, 0x7f04036e
 
     const/4 v4, 0x0
 
@@ -6927,7 +7347,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->customView:Landroid/view/View;
 
-    const v3, 0x7f1108a5
+    const v3, 0x7f1108ab
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6939,7 +7359,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->customView:Landroid/view/View;
 
-    const v3, 0x7f11085f
+    const v3, 0x7f110862
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6951,7 +7371,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->customView:Landroid/view/View;
 
-    const v3, 0x7f1108a4
+    const v3, 0x7f1108aa
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6961,7 +7381,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0eef
+    const v3, 0x7f0b0f7c
 
     invoke-static {v2, v3}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -6971,7 +7391,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0eed
+    const v3, 0x7f0b0f7a
 
     invoke-static {v2, v3}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -6987,7 +7407,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$6;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
 
-    const v3, 0x7f0b1698    # 1.8488E38f
+    const v3, 0x7f0b1734
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

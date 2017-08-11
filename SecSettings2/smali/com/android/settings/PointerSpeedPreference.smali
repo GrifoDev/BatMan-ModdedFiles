@@ -42,7 +42,7 @@
 
     iput-object p1, p0, Lcom/android/settings/PointerSpeedPreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0401dc
+    const v0, 0x7f0401de
 
     invoke-virtual {p0, v0}, Lcom/android/settings/PointerSpeedPreference;->setLayoutResource(I)V
 
@@ -74,7 +74,7 @@
 
     iput-object p1, p0, Lcom/android/settings/PointerSpeedPreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0401dc
+    const v0, 0x7f0401de
 
     invoke-virtual {p0, v0}, Lcom/android/settings/PointerSpeedPreference;->setLayoutResource(I)V
 
@@ -102,7 +102,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/SeekBarPreference;->onBindView(Landroid/view/View;)V
 
-    const v1, 0x1020468
+    const v1, 0x1020471
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

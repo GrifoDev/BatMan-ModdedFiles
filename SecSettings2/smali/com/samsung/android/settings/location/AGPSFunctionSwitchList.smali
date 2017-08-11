@@ -139,7 +139,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/InstrumentedActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f04002a
+    const v1, 0x7f04002b
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/location/AGPSFunctionSwitchList;->setContentView(I)V
 

@@ -130,7 +130,7 @@
 
     iget-object v6, v6, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mPasswordErrorText:Landroid/widget/TextView;
 
-    const v7, 0x7f0b0de0
+    const v7, 0x7f0b0e6b
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(I)V
 
@@ -142,7 +142,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d023c
+    const v8, 0x7f0d023d
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -216,7 +216,7 @@
 
     iget-object v6, v6, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mPasswordErrorText:Landroid/widget/TextView;
 
-    const v7, 0x7f0b0de0
+    const v7, 0x7f0b0e6b
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(I)V
 
@@ -228,7 +228,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d023c
+    const v8, 0x7f0d023d
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -289,7 +289,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d011e
+    const v8, 0x7f0d011f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -324,7 +324,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d011e
+    const v8, 0x7f0d011f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -364,7 +364,7 @@
 
     iget-object v6, v6, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mPasswordErrorText:Landroid/widget/TextView;
 
-    const v7, 0x7f0b0de0
+    const v7, 0x7f0b0e6b
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(I)V
 
@@ -380,7 +380,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d023c
+    const v8, 0x7f0d023d
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -442,7 +442,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d011e
+    const v8, 0x7f0d011f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 

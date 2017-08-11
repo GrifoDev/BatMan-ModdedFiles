@@ -39,7 +39,7 @@
 .method public showConnectingError(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
-    const v0, 0x7f0b1338
+    const v0, 0x7f0b13d3
 
     invoke-static {p1, p2, v0}, Lcom/android/settings/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -63,7 +63,7 @@
 
     aput-object p2, v1, v2
 
-    const v2, 0x7f0b1337
+    const v2, 0x7f0b13d2
 
     invoke-virtual {p1, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -113,7 +113,7 @@
 
     aput-object p2, v1, v3
 
-    const v2, 0x7f0b03fb
+    const v2, 0x7f0b045c
 
     invoke-virtual {p1, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -133,7 +133,7 @@
 
     aput-object p2, v1, v4
 
-    const v2, 0x7f0b03fa
+    const v2, 0x7f0b045b
 
     invoke-virtual {p1, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -7,10 +7,22 @@
 .implements Landroid/preference/Preference$OnPreferenceClickListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/settings/applications/UsageAccessDetails$1;
+    }
+.end annotation
+
+
 # instance fields
 .field private mAppOpsManager:Landroid/app/AppOpsManager;
 
 .field private mDpm:Landroid/app/admin/DevicePolicyManager;
+
+.field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+.field private mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
 .field private mSettingsIntent:Landroid/content/Intent;
 
@@ -26,10 +38,32 @@
 
 
 # direct methods
+.method static synthetic -get0(Lcom/android/settings/applications/UsageAccessDetails;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/applications/UsageAccessDetails;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/settings/applications/UsageAccessDetails;)Landroid/preference/SwitchPreference;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/applications/UsageAccessDetails;->mSwitchPref:Landroid/preference/SwitchPreference;
+
+    return-object v0
+.end method
+
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/settings/applications/AppInfoWithHeader;-><init>()V
+
+    new-instance v0, Lcom/android/settings/applications/UsageAccessDetails$1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/applications/UsageAccessDetails$1;-><init>(Lcom/android/settings/applications/UsageAccessDetails;)V
+
+    iput-object v0, p0, Lcom/android/settings/applications/UsageAccessDetails;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
     return-void
 .end method
@@ -157,25 +191,25 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1ba0
+    const v2, 0x7f0b1c3c
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setTitle(I)V
 
     iget-object v1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b1ba1
+    const v2, 0x7f0b1c3d
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setTitle(I)V
 
     iget-object v1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mUsagePrefs:Landroid/preference/Preference;
 
-    const v2, 0x7f0b1ba2
+    const v2, 0x7f0b1c3e
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
     iget-object v1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mUsageDesc:Lcom/samsung/android/settings/UnclickablePreference;
 
-    const v2, 0x7f0b1ba3
+    const v2, 0x7f0b1c3f
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/UnclickablePreference;->setTitle(I)V
 
@@ -206,6 +240,26 @@
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mSettingsIntent:Landroid/content/Intent;
+
+    new-instance v1, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-direct {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+
+    iput-object v1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    return-void
+.end method
+
+.method public onPause()V
+    .locals 2
+
+    invoke-super {p0}, Lcom/android/settings/applications/AppInfoWithHeader;->onPause()V
+
+    iget-object v0, p0, Lcom/android/settings/applications/UsageAccessDetails;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "UsageDataAccessView"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -267,7 +321,7 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x10803cd
+    const v3, 0x10803b7
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
 
@@ -279,13 +333,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1bf6
+    const v3, 0x7f0b1c92
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b0810
+    const v3, 0x7f0b0878
 
     invoke-virtual {v2, v3, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -386,6 +440,26 @@
     const/4 v1, 0x0
 
     return v1
+.end method
+
+.method public onResume()V
+    .locals 4
+
+    invoke-super {p0}, Lcom/android/settings/applications/AppInfoWithHeader;->onResume()V
+
+    iget-object v0, p0, Lcom/android/settings/applications/UsageAccessDetails;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {p0}, Lcom/android/settings/applications/UsageAccessDetails;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/applications/UsageAccessDetails;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v3, "UsageDataAccessView"
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
+
+    return-void
 .end method
 
 .method protected refreshUi()Z

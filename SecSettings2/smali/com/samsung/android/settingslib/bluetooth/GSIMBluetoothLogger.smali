@@ -28,102 +28,40 @@
     return-void
 .end method
 
-.method private static getCachedDevicesNumber(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)I
-    .locals 3
+.method private static getTypeValues(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)[J
+    .locals 12
 
-    const/4 v1, 0x0
+    const/4 v11, 0x2
+
+    const/4 v7, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v10, 0x1
+
+    const-wide/16 v8, 0x3e8
 
     if-nez p1, :cond_0
 
-    return v1
+    return-object v5
 
     :cond_0
     invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getCachedDeviceManager()Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    move-result-object v2
-
-    if-nez v2, :cond_1
-
-    return v1
-
-    :cond_1
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getCachedDeviceManager()Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->getCachedDevicesCopy()Ljava/util/Collection;
-
-    move-result-object v0
-
-    if-nez v0, :cond_2
-
-    :goto_0
-    return v1
-
-    :cond_2
-    invoke-interface {v0}, Ljava/util/Collection;->size()I
-
-    move-result v1
-
-    goto :goto_0
-.end method
-
-.method private static getTypeValues(Landroid/content/Context;ILcom/android/settingslib/bluetooth/LocalBluetoothManager;)[J
-    .locals 8
-
-    if-nez p2, :cond_0
-
-    const/4 v4, 0x0
-
-    return-object v4
-
-    :cond_0
-    invoke-virtual {p2}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getCachedDeviceManager()Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v4
 
     if-nez v4, :cond_1
 
-    const/4 v4, 0x0
-
-    return-object v4
+    return-object v5
 
     :cond_1
     const/4 v4, 0x5
 
     new-array v3, v4, [J
 
-    int-to-long v4, p1
+    fill-array-data v3, :array_0
 
-    const/4 v6, 0x0
-
-    aput-wide v4, v3, v6
-
-    const-wide/16 v4, 0x0
-
-    const/4 v6, 0x1
-
-    aput-wide v4, v3, v6
-
-    const-wide/16 v4, 0x0
-
-    const/4 v6, 0x2
-
-    aput-wide v4, v3, v6
-
-    const-wide/16 v4, 0x0
-
-    const/4 v6, 0x3
-
-    aput-wide v4, v3, v6
-
-    const-wide/16 v4, 0x0
-
-    const/4 v6, 0x4
-
-    aput-wide v4, v3, v6
-
-    invoke-virtual {p2}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getCachedDeviceManager()Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getCachedDeviceManager()Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v4
 
@@ -157,6 +95,12 @@
 
     if-eq v4, v5, :cond_2
 
+    aget-wide v4, v3, v7
+
+    add-long/2addr v4, v8
+
+    aput-wide v4, v3, v7
+
     invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v4
@@ -167,47 +111,29 @@
 
     packed-switch v4, :pswitch_data_0
 
-    const/4 v4, 0x1
+    aget-wide v4, v3, v10
 
-    aget-wide v4, v3, v4
+    add-long/2addr v4, v8
 
-    const-wide/16 v6, 0x3e8
-
-    add-long/2addr v4, v6
-
-    const/4 v6, 0x1
-
-    aput-wide v4, v3, v6
+    aput-wide v4, v3, v10
 
     goto :goto_0
 
     :pswitch_0
-    const/4 v4, 0x1
+    aget-wide v4, v3, v10
 
-    aget-wide v4, v3, v4
+    add-long/2addr v4, v8
 
-    const-wide/16 v6, 0x3e8
-
-    add-long/2addr v4, v6
-
-    const/4 v6, 0x1
-
-    aput-wide v4, v3, v6
+    aput-wide v4, v3, v10
 
     goto :goto_0
 
     :pswitch_1
-    const/4 v4, 0x2
+    aget-wide v4, v3, v11
 
-    aget-wide v4, v3, v4
+    add-long/2addr v4, v8
 
-    const-wide/16 v6, 0x3e8
-
-    add-long/2addr v4, v6
-
-    const/4 v6, 0x2
-
-    aput-wide v4, v3, v6
+    aput-wide v4, v3, v11
 
     goto :goto_0
 
@@ -216,9 +142,7 @@
 
     aget-wide v4, v3, v4
 
-    const-wide/16 v6, 0x3e8
-
-    add-long/2addr v4, v6
+    add-long/2addr v4, v8
 
     const/4 v6, 0x3
 
@@ -231,9 +155,7 @@
 
     aget-wide v4, v3, v4
 
-    const-wide/16 v6, 0x3e8
-
-    add-long/2addr v4, v6
+    add-long/2addr v4, v8
 
     const/4 v6, 0x4
 
@@ -254,9 +176,7 @@
 
     move-result-object v5
 
-    const/4 v6, 0x0
-
-    aget-wide v6, v3, v6
+    aget-wide v6, v3, v7
 
     invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -268,9 +188,7 @@
 
     move-result-object v5
 
-    const/4 v6, 0x1
-
-    aget-wide v6, v3, v6
+    aget-wide v6, v3, v10
 
     invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -282,9 +200,7 @@
 
     move-result-object v5
 
-    const/4 v6, 0x2
-
-    aget-wide v6, v3, v6
+    aget-wide v6, v3, v11
 
     invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -325,6 +241,17 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v3
+
+    nop
+
+    :array_0
+    .array-data 8
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+    .end array-data
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -948,135 +875,73 @@
 .end method
 
 .method public static insertLoggingForScanList(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)V
-    .locals 10
+    .locals 5
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
-    move-result-object v7
+    move-result-object v3
 
-    const-string/jumbo v8, "SEC_FLOATING_FEATURE_CONTEXTSERVICE_ENABLE_SURVEY_MODE"
+    const-string/jumbo v4, "SEC_FLOATING_FEATURE_CONTEXTSERVICE_ENABLE_SURVEY_MODE"
 
-    invoke-virtual {v7, v8}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v3, v4}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v3
 
-    if-eqz v7, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getBluetoothAdapter()Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+    const-string/jumbo v1, "BSLT"
 
-    move-result-object v4
+    const/4 v3, 0x5
 
-    invoke-virtual {v4}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getBondedDevices()Ljava/util/Set;
+    new-array v0, v3, [Ljava/lang/String;
 
-    move-result-object v7
+    const-string/jumbo v3, "Total"
 
-    invoke-interface {v7}, Ljava/util/Set;->size()I
+    const/4 v4, 0x0
 
-    move-result v1
+    aput-object v3, v0, v4
 
-    invoke-static {p0, p1}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->getCachedDevicesNumber(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)I
+    const-string/jumbo v3, "Unknown"
 
-    move-result v5
+    const/4 v4, 0x1
 
-    sub-int v7, v5, v1
+    aput-object v3, v0, v4
 
-    mul-int/lit16 v0, v7, 0x3e8
+    const-string/jumbo v3, "Classic"
 
-    const-string/jumbo v7, "GSIMBluetoothLogger"
+    const/4 v4, 0x2
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    aput-object v3, v0, v4
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v3, "BLE"
 
-    const-string/jumbo v9, "insertLoggingForScanList :: totalCount = "
+    const/4 v4, 0x3
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aput-object v3, v0, v4
 
-    move-result-object v8
+    const-string/jumbo v3, "Dual"
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/4 v4, 0x4
 
-    move-result-object v8
+    aput-object v3, v0, v4
 
-    const-string/jumbo v9, " , bondedCount = "
+    invoke-static {p0, p1}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->getTypeValues(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)[J
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v8
+    const-string/jumbo v3, "com.android.bluetooth"
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, " , availableCount = "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "BSLT"
-
-    const/4 v7, 0x5
-
-    new-array v2, v7, [Ljava/lang/String;
-
-    const-string/jumbo v7, "Total"
-
-    const/4 v8, 0x0
-
-    aput-object v7, v2, v8
-
-    const-string/jumbo v7, "Unknown"
-
-    const/4 v8, 0x1
-
-    aput-object v7, v2, v8
-
-    const-string/jumbo v7, "Classic"
-
-    const/4 v8, 0x2
-
-    aput-object v7, v2, v8
-
-    const-string/jumbo v7, "BLE"
-
-    const/4 v8, 0x3
-
-    aput-object v7, v2, v8
-
-    const-string/jumbo v7, "Dual"
-
-    const/4 v8, 0x4
-
-    aput-object v7, v2, v8
-
-    invoke-static {p0, v0, p1}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->getTypeValues(Landroid/content/Context;ILcom/android/settingslib/bluetooth/LocalBluetoothManager;)[J
-
-    move-result-object v6
-
-    const-string/jumbo v7, "com.android.bluetooth"
-
-    invoke-static {p0, v7, v3, v2, v6}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertMultipleStatusLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[J)V
+    invoke-static {p0, v3, v1, v0, v2}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertMultipleStatusLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[J)V
 
     :goto_0
     return-void
 
     :cond_0
-    const-string/jumbo v7, "GSIMBluetoothLogger"
+    const-string/jumbo v3, "GSIMBluetoothLogger"
 
-    const-string/jumbo v8, "insertLoggingForScanList :: Does not enabled Logging feature"
+    const-string/jumbo v4, "insertLoggingForScanList :: Does not enabled Logging feature"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

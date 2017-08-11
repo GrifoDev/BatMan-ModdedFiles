@@ -77,7 +77,15 @@
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    const-string/jumbo v2, "cover_show_shortcuts"
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
     const-string/jumbo v2, "cover_show_notifications"
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v2, "cover_show_sec_notifications"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -119,13 +127,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_e
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportFastWirelessCharger()Z
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_e
 
     :goto_1
     invoke-static {p1}, Lcom/samsung/android/settings/DockSettings;->-wrap0(Landroid/content/Context;)Z
@@ -166,7 +174,15 @@
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    const-string/jumbo v2, "cover_show_shortcuts"
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
     const-string/jumbo v2, "cover_show_notifications"
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v2, "cover_show_sec_notifications"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -218,46 +234,69 @@
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_6
+    invoke-static {p1}, Lcom/android/settings/Utils;->hasCoverSettingAppShortcut(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_9
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportLockAppShortcut()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_9
+
+    invoke-static {}, Lcom/android/settings/Utils;->isLockscreenMenuTreeForAOD()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_9
+
+    :goto_2
     invoke-static {p1}, Lcom/android/settings/Utils;->hasCoverSettingShowNotifications(Landroid/content/Context;)Z
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_a
 
     const-string/jumbo v2, "cover_show_notifications"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_7
+    const-string/jumbo v2, "cover_show_sec_notifications"
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :goto_3
     invoke-static {p1}, Lcom/android/settings/Utils;->hasCoverLEDCallerID(Landroid/content/Context;)Z
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_7
 
     const-string/jumbo v2, "led_cover_caller_id"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_8
+    :cond_7
     invoke-static {p1}, Lcom/android/settings/Utils;->hasCoverLEDNotificationIcon(Landroid/content/Context;)Z
 
     move-result v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_8
 
     const-string/jumbo v2, "led_cover_notifications_icon"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_9
+    :cond_8
     invoke-static {p1}, Lcom/android/settings/Utils;->getTypeOfCover(Landroid/content/Context;)I
 
     move-result v2
 
     const/4 v3, 0x7
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_c
 
     const-string/jumbo v2, "led_icon_editor"
 
@@ -265,14 +304,41 @@
 
     goto/16 :goto_0
 
+    :cond_9
+    const-string/jumbo v2, "cover_show_shortcuts"
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_2
+
     :cond_a
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportNotificationsIconsOnly()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_b
+
+    const-string/jumbo v2, "cover_show_notifications"
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_3
+
+    :cond_b
+    const-string/jumbo v2, "cover_show_sec_notifications"
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_3
+
+    :cond_c
     const-string/jumbo v2, "com.samsung.android.app.ledcover.action.LAUNCH"
 
     invoke-static {p1, v2}, Lcom/android/settings/Utils;->isIntentAvailable(Landroid/content/Context;Ljava/lang/String;)Z
 
     move-result v2
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_d
 
     const-string/jumbo v2, "led_icon_editor"
 
@@ -280,7 +346,7 @@
 
     goto/16 :goto_0
 
-    :cond_b
+    :cond_d
     const-string/jumbo v2, "led_cover_caller_id"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -291,7 +357,7 @@
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_e
     const-string/jumbo v2, "fast_charing_category"
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -341,7 +407,7 @@
 
     iput-object v4, v1, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v4, 0x7f0b0307
+    const v4, 0x7f0b0366
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

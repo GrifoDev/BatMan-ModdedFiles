@@ -126,7 +126,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b19ff
+    const v0, 0x7f0b1a9b
 
     return v0
 .end method
@@ -152,7 +152,7 @@
 .end method
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 2
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
@@ -172,7 +172,34 @@
 
     invoke-virtual {v0}, Lcom/android/settings/widget/SwitchBar;->show()V
 
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v0
+
+    const/16 v1, 0x64
+
+    if-lt v0, v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSaverSummary;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKioskModeEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/settings/datausage/DataSaverSummary;->mSwitchBar:Lcom/android/settings/widget/SwitchBar;
+
+    invoke-virtual {v0}, Lcom/android/settings/widget/SwitchBar;->hide()V
+
+    goto :goto_0
 .end method
 
 .method public onAllSizesComputed()V
@@ -230,7 +257,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b04e7
+    const v2, 0x7f0b054a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -248,7 +275,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b04e8
+    const v2, 0x7f0b054b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -637,7 +664,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataSaverSummary;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
@@ -645,7 +672,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     :cond_0
     :goto_0
@@ -681,12 +708,39 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
 
-    return-void
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v0
+
+    const/16 v1, 0x64
+
+    if-lt v0, v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSaverSummary;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKioskModeEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
 
     :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
     invoke-virtual {p0}, Lcom/android/settings/datausage/DataSaverSummary;->finish()V
 
     goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/settings/datausage/DataSaverSummary;->mSwitchBar:Lcom/android/settings/widget/SwitchBar;
+
+    invoke-virtual {v0}, Lcom/android/settings/widget/SwitchBar;->hide()V
+
+    goto :goto_1
 .end method
 
 .method public onRunningStateChanged(Z)V

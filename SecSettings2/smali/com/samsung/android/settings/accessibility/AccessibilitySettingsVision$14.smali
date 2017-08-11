@@ -262,7 +262,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0b1752
+    const v20, 0x7f0b17ee
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -282,7 +282,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0b02a7
+    const v20, 0x7f0b0305
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -398,7 +398,7 @@
     :goto_3
     if-eqz v14, :cond_4
 
-    const v18, 0x7f0b1b37
+    const v18, 0x7f0b1bd3
 
     move-object/from16 v0, p1
 
@@ -474,7 +474,7 @@
     goto :goto_3
 
     :cond_4
-    const v18, 0x7f0b1b38
+    const v18, 0x7f0b1bd4
 
     move-object/from16 v0, p1
 
@@ -561,7 +561,7 @@
 
     iput-object v0, v5, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v18, 0x7f0b023d
+    const v18, 0x7f0b029b
 
     move-object/from16 v0, p1
 
@@ -575,7 +575,7 @@
 
     iput-object v0, v5, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v18, 0x7f0b0240
+    const v18, 0x7f0b029e
 
     move-object/from16 v0, p1
 

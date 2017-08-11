@@ -395,7 +395,7 @@
 
     invoke-virtual {v5, p1}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setEnabled(Z)V
 
-    const v3, 0x7f0b1b38
+    const v3, 0x7f0b1bd4
 
     if-nez p1, :cond_2
 
@@ -415,7 +415,7 @@
 
     if-eqz v2, :cond_4
 
-    const v3, 0x7f0b1b38
+    const v3, 0x7f0b1bd4
 
     :goto_2
     iget-object v4, p0, Lcom/android/settings/location/LocationSettings;->mManagedProfileSwitch:Lcom/android/settingslib/SecRestrictedSwitchPreference;
@@ -438,7 +438,7 @@
     goto :goto_1
 
     :cond_4
-    const v3, 0x7f0b1b37
+    const v3, 0x7f0b1bd3
 
     goto :goto_2
 .end method
@@ -772,7 +772,7 @@
 
     if-eqz v19, :cond_6
 
-    const v19, 0x7f0b15e1
+    const v19, 0x7f0b167d
 
     move/from16 v0, v19
 
@@ -896,7 +896,7 @@
     goto/16 :goto_1
 
     :cond_6
-    const v19, 0x7f0b15e2
+    const v19, 0x7f0b167e
 
     move/from16 v0, v19
 
@@ -986,13 +986,13 @@
 
     invoke-direct {v5, v0}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v19, 0x7f040183
+    const v19, 0x7f040185
 
     move/from16 v0, v19
 
     invoke-virtual {v5, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    const v19, 0x7f0b15df
+    const v19, 0x7f0b167b
 
     move/from16 v0, v19
 
@@ -1074,22 +1074,22 @@
     return v0
 
     :pswitch_0
-    const v0, 0x7f0b15dd
+    const v0, 0x7f0b1679
 
     return v0
 
     :pswitch_1
-    const v0, 0x7f0b15dc
+    const v0, 0x7f0b1678
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b15db
+    const v0, 0x7f0b1677
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b15da
+    const v0, 0x7f0b1676
 
     return v0
 
@@ -1222,7 +1222,7 @@
 .method public getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a0b
+    const v0, 0x7f0b1aa7
 
     return v0
 .end method
@@ -1329,7 +1329,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b15e7
+    const v1, 0x7f0b1683
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1365,7 +1365,7 @@
 
     if-eqz v6, :cond_0
 
-    const v7, 0x7f0b15dd
+    const v7, 0x7f0b1679
 
     if-ne v6, v7, :cond_5
 
@@ -1588,7 +1588,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b15e8
+    const v3, 0x7f0b1684
 
     const/4 v6, 0x0
 

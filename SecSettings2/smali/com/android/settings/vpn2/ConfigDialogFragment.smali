@@ -6,7 +6,19 @@
 .implements Landroid/content/DialogInterface$OnClickListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/settings/vpn2/ConfigDialogFragment$1;
+    }
+.end annotation
+
+
 # instance fields
+.field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+.field private mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
 .field private mIsUserAddProfilesAllowed:I
 
 .field private mIsUserChangeProfilesAllowed:I
@@ -17,6 +29,14 @@
 
 
 # direct methods
+.method static synthetic -get0(Lcom/android/settings/vpn2/ConfigDialogFragment;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialogFragment;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    return-object v0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -37,6 +57,12 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/settings/vpn2/ConfigDialogFragment;->mUnlocking:Z
+
+    new-instance v0, Lcom/android/settings/vpn2/ConfigDialogFragment$1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/vpn2/ConfigDialogFragment$1;-><init>(Lcom/android/settings/vpn2/ConfigDialogFragment;)V
+
+    iput-object v0, p0, Lcom/android/settings/vpn2/ConfigDialogFragment;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
     return-void
 .end method
@@ -66,7 +92,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b197d
+    const v2, 0x7f0b1a19
 
     const/4 v3, 0x1
 
@@ -205,7 +231,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b197c
+    const v2, 0x7f0b1a18
 
     const/4 v3, 0x1
 
@@ -285,9 +311,15 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f022b
+    const v1, 0x7f0f022c
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    new-instance v0, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-direct {v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/vpn2/ConfigDialogFragment;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     return-void
 .end method
@@ -724,6 +756,20 @@
     return-object v0
 .end method
 
+.method public onPause()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/app/DialogFragment;->onPause()V
+
+    iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialogFragment;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "EditVPNnetwork"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
 .method public onResume()V
     .locals 7
 
@@ -836,6 +882,18 @@
 
     :cond_3
     iput-boolean v2, p0, Lcom/android/settings/vpn2/ConfigDialogFragment;->mUnlocking:Z
+
+    iget-object v2, p0, Lcom/android/settings/vpn2/ConfigDialogFragment;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {p0}, Lcom/android/settings/vpn2/ConfigDialogFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/settings/vpn2/ConfigDialogFragment;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v5, "EditVPNnetwork"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
 
     return-void
 .end method

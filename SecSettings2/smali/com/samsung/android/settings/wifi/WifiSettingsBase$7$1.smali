@@ -44,7 +44,7 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap6(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap5(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
 
     return-void
 .end method
@@ -80,7 +80,7 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap6(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap5(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
 
     :cond_0
     :goto_0
@@ -111,7 +111,7 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap6(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap5(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
 
     goto :goto_0
 .end method

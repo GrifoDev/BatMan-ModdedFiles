@@ -235,7 +235,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02059f
+    const v2, 0x7f020608
 
     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -283,7 +283,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0276
+    const v3, 0x7f0b02d4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -305,7 +305,7 @@
 .method private exportNotificationSet(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 12
 
-    const v11, 0x7f02059f
+    const v11, 0x7f020608
 
     const/4 v9, 0x1
 
@@ -385,7 +385,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b027c
+    const v7, 0x7f0b02da
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -403,7 +403,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0272
+    const v7, 0x7f0b02d0
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -489,7 +489,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0274
+    const v8, 0x7f0b02d2
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -621,7 +621,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b027c
+    const v4, 0x7f0b02da
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -641,7 +641,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0273
+    const v4, 0x7f0b02d1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -683,7 +683,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0275
+    const v5, 0x7f0b02d3
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -715,7 +715,7 @@
 
     const-wide/16 v8, 0x0
 
-    const v7, 0x7f0b0271
+    const v7, 0x7f0b02cf
 
     const/4 v6, 0x1
 
@@ -728,7 +728,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f100371
+    const v6, 0x7f100377
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -738,7 +738,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f100372
+    const v7, 0x7f100378
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -774,7 +774,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0278
+    const v5, 0x7f0b02d6
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -853,7 +853,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0279
+    const v5, 0x7f0b02d7
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -1147,7 +1147,7 @@
     return-void
 
     :cond_3
-    const v3, 0x7f0b0271
+    const v3, 0x7f0b02cf
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -1157,7 +1157,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b027b
+    const v4, 0x7f0b02d9
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -1398,7 +1398,7 @@
     return-void
 
     :cond_3
-    const v4, 0x7f0b0271
+    const v4, 0x7f0b02cf
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -1408,7 +1408,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b027b
+    const v5, 0x7f0b02d9
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -1688,7 +1688,7 @@
     return-object v0
 
     :pswitch_0
-    const v2, 0x7f0b0269
+    const v2, 0x7f0b02c7
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1698,7 +1698,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport$2;-><init>(Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;)V
 
-    const v4, 0x7f0b1699
+    const v4, 0x7f0b1735
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1708,7 +1708,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport$3;-><init>(Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;)V
 
-    const v4, 0x7f0b027a
+    const v4, 0x7f0b02d8
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

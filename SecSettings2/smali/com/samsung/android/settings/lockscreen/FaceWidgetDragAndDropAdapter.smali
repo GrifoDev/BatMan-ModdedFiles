@@ -175,7 +175,7 @@
 
     if-nez p2, :cond_2
 
-    const v1, 0x7f0b0966
+    const v1, 0x7f0b09d0
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -195,7 +195,7 @@
 
     if-nez p2, :cond_3
 
-    const v1, 0x7f0b0967
+    const v1, 0x7f0b09d1
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -214,7 +214,7 @@
 
     if-nez p2, :cond_4
 
-    const v1, 0x7f0b0968
+    const v1, 0x7f0b09d2
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -572,7 +572,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0400f8
+    const v5, 0x7f0400fa
 
     invoke-virtual {v4, v5, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

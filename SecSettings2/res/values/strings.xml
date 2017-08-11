@@ -2,6 +2,97 @@
 <resources>
     <string name="app_name">progressfingerscanlibrary</string>
     <string name="version">2.1</string>
+    <string name="screen_connection_setting">BT_001</string>
+    <string name="screen_bluetooth_setting">BT_100</string>
+    <string name="screen_dual_audio_setting">BT_130</string>
+    <string name="screen_media_volume_sync_setting">BT_140</string>
+    <string name="screen_control_history">BT_150</string>
+    <string name="screen_request_dialog">BT_1200</string>
+    <string name="screen_device_profiles_setting">BT_300</string>
+    <string name="screen_device_picker">BT_400</string>
+    <string name="screen_bluetooth_scan_dialog">BT_510</string>
+    <string name="screen_bluetooth_request_permission">BT_510</string>
+    <string name="screen_bluetooth_global">BT_100</string>
+    <string name="event_connection_setting_on_off_switch">0020</string>
+    <string name="event_bluetooth_setting_navigate_button">0101</string>
+    <string name="event_bluetooth_setting_scan_button">0102</string>
+    <string name="event_bluetooth_setting_on_off_switch">0103</string>
+    <string name="event_bluetooth_setting_more_button">1100</string>
+    <string name="event_bluetooth_setting_more_received_files">1110</string>
+    <string name="event_bluetooth_setting_more_rename_phone">1120</string>
+    <string name="event_bluetooth_setting_more_dual_audio">1130</string>
+    <string name="event_bluetooth_setting_more_media_volume_sync">1140</string>
+    <string name="event_bluetooth_setting_more_bluetooth_control_app">1150</string>
+    <string name="event_bluetooth_setting_more_help">1160</string>
+    <string name="event_bluetooth_setting_device_list_paired">1200</string>
+    <string name="event_bluetooth_setting_profile_setting_button">1300</string>
+    <string name="event_bluetooth_setting_device_list_available">1310</string>
+    <string name="event_bluetooth_setting_scanning_setting">1320</string>
+    <string name="event_bluetooth_bdcc">1181</string>
+    <string name="event_bluetooth_bcpt">1182</string>
+    <string name="event_bluetooth_setting_connected_device_count">1183</string>
+    <string name="event_bluetooth_setting_paired_device_count">1184</string>
+    <string name="event_bluetooth_setting_bsdc">1185</string>
+    <string name="event_bluetooth_setting_parse_available_device_name">1190</string>
+    <string name="event_dual_audio_setting_navigate_button">1131</string>
+    <string name="event_dual_audio_setting_on_off_switch">1132</string>
+    <string name="event_dual_audio_setting_dialog_negative">1133</string>
+    <string name="event_dual_audio_setting_dialog_positive">1134</string>
+    <string name="event_media_volume_sync_setting_navigate_button">1141</string>
+    <string name="event_media_volume_sync_setting_on_off_switch">1142</string>
+    <string name="event_media_volume_sync_setting_dialog_negative">1143</string>
+    <string name="event_media_volume_sync_setting_dialog_positive">1144</string>
+    <string name="event_control_history_navigate_button">1151</string>
+    <string name="event_control_history_app_list">1152</string>
+    <string name="event_request_dialog_map">1251</string>
+    <string name="event_request_dialog_pbap">1252</string>
+    <string name="event_request_dialog_sap">1253</string>
+    <string name="event_request_dialog_pairing_pin">1254</string>
+    <string name="event_request_dialog_pairing_pin_checkbox">1255</string>
+    <string name="event_request_dialog_pairing_passkey">1256</string>
+    <string name="event_request_dialog_pairing_consent">1257</string>
+    <string name="event_request_dialog_pairing_display">1258</string>
+    <string name="event_device_profiles_setting_navigate_button">3001</string>
+    <string name="event_device_profiles_setting_rename_tab">3002</string>
+    <string name="event_device_profiles_setting_cancel_button">3004</string>
+    <string name="event_device_profiles_setting_rename_button">3005</string>
+    <string name="event_device_profiles_setting_unpair_tab">3010</string>
+    <string name="event_device_profiles_setting_on_off_profile_switch">3020</string>
+    <string name="event_device_picker_navigate_button">4001</string>
+    <string name="event_device_picker_scan_button">4002</string>
+    <string name="event_device_picker_device_list">4003</string>
+    <string name="event_bluetooth_scan_dialog_device_list_paired">5101</string>
+    <string name="event_bluetooth_scan_dialog_scan_button">5102</string>
+    <string name="event_bluetooth_scan_dialog_done_button">5103</string>
+    <string name="event_bluetooth_scan_dialog_device_list_available">5104</string>
+    <string name="event_bluetooth_request_permission_enable_discoverable">5111</string>
+    <string name="event_bluetooth_request_permission_enable">5112</string>
+    <string name="event_bluetooth_request_permission_discoverable">5113</string>
+    <string name="detail_bluetooth_on">1</string>
+    <string name="detail_bluetooth_off">0</string>
+    <string name="detail_bluetooth_scan_stop">1</string>
+    <string name="detail_bluetooth_scan_start">0</string>
+    <string name="detail_bluetooth_bdcc_picker">1</string>
+    <string name="detail_bluetooth_bdcc_setting">2</string>
+    <string name="detail_bluetooth_bdcc_dialog">5</string>
+    <string name="detail_bluetooth_bcpt_unknown">0</string>
+    <string name="detail_bluetooth_bcpt_hid">1</string>
+    <string name="detail_bluetooth_bcpt_ble_audio">2</string>
+    <string name="detail_bluetooth_bcpt_map">3</string>
+    <string name="detail_bluetooth_bcpt_pbap">4</string>
+    <string name="detail_bluetooth_bcpt_sap">5</string>
+    <string name="detail_bluetooth_bcpt_a2dp">6</string>
+    <string name="detail_bluetooth_bcpt_pan_nap">7</string>
+    <string name="detail_bluetooth_bcpt_pan_user">8</string>
+    <string name="detail_bluetooth_bcpt_hfp">9</string>
+    <string name="detail_switch_on">1</string>
+    <string name="detail_switch_off">0</string>
+    <string name="detail_checkbox_checked">1</string>
+    <string name="detail_checkbox_not_checked">0</string>
+    <string name="detail_deny">0</string>
+    <string name="detail_allow">1</string>
+    <string name="detail_cancel">0</string>
+    <string name="detail_ok">1</string>
     <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
     <string name="battery_history_minutes_no_seconds">%1$dm</string>
     <string name="wifi_fail_to_scan">"Can't scan for networks"</string>
@@ -111,6 +202,8 @@
     <string name="bluetooth_pairing_device_down_error_message">"Can't connect to %1$s."</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">"Can't connect to %1$s. Check your settings in %2$s and try again."</string>
     <string name="bluetooth_pairing_rejected_error_message">Pairing rejected by %1$s.</string>
+    <string name="bluetooth_getting_remote_device_name">Getting device name...</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Device name will appear when this device is connected.</string>
     <string name="accessibility_wifi_off">Wifi off.</string>
     <string name="accessibility_no_wifi">Wifi disconnected.</string>
     <string name="accessibility_wifi_one_bar">Wifi one bar.</string>
@@ -489,7 +582,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Support</string>
     <string name="reset_network_settings_list_summary">Reset Wi-Fi, Bluetooth, and other network settings to their defaults.</string>
     <string name="master_clear_list_summary">Reset your device to its factory default settings. This will erase all data, including files and downloaded apps.</string>
-    <string name="auto_restart_summary">Optimise your device by restarting it automatically at set times. Any unsaved data will be lost when the device restarts.</string>
+    <string name="auto_restart_summary">Optimize your phone by restarting it automatically once a week. Any unsaved data will be lost when your phone restarts.</string>
+    <string name="auto_restart_summary_tablet">Optimize your tablet by restarting it automatically at set times. Any unsaved data will be lost when the tablet restarts.</string>
     <string name="search_settings">Search</string>
     <string name="related_results">%d related items</string>
     <string name="no_results_found">No results found</string>
@@ -562,7 +656,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Sound balance is %d percent to the right. Use two fingers to drag the slider.</string>
     <string name="sound_balance_set">Set</string>
     <string name="accessibility_assistant_menu">Assistant menu</string>
-    <string name="assistant_menu_summary">Enables functions to improve device accessibility for users with reduced dexterity.</string>
+    <string name="assistant_menu_summary">Improve phone accessibility for users with reduced dexterity.</string>
     <string name="color_blind_title">@string/colour_adjustment</string>
     <string name="no_result">Adjust the screen colours if you find it difficult to read your display.</string>
     <string name="you_are_normal">Colour adjustment is not necessary.</string>
@@ -770,6 +864,7 @@ While this function is enabled, Auto rotate screen will be disabled. All calls, 
     <string name="direct_access_actions_greyscale_title">@string/greyscale_mode_title</string>
     <string name="direct_access_actions_color_adjustment_title">@string/colour_adjustment</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Direct access and Reduce screen size cannot be enabled at the same time. Reduce screen size will be disabled.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s and %2$s cannot be enabled at the same time. %3$s will be disabled.</string>
     <string name="direct_access_actions_color_adjustment_summary">Set up Colour adjustment in Vision to use it in Direct Access</string>
     <string name="direct_access_actions_screen_reader_summary">Enable Page reader to use it in Direct access.</string>
     <string name="direct_access_actions_accesscontrol_title">Interaction control</string>
@@ -981,7 +1076,9 @@ Wi-Fi and Bluetooth will also be turned off, but you can turn them on again in S
     <string name="premium_sms_values_ask">Ask</string>
     <string name="premium_sms_values_never">Never allow</string>
     <string name="premium_sms_values_allow">Always allow</string>
-    <string name="assist_and_voice_input_summary">Device assistance apps provide more options and information about each screen.</string>
+    <string name="assist_and_voice_input_summary">Select which app to use when you touch and hold the Home button.</string>
+    <string name="assist_footer_phone">Select which app to use when you touch and hold the Home button. Device assistance apps can help you by gathering information from the screen currently shown on your phone.</string>
+    <string name="assist_footer_tablet">Select which app to use when you touch and hold the Home button. Device assistance apps can help you by gathering information from the screen currently shown on your tablet.</string>
     <string name="default_app_title">Set as default</string>
     <string name="premium_sms_title">Send premium SMS</string>
     <string name="default_app_selection">Default app selection</string>
@@ -1073,7 +1170,7 @@ Enable Bluetooth tethering on %2$s."</string>
 
 The 2 connected devices may experience a slight difference in sound output."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Turn off Media volume sync?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">To use Dual audio, Media volume sync needs to be thruned off.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">To control volume on each audio device separately, Media volume sync needs to be turned off.</string>
     <string name="bluetooth_avc_title">Media volume sync</string>
     <string name="bluetooth_avc_description">If the connected Bluetooth device can control the media volume of your phone, the volume level set by the Bluetooth device will sync with your phone.</string>
     <string name="bluetooth_avc_volume_change_description">Turning on this function can cause unexpected volume changes.</string>
@@ -1082,6 +1179,7 @@ The 2 connected devices may experience a slight difference in sound output."</st
     <string name="bluetooth_avc_ask_popup_title">Turn off Dual audio?</string>
     <string name="bluetooth_avc_ask_popup_content">To use Media volume sync, Dual audio needs to be turned off.</string>
     <string name="bluetooth_avc_disable_description">"The connected Bluetooth device doesn't support Media volume sync. You can't sync the volume of your phone with the connected Bluetooth device."</string>
+    <string name="bluetooth_avc_available_description">The connected Bluetooth device supports Media volume sync and the volume level set by the Bluetooth device will sync with your phone.</string>
     <string name="bluetooth_enter_pin_msg">Enter PIN to pair with %s (Try 0000 or 1234).</string>
     <string name="bluetooth_display_move_to_my_place_msg">Your Bluetooth device will copy to My place list. Continue?</string>
     <string name="bt_error_btn_ok">OK</string>
@@ -1169,11 +1267,12 @@ Even while Smart capture is disabled, you can access its features via Air comman
     <string name="swipe_to_call_title">Swipe to call or send messages</string>
     <string name="swipe_to_call_summary">Swipe a contact or number right to make a call or left to send a message in Phone, Contacts, or Messages.</string>
     <string name="swipe_to_call_summary_dcm">Swipe a contact or number right to make a call or left to send a message in Dial, Contacts, or Messages.</string>
-    <string name="swipe_to_call_summary_kddi">Swipe a contact or number right to make a call or left to send a message in Phone or Contacts.</string>
+    <string name="swipe_to_call_summary_kddi">Swipe a contact or number right to make a call or left to send a message in Dial or Contacts.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">Use two separate accounts for the same app.</string>
     <string name="finger_sensor_gesture_title">Finger sensor gesture</string>
-    <string name="finger_sensor_gesture_summary">Open or close apps by the gesture using fingerprint sensor.</string>
+    <string name="finger_sensor_gesture_summary">Open and close apps and features with the fingerprint sensor.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Open and close the notification panel using the fingerprint sensor.</string>
     <string name="finger_sensor_gesture_description">Swipe up or down on the fingerprint sensor to open or close notification panel.</string>
     <string name="open_samsung_pay_title">Open Samsung Pay</string>
     <string name="open_samsung_pay_summary">Open Samsung Pay by Swipe up on the fingerprint sensor.on the Home screen.</string>
@@ -1600,6 +1699,7 @@ Tap OK to allow the brightness to be increased above safe levels."</string>
     <string name="navigationbar_summary">Manage the Home, Back, and Recents buttons.</string>
     <string name="navigationbar_theme_switch">Apply current theme</string>
     <string name="navigationbar_color_title">Background color</string>
+    <string name="navigationbar_color_summary">The background color you select may not be applied to all apps.</string>
     <string name="navigationbar_height_title">Height</string>
     <string name="navigationbar_height_Normal">Normal</string>
     <string name="navigationbar_height_Reduced">Reduced</string>
@@ -1651,7 +1751,8 @@ Tap OK to allow the brightness to be increased above safe levels."</string>
     <string name="blue_light_filter_enable_now">Turn on now</string>
     <string name="blue_light_filter_enable_as_scheduled">Turn on as scheduled</string>
     <string name="blue_light_filter_scheduled_toast">Blue light filter turned on. It will be automatically turned off at scheduled end time.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s and Blue light filter cannot be used at the same time. Blue light filter will be disabled.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Turn off Blue light filter?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">To use %s, Blue light filter needs to be turned off.</string>
     <string name="blue_light_filter_dlg_turn_on_location">To use Sunset to sunrise, Location needs to be turned on.</string>
     <string name="dlg_turn_on">Turn on</string>
     <string name="screen_resolution_title">Screen resolution</string>
@@ -1880,6 +1981,7 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="crypt_keeper_last_warn_wipe">You have only 1 attempt left to start up your device before it is reset to its factory default settings. This will erase all data, including files and downloaded apps.</string>
     <string name="crypt_keeper_failed_title_dec">Decryption failed</string>
     <string name="crypt_keeper_failed_summary_dec">Unable to complete decryption because of interruption. Perform factory data reset (erasing all data) before use.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Set screen lock type</string>
     <string name="encryption_interstitial_message">"You can further protect this phone by requiring your %s to be entered before the phone starts up. This helps protect your data if the phone is lost or stolen. Some apps may require Secure Startup according to Device encryption policies for access to features, such as email sync.
 
 You will not receive any calls, messages, or notifications, and alarms will not sound, until the phone has started up."</string>
@@ -2137,6 +2239,7 @@ You will also need it when:"</string>
     <string name="fingerscanner_register_first_text">Place your fingertip</string>
     <string name="fingerscanner_register_second_text">on the center of the home key</string>
     <string name="fingerscanner_add_summary">Add your fingerprints.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 fingerprint has been added.</string>
     <string name="fingerscanner_register_summary">%d fingerprints have been added.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Use a fingerprint or enter the current PIN.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Use a fingerprint or draw the current pattern.</string>
@@ -2164,6 +2267,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Unlock your phone with face recognition as soon as the screen turns on, without swiping first.</string>
     <string name="facelock_recognition_speed_up">Faster recognition</string>
     <string name="facelock_recognition_speed_up_summary">Turn on for faster recognition. Turn off to increase security and make it harder to unlock using an image or video.</string>
+    <string name="facelock_samsungpass_summary">Use face recognition to verify your identity with %s and other supported apps.</string>
     <string name="face_remove_face_popup_title">Remove face data?</string>
     <string name="face_remove_face_popup_message_1">Your face will no longer be recognized, and Face lock will be turned off.</string>
     <string name="face_remove_face_popup_message_2">Features that use face recognition will be turned off.</string>
@@ -2319,7 +2423,7 @@ Turn on Iris unlock to use your biometrics or your %s to unlock your phone."</st
     <string name="biometrics_backup_locktype_title">Set up iris security</string>
     <string name="biometrics_register_your_iris">Register your irises.</string>
     <string name="biometrics_backup_locktype_summary">To use your irises to unlock the device, you must set a pattern, PIN, or password.</string>
-    <string name="biometrics_backup_locktype_message">"To use your irises to unlock your phone or for secure verification, you'll need to:"</string>
+    <string name="biometrics_backup_locktype_message">"To use your irises to unlock your phone or to verify yourself in apps, you'll need to:"</string>
     <string name="iris_delete_popup_title">Remove iris data?</string>
     <string name="iris_delete_popup_message">Remove iris data?</string>
     <string name="iris_delete_popup_message_with_related_func">Features that use irises will be turned off.</string>
@@ -2327,13 +2431,15 @@ Turn on Iris unlock to use your biometrics or your %s to unlock your phone."</st
     <string name="iris_timeout_popop_title">Try again later</string>
     <string name="iris_timeout_popop_message">Irises not recognized. Iris camera may be dirty. Clean area above screen and try again.</string>
     <string name="iris_timeout_popop_message_1">Iris camera may be dirty. Clean area above screen.</string>
-    <string name="iris_proximity_restriction_popop_message">Irises not recognized. Phone too close to face or proximity sensor may be dirty. Clean area above screen and try again.</string>
+    <string name="iris_proximity_restriction_popop_message">Hold your phone farther away from your face and try again.</string>
     <string name="iris_proximity_restriction_popop_message_1">Proximity sensor may be dirty. Clean area above screen.</string>
     <string name="iris_try_again">Try again</string>
     <string name="iris_failed_to_register">"Couldn't register irises"</string>
     <string name="iris_failed_to_verity_identify">"Couldn't verify your identity"</string>
     <string name="iris_failed_popup_description">There have been %1$d attempts to verify your irises. Try again in %2$d seconds.</string>
     <string name="iris_no_match">No match</string>
+    <string name="iris_eye_safety_msg">"Your irises weren't recognized."</string>
+    <string name="iris_timeout_msg">"Your irises weren't detected."</string>
     <string name="biometrics_registered">Registered</string>
     <string name="iris_turn_on_toast_message">Iris lock enabled instead of fingerprint lock.</string>
     <string name="iris_wrong_backup_password">Incorrect backup password</string>
@@ -2637,6 +2743,9 @@ Attempts Remaining :"</string>
     <string name="unlock_effect_colour_droplet">Coloured Droplets</string>
     <string name="lock_screen_show_information_summary_wifi_only">"Show the device owner's information, or app shortcuts, on the lock screen."</string>
     <string name="lock_screen_sview_show_information_summary">"Show the dual clock, the device owner's information, or app shortcuts on the lock screen and through the S View window."</string>
+    <string name="lock_screen_sview_show_information_summary_aod">"Show the roaming clock or the phone owner's contact information on the Lock screen and through the S View window."</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Select app shortcuts to show on the Lock screen and through the S View window.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Show notifications on the Lock screen and through the S View window.</string>
     <string name="lock_screen_and_cover_show_information_summary">Show the dual clock on the lock screen and through the Clear View Cover.</string>
     <string name="lock_screen_secured_lock_settings_title">Secure lock settings</string>
     <string name="lock_screen_secured_lock_settings_summary">Set your secure lock functions, such as Auto lock and Lock instantly with Power key.</string>
@@ -2659,6 +2768,7 @@ Attempts Remaining :"</string>
     <string name="lock_screen_menu_phone_shortcut">Phone shortcut</string>
     <string name="contact_info_settings_title">Contact information</string>
     <string name="show_contact_info_on_lockscreen_label">Show information such as your phone number or email address on the Lock screen.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Show information such as your phone number or email address on the Lock screen and Always On Display.</string>
     <string name="unlock_effect">Unlock effect</string>
     <string name="walking_mate_title">Steps</string>
     <string name="help_text_title">Help text</string>
@@ -2898,6 +3008,9 @@ Mobile data will be turned off."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Unless you use Wi-Fi, you will no longer be able to use Internet, Email, or other apps that require a data connection.
 
 Mobile data will be turned off."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">"Unless you connect to a Wi-Fi network, you won't be able to use Internet, Email, or other apps that require a network connection."</string>
@@ -3066,10 +3179,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Custom volume limit</string>
     <string name="volume_limiter_descryption">Protect your ears by limiting the volume of media while using earphones or Bluetooth audio devices.</string>
     <string name="multi_sound_title">Separate app sound</string>
-    <string name="multi_sound_summary">Play sound from one app on a speaker or headphones separate from the rest of the sounds on your device.</string>
-    <string name="multi_sound_descryption">"Play media sound from one app on a speaker or headphones separate from media sound from other apps.
+    <string name="multi_sound_summary">"Play media sound from one app on an audio device separate from your phone's main audio output device."</string>
+    <string name="multi_sound_descryption">"Play media sound from one app on an audio device separate from your phone's main audio output device. Select an app and an audio device to turn this on.
 
-If you select a Bluetooth audio device, the sound will be played on the default audio device if the Bluetooth device isn't connected."</string>
+Separate app sound only works when the audio device you select is different from your phone's main audio output device.
+
+You can change your phone's main audio output device in the quick settings panel. If audio output isn't shown, turn it on in Samsung Connect > Settings > Samsung Connect panel."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Select an app to play its sound on a separate audio device.</string>
     <string name="set_application_descryption">Select a multimedia app below to play its sound on a separate audio device.</string>
@@ -3080,9 +3195,11 @@ If you select a Bluetooth audio device, the sound will be played on the default 
     <string name="multi_sound_popup_msg">To turn on %s, you need to select an app and an audio device.</string>
     <string name="multi_sound_network_msg">To check for available apps, your phone needs to be connected to a network. Check your network settings and try again.</string>
     <string name="multi_sound_wifi_msg">To check available app, it is needed to connect to the network. Uploading via mobile networks may result in additional charges depending on your payment plan.</string>
+    <string name="multi_sound_add_application">Add application</string>
     <string name="dlg_btn_select">Select</string>
     <string name="audio_device_type_descryption">"Select which audio device you want to use for this app. Bluetooth devices will only be available while they're connected."</string>
     <string name="my_phone_title">My phone/Headset</string>
+    <string name="my_phone_summary">Speaker/headphones/USB audio device</string>
     <string name="bluetooth_device_title">Bluetooth device</string>
     <string name="no_connected_devices">No connected devices</string>
     <string name="two_hours">2 hours</string>
@@ -3090,7 +3207,8 @@ If you select a Bluetooth audio device, the sound will be played on the default 
     <string name="stop_setup_popup_msg">"Any settings you've changed won't be applied."</string>
     <string name="app_turned_on">%s turned on.</string>
     <string name="force_touch_title">Hard press vibration feedback</string>
-    <string name="volume_key_control_title">Default Volume key control</string>
+    <string name="volume_key_control_title">Control media volume by default</string>
+    <string name="volume_key_control_summary">Control the media volume when you press the Volume keys.</string>
     <string name="sound_mode">Sound mode</string>
     <string name="sound_mode_vibrate">Vibrate</string>
     <string name="sound_mode_mute">Mute</string>
@@ -3334,12 +3452,13 @@ mode"</string>
     <string name="text_biometrics_finger_title_enterprise">Fingerprints are not supported by %1$s as an unlock method for %2$s.</string>
     <string name="edge_feeds_title">Edge feeds</string>
     <string name="jansky_settings">Multi-line settings</string>
-    <string name="screensaver_settings_summary">Control what happens while the device is docked and/or charging while the screen is turned off. This function is also called Daydream.</string>
-    <string name="screensaver_settings_summary_wo_dock">Show a screensaver after the screen turns off automatically while your phone is charging.</string>
+    <string name="screensaver_settings_summary">Show a screensaver after the screen turns off automatically while your phone is charging.</string>
+    <string name="screensaver_settings_summary_wo_dock">Show a screensaver after the screen turns off automatically while your phone is docked or charging.</string>
     <string name="apn_already_exists">Already exists.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one</string>
     <string name="error_message_port_out_of_range">Port number must be between %1$d and %2$d.</string>
     <string name="apn_restore_warning">All APNs you have added will be removed. The other APNs will be reset to their default settings.</string>
+    <string name="apn_restore_title">Reset APN settings?</string>
     <string name="master_clear_desc_google_account">Google account</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -3351,7 +3470,8 @@ mode"</string>
     <string name="sound_balance_summary">Adjust the left and right sound balance for headphones.</string>
     <string name="backup_samsung_account_title">Backup settings</string>
     <string name="restore_samsung_account_title">Restore</string>
-    <string name="auto_restart_header">Device management</string>
+    <string name="auto_restart_header">Phone management</string>
+    <string name="auto_restart_header_tablet">Tablet management</string>
     <string name="auto_restart_title">Auto restart</string>
     <string name="switch_turn_on_text">Turn on</string>
     <string name="switch_turn_off_text">Turn off</string>
@@ -3498,6 +3618,17 @@ Your personal data and the settings of downloaded apps won't be affected."</stri
     <string name="tether_settings_summary_usb_bt">"Share your device's mobile data connection via USB or Bluetooth."</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Accept</string>
+    <string name="bluetooth_tethering_off_subtext_phone">"Share your phone's internet connection using Bluetooth."</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">"Share your tablet's internet connection using Bluetooth."</string>
+    <string name="bluetooth_tethering_off_subtext_vzw">"Share your device's internet connection using Bluetooth."</string>
+    <string name="bluetooth_tethering_available_subtext_phone">"Ready to share this phone's internet connection."</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">"Ready to share this tablet's internet connection."</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">"Sharing this phone's internet connection with 1 device."</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">"Sharing this tablet's internet connection with 1 device."</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">"Sharing this phone's internet connection with %d devices."</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">"Sharing this tablet's internet connection with %d devices."</string>
+    <string name="tether_settings_summary_bt_phone">"Share your phone's internet connection using Bluetooth."</string>
+    <string name="tether_settings_summary_bt_tablet">"Share your tablet's internet connection using Bluetooth."</string>
     <string name="onehand_settings_title">One-handed mode</string>
     <string name="onehand_settings_text_1">Swipe up diagonally from either bottom corner of the screen to reduce the display size.</string>
     <string name="onehand_settings_text_2">Tap the Home button 3 times quickly to reduce the display size.</string>
@@ -3561,9 +3692,9 @@ Your personal data and the settings of downloaded apps won't be affected."</stri
     <string name="giga_lte_nokt_sim">GiGA LTE cannot be enabled while a non-KT USIM card is inserted. Insert a KT USIM card and try again.</string>
     <string name="giga_lte_roaming">Unable to enable GiGA LTE while roaming internationally.</string>
     <string name="giga_lte_samrtbonding_wifi">Wi-Fi is currently turned off and Download booster is enabled. GiGA LTE and Download booster cannot be enabled at the same time. To enable GiGA LTE, Wi-Fi will be turned on and Download booster will be disabled. GiGA LTE uses Wi-Fi and mobile networks. Downloading via mobile networks may result in additional charges depending on your payment plan.</string>
-    <string name="giga_lte_booster_smart_wifi">GiGA LTE를 사용하려면 다운로드부스터가 Off가 됩니다. Wi-Fi가 해제된 상태입니다. GiGA LTE를 실행하려면 Wi-Fi 및 모바일 데이터를 모두 실행 하세요. LTE 네트워크에서 사용한 데이터는 제공량에서 차감됩니다. Wi-Fi 및 모바일 데이터 실행 시 스마트네트워크 기능도 함께 동작됩니다.</string>
+    <string name="giga_lte_booster_smart_wifi">GiGA LTE를 사용하려면 다운로드부스터가 Off가 됩니다. Wi-Fi가 해제된 상태입니다. GiGA LTE를 실행하려면 Wi-Fi 및 모바일 데이터를 모두 실행 하세요. LTE 네트워크에서 사용한 데이터는 제공량에서 차감됩니다. Wi-Fi 및 모바일 데이터 실행 시 스마트 네트워크 전환 기능도 함께 동작됩니다.</string>
     <string name="giga_lte_samrtbonding_mobile">Mobile data is currently turned off and Download booster is enabled. GiGA LTE and Download booster cannot be enabled at the same time. To enable GiGA LTE, Mobile data will be turned on and Download booster will be disabled. Downloading via mobile networks may result in additional charges depending on your payment plan.</string>
-    <string name="giga_lte_booster_smart_mobile">GiGA LTE를 사용하려면 다운로드부스터가 Off가 됩니다. 모바일데이터가 해제된 상태입니다. GiGA LTE를 실행하려면 Wi-Fi 및 모바일 데이터를 모두 실행 하세요. LTE 네트워크에서 사용한 데이터는 제공량에서 차감됩니다. Wi-Fi 및 모바일 데이터 실행 시 스마트네트워크 기능도 함께 동작됩니다.</string>
+    <string name="giga_lte_booster_smart_mobile">GiGA LTE를 사용하려면 다운로드부스터가 Off가 됩니다. 모바일데이터가 해제된 상태입니다. GiGA LTE를 실행하려면 Wi-Fi 및 모바일 데이터를 모두 실행 하세요. LTE 네트워크에서 사용한 데이터는 제공량에서 차감됩니다. Wi-Fi 및 모바일 데이터 실행 시 스마트 네트워크 전환 기능도 함께 동작됩니다.</string>
     <string name="band_lte_title">band LTE WiFi</string>
     <string name="band_lte_body">Enjoy higher data speeds by using LTE and Wi-Fi networks at the same time. Wi-Fi and Mobile data must be turned on to enable band LTE WiFi. Additional charges may apply depending on your payment plan. band LTE WiFi may not be available depending on content and network conditions.</string>
     <string name="band_lte_nosim_msg">No USIM card is inserted. Insert a USIM card and try again.</string>
@@ -3602,6 +3733,18 @@ Please activate Wi-Fi in order to use 4.5Gbit"</string>
     <string name="vodafone_giga_supernet_msg">In order to use 4.5Gbit service you should be connected to Vodafone Net Wi-Fi</string>
     <string name="vodafone_giga_mobile_msg">"Mobile Data is Off.
 Please activate Mobile Data in order to use 4.5Gbit"</string>
+    <string name="ais_mptcp_title">NEXT G</string>
+    <string name="ais_mptcp_body">NEXT G is able to enhance data speed through simultaneous access to LTE and Wi-Fi networks. If NEXT G is activated, the data used on the LTE network shall be deducted from the given data quota. NEXT G may not be activated on some networks such as websites with security settings.</string>
+    <string name="ais_mptcp_popup_title">NEXT G Activation</string>
+    <string name="ais_mptcp_wifi_mobile_off_msg">Both Wi-Fi and mobile data are off. Please turn both Wi-Fi and mobile data on in order to use NEXT G. If NEXT G is On, the data used on the LTE network shall be deducted from the given data quota. If Wi-Fi and mobile data are on, %s function is activated as well.</string>
+    <string name="ais_mptcp_wifi_off_msg">Wi-Fi is off. Please turn Wi-Fi on in order to use NEXT G. If Wi-Fi is on, %s function is activated as well.</string>
+    <string name="ais_mptcp_mobile_off_msg">Mobile data is off. please turn mobile data on in order to use NEXT G. If NEXT G is on, the data used on the LTE network shall be deducted from the given data quota. If mobile data is on, %s function is activated as well.</string>
+    <string name="ais_mptcp_smartbonding_off">If you use NEXT G, %s will be off. Would you like to continue?</string>
+    <string name="ais_mptcp_off_by_smartbonding">If you use %s, NEXT G will be off. Would you like to continue?</string>
+    <string name="ais_mptcp_smartbonding_wifi">If you use NEXT G, %s will be off. Wi-Fi is off. Please turn both Wi-Fi and mobile data on in order to use NEXT G. The data used on the LTE network shall be deducted from the given data quota.</string>
+    <string name="ais_mptcp_booster_smart_wifi">If you use NEXT G, %1$s will be off. Wi-Fi is off. Please turn both Wi-Fi and mobile data on in order to use NEXT G. The data used on the LTE network shall be deducted from the given data quota. If Wi-Fi and mobile are on, %2$s function is activated as well.</string>
+    <string name="ais_mptcp_smartbonding_mobile">If you use NEXT G, %s will be off. Mobile data is off. Please turn both Wi-fi and mobile data on in order to use NEXT G. The data used on the LTE network shall be deducted from the given data quota.</string>
+    <string name="ais_mptcp_booster_smart_mobile">If you use NEXT G, %1$s will be off. Mobile data is off. Please turn both Wi-fi and mobile data on in order to use NEXT G. The data used on the LTE network shall be deducted from the given data quota. If Wi-Fi and mobile data are on, %2$s function is activated as well.</string>
     <string name="samsung_bnr_section_title">Samsung account</string>
     <string name="samsung_backup_summary">Use your Samsung account to back up your data.</string>
     <string name="samsung_restore_summary">Use your Samsung account to restore your backup data.</string>
@@ -3862,6 +4005,8 @@ In this case, Packet communication charges may apply even when external devices 
     <string name="wifi_settings_dialog_radio_off">Off</string>
     <string name="wifi_or_mobile_network">Wi-Fi or mobile networks</string>
     <string name="wifi_network_only">Wi-Fi network only</string>
+    <string name="wifi_adps_title">Wi-Fi power saving mode</string>
+    <string name="wifi_adps_summary">Reduce battery usage by analyzing Wi-Fi traffic patterns.</string>
     <string name="wifi_auto_reconnect">Auto reconnect</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Turning on Wi-Fi will disable Mobile Hotspot.</string>
@@ -4329,8 +4474,8 @@ Use of service constitutes acceptance of the "<a href="http://cspire.com/tether"
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Enter the correct PIN.</string>
     <string name="wrong_input_toast">Invalid action. Try again</string>
-    <string name="open_mobileap_warning">Mobile AP is not having any security</string>
-    <string name="hidden_mobileap_warning">Mobile AP Will be hidden ?</string>
+    <string name="open_mobileap_warning">This mobile AP is not secure.</string>
+    <string name="hidden_mobileap_warning">WPS will be disabled when the user sets a Hidden SSID.</string>
     <string name="data_usage_display_kb">KB</string>
     <string name="wifi_ssid_max_byte_error">Maximum number of characters reached.</string>
     <string name="tethering_attention_title">Attention</string>
@@ -4606,6 +4751,14 @@ Are you sure you want to continue?"</string>
     <string name="quick_tile_sync_title">Sync</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">"This permission allows an app to show things on top of other apps you're using. This may interfere with your use of other apps."</string>
+    <string name="write_settings_body_description">Allow this app to change system settings, such as turning Bluetooth on or off.</string>
+    <string name="reset_app_preferences_desc1">This will reset all your preferences for:</string>
+    <string name="reset_app_preferences_desc2">Disabled apps</string>
+    <string name="reset_app_preferences_desc3">Notification restrictions for apps</string>
+    <string name="reset_app_preferences_desc4">Default apps</string>
+    <string name="reset_app_preferences_desc5">Background data restrictions for apps</string>
+    <string name="reset_app_preferences_desc6">Permission restrictions</string>
+    <string name="reset_app_preferences_desc7">"You won't lose your existing app data."</string>
     <string name="knox_security_mode_title">Knox security</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">Privacy Policy</string>
@@ -4813,6 +4966,13 @@ In principle, where the purpose of the collection and use of a user's personal i
     <string name="regulatory_info_manufacture_country">대한민국</string>
     <string name="regulatory_info_equipment_name">LTE 이동통신용 무선설비의 기기</string>
     <string name="arbitration_agreement">Arbitration Agreement</string>
+    <string name="activation_title">Activation status</string>
+    <string name="activation_summary">Activated on %1$s. For more information, visit %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF on</string>
+    <string name="edit_event_start_short">Start</string>
+    <string name="edit_event_end_short">End</string>
+    <string name="select_date_to_view">Select date to view</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="create">Create</string>
@@ -5524,6 +5684,7 @@ Phone setup can require significant network activity."</string>
     <string name="wifi_dns2">DNS 2</string>
     <string name="wifi_gateway">Gateway</string>
     <string name="wifi_network_prefix_length">Network prefix length</string>
+    <string name="wifi_watchdog_connectivity_check_adaptive">Adaptive Wi-Fi</string>
     <string name="wifi_watchdog_connectivity_check_summary">Automatically switch between Wi-Fi and mobile networks to maintain a stable Internet connection.</string>
     <string name="wifi_watchdog_connectivity_check_summary_include_autowifi">Automatically switch between Wi-Fi and mobile data and save frequently used Wi-Fi networks.</string>
     <string name="wifi_smart_network_switch_turned_on">On</string>
@@ -7390,7 +7551,7 @@ Any user can accept updated app permissions on behalf of all other users."</stri
     <string name="app_notification_block_title">Allow notifications</string>
     <string name="app_notification_block_summary">Receive notifications from this app, including notification messages, sounds, and vibration.</string>
     <string name="app_notification_override_dnd_title">Set as priority</string>
-    <string name="app_notification_override_dnd_summary">Allow notifications from this app to sound and turn on the screen while Do not disturb is enabled.</string>
+    <string name="app_notification_override_dnd_summary">Show notifications at the top of the notification panel and include them in the allowed list while Do not disturb mode is enabled.</string>
     <string name="app_notification_visibility_override_title">On lock screen</string>
     <string name="app_notification_row_banned">Blocked</string>
     <string name="app_notification_row_priority">Priority</string>
@@ -7513,9 +7674,9 @@ You will not receive any calls, messages, or notifications, and alarms will not 
     <string name="encrypt_talkback_dialog_require_pin">Require PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Require pattern</string>
     <string name="encrypt_talkback_dialog_require_password">Require password</string>
-    <string name="encrypt_talkback_dialog_message_pin">When you enter your PIN after powering on the device, accessibility functions such as %1$s will be temporarily disabled.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">When you draw your pattern after powering on the device, accessibility functions such as %1$s will be temporarily disabled.</string>
-    <string name="encrypt_talkback_dialog_message_password">When you enter your password after powering on the device, accessibility functions such as %1$s will be temporarily disabled.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Your PIN will be required when your device powers on. Accessibility functions will not be available until your device has started up.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Your pattern will be required when your device powers on. Accessibility functions will not be available until your device has started up.</string>
+    <string name="encrypt_talkback_dialog_message_password">Your password will be required when your device powers on. Accessibility functions will not be available until your device has started up.</string>
     <string name="imei_information_summary">IMEI relative information</string>
     <string name="slot_number">(slot %d)</string>
     <string name="launch_by_default">Open by default</string>
@@ -7627,23 +7788,23 @@ You will not receive any calls, messages, or notifications, and alarms will not 
     <string name="usb_use_power_only">Charge connected device</string>
     <string name="usb_use_power_only_desc">Charge the connected device via USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Transfer media files</string>
+    <string name="usb_use_file_transfers">Transfer files</string>
     <string name="usb_use_file_transfers_desc">Transfer files to Windows or Mac (MTP)</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Transfer images</string>
     <string name="usb_use_photo_transfers_desc">Transfer photos or files if MTP is not supported (PTP)</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">"Select this mode if Transfer media files isn't working. You can only transfer image files."</string>
+    <string name="usb_use_photo_transfers_summary">"Select this mode if Transfer files isn't working. You can only transfer image files in this mode."</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Connect a MIDI device</string>
     <string name="usb_use_MIDI_desc">Use device for MIDI input</string>
-    <string name="usb_use">Use USB for</string>
+    <string name="usb_use">Use USB to</string>
     <string name="background_check_pref">Background check</string>
     <string name="background_check_title">Full background access</string>
-    <string name="assist_access_context_title">Read text on screen</string>
-    <string name="assist_access_context_summary">Allow the device assistance app to read any text shown on the screen.</string>
-    <string name="assist_access_screenshot_title">Take/access screenshots</string>
-    <string name="assist_access_screenshot_summary">Allow the device assistance app to take and access screenshots.</string>
+    <string name="assist_access_context_title">Analyze on-screen text</string>
+    <string name="assist_access_context_summary">Allow the device assistance app to analyze text shown on the screen to provide related content.</string>
+    <string name="assist_access_screenshot_title">Analyze on-screen images</string>
+    <string name="assist_access_screenshot_summary">Allow the device assistance app to take and use images of the screen.</string>
     <string name="assist_footer">Device assistance apps can help you by gathering information from the screen currently shown on your phone. Some device assistance apps can be used to open other apps and enter text using voice input, providing you with integrated assistance.</string>
     <string name="average_memory_use">Average RAM usage</string>
     <string name="maximum_memory_use">Maximum RAM usage</string>
@@ -7682,7 +7843,7 @@ You will not receive any calls, messages, or notifications, and alarms will not 
     <string name="system_alert_window_access_title">Draw over other apps</string>
     <string name="permit_draw_overlay">Permit drawing over other apps</string>
     <string name="app_overlay_permission_preference">App draw on top permission</string>
-    <string name="allow_overlay_description">Select apps to allow their buttons, pop-ups, or other elements to appear over other apps you are using.</string>
+    <string name="allow_overlay_description">"This permission allows an app to show things on top of other apps you're using. This may interfere with your use of other apps."</string>
     <string name="keywords_vr_listener">vr virtual reality listener stereo helper service</string>
     <string name="keywords_system_alert_window">system alert window dialog draw on top other apps</string>
     <string name="overlay_settings">Apps that can appear on top</string>
@@ -7782,7 +7943,7 @@ You will not receive any calls, messages, or notifications, and alarms will not 
     <string name="ethernet_data_template">%1$s of Ethernet data</string>
     <string name="cell_warning_only">Data warning at %s</string>
     <string name="cell_warning_and_limit">%1$s Data usage warning/%2$s Data usage limit</string>
-    <string name="billing_cycle">Billing cycle</string>
+    <string name="billing_cycle">Billing cycle and data warning</string>
     <string name="billing_cycle_summary">%s day of each month</string>
     <string name="billing_cycle_fragment_summary">%s day of each month</string>
     <string name="network_restrictions">Restrict networks</string>
@@ -7907,9 +8068,9 @@ To ensure the most up-to-date protection, enable automatic updates by accepting 
     <string name="rom_name">Rom Name</string>
     <string name="rom_name_details">BatMan-Rom</string>
     <string name="rom_ver">Rom Version</string>
-    <string name="rom_ver_details">V1.1.1</string>
+    <string name="rom_ver_details">V1.2.0</string>
     <string name="rom_date">Rom Date</string>
-    <string name="rom_date_details">11.07.17</string>
+    <string name="rom_date_details">15.08.17</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
     <string name="autostarts_title">Autostarts</string>

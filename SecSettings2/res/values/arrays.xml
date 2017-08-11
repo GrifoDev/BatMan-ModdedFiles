@@ -908,33 +908,41 @@
     </string-array>
     <string-array name="apn_ently_key_includeIMS">
         <item>Internet + MMS</item>
+        <item>Internet + XCAP</item>
         <item>Internet</item>
         <item>MMS</item>
         <item>IMS</item>
+        <item>XCAP</item>
     </string-array>
     <string-array name="apn_type_key_includeIMS">
         <item>default,supl,mms</item>
+        <item>default,supl,xcap</item>
         <item>default,supl</item>
         <item>mms</item>
         <item>ims</item>
+        <item>xcap</item>
     </string-array>
     <string-array name="apn_ently_key_includeDUN_IMS">
         <item>Internet + MMS + DUN</item>
         <item>Internet + MMS</item>
         <item>Internet + DUN</item>
+        <item>Internet + XCAP</item>
         <item>Internet</item>
         <item>MMS</item>
         <item>DUN</item>
         <item>IMS</item>
+        <item>XCAP</item>
     </string-array>
     <string-array name="apn_type_key_includeDUN_IMS">
         <item>default,supl,mms,dun</item>
         <item>default,supl,mms</item>
         <item>default,supl,dun</item>
+        <item>default,supl,xcap</item>
         <item>default,supl</item>
         <item>mms</item>
         <item>dun</item>
         <item>ims</item>
+        <item>xcap</item>
     </string-array>
     <string-array name="app_install_location_entries">
         <item>Internal device storage</item>

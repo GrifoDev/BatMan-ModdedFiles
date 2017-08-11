@@ -85,7 +85,7 @@
 
     move-result v1
 
-    if-ne v1, v7, :cond_2
+    if-ne v1, v7, :cond_1
 
     iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
 
@@ -104,17 +104,7 @@
 
     if-nez v0, :cond_3
 
-    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
-
-    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get1(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
+    sput-boolean v7, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->mIsBixBySwitchOnOff:Z
 
     iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
 
@@ -122,11 +112,11 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "ManageAppData"
+    const-string/jumbo v4, "AfterWarning"
 
-    const-string/jumbo v5, "AlreadyON"
+    const-string/jumbo v5, "AlreadyOn"
 
-    const-string/jumbo v6, "No"
+    const-string/jumbo v6, "no"
 
     invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -139,19 +129,6 @@
     const-string/jumbo v4, "ManageAppData"
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_0
-    sput-boolean v7, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->mIsBixBySwitchOnOff:Z
-
-    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
-
-    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get2(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/widget/TabHost;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "warning"
-
-    invoke-virtual {v3, v4}, Landroid/widget/TabHost;->setCurrentTabByTag(Ljava/lang/String;)V
 
     iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
 
@@ -163,14 +140,59 @@
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    :cond_1
+    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get2(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/widget/TabHost;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/widget/TabHost;->getCurrentTabTag()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "warning"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get0(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "afterwarning_bixby"
+
+    invoke-static {v3, v4, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    :cond_0
     :goto_1
     return-void
 
-    :cond_2
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
+
+    :cond_2
+    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get2(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/widget/TabHost;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "warning"
+
+    invoke-virtual {v3, v4}, Landroid/widget/TabHost;->setCurrentTabByTag(Ljava/lang/String;)V
+
+    goto :goto_1
 
     :cond_3
     iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
@@ -179,11 +201,11 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "ManageAppData"
+    const-string/jumbo v4, "AfterWarning"
 
-    const-string/jumbo v5, "AlreadyON"
+    const-string/jumbo v5, "AlreadyOn"
 
-    const-string/jumbo v6, "Yes"
+    const-string/jumbo v6, "yes"
 
     invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -199,16 +221,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get2(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/widget/TabHost;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "warning"
-
-    invoke-virtual {v3, v4}, Landroid/widget/TabHost;->setCurrentTabByTag(Ljava/lang/String;)V
-
-    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
-
     invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get1(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
@@ -216,6 +228,16 @@
     sget-object v4, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get2(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/widget/TabHost;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "warning"
+
+    invoke-virtual {v3, v4}, Landroid/widget/TabHost;->setCurrentTabByTag(Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -226,21 +248,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     if-eqz v0, :cond_6
 
-    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
-
-    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get1(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
+    sput-boolean v7, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->mIsBixBySwitchOnOff:Z
 
     iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
 
@@ -248,11 +260,11 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "ManageAppData"
+    const-string/jumbo v4, "AfterWarning"
 
     const-string/jumbo v5, "AlreadyOff"
 
-    const-string/jumbo v6, "No"
+    const-string/jumbo v6, "no"
 
     invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -265,19 +277,6 @@
     const-string/jumbo v4, "ManageAppData"
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_5
-    sput-boolean v7, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->mIsBixBySwitchOnOff:Z
-
-    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
-
-    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get2(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/widget/TabHost;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "normal"
-
-    invoke-virtual {v3, v4}, Landroid/widget/TabHost;->setCurrentTabByTag(Ljava/lang/String;)V
 
     iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
 
@@ -289,6 +288,51 @@
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
+    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get2(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/widget/TabHost;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/widget/TabHost;->getCurrentTabTag()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "warning"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get0(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "afterwarning_bixby"
+
+    invoke-static {v3, v4, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto/16 :goto_1
+
+    :cond_5
+    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get2(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/widget/TabHost;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "warning"
+
+    invoke-virtual {v3, v4}, Landroid/widget/TabHost;->setCurrentTabByTag(Ljava/lang/String;)V
+
     goto/16 :goto_1
 
     :cond_6
@@ -298,11 +342,11 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "ManageAppData"
+    const-string/jumbo v4, "AfterWarning"
 
     const-string/jumbo v5, "AlreadyOff"
 
-    const-string/jumbo v6, "Yes"
+    const-string/jumbo v6, "yes"
 
     invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -318,16 +362,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get2(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/widget/TabHost;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "warning"
-
-    invoke-virtual {v3, v4}, Landroid/widget/TabHost;->setCurrentTabByTag(Ljava/lang/String;)V
-
-    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
-
     invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get1(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
@@ -335,6 +369,16 @@
     sget-object v4, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity$1;->this$0:Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;->-get2(Lcom/samsung/android/settings/datausage/networkconnect/NetworkManagerActivity;)Landroid/widget/TabHost;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "warning"
+
+    invoke-virtual {v3, v4}, Landroid/widget/TabHost;->setCurrentTabByTag(Ljava/lang/String;)V
 
     goto/16 :goto_1
 .end method

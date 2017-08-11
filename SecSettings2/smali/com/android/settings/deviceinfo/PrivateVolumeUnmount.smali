@@ -97,13 +97,13 @@
 
     iput-object v5, p0, Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;->mDisk:Landroid/os/storage/DiskInfo;
 
-    const v5, 0x7f0402df
+    const v5, 0x7f0402e3
 
     invoke-virtual {p1, v5, p2, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v3
 
-    const v5, 0x7f11078c
+    const v5, 0x7f11078f
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v5, 0x7f11078d
+    const v5, 0x7f110790
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -131,7 +131,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b1546
+    const v6, 0x7f0b15e2
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

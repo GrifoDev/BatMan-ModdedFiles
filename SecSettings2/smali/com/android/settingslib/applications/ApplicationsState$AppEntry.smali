@@ -192,7 +192,7 @@
     :cond_0
     iput-boolean v2, p0, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->mounted:Z
 
-    const v0, 0x108090e
+    const v0, 0x10808fc
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

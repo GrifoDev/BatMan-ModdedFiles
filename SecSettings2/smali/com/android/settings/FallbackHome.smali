@@ -162,7 +162,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0400fa
+    const v2, 0x7f0400fc
 
     const/4 v3, 0x0
 
@@ -243,7 +243,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f0f0323
+    const v0, 0x7f0f0326
 
     invoke-virtual {p0, v0}, Lcom/android/settings/FallbackHome;->setTheme(I)V
 

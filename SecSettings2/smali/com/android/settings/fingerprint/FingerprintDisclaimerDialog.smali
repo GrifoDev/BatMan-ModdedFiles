@@ -120,7 +120,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b072b
+    const v4, 0x7f0b0791
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -161,7 +161,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0752
+    const v4, 0x7f0b07b8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -198,7 +198,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0758
+    const v4, 0x7f0b07be
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -238,7 +238,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b07ba
+    const v4, 0x7f0b0820
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -334,13 +334,13 @@
     return-object v10
 
     :cond_0
-    const v8, 0x7f040101
+    const v8, 0x7f040103
 
     invoke-virtual {v1, v8, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    const v8, 0x7f1102c8
+    const v8, 0x7f1102ca
 
     :try_start_0
     invoke-virtual {v2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -358,7 +358,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    const v8, 0x7f1103a0
+    const v8, 0x7f1103a2
 
     invoke-virtual {v2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -388,7 +388,7 @@
 
     if-eqz v8, :cond_2
 
-    const v8, 0x7f1103a1
+    const v8, 0x7f1103a3
 
     invoke-virtual {v2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -402,11 +402,11 @@
 
     if-nez v8, :cond_1
 
-    const v8, 0x7f0b07be
+    const v8, 0x7f0b0824
 
     invoke-virtual {v6, v8}, Landroid/widget/TextView;->setText(I)V
 
-    const v8, 0x7f11039f
+    const v8, 0x7f1103a1
 
     invoke-virtual {v2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -414,7 +414,7 @@
 
     check-cast v7, Landroid/widget/TextView;
 
-    const v8, 0x7f0b07bc
+    const v8, 0x7f0b0822
 
     invoke-virtual {p0, v8}, Lcom/android/settings/fingerprint/FingerprintDisclaimerDialog;->getString(I)Ljava/lang/String;
 
@@ -436,7 +436,7 @@
 
     invoke-direct {v0, v8}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v8, 0x7f0b0701
+    const v8, 0x7f0b0767
 
     invoke-virtual {v0, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -446,7 +446,7 @@
 
     invoke-direct {v8, p0}, Lcom/android/settings/fingerprint/FingerprintDisclaimerDialog$2;-><init>(Lcom/android/settings/fingerprint/FingerprintDisclaimerDialog;)V
 
-    const v9, 0x7f0b07b1
+    const v9, 0x7f0b0817
 
     invoke-virtual {v0, v9, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

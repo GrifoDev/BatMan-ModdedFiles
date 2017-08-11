@@ -13,6 +13,7 @@
     value = {
         Lcom/samsung/android/settings/nfc/PaymentSettings$1;,
         Lcom/samsung/android/settings/nfc/PaymentSettings$2;,
+        Lcom/samsung/android/settings/nfc/PaymentSettings$3;,
         Lcom/samsung/android/settings/nfc/PaymentSettings$PaymentAppPreference;,
         Lcom/samsung/android/settings/nfc/PaymentSettings$SettingsPackageMonitor;
     }
@@ -36,6 +37,8 @@
 # instance fields
 .field private alert:Landroid/app/AlertDialog;
 
+.field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
 .field private final mHandler:Landroid/os/Handler;
 
 .field private mInflater:Landroid/view/LayoutInflater;
@@ -52,7 +55,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/samsung/android/settings/nfc/PaymentSettings;)Landroid/os/Handler;
+.method static synthetic -get0(Lcom/samsung/android/settings/nfc/PaymentSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/samsung/android/settings/nfc/PaymentSettings;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->mHandler:Landroid/os/Handler;
@@ -60,7 +71,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/samsung/android/settings/nfc/PaymentSettings;)Lcom/samsung/android/settings/nfc/PaymentBackend;
+.method static synthetic -get2(Lcom/samsung/android/settings/nfc/PaymentSettings;)Lcom/samsung/android/settings/nfc/PaymentBackend;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->mPaymentBackend:Lcom/samsung/android/settings/nfc/PaymentBackend;
@@ -145,6 +156,12 @@
     invoke-direct {v0, p0}, Lcom/samsung/android/settings/nfc/PaymentSettings$2;-><init>(Lcom/samsung/android/settings/nfc/PaymentSettings;)V
 
     iput-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->mHandler:Landroid/os/Handler;
+
+    new-instance v0, Lcom/samsung/android/settings/nfc/PaymentSettings$3;
+
+    invoke-direct {v0, p0}, Lcom/samsung/android/settings/nfc/PaymentSettings$3;-><init>(Lcom/samsung/android/settings/nfc/PaymentSettings;)V
+
+    iput-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
     return-void
 .end method
@@ -367,6 +384,12 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->screen:Landroid/preference/PreferenceScreen;
 
+    new-instance v0, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-direct {v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
     return-void
 .end method
 
@@ -406,7 +429,7 @@
 
     if-nez v2, :cond_1
 
-    const v2, 0x7f0b0a92
+    const v2, 0x7f0b0b01
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
@@ -454,7 +477,7 @@
     return-void
 
     :cond_3
-    const v2, 0x7f0b10e6
+    const v2, 0x7f0b117b
 
     invoke-interface {p1, v5, v5, v6, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -485,7 +508,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f0401b4
+    const v2, 0x7f0401b6
 
     const/4 v3, 0x0
 
@@ -645,7 +668,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b19d9
+    const v3, 0x7f0b1a75    # 1.8490006E38f
 
     const/4 v5, 0x0
 
@@ -701,6 +724,12 @@
     invoke-virtual {v0}, Lcom/android/internal/content/PackageMonitor;->unregister()V
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onPause()V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "NfcTapAndPaySettings"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -860,7 +889,7 @@
 
     invoke-direct {v2, v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0b10e4
+    const v3, 0x7f0b1179
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/nfc/PaymentSettings;->getString(I)Ljava/lang/String;
 
@@ -874,9 +903,9 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/samsung/android/settings/nfc/PaymentSettings$3;
+    new-instance v3, Lcom/samsung/android/settings/nfc/PaymentSettings$4;
 
-    invoke-direct {v3, p0}, Lcom/samsung/android/settings/nfc/PaymentSettings$3;-><init>(Lcom/samsung/android/settings/nfc/PaymentSettings;)V
+    invoke-direct {v3, p0}, Lcom/samsung/android/settings/nfc/PaymentSettings$4;-><init>(Lcom/samsung/android/settings/nfc/PaymentSettings;)V
 
     const v4, 0x104000a
 
@@ -898,6 +927,18 @@
 
     :cond_3
     invoke-virtual {p0}, Lcom/samsung/android/settings/nfc/PaymentSettings;->refresh()V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/nfc/PaymentSettings;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/samsung/android/settings/nfc/PaymentSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v5, "NfcTapAndPaySettings"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -946,11 +987,11 @@
 
     invoke-direct {v9, v2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0401d2
+    const v2, 0x7f0401d4
 
     invoke-virtual {v9, v2}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    const v2, 0x7f0b0a8b
+    const v2, 0x7f0b0afa
 
     move-object/from16 v0, p0
 
@@ -1069,7 +1110,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f110599
+    const v3, 0x7f11059b
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1081,7 +1122,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f110598
+    const v3, 0x7f11059a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1093,7 +1134,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f110596
+    const v3, 0x7f110598
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1220,7 +1261,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f110597
+    const v3, 0x7f110599
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1232,7 +1273,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f110596
+    const v3, 0x7f110598
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1244,7 +1285,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f110598
+    const v3, 0x7f11059a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

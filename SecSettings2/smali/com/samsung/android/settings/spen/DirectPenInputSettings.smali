@@ -428,7 +428,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001ba
+    const v1, 0x7f1001bb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -504,14 +504,14 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f020690
+    const v3, 0x7f0206f9
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
     :cond_0
     iget-object v3, p0, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->tryItView:Landroid/view/View;
 
-    const v4, 0x7f110992
+    const v4, 0x7f110998
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -774,7 +774,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b046e
+    const v0, 0x7f0b04d1
 
     invoke-interface {p1, v1, v1, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -969,13 +969,13 @@
 .method public showEnableDialog(Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 11
 
-    const v10, 0x7f0b0a5e
+    const v10, 0x7f0b0acc
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
-    const v8, 0x7f0b0d50
+    const v8, 0x7f0b0ddb
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1058,7 +1058,7 @@
 
     invoke-direct {v8, p0}, Lcom/samsung/android/settings/spen/DirectPenInputSettings$9;-><init>(Lcom/samsung/android/settings/spen/DirectPenInputSettings;)V
 
-    const v9, 0x7f0b0d4f
+    const v9, 0x7f0b0dda
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

@@ -477,7 +477,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a06cf
+    const v1, 0x7f0a06ce
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -489,7 +489,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a06d0
+    const v1, 0x7f0a06cf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1809,7 +1809,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020541
+    const v2, 0x7f0205aa
 
     invoke-static {v1, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 

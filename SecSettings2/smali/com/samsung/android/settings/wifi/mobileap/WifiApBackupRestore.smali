@@ -1015,6 +1015,22 @@
     invoke-virtual {v11, v0, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     :cond_a
+    const-string/jumbo v16, "PMFChecked"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore;->getPMFChecked(Landroid/content/Context;)I
+
+    move-result v17
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v17
+
+    invoke-virtual {v11, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
     const-string/jumbo v16, "hotspot"
 
     move-object/from16 v0, v16
@@ -1179,7 +1195,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0f42
+    const v1, 0x7f0b0fcf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1209,13 +1225,53 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0f42
+    const v1, 0x7f0b0fcf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public getPMFChecked(Landroid/content/Context;)I
+    .locals 4
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "wifi_ap_pmf_checked"
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    const-string/jumbo v1, "WifiApBackupRestore"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, " getPMFChecked "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v0
 .end method
 
 .method public getTimeoutValueFromPreference(Landroid/content/Context;)I
@@ -2258,7 +2314,7 @@
 
     :cond_6
     :goto_7
-    if-nez v23, :cond_b
+    if-nez v23, :cond_c
 
     const-string/jumbo v27, "WifiApBackupRestore"
 
@@ -2300,11 +2356,40 @@
     goto/16 :goto_4
 
     :cond_a
+    const-string/jumbo v27, "PMFChecked"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v27
+
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v27
+
+    if-eqz v27, :cond_b
+
+    const-string/jumbo v27, "PMFChecked"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v27
+
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
+
+    move-result v27
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v27
+
+    move-object/from16 v2, p1
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore;->setPMFChecked(ILandroid/content/Context;)V
+
+    :goto_9
     move-object/from16 v0, v19
 
     invoke-virtual {v15, v0}, Landroid/net/wifi/WifiManager;->setWifiApConfiguration(Landroid/net/wifi/WifiConfiguration;)Z
-    :try_end_7
-    .catch Lorg/json/JSONException; {:try_start_7 .. :try_end_7} :catch_4
 
     move-result v23
 
@@ -2313,11 +2398,68 @@
     :cond_b
     const-string/jumbo v27, "WifiApBackupRestore"
 
+    const-string/jumbo v28, "device dont have PMF"
+
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v27, 0x0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v27
+
+    move-object/from16 v2, p1
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore;->setPMFChecked(ILandroid/content/Context;)V
+    :try_end_7
+    .catch Lorg/json/JSONException; {:try_start_7 .. :try_end_7} :catch_4
+
+    goto :goto_9
+
+    :cond_c
+    const-string/jumbo v27, "WifiApBackupRestore"
+
     const-string/jumbo v28, "restore - complete!"
 
     invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_8
+.end method
+
+.method public setPMFChecked(ILandroid/content/Context;)V
+    .locals 3
+
+    const-string/jumbo v0, "WifiApBackupRestore"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, " setPMFChecked "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "wifi_ap_pmf_checked"
+
+    invoke-static {v0, v1, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    return-void
 .end method
 
 .method public setTimeout(ILandroid/content/Context;)V

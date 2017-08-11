@@ -53,6 +53,8 @@
 
 .field private mView:Landroid/view/View;
 
+.field private tempCursor:I
+
 
 # direct methods
 .method static synthetic -get0(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)Ljava/lang/String;
@@ -95,12 +97,28 @@
     return-object v0
 .end method
 
+.method static synthetic -get5(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)I
+    .locals 1
+
+    iget v0, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->tempCursor:I
+
+    return v0
+.end method
+
 .method static synthetic -set0(Lcom/samsung/android/settings/lockscreen/OwnerInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->info:Ljava/lang/String;
 
     return-object p1
+.end method
+
+.method static synthetic -set1(Lcom/samsung/android/settings/lockscreen/OwnerInfo;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->tempCursor:I
+
+    return p1
 .end method
 
 .method static synthetic -wrap0(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)V
@@ -131,6 +149,10 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->info:Ljava/lang/String;
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->tempCursor:I
 
     return-void
 .end method
@@ -214,7 +236,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mView:Landroid/view/View;
 
-    const v4, 0x7f1105ca
+    const v4, 0x7f1105cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -226,7 +248,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mView:Landroid/view/View;
 
-    const v4, 0x7f1105cd
+    const v4, 0x7f1105cf
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -238,7 +260,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mView:Landroid/view/View;
 
-    const v4, 0x7f1102c2
+    const v4, 0x7f1102c4
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -266,7 +288,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mCheckbox:Landroid/widget/CheckBox;
 
-    const v4, 0x7f0b099e
+    const v4, 0x7f0b0a0b
 
     invoke-virtual {v3, v4}, Landroid/widget/CheckBox;->setText(I)V
 
@@ -277,7 +299,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mView:Landroid/view/View;
 
-    const v4, 0x7f1105cb
+    const v4, 0x7f1105cd
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -374,7 +396,7 @@
     :cond_5
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mView:Landroid/view/View;
 
-    const v4, 0x7f1105cc
+    const v4, 0x7f1105ce
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -419,7 +441,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mCheckbox:Landroid/widget/CheckBox;
 
-    const v4, 0x7f0b128c
+    const v4, 0x7f0b1327
 
     invoke-virtual {v3, v4}, Landroid/widget/CheckBox;->setText(I)V
 
@@ -489,7 +511,7 @@
     :cond_a
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->mCheckbox:Landroid/widget/CheckBox;
 
-    const v4, 0x7f0b0da3
+    const v4, 0x7f0b0e2e
 
     invoke-virtual {v3, v4}, Landroid/widget/CheckBox;->setText(I)V
 
@@ -637,7 +659,7 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 9
 
-    const v8, 0x7f100205
+    const v8, 0x7f10020b
 
     const/4 v0, 0x5
 
@@ -780,7 +802,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100208
+    const v1, 0x7f10020e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -883,7 +905,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100207
+    const v1, 0x7f10020d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1000,7 +1022,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0401cd
+    const v2, 0x7f0401cf
 
     const/4 v3, 0x0
 
@@ -1052,7 +1074,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1998
+    const v2, 0x7f0b1a34
 
     invoke-virtual {v1, v2, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1161,7 +1183,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f100205
+    const v2, 0x7f10020b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

@@ -41,9 +41,9 @@
 .method public setListening(Z)V
     .locals 6
 
-    const v4, 0x7f0b15fe
+    const v4, 0x7f0b169a
 
-    const v3, 0x7f0b14e3
+    const v3, 0x7f0b157f
 
     if-eqz p1, :cond_0
 
@@ -101,7 +101,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DeviceInfoSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0542
+    const v3, 0x7f0b05a5
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -176,7 +176,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DeviceInfoSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0536
+    const v3, 0x7f0b0599
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -211,7 +211,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b1c3a
+    const v4, 0x7f0b1cd6
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

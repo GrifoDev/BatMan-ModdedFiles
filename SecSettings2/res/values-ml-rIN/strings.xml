@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dമ %2$dമി</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d മണി. %2$d മിനിറ്റ്</string>
+    <string name="battery_history_minutes_no_seconds">%d മിനി.</string>
     <string name="wifi_fail_to_scan">നെ‌റ്റ്‌വർക്കുകൾക്കായി സ്കാൻ ചെയ്യാനായില്ല</string>
     <string name="wifi_failed_to_obtain_IP">IP വിലാസം നേടുന്നത് പരാജയപ്പെട്ടു.</string>
     <string name="wifi_security_none">ഒന്നുമില്ല</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s-ലേക്ക് ബന്ധിപ്പിക്കാനാവില്ല.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">‌%1$s-ലേക്ക് ബന്ധിപ്പിക്കാനാവില്ല. നിങ്ങളുടെ %2$s-ലെ ക്രമീകരണങ്ങൾ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s-നാല്‍ പെയറിംഗ് നിരസിക്കപ്പെട്ടു.</string>
+    <string name="bluetooth_getting_remote_device_name">ഉപകരണ പേര് ലഭ്യമാക്കുന്നു…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">ഈ ഉപകരണം ബന്ധിപ്പിക്കപ്പെടുമ്പോൾ ഉപകരണ പേര് ദൃശ്യമാവും.</string>
     <string name="accessibility_wifi_off">വൈഫൈ ഓഫാണ്.</string>
     <string name="accessibility_no_wifi">വൈഫൈ വിച്ഛേദിച്ചു.</string>
     <string name="accessibility_wifi_one_bar">വൈഫൈ സിഗ്നൽ ഒരു ബാർ.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">പിന്തുണ</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, ബ്ലൂടൂത്ത്, മറ്റ് നെറ്റ്‌വർക്ക് എന്നിവയുടെ ക്രമീകരണങ്ങളെ അവയുടെ ഡിഫോൾട്ടുകളിലേക്ക് പുനഃക്രമീകരിക്കുക.</string>
     <string name="master_clear_list_summary">നിങ്ങളുടെ ഉപകരണത്തെ അതിന്‍റെ ഫാക്ടറി ക്രമീകരണങ്ങളിലേക്ക് പുനഃക്രമീകരിക്കുക. ഫയലുകളും ഡൗൺലോഡ് ചെയ്ത ആപ്ലിക്കേഷനുകളും ഉൾപ്പെടെയുള്ള മുഴുവൻ ഡാറ്റയെയും ഇത് മായ്ക്കും.</string>
-    <string name="auto_restart_summary">ക്രമീകൃത സമയങ്ങളിൽ നിങ്ങളുടെ ഉപകരണത്തെ ഓട്ടോമാറ്റിക്കായി പുനരാരംഭിപ്പിച്ച് അതിനെ അനുയോജ്യമാക്കുക. സംരക്ഷിക്കാത്ത ഏത് ഡാറ്റയും ഉപകരണം പുനരാരംഭിക്കുമ്പോൾ നഷ്ടപ്പെടും.</string>
+    <string name="auto_restart_summary">അഴ്ചയിലൊരിക്കൽ നിങ്ങളുടെ ഫോണിനെ ഓട്ടോമാറ്റിക്കായി പുനരാരംഭിപ്പിച്ച് അതിനെ അനുയോജ്യമാക്കുക. സംരക്ഷിക്കാത്ത ഏത് ഡാറ്റയും നിങ്ങളുടെ ഫോൺ പുനരാരംഭിക്കുമ്പോൾ നഷ്ടപ്പെടും.</string>
+    <string name="auto_restart_summary_tablet">അഴ്ചയിലൊരിക്കൽ നിങ്ങളുടെ ടാബ്‌ലറ്റിനെ ഓട്ടോമാറ്റിക്കായി പുനരാരംഭിപ്പിച്ച് അതിനെ അനുയോജ്യമാക്കുക. സംരക്ഷിക്കാത്ത ഏത് ഡാറ്റയും നിങ്ങളുടെ ടാബ്‌ലറ്റ് പുനരാരംഭിക്കുമ്പോൾ നഷ്ടപ്പെടും.</string>
     <string name="search_settings">തിരയു.</string>
     <string name="related_results">%d ബന്ധപ്പെട്ട ഇനങ്ങൾ</string>
     <string name="no_results_found">ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">വലത്തേക്ക് %d ശതമാനമാണ് സൗണ്ട് ബാലന്‍സ്. സ്ലൈഡര്‍ ഇഴയ്ക്കുന്നതിന് രണ്ട് വിരലുകള്‍ ഉപയോഗിക്കുക</string>
     <string name="sound_balance_set">സജ്ജീകരിക്കുക</string>
     <string name="accessibility_assistant_menu">സഹായക മെനു</string>
-    <string name="assistant_menu_summary">വൈദഗ്ധ്യമില്ലാത്തവര്‍ക്ക് ഉപകരണത്തില്‍ പ്രവേശിക്കുന്നതിന് ഫംഗ്ഷനുകളെ മെച്ചപ്പെടുത്തുന്നത് പ്രാപ്തമാക്കുന്നു.</string>
+    <string name="assistant_menu_summary">വൈദഗ്ധ്യം കുറഞ്ഞ ഉപയോക്താക്കൾക്കായി ഫോൺ ആക്സസിബിലിറ്റി മെച്ചപ്പെടുത്തുക.</string>
     <string name="color_blind_title">നിറ ക്രമീകരണം</string>
     <string name="no_result">നിങ്ങളുടെ ഡിസ്പ്ലേ വായിക്കുന്നതിന് ബുദ്ധിമുട്ടുണ്ടെങ്കിൽ സ്ക്രീൻ നിറങ്ങൾ ക്രമപ്പെടുത്തുക.</string>
     <string name="you_are_normal">വര്‍ണ്ണ ക്രമീകരണം അത്യാവശ്യമല്ല.</string>
@@ -653,6 +656,7 @@ Enter the code you get from Verizon:"</string>
     <string name="direct_access_actions_accessibility_title">ആക്സസ്സബിലിറ്റി</string>
     <string name="direct_access_actions_negative_title">നെഗറ്റീവ് കളറുകള്‍</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">ഡയറക്റ്റ് ആക്സസ്, സ്ക്രീൻ വലുപ്പം കുറയ്ക്കുക എന്നിവ ഒരേ സമയം പ്രാപ്തമാക്കാനാവില്ല. സ്ക്രീൻ വലുപ്പം കുറയ്ക്കുക അപ്രാപ്തമാക്കപ്പെടും.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s, %2$s എന്നിവ ഒരേ സമയം പ്രാപ്തമാക്കാനാവില്ല. %3$s അപ്രാപ്തമാക്കപ്പെടും.</string>
     <string name="direct_access_actions_color_adjustment_summary">നിറം ക്രമപ്പെടുത്തലിനെ ഡയറക്റ്റ് ആക്സസിൽ ഉപയോഗിക്കാനായി അതിനെ കാഴ്ച എന്നതിൽ സജ്ജീകരിക്കുക</string>
     <string name="direct_access_actions_screen_reader_summary">ഡയറക്റ്റ് ആക്സസിൽ ഉപയോഗിക്കുന്നതിനായി പേജ് റീഡർ പ്രാപ്തമാക്കുക.</string>
     <string name="direct_access_actions_accesscontrol_title">ഇന്‍ററാക്ഷൻ നിയന്ത്രണം</string>
@@ -850,7 +854,9 @@ Wi-Fi, ബ്ലൂടൂത്ത് എന്നിവ കൂടി ഓഫ് 
     <string name="premium_sms_values_ask">ചോദിക്കുക</string>
     <string name="premium_sms_values_never">ഒരിക്കലും അനുവദിക്കരുത്</string>
     <string name="premium_sms_values_allow">എപ്പോഴും അനുവദിക്കണോ</string>
-    <string name="assist_and_voice_input_summary">ഓരോ സ്ക്രീനിനെയും കുറിച്ചുള്ള കൂടുതൽ ഐച്ഛികങ്ങളും വിവരങ്ങളും ഉപകരണ സഹായ ആപ്ലിക്കേഷനുകൾ ലഭ്യമാക്കുന്നു.</string>
+    <string name="assist_and_voice_input_summary">നിങ്ങൾ ഹോം ബട്ടൺ അമർത്തിപ്പിടിക്കുമ്പോൾ ഏത് ആപ്ലിക്കേഷൻ ഉപയോഗിക്കണമെന്ന് തിരഞ്ഞെടുക്കുക.</string>
+    <string name="assist_footer_phone">നിങ്ങൾ ഹോം ബട്ടൺ അമർത്തിപ്പിടിക്കുമ്പോൾ ഏത് ആപ്ലിക്കേഷൻ ഉപയോഗിക്കണമെന്ന് തിരഞ്ഞെടുക്കുക. നിലവിൽ നിങ്ങളുടെ ഫോണിൽ കാണിക്കുന്ന സ്ക്രീനിൽ നിന്ന് വിവരങ്ങൾ സമാഹരിച്ചുകൊണ്ട് ഉപകരണ സഹായ ആപ്ലിക്കേഷനുകൾക്ക് നിങ്ങളെ സഹായിക്കാനാവും.</string>
+    <string name="assist_footer_tablet">നിങ്ങൾ ഹോം ബട്ടൺ അമർത്തിപ്പിടിക്കുമ്പോൾ ഏത് ആപ്ലിക്കേഷൻ ഉപയോഗിക്കണമെന്ന് തിരഞ്ഞെടുക്കുക. നിലവിൽ നിങ്ങളുടെ ടാബ്‌ലറ്റിൽ കാണിക്കുന്ന സ്ക്രീനിൽ നിന്ന് വിവരങ്ങൾ സമാഹരിച്ചുകൊണ്ട് ഉപകരണ സഹായ ആപ്ലിക്കേഷനുകൾക്ക് നിങ്ങളെ സഹായിക്കാനാവും.</string>
     <string name="default_app_title">ഡിഫോൾട്ടായി ക്രമീകരിക്കുക</string>
     <string name="premium_sms_title">പ്രീമിയം SMS അയയ്ക്കുക</string>
     <string name="default_app_selection">ഡിഫോൾട്ട് ആപ്ലിക്കേഷൻ തിരഞ്ഞെടുപ്പ്</string>
@@ -939,7 +945,7 @@ Wi-Fi, ബ്ലൂടൂത്ത് എന്നിവ കൂടി ഓഫ് 
 
 ബന്ധിപ്പിക്കപ്പെട്ട 2 ഉപകരണങ്ങളുടെയും ശബ്ദ ഔട്ട്പുട്ടിൽ നേരിയ വ്യത്യാസം അനുഭവപ്പെട്ടേക്കാം."</string>
     <string name="bluetooth_dual_play_ask_popup_title">മീഡിയ വോളിയം സമന്വയം ഓഫ് ചെയ്യണോ?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">ഇരട്ട ഓഡിയോ ഉപയോഗിക്കുന്നതിന്, മീഡിയ വോളിയം സമന്വയം ഓഫ് ചെയ്യേണ്ടതാവശ്യമാണ്.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">ഓരോ ഓഡിയോ ഉപകരണത്തിലെയും വോളിയം വെവ്വേറെ നിയന്ത്രിക്കുന്നതിന്, മീഡിയ വോളിയം സമന്വയം ഓഫ് ചെയ്യേണ്ടതാവശ്യമാണ്.</string>
     <string name="bluetooth_avc_title">മീഡിയ വോളിയം സമന്വയം</string>
     <string name="bluetooth_avc_description">ബന്ധിപ്പിച്ച ബ്ലൂടൂത്ത് ഉപകരണത്തിന് നിങ്ങളുടെ ഫോണിന്‍റെ മീഡിയ വോളിയം നിയന്ത്രിക്കാനാവുമെങ്കിൽ, ബ്ലൂടൂത്ത് ഉപകരണം ക്രമീകരിച്ച വോളിയം നിലയെ നിങ്ങളുടെ ഫോണുമായി സമന്വയിപ്പിക്കും.</string>
     <string name="bluetooth_avc_volume_change_description">ഈ പ്രവർത്തനം ഓൺ ചെയ്യുന്നത് അപ്രതീക്ഷിത വോളിയം മാറ്റങ്ങൾക്ക് ഇടവരുത്താം.</string>
@@ -948,6 +954,7 @@ Wi-Fi, ബ്ലൂടൂത്ത് എന്നിവ കൂടി ഓഫ് 
     <string name="bluetooth_avc_ask_popup_title">ഇരട്ട ഓഡിയോ ഓഫ് ചെയ്യണോ?</string>
     <string name="bluetooth_avc_ask_popup_content">മീഡിയ വോളിയം സമന്വയം ഉപയോഗിക്കുന്നതിന്, ഇരട്ട ഓഡിയോ ഓഫ് ചെയ്യേണ്ടതാവശ്യമാണ്.</string>
     <string name="bluetooth_avc_disable_description">ബന്ധിപ്പിച്ച ബ്ലൂടൂത്ത് ഉപകരണം മീഡിയ വോളിയം സമന്വയത്തെ പിന്തുണയ്ക്കുന്നില്ല. ബന്ധിപ്പിച്ച ബ്ലൂടൂത്ത് ഉപകരണവുമായി നിങ്ങളുടെ ഫോണിന്‍റെ വോളിയത്തെ സമന്വയിപ്പിക്കാനാകില്ല.</string>
+    <string name="bluetooth_avc_available_description">ബന്ധിപ്പിച്ച ബ്ലൂടൂത്ത് ഉപകരണം മീഡിയ വോളിയം സമന്വയത്തെ പിന്തുണയ്ക്കുകയും ബ്ലൂടൂത്ത് ഉപകരണം ക്രമീകരിച്ച വോളിയം നിലയെ നിങ്ങളുടെ ഫോണുമായി സമന്വയിപ്പിക്കുകയും ചെയ്യും.</string>
     <string name="bluetooth_enter_pin_msg">%s-മായി പെയര്‍ ചെയ്യുന്നതിന് PIN നല്‍കുക. (0000 അഥവാ 1234 ശ്രമിക്കുക).</string>
     <string name="bluetooth_pin_maximum_number_message">പരമാവധി എണ്ണം അക്ഷരങ്ങളിലെത്തി.</string>
     <string name="settings_menu_done">ചെയ്‌തു</string>
@@ -1031,11 +1038,12 @@ Wi-Fi, ബ്ലൂടൂത്ത് എന്നിവ കൂടി ഓഫ് 
     <string name="swipe_to_call_title">കോൾ ചെയ്യാൻ അല്ലെങ്കിൽ സന്ദേശം അയക്കാൻ സ്വൈപ് ചെയ്യുക</string>
     <string name="swipe_to_call_summary">ഫോൺ, കോൺടാക്ടുകൾ, അല്ലെങ്കിൽ സന്ദേശങ്ങൾ എന്നതിൽ കോൾ ചെയ്യാൻ ഒരു കോൺടാക്ടിന്‍റെ അല്ലെങ്കിൽ നമ്പറിന്‍റെ വലതുവശത്തോ സന്ദേശമയയ്ക്കാൻ ഇടതുവശത്തോ സ്വൈപ് ചെയ്യുക.</string>
     <string name="swipe_to_call_summary_dcm">ഡയൽ, കോൺടാക്ടുകൾ, അല്ലെങ്കിൽ സന്ദേശങ്ങൾ എന്നതിൽ കോൾ ചെയ്യാൻ ഒരു കോൺടാക്ടിന്‍റെ അല്ലെങ്കിൽ നമ്പറിന്‍റെ വലതുവശത്തോ സന്ദേശമയയ്ക്കാൻ ഇടതുവശത്തോ സ്വൈപ് ചെയ്യുക.</string>
-    <string name="swipe_to_call_summary_kddi">ഫോൺ അല്ലെങ്കിൽ കോൺടാക്ടുകൾ എന്നതിൽ കോൾ ചെയ്യാൻ ഒരു കോൺടാക്ടിന്‍റെ അല്ലെങ്കിൽ നമ്പറിന്‍റെ വലതുവശത്തോ സന്ദേശമയയ്ക്കാൻ ഇടതുവശത്തോ സ്വൈപ് ചെയ്യുക.</string>
+    <string name="swipe_to_call_summary_kddi">ഡയൽ അല്ലെങ്കിൽ കോൺടാക്ടുകൾ എന്നതിൽ കോൾ ചെയ്യാൻ ഒരു കോൺടാക്ടിന്‍റെ അല്ലെങ്കിൽ നമ്പറിന്‍റെ വലതുവശത്തോ സന്ദേശമയയ്ക്കാൻ ഇടതുവശത്തോ സ്വൈപ് ചെയ്യുക.</string>
     <string name="dual_app_title">ഇരട്ട മെസഞ്ചർ</string>
     <string name="dual_app_summary">ഒരേ ആപ്ലിക്കേഷന് രണ്ട് വെവ്വേറെ അക്കൗണ്ടുകൾ ഉപയോഗിക്കുക.</string>
     <string name="finger_sensor_gesture_title">വിരൽ സെൻസർ ജെസ്ചറുകൾ</string>
     <string name="finger_sensor_gesture_summary">വിരലടയാള സെൻസർ ഉപയോഗിച്ച് ആപ്ലിക്കേഷനുകളും സവിശേഷതകളും തുറക്കുകയും അടയ്ക്കുകയും ചെയ്യുക.</string>
+    <string name="finger_sensor_gesture_summary_noapp">വിരലടയാള സെൻസർ ഉപയോഗിച്ച് അറിയിപ്പ് പാനൽ തുറക്കുകയും അടയ്ക്കുകയും ചെയ്യുക.</string>
     <string name="finger_sensor_gesture_description">അറിയിപ്പ് പാനൽ തുറക്കുന്നതിന് അല്ലെങ്കിൽ അടയ്ക്കുന്നതിന് വിരലടയാള സെൻസറിൽ മുകളിലേയ്ക്കോ താഴേയ്ക്കോ സ്വൈപ് ചെയ്യുക.</string>
     <string name="open_samsung_pay_title">Samsung Pay തുറക്കുക</string>
     <string name="open_samsung_pay_summary">ഹോം സ്ക്രീനിൽ നിന്ന്, Samsung Pay തുറക്കുന്നതിന് വിരലടയാള സെൻസറിൽ മുകളിലേയ്ക്ക് സ്വൈപ് ചെയ്യുക.</string>
@@ -1070,6 +1078,7 @@ Wi-Fi, ബ്ലൂടൂത്ത് എന്നിവ കൂടി ഓഫ് 
 %s"</string>
     <string name="enable_ps_title">%s പ്രവര്‍ത്തനസജ്ജമാക്കുക</string>
     <string name="setup_wizard">സജ്ജീകരണ വഴികള്‍</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">സാധാരണം</string>
     <string name="large">വലുത്</string>
     <string name="small">ചെറുത്</string>
@@ -1213,9 +1222,9 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="last_checked_date">അവസാനം പരിശോധിച്ചത്:</string>
     <string name="auto_update">അപ്ഡേറ്റുകൾ ഓട്ടോമാറ്റിക്ക് ഡൗൺലോഡ് ചെയ്യുക</string>
     <string name="auto_update_summary">ഒരു Wi-Fi നെറ്റ്‌വർ‍ക്കിലേക്ക് ബന്ധിപ്പിക്കുമ്പോൾ സോഫ്റ്റ്‌വെയർ അപ്ഡേറ്റുകൾ ഓട്ടോമാറ്റിക്കായി ഡൗൺലോഡ് ചെയ്യുക. ഡൗൺലോഡ് ചെയ്യുന്നതിനിടയിലും നിങ്ങളുടെ ഉപകരണം ഉപയോഗിക്കാൻ സാധിക്കുന്നതാണ്.</string>
-    <string name="auto_update_over_wifi">Wi-Fi-യിലൂടെ സ്വയം ‍ഡൗൺലോഡ് ചെയ്യുക</string>
+    <string name="auto_update_over_wifi">Wi-Fi-യിലൂടെ സ്വയം ഡൗൺലോഡ് ചെയ്യുക</string>
     <string name="auto_update_over_wifi_summary">ഒരു Wi-Fi നെറ്റ്‌വർ‍ക്കിലേക്ക് ബന്ധിപ്പിച്ചിരിക്കുമ്പോൾ സോഫ്റ്റ്‌വെയര്‍ അപ്ഡേറ്റുകൾ ഓട്ടോമാറ്റിക്കായി ഡൗൺലോഡ് ചെയ്യുക. നിങ്ങളുടെ സേവന ദാതാവിന് അനുസൃതമായി, ഏതെങ്കിലും അധിക നിരക്കുകളില്ലാതെ മൊബൈൽ ഡാറ്റ ഉപയോഗിച്ചും അപ്ഡേറ്റുകൾ ഡൗൺലോഡ് ചെയ്യപ്പെട്ടേക്കാം. ഡൗൺലോഡ് ചെയ്യുന്നതിനിടയിലും നിങ്ങളുടെ ഫോൺ ഉപയോഗിക്കാൻ സാധിക്കുന്നതാണ്.</string>
-    <string name="scheduled_update">ഷെഡ്യൂൾ ചെയ്ത സോഫ്റ്റ്‌വെയർ അപ്‌ഡേറ്റുകൾ</string>
+    <string name="scheduled_update">ഷെഡ്യൂള്‍ചെയ്ത സോഫ്റ്റ്‌വെയര്‍ അപ്‌ഡേറ്റുകള്‍</string>
     <string name="scheduled_update_summary_default">ഓഫ്</string>
     <string name="scheduled_update_summary_set_time">%s-ന് അപ്ഡേറ്റ് ആരംഭിക്കും</string>
     <string name="scheduled_update_summary_set_time_everyday">ഓരോ ദിവസവും %s-ന് അപ്ഡേറ്റ് ആരംഭിക്കും</string>
@@ -1359,7 +1368,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="adjust_your_display_colour">വൈറ്റ് ടോണുകളുടെ ദൃശ്യരൂപം മാറ്റുന്നതിന് നിങ്ങളുടെ ഡിസ്പ്ലേയുടെ നിറങ്ങൾ ക്രമപ്പെടുത്തുക.</string>
     <string name="display_temperature_preset_cool">കൂൾ</string>
     <string name="display_temperature_preset_warm">ഊഷ്മളമായ</string>
-    <string name="display_advanced_option">വിപുലമായ ഓപ്‌ഷനുകള്‍</string>
+    <string name="display_advanced_option">നൂതന ഐച്ഛികങ്ങൾ</string>
     <string name="color_balance_subtext_1">അഡാപ്റ്റീവ് ഡിസ്‌പ്ലേ മോഡിൽ മാത്രം നിറ ബാലൻസ് ക്രമീകരിക്കാനാകും.</string>
     <string name="color_balance_subtext_2">ബ്ലൂ ലൈറ്റ് ഫിൽട്ടർ ഓണായിരിക്കുമ്പോൾ നിങ്ങളുടെ ക്രമീകരണങ്ങൾ ബാധകമാക്കപ്പെടില്ല.</string>
     <string name="poc_balance_title">സ്ക്രീൻ എഡ്‌ജ് നിറ ബാലൻസ്</string>
@@ -1417,6 +1426,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_summary">ഹോം, ബാക്ക്, സമീപകാല ബട്ടണുകൾ മാനേജ് ചെയ്യുക.</string>
     <string name="navigationbar_theme_switch">നിലവിലെ തീം പ്രയോഗിക്കുക</string>
     <string name="navigationbar_color_title">പശ്ചാത്തല നിറം</string>
+    <string name="navigationbar_color_summary">നിങ്ങൾ തിരഞ്ഞെടുക്കുന്ന പശ്ചാത്തല നിറം എല്ലാ ആപ്ലിക്കേഷനുകളിലും പ്രയോഗിക്കപ്പെട്ടേക്കില്ല.</string>
     <string name="navigationbar_order_title">ബട്ടൺ ലേഔട്ട്</string>
     <string name="navigationbar_order_default">സമീപകാലങ്ങൾ - ഹോം - ബാക്ക്</string>
     <string name="navigationbar_order_mirrored">പിന്നോട്ട് - ഹോം - സമീപകാലങ്ങൾ</string>
@@ -1448,7 +1458,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="blue_light_filter_enable_now">ഇപ്പോൾ ഓണ്‍ ചെയ്യുക</string>
     <string name="blue_light_filter_enable_as_scheduled">ഷെഡ്യൂൾ ചെയ്ത പ്രകാരം ഓൺ ചെയ്യുക</string>
     <string name="blue_light_filter_scheduled_toast">നീല വെളിച്ച ഫിൽറ്റർ ഓൺ ചെയ്തു. ഷെഡ്യൂൾ ചെയ്ത അവസാനിക്കുന്ന സമയത്ത് അത് ഓട്ടോമാറ്റിക്കായി ഓഫ് ചെയ്യപ്പെടും.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s, നീല വെളിച്ച ഫിൽറ്റർ എന്നിവ ഒരേ സമയം ഉപയോഗിക്കാനാവില്ല. നീല വെളിച്ച ഫിൽറ്റർ അപ്രാപ്തമാക്കപ്പെടും.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">നീല വെളിച്ച ഫിൽറ്റർ ഓഫ് ചെയ്യണോ?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s ഉപയോഗിക്കുന്നതിന്, നീല വെളിച്ച ഫിൽറ്റർ ഓഫ് ചെയ്യേണ്ടതാവശ്യമാണ്.</string>
     <string name="blue_light_filter_dlg_turn_on_location">സൂര്യാസ്തമയം മുതൽ സൂര്യോദയം വരെ എന്നത് ഉപയോഗിക്കുന്നതിന്, ലൊക്കേഷൻ ഓൺ ചെയ്യേണ്ടതാവശ്യമാണ്.</string>
     <string name="dlg_turn_on">ഓൺ ചെയ്യുക</string>
     <string name="screen_resolution_title">സ്ക്രീൻ മിഴിവ്</string>
@@ -1462,7 +1473,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="outdoor_mode_summary_vzw">Outdoor mode will maximize screen brightness for best viewing in sunlight. If the screen is not in use, screen brightness will return to the previous setting in 15 minutes.</string>
     <string name="screen_zoom_and_font">സ്ക്രീൻ സൂം ചെയ്യലും ഫോണ്ടും</string>
     <string name="screen_zoom_easymode_desc">സ്ക്രീൻ സൂം ഉപയോഗിക്കുന്നതിന് ഈസി മോഡ് ഓഫ് ചെയ്യുക.</string>
-    <string name="intelligent_sleep_title">സ്മാര്‍ട്ട് സ്റ്റേ</string>
+    <string name="intelligent_sleep_title">സ്മാർട്ട് സ്റ്റേ</string>
     <string name="screen_mode_setting">സ്ക്രീന്‍ മോഡ്</string>
     <string name="screen_mode_summary">സ്ക്രീന്‍ മോഡ് തിരഞ്ഞെടുക്കുക.</string>
     <string name="automatic_brightness_message">സ്വയ തെളിച്ച ക്രമീകരണങ്ങള്‍ ആന്തരിക സ്ക്രീനിലേക്ക് മാത്രം പ്രയോഗിക്കുന്നു.</string>
@@ -1665,6 +1676,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">ഫാക്ടറി ഡിഫോൾട്ട് ക്രമീകരണങ്ങളിലേക്ക് പുനഃക്രമീകരിക്കുന്നതിന് ഉപകരണം സ്റ്റാർട്ട് ചെയ്യുന്നതിന് നിങ്ങൾക്ക് 1 ശ്രമം ശേഷിക്കുന്നുണ്ട്. ഫയലുകളും ഡൗൺലോഡ് ചെയ്ത ആപ്ലിക്കേഷനുകളും ഉൾപ്പെടെയുള്ള മുഴുവൻ ഡാറ്റയെയും ഇത് മായ്ക്കും.</string>
     <string name="crypt_keeper_failed_title_dec">ഡിക്രിപ്‌ഷന്‍ പരാജയപ്പെട്ടു.</string>
     <string name="crypt_keeper_failed_summary_dec">തടസം ഉണ്ടായതിനാല്‍ ഡീക്രിപ്ഷന്‍ പൂര്‍ത്തിയാക്കാന്‍ ആയില്ല. ഉപയോഗത്തിന്‌ മുമ്പ് ഫാക്ടറി ഡാറ്റാ പുനസജ്ജീകരണം നടത്തുക.</string>
+    <string name="crypt_keeper_set_screen_lock_type">സ്ക്രീന്‍ ലോക്ക് തരം ക്രമീകരിക്കുക</string>
     <string name="encryption_interstitial_message">"ഈ ഫോൺ ആരംഭിക്കുന്നതിന് മുമ്പ് നിങ്ങളുടെ ‌%s നൽകണമെന്ന് ആവശ്യപ്പെടുന്നത് വഴി ഫോണിനെ കുറേക്കൂടി സുരക്ഷിതമാക്കാൻ നിങ്ങൾക്കാവും. ഫോൺ നഷ്ടപ്പെടുകയാണെങ്കിൽ അല്ലെങ്കിൽ മോഷ്ടിക്കപ്പെടുകയാണെങ്കിൽ നിങ്ങളുടെ ഡാറ്റയെ സംരക്ഷിക്കാൻ ഇത് സഹായിക്കും. ഈമെയിൽ സമന്വയം പോലുള്ള സവിശേഷതകളിലേക്ക് ആക്സസ് ലഭിക്കുന്നതിന് ചില ആപ്ലിക്കേഷനുകൾക്ക് ഉപകരണ എൻക്രിപ്ഷൻ നയ പ്രകാരം സുരക്ഷിത സ്റ്റാർട്ടപ്പ് ആവശ്യമായി വന്നേക്കാം.
 
 ഫോൺ ആരംഭിക്കുന്നത് വരെ നിങ്ങൾക്ക് ഏതെങ്കിലും കോളുകളോ സന്ദേശങ്ങളോ അറിയിപ്പുകളോ ലഭിക്കില്ല, അലാറങ്ങൾ ശബ്ദിക്കുകയുമില്ല."</string>
@@ -1735,7 +1747,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="fingerprint_register_success">വിരലടയാളം ചേർത്തു</string>
     <string name="fingerprint_register_add_another_fingerprint">മറ്റൊരു വിരലടയാളം ചേർക്കണോ?</string>
     <string name="fingerprint_register_add">ചേര്‍ക്കുക</string>
-    <string name="fingerprint_register_done">ചെയ്‌തു</string>
+    <string name="fingerprint_register_done">ചെയ്തു</string>
     <string name="fingerprint_register_dex_guide_msg">നിങ്ങളുടെ ഫോണിൽ നിങ്ങളുടെ വിരലടയാളം രജിസ്റ്റർ ചെയ്യുക.</string>
     <string name="remove_mobile_keyboard">%s ഉപയോഗിക്കുന്നതിന്, ഉപകരണത്തെ കീബോർഡ് കവറിൽ നിന്ന് നീക്കംചെയ്യുക.</string>
     <string name="fingerprint_already_registered_title">വിരലടയാളം രജിസ്റ്റർ ചെയ്യാനാകില്ല</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">വിരലടയാളം ഉപയോഗിക്കുക</string>
     <string name="wifi_ap_close">അടയ്ക്കുക</string>
     <string name="fingerscanner_add_summary">നിങ്ങളുടെ വിരലടയാളങ്ങൾ ചേർക്കുക.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 വിരലടയാളം ചേർക്കപ്പെട്ടു.</string>
     <string name="fingerscanner_register_summary">%d വിരലടയാളങ്ങൾ ചേർക്കപ്പെട്ടു.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">ഒരു വിരലടയാളം ഉപയോഗിക്കുക അല്ലെങ്കിൽ നിലവിലെ PIN നൽകുക.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">ഒരു വിരലടയാളം ഉപയോഗിക്കുക അല്ലെങ്കിൽ നിലവിലെ പാറ്റേൺ വരയ്ക്കുക.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">സ്കീൻ ഓൺ ചെയ്യപ്പെടുന്ന ഉടനെ ആദ്യം സ്വൈപ് ചെയ്യാതെ നിങ്ങളുടെ മുഖം തിരിച്ചറിയൽ ഉപയോഗിച്ച് ഫോൺ അൺലോക്ക് ചെയ്യുക.</string>
     <string name="facelock_recognition_speed_up">വേഗത്തിലുള്ള തിരിച്ചറിയൽ</string>
     <string name="facelock_recognition_speed_up_summary">വേഗത്തിലുള്ള തിരിച്ചറിയലിന് ഓൺ ചെയ്യുക. സുരക്ഷ വർദ്ധിപ്പിച്ച് ഒരു ചിത്രമോ വീഡിയോയോ ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്യുന്നത് ദുഷ്കരമാക്കാൻ ഓഫ് ചെയ്യുക.</string>
+    <string name="facelock_samsungpass_summary">%s, പിന്തുണയ്ക്കുന്ന മറ്റ് ആപ്ലിക്കേഷനുകൾ എന്നിവ ഉപയോഗിച്ച് നിങ്ങളുടെ തിരിച്ചറിയൽ പരിശോധിച്ചുറപ്പിക്കുന്നതിന് മുഖം തിരിച്ചറിയൽ ഉപയോഗിക്കുക.</string>
     <string name="face_remove_face_popup_title">മുഖ ഡാറ്റ നീക്കംചെയ്യണോ?</string>
     <string name="face_remove_face_popup_message_1">നിങ്ങളുടെ മുഖം ഇനി തിരിച്ചറിയപ്പെടില്ല, മാത്രമല്ല ഫെയ്സ് ലോക്ക് ഓഫ് ചെയ്യപ്പെടും.</string>
     <string name="face_remove_face_popup_message_2">മുഖം തിരിച്ചറിയൽ ഉപയോഗിച്ചുള്ള സവിശേഷതകൾ ഓഫ് ചെയ്യപ്പെടും.</string>
@@ -2070,7 +2084,7 @@ You will also need it when:"</string>
     <string name="biometrics_backup_locktype_title">മിഴിപടല സുരക്ഷ സജ്ജീകരിക്കുക</string>
     <string name="biometrics_register_your_iris">നിങ്ങളുടെ മിഴിപടലങ്ങൾ രജിസ്റ്റർ ചെയ്യുക.</string>
     <string name="biometrics_backup_locktype_summary">ഉപകരണം അൺലോക്ക് ചെയ്യാനായി നിങ്ങളുടെ മിഴിപടലങ്ങൾ ഉപയോഗിക്കുന്നതിന്, നിങ്ങൾ ഒരു പാറ്റേൺ, PIN, അല്ലെങ്കിൽ പാസ്‌വേഡ് ക്രമീകരിച്ചിരിക്കണം.</string>
-    <string name="biometrics_backup_locktype_message">നിങ്ങളുടെ ഫോൺ അൺലോക്ക് ചെയ്യാനോ സുരക്ഷിത പരിശോധിച്ചുറപ്പിക്കലിനായോ മിഴിപടലങ്ങൾ ഉപയോഗിക്കാൻ, നിങ്ങൾ ചെയ്യേണ്ടത്:</string>
+    <string name="biometrics_backup_locktype_message">നിങ്ങളുടെ ഫോൺ അൺലോക്ക് ചെയ്യാനോ ആപ്ലിക്കേഷനുകളിൽ നിങ്ങളെ സ്വയം പരിശോധിച്ചുറപ്പിക്കാനോ നിങ്ങളുടെ മിഴിപടലങ്ങൾ ഉപയോഗിക്കുന്നതിന്, നിങ്ങൾ ചെയ്യേണ്ടത്:</string>
     <string name="iris_delete_popup_title">മിഴിപടല ഡാറ്റ നീക്കംചെയ്യണോ?</string>
     <string name="iris_delete_popup_message">മിഴിപടല ഡാറ്റ നീക്കംചെയ്യണോ?</string>
     <string name="iris_delete_popup_message_with_related_func">മിഴിപടലങ്ങൾ ഉപയോഗിക്കുന്ന സവിശേഷതകൾ ഓഫാകും.</string>
@@ -2078,7 +2092,7 @@ You will also need it when:"</string>
     <string name="iris_timeout_popop_title">പിന്നീട് വീണ്ടും ശ്രമിക്കുക</string>
     <string name="iris_timeout_popop_message">മിഴിപടലങ്ങൾ തിരിച്ചറിഞ്ഞില്ല. മിഴിപടല ക്യാമറ അഴുക്ക് പുരണ്ടതാകാം. സ്ക്രീനിന് മുകൾ ഭാഗം വൃത്തിയാക്കി വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="iris_timeout_popop_message_1">മിഴിപടല ക്യാമറയിൽ അഴുക്ക് പുരണ്ടതാകാം. സ്ക്രീനിന് മുകൾ ഭാഗം വൃത്തിയാക്കി വീണ്ടും ശ്രമിക്കുക.</string>
-    <string name="iris_proximity_restriction_popop_message">മിഴിപടലങ്ങൾ തിരിച്ചറിഞ്ഞില്ല. മുഖത്തിന് വളരെ അടുത്തായിരിക്കാം ഫോൺ അല്ലെങ്കിൽ പ്രോക്സിമിറ്റി സെൻസറിൽ അഴുക്കുണ്ടാകാം. സ്ക്രീനിന് മുകൾ ഭാഗം വൃത്തിയാക്കി വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="iris_proximity_restriction_popop_message">നിങ്ങളുടെ മുഖത്തുനിന്നും കൂടുതൽ അകലത്തിൽ ഫോൺ പിടിച്ച് വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="iris_proximity_restriction_popop_message_1">"പ്രോക്സിമിറ്റി സെൻസർ അഴുക്കുള്ളതാകാം.
 സ്ക്രീനിന് മുകളിലുള്ള ഭാഗം വൃത്തിയാക്കുക."</string>
     <string name="iris_try_again">വീണ്ടും ശ്രമിക്കുക</string>
@@ -2086,6 +2100,8 @@ You will also need it when:"</string>
     <string name="iris_failed_to_verity_identify">നിങ്ങളുടെ വ്യക്തിവിവരം പരിശോധിച്ചുറപ്പിക്കാനായില്ല</string>
     <string name="iris_failed_popup_description">നിങ്ങളുടെ മിഴിപടലങ്ങൾ പരിശോധിച്ചുറപ്പിക്കാനുള്ള %1$d ശ്രമങ്ങൾ നടന്നു. %2$d സെക്കന്‍റ് കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="iris_no_match">പൊരുത്തമൊന്നുമില്ല</string>
+    <string name="iris_eye_safety_msg">നിങ്ങളുടെ മിഴിപടലങ്ങളെ തിരിച്ചറിഞ്ഞില്ല.</string>
+    <string name="iris_timeout_msg">നിങ്ങളുടെ മിഴിപടലങ്ങളെ കണ്ടെത്തിയില്ല.</string>
     <string name="biometrics_registered">രജിസ്റ്റർ ചെയ്തു</string>
     <string name="iris_turn_on_toast_message">വിരലടയാള ലോക്കിന് പകരം മിഴിപടല ലോക്ക് പ്രാപ്തമാക്കി.</string>
     <string name="iris_wrong_backup_password">തെറ്റായ ബാക്കപ്പ് പാസ്‌വേഡ്</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">സ്റ്റാൻഡ്ബൈ സ്ക്രീനിൽ ഹോം ബട്ടണും ഒരു ക്ലോക്കുമോ അല്ലെങ്കിൽ വിവരങ്ങളോ കാണിക്കുക.</string>
     <string name="aod_feature_off_popup_title">%s ഓഫ് ചെയ്യണോ?</string>
     <string name="aod_feature_off_popup_description">%1$s ഉപയോഗിക്കുന്നതിന്, %2$s ഓഫ് ചെയ്യേണ്ടതാവശ്യമാണ്.</string>
+    <string name="aod_features_off_popup_title">മറ്റ് പ്രവർത്തനങ്ങൾ ഓഫ് ചെയ്യണോ?</string>
+    <string name="aod_features_off_popup_description">Always On Display ഉപയോഗിക്കുന്നതിന്, ഇനിപ്പറയുന്ന പ്രവർത്തനങ്ങൾ ഓഫ് ചെയ്യേണ്ടതാവശ്യമാണ്:</string>
     <string name="aod_features_off_popup_btn_ok">ഓഫ് ചെയ്യുക</string>
     <string name="aod_disable_by_negative_colors">നെഗറ്റീവ് നിറങ്ങൾ ഓൺ ചെയ്തിരിക്കുന്ന സമയത്ത് ഉപയോഗിക്കാനാവില്ല.</string>
     <string name="aod_disable_by_powersaving_mode">പവർ സേവിംഗ് മോഡ് ഓൺ ചെയ്തിരിക്കുന്ന സമയത്ത് ഉപയോഗിക്കാനാവില്ല.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">നിറമുള്ള തുള്ളികൾ</string>
     <string name="lock_screen_show_information_summary_wifi_only">ലോക്ക് സ്ക്രീനിൽ ഉപകരണ ഉടമയുടെ വിവരമോ ആപ്ലിക്കേഷൻ എളുപ്പവഴികളോ കാണിക്കുക.</string>
     <string name="lock_screen_sview_show_information_summary">ലോക്ക് സ്ക്രീനിലും S View വിൻഡോ മുഖേനയും ഇരട്ട ക്ലോക്കോ ഉപകരണ ഉടമയുടെ വിവരമോ ആപ്ലിക്കേഷൻ എളുപ്പവഴികളോ കാണിക്കുക.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">റോമിംഗ് ക്ലോക്കോ ഫോൺ ഉടമയുടെ സമ്പർക്ക വിവരങ്ങളോ ലോക്ക് സ്ക്രീനിലും S View വിൻഡോ മുഖേനയും കാണിക്കുക.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">ലോക്ക് സ്ക്രീനിലും S View വിൻഡോ മുഖേനയും കാണിക്കാനുള്ള ആപ്ലിക്കേഷൻ എളുപ്പവഴികൾ തിരഞ്ഞെടുക്കുക.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">അറിയിപ്പുകൾ ലോക്ക് സ്ക്രീനിലും S View വിൻഡോ മുഖേനയും കാണിക്കുക.</string>
     <string name="lock_screen_and_cover_show_information_summary">ലോക്ക് സ്ക്രീനിലും സുതാര്യ കാഴ്ചാ കവർ വഴിയും ഇരട്ട ക്ലോക്ക് കാണിക്കുക.</string>
     <string name="lock_screen_secured_lock_settings_title">സുരക്ഷിത ലോക്ക് ക്രമീകരണങ്ങൾ</string>
     <string name="lock_screen_secured_lock_settings_summary">സ്വയം ലോക്ക് ചെയ്യുക, പവർ കീ ഉപയോഗിച്ച് തൽക്ഷണം ലോക്ക് ചെയ്യുക തുടങ്ങിയ നിങ്ങളുടെ സുരക്ഷിത ലോക്ക് പ്രവർത്തനങ്ങൾ ക്രമീകരിക്കുക.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">ഹോം സമയ മേഖല</string>
     <string name="contact_info_settings_title">കോൺടാക്ട് വിവരങ്ങൾ</string>
     <string name="show_contact_info_on_lockscreen_label">ലോക്ക് സ്ക്രീനിൽ നിങ്ങളുടെ ഫോൺ നമ്പറോ ഈമെയിൽ വിലാസമോ പോലുള്ള വിവരങ്ങൾ കാണിക്കുക.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">നിങ്ങളുടെ ഫോൺ നമ്പർ അല്ലെങ്കിൽ ഈമെയിൽ വിലാസം പോലുള്ള വിവരങ്ങൾ ലോക്ക് സ്ക്രീനിലും Always On Display-യിലും കാണിക്കുക.</string>
     <string name="unlock_effect">അണ്‍ലോക്ക് ഇഫെക്റ്റ്</string>
     <string name="walking_mate_title">പെഡോമീറ്റർ</string>
     <string name="help_text_title">സഹായ ടെക്സ്റ്റ്‌</string>
@@ -2415,7 +2437,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="toast_set_lock_pattern">നിങ്ങൾ പാറ്റേൺ മറക്കുകയാണെങ്കിൽ എല്ലാ ഡാറ്റയും മായ്ക്കപ്പെടുകയും ഫോൺ പുനഃക്രമീകരിക്കപ്പെടുകയും ചെയ്യും.</string>
     <string name="toast_set_lock_password">നിങ്ങൾ പാസ്‌വേഡ് മറക്കുകയാണെങ്കിൽ മുഴുവൻ ഡാറ്റയും മായ്ക്കും, ഫോൺ പുനരാരംഭിക്കപ്പെടും.</string>
     <string name="toast_set_lock_pin">നിങ്ങൾ PIN മറക്കുകയാണെങ്കിൽ മുഴുവൻ ഡാറ്റയും മായ്ക്കും, ഫോൺ പുനരാരംഭിക്കപ്പെടും.</string>
-    <string name="chooselock_warning_text">ഈ %s ഓർമ്മിക്കുക. ഉപകരണം പുനരാരംഭിച്ചു കഴിഞ്ഞാൽ ഇത് ആവശ്യമായിവരും.</string>
+    <string name="chooselock_warning_text">ഈ %s ഓർമ്മിക്കുക. ഫോൺ പുനരാരംഭിച്ചു കഴിഞ്ഞാൽ ഇത് ആവശ്യമായിവരും.</string>
     <string name="lockpassword_password_exists_history">പാസ്‌വേഡ് മുമ്പ് ഉപയോഗിച്ചിട്ടുണ്ട്. പുതിയ പാസ്‌വേഡ് നല്‍കുക.</string>
     <string name="lockpassword_pin_repeating_nums">PIN-ല്‍ ആവര്‍ത്തന നമ്പറുകള്‍ ഉണ്ടാകരുത്.</string>
     <string name="lockpassword_pin_sequential_nums">PIN-ല്‍ ക്രമത്തിലുള്ള നമ്പറുകള്‍ ഉണ്ടാകരുത്.</string>
@@ -2533,6 +2555,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="data_usage_disable_mobile_warning_lgt">"നിങ്ങൾ Wi-Fi ഉപയോഗിക്കാത്തപക്ഷം, ഇന്‍റർനെറ്റ്, ഈമെയിൽ, അല്ലെങ്കിൽ ഒരു ഡാറ്റ കണക്ഷന്‍ ആവശ്യമായ മറ്റ് ആപ്ലിക്കേഷനുകൾ എന്നിവയെ മേലിൽ നിങ്ങൾക്ക് ഉപയോഗിക്കാനാവില്ല.
 
 മൊബൈൽ ഡാറ്റ ഓഫ് ചെയ്യപ്പെടും."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">ഒരു Wi-Fi നെറ്റ്‌വര്‍ക്കിലേക്ക് നിങ്ങൾ ബന്ധിപ്പിക്കാത്തപക്ഷം, ഇന്‍റർനെറ്റ്, ഈമെയിൽ, അല്ലെങ്കിൽ ഒരു നെറ്റ്‌വർക്ക് കണക്ഷന്‍ ആവശ്യമായ മറ്റ് ആപ്ലിക്കേഷനുകൾ എന്നിവ നിങ്ങൾക്ക് ഉപയോഗിക്കാനാവില്ല.</string>
@@ -2691,10 +2716,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">ഇച്ഛാനുസൃത വോളിയം പരിധി</string>
     <string name="volume_limiter_descryption">പരമാവധി മീഡിയ വോളിയം പരിധി ഉപയോഗിച്ച് നിങ്ങളുടെ കാതുകളെ സംരക്ഷിക്കുക. ഈ പരിധി പ്രയോഗിക്കപ്പെടുന്നത് ഹെഡ്ഫോണുകളോ ബ്ലൂടൂത്ത് ഓഡിയോ ഉപകരണങ്ങളോ ഉപയോഗിക്കുമ്പോൾ മാത്രമാണ്.</string>
     <string name="multi_sound_title">വേറിട്ട ആപ്ലിക്കേഷൻ ശബ്ദം</string>
-    <string name="multi_sound_summary">നിങ്ങളുടെ ഉപകരണത്തിൽ ശേഷിക്കുന്ന ശബ്ദങ്ങളിൽ നിന്ന് വിഭിന്നമായി ഒരു ആപ്ലിക്കേഷനിൽ നിന്നുള്ള ശബ്ദം ഒരു സ്പീക്കറിലോ ഹെഡ്ഫോണുകളിലോ പ്ലേ ചെയ്യുക.</string>
-    <string name="multi_sound_descryption">"മറ്റ് ആപ്ലിക്കേഷനുകളിൽ നിന്നുള്ള മീഡിയ ശബ്ദത്തിൽ നിന്ന് വിഭിന്നമായി ഒരു ആപ്ലിക്കേഷനിൽ നിന്നുള്ള മീഡിയ ശബ്ദം ഒരു സ്പീക്കറിലോ ഹെഡ്ഫോണുകളിലോ പ്ലേ ചെയ്യുക.
+    <string name="multi_sound_summary">ഒരു ആപ്ലിക്കേഷനിൽ നിന്നുള്ള മീഡിയ ശബ്ദത്തെ നിങ്ങളുടെ ഫോണിന്‍റെ പ്രധാന ഔട്ട്പുട്ട് ഉപകരണത്തിൽ നിന്ന് വിഭിന്നമായ ഒരു ഓഡിയോ ഉപകരണത്തിൽ പ്ലേ ചെയ്യുക.</string>
+    <string name="multi_sound_descryption">"ഒരു ആപ്ലിക്കേഷനിൽ നിന്നുള്ള മീഡിയ ശബ്ദത്തെ നിങ്ങളുടെ ഫോണിന്‍റെ പ്രധാന ഔട്ട്പുട്ട് ഉപകരണത്തിൽ നിന്ന് വിഭിന്നമായ ഒരു ഓഡിയോ ഉപകരണത്തിൽ പ്ലേ ചെയ്യുക. ഇത് ഓൺ ചെയ്യുന്നതിന് ഒരു ആപ്ലിക്കേഷനും ഒരു ഓഡിയോയും തിരഞ്ഞെടുക്കുക.
 
-നിങ്ങൾ ഒരു ബ്ലൂടൂത്ത് ഓഡിയോ ഉപകരണം തിരഞ്ഞെടുക്കുകയാണെങ്കിൽ, ബ്ലൂടൂത്ത് ഉപകരണം ബന്ധിപ്പിക്കപ്പെട്ടില്ലെങ്കിൽ ഡിഫോൾട്ട് ഓഡിയോ ഉപകരണത്തിൽ ശബ്ദം പ്ലേ ചെയ്യപ്പെടും."</string>
+നിങ്ങൾ തിരഞ്ഞെടുക്കുന്ന ഓഡിയോ ഉപകരണം നിങ്ങളുടെ ഫോണിന്‍റെ പ്രധാന ഓഡിയോ ഔട്ട്പുട്ട് ഉപകരണത്തിൽ നിന്ന് വ്യത്യസ്തമാകുമ്പോൾ മാത്രമേ വിഭിന്നമായ ആപ്ലിക്കേഷൻ ശബ്ദം പ്രവർത്തിക്കൂ.
+
+ദ്രുത ക്രമീകരണ പാനലിൽ നിങ്ങളുടെ ഫോണിന്‍റെ പ്രധാന ഓഡിയോ ഔട്ട്പുട്ട് ഉപകരണത്തെ നിങ്ങൾക്ക് മാറ്റാവുന്നതാണ്. ഓഡിയോ ഔട്ട്പുട്ട് കാണിക്കുന്നില്ലെങ്കിൽ, Samsung Connect > ക്രമീകരണങ്ങൾ > Samsung Connect പാനൽ എന്നതിൽ അത് ഓൺ ചെയ്യുക."</string>
     <string name="set_application_title">ആപ്ലിക്കേഷൻ</string>
     <string name="set_application_summary">ഒരു ആപ്ലിക്കേഷനെ അതിന്‍റെ ശബ്ദം വേറിട്ട ഒരു ഓഡിയോ ഉപകരണത്തിൽ പ്ലേ ചെയ്യുന്നതിന് തിരഞ്ഞെടുക്കുക.</string>
     <string name="set_application_descryption">താഴെയുള്ള ഒരു മൾട്ടിമീഡിയ ആപ്ലിക്കേഷനെ അതിന്‍റെ ശബ്ദം വേറിട്ട ഒരു ഓഡിയോ ഉപകരണത്തിൽ പ്ലേ ചെയ്യുന്നതിന് തിരഞ്ഞെടുക്കുക.</string>
@@ -2705,9 +2732,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="multi_sound_popup_msg">%s ഓൺ ചെയ്യുന്നതിന്, നിങ്ങൾ ഒരു ആപ്ലിക്കേഷനും ഓഡിയോ ഉപകരണവും തിരഞ്ഞെടുക്കേണ്ടതാവശ്യമാണ്.</string>
     <string name="multi_sound_network_msg">ലഭ്യമായ ആപ്ലിക്കേഷനുകൾക്കായി പരിശോധിക്കുന്നതിന്, നിങ്ങളുടെ ഫോൺ ഒരു നെറ്റ്‌വർക്കിലേക്ക് ബന്ധിപ്പിക്കേണ്ടതാവശ്യമാണ്. നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ക്രമീകരണങ്ങൾ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="multi_sound_wifi_msg">ലഭ്യമായ ആപ്ലിക്കേഷനുകൾക്കായി പരിശോധിക്കുന്നതിന്, നിങ്ങളുടെ ഫോൺ ഒരു നെറ്റ്‌വർക്കിലേക്ക് ബന്ധിപ്പിക്കേണ്ടതാവശ്യമാണ്. മൊബൈൽ ഡാറ്റ ഉപയോഗിക്കുന്നത് അധിക നിരക്കുകൾക്ക് ഇടവരുത്തിയേക്കാം.</string>
+    <string name="multi_sound_add_application">ആപ്ലിക്കേഷന്‍ ചേര്‍ക്കുക</string>
     <string name="dlg_btn_select">തിരഞ്ഞെ.</string>
-    <string name="audio_device_type_descryption">ഈ ആപ്ലിക്കേഷന് വേണ്ടി നിങ്ങൾ ഉപയോഗിക്കാനാഗ്രഹിക്കുന്ന ഓഡിയോ ഉപകരണം ഏതാണെന്ന് തിരഞ്ഞെടുക്കുക. ബ്ലൂടൂത്ത് ഉപകരണങ്ങൾ ലഭ്യമാകുന്നത് അവ ബന്ധിപ്പിക്കപ്പെടുന്ന സമയത്ത് മാത്രമാണ്.</string>
+    <string name="audio_device_type_descryption">തിരഞ്ഞെടുത്ത ആപ്ലിക്കേഷന് വേണ്ടി നിങ്ങൾ ഉപയോഗിക്കാനാഗ്രഹിക്കുന്ന ഓഡിയോ ഉപകരണം ഏതാണെന്ന് തിരഞ്ഞെടുക്കുക. ബ്ലൂടൂത്ത് ഉപകരണങ്ങൾ ലഭ്യമാകുന്നത് അവ ബന്ധിപ്പിക്കപ്പെടുന്ന സമയത്ത് മാത്രമാണ്.</string>
     <string name="my_phone_title">ഫോൺ</string>
+    <string name="my_phone_summary">സ്പീക്കർ/ഹെഡ്ഫോണുകൾ/USB ഓഡിയോ ഉപകരണം</string>
     <string name="bluetooth_device_title">ബ്ലൂടൂത്ത് ഉപകരണം</string>
     <string name="no_connected_devices">ബന്ധിപ്പിച്ച ഉപകരണങ്ങളൊന്നുമില്ല</string>
     <string name="two_hours">2 മണിക്കൂർ</string>
@@ -2715,7 +2744,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="stop_setup_popup_msg">നിങ്ങൾ മാറ്റിയ എതെങ്കിലും ക്രമീകരണങ്ങൾ പ്രയോഗിക്കപ്പെടില്ല.</string>
     <string name="app_turned_on">%s ഓണാക്കി.</string>
     <string name="force_touch_title">ദൃഢ സ്പർശന വൈബ്രേഷൻ പ്രതികരണം</string>
-    <string name="volume_key_control_title">ഡിഫോൾട്ട് വോളിയം കീ നിയന്ത്രണം</string>
+    <string name="volume_key_control_title">മീഡിയയ്ക്ക് വോളിയം കീകൾ ഉപയോഗിക്കുക</string>
+    <string name="volume_key_control_summary">നിങ്ങൾ വോളിയം കീകൾ അമർത്തുമ്പോൾ മീഡിയ വോളിയം നിയന്ത്രിക്കുക.</string>
     <string name="sound_mode">ശബ്ദ മോഡ്</string>
     <string name="sound_mode_vibrate">വൈബ്രേഷന്‍</string>
     <string name="sound_mode_mute">നിശബ്ദം</string>
@@ -2929,14 +2959,13 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="text_biometrics_title_enterprise">നിങ്ങൾ %1$s തിരഞ്ഞെടുക്കുമ്പോൾ, %2$s അൺലോക്ക് ചെയ്യാനുള്ള ഒരു രീതി എന്ന നിലയിൽ ബയോമെട്രിക്ക്സിനെ പിന്തുണയ്ക്കില്ല.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s അൺലോക്ക് ചെയ്യാനുള്ള ഒരു രീതി എന്ന നിലയിൽ വിരലടയാളങ്ങളെ %1$s പിന്തുണയ്ക്കുന്നില്ല.</string>
     <string name="edge_feeds_title">Edge ഫീഡുകൾ</string>
-    <string name="screensaver_settings_summary">"ഉപകരണം ഡോക്ക് ചെയ്യുന്ന കൂടാതെ/അല്ലെങ്കിൽ ചാർജ്ജ് ചെയ്യുന്ന സമയത്ത് സംഭവിക്കുന്നതെന്തും നിയന്ത്രിക്കുക. സ്ക്രീൻ സമയം കഴിഞ്ഞാൽ സ്ക്രീൻസേവർ കാണിക്കപ്പെടും.
-
-ഈ പ്രവർത്തനം ഡേഡ്രീം എന്നും അറിയപ്പെടുന്നു."</string>
-    <string name="screensaver_settings_summary_wo_dock">നിങ്ങളുടെ ഫോൺ ചാർജ്ജ് ചെയ്യുന്ന സമയത്ത് സ്ക്രീൻ ഓട്ടോമാറ്റിക്കായി ഓഫായിക്കഴിഞ്ഞാൽ ഒരു സ്ക്രീൻസേവർ കാണിക്കുക.</string>
+    <string name="screensaver_settings_summary">നിങ്ങളുടെ ഫോൺ ചാർജ്ജ് ചെയ്യുന്ന സമയത്ത് സ്ക്രീൻ ഓട്ടോമാറ്റിക്കായി ഓഫായിക്കഴിഞ്ഞാൽ ഒരു സ്ക്രീൻസേവർ കാണിക്കുക.</string>
+    <string name="screensaver_settings_summary_wo_dock">നിങ്ങളുടെ ഫോൺ ചാർജ്ജ് ചെയ്യുന്ന അല്ലെങ്കിൽ ഡോക്ക് ചെയ്യുന്ന സമയത്ത് സ്ക്രീൻ ഓട്ടോമാറ്റിക്കായി ഓഫായിക്കഴിഞ്ഞാൽ ഒരു സ്ക്രീൻസേവർ കാണിക്കുക.</string>
     <string name="apn_already_exists">ഇതിനകം നിലവിലുണ്ട്.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">പോർട്ട് നമ്പർ %1$d നും %2$d നും ഇടയിലുള്ളതായിരിക്കണം.</string>
     <string name="apn_restore_warning">നിങ്ങൾ ചേർത്തിട്ടുള്ള എല്ലാ APN-കളും നീക്കംചെയ്യപ്പെടും. മറ്റ് APN-കൾ അവയുടെ ഡിഫോൾട്ട് ക്രമീകരണങ്ങളിലേക്ക് പുനഃക്രമീകരിക്കപ്പെടും.</string>
+    <string name="apn_restore_title">APN ക്രമീകരണങ്ങൾ പുനഃക്രമീകരിക്കണോ?</string>
     <string name="master_clear_desc_google_account">Google അക്കൗണ്ട്</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2948,7 +2977,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="sound_balance_summary">ഹെഡ്ഫോണുകളുടെ ഇടത്, വലത് ശബ്ദ സംതുലനം ക്രമപ്പെടുത്തുക.</string>
     <string name="backup_samsung_account_title">ബാക്ക് അപ്പ്‌ ക്രമീകരണങ്ങള്‍</string>
     <string name="restore_samsung_account_title">പുനസംഭരിക്കുക</string>
-    <string name="auto_restart_header">ഉപകരണ മാനേജ്‌മെന്‍റ്</string>
+    <string name="auto_restart_header">ഫോൺ മാനേജ്മെന്‍റ്</string>
+    <string name="auto_restart_header_tablet">ടാബ്‌ലറ്റ് മാനേജ്‌മെന്‍റ്</string>
     <string name="auto_restart_title">സ്വയം പുനരാരംഭിക്കൽ</string>
     <string name="switch_turn_on_text">ഓണ്‍ ചെയ്യുക</string>
     <string name="switch_turn_off_text">ഓഫ് ചെയ്യുക</string>
@@ -3071,6 +3101,14 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="tether_settings_summary_usb_bt">നിങ്ങളുടെ ഉപകരണത്തിന്‍റെ മൊബൈല്‍ ഡാറ്റാ കണക്ഷന്‍ USB അല്ലെങ്കില്‍ ബ്ലൂടൂത്ത് വഴി പങ്കിടുക</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">സ്വീകരിക്കുക</string>
+    <string name="bluetooth_tethering_off_subtext_phone">ബ്ലൂടൂത്ത് ഉപയോഗിച്ച് നിങ്ങളുടെ ഫോണിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ പങ്കിടുക.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">ബ്ലൂടൂത്ത് ഉപയോഗിച്ച് നിങ്ങളുടെ ടാബ്‌ലറ്റിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ പങ്കിടുക.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">ഈ ഫോണിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ പങ്കിടാൻ തയ്യാർ.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">ഈ ടാബ്‌ലറ്റിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ പങ്കിടാൻ തയ്യാർ.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">ഈ ഫോണിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ 1 ഉപകരണവുമായി പങ്കിടുന്നു.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">ഈ ടാബ്‌ലറ്റിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ 1 ഉപകരണവുമായി പങ്കിടുന്നു.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">ഈ ഫോണിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ %d ഉപകരണങ്ങളുമായി പങ്കിടുന്നു.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">ഈ ടാബ്‌ലറ്റിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ %d ഉപകരണങ്ങളുമായി പങ്കിടുന്നു.</string>
     <string name="onehand_settings_title">ഒറ്റക്കൈ മോഡ്</string>
     <string name="onehand_settings_text_1">ഡിസ്പ്ലേ വലുപ്പം കുറയ്ക്കുന്നതിന് സ്ക്രീനിന്‍റെ രണ്ടിലൊരു താഴ്ഭാഗ അരുകിൽ നിന്ന് കോണോടുകോണായി മുകളിലേക്ക് സ്വൈപ് ചെയ്യുക.</string>
     <string name="onehand_settings_text_2">ഡിസ്പ്ലേയുടെ വലുപ്പം കുറയ്ക്കുന്നതിന് ഹോം ബട്ടൺ ദ്രുതഗതിയിൽ മൂന്ന് തവണ അമർത്തുക.</string>
@@ -3398,12 +3436,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">ഓഫ്</string>
     <string name="wifi_or_mobile_network">Wi-Fi അല്ലെങ്കില്‍ മൊബൈല്‍ നെറ്റ്‌വര്‍ക്കുകള്‍</string>
     <string name="wifi_network_only">Wi-Fi നെറ്റ്‌വര്‍ക്ക് മാത്രം</string>
+    <string name="wifi_adps_title">Wi-Fi പവർ സേവിംഗ് മോഡ്</string>
+    <string name="wifi_adps_summary">Wi-Fi ട്രാഫിക്ക് മാതൃകകൾ വിശകലനം ചെയ്ത് ബാറ്ററി ഉപയോഗം കുറയ്ക്കുക.</string>
     <string name="wifi_auto_reconnect">ഓട്ടോ റീകണക്റ്റ്</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Wi-Fi ഓണ്‍ ചെയ്യുന്നതിലൂടെ, മൊബൈല്‍ ഹോട്ട്സ്പോട്ട് അപ്രാപ്തമാക്കപ്പെടും. തുടരണോ?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് സജീവമായിരിക്കുമ്പോൾ Wi-Fi ഓഫാണ്. Wi-Fi ഓൺ ചെയ്യുന്നതിന്, മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് ഓഫാക്കുക.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് സജീവമായിരിക്കുമ്പോൾ Wi-Fi ഓഫ് ചെയ്യപ്പെടുന്നു. Wi-Fi ഓൺ ചെയ്യുന്നതിന്, മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് ഓഫ് ചെയ്യക.</string>
+    <string name="wifi_enable_warning_mtr">മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് സജീവമായിരിക്കുമ്പോൾ Wi-Fi ഓഫ് ചെയ്യപ്പെടുന്നു. Wi-Fi ഓൺ ചെയ്യുന്നതിന്, ദയവായി മൊബൈൽ ഹോട്ട്‌സ്പോട്ട് ഓഫ് ചെയ്യക.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">Wi-Fi ഓൺ ചെയ്യുന്നത് മൊബൈൽ ഹോട്ട്‌സ്പോട്ടിനെ അപ്രാപ്തമാക്കും.</string>
     <string name="wifi_control_history_title">Wi-Fi നിയന്ത്രണ ചരിത്രം</string>
@@ -3603,6 +3643,10 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_wps_pin_client_mobileap">PIN %1$s ഉപയോഗിച്ച് ക്ലയന്‍റിലേക്ക് ബന്ധിപ്പിക്കുന്നു. സജ്ജീകരണം പൂർത്തിയാകാൻ %2$d മിനിറ്റ് വരെ എടുക്കാം.</string>
     <string name="wifi_wps_complete_mobileap">ഉപകരണത്തെ ഇപ്പോൾ നിങ്ങളുടെ ഉപകരണത്തിലേക്ക് ബന്ധിപ്പിച്ചിട്ടുണ്ട്.</string>
     <string name="wifi_ap_disconnect_warn">ഉപകരണം വിച്ഛേദിക്കുക</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">നിലവിൽ ബന്ധിപ്പിച്ചിരിക്കുന്ന എല്ലാ ഉപകരണങ്ങളും മൊബൈൽ ഹോട്ട്‌സ്പോട്ടിൽ നിന്ന് വിച്ഛേദിക്കപ്പെടും.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">നിലവിൽ ബന്ധിപ്പിച്ചിരിക്കുന്ന എല്ലാ ഉപകരണങ്ങളും മൊബൈൽ ഹോട്ട്‌സ്പോട്ടിൽ നിന്ന് വിച്ഛേദിക്കപ്പെടും.</string>
     <string name="wifi_ap_warn_max_whitelist">അനുവദിക്കപ്പെട്ട ഉപകരണങ്ങളുടെ പരമാവധി എണ്ണത്തിൽ (%d) എത്തി.</string>
     <string name="wifiap_one_item_deleted">1 ഇനം ഡിലീറ്റ് ചെയ്യപ്പെടും.</string>
@@ -3738,6 +3782,8 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_first_time_configuration">ആദ്യ തവണ ഹോട്ട്‌സ്‌പോട്ട് കോൺഫിഗറേഷൻ</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">ശരിയായ PIN നൽകുക.</string>
+    <string name="open_mobileap_warning">മൊബൈൽ AP ഭദ്രമല്ല.</string>
+    <string name="hidden_mobileap_warning">ഉപയോക്താവ് മറയ്ക്കപ്പെട്ട ഒരു SSID ക്രമീകരിക്കുമ്പോൾ WPS അപ്രാപ്തമാക്കപ്പെടും.</string>
     <string name="wifi_ssid_max_byte_error">പരമാവധി എണ്ണം അക്ഷരങ്ങളിലെത്തി.</string>
     <string name="tethering_attention_title">ശ്രദ്ധിക്കുക</string>
     <string name="wfd_select_device">ഉപകരണം തിരഞ്ഞെടുക്കുക</string>
@@ -3968,6 +4014,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">സമന്വയം</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">നിങ്ങൾ ഉപയോഗിക്കുന്ന മറ്റ് ആപ്ലിക്കേഷനുകളുടെ മുകൾഭാഗത്ത് വസ്തുക്കളെ കാണിക്കാൻ ഈ അനുമതി ഒരു ആപ്ലിക്കേഷനെ അനുവദിക്കുന്നു. നിങ്ങൾ മറ്റ് ആപ്ലിക്കേഷനുകൾ ഉപയോഗിക്കുന്നതിനെ ഇത് തടസപ്പെടുത്തിയേക്കാം.</string>
+    <string name="write_settings_body_description">ബ്ലൂടൂത്ത് ഓൺ അല്ലെങ്കിൽ ഓഫ് ചെയ്യൽ പോലുള്ള സിസ്റ്റം ക്രമീകരണങ്ങളിൽ മാറ്റം വരുത്താൻ ഈ ആപ്ലിക്കേഷനെ അനുവദിക്കുക.</string>
+    <string name="reset_app_preferences_desc1">ഇവയ്ക്കുള്ള നിങ്ങളുടെ എല്ലാ മുൻഗണനകളെയും ഇത് പുനഃക്രമീകരിക്കും:</string>
+    <string name="reset_app_preferences_desc2">അപ്രാപ്തമാക്കിയ ആപ്ലിക്കേഷനുകൾ</string>
+    <string name="reset_app_preferences_desc3">ആപ്ലിക്കേഷനുകൾക്കുള്ള അറിയിപ്പ് നിയന്ത്രണങ്ങൾ</string>
+    <string name="reset_app_preferences_desc4">ഡിഫോൾട്ട് ആപ്ലിക്കേഷനുകൾ</string>
+    <string name="reset_app_preferences_desc5">ആപ്ലിക്കേഷനുകൾക്കുള്ള പശ്ചാത്തല ഡാറ്റാ നിയന്ത്രണങ്ങൾ</string>
+    <string name="reset_app_preferences_desc6">അനുമതി ‌നിയന്ത്രണങ്ങൾ</string>
+    <string name="reset_app_preferences_desc7">നിലവിലെ ആപ്ലിക്കേഷൻ ഡാറ്റ നിങ്ങൾക്ക് നഷ്ടമാകില്ല.</string>
     <string name="knox_security_mode_title">Knox സുരക്ഷ</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">സ്വകാര്യതാ നയം</string>
@@ -3982,6 +4036,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">നിങ്ങളുടെ വ്യക്തിഗത വിവരങ്ങളും Samsung account വിശദാംശങ്ങളും മാനേജ് ചെയ്യുക.</string>
     <string name="my_profile_summary_jpn">നിങ്ങളുടെ വ്യക്തിഗത വിവരങ്ങളും Galaxy account വിശദാംശങ്ങളും മാനേജ് ചെയ്യുക.</string>
     <string name="arbitration_agreement">തീർപ്പാക്കൽ ഉടമ്പടി</string>
+    <string name="activation_title">സജീവമാക്കൽ സ്റ്റാറ്റസ്</string>
+    <string name="activation_summary">%1$s സജീവമാക്കിയത്. കൂടുതല്‍ വിവരങ്ങള്‍ക്ക്, %2$s സന്ദര്‍ശിക്കുക.</string>
+    <string name="wifi_ap_pmf_on">PMF ഓൺ</string>
+    <string name="edit_event_start_short">ആരംഭം</string>
+    <string name="edit_event_end_short">അവസാനം</string>
+    <string name="select_date_to_view">കാണുന്നതിന് തീയതി തിരഞ്ഞെടുക്കുക</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">അതെ</string>
     <string name="no">ഇല്ല</string>
     <string name="create">സൃ..</string>
@@ -5474,7 +5535,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="app_notification_block_title">അറിയിപ്പുകൾ അനുവദിക്കുക</string>
     <string name="app_notification_block_summary">അറിയിപ്പ് സന്ദേശങ്ങൾ, ശബ്ദങ്ങൾ, വൈബ്രേഷൻ എന്നിവ ഉൾപ്പെടെയുള്ള അറിയിപ്പുകൾ ഈ ആപ്ലിക്കേഷനിൽ നിന്ന് സ്വീകരിക്കുക.</string>
     <string name="app_notification_override_dnd_title">മുൻഗണനയായി ക്രമീകരിക്കുക</string>
-    <string name="app_notification_override_dnd_summary">ശല്യപ്പെടുത്തരുത് പ്രാപ്തമാക്കിയിരിക്കുന്ന സമയത്ത് ഈ ആപ്ലിക്കേഷനിൽ നിന്നുള്ള അറിയിപ്പുകളെ ശബ്ദിക്കാൻ അനുവദിച്ച് സ്ക്രീൻ ഓൺ ചെയ്യുക.</string>
+    <string name="app_notification_override_dnd_summary">ശല്യപ്പെടുത്തരുത് മോഡ് പ്രാപ്തമാക്കിയിരിക്കുന്ന സമയത്ത് അറിയിപ്പ് പാനലിന് മുകൾഭാഗത്ത് അറിയിപ്പുകൾ കാണിക്കുകയും അവയെ അനുവദനീയ പട്ടികയിൽ ഉൾപ്പെടുത്തുകയും ചെയ്യുക.</string>
     <string name="app_notification_visibility_override_title">ലോക്ക് സ്ക്രീനിൽ</string>
     <string name="app_notifications_dialog_done">ചെയ്‌തു</string>
     <string name="zen_mode_choose_rule_type">നിയമ തരം തിരഞ്ഞെടുക്കുക</string>
@@ -5511,6 +5572,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="restr_pin_enter_admin_pin">അഡ്മിനിസ്ട്രേറ്റർ PIN നൽകുക</string>
     <string name="switch_on_text">ഓണ്‍</string>
     <string name="switch_off_text">ഓഫ്</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">ഈ വർക്ക് പ്രൊഫൈൽ മാനേജ് ചെയ്യുന്നത്:</string>
     <string name="managing_admin">%s മാനേജ് ചെയ്യുന്നത്</string>
     <string name="display_auto_rotate_title">സ്ക്രീന്‍ തിരിക്കല്‍</string>
     <string name="display_auto_rotate_rotate">സ്ക്രീൻ ഉള്ളടക്കം തിരിക്കുക</string>
@@ -5547,9 +5609,9 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="encrypt_talkback_dialog_require_pin">PIN ആവശ്യമാണ്</string>
     <string name="encrypt_talkback_dialog_require_pattern">പാറ്റേൺ ആവശ്യമാണ്</string>
     <string name="encrypt_talkback_dialog_require_password">പാസ്‌വേഡ് ആവശ്യമാണ്</string>
-    <string name="encrypt_talkback_dialog_message_pin">ഉപകരണ പവർ ഓൺ ചെയ്ത ശേഷം നിങ്ങളുടെ PIN നിങ്ങൾ നൽകുമ്പോൾ, %1$s പോലുള്ള ആക്സസിബിലിറ്റി പ്രവർത്തനങ്ങൾ താൽക്കാലികമായി അപ്രാപ്തമാക്കപ്പെടും.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">ഉപകരണ പവർ ഓൺ ചെയ്ത ശേഷം നിങ്ങളുടെ മാതൃക നിങ്ങൾ വരയ്ക്കുമ്പോൾ, %1$s പോലുള്ള ആക്സസിബിലിറ്റി പ്രവർത്തനങ്ങൾ താൽക്കാലികമായി അപ്രാപ്തമാക്കപ്പെടും.</string>
-    <string name="encrypt_talkback_dialog_message_password">ഉപകരണ പവർ ഓൺ ചെയ്ത ശേഷം നിങ്ങളുടെ പാസ്‌വേഡ് നിങ്ങൾ നൽകുമ്പോൾ, %1$s പോലുള്ള ആക്സസിബിലിറ്റി പ്രവർത്തനങ്ങൾ താൽക്കാലികമായി അപ്രാപ്തമാക്കപ്പെടും.</string>
+    <string name="encrypt_talkback_dialog_message_pin">നിങ്ങളുടെ ഉപകരണ പവർ ഓൺ ചെയ്യുമ്പോൾ നിങ്ങളുടെ PIN ആവശ്യമായിവരും. നിങ്ങളുടെ ഉപകരണം ആരംഭിക്കുന്നത് വരെ അക്സസിബിലിറ്റി പ്രവർത്തനങ്ങൾ ലഭ്യമാവുന്നതല്ല.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">നിങ്ങളുടെ ഉപകരണ പവർ ഓൺ ചെയ്യുമ്പോൾ നിങ്ങളുടെ പാറ്റേൺ ആവശ്യമായിവരും. നിങ്ങളുടെ ഉപകരണം ആരംഭിക്കുന്നത് വരെ അക്സസിബിലിറ്റി പ്രവർത്തനങ്ങൾ ലഭ്യമാവുന്നതല്ല.</string>
+    <string name="encrypt_talkback_dialog_message_password">നിങ്ങളുടെ ഉപകരണ പവർ ഓൺ ചെയ്യുമ്പോൾ നിങ്ങളുടെ പാസ്‌വേഡ് ആവശ്യമായിവരും. നിങ്ങളുടെ ഉപകരണം ആരംഭിക്കുന്നത് വരെ അക്സസിബിലിറ്റി പ്രവർത്തനങ്ങൾ ലഭ്യമാവുന്നതല്ല.</string>
     <string name="slot_number">(സ്ലോട്ട് %d)</string>
     <string name="app_launch_domain_links_title">ആപ്ലിക്കേഷൻ ലിങ്കുകൾ</string>
     <string name="app_launch_open_domain_urls_title">പിന്തുണയ്ക്കുന്ന URL-കളിലേക്ക് പോവുക</string>
@@ -5625,18 +5687,18 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="usb_use_power_only">ബന്ധിപ്പിച്ച ഉപകരണം ചാർജ്ജ് ചെയ്യുക</string>
     <string name="usb_use_power_only_desc">ബന്ധിപ്പിച്ച ഉപകരണത്തെ USB വഴി ചാർജ്ജ് ചെയ്യുക.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">മീഡിയ ഫയലുകൾ കൈമാറുക</string>
+    <string name="usb_use_file_transfers">ഫയലുകൾ കൈമാറുക</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">ചിത്രങ്ങൾ കൈമാറുക</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">മീഡിയ ഫയലുകൾ കൈമാറുക എന്നത് പ്രവർത്തിക്കുന്നില്ലെങ്കിൽ ഈ മോഡ് തിരഞ്ഞെടുക്കുക. നിങ്ങൾക്ക് കൈമാറാനാവുന്നത് ചിത്ര ഫയലുകൾ മാത്രം.</string>
+    <string name="usb_use_photo_transfers_summary">ഫയലുകൾ കൈമാറുക എന്നത് പ്രവർത്തിക്കുന്നില്ലെങ്കിൽ ഈ മോഡ് തിരഞ്ഞെടുക്കുക. ഈ മോഡിൽ നിങ്ങൾക്ക് കൈമാറാനാവുന്നത് ചിത്ര ഫയലുകൾ മാത്രം.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">ഒരു MIDI ഉപകരണം ബന്ധിപ്പിക്കുക</string>
-    <string name="usb_use">USB ഇതിനായി ഉപയോഗിക്കുക</string>
-    <string name="assist_access_context_title">സ്ക്രീനിലെ ടെക്സ്റ്റ് വായിക്കുക</string>
-    <string name="assist_access_context_summary">സ്ക്രീനിൽ കാണിക്കുന്ന ഏതൊരു ടെക്സ്റ്റും വായിക്കാൻ ഉപകരണ സഹായ ആപ്ലിക്കേഷനെ അനുവദിക്കുക.</string>
-    <string name="assist_access_screenshot_title">സ്ക്രീൻഷോട്ടുകൾ എടുക്കുക/ആക്സസ് ചെയ്യുക</string>
-    <string name="assist_access_screenshot_summary">സ്ക്രീൻഷോട്ടുകൾ എടുക്കാനും ആക്സസ് ചെയ്യാനും ഉപകരണ സഹായ ആപ്ലിക്കേഷനെ അനുവദിക്കുക.</string>
+    <string name="usb_use">ഇതിന് USB ഉപയോഗിക്കുക</string>
+    <string name="assist_access_context_title">ഓൺ-സ്ക്രീൻ ടെക്സ്റ്റ് വിശകലനം ചെയ്യുക</string>
+    <string name="assist_access_context_summary">ബന്ധപ്പെട്ട ഉള്ളടക്കം ലഭ്യമാക്കാനായി സ്ക്രീനിൽ കാണിക്കപ്പെടുന്ന ടെക്സ്റ്റ് വിശകലനം ചെയ്യാൻ ഉപകരണ സഹായ ആപ്ലിക്കേഷനെ അനുവദിക്കുക.</string>
+    <string name="assist_access_screenshot_title">ഓൺ-സ്ക്രീൻ ചിത്രങ്ങൾ വിശകലനം ചെയ്യുക</string>
+    <string name="assist_access_screenshot_summary">സ്ക്രീനിന്‍റെ ചിത്രങ്ങൾ എടുത്ത് ഉപയോഗിക്കാൻ ഉപകരണ സഹായ ആപ്ലിക്കേഷനെ അനുവദിക്കുക.</string>
     <string name="assist_footer">നിലവിൽ നിങ്ങളുടെ ‌ഫോണിൽ കാണിക്കുന്ന സ്ക്രീനിൽ നിന്ന് വിവരങ്ങൾ സമാഹരിച്ചുകൊണ്ട് ഉപകരണ സഹായ ആപ്ലിക്കേഷനുകൾക്ക് നിങ്ങളെ സഹായിക്കാനാവും. മറ്റ് ആപ്ലിക്കേഷനുകൾ തുറക്കാനും ശബ്ദ ഇൻപുട്ട് ഉപയോഗിച്ച് ടെക്സ്റ്റ് നൽകാനും ചില ഉപകരണ സഹായ ആപ്ലിക്കേഷനുകളെ ഉപയോഗിക്കാനാവുന്നത് വഴി നിങ്ങൾക്ക് സംയോജിത സഹായം ലഭ്യമാക്കുന്നു.</string>
     <string name="average_memory_use">ശരാശരി RAM ഉപയോഗം</string>
     <string name="maximum_memory_use">പരമാവധി RAM ഉപയോഗം</string>
@@ -5665,7 +5727,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ignore_optimizations_on_desc">ബാറ്ററി ഉപഭോഗം വർദ്ധിപ്പിച്ചേക്കാം</string>
     <string name="ignore_optimizations_off_desc">ബാറ്ററി പവർ ലാഭിക്കുന്നതിനായി ശുപാർശ ചെയ്യപ്പെടുന്നത്</string>
     <string name="app_list_preference_none">ഒന്നുമില്ല</string>
-    <string name="allow_overlay_description">നിങ്ങൾ ഉപയോഗിക്കുന്ന മറ്റ് ആപ്ലിക്കേഷനുകൾക്ക് മീതെ ദൃശ്യമാകാൻ ആപ്ലിക്കേഷനുകളുടെ ബട്ടണുകളെയോ പോപ്-അപ്പുകളെയോ മറ്റ് ഘടകങ്ങളെയോ അനുവദിക്കാൻ അവ തിരഞ്ഞെടുക്കുക.</string>
+    <string name="allow_overlay_description">നിങ്ങൾ ഉപയോഗിക്കുന്ന മറ്റ് ആപ്ലിക്കേഷനുകളുടെ മുകൾഭാഗത്ത് വസ്തുക്കളെ കാണിക്കാൻ ഈ അനുമതി ഒരു ആപ്ലിക്കേഷനെ അനുവദിക്കുന്നു. നിങ്ങൾ മറ്റ് ആപ്ലിക്കേഷനുകൾ ഉപയോഗിക്കുന്നതിനെ ഇത് തടസപ്പെടുത്തിയേക്കാം.</string>
     <string name="overlay_settings">മുകൾഭാഗത്ത് ദൃശ്യമാക്കാവുന്ന ആപ്ലിക്കേഷനുകൾ</string>
     <string name="filter_overlay_apps">അനുമതി സഹിതമുള്ള ആപ്ലിക്കേഷനുകൾ</string>
     <string name="filter_write_settings_apps">അനുമതി സഹിതമുള്ള ആപ്ലിക്കേഷനുകൾ</string>
@@ -5712,14 +5774,14 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ethernet_data_template">%1$s ഇതർനെറ്റ് ഡാറ്റ</string>
     <string name="cell_warning_only">ഡാറ്റ മുന്നറിയിപ്പ് %s-ൽ</string>
     <string name="cell_warning_and_limit">%1$s ഡാറ്റാ ഉപയോഗ മുന്നറിയിപ്പ്/%2$s ഡാറ്റാ ഉപയോഗ പരിധി</string>
-    <string name="billing_cycle">ബില്ലിംഗ് സൈക്കിൾ</string>
+    <string name="billing_cycle">ബില്ലിംഗ് സൈക്കിളും ഡാറ്റാ മുന്നറിയിപ്പും</string>
     <string name="billing_cycle_summary">ഓരോ മാസത്തിലെയും %s-ആമത്തെ ദിവസം</string>
     <string name="billing_cycle_fragment_summary">ഓരോ മാസത്തിലെയും %s-ആമത്തെ ദിവസം</string>
     <string name="network_restrictions">നെറ്റ്‌വർക്കുകൾ നിയന്ത്രിതമാക്കുക</string>
     <string name="operator_warning">നിങ്ങളുടെ ഉപകരണം ഡാറ്റാ ഉപയോഗത്തെ അളക്കുന്നതാണ്. നിങ്ങളുടെ സേവന ദാതാവ് ഉപയോഗത്തെ വ്യത്യസ്തമായി കണക്കാക്കിയേക്കാം.</string>
     <string name="data_used_template">%s ഉപയോഗിച്ചു</string>
     <string name="data_warning">ഡാറ്റാ മുന്നറിയിപ്പ്</string>
-    <string name="set_data_limit">ഡാറ്റാ പരിധി</string>
+    <string name="set_data_limit">ഡാറ്റാ പരിധി ക്രമീകരിക്കുക</string>
     <string name="data_limit">ഡാറ്റാ പരിധി</string>
     <string name="data_usage_template">%2$s കാലയളവിൽ %1$s ഉപയോഗിച്ചു</string>
     <string name="data_usage_other_apps">ബന്ധപ്പെട്ട ആപ്ലിക്കേഷനുകളെ ഉപയോഗത്തിൽ ഉൾപ്പെടുത്തിയിട്ടുണ്ട്</string>
@@ -5761,5 +5823,4 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="enable_iris_lock_desc_3">"വിരലടയാളങ്ങൾ നിലവിൽ നിങ്ങളുടെ സ്ക്രീൻ ലോക്ക് തരമായി ക്രമീകരിക്കുന്നു.
 
 വിരലടയാളങ്ങൾക്ക് പകരം നേത്രപടലങ്ങളായി സ്ക്രീൻ ലോക്ക് തരം ക്രമീകരിക്കാൻ, “പ്രാപ്തമാക്കുക” സ്പർശിക്കുക. നിങ്ങളുടെ നേത്രപടലങ്ങൾ അല്ലെങ്കിൽ %s ഉപയോഗിച്ച് ഉപകരണം തുടർന്ന് അൺലോക്ക് ചെയ്യാനാകും."</string>
-    <string name="my_phone_summary">സ്പീക്കർ/ഹെഡ്ഫോണുകൾ/USB ഓഡിയോ ഉപകരണം</string>
 </resources>

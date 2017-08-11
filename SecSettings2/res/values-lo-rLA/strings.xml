@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dຊມ %2$dນທ</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d ຊມ %2$d ນ​ທ</string>
+    <string name="battery_history_minutes_no_seconds">%d ນ​ທ</string>
     <string name="wifi_fail_to_scan">ບໍ່ສາມາດກວດຫາເຄືອຂ່າຍໄດ້</string>
     <string name="wifi_failed_to_obtain_IP">ຮັບເອົາທີ່ຢູ່ IP ບໍ່ສໍາເລັດ.</string>
     <string name="wifi_security_none">ບໍ່ມີ</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ %s ໄດ້.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ %1$s ໄດ້. ກວດເບິ່ງການຕັ້ງຄ່າຂອງທ່ານໃນ %2$s ແລະລອງໃໝ່ອີກ.</string>
     <string name="bluetooth_pairing_rejected_error_message">ການຈັບຄູ່ຖືກປະຕິເສດໂດຍ %s.</string>
+    <string name="bluetooth_getting_remote_device_name">ກຳລັງຮັບເອົາຊື່ອຸປະກອນ…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">ຊື່ອຸປະກອນຈະປະກົດຂຶ້ນ ເມື່ອອຸປະກອນນີ້ຖືກເຊື່ອມຕໍ່.</string>
     <string name="accessibility_wifi_off">WiFi ປິດຢູ່.</string>
     <string name="accessibility_no_wifi">ຕັດການເຊື່ອມຕໍ່ Wi-Fi ແລ້ວ.</string>
     <string name="accessibility_wifi_one_bar">ສັນຍານ Wi-Fi ນຶ່ງຂີດ.</string>
@@ -386,7 +388,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">ຮອງຮັບ</string>
     <string name="reset_network_settings_list_summary">ຕັ້ງ Wi-Fi, ບລູທູດ, ແລະການຕັ້ງຄ່າເຄືອຂ່າຍອື່ນຄືນໃໝ່ເປັນມາດຕະຖານຂອງພວກມັນ.</string>
     <string name="master_clear_list_summary">ຕັ້ງອຸປະກອນຂອງທ່ານຄືນໃໝ່ເປັນການຕັ້ງຄ່າມາດຕະຖານໂຮງງານຂອງມັນ. ອັນນີ້ຈະລຶບຂໍ້ມູນທັງໝົດ, ລວມທັງໄຟລ໌ ແລະແອັບທີ່ດາວໂຫຼດໄວ້.</string>
-    <string name="auto_restart_summary">ເພີ່ມປະສິດທິພາບອຸປະກອນຂອງທ່ານໂດຍການເລີ່ມຕົ້ນມັນຄືນໃໝ່ໃນເວລາທີ່ຕັ້ງໄວ້ໂດຍອັດຕະໂນມັດ. ຈະສູນເສຍທຸກໆຂໍ້ມູນທີ່ບໍ່ຖືກບັນທຶກ ເມື່ອອຸປະກອນເລີ່ມຕົ້ນຄືນໃໝ່.</string>
+    <string name="auto_restart_summary">ເພີ່ມປະສິດທິພາບໂທລະສັບຂອງທ່ານໂດຍການປິດເປີດມັນຄືນໃໝ່ໂດຍອັດຕະໂນມັດໜຶ່ງຄັ້ງຕໍ່ອາທິດ. ຂໍ້ມູນທີ່ບໍ່ຖືກບັນທຶກໃດໜຶ່ງຈະຖືກສູນເສຍ ເມື່ອໂທລະສັບຂອງທ່ານປິດເປີດຄືນໃໝ່.</string>
+    <string name="auto_restart_summary_tablet">ເພີ່ມປະສິດທິພາບແທັບເລັດຂອງທ່ານໂດຍການປິດເປີດມັນຄືນໃໝ່ໂດຍອັດຕະໂນມັດໜຶ່ງຄັ້ງຕໍ່ອາທິດ. ຂໍ້ມູນທີ່ບໍ່ຖືກບັນທຶກໃດໜຶ່ງຈະຖືກສູນເສຍ ເມື່ອແທັບເລັດຂອງທ່ານປິດເປີດຄືນໃໝ່.</string>
     <string name="search_settings">ຄົ້ນຫາ</string>
     <string name="related_results">%d ລາຍການທີ່ກ່ຽວຂ້ອງ</string>
     <string name="no_results_found">ບໍ່ພົບຜົນໄດ້ຮັບ</string>
@@ -456,7 +459,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">ການດຸນດ່ຽງສຽງແມ່ນ %d ເປີເຊັນໄປທາງຂວາ. ໃຊ້ນີ້ວມືສອງນີ້ວເພື່ອລາກຕົວເລື່ອນ.</string>
     <string name="sound_balance_set">ຕັ້ງຄ່າ</string>
     <string name="accessibility_assistant_menu">ເມນູຊ່ວຍ</string>
-    <string name="assistant_menu_summary">ເປີດໃຊ້ງານຟັງຄ໌ຊັນນີ້ເພື່ອປັບປຸງການເຂົ້າໃຊ້ງານອຸປະກອນສຳລັບຜູ້ໃຊ້ທີ່ບໍ່ຊຳນານ.</string>
+    <string name="assistant_menu_summary">ປັບປຸງຄວາມສາມາດເຂົ້າໃຊ້ໂທລະສັບສຳລັບຜູ້ໃຊ້ທີ່ມີຄວາມວ່ອງໄວຫຼຸດລົງ.</string>
     <string name="color_blind_title">ການປັບສີ</string>
     <string name="no_result">ປັບສີໜ້າຈໍ ຖ້າທ່ານພົບວ່າມັນອ່ານການສະແດງຜົນຂອງທ່ານຍາກ.</string>
     <string name="you_are_normal">ບໍ່ມີຄວາມຈໍາເປັນຕ້ອງປັບປ່ຽນສີ.</string>
@@ -652,6 +655,7 @@ Enter the code you get from Verizon:"</string>
     <string name="direct_access_actions_accessibility_title">ການເຂົ້າໃຊ້ງານ</string>
     <string name="direct_access_actions_negative_title">ສີເນກະທີບ</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">ການເຂົ້າໃຊ້ໂດຍກົງແລະການຫຼຸດຂະໜາດໜ້າຈໍບໍ່ສາມາດເປີດໃຊ້ງານໄດ້ໃນເວລາດຽວກັນ. ການຫຼຸດຂະໜາດໜ້າຈໍຈະຖືກປິດໃຊ້ງານ.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s ແລະ %2$s ບໍ່​ສາ​ມາດ​ເປີດ​ໃຊ້​ງານ​ໃນ​ເວ​ລາ​ດຽວ​ກັນ​ໄດ້. %3$s ຈະ​ຖືກປິດ​ໃຊ້​ງານ.</string>
     <string name="direct_access_actions_color_adjustment_summary">ຕັ້ງການປັບສີໃນການເບິ່ງເຫັນ ເພື່ອໃຊ້ມັນໃນການເຂົ້າໃຊ້ໂດຍກົງ</string>
     <string name="direct_access_actions_screen_reader_summary">ເປີດ​ໃຊ້​ງານ​ເຄື່ອງ​ອ່ານ​ໜ້າ ເພື່ອ​ໃຊ້​ມັນຢູ່​ໃນ​ການ​ເຂົ້າ​ໃຊ້​ໂດຍ​ກົງ.</string>
     <string name="direct_access_actions_accesscontrol_title">ການຄວບຄຸມການໂຕ້ຕອບ</string>
@@ -849,7 +853,9 @@ Enter the code you get from Verizon:"</string>
     <string name="premium_sms_values_ask">ຖາມ</string>
     <string name="premium_sms_values_never">ບໍ່ອະນຸຍາດ</string>
     <string name="premium_sms_values_allow">ອະນຸຍາດທຸກເທື່ອ</string>
-    <string name="assist_and_voice_input_summary">ແອັບການຊ່ວຍເຫຼືອຂອງອຸປະກອນໃຫ້ຕົວເລືອກແລະຂໍ້ມູນເພີ່ມເຕີມກ່ຽວກັບແຕ່ລະໜ້າຈໍ.</string>
+    <string name="assist_and_voice_input_summary">ເລືອກແອັບທີ່ຈະໃຊ້ເມື່ອທ່ານສຳພັດປຸ່ມໂຮມຄ້າງໄວ້.</string>
+    <string name="assist_footer_phone">ເລືອກແອັບທີ່ຈະໃຊ້ເມື່ອທ່ານສຳພັດປຸ່ມໂຮມຄ້າງໄວ້. ແອັບການຊ່ວຍເຫຼືອຂອງອຸປະກອນສາມາດແນະນຳທ່ານໂດຍການລວມຂໍ້ມູນຈາກໜ້າຈໍທີ່ສະແດງໃນປະຈຸບັນໃນໂທລະສັບຂອງທ່ານເຂົ້າກັນ.</string>
+    <string name="assist_footer_tablet">ເລືອກແອັບທີ່ຈະໃຊ້ເມື່ອທ່ານສຳພັດປຸ່ມໂຮມຄ້າງໄວ້. ແອັບການຊ່ວຍເຫຼືອຂອງອຸປະກອນສາມາດແນະນຳທ່ານໂດຍການລວມຂໍ້ມູນຈາກໜ້າຈໍທີ່ສະແດງໃນປະຈຸບັນໃນແທັບເລັດຂອງທ່ານເຂົ້າກັນ.</string>
     <string name="default_app_title">ຕັ້ງເປັນຄ່າມາດຕະຖານ</string>
     <string name="premium_sms_title">ສົ່ງຂໍ້ຄວາມ SMS ພຣີມຽມ</string>
     <string name="default_app_selection">ການເລືອກແອັບມາດຕະຖານ</string>
@@ -938,7 +944,7 @@ Enter the code you get from Verizon:"</string>
 
 2 ອຸປະກອນທີ່ຖືກເຊື່ອມຕໍ່ນັ້ນອາດຈະພົບກັບຄວາມແຕກຕ່າງເລັກໜ້ອຍໃນສຽງທີ່ສົ່ງອອກມາ."</string>
     <string name="bluetooth_dual_play_ask_popup_title">ປິດການຊິງຄ໌ລະດັບສຽງມີເດຍບໍ?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">ເພື່ອໃຊ້ສຽງຄູ່, ຈຳເປັນຕ້ອງໄດ້ປິດການຊິງຄ໌ລະດັບສຽງມີເດຍ.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">ເພື່ອຄວບຄຸມລະດັບສຽງໃນແຕ່ລະອຸປະກອນສຽງໂດຍແຍກກັນ, ຈຳເປັນຕ້ອງມີການປິດການຊິງຄ໌ລະດັບສຽງມີເດຍ.</string>
     <string name="bluetooth_avc_title">ການຊິງຄ໌ລະດັບສຽງມີເດຍ</string>
     <string name="bluetooth_avc_description">ຖ້າອຸປະກອນບລູທູດທີ່ຖືກເຊື່ອມຕໍ່ສາມາດຄວບຄຸມລະດັບສຽງມີເດຍຂອງໂທລະສັບຂອງທ່ານ, ລະດັບສຽງທີ່ຖືກຕັ້ງໂດຍອຸປະກອນບລູທູດຈະຊິງຄ໌ກັບໂທລະສັບຂອງທ່ານ.</string>
     <string name="bluetooth_avc_volume_change_description">ການເປີດຟັງຄ໌ຊັນນີ້ສາມາດເຮັດໃຫ້ເກີດການປ່ຽນແປງລະດັບສຽງທີ່ບໍ່ຄາດຄິດຂຶ້ນ.</string>
@@ -947,6 +953,7 @@ Enter the code you get from Verizon:"</string>
     <string name="bluetooth_avc_ask_popup_title">ປິດສຽງຄູ່ບໍ?</string>
     <string name="bluetooth_avc_ask_popup_content">ເພື່ອໃຊ້ການຊິງຄ໌ລະດັບສຽງມີເດຍ, ຈຳເປັນຕ້ອງໄດ້ປິດສຽງຄູ່.</string>
     <string name="bluetooth_avc_disable_description">ອຸປະກອນບລູທູດທີ່ຖືກເຊື່ອມຕໍ່ບໍ່ຮອງຮັບການຊິງຄ໌ລະດັບສຽງມີເດຍ. ທ່ານບໍ່ສາມາດຊິງຄ໌ລະດັບສຽງໂທລະສັບຂອງທ່ານກັບອຸປະກອນບລູທູດທີ່ຖືກເຊື່ອມຕໍ່ໄດ້.</string>
+    <string name="bluetooth_avc_available_description">ຖ້າອຸປະກອນບລູທູດທີ່ຖືກເຊື່ອມຕໍ່ຮອງຮັບການຊິງຄ໌ລະດັບສຽງມີເດຍ ແລະລະດັບສຽງທີ່ຖືກຕັ້ງໂດຍອຸປະກອນບລູທູດຈະຊິງຄ໌ກັບໂທລະສັບຂອງທ່ານ.</string>
     <string name="bluetooth_enter_pin_msg">ໃສ່ລະຫັດ PIN ເພື່ອຈັບຄູ່ກັບ %s (ລອງ 0000 ຫຼື 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">ຮອດຈໍານວນຕົວອັກສອນສູງສຸດແລ້ວ.</string>
     <string name="settings_menu_done">ສຳ​ເລັດ</string>
@@ -1030,11 +1037,12 @@ Enter the code you get from Verizon:"</string>
     <string name="swipe_to_call_title">ຮູດ​ເພື່ອ​ໂທ ຫຼື​ສົ່ງ​ຂໍ້​ຄວາມ</string>
     <string name="swipe_to_call_summary">ຮູດຜູ້ຕິດຕໍ່ ຫຼື ເບີໂທໄປທາງຂວາເພື່ອໂທອອກ ຫຼື ໄປທາງຊ້າຍເພື່ອສົ່ງຂໍ້ຄວາມໃນໂທລະສັບ, ຜູ້ຕິດຕໍ່, ຫຼື ຂໍ້ຄວາມ.</string>
     <string name="swipe_to_call_summary_dcm">ຮູດຜູ້ຕິດຕໍ່ ຫຼື ເບີໂທໄປທາງຂວາເພື່ອໂທອອກ ຫຼື ໄປທາງຊ້າຍເພື່ອສົ່ງຂໍ້ຄວາມໃນໜ້າປັດ, ຜູ້ຕິດຕໍ່, ຫຼື ຂໍ້ຄວາມ.</string>
-    <string name="swipe_to_call_summary_kddi">ຮູດຜູ້ຕິດຕໍ່ ຫຼື ເບີໂທໄປທາງຂວາເພື່ອໂທອອກ ຫຼື ໄປທາງຊ້າຍເພື່ອສົ່ງຂໍ້ຄວາມໃນໂທລະສັບ ຫຼື ຜູ້ຕິດຕໍ່.</string>
+    <string name="swipe_to_call_summary_kddi">ຮູດຜູ້ຕິດຕໍ່ ຫຼື ເບີໂທໄປທາງຂວາເພື່ອໂທອອກ ຫຼື ໄປທາງຊ້າຍເພື່ອສົ່ງຂໍ້ຄວາມໃນແປ້ນ​ກົດ​ໂທ ຫຼື ຜູ້ຕິດຕໍ່.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">ໃຊ້ສອງບັນຊີທີ່ແຍກຕ່າງກັນສຳລັບແອັບດຽວກັນ.</string>
     <string name="finger_sensor_gesture_title">ທ່າທາງເຊັນເຊີນິ້ວມື</string>
     <string name="finger_sensor_gesture_summary">ເປີດແລະປິດແອັບແລະຄຸນສົມບັດຕ່າງໆດ້ວຍເຊັນເຊີລາຍນິ້ວມື.</string>
+    <string name="finger_sensor_gesture_summary_noapp">ເປີດແລະປິດແຜງການແຈ້ງເຕືອນໂດຍໃຊ້ເຊັນເຊີລາຍນິ້ວມື.</string>
     <string name="finger_sensor_gesture_description">ຮູດຂຶ້ນເທິງ ຫຼື ລົງລຸ່ມໃນເຊັນເຊີລາຍນິ້ວມືເພື່ອເປີດ ຫຼື ປິດແຜງການແຈ້ງເຕືອນ.</string>
     <string name="open_samsung_pay_title">ເປີດ Samsung Pay</string>
     <string name="open_samsung_pay_summary">ຈາກໜ້າຈໍຫຼັກ, ຮູດຂຶ້ນເທິງໃນເຊັນເຊີລາຍນິ້ວມືເພື່ອເປີດ Samsung Pay.</string>
@@ -1069,6 +1077,7 @@ Enter the code you get from Verizon:"</string>
 %s"</string>
     <string name="enable_ps_title">ເປີດໃຊ້ %s</string>
     <string name="setup_wizard">ຕົວ​ຊ່ວຍ​ການຕັ້ງ​ຄ່າ</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">ປົກກະຕິ</string>
     <string name="large">ໃຫຍ່</string>
     <string name="small">ນ້ອຍ</string>
@@ -1214,7 +1223,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">ດາວໂຫຼດອັບເດດຊອບແວໂດຍອັດຕະໂນມັດ ເມື່ອເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍ Wi-Fi ແລ້ວ. ທ່ານຍັງຈະສາມາດໃຊ້ອຸ​ປະ​ກອນຂອງທ່ານໄດ້ໃນລະຫວ່າງການດາວໂຫຼດ.</string>
     <string name="auto_update_over_wifi">ດາວໂຫຼດອັດຕະໂນມັດຜ່ານ Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">ດາວໂຫຼດອັບເດດຊອບແວໂດຍອັດຕະໂນມັດ ເມື່ອເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍ Wi-Fi ແລ້ວ. ນອກຈາກນີ້ ການອັບເດດອາດຈະຖືກດາວໂຫຼດໂດຍໃຊ້ຂໍ້ມູນມືຖືໂດຍບໍ່ຕ້ອງມີຄ່າໃຊ້ຈ່າຍເພີ່ມເຕີມໃດໆ ຂຶ້ນກັບຜູ້ໃຫ້ການບໍລິການຂອງທ່ານ. ທ່ານຈະຍັງຄົງສາມາດໃຊ້ໂທລະສັບຂອງທ່ານໄດ້ໃນລະຫວ່າງການດາວໂຫຼດ.</string>
-    <string name="scheduled_update">ການອັບເດດຊອບແວທີ່ກໍານົດເວລາໄວ້</string>
+    <string name="scheduled_update">ການອັບເດດຊອບແວໄດ້ຖືກກໍານົດເວລາໄວ້</string>
     <string name="scheduled_update_summary_default">ປິດ</string>
     <string name="scheduled_update_summary_set_time">ອັບເດດຈະເລີ່ມຕົ້ນໃນເວລາ %s</string>
     <string name="scheduled_update_summary_set_time_everyday">ອັບເດດຈະເລີ່ມຕົ້ນໃນເວລາ %s ຂອງແຕ່ລະວັນ</string>
@@ -1358,7 +1367,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="adjust_your_display_colour">ປັບປ່ຽນສີຂອງຈໍສະແດງຜົນຂອງທ່ານເພື່ອປ່ຽນແປງຮູບລັກສະນະໂທນສີຂາວ.</string>
     <string name="display_temperature_preset_cool">ດີຫຼາຍ</string>
     <string name="display_temperature_preset_warm">ອຸ່ນ</string>
-    <string name="display_advanced_option">Advanced options</string>
+    <string name="display_advanced_option">ຕົວເລືອກຂັ້ນສູງ</string>
     <string name="color_balance_subtext_1">ຄວາມດຸນດ່ຽງຂອງສີສາມາດປັບປ່ຽນໄດ້ໃນໂໝດສະແດງຜົນແບບປັບປ່ຽນເທົ່ານັ້ນ.</string>
     <string name="color_balance_subtext_2">ການປັບປ່ຽນຂອງທ່ານຈະບໍ່ຖືກນຳໃຊ້ໃນຂະນະທີ່ຕົວກັ່ນຕອງສີຟ້າຖືກເປີດຢູ່.</string>
     <string name="poc_balance_title">ຄວາມ​ດຸນ​ດ່ຽງ​ສີ​ຂອບ​ຂອງ​ໜ້າ​ຈໍ</string>
@@ -1416,6 +1425,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_summary">ຈັດການປຸ່ມໂຮມ, ປຸ່ມກັບຄືນ, ແລະປຸ່ມຫຼ້າສຸດ.</string>
     <string name="navigationbar_theme_switch">ນຳໃຊ້ຕີມປະຈຸບັນ</string>
     <string name="navigationbar_color_title">ສີພື້ນຫຼັງ</string>
+    <string name="navigationbar_color_summary">ສີ​ພື້ນຫຼັງ​ທີ່​ທ່ານ​ເລືອກ​ອາດ​ຈະ​ບໍ່​ຖືກ​ນຳ​ໃຊ້​ກັບ​ແອັບ​ທັງ​ໝົດ.</string>
     <string name="navigationbar_order_title">ແຜນຜັງປຸ່ມ</string>
     <string name="navigationbar_order_default">ຫຼ້າສຸດ - ໜ້າຫຼັກ - ກັບຄືນ</string>
     <string name="navigationbar_order_mirrored">ກັບຄືນ - ໜ້າຫຼັກ - ຫຼ້າສຸດ</string>
@@ -1447,7 +1457,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="blue_light_filter_enable_now">ເປີດດຽວນີ້</string>
     <string name="blue_light_filter_enable_as_scheduled">ເປີດຕາມເວລາທີ່ກຳນົດ</string>
     <string name="blue_light_filter_scheduled_toast">ຕົວກັ່ນຕອງແສງສີຟ້າ ເປີດຢູ່. ມັນ​ຈະ​ຖືກ​ປິດໂດຍ​ອັດ​ຕະ​ໂນ​ມັດ​ໃນເວລາສິ້ນສຸດທີ່ໄດ້ກໍານົດໄວ້.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s ແລະຕົວກັ່ນຕອງແສງໄຟສີຟ້າບໍ່ສາມາດຖືກໃຊ້ໃນເວລາດຽວກັນ.ຕົວກັ່ນຕອງແສງໄຟສີຟ້າຈະຖືກປິດໃຊ້ງານ.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">ປິດຕົວກັ່ນຕອງແສງສີຟ້າບໍ?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">ເພື່ອໃຊ້ %s, ຈຳເປັນຕ້ອງໄດ້ປິດຕົວກັ່ນຕອງແສງສີຟ້າ.</string>
     <string name="blue_light_filter_dlg_turn_on_location">ເພື່ອໃຊ້ເວລາຕາເວັນຕົກຫາຕາເວັນຂຶ້ນ, ຈຳເປັນຕ້ອງໄດ້ເປີດຈຸດທີ່ຕັ້ງ.</string>
     <string name="dlg_turn_on">ເປີດ</string>
     <string name="screen_resolution_title">ຄວາມລະອຽດໜ້າຈໍ</string>
@@ -1461,7 +1472,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="outdoor_mode_summary_vzw">Outdoor mode will maximize screen brightness for best viewing in sunlight. If the screen is not in use, screen brightness will return to the previous setting in 15 minutes.</string>
     <string name="screen_zoom_and_font">ການຊູມໜ້າຈໍແລະແບບຕົວໜັງສື</string>
     <string name="screen_zoom_easymode_desc">ປິດໂໝດງ່າຍ ເພື່ອໃຊ້ການຊູມໜ້າຈໍ.</string>
-    <string name="intelligent_sleep_title">ການພັກໜ້າຈໍອັດສະລິຍະ</string>
+    <string name="intelligent_sleep_title">Smart stay</string>
     <string name="screen_mode_setting">ໂໝດໜ້າຈໍ</string>
     <string name="screen_mode_summary">ເລືອກໂໝດໜ້າຈໍ.</string>
     <string name="automatic_brightness_message">ການຕັ້ງຄ່າຄວາມແຈ້ງອັດຕະໂນມັດໄດ້ຖືກນໍາໃຊ້ກັບໜ້າຈໍພາຍໃນເທົ່ານັ້ນ.</string>
@@ -1664,6 +1675,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">ທ່ານມີຄວາມພະຍາຍາມເຫຼືອຢູ່ 1 ຄັ້ງເພື່ອເລີ່ມຕົ້ນອຸປະກອນຂອງທ່ານ ກ່ອນມັນຈະຖືກຕັ້ງຄືນໃໝ່ເປັນການຕັ້ງຄ່າມາດຕະຖານໂຮງງານຂອງມັນ. ອັນນີ້ຈະລຶບຂໍ້ມູນທັງໝົດ, ລວມທັງໄຟລ໌ ແລະແອັບທີ່ດາວໂຫຼດໄວ້.</string>
     <string name="crypt_keeper_failed_title_dec">ການຖອດລະຫັດບໍ່ສໍາເລັດ.</string>
     <string name="crypt_keeper_failed_summary_dec">ບໍ່ສາມາດຖອດລະຫັດໄດ້ສໍາເລັດ ເພາະວ່າມີການຂັດຂ້ອງ. ດໍາເນີນການຕັ້ງຄ່າຂໍ້ມູນໂຮງງານຄືນໃໝ່ (ລຶບທຸກຂໍ້ມູນ) ກ່ອນນໍາໃຊ້.</string>
+    <string name="crypt_keeper_set_screen_lock_type">ຕັ້ງປະເພດລັອກໜ້າຈໍ</string>
     <string name="encryption_interstitial_message">"ທ່ານສາມາດປ້ອງກັນໂທລະສັບຂອງທ່ານຕື່ມອີກໂດຍຕ້ອງມີການປ້ອນ %s ຂອງທ່ານເຂົ້າກ່ອນເລີ່ມຕົ້ນໂທລະສັບ. ສິ່ງ​ນີ້​ຈະຊ່ວຍປ້ອງກັນ​ຂໍ້​ມູນ​ຂອງ​ທ່ານ ຖ້າ​ໂທລະສັບ​ເສຍ ຫຼື​ ຖືກ​ລັກ. ບາງແອັບອາດຈະຕ້ອງການການເລີ່ມຕົ້ນຂຶ້ນທີ່ປອດໄພຕາມນະໂຍບາຍການໃສ່ລະຫັດອຸປະກອນເພື່ອເຂົ້າໃຊ້ຄຸນສົມບັດ, ເຊັ່ນ ການຊິງຄ໌ອີເມລ໌.
 
 ທ່ານຈະບໍ່ໄດ້ຮັບສາຍໂທ, ຂໍ້ຄວາມ, ຫຼື ການແຈ້ງເຕືອນໃດໜຶ່ງ, ແລະໂມງປຸກຈະບໍ່ດັງຂຶ້ນ, ຈົນກວ່າໂທລະສັບໄດ້ເລີ່ມຕົ້ນຂຶ້ນແລ້ວ."</string>
@@ -1734,7 +1746,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="fingerprint_register_success">ເພີ່ມລາຍນິ້ວມືແລ້ວ</string>
     <string name="fingerprint_register_add_another_fingerprint">ເພີ່ມລາຍນິ້ວມືອື່ນບໍ?</string>
     <string name="fingerprint_register_add">​ເພີ່​ມ</string>
-    <string name="fingerprint_register_done">ສຳ​ເລັດ</string>
+    <string name="fingerprint_register_done">ສໍາເລັດແລ້ວ</string>
     <string name="fingerprint_register_dex_guide_msg">ລົງທະບຽນລາຍນິ້ວມືຂອງທ່ານໃນໂທລະສັບຂອງທ່ານ.</string>
     <string name="remove_mobile_keyboard">ເພື່ອໃຊ້ %s, ເອົາອຸປະກອນອອກຈາກຊົບຄີບອດ.</string>
     <string name="fingerprint_already_registered_title">ບໍ່ສາມາດລົງທະບຽນລາຍນີ້ວມືໄດ້</string>
@@ -1901,6 +1913,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">ໃຊ້ລາຍນິ້ວມື</string>
     <string name="wifi_ap_close">ປິດ</string>
     <string name="fingerscanner_add_summary">ເພີ່ມລາຍນິ້ວມືຂອງທ່ານ.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 ລາຍນິ້ວມືໄດ້ຖືກເພີ່ມແລ້ວ.</string>
     <string name="fingerscanner_register_summary">%d ລາຍນິ້ວມືໄດ້ຖືກເພີ່ມເຂົ້າແລ້ວ.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">ໃຊ້ລາຍນິ້ວມື ຫຼືປ້ອນ PIN ປະຈຸບັນເຂົ້າ.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">ໃຊ້ລາຍນິ້ວມື ຫຼືແຕ້ມຮູບແບບປະຈຸບັນ.</string>
@@ -1927,6 +1940,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">ປົດລັອກໂທລະສັບຂອງທ່ານດ້ວຍການຈົດຈຳໃບໜ້າທັນທີທີ່ໜ້າຈໍເປີດ, ໂດຍບໍ່ຕ້ອງມີການຮູດກ່ອນ.</string>
     <string name="facelock_recognition_speed_up">ການຈົດຈຳທີ່ໄວຂຶ້ນ</string>
     <string name="facelock_recognition_speed_up_summary">ເປີດສຳລັບການຈົດຈຳທີ່ໄວ້ຂຶ້ນ. ປິດເພື່ອເພີ່ມຄວາມປອດໄພຂຶ້ນ ແລະເຮັດໃຫ້ມັນຍາກຂຶ້ນໃນການປົດລັອກໂດຍໃຊ້ຮູບ ຫຼື ວິດີໂອ.</string>
+    <string name="facelock_samsungpass_summary">ໃຊ້ການຈົດຈຳໃບໜ້າເພື່ອກວດສອບຕົວຕົນຂອງທ່ານກັບ %s ແລະແອັບອື່ນທີ່ຮອງຮັບ.</string>
     <string name="face_remove_face_popup_title">ເອົາຂໍ້ມູນໃບໜ້າອອກໄປບໍ?</string>
     <string name="face_remove_face_popup_message_1">ໃບໜ້າຂອງທ່ານຈະບໍ່ຖືກຈົດຈຳອີກຕໍ່ໄປ, ແລະລັອກໃບໜ້າຈະຖືກປິດ.</string>
     <string name="face_remove_face_popup_message_2">ຄຸນສົມບັດທີ່ໃຊ້ການຈົດຈຳໃບໜ້າ ຈະຖືກປິດ.</string>
@@ -2068,7 +2082,7 @@ You will also need it when:"</string>
     <string name="biometrics_backup_locktype_title">ຕັ້ງຄວາມປອດໄພມ່ານຕາ</string>
     <string name="biometrics_register_your_iris">ລົງທະບຽນມ່ານຕາຂອງທ່ານ.</string>
     <string name="biometrics_backup_locktype_summary">ເພື່ອໃຊ້ມ່ານຕາຂອງທ່ານໃນການປົດລັອກອຸປະກອນ, ທ່ານຈະຕ້ອງຕັ້ງຮູບແບບ, PIN, ຫຼືລະຫັດຜ່ານ.</string>
-    <string name="biometrics_backup_locktype_message">ເພື່ອໃຊ້ມ່ານຕາຂອງທ່ານປົດລັອກໂທລະສັບຂອງທ່ານ ຫຼື ການກວດສອບທີ່ປອດໄພ, ທ່ານຈຳເປັນຈະຕ້ອງ:</string>
+    <string name="biometrics_backup_locktype_message">ເພື່ອໃຊ້ມ່ານຕາຂອງທ່ານໃນການປົດລັອກໂທລະສັບຂອງທ່ານ ຫຼື ເພື່ອການກວດສອບຕົວຂອງທ່ານໃນແອັບ, ທ່ານຈຳເປັນຈະຕ້ອງ:</string>
     <string name="iris_delete_popup_title">ເອົາຂໍ້ມູນມ່ານຕາອອກໄປບໍ?</string>
     <string name="iris_delete_popup_message">ເອົາຂໍ້ມູນມ່ານຕາອອກໄປບໍ?</string>
     <string name="iris_delete_popup_message_with_related_func">ຄຸນສົມບັດທີ່ໃຊ້ມ່ານຕາ ຈະຖືກປິດ.</string>
@@ -2076,7 +2090,7 @@ You will also need it when:"</string>
     <string name="iris_timeout_popop_title">ລອງອີກພາຍຫຼັງ</string>
     <string name="iris_timeout_popop_message">ມ່ານຕາບໍ່ຖືກຈົດຈຳ. ກ້ອງຖ່າຍມ່ານຕາອາດຈະເປື້ອນ. ​ອະ​ນາ​ໄມພື້ນທີ່ຢູ່ເທິງໜ້າຈໍແລະລອງໃໝ່ອີກ.</string>
     <string name="iris_timeout_popop_message_1">ກ້ອງຖ່າຍມ່ານຕາອາດຈະເປື້ອນ. ອະນາໄມພື້ນທີ່ຢູ່ເທິງໜ້າຈໍແລະລອງໃໝ່ອີກ.</string>
-    <string name="iris_proximity_restriction_popop_message">ມ່ານຕາບໍ່ຖືກຈົດຈຳ. ໂທລະສັບໃກ້ກັບໃບໜ້າເກີນໄປ ຫຼື ເຊັນເຊີບໍລິເວນໃກ້ຄຽງອາດຈະເປື້ອນ. ​ອະ​ນາ​ໄມພື້ນທີ່ຢູ່ເທິງໜ້າຈໍແລະລອງໃໝ່ອີກ.</string>
+    <string name="iris_proximity_restriction_popop_message">ຖືໂທລະສັບຂອງທ່ານຫ່າງຈາກໃບໜ້າຂອງທ່ານ ແລະລອງໃໝ່ອີກ.</string>
     <string name="iris_proximity_restriction_popop_message_1">"ເຊັນເຊີຮັບສັນຍານອາດເປື້ອນ.
 ເຮັດຄວາມສະອາດຂອບເຂດເທິງໜ້າຈໍ."</string>
     <string name="iris_try_again">ລອງໃໝ່ອີກ</string>
@@ -2084,6 +2098,8 @@ You will also need it when:"</string>
     <string name="iris_failed_to_verity_identify">ບໍ່ສາມາດກວດສອບຕົວຕົນຂອງທ່ານ</string>
     <string name="iris_failed_popup_description">ໄດ້ມີຄວາມພະຍາຍາມກວດສອບມ່ານຕາຂອງທ່ານ %1$d ຄັ້ງແລ້ວ. ລອງໃໝ່ອີກໃນ %2$d ວິນາທີ.</string>
     <string name="iris_no_match">ບໍ່ເຂົ້າກັນ</string>
+    <string name="iris_eye_safety_msg">ມ່ານຕາຂອງທ່ານບໍ່ຖືກຈົດຈຳ.</string>
+    <string name="iris_timeout_msg">ມ່ານຕາຂອງທ່ານບໍ່ຖືກກວດພົບ.</string>
     <string name="biometrics_registered">ລົງທະບຽນແລ້ວ</string>
     <string name="iris_turn_on_toast_message">ເປີດໃຊ້ງານການລັອກດ້ວຍມ່ານຕາແທນການລັອກດ້ວຍລາຍນິ້ວມືແລ້ວ.</string>
     <string name="iris_wrong_backup_password">ລະຫັດແບັກ​ອັບບໍ່ຖືກຕ້ອງ</string>
@@ -2275,6 +2291,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">ສະແດງປຸ່ມໂຮມແລະໂມງ ຫຼື ຂໍ້ມູນໃນໜ້າຈໍສຳຮອງ.</string>
     <string name="aod_feature_off_popup_title">ປິດ %s ບໍ?</string>
     <string name="aod_feature_off_popup_description">ເພື່ອໃຊ້ %1$s, ຈຳເປັນຕ້ອງໄດ້ປິດ %2$s.</string>
+    <string name="aod_features_off_popup_title">ປິດຟັງຄ໌ຊັນອື່ນໆບໍ?</string>
+    <string name="aod_features_off_popup_description">ເພື່ອໃຊ້ Always On Display, ຈຳເປັນຕ້ອງໄດ້ປິດຟັງຄ໌ຊັນຕໍ່ໄປນີ້:</string>
     <string name="aod_features_off_popup_btn_ok">ປິດ</string>
     <string name="aod_disable_by_negative_colors">ບໍ່ສາມາດໃຊ້ໄດ້ ໃນຂະນະທີ່ສີໃນເຊີງລົບເປີດຢູ່.</string>
     <string name="aod_disable_by_powersaving_mode">ບໍ່ສາມາດໃຊ້ໄດ້ ໃນຂະນະທີ່ໂໝດປະຢັດໄຟເປີດຢູ່.</string>
@@ -2298,6 +2316,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">ເມັດສີນ້ອຍໆທີ່ຍ້ອຍລົງ</string>
     <string name="lock_screen_show_information_summary_wifi_only">ສະແດງຂໍ້ມູນຂອງເຈົ້າຂອງອຸປະກອນ, ຫຼືທາງລັດແອັບ, ໃນໜ້າຈໍລັອກ.</string>
     <string name="lock_screen_sview_show_information_summary">ສະແດງໂມງຄູ່, ຂໍ້ມູນຂອງເຈົ້າຂອງອຸປະກອນ, ຫຼືທາງລັດແອັບໃນໜ້າຈໍລັອກ ແລະຜ່ານໜ້າຕ່າງ S View.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">ສະ​ແດງ​ໂມງ​ໂຣມ​ມິງ ຫຼື ​ຂໍ້​ມູນ​ຜູ້​ຕິດ​ຕໍ່​ຂອງ​ເຈົ້າ​ຂອງ​ໂທ​ລະ​ສັບ​ໃນ​ໜ້າ​ຈໍ​ລັອກ ແລະ​ ຜ່ານ​ໜ້າ​ຕ່າງ S View.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">ເລືອກ​ທາງ​ລັດ​ແອັບ​ເພື່ອ​ສະ​ແດງ​ໃນ​ໜ້າ​ຈໍ​ລັອກ ແລະ ຜ່ານ​ໜ້າ​ຕ່າງ S View.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">ສະແດງການ​ແຈ້ງ​ເຕືອນໃນໜ້າຈໍລັອກ ແລະ ຜ່ານໜ້າຕ່າງ S View.</string>
     <string name="lock_screen_and_cover_show_information_summary">ສະ​ແດງໂມງ​ຄູ່​ຢູ່​ໜ້າ​ຈໍ​ລັອກ ແລະ​ຜ່ານໜ້າ​ປົກ​ມຸມມອງ​ໃສ.</string>
     <string name="lock_screen_secured_lock_settings_title">ການຕັ້ງຄ່າລັອກທີ່​ປອດ​ໄພ</string>
     <string name="lock_screen_secured_lock_settings_summary">ຕັ້ງ​ຟັງ​ຄ໌​ຊັນ​ລັອກ​ທີ່​ປອດ​ໄພ​ຂອງ​ທ່ານ, ເຊັ່ນ ລັອກ​ອັດ​ຕະ​ໂນ​ມັດ ແລະລັອກ​ທັນ​ທີ​ດ້ວຍ​ປຸ່ມ​ພາວເວີ້.</string>
@@ -2314,6 +2335,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">ເຂດເວລາບ້ານ</string>
     <string name="contact_info_settings_title">ຂໍ້ມູນຜູ້ຕິດຕໍ່</string>
     <string name="show_contact_info_on_lockscreen_label">ສະແດງຂໍ້ມູນ ເຊັ່ນ ເບີໂທລະສັບ ຫຼື ທີ່ຢູ່ອີເມລ໌ຂອງທ່ານໃນໜ້າຈໍລັອກ.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">ສະແດງຂໍ້ມູນ ເຊັ່ນ ເບີໂທລະສັບ ຫຼື ທີ່ຢູ່ອີເມລ໌ຂອງທ່ານໃນໜ້າຈໍລັອກ ແລະ Always On Display.</string>
     <string name="unlock_effect">ເອັບເຝັກປົດລັອກ</string>
     <string name="walking_mate_title">ເຄື່ອງນັບກ້າວຍ່າງ</string>
     <string name="help_text_title">ຂໍ້ຄວາມຊ່ວຍ</string>
@@ -2413,7 +2435,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="toast_set_lock_pattern">ຂໍ້ມູນທັງໝົດຈະຖືກລຶບແລະໂທລະສັບຈະຖືກຕັ້ງຄືນໃໝ່ຖ້າທ່ານລືມຮູບແບບ.</string>
     <string name="toast_set_lock_password">ຂໍ້ມູນທັງໝົດຈະຖືກລຶບ ແລະ ໂທລະສັບຈະຖືກຕັ້ງຄືນໃໝ່ຖ້າທ່ານລືມລະຫັດຜ່ານ.</string>
     <string name="toast_set_lock_pin">ຂໍ້ມູນທັງໝົດຈະຖືກລຶບ ແລະ ໂທລະສັບຈະຖືກຕັ້ງຄືນໃໝ່ຖ້າທ່ານລືມ PIN.</string>
-    <string name="chooselock_warning_text">ຈື່ %s ນີ້. ມັນຈຳເປັນຕ້ອງມີຫຼັງຈາກປິດເປີດອຸປະກອນໃໝ່.</string>
+    <string name="chooselock_warning_text">ຈື່ %s ນີ້. ມັນຈຳເປັນຈະຕ້ອງມີຫຼັງຈາກປິດເປີດໂທລະສັບຂອງທ່ານຄືນໃໝ່.</string>
     <string name="lockpassword_password_exists_history">ລະຫັດທີ່ໄດ້ໃຊ້ມາກ່ອນ. ໃສ່ລະຫັດໃໝ່.</string>
     <string name="lockpassword_pin_repeating_nums">PIN ຈະຕ້ອງບໍ່ມີຕົວເລກຊໍ້າກັນ.</string>
     <string name="lockpassword_pin_sequential_nums">PIN ຈະຕ້ອງບໍ່ມີຕົວເລກລຽງລໍາດັບ.</string>
@@ -2531,6 +2553,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="data_usage_disable_mobile_warning_lgt">"ນອກຈາກວ່າທ່ານໃຊ້ Wi-Fi, ທ່ານຈະບໍ່ສາມາດໃຊ້ອິນເຕີເນັດ, ອີເມລ໌ ຫຼືແອັບອື່ນໆທີ່ຕ້ອງການການເຊື່ອມຕໍ່ຂໍ້ມູນ.
 
 ຂໍ້ມູນມືຖືຈະປິດ."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">ນອກຈາກທ່ານເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍ Wi-Fi, ທ່ານຈະບໍ່ສາມາດໃຊ້ອິນເຕີເນັດ, ອີເມລ໌, ຫຼື ແອັບອື່ນໆທີ່ຕ້ອງການການເຊື່ອມເຄືອຂ່າຍໄດ້.</string>
@@ -2689,10 +2714,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">ກຳນົດຂອບເຂດລະດັບສຽງເອງ</string>
     <string name="volume_limiter_descryption">ປ້ອງກັນຫູຂອງທ່ານດ້ວຍການຈຳກັດລະດັບສຽງມີເດຍສູງສຸດ. ຂີດຈຳກັດຈະຖືກນຳໃຊ້ໃນຂະນະທີ່ກຳລັງໃຊ້ອຸປະກອນສຽງຊຸດຫູຟັງ ຫຼື ບລູທູດ.</string>
     <string name="multi_sound_title">ສຽງແອັບທີ່ແຍກຕ່າງຫາກ</string>
-    <string name="multi_sound_summary">ຫຼິ້ນສຽງຈາກໜຶ່ງແອັບໃນລຳໂພງ ຫຼື ຊຸດຫູຟັງແຍກຕ່າງຫາກຈາກສຽງທີ່ເຫຼືອໃນອຸປະກອນຂອງທ່ານ.</string>
-    <string name="multi_sound_descryption">"ຫຼິ້ນສຽງມີ​ເດຍຈາກໜຶ່ງແອັບໃນລຳໂພງ ຫຼື ຊຸດຫູຟັງແຍກອອກຈາກສຽງ​ມີ​ເດຍ​ຈາກ​ແອັບ​ອື່ນ.
+    <string name="multi_sound_summary">ຫຼິ້ນສຽງມີເດຍຈາກໜຶ່ງແອັບໃນອຸປະກອນສຽງທີ່ແຍກຈາກອຸປະກອນສຽງອອກຫຼັກຂອງໂທລະສັບຂອງທ່ານ.</string>
+    <string name="multi_sound_descryption">"ຫຼິ້ນສຽງມີເດຍຈາກໜຶ່ງແອັບໃນອຸປະກອນສຽງທີ່ແຍກຈາກອຸປະກອນສຽງອອກຫຼັກຂອງໂທລະສັບຂອງທ່ານ. ເລືອກແອັບແລະອຸປະກອນສຽງເພື່ອເປີດສິ່ງນີ້.
 
-ຖ້າທ່ານເລືອກອຸປະກອນສຽງບລູທູດ, ສຽງຈະຖືກຫຼິ້ນໃນອຸປະກອນສຽງມາດຕະຖານ ຖ້າອຸປະກອນບລູທູດບໍ່ຖືກເຊື່ອມຕໍ່."</string>
+ແຍກສຽງແອັບຈະໃຊ້ໄດ້ເມື່ອອຸປະກອນສຽງທີ່ທ່ານເລືອກແຕກຕ່າງຈາກອຸປະກອນສຽງອອກຫຼັກໃນໂທລະສັບຂອງທ່ານເທົ່ານັ້ນ.
+
+ທ່ານສາມາດປ່ຽນອຸປະກອນສຽງອອກຫຼັກໃນໂທລະສັບຂອງທ່ານໃນແຜງການຕັ້ງຄ່າດ່ວນ. ຖ້າສຽງອອກບໍ່ຖືກສະແດງ, ເປີດມັນໃນ Samsung Connect > ການຕັ້ງຄ່າ > ແຜງ Samsung Connect."</string>
     <string name="set_application_title">ແອັບ</string>
     <string name="set_application_summary">ເລືອກແອັບເພື່ອຫຼິ້ນສຽງມັນໃນອຸປະກອນສຽງທີ່ແຍກຕ່າງຫາກ.</string>
     <string name="set_application_descryption">ເລືອກແອັບມັ​ລ​ຕິ​ມີ​ເດຍ​ລຸ່ມນີ້ ເພື່ອຫຼິ້ນສຽງຂອງມັນໃນອຸປະກອນສຽງທີ່ແຍກຕ່າງຫາກ.</string>
@@ -2703,9 +2730,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="multi_sound_popup_msg">ເພື່ອເປີດ %s, ທ່ານຈຳເປັນຕ້ອງໄດ້ເລືອກແອັບແລະອຸປະກອນສຽງ.</string>
     <string name="multi_sound_network_msg">ເພື່ອກວດຫາແອັບທີ່ມີຢູ່, ຈຳເປັນຕ້ອງມີການເຊື່ອມຕໍ່ໂທລະສັບຂອງທ່ານໃສ່ເຄືອຂ່າຍ. ກວດເບິ່ງການຕັ້ງຄ່າເຄືອຂ່າຍຂອງທ່ານ ແລະລອງໃໝ່ອີກ.</string>
     <string name="multi_sound_wifi_msg">ເພື່ອກວດຫາແອັບທີ່ມີຢູ່, ຈຳເປັນຕ້ອງມີການເຊື່ອມຕໍ່ໂທລະສັບຂອງທ່ານກັບເຄືອຂ່າຍ. ການເປີດໃຊ້ງານຂໍ້ມູນມືຖືອາດຈະເຮັດໃຫ້ເສຍຄ່າໃຊ້ຈ່າຍເພີ່ມ.</string>
+    <string name="multi_sound_add_application">ເພີ່ມແອພພລິເຄຊັນ</string>
     <string name="dlg_btn_select">ເລືອກ</string>
-    <string name="audio_device_type_descryption">ເລືອກວ່າອຸປະກອນສຽງໃດທີ່ທ່ານຕ້ອງການໃຊ້ສຳລັບແອັບນີ້. ອຸປະກອນບລູທູດຈະມີຢູ່ໃນຂະນະທີ່ພວກມັນຖືກເຊື່ອມຕໍ່ເທົ່ານັ້ນ.</string>
+    <string name="audio_device_type_descryption">ເລືອກວ່າອຸປະກອນສຽງໃດທີ່ທ່ານຕ້ອງການໃຊ້ສຳລັບແອັບທີ່ເລືອກໄວ້. ອຸປະກອນບລູທູດຈະມີຢູ່ໃນຂະນະທີ່ພວກມັນຖືກເຊື່ອມຕໍ່ເທົ່ານັ້ນ.</string>
     <string name="my_phone_title">ໂທລະສັບ</string>
+    <string name="my_phone_summary">ລຳໂພງ/ຊຸດຫູຟັງ/ອຸປະກອນສຽງ USB</string>
     <string name="bluetooth_device_title">ອຸປະກອນບລູທູດ</string>
     <string name="no_connected_devices">ບໍ່ມີເຄື່ອງທີ່ເຊື່ອມຕໍ່ແລ້ວ</string>
     <string name="two_hours">2 ຊົ່ວໂມງ</string>
@@ -2713,7 +2742,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="stop_setup_popup_msg">ການຕັ້ງຄ່າໃດໜຶ່ງທີ່ທ່ານໄດ້ປ່ຽນແປງ ຈະບໍ່ຖືກນຳໃຊ້.</string>
     <string name="app_turned_on">%s ເປີດແລ້ວ.</string>
     <string name="force_touch_title">ກົດຕອບໂຕ້ກັບດ້ວຍການສັ່ນຄ້າງໄວ້</string>
-    <string name="volume_key_control_title">ຄວບຄຸມປຸ່ມລະດັບສຽງມາດຕະຖານ</string>
+    <string name="volume_key_control_title">ໃຊ້ປຸ່ມລະດັບສຽງສຳລັບມີເດຍ</string>
+    <string name="volume_key_control_summary">ຄວບຄຸມລະດັບສຽງມີເດຍເມື່ອທ່ານກົດປຸ່ມລະດັບສຽງ.</string>
     <string name="sound_mode">ໂໝດສຽງ</string>
     <string name="sound_mode_vibrate">ສັ່ນ</string>
     <string name="sound_mode_mute">ປິດສຽງ</string>
@@ -2926,14 +2956,13 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="text_biometrics_title_enterprise">ເມື່ອທ່ານເລືອກ %1$s, ໄບໂອແມັດທຣິກຈະບໍ່ຖືກຮອງຮັບເປັນວິທີປົດລັອກສຳລັບ %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">ລາຍນິ້ວມືບໍ່ຖືກຮອງຮັບໂດຍ %1$s ເປັນວິທີການປົດລັອກສຳລັບ %2$s.</string>
     <string name="edge_feeds_title">ຟີດຂອບ</string>
-    <string name="screensaver_settings_summary">"ຄວບຄຸມສິ່ງທີ່ເກີດຂຶ້ນ ໃນຂະນະທີ່ອຸປະກອນຖືກເຊື່ອມຕໍ່ຢູ່ ແລະ/ຫຼືກຳລັງສາກຢູ່. ພາບພັກໜ້າຈໍຈະຖືກສະແດງຂຶ້ນ ຫຼັງຈາກໜ້າຈໍໝົດເວລາ.
-
-ຟັງຄ໌ຊັນນີ້ຍັງຖືກເອີ້ນວ່າເດດຣີມ."</string>
-    <string name="screensaver_settings_summary_wo_dock">ສະແດງພາບພັກໜ້າຈໍຫຼັງຈາກໜ້າຈໍປິດໂດຍອັດຕະໂນມັດ ໃນຂະນະທີ່ໂທລະສັບຂອງທ່ານສຳລັງສາກຢູ່.</string>
+    <string name="screensaver_settings_summary">ສະແດງພາບພັກໜ້າຈໍຫຼັງຈາກໜ້າຈໍປິດໂດຍອັດຕະໂນມັດ ໃນຂະນະທີ່ໂທລະສັບຂອງທ່ານສຳລັງສາກຢູ່.</string>
+    <string name="screensaver_settings_summary_wo_dock">ສະແດງພາບພັກໜ້າຈໍຫຼັງຈາກໜ້າຈໍປິດໂດຍອັດຕະໂນມັດ ໃນຂະນະທີ່ໂທລະສັບຂອງທ່ານຖືກດັອກ ຫຼື ກຳລັງສາກຢູ່.</string>
     <string name="apn_already_exists">ມີຢູ່ແລ້ວ.</string>
     <string name="error_unavailable_apn">APN ນີ້ບໍ່ໄດ້ຮັບອະນຸຍາດຢູ່ໃນເຄື່ອງນີ້. ກະລຸນາລອງເບິ່ງອັນອື່ນ.</string>
     <string name="error_message_port_out_of_range">ຕົວເລກຜອດຈະຕ້ອງຢູ່ລະຫວ່າງ %1$d ແລະ %2$d.</string>
     <string name="apn_restore_warning">APN ທັງໝົດທີ່ທ່ານໄດ້ເພີ່ມເຂົ້າຈະຖືກເອົາອອກໄປ. APN ອື່ນຈະຖືກຕັ້ງຄືນໃໝ່ເປັນການຕັ້ງຄ່າມາດຕະຖານຂອງພວກມັນ.</string>
+    <string name="apn_restore_title">ຕັ້ງການຕັ້ງຄ່າ APN ຄືນໃໝ່ບໍ?</string>
     <string name="master_clear_desc_google_account">ບັນຊີ ກຸກເກິລ</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2945,7 +2974,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="sound_balance_summary">ປັບປ່ຽນຄວາມດຸນດ່ຽວຂອງສຽງເບື້ອງຊ້າຍແລະເບື້ອງຂວາສຳລັບຊຸດຫູຟັງ.</string>
     <string name="backup_samsung_account_title">ຕັ້ງຄ່າແບັກອັບ</string>
     <string name="restore_samsung_account_title">ເອົາກັບຄືນ</string>
-    <string name="auto_restart_header">ການຈັດການເຄື່ອງອຸປະກອນ</string>
+    <string name="auto_restart_header">ການຈັດການໂທລະສັບ</string>
+    <string name="auto_restart_header_tablet">ການຈັດການແທັບເລັດ</string>
     <string name="auto_restart_title">ການເປີດເຄື່ອງຄືນໃໝ່ອັດຕະໂນມັດ</string>
     <string name="switch_turn_on_text">ເປີດ</string>
     <string name="switch_turn_off_text">ປິດ</string>
@@ -3068,6 +3098,14 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="tether_settings_summary_usb_bt">ແບ່ງປັນການເຊື່ອມຕໍ່ຂໍ້ມູນມືຖືຂອງທ່ານຜ່ານທາງ USB ຫຼືບລູທູດ</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">ຍອມຮັບ</string>
+    <string name="bluetooth_tethering_off_subtext_phone">ແຊຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງໂທລະສັບຂອງທ່ານໂດຍໃຊ້ບລູທູດ.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">ແຊຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງແທັບເລັດຂອງທ່ານໂດຍໃຊ້ບລູທູດ.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">ພ້ອມ​ທີ່​ຈະແຊ​ຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງໂທລະສັບ​ນີ້ແລ້ວ.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">ພ້ອມ​ທີ່​ຈະແຊ​ຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງແທັບເລັດ​ນີ້ແລ້ວ.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">ກຳລັງແຊຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງໂທລະສັບນີ້ກັບ 1 ອຸປະກອນ.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">ກຳລັງແຊຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງແທັບເລັດນີ້ກັບ 1 ອຸປະກອນ.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">ກຳລັງແຊຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງໂທລະສັບນີ້ກັບ %d ອຸ​ປະ​ກອນ.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">ກຳລັງແຊຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງແທັບເລັດນີ້ກັບ %d ອຸ​ປະ​ກອນ.</string>
     <string name="onehand_settings_title">ໂໝດມືຂ້າງດຽວ</string>
     <string name="onehand_settings_text_1">ຮູດຂຶ້ນຕາມເສັ້ນຕັດຈາກທັງສອງມຸມລຸ່ມສຸດຂອງໜ້າຈໍເພື່ອຫຼຸດຂະໜາດການສະແດງລົງ.</string>
     <string name="onehand_settings_text_2">ແຕະປຸ່ມໂຮມ 3 ຄັ້ງໄວໆເພື່ອຫຼຸດຂະໜາດການສະແດງລົງ.</string>
@@ -3395,12 +3433,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">ມອດ</string>
     <string name="wifi_or_mobile_network">Wi-Fi ຫຼືເຄືອຂ່າຍມືຖື</string>
     <string name="wifi_network_only">ເຄືອຂ່າຍ Wi-Fi ເທົ່ານັ້ນ</string>
+    <string name="wifi_adps_title">ໂໝດປະຢັດໄຟຂອງ Wi-Fi</string>
+    <string name="wifi_adps_summary">ຫຼຸດການນຳໃຊ້ແບັດເຕີຣີລົງໂດຍການວິເຄາະຮູບແບບການຮັບສົ່ງຂໍ້ມູນ Wi-Fi.</string>
     <string name="wifi_auto_reconnect">ເຊື່ອມອີກຄັ້ງອັດຕະໂນມັດ</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">ການເປີດ Wi-Fi ຈະປິດຈຸດດ່ວນໂທລະສັບມືຖື. ດໍາເນີນການຕໍ່ບໍ?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Wi-Fi ຖືກປິດ ເມື່ອຮັອດສະປັອດມືຖືຖືກເປີດໃຊ້ງານ. ເພື່ອເປີດ Wi-Fi, ກະລຸນາປິດຮັອດສະປັອດມືຖື.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">Wi-Fi ຖືກປິດ ເມື່ອຮັອດສະປັອດມືຖືຖືກເປີດໃຊ້ງານຢູ່. ເພື່ອເປີດ Wi-Fi, ປິດຮັອດສະປັອດມືຖື.</string>
+    <string name="wifi_enable_warning_mtr">Wi-Fi ຖືກປິດ ເມື່ອຮັອດສະປັອດມືຖືຖືກເປີດໃຊ້ງານຢູ່. ເພື່ອເປີດ Wi-Fi, ກະລຸນາປິດຮັອດສະປັອດມືຖື.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">ການເປີດ Wi-Fi ຈະປິດໃຊ້ງານຮັອດສະປັອດມືຖື.</string>
     <string name="wifi_control_history_title">ປະຫວັດການຄວບຄຸມ Wi-Fi</string>
@@ -3600,6 +3640,10 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_wps_pin_client_mobileap">ການເຊື່ອມຕໍ່ກັບລູກຂ່າຍດ້ວຍ PIN %1$s. ການຕັ້ງຈະໃຊ້ເວລາເຖິງ %2$d ນາທີ ຈິ່ງສໍາເລັດ.</string>
     <string name="wifi_wps_complete_mobileap">ເຄື່ອງອື່ນຕໍ່ກັບເຄື່ອງຂອງທ່ານແລ້ວດຽວນີ້.</string>
     <string name="wifi_ap_disconnect_warn">ປິດໃຊ້ງານເຄື່ອງ</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">ທຸກເຄື່ອງທີ່ເຊື່ອມຕໍ່ຢູ່ປະຈຸບັນຈະຖືກປິດຈາກຮັອດສະປັອດມືຖື.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">ທຸກເຄື່ອງທີ່ເຊື່ອມຕໍ່ຢູ່ປະຈຸບັນຈະຖືກປິດຈາກຮັອດສະປັອດມືຖື.</string>
     <string name="wifi_ap_warn_max_whitelist">ຮອດຈໍານວນເຄື່ອງສູງສຸດທີ່ອະນຸຍາດ (%d) ແລ້ວ.</string>
     <string name="wifiap_one_item_deleted">1 ລາຍການຈະຖືກລຶບ.</string>
@@ -3735,6 +3779,8 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_first_time_configuration">ການກໍານົດຮັອດສະປ໋ອດຄັ້ງທໍາອິດ</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">ປ້ອນ PIN ທີ່​ຖືກ​ຕ້ອງເຂົ້າ.</string>
+    <string name="open_mobileap_warning">AP ມື​ຖື​ນີ້​ບໍ່​ປອດ​ໄພ.</string>
+    <string name="hidden_mobileap_warning">WPS ຈະຖືກປິດໃຊ້ງານ ເມື່ອຜູ້ໃຊ້ຕັ້ງ SSID ທີ່ຖືກເຊື່ອງ.</string>
     <string name="wifi_ssid_max_byte_error">ຮອດຈໍານວນຕົວອັກສອນສູງສຸດແລ້ວ.</string>
     <string name="tethering_attention_title">ຂໍ້ຄວນຄຳນຶງ</string>
     <string name="wfd_select_device">ເລືອກເຄື່ອງ</string>
@@ -3965,6 +4011,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">ຊິງຄ໌</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">ການອະນຸຍາດນີ້ອະນຸຍາດໃຫ້ແອັບສະແດງສິ່ງຂອງໃນເບື້ອງເທິງສຸດຂອງແອັບອື່ນທີ່ທ່ານກຳລັງໃຊ້. ອັນນີ້ອາດຈະລົບກວນການໃຊ້ແອັບອື່ນຂອງທ່ານ.</string>
+    <string name="write_settings_body_description">ອະນຸຍາດໃຫ້ແອັບນີ້ປ່ຽນແປງການຕັ້ງຄ່າລະບົບ, ເຊັ່ນ ການເປີດ ຫຼື ປິດ ບລູທູດ.</string>
+    <string name="reset_app_preferences_desc1">ອັນນີ້ຈະຕັ້ງຄ່າທີ່ຕ້ອງການທັງໝົດຂອງທ່ານສຳລັບ:</string>
+    <string name="reset_app_preferences_desc2">ແອັບທີ່ປິດໃຊ້ງານແລ້ວ</string>
+    <string name="reset_app_preferences_desc3">ການຈຳກັດການແຈ້ງເຕືອນສຳລັບແອັບ</string>
+    <string name="reset_app_preferences_desc4">ແອັບມາດຕະຖານ</string>
+    <string name="reset_app_preferences_desc5">ການຈຳກັດຂໍ້ມູນພື້ນຫຼັງສຳລັບແອັບ</string>
+    <string name="reset_app_preferences_desc6">ການຈຳກັດການອະນຸຍາດ</string>
+    <string name="reset_app_preferences_desc7">ທ່ານຈະບໍ່ສູນເສຍຂໍ້ມູນແອັບທີ່ມີຢູ່ແລ້ວຂອງທ່ານ.</string>
     <string name="knox_security_mode_title">ຄວາມປອດໄພຂອງ Knox</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">ນະໂຍບາຍການເກັບຮັກສາເປັນສ່ວນຕົວ</string>
@@ -3979,6 +4033,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">ຈັດການຂໍ້ມູນສ່ວນຕົວຂອງທ່ານ ແລະລາຍລະອຽດ Samsung account.</string>
     <string name="my_profile_summary_jpn">ຈັດການຂໍ້ມູນສ່ວນຕົວຂອງທ່ານ ແລະ ລາຍລະອຽດບັນຊີ Galaxy.</string>
     <string name="arbitration_agreement">ຂໍ້ຕົກລົງການໄກ່ເກ່ຍ</string>
+    <string name="activation_title">ສະຖານະການເປີດໃຊ້ງານ</string>
+    <string name="activation_summary">ເປີດໃຊ້ງານໃນ %1$s. ສຳ​ລັບ​ຂໍ້​ມູນ​ເພີ່ມ​ເຕີມ, ເຂົ້າ​ເບິ່ງ %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF ເປີດຢູ່</string>
+    <string name="edit_event_start_short">ເລີ່ມຕົ້ນ</string>
+    <string name="edit_event_end_short">ສິ້ນສຸດ</string>
+    <string name="select_date_to_view">ເລືອກວັນທີເພື່ອເບິ່ງ</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">ແມ່ນ</string>
     <string name="no">ບໍ່</string>
     <string name="create">ສ້າງ</string>
@@ -5472,7 +5533,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="app_notification_block_title">ອະນຸຍາດການແຈ້ງເຕືອນ</string>
     <string name="app_notification_block_summary">ຮັບການແຈ້ງເຕືອນຈາກແອັບນີ້, ລວມທັງຂໍ້ຄວາມການແຈ້ງເຕືອນ, ສຽງ, ແລະການສັ່ນ.</string>
     <string name="app_notification_override_dnd_title">ຕັ້ງເປັນບຸລິມະສິດ</string>
-    <string name="app_notification_override_dnd_summary">ອະນຸຍາດການແຈ້ງເຕືອນຈາກແອັບນີ້ມີສຽງດັງ ແລະ ເປີດໜ້າຈໍໃນຂະນະທີ່ ຫ້າມລົບກວນເປີດໃຊ້ງານຢູ່.</string>
+    <string name="app_notification_override_dnd_summary">ສະ​ແດງ​ການ​ແຈ້ງ​ເຕືອນ​ຢູ່​ດ້ານ​ເທິງ​ຂອງ​ແຜນ​ການ​ແຈ້ງ​ເຕືອນ ແລະ​ລວມ​ເອົາ​ມັນ​ເຂົ້າ​ຢູ່​ໃນ​ລາຍ​ການ​ທີ່​ໄດ້​ຮັບ​ອະ​ນຸ​ຍາດ ໃນ​ຂະ​ນະ​ທີ່​ໂໝດ​ຢ່າ​ລົບ​ກວນ​ເປີດ​ໃຊ້​ງານ​ແລ້ວ.</string>
     <string name="app_notification_visibility_override_title">ເປີດໜ້າຈໍລັອກ</string>
     <string name="app_notifications_dialog_done">ສໍາເລັດແລ້ວ</string>
     <string name="zen_mode_choose_rule_type">ເລືອກປະເພດກົດລະບຽບ</string>
@@ -5509,6 +5570,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="restr_pin_enter_admin_pin">ປ້ອນ PIN ຜູ້ຄວບຄຸມ</string>
     <string name="switch_on_text">ເປີດ</string>
     <string name="switch_off_text">ປິດ</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">ໂປຣໄຟລ໌ບ່ອນເຮັດວຽກນີ້ຖືກຈັດການໂດຍ:</string>
     <string name="managing_admin">ຈັດການໂດຍ %s</string>
     <string name="display_auto_rotate_title">ໝູນໜ້າຈໍ</string>
     <string name="display_auto_rotate_rotate">ໝຸນເນື້ອ​ໃນໜ້າຈໍ</string>
@@ -5545,9 +5607,9 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="encrypt_talkback_dialog_require_pin">ຕ້ອງການ PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">ຕ້ອງການຮູບແບບ</string>
     <string name="encrypt_talkback_dialog_require_password">ຕ້ອງການລະຫັດຜ່ານ</string>
-    <string name="encrypt_talkback_dialog_message_pin">ເມື່ອ​ທ່ານປ້ອນ​ PIN ​ຂອງ​ທ່ານ​ຫຼັງ​ຈາກ​ເປີດ​ອຸ​ປະ​ກອນ, ຟັງ​ຄ໌​ຄວາມ​ສາ​ມາດ​ເຂົ້າ​ໃຊ້​ເຊັ່ນ %1$s ຈະ​ຖືກ​ປິດ​ໃຊ້​ງານ​ຊົ່ວ​ຄາວ.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">ເມື່ອ​ທ່ານ​ແຕ້ມ​ຮູບ​ແບບ​ຂອງ​ທ່ານ​ຫຼັງ​ຈາກ​ເປີດ​ອຸ​ປະ​ກອນ, ຟັງ​ຄ໌​ຊັນຄວາມ​ສາ​ມາດ​ເຂົ້າ​ໃຊ້​ເຊັ່ນ %1$s ຈະ​ຖືກ​ປິດ​ໃຊ້​ງານ​ຊົ່ວ​ຄາວ.</string>
-    <string name="encrypt_talkback_dialog_message_password">ເມື່ອ​ທ່ານປ້ອນ​ລະ​ຫັດ​ຂອງ​ທ່ານ​ຫຼັງ​ຈາກ​ເປີດ​ອຸ​ປະ​ກອນ, ຟັງ​ຄ໌​ຊັນ​ຄວາມ​ສາ​ມາດ​ເຂົ້າ​ໃຊ້ເຊັ່ນ %1$s ຈະ​ຖືກ​ປິດ​ໃຊ້​ງານ​ຊົ່ວ​ຄາວ.</string>
+    <string name="encrypt_talkback_dialog_message_pin">ຈຳເປັນຕ້ອງມີ PIN ຂອງທ່ານເມື່ອເປີດອຸປະກອນຂອງທ່ານ. ຟັງຄ໌ຊັນຄວາມສາມາດເຂົ້າໃຊ້ຈະບໍ່ມີຢູ່ຈົນກວ່າອຸປະກອນຂອງທ່ານໄດ້ເລີ່ມຕົ້ນຂຶ້ນ.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">ຈຳເປັນຕ້ອງມີຮູບແບບຂອງທ່ານເມື່ອເປີດອຸປະກອນຂອງທ່ານ. ຟັງຄ໌ຊັນຄວາມສາມາດເຂົ້າໃຊ້ຈະບໍ່ມີຢູ່ຈົນກວ່າອຸປະກອນຂອງທ່ານໄດ້ເລີ່ມຕົ້ນຂຶ້ນ.</string>
+    <string name="encrypt_talkback_dialog_message_password">ຈຳເປັນຕ້ອງມີລະຫັດຜ່ານຂອງທ່ານເມື່ອເປີດອຸປະກອນຂອງທ່ານ. ຟັງຄ໌ຊັນຄວາມສາມາດເຂົ້າໃຊ້ຈະບໍ່ມີຢູ່ຈົນກວ່າອຸປະກອນຂອງທ່ານໄດ້ເລີ່ມຕົ້ນຂຶ້ນ.</string>
     <string name="slot_number">(ຊ່ອງ %d)</string>
     <string name="app_launch_domain_links_title">ລິ້ງແອັບ</string>
     <string name="app_launch_open_domain_urls_title">ໄປທີ່ URL ທີ່ຮອງຮັບ</string>
@@ -5623,18 +5685,18 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="usb_use_power_only">ສາກອຸປະກອນທີ່ຖືກເຊື່ອມຕໍ່</string>
     <string name="usb_use_power_only_desc">ສາກອຸປະກອນທີ່ເຊື່ອມຕໍ່ຜ່ານ USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">ໂອນໄຟລ໌ມີເດຍ</string>
+    <string name="usb_use_file_transfers">ໂອນໄຟລ໌</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">ໂອນຮູບ</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">ເລືອກໂໝດນີ້ ຖ້າໂອນໄຟລ໌ມີເດຍໃຊ້ບໍ່ໄດ້. ທ່ານສາມາດໂອນໄຟລ໌ຮູບເທົ່ານັ້ນ.</string>
+    <string name="usb_use_photo_transfers_summary">ເລືອກໂໝດນີ້ ຖ້າໂອນໄຟລ໌ໃຊ້ບໍ່ໄດ້. ທ່ານສາມາດໂອນໄຟລ໌ຮູບໃນໂໝດນີ້ເທົ່ານັ້ນ.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">ເຊື່ອມຕໍ່ອຸປະກອນ MIDI</string>
-    <string name="usb_use">ໃຊ້ USB ສຳລັບ</string>
-    <string name="assist_access_context_title">ອ່ານເນື້ອໃນເທິງໜ້າຈໍ</string>
-    <string name="assist_access_context_summary">ອະນຸຍາດແອັບການຊ່ວຍເຫຼືອຂອງອຸປະກອນເພື່ອອ່ານຂໍ້ຄວາມໃດໜຶ່ງທີ່ສະແດງເທິງໜ້າຈໍ.</string>
-    <string name="assist_access_screenshot_title">ຖ່າຍ/ເຂົ້າໃຊ້ຮູບໜ້າຈໍ</string>
-    <string name="assist_access_screenshot_summary">ອະນຸຍາດແອັບການຊ່ວຍເຫຼືອຂອງອຸປະກອນເພື່ອຖ່າຍແລະເຂົ້າໃຊ້ຮູບໜ້າຈໍ.</string>
+    <string name="usb_use">ໃຊ້ USB ກັບ</string>
+    <string name="assist_access_context_title">ວິເຄາະຂໍ້ຄວາມເທິງໜ້າຈໍ</string>
+    <string name="assist_access_context_summary">ອະນຸຍາດໃຫ້ແອັບການຊ່ວຍເຫຼືອອຸປະກອນວິເຄາະຂໍ້ຄວາມທີ່ສະແດງຂຶ້ນໃນໜ້າຈໍເພື່ອສະໜອງເນື້ອໃນທີ່ກ່ຽວຂ້ອງ.</string>
+    <string name="assist_access_screenshot_title">ວິເຄາະຮູບເທິງໜ້າຈໍ</string>
+    <string name="assist_access_screenshot_summary">ອະນຸຍາດໃຫ້ແອັບການຊ່ວຍເຫຼືອອຸປະກອນນຳເອົາແລະໃຊ້ຮູບໜ້າຈໍ.</string>
     <string name="assist_footer">ແອັບການຊ່ວຍເຫຼືອຂອງອຸປະກອນສາມາດແນະນຳທ່ານໂດຍການລວມຂໍ້ມູນຈາກໜ້າຈໍທີ່ສະແດງໃນປະຈຸບັນໃນໂທລະສັບຂອງທ່ານເຂົ້າກັນ. ບາງແອັບການຊ່ວຍເຫຼືອຂອງອຸປະກອນສາມາດຖືກໃຊ້ເພື່ອເປີດແອັບອື່ນແລະປ້ອນຂໍ້ຄວາມເຂົ້າໂດຍໃຊ້ການປ້ອນຂໍ້ຄວາມດ້ວຍສຽງ, ການໃຫ້ຊ່ວຍເຫຼືອທ່ານແບບເຊື່ອມສານ.</string>
     <string name="average_memory_use">ການນຳໃຊ້ RAM ສະເລ່ຍ</string>
     <string name="maximum_memory_use">ການນຳໃຊ້ RAM ສູງສຸດ</string>
@@ -5663,7 +5725,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ignore_optimizations_on_desc">ອາດຈະເພີ່ມການໃຊ້ໄຟແບັດເຕີຣີຂຶ້ນ</string>
     <string name="ignore_optimizations_off_desc">ແນະນຳສຳລັບການປະຢັດໄຟແບັດເຕີຣີແລ້ວ</string>
     <string name="app_list_preference_none">ບໍ່ມີ</string>
-    <string name="allow_overlay_description">ເລືອກແອັບເພື່ອອະນຸຍາດປຸ່ມ, ປັອບອັບ, ຫຼືອົງປະກອບອື່ນຂອງພວກມັນທີ່ຈະປະກົດຂຶ້ນຢູ່ເທິງແອັບອື່ນທີ່ກຳລັງໃຊ້.</string>
+    <string name="allow_overlay_description">ການອະນຸຍາດນີ້ອະນຸຍາດໃຫ້ແອັບສະແດງສິ່ງຂອງໃນເບື້ອງເທິງສຸດຂອງແອັບອື່ນທີ່ທ່ານກຳລັງໃຊ້. ອັນນີ້ອາດຈະລົບກວນການໃຊ້ແອັບອື່ນຂອງທ່ານ.</string>
     <string name="overlay_settings">ແອັບທີ່ສາມາດປະກົດຢູ່ເທິງສຸດ</string>
     <string name="filter_overlay_apps">ແອັບທີ່ມີການອະນຸຍາດ</string>
     <string name="filter_write_settings_apps">ແອັບທີ່ມີການອະນຸຍາດ</string>
@@ -5710,14 +5772,14 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ethernet_data_template">%1$s ຂອງຂໍ້ມູນອີເທີເນັດ</string>
     <string name="cell_warning_only">ການເຕືອນຂໍ້ມູນຢູ່ທີ່ %s</string>
     <string name="cell_warning_and_limit">%1$s ຄຳເຕືອນການນຳໃຊ້ຂໍ້ມູນ/%2$s ຂີດຈຳກັດການນຳໃຊ້ຂໍ້ມູນ</string>
-    <string name="billing_cycle">ຮອບໃບບິນ</string>
+    <string name="billing_cycle">ຮອບວຽນໃບບິນແລະການເຕືອນຂໍ້ມູນ</string>
     <string name="billing_cycle_summary">ວັນທີ %s ຂອງແຕ່ລະເດືອນ</string>
     <string name="billing_cycle_fragment_summary">ວັນທີ %s ຂອງແຕ່ລະເດືອນ</string>
     <string name="network_restrictions">ຈຳ​ກັດ​ເຄືອ​ຂ່າຍ</string>
     <string name="operator_warning">ການນຳໃຊ້ຂໍ້ມູນຖືກວັດແທກໂດຍອຸປະກອນຂອງທ່ານ. ຜູ້ໃຫ້ບໍລິການຂອງທ່ານອາດຈະຮັບຜິດຊອບຕໍ່ການໃຊ້ຕ່າງໆ.</string>
     <string name="data_used_template">%s ທີ່ໃຊ້ແລ້ວ</string>
     <string name="data_warning">ການເຕືອນຂໍ້ມູນ</string>
-    <string name="set_data_limit">ຂີດຈໍາກັດຂໍ້ມູນ</string>
+    <string name="set_data_limit">ຕັ້ງຂີດຈໍາກັດຂໍ້ມູນ</string>
     <string name="data_limit">ຂີດຈໍາກັດຂໍ້ມູນ</string>
     <string name="data_usage_template">%1$s ທີ່ໃຊ້ແລ້ວລະຫວ່າງ %2$s</string>
     <string name="data_usage_other_apps">ແອັບທີ່ກ່ຽວຂ້ອງຖືກລວມເຂົ້າໃນການໃຊ້</string>
@@ -5759,5 +5821,4 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="enable_iris_lock_desc_3">"ລາຍນິ້ວມືຂະນະນີ້ຖືກຕັ້ງເປັນປະເພດລັອກໜ້າຈໍຂອງທ່ານແລ້ວ.
 
 ເພື່ອຕັ້ງປະເພດລັອກໜ້າຈໍຂອງທ່ານເປັນມ່ານຕາແທນລາຍນິ້ວມື, ແຕະ [ເປີດໃຊ້ງານ]. ຈາກນັ້ນອຸປະກອນສາມາດຖືກປົດລັອກໂດຍໃຊ້ມ່ານຕາຂອງທ່ານ ຫຼື %s ຂອງທ່ານ."</string>
-    <string name="my_phone_summary">ລຳໂພງ/ຊຸດຫູຟັງ/ອຸປະກອນສຽງ USB</string>
 </resources>

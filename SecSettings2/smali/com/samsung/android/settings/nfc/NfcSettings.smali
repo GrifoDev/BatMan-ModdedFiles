@@ -403,11 +403,11 @@
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1
 
     iget-boolean v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->isBixbyCmdFinished:Z
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1
 
     const-string/jumbo v3, "NfcSettings"
 
@@ -439,7 +439,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     iput-boolean v6, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->isBixbyCmdFinished:Z
 
@@ -457,12 +457,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    sget-object v4, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
     invoke-virtual {v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
 
     move-result v3
@@ -476,10 +470,17 @@
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
     :cond_0
+    iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v4, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    :cond_1
     :goto_0
     return-void
 
-    :cond_1
+    :cond_2
     iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mLastBixbyStatus:Ljava/lang/String;
 
     const-string/jumbo v4, "NfcDefaultNfcSettings"
@@ -488,7 +489,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4
 
     iput-boolean v6, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->isBixbyCmdFinished:Z
 
@@ -503,26 +504,26 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    sget-object v4, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-    :try_end_0
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_1
-    iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
     invoke-virtual {v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     iget-object v4, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mLastBixbyStatus:Ljava/lang/String;
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_3
+    iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v4, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
@@ -531,9 +532,15 @@
 
     invoke-virtual {v0}, Landroid/content/ActivityNotFoundException;->printStackTrace()V
 
-    goto :goto_1
+    iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    :cond_2
+    sget-object v4, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto :goto_0
+
+    :cond_4
     iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mLastBixbyStatus:Ljava/lang/String;
 
     const-string/jumbo v4, "NfcAndroidBeamSettingsOn"
@@ -542,7 +549,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iput-boolean v6, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->isBixbyCmdFinished:Z
 
@@ -564,7 +571,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_5
 
     iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
@@ -582,7 +589,7 @@
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_3
+    :cond_5
     iget-object v3, p0, Lcom/samsung/android/settings/nfc/NfcSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     sget-object v4, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
@@ -810,7 +817,7 @@
 
     if-ne v1, v3, :cond_0
 
-    const v1, 0x7f0b0aa7
+    const v1, 0x7f0b0b16
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -827,7 +834,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0aa8
+    const v3, 0x7f0b0b17
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -860,7 +867,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0b0bd7
+    const v1, 0x7f0b0c49
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1014,7 +1021,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b0a85
+    const v2, 0x7f0b0af4
 
     invoke-virtual {v0, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1278,7 +1285,7 @@
     if-eqz v0, :cond_3
 
     :cond_1
-    const v0, 0x7f140008
+    const v0, 0x7f140009
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -1289,7 +1296,7 @@
     :cond_3
     const/4 v0, 0x1
 
-    const v1, 0x7f0b0a9e
+    const v1, 0x7f0b0b0d
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1307,13 +1314,13 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b19ee
+    const v1, 0x7f0b1a8a
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f02017f
+    const v1, 0x7f0201a4
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1471,7 +1478,7 @@
     .sparse-switch
         0x1 -> :sswitch_1
         0x2 -> :sswitch_0
-        0x7f1109cd -> :sswitch_0
+        0x7f1109d3 -> :sswitch_0
     .end sparse-switch
 .end method
 

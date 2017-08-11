@@ -49,7 +49,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/NewModePreview$22;->this$0:Lcom/samsung/android/settings/NewModePreview;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/NewModePreview;->-wrap0(Lcom/samsung/android/settings/NewModePreview;)V
+    invoke-static {v1}, Lcom/samsung/android/settings/NewModePreview;->-wrap1(Lcom/samsung/android/settings/NewModePreview;)V
 
     :goto_0
     return-void

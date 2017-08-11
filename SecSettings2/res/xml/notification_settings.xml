@@ -5,7 +5,7 @@
     <PreferenceScreen android:title="@string/sound_mode" android:key="interval_sound_mode" android:fragment="com.samsung.android.settings.notification.SoundModeSettings" />
     <SwitchPreference android:title="@string/vibrate_on_ring_title" android:key="vibrate_when_ringing" />
     <PreferenceCategory android:key="intensity_category" />
-    <com.android.settings.SecDropDownPreference android:persistent="false" android:title="@string/volume_key_control_title" android:key="volume_key_control" />
+    <SwitchPreference android:persistent="false" android:title="@string/volume_key_control_title" android:key="volume_key_control" android:summary="@string/volume_key_control_summary" />
     <PreferenceScreen android:title="@string/all_volume_title" android:key="volume_setting" android:fragment="com.samsung.android.settings.notification.VolumeSettings" settings:SettingsMode="UPSM" />
     <PreferenceScreen android:title="@string/vibration_intensity" android:key="vibration_feedback_intensity" android:fragment="com.samsung.android.settings.notification.VibrationIntensitySettings" settings:SettingsMode="UPSM" />
     <PreferenceCategory android:key="ringtone_vibration" />

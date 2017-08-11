@@ -754,6 +754,10 @@
 
     invoke-direct {p0, v6}, Lcom/android/settings/deviceinfo/ImeiInformation;->getIMEI(I)Ljava/lang/String;
 
+    move-result-object v4
+
+    invoke-virtual {v4, v6, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
     move-result-object v2
 
     goto :goto_0
@@ -985,7 +989,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b117d
+    const v2, 0x7f0b1218
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1049,7 +1053,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b1b5a
+    const v4, 0x7f0b1bf6
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1215,7 +1219,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a04f6
+    const v4, 0x7f0a04f4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1225,7 +1229,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a04f4
+    const v5, 0x7f0a04f2
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1315,7 +1319,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b14f0
+    const v6, 0x7f0b158c
 
     invoke-virtual {v5, v6}, Landroid/preference/Preference;->setTitle(I)V
 

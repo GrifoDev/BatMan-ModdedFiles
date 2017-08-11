@@ -66,7 +66,7 @@
 
     iput-boolean v0, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageZoom;->mIsLongkeyProcessing:Z
 
-    const v0, 0x7f040193
+    const v0, 0x7f040195
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageZoom;->setLayoutResource(I)V
 
@@ -94,7 +94,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v2, 0x7f110556
+    const v2, 0x7f110558
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -104,7 +104,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageZoom;->mZoomLayer:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f110555
+    const v2, 0x7f110557
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -114,7 +114,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageZoom;->mTitle:Landroid/widget/TextView;
 
-    const v2, 0x7f110558
+    const v2, 0x7f11055a
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -124,7 +124,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageZoom;->mSeekBar:Lcom/samsung/android/settings/widget/IntervalSeekBar;
 
-    const v2, 0x7f110559
+    const v2, 0x7f11055b
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -134,7 +134,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment$MagnifierImageZoom;->mPlusMagnifier:Landroid/widget/ImageView;
 
-    const v2, 0x7f110557
+    const v2, 0x7f110559
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -472,7 +472,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f110557
+    .packed-switch 0x7f110559
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -546,7 +546,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f110557
+    .packed-switch 0x7f110559
         :pswitch_1
         :pswitch_0
         :pswitch_2

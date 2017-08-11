@@ -73,7 +73,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f04018d
+    const v1, 0x7f04018f
 
     const/4 v2, 0x0
 
@@ -85,7 +85,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->guideView:Landroid/view/View;
 
-    const v2, 0x7f110542
+    const v2, 0x7f110544
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->guideView:Landroid/view/View;
 
-    const v2, 0x7f110543
+    const v2, 0x7f110545
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -109,7 +109,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->headerTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b1ac0
+    const v2, 0x7f0b1b5c
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -316,7 +316,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->headerImgView:Landroid/widget/ImageView;
 
-    const v3, 0x7f020386
+    const v3, 0x7f0203ac
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -338,7 +338,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->headerImgView:Landroid/widget/ImageView;
 
-    const v3, 0x7f020384
+    const v3, 0x7f0203aa
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -347,7 +347,7 @@
     :cond_3
     iget-object v2, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->headerImgView:Landroid/widget/ImageView;
 
-    const v3, 0x7f020385
+    const v3, 0x7f0203ab
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -466,7 +466,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f04028d
+    const v0, 0x7f040291
 
     const/4 v1, 0x0
 
@@ -542,7 +542,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1001f5
+    const v4, 0x7f1001fb
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -589,7 +589,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1001f6
+    const v4, 0x7f1001fc
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -660,7 +660,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1001f4
+    const v2, 0x7f1001fa
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -700,7 +700,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v4, 0x7f1106fb
+    const v4, 0x7f1106fe
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -718,7 +718,7 @@
 
     invoke-virtual {v4}, Lcom/android/settings/widget/SwitchBar;->show()V
 
-    const v4, 0x7f1103f0
+    const v4, 0x7f1103f2
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -744,7 +744,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a078f
+    const v5, 0x7f0a078e
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -758,7 +758,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0790
+    const v5, 0x7f0a078f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -846,7 +846,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f110703
+    const v5, 0x7f110706
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -860,7 +860,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f110705
+    const v5, 0x7f110708
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -874,7 +874,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f110707
+    const v5, 0x7f11070a
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -888,7 +888,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f110708
+    const v5, 0x7f11070b
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -932,7 +932,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->mSUWNextText:Landroid/widget/TextView;
 
-    const v5, 0x7f0b1aed
+    const v5, 0x7f0b1b89
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 

@@ -32,7 +32,7 @@
     return-void
 
     :cond_0
-    const v2, 0x7f0402e3
+    const v2, 0x7f0402e7
 
     invoke-virtual {p0, v2}, Lcom/android/settings/deviceinfo/StorageWizardReady;->setContentView(I)V
 
@@ -46,7 +46,7 @@
 
     aput-object v3, v2, v5
 
-    const v3, 0x7f0b1568
+    const v3, 0x7f0b1604
 
     invoke-virtual {p0, v3, v2}, Lcom/android/settings/deviceinfo/StorageWizardReady;->setHeaderText(I[Ljava/lang/String;)V
 
@@ -74,7 +74,7 @@
 
     aput-object v3, v2, v5
 
-    const v3, 0x7f0b1569
+    const v3, 0x7f0b1605
 
     invoke-virtual {p0, v3, v2}, Lcom/android/settings/deviceinfo/StorageWizardReady;->setBodyText(I[Ljava/lang/String;)V
 
@@ -84,7 +84,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0462
+    const v3, 0x7f0b04c5
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -105,7 +105,7 @@
 
     aput-object v3, v2, v5
 
-    const v3, 0x7f0b156a
+    const v3, 0x7f0b1606
 
     invoke-virtual {p0, v3, v2}, Lcom/android/settings/deviceinfo/StorageWizardReady;->setBodyText(I[Ljava/lang/String;)V
 

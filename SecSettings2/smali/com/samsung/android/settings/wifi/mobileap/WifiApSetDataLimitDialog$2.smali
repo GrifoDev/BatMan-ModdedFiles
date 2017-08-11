@@ -77,7 +77,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_7
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
@@ -169,8 +169,11 @@
 
     const/16 v3, 0xa
 
-    if-lt v0, v3, :cond_2
+    if-ge v0, v3, :cond_2
 
+    if-nez v0, :cond_3
+
+    :cond_2
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
     invoke-static {v3}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -207,14 +210,14 @@
 
     return-void
 
-    :cond_2
+    :cond_3
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
     invoke-static {v3}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;)Landroid/widget/EditText;
 
     move-result-object v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
@@ -244,7 +247,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
@@ -270,7 +273,7 @@
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_3
+    :cond_4
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
     invoke-static {v3}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -281,11 +284,11 @@
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    :cond_4
+    :cond_5
     :goto_0
     return-void
 
-    :cond_5
+    :cond_6
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
     invoke-static {v3}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -322,14 +325,14 @@
 
     return-void
 
-    :cond_6
+    :cond_7
     const-string/jumbo v3, "DisableMobileHotspotDataLimit"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
@@ -341,7 +344,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_9
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
@@ -363,7 +366,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_8
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
@@ -389,7 +392,7 @@
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_7
+    :cond_8
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
     invoke-static {v3}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -402,7 +405,7 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_9
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
     invoke-static {v3}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -413,7 +416,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_a
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
@@ -439,7 +442,7 @@
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_9
+    :cond_a
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;
 
     invoke-static {v3}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApSetDataLimitDialog;)Lcom/samsung/android/settings/bixby/EmSettingsManager;

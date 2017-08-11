@@ -219,7 +219,7 @@
 
     if-eqz p1, :cond_1
 
-    const v1, 0x7f0b1936
+    const v1, 0x7f0b19d2
 
     :goto_0
     invoke-virtual {v2, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -228,7 +228,7 @@
 
     if-eqz p1, :cond_2
 
-    const v1, 0x7f0b1937
+    const v1, 0x7f0b19d3
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
@@ -278,12 +278,12 @@
     return-void
 
     :cond_1
-    const v1, 0x7f0b1938
+    const v1, 0x7f0b19d4
 
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b1939
+    const v1, 0x7f0b19d5
 
     goto :goto_1
 .end method
@@ -303,7 +303,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/qstile/SecAccountTiles;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b185e
+    const v5, 0x7f0b18fa
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -311,7 +311,7 @@
 
     aput-object v4, v3, v6
 
-    const v4, 0x7f0b10b2
+    const v4, 0x7f0b113f
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -354,7 +354,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f0204af
+    const v2, 0x7f020518
 
     invoke-static {p0, v2}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 
@@ -362,7 +362,7 @@
 
     invoke-virtual {v1, v2}, Landroid/service/quicksettings/Tile;->setIcon(Landroid/graphics/drawable/Icon;)V
 
-    const v2, 0x7f0b185e
+    const v2, 0x7f0b18fa
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -582,7 +582,7 @@
 .method public semGetDetailView()Landroid/widget/RemoteViews;
     .locals 7
 
-    const v6, 0x7f11068f
+    const v6, 0x7f110692
 
     new-instance v1, Landroid/widget/RemoteViews;
 
@@ -590,7 +590,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04024f
+    const v3, 0x7f040253
 
     invoke-direct {v1, v2, v3}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -604,7 +604,7 @@
 
     if-eqz v0, :cond_0
 
-    const v2, 0x7f0b1937
+    const v2, 0x7f0b19d3
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/qstile/SecAccountTiles;->getText(I)Ljava/lang/CharSequence;
 
@@ -636,7 +636,7 @@
     return-object v1
 
     :cond_0
-    const v2, 0x7f0b1939
+    const v2, 0x7f0b19d5
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/qstile/SecAccountTiles;->getText(I)Ljava/lang/CharSequence;
 
@@ -652,7 +652,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/qstile/SecAccountTiles;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b10b3
+    const v1, 0x7f0b1140
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

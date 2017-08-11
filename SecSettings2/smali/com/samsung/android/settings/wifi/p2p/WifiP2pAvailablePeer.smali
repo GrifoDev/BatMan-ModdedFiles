@@ -33,7 +33,7 @@
 
     iput-object v4, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pAvailablePeer;->mContactDrawable:Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f040392
+    const v3, 0x7f040397
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/wifi/p2p/WifiP2pAvailablePeer;->setLayoutResource(I)V
 
@@ -423,7 +423,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0243
+    const v4, 0x7f0d0244
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -435,7 +435,7 @@
     return-void
 
     :cond_3
-    const v2, 0x7f0b0dc7
+    const v2, 0x7f0b0e52
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/wifi/p2p/WifiP2pAvailablePeer;->setSummary(I)V
 

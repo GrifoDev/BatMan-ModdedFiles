@@ -415,7 +415,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f100378
+    const v2, 0x7f10037e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1605,7 +1605,7 @@
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 6
 
-    const v4, 0x7f0a04f5
+    const v4, 0x7f0a04f3
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
@@ -1646,7 +1646,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04f6
+    const v3, 0x7f0a04f4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1664,7 +1664,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a04f4
+    const v5, 0x7f0a04f2
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1897,7 +1897,7 @@
 
     if-eqz v4, :cond_4
 
-    const v4, 0x7f0b19b6
+    const v4, 0x7f0b1a52
 
     const/4 v5, 0x1
 

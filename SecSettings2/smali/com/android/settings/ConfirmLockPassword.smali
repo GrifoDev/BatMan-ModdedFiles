@@ -124,14 +124,14 @@
 
     :array_0
     .array-data 4
-        0x7f0b09b6
-        0x7f0b09b7
-        0x7f0b1622
-        0x7f0b1623
-        0x7f0b1625
-        0x7f0b1626
-        0x7f0b1628
-        0x7f0b1629
+        0x7f0b0a24
+        0x7f0b0a25
+        0x7f0b16be
+        0x7f0b16bf
+        0x7f0b16c1
+        0x7f0b16c2
+        0x7f0b16c4
+        0x7f0b16c5
     .end array-data
 .end method
 
@@ -242,7 +242,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f110587
+    const v2, 0x7f110589
 
     invoke-virtual {v1, v2}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 

@@ -639,7 +639,7 @@
 
     move-object/from16 v22, v0
 
-    const v23, 0x7f0b0d5d
+    const v23, 0x7f0b0de8
 
     invoke-virtual/range {v22 .. v23}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -652,7 +652,7 @@
 
     move-object/from16 v22, v0
 
-    const v23, 0x7f0b0d5d
+    const v23, 0x7f0b0de8
 
     invoke-virtual/range {v22 .. v23}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -734,7 +734,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001b5
+    const v1, 0x7f1001b6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1008,7 +1008,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1001b6
+    const v4, 0x7f1001b7
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1061,7 +1061,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f1001b7
+    const v4, 0x7f1001b8
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getInteger(I)I
 

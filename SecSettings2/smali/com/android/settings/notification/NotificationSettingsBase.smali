@@ -997,7 +997,7 @@
 
     invoke-virtual {v7, v8}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    if-eqz p3, :cond_b
+    if-eqz p3, :cond_c
 
     :goto_6
     invoke-virtual {p0, v9}, Lcom/android/settings/notification/NotificationSettingsBase;->updateDependents(I)V
@@ -1051,20 +1051,36 @@
 
     move-result v11
 
-    if-eqz v11, :cond_a
+    if-eqz v11, :cond_b
 
     iget-object v7, p0, Lcom/android/settings/notification/NotificationSettingsBase;->mBlock:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
     invoke-virtual {p0, v7, v9}, Lcom/android/settings/notification/NotificationSettingsBase;->setVisible(Landroid/preference/Preference;Z)V
 
+    iget-object v10, p0, Lcom/android/settings/notification/NotificationSettingsBase;->mSilent:Lcom/android/settingslib/SecRestrictedSwitchPreference;
+
+    const/4 v7, 0x2
+
+    if-ne p2, v7, :cond_a
+
+    move v7, v8
+
+    :goto_8
+    invoke-virtual {v10, v7}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setChecked(Z)V
+
     goto :goto_5
 
     :cond_a
+    move v7, v9
+
+    goto :goto_8
+
+    :cond_b
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_7
 
-    :cond_b
+    :cond_c
     move v9, p2
 
     goto :goto_6
@@ -1123,7 +1139,7 @@
 
     if-eqz v6, :cond_0
 
-    const v6, 0x7f0b1abd
+    const v6, 0x7f0b1b59
 
     invoke-virtual {p0, v6}, Lcom/android/settings/notification/NotificationSettingsBase;->getString(I)Ljava/lang/String;
 
@@ -1142,7 +1158,7 @@
     invoke-direct {p0, v3, v4, v6}, Lcom/android/settings/notification/NotificationSettingsBase;->setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
     :cond_0
-    const v6, 0x7f0b1abe
+    const v6, 0x7f0b1b5a
 
     invoke-virtual {p0, v6}, Lcom/android/settings/notification/NotificationSettingsBase;->getString(I)Ljava/lang/String;
 
@@ -1162,7 +1178,7 @@
 
     invoke-direct {p0, v1, v2, v6}, Lcom/android/settings/notification/NotificationSettingsBase;->setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
-    const v6, 0x7f0b1abf
+    const v6, 0x7f0b1b5b
 
     invoke-virtual {p0, v6}, Lcom/android/settings/notification/NotificationSettingsBase;->getString(I)Ljava/lang/String;
 
@@ -1258,7 +1274,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/NotificationSettingsBase;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b169b
+    const v1, 0x7f0b1737
 
     const/4 v2, 0x0
 

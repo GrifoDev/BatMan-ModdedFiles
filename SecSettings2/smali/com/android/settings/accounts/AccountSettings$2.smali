@@ -37,7 +37,7 @@
 .method public onStateReceived()V
     .locals 9
 
-    const v8, 0x7f1109b7
+    const v8, 0x7f1109bd
 
     const/4 v7, 0x1
 

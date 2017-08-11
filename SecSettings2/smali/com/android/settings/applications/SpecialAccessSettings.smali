@@ -19,11 +19,19 @@
 
 
 # instance fields
+.field private mDataSaver:Landroid/preference/PreferenceScreen;
+
 .field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
 .field private mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
+.field private mHighPowerApps:Landroid/preference/PreferenceScreen;
+
 .field private mOverlay:Landroid/preference/PreferenceScreen;
+
+.field private mPremiumSms:Landroid/preference/PreferenceScreen;
+
+.field private mVRLiteners:Landroid/preference/PreferenceScreen;
 
 .field private mWriteSettings:Landroid/preference/PreferenceScreen;
 
@@ -168,6 +176,46 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mWriteSettings:Landroid/preference/PreferenceScreen;
 
+    const-string/jumbo v0, "high_power_apps"
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/applications/SpecialAccessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/preference/PreferenceScreen;
+
+    iput-object v0, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mHighPowerApps:Landroid/preference/PreferenceScreen;
+
+    const-string/jumbo v0, "enabled_vr_listeners"
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/applications/SpecialAccessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/preference/PreferenceScreen;
+
+    iput-object v0, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mVRLiteners:Landroid/preference/PreferenceScreen;
+
+    const-string/jumbo v0, "premium_sms"
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/applications/SpecialAccessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/preference/PreferenceScreen;
+
+    iput-object v0, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mPremiumSms:Landroid/preference/PreferenceScreen;
+
+    const-string/jumbo v0, "data_saver"
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/applications/SpecialAccessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/preference/PreferenceScreen;
+
+    iput-object v0, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mDataSaver:Landroid/preference/PreferenceScreen;
+
     iget-object v0, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mOverlay:Landroid/preference/PreferenceScreen;
 
     invoke-static {}, Lcom/samsung/android/settings/applications/AppCommonUtils;->getOverlayTitle()I
@@ -184,6 +232,19 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setTitle(I)V
 
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportCHNSmartManager()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mDataSaver:Landroid/preference/PreferenceScreen;
+
+    const v1, 0x7f0b054a
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setTitle(I)V
+
+    :cond_0
     new-instance v0, Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     invoke-direct {v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
@@ -269,11 +330,62 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     sget-object v0, Lcom/android/settings/applications/SpecialAccessSettings;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
     iget-object v1, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mOverlay:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v0, v2, v1, v3}, Lcom/samsung/android/settings/applications/EmHandler;->setAction(ILjava/lang/Object;I)V
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v0, "OptimizeBatteryUsage"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    sget-object v0, Lcom/android/settings/applications/SpecialAccessSettings;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    iget-object v1, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mHighPowerApps:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v0, v2, v1, v3}, Lcom/samsung/android/settings/applications/EmHandler;->setAction(ILjava/lang/Object;I)V
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v0, "VRHelperServices"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    sget-object v0, Lcom/android/settings/applications/SpecialAccessSettings;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    iget-object v1, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mVRLiteners:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v0, v2, v1, v3}, Lcom/samsung/android/settings/applications/EmHandler;->setAction(ILjava/lang/Object;I)V
+
+    goto :goto_0
+
+    :cond_4
+    const-string/jumbo v0, "UsePremiumSMSServices"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/settings/applications/SpecialAccessSettings;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    iget-object v1, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mPremiumSms:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {v0, v2, v1, v3}, Lcom/samsung/android/settings/applications/EmHandler;->setAction(ILjava/lang/Object;I)V
 

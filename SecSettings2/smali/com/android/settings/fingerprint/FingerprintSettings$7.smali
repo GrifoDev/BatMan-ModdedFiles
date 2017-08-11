@@ -638,6 +638,20 @@
 
     iget-object v2, p0, Lcom/android/settings/fingerprint/FingerprintSettings$7;->this$0:Lcom/android/settings/fingerprint/FingerprintSettings;
 
+    invoke-static {v2}, Lcom/android/settings/fingerprint/FingerprintSettings;->-get8(Lcom/android/settings/fingerprint/FingerprintSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/settings/fingerprint/FingerprintSettings$7;->this$0:Lcom/android/settings/fingerprint/FingerprintSettings;
+
+    invoke-virtual {v3}, Lcom/android/settings/fingerprint/FingerprintSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    iget-object v2, p0, Lcom/android/settings/fingerprint/FingerprintSettings$7;->this$0:Lcom/android/settings/fingerprint/FingerprintSettings;
+
     invoke-static {v2}, Lcom/android/settings/fingerprint/FingerprintSettings;->-get3(Lcom/android/settings/fingerprint/FingerprintSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v2

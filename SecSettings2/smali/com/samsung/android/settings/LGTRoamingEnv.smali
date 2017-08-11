@@ -451,13 +451,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b01cb
+    const v1, 0x7f0b0228
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b1031
+    const v1, 0x7f0b10be
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -623,7 +623,7 @@
 
     sget-object v0, Lcom/samsung/android/settings/LGTRoamingEnv;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b01c1
+    const v1, 0x7f0b021e
 
     const/4 v2, 0x0
 
@@ -639,7 +639,7 @@
     :cond_0
     sget-object v0, Lcom/samsung/android/settings/LGTRoamingEnv;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b01c2
+    const v1, 0x7f0b021f
 
     const/4 v2, 0x0
 
@@ -679,7 +679,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b01c3
+    const v1, 0x7f0b0220
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -752,7 +752,7 @@
 
     sget-object v1, Lcom/samsung/android/settings/LGTRoamingEnv;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b01c4
+    const v2, 0x7f0b0221
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -803,13 +803,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0ac6
+    const v1, 0x7f0b0b35
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b1032
+    const v1, 0x7f0b10bf
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1071,7 +1071,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv;->mButtonCountryUpdate:Landroid/preference/Preference;
 
@@ -1098,7 +1098,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_0
 
     sget-object v1, Lcom/samsung/android/settings/LGTRoamingEnv;->mContext:Landroid/content/Context;
 
@@ -1106,15 +1106,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Lcom/android/settings/Utils;->isExceptionalUSIM()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    :cond_0
+    iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv;->mLteRoamingSettings:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v1, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv;->mLteRoamingSettings:Landroid/preference/SwitchPreference;
 
-    invoke-direct {p0}, Lcom/samsung/android/settings/LGTRoamingEnv;->getLteRoamingState()Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     :goto_1
     new-instance v0, Landroid/content/IntentFilter;
@@ -1141,14 +1148,14 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     sget-object v1, Lcom/samsung/android/settings/LGTRoamingEnv;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/android/settings/Utils;->isSupportKorRoamingConcept(Landroid/content/Context;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv;->mButtonCountryUpdate:Landroid/preference/Preference;
 
@@ -1156,7 +1163,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv;->mButtonCountryUpdate:Landroid/preference/Preference;
 
     const/4 v2, 0x1
@@ -1165,14 +1172,14 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv;->mLteRoamingSettings:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-direct {p0}, Lcom/samsung/android/settings/LGTRoamingEnv;->getLteRoamingState()Z
 
-    iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv;->mLteRoamingSettings:Landroid/preference/SwitchPreference;
+    move-result v2
 
-    invoke-virtual {v1, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     goto :goto_1
 .end method

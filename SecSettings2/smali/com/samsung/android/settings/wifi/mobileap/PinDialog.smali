@@ -31,7 +31,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/PinDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f110985
+    const v2, 0x7f11098b
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -57,7 +57,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0403b0
+    const v1, 0x7f0403b5
 
     const/4 v2, 0x0
 
@@ -67,13 +67,13 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/PinDialog;->mView:Landroid/view/View;
 
-    const v0, 0x7f0b13b5
+    const v0, 0x7f0b1450
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/mobileap/PinDialog;->setTitle(I)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/PinDialog;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b046a
+    const v1, 0x7f0b04cd
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -87,7 +87,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/PinDialog;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b124f
+    const v1, 0x7f0b12ea
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -100,7 +100,7 @@
 
     iput-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->mChildren:Ljava/util/List;
 
-    const v2, 0x7f0401ee
+    const v2, 0x7f0401f0
 
     invoke-virtual {p0, v2}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setLayoutResource(I)V
 
@@ -187,7 +187,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/SwitchPreference;->onBindView(Landroid/view/View;)V
 
-    const v4, 0x7f11062a
+    const v4, 0x7f11062c
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -202,7 +202,7 @@
     :goto_0
     invoke-virtual {v1, v4}, Landroid/view/View;->setVisibility(I)V
 
-    const v4, 0x7f11062b
+    const v4, 0x7f11062d
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -223,7 +223,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    const v4, 0x7f110629
+    const v4, 0x7f11062b
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

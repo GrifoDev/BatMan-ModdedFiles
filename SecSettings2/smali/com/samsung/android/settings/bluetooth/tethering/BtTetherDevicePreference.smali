@@ -96,7 +96,7 @@
 
     iput-object p2, p0, Lcom/samsung/android/settings/bluetooth/tethering/BtTetherDevicePreference;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    const v0, 0x7f0401f3
+    const v0, 0x7f0401f5
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/bluetooth/tethering/BtTetherDevicePreference;->setLayoutResource(I)V
 
@@ -157,7 +157,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f01e6
+    const v2, 0x7f0f01e7
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 

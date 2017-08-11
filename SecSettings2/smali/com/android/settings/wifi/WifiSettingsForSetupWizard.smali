@@ -54,7 +54,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSettingsForSetupWizard;->mMacAddressFooter:Landroid/view/View;
 
-    const v4, 0x7f110771
+    const v4, 0x7f110774
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -75,7 +75,7 @@
     return-void
 
     :cond_2
-    const v3, 0x7f0b14fe
+    const v3, 0x7f0b159a
 
     invoke-virtual {p0, v3}, Lcom/android/settings/wifi/WifiSettingsForSetupWizard;->getString(I)Ljava/lang/String;
 
@@ -86,22 +86,6 @@
 
 
 # virtual methods
-.method protected connect(I)V
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiSettingsForSetupWizard;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/wifi/WifiSetupActivity;
-
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiSetupActivity;->networkSelected()V
-
-    invoke-super {p0, p1}, Lcom/android/settings/wifi/WifiSettings;->connect(I)V
-
-    return-void
-.end method
-
 .method protected connect(Landroid/net/wifi/WifiConfiguration;)V
     .locals 1
 
@@ -141,7 +125,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0402c5
+    const v2, 0x7f0402c9
 
     const/4 v3, 0x0
 
@@ -241,7 +225,7 @@
 
     const/4 v4, 0x0
 
-    const v3, 0x7f0402c6
+    const v3, 0x7f0402ca
 
     invoke-virtual {p1, v3, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -257,7 +241,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0402c7
+    const v3, 0x7f0402cb
 
     invoke-virtual {p1, v3, v1, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

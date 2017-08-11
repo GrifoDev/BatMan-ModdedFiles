@@ -13,6 +13,8 @@
 
 
 # static fields
+.field public static final CONFIG_OP_BRANDING:Ljava/lang/String;
+
 .field public static final ENABLE_WECHAT_WIFI:Z
 
 .field private static final STATE_GIGA_NONE:[I
@@ -115,6 +117,18 @@
     aput v1, v0, v3
 
     sput-object v0, Lcom/samsung/android/settingslib/wifi/AccessPointPreference;->wifi_signal_attributes:[I
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "CscFeature_Wifi_ConfigOpBranding"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/samsung/android/settingslib/wifi/AccessPointPreference;->CONFIG_OP_BRANDING:Ljava/lang/String;
 
     const-string/jumbo v0, "WeChatWiFi"
 
@@ -1287,6 +1301,16 @@
     goto :goto_0
 
     :cond_2
+    const-string/jumbo v1, "KTT"
+
+    sget-object v2, Lcom/samsung/android/settingslib/wifi/AccessPointPreference;->CONFIG_OP_BRANDING:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
     iget-object v1, p0, Lcom/samsung/android/settingslib/wifi/AccessPointPreference;->mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
     invoke-virtual {v1}, Lcom/android/settingslib/wifi/AccessPoint;->isOllehGigaAp()Z

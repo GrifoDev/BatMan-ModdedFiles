@@ -320,7 +320,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f0f030c
+    const v2, 0x7f0f030f
 
     invoke-virtual {p0, v2}, Lcom/android/settings/accounts/AddAccountSettings;->setTheme(I)V
 
@@ -390,7 +390,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f0b19b6
+    const v2, 0x7f0b1a52
 
     invoke-static {p0, v2, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -448,7 +448,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;)V
 
-    const v2, 0x7f0b12d5
+    const v2, 0x7f0b1370
 
     invoke-virtual {p0, v2}, Lcom/android/settings/accounts/AddAccountSettings;->getString(I)Ljava/lang/String;
 

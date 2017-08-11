@@ -296,7 +296,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b1346
+    const v2, 0x7f0b13e1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -406,7 +406,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListController;->mView:Landroid/view/View;
 
-    const v1, 0x7f110646
+    const v1, 0x7f110648
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -512,7 +512,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListController;->mExpandableListView:Landroid/widget/SemExpandableListView;
 
-    const v1, 0x7f0200cd
+    const v1, 0x7f0200ce
 
     invoke-virtual {v0, v1}, Landroid/widget/SemExpandableListView;->setSelector(I)V
 
@@ -550,6 +550,17 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    if-nez p1, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListController;->mDeviceListAdapter:Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListController;->mDeviceListAdapter:Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->notifyDataSetChanged()V
+
+    :cond_0
     return-void
 .end method
 

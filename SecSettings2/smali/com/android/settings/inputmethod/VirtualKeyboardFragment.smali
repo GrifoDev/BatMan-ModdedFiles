@@ -77,7 +77,17 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Lcom/android/settings/inputmethod/VirtualKeyboardFragment;Landroid/content/Context;)V
+.method static synthetic -wrap0(Lcom/android/settings/inputmethod/VirtualKeyboardFragment;)Landroid/content/ContentResolver;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap1(Lcom/android/settings/inputmethod/VirtualKeyboardFragment;Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->updateInputMethodPreferenceViewsForKnox(Landroid/content/Context;)V
@@ -85,7 +95,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/settings/inputmethod/VirtualKeyboardFragment;)V
+.method static synthetic -wrap2(Lcom/android/settings/inputmethod/VirtualKeyboardFragment;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->updateInputMethodPreferenceViews()V
@@ -291,7 +301,7 @@
     :cond_3
     iget-object v3, p0, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->mAddVirtualKeyboardScreen:Landroid/preference/Preference;
 
-    const v5, 0x7f020612
+    const v5, 0x7f02067b
 
     invoke-virtual {v3, v5}, Landroid/preference/Preference;->setIcon(I)V
 
@@ -309,7 +319,7 @@
 
     iget-object v3, p0, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->mAddVirtualKeyboardScreen:Landroid/preference/Preference;
 
-    const v5, 0x7f04032a
+    const v5, 0x7f04032e
 
     invoke-virtual {v3, v5}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -468,7 +478,7 @@
     :cond_3
     iget-object v1, p0, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->mAddVirtualKeyboardScreen:Landroid/preference/Preference;
 
-    const v3, 0x7f020612
+    const v3, 0x7f02067b
 
     invoke-virtual {v1, v3}, Landroid/preference/Preference;->setIcon(I)V
 
@@ -486,7 +496,7 @@
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->mAddVirtualKeyboardScreen:Landroid/preference/Preference;
 
-    const v3, 0x7f04032a
+    const v3, 0x7f04032e
 
     invoke-virtual {v1, v3}, Landroid/preference/Preference;->setLayoutResource(I)V
 

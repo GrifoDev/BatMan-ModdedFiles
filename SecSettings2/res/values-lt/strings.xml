@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$dval. %2$dmin.</string>
+    <string name="battery_history_minutes_no_seconds">%d m.</string>
     <string name="wifi_fail_to_scan">Nepavyksta nuskaityti tinklų</string>
     <string name="wifi_failed_to_obtain_IP">Nepavyko gauti IP adreso.</string>
     <string name="wifi_security_none">Nėra</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Negalima prisijungti prie %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Negalima prisijungti prie %1$s. Patikrinkite nustatymus %2$s ir bandykite dar kartą.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s atmetė susiejimą.</string>
+    <string name="bluetooth_getting_remote_device_name">Gaunamas įrenginio pavadinimas…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Prijungus šį įrenginį bus rodomas įrenginio pavadiniams.</string>
     <string name="accessibility_wifi_off">„Wi-Fi“ išjungtas.</string>
     <string name="accessibility_no_wifi">„Wi-Fi“ atjungtas.</string>
     <string name="accessibility_wifi_one_bar">Viena „Wi-Fi“ signalo juosta.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Palaikymas</string>
     <string name="reset_network_settings_list_summary">Atkurti numatytuosius „Wi-Fi“, „Bluetooth“ ir kitus tinklo nustatymus.</string>
     <string name="master_clear_list_summary">Atkurti numatytuosius gamyklinius įrenginio nustatymus. Dėl to bus ištrinti visi įrenginio duomenys, įskaitant failus ir atsisiųstas programas.</string>
-    <string name="auto_restart_summary">Įrenginį automatiškai paleisdami iš naujo nustatytu laiku optimizuokite jo veikimą. Paleidus įrenginį iš naujo visi neišsaugoti duomenys bus prarasti.</string>
+    <string name="auto_restart_summary">Optimizuokite telefoną paleisdami jį iš naujo kartą per savaitę. Paleidus telefoną iš naujo visi neišsaugoti duomenys bus prarasti.</string>
+    <string name="auto_restart_summary_tablet">Optimizuokite planšetinį kompiuterį paleisdami jį iš naujo kartą per savaitę. Paleidus planšetinį kompiuterį iš naujo visi neišsaugoti duomenys bus prarasti.</string>
     <string name="search_settings">Ieškoti</string>
     <string name="related_results">Susijusių elementų: %d</string>
     <string name="no_results_found">Rezultatų nerasta</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Garso balansas lygus %d proc. į dešinę. Naudodamiesi dviem pirštais vilkite slankiklį.</string>
     <string name="sound_balance_set">Nustatyti</string>
     <string name="accessibility_assistant_menu">Padėjėjo meniu</string>
-    <string name="assistant_menu_summary">Įjungia funkcijas, kad asmenys, turintys rankų funkcijų sutrikimų, galėtų naudotis įrenginiu.</string>
+    <string name="assistant_menu_summary">Pagerinkite telefono pritaikymą neįgaliesiems, kad juo galėtų naudotis rankų funkcijų sutrikimų turintys naudotojai.</string>
     <string name="color_blind_title">Spalvų reguliavimas</string>
     <string name="no_result">Sureguliuokite ekrano spalvas, jei ekrano vaizdas blogai matomas.</string>
     <string name="you_are_normal">Spalvų reguliavimas nebūtinas.</string>
@@ -653,6 +656,7 @@ Kai ši funkcija įjungiama, automatinis ekrano pasukimas išjungiamas. Visi ska
     <string name="direct_access_actions_accessibility_title">Prieiga neįgaliesiems</string>
     <string name="direct_access_actions_negative_title">Negatyvo spalvos</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Tiesioginė prieiga ir „Mažinti ekrano dydį“ negali būti įjungta vienu metu. „Mažinti ekrano dydį“ bus išjungta.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s ir %2$s negalima įjungti vienu metu. %3$s bus išjungta.</string>
     <string name="direct_access_actions_color_adjustment_summary">Nustatykite Spalvų reguliavimą parinktyje „Vaizdas“ ir naudokite jį tiesioginėje prieigoje</string>
     <string name="direct_access_actions_screen_reader_summary">Įjunkite puslapių skaitytuvą, kad jį galėtumėte naudoti su tiesiogine prieiga.</string>
     <string name="direct_access_actions_accesscontrol_title">Interaktyvus valdymas</string>
@@ -850,7 +854,9 @@ Jei norite atsisiųsti šią funkciją, bakstelėkite čia."</string>
     <string name="premium_sms_values_ask">Paklausti</string>
     <string name="premium_sms_values_never">Niekada neleisti</string>
     <string name="premium_sms_values_allow">Visada leisti</string>
-    <string name="assist_and_voice_input_summary">Įrenginio pagalbos programos suteikia daugiau parinkčių ir pateikia informaciją apie kiekvieną ekraną.</string>
+    <string name="assist_and_voice_input_summary">Pasirinkite programą, kurią norite naudoti, kai paliečiate ir palaikote pradžios mygtuką.</string>
+    <string name="assist_footer_phone">Pasirinkite programą, kurią norite naudoti, kai paliečiate ir palaikote pradžios mygtuką. Įrenginio pagalbos programos padeda rinkti informaciją iš šiuo metu telefono ekrane rodomo vaizdo.</string>
+    <string name="assist_footer_tablet">Pasirinkite programą, kurią norite naudoti, kai paliečiate ir palaikote pradžios mygtuką. Įrenginio pagalbos programos padeda rinkti informaciją iš šiuo metu planšetinio kompiuterio ekrane rodomo vaizdo.</string>
     <string name="default_app_title">Nustatyti numatytuoju</string>
     <string name="premium_sms_title">Siųsti „Premium SMS“</string>
     <string name="default_app_selection">Numat. progr. parinkimas</string>
@@ -939,7 +945,7 @@ Pakeisti galėsite ir vėliau nuėję į „Bluetooth“ nustatymus."</string>
 
 2 prijungtų įrenginių garso išvestis gali šiek tiek skirtis."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Išjungti medijos garsumo sinchronizavimą?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Kad būtų galima naudoti dvigubo garso režimą, reikia išjungti medijos garsumo sinchronizavimą.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Jei kiekviename garso įrenginyje garsumą norite valdyti atskirai, reikia išjungti medijos garsumo sinchronizavimą.</string>
     <string name="bluetooth_avc_title">Medijos garsumo sinch.</string>
     <string name="bluetooth_avc_description">Jei prijungtu „Bluetooth“ įrenginiu galima valdyti medijos garsumą telefone, „Bluetooth“ įrenginyje nustatytas garsumo lygis bus sinchronizuojamas su jūsų telefonu.</string>
     <string name="bluetooth_avc_volume_change_description">Įjungus šią funkciją gali netikėtai pasikeisti garsumas.</string>
@@ -948,6 +954,7 @@ Pakeisti galėsite ir vėliau nuėję į „Bluetooth“ nustatymus."</string>
     <string name="bluetooth_avc_ask_popup_title">Išjungti dvigubo garso režimą?</string>
     <string name="bluetooth_avc_ask_popup_content">Kad būtų galima naudoti medijos garsumo sinchronizavimą, reikia išjungti dvigubo garso režimą.</string>
     <string name="bluetooth_avc_disable_description">Prijungtas „Bluetooth“ įrenginys nepalaiko medijos garsumo sinchronizavimo. Telefono garsumo negalite sinchronizuoti su prijungtu „Bluetooth“ įrenginiu.</string>
+    <string name="bluetooth_avc_available_description">Prijungtas „Bluetooth“ įrenginys palaiko medijos garsumo sinchronizavimą, todėl „Bluetooth“ įrenginyje nustatytas garsumo lygis bus sinchronizuojamas su jūsų telefonu.</string>
     <string name="bluetooth_enter_pin_msg">Įveskite PIN norėdami susieti su %s (bandykite 0000 arba 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Pasiektas didžiausias simbolių skaičius.</string>
     <string name="settings_menu_done">Atlikta</string>
@@ -1031,11 +1038,12 @@ Net jei išmaniojo fiksavimo funkcija yra išjungta, jūs galite pasiekti funkci
     <string name="swipe_to_call_title">Brūkšt. ir skambink./siųsk.žin.</string>
     <string name="swipe_to_call_summary">Telefono, adresatų ar žinučių programose braukite per adresatą ar numerį į dešinę, kad paskambintumėte, arba į kairę, kad išsiųstumėte žinutę.</string>
     <string name="swipe_to_call_summary_dcm">Rinkimo, adresatų ar žinučių programose braukite per adresatą ar numerį į dešinę, kad paskambintumėte, arba į kairę, kad išsiųstumėte žinutę.</string>
-    <string name="swipe_to_call_summary_kddi">Telefono ar adresatų programose braukite per adresatą ar numerį į dešinę, kad paskambintumėte, arba į kairę, kad išsiųstumėte žinutę.</string>
+    <string name="swipe_to_call_summary_kddi">Rinkimo ar adresatų parinktyse braukite per adresatą ar numerį į dešinę, kad paskambintumėte, arba į kairę, kad išsiųstumėte žinutę.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">Naudokite dvi atskiras paskyras tai pačiai programai.</string>
     <string name="finger_sensor_gesture_title">Pirštų atspaudų jutiklio gestai</string>
     <string name="finger_sensor_gesture_summary">Atidarykite ir uždarykite programas bei funkcijas naudodami pirštų atspaudų jutiklį.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Pranešimų skydelį atidarykite ir uždarykite naudodami pirštų atspaudų jutiklį.</string>
     <string name="finger_sensor_gesture_description">Braukite aukštyn ar žemyn per pirštų atspaudų skaitytuvą ir atidarykite arba uždarykite pranešimų skydelį.</string>
     <string name="open_samsung_pay_title">Atidaryti „Samsung Pay“</string>
     <string name="open_samsung_pay_summary">Pradžios ekrane braukite aukštyn per pirštų atspaudų jutiklį ir atidarykite „Samsung Pay“.</string>
@@ -1070,6 +1078,7 @@ Net jei išmaniojo fiksavimo funkcija yra išjungta, jūs galite pasiekti funkci
 %s"</string>
     <string name="enable_ps_title">Įjungti %s</string>
     <string name="setup_wizard">Sąrankos vedlys</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Įprastas</string>
     <string name="large">Didelis</string>
     <string name="small">Mažas</string>
@@ -1215,7 +1224,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Atsisiųskite programinės įrangos naujinius automatiškai, kai esate prisijungę prie „Wi-Fi“ tinklo. Siųsdamiesi galėsite toliau naudotis mobiliuoju įrenginiu.</string>
     <string name="auto_update_over_wifi">Auto. atsisiuntimas per „Wi-Fi“</string>
     <string name="auto_update_over_wifi_summary">Atsisiųskite programinės įrangos naujinius automatiškai, kai esate prisijungę prie „Wi-Fi“ tinklo. Atsižvelgiant į jūsų paslaugų teikėją, naujiniai per mobiliuosius duomenis gali būti atsisiunčiami ir be papildomų mokesčių. Atsisiųsdami galėsite toliau naudotis telefonu.</string>
-    <string name="scheduled_update">Suplanuoti prog. įr. naujiniai</string>
+    <string name="scheduled_update">Suplanuoti programinės įrangos naujinimai</string>
     <string name="scheduled_update_summary_default">Išjungta</string>
     <string name="scheduled_update_summary_set_time">Naujinimas prasidės %s</string>
     <string name="scheduled_update_summary_set_time_everyday">Naujinimas prasidės kiekvieną dieną %s</string>
@@ -1417,6 +1426,7 @@ Bakstelėkite „Gerai“, kad leistumėte ryškumą padidinti virš saugaus lyg
     <string name="navigationbar_summary">Tvarkykite mygtukus „Pradžia“, „Atgal“ ir „Vėliausi“.</string>
     <string name="navigationbar_theme_switch">Taikyti dabartinę temą</string>
     <string name="navigationbar_color_title">Fono spalva</string>
+    <string name="navigationbar_color_summary">Jūsų pasirinkta fono spalva gali nebūti taikoma visose programose.</string>
     <string name="navigationbar_order_title">Mygtukų išdėstymas</string>
     <string name="navigationbar_order_default">Vėliausi–pradžia–atgal</string>
     <string name="navigationbar_order_mirrored">Atgal–pradžia–vėliausi</string>
@@ -1448,7 +1458,8 @@ Bakstelėkite „Gerai“, kad leistumėte ryškumą padidinti virš saugaus lyg
     <string name="blue_light_filter_enable_now">Įjungti dabar</string>
     <string name="blue_light_filter_enable_as_scheduled">Įjungti kaip suplanuota</string>
     <string name="blue_light_filter_scheduled_toast">Mėlynos šviesos filtras įjungtas. Suplanuotu pabaigos laiku jis bus išjungtas automatiškai.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s ir mėlynos šviesos filtras negali būti naudojami vienu metu. Mėlynos šviesos filtras bus išjungtas.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Išjungti mėlynos šviesos filtrą?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Jei norite naudoti %s, mėlynos šviesos filtrą reikia išjungti.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Jei norite naudoti funkciją „Nuo saulėlydžio iki saulėtekio“, turi būti įjungtas vietos nustatymas.</string>
     <string name="dlg_turn_on">Įjungti</string>
     <string name="screen_resolution_title">Ekrano raiška</string>
@@ -1666,6 +1677,7 @@ Atsižvelgiant į duomenų kiekį, šifruojama gali būti ilgai. Prieš pradėda
     <string name="crypt_keeper_failed_title_dec">"Iššifruoti
 nepavyko."</string>
     <string name="crypt_keeper_failed_summary_dec">Neįmanoma baigti iššifruoti dėl trikdžių. Prieš naudodami atkurkite gamyklinius duomenų nustatymus (ištrindami visus duomenis).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Nustatyti ekrano užrakto tipą</string>
     <string name="encryption_interstitial_message">"Reikalaudami įvesti %s prieš paleidžiant telefoną galite dar labiau sustiprinti jo saugumą. Tai padės apsaugoti jūsų duomenis, jei telefoną pamesite arba jį pavogs. Pagal įrenginio šifravimo politiką kai kuriose programose gali būti reikalaujama saugiojo paleidimo, kad būtų galima pasiekti tokias funkcijas kaip el. pašto sinchronizavimas.
 
 Kol telefonas nebus paleistas, negalėsite priimti skambučių, žinučių ar pranešimų, o signalai neskambės."</string>
@@ -1904,6 +1916,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Naudoti pirštų atspaudą</string>
     <string name="wifi_ap_close">Uždaryti</string>
     <string name="fingerscanner_add_summary">Pridėkite pirštų atspaudus.</string>
+    <string name="fingerscanner_register_1_finger_summary">Pridėtas 1 piršto atspaudas.</string>
     <string name="fingerscanner_register_summary">%d pirštų atspaudai pridėti.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Naudokite piršto atspaudą arba įveskite dabartinį PIN.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Naudokite piršto atspaudą arba nupieškite dabartinį šabloną.</string>
@@ -1930,6 +1943,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Kai tik ekranas įsijungia, atrakinkite telefoną naudojant veido atpažinimą, pirma neperbraukdami.</string>
     <string name="facelock_recognition_speed_up">Greitesnis atpažinimas</string>
     <string name="facelock_recognition_speed_up_summary">Įjunkite, kad atpažinimas būtų spartesnis. Išjunkite ir sustiprinkite saugumą, kad būtų sunkiau atrakinti naudojant vaizdą ar vaizdo įrašą.</string>
+    <string name="facelock_samsungpass_summary">Naudoti veido atpažinimą patvirtinant tapatybę %s ir kitose palaikomose programose.</string>
     <string name="face_remove_face_popup_title">Šalinti veido duomenis?</string>
     <string name="face_remove_face_popup_message_1">Jūsų veidas nebebus atpažįstamas ir užrakinimas veidu bus išjungtas.</string>
     <string name="face_remove_face_popup_message_2">Veido atpažinimą naudojančios funkcijos bus išjungtos.</string>
@@ -2071,7 +2085,7 @@ Jei telefonui atrakinti su %2$s norite naudoti ir biometrinius duomenis, įjunki
     <string name="biometrics_backup_locktype_title">Nustatyti rainelės saugą</string>
     <string name="biometrics_register_your_iris">Užregistruokite savo raineles.</string>
     <string name="biometrics_backup_locktype_summary">Jei norite naudoti raineles įrenginiui atrakinti, turite nustatyti šabloną, PIN arba slaptažodį.</string>
-    <string name="biometrics_backup_locktype_message">Jei telefonui atrakinti arba saugiam patvirtinimui norite naudoti raineles, turite:</string>
+    <string name="biometrics_backup_locktype_message">Jei telefonui atrakinti arba jūsų tapatybės programose patvirtinimui norite naudoti raineles, turite:</string>
     <string name="iris_delete_popup_title">Šalinti rainelių duomenis?</string>
     <string name="iris_delete_popup_message">Šalinti rainelių duomenis?</string>
     <string name="iris_delete_popup_message_with_related_func">Raineles naudojančios funkcijos bus išjungtos.</string>
@@ -2079,7 +2093,7 @@ Jei telefonui atrakinti su %2$s norite naudoti ir biometrinius duomenis, įjunki
     <string name="iris_timeout_popop_title">Bandykit vėliau</string>
     <string name="iris_timeout_popop_message">Rainelės neatpažintos. Rainelės fotoaparatas gali būti nešvarus. Nuvalykite virš ekrano esančią sritį ir bandykite dar kartą.</string>
     <string name="iris_timeout_popop_message_1">Rainelės fotoaparatas gali būti nešvarus. Nuvalykite virš ekrano esančią sritį ir bandykite vėl.</string>
-    <string name="iris_proximity_restriction_popop_message">Rainelės neatpažintos. Telefonas per arti veido arba nešvarus atstumo jutiklis. Nuvalykite virš ekrano esančią sritį ir bandykite dar kartą.</string>
+    <string name="iris_proximity_restriction_popop_message">Telefoną laikykite toliau nuo veido ir bandykite dar kartą.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Gali būti, kad nešvarus atstumo jutiklis.
 Patikrinkite sritį virš ekrano."</string>
     <string name="iris_try_again">Bandyt dar</string>
@@ -2087,6 +2101,8 @@ Patikrinkite sritį virš ekrano."</string>
     <string name="iris_failed_to_verity_identify">Nepavyko patvirtinti jūsų tapatybės</string>
     <string name="iris_failed_popup_description">Jūsų raineles buvo bandoma patvirtinti %1$d kart. Bandykite dar kartą po %2$d sek.</string>
     <string name="iris_no_match">Atitikmenų nėra</string>
+    <string name="iris_eye_safety_msg">Jūsų rainelės neatpažintos.</string>
+    <string name="iris_timeout_msg">Jūsų rainelės nebuvo atpažintos.</string>
     <string name="biometrics_registered">Užregistruota</string>
     <string name="iris_turn_on_toast_message">Vietoj pirštų atspaudų užrakto įjungtas rainelės užraktas.</string>
     <string name="iris_wrong_backup_password">Neteis. ats. kop. slapt.</string>
@@ -2278,6 +2294,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Rodyti pradžios mygtuką ir laikrodį ar informaciją budėjimo režimo ekrane.</string>
     <string name="aod_feature_off_popup_title">Išjungti %s?</string>
     <string name="aod_feature_off_popup_description">Jei norite naudoti %1$s, reikia išjungti %2$s.</string>
+    <string name="aod_features_off_popup_title">Išjungti kitas funkcijas?</string>
+    <string name="aod_features_off_popup_description">Jei norite naudoti „Always On Display“, toliau nurodytos funkcijos bus išjungtos:</string>
     <string name="aod_features_off_popup_btn_ok">Išjungti</string>
     <string name="aod_disable_by_negative_colors">Negalima naudoti įjungus negatyvo spalvas.</string>
     <string name="aod_disable_by_powersaving_mode">Negalima naudoti veikiant energijos taupymo režimui.</string>
@@ -2301,6 +2319,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Spalvoti lašeliai</string>
     <string name="lock_screen_show_information_summary_wifi_only">Užrakintame ekrane rodyti įrenginio savininko informaciją arba programų sparčiuosius mygtukus.</string>
     <string name="lock_screen_sview_show_information_summary">Rodyti dvigubą laikrodį, įrenginio savininko informaciją arba programų sparčiuosius mygtukus užrakintame ekrane ir „S View“ lange.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Užrakintame ekrane ir per „S View“ langelį rodyti tarptinklinio ryšio laikrodį arba telefono savininko kontaktinius duomenis.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Pasirinkite programų trumpinius, kurie bus rodomi užrakinimo ekrane ir „S View“ lange.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Rodyti pranešimus užrakinimo ekrane ir „S View“ lange.</string>
     <string name="lock_screen_and_cover_show_information_summary">Rodyti dvigubą laikrodį užrakinimo ekrane ir per viršelio langelį.</string>
     <string name="lock_screen_secured_lock_settings_title">Saugos užrakto nustatymai</string>
     <string name="lock_screen_secured_lock_settings_summary">Nustatykite saugos užrakto funkcijas, pvz., automatinį užraktą ir užrakinimą iškart paspaudus įjungimo / išjungimo mygtuką.</string>
@@ -2317,6 +2338,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Namų laiko juosta</string>
     <string name="contact_info_settings_title">Kontaktinė informacija</string>
     <string name="show_contact_info_on_lockscreen_label">Rodyti tokią informaciją kaip jūsų telefono numeris ar el. pašto adresas užrakintame ekrane.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Rodyti tokią informaciją kaip jūsų telefono numeris ar el. pašto adresas užrakinimo ekrane ir „Always On Display“.</string>
     <string name="unlock_effect">Atrakinimo efektas</string>
     <string name="walking_mate_title">Žingsniamatis</string>
     <string name="help_text_title">Pagalbos tekstas</string>
@@ -2416,7 +2438,7 @@ Biometrinius duomenis pašalinti rekomenduojama, tačiau juos galite išlaikyti,
     <string name="toast_set_lock_pattern">Jei pamiršite šabloną, visi duomenys bus ištrinti, o telefonas bus nustatytas iš naujo.</string>
     <string name="toast_set_lock_password">Jei pamiršite slaptažodį, visi duomenys bus ištrinti, o telefonas bus nustatytas iš naujo.</string>
     <string name="toast_set_lock_pin">Jei pamiršite PIN, visi duomenys bus ištrinti, o telefonas bus nustatytas iš naujo.</string>
-    <string name="chooselock_warning_text">Prisiminkite šį %s. Jo reikės paleidus įrenginį iš naujo.</string>
+    <string name="chooselock_warning_text">Prisiminkite šį %s. Jo reikės paleidus telefoną iš naujo.</string>
     <string name="lockpassword_password_exists_history">Toks slaptažodis naudotas anksčiau. Įveskite naują slaptažodį.</string>
     <string name="lockpassword_pin_repeating_nums">PIN kode negali būti pasikartojančių skaičių.</string>
     <string name="lockpassword_pin_sequential_nums">PIN kode negali būti iš eilės einančių skaičių.</string>
@@ -2534,6 +2556,9 @@ Mobilieji duomenys bus išjungti."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Be „Wi-Fi“ negalėsite naudotis internetu, el. paštu ar kitomis programomis, kurioms reikalingas duomenų ryšys.
 
 Mobilieji duomenys bus išjungti."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Negalėsite naudotis internetu, el. paštu ar kitomis programomis, kurioms reikia tinklo ryšio, jei neprisijungsite prie „Wi-Fi“ tinklo.</string>
@@ -2692,10 +2717,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Pasirinkt. garsumo aprib.</string>
     <string name="volume_limiter_descryption">Apsaugokite ausis nustatydami didžiausio medijos garso apribojimą. Apribojimas bus taikomas tik naudojant ausines arba „Bluetooth“ garso įrenginius.</string>
     <string name="multi_sound_title">Atskirti programos garsą</string>
-    <string name="multi_sound_summary">Leiskite vienos programos garsą per garsiakalbį ar ausines atskirai nuo kitų įrenginio garsų.</string>
-    <string name="multi_sound_descryption">"Leiskite vienos programos medijos garsą per garsiakalbį ar ausines atskirai nuo kitų programų.
+    <string name="multi_sound_summary">Leiskite medijos garsus iš programos per garso įrenginį atskirai nuo telefono pagrindinio garso išvesties įrenginio.</string>
+    <string name="multi_sound_descryption">"Leiskite medijos garsus iš programos per garso įrenginį atskirai nuo telefono pagrindinio garso išvesties įrenginio. Jei norite įjungti, pasirinkite programą ir garso įrenginį.
 
-Pasirinkus „Bluetooth“ garso įrenginį, garsas bus leidžiamas numatytuoju garso įrenginiu, jei „Bluetooth“ įrenginys nebus prijungtas."</string>
+Programų garso atskyrimas veikia, tik kai pasirinktas garso įrenginys skiriasi nuo telefono pagrindinio garso išvesties įrenginio.
+
+Telefono pagrindinio garso išvesties įrenginį galite pakeisti sparčiųjų nustatymų skydelyje. Jei garso išvestis nerodoma, įjunkite ją eidami į „Samsung Connect“ > Nustatymai > „Samsung Connect“ skydelis."</string>
     <string name="set_application_title">Programa</string>
     <string name="set_application_summary">Pasirinkite programą, kurios garsus norite leisti per atskirą garso įrenginį.</string>
     <string name="set_application_descryption">Toliau pasirinkite multimedijos programą, kurios garsus leisite atskirame garso įrenginyje.</string>
@@ -2706,9 +2733,11 @@ Pasirinkus „Bluetooth“ garso įrenginį, garsas bus leidžiamas numatytuoju 
     <string name="multi_sound_popup_msg">Jei norite įjungti %s, pasirinkite programą ir garso įrenginį.</string>
     <string name="multi_sound_network_msg">Kad galėtų ieškoti pasiekiamų programų, telefonas turi prisijungti prie tinklo. Patikrinkite tinklo nustatymus ir bandykite dar kartą.</string>
     <string name="multi_sound_wifi_msg">Kad galėtų ieškoti pasiekiamų programų, telefonas turi prisijungti prie tinklo. Naudojant mobiliuosius duomenis gali būti taikomi papildomi mokesčiai.</string>
+    <string name="multi_sound_add_application">Pridėti programą</string>
     <string name="dlg_btn_select">Rinktis</string>
-    <string name="audio_device_type_descryption">Pasirinkite, kurį garso įrenginį norite naudoti šiai programai. „Bluetooth“ įrenginius bus galima naudoti tik juos prijungus.</string>
+    <string name="audio_device_type_descryption">Pasirinkite, kurį garso įrenginį norite naudoti pasirinktoms programoms. „Bluetooth“ įrenginius bus galima naudoti tik juos prijungus.</string>
     <string name="my_phone_title">Telefonas</string>
+    <string name="my_phone_summary">Garsiakalbis / ausinės / USB garso įrenginys</string>
     <string name="bluetooth_device_title">„Bluetooth“ įrenginys</string>
     <string name="no_connected_devices">Nėra prijungtų įrenginių</string>
     <string name="two_hours">2 val.</string>
@@ -2716,7 +2745,8 @@ Pasirinkus „Bluetooth“ garso įrenginį, garsas bus leidžiamas numatytuoju 
     <string name="stop_setup_popup_msg">Nebus pritaikyti jokie jūsų pakeisti nustatymai.</string>
     <string name="app_turned_on">%s įjungta.</string>
     <string name="force_touch_title">Stipraus pasp. vibrac. atsakas</string>
-    <string name="volume_key_control_title">Numatyt. regul. garsumo mygtuku</string>
+    <string name="volume_key_control_title">Medijai naudot garsumo mygtukus</string>
+    <string name="volume_key_control_summary">Valdykite medijos garsumą spausdami garsumo mygtukus.</string>
     <string name="sound_mode">Garso režimas</string>
     <string name="sound_mode_vibrate">Vibruoti</string>
     <string name="sound_mode_mute">Nutildyti</string>
@@ -2930,14 +2960,13 @@ Bandykite dar kartą."</string>
     <string name="text_biometrics_title_enterprise">Kai pasirenkate %1$s, biometriniai duomenys palaikomi kaip %2$s atrakinimo būdai.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s nepalaiko pirštų atspaudų kaip %2$s atrakinimo būdo.</string>
     <string name="edge_feeds_title">Kraš. nauj. k.</string>
-    <string name="screensaver_settings_summary">"Valdo tai, kas vyksta prijungus įrenginį prie stotelės ir (arba) kraunant. Ekrano užsklanda rodoma pasibaigus ekrano laikui.
-
-Ši funkcija dar vadinama „Svajonė“."</string>
-    <string name="screensaver_settings_summary_wo_dock">Rodyti ekrano užsklandą, kai įkraunant telefoną ekranas automatiškai išjungiamas.</string>
+    <string name="screensaver_settings_summary">Rodyti ekrano užsklandą, kai įkraunant telefoną ekranas automatiškai išjungiamas.</string>
+    <string name="screensaver_settings_summary_wo_dock">Rodyti ekrano užsklandą, kai telefoną įstačius į stotelę arba jį įkraunant ekranas automatiškai išjungiamas.</string>
     <string name="apn_already_exists">Jau yra.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Prievado numeris turi būti sudarytas iš %1$d–%2$d.</string>
     <string name="apn_restore_warning">Visi jūsų pridėti APN bus pašalinti. Kitiems APN bus iš naujo nustatyti numatytieji nustatymai.</string>
+    <string name="apn_restore_title">Nustatyti iš naujo APN nustatymus?</string>
     <string name="master_clear_desc_google_account">„Google“ paskyra</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2949,7 +2978,8 @@ Bandykite dar kartą."</string>
     <string name="sound_balance_summary">Sureguliuokite kairės ir dešinės pusės garso balansą ausinėse.</string>
     <string name="backup_samsung_account_title">Atsarginio kopijavimo nustatymai</string>
     <string name="restore_samsung_account_title">Atkurti</string>
-    <string name="auto_restart_header">Įrenginio valdymas</string>
+    <string name="auto_restart_header">Telefono valdymas</string>
+    <string name="auto_restart_header_tablet">Planšetinio kompiuterio valdymas</string>
     <string name="auto_restart_title">Automat. leisti iš naujo</string>
     <string name="switch_turn_on_text">Įjungti</string>
     <string name="switch_turn_off_text">Išjungti</string>
@@ -3072,6 +3102,14 @@ Jūsų asmeniniai duomenys ir atsisiųstų programų nustatymai nebus paveikti."
     <string name="tether_settings_summary_usb_bt">Bendrinkite savo įrenginio mobiliųjų duomenų ryšį naudodami USB ar „Bluetooth“</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Priimti</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Bendrinkite telefono interneto ryšį per „Bluetooth“.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Bendrinkite planšetinio kompiuterio interneto ryšį per „Bluetooth“.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Pasirengta bendrinti šio telefono interneto ryšį.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Pasirengta bendrinti šio planšetinio kompiuterio interneto ryšį.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Šio telefono interneto ryšys bendrinamas su 1 įrenginiu.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Šio planšetinio kompiuterio interneto ryšys bendrinamas su 1 įrenginiu.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Šio telefono interneto ryšys bendrinamas su %d įrenginiais (-ių).</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Šio planšetinio kompiuterio interneto ryšys bendrinamas su %d įrengniais (-ių).</string>
     <string name="onehand_settings_title">Valdymo viena ranka režimas</string>
     <string name="onehand_settings_text_1">Braukite įstrižai nuo bet kurio ekrano kampo ir sumažinkite ekrano dydį.</string>
     <string name="onehand_settings_text_2">Greitai 3 kartus bakstelėkite pradžios mygtuką ir sumažinkite ekrano dydį.</string>
@@ -3399,10 +3437,12 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Išjungta</string>
     <string name="wifi_or_mobile_network">„Wi-Fi“ ar mobilieji tinklai</string>
     <string name="wifi_network_only">Tik „Wi-Fi“ tinklas</string>
+    <string name="wifi_adps_title">„Wi-Fi“ energ. taupymo režimas</string>
+    <string name="wifi_adps_summary">Sumažinti akumuliatoriaus energijos sąnaudas analizuojant „Wi-Fi“ srautus.</string>
     <string name="wifi_auto_reconnect">Automatinis pakartotinis prisijungimas</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Įjungus „Wi-Fi“ bus išjungta mobilioji saitvietė. Tęsti?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">„Wi-Fi“ išjungtas, kai mobilioji saitvietė aktyvi. Jei norite įjungti „Wi-Fi“, išjunkite mobiliąją saitvietę.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Kai mobilioji saitvietė įjungta, „Wi-Fi“ yra išjungtas. Jei norite įjungti „Wi-Fi“, išjunkite mobiliąją saitvietę.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
@@ -3604,6 +3644,10 @@ Pakeitus mobiliosios saitvietės pavadinimą arba slaptažodį, turi būti sukur
     <string name="wifi_wps_pin_client_mobileap">Jungiamasi prie kliento su PIN %1$s. Sąranka gali būti vykdoma iki %2$d min.</string>
     <string name="wifi_wps_complete_mobileap">Kitas įrenginys dabar bus prijungtas prie jūsų įrenginio.</string>
     <string name="wifi_ap_disconnect_warn">Atjungti įrenginį</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Visi šiuo metu prijungti įrenginiai bus atjungti nuo mobiliosios saitvietės.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Visi šiuo metu prijungti įrenginiai bus atjungti nuo mobiliosios saitvietės.</string>
     <string name="wifi_ap_warn_max_whitelist">Pasiektas didžiausias leidžiamų prietaisų skaičius (%d).</string>
     <string name="wifiap_one_item_deleted">1 elementas bus ištrintas.</string>
@@ -3739,6 +3783,8 @@ Mobiliosios saitvietės naudojimas padidina akumuliatoriaus energijos sąnaudas 
     <string name="wifi_ap_first_time_configuration">Saitvietės konfigūravimas pirmą kartą</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Įveskite tinkamą PIN.</string>
+    <string name="open_mobileap_warning">Ši „Mobile AP“ nesaugi.</string>
+    <string name="hidden_mobileap_warning">Kai naudotojas nustatys paslėptą SSID, WPS bus išjungtas.</string>
     <string name="wifi_ssid_max_byte_error">Pasiektas didžiausias simbolių skaičius.</string>
     <string name="tethering_attention_title">Dėmesio</string>
     <string name="wfd_select_device">Pasirinkite įrenginį</string>
@@ -3969,6 +4015,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Sinchr.</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Šis leidimas leidžia programai rodyti ant kitų naudojamų programų. Tai gali trukdyti naudoti kitas programas.</string>
+    <string name="write_settings_body_description">Leisti šiai programai keisti sistemos nustatymus, pvz., įjungti arba išjungti „Bluetooth“.</string>
+    <string name="reset_app_preferences_desc1">Taip bus atkurtos visos nuostatos:</string>
+    <string name="reset_app_preferences_desc2">Išjungtos programos</string>
+    <string name="reset_app_preferences_desc3">Programų pranešimų apribojimai</string>
+    <string name="reset_app_preferences_desc4">Numatytosios programos</string>
+    <string name="reset_app_preferences_desc5">Foninių duomenų apribojimai programoms</string>
+    <string name="reset_app_preferences_desc6">Leidimo apribojimai</string>
+    <string name="reset_app_preferences_desc7">Esamų programos duomenų neprarasite.</string>
     <string name="knox_security_mode_title">Knox sauga</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">Privatumo politika</string>
@@ -3983,6 +4037,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Tvarkykite savo asmeninę informaciją ir „Samsung“ paskyros duomenis.</string>
     <string name="my_profile_summary_jpn">Tvarkykite savo asmeninę informaciją ir „Galaxy“ paskyros duomenis.</string>
     <string name="arbitration_agreement">Arbitražinis susitarimas</string>
+    <string name="activation_title">Aktyvinimo būsena</string>
+    <string name="activation_summary">Suaktyvinta %1$s. Jei reikia daugiau informacijos, apsilankykite %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF įjungta</string>
+    <string name="edit_event_start_short">Pradž.</string>
+    <string name="edit_event_end_short">Baigti</string>
+    <string name="select_date_to_view">Pasirinkite norimą peržiūrėti datą</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Taip</string>
     <string name="no">Ne</string>
     <string name="create">Sukurti</string>
@@ -5475,7 +5536,7 @@ Bet kuris naudotojas gali priimti atnaujintų programų leidimus visų kitų nau
     <string name="app_notification_block_title">Leisti pranešimus</string>
     <string name="app_notification_block_summary">Gaukite pranešimus iš šios programos, įskaitant pranešimų žinutes, garsus ir vibraciją.</string>
     <string name="app_notification_override_dnd_title">Nustatyti pirmenybę</string>
-    <string name="app_notification_override_dnd_summary">Leiskite pranešimams iš šios programos skambėti ir įjunkite ekraną, kai įjungtas režimas „Netrukdyti“.</string>
+    <string name="app_notification_override_dnd_summary">Kai įjungtas režimas „Netrukdyti“, pranešimus galite peržiūrėti pranešimų skydelio viršuje ir įtraukti juos į leidžiamųjų sąrašą.</string>
     <string name="app_notification_visibility_override_title">Užrakinimo ekrane</string>
     <string name="app_notifications_dialog_done">Atlikta</string>
     <string name="zen_mode_choose_rule_type">Pasirinkite taisyklės tipą</string>
@@ -5512,6 +5573,7 @@ Bet kuris naudotojas gali priimti atnaujintų programų leidimus visų kitų nau
     <string name="restr_pin_enter_admin_pin">Įveskite administratoriaus PIN</string>
     <string name="switch_on_text">Įjungta</string>
     <string name="switch_off_text">Išjungta</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Šį darbo profilį tvarko:</string>
     <string name="managing_admin">Tvarko %s</string>
     <string name="display_auto_rotate_title">Ekrano sukimas</string>
     <string name="display_auto_rotate_rotate">Pasukti ekrano turinį</string>
@@ -5548,9 +5610,9 @@ Kol įrenginys nebus paleistas, negausite jokių skambučių, žinučių ar pran
     <string name="encrypt_talkback_dialog_require_pin">Reikalauti PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Reikalaut šabl.</string>
     <string name="encrypt_talkback_dialog_require_password">Reikalaut slapt.</string>
-    <string name="encrypt_talkback_dialog_message_pin">Kai įjungę įrenginį įvesite PIN kodą, pasiekiamumo funkcijos, tokios kaip %1$s, bus laikinai išjungtos.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Kai įjungę įrenginį nupiešite savo šabloną, pasiekiamumo funkcijos, tokios kaip %1$s, bus laikinai išjungtos.</string>
-    <string name="encrypt_talkback_dialog_message_password">Kai įjungę įrenginį įvesite slaptažodį, pasiekiamumo funkcijos, tokios kaip %1$s, bus laikinai išjungtos.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Įjungus įrenginį bus reikalaujama PIN. Pasiekiamumo funkcijos nebus pasiekiamos, kol įrenginys nebus paleistas.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Įjungus įrenginį bus reikalaujama šablono. Pasiekiamumo funkcijos nebus pasiekiamos, kol įrenginys nebus paleistas.</string>
+    <string name="encrypt_talkback_dialog_message_password">Įjungus įrenginį bus reikalaujama slaptažodžio. Pasiekiamumo funkcijos nebus pasiekiamos, kol įrenginys nebus paleistas.</string>
     <string name="slot_number">(anga %d)</string>
     <string name="app_launch_domain_links_title">Programos nuorodos</string>
     <string name="app_launch_open_domain_urls_title">Eiti į palaikomus URL</string>
@@ -5626,18 +5688,18 @@ Kol įrenginys nebus paleistas, negausite jokių skambučių, žinučių ar pran
     <string name="usb_use_power_only">Įkrauti prij. įrenginį</string>
     <string name="usb_use_power_only_desc">Įkraukite prijungtą įrenginį per USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Perkelti medijos failus</string>
+    <string name="usb_use_file_transfers">Perkelti failus</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Perkelti vaizdus</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Pasirinkite šį režimą, jei medijos failų perkėlimas neveikia. Galite perkelti tik vaizdo failus.</string>
+    <string name="usb_use_photo_transfers_summary">Pasirinkite šį režimą, jei failų perkėlimas neveikia. Naudodami šį režimą galite perkelti tik vaizdo failus.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Prijunkit MIDI įrenginį</string>
-    <string name="usb_use">Naudoti USB (kam)</string>
-    <string name="assist_access_context_title">Skaityti tekstą ekrane</string>
-    <string name="assist_access_context_summary">Leiskite įrenginio pagalbos programai perskaityti bet kokį ekrane rodomą tekstą.</string>
-    <string name="assist_access_screenshot_title">Daryti/naudot ekrano nuotraukas</string>
-    <string name="assist_access_screenshot_summary">Leiskite įrenginio pagalbos programai daryti ir naudoti ekrano nuotraukas.</string>
+    <string name="usb_use">Naudoti USB</string>
+    <string name="assist_access_context_title">Analizuoti tekstą ekrane</string>
+    <string name="assist_access_context_summary">Leisti įrenginio pagalbos programai analizuoti ekrane rodomą tekstą, kad būtų pateikiamas susijęs turinys.</string>
+    <string name="assist_access_screenshot_title">Analizuoti vaizdus ekrane</string>
+    <string name="assist_access_screenshot_summary">Leisti įrenginio pagalbos programai imti ir naudoti ekrano vaizdus.</string>
     <string name="assist_footer">Įrenginio pagalbos programos padeda rinkti informaciją iš šiuo metu telefono ekrane rodomo vaizdo. Siekiant suteikti visapusišką pagalbą, kai kurios įrenginio pagalbos programos gali būti naudojamos kitoms programoms atidaryti ir tekstui įvesti naudojant įvestį balsu.</string>
     <string name="average_memory_use">Vidutinis RAM naudojimas</string>
     <string name="maximum_memory_use">Didž. RAM naudojimas</string>
@@ -5666,7 +5728,7 @@ Kol įrenginys nebus paleistas, negausite jokių skambučių, žinučių ar pran
     <string name="ignore_optimizations_on_desc">Gali padidėti akumuliatoriaus energijos sąnaudos</string>
     <string name="ignore_optimizations_off_desc">Rekomenduojama norint taupyti akumuliatoriaus energiją</string>
     <string name="app_list_preference_none">Nėra</string>
-    <string name="allow_overlay_description">Pasirinkite programas, kurių mygtukai, iškylantieji langai ir kiti elementai bus rodomi virš kitų jūsų naudojamų programų.</string>
+    <string name="allow_overlay_description">Šis leidimas leidžia programai rodyti ant kitų naudojamų programų. Tai gali trukdyti naudoti kitas programas.</string>
     <string name="overlay_settings">Programos, gali būti rodomos viršuje</string>
     <string name="filter_overlay_apps">Programos su leidimu</string>
     <string name="filter_write_settings_apps">Programos su leidimu</string>
@@ -5713,14 +5775,14 @@ Kol įrenginys nebus paleistas, negausite jokių skambučių, žinučių ar pran
     <string name="ethernet_data_template">%1$s eterneto duomenų</string>
     <string name="cell_warning_only">Duomenų įspėjimas pasiekus %s</string>
     <string name="cell_warning_and_limit">%1$s Įspėjimas dėl duomenų naudojimo/%2$s Duomenų naudojimo apribojimas</string>
-    <string name="billing_cycle">Sąskaitų siuntimo ciklas</string>
+    <string name="billing_cycle">Sąsk. siunt. cik. ir duom. įsp.</string>
     <string name="billing_cycle_summary">%s kiekvieno mėnesio dieną</string>
     <string name="billing_cycle_fragment_summary">%s kiekvieno mėnesio dieną</string>
     <string name="network_restrictions">Apriboti tinklus</string>
     <string name="operator_warning">Duomenų naudojimą nustato jūsų įrenginys. Jūsų paslaugų teikėjas duomenų naudojimą gali vertinti kitaip.</string>
     <string name="data_used_template">%s panaudota</string>
     <string name="data_warning">Duomenų įspėjimas</string>
-    <string name="set_data_limit">Duomenų apribojimas</string>
+    <string name="set_data_limit">Nustatyti duomenų limitą</string>
     <string name="data_limit">Duomenų apribojimas</string>
     <string name="data_usage_template">%1$s naudota %2$s</string>
     <string name="data_usage_other_apps">Įtrauktos susijusios programos</string>
@@ -5762,5 +5824,4 @@ Jūsų įrenginyje naudojama diagnostikos programinė įranga, kuri, su jūsų s
     <string name="enable_iris_lock_desc_3">"Piršto atspaudas šiuo metu nustatytas kaip ekrano užrakto tipas.
 
 Jei vietoj piršto atspaudo norite nustatyti rainelės ekrano užrakto tipą, bakstelėkite ĮJUNGTI. Tada įrenginį galėsite atrakinti naudodami savo rainelę arba %s."</string>
-    <string name="my_phone_summary">Garsiakalbis / ausinės / USB garso įrenginys</string>
 </resources>

@@ -192,7 +192,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b162a
+    const v3, 0x7f0b16c6
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -223,7 +223,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040070
+    const v3, 0x7f040071
 
     invoke-static {v2, v3, v4}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -309,7 +309,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1616
+    const v3, 0x7f0b16b2
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

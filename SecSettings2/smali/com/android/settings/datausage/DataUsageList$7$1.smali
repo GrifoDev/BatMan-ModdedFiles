@@ -41,7 +41,7 @@
 
     iget-object v0, v0, Lcom/android/settings/datausage/DataUsageList$7;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/settings/datausage/DataUsageList;->-wrap1(Lcom/android/settings/datausage/DataUsageList;I)V
 

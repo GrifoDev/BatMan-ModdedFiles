@@ -131,7 +131,7 @@
 
     check-cast v3, Landroid/view/LayoutInflater;
 
-    const v5, 0x7f0400d9
+    const v5, 0x7f0400db
 
     const/4 v6, 0x0
 
@@ -139,7 +139,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f1102d0
+    const v5, 0x7f1102d2
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -183,7 +183,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f02a5
+    const v6, 0x7f0f02a6
 
     iput v6, v5, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -201,7 +201,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/autopoweronoff/AutoPowerOnOffDaysPreference;->mDialog:Landroid/app/Dialog;
 
-    const v6, 0x7f1102cb
+    const v6, 0x7f1102cd
 
     invoke-virtual {v5, v6}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -215,7 +215,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/Toolbar;->setNavigationOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v5, 0x7f0b0c90
+    const v5, 0x7f0b0d04
 
     invoke-virtual {v4, v5}, Landroid/widget/Toolbar;->setTitle(I)V
 

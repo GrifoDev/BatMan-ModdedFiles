@@ -136,7 +136,7 @@
 .method private initialize()V
     .locals 7
 
-    const v6, 0x10809fa
+    const v6, 0x10809e8
 
     const/4 v5, 0x1
 
@@ -168,7 +168,7 @@
 
     iput v2, p0, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->mTaskID:I
 
-    const v2, 0x7f110926
+    const v2, 0x7f11092c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->findViewById(I)Landroid/view/View;
 
@@ -202,7 +202,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_1
-    const v2, 0x7f110927
+    const v2, 0x7f11092d
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->findViewById(I)Landroid/view/View;
 
@@ -242,7 +242,7 @@
 .method private updateLayoutOnOrientationChange()V
     .locals 3
 
-    const v2, 0x7f110924
+    const v2, 0x7f11092a
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->findViewById(I)Landroid/view/View;
 
@@ -250,7 +250,7 @@
 
     check-cast v1, Landroid/widget/FrameLayout;
 
-    const v2, 0x7f0a075c
+    const v2, 0x7f0a075b
 
     invoke-direct {p0, v2}, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->getDimension(I)I
 
@@ -331,7 +331,7 @@
 
     iput-object p0, p0, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04038f
+    const v1, 0x7f040394
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->setContentView(I)V
 

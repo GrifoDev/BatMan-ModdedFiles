@@ -371,7 +371,7 @@
 
     sput-object v0, Lcom/android/settings/SettingsActivity;->ENTRY_EXTRA_FOR_SEARCH:[Ljava/lang/String;
 
-    const/16 v0, 0x69
+    const/16 v0, 0x68
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -443,555 +443,549 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.bluetooth.BluetoothAVCSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.bluetooth.BluetoothDualPlaySettings"
 
     const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.bluetooth.BluetoothDualPlaySettings"
+    const-string/jumbo v1, "com.samsung.android.settings.bluetooth.BluetoothControlHistory"
 
     const/16 v2, 0xe
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.bluetooth.BluetoothControlHistory"
+    const-string/jumbo v1, "com.samsung.android.settings.guide.BluetoothHelpPage"
 
     const/16 v2, 0xf
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.guide.BluetoothHelpPage"
+    const-string/jumbo v1, "com.samsung.android.settings.CloudAccountSettings"
 
     const/16 v2, 0x10
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.CloudAccountSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.ConnectionsSettings"
 
     const/16 v2, 0x11
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.ConnectionsSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.DataSlotChoice"
 
     const/16 v2, 0x12
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.DataSlotChoice"
+    const-string/jumbo v1, "com.samsung.android.settings.devicevisibility.DeviceVisibilitySettings"
 
     const/16 v2, 0x13
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.devicevisibility.DeviceVisibilitySettings"
+    const-string/jumbo v1, "com.samsung.android.settings.DockSettings"
 
     const/16 v2, 0x14
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.DockSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.DomesticSettings"
 
     const/16 v2, 0x15
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.DomesticSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.fmm.FindMyMobileSettings"
 
     const/16 v2, 0x16
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.fmm.FindMyMobileSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.GigaLteSettings"
 
     const/16 v2, 0x17
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.GigaLteSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.GlobalRoamingSettings"
 
     const/16 v2, 0x18
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.GlobalRoamingSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.LGTCustomerService"
 
     const/16 v2, 0x19
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.LGTCustomerService"
+    const-string/jumbo v1, "com.samsung.android.settings.GlobalLteRoaming"
 
     const/16 v2, 0x1a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.GlobalLteRoaming"
+    const-string/jumbo v1, "com.samsung.android.settings.LGTRoamingEnv"
 
     const/16 v2, 0x1b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.LGTRoamingEnv"
+    const-string/jumbo v1, "com.samsung.android.settings.HongBaoAssistantPreferenceFragment"
 
     const/16 v2, 0x1c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.HongBaoAssistantPreferenceFragment"
+    const-string/jumbo v1, "com.android.settings.datausage.BillingCycleChnSettings"
 
     const/16 v2, 0x1d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.android.settings.datausage.BillingCycleChnSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.LockscreenMenuSettings"
 
     const/16 v2, 0x1e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.LockscreenMenuSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.SecuredLockSettingsMenu"
 
     const/16 v2, 0x1f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.SecuredLockSettingsMenu"
+    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.ShowInfomationMenu"
 
     const/16 v2, 0x20
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.ShowInfomationMenu"
+    const-string/jumbo v1, "com.samsung.android.settings.LteModeActivity"
 
     const/16 v2, 0x21
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.LteModeActivity"
+    const-string/jumbo v1, "com.samsung.android.settings.mirrorlink.MirrorLink"
 
     const/16 v2, 0x22
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.mirrorlink.MirrorLink"
+    const-string/jumbo v1, "com.samsung.android.settings.notification.BlockNotificationList"
 
     const/16 v2, 0x23
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.notification.BlockNotificationList"
+    const-string/jumbo v1, "com.samsung.android.settings.notification.NotificationsSubSettings"
 
     const/16 v2, 0x24
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.notification.NotificationsSubSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.notification.PriorityNotiAppList"
 
     const/16 v2, 0x25
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.notification.PriorityNotiAppList"
+    const-string/jumbo v1, "com.samsung.android.settings.notification.VibrationsSettings"
 
     const/16 v2, 0x26
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.notification.VibrationsSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.notification.VolumeSettings"
 
     const/16 v2, 0x27
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.notification.VolumeSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.notification.ZenModeDNDSettings"
 
     const/16 v2, 0x28
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.notification.ZenModeDNDSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.OtherSecuritySettings"
 
     const/16 v2, 0x29
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.OtherSecuritySettings"
+    const-string/jumbo v1, "com.samsung.android.settings.personalpage.PersonalPageSettings"
 
     const/16 v2, 0x2a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.personalpage.PersonalPageSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.safetycare.PanicModeSettings"
 
     const/16 v2, 0x2b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.safetycare.PanicModeSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.safetycare.SafetyCareEmergencyMode"
 
     const/16 v2, 0x2c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.safetycare.SafetyCareEmergencyMode"
+    const-string/jumbo v1, "com.samsung.android.settings.safetycare.SafetyCareSettings"
 
     const/16 v2, 0x2d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.safetycare.SafetyCareSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.SmartStaySettings"
 
     const/16 v2, 0x2e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.SmartStaySettings"
+    const-string/jumbo v1, "com.samsung.android.settings.display.FullScreenAppsSettings"
 
     const/16 v2, 0x2f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.display.FullScreenAppsSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.NewOneHandOperationSettings"
 
     const/16 v2, 0x30
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.NewOneHandOperationSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.TRoamingSettings"
 
     const/16 v2, 0x31
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.TRoamingSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.HDReffectSettings"
 
     const/16 v2, 0x32
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.HDReffectSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.FingerSensorGestureSettings"
 
     const/16 v2, 0x33
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.FingerSensorGestureSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.QuickCameraSettings"
 
     const/16 v2, 0x34
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.QuickCameraSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.MultiWindowSettings"
 
     const/16 v2, 0x35
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.MultiWindowSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.RecentsKeySettings"
 
     const/16 v2, 0x36
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.RecentsKeySettings"
+    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.Usefulfeature"
 
     const/16 v2, 0x37
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.Usefulfeature"
+    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.UsefulFeatureHub"
 
     const/16 v2, 0x38
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.usefulfeature.UsefulFeatureHub"
+    const-string/jumbo v1, "com.samsung.android.settings.powersaving.LowBatteryFragment"
 
     const/16 v2, 0x39
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.powersaving.LowBatteryFragment"
+    const-string/jumbo v1, "com.samsung.android.settings.powersaving.PowerSavingValueFragment"
 
     const/16 v2, 0x3a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.powersaving.PowerSavingValueFragment"
+    const-string/jumbo v1, "com.samsung.android.settings.lockappshortcut.LockAppShortcutSettings"
 
     const/16 v2, 0x3b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.lockappshortcut.LockAppShortcutSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.dualclock.DualClockSetting"
 
     const/16 v2, 0x3c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.dualclock.DualClockSetting"
+    const-string/jumbo v1, "com.samsung.android.settings.easymode.EasyModeApp"
 
     const/16 v2, 0x3d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.easymode.EasyModeApp"
+    const-string/jumbo v1, "com.samsung.android.settings.SoftwareUpdateSettings"
 
     const/16 v2, 0x3e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.SoftwareUpdateSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.smartbonding.SmartBondingSettings"
 
     const/16 v2, 0x3f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.smartbonding.SmartBondingSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.GeneralDeviceSettings"
 
     const/16 v2, 0x40
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.GeneralDeviceSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.nfc.NfcSettings"
 
     const/16 v2, 0x41
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.nfc.NfcSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.nfc.NfcOsaifukeitaiSettings"
 
     const/16 v2, 0x42
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.nfc.NfcOsaifukeitaiSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.nearby.NearbySettings"
 
     const/16 v2, 0x43
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.nearby.NearbySettings"
+    const-string/jumbo v1, "com.samsung.android.settings.nfc.PaymentSettings"
 
     const/16 v2, 0x44
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.nfc.PaymentSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.nfc.PaymentBaseSettings"
 
     const/16 v2, 0x45
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.nfc.PaymentBaseSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.boostmode.BoostModeCustomFragment"
 
     const/16 v2, 0x46
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.boostmode.BoostModeCustomFragment"
+    const-string/jumbo v1, "com.samsung.android.settings.ethernet.EthernetSettings"
 
     const/16 v2, 0x47
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.ethernet.EthernetSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.spen.PenAirCmdSettingsMenu"
 
     const/16 v2, 0x48
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.spen.PenAirCmdSettingsMenu"
+    const-string/jumbo v1, "com.samsung.android.settings.multisound.MultiSoundSettings"
 
     const/16 v2, 0x49
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.multisound.MultiSoundSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.spen.SPenSettingsMenu"
 
     const/16 v2, 0x4a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.spen.SPenSettingsMenu"
+    const-string/jumbo v1, "com.samsung.android.settings.handwritingsearch.HandwritingLanguagePreference"
 
     const/16 v2, 0x4b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.handwritingsearch.HandwritingLanguagePreference"
+    const-string/jumbo v1, "com.samsung.android.settings.deviceinfo.simlockstatus.SimLockStatus"
 
     const/16 v2, 0x4c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.deviceinfo.simlockstatus.SimLockStatus"
+    const-string/jumbo v1, "com.samsung.android.settings.WirelessSettings"
 
     const/16 v2, 0x4d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.WirelessSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.DateTimeSettings"
 
     const/16 v2, 0x4e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.DateTimeSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.display.SecDisplaySettings"
 
     const/16 v2, 0x4f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.display.SecDisplaySettings"
+    const-string/jumbo v1, "com.samsung.android.settings.display.StatusBar"
 
     const/16 v2, 0x50
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.display.StatusBar"
+    const-string/jumbo v1, "com.samsung.android.settings.display.ScreenResolutionSettings"
 
     const/16 v2, 0x51
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.display.ScreenResolutionSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.display.DisplayTemperatureSettings"
 
     const/16 v2, 0x52
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.display.DisplayTemperatureSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.PrivacySettings"
 
     const/16 v2, 0x53
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.PrivacySettings"
+    const-string/jumbo v1, "com.samsung.android.settings.PrivacyResetSettings"
 
     const/16 v2, 0x54
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.PrivacyResetSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.accessibility.AccessibilitySettings"
 
     const/16 v2, 0x55
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.accessibility.AccessibilitySettings"
+    const-string/jumbo v1, "com.samsung.android.settings.accessibility.AccessibilitySettingsHearing"
 
     const/16 v2, 0x56
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.accessibility.AccessibilitySettingsHearing"
+    const-string/jumbo v1, "com.samsung.android.settings.accessibility.AccessibilitySettingsMobility"
 
     const/16 v2, 0x57
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.accessibility.AccessibilitySettingsMobility"
+    const-string/jumbo v1, "com.samsung.android.settings.accessibility.AccessibilitySettingsVision"
 
     const/16 v2, 0x58
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.accessibility.AccessibilitySettingsVision"
+    const-string/jumbo v1, "com.samsung.android.settings.AssistantMenuPreferenceFragment"
 
     const/16 v2, 0x59
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.AssistantMenuPreferenceFragment"
+    const-string/jumbo v1, "com.samsung.android.settings.accessibility.LightNotificationPreferenceFragment"
 
     const/16 v2, 0x5a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.accessibility.LightNotificationPreferenceFragment"
+    const-string/jumbo v1, "com.samsung.android.settings.notification.SoundSettings"
 
     const/16 v2, 0x5b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.notification.SoundSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.notification.SoundModeSettings"
 
     const/16 v2, 0x5c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.notification.SoundModeSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.wifi.mobileap.WifiApSettings"
 
     const/16 v2, 0x5d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.wifi.mobileap.WifiApSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.bluetooth.tethering.BtTetherSettings"
 
     const/16 v2, 0x5e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.bluetooth.tethering.BtTetherSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.deviceinfo.StatusVZW"
 
     const/16 v2, 0x5f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.deviceinfo.StatusVZW"
+    const-string/jumbo v1, "com.samsung.android.settings.location.LocationUseInBackground"
 
     const/16 v2, 0x60
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.location.LocationUseInBackground"
+    const-string/jumbo v1, "com.samsung.android.settings.accessories.LedCoverCallerIDSettings"
 
     const/16 v2, 0x61
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.accessories.LedCoverCallerIDSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.accessories.LedCoverCallerIDList"
 
     const/16 v2, 0x62
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.accessories.LedCoverCallerIDList"
+    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.LockscreenNotificationApplist"
 
     const/16 v2, 0x63
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.LockscreenNotificationApplist"
+    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.AdditionalInformationSettings"
 
     const/16 v2, 0x64
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.AdditionalInformationSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.navigationbar.NavigationBarSettings"
 
     const/16 v2, 0x65
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.navigationbar.NavigationBarSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.navigationbar.PressureTouchActionSettings"
 
     const/16 v2, 0x66
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.navigationbar.PressureTouchActionSettings"
-
-    const/16 v2, 0x67
-
-    aput-object v1, v0, v2
-
     const-string/jumbo v1, "com.samsung.android.settings.DeviceMaintenanceSettings"
 
-    const/16 v2, 0x68
+    const/16 v2, 0x67
 
     aput-object v1, v0, v2
 
@@ -2373,7 +2367,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SettingsActivity;->mDynamicIndexableContentMonitor:Lcom/android/settings/search/DynamicIndexableContentMonitor;
 
-    const v0, 0x7f110587
+    const v0, 0x7f110589
 
     iput v0, p0, Lcom/android/settings/SettingsActivity;->mMainContentId:I
 
@@ -2431,7 +2425,7 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b10b1
+    const v1, 0x7f0b113e
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2439,11 +2433,11 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/SettingsActivity$7;-><init>(Lcom/android/settings/SettingsActivity;)V
 
-    const v2, 0x7f0b0810
+    const v2, 0x7f0b0878
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b124f
+    const v1, 0x7f0b12ea
 
     invoke-virtual {p0, v1}, Lcom/android/settings/SettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -4588,7 +4582,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f0b09e8
+    const v2, 0x7f0b0a56
 
     :goto_0
     return v2
@@ -4596,12 +4590,12 @@
     :cond_0
     if-eqz v0, :cond_1
 
-    const v2, 0x7f0b09e4
+    const v2, 0x7f0b0a52
 
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0b09e5
+    const v2, 0x7f0b0a53
 
     goto :goto_0
 .end method
@@ -4627,13 +4621,13 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b12f1
+    const v1, 0x7f0b138c
 
     :goto_0
     return v1
 
     :cond_0
-    const v1, 0x7f0b12f0
+    const v1, 0x7f0b138b
 
     goto :goto_0
 .end method
@@ -5746,7 +5740,7 @@
 
     if-eqz v2, :cond_7
 
-    const v2, 0x7f110750
+    const v2, 0x7f110753
 
     invoke-virtual {v1, v2, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -5772,7 +5766,7 @@
     goto :goto_0
 
     :cond_8
-    const v2, 0x7f110754
+    const v2, 0x7f110757
 
     invoke-virtual {v1, v2, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -5897,7 +5891,7 @@
 
     if-eqz v2, :cond_8
 
-    const v2, 0x7f110750
+    const v2, 0x7f110753
 
     invoke-virtual {v1, v2, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -5923,7 +5917,7 @@
     goto :goto_0
 
     :cond_9
-    const v2, 0x7f110754
+    const v2, 0x7f110757
 
     invoke-virtual {v1, v2, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -6000,7 +5994,7 @@
     move v7, v4
 
     :goto_1
-    const v5, 0x7f0b1a62
+    const v5, 0x7f0b12ee
 
     move-object v0, p0
 
@@ -6089,7 +6083,7 @@
 
     move-result v0
 
-    const v1, 0x7f1103a4
+    const v1, 0x7f1103a6
 
     if-ne v0, v1, :cond_0
 
@@ -6411,7 +6405,7 @@
 
     iget v0, p0, Lcom/android/settings/SettingsActivity;->mInitialTitleResId:I
 
-    const v1, 0x7f0b0850
+    const v1, 0x7f0b08b8
 
     if-ne v1, v0, :cond_0
 
@@ -6529,9 +6523,9 @@
 
     const/4 v6, 0x0
 
-    const v5, 0x7f110755
+    const v5, 0x7f110758
 
-    const v4, 0x7f11074b
+    const v4, 0x7f11074e
 
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
@@ -6971,7 +6965,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f110754
+    const v8, 0x7f110757
 
     invoke-virtual {v7, v8}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -7119,7 +7113,7 @@
 
     if-eqz v20, :cond_1
 
-    const v20, 0x7f110758
+    const v20, 0x7f11075b
 
     move-object/from16 v0, p0
 
@@ -7137,7 +7131,7 @@
 
     check-cast v6, Landroid/widget/LinearLayout$LayoutParams;
 
-    const v20, 0x7f110757
+    const v20, 0x7f11075a
 
     move-object/from16 v0, p0
 
@@ -7153,7 +7147,7 @@
 
     check-cast v10, Landroid/widget/LinearLayout$LayoutParams;
 
-    const v20, 0x7f110759
+    const v20, 0x7f11075c
 
     move-object/from16 v0, p0
 
@@ -7173,7 +7167,7 @@
 
     move-result v20
 
-    const v21, 0x7f0f0222
+    const v21, 0x7f0f0223
 
     move/from16 v0, v21
 
@@ -7185,7 +7179,7 @@
 
     move-result v20
 
-    const v21, 0x7f0f0303
+    const v21, 0x7f0f0306
 
     move/from16 v0, v21
 
@@ -7307,7 +7301,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0a05fa
+    const v21, 0x7f0a05f9
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -7317,7 +7311,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0a067a
+    const v21, 0x7f0a0679
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -7333,7 +7327,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f100476
+    const v21, 0x7f10047c
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -7448,7 +7442,7 @@
 
     move-result v20
 
-    const v21, 0x7f0f030c
+    const v21, 0x7f0f030f
 
     move/from16 v0, v21
 
@@ -7460,7 +7454,7 @@
 
     move-result v20
 
-    const v21, 0x7f0f0328
+    const v21, 0x7f0f032b
 
     move/from16 v0, v21
 
@@ -7506,7 +7500,7 @@
 
     iput v0, v13, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    const v20, 0x7f110757
+    const v20, 0x7f11075a
 
     move-object/from16 v0, p0
 
@@ -7520,7 +7514,7 @@
 
     invoke-virtual/range {v20 .. v21}, Landroid/view/View;->setVisibility(I)V
 
-    const v20, 0x7f110759
+    const v20, 0x7f11075c
 
     move-object/from16 v0, p0
 
@@ -7561,7 +7555,7 @@
 
     iput v0, v13, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    const v20, 0x7f110757
+    const v20, 0x7f11075a
 
     move-object/from16 v0, p0
 
@@ -7575,7 +7569,7 @@
 
     invoke-virtual/range {v20 .. v21}, Landroid/view/View;->setVisibility(I)V
 
-    const v20, 0x7f110759
+    const v20, 0x7f11075c
 
     move-object/from16 v0, p0
 
@@ -8117,25 +8111,25 @@
 
     move-result v44
 
-    const v2, 0x7f0f0303
+    const v2, 0x7f0f0306
 
     move/from16 v0, v44
 
     if-eq v0, v2, :cond_6
 
-    const v2, 0x7f0f030c
+    const v2, 0x7f0f030f
 
     move/from16 v0, v44
 
     if-eq v0, v2, :cond_6
 
-    const v2, 0x7f0f0328
+    const v2, 0x7f0f032b
 
     move/from16 v0, v44
 
     if-eq v0, v2, :cond_6
 
-    const v2, 0x7f0f02f9
+    const v2, 0x7f0f02fc
 
     move-object/from16 v0, p0
 
@@ -8160,7 +8154,7 @@
 
     if-eqz v2, :cond_1b
 
-    const v2, 0x7f0402ad
+    const v2, 0x7f0402b1
 
     :goto_4
     invoke-virtual {v5, v2}, Landroid/view/Window;->setContentView(I)V
@@ -8188,7 +8182,7 @@
 
     if-nez v2, :cond_20
 
-    const v2, 0x7f11074c
+    const v2, 0x7f11074f
 
     move-object/from16 v0, p0
 
@@ -8202,7 +8196,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mLeftPane:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f110751
+    const v2, 0x7f110754
 
     move-object/from16 v0, p0
 
@@ -8216,7 +8210,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mRightPane:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f11074f
+    const v2, 0x7f110752
 
     move-object/from16 v0, p0
 
@@ -8230,7 +8224,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mLeftPaneToolbar:Landroid/widget/Toolbar;
 
-    const v2, 0x7f110753
+    const v2, 0x7f110756
 
     move-object/from16 v0, p0
 
@@ -8244,7 +8238,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mRightPaneToolbar:Landroid/widget/Toolbar;
 
-    const v2, 0x7f110755
+    const v2, 0x7f110758
 
     move-object/from16 v0, p0
 
@@ -8260,7 +8254,7 @@
 
     iget-object v2, v0, Lcom/android/settings/SettingsActivity;->mLeftPaneToolbar:Landroid/widget/Toolbar;
 
-    const v5, 0x7f0b1253
+    const v5, 0x7f0b12ee
 
     invoke-virtual {v2, v5}, Landroid/widget/Toolbar;->setTitle(I)V
 
@@ -8274,7 +8268,7 @@
 
     iget-object v2, v0, Lcom/android/settings/SettingsActivity;->mLeftPaneToolbar:Landroid/widget/Toolbar;
 
-    const v5, 0x7f14000b
+    const v5, 0x7f14000c
 
     invoke-virtual {v2, v5}, Landroid/widget/Toolbar;->inflateMenu(I)V
 
@@ -8286,7 +8280,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f1109ce
+    const v5, 0x7f1109d4
 
     invoke-interface {v2, v5}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -8349,7 +8343,7 @@
 
     if-eqz v2, :cond_a
 
-    const v2, 0x7f110758
+    const v2, 0x7f11075b
 
     move-object/from16 v0, p0
 
@@ -8365,7 +8359,7 @@
 
     check-cast v24, Landroid/widget/LinearLayout$LayoutParams;
 
-    const v2, 0x7f110757
+    const v2, 0x7f11075a
 
     move-object/from16 v0, p0
 
@@ -8379,7 +8373,7 @@
 
     check-cast v38, Landroid/widget/LinearLayout$LayoutParams;
 
-    const v2, 0x7f110759
+    const v2, 0x7f11075c
 
     move-object/from16 v0, p0
 
@@ -8397,7 +8391,7 @@
 
     move-result v2
 
-    const v5, 0x7f0f0222
+    const v5, 0x7f0f0223
 
     if-eq v5, v2, :cond_9
 
@@ -8405,7 +8399,7 @@
 
     move-result v2
 
-    const v5, 0x7f0f0303
+    const v5, 0x7f0f0306
 
     if-ne v5, v2, :cond_21
 
@@ -8634,7 +8628,7 @@
     invoke-virtual {v2, v5}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
 
     :cond_e
-    const v2, 0x7f1106fb
+    const v2, 0x7f1106fe
 
     move-object/from16 v0, p0
 
@@ -8689,7 +8683,7 @@
 
     if-eqz v2, :cond_35
 
-    const v2, 0x7f1103d9
+    const v2, 0x7f1103db
 
     move-object/from16 v0, p0
 
@@ -8705,7 +8699,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f1103da
+    const v2, 0x7f1103dc
 
     move-object/from16 v0, p0
 
@@ -8719,7 +8713,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mPrevButtonArea:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f110756
+    const v2, 0x7f110759
 
     move-object/from16 v0, p0
 
@@ -8733,7 +8727,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mPrevButtonText:Landroid/widget/TextView;
 
-    const v2, 0x7f1103db
+    const v2, 0x7f1103dd
 
     move-object/from16 v0, p0
 
@@ -8747,7 +8741,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mPrevButtonArrow:Landroid/widget/ImageView;
 
-    const v2, 0x7f1103dc
+    const v2, 0x7f1103de
 
     move-object/from16 v0, p0
 
@@ -8761,7 +8755,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mNextButtonArea:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f1103dd
+    const v2, 0x7f1103df
 
     move-object/from16 v0, p0
 
@@ -8775,7 +8769,7 @@
 
     iput-object v2, v0, Lcom/android/settings/SettingsActivity;->mNextButtonText:Landroid/widget/TextView;
 
-    const v2, 0x7f1103de
+    const v2, 0x7f1103e0
 
     move-object/from16 v0, p0
 
@@ -8813,7 +8807,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f020662
+    const v6, 0x7f0206cb
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -8829,7 +8823,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f020662
+    const v6, 0x7f0206cb
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -9035,7 +9029,7 @@
 
     iput-boolean v2, v0, Lcom/android/settings/SettingsActivity;->mIsShowingDashboard:Z
 
-    const v2, 0x7f0f0327
+    const v2, 0x7f0f032a
 
     move-object/from16 v0, p0
 
@@ -9059,7 +9053,7 @@
     goto/16 :goto_3
 
     :cond_1b
-    const v2, 0x7f0402af
+    const v2, 0x7f0402b3
 
     goto/16 :goto_4
 
@@ -9082,7 +9076,7 @@
 
     if-eqz v2, :cond_1d
 
-    const v2, 0x7f0402ae
+    const v2, 0x7f0402b2
 
     :goto_c
     invoke-virtual {v5, v2}, Landroid/view/Window;->setContentView(I)V
@@ -9090,7 +9084,7 @@
     goto/16 :goto_5
 
     :cond_1d
-    const v2, 0x7f0402b0
+    const v2, 0x7f0402b4
 
     goto :goto_c
 
@@ -9101,7 +9095,7 @@
 
     if-eqz v2, :cond_1f
 
-    const v2, 0x7f0402ad
+    const v2, 0x7f0402b1
 
     :goto_d
     move-object/from16 v0, p0
@@ -9111,12 +9105,12 @@
     goto/16 :goto_5
 
     :cond_1f
-    const v2, 0x7f0402af
+    const v2, 0x7f0402b3
 
     goto :goto_d
 
     :cond_20
-    const v2, 0x7f110755
+    const v2, 0x7f110758
 
     move-object/from16 v0, p0
 
@@ -9155,7 +9149,7 @@
 
     move-result v2
 
-    const v5, 0x7f0f030c
+    const v5, 0x7f0f030f
 
     if-eq v5, v2, :cond_9
 
@@ -9163,7 +9157,7 @@
 
     move-result v2
 
-    const v5, 0x7f0f0328
+    const v5, 0x7f0f032b
 
     if-eq v5, v2, :cond_9
 
@@ -9205,7 +9199,7 @@
 
     iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    const v2, 0x7f110757
+    const v2, 0x7f11075a
 
     move-object/from16 v0, p0
 
@@ -9217,7 +9211,7 @@
 
     invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f110759
+    const v2, 0x7f11075c
 
     move-object/from16 v0, p0
 
@@ -9256,7 +9250,7 @@
 
     iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    const v2, 0x7f110757
+    const v2, 0x7f11075a
 
     move-object/from16 v0, p0
 
@@ -9268,7 +9262,7 @@
 
     invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f110759
+    const v2, 0x7f11075c
 
     move-object/from16 v0, p0
 
@@ -9405,7 +9399,7 @@
 
     if-eqz v2, :cond_29
 
-    const v2, 0x7f0b1253
+    const v2, 0x7f0b12ee
 
     move-object/from16 v0, p0
 
@@ -9635,7 +9629,7 @@
 
     const/4 v9, 0x0
 
-    const v10, 0x7f0b1a61
+    const v10, 0x7f0b1afd
 
     const/4 v11, 0x0
 
@@ -9819,7 +9813,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f110644
+    const v2, 0x7f110646
 
     move-object/from16 v0, p0
 
@@ -9988,7 +9982,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f140009
+    const v1, 0x7f14000a
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -10221,7 +10215,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b10a3
+    const v1, 0x7f0b1130
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10231,7 +10225,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b10a4
+    const v1, 0x7f0b1131
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10435,7 +10429,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b14a6
+    const v0, 0x7f0b1542
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -11211,7 +11205,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f110754
+    const v1, 0x7f110757
 
     invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -11221,7 +11215,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f110750
+    const v1, 0x7f110753
 
     invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -11296,7 +11290,7 @@
 
     iget-object v6, p1, Lcom/android/settingslib/drawer/Tile;->title:Ljava/lang/CharSequence;
 
-    const v5, 0x7f0b04ba
+    const v5, 0x7f0b051d
 
     move-object v0, p0
 
@@ -11741,7 +11735,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f110754
+    const v1, 0x7f110757
 
     invoke-virtual {v0, v1, p1}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -11926,7 +11920,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f0b04b4
+    const v3, 0x7f0b0517
 
     const/4 v6, 0x0
 
@@ -11993,7 +11987,7 @@
 
     iget-object v5, p0, Lcom/android/settings/SettingsActivity;->mSearchQuery:Ljava/lang/String;
 
-    const v9, 0x7f1109ce
+    const v9, 0x7f1109d4
 
     invoke-interface {p1, v9}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -12031,7 +12025,7 @@
     :cond_1
     iget-object v9, p0, Lcom/android/settings/SettingsActivity;->mSearchView:Landroid/widget/SearchView;
 
-    const v10, 0x1020495
+    const v10, 0x102049e
 
     invoke-virtual {v9, v10}, Landroid/widget/SearchView;->findViewById(I)Landroid/view/View;
 
@@ -12089,7 +12083,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f1109ce
+    const v10, 0x7f1109d4
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -12106,7 +12100,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b01d8
+    const v11, 0x7f0b0236
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -12289,7 +12283,7 @@
 
     const/4 v11, 0x0
 
-    const v12, 0x7f0b10a3
+    const v12, 0x7f0b1130
 
     invoke-interface {p1, v9, v10, v11, v12}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -12318,7 +12312,7 @@
 
     const/4 v11, 0x0
 
-    const v12, 0x7f0b10a4
+    const v12, 0x7f0b1131
 
     invoke-interface {p1, v9, v10, v11, v12}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

@@ -113,7 +113,7 @@
     invoke-virtual {p2}, Landroid/view/ViewGroup;->removeAllViewsInLayout()V
 
     :cond_0
-    const v4, 0x7f04002b
+    const v4, 0x7f04002c
 
     invoke-virtual {p1, v4, p2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -169,7 +169,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;->guideView:Landroid/view/View;
 
-    const v5, 0x7f110416
+    const v5, 0x7f110418
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -192,7 +192,7 @@
 
     move v0, v1
 
-    const v4, 0x7f040074
+    const v4, 0x7f040075
 
     invoke-virtual {p1, v4, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -200,7 +200,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v4, 0x7f0b0a5a
+    const v4, 0x7f0b0ac8
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -263,7 +263,7 @@
 
     check-cast v4, Landroid/widget/ImageView;
 
-    const v5, 0x7f0200e2
+    const v5, 0x7f0200e3
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -316,7 +316,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0a5d
+    const v8, 0x7f0b0acb
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -350,7 +350,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0251
+    const v8, 0x7f0b02af
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -397,7 +397,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0250
+    const v8, 0x7f0b02ae
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -432,7 +432,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b175c
+    const v8, 0x7f0b17f8
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -470,7 +470,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0239
+    const v8, 0x7f0b0297
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -533,7 +533,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0a5c
+    const v8, 0x7f0b0aca
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -561,7 +561,7 @@
 
     invoke-direct {v8, p0}, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu$4;-><init>(Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;)V
 
-    const v9, 0x7f0b0a5e
+    const v9, 0x7f0b0acc
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -622,7 +622,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200e1
+    const v2, 0x7f0200e2
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -639,7 +639,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200e2
+    const v2, 0x7f0200e3
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -653,7 +653,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001b8
+    const v1, 0x7f1001b9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -984,7 +984,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f1001b9
+    const v5, 0x7f1001ba
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 

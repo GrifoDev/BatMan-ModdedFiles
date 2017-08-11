@@ -69,7 +69,7 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x7f0b1c7e
+    const v1, 0x7f0b1d1a
 
     :goto_0
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -84,7 +84,7 @@
 
     if-lez v3, :cond_1
 
-    const v4, 0x7f0b1c81
+    const v4, 0x7f0b1d1d
 
     :goto_1
     new-array v5, v7, [Ljava/lang/Object;
@@ -112,12 +112,12 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0b1c7f
+    const v1, 0x7f0b1d1b
 
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0b1c80
+    const v4, 0x7f0b1d1c
 
     goto :goto_1
 .end method

@@ -73,7 +73,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap9(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap8(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
 
     goto :goto_0
 .end method

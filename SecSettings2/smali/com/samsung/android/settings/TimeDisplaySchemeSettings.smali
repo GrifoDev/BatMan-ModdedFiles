@@ -80,7 +80,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f1107c8
+    const v0, 0x7f1107cb
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -94,7 +94,7 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f1107c9
+    const v0, 0x7f1107cc
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f1107c9
+    .packed-switch 0x7f1107cc
         :pswitch_0
     .end packed-switch
 .end method
@@ -253,7 +253,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040321
+    const v1, 0x7f040325
 
     invoke-static {v0, v1, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -303,13 +303,13 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/TimeDisplaySchemeSettings$1;-><init>(Lcom/samsung/android/settings/TimeDisplaySchemeSettings;)V
 
-    const v2, 0x7f0b1698    # 1.8488E38f
+    const v2, 0x7f0b1734
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b1699
+    const v1, 0x7f0b1735
 
     invoke-virtual {v0, v1, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

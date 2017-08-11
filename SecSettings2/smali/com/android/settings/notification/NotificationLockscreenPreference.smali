@@ -230,7 +230,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f04018f
+    const v5, 0x7f040191
 
     invoke-virtual {v3, v5, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -238,7 +238,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    const v5, 0x7f110545
+    const v5, 0x7f110547
 
     invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -264,7 +264,7 @@
     :goto_1
     invoke-virtual {v0, v7}, Landroid/widget/CheckBox;->setEnabled(Z)V
 
-    const v5, 0x7f110546
+    const v5, 0x7f110548
 
     invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 

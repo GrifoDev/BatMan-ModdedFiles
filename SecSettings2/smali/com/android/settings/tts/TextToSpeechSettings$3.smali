@@ -1,5 +1,5 @@
-.class final Lcom/android/settings/tts/TextToSpeechSettings$3;
-.super Lcom/android/settings/search/BaseSearchIndexProvider;
+.class Lcom/android/settings/tts/TextToSpeechSettings$3;
+.super Landroid/database/ContentObserver;
 .source "TextToSpeechSettings.java"
 
 
@@ -9,161 +9,70 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
+# instance fields
+.field final synthetic this$0:Lcom/android/settings/tts/TextToSpeechSettings;
+
+
 # direct methods
-.method constructor <init>()V
+.method constructor <init>(Lcom/android/settings/tts/TextToSpeechSettings;Landroid/os/Handler;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>()V
+    iput-object p1, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
+
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getNonIndexableKeys(Landroid/content/Context;)Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            ")",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
+.method public onChange(Z)V
+    .locals 4
 
-    new-instance v0, Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v1, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
 
-    return-object v0
-.end method
-
-.method public getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;
-    .locals 8
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Z)",
-            "Ljava/util/List",
-            "<",
-            "Lcom/android/settings/search/SearchIndexableRaw;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v5, Ljava/util/ArrayList;
-
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
-
-    const/4 v4, 0x0
-
-    const v7, 0x7f0b009b
-
-    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    new-instance v3, Landroid/speech/tts/TtsEngines;
-
-    invoke-direct {v3, p1}, Landroid/speech/tts/TtsEngines;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {v3}, Landroid/speech/tts/TtsEngines;->getEngines()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-static {v1}, Lcom/android/settings/tts/TextToSpeechSettings;->-wrap0(Lcom/android/settings/tts/TextToSpeechSettings;)Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    const-string/jumbo v2, "tts_default_rate"
 
-    move-result v7
+    const/16 v3, 0x64
 
-    if-eqz v7, :cond_0
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/android/settings/tts/TextToSpeechSettings;->-set1(Lcom/android/settings/tts/TextToSpeechSettings;I)I
+
+    iget-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
+
+    invoke-static {v0}, Lcom/android/settings/tts/TextToSpeechSettings;->-get3(Lcom/android/settings/tts/TextToSpeechSettings;)Lcom/android/settings/SeekBarPreference;
 
     move-result-object v0
 
-    check-cast v0, Landroid/speech/tts/TextToSpeech$EngineInfo;
+    iget-object v1, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
 
-    new-instance v4, Lcom/android/settings/search/SearchIndexableRaw;
+    const-string/jumbo v2, "tts_default_rate"
 
-    invoke-direct {v4, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
+    iget-object v3, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
 
-    iget-object v7, v0, Landroid/speech/tts/TextToSpeech$EngineInfo;->name:Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/settings/tts/TextToSpeechSettings;->-get2(Lcom/android/settings/tts/TextToSpeechSettings;)I
 
-    iput-object v7, v4, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
+    move-result v3
 
-    iget-object v7, v0, Landroid/speech/tts/TextToSpeech$EngineInfo;->label:Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lcom/android/settings/tts/TextToSpeechSettings;->-wrap1(Lcom/android/settings/tts/TextToSpeechSettings;Ljava/lang/String;I)I
 
-    invoke-virtual {v7}, Ljava/lang/String;->toString()Ljava/lang/String;
+    move-result v1
 
-    move-result-object v7
+    invoke-virtual {v0, v1}, Lcom/android/settings/SeekBarPreference;->setProgress(I)V
 
-    iput-object v7, v4, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
-
-    iput-object v6, v4, Lcom/android/settings/search/SearchIndexableRaw;->screenTitle:Ljava/lang/String;
-
-    invoke-interface {v5, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    :cond_0
-    return-object v5
-.end method
-
-.method public getXmlResourcesToIndex(Landroid/content/Context;Z)Ljava/util/List;
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Z)",
-            "Ljava/util/List",
-            "<",
-            "Landroid/provider/SearchIndexableResource;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v0, Landroid/provider/SearchIndexableResource;
-
-    invoke-direct {v0, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
-
-    const-class v1, Lcom/android/settings/tts/TextToSpeechSettings;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, v0, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
-
-    const v1, 0x7f080139
-
-    iput v1, v0, Landroid/provider/SearchIndexableResource;->xmlResId:I
-
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Landroid/provider/SearchIndexableResource;
-
-    const/4 v2, 0x0
-
-    aput-object v0, v1, v2
-
-    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v1
-
-    return-object v1
+    return-void
 .end method

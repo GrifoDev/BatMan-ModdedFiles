@@ -40,7 +40,7 @@
 
     invoke-direct {p0, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f04020a
+    const v2, 0x7f04020c
 
     invoke-virtual {p0, v2}, Lcom/android/settings/HomeSettings$HomeAppPreference;->setLayoutResource(I)V
 
@@ -228,7 +228,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v4, 0x7f11063e
+    const v4, 0x7f110640
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -261,7 +261,7 @@
     invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     :goto_0
-    const v4, 0x7f11063d
+    const v4, 0x7f11063f
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

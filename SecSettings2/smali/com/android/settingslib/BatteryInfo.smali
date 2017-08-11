@@ -202,446 +202,367 @@
 
     invoke-static/range {p1 .. p1}, Lcom/android/settingslib/Utils;->getBatteryLevel(Landroid/content/Intent;)I
 
-    move-result v23
+    move-result v22
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     iput v0, v5, Lcom/android/settingslib/BatteryInfo;->mBatteryLevel:I
 
     iget v0, v5, Lcom/android/settingslib/BatteryInfo;->mBatteryLevel:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    invoke-static/range {v23 .. v23}, Lcom/android/settingslib/Utils;->formatPercentage(I)Ljava/lang/String;
+    invoke-static/range {v22 .. v22}, Lcom/android/settingslib/Utils;->formatPercentage(I)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v22
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
 
-    const-string/jumbo v23, "plugged"
+    const-string/jumbo v22, "plugged"
 
-    const/16 v24, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v22
 
-    move/from16 v2, v24
+    move/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v23
+    move-result v22
 
-    if-eqz v23, :cond_0
+    if-eqz v22, :cond_0
 
-    const/16 v23, 0x1
+    const/16 v22, 0x1
 
     :goto_0
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     iput-boolean v0, v5, Lcom/android/settingslib/BatteryInfo;->mCharging:Z
 
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v18
+    move-result-object v17
 
     invoke-static {}, Lcom/android/settingslib/Utils;->readSalesCode()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    const-string/jumbo v23, "KDI"
+    const-string/jumbo v22, "VZW"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v23
+    move-result v21
 
-    if-nez v23, :cond_1
-
-    const-string/jumbo v23, "SBM"
-
-    move-object/from16 v0, v23
-
-    invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v23
-
-    if-nez v23, :cond_1
-
-    const-string/jumbo v23, "DCM"
-
-    move-object/from16 v0, v23
-
-    invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    :goto_1
-    const-string/jumbo v23, "VZW"
-
-    move-object/from16 v0, v23
-
-    invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v23
-
-    if-nez v23, :cond_2
-
-    move/from16 v22, v10
-
-    :goto_2
     iget-boolean v0, v5, Lcom/android/settingslib/BatteryInfo;->mCharging:Z
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    if-nez v23, :cond_c
+    if-nez v22, :cond_7
 
-    if-eqz v22, :cond_6
+    if-eqz v21, :cond_3
 
     invoke-virtual/range {p2 .. p4}, Landroid/os/BatteryStats;->computeBatteryTimeRemaining(J)J
 
     move-result-wide v8
 
-    const-wide/16 v24, 0x0
+    const-wide/16 v22, 0x0
 
-    cmp-long v23, v8, v24
+    cmp-long v22, v8, v22
 
-    if-lez v23, :cond_5
+    if-lez v22, :cond_2
 
     iput-wide v8, v5, Lcom/android/settingslib/BatteryInfo;->remainingTimeUs:J
 
-    const-wide/16 v24, 0x3e8
+    const-wide/16 v22, 0x3e8
 
-    div-long v24, v8, v24
+    div-long v22, v8, v22
 
     move-object/from16 v0, p0
 
-    move-wide/from16 v1, v24
+    move-wide/from16 v1, v22
 
     invoke-static {v0, v1, v2}, Landroid/text/format/Formatter;->formatShortElapsedTime(Landroid/content/Context;J)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    sget v23, Lcom/android/settingslib/R$string;->battery_discharging_duration:I
+    sget v22, Lcom/android/settingslib/R$string;->battery_discharging_duration:I
 
-    const/16 v24, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v24
+    move/from16 v0, v23
 
     new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    aput-object v20, v23, v24
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v22
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->remainingLabel:Ljava/lang/String;
+
+    if-eqz p5, :cond_1
+
+    sget v22, Lcom/android/settingslib/R$string;->power_discharging_duration_short:I
+
+    :goto_1
+    const/16 v23, 0x2
+
+    move/from16 v0, v23
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v23, v0
+
+    iget-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
 
     move-object/from16 v24, v0
 
     const/16 v25, 0x0
 
-    aput-object v21, v24, v25
+    aput-object v24, v23, v25
 
-    move-object/from16 v0, v18
+    const/16 v24, 0x1
 
-    move/from16 v1, v23
+    aput-object v20, v23, v24
 
-    move-object/from16 v2, v24
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    move/from16 v1, v22
 
-    move-result-object v23
-
-    move-object/from16 v0, v23
-
-    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->remainingLabel:Ljava/lang/String;
-
-    if-nez v10, :cond_4
-
-    if-eqz p5, :cond_3
-
-    sget v23, Lcom/android/settingslib/R$string;->power_discharging_duration_short:I
-
-    :goto_3
-    const/16 v24, 0x2
-
-    move/from16 v0, v24
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v24, v0
-
-    iget-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
-
-    move-object/from16 v25, v0
-
-    const/16 v26, 0x0
-
-    aput-object v25, v24, v26
-
-    const/16 v25, 0x1
-
-    aput-object v21, v24, v25
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v23
-
-    move-object/from16 v2, v24
+    move-object/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v22
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
 
-    :goto_4
+    :goto_2
     return-object v5
 
     :cond_0
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_1
-    const/4 v10, 0x1
+    sget v22, Lcom/android/settingslib/R$string;->power_discharging_duration:I
 
     goto :goto_1
 
     :cond_2
-    const/16 v22, 0x1
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v22
+
+    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->remainingLabel:Ljava/lang/String;
+
+    iget-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
 
     goto :goto_2
 
     :cond_3
-    sget v23, Lcom/android/settingslib/R$string;->power_discharging_duration:I
-
-    goto :goto_3
-
-    :cond_4
-    const/16 v23, 0x0
-
-    move-object/from16 v0, v23
-
-    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->remainingLabel:Ljava/lang/String;
-
-    iget-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
-
-    move-object/from16 v23, v0
-
-    move-object/from16 v0, v23
-
-    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
-
-    goto :goto_4
-
-    :cond_5
-    const/16 v23, 0x0
-
-    move-object/from16 v0, v23
-
-    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->remainingLabel:Ljava/lang/String;
-
-    iget-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
-
-    move-object/from16 v23, v0
-
-    move-object/from16 v0, v23
-
-    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
-
-    goto :goto_4
-
-    :cond_6
     const/16 v4, 0x23
 
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v23
+    move-result-object v22
 
-    const-string/jumbo v24, "low_power"
+    const-string/jumbo v23, "low_power"
 
-    const/16 v25, 0x0
+    const/16 v24, 0x0
 
-    invoke-static/range {v23 .. v25}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static/range {v22 .. v24}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v15
+    move-result v14
 
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v23
+    move-result-object v22
 
-    const-string/jumbo v24, "sem_perfomance_mode"
+    const-string/jumbo v23, "sem_perfomance_mode"
 
-    const/16 v25, 0x0
+    const/16 v24, 0x0
 
-    invoke-static/range {v23 .. v25}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static/range {v22 .. v24}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v23
+    move-result v22
 
-    if-eqz v23, :cond_9
+    if-eqz v22, :cond_5
 
-    const/4 v11, 0x1
+    const/4 v10, 0x1
 
-    :goto_5
-    if-eqz v11, :cond_7
+    :goto_3
+    if-eqz v10, :cond_4
 
-    if-nez v15, :cond_7
+    if-nez v14, :cond_4
 
-    const/16 v15, 0x23
+    const/16 v14, 0x23
 
-    :cond_7
-    const-string/jumbo v23, "CustomFrequencyManagerService"
+    :cond_4
+    const-string/jumbo v22, "CustomFrequencyManagerService"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v22
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v11
 
-    check-cast v12, Landroid/os/CustomFrequencyManager;
+    check-cast v11, Landroid/os/CustomFrequencyManager;
 
-    invoke-virtual {v12, v15}, Landroid/os/CustomFrequencyManager;->getBatteryRemainingUsageTime(I)I
+    invoke-virtual {v11, v14}, Landroid/os/CustomFrequencyManager;->getBatteryRemainingUsageTime(I)I
 
-    move-result v16
+    move-result v15
 
-    sget-object v23, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
+    sget-object v22, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
 
-    move/from16 v0, v16
-
-    int-to-long v0, v0
+    int-to-long v0, v15
 
     move-wide/from16 v24, v0
 
-    invoke-virtual/range {v23 .. v25}, Ljava/util/concurrent/TimeUnit;->toMicros(J)J
-
-    move-result-wide v8
-
-    if-lez v16, :cond_8
-
-    if-eqz v10, :cond_a
-
-    :cond_8
-    iget-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
-
-    move-object/from16 v23, v0
-
-    move-object/from16 v0, v23
-
-    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
-
-    goto :goto_4
-
-    :cond_9
-    const/4 v11, 0x0
-
-    goto :goto_5
-
-    :cond_a
-    iput-wide v8, v5, Lcom/android/settingslib/BatteryInfo;->remainingTimeUs:J
-
-    const-wide/16 v24, 0x3e8
-
-    div-long v24, v8, v24
-
-    move-object/from16 v0, p0
+    move-object/from16 v0, v22
 
     move-wide/from16 v1, v24
 
+    invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/TimeUnit;->toMicros(J)J
+
+    move-result-wide v8
+
+    if-lez v15, :cond_6
+
+    iput-wide v8, v5, Lcom/android/settingslib/BatteryInfo;->remainingTimeUs:J
+
+    const-wide/16 v22, 0x3e8
+
+    div-long v22, v8, v22
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v22
+
     invoke-static {v0, v1, v2}, Lcom/android/settingslib/BatteryInfo;->formatElapsedTime(Landroid/content/Context;J)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v23, "BatteryInfo"
+    const-string/jumbo v22, "BatteryInfo"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "getTimeString. time = "
+    const-string/jumbo v24, "getTimeString. time = "
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
-
-    move-object/from16 v0, v24
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v24
-
-    const-string/jumbo v25, " timeString "
-
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
-
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v24
-
-    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-nez v10, :cond_b
-
-    sget v23, Lcom/android/settingslib/R$string;->battery_discharging_duration:I
-
-    const/16 v24, 0x1
-
-    move/from16 v0, v24
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v24, v0
-
-    const/16 v25, 0x0
-
-    aput-object v21, v24, v25
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v23
-
-    move-object/from16 v2, v24
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v23
 
     move-object/from16 v0, v23
 
-    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_4
+    move-result-object v23
 
-    :cond_b
-    iget-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
+    const-string/jumbo v24, " timeString "
 
-    move-object/from16 v23, v0
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
 
     move-object/from16 v0, v23
 
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v22, Lcom/android/settingslib/R$string;->battery_discharging_duration:I
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    aput-object v20, v23, v24
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v22
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
     iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_c
+    :cond_5
+    const/4 v10, 0x0
+
+    goto :goto_3
+
+    :cond_6
+    iget-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
+
+    goto/16 :goto_2
+
+    :cond_7
     invoke-virtual/range {p2 .. p4}, Landroid/os/BatteryStats;->computeChargeTimeRemaining(J)J
 
     move-result-wide v6
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     move-object/from16 v1, p1
 
@@ -649,108 +570,204 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/settingslib/Utils;->getBatteryStatus(Landroid/content/res/Resources;Landroid/content/Intent;Z)Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v19
 
-    const-string/jumbo v23, "status"
+    const-string/jumbo v22, "status"
 
-    const/16 v24, 0x1
+    const/16 v23, 0x1
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v22
 
-    move/from16 v2, v24
+    move/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v19
+    move-result v18
 
-    const-wide/16 v24, 0x0
+    const-wide/16 v22, 0x0
 
-    cmp-long v23, v6, v24
+    cmp-long v22, v6, v22
 
-    if-lez v23, :cond_14
+    if-lez v22, :cond_f
 
-    const/16 v23, 0x5
+    const/16 v22, 0x5
 
-    move/from16 v0, v19
+    move/from16 v0, v18
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    if-eq v0, v1, :cond_14
+    if-eq v0, v1, :cond_f
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v22
 
     iput-boolean v0, v5, Lcom/android/settingslib/BatteryInfo;->mDischarging:Z
 
     iput-wide v6, v5, Lcom/android/settingslib/BatteryInfo;->remainingTimeUs:J
 
-    const-wide/16 v24, 0x3e8
+    const-wide/16 v22, 0x3e8
 
-    div-long v24, v6, v24
+    div-long v22, v6, v22
 
     move-object/from16 v0, p0
 
-    move-wide/from16 v1, v24
+    move-wide/from16 v1, v22
 
     invoke-static {v0, v1, v2}, Lcom/android/settingslib/BatteryInfo;->formatElapsedTime(Landroid/content/Context;J)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v23, "plugged"
+    const-string/jumbo v22, "plugged"
 
-    const/16 v24, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v22
 
-    move/from16 v2, v24
+    move/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v14
+    move-result v13
+
+    const/16 v22, 0x1
+
+    move/from16 v0, v22
+
+    if-ne v13, v0, :cond_9
+
+    if-eqz p5, :cond_8
+
+    sget v16, Lcom/android/settingslib/R$string;->power_charging_duration_ac_short:I
+
+    :goto_4
+    sget v22, Lcom/android/settingslib/R$string;->power_remaining_duration_only:I
 
     const/16 v23, 0x1
 
     move/from16 v0, v23
 
-    if-ne v14, v0, :cond_e
-
-    if-eqz p5, :cond_d
-
-    sget v17, Lcom/android/settingslib/R$string;->power_charging_duration_ac_short:I
-
-    :goto_6
-    sget v23, Lcom/android/settingslib/R$string;->power_remaining_duration_only:I
-
-    const/16 v24, 0x1
-
-    move/from16 v0, v24
-
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
-    const/16 v25, 0x0
+    const/16 v24, 0x0
 
-    aput-object v21, v24, v25
+    aput-object v20, v23, v24
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v22
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->remainingLabel:Ljava/lang/String;
+
+    const/16 v22, 0x2
+
+    move/from16 v0, v22
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v22, v0
+
+    iget-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
+
+    move-object/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    aput-object v23, v22, v24
+
+    const/16 v23, 0x1
+
+    aput-object v20, v22, v23
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v16
+
+    move-object/from16 v2, v22
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
+
+    goto/16 :goto_2
+
+    :cond_8
+    sget v16, Lcom/android/settingslib/R$string;->power_charging_duration_ac:I
+
+    goto :goto_4
+
+    :cond_9
+    const/16 v22, 0x2
+
+    move/from16 v0, v22
+
+    if-ne v13, v0, :cond_b
+
+    if-eqz p5, :cond_a
+
+    sget v16, Lcom/android/settingslib/R$string;->power_charging_duration_usb_short:I
+
+    goto :goto_4
+
+    :cond_a
+    sget v16, Lcom/android/settingslib/R$string;->power_charging_duration_usb:I
+
+    goto :goto_4
+
+    :cond_b
+    const/16 v22, 0x4
+
+    move/from16 v0, v22
+
+    if-ne v13, v0, :cond_d
+
+    if-eqz p5, :cond_c
+
+    sget v16, Lcom/android/settingslib/R$string;->power_charging_duration_wireless_short:I
+
+    goto :goto_4
+
+    :cond_c
+    sget v16, Lcom/android/settingslib/R$string;->power_charging_duration_wireless:I
+
+    goto :goto_4
+
+    :cond_d
+    if-eqz p5, :cond_e
+
+    sget v16, Lcom/android/settingslib/R$string;->power_charging_duration_short:I
+
+    goto :goto_4
+
+    :cond_e
+    sget v16, Lcom/android/settingslib/R$string;->power_charging_duration:I
+
+    goto :goto_4
+
+    :cond_f
+    move-object/from16 v0, v19
+
+    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->remainingLabel:Ljava/lang/String;
+
+    sget v22, Lcom/android/settingslib/R$string;->power_charging:I
 
     const/16 v23, 0x2
 
@@ -770,119 +787,23 @@
 
     const/16 v24, 0x1
 
-    aput-object v21, v23, v24
+    aput-object v19, v23, v24
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
-    move/from16 v1, v17
+    move/from16 v1, v22
 
     move-object/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v22
 
-    move-object/from16 v0, v23
-
-    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
-
-    goto/16 :goto_4
-
-    :cond_d
-    sget v17, Lcom/android/settingslib/R$string;->power_charging_duration_ac:I
-
-    goto :goto_6
-
-    :cond_e
-    const/16 v23, 0x2
-
-    move/from16 v0, v23
-
-    if-ne v14, v0, :cond_10
-
-    if-eqz p5, :cond_f
-
-    sget v17, Lcom/android/settingslib/R$string;->power_charging_duration_usb_short:I
-
-    goto :goto_6
-
-    :cond_f
-    sget v17, Lcom/android/settingslib/R$string;->power_charging_duration_usb:I
-
-    goto :goto_6
-
-    :cond_10
-    const/16 v23, 0x4
-
-    move/from16 v0, v23
-
-    if-ne v14, v0, :cond_12
-
-    if-eqz p5, :cond_11
-
-    sget v17, Lcom/android/settingslib/R$string;->power_charging_duration_wireless_short:I
-
-    goto :goto_6
-
-    :cond_11
-    sget v17, Lcom/android/settingslib/R$string;->power_charging_duration_wireless:I
-
-    goto :goto_6
-
-    :cond_12
-    if-eqz p5, :cond_13
-
-    sget v17, Lcom/android/settingslib/R$string;->power_charging_duration_short:I
-
-    goto :goto_6
-
-    :cond_13
-    sget v17, Lcom/android/settingslib/R$string;->power_charging_duration:I
-
-    goto :goto_6
-
-    :cond_14
-    move-object/from16 v0, v20
-
-    iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->remainingLabel:Ljava/lang/String;
-
-    sget v23, Lcom/android/settingslib/R$string;->power_charging:I
-
-    const/16 v24, 0x2
-
-    move/from16 v0, v24
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v24, v0
-
-    iget-object v0, v5, Lcom/android/settingslib/BatteryInfo;->batteryPercentString:Ljava/lang/String;
-
-    move-object/from16 v25, v0
-
-    const/16 v26, 0x0
-
-    aput-object v25, v24, v26
-
-    const/16 v25, 0x1
-
-    aput-object v20, v24, v25
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v23
-
-    move-object/from16 v2, v24
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v23
-
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     iput-object v0, v5, Lcom/android/settingslib/BatteryInfo;->mChargeLabelString:Ljava/lang/String;
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 .end method
 
 .method public static getBatteryInfo(Landroid/content/Context;Lcom/android/settingslib/BatteryInfo$Callback;)V

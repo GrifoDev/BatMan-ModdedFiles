@@ -114,7 +114,7 @@
 
     invoke-virtual {v4, v6}, Landroid/view/View;->setVisibility(I)V
 
-    const v4, 0x7f0202f1
+    const v4, 0x7f020316
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -144,7 +144,7 @@
 
     invoke-virtual {v4, v6}, Landroid/view/View;->setVisibility(I)V
 
-    const v4, 0x7f0202ec
+    const v4, 0x7f020311
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -173,7 +173,7 @@
 
     invoke-virtual {v4, v6}, Landroid/view/View;->setVisibility(I)V
 
-    const v4, 0x7f0202ed
+    const v4, 0x7f020312
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -197,7 +197,7 @@
 
     invoke-virtual {v4, v6}, Landroid/view/View;->setVisibility(I)V
 
-    const v4, 0x7f0202e8
+    const v4, 0x7f02030d
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 

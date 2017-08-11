@@ -128,7 +128,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetEnabler;->mEthCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    const v1, 0x7f0b1199
+    const v1, 0x7f0b1234
 
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
 
@@ -173,7 +173,7 @@
 .method private postEnableTaskFinishedUIUpdate(Z)V
     .locals 5
 
-    const v2, 0x7f0b0cd9
+    const v2, 0x7f0b0d58
 
     const-string/jumbo v1, "SettingsEthEnabler"
 
@@ -199,21 +199,24 @@
 
     const/4 v0, 0x0
 
-    iget-object v3, p0, Lcom/samsung/android/settings/ethernet/EthernetEnabler;->mEthCheckBoxPref:Landroid/preference/CheckBoxPreference;
-
-    if-eqz p1, :cond_1
-
-    const v1, 0x7f0b01ce
-
-    :goto_0
-    invoke-virtual {v3, v1}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
-
     iget-object v1, p0, Lcom/samsung/android/settings/ethernet/EthernetEnabler;->mEthManager:Landroid/net/EthernetManager;
 
     invoke-virtual {v1}, Landroid/net/EthernetManager;->isEthConnected()Z
 
     move-result v0
 
+    if-nez v0, :cond_0
+
+    iget-object v3, p0, Lcom/samsung/android/settings/ethernet/EthernetEnabler;->mEthCheckBoxPref:Landroid/preference/CheckBoxPreference;
+
+    if-eqz p1, :cond_2
+
+    const v1, 0x7f0b022b
+
+    :goto_0
+    invoke-virtual {v3, v1}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
+
+    :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/ethernet/EthernetEnabler;->mEthCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
@@ -240,17 +243,17 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_3
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     iget-object v1, p0, Lcom/samsung/android/settings/ethernet/EthernetEnabler;->mEthCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    const v2, 0x7f0b1199
+    const v2, 0x7f0b1234
 
-    :cond_0
+    :cond_1
     invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
 
     iget-object v1, p0, Lcom/samsung/android/settings/ethernet/EthernetEnabler;->mEthCheckBoxPref:Landroid/preference/CheckBoxPreference;
@@ -262,12 +265,12 @@
     :goto_1
     return-void
 
-    :cond_1
+    :cond_2
     move v1, v2
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     invoke-direct {p0}, Lcom/samsung/android/settings/ethernet/EthernetEnabler;->handleEthSummaryIfConnectionFailsLanNotConnected()V
 
     goto :goto_1
@@ -399,7 +402,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetEnabler;->mEthCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    const v1, 0x7f0b1199
+    const v1, 0x7f0b1234
 
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
 

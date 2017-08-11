@@ -126,7 +126,7 @@
 
     iput-object v4, p0, Lcom/samsung/android/settings/networklock/NetworkUnlockVZW;->mPhone:Lcom/android/internal/telephony/Phone;
 
-    const v4, 0x7f040073
+    const v4, 0x7f040074
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/networklock/NetworkUnlockVZW;->setContentView(I)V
 
@@ -210,7 +210,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v4, 0x7f0b01bc
+    const v4, 0x7f0b0219
 
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(I)V
 

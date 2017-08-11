@@ -82,12 +82,12 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f020423
+    const v2, 0x7f020449
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->animation:I
 
     :goto_0
-    const v2, 0x7f0b0cc1
+    const v2, 0x7f0b0d40
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
@@ -105,11 +105,11 @@
 
     if-eqz v1, :cond_1
 
-    const v2, 0x7f0b0cc2
+    const v2, 0x7f0b0d41
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
-    const v2, 0x7f02041c
+    const v2, 0x7f020442
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->animation:I
 
@@ -121,18 +121,18 @@
     return-void
 
     :cond_0
-    const v2, 0x7f02041e
+    const v2, 0x7f020444
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->animation:I
 
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0b0cc3
+    const v2, 0x7f0b0d42
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
-    const v2, 0x7f02041b
+    const v2, 0x7f020441
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->animation:I
 
@@ -249,7 +249,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/OneHandViewPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x7f0401d0
+    const v6, 0x7f0401d2
 
     invoke-virtual {v5, v6, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -261,7 +261,7 @@
 
     invoke-virtual {v4, v5}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    const v5, 0x7f1105d6
+    const v5, 0x7f1105d8
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -269,7 +269,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v5, 0x7f1105d7
+    const v5, 0x7f1105d9
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -277,7 +277,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v5, 0x7f1105d5
+    const v5, 0x7f1105d7
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

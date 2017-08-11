@@ -219,7 +219,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f110587
+    const v4, 0x7f110589
 
     invoke-virtual {v3, v4}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 

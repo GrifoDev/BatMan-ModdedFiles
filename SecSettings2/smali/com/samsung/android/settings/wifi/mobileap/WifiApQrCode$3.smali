@@ -41,7 +41,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$3;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get6(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/net/wifi/WifiManager;
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get7(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/net/wifi/WifiManager;
 
     move-result-object v0
 
@@ -53,7 +53,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$3;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get1(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/app/Activity;
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/app/Activity;
 
     move-result-object v0
 

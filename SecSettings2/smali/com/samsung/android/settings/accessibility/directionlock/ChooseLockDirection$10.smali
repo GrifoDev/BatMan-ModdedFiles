@@ -103,6 +103,14 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection$10;->this$0:Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;
 
+    invoke-static {v0}, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->-get16(Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection$10;->this$0:Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;
+
     invoke-virtual {v0}, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->finish()V
 
     :cond_1

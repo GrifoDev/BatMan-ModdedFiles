@@ -73,7 +73,7 @@
 # instance fields
 .field private mContext:Landroid/content/Context;
 
-.field private mDefaultVolumeControl:Lcom/android/settings/SecDropDownPreference;
+.field private mDefaultVolumeControl:Landroid/preference/SwitchPreference;
 
 .field private mDeviceVibration:Landroid/preference/PreferenceScreen;
 
@@ -161,10 +161,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get10(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/SwitchPreference;
+.method static synthetic -get10(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/settings/notification/SoundSettings$H;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mKeyboardSound:Landroid/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mHandler:Lcom/samsung/android/settings/notification/SoundSettings$H;
 
     return-object v0
 .end method
@@ -172,12 +172,20 @@
 .method static synthetic -get11(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/SwitchPreference;
     .locals 1
 
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mKeyboardSound:Landroid/preference/SwitchPreference;
+
+    return-object v0
+.end method
+
+.method static synthetic -get12(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/SwitchPreference;
+    .locals 1
+
     iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mKeyboardVibration:Landroid/preference/SwitchPreference;
 
     return-object v0
 .end method
 
-.method static synthetic -get12()Ljava/lang/String;
+.method static synthetic -get13()Ljava/lang/String;
     .locals 1
 
     sget-object v0, Lcom/samsung/android/settings/notification/SoundSettings;->mMessagePackageName:Ljava/lang/String;
@@ -185,7 +193,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get13(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/android/settings/DefaultRingtonePreference;
+.method static synthetic -get14(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/android/settings/DefaultRingtonePreference;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mNotificationSound:Lcom/android/settings/DefaultRingtonePreference;
@@ -193,7 +201,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get14(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/Preference;
+.method static synthetic -get15(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/Preference;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mPhoneRingtone2Preference:Landroid/preference/Preference;
@@ -201,7 +209,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/Preference;
+.method static synthetic -get16(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/Preference;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mPhoneRingtonePreference:Landroid/preference/Preference;
@@ -209,7 +217,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/android/settings/DefaultRingtonePreference;
+.method static synthetic -get17(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/android/settings/DefaultRingtonePreference;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mRingtone:Lcom/android/settings/DefaultRingtonePreference;
@@ -217,7 +225,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/SwitchPreference;
+.method static synthetic -get18(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/SwitchPreference;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mScreenLockSound:Landroid/preference/SwitchPreference;
@@ -225,18 +233,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/media/SemSoundAssistantManager;
+.method static synthetic -get19(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/media/SemSoundAssistantManager;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSemSoundAssistantManager:Lcom/samsung/android/media/SemSoundAssistantManager;
-
-    return-object v0
-.end method
-
-.method static synthetic -get19(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/PreferenceScreen;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSoundEffects:Landroid/preference/PreferenceScreen;
 
     return-object v0
 .end method
@@ -252,15 +252,15 @@
 .method static synthetic -get20(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/PreferenceScreen;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSubNtofications:Landroid/preference/PreferenceScreen;
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSoundEffects:Landroid/preference/PreferenceScreen;
 
     return-object v0
 .end method
 
-.method static synthetic -get21(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/SwitchPreference;
+.method static synthetic -get21(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/PreferenceScreen;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mTouchSounds:Landroid/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSubNtofications:Landroid/preference/PreferenceScreen;
 
     return-object v0
 .end method
@@ -268,7 +268,7 @@
 .method static synthetic -get22(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/SwitchPreference;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mVibrateWhenRinging:Landroid/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mTouchSounds:Landroid/preference/SwitchPreference;
 
     return-object v0
 .end method
@@ -276,12 +276,20 @@
 .method static synthetic -get23(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/SwitchPreference;
     .locals 1
 
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mVibrateWhenRinging:Landroid/preference/SwitchPreference;
+
+    return-object v0
+.end method
+
+.method static synthetic -get24(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/SwitchPreference;
+    .locals 1
+
     iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mVibrationOnTouch:Landroid/preference/SwitchPreference;
 
     return-object v0
 .end method
 
-.method static synthetic -get24(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/settings/SettingsSwitchPreference;
+.method static synthetic -get25(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/settings/SettingsSwitchPreference;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mZenModeDND:Lcom/samsung/android/settings/SettingsSwitchPreference;
@@ -305,10 +313,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/android/settings/SecDropDownPreference;
+.method static synthetic -get5(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/SwitchPreference;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Lcom/android/settings/SecDropDownPreference;
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Landroid/preference/SwitchPreference;
 
     return-object v0
 .end method
@@ -337,10 +345,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/settings/notification/SoundSettings$H;
+.method static synthetic -get9(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/android/settings/SecDropDownPreference;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mHandler:Lcom/samsung/android/settings/notification/SoundSettings$H;
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mEmergencyTone:Lcom/android/settings/SecDropDownPreference;
 
     return-object v0
 .end method
@@ -1048,7 +1056,7 @@
 .method private refreshDNDmode()V
     .locals 9
 
-    const v4, 0x7f0b1b37
+    const v4, 0x7f0b1bd3
 
     const/4 v5, 0x1
 
@@ -1121,7 +1129,7 @@
 
     if-eqz v4, :cond_1
 
-    const v3, 0x7f0b0b13
+    const v3, 0x7f0b0b82
 
     :cond_1
     if-eqz v2, :cond_2
@@ -1130,7 +1138,7 @@
 
     if-eqz v4, :cond_2
 
-    const v3, 0x7f0b0b08
+    const v3, 0x7f0b0b77
 
     :cond_2
     iget-object v4, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mZenModeDND:Lcom/samsung/android/settings/SettingsSwitchPreference;
@@ -1188,7 +1196,7 @@
     return-void
 
     :cond_4
-    const v3, 0x7f0b1b38
+    const v3, 0x7f0b1bd4
 
     goto :goto_0
 
@@ -1218,9 +1226,9 @@
 .method private refreshSoundMode()V
     .locals 8
 
-    const v7, 0x7f0b1468
+    const v7, 0x7f0b1504
 
-    const v6, 0x7f0b0b36
+    const v6, 0x7f0b0ba8
 
     const/4 v5, 0x2
 
@@ -1299,7 +1307,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mIntervalSoundMode:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b0b35
+    const v2, 0x7f0b0ba7
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -2129,7 +2137,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a03
+    const v0, 0x7f0b1a9f
 
     return v0
 .end method
@@ -2145,7 +2153,7 @@
 .method public handleRingtonePicked(Landroid/net/Uri;I)V
     .locals 7
 
-    const v6, 0x7f0b0b3f
+    const v6, 0x7f0b0bb1
 
     const/4 v5, 0x0
 
@@ -2436,7 +2444,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b1468
+    const v8, 0x7f0b1504
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->setTitle(I)V
 
@@ -2488,7 +2496,7 @@
 
     invoke-direct {v4}, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;-><init>()V
 
-    const v7, 0x7f0b020a
+    const v7, 0x7f0b0268
 
     iput v7, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -2581,7 +2589,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b04b8
+    const v8, 0x7f0b051b
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->setTitle(I)V
 
@@ -2592,7 +2600,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0acf
+    const v8, 0x7f0b0b3e
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->setTitle(I)V
 
@@ -2608,7 +2616,7 @@
 
     invoke-direct {v5}, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;-><init>()V
 
-    const v7, 0x7f0b0a39
+    const v7, 0x7f0b0aa7
 
     iput v7, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -2845,7 +2853,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 12
+    .locals 11
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -3249,93 +3257,26 @@
 
     move-result-object v8
 
-    check-cast v8, Lcom/android/settings/SecDropDownPreference;
+    check-cast v8, Landroid/preference/SwitchPreference;
 
-    iput-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Lcom/android/settings/SecDropDownPreference;
+    iput-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Landroid/preference/SwitchPreference;
 
-    iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Lcom/android/settings/SecDropDownPreference;
+    iget-object v9, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Landroid/preference/SwitchPreference;
 
-    const/4 v9, 0x2
+    iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSemSoundAssistantManager:Lcom/samsung/android/media/SemSoundAssistantManager;
 
-    new-array v9, v9, [Ljava/lang/CharSequence;
+    invoke-virtual {v8}, Lcom/samsung/android/media/SemSoundAssistantManager;->getVolumeKeyMode()I
 
-    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/SoundSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v10
-
-    const v11, 0x7f0b146f
-
-    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    const/4 v11, 0x0
-
-    aput-object v10, v9, v11
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/SoundSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v10
-
-    const v11, 0x7f0b1a99
-
-    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    const/4 v11, 0x1
-
-    aput-object v10, v9, v11
-
-    invoke-virtual {v8, v9}, Lcom/android/settings/SecDropDownPreference;->setEntries([Ljava/lang/CharSequence;)V
-
-    iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Lcom/android/settings/SecDropDownPreference;
-
-    const/4 v9, 0x2
-
-    new-array v9, v9, [Ljava/lang/CharSequence;
-
-    const/4 v10, 0x0
-
-    invoke-static {v10}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    const/4 v11, 0x0
-
-    aput-object v10, v9, v11
+    move-result v8
 
     const/4 v10, 0x1
 
-    invoke-static {v10}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    if-ne v8, v10, :cond_13
 
-    move-result-object v10
+    const/4 v8, 0x1
 
-    const/4 v11, 0x1
-
-    aput-object v10, v9, v11
-
-    invoke-virtual {v8, v9}, Lcom/android/settings/SecDropDownPreference;->setEntryValues([Ljava/lang/CharSequence;)V
-
-    iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Lcom/android/settings/SecDropDownPreference;
-
-    const/4 v9, 0x1
-
-    invoke-virtual {v8, v9}, Lcom/android/settings/SecDropDownPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
-
-    iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Lcom/android/settings/SecDropDownPreference;
-
-    iget-object v9, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSemSoundAssistantManager:Lcom/samsung/android/media/SemSoundAssistantManager;
-
-    invoke-virtual {v9}, Lcom/samsung/android/media/SemSoundAssistantManager;->getVolumeKeyMode()I
-
-    move-result v9
-
-    invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Lcom/android/settings/SecDropDownPreference;->setValue(Ljava/lang/String;)V
+    :goto_1
+    invoke-virtual {v9, v8}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mVibrateWhenRinging:Landroid/preference/SwitchPreference;
 
@@ -3361,13 +3302,13 @@
 
     invoke-virtual {v8, v9}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Lcom/android/settings/SecDropDownPreference;
+    iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Landroid/preference/SwitchPreference;
 
     new-instance v9, Lcom/samsung/android/settings/notification/SoundSettings$18;
 
     invoke-direct {v9, p0}, Lcom/samsung/android/settings/notification/SoundSettings$18;-><init>(Lcom/samsung/android/settings/notification/SoundSettings;)V
 
-    invoke-virtual {v8, v9}, Lcom/android/settings/SecDropDownPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v8, v9}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/notification/SoundSettings;->getActivity()Landroid/app/Activity;
 
@@ -3377,7 +3318,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_13
+    if-eqz v8, :cond_14
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/notification/SoundSettings;->getActivity()Landroid/app/Activity;
 
@@ -3387,9 +3328,9 @@
 
     move-result v8
 
-    if-eqz v8, :cond_13
+    if-eqz v8, :cond_14
 
-    :goto_1
+    :goto_2
     invoke-virtual {p0}, Lcom/samsung/android/settings/notification/SoundSettings;->getResources()Landroid/content/res/Resources;
 
     move-result-object v8
@@ -3455,7 +3396,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_15
+    if-eqz v8, :cond_16
 
     const-string/jumbo v8, "ringtone"
 
@@ -3465,7 +3406,7 @@
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->removePreference(Ljava/lang/String;)V
 
-    :goto_2
+    :goto_3
     const-string/jumbo v8, "ds_ring_tone"
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -3480,7 +3421,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mRingtonePreference_DS:Landroid/preference/Preference;
 
-    const v9, 0x7f0b0aba
+    const v9, 0x7f0b0b29
 
     invoke-virtual {v8, v9}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -3521,10 +3462,10 @@
 
     move-result v8
 
-    if-eqz v8, :cond_16
+    if-eqz v8, :cond_17
 
     :cond_b
-    :goto_3
+    :goto_4
     invoke-static {}, Lcom/android/settings/Utils;->hasActiveKey()Z
 
     move-result v8
@@ -3593,12 +3534,12 @@
 
     move-result v8
 
-    if-eqz v8, :cond_18
+    if-eqz v8, :cond_19
 
     :cond_e
     iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSubNtofications:Landroid/preference/PreferenceScreen;
 
-    const v9, 0x7f0b0ae1
+    const v9, 0x7f0b0b50
 
     invoke-virtual {v8, v9}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -3627,7 +3568,7 @@
     :cond_f
     iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSubNtofications:Landroid/preference/PreferenceScreen;
 
-    const v9, 0x7f0b0ae4
+    const v9, 0x7f0b0b53
 
     invoke-virtual {v8, v9}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -3640,12 +3581,12 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSubNtofications:Landroid/preference/PreferenceScreen;
 
-    const v9, 0x7f0b0ae2
+    const v9, 0x7f0b0b51
 
     invoke-virtual {v8, v9}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
     :cond_11
-    :goto_4
+    :goto_5
     const-string/jumbo v8, "sound_effect"
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -3663,7 +3604,7 @@
     :cond_12
     iget-boolean v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mIsEmerMode:Z
 
-    if-eqz v8, :cond_1b
+    if-eqz v8, :cond_1c
 
     iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mContext:Landroid/content/Context;
 
@@ -3675,18 +3616,18 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_1a
+    if-eqz v7, :cond_1b
 
     invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :goto_5
+    :goto_6
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1a
+    if-eqz v8, :cond_1b
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3696,9 +3637,14 @@
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/notification/SoundSettings;->removePreference(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_13
+    const/4 v8, 0x0
+
+    goto/16 :goto_1
+
+    :cond_14
     invoke-virtual {p0}, Lcom/samsung/android/settings/notification/SoundSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
@@ -3707,13 +3653,13 @@
 
     move-result v8
 
-    if-nez v8, :cond_14
+    if-nez v8, :cond_15
 
     const-string/jumbo v8, "vibration_feedback_intensity"
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->removePreference(Ljava/lang/String;)V
 
-    :cond_14
+    :cond_15
     const-string/jumbo v8, "vibrate_on_touch"
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->removePreference(Ljava/lang/String;)V
@@ -3722,9 +3668,9 @@
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->removePreference(Ljava/lang/String;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_15
+    :cond_16
     const-string/jumbo v8, "ringtone2"
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->removePreference(Ljava/lang/String;)V
@@ -3733,9 +3679,9 @@
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->removePreference(Ljava/lang/String;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
-    :cond_16
+    :cond_17
     const-string/jumbo v8, "dnd_category"
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->removePreference(Ljava/lang/String;)V
@@ -3744,7 +3690,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_17
+    if-eqz v8, :cond_18
 
     const-string/jumbo v8, "zen_mode_dnd"
 
@@ -3756,31 +3702,31 @@
 
     invoke-virtual {v8, v9}, Landroid/preference/Preference;->setOrder(I)V
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
-    :cond_17
+    :cond_18
     const-string/jumbo v8, "zen_mode_dnd"
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->removePreference(Ljava/lang/String;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
-    :cond_18
+    :cond_19
     invoke-static {}, Lcom/android/settings/Utils;->isMultisimModel()Z
 
     move-result v8
 
-    if-eqz v8, :cond_19
+    if-eqz v8, :cond_1a
 
     iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSubNtofications:Landroid/preference/PreferenceScreen;
 
-    const v9, 0x7f0b0ae2
+    const v9, 0x7f0b0b51
 
     invoke-virtual {v8, v9}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
-    :cond_19
+    :cond_1a
     invoke-static {}, Lcom/android/settings/Utils;->isJapanKDIModel()Z
 
     move-result v8
@@ -3789,13 +3735,13 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSubNtofications:Landroid/preference/PreferenceScreen;
 
-    const v9, 0x7f0b0ae3
+    const v9, 0x7f0b0b52
 
     invoke-virtual {v8, v9}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
-    :cond_1a
+    :cond_1b
     invoke-virtual {p0}, Lcom/samsung/android/settings/notification/SoundSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
@@ -3804,7 +3750,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1c
+    if-eqz v8, :cond_1d
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/notification/SoundSettings;->getActivity()Landroid/app/Activity;
 
@@ -3814,10 +3760,10 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1c
+    if-eqz v8, :cond_1d
 
-    :cond_1b
-    :goto_6
+    :cond_1c
+    :goto_7
     new-instance v8, Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     invoke-direct {v8}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
@@ -3826,12 +3772,12 @@
 
     return-void
 
-    :cond_1c
+    :cond_1d
     const-string/jumbo v8, "vibrations"
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundSettings;->removePreference(Ljava/lang/String;)V
 
-    goto :goto_6
+    goto :goto_7
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
@@ -4005,7 +3951,7 @@
 
     const-string/jumbo v4, "extra_prefs_set_back_text"
 
-    const v5, 0x7f0b18b5
+    const v5, 0x7f0b1951
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/notification/SoundSettings;->getString(I)Ljava/lang/String;
 
@@ -4232,7 +4178,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f0b1468
+    const v7, 0x7f0b1504
 
     invoke-virtual {v4, v7}, Landroid/app/Activity;->setTitle(I)V
 
@@ -4251,7 +4197,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     move v4, v5
 
@@ -4274,7 +4220,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     move v4, v5
 
@@ -4298,7 +4244,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     move v4, v5
 
@@ -4306,6 +4252,30 @@
     invoke-virtual {v7, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     :cond_2
+    iget-object v4, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Landroid/preference/SwitchPreference;
+
+    if-eqz v4, :cond_3
+
+    iget-object v4, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSemSoundAssistantManager:Lcom/samsung/android/media/SemSoundAssistantManager;
+
+    if-eqz v4, :cond_3
+
+    iget-object v7, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mDefaultVolumeControl:Landroid/preference/SwitchPreference;
+
+    iget-object v4, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mSemSoundAssistantManager:Lcom/samsung/android/media/SemSoundAssistantManager;
+
+    invoke-virtual {v4}, Lcom/samsung/android/media/SemSoundAssistantManager;->getVolumeKeyMode()I
+
+    move-result v4
+
+    if-ne v4, v5, :cond_8
+
+    move v4, v5
+
+    :goto_3
+    invoke-virtual {v7, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    :cond_3
     invoke-virtual {p0}, Lcom/samsung/android/settings/notification/SoundSettings;->updateDeviceVibrationName()V
 
     iget-object v4, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mUserManager:Landroid/os/UserManager;
@@ -4322,8 +4292,8 @@
 
     move v7, v6
 
-    :goto_3
-    if-ge v7, v9, :cond_8
+    :goto_4
+    if-ge v7, v9, :cond_a
 
     aget-object v1, v8, v7
 
@@ -4331,49 +4301,54 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_9
 
     move v4, v6
 
-    :goto_4
+    :goto_5
     invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    :cond_3
+    :cond_4
     add-int/lit8 v4, v7, 0x1
 
     move v7, v4
 
-    goto :goto_3
-
-    :cond_4
-    move v4, v6
-
-    goto :goto_0
+    goto :goto_4
 
     :cond_5
     move v4, v6
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_6
     move v4, v6
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_7
-    move v4, v5
+    move v4, v6
 
-    goto :goto_4
+    goto :goto_2
 
     :cond_8
+    move v4, v6
+
+    goto :goto_3
+
+    :cond_9
+    move v4, v5
+
+    goto :goto_5
+
+    :cond_a
     sget-object v4, Lcom/samsung/android/settings/notification/SoundSettings;->PREFS:[Lcom/android/settings/notification/SettingPref;
 
     array-length v5, v4
 
-    :goto_5
-    if-ge v6, v5, :cond_9
+    :goto_6
+    if-ge v6, v5, :cond_b
 
     aget-object v3, v4, v6
 
@@ -4383,9 +4358,9 @@
 
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_9
+    :cond_b
     iget-object v4, p0, Lcom/samsung/android/settings/notification/SoundSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/notification/SoundSettings;->getContext()Landroid/content/Context;

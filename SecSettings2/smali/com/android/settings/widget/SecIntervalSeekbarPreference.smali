@@ -172,7 +172,7 @@
 
     iput-object v0, p0, Lcom/android/settings/widget/SecIntervalSeekbarPreference;->mHandler:Landroid/os/Handler;
 
-    const v0, 0x7f0401e7
+    const v0, 0x7f0401e9
 
     invoke-virtual {p0, v0}, Lcom/android/settings/widget/SecIntervalSeekbarPreference;->setLayoutResource(I)V
 
@@ -442,7 +442,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f0a0646
+    const v5, 0x7f0a0645
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -450,7 +450,7 @@
 
     float-to-int v1, v2
 
-    const v2, 0x7f110618
+    const v2, 0x7f11061a
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -474,7 +474,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    const v2, 0x7f110613
+    const v2, 0x7f110615
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -490,7 +490,7 @@
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v2, 0x7f110619
+    const v2, 0x7f11061b
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -506,7 +506,7 @@
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v2, 0x7f110614
+    const v2, 0x7f110616
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -526,7 +526,7 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v2, 0x7f110615
+    const v2, 0x7f110617
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -546,7 +546,7 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v2, 0x7f110616
+    const v2, 0x7f110618
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -566,7 +566,7 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v2, 0x7f11061a
+    const v2, 0x7f11061c
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -586,7 +586,7 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v2, 0x7f11061b
+    const v2, 0x7f11061d
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -606,7 +606,7 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v2, 0x7f11061c
+    const v2, 0x7f11061e
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -626,7 +626,7 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v2, 0x7f11061d
+    const v2, 0x7f11061f
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -697,7 +697,7 @@
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v2, 0x7f110617
+    const v2, 0x7f110619
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

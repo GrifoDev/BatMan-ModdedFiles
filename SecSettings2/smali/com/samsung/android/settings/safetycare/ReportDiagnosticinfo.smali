@@ -6,6 +6,12 @@
 .implements Landroid/view/View$OnClickListener;
 
 
+# static fields
+.field private static final DREAM_PROJECT:Z
+
+.field private static final mProductName:Ljava/lang/String;
+
+
 # instance fields
 .field DIAGNOSTIC_INFO_MESSAGE:Ljava/lang/String;
 
@@ -37,6 +43,122 @@
     invoke-direct {p0, p1}, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->setDiagnostic(Z)V
 
     return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 2
+
+    const-string/jumbo v0, "ro.product.device"
+
+    const-string/jumbo v1, "NONE"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mProductName:Ljava/lang/String;
+
+    sget-object v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v1, "dream"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v1, "SGH-N171"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v1, "SC-02J"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v1, "SGH-N206"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v1, "SC-03J"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v1, "NVX"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v1, "SCV36"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v1, "MUW"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v1, "SCV35"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    :goto_0
+    sput-boolean v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->DREAM_PROJECT:Z
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public constructor <init>()V
@@ -144,7 +266,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mLearnMoreImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f0204b2
+    const v2, 0x7f02051b
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -157,7 +279,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mLearnMoreImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f0204b1
+    const v2, 0x7f02051a
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -166,7 +288,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f1106c8
+    .packed-switch 0x7f1106cb
         :pswitch_0
     .end packed-switch
 .end method
@@ -198,7 +320,7 @@
 
     iget-object v12, v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v19, 0x7f0b0537
+    const v19, 0x7f0b059a
 
     move-object/from16 v0, p0
 
@@ -218,7 +340,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f04025c
+    const v20, 0x7f040260
 
     const/16 v21, 0x0
 
@@ -234,7 +356,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f1106c6
+    const v20, 0x7f1106c9
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -252,7 +374,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f1106cd
+    const v20, 0x7f1106d0
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -270,7 +392,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f1106c7
+    const v20, 0x7f1106ca
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -288,7 +410,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f1106cc
+    const v20, 0x7f1106cf
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -306,7 +428,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f1106c8
+    const v20, 0x7f1106cb
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -336,7 +458,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f1106c9
+    const v20, 0x7f1106cc
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -352,7 +474,7 @@
 
     new-instance v6, Landroid/text/SpannableString;
 
-    const v19, 0x7f0b046c
+    const v19, 0x7f0b04cf
 
     move-object/from16 v0, p0
 
@@ -402,7 +524,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f1106ca
+    const v20, 0x7f1106cd
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -422,7 +544,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0204b1
+    const v20, 0x7f02051a
 
     invoke-virtual/range {v19 .. v20}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -660,7 +782,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_4
+    if-eqz v19, :cond_5
 
     const/16 v19, 0x0
 
@@ -677,7 +799,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_5
+    if-eqz v19, :cond_6
 
     move-object/from16 v0, p0
 
@@ -685,7 +807,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b0539
+    const v20, 0x7f0b059c
 
     move-object/from16 v0, p0
 
@@ -702,7 +824,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f1106cb
+    const v20, 0x7f1106ce
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -784,6 +906,15 @@
     goto/16 :goto_1
 
     :cond_3
+    sget-boolean v19, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->DREAM_PROJECT:Z
+
+    if-eqz v19, :cond_4
+
+    const-string/jumbo v16, "error_log_collection_serviceinfo_un"
+
+    goto/16 :goto_1
+
+    :cond_4
     const-string/jumbo v16, "error_log_collection_zero_serviceinfo"
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
@@ -829,7 +960,7 @@
 
     goto/16 :goto_2
 
-    :cond_4
+    :cond_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mDiagnosticsText1:Landroid/widget/TextView;
@@ -842,14 +973,14 @@
 
     goto/16 :goto_3
 
-    :cond_5
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mDiagnosticsText:Landroid/widget/TextView;
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b053a
+    const v20, 0x7f0b059d
 
     move-object/from16 v0, p0
 

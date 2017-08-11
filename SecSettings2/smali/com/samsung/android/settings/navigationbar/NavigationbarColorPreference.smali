@@ -133,7 +133,7 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0401a6
+    const v0, 0x7f0401a8
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->setLayoutResource(I)V
 
@@ -288,7 +288,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d017a
+    const v6, 0x7f0d017b
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -334,7 +334,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d0179
+    const v6, 0x7f0d017a
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -413,7 +413,7 @@
     :cond_5
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d017b
+    const v6, 0x7f0d017c
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -498,7 +498,7 @@
     :cond_8
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d017c
+    const v6, 0x7f0d017d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -554,7 +554,7 @@
     :cond_a
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d017b
+    const v6, 0x7f0d017c
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -627,7 +627,7 @@
     :cond_d
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d017c
+    const v6, 0x7f0d017d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -684,7 +684,7 @@
     :cond_f
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d017b
+    const v6, 0x7f0d017c
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -792,7 +792,7 @@
     :cond_13
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d017c
+    const v6, 0x7f0d017d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -997,7 +997,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mAdapter:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;
 
-    const v0, 0x7f1104d3
+    const v0, 0x7f1104d5
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

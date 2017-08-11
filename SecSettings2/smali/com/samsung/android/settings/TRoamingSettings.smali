@@ -64,7 +64,7 @@
 
 .field private mSelection:Landroid/preference/Preference;
 
-.field private mUseDataRoaming:Landroid/preference/SwitchPreference;
+.field private mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
 .field private mUseDataRoamingObserver:Landroid/database/ContentObserver;
 
@@ -130,10 +130,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/samsung/android/settings/TRoamingSettings;)Landroid/preference/SwitchPreference;
+.method static synthetic -get7(Lcom/samsung/android/settings/TRoamingSettings;)Lcom/android/settingslib/SecRestrictedSwitchPreference;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Landroid/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
     return-object v0
 .end method
@@ -770,13 +770,13 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v11, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Landroid/preference/SwitchPreference;
+    iget-object v11, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
     invoke-direct {p0}, Lcom/samsung/android/settings/TRoamingSettings;->isRoamingDataEnabled()Z
 
     move-result v12
 
-    invoke-virtual {v11, v12}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v11, v12}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setChecked(Z)V
 
     iget-object v11, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseLTERoaming:Landroid/preference/SwitchPreference;
 
@@ -962,9 +962,9 @@
 
     move-result-object v1
 
-    check-cast v1, Landroid/preference/SwitchPreference;
+    check-cast v1, Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Landroid/preference/SwitchPreference;
+    iput-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
     const-string/jumbo v1, "key_roaming_use_lte_roaming"
 
@@ -1065,7 +1065,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0bf2
+    const v2, 0x7f0b0c64
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1078,9 +1078,9 @@
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     :goto_0
-    iget-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Landroid/preference/SwitchPreference;
+    iget-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    invoke-virtual {v1, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v1, p0}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     iget-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseLTERoaming:Landroid/preference/SwitchPreference;
 
@@ -1188,7 +1188,7 @@
     :cond_9
     if-eqz p1, :cond_a
 
-    iget-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Landroid/preference/SwitchPreference;
+    iget-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
     const-string/jumbo v2, "mUseDataRoaming"
 
@@ -1196,7 +1196,7 @@
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v1, v2}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setChecked(Z)V
 
     :cond_a
     return-void
@@ -1210,7 +1210,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0c11
+    const v2, 0x7f0b0c83
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1371,9 +1371,9 @@
 
     invoke-static {}, Lcom/android/settings/Utils;->isDomesticOPENModel()Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_1
+    if-eqz v5, :cond_1
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/TRoamingSettings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1390,15 +1390,15 @@
     :cond_1
     new-instance v0, Landroid/content/Intent;
 
-    const-string/jumbo v3, "android.intent.action.SKT_ROAMING_DATA_POPUP"
+    const-string/jumbo v4, "android.intent.action.SKT_ROAMING_DATA_POPUP"
 
-    invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    sget-object v3, Lcom/samsung/android/settings/TRoamingSettings;->mContext:Landroid/content/Context;
+    sget-object v4, Lcom/samsung/android/settings/TRoamingSettings;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v4, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    goto :goto_0
+    return v3
 
     :cond_2
     invoke-virtual {p0}, Lcom/samsung/android/settings/TRoamingSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -1580,9 +1580,7 @@
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
-    .locals 11
-
-    const/4 v10, 0x0
+    .locals 10
 
     const/4 v9, 0x0
 
@@ -1594,7 +1592,9 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v10
+    const/4 v6, 0x0
+
+    return v6
 
     :cond_0
     iget-object v6, p0, Lcom/samsung/android/settings/TRoamingSettings;->mSelection:Landroid/preference/Preference;
@@ -1618,7 +1618,11 @@
 
     :cond_1
     :goto_0
-    return v10
+    invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+
+    move-result v6
+
+    return v6
 
     :catch_0
     move-exception v2
@@ -1855,11 +1859,11 @@
 
     invoke-direct {v0, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0b0c12
+    const v6, 0x7f0b0c84
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v6, 0x7f0b0c13
+    const v6, 0x7f0b0c85
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1867,7 +1871,7 @@
 
     invoke-direct {v6, p0}, Lcom/samsung/android/settings/TRoamingSettings$8;-><init>(Lcom/samsung/android/settings/TRoamingSettings;)V
 
-    const v7, 0x7f0b048f
+    const v7, 0x7f0b04f2
 
     invoke-virtual {v0, v7, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2016,9 +2020,9 @@
 
     if-eqz v2, :cond_3
 
-    iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    invoke-virtual {v2, v6}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v6}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setEnabled(Z)V
 
     iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseLTERoaming:Landroid/preference/SwitchPreference;
 
@@ -2082,18 +2086,55 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mMobileTRoaming:Landroid/preference/Preference;
 
-    const v3, 0x7f0b1c13
+    const v3, 0x7f0b1caf
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setSummary(I)V
 
-    iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    const v3, 0x7f0b100e
+    const v3, 0x7f0b109b
 
-    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setTitle(I)V
+    invoke-virtual {v2, v3}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setTitle(I)V
 
     :cond_7
+    iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
+
+    invoke-virtual {v2}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->isEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    sget-object v2, Lcom/samsung/android/settings/TRoamingSettings;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v3, "no_data_roaming"
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v4
+
+    invoke-static {v2, v3, v4}, Lcom/android/settingslib/RestrictedLockUtils;->hasBaseUserRestriction(Landroid/content/Context;Ljava/lang/String;I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_9
+
+    iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
+
+    invoke-virtual {v2, v6}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setEnabled(Z)V
+
+    :cond_8
+    :goto_0
     return-void
+
+    :cond_9
+    iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
+
+    const-string/jumbo v3, "no_data_roaming"
+
+    invoke-virtual {v2, v3}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->checkRestrictionAndSetDisabled(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
@@ -2103,9 +2144,9 @@
 
     const-string/jumbo v0, "mUseDataRoaming"
 
-    iget-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Landroid/preference/SwitchPreference;
+    iget-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    invoke-virtual {v1}, Landroid/preference/SwitchPreference;->isChecked()Z
+    invoke-virtual {v1}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->isChecked()Z
 
     move-result v1
 
@@ -2133,7 +2174,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b03e2
+    const v7, 0x7f0b0443
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

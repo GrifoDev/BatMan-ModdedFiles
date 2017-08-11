@@ -816,6 +816,16 @@
 
     move-result v4
 
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$5;->this$0:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;
+
+    invoke-static {v7}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-get7(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)Lcom/android/settings/PointerSpeedPreference;
+
+    move-result-object v7
+
+    add-int/lit8 v8, v4, 0x7
+
+    invoke-virtual {v7, v8}, Lcom/android/settings/PointerSpeedPreference;->setProgress(I)V
+
     const/4 v7, -0x7
 
     if-ne v4, v7, :cond_14

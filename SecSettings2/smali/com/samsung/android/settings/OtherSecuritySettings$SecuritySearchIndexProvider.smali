@@ -322,6 +322,12 @@
 
     if-nez v6, :cond_d
 
+    invoke-static {}, Lcom/android/settings/Utils;->isCctModel()Z
+
+    move-result v6
+
+    if-nez v6, :cond_d
+
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v6
@@ -460,7 +466,7 @@
 
     move-result-object v2
 
-    const v8, 0x7f0b1291
+    const v8, 0x7f0b132c
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -531,7 +537,7 @@
 
     invoke-direct {v0, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v8, 0x7f0b14b9
+    const v8, 0x7f0b1555
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -572,7 +578,7 @@
 
     iput-object v8, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v8, 0x7f0b0c6a
+    const v8, 0x7f0b0cde
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -586,7 +592,7 @@
 
     if-nez v8, :cond_7
 
-    const v8, 0x7f0b0c6b
+    const v8, 0x7f0b0cdf
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -626,7 +632,7 @@
 
     if-eqz v8, :cond_9
 
-    const v5, 0x7f0b1872
+    const v5, 0x7f0b190e
 
     :goto_3
     new-instance v0, Lcom/android/settings/search/SearchIndexableRaw;
@@ -637,7 +643,7 @@
 
     iput-object v8, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v8, 0x7f0b1871
+    const v8, 0x7f0b190d
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -682,7 +688,7 @@
 
     iput-object v8, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v8, 0x7f0b0c81
+    const v8, 0x7f0b0cf5
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -724,7 +730,7 @@
 
     if-nez v8, :cond_8
 
-    const v8, 0x7f0b0c6c
+    const v8, 0x7f0b0ce0
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -735,7 +741,7 @@
     goto/16 :goto_2
 
     :cond_8
-    const v8, 0x7f0b0c6d
+    const v8, 0x7f0b0ce1
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -746,7 +752,7 @@
     goto/16 :goto_2
 
     :cond_9
-    const v5, 0x7f0b1873
+    const v5, 0x7f0b190f
 
     goto :goto_3
 .end method
@@ -831,7 +837,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b14b8
+    const v8, 0x7f0b1554
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -847,7 +853,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b14b9
+    const v8, 0x7f0b1555
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -882,6 +888,12 @@
     move-result-object v8
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_3
+
+    invoke-static {}, Lcom/android/settings/Utils;->isCctModel()Z
 
     move-result v7
 

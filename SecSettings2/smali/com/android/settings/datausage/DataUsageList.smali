@@ -12,7 +12,8 @@
         Lcom/android/settings/datausage/DataUsageList$4;,
         Lcom/android/settings/datausage/DataUsageList$5;,
         Lcom/android/settings/datausage/DataUsageList$6;,
-        Lcom/android/settings/datausage/DataUsageList$7;
+        Lcom/android/settings/datausage/DataUsageList$7;,
+        Lcom/android/settings/datausage/DataUsageList$8;
     }
 .end annotation
 
@@ -71,6 +72,8 @@
 .field private mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
 .field private mCycleSpinner:Landroid/widget/Spinner;
+
+.field private mDateSetListener:Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog$OnDateSetListener;
 
 .field private mHandler:Landroid/os/Handler;
 
@@ -149,7 +152,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/settings/datausage/DataUsageList;)Landroid/widget/Spinner;
+.method static synthetic -get3(Lcom/android/settings/datausage/DataUsageList;)Lcom/android/settings/datausage/CycleAdapter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mCycleAdapter:Lcom/android/settings/datausage/CycleAdapter;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/settings/datausage/DataUsageList;)Landroid/widget/Spinner;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mCycleSpinner:Landroid/widget/Spinner;
@@ -157,7 +168,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/settings/datausage/DataUsageList;)Landroid/net/INetworkStatsSession;
+.method static synthetic -get5(Lcom/android/settings/datausage/DataUsageList;)Landroid/net/INetworkStatsSession;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mStatsSession:Landroid/net/INetworkStatsSession;
@@ -165,7 +176,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/settings/datausage/DataUsageList;)Landroid/net/NetworkTemplate;
+.method static synthetic -get6(Lcom/android/settings/datausage/DataUsageList;)Landroid/net/NetworkTemplate;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mTemplate:Landroid/net/NetworkTemplate;
@@ -173,7 +184,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/settings/datausage/DataUsageList;)Landroid/preference/Preference;
+.method static synthetic -get7(Lcom/android/settings/datausage/DataUsageList;)Landroid/preference/Preference;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mUsageAmount:Landroid/preference/Preference;
@@ -181,7 +192,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7()I
+.method static synthetic -get8()I
     .locals 1
 
     sget v0, Lcom/android/settings/datausage/DataUsageList;->sCycle:I
@@ -245,7 +256,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/settings/datausage/DataUsageList;Lcom/android/settingslib/AppItem;)V
+.method static synthetic -wrap3(Lcom/android/settings/datausage/DataUsageList;I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/datausage/DataUsageList;->showDialog(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap4(Lcom/android/settings/datausage/DataUsageList;Lcom/android/settingslib/AppItem;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/datausage/DataUsageList;->startAppDataUsage(Lcom/android/settingslib/AppItem;)V
@@ -253,7 +272,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap4(Lcom/android/settings/datausage/DataUsageList;)V
+.method static synthetic -wrap5(Lcom/android/settings/datausage/DataUsageList;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/datausage/DataUsageList;->updateBody()V
@@ -261,7 +280,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/android/settings/datausage/DataUsageList;)V
+.method static synthetic -wrap6(Lcom/android/settings/datausage/DataUsageList;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/datausage/DataUsageList;->updateDetailData()V
@@ -269,7 +288,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap6(Lcom/android/settings/datausage/DataUsageList;Z)V
+.method static synthetic -wrap7(Lcom/android/settings/datausage/DataUsageList;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/datausage/DataUsageList;->updatePolicy(Z)V
@@ -364,29 +383,35 @@
 
     invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$1;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
 
-    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
+    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mDateSetListener:Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog$OnDateSetListener;
 
     new-instance v0, Lcom/android/settings/datausage/DataUsageList$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$2;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
 
-    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mChartDataCallbacks:Landroid/app/LoaderManager$LoaderCallbacks;
+    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
     new-instance v0, Lcom/android/settings/datausage/DataUsageList$3;
 
     invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$3;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
 
-    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mSummaryCallbacks:Landroid/app/LoaderManager$LoaderCallbacks;
+    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mChartDataCallbacks:Landroid/app/LoaderManager$LoaderCallbacks;
 
     new-instance v0, Lcom/android/settings/datausage/DataUsageList$4;
 
     invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$4;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
 
-    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mSecPhoneServiceConnectionTMB:Landroid/content/ServiceConnection;
+    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mSummaryCallbacks:Landroid/app/LoaderManager$LoaderCallbacks;
 
     new-instance v0, Lcom/android/settings/datausage/DataUsageList$5;
 
     invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$5;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
+
+    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mSecPhoneServiceConnectionTMB:Landroid/content/ServiceConnection;
+
+    new-instance v0, Lcom/android/settings/datausage/DataUsageList$6;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$6;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
 
     iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->rilHandler:Landroid/os/Handler;
 
@@ -398,15 +423,15 @@
 
     iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mlifetimeMessenger:Landroid/os/Messenger;
 
-    new-instance v0, Lcom/android/settings/datausage/DataUsageList$6;
-
-    invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$6;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
-
-    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mAlertTotalReceivedListener:Landroid/view/View$OnClickListener;
-
     new-instance v0, Lcom/android/settings/datausage/DataUsageList$7;
 
     invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$7;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
+
+    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mAlertTotalReceivedListener:Landroid/view/View$OnClickListener;
+
+    new-instance v0, Lcom/android/settings/datausage/DataUsageList$8;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$8;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
 
     iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mAlertTotalSentListener:Landroid/view/View$OnClickListener;
 
@@ -475,6 +500,108 @@
     move-result-wide v2
 
     return-wide v2
+.end method
+
+.method private applyNoCapsAttributeForTitle(Landroid/app/Activity;)V
+    .locals 8
+
+    const/4 v7, 0x0
+
+    invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataUsageList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "right_pane_toolbar"
+
+    const-string/jumbo v5, "id"
+
+    invoke-virtual {p1}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v4, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewGroup;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    instance-of v2, v1, Landroid/widget/TextView;
+
+    if-eqz v2, :cond_0
+
+    check-cast v1, Landroid/widget/TextView;
+
+    invoke-virtual {v1, v7}, Landroid/widget/TextView;->setAllCaps(Z)V
+
+    :cond_0
+    :goto_0
+    if-eqz v0, :cond_1
+
+    new-instance v2, Lcom/android/settings/datausage/DataUsageList$13;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/datausage/DataUsageList$13;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
+
+    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->setOnHierarchyChangeListener(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V
+
+    :cond_1
+    return-void
+
+    :cond_2
+    invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataUsageList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "action_bar"
+
+    const-string/jumbo v5, "id"
+
+    const-string/jumbo v6, "android"
+
+    invoke-virtual {v3, v4, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewGroup;
+
+    goto :goto_0
 .end method
 
 .method private connectToRilService_lifetime()V
@@ -987,7 +1114,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1b65
+    const v3, 0x7f0b1c01
 
     const/4 v4, 0x0
 
@@ -1239,7 +1366,7 @@
 
     aput-object v16, v10, v17
 
-    const v17, 0x7f0b1c68
+    const v17, 0x7f0b1d04
 
     move-object/from16 v0, p0
 
@@ -1344,9 +1471,9 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/android/settings/datausage/DataUsageList$10;
+    new-instance v3, Lcom/android/settings/datausage/DataUsageList$11;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/datausage/DataUsageList$10;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
+    invoke-direct {v3, p0}, Lcom/android/settings/datausage/DataUsageList$11;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -1403,11 +1530,11 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f0288
+    const v3, 0x7f0f0289
 
     invoke-virtual {v0, v2, v3}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
-    const v2, 0x7f0b0493
+    const v2, 0x7f0b04f6
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -1741,16 +1868,20 @@
 
     move-result v6
 
-    if-nez v6, :cond_e
+    if-nez v6, :cond_11
 
     const/4 v10, 0x0
 
     :goto_4
     move/from16 v0, v27
 
-    if-ge v10, v0, :cond_e
+    if-ge v10, v0, :cond_11
 
     aget v15, p2, v10
+
+    invoke-static {v15}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v29
 
     new-instance v6, Landroid/os/UserHandle;
 
@@ -1766,21 +1897,56 @@
 
     move-result v6
 
-    if-nez v6, :cond_c
+    if-nez v6, :cond_d
 
+    :cond_c
     :goto_5
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_4
 
-    :cond_c
+    :cond_d
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v6
+
+    invoke-static {v6}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v6
+
+    if-nez v6, :cond_e
+
+    invoke-static/range {v29 .. v29}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v6
+
+    if-nez v6, :cond_c
+
+    :cond_e
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v6
+
+    invoke-static {v6}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_f
+
+    invoke-static/range {v29 .. v29}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_c
+
+    :cond_f
     invoke-virtual {v4, v15}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v25
 
     check-cast v25, Lcom/android/settingslib/AppItem;
 
-    if-nez v25, :cond_d
+    if-nez v25, :cond_10
 
     new-instance v25, Lcom/android/settingslib/AppItem;
 
@@ -1806,7 +1972,7 @@
 
     invoke-virtual {v4, v6, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    :cond_d
+    :cond_10
     const/4 v6, 0x1
 
     move-object/from16 v0, v25
@@ -1815,7 +1981,7 @@
 
     goto :goto_5
 
-    :cond_e
+    :cond_11
     invoke-static {v7}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
     move-object/from16 v0, p0
@@ -1831,13 +1997,13 @@
 
     move-result v6
 
-    if-ge v10, v6, :cond_10
+    if-ge v10, v6, :cond_13
 
     const-wide/16 v12, 0x0
 
     cmp-long v6, v8, v12
 
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_12
 
     invoke-virtual {v7, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -1880,11 +2046,11 @@
 
     invoke-direct/range {v16 .. v21}, Lcom/android/settings/datausage/AppDataUsagePreference;-><init>(Landroid/content/Context;Lcom/android/settingslib/AppItem;ILcom/android/settingslib/net/UidDetailProvider;Ljava/util/concurrent/ThreadPoolExecutor;)V
 
-    new-instance v6, Lcom/android/settings/datausage/DataUsageList$11;
+    new-instance v6, Lcom/android/settings/datausage/DataUsageList$12;
 
     move-object/from16 v0, p0
 
-    invoke-direct {v6, v0}, Lcom/android/settings/datausage/DataUsageList$11;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
+    invoke-direct {v6, v0}, Lcom/android/settings/datausage/DataUsageList$12;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
 
     move-object/from16 v0, v16
 
@@ -1902,12 +2068,12 @@
 
     goto :goto_6
 
-    :cond_f
+    :cond_12
     const/16 v19, 0x0
 
     goto :goto_7
 
-    :cond_10
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/settings/datausage/DataUsageList;->mApps:Landroid/preference/PreferenceGroup;
@@ -1916,7 +2082,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_11
+    if-eqz v6, :cond_14
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/datausage/DataUsageList;->getListView()Landroid/widget/ListView;
 
@@ -1926,7 +2092,7 @@
 
     invoke-virtual {v6, v12}, Landroid/widget/ListView;->semSetGoToTopEnabled(Z)V
 
-    :cond_11
+    :cond_14
     return-void
 .end method
 
@@ -1988,7 +2154,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 5
+    .locals 6
 
     invoke-super {p0, p1}, Lcom/android/settings/datausage/DataUsageBase;->onCreate(Landroid/os/Bundle;)V
 
@@ -1998,153 +2164,194 @@
 
     invoke-virtual {p0}, Lcom/android/settings/datausage/DataUsageList;->isBandwidthControlEnabled()Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    const-string/jumbo v3, "DataUsage"
+    const-string/jumbo v4, "DataUsage"
 
-    const-string/jumbo v4, "No bandwidth control; leaving"
+    const-string/jumbo v5, "No bandwidth control; leaving"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/settings/datausage/DataUsageList;->getActivity()Landroid/app/Activity;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/app/Activity;->finish()V
+    invoke-virtual {v4}, Landroid/app/Activity;->finish()V
 
     :cond_0
     :try_start_0
-    iget-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->services:Lcom/android/settings/datausage/TemplatePreference$NetworkServices;
+    iget-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->services:Lcom/android/settings/datausage/TemplatePreference$NetworkServices;
 
-    iget-object v3, v3, Lcom/android/settings/datausage/TemplatePreference$NetworkServices;->mStatsService:Landroid/net/INetworkStatsService;
+    iget-object v4, v4, Lcom/android/settings/datausage/TemplatePreference$NetworkServices;->mStatsService:Landroid/net/INetworkStatsService;
 
-    invoke-interface {v3}, Landroid/net/INetworkStatsService;->openSession()Landroid/net/INetworkStatsSession;
+    invoke-interface {v4}, Landroid/net/INetworkStatsService;->openSession()Landroid/net/INetworkStatsSession;
 
-    move-result-object v3
+    move-result-object v4
 
-    iput-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mStatsSession:Landroid/net/INetworkStatsSession;
+    iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mStatsSession:Landroid/net/INetworkStatsSession;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    new-instance v3, Lcom/android/settingslib/net/UidDetailProvider;
+    new-instance v4, Lcom/android/settingslib/net/UidDetailProvider;
 
-    invoke-direct {v3, v1}, Lcom/android/settingslib/net/UidDetailProvider;-><init>(Landroid/content/Context;)V
+    invoke-direct {v4, v1}, Lcom/android/settingslib/net/UidDetailProvider;-><init>(Landroid/content/Context;)V
 
-    iput-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mUidDetailProvider:Lcom/android/settingslib/net/UidDetailProvider;
+    iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mUidDetailProvider:Lcom/android/settingslib/net/UidDetailProvider;
 
-    const v3, 0x7f08004d
+    const v4, 0x7f08004d
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/datausage/DataUsageList;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->addPreferencesFromResource(I)V
 
-    const-string/jumbo v3, "usage_amount"
+    const-string/jumbo v4, "usage_amount"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v4
+
+    iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mUsageAmount:Landroid/preference/Preference;
+
+    const-string/jumbo v4, "chart_data"
+
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/settings/datausage/ChartDataUsagePreference;
+
+    iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mChart:Lcom/android/settings/datausage/ChartDataUsagePreference;
+
+    const-string/jumbo v4, "apps_group"
+
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/preference/PreferenceGroup;
+
+    iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mApps:Landroid/preference/PreferenceGroup;
+
+    const-string/jumbo v4, "DCM"
+
+    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataUsageList;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/app/Activity;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    iput-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mUsageAmount:Landroid/preference/Preference;
+    if-eqz v3, :cond_1
 
-    const-string/jumbo v3, "chart_data"
+    const-string/jumbo v4, "Wi-Fi"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result-object v3
+    move-result v4
 
-    check-cast v3, Lcom/android/settings/datausage/ChartDataUsagePreference;
+    if-eqz v4, :cond_1
 
-    iput-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mChart:Lcom/android/settings/datausage/ChartDataUsagePreference;
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataUsageList;->getActivity()Landroid/app/Activity;
 
-    const-string/jumbo v3, "apps_group"
+    move-result-object v4
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-direct {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->applyNoCapsAttributeForTitle(Landroid/app/Activity;)V
 
-    move-result-object v3
-
-    check-cast v3, Landroid/preference/PreferenceGroup;
-
-    iput-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mApps:Landroid/preference/PreferenceGroup;
-
+    :cond_1
     invoke-virtual {p0}, Lcom/android/settings/datausage/DataUsageList;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    const-string/jumbo v3, "sub_id"
+    const-string/jumbo v4, "sub_id"
 
-    const/4 v4, -0x1
+    const/4 v5, -0x1
 
-    invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v0, v4, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v4
 
-    iput v3, p0, Lcom/android/settings/datausage/DataUsageList;->mSubId:I
+    iput v4, p0, Lcom/android/settings/datausage/DataUsageList;->mSubId:I
 
-    const-string/jumbo v3, "network_template"
+    const-string/jumbo v4, "network_template"
 
-    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {v0, v4}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/net/NetworkTemplate;
+    check-cast v4, Landroid/net/NetworkTemplate;
 
-    iput-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mTemplate:Landroid/net/NetworkTemplate;
+    iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mTemplate:Landroid/net/NetworkTemplate;
 
     invoke-static {}, Lcom/android/settings/Utils;->isMetroPCS()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_2
 
-    new-instance v3, Landroid/os/Handler;
+    new-instance v4, Landroid/os/Handler;
 
-    invoke-direct {v3}, Landroid/os/Handler;-><init>()V
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
 
-    iput-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mHandler:Landroid/os/Handler;
+    iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mHandler:Landroid/os/Handler;
 
     invoke-direct {p0}, Lcom/android/settings/datausage/DataUsageList;->connectToRilService_lifetime()V
 
-    const-string/jumbo v3, "total_received_data"
+    const-string/jumbo v4, "total_received_data"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lcom/android/settings/datausage/MTRPreference;
+    check-cast v4, Lcom/android/settings/datausage/MTRPreference;
 
-    iput-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mTotalReceive:Lcom/android/settings/datausage/MTRPreference;
+    iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mTotalReceive:Lcom/android/settings/datausage/MTRPreference;
 
-    iget-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mTotalReceive:Lcom/android/settings/datausage/MTRPreference;
+    iget-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mTotalReceive:Lcom/android/settings/datausage/MTRPreference;
 
-    iget-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mAlertTotalReceivedListener:Landroid/view/View$OnClickListener;
+    iget-object v5, p0, Lcom/android/settings/datausage/DataUsageList;->mAlertTotalReceivedListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v3, v4}, Lcom/android/settings/datausage/MTRPreference;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v4, v5}, Lcom/android/settings/datausage/MTRPreference;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const-string/jumbo v3, "total_sent_data"
+    const-string/jumbo v4, "total_sent_data"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lcom/android/settings/datausage/MTRPreference;
+    check-cast v4, Lcom/android/settings/datausage/MTRPreference;
 
-    iput-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mTotalSent:Lcom/android/settings/datausage/MTRPreference;
+    iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mTotalSent:Lcom/android/settings/datausage/MTRPreference;
 
-    iget-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mTotalSent:Lcom/android/settings/datausage/MTRPreference;
+    iget-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mTotalSent:Lcom/android/settings/datausage/MTRPreference;
 
-    iget-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mAlertTotalSentListener:Landroid/view/View$OnClickListener;
+    iget-object v5, p0, Lcom/android/settings/datausage/DataUsageList;->mAlertTotalSentListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v3, v4}, Lcom/android/settings/datausage/MTRPreference;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v4, v5}, Lcom/android/settings/datausage/MTRPreference;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const-string/jumbo v3, "lifetime_data"
+    const-string/jumbo v4, "lifetime_data"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lcom/android/settings/datausage/MTRPreference;
+    check-cast v4, Lcom/android/settings/datausage/MTRPreference;
 
-    iput-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mLifetime:Lcom/android/settings/datausage/MTRPreference;
+    iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mLifetime:Lcom/android/settings/datausage/MTRPreference;
 
     :goto_0
     return-void
@@ -2152,26 +2359,88 @@
     :catch_0
     move-exception v2
 
-    new-instance v3, Ljava/lang/RuntimeException;
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    invoke-direct {v3, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v4, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v3
+    throw v4
 
-    :cond_1
-    const-string/jumbo v3, "total_received_data"
+    :cond_2
+    const-string/jumbo v4, "total_received_data"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/datausage/DataUsageList;->removePreference(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->removePreference(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "total_sent_data"
+    const-string/jumbo v4, "total_sent_data"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/datausage/DataUsageList;->removePreference(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->removePreference(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "lifetime_data"
+    const-string/jumbo v4, "lifetime_data"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/datausage/DataUsageList;->removePreference(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->removePreference(Ljava/lang/String;)V
 
     goto :goto_0
+.end method
+
+.method public onCreateDialog(I)Landroid/app/Dialog;
+    .locals 8
+
+    const/4 v6, 0x1
+
+    packed-switch p1, :pswitch_data_0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v1}, Ljava/lang/IllegalArgumentException;-><init>()V
+
+    throw v1
+
+    :pswitch_0
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+
+    move-result-object v7
+
+    new-instance v0, Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog;
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataUsageList;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/datausage/DataUsageList;->mDateSetListener:Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog$OnDateSetListener;
+
+    invoke-virtual {v7, v6}, Ljava/util/Calendar;->get(I)I
+
+    move-result v3
+
+    const/4 v4, 0x2
+
+    invoke-virtual {v7, v4}, Ljava/util/Calendar;->get(I)I
+
+    move-result v4
+
+    const/4 v5, 0x5
+
+    invoke-virtual {v7, v5}, Ljava/util/Calendar;->get(I)I
+
+    move-result v5
+
+    invoke-direct/range {v0 .. v6}, Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog;-><init>(Landroid/content/Context;Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog$OnDateSetListener;IIII)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    const/16 v2, 0x20
+
+    invoke-virtual {v1, v2}, Landroid/view/Window;->setSoftInputMode(I)V
+
+    return-object v0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x64
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public onDestroy()V
@@ -2228,9 +2497,9 @@
 
     invoke-direct {p0}, Lcom/android/settings/datausage/DataUsageList;->updateBody()V
 
-    new-instance v0, Lcom/android/settings/datausage/DataUsageList$9;
+    new-instance v0, Lcom/android/settings/datausage/DataUsageList$10;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$9;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/datausage/DataUsageList$10;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
 
     sget-object v1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
@@ -2238,7 +2507,7 @@
 
     new-array v2, v2, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/settings/datausage/DataUsageList$9;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1, v2}, Lcom/android/settings/datausage/DataUsageList$10;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     return-void
 .end method
@@ -2250,7 +2519,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/datausage/DataUsageBase;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v0, 0x7f040043
+    const v0, 0x7f040044
 
     invoke-virtual {p0, v0}, Lcom/android/settings/datausage/DataUsageList;->setPinnedHeaderView(I)Landroid/view/View;
 
@@ -2280,7 +2549,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0205
+    const v2, 0x7f0d0206
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getColor(I)I
 
@@ -2294,9 +2563,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/datausage/DataUsageList$8;
+    new-instance v2, Lcom/android/settings/datausage/DataUsageList$9;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/datausage/DataUsageList$8;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/datausage/DataUsageList$9;-><init>(Lcom/android/settings/datausage/DataUsageList;)V
 
     iget-object v3, p0, Lcom/android/settings/datausage/DataUsageList;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 

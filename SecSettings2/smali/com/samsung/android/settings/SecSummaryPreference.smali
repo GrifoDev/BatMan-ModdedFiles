@@ -31,7 +31,7 @@
 
     invoke-direct {p0, p1, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const v0, 0x7f0402b3
+    const v0, 0x7f0402b7
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SecSummaryPreference;->setLayoutResource(I)V
 
@@ -59,11 +59,11 @@
 .method protected onBindView(Landroid/view/View;)V
     .locals 5
 
-    const v4, 0x7f110762
+    const v4, 0x7f110765
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v1, 0x7f110686
+    const v1, 0x7f110689
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -167,7 +167,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1537
+    const v1, 0x7f0b15d3
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -256,7 +256,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1537
+    const v1, 0x7f0b15d3
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

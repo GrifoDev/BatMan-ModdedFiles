@@ -65,6 +65,20 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->-set0(Lcom/samsung/android/settings/lockscreen/OwnerInfo;Ljava/lang/String;)Ljava/lang/String;
 
+    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo$4;->this$0:Lcom/samsung/android/settings/lockscreen/OwnerInfo;
+
+    iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo$4;->this$0:Lcom/samsung/android/settings/lockscreen/OwnerInfo;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->-get3(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)Landroid/widget/EditText;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/EditText;->getSelectionEnd()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->-set1(Lcom/samsung/android/settings/lockscreen/OwnerInfo;I)I
+
     :cond_0
     if-lez p3, :cond_1
 
@@ -89,9 +103,11 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 7
+    .locals 8
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
+
+    const/4 v6, -0x1
 
     const/16 v4, 0x41
 
@@ -103,13 +119,11 @@
 
     move-result-object v1
 
-    const/4 v2, -0x1
-
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v1, v6}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v1
 
-    invoke-virtual {v1, v6}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v7}, Landroid/widget/Button;->setEnabled(Z)V
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
@@ -136,7 +150,7 @@
 
     move-result v1
 
-    if-le v1, v4, :cond_2
+    if-le v1, v4, :cond_3
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo$4;->this$0:Lcom/samsung/android/settings/lockscreen/OwnerInfo;
 
@@ -215,7 +229,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo$4;->this$0:Lcom/samsung/android/settings/lockscreen/OwnerInfo;
 
-    new-array v3, v6, [Ljava/lang/Object;
+    new-array v3, v7, [Ljava/lang/Object;
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -223,7 +237,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b0da2
+    const v4, 0x7f0b0e2d
 
     invoke-virtual {v2, v4, v3}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -243,21 +257,21 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo$4;->this$0:Lcom/samsung/android/settings/lockscreen/OwnerInfo;
 
+    invoke-static {v1}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->-get5(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)I
+
+    move-result v1
+
+    if-eq v1, v6, :cond_2
+
+    iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo$4;->this$0:Lcom/samsung/android/settings/lockscreen/OwnerInfo;
+
     invoke-static {v1}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->-get3(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)Landroid/widget/EditText;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo$4;->this$0:Lcom/samsung/android/settings/lockscreen/OwnerInfo;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->-get3(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)Landroid/widget/EditText;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Landroid/text/Editable;->length()I
+    invoke-static {v2}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->-get5(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)I
 
     move-result v2
 
@@ -295,6 +309,31 @@
     :cond_2
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo$4;->this$0:Lcom/samsung/android/settings/lockscreen/OwnerInfo;
 
+    invoke-static {v1}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->-get3(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)Landroid/widget/EditText;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo$4;->this$0:Lcom/samsung/android/settings/lockscreen/OwnerInfo;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->-get3(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)Landroid/widget/EditText;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Landroid/text/Editable;->length()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setSelection(I)V
+
+    goto :goto_2
+
+    :cond_3
+    iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/OwnerInfo$4;->this$0:Lcom/samsung/android/settings/lockscreen/OwnerInfo;
+
     invoke-static {v1}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->-get2(Lcom/samsung/android/settings/lockscreen/OwnerInfo;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -319,7 +358,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d011e
+    const v3, 0x7f0d011f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 

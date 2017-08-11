@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dଘ %2$dମି</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d ଘ %2$d ମି</string>
+    <string name="battery_history_minutes_no_seconds">%d ମି</string>
     <string name="wifi_failed_to_obtain_IP">ଆଇପି ଠିକଣା ରଖିବାକୁ ବିଫଳ ହୋଇଛି।</string>
     <string name="wifi_security_none">କିଛି ନାହିଁ</string>
     <string name="wifi_unknown_security_type">ଅଜଣା ସୁରକ୍ଷା ପ୍ରକାର।</string>
@@ -49,6 +49,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%sକୁ ସଂଯୋଗ କରିପାରିବେ ନାହିଁ।</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$sକୁ ସଂଯୋଗ କରିପାରିବେ ନାହିଁ। %2$sରେ ଆପଣଙ୍କ ସେଟିଂସ୍ ଯାଞ୍ଚ କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="bluetooth_pairing_rejected_error_message">%s ଦ୍ୱାରା ଯୋଡି ଅଗ୍ରାହ୍ୟ ହୋଇଛି।</string>
+    <string name="bluetooth_getting_remote_device_name">ଡିଭାଇସ୍ ନାମ ପ୍ରାପ୍ତ ହେଉଛି…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">ଏହି ଡିଭାଇସ୍ ସଂଯୋଜିତ ଥିବା ସମୟରେ ଡିଭାଇସ୍ ନାମ ଦୃଶ୍ୟମାନ ହେବ।</string>
     <string name="process_kernel_label">ଆଣ୍ଡ୍ରୋଏଡ୍ OS</string>
     <string name="data_usage_uninstalled_apps">ଅପସାରିତ ଆପ୍ଲିକେସନ୍‌</string>
     <string name="data_usage_uninstalled_apps_users">ଅପସାରିତ ଆପ୍ଲିକେସନ୍ ଏବଂ ଉପଭୋକ୍ତା</string>
@@ -258,7 +260,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">ସମର୍ଥନ</string>
     <string name="reset_network_settings_list_summary">ସେମାନଙ୍କ ଡିଫଲ୍ଟଗୁଡିକରେ Wi-Fi, ବ୍ଲୁଟୁଥ୍, ଏବଂ ଅନ୍ୟ ନେଟୱାର୍କ୍ ସେଟିଂସ୍ ପୁନଃସେଟ୍ କରନ୍ତୁ।</string>
     <string name="master_clear_list_summary">ଏହାର ଫ୍ୟାକ୍ଟୋରୀ ଡିଫଲ୍ଟ ସେଟିଂସରେ ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃସେଟ୍ କରନ୍ତୁ। ଏହା ଫାଇଲଗୁଡିକ ଏବଂ ଡାଉନଲୋଡ୍ ହୋଇଥିବା ଆପସ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରି, ସମସ୍ତ ଡାଟା ବିଲୋପ ହେବ।</string>
-    <string name="auto_restart_summary">ସେଟ୍ ହୋଇଥିବା ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଏହା ପୁନଃଆରମ୍ଭ କରିବା ଦ୍ୱାରା ଆପଣଙ୍କ ଡିଭାଇସ୍ ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ। ଡିଭାଇସ୍ ପୁନଃଆରମ୍ଭ ହେବା ବେଳେ କୌଣସି ଅସଞ୍ଚିତ ଡାଟା ହରାଇବେ।</string>
+    <string name="auto_restart_summary">ସପ୍ତାହରେ ଥରେ ଆପଣଙ୍କ ଫୋନ୍ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ପୁନଃଆରମ୍ଭ କରି ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ। ଆପଣଙ୍କ ଫୋନ୍ ପୁନଃଆରମ୍ଭ ହୋଇଥିବା ସମୟରେ ଯେକୌଣସି ଅସଞ୍ଚିତ ଡାଟା ହରାଇବେ।</string>
+    <string name="auto_restart_summary_tablet">ସପ୍ତାହରେ ଥରେ ଆପଣଙ୍କ ଟ୍ୟାବଲେଟ୍ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ପୁନଃଆରମ୍ଭ କରି ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ। ଆପଣଙ୍କ ଟ୍ୟାବଲେଟ୍ ପୁନଃଆରମ୍ଭ ହୋଇଥିବା ସମୟରେ ଯେକୌଣସି ଅସଞ୍ଚିତ ଡାଟା ହରାଇବେ।</string>
     <string name="search_settings">ସନ୍ଧାନ</string>
     <string name="related_results">%dଟି ସମ୍ବନ୍ଧୀୟ ଆଇଟମ୍‌</string>
     <string name="no_results_found">କୌଣସି ଫଳାଫଳ ମିଳିଲା ନାହିଁ</string>
@@ -328,7 +331,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">ଧ୍ଵନି ବାଲାନ୍ସ ଡାହାଣକୁ %d ଶତକଡା ରହିଛି। ସ୍ଲାଇଡର୍ ଡ୍ରାଗ୍ କରିବାକୁ ଦୁଇଟି ଆଙ୍ଗୁଠି ବ୍ୟବହାର କରନ୍ତୁ।</string>
     <string name="sound_balance_set">ସେଟ୍</string>
     <string name="accessibility_assistant_menu">ସହାୟକ ମେନ୍ୟୁ</string>
-    <string name="assistant_menu_summary">ହ୍ରାସ ହୋଇଥିବା ନିପୁଣତା ସହିତ ଉପଭୋକ୍ତାଗଣଙ୍କ ପାଇଁ ଡିଭାଇସ୍ ଆକ୍ସେସିବିଲିଟିକୁ ପ୍ରକାର୍ଯ୍ୟଗୁଡିକ ସକ୍ଷମ କରେ।</string>
+    <string name="assistant_menu_summary">କମ ନିପୁଣ ଥିବା ଉପଭୋକ୍ତାଙ୍କ ପାଇଁ ଫୋନ୍ ପ୍ରବେଶଯୋଗ୍ୟ ଉନ୍ନତ କରନ୍ତୁ।</string>
     <string name="color_blind_title">ରଙ୍ଗ ଆଡଜଷ୍ଟମେଣ୍ଟ</string>
     <string name="no_result">ଆପଣଙ୍କ ପ୍ରଦର୍ଶନ ପଠନ କରିବାକୁ ଯଦି ଆପଣ ଏହା କଠିନ ପାଆନ୍ତି ତେବେ ସ୍କ୍ରିନ୍‌ ରଙ୍ଗ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ।</string>
     <string name="you_are_normal">ରଙ୍ଗ ଆଡଜଷ୍ଟମେଣ୍ଟ ଆବଶ୍ୟକ ନାହିଁ।</string>
@@ -524,6 +527,7 @@ Enter the code you get from Verizon:"</string>
     <string name="direct_access_actions_accessibility_title">ପ୍ରବେଶଯୋଗ୍ୟ</string>
     <string name="direct_access_actions_negative_title">ବିଯୁକ୍ତାତ୍ମକ ରଙ୍ଗଗୁଡିକ</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">ସିଧାସଳଖ ଆକସେସ୍ ଏବଂ ହ୍ରାସ ସ୍କ୍ରିନ୍ ଆକାର ସମାନ ସମୟରେ ସକ୍ଷମ କରାଯାଇପାରିବ ନାହିଁ। ହ୍ରାସ ସ୍କ୍ରିନ୍ ଆକାର ଅକ୍ଷମ ହେବ।</string>
+    <string name="direct_access_exclusive_popup_msg">ଏକ ସମୟରେ %1$s ଏବଂ %2$s ସକ୍ଷମ ହୋଇପାରିବ ନାହିଁ। %3$s ଅକ୍ଷମ ହେବ।</string>
     <string name="direct_access_actions_color_adjustment_summary">ପ୍ରତ୍ୟକ୍ଷ ଆକସେସ୍ ରଙ୍ଗ ସମାଯୋଜନ ବ୍ୟବହାର କରିବାକୁ ଏହାର ସଂସ୍କରଣରେ ସେଟ୍‌ ଅପ୍‌ କରନ୍ତୁ</string>
     <string name="direct_access_actions_screen_reader_summary">ଏହା ଡାଇରେକ୍ଟ ଆକସେସ୍ ବ୍ୟବହାର କରିବାକୁ ପୃଷ୍ଠା ରିଡର୍‌ ସକ୍ଷମ କରନ୍ତୁ।</string>
     <string name="direct_access_actions_accesscontrol_title">ପରିଚୟକରଣ ନିୟନ୍ତ୍ରଣ</string>
@@ -721,7 +725,9 @@ Enter the code you get from Verizon:"</string>
     <string name="premium_sms_values_ask">ପଚାରନ୍ତୁ</string>
     <string name="premium_sms_values_never">କଦାପି ଅନୁମତି କରନ୍ତୁ ନାହିଁ</string>
     <string name="premium_sms_values_allow">ସର୍ବଦା ଅନୁମତି ଦିଅନ୍ତୁ</string>
-    <string name="assist_and_voice_input_summary">ଡିଭାଇସ୍ ସହାୟକ ଆପ୍ଲିକେସନଗୁଡିକ ପ୍ରତ୍ୟେକ ସ୍କ୍ରିନ୍ ବିଷୟରେ ଅଧିକ ବିକଳ୍ପ ଏବଂ ସୂଚନା ପ୍ରଦାନ କରିଥାଏ।</string>
+    <string name="assist_and_voice_input_summary">ଆପଣ ହୋମ୍ ବଟନ୍ ସ୍ପର୍ଶ ଏବଂ ଧରି ରଖିବା ସମୟରେ ବ୍ୟବହାର କରିବାକୁ ଏକ ଆପ୍ଲିକେସନ୍ ଚୟନ କରନ୍ତୁ।</string>
+    <string name="assist_footer_phone">ଆପଣ ହୋମ୍ ବଟନ୍ ସ୍ପର୍ଶ ଏବଂ ଧରି ରଖିବା ସମୟରେ ବ୍ୟବହାର କରିବାକୁ ଏକ ଆପ୍ଲିକେସନ୍ ଚୟନ କରନ୍ତୁ। ଡିଭାଇସ୍ ସହାୟକ ଆପସ୍ ବର୍ତ୍ତମାନ ଆପଣଙ୍କ ଫୋନରେ ଦେଖାଯାଉଥିବ ସ୍କ୍ରିନରୁ ସୂଚନା ଏକତ୍ର କରି ଆପଣଙ୍କୁ ସହାୟତା କରିପାରେ।</string>
+    <string name="assist_footer_tablet">ଆପଣ ହୋମ୍ ବଟନ୍ ସ୍ପର୍ଶ ଏବଂ ଧରିଖିବା ସମୟରେ ବ୍ୟବହାର କରିବାକୁ ଏକ ଆପ୍ଲିକେସନ୍ ଚୟନ କରନ୍ତୁ। ଡିଭାଇସ୍ ସହାୟକ ଆପସ୍ ବର୍ତ୍ତମାନ ଆପଣଙ୍କ ଟ୍ୟାବଲେଟରେ ଦେଖାଯାଉଥିବା ସ୍କ୍ରିନରୁ ସୂଚନା ଏକତ୍ର କରି ଆପଣଙ୍କୁ ସହାୟତା କରିପାରେ।</string>
     <string name="default_app_title">ଡିଫଲ୍ଟ ଭାବେ ସେଟ୍</string>
     <string name="premium_sms_title">ପ୍ରିମିୟମ୍ SMS ପଠାନ୍ତୁ</string>
     <string name="default_app_selection">ଡିଫଲ୍ଟ ଆପ୍ଲିକେସନ୍‌ ମନୋନୟନ</string>
@@ -810,7 +816,7 @@ Enter the code you get from Verizon:"</string>
 
 2ଟି ସଂଯୋଜିତ ଡିଭାଇସ୍ ଧ୍ଵନି ଆଉଟପୁଟରେ ଅଳ୍ପ ଭିନ୍ନତାରେ ଅଭିଜ୍ଞତା କରିପାରେ।"</string>
     <string name="bluetooth_dual_play_ask_popup_title">ମିଡିଆ ଭଲ୍ୟୁମ୍ ସିଙ୍କ୍ ଟର୍ନ୍ ଅଫ୍ କରିବେ?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">ଡୁଆଲ୍ ଅଡିଓ ବ୍ୟବହାର କରିବାକୁ, ମିଡିଆ ଭଲ୍ୟୁମ୍ ସିଙ୍କ୍ ଟର୍ନ୍‌ ଅନ୍ ହେବା ଆବଶ୍ୟକ।</string>
+    <string name="bluetooth_dual_play_ask_popup_content">ପ୍ରତି ଅଡିଓ ଡିଭାଇସରେ ପୃଥକ ଭାବେ ଭଲ୍ୟୁମ୍ ନିୟନ୍ତ୍ରଣ କରିବାକୁ, ମିଡିଆ ଭଲ୍ୟୁମ୍ ସିଙ୍କ୍ ର୍ଟନ୍ ଅଫ୍ ହେବା ଆବଶ୍ୟକ।</string>
     <string name="bluetooth_avc_title">ମିଡିଆ ଭଲ୍ୟୁମ୍ ସିଙ୍କ୍</string>
     <string name="bluetooth_avc_description">ଯଦି ସଂଯୋଜିତ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ଆପଣଙ୍କ ଫୋନର ମିଡିଆ ଭଲ୍ୟୁମ୍ ନିୟନ୍ତ୍ରଣ କରିପାରିବ, ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ଦ୍ୱାରା ସେଟ୍ ହୋଇଥିବା ଭଲ୍ୟୁମ୍ ସ୍ତର ଆପଣଙ୍କ ଫୋନ୍ ସହ ସିଙ୍କ୍ ହେବ।</string>
     <string name="bluetooth_avc_volume_change_description">ଏହି ପ୍ରକାର୍ଯ୍ୟ ଟର୍ନ୍ ଅନ୍ କରିବା ଅପ୍ରତ୍ୟାଶିତ ଭଲ୍ୟୁମ୍ ପରିବର୍ତ୍ତନଗୁଡିକ କାରଣ ହୋଇପାରେ।</string>
@@ -819,6 +825,7 @@ Enter the code you get from Verizon:"</string>
     <string name="bluetooth_avc_ask_popup_title">ଡୁଆଲ୍ ଅଡିଓ ଟର୍ନ୍ ଅଫ୍ କରିବେ?</string>
     <string name="bluetooth_avc_ask_popup_content">ମିଡିଆ ଭଲ୍ୟୁମ୍ ସିଙ୍କ୍ ବ୍ୟବହାର କରିବାକୁ, ଡୁଆଲ୍ ଅଡିଓ ଟର୍ନ୍‌ ଅନ୍ ହେବା ଆବଶ୍ୟକ।</string>
     <string name="bluetooth_avc_disable_description">ସଂଯୋଜିତ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ମିଡିଆ ଭଲ୍ୟୁମ୍ ସିଙ୍କ୍ ସମର୍ଥନ କରେ ନାହିଁ। ଆପଣ ଆପଣଙ୍କ ଫୋନର ଭଲ୍ୟୁମ୍ ସଂଯୋଜିତ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ସହ ସିଙ୍କ୍ କରିପାରିବେ ନାହିଁ।</string>
+    <string name="bluetooth_avc_available_description">ସଂଯୋଜିତ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ମିଡିଆ ଭଲ୍ୟୁମ୍ ସିଙ୍କ୍ ଏବଂ ସମର୍ଥନ କରି ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ଦ୍ୱାରା ସେଟ୍ ହୋଇଥିବା ଭଲ୍ୟୁମ୍ ସ୍ତର ଆପଣଙ୍କ ଫୋନ୍ ସହ ସିଙ୍କ୍ ହେବ।</string>
     <string name="bluetooth_enter_pin_msg">%s (0000 କିମ୍ଵା 1234 ଚେଷ୍ଟା କରନ୍ତୁ) ସହ ପେୟାର୍ କରିବାକୁ PIN ପ୍ରବେଶ କରନ୍ତୁ।</string>
     <string name="bluetooth_pin_maximum_number_message">ସର୍ବାଧିକ ସଂଖ୍ୟର ବର୍ଣ୍ଣରେ ପହଞ୍ଚିଛି।</string>
     <string name="settings_menu_done">ସମାପ୍ତ</string>
@@ -902,11 +909,12 @@ Enter the code you get from Verizon:"</string>
     <string name="swipe_to_call_title">କଲ୍ କିମ୍ଵା ସନ୍ଦେଶଗୁ. ପ୍ରେରଣ କରିବାକୁ ସ୍ୱାଇପ୍ କର.</string>
     <string name="swipe_to_call_summary">ଫୋନ୍, ସମ୍ପର୍କ, କିମ୍ୱା ସନ୍ଦେଶଗୁଡିକରେ ଏକ ସମ୍ପର୍କ କିମ୍ୱା ନମ୍ୱରକୁ କଲ୍ କରିବାକୁ ଡାହାଣ କିମ୍ୱା ସନ୍ଦେଶ ପ୍ରେରଣ କରିବାକୁ ବାମକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
     <string name="swipe_to_call_summary_dcm">ଡାୟଲ୍, ସମ୍ପର୍କ, କିମ୍ୱା ସନ୍ଦେଶଗୁଡିକରେ ଏକ ସମ୍ପର୍କ କିମ୍ୱା ନମ୍ୱରକୁ କଲ୍ କରିବାକୁ ଡାହାଣ କିମ୍ୱା ସନ୍ଦେଶ ପ୍ରେରଣ କରିବାକୁ ବାମକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
-    <string name="swipe_to_call_summary_kddi">ଫୋନ୍ କିମ୍ୱା ସମ୍ପର୍କଗୁଡିକରେ ଏକ ସମ୍ପର୍କ କିମ୍ୱା ନମ୍ୱରକୁ କଲ୍ କରିବାକୁ ଡାହାଣ କିମ୍ୱା ସନ୍ଦେଶ ପ୍ରେରଣ କରିବାକୁ ବାମକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
+    <string name="swipe_to_call_summary_kddi">ଡାୟଲ୍ କିମ୍ୱା ସମ୍ପର୍କଗୁଡିକରେ ଏକ ସମ୍ପର୍କ କିମ୍ୱା ନମ୍ୱରକୁ କଲ୍ କରିବାକୁ ଡାହାଣ କିମ୍ୱା ଏକ ସନ୍ଦେଶ ପ୍ରେରଣ କରିବାକୁ ବାମକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
     <string name="dual_app_title">ଡୁଆଲ୍ ମେସେଞ୍ଜର୍</string>
     <string name="dual_app_summary">ସମାନ ଆପ୍ଲିକେସନ୍‌ ପାଇଁ ଦୁଇଟି ପୃଥକ ଆକାଉଣ୍ଟ ବ୍ୟବହାର କରନ୍ତୁ।</string>
     <string name="finger_sensor_gesture_title">ଆଙ୍ଗୁଠି ସେନସର୍ ଜେଶ୍ଚରଗୁଡିକ</string>
     <string name="finger_sensor_gesture_summary">ଟିପଚିହ୍ନ ସେନସର୍ ସହ ଆପସ୍ ଏବଂ ବୈଶିଷ୍ଟ୍ୟ ଖୋଲି ବନ୍ଦ କରନ୍ତୁ।</string>
+    <string name="finger_sensor_gesture_summary_noapp">ଟିପଚିହ୍ନ ସେନସର୍ ବ୍ୟବହାର କରି ବିଜ୍ଞପ୍ତି ପ୍ୟାନେଲ୍ ଖୋଲନ୍ତୁ ଏବଂ ବନ୍ଦ କରନ୍ତୁ।</string>
     <string name="finger_sensor_gesture_description">ବିଜ୍ଞପ୍ତି ପ୍ୟାନେଲ୍ ଖୋଲିବାକୁ କିମ୍ୱା ବନ୍ଦ କରିବାକୁ ଟିପଚିହ୍ନ ସେନସର୍ ଉପର କିମ୍ୱା ନିମ୍ନକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
     <string name="open_samsung_pay_title">Samsung Pay ଖୋଲନ୍ତୁ</string>
     <string name="open_samsung_pay_summary">ହୋମ୍ ସ୍କ୍ରିନରେ, Samsung Pay ଖୋଲିବାକୁ ଟିପଚିହ୍ନ ସେନସର୍ ଉପରକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
@@ -941,6 +949,7 @@ Enter the code you get from Verizon:"</string>
 %s"</string>
     <string name="enable_ps_title">%s ସାମର୍ଥ୍ୟ କରନ୍ତୁ</string>
     <string name="setup_wizard">ସେଟଅପ୍ ୱିଜାର୍ଡ୍</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">ସାଧାରଣ</string>
     <string name="large">ବୃହତ୍</string>
     <string name="small">କ୍ଷୁଦ୍ର</string>
@@ -1086,7 +1095,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">ଏକ Wi-Fi ନେଟୱାର୍କକୁ ସଂଯୋଜିତ ହୋଇଥିବା ବେଳେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ସଫ୍ଟୱେୟାର୍ ଅପଡେଟସ୍ ଡାଉନଲୋଡ୍ କରନ୍ତୁ। ଡାଉନଲୋଡ୍ ସମୟରେ ଆପଣ ବର୍ତ୍ତମାନ ଆପଣଙ୍କ ଡିଭାଇସ୍ ବ୍ୟବହାର କରିବାକୁ ସମର୍ଥ ହେବେ।</string>
     <string name="auto_update_over_wifi">Wi-Fiରେ ସ୍ଵତଃ ଡାଉନଲୋଡ୍</string>
     <string name="auto_update_over_wifi_summary">ଏକ Wi-Fi ନେଟୱାର୍କକୁ ସଂଯୋଜିତ ଥିବା ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ସଫ୍ଟୱେୟାର୍ ଅପଡେଟସ୍ ଡାଉନଲୋଡ୍ କରନ୍ତୁ। ଆପଣଙ୍କ ସେବା ପ୍ରଦାନକାରୀ ଉପରେ ନିର୍ଭର କରି, ଏପରି ମଧ୍ୟ ଅପଡେଟସ୍ କୌଣସି ଅତିରିକ୍ତ ଦର ବ୍ୟତିତ ମୋବାଇଲ୍ ଡାଟା ବ୍ୟବହାର କରି ଡାଉନଲୋଡ୍ ହୋଇପାରିବ। ଆପଣ ଡାଉନଲୋଡ୍ ସମୟରେ ଆପଣଙ୍କ ଫୋନ୍ ବ୍ୟବହାର କରିବାକୁ ସମର୍ଥ ହେବେ।</string>
-    <string name="scheduled_update">ନିର୍ଦ୍ଧାରିତ ସଫ୍ଟୱେୟାର୍ ଅପଡେଟସ୍</string>
+    <string name="scheduled_update">ନିର୍ଦ୍ଧାରିତ ସଫ୍ଟୱେୟାର୍ ଅପଡେଟଗୁଡିକ</string>
     <string name="scheduled_update_summary_default">ଅଫ୍</string>
     <string name="scheduled_update_summary_set_time">ଅପଡେଟ୍ %sରେ ଆରମ୍ଭ ହେବ</string>
     <string name="scheduled_update_summary_set_time_everyday">ଅପଡେଟ୍ ଦୈନିକ %sରେ ଆରମ୍ଭ ହେବ</string>
@@ -1230,7 +1239,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="adjust_your_display_colour">ହ୍ଵାଇଟ୍ ଟୋନ୍ ଦୃଶ୍ୟମାନ ପରିବର୍ତ୍ତନ କରିବାକୁ ଆପଣଙ୍କ ପ୍ରଦର୍ଶନର ରଙ୍ଗଗୁଡିକ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ।</string>
     <string name="display_temperature_preset_cool">ଥଣ୍ଡା</string>
     <string name="display_temperature_preset_warm">ୱାର୍ମ୍</string>
-    <string name="display_advanced_option">ଅଗ୍ରୀମ ବିକଳ୍ପସମୂହ</string>
+    <string name="display_advanced_option">ବିକଶିତ ବିକଳ୍ପ</string>
     <string name="color_balance_subtext_1">ରଙ୍ଗ ବାଲାନ୍ସ କେବଳ Adaptive display ମୋଡରେ ନିୟନ୍ତ୍ରଣ ହୋଇପାରିବ।</string>
     <string name="color_balance_subtext_2">ନୀଳ ଲାଇଟ୍ ଫିଲ୍ଟର୍ ଅନ୍ ଥିବା ସମୟରେ ଆପଣଙ୍କ ସମାଯୋଜନ ପ୍ରୟୋଗ ହେବନାହିଁ।</string>
     <string name="poc_balance_title">ସ୍କ୍ରିନ୍ edge ରଙ୍ଗ ବାଲାନ୍ସ</string>
@@ -1288,6 +1297,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_summary">ହୋମ୍, ବ୍ୟାକ୍, ଏବଂ ସମ୍ପ୍ରତି ବଟନଗୁଡିକୁ ପରିଚାଳନା କରନ୍ତୁ।</string>
     <string name="navigationbar_theme_switch">ସମ୍ପ୍ରତି ଥିମ୍ ପ୍ରୟୋଗ</string>
     <string name="navigationbar_color_title">ପୃଷ୍ଠପଟ ରଙ୍ଗ</string>
+    <string name="navigationbar_color_summary">ଆପଣ ଚୟନ କରିଥିବା ପୃଷ୍ଠପଟ ରଙ୍ଗ ସମସ୍ତ ଆପ୍ଲିକେସନକୁ ପ୍ରୟୋଗ ହୋଇନପାରେ।</string>
     <string name="navigationbar_order_title">ବଟନ୍ ଲେଆଉଟ୍</string>
     <string name="navigationbar_order_default">ସମ୍ପ୍ରତି - ହୋମ୍ - ବ୍ୟାକ୍</string>
     <string name="navigationbar_order_mirrored">ବ୍ୟାକ୍ - ହୋମ୍ - ସମ୍ପ୍ରତି</string>
@@ -1319,7 +1329,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="blue_light_filter_enable_now">ବର୍ତ୍ତମାନ ଟର୍ନ୍ ଅନ୍</string>
     <string name="blue_light_filter_enable_as_scheduled">ନିର୍ଦ୍ଧାରଣ ଭାବେ ଟର୍ନ୍ ଅନ୍</string>
     <string name="blue_light_filter_scheduled_toast">ନୀଳ ଲାଇଟ୍ ଫିଲ୍ଟର୍ ଟର୍ନ୍‌ ଅନ୍ ହୋଇଛି। ଏହା ନିର୍ଦ୍ଧାରଣ ଶେଷ ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଟର୍ନ୍‌ ଅଫ୍‌ ହେବ।</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">ସେହି ସମୟରେ %s ଏବଂ ନୀଳ ଲାଇଟ୍ ଫିଲ୍ଟର୍ ବ୍ୟବହାର କରିପାରିବେ ନାହିଁ। ନୀଳ ଲାଇଟ୍ ଫିଲ୍ଟର୍ ଅକ୍ଷମ ହେବ।</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">ନୀଳ ଲାଇଟ୍ ଫିଲ୍ଟର୍ ଟର୍ନ୍ ଅଫ୍ କରିବେ?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s ବ୍ୟବହାର କରିବାକୁ, ନୀଳ ଲାଇଟ୍ ଫିଲ୍ଟର୍ ଟର୍ନ୍‌ ଅଫ୍‌ ହେବା ଆବଶ୍ୟକ।</string>
     <string name="blue_light_filter_dlg_turn_on_location">ସୂର୍ଯ୍ୟାସ୍ତରୁ ସୂର୍ଯ୍ୟାଦେୟ ପର୍ଯ୍ୟନ୍ତ ବ୍ୟବହାର କରିବାକୁ, ଅବସ୍ଥାନ ଟର୍ନ୍‌ ଅନ୍ ହେବା ଆବଶ୍ୟକ।</string>
     <string name="dlg_turn_on">ଟର୍ନ୍ ଅନ୍</string>
     <string name="screen_resolution_title">ସ୍କ୍ରିନ୍ ରିଜୋଲ୍ୟୁସନ୍</string>
@@ -1536,6 +1547,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">ଆପଣଙ୍କ ଡିଭାଇସ୍ ଏହାର ଫ୍ୟାକ୍ଟୋରୀ ଡିଫଲ୍ଟ ସେଟିଂସରେ ପୁନଃସେଟ୍ ହେବା ପୂର୍ବରୁ ଆରମ୍ଭ କରିବାକୁ ଆପଣଙ୍କ ପାଖରେ କେବଳ 1 ଉଦ୍ୟମ ବାକି ରହିଛି। ଏହା ଫାଇଲ୍ ଏବଂ ଡାଉନଲୋଡ୍ ହୋଇଥିବା ଆପ୍ଲିକେସନ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରି, ସମସ୍ତ ଡାଟା ବିଲୋପ କରିବ।</string>
     <string name="crypt_keeper_failed_title_dec">ଡିକ୍ରିପସନ୍‍ ବିଫଳ ହେଲା।</string>
     <string name="crypt_keeper_failed_summary_dec">ବାଧିତ ଯୋଗୁଁ ଡିକ୍ରିପସନ୍ ସମ୍ପୂର୍ଣ୍ଣ କରିବାକୁ ଅସମର୍ଥ। ବ୍ୟବହାର ପୂର୍ବରୁ ଫ୍ୟାକ୍ଟୋରୀ ଡାଟା ପୁନଃସେଟ୍ (ସମସ୍ତ ଡାଟା ପୁନଃସେଟ୍) କରନ୍ତୁ।</string>
+    <string name="crypt_keeper_set_screen_lock_type">ସ୍କ୍ରିନ୍ ଲକ୍ ପ୍ରକାର ଚୟନ କରନ୍ତୁ</string>
     <string name="encryption_interstitial_message">"ଫୋନ୍ ଆରମ୍ଭ କରିବା ପୂର୍ବରୁ %s ପ୍ରବେଶ କରିବା ଆବଶ୍ୟକ କରି ଆପଣ ଆପଣଙ୍କ ଫୋନର ସୁରକ୍ଷା ଅହୁରି ଅଧିକ କରିପାରିବେ। ଯଦି ଆପଣଙ୍କ ଫୋନ୍ ହଜି କିମ୍ୱା ଚୋରି ହୋଇଯାଏ ଏହା ଆପଣଙ୍କ ଡାଟା ସୁରକ୍ଷିତ କରିବାରେ ସହାୟତା କରିଥାଏ। କିଛି ଆପ୍ଲିକେସନ୍ ବୈଶିଷ୍ଟ୍ୟ ଆକସେସ୍ କରିବା, ଯେପରିକି ଇମେଲ୍ ସିଙ୍କ୍ ପାଇଁ ଡିଭାଇସ୍ ଏନକ୍ରିପସନ୍ ନୀତି ଅନୁସାରେ ସୁରକ୍ଷିତ ଆରମ୍ଭ ଆବଶ୍ୟକ କରିପାରନ୍ତି।
 
 ଆପଣଙ୍କୁ କୌଣସି କଲ୍, ସନ୍ଦେଶ, କିମ୍ୱା ବିଜ୍ଞପ୍ତି, ପ୍ରାପ୍ତ ହେବ ନାହିଁ, ଏବଂ ଫୋନ୍ ଆରମ୍ଭ ନହେବା ପର୍ଯ୍ୟନ୍ତ, ଆଲରାମ୍ ଧ୍ଵନି କରିବ ନାହିଁ।"</string>
@@ -1774,6 +1786,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">ଟିପଚିହ୍ନ ବ୍ୟବହାର</string>
     <string name="wifi_ap_close">ବନ୍ଦ</string>
     <string name="fingerscanner_add_summary">ଆପଣଙ୍କ ଟିପଚିହ୍ନ ଯୋଡନ୍ତୁ।</string>
+    <string name="fingerscanner_register_1_finger_summary">1 ଟିପଚିହ୍ନ ଯୋଡାଯାଇଛି।</string>
     <string name="fingerscanner_register_summary">%dଟି ଟିପଚିହ୍ନ ଯୋଡାଯାଇଛି।</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">ଏକ ଟିପଚିହ୍ନ ବ୍ୟବହାର କରନ୍ତୁ କିମ୍ୱା ସମ୍ପ୍ରତି PIN ପ୍ରବେଶ କରନ୍ତୁ।</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">ଏକ ଟିପଚିହ୍ନ ବ୍ୟବହାର କରନ୍ତୁ କିମ୍ୱା ସମ୍ପ୍ରତି ଶୈଳୀ ଅଙ୍କନ କରନ୍ତୁ।</string>
@@ -1800,6 +1813,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">ପ୍ରଥମେ ସ୍ଵାଇପ୍ ନକରି, ସ୍କ୍ରିନ୍ ଟର୍ନ୍ ଅନ୍ କରିବା ମାତ୍ରକେ ଯଥା ସମ୍ଭବ ମୁହଁ ଚିହ୍ନଟକରଣ ସହ ଆପଣଙ୍କ ଫୋନ୍ ଅନଲକ୍ କରନ୍ତୁ।</string>
     <string name="facelock_recognition_speed_up">ଦ୍ରୁତତ୍ତର ଚିହ୍ନଟକରଣ</string>
     <string name="facelock_recognition_speed_up_summary">ଦ୍ରୁତତ୍ତର ଚିହ୍ନଟକରଣ ପାଇଁ ଟର୍ନ୍ ଅନ୍ କରନ୍ତୁ। ସୁରକ୍ଷା ବୃଦ୍ଧି କରିବାକୁ ଟର୍ନ୍ ଅଫ୍ କରି ଏକ ଫଟୋ କିମ୍ୱା ଭିଡିଓ ବ୍ୟବହାର କରି ଏହାକୁ ଅନଲକ୍ କରିବା କଠିନ ହୋଇଥାଏ।</string>
+    <string name="facelock_samsungpass_summary">ଆପଣଙ୍କ ପରିଚୟ ସହ %s ଏବଂ ଅନ୍ୟ ସମର୍ଥିତ ଆପ୍ଲିକେସନ୍‌ ଯାଞ୍ଚ କରିବାକୁ ମୁହଁ ଚିହ୍ନଟକରଣ ବ୍ୟବହାର କରନ୍ତୁ।</string>
     <string name="face_remove_face_popup_title">ମୁହଁ ଡାଟା ଅପସାରଣ କରିବେ?</string>
     <string name="face_remove_face_popup_message_1">ଆପଣଙ୍କ ମୁହଁ ଆଉ ଅଧିକ ଚିହ୍ନଟ ହେବ ନାହିଁ, ଏବଂ ମୁହଁ ଲକ୍ ଟର୍ନ୍‌ ଅଫ୍‌ ହେବ।</string>
     <string name="face_remove_face_popup_message_2">ମୁହଁ ଚିହ୍ନଟକରଣ ବ୍ୟବହାର କରୁଥିବା ବୈଶିଷ୍ଟ୍ୟଗୁଡିକ ଟର୍ନ୍‌ ଅଫ୍ ହେବ।</string>
@@ -1941,7 +1955,7 @@ You will also need it when:"</string>
     <string name="biometrics_backup_locktype_title">ଇରିସ୍ ସୁରକ୍ଷା ସେଟ୍‌ ଅପ୍</string>
     <string name="biometrics_register_your_iris">ଆପଣଙ୍କ ଇରିସଗୁଡିକ ପଞ୍ଜିକରଣ କରନ୍ତୁ।</string>
     <string name="biometrics_backup_locktype_summary">ଆପଣଙ୍କ ଡିଭାଇସ୍ ଅନଲକ୍ ପାଇଁ ଆପଣଙ୍କ ଇରିସଗୁଡିକ ବ୍ୟବହାର କରିବାକୁ, ଆପଣଙ୍କୁ ଏକ ଶୈଳୀ, PIN, କିମ୍ୱା ପାସୱାର୍ଡ୍ ସେଟ୍ କରିବା ଆବଶ୍ୟକ।</string>
-    <string name="biometrics_backup_locktype_message">ଆପଣଙ୍କ ଫୋନ୍ ଅନଲକ୍ କରିବାରେ କିମ୍ୱା ସୁରକ୍ଷିତ ଯାଞ୍ଚକରଣ ପାଇଁ ଆପଣଙ୍କ ଇରିସଗୁଡିକ ବ୍ୟବହାର କରିବାକୁ, ଆପଣଙ୍କୁ କରିବା ଆବଶ୍ୟକ:</string>
+    <string name="biometrics_backup_locktype_message">ଆପଣଙ୍କ ଫୋନ୍ ଅନଲକ୍ କିମ୍ୱା ଆପସରେ ନିଜକୁ ଯାଞ୍ଚ କରିବାକୁ ଆପଣଙ୍କ ଇରିସ୍‌ ବ୍ୟବହାର କରିବାକୁ, ଆପଣଙ୍କୁ ଆବଶ୍ୟକ ହେବ:</string>
     <string name="iris_delete_popup_title">ଇରିସ୍ ଡାଟା ଅପସାରଣ କରିବେ?</string>
     <string name="iris_delete_popup_message">ଇରିସ୍ ଡାଟା ଅପସାରଣ କରିବେ?</string>
     <string name="iris_delete_popup_message_with_related_func">ଇରିସ୍‌ ବ୍ୟବହାର କରୁଥିବା ବୈଶିଷ୍ଟ୍ୟଗୁଡିକ ଟର୍ନ୍‌ ଅଫ୍ ହେବ।</string>
@@ -1949,7 +1963,7 @@ You will also need it when:"</string>
     <string name="iris_timeout_popop_title">ପରେ ପୁନଃଚେଷ୍ଟା</string>
     <string name="iris_timeout_popop_message">ଇରିସଗୁଡିକ‌ ଚିହ୍ନଟ ହୋଇନାହିଁ। ଇରିସ୍ କ୍ୟାମେରା ହୁଏତ ଧୂଳି ହୋଇଛି। ସ୍କ୍ରିନ୍ ଉପରର ଅଞ୍ଚଳ ସଫା କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="iris_timeout_popop_message_1">ଇରିସ୍ କ୍ୟାମେରା ହୁଏତ ଧୂଳି ହୋଇଛି। ସ୍କ୍ରିନ୍ ଉପରର ଅଞ୍ଚଳ ସଫା କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
-    <string name="iris_proximity_restriction_popop_message">ଇରିସଗୁଡିକ‌ ଚିହ୍ନଟ ହୋଇନାହିଁ। ଫୋନ୍ ମୁହଁର ବହୁତ ନିକଟରେ ଅଛି କିମ୍ୱା ପ୍ରୋକ୍ସିମିଟି ସେନସର୍ ଧୂଳି ହୋଇପାରେ। ସ୍କ୍ରିନ୍ ଉପରର ଅଞ୍ଚଳ ସଫା କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="iris_proximity_restriction_popop_message">ଆପଣଙ୍କ ଫୋନକୁ ଆପଣଙ୍କ ମୁହଁ ପାଖରୁ ଦୂରରେ ଧରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="iris_proximity_restriction_popop_message_1">"ପ୍ରୋକ୍ସିମିଟି ସେନସର୍ ଅସ୍ଵଚ୍ଛ ହୋଇପାରେ।
 ସ୍କ୍ରିନର ଉପର ପରିଷ୍କାର କରନ୍ତୁ।"</string>
     <string name="iris_try_again">ପୁନଃଚେଷ୍ଟା</string>
@@ -1957,6 +1971,8 @@ You will also need it when:"</string>
     <string name="iris_failed_to_verity_identify">ଆପଣଙ୍କ ପରିଚୟ ଯାଞ୍ଚ କରାଯାଇ ପାରିଲା ନାହିଁ</string>
     <string name="iris_failed_popup_description">ଆପଣଙ୍କ ଇରିସଗୁଡିକ ଯାଞ୍ଚ କରିବାକୁ %1$d ଥର ଉଦ୍ୟମ ହୋଇଛି। %2$d ସେକେଣ୍ଡରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="iris_no_match">କୌଣସି ମେଳକ ନାହିଁ</string>
+    <string name="iris_eye_safety_msg">ଆପଣଙ୍କ ଇରିସଗୁଡିକ ଚିହ୍ନିଟ ହୋଇନଥିଲା।</string>
+    <string name="iris_timeout_msg">ଆପଣଙ୍କ ଇରିସଗୁଡିକ ଚିହ୍ନଟ ହୋଇନାହିଁ।</string>
     <string name="biometrics_registered">ପଞ୍ଜିକରଣ ହୋଇଛି</string>
     <string name="iris_turn_on_toast_message">ଟିପଚିହ୍ନ ଲକ୍ ବଦଳରେ ଇରିସ୍ ଲକ୍ ସକ୍ଷମ ହୋଇଛି।</string>
     <string name="iris_wrong_backup_password">ଭୁଲ୍ ବ୍ୟାକଅପ୍ ପାସୱାର୍ଡ୍</string>
@@ -2148,6 +2164,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">ଷ୍ଟାଣ୍ଡବାଏ ସ୍କ୍ରିନରେ ହୋମ୍ ବଟନ୍ ଏବଂ ଏକ ଘଣ୍ଟା କିମ୍ୱା ସୂଚନା ଦେଖାଇବା।</string>
     <string name="aod_feature_off_popup_title">%s ଟର୍ନ୍ ଅଫ୍ କରିବେ?</string>
     <string name="aod_feature_off_popup_description">%1$s ବ୍ୟବହାର କରିବାକୁ, %2$s ଟର୍ନ୍‌ ଅଫ୍‌ ହେବା ଆବଶ୍ୟକ।</string>
+    <string name="aod_features_off_popup_title">ଅନ୍ୟ ପ୍ରକାର୍ଯ୍ୟ ଟର୍ନ୍ ଅଫ୍ କରିବେ?</string>
+    <string name="aod_features_off_popup_description">Always On Display ବ୍ୟବହାର କରିବାକୁ, ନିମ୍ନଲିଖିତ ପ୍ରକାର୍ଯ୍ୟଗୁଡିକ ଟର୍ନ୍‌ ଅଫ୍‌ ହେବା ଆବଶ୍ୟକ:</string>
     <string name="aod_features_off_popup_btn_ok">ଟର୍ନ୍ ଅଫ୍</string>
     <string name="aod_disable_by_negative_colors">ବିଯୁକ୍ତାତ୍ମକ ରଙ୍ଗଗୁଡିକ ଅନ୍ ଥିବା ସମୟରେ ବ୍ୟବହାର ହୋଇପାରିବ ନାହିଁ।</string>
     <string name="aod_disable_by_powersaving_mode">ପାୱାର୍ ସଞ୍ଚୟ ମୋଡ୍ ଅନ୍ ଥିବା ସମୟରେ ବ୍ୟବହାର ହୋଇପାରିବ ନାହିଁ।</string>
@@ -2171,6 +2189,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">ରଙ୍ଗୀନ୍ ବିନ୍ଦୁଗୁଡିକ</string>
     <string name="lock_screen_show_information_summary_wifi_only">ଲକ୍ ସ୍କ୍ରିନରେ ଡିଭାଇସ୍ ମାଲିକଙ୍କ ସୂଚନା, କିମ୍ୱା ଆପ୍ଲିକେସନ୍‌ ସର୍ଟକଟଗୁଡିକ ଦେଖାନ୍ତୁ।</string>
     <string name="lock_screen_sview_show_information_summary">ଲକ୍ ସ୍କ୍ରିନରେ ଏବଂ S View ୱିଣ୍ଡୋ ମାଧ୍ୟମରେ ଡୁଆଲ୍ ଘଣ୍ଟା, ଡିଭାଇସ୍ ମାଲିକଙ୍କ ସୂଚନା, କିମ୍ୱା ଆପ୍ଲିକେସନ୍‌ ସର୍ଟକଟଗୁଡିକ ଦେଖାନ୍ତୁ।</string>
+    <string name="lock_screen_sview_show_information_summary_aod">ଲକ୍ ସ୍କ୍ରିନରେ ଏବଂ S View ୱିଣ୍ଡୋ ମାଧ୍ୟମରେ ରୋମିଂ ଘଣ୍ଟା କିମ୍ୱା ଫୋନ୍ ମାଲିକଙ୍କ ସମ୍ପର୍କ ସୂଚନା ଦେଖାନ୍ତୁ।</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">ଲକ୍ ସ୍କ୍ରିନରେ ଏବଂ S View ୱିଣ୍ଡୋ ମାଧ୍ୟମରେ ଦେଖାଇବାକୁ ଆପ୍ଲିକେସନ୍ ସର୍ଟକଟଗୁଡିକ ଚୟନ କରନ୍ତୁ।</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">ଲକ୍ ସ୍କ୍ରିନରେ ଏବଂ S View ୱିଣ୍ଡୋ ମାଧ୍ୟମରେ ବିଜ୍ଞପ୍ତିଗୁଡିକ ଦେଖାନ୍ତୁ।</string>
     <string name="lock_screen_and_cover_show_information_summary">ଲକ୍ ସ୍କ୍ରିନ୍ ଏବଂ ଖାଲି ଦର୍ଶନ କଭର୍ ଦେଇ ଡୁଆଲ୍ ଘଣ୍ଟା ଦେଖାନ୍ତୁ।</string>
     <string name="lock_screen_secured_lock_settings_title">ସୁରକ୍ଷିତ ଲକ୍ ସେଟିଂସ୍</string>
     <string name="lock_screen_secured_lock_settings_summary">ଆପଣଙ୍କ ସୁରକ୍ଷିତ ଲକ୍ ପ୍ରକାର୍ଯ୍ୟଗୁଡିକ ସେଟ୍ କରନ୍ତୁ, ଯେପରି ସ୍ଵତଃ ଲକ୍ ଏବଂ ପାୱାର୍ କୀ ସହ ତତକ୍ଷଣାତ୍ ଭାବେ ଲକ୍।</string>
@@ -2187,6 +2208,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">ହୋମ୍‌ ସମୟ ଅଞ୍ଚଳ</string>
     <string name="contact_info_settings_title">ସମ୍ପର୍କ ସୂଚନା</string>
     <string name="show_contact_info_on_lockscreen_label">ଲକ୍ ସ୍କ୍ରିନରେ ଆପଣଙ୍କ ଫୋନ୍ ନମ୍ଵର୍ କିମ୍ୱା ଇମେଲ୍ ଠିକଣା ପରି ସୂଚନା ଦେଖାଇବା।</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">ଲକ୍ ସ୍କ୍ରିନ୍ ଏବଂ Always On Displayରେ ଆପଣଙ୍କ ଫୋନ୍ ନମ୍ଵର୍ କିମ୍ୱା ଇମେଲ୍ ଠିକଣା ପରି ସୂଚନା ଦେଖାନ୍ତୁ।</string>
     <string name="unlock_effect">ଅନଲକ୍ ପ୍ରଭାବ</string>
     <string name="walking_mate_title">ପେଡୋମିଟର୍</string>
     <string name="help_text_title">ସହାୟତା ଟେକ୍ସଟ୍</string>
@@ -2286,7 +2308,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="toast_set_lock_pattern">ଯଦି ଆପଣ ଶୈଳୀ ଭୁଲିଯାଇଛନ୍ତି ସମସ୍ତ ଡାଟା ବିଲୋପ ହୋଇ ଫୋନ୍ ପୁନଃସେଟ୍ ହେବ।</string>
     <string name="toast_set_lock_password">ଯଦି ଆପଣ ପାସୱାର୍ଡ୍ ଭୁଲିଯାଇଛନ୍ତି ସମସ୍ତ ଡାଟା ବିଲୋପ ହେବ ଏବଂ ଫୋନ୍ ପୁନଃସେଟ୍ ହେବ।</string>
     <string name="toast_set_lock_pin">ଯଦି ଆପଣ PIN ଭୁଲିଯାଇଛନ୍ତି ସମସ୍ତ ଡାଟା ବିଲୋପ ହେବ ଏବଂ ଫୋନ୍ ପୁନଃସେଟ୍ ହେବ।</string>
-    <string name="chooselock_warning_text">ଏହା %s ମନେରଖନ୍ତୁ। ଡିଭାଇସ୍ ପୁନଃଆରମ୍ଭ କରିବା ପରେ ଏହା ଆବଶ୍ୟକୀୟ ହେବ।</string>
+    <string name="chooselock_warning_text">ଏହି %sକୁ ମନେରଖିନ୍ତୁ। ଆପଣଙ୍କ ଫୋନ୍‌ ପୁନଃଆରମ୍ଭ କରିବା ପରେ ଏହା ଆବଶ୍ୟକୀୟ।</string>
     <string name="lockpassword_password_exists_history">ପୂର୍ବରୁ ପାସୱାର୍ଡ୍ ବ୍ୟବହୃତ ହୋଇଛି। ନୂତନ ପାସୱାର୍ଡ୍ ପ୍ରବେଶ କରନ୍ତୁ।</string>
     <string name="lockpassword_pin_repeating_nums">PIN ନମ୍ବରରେ ପୁନରାବୃତ୍ତି ନମ୍ବର ରହିବ ନାହିଁ।</string>
     <string name="lockpassword_pin_sequential_nums">PIN ନିଶ୍ଚିତ ଭାବେ ନମ୍ବର୍ କ୍ରମରେ ରହିବ ନାହିଁ।</string>
@@ -2404,6 +2426,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="data_usage_disable_mobile_warning_lgt">"ଆପଣ Wi-Fi ବ୍ୟବହାର ନକରିବା ପର୍ଯ୍ୟନ୍ତ, ଆପଣ ଇଣ୍ଟର୍ନେଟ୍, ଇମେଲ୍ କିମ୍ବା ଅନ୍ୟ ଆପ୍ଲିକେସନ୍ ଯାହା କୌଣସି ଡାଟା ସଂଯୋଜନା ହୁଏ ସେଗୁଡିକ ବ୍ୟବହାର କରିବାକୁ ସମର୍ଥ ହେବେ ନାହିଁ।
 
 ମୋବାଇଲ୍ ଡାଟା ଟର୍ନ୍‌ ଅଫ୍‌ ହେବ।"</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">ଆପଣ ଏକ Wi-Fi ନେଟୱାର୍କକୁ ସଂଯୋଗ ନହେବା ପର୍ଯ୍ୟନ୍ତ, ଆପଣ ଇଣ୍ଟର୍ନେଟ୍, ଇମେଲ୍ କିମ୍ବା ଅନ୍ୟ ଆପ୍ଲିକେସନ୍ ବ୍ୟବହାର କରିବାରେ ସମର୍ଥ ନୁହେଁ ଯାହା ଏକ ଡାଟା ସଂଯୋଜନା ଆବଶ୍ୟକୀୟ।</string>
@@ -2509,7 +2534,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="keyboard_vibration">କୀବୋର୍ଡ୍ ଭାଇବ୍ରେସନ୍</string>
     <string name="keyboard_vibration_summary">ସାମସଙ୍ଗ କୀବୋର୍ଡ ଟ୍ୟାପ୍ ହୋଇଥିବା ସମୟରେ କମ୍ପନ ହେଉଛି।</string>
     <string name="keyboard_sound">କୀବୋର୍ଡ ଧ୍ଵନି</string>
-    <string name="keyboard_sound_summary">ଆପଣ Samsung Keyboardରେ କୀଗୁଡିକ ଟ୍ୟାପ୍ କରିବା ସମୟରେ ଧ୍ୱନି ଚାଳନ କରନ୍ତୁ।</string>
+    <string name="keyboard_sound_summary">ଆପଣ ସାମସଙ୍ଗ କୀବୋର୍ଡରେ କୀଗୁଡିକ ଟ୍ୟାପ୍ କରିବା ସମୟରେ ଧ୍ୱନି ଚାଳନ କରନ୍ତୁ।</string>
     <string name="vibration_power_saving_enabled_summary">ଭାଇବ୍ରେସନ୍ ମତାମତକୁ ସକ୍ଷମ କରିବାକୁ ପାୱାର ସଞ୍ଚୟ ମୋଡ୍ ଅକ୍ଷମ କରନ୍ତୁ।</string>
     <string name="vibrations_title">କମ୍ପନ</string>
     <string name="sound_effect_title">ଧ୍ଵନି ଗୁଣବତ୍ତା ଏବଂ ପ୍ରଭାବଗୁ.</string>
@@ -2562,10 +2587,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">ଭଲ୍ୟୁମ୍ ସୀମା କଷ୍ଟମ୍</string>
     <string name="volume_limiter_descryption">ସର୍ବାଧିକ ମିଡିଆ ଭଲ୍ୟୁମ୍ ସୀମିତ କରି ଆପଣଙ୍କ କାନକୁ ସୁରକ୍ଷିତ କରନ୍ତୁ। ହେଡଫୋନ୍ କିମ୍ୱା ବ୍ଲୁଟୁଥ୍ ଅଡିଓ ଡିଭାଇସଗୁଡିକ ବ୍ୟବହାର କରୁଥିବା ସମୟରେ କେବଳ ସୀମା ପ୍ରୟୋଗ ହେବ।</string>
     <string name="multi_sound_title">ପୃଥକ ଆପ୍ଲିକେସନ୍‌ ଧ୍ଵନି</string>
-    <string name="multi_sound_summary">ଆପଣଙ୍କ ଡିଭାଇସରେ ଶେଷ ଧ୍ୱନିଗୁଡିକରୁ ଭିନ୍ନ ସ୍ପିକର୍ କିମ୍ୱା ହେଡଫୋନରେ ଏକ ଆପ୍ଲିକେସନ୍ ଧ୍ଵନି ଚାଳନ କରନ୍ତୁ।</string>
-    <string name="multi_sound_descryption">"ଅନ୍ୟ ଆପ୍ଲିକେସନରେ ମିଡିଆ ଧ୍ୱନିରୁ ପୃଥକ କରି ଏକ ଆପ୍ଲିକେସନରୁ ଏକ ସ୍ପିକର୍ କିମ୍ୱା ହେଡଫୋନରେ ମିଡିଆ ଧ୍ୱନି ଚାଳନ କରନ୍ତୁ।
+    <string name="multi_sound_summary">ଆପଣଙ୍କ ଫୋନର ମୂଖ୍ୟ ଅଡିଓ ଆଉଟ୍ ପୁଟ୍ ଡିଭାଇସରୁ ପୃଥକ ଏକ ଅଡିଓ ଡିଭାଇସରେ ଗୋଟିଏ ଆପ୍ଲିକେସନରୁ ମିଡିଆ ଧ୍ଵନି ଚାଳନ କରନ୍ତୁ।</string>
+    <string name="multi_sound_descryption">"ଆପଣଙ୍କ ଫୋନର ମୂଖ୍ୟ ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସରୁ ପୃଥକ ଏକ ଅଡିଓ ଡିଭାଇସରେ ଏକ ଆପ୍ଲିକେସନରୁ ମିଡିଆ ଧ୍ଵନି ଚାଳନ କରନ୍ତୁ। ଏହାକୁ ଟର୍ନ୍ ଅନ୍ କରିବାକୁ ଏକ ଆପ୍ଲିକେସନ୍ ଏବଂ ଅଡିଓ ଡିଭାଇସ୍ ଚୟନ କରନ୍ତୁ।
 
-ଯଦି ଆପଣ ଏକ ବ୍ଲୁଟୁଥ୍ ଅଡିଓ ଡିଭାଇସ୍ ଚୟନ କରିବେ, ଯଦି ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ସଂଯୋଜିତ ହୋଇନଥିବ ଧ୍ୱନିଗୁଡିକ ଡିଫଲ୍ଟ ଅଡିଓ ଡିଭାଇସରେ ଚାଳନ ହେବ।"</string>
+ପୃଥକ ଆପ୍ଲିକେସନ୍‌ ଧ୍ଵନି କେବଳ ଆପଣଙ୍କ ଚୟନ କରିଥିବା ଅଡିଓ ଡିଭାଇସ୍ ଆପଣଙ୍କ ଫୋନର ମୂଖ୍ୟ ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସରୁ ଭିନ୍ନ ଥିବା ସମୟରେ କାର୍ଯ୍ୟ କରିବ।
+
+ଆପଣ ଦ୍ରୁତ ସେଟିଂସ୍ ପ୍ୟାନେଲରେ ଆପଣଙ୍କ ଫୋନର ମୂଖ୍ୟ ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସ୍ ପରିବର୍ତ୍ତନ କରିପାରିବେ। ଯଦି ଅଡିଓ ଆଉଟପୁଟ୍ ଦେଖାନଯାଇଛି, Samsung Connect > ସେଟିଂସ୍ Samsung Connect ପ୍ୟାନେଲରେ ଏହାକୁ ର୍ଟନ୍ ଅନ୍ କରନ୍ତୁ।"</string>
     <string name="set_application_title">ଆପ୍</string>
     <string name="set_application_summary">ଆପ୍ଲିକେସନର ଧ୍ଵନି ପୃଥକ ଅଡିଓ ଡିଭାଇସରେ ଚାଳନ କରିବାକୁ ଆପ୍ଲିକେସନ୍‌ ଚୟନ କରନ୍ତୁ।</string>
     <string name="set_application_descryption">ଏକ ମଲ୍ଟିମିଡିଆ ଆପ୍ଲିକେସନର ଧ୍ଵନି ଏକ ପୃଥକ ଅଡିଓ ଡିଭାଇସରେ ଚାଳନ କରିବାକୁ ଏହା ଚୟନ କରନ୍ତୁ।</string>
@@ -2576,9 +2603,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="multi_sound_popup_msg">%s ଟର୍ନ୍ ଅନ୍ କରିବାକୁ, ଆପଣ ଏକ ଆପ୍ଲିକେସନ୍‌ ଏବଂ ଏକ ଅଡିଓ ଡିଭାଇସ୍ ଚୟନ କରିବା ଆବଶ୍ୟକ।</string>
     <string name="multi_sound_network_msg">ଉପଲବ୍ଧ ଆପସ୍ ଯାଞ୍ଚ କରିବାକୁ, ଆପଣଙ୍କ ଫୋନ୍ ନେଟୱାର୍କକୁ ସଂଯୋଜିତ ରହିବା ଆବଶ୍ୟକ। ଆପଣଙ୍କ ନେଟୱାର୍କ୍ ସେଟିଂସ୍ ଯାଞ୍ଚ କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="multi_sound_wifi_msg">ଉପଲବ୍ଧ ଆପସ୍ ଯାଞ୍ଚ କରିବାକୁ, ଆପଣଙ୍କ ଫୋନ୍ ଏକ ନେଟୱାର୍କକୁ ସଂଯୋଜିତ ରହିବା ଆବଶ୍ୟକ। ମୋବାଇଲ୍ ଡାଟା ବ୍ୟବହାର କରିବା ଦ୍ୱାରା ଅତିରିକ୍ତ ଦର ଲାଗୁ ହୋଇପାରେ।</string>
+    <string name="multi_sound_add_application">ଆପ୍ଲିକେସନ୍ ଯୋଡନ୍ତୁ</string>
     <string name="dlg_btn_select">ଚୟନ</string>
-    <string name="audio_device_type_descryption">ଆପଣ ଏହି ଆପ୍ଲିକେସନ୍ ପାଇଁ ବ୍ୟବହାର କରିବାକୁ ଚାହୁଁଥିବା ଅଡିଓ ଡିଭାଇସ୍ ଚୟନ କରନ୍ତୁ। ସେଗୁଡିକୁ ସଂଯୋଜିତ ଥିବା ସମୟରେ କେବଳ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସଗୁଡିକ ଉପଲବ୍ଧ ହେବ।</string>
+    <string name="audio_device_type_descryption">ଆପଣ ଏହି ଆପ୍ଲିକେସନ୍ ପାଇଁ ବ୍ୟବହାର କରିବାକୁ ଚାହୁଁଥିବା ଅଡିଓ ଡିଭାଇସ୍ ଚୟନ କରନ୍ତୁ। ସେଗୁଡିକୁ ସଂଯୋଜିତ ଥିବା ସମୟରେ କେବଳ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ଉପଲବ୍ଧ ହେବ।</string>
     <string name="my_phone_title">ଫୋନ୍</string>
+    <string name="my_phone_summary">ସ୍ପିକର୍/ହେଡଫୋନ୍/USB ଅଡିଓ ଡିଭାଇସ୍</string>
     <string name="bluetooth_device_title">ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍‌</string>
     <string name="no_connected_devices">କୌଣସି ସଂଯୋଜିତ ଡିଭାଇସ୍ ନାହିଁ</string>
     <string name="two_hours">2 ଘଣ୍ଟା</string>
@@ -2586,7 +2615,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="stop_setup_popup_msg">ଆପଣ ପରିବର୍ତ୍ତନ କରିଥିବା ଯେକୌଣସି ସେଟିଂସ୍ ପ୍ରୟୋଗ ହେବନାହିଁ।</string>
     <string name="app_turned_on">%s ଖୋଲା ଅଛି।</string>
     <string name="force_touch_title">ମତା. ଭାଇ. କରି. ଜୋରରେ ଦବାନ୍ତୁ</string>
-    <string name="volume_key_control_title">ଡିଫଲ୍ଟ ଭଲ୍ୟୁମ୍ କୀ ନିୟନ୍ତ୍ରଣ</string>
+    <string name="volume_key_control_title">ମିଡିଆ ପାଇଁ ଭଲ୍ୟୁମ୍ କୀ ବ୍ୟବହାର</string>
+    <string name="volume_key_control_summary">ଆପଣ ଭଲ୍ୟୁମ୍ କୀଗୁଡିକ ଦବାଇବା ସମୟରେ ମିଡିଆ ଭଲ୍ୟୁମ୍ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ।</string>
     <string name="sound_mode">ଧ୍ଵନି ମୋଡ୍</string>
     <string name="sound_mode_vibrate">କମ୍ପନ</string>
     <string name="sound_mode_mute">ମ୍ୟୁଟ୍</string>
@@ -2799,14 +2829,13 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="text_biometrics_title_enterprise">ଆପଣ %1$s ଚୟନ କରିବା ସମୟରେ, ବାୟୋମେଟ୍ରିକ୍ %2$s ପାଇଁ ଏକ ଅନଲକ୍ ପଦ୍ଧତି ଭାବେ ସମର୍ଥିତ ହେବ ନାହିଁ।</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s ପାଇଁ ଏକ ଅନଲକ୍ ପଦ୍ଧତି ଭାବେ %1$s ଦ୍ୱାରା ଟିପଚିହ୍ନ ସମର୍ଥିତ ନୁହେଁ।</string>
     <string name="edge_feeds_title">Edge ଫିଡସ୍</string>
-    <string name="screensaver_settings_summary">"ଡିଭାଇସ୍ ଡକ୍ ଏବଂ/କିମ୍ୱା ଚାର୍ଜିଂରେ ଥିବା ସମୟରେ କଣ ହୋଇଥାଏ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ। ସ୍କ୍ରିନ୍ ଟାଇମ୍ ଆଉଟ୍ ହେବା ପରେ ସ୍କ୍ରିନସେଭରଗୁଡିକ ଦେଖାଯିବ।
-
-ଏହି ପ୍ରକାର୍ଯ୍ୟକୁ ଡେଡ୍ରିମ୍ ମଧ୍ୟ କୁହାଯାଏ।"</string>
-    <string name="screensaver_settings_summary_wo_dock">ଆପଣଙ୍କ ଫୋନ୍ ଚାର୍ଜ ହେଉଥିବା ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ସ୍କ୍ରିନ୍ ଟର୍ନ୍ ଅଫ୍ ପରେ ଏକ ସ୍କ୍ରିନସେଭର୍ ଦେଖାଇବା।</string>
+    <string name="screensaver_settings_summary">ଆପଣଙ୍କ ଫୋନ୍ ଚାର୍ଜ ହେଉଥିବା ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ସ୍କ୍ରିନ୍ ଟର୍ନ୍ ଅଫ୍ ପରେ ଏକ ସ୍କ୍ରିନସେଭର୍ ଦେଖାଇବା।</string>
+    <string name="screensaver_settings_summary_wo_dock">ଆପଣଙ୍କ ଫୋନ୍ ଡକ୍ ହୋଇଥିବା କିମ୍ୱା ଚାର୍ଜ ହେଉଥିବା ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ସ୍କ୍ରିନ୍ ଟର୍ନ୍ ଅଫ୍ ପରେ ଏକ ସ୍କ୍ରିନସେଭର୍ ଦେଖାନ୍ତୁ।</string>
     <string name="apn_already_exists">ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି।</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">ପୋର୍ଟ ନମ୍ବର %1$d ଏବଂ %2$d ମଧ୍ୟରେ ହେବା ଜରୁରୀ।</string>
     <string name="apn_restore_warning">ଆପଣ ଯୋଡିଥିବା ସମସ୍ତ APN ଅପସାରଣ ହୋଇଛି। ସେମାନଙ୍କ ଡିଫଲ୍ଟ ସେଟିଂସକୁ ଅନ୍ୟ APN ପୁନଃସେଟ୍ ହେବ।</string>
+    <string name="apn_restore_title">APN ସେଟିଂସ୍ ପୁନଃସେଟ୍ କରିବେ?</string>
     <string name="master_clear_desc_google_account">ଗୁଗଲ୍ ଆକାଉଣ୍ଟ</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2818,7 +2847,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="sound_balance_summary">ହେଡଫୋନର ଧ୍ଵନି ବାଲାନ୍ସ କରିବାକୁ ବାମ ଏବଂ ଡାହାଣ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ।</string>
     <string name="backup_samsung_account_title">ବ୍ୟାକଅପ୍ ସେଟିଂସ୍</string>
     <string name="restore_samsung_account_title">ପୁନରୁଦ୍ଧାର</string>
-    <string name="auto_restart_header">ଡିଭାଇସ୍ ପରିଚାଳନା</string>
+    <string name="auto_restart_header">ଫୋନ୍ ପରିଚାଳନା</string>
+    <string name="auto_restart_header_tablet">ଟ୍ୟାବଲେଟ୍ ପରିଚାଳନା</string>
     <string name="auto_restart_title">ସ୍ଵତଃ ପୁନଃଆରମ୍ଭ</string>
     <string name="switch_turn_on_text">ଟର୍ନ୍ ଅନ୍</string>
     <string name="switch_turn_off_text">ଟର୍ନ୍ ଅଫ୍</string>
@@ -2941,6 +2971,14 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="tether_settings_summary_usb_bt">USB କିମ୍ଵା ବ୍ଲୁଟୁଥ୍ ମାଧ୍ୟମରେ ଆପଣଙ୍କର ଡିଭାଇସରେ ମୋବାଇଲ୍ ଡାଟା ସଂଯୋଜନା ଅଂଶୀଦାର କରନ୍ତୁ</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">ଗ୍ରହଣ</string>
+    <string name="bluetooth_tethering_off_subtext_phone">ବ୍ଲୁଟୁଥ୍ ବ୍ୟବହାର କରି ଆପଣଙ୍କ ଫୋନର ଇଣ୍ଟର୍ନେଟ୍ ସଂଯୋଜନା ଅଂଶୀଦାର କରନ୍ତୁ।</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">ବ୍ଲୁଟୁଥ୍ ବ୍ୟବହାର କରି ଆପଣଙ୍କ ଟ୍ୟାବଲେଟର ଇଣ୍ଟର୍ନେଟ୍ ସଂଯୋଜନା ଅଂଶୀଦାର କରନ୍ତୁ।</string>
+    <string name="bluetooth_tethering_available_subtext_phone">ଏହି ଫୋନର ଇଣ୍ଟର୍ନେଟ୍ ସଂଯୋଜନା ଅଂଶୀଦାର କରିବାକୁ ପ୍ରସ୍ତୁତ।</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">ଏହି ଟ୍ୟାବଲେଟ୍ ଇଣ୍ଟର୍ନେଟ୍ ସଂଯୋଜନା ଅଂଶୀଦାର କରିବାକୁ ପ୍ରସ୍ତୁତ।</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">1 ଡିଭାଇସ୍ ସହ ଏହି ଫୋନର ଇଣ୍ଟର୍ନେଟ୍ ସଂଯୋଜନା ଅଂଶୀଦାର କରନ୍ତୁ।</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">1 ଡିଭାଇସ୍ ସହ ଏହି ଟ୍ୟାବଲେଟର ଇଣ୍ଟର୍ନେଟ୍ ସଂଯୋଜନା ଅଂଶୀଦାର କରନ୍ତୁ।</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">%dଟି ଡିଭାଇସ୍ ସହ ଏହି ଫୋନର ଇଣ୍ଟର୍ନେଟ୍‌ ସଂଯୋଜନା ଅଂଶୀଦାର କରନ୍ତୁ।</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">%dଟି ଡିଭାଇସ୍ ସହ ଏହି ଟ୍ୟାବଲେଟର ଇଣ୍ଟର୍ନେଟ୍‌ ସଂଯୋଜନା ଅଂଶୀଦାର କରନ୍ତୁ।</string>
     <string name="onehand_settings_title">ଏକ-ହସ୍ତ ମୋଡ୍</string>
     <string name="onehand_settings_text_1">ପ୍ରଦର୍ଶନ ଆକାର ହ୍ରାସ କରିବାକୁ ସ୍କ୍ରିନର କୌଣସି ନିମ୍ନ କୋଣରୁ କିମ୍ୱା ତେରଛା ଉପରକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
     <string name="onehand_settings_text_2">ପ୍ରଦର୍ଶନ ଆକାର ହ୍ରାସ କରିବାକୁ ହୋମ୍ ବଟନ୍ 3 ଥର ଦ୍ରୁତ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
@@ -3268,12 +3306,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">ଅଫ୍</string>
     <string name="wifi_or_mobile_network">Wi-Fi କିମ୍ବା ମୋବାଇଲ୍ ନେଟୱାର୍କ୍‌</string>
     <string name="wifi_network_only">Wi-Fi ନେଟୱାର୍କ୍ କେବଳ</string>
+    <string name="wifi_adps_title">Wi-Fi ପାୱାର ସଞ୍ଚୟ ମୋଡ୍</string>
+    <string name="wifi_adps_summary">Wi-Fi ଟ୍ରାଫିକ୍ ଶୈଳୀ ସମୀକ୍ଷା କରିବା ଦ୍ୱାରା ବ୍ୟାଟେରୀ ବ୍ୟବହାର ହ୍ରାସ କରନ୍ତୁ।</string>
     <string name="wifi_auto_reconnect">ସ୍ଵତଃ ପୁନଃସଂଯୋଗ</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Wi-Fi ଟର୍ନ୍ ଅଫ୍ କରିବା ଦ୍ଵାରା ମୋବାଇଲ୍ ହଟସ୍ପଟ୍ ଅକ୍ଷମ ହେବ। ଜାରି ରଖିବେ?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">ମୋବାଇଲ୍ ହଟସ୍ପଟ୍ ସକ୍ରିୟ ଥିବା ସମୟରେ Wi-Fi ଟର୍ନ୍‌ ଅଫ୍ କରନ୍ତୁ। Wi-Fi ଟର୍ନ୍ ଅନ୍ କରିବାକୁ, ଦୟାକରି ମୋବାଇଲ୍ ହଟସ୍ପଟ୍ ଟର୍ନ୍ ଅଫ୍ କରନ୍ତୁ।</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">ମୋବାଇଲ୍ ହଟସ୍ପଟ୍ ସକ୍ରିୟ ଥିବା ସମୟରେ Wi-Fi ଟର୍ନ୍‌ ଅଫ୍ କରନ୍ତୁ। Wi-Fi ଟର୍ନ୍ ଅନ୍ କରିବାକୁ, ମୋବାଇଲ୍ ହଟସ୍ପଟ୍ ଟର୍ନ୍ ଅଫ୍ କରନ୍ତୁ।</string>
+    <string name="wifi_enable_warning_mtr">ମୋବାଇଲ୍ ହଟସ୍ପଟ୍ ସକ୍ରିୟ ଥିବା ସମୟରେ Wi-Fi ଟର୍ନ୍‌ ଅଫ୍ କରନ୍ତୁ। Wi-Fi ଟର୍ନ୍ ଅନ୍ କରିବାକୁ, ଦୟାକରି ମୋବାଇଲ୍ ହଟସ୍ପଟ୍ ଟର୍ନ୍ ଅଫ୍ କରନ୍ତୁ।</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">Wi-Fi ଟର୍ନ୍ ଅନ୍ କରିବା ଦ୍ଵାରା ମୋବାଇଲ୍ ହଟସ୍ପଟ୍ ଅକ୍ଷମ ହେବ।</string>
     <string name="wifi_control_history_title">Wi-Fi ନିୟନ୍ତ୍ରଣ ଇତିହାସ</string>
@@ -3473,6 +3513,10 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_wps_pin_client_mobileap">PIN %1$s ସହ କ୍ଲାଏଣ୍ଟକୁ ସଂଯୋଗ ହେଉଛି। ସମ୍ପୂର୍ଣ୍ଣ କରିବାକୁ ସେଟଅପ୍ %2$d ମିନିଟ୍‌ ନେଇପାରେ।</string>
     <string name="wifi_wps_complete_mobileap">ଅନ୍ୟ ଡିଭାଇସ୍ ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ ବର୍ତ୍ତମାନ ସଂଯୋଜିତ।</string>
     <string name="wifi_ap_disconnect_warn">ଡିଭାଇସ୍ ବିଛନ୍ନ କରନ୍ତୁ</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">ସଂଯୋଗ ହୋଇଥିବା ସମସ୍ତ ଡିଭାଇସ୍‌ ବର୍ତ୍ତମାନ ମୋବାଇଲ୍ ହଟ୍‌ସ୍ପଟରୁ ବିଚ୍ଛିନ୍ନ ହେବ।</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">ସଂଯୋଗ ହୋଇଥିବା ସମସ୍ତ ଡିଭାଇସ୍‌ ବର୍ତ୍ତମାନ ମୋବାଇଲ୍ ହଟ୍‌ସ୍ପଟରୁ ବିଚ୍ଛିନ୍ନ ହେବ।</string>
     <string name="wifi_ap_warn_max_whitelist">ସର୍ବାଧିକ ସଂଖ୍ୟକ ଅନୁମୋଦିତ ଡିଭାଇସ୍‌ (%d)ରେ ପହଞ୍ଚିଛି।</string>
     <string name="wifiap_one_item_deleted">1 ଆଇଟମ୍ ବିଲୋପ ହେବ।</string>
@@ -3608,6 +3652,8 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_first_time_configuration">ପ୍ରଥମ ଥର ହଟସ୍ପଟ୍ କନଫିଗ୍ୟୁରେସନ୍</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">ସଠିକ୍ PIN ପ୍ରବେଶ କରନ୍ତୁ।</string>
+    <string name="open_mobileap_warning">ଏହି ମୋବାଇଲ୍ AP ସୁରକ୍ଷିତ ନୁହେଁ।</string>
+    <string name="hidden_mobileap_warning">ଉପଭୋକ୍ତା ଏକ ଲୁକ୍କାୟିତ SSID ସେଟ୍ କରିଥିବା ସମୟରେ WPS ଅକ୍ଷମ ହେବ।</string>
     <string name="wifi_ssid_max_byte_error">ସର୍ବାଧିକ ସଂଖ୍ୟର ବର୍ଣ୍ଣରେ ପହଞ୍ଚିଛି।</string>
     <string name="tethering_attention_title">ସତର୍କତା</string>
     <string name="wfd_select_device">ଡିଭାଇସ୍ ଚୟନ କରନ୍ତୁ</string>
@@ -3838,6 +3884,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">ସିଙ୍କ୍</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">ଏହି ଅନୁମତି ଏକ ଆପ୍ଲିକେସନ୍ ଦ୍ୱାରା ବ୍ୟବହାର ହେଉଥିବା ଅନ୍ୟ ଆପ୍ଲିକେସନର ଶୀର୍ଷରେ ଜିନିଷ ଦେଖାଇବାକୁ ଅନୁମତି କରେ। ଏହା ଆପଣଙ୍କ ବ୍ୟବହାର କରୁଥିବା ଅନ୍ୟ ଆପ୍ଲିକେସନକୁ ବାଧା କରିପାରେ।</string>
+    <string name="write_settings_body_description">ସିଷ୍ଟମ୍ ସେଟିଂସ୍ ପରିବର୍ତ୍ତନ କରିବାକୁ ଏହି ଆପ୍ଲିକେସନକୁ ଅନୁମତି ଦିଅନ୍ତୁ, ଯେପରି ବ୍ଲୁଟୁଥ୍ ଅନ୍ କିମ୍ୱା ଅଫ୍ କରିବା।</string>
+    <string name="reset_app_preferences_desc1">ଏହା ପାଇଁ ଆପଣଙ୍କ ସମସ୍ତ ଅଗ୍ରାଧିକାର ପୁନଃସେଟ୍ ହେବ:</string>
+    <string name="reset_app_preferences_desc2">ଆପସ୍ ଅକ୍ଷମ</string>
+    <string name="reset_app_preferences_desc3">ଆପସ୍ ପାଇଁ ବିଜ୍ଞପ୍ତି ପ୍ରତିବନ୍ଧକ</string>
+    <string name="reset_app_preferences_desc4">ଡିଫଲ୍ଟ ଆପସ୍</string>
+    <string name="reset_app_preferences_desc5">ଆପସ୍ ପାଇଁ ପୃଷ୍ଠପଟ ଡାଟା ପ୍ରତିବନ୍ଧକ</string>
+    <string name="reset_app_preferences_desc6">ଅନୁମତି ପ୍ରତିବନ୍ଧକଗୁଡିକ</string>
+    <string name="reset_app_preferences_desc7">ଆପଣ ଆପଣଙ୍କ ବିଦ୍ୟମାନ ଆପ୍ଲିକେସନ୍‌ ଡାଟା ହରାଇବେ ନାହିଁ।</string>
     <string name="knox_security_mode_title">Knox ସୁରକ୍ଷା</string>
     <string name="kap_title">Knox ସକ୍ରିୟ ସୁରକ୍ଷା</string>
     <string name="kap_eula_title">ଗୋପନୀୟ ନୀତି</string>
@@ -3852,6 +3906,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">ଆପଣଙ୍କ ବ୍ୟକ୍ତିଗତ ସୂଚନା ଏବଂ Samsung account ବିବରଣୀ ପରିଚାଳନା କରନ୍ତୁ।</string>
     <string name="my_profile_summary_jpn">ଆପଣଙ୍କ ବ୍ୟକ୍ତିଗତ ସୂଚନା ଏବଂ Galaxy account ବିବରଣୀ ପରିଚାଳନା କରନ୍ତୁ।</string>
     <string name="arbitration_agreement">ଚୁକ୍ତିନାମା ଆର୍ବିଟ୍ରେସନ୍</string>
+    <string name="activation_title">ସକ୍ରିୟକରଣ ସ୍ଥିତି</string>
+    <string name="activation_summary">%1$sରେ ସକ୍ରିୟ। ଅଧିକ ସୂଚନା ପାଇଁ, %2$s ଭ୍ରମଣ କରନ୍ତୁ।</string>
+    <string name="wifi_ap_pmf_on">PMFରେ</string>
+    <string name="edit_event_start_short">ଆରମ୍ଭ</string>
+    <string name="edit_event_end_short">ଶେଷ</string>
+    <string name="select_date_to_view">ଦେଖିବାକୁ ତାରିଖ ଚୟନ କରନ୍ତୁ</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">ହଁ</string>
     <string name="no">ନାଁ</string>
     <string name="create">ସୃଷ୍ଟି</string>
@@ -5321,7 +5382,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="app_notification_block_title">ବିଜ୍ଞପ୍ତିଗୁ. ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="app_notification_block_summary">ବିଜ୍ଞପ୍ତି ସନ୍ଦେଶ, ଧ୍ୱନିଗୁଡିକ, ଏବଂ ଭାଇବ୍ରେସନ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରି ଏହି ଆପ୍ଲିକେସନରୁ ବିଜ୍ଞପ୍ତିଗୁଡିକ ପ୍ରାପ୍ତ କରନ୍ତୁ।</string>
     <string name="app_notification_override_dnd_title">ଅଗ୍ରାଧିକାର ଭାବେ ସେଟ୍ କର.</string>
-    <string name="app_notification_override_dnd_summary">ବିଚଳିତ କରନ୍ତୁ ନାହିଁ ସକ୍ଷମ ହୋଇଥିବା ସମୟରେ ଏହି ଆପ୍ଲିକେସନର ବିଜ୍ଞପ୍ତିଗୁଡିକ ଧ୍ଵନି ଏବଂ ଟର୍ନ୍ ଅନ୍ କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
+    <string name="app_notification_override_dnd_summary">ବିଚଳିତ କରନ୍ତୁ ନାହିଁ ମୋଡ୍ ସକ୍ଷମ ଥିବା ସମୟରେ ବିଜ୍ଞପ୍ତି ପ୍ୟାନେଲର ଶୀର୍ଷରେ ବିଜ୍ଞପ୍ତିଗୁଡିକ ଦେଖନ୍ତୁ ଏବଂ ଅନୁମୋଦିତ ତାଲିକାରେ ସେଗୁଡିକ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
     <string name="app_notification_visibility_override_title">ଲକ୍ ସ୍କ୍ରିନରେ</string>
     <string name="app_notifications_dialog_done">ସମାପ୍ତ</string>
     <string name="zen_mode_choose_rule_type">ନୀତି ପ୍ରକାର ଚୟନ</string>
@@ -5358,6 +5419,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="restr_pin_enter_admin_pin">ବ୍ୟବସ୍ଥାପକ PIN ପ୍ରବେଶ କରନ୍ତୁ</string>
     <string name="switch_on_text">ଅନ୍</string>
     <string name="switch_off_text">ଅଫ୍</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">ଏହି କାର୍ଯ୍ୟ ପ୍ରୋଫାଇଲ୍ ଦ୍ୱାରା ପରିଚାଳିତ ହୋଇଛି:</string>
     <string name="managing_admin">%s ଦ୍ୱାରା ପରିଚାଳିତ ହୋଇଛି</string>
     <string name="display_auto_rotate_title">ସ୍କ୍ରିନ୍ ଘୂର୍ଣ୍ଣନ</string>
     <string name="display_auto_rotate_rotate">ସ୍କ୍ରିନ୍ ବିଷୟବସ୍ତୁ ଘୁରିବା</string>
@@ -5394,9 +5456,9 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="encrypt_talkback_dialog_require_pin">ଆବଶ୍ୟକୀୟ PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">ଆବଶ୍ୟକୀୟ ଶୈଳୀ</string>
     <string name="encrypt_talkback_dialog_require_password">ଆବ. ପାସୱାର୍ଡ୍</string>
-    <string name="encrypt_talkback_dialog_message_pin">ଡିଭାଇସ୍‌ ପାୱାର୍‌ ଅନ୍‌ କରିବା ପରେ, ଆପଣ ଆପଣଙ୍କ PIN ପ୍ରବେଶ ସମୟରେ ପ୍ରବେଶଯୋଗ୍ୟ ପ୍ରକାର୍ଯ୍ୟଗୁଡିକ ଯେପରି %1$s ଅସ୍ଥାୟୀ ଭାବେ ଅକ୍ଷମ ହେବ।</string>
-    <string name="encrypt_talkback_dialog_message_pattern">ଡିଭାଇସ୍‌ ପାୱାର୍‌ ଅନ୍‌ କରିବା ପରେ, ଆପଣ ଆପଣଙ୍କ ଶୈଳୀ ଅଙ୍କନ ସମୟ ପ୍ରବେଶଯୋଗ୍ୟ ପ୍ରକାର୍ଯ୍ୟଗୁଡିକ ଯେପରି %1$s ଅସ୍ଥାୟୀ ଭାବେ ଅକ୍ଷମ ହେବ।</string>
-    <string name="encrypt_talkback_dialog_message_password">ଡିଭାଇସ୍‌ ପାୱାର୍‌ ଅନ୍‌ କରିବା ପରେ, ଆପଣ ଆପଣଙ୍କ ପାସୱାର୍ଡ୍ ପ୍ରବେଶ ସମୟରେ ପ୍ରବେଶଯୋଗ୍ୟ ପ୍ରକାର୍ଯ୍ୟଗୁଡିକ ଯେପରି %1$s ଅସ୍ଥାୟୀ ଭାବେ ଅକ୍ଷମ ହେବ।</string>
+    <string name="encrypt_talkback_dialog_message_pin">ଡିଭାଇସ୍ ପାୱାର୍ ଅନ୍‌ ଥିବା ସମୟରେ ଆପଣଙ୍କ PIN ଆବଶ୍ୟକୀୟ ହେବ। ଆପଣଙ୍କ ଡିଭାଇସ୍ ଆରମ୍ଭ ନହେବା ପର୍ଯ୍ୟନ୍ତ ପ୍ରବେଶଯୋଗ୍ୟ ପ୍ରକାର୍ଯ୍ୟ ଉପଲବ୍ଧ ହେବ ନାହିଁ।</string>
+    <string name="encrypt_talkback_dialog_message_pattern">ଡିଭାଇସ୍ ପାୱାର୍ ଅନ୍‌ ଥିବା ସମୟରେ ଆପଣଙ୍କ ଶୈଳୀ ଆବଶ୍ୟକୀୟ ହେବ। ଆପଣଙ୍କ ଡିଭାଇସ୍ ଆରମ୍ଭ ନହେବା ପର୍ଯ୍ୟନ୍ତ ପ୍ରବେଶଯୋଗ୍ୟ ପ୍ରକାର୍ଯ୍ୟ ଉପଲବ୍ଧ ହେବ ନାହିଁ।</string>
+    <string name="encrypt_talkback_dialog_message_password">ଡିଭାଇସ୍ ପାୱାର୍ ଅନ୍‌ ଥିବା ସମୟରେ ଆପଣଙ୍କ ପାସୱାର୍ଡ୍ ଆବଶ୍ୟକୀୟ ହେବ। ଆପଣଙ୍କ ଡିଭାଇସ୍ ଆରମ୍ଭ ନହେବା ପର୍ଯ୍ୟନ୍ତ ପ୍ରବେଶଯୋଗ୍ୟ ପ୍ରକାର୍ଯ୍ୟ ଉପଲବ୍ଧ ହେବ ନାହିଁ।</string>
     <string name="slot_number">(ସ୍ଲଟ୍ %d)</string>
     <string name="app_launch_domain_links_title">ଆପ୍ଲିକେସନ୍‌ ଲିଙ୍କଗୁଡିକ</string>
     <string name="app_launch_open_domain_urls_title">ସମର୍ଥିତ URLsକୁ ଯାଆନ୍ତୁ</string>
@@ -5472,18 +5534,18 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="usb_use_power_only">ସଂଯୋଜିତ ଡିଭାଇସ୍ ଚାର୍ଜ</string>
     <string name="usb_use_power_only_desc">USB ମାଧ୍ୟମରେ ସଂଯୋଜିତ ଡିଭାଇସ୍ ଚାର୍ଜ କରନ୍ତୁ।</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">ମିଡିଆ ଫାଇଲ୍ ସ୍ଥାନାନ୍ତର</string>
+    <string name="usb_use_file_transfers">ଫାଇଲଗୁଡିକ ସ୍ଥାନାନ୍ତର</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">ଫଟୋଗୁଡିକ ସ୍ଥାନାନ୍ତର</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">ଯିଡି ମିଡିଆ ଫାଇଲଗୁଡିକ ସ୍ଥାନାନ୍ତର କରିବା କାର୍ଯ୍ୟ କରୁନାହିଁ ଏହି ମୋଡ୍ ଚୟନ କରନ୍ତୁ। ଆପଣ କେବଳ ଫଟୋ ଫାଇଲ୍ ସ୍ଥାନାନ୍ତର କରିପାରିବେ।</string>
+    <string name="usb_use_photo_transfers_summary">ଯଦି ଫାଇଲଗୁଡିକ ସ୍ଥାନାନ୍ତର କରିବା କାର୍ଯ୍ୟ କରୁନାହିଁ ଏହି ମୋଡ୍ ଚୟନ କରନ୍ତୁ। ଆପଣ କେବଳ ଏହି ମୋଡରେ ଫଟୋ ଫାଇଲ୍ ସ୍ଥାନାନ୍ତର କରିପାରିବେ।</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">ଏକ MIDI ଡିଭାଇସ୍ ସଂଯୋଗ</string>
-    <string name="usb_use">USB ପାଇଁ ବ୍ୟବହାର</string>
-    <string name="assist_access_context_title">ସ୍କ୍ରିନରେ ଟେକ୍ସଟ୍ ପଢନ୍ତୁ</string>
-    <string name="assist_access_context_summary">ଡିଭାଇସ୍ ସହାୟକ ଆପ୍ଲିକେସନକୁ ସ୍କ୍ରିନରେ ଦର୍ଶାଯାଇଥିବା କୌଣସି ଟେକ୍ସଟ୍ ପଢିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
-    <string name="assist_access_screenshot_title">ସ୍କ୍ରିନସଟଗୁଡିକ ନିଅନ୍ତୁ/ଆକସେସ୍</string>
-    <string name="assist_access_screenshot_summary">ସ୍କ୍ରିନସଟଗୁଡିକ କ୍ୟାପଚର୍ ଏବଂ ବ୍ୟବହାର କରିବାକୁ ଡିଭାଇସ୍ ସହାୟକ ଆପ୍ଲିକେସନକୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
+    <string name="usb_use">ଏଥିକୁ USB ବ୍ୟବହାର</string>
+    <string name="assist_access_context_title">ଅନ୍-ସ୍କ୍ରିନ୍ ଟେକ୍ସଟ୍ ସମୀକ୍ଷା</string>
+    <string name="assist_access_context_summary">ସମ୍ବନ୍ଧୀୟ ବିଷୟବସ୍ତୁ ପ୍ରଦାନ କରିବାକୁ ସ୍କ୍ରିନରେ ଦେଖାଯାଉଥିବା ଟେକ୍ସଟ୍ ସମୀକ୍ଷା କରିବାକୁ ଡିଭାଇସ୍ ସହାୟକ ଆପ୍ଲିକେସନକୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
+    <string name="assist_access_screenshot_title">ଅନ୍-ସ୍କ୍ରିନ୍ ଫଟୋଗୁଡିକ ସମୀକ୍ଷା</string>
+    <string name="assist_access_screenshot_summary">ଡିଭାଇସ୍ ସହାୟକ ଆପ୍ଲିକେସନକୁ ସ୍କ୍ରିନରେ ଦର୍ଶାଯାଇଥିବା ଫଟୋ ନେଇ ବ୍ୟବହାର କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
     <string name="assist_footer">ଡିଭାଇସ୍ ସହାୟକ ଆପସ୍ ବର୍ତ୍ତମାନ ଆପଣଙ୍କ ଫୋନରେ ଦେଖାଯାଉଥିବ ସ୍କ୍ରିନରୁ ସୂଚନା ଏକତ୍ର କରି ଆପଣଙ୍କୁ ସହାୟତା କରିପାରେ। କିଛି ଡିଭାଇସ୍ ସହାୟକ ଆପ୍ଲିକେସନ୍ ଅନ୍ୟ ଆପ୍ଲିକେସନ୍ ଖୋଲିବାକୁ ଏବଂ ଭଏସ୍‌ ଇନପୁଟ୍ ବ୍ୟବହାର କରି ଟେକ୍ସଟ୍ ପ୍ରବେଶ କରିବାକୁ ଆପଣଙ୍କୁ ମିଶ୍ରଣ ସହାୟକ ସହ ପ୍ରଦାନ କରି ବ୍ୟବହାର ହୋଇପାରେ।</string>
     <string name="average_memory_use">ହାରାହାରି RAM ବ୍ୟବହାର</string>
     <string name="maximum_memory_use">ସର୍ବାଧିକ RAM ବ୍ୟବହାର</string>
@@ -5512,7 +5574,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ignore_optimizations_on_desc">ଏହା ବ୍ୟାଟେରୀ ବ୍ୟବହାର ବୃଦ୍ଧି କରିପାରେ</string>
     <string name="ignore_optimizations_off_desc">ବ୍ୟାଟେରୀ ପାୱାର୍ ସଞ୍ଚୟ ପାଇଁ ସୁପାରିଶ କରାଯାଇଛି</string>
     <string name="app_list_preference_none">କିଛି ନାହିଁ</string>
-    <string name="allow_overlay_description">ଆପଣ ବ୍ୟବହାର କରୁଥିବା ଅନ୍ୟ ଆପ୍ଲିକେସନ୍ ଉପରେ ଦୃଶ୍ୟମାନ କରିବାକୁ ସେମାନଙ୍କ ବଟନ୍, ପପ୍-ଅପସ୍, କିମ୍ୱା ଅନ୍ୟ ଉପାଦାନ ଅନୁମତି ଦେବାକୁ ଆପ୍ଲିକେସନ୍ ଚୟନ କରନ୍ତୁ।</string>
+    <string name="allow_overlay_description">ଏହି ଅନୁମତି ଏକ ଆପ୍ଲିକେସନ୍ ଦ୍ୱାରା ବ୍ୟବହାର ହେଉଥିବା ଅନ୍ୟ ଆପ୍ଲିକେସନର ଶୀର୍ଷରେ ଜିନିଷ ଦେଖାଇବାକୁ ଅନୁମତି କରେ। ଏହା ଆପଣଙ୍କ ବ୍ୟବହାର କରୁଥିବା ଅନ୍ୟ ଆପ୍ଲିକେସନକୁ ବାଧା କରିପାରେ।</string>
     <string name="overlay_settings">ଶୀର୍ଷରେ ଦୃଶ୍ୟମାନ ହୋଉଥିବା ଆପ୍ଲିକେସନଗୁଡିକ</string>
     <string name="filter_overlay_apps">ଅନୁମତି ସହ ଆପ୍ଲିକେସନଗୁଡିକ</string>
     <string name="filter_write_settings_apps">ଅନୁମତି ସହ ଆପ୍ଲିକେସନଗୁଡିକ</string>
@@ -5559,14 +5621,14 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ethernet_data_template">%1$sର ଇଥରନେଟ୍ ଡାଟା</string>
     <string name="cell_warning_only">%sରେ ଡାଟା ଚେତାବନୀ</string>
     <string name="cell_warning_and_limit">%1$s ଡାଟା ବ୍ୟବହାର ଚେତାବନୀ/%2$s ଡାଟା ବ୍ୟବହାର ସୀମା</string>
-    <string name="billing_cycle">ବିଲିଂ ସାଇକେଲ୍</string>
+    <string name="billing_cycle">ବିଲିଂ ସାଇକେଲ୍ ଏବଂ ଡାଟା ଚେତାବନୀ</string>
     <string name="billing_cycle_summary">ପ୍ରତି ମାସର %s ଦିନ</string>
     <string name="billing_cycle_fragment_summary">ପ୍ରତି ମାସର %s ଦିନ</string>
     <string name="network_restrictions">ପ୍ରତିବନ୍ଧ ନେଟୱାର୍କଗୁଡିକ</string>
     <string name="operator_warning">ଡାଟା ବ୍ୟବହାର ଆପଣଙ୍କ ଡିଭାଇସ୍ ଦ୍ୱାରା ମାପ ହୋଇଥାଏ। ଆପଣଙ୍କ ସେବା ପ୍ରଦାନକାରୀ ଭିନ୍ନ ପ୍ରକାରରେ ଆକାଉଣ୍ଟ କରିପାରିବେ।</string>
     <string name="data_used_template">%s ବ୍ୟବହୃତ</string>
     <string name="data_warning">ଡାଟା ଚେତାବନୀ</string>
-    <string name="set_data_limit">ଡାଟା ସୀମା</string>
+    <string name="set_data_limit">ଡାଟା ସୀମା ସେଟ୍ କରନ୍ତୁ</string>
     <string name="data_limit">ଡାଟା ସୀମା</string>
     <string name="data_usage_template">%1$s ମଧ୍ୟରେ ବ୍ୟବହୃତ %2$s</string>
     <string name="data_usage_other_apps">ସମ୍ବ. ଆପସ୍ ବ୍ୟବ. ଅନ୍ତର୍ଭୁକ୍ତ</string>
@@ -5608,5 +5670,4 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="enable_iris_lock_desc_3">"ଟିପଚିହ୍ନ ସମ୍ପ୍ରତି ଆପଣଙ୍କ ଲକ୍ ପ୍ରକାର ଭାବେ ସେଟ୍ କରନ୍ତୁ।
 
 ଆପଣଙ୍କ ସ୍କ୍ରିନ୍ ଲକ୍ ପ୍ରକାରକୁ ଟିପଚିହ୍ନ ବଦଳରେ ଇରିସଗୁଡିକ ଭାବେ ସେଟ୍ କରିବାକୁ, “ସକ୍ଷମ” ଟ୍ୟାପ୍ କରନ୍ତୁ। ତାପରେ ଡିଭାଇସ୍ ଆପଣଙ୍କ ଇରିସଗୁଡିକ କିମ୍ୱା %s ବ୍ୟବହାର କରି ଅନଲକ୍ ହୋଇପାରିବ।"</string>
-    <string name="my_phone_summary">ସ୍ପିକର୍/ହେଡଫୋନ୍/USB ଅଡିଓ ଡିଭାଇସ୍</string>
 </resources>

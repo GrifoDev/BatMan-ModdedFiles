@@ -266,6 +266,10 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_b
+    const-string/jumbo v4, "biometrics_unclickable_pref"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
     return-object v3
 
     :cond_c

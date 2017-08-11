@@ -43,7 +43,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -83,7 +83,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -96,7 +96,7 @@
     :try_start_0
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -149,7 +149,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -163,7 +163,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -173,7 +173,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -194,7 +194,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get9(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object v3
 
@@ -229,7 +229,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -243,7 +243,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -253,7 +253,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -266,7 +266,7 @@
     :cond_3
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get9(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object v3
 
@@ -278,7 +278,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set3(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
+    invoke-static {v3, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set2(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
@@ -289,7 +289,7 @@
     :cond_4
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -303,7 +303,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -313,7 +313,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -334,7 +334,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get9(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object v3
 
@@ -369,7 +369,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -383,7 +383,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -393,7 +393,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -406,7 +406,7 @@
     :cond_7
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get9(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object v3
 
@@ -418,7 +418,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set3(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
+    invoke-static {v3, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set2(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
@@ -429,7 +429,7 @@
     :cond_8
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -443,7 +443,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -453,7 +453,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -474,7 +474,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get9(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object v3
 
@@ -509,7 +509,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -523,7 +523,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -533,7 +533,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -546,7 +546,7 @@
     :cond_b
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get9(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object v3
 
@@ -558,7 +558,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set3(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
+    invoke-static {v3, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set2(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
@@ -571,7 +571,7 @@
     :cond_c
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -585,7 +585,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -595,7 +595,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -631,7 +631,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -643,7 +643,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -654,7 +654,7 @@
     :cond_f
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -675,7 +675,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -687,7 +687,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -698,7 +698,7 @@
     :cond_11
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -719,7 +719,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get9(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object v3
 
@@ -727,11 +727,76 @@
 
     move-result v3
 
+    if-nez v3, :cond_14
+
+    iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap1(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
+
+    move-result v3
+
     if-nez v3, :cond_13
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap0(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_13
+
+    const-string/jumbo v3, "AdvancedWifiSettings"
+
+    const-string/jumbo v4, "mEmCallback, Wi-Fi Hotspot enabled"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "MobileHotspot"
+
+    const-string/jumbo v5, "AlreadyOn"
+
+    const-string/jumbo v6, "yes"
+
+    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "WiFiSettings"
+
+    invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v3
+
+    sget-object v4, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_13
+    const-string/jumbo v3, "AdvancedWifiSettings"
+
+    const-string/jumbo v4, "mEmCallback, Wi-Fi disabled"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -745,7 +810,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -755,7 +820,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -765,7 +830,7 @@
 
     goto/16 :goto_0
 
-    :cond_13
+    :cond_14
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
     invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get7(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/preference/SwitchPreference;
@@ -776,7 +841,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_14
+    if-eqz v3, :cond_15
+
+    const-string/jumbo v3, "AdvancedWifiSettings"
+
+    const-string/jumbo v4, "mEmCallback, SNS enabled"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
@@ -794,7 +865,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -804,10 +875,16 @@
 
     goto/16 :goto_0
 
-    :cond_14
+    :cond_15
+    const-string/jumbo v3, "AdvancedWifiSettings"
+
+    const-string/jumbo v4, "mEmCallback, SNS disabled"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -821,7 +898,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 
@@ -831,7 +908,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v3
 

@@ -216,7 +216,7 @@
 
     new-array v5, v3, [Ljava/lang/Object;
 
-    const v6, 0x7f0b0485
+    const v6, 0x7f0b04e8
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/display/StatusBar;->getString(I)Ljava/lang/String;
 
@@ -232,7 +232,7 @@
 
     aput-object v6, v5, v4
 
-    const v6, 0x7f0b05dd
+    const v6, 0x7f0b0640
 
     invoke-virtual {p0, v6, v5}, Lcom/samsung/android/settings/display/StatusBar;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -561,18 +561,48 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/display/StatusBar;->getContentResolver()Landroid/content/ContentResolver;
 
+    move-result-object v5
+
+    const-string/jumbo v6, "network_speed"
+
+    if-eqz v1, :cond_8
+
+    move v2, v3
+
+    :goto_3
+    invoke-static {v5, v6, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/display/StatusBar;->getActivity()Landroid/app/Activity;
+
     move-result-object v2
 
-    const-string/jumbo v5, "network_speed"
+    invoke-virtual {p0}, Lcom/samsung/android/settings/display/StatusBar;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x7f1001b4
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v5
 
     if-eqz v1, :cond_7
 
     move v4, v3
 
     :cond_7
-    invoke-static {v2, v5, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-static {v2, v5, v4}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
 
     goto :goto_1
+
+    :cond_8
+    move v2, v4
+
+    goto :goto_3
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z

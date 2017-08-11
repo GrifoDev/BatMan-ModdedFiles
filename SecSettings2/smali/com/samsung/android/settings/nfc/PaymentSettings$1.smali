@@ -145,7 +145,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/nfc/PaymentSettings$1;->this$0:Lcom/samsung/android/settings/nfc/PaymentSettings;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/nfc/PaymentSettings;->-get1(Lcom/samsung/android/settings/nfc/PaymentSettings;)Lcom/samsung/android/settings/nfc/PaymentBackend;
+    invoke-static {v3}, Lcom/samsung/android/settings/nfc/PaymentSettings;->-get2(Lcom/samsung/android/settings/nfc/PaymentSettings;)Lcom/samsung/android/settings/nfc/PaymentBackend;
 
     move-result-object v3
 

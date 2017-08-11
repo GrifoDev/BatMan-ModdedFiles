@@ -34,11 +34,11 @@
 .method public onChange(Z)V
     .locals 5
 
-    const v1, 0x7f0b1b37
+    const v1, 0x7f0b1bd3
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$1;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get26(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v2
 
@@ -71,7 +71,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$1;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get26(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v2
 
@@ -79,7 +79,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$1;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get26(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v2
 
@@ -87,7 +87,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$1;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get26(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v2
 
@@ -106,14 +106,14 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b0430
+    const v1, 0x7f0b0492
 
     goto :goto_1
 
     :cond_3
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$1;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get26(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v2
 
@@ -125,7 +125,7 @@
     goto :goto_2
 
     :cond_4
-    const v1, 0x7f0b1b38
+    const v1, 0x7f0b1bd4
 
     goto :goto_3
 .end method

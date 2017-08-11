@@ -153,7 +153,7 @@
 
     iget-object v4, p0, Lcom/android/settings/personalvibration/VibrationPatternListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04032b
+    const v5, 0x7f04032f
 
     invoke-virtual {v4, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -236,7 +236,7 @@
     :cond_3
     iget-object v4, p0, Lcom/android/settings/personalvibration/VibrationPatternListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04017d
+    const v5, 0x7f04017f
 
     invoke-virtual {v4, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

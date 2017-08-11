@@ -129,7 +129,7 @@
 .method private init(Landroid/content/Context;)V
     .locals 7
 
-    const v6, 0x7f04013c
+    const v6, 0x7f04013e
 
     const-string/jumbo v3, "HomeSettingsWidget"
 
@@ -231,7 +231,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04013f
+    const v5, 0x7f040141
 
     invoke-direct {v3, v4, v5}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -259,7 +259,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f110424
+    const v5, 0x7f110426
 
     invoke-virtual {v3, v5, v4}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -286,7 +286,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04013d
+    const v5, 0x7f04013f
 
     invoke-direct {v3, v4, v5}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -309,7 +309,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04013e
+    const v5, 0x7f040140
 
     invoke-direct {v3, v4, v5}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -461,7 +461,7 @@
 
     sget-object v6, Lcom/android/settings/widget/HomeSettingsWidgetProvider;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a04dc
+    const v7, 0x7f0a04da
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -469,7 +469,7 @@
 
     sget-object v6, Lcom/android/settings/widget/HomeSettingsWidgetProvider;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a04db
+    const v7, 0x7f0a04d9
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -477,7 +477,7 @@
 
     sget-object v6, Lcom/android/settings/widget/HomeSettingsWidgetProvider;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a04da
+    const v7, 0x7f0a04d8
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -485,7 +485,7 @@
 
     sget-object v6, Lcom/android/settings/widget/HomeSettingsWidgetProvider;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a04d9
+    const v7, 0x7f0a04d7
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

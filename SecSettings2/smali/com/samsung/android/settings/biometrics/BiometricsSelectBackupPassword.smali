@@ -273,7 +273,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f110720
+    .packed-switch 0x7f110723
         :pswitch_0
         :pswitch_1
     .end packed-switch
@@ -310,7 +310,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f04029f
+    const v0, 0x7f0402a3
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/biometrics/BiometricsSelectBackupPassword;->setContentView(I)V
 
@@ -318,7 +318,7 @@
 
     invoke-static {p0, v0}, Lcom/samsung/android/settings/biometrics/BiometricsConfig;->setBiometricsBackupTypeDB(Landroid/content/Context;I)Z
 
-    const v0, 0x7f110720
+    const v0, 0x7f110723
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/biometrics/BiometricsSelectBackupPassword;->findViewById(I)Landroid/view/View;
 
@@ -328,7 +328,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/biometrics/BiometricsSelectBackupPassword;->mSamsungAccountButton:Landroid/widget/Button;
 
-    const v0, 0x7f110721
+    const v0, 0x7f110724
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/biometrics/BiometricsSelectBackupPassword;->findViewById(I)Landroid/view/View;
 

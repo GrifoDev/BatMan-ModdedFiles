@@ -17,7 +17,7 @@
 
     iput v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApHelpScreenPreference;->mMaxClient:I
 
-    const v0, 0x7f040367
+    const v0, 0x7f04036c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApHelpScreenPreference;->setLayoutResource(I)V
 
@@ -29,7 +29,7 @@
 .method public onBindView(Landroid/view/View;)V
     .locals 10
 
-    const v9, 0x7f0b0e85
+    const v9, 0x7f0b0f12
 
     const/4 v7, 0x1
 
@@ -37,7 +37,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v4, 0x7f11089f
+    const v4, 0x7f1108a5
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -45,7 +45,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v4, 0x7f11036b
+    const v4, 0x7f11036d
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -53,7 +53,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f1108a0
+    const v4, 0x7f1108a6
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -77,7 +77,7 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f0205c8
+    const v4, 0x7f020631
 
     invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -141,7 +141,7 @@
     return-void
 
     :cond_1
-    const v4, 0x7f0205c6
+    const v4, 0x7f02062f
 
     invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -158,14 +158,14 @@
 
     if-eqz v4, :cond_3
 
-    const v4, 0x7f0205c7
+    const v4, 0x7f020630
 
     invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_0
 
     :cond_3
-    const v4, 0x7f0205c5
+    const v4, 0x7f02062e
 
     invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -182,7 +182,7 @@
 
     if-eqz v4, :cond_5
 
-    const v4, 0x7f0b0e86
+    const v4, 0x7f0b0f13
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -225,7 +225,7 @@
 
     if-nez v4, :cond_7
 
-    const v4, 0x7f0b0f90
+    const v4, 0x7f0b101d
 
     invoke-static {v4}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -280,7 +280,7 @@
     goto/16 :goto_1
 
     :cond_7
-    const v4, 0x7f0b0f8e
+    const v4, 0x7f0b101b
 
     invoke-static {v4}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -295,7 +295,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0f8b
+    const v5, 0x7f0b1018
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -316,13 +316,15 @@
     const/4 v1, 0x0
 
     :goto_1
-    if-ge v1, v0, :cond_7
+    if-ge v1, v0, :cond_8
 
     invoke-virtual {v6, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/samsung/android/settings/policy/SCPMHelper$HideMenuItem;
+
+    if-eqz v2, :cond_5
 
     const-string/jumbo v7, "SCPMHelper"
 
@@ -354,15 +356,16 @@
 
     invoke-static {v7, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v2, :cond_6
+    :cond_5
+    if-eqz v2, :cond_7
 
     iget-object v7, v2, Lcom/samsung/android/settings/policy/SCPMHelper$HideMenuItem;->mProjectName:Ljava/lang/String;
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7
 
     iget-object v7, v2, Lcom/samsung/android/settings/policy/SCPMHelper$HideMenuItem;->mHideMenuKey:Ljava/lang/String;
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7
 
     iget-object v7, v2, Lcom/samsung/android/settings/policy/SCPMHelper$HideMenuItem;->mProjectName:Ljava/lang/String;
 
@@ -370,7 +373,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7
 
     iget-object v7, v2, Lcom/samsung/android/settings/policy/SCPMHelper$HideMenuItem;->mHideMenuKey:Ljava/lang/String;
 
@@ -385,7 +388,7 @@
     move v7, v8
 
     :goto_2
-    if-ge v7, v9, :cond_6
+    if-ge v7, v9, :cond_7
 
     aget-object v3, v4, v7
 
@@ -399,7 +402,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_6
 
     const-string/jumbo v7, "SCPMHelper"
 
@@ -445,16 +448,16 @@
 
     return v8
 
-    :cond_5
+    :cond_6
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_2
 
-    :cond_6
+    :cond_7
     add-int/lit8 v1, v1, 0x1
 
     goto/16 :goto_1
 
-    :cond_7
+    :cond_8
     return v12
 .end method

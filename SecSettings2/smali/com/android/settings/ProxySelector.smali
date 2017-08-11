@@ -79,7 +79,7 @@
 .method private initView(Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f110689
+    const v0, 0x7f11068c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -95,7 +95,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    const v0, 0x7f11068a
+    const v0, 0x7f11068d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    const v0, 0x7f11068b
+    const v0, 0x7f11068e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -133,7 +133,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    const v0, 0x7f11068c
+    const v0, 0x7f11068f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f11068d
+    const v0, 0x7f110690
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -165,7 +165,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f11068e
+    const v0, 0x7f110691
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -248,27 +248,27 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f0b1205
+    const v0, 0x7f0b12a0
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1202
+    const v0, 0x7f0b129d
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b1204
+    const v0, 0x7f0b129f
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1206
+    const v0, 0x7f0b12a1
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b1203
+    const v0, 0x7f0b129e
 
     return v0
 
@@ -428,13 +428,13 @@
 
     invoke-direct {v4, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0b1200
+    const v5, 0x7f0b129b
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v4
 
-    const v5, 0x7f0b1201
+    const v5, 0x7f0b129c
 
     invoke-virtual {v4, v5, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -457,7 +457,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f04024e
+    const v0, 0x7f040252
 
     const/4 v1, 0x0
 

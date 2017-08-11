@@ -353,7 +353,7 @@
 
     iget-object v6, p0, Lcom/android/settings/wifi/WpsDialog;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b13ba
+    const v7, 0x7f0b1455
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -513,7 +513,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0403af
+    const v1, 0x7f0403b4
 
     const/4 v2, 0x0
 
@@ -525,7 +525,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WpsDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110982
+    const v1, 0x7f110988
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -537,13 +537,13 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WpsDialog;->mTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b13b6
+    const v1, 0x7f0b1451
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/WpsDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110983
+    const v1, 0x7f110989
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -567,7 +567,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WpsDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110984
+    const v1, 0x7f11098a
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -587,13 +587,13 @@
 
     sput-boolean v0, Lcom/android/settings/wifi/WifiSettings;->mWpsInProgress:Z
 
-    const v0, 0x7f0b13b5
+    const v0, 0x7f0b1450
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wifi/WpsDialog;->setTitle(I)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/WpsDialog;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b13f3
+    const v1, 0x7f0b148e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

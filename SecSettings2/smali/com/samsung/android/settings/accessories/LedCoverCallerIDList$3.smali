@@ -37,7 +37,7 @@
 .method public onPreDraw()Z
     .locals 10
 
-    const v9, 0x7f110516
+    const v9, 0x7f110518
 
     const/4 v8, 0x0
 
@@ -115,7 +115,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f110517
+    const v7, 0x7f110519
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -562,7 +562,7 @@
 
     const/4 v12, 0x2
 
-    const v11, 0x7f0b04c4
+    const v11, 0x7f0b0527
 
     new-instance v8, Ljava/util/ArrayList;
 
@@ -580,7 +580,15 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v9, 0x7f0b12d5
+    const-class v9, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;
+
+    invoke-virtual {v9}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
+
+    const v9, 0x7f0b1370
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -698,7 +706,7 @@
 
     if-eqz v9, :cond_9
 
-    const v9, 0x7f0b095b
+    const v9, 0x7f0b09c5
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -706,7 +714,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v9, 0x7f0b095c
+    const v9, 0x7f0b09c6
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -731,7 +739,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v9, 0x7f0b1657
+    const v9, 0x7f0b16f3
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -745,7 +753,7 @@
 
     if-eqz v9, :cond_d
 
-    const v9, 0x7f0b093f
+    const v9, 0x7f0b09a9
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -819,7 +827,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
 
-    const v9, 0x7f0b098a
+    const v9, 0x7f0b09f7
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -870,7 +878,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->intentTargetClass:Ljava/lang/String;
 
-    const v9, 0x7f0b0429
+    const v9, 0x7f0b048b
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -917,7 +925,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
 
-    const v9, 0x7f0b095d
+    const v9, 0x7f0b09c7
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -925,7 +933,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v9, 0x7f0b095e
+    const v9, 0x7f0b09c8
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -987,7 +995,7 @@
     return-object v8
 
     :cond_9
-    const v9, 0x7f0b0952
+    const v9, 0x7f0b09bc
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1015,7 +1023,7 @@
 
     if-ne v2, v9, :cond_a
 
-    const v9, 0x7f0b0989
+    const v9, 0x7f0b09f6
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1026,7 +1034,7 @@
     goto/16 :goto_1
 
     :cond_a
-    const v9, 0x7f0b0988
+    const v9, 0x7f0b09f2
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1043,7 +1051,7 @@
 
     if-eqz v9, :cond_c
 
-    const v9, 0x7f0b0987
+    const v9, 0x7f0b09f1
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1054,7 +1062,7 @@
     goto/16 :goto_1
 
     :cond_c
-    const v9, 0x7f0b0953
+    const v9, 0x7f0b09bd
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1065,7 +1073,7 @@
     goto/16 :goto_1
 
     :cond_d
-    const v9, 0x7f0b03a8
+    const v9, 0x7f0b0407
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1084,7 +1092,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v9, 0x7f0b082c
+    const v9, 0x7f0b0894
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1131,7 +1139,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->intentTargetClass:Ljava/lang/String;
 
-    const v9, 0x7f0b08a5
+    const v9, 0x7f0b090f
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1178,7 +1186,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->intentTargetClass:Ljava/lang/String;
 
-    const v9, 0x7f0b08a4
+    const v9, 0x7f0b090e
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1231,7 +1239,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->intentTargetClass:Ljava/lang/String;
 
-    const v9, 0x7f0b08a3
+    const v9, 0x7f0b090d
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1253,7 +1261,7 @@
 .end method
 
 .method public getXmlResourcesToIndex(Landroid/content/Context;Z)Ljava/util/List;
-    .locals 9
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1266,33 +1274,33 @@
         }
     .end annotation
 
-    const/4 v8, 0x0
+    const/4 v4, 0x0
 
-    const/4 v3, 0x0
+    const/4 v11, 0x0
 
-    new-instance v7, Lcom/android/internal/widget/LockPatternUtils;
+    new-instance v10, Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-direct {v7, p1}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+    invoke-direct {v10, p1}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
-    iput-object v7, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$ScreenLockSearchIndexProvider;->mLockUtil:Lcom/android/internal/widget/LockPatternUtils;
+    iput-object v10, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$ScreenLockSearchIndexProvider;->mLockUtil:Lcom/android/internal/widget/LockPatternUtils;
 
-    new-instance v5, Ljava/util/ArrayList;
+    new-instance v6, Ljava/util/ArrayList;
 
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v6, Landroid/provider/SearchIndexableResource;
+    new-instance v7, Landroid/provider/SearchIndexableResource;
 
-    invoke-direct {v6, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
+    invoke-direct {v7, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    iget-object v7, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$ScreenLockSearchIndexProvider;->mClassName:Ljava/lang/String;
+    iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$ScreenLockSearchIndexProvider;->mClassName:Ljava/lang/String;
 
-    iput-object v7, v6, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
+    iput-object v10, v7, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v7, 0x7f080099
+    const v10, 0x7f080099
 
-    iput v7, v6, Landroid/provider/SearchIndexableResource;->xmlResId:I
+    iput v10, v7, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
-    invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v6, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-static {p1}, Lcom/android/settings/Utils;->hasFMMDMClient(Landroid/content/Context;)Z
 
@@ -1300,132 +1308,186 @@
 
     invoke-static {}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-get0()I
 
-    move-result v7
+    move-result v10
 
-    if-nez v7, :cond_0
+    if-nez v10, :cond_0
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
     :cond_0
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
     invoke-static {p1}, Lcom/android/settings/Utils;->isShopDemo(Landroid/content/Context;)Z
 
-    move-result v7
+    move-result v10
 
-    if-eqz v7, :cond_2
+    if-eqz v10, :cond_2
 
     :cond_1
     :goto_0
-    return-object v5
+    return-object v6
 
     :cond_2
     invoke-static {}, Lcom/android/settings/Utils;->isLDUModel()Z
 
-    move-result v7
+    move-result v10
 
-    if-nez v7, :cond_1
+    if-nez v10, :cond_1
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportCseriesUX()Z
 
-    move-result v7
+    move-result v10
 
-    if-nez v7, :cond_1
+    if-nez v10, :cond_1
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     invoke-static {}, Lcom/android/internal/widget/LockPatternUtils;->isDeviceEncryptionEnabled()Z
 
-    move-result v7
+    move-result v10
 
-    if-eqz v7, :cond_6
+    if-eqz v10, :cond_6
 
     invoke-static {}, Lcom/android/internal/widget/LockPatternUtils;->isFileEncryptionEnabled()Z
 
-    move-result v7
+    move-result v10
 
-    if-nez v7, :cond_3
+    if-nez v10, :cond_3
 
-    const v4, 0x7f080101
+    const v5, 0x7f080101
 
     :cond_3
     :goto_1
     invoke-static {}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-wrap1()Z
 
-    move-result v7
+    move-result v10
 
-    if-nez v7, :cond_4
+    if-nez v10, :cond_4
 
-    new-instance v6, Landroid/provider/SearchIndexableResource;
+    new-instance v7, Landroid/provider/SearchIndexableResource;
 
-    invoke-direct {v6, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
+    invoke-direct {v7, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    iget-object v7, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$ScreenLockSearchIndexProvider;->mClassName:Ljava/lang/String;
+    iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$ScreenLockSearchIndexProvider;->mClassName:Ljava/lang/String;
 
-    iput-object v7, v6, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
+    iput-object v10, v7, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    iput v4, v6, Landroid/provider/SearchIndexableResource;->xmlResId:I
+    iput v5, v7, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
-    invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v6, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_4
     new-instance v0, Lcom/samsung/android/settings/encryption/EncryptionPreferenceManager;
 
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v7
+    move-result-object v10
 
-    invoke-direct {v0, v7}, Lcom/samsung/android/settings/encryption/EncryptionPreferenceManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v10}, Lcom/samsung/android/settings/encryption/EncryptionPreferenceManager;-><init>(Landroid/content/Context;)V
 
     if-eqz v0, :cond_5
 
     invoke-virtual {v0}, Lcom/samsung/android/settings/encryption/EncryptionPreferenceManager;->isSDcardEncryptionPossible()Z
 
-    move-result v7
+    move-result v10
 
-    if-eqz v7, :cond_5
+    if-eqz v10, :cond_5
 
-    const-string/jumbo v7, "device_policy"
+    new-instance v3, Lcom/samsung/android/security/SemSdCardEncryption;
 
-    invoke-virtual {p1, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-direct {v3, p1}, Lcom/samsung/android/security/SemSdCardEncryption;-><init>(Landroid/content/Context;)V
+
+    const-string/jumbo v10, "device_policy"
+
+    invoke-virtual {p1, v10}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v2, v8}, Landroid/app/admin/DevicePolicyManager;->getSamsungSDcardEncryptionStatus(Landroid/content/ComponentName;)Z
+    invoke-virtual {v3}, Lcom/samsung/android/security/SemSdCardEncryption;->getCurrentStatus()I
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_7
+    invoke-virtual {v3}, Lcom/samsung/android/security/SemSdCardEncryption;->getVolumeState()Ljava/lang/String;
 
-    const v4, 0x7f080113
+    move-result-object v8
+
+    if-nez v8, :cond_7
+
+    const v5, 0x7f080107
 
     :goto_2
-    new-instance v6, Landroid/provider/SearchIndexableResource;
+    new-instance v7, Landroid/provider/SearchIndexableResource;
 
-    invoke-direct {v6, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
+    invoke-direct {v7, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    iget-object v7, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$ScreenLockSearchIndexProvider;->mClassName:Ljava/lang/String;
+    iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$ScreenLockSearchIndexProvider;->mClassName:Ljava/lang/String;
 
-    iput-object v7, v6, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
+    iput-object v10, v7, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    iput v4, v6, Landroid/provider/SearchIndexableResource;->xmlResId:I
+    iput v5, v7, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
-    invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v6, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_5
-    invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v6, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_6
-    const v4, 0x7f080117
+    const v5, 0x7f080117
 
     goto :goto_1
 
     :cond_7
-    const v4, 0x7f080114
+    invoke-virtual {v2, v11}, Landroid/app/admin/DevicePolicyManager;->getSamsungSDcardEncryptionStatus(Landroid/content/ComponentName;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_b
+
+    if-nez v9, :cond_8
+
+    invoke-virtual {v3}, Lcom/samsung/android/security/SemSdCardEncryption;->isEncryptionAppliedSDCard()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_8
+
+    invoke-virtual {v2, v11}, Landroid/app/admin/DevicePolicyManager;->semGetRequireStorageCardEncryption(Landroid/content/ComponentName;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_a
+
+    const v5, 0x7f080115
+
+    goto :goto_2
+
+    :cond_8
+    invoke-virtual {v2, v11}, Landroid/app/admin/DevicePolicyManager;->semGetRequireStorageCardEncryption(Landroid/content/ComponentName;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_9
+
+    const v5, 0x7f080114
+
+    goto :goto_2
+
+    :cond_9
+    const v5, 0x7f080113
+
+    goto :goto_2
+
+    :cond_a
+    const v5, 0x7f080113
+
+    goto :goto_2
+
+    :cond_b
+    const v5, 0x7f080114
 
     goto :goto_2
 .end method

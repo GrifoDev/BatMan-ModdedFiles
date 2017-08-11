@@ -360,7 +360,7 @@
 
     move-result-object v2
 
-    const v8, 0x7f0b1472
+    const v8, 0x7f0b150e
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -629,13 +629,13 @@
 
     move-result-object v12
 
-    const v1, 0x7f0a0505
+    const v1, 0x7f0a0504
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0a04fa
+    const v2, 0x7f0a04f8
 
     invoke-virtual {v12, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -643,7 +643,7 @@
 
     add-int/2addr v1, v2
 
-    const v2, 0x7f0a050d
+    const v2, 0x7f0a050c
 
     invoke-virtual {v12, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -690,7 +690,7 @@
 
     check-cast v10, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0400c1
+    const v1, 0x7f0400c3
 
     const/4 v2, 0x0
 
@@ -698,7 +698,7 @@
 
     move-result-object v9
 
-    const v1, 0x7f1102a8
+    const v1, 0x7f1102aa
 
     invoke-virtual {v9, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -706,7 +706,7 @@
 
     check-cast v8, Landroid/widget/TextView;
 
-    const v1, 0x7f0b03bf
+    const v1, 0x7f0b0420
 
     invoke-virtual {v8, v1}, Landroid/widget/TextView;->setText(I)V
 

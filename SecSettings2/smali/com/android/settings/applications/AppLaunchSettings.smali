@@ -7,6 +7,14 @@
 .implements Landroid/preference/Preference$OnPreferenceChangeListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/settings/applications/AppLaunchSettings$1;
+    }
+.end annotation
+
+
 # static fields
 .field private static final sBrowserIntent:Landroid/content/Intent;
 
@@ -20,6 +28,10 @@
 
 .field private mClearDefaultsPreference:Lcom/android/settings/applications/ClearDefaultsPreference;
 
+.field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+.field private mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
 .field private mHasDomainUrls:Z
 
 .field private mIsBrowser:Z
@@ -28,6 +40,22 @@
 
 
 # direct methods
+.method static synthetic -get0(Lcom/android/settings/applications/AppLaunchSettings;)Lcom/android/settings/applications/ClearDefaultsPreference;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/applications/AppLaunchSettings;->mClearDefaultsPreference:Lcom/android/settings/applications/ClearDefaultsPreference;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/settings/applications/AppLaunchSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/applications/AppLaunchSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    return-object v0
+.end method
+
 .method static synthetic -wrap0(Lcom/android/settings/applications/AppLaunchSettings;I)Z
     .locals 1
 
@@ -73,9 +101,15 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/settings/applications/AppInfoWithHeader;-><init>()V
+
+    new-instance v0, Lcom/android/settings/applications/AppLaunchSettings$1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/applications/AppLaunchSettings$1;-><init>(Lcom/android/settings/applications/AppLaunchSettings;)V
+
+    iput-object v0, p0, Lcom/android/settings/applications/AppLaunchSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
     return-void
 .end method
@@ -122,7 +156,7 @@
 
     new-array v3, v8, [Ljava/lang/CharSequence;
 
-    const v4, 0x7f0b1b8b
+    const v4, 0x7f0b1c27
 
     invoke-virtual {p0, v4}, Lcom/android/settings/applications/AppLaunchSettings;->getString(I)Ljava/lang/String;
 
@@ -130,7 +164,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b1b8c
+    const v4, 0x7f0b1c28
 
     invoke-virtual {p0, v4}, Lcom/android/settings/applications/AppLaunchSettings;->getString(I)Ljava/lang/String;
 
@@ -138,7 +172,7 @@
 
     aput-object v4, v3, v6
 
-    const v4, 0x7f0b1b8d
+    const v4, 0x7f0b1c29
 
     invoke-virtual {p0, v4}, Lcom/android/settings/applications/AppLaunchSettings;->getString(I)Ljava/lang/String;
 
@@ -209,9 +243,9 @@
 
     iget-object v1, p0, Lcom/android/settings/applications/AppLaunchSettings;->mAppLinkState:Lcom/android/settings/SecDropDownPreference;
 
-    new-instance v2, Lcom/android/settings/applications/AppLaunchSettings$1;
+    new-instance v2, Lcom/android/settings/applications/AppLaunchSettings$2;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/applications/AppLaunchSettings$1;-><init>(Lcom/android/settings/applications/AppLaunchSettings;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/applications/AppLaunchSettings$2;-><init>(Lcom/android/settings/applications/AppLaunchSettings;)V
 
     invoke-virtual {v1, v2}, Lcom/android/settings/SecDropDownPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
@@ -440,7 +474,7 @@
 
     if-nez p1, :cond_0
 
-    const v2, 0x7f0b1b88
+    const v2, 0x7f0b1c24
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -451,7 +485,7 @@
     :cond_0
     if-ne p1, v2, :cond_1
 
-    const v1, 0x7f0b1b89
+    const v1, 0x7f0b1c25
 
     :goto_0
     new-array v2, v2, [Ljava/lang/Object;
@@ -469,7 +503,7 @@
     return-object v2
 
     :cond_1
-    const v1, 0x7f0b1b8a
+    const v1, 0x7f0b1c26
 
     goto :goto_0
 .end method
@@ -609,6 +643,12 @@
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/applications/AppLaunchSettings;->buildStateDropDown()V
 
+    new-instance v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-direct {v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+
+    iput-object v3, p0, Lcom/android/settings/applications/AppLaunchSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
     return-void
 
     :cond_1
@@ -625,6 +665,20 @@
     move v4, v5
 
     goto :goto_2
+.end method
+
+.method public onPause()V
+    .locals 2
+
+    invoke-super {p0}, Lcom/android/settings/applications/AppInfoWithHeader;->onPause()V
+
+    iget-object v0, p0, Lcom/android/settings/applications/AppLaunchSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "ApplicationInfoSetAsDefault"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
+
+    return-void
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
@@ -682,7 +736,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1b5f
+    const v3, 0x7f0b1bfb
 
     const/4 v6, 0x0
 
@@ -700,6 +754,43 @@
     move-result v0
 
     return v0
+.end method
+
+.method public onResume()V
+    .locals 5
+
+    invoke-super {p0}, Lcom/android/settings/applications/AppInfoWithHeader;->onResume()V
+
+    iget-object v1, p0, Lcom/android/settings/applications/AppLaunchSettings;->mClearDefaultsPreference:Lcom/android/settings/applications/ClearDefaultsPreference;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/settings/applications/AppLaunchSettings;->mClearDefaultsPreference:Lcom/android/settings/applications/ClearDefaultsPreference;
+
+    invoke-virtual {v1}, Lcom/android/settings/applications/ClearDefaultsPreference;->getView()Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/settings/applications/AppLaunchSettings;->mClearDefaultsPreference:Lcom/android/settings/applications/ClearDefaultsPreference;
+
+    invoke-virtual {v1, v0}, Lcom/android/settings/applications/ClearDefaultsPreference;->updateUI(Landroid/view/View;)Z
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/settings/applications/AppLaunchSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {p0}, Lcom/android/settings/applications/AppLaunchSettings;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/settings/applications/AppLaunchSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v4, "ApplicationInfoSetAsDefault"
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
+
+    return-void
 .end method
 
 .method protected refreshUi()Z

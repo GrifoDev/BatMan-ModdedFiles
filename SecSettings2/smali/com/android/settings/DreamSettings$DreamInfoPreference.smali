@@ -38,7 +38,7 @@
 
     iput-object p3, p0, Lcom/android/settings/DreamSettings$DreamInfoPreference;->mInfo:Lcom/android/settingslib/dream/DreamBackend$DreamInfo;
 
-    const v0, 0x7f0400e8
+    const v0, 0x7f0400ea
 
     invoke-virtual {p0, v0}, Lcom/android/settings/DreamSettings$DreamInfoPreference;->setLayoutResource(I)V
 

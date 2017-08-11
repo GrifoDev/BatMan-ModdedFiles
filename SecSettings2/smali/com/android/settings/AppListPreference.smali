@@ -204,7 +204,7 @@
 
     iget-object v5, p0, Lcom/android/settings/AppListPreference;->mEntryDrawables:[Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f04003d
+    const v3, 0x7f04003e
 
     move-object v1, p0
 
@@ -447,7 +447,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1bf5
+    const v11, 0x7f0b1c91
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -463,7 +463,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0201fb
+    const v11, 0x7f020220
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -543,13 +543,13 @@
 
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SettingsListPreference;->setFullScreenLayout(Landroid/content/Context;Landroid/view/View;)V
 
-    const v3, 0x7f1102cd
+    const v3, 0x7f1102cf
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    const v3, 0x7f1102ce
+    const v3, 0x7f1102d0
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -567,7 +567,7 @@
 
     if-nez v3, :cond_1
 
-    const v2, 0x7f0b0169
+    const v2, 0x7f0b01c6
 
     :goto_0
     if-eqz v2, :cond_0
@@ -747,7 +747,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b1bf5
+    const v12, 0x7f0b1c91
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

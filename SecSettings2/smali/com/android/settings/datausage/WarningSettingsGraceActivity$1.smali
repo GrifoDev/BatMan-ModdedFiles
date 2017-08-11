@@ -717,7 +717,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0d00eb
+    const v16, 0x7f0d00ec
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -745,7 +745,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0d00eb
+    const v16, 0x7f0d00ec
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -775,7 +775,7 @@
 
     move-object/from16 v16, v0
 
-    const v17, 0x7f0b0503
+    const v17, 0x7f0b0566
 
     invoke-virtual/range {v16 .. v17}, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->getString(I)Ljava/lang/String;
 

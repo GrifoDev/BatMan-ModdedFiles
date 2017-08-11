@@ -82,7 +82,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_13
 
     const-string/jumbo v2, "wifi_state"
 
@@ -94,26 +94,49 @@
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_b
+    if-ne v1, v2, :cond_c
 
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+    invoke-static {}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get6()Z
 
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mNotifyOpenNetworks:Landroid/preference/SwitchPreference;
+    move-result v2
 
     if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mNotifyOpenNetworks:Landroid/preference/SwitchPreference;
+    invoke-static {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    invoke-static {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v2
 
     invoke-virtual {v2, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     :cond_3
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mEnableHs20:Landroid/preference/SwitchPreference;
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mNotifyOpenNetworks:Landroid/preference/SwitchPreference;
 
     if-eqz v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mNotifyOpenNetworks:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v2, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    :cond_4
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mEnableHs20:Landroid/preference/SwitchPreference;
+
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
@@ -121,10 +144,10 @@
 
     invoke-virtual {v2, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    :cond_4
+    :cond_5
     const-string/jumbo v2, "ATT"
 
-    invoke-static {}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get4()Ljava/lang/String;
+    invoke-static {}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3()Ljava/lang/String;
 
     move-result-object v3
 
@@ -132,13 +155,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
     iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mAttAutoConnection:Landroid/preference/SwitchPreference;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
@@ -146,38 +169,38 @@
 
     invoke-virtual {v2, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    :cond_5
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
-
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mManagePref:Landroid/preference/Preference;
-
-    if-eqz v2, :cond_6
-
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
-
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mManagePref:Landroid/preference/Preference;
-
-    invoke-virtual {v2, v5}, Landroid/preference/Preference;->setEnabled(Z)V
-
     :cond_6
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPushPref:Landroid/preference/Preference;
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mManagePref:Landroid/preference/Preference;
 
     if-eqz v2, :cond_7
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPushPref:Landroid/preference/Preference;
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mManagePref:Landroid/preference/Preference;
 
     invoke-virtual {v2, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     :cond_7
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPinPref:Landroid/preference/Preference;
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPushPref:Landroid/preference/Preference;
 
     if-eqz v2, :cond_8
+
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPushPref:Landroid/preference/Preference;
+
+    invoke-virtual {v2, v5}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    :cond_8
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPinPref:Landroid/preference/Preference;
+
+    if-eqz v2, :cond_9
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
@@ -185,10 +208,10 @@
 
     invoke-virtual {v2, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    :cond_8
+    :cond_9
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get9(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
+    invoke-static {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get10(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
 
     move-result v2
 
@@ -196,34 +219,13 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v2, v4}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set3(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
+    invoke-static {v2, v4}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-set2(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)Z
 
     const-string/jumbo v2, "WiFiManageNetworks"
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_9
-
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
-
-    invoke-static {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap9(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
-
-    goto/16 :goto_0
-
-    :cond_9
-    const-string/jumbo v2, "WiFiWpsPushButton"
-
-    iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
-
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get1(Lcom/android/settings/wifi/AdvancedWifiSettings;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -235,16 +237,37 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap8(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
+    invoke-static {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap9(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
 
     goto/16 :goto_0
 
     :cond_a
+    const-string/jumbo v2, "WiFiWpsPushButton"
+
+    iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get1(Lcom/android/settings/wifi/AdvancedWifiSettings;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_b
+
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    invoke-static {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap8(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
+
+    goto/16 :goto_0
+
+    :cond_b
     const-string/jumbo v2, "WiFiSetPasspointOn"
 
     iget-object v3, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get2(Lcom/android/settings/wifi/AdvancedWifiSettings;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get1(Lcom/android/settings/wifi/AdvancedWifiSettings;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -260,38 +283,61 @@
 
     return-void
 
-    :cond_b
+    :cond_c
     if-ne v1, v5, :cond_1
 
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+    invoke-static {}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get6()Z
 
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mNotifyOpenNetworks:Landroid/preference/SwitchPreference;
-
-    if-eqz v2, :cond_c
-
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
-
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mNotifyOpenNetworks:Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
-
-    :cond_c
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
-
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mEnableHs20:Landroid/preference/SwitchPreference;
+    move-result v2
 
     if-eqz v2, :cond_d
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mEnableHs20:Landroid/preference/SwitchPreference;
+    invoke-static {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_d
+
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    invoke-static {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get8(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v2
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     :cond_d
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mNotifyOpenNetworks:Landroid/preference/SwitchPreference;
+
+    if-eqz v2, :cond_e
+
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mNotifyOpenNetworks:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    :cond_e
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mEnableHs20:Landroid/preference/SwitchPreference;
+
+    if-eqz v2, :cond_f
+
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mEnableHs20:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    :cond_f
     const-string/jumbo v2, "ATT"
 
-    invoke-static {}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get4()Ljava/lang/String;
+    invoke-static {}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-get3()Ljava/lang/String;
 
     move-result-object v3
 
@@ -299,13 +345,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_10
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
     iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mAttAutoConnection:Landroid/preference/SwitchPreference;
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_10
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
@@ -313,33 +359,33 @@
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    :cond_e
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
-
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mManagePref:Landroid/preference/Preference;
-
-    if-eqz v2, :cond_f
-
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
-
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mManagePref:Landroid/preference/Preference;
-
-    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
-
-    :cond_f
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
-
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPushPref:Landroid/preference/Preference;
-
-    if-eqz v2, :cond_10
-
-    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
-
-    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPushPref:Landroid/preference/Preference;
-
-    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
-
     :cond_10
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mManagePref:Landroid/preference/Preference;
+
+    if-eqz v2, :cond_11
+
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mManagePref:Landroid/preference/Preference;
+
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    :cond_11
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPushPref:Landroid/preference/Preference;
+
+    if-eqz v2, :cond_12
+
+    iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPushPref:Landroid/preference/Preference;
+
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    :cond_12
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
     iget-object v2, v2, Lcom/android/settings/wifi/AdvancedWifiSettings;->mWpsPinPref:Landroid/preference/Preference;
@@ -354,7 +400,7 @@
 
     goto/16 :goto_0
 
-    :cond_11
+    :cond_13
     const-string/jumbo v2, "android.net.wifi.HS20_DISABLED_COMPLETE_BY_CREDERROR"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z

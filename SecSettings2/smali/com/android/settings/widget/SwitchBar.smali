@@ -125,7 +125,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f040318
+    const v7, 0x7f04031c
 
     invoke-virtual {v6, v7, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -179,7 +179,7 @@
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    const v6, 0x7f1107b2
+    const v6, 0x7f1107b5
 
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SwitchBar;->findViewById(I)Landroid/view/View;
 
@@ -199,7 +199,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1b38
+    const v7, 0x7f0b1bd4
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -211,7 +211,7 @@
 
     iget-object v7, p0, Lcom/android/settings/widget/SwitchBar;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0f02b8
+    const v8, 0x7f0f02b9
 
     invoke-direct {v6, v7, v8}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
@@ -229,7 +229,7 @@
 
     invoke-virtual {v2, v5}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
-    const v6, 0x7f1107b3
+    const v6, 0x7f1107b6
 
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SwitchBar;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 
     iput-object v6, p0, Lcom/android/settings/widget/SwitchBar;->mSwitch:Lcom/android/settings/widget/ToggleSwitch;
 
-    const v6, 0x7f1107b4
+    const v6, 0x7f1107b7
 
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SwitchBar;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SwitchBar;->addOnSwitchChangeListener(Lcom/android/settings/widget/SwitchBar$OnSwitchChangeListener;)V
 
-    const v6, 0x7f110539
+    const v6, 0x7f11053b
 
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SwitchBar;->findViewById(I)Landroid/view/View;
 
@@ -931,7 +931,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0b1b37
+    const v0, 0x7f0b1bd3
 
     :goto_0
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -945,7 +945,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b1b38
+    const v0, 0x7f0b1bd4
 
     goto :goto_0
 .end method

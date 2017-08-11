@@ -27,7 +27,7 @@
 .method private init()V
     .locals 1
 
-    const v0, 0x7f04022f
+    const v0, 0x7f040233
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/UnclickablePreference;->setLayoutResource(I)V
 
@@ -43,7 +43,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v3, 0x7f110627
+    const v3, 0x7f110629
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -37,7 +37,7 @@
 
     const/4 v2, 0x0
 
-    const v1, 0x7f0f01d6
+    const v1, 0x7f0f01d7
 
     invoke-direct {p0, p1, p2, p3, v1}, Lcom/samsung/android/settings/SecImageGuidePreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -89,7 +89,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v3, 0x7f11063b
+    const v3, 0x7f11063d
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v3, 0x7f11063c
+    const v3, 0x7f11063e
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

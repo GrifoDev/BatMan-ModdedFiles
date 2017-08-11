@@ -94,7 +94,7 @@
 
     iput-object v0, p0, Lcom/android/settings/tts/TtsEnginePreference;->mRadioChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    const v0, 0x7f04022e
+    const v0, 0x7f040232
 
     invoke-virtual {p0, v0}, Lcom/android/settings/tts/TtsEnginePreference;->setLayoutResource(I)V
 
@@ -184,7 +184,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b0091
+    const v5, 0x7f0b00ee
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -295,7 +295,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1003a1
+    const v2, 0x7f1003a7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -429,7 +429,7 @@
     throw v3
 
     :cond_0
-    const v3, 0x7f110669
+    const v3, 0x7f11064f
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -470,7 +470,7 @@
 
     iput-object v2, p0, Lcom/android/settings/tts/TtsEnginePreference;->mRadioButton:Landroid/widget/RadioButton;
 
-    const v3, 0x7f110668
+    const v3, 0x7f11064e
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -482,7 +482,7 @@
 
     invoke-virtual {v1, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v3, 0x7f11066b
+    const v3, 0x7f11066e
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -492,7 +492,7 @@
 
     iget-object v3, p0, Lcom/android/settings/tts/TtsEnginePreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0202a5
+    const v6, 0x7f0202ca
 
     invoke-virtual {v3, v6}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

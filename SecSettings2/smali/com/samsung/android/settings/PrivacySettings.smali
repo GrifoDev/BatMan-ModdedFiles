@@ -587,7 +587,7 @@
 
     move-result-object v17
 
-    if-nez v17, :cond_12
+    if-nez v17, :cond_11
 
     const/16 v16, 0x1
 
@@ -617,9 +617,9 @@
     invoke-interface {v0, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     :cond_2
-    if-nez v16, :cond_13
+    if-nez v16, :cond_12
 
-    if-eqz v9, :cond_13
+    if-eqz v9, :cond_12
 
     :goto_2
     const-string/jumbo v17, "no_factory_reset"
@@ -808,7 +808,7 @@
 
     cmpl-float v17, v11, v17
 
-    if-ltz v17, :cond_14
+    if-ltz v17, :cond_13
 
     const/16 v17, 0x1
 
@@ -880,21 +880,8 @@
 
     sget-boolean v17, Lcom/samsung/android/settings/PrivacySettings;->mIsSamsungBackupEnabled:Z
 
-    if-eqz v17, :cond_9
+    if-nez v17, :cond_9
 
-    const-string/jumbo v17, "CHM"
-
-    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_a
-
-    :cond_9
     const-string/jumbo v17, "pref_backUp"
 
     move-object/from16 v0, p1
@@ -911,31 +898,31 @@
 
     invoke-interface {v0, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    :cond_a
+    :cond_9
     sget-boolean v17, Lcom/samsung/android/settings/PrivacySettings;->mIsSamsungBackupEnabled:Z
 
-    if-eqz v17, :cond_15
+    if-eqz v17, :cond_14
 
     invoke-static/range {p0 .. p0}, Lcom/samsung/android/settings/PrivacySettings;->checkIsDeviceOwner(Landroid/content/Context;)Z
 
     move-result v17
 
-    if-eqz v17, :cond_15
+    if-eqz v17, :cond_14
 
     :goto_6
     invoke-static/range {p0 .. p0}, Lcom/samsung/android/settings/PrivacySettings;->shouldRemoveAutoRestart(Landroid/content/Context;)Z
 
     move-result v17
 
-    if-nez v17, :cond_b
+    if-nez v17, :cond_a
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportGraceUXGraceView()Z
 
     move-result v17
 
-    if-eqz v17, :cond_c
+    if-eqz v17, :cond_b
 
-    :cond_b
+    :cond_a
     const-string/jumbo v17, "pref_auto_clean"
 
     move-object/from16 v0, p1
@@ -944,7 +931,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    :cond_c
+    :cond_b
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v17
@@ -965,7 +952,7 @@
 
     move-result v17
 
-    if-nez v17, :cond_d
+    if-nez v17, :cond_c
 
     const-string/jumbo v17, "none"
 
@@ -975,21 +962,21 @@
 
     move-result v17
 
-    if-nez v17, :cond_d
+    if-nez v17, :cond_c
 
     invoke-static/range {p0 .. p0}, Lcom/samsung/android/settings/PrivacySettings;->checkIsDeviceOwner(Landroid/content/Context;)Z
 
     move-result v17
 
-    if-nez v17, :cond_d
+    if-nez v17, :cond_c
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportGraceUXGraceView()Z
 
     move-result v17
 
-    if-eqz v17, :cond_e
+    if-eqz v17, :cond_d
 
-    :cond_d
+    :cond_c
     const-string/jumbo v17, "category_smart_switch"
 
     move-object/from16 v0, p1
@@ -998,18 +985,18 @@
 
     invoke-interface {v0, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    :cond_e
+    :cond_d
     sget-boolean v17, Lcom/samsung/android/settings/PrivacySettings;->mIsSamsungStorageEnabled:Z
 
-    if-eqz v17, :cond_f
+    if-eqz v17, :cond_e
 
     invoke-static/range {p0 .. p0}, Lcom/samsung/android/settings/PrivacySettings;->checkIsDeviceOwner(Landroid/content/Context;)Z
 
     move-result v17
 
-    if-eqz v17, :cond_10
+    if-eqz v17, :cond_f
 
-    :cond_f
+    :cond_e
     const-string/jumbo v17, "pref_storage"
 
     move-object/from16 v0, p1
@@ -1018,12 +1005,12 @@
 
     invoke-interface {v0, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    :cond_10
+    :cond_f
     invoke-static {}, Lcom/samsung/android/settings/PrivacySettings;->isSupportAutoPowerOnOff()Z
 
     move-result v17
 
-    if-nez v17, :cond_11
+    if-nez v17, :cond_10
 
     const-string/jumbo v17, "pref_auto_power_on_off"
 
@@ -1033,7 +1020,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    :cond_11
+    :cond_10
     return-void
 
     :catch_0
@@ -1047,12 +1034,12 @@
 
     goto/16 :goto_0
 
-    :cond_12
+    :cond_11
     const/16 v16, 0x0
 
     goto/16 :goto_1
 
-    :cond_13
+    :cond_12
     const-string/jumbo v17, "backup_data"
 
     move-object/from16 v0, p1
@@ -1092,7 +1079,7 @@
 
     goto/16 :goto_3
 
-    :cond_14
+    :cond_13
     const/16 v17, 0x0
 
     goto/16 :goto_4
@@ -1127,7 +1114,7 @@
 
     goto/16 :goto_5
 
-    :cond_15
+    :cond_14
     const-string/jumbo v17, "samsung_backup_inactive"
 
     move-object/from16 v0, p1
@@ -1285,7 +1272,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f10037d
+    const v3, 0x7f100383
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1403,7 +1390,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f10037e
+    const v3, 0x7f100384
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1644,7 +1631,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/PrivacySettings;->mConfigure:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f0b188f
+    const v1, 0x7f0b192b
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1743,7 +1730,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1892
+    const v2, 0x7f0b192e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1766,7 +1753,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1890
+    const v2, 0x7f0b192c
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1801,7 +1788,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1891
+    const v2, 0x7f0b192d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1834,57 +1821,45 @@
 .method private updateAutoRestartSummary(Z)V
     .locals 2
 
-    const v0, 0x7f0b1b37
+    iget-object v0, p0, Lcom/samsung/android/settings/PrivacySettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
 
-    invoke-static {}, Lcom/android/settings/Utils;->isSupportGraceUX()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/samsung/android/settings/PrivacySettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
-
-    invoke-virtual {v1, p1}, Lcom/android/settings/SecSettingsSwitchPreference;->setChecked(Z)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/PrivacySettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-virtual {v0, p1}, Lcom/android/settings/SecSettingsSwitchPreference;->setChecked(Z)V
 
     if-eqz p1, :cond_0
 
-    :goto_0
-    invoke-virtual {v1, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
+    iget-object v0, p0, Lcom/samsung/android/settings/PrivacySettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
 
+    const v1, 0x7f0b1bd3
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
+
+    :goto_0
     iget-object v0, p0, Lcom/samsung/android/settings/PrivacySettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
 
     invoke-virtual {v0, p1}, Lcom/android/settings/SecSettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
-    :goto_1
     return-void
 
     :cond_0
-    const v0, 0x7f0b01d7
+    iget-object v1, p0, Lcom/samsung/android/settings/PrivacySettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
+
+    invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const v0, 0x7f0b0235
+
+    :goto_1
+    invoke-virtual {v1, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
     goto :goto_0
 
     :cond_1
-    iget-object v1, p0, Lcom/samsung/android/settings/PrivacySettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
-
-    if-eqz p1, :cond_2
-
-    :goto_2
-    invoke-virtual {v1, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
-
-    iget-object v0, p0, Lcom/samsung/android/settings/PrivacySettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
+    const v0, 0x7f0b0234
 
     goto :goto_1
-
-    :cond_2
-    const v0, 0x7f0b1b38
-
-    goto :goto_2
 .end method
 
 .method private updateToggles()V
@@ -2215,7 +2190,7 @@
 
     if-eqz v1, :cond_9
 
-    const v13, 0x7f0b1b37
+    const v13, 0x7f0b1bd3
 
     :goto_8
     invoke-virtual {v14, v13}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -2238,7 +2213,7 @@
     goto/16 :goto_3
 
     :cond_9
-    const v13, 0x7f0b1b38
+    const v13, 0x7f0b1bd4
 
     goto :goto_8
 
@@ -2348,7 +2323,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a07
+    const v0, 0x7f0b1aa3
 
     return v0
 .end method
@@ -2398,7 +2373,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f0b15a5
+    const v3, 0x7f0b1641
 
     move-object v5, v4
 
@@ -2576,7 +2551,7 @@
 
     if-eqz v4, :cond_1
 
-    const v23, 0x7f0b0465
+    const v23, 0x7f0b04c8
 
     move/from16 v0, v23
 
@@ -2744,6 +2719,21 @@
 
     check-cast v16, Landroid/preference/PreferenceCategory;
 
+    invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
+
+    move-result v23
+
+    if-eqz v23, :cond_9
+
+    const v23, 0x7f0b0ca8
+
+    :goto_0
+    move-object/from16 v0, v16
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceCategory;->setTitle(I)V
+
     const-string/jumbo v23, "pref_auto_clean"
 
     move-object/from16 v0, v17
@@ -2792,7 +2782,7 @@
 
     move-result v23
 
-    if-eqz v23, :cond_9
+    if-eqz v23, :cond_a
 
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/PrivacySettings;->getActivity()Landroid/app/Activity;
 
@@ -2802,7 +2792,7 @@
 
     move-result v8
 
-    :goto_0
+    :goto_1
     const-string/jumbo v23, "pref_smartswitch"
 
     move-object/from16 v0, v17
@@ -2939,10 +2929,10 @@
     :cond_6
     if-eqz v19, :cond_7
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_b
 
     :cond_7
-    :goto_1
+    :goto_2
     const-string/jumbo v23, "category_samsungservices"
 
     move-object/from16 v0, p0
@@ -2971,7 +2961,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0b0d23
+    const v24, 0x7f0b0dae
 
     move-object/from16 v0, p0
 
@@ -3159,8 +3149,8 @@
 
     add-int/lit8 v7, v18, -0x1
 
-    :goto_2
-    if-ltz v7, :cond_d
+    :goto_3
+    if-ltz v7, :cond_e
 
     move-object/from16 v0, v17
 
@@ -3178,7 +3168,7 @@
 
     move-result v23
 
-    if-eqz v23, :cond_b
+    if-eqz v23, :cond_c
 
     move-object/from16 v0, v17
 
@@ -3187,14 +3177,19 @@
     :cond_8
     add-int/lit8 v7, v7, -0x1
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_9
-    const/4 v8, 0x0
+    const v23, 0x7f0b0ca7
 
     goto/16 :goto_0
 
     :cond_a
+    const/4 v8, 0x0
+
+    goto/16 :goto_1
+
+    :cond_b
     const/16 v23, 0x0
 
     move-object/from16 v0, p0
@@ -3207,9 +3202,9 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/settings/PrivacySettings;->showPreference(Landroid/preference/Preference;Landroid/preference/PreferenceGroup;Z)V
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_b
+    :cond_c
     instance-of v0, v15, Landroid/preference/PreferenceCategory;
 
     move/from16 v23, v0
@@ -3226,7 +3221,7 @@
 
     add-int/lit8 v10, v22, -0x1
 
-    :goto_3
+    :goto_4
     if-ltz v10, :cond_8
 
     invoke-virtual {v14, v10}, Landroid/preference/PreferenceCategory;->getPreference(I)Landroid/preference/Preference;
@@ -3243,23 +3238,23 @@
 
     move-result v23
 
-    if-eqz v23, :cond_c
+    if-eqz v23, :cond_d
 
     move-object/from16 v0, v21
 
     invoke-virtual {v14, v0}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
-    :cond_c
+    :cond_d
     add-int/lit8 v10, v10, -0x1
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_d
+    :cond_e
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/PrivacySettings;->getArguments()Landroid/os/Bundle;
 
     move-result-object v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
     const-string/jumbo v23, "menu"
 
@@ -3271,7 +3266,7 @@
 
     check-cast v13, Ljava/lang/String;
 
-    if-eqz v13, :cond_e
+    if-eqz v13, :cond_f
 
     const-string/jumbo v23, "backup"
 
@@ -3281,7 +3276,7 @@
 
     move-result v23
 
-    if-eqz v23, :cond_e
+    if-eqz v23, :cond_f
 
     const-string/jumbo v23, "category_restart"
 
@@ -3307,15 +3302,15 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/PrivacySettings;->removePreference(Ljava/lang/String;)V
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_f
 
-    const v23, 0x7f0b0be4
+    const v23, 0x7f0b0c56
 
     move/from16 v0, v23
 
     invoke-virtual {v4, v0}, Landroid/app/ActionBar;->setTitle(I)V
 
-    :cond_e
+    :cond_f
     invoke-direct/range {p0 .. p0}, Lcom/samsung/android/settings/PrivacySettings;->updateToggles()V
 
     return-void
@@ -3438,7 +3433,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f100380
+    const v4, 0x7f100386
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 

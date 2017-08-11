@@ -384,9 +384,9 @@
 .method private CreateGreyscaleAndNegativeColorDialog()V
     .locals 7
 
-    const v6, 0x7f0b02a8
+    const v6, 0x7f0b0306
 
-    const v5, 0x7f0b01ff
+    const v5, 0x7f0b025d
 
     iget-object v1, p0, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->mGreyscaleAndNegativeColorDialog:Landroid/app/AlertDialog;
 
@@ -411,11 +411,11 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0226
+    const v1, 0x7f0b0284
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0228
+    const v1, 0x7f0b0286
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->getString(I)Ljava/lang/String;
 
@@ -425,7 +425,7 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const v3, 0x7f0b01f4
+    const v3, 0x7f0b0252
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->getString(I)Ljava/lang/String;
 
@@ -477,7 +477,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport$14;-><init>(Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;)V
 
-    const v2, 0x7f0b1674
+    const v2, 0x7f0b1710
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -507,7 +507,7 @@
 .method private CreateGreyscaleDialog()V
     .locals 6
 
-    const v5, 0x7f0b01ff
+    const v5, 0x7f0b025d
 
     iget-object v1, p0, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->mGreyscaleDialog:Landroid/app/AlertDialog;
 
@@ -532,11 +532,11 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0226
+    const v1, 0x7f0b0284
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b01f3
+    const v1, 0x7f0b0251
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->getString(I)Ljava/lang/String;
 
@@ -546,7 +546,7 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const v3, 0x7f0b01f4
+    const v3, 0x7f0b0252
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->getString(I)Ljava/lang/String;
 
@@ -582,7 +582,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport$11;-><init>(Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;)V
 
-    const v2, 0x7f0b1674
+    const v2, 0x7f0b1710
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -635,11 +635,11 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0226
+    const v1, 0x7f0b0284
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0227
+    const v1, 0x7f0b0285
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->getText(I)Ljava/lang/CharSequence;
 
@@ -651,7 +651,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport$8;-><init>(Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;)V
 
-    const v2, 0x7f0b1674
+    const v2, 0x7f0b1710
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -773,7 +773,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->mResultText:Landroid/widget/TextView;
 
-    const v3, 0x7f0b0222
+    const v3, 0x7f0b0280
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -838,7 +838,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->mResultText:Landroid/widget/TextView;
 
-    const v3, 0x7f0b0223
+    const v3, 0x7f0b0281
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -855,7 +855,7 @@
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->mResultText:Landroid/widget/TextView;
 
-    const v3, 0x7f0b0fdf
+    const v3, 0x7f0b106c
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -1243,7 +1243,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->mResultText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0222
+    const v1, 0x7f0b0280
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1259,7 +1259,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->mResultText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0223
+    const v1, 0x7f0b0281
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1276,7 +1276,7 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/colorblind/ColorChipReport;->mResultText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0fdf
+    const v1, 0x7f0b106c
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1493,7 +1493,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b01dc
+    const v1, 0x7f0b023a
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1511,7 +1511,7 @@
 
     invoke-super {p0, p1, p2, p3}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
-    const v0, 0x7f040065
+    const v0, 0x7f040066
 
     const/4 v1, 0x0
 

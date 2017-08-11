@@ -89,7 +89,7 @@
 
     if-eqz v0, :cond_0
 
-    const v5, 0x7f0d00e9
+    const v5, 0x7f0d00ea
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getColor(I)I
 

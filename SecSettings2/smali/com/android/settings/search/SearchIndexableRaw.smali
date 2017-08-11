@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field public categoryId:Ljava/lang/String;
+
 .field public entries:Ljava/lang/String;
 
 .field public keywords:Ljava/lang/String;
@@ -26,6 +28,34 @@
     .locals 1
 
     invoke-direct {p0, p1}, Landroid/provider/SearchIndexableData;-><init>(Landroid/content/Context;)V
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/android/settings/search/SearchIndexableRaw;->summaryOn:Ljava/lang/String;
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/android/settings/search/SearchIndexableRaw;->summaryOff:Ljava/lang/String;
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/android/settings/search/SearchIndexableRaw;->entries:Ljava/lang/String;
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/android/settings/search/SearchIndexableRaw;->keywords:Ljava/lang/String;
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/android/settings/search/SearchIndexableRaw;->screenTitle:Ljava/lang/String;
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/android/settings/search/SearchIndexableRaw;->categoryId:Ljava/lang/String;
 
     const/4 v0, 0x0
 

@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$7;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get6(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/CheckBox;
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get7(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/CheckBox;
 
     move-result-object v0
 

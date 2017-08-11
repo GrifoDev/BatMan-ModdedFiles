@@ -508,7 +508,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1003d8
+    const v1, 0x7f1003db
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -576,7 +576,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v3, 0x7f0b04b7
+    const v3, 0x7f0b051a
 
     iput v3, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -1101,7 +1101,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b0c09
+    const v21, 0x7f0b0c7b
 
     invoke-virtual/range {v20 .. v21}, Landroid/preference/PreferenceScreen;->setTitle(I)V
 
@@ -1344,6 +1344,23 @@
     if-eqz v20, :cond_25
 
     :goto_6
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportMptcp()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_26
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/ConnectionsSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v20
+
+    invoke-static/range {v20 .. v20}, Lcom/android/settings/Utils;->isAisSIMValid(Landroid/content/Context;)Z
+
+    move-result v20
+
+    if-eqz v20, :cond_26
+
+    :goto_7
     const-string/jumbo v20, "tethering_and_hotspot"
 
     move-object/from16 v0, p0
@@ -1390,7 +1407,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b007b
+    const v21, 0x7f0b00d8
 
     invoke-virtual/range {v20 .. v21}, Lcom/samsung/android/settingslib/RestrictedPreference;->setTitle(I)V
 
@@ -1488,7 +1505,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_26
+    if-eqz v20, :cond_27
 
     const-string/jumbo v20, "ATT"
 
@@ -1500,7 +1517,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_26
+    if-eqz v20, :cond_27
 
     :cond_17
     const-string/jumbo v20, "tethering_and_hotspot"
@@ -1512,7 +1529,7 @@
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/ConnectionsSettings;->removePreference(Ljava/lang/String;)V
 
     :cond_18
-    :goto_7
+    :goto_8
     invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/settings/ConnectionsSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v20
@@ -1521,7 +1538,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_2a
+    if-eqz v20, :cond_2b
 
     move-object/from16 v0, p0
 
@@ -1557,7 +1574,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/ConnectionsSettings;->removePreference(Ljava/lang/String;)V
 
-    :goto_8
+    :goto_9
     new-instance v20, Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     invoke-direct/range {v20 .. v20}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
@@ -1836,7 +1853,7 @@
 
     invoke-virtual {v8, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    :goto_9
+    :goto_a
     invoke-virtual {v14, v8}, Lcom/samsung/android/settingslib/RestrictedPreference;->setIntent(Landroid/content/Intent;)V
 
     goto/16 :goto_4
@@ -1866,7 +1883,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/ConnectionsSettings;->removePreference(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_a
 
     :cond_22
     const-string/jumbo v20, "com.android.phone"
@@ -1889,19 +1906,19 @@
 
     const/4 v11, 0x1
 
-    :goto_a
+    :goto_b
     const-string/jumbo v20, "sim_id"
 
     move-object/from16 v0, v20
 
     invoke-virtual {v8, v0, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    goto :goto_9
+    goto :goto_a
 
     :cond_23
     const/4 v11, 0x0
 
-    goto :goto_a
+    goto :goto_b
 
     :cond_24
     move-object/from16 v0, p0
@@ -1946,13 +1963,7 @@
     goto/16 :goto_6
 
     :cond_26
-    invoke-static {}, Lcom/android/settings/Utils;->isSprModel()Z
-
-    move-result v20
-
-    if-eqz v20, :cond_27
-
-    const-string/jumbo v20, "tethering_and_hotspot"
+    const-string/jumbo v20, "ais_mptcp"
 
     move-object/from16 v0, p0
 
@@ -1963,6 +1974,23 @@
     goto/16 :goto_7
 
     :cond_27
+    invoke-static {}, Lcom/android/settings/Utils;->isSprModel()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_28
+
+    const-string/jumbo v20, "tethering_and_hotspot"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/ConnectionsSettings;->removePreference(Ljava/lang/String;)V
+
+    goto/16 :goto_8
+
+    :cond_28
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/ConnectionsSettings;->mUm:Landroid/os/UserManager;
@@ -1975,15 +2003,15 @@
 
     move-result v20
 
-    if-nez v20, :cond_28
+    if-nez v20, :cond_29
 
     invoke-virtual {v6}, Landroid/net/ConnectivityManager;->isTetheringSupported()Z
 
     move-result v20
 
-    if-eqz v20, :cond_29
+    if-eqz v20, :cond_2a
 
-    :cond_28
+    :cond_29
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/ConnectionsSettings;->mUm:Landroid/os/UserManager;
@@ -2008,9 +2036,9 @@
 
     invoke-virtual/range {v20 .. v21}, Lcom/samsung/android/settingslib/RestrictedPreference;->setEnabled(Z)V
 
-    goto/16 :goto_7
+    goto/16 :goto_8
 
-    :cond_29
+    :cond_2a
     const-string/jumbo v20, "tethering_and_hotspot"
 
     move-object/from16 v0, p0
@@ -2019,9 +2047,9 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/ConnectionsSettings;->removePreference(Ljava/lang/String;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_8
 
-    :cond_2a
+    :cond_2b
     const-string/jumbo v20, "wireless_settings_for_vzw"
 
     move-object/from16 v0, p0
@@ -2030,7 +2058,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/ConnectionsSettings;->removePreference(Ljava/lang/String;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 .end method
 
 .method public onDestroy()V
@@ -2173,9 +2201,9 @@
 .end method
 
 .method public onResume()V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onResume()V
 
@@ -2183,128 +2211,151 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mUm:Landroid/os/UserManager;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mUm:Landroid/os/UserManager;
 
-    const-string/jumbo v2, "no_config_tethering"
+    const-string/jumbo v3, "no_config_tethering"
 
-    invoke-virtual {v1, v2}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;)Z
+    invoke-virtual {v2, v3}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_7
+    if-eqz v2, :cond_8
 
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mTetheringHotspot:Lcom/samsung/android/settingslib/RestrictedPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mTetheringHotspot:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mTetheringHotspot:Lcom/samsung/android/settingslib/RestrictedPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mTetheringHotspot:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    invoke-virtual {v1, v4}, Lcom/samsung/android/settingslib/RestrictedPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v5}, Lcom/samsung/android/settingslib/RestrictedPreference;->setEnabled(Z)V
 
     :cond_0
     :goto_0
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/wifi/WifiEnabler;->resume(Landroid/content/Context;)V
+    invoke-virtual {v2, v0}, Lcom/android/settings/wifi/WifiEnabler;->resume(Landroid/content/Context;)V
 
     :cond_1
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mNfcEnabler:Lcom/samsung/android/settings/nfc/NfcEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mNfcEnabler:Lcom/samsung/android/settings/nfc/NfcEnabler;
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mNfcEnabler:Lcom/samsung/android/settings/nfc/NfcEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mNfcEnabler:Lcom/samsung/android/settings/nfc/NfcEnabler;
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/nfc/NfcEnabler;->resume()V
+    invoke-virtual {v2}, Lcom/samsung/android/settings/nfc/NfcEnabler;->resume()V
 
     :cond_2
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mAirplaneModeEnabler:Lcom/samsung/android/settings/SecAirplaneModeEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mAirplaneModeEnabler:Lcom/samsung/android/settings/SecAirplaneModeEnabler;
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mAirplaneModeEnabler:Lcom/samsung/android/settings/SecAirplaneModeEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mAirplaneModeEnabler:Lcom/samsung/android/settings/SecAirplaneModeEnabler;
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/SecAirplaneModeEnabler;->resume()V
+    invoke-virtual {v2}, Lcom/samsung/android/settings/SecAirplaneModeEnabler;->resume()V
 
     :cond_3
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mLocationSettingsEnabler:Lcom/samsung/android/settings/location/LocationSettingsEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mLocationSettingsEnabler:Lcom/samsung/android/settings/location/LocationSettingsEnabler;
 
-    if-eqz v1, :cond_4
+    if-eqz v2, :cond_4
 
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mLocationSettingsEnabler:Lcom/samsung/android/settings/location/LocationSettingsEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mLocationSettingsEnabler:Lcom/samsung/android/settings/location/LocationSettingsEnabler;
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->resume()V
+    invoke-virtual {v2}, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->resume()V
 
     :cond_4
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
 
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_5
 
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/ConnectionsSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/bluetooth/BluetoothEnabler;->resume(Landroid/content/Context;)V
+    invoke-virtual {v2, v3}, Lcom/android/settings/bluetooth/BluetoothEnabler;->resume(Landroid/content/Context;)V
 
     :cond_5
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mDeviceVisibilityEnabler:Lcom/samsung/android/settings/devicevisibility/DeviceVisibilityEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mDeviceVisibilityEnabler:Lcom/samsung/android/settings/devicevisibility/DeviceVisibilityEnabler;
 
-    if-eqz v1, :cond_6
+    if-eqz v2, :cond_6
 
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mDeviceVisibilityEnabler:Lcom/samsung/android/settings/devicevisibility/DeviceVisibilityEnabler;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mDeviceVisibilityEnabler:Lcom/samsung/android/settings/devicevisibility/DeviceVisibilityEnabler;
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/devicevisibility/DeviceVisibilityEnabler;->resume()V
+    invoke-virtual {v2}, Lcom/samsung/android/settings/devicevisibility/DeviceVisibilityEnabler;->resume()V
 
     :cond_6
     invoke-direct {p0}, Lcom/samsung/android/settings/ConnectionsSettings;->updateWifiCallingStatus()Z
 
     invoke-direct {p0}, Lcom/samsung/android/settings/ConnectionsSettings;->updateMobileNetworkMenu()V
 
-    invoke-virtual {p0}, Lcom/samsung/android/settings/ConnectionsSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {}, Lcom/android/settings/Utils;->isSprModel()Z
 
-    move-result-object v1
+    move-result v2
 
-    const-string/jumbo v2, "vowifi_menu_enable"
+    if-eqz v2, :cond_7
 
-    invoke-static {v2}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mWifiCallingObserver:Landroid/database/ContentObserver;
-
-    invoke-virtual {v1, v2, v4, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    new-instance v1, Lcom/samsung/android/settings/networklock/NetworkLockUtils;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/ConnectionsSettings;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+    invoke-direct {v1, v2}, Lcom/samsung/android/settings/networklock/NetworkLockUtils;-><init>(Landroid/content/Context;)V
 
-    const-string/jumbo v4, "Connections"
+    if-eqz v1, :cond_7
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
+    invoke-virtual {p0}, Lcom/samsung/android/settings/ConnectionsSettings;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/networklock/NetworkLockUtils;->getSPROemSimLock(Landroid/content/Context;)V
+
+    :cond_7
+    invoke-virtual {p0}, Lcom/samsung/android/settings/ConnectionsSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "vowifi_menu_enable"
+
+    invoke-static {v3}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mWifiCallingObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v2, v3, v5, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/ConnectionsSettings;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v5, "Connections"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
 
     return-void
 
-    :cond_7
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mTetheringHotspot:Lcom/samsung/android/settingslib/RestrictedPreference;
+    :cond_8
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mTetheringHotspot:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mTetheringHotspot:Lcom/samsung/android/settingslib/RestrictedPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings;->mTetheringHotspot:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settingslib/RestrictedPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settingslib/RestrictedPreference;->setEnabled(Z)V
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public onStart()V

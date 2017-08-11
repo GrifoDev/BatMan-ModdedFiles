@@ -574,7 +574,7 @@
 
     const-string/jumbo v9, "torch"
 
-    const v5, 0x7f0b036b
+    const v5, 0x7f0b03ca
 
     move-object/from16 v0, p0
 
@@ -586,7 +586,7 @@
 
     move-result-object v5
 
-    const v11, 0x7f020691
+    const v11, 0x7f0206fa
 
     invoke-virtual {v5, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -685,7 +685,7 @@
 
     invoke-direct {v1, p1}, Lcom/samsung/android/settings/IconResizer;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0a051a
+    const v2, 0x7f0a0519
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/IconResizer;->setIconSize(I)V
 
@@ -793,7 +793,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f11053d
+    const v4, 0x7f11053f
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -815,7 +815,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f11053b
+    const v4, 0x7f11053d
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -843,7 +843,7 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f0b035f
+    const v3, 0x7f0b03be
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -852,7 +852,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1003ee
+    const v4, 0x7f1003f4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -925,7 +925,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v3, 0x7f0b0956
+    const v3, 0x7f0b09c0
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -935,7 +935,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f040187
+    const v0, 0x7f040189
 
     const/4 v1, 0x0
 

@@ -988,7 +988,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1001f0
+    const v3, 0x7f1001f6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1041,7 +1041,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1001f2
+    const v3, 0x7f1001f8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2036,7 +2036,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0b09f4
+    const v4, 0x7f0b0a62
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2081,7 +2081,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f100259
+    const v5, 0x7f10025f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2153,7 +2153,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040072
+    const v0, 0x7f040073
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -2162,7 +2162,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f040071
+    const v0, 0x7f040072
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -2198,7 +2198,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0796
+    const v1, 0x7f0b07fc
 
     invoke-virtual {p0, v1}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2367,7 +2367,7 @@
 
     iput-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mBottomBar:Landroid/widget/LinearLayout;
 
-    const v8, 0x7f110703
+    const v8, 0x7f110706
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2377,7 +2377,7 @@
 
     iput-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mSUWBottomBar:Landroid/widget/RelativeLayout;
 
-    const v8, 0x7f110705
+    const v8, 0x7f110708
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2387,7 +2387,7 @@
 
     iput-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mSUWPrevBtn:Landroid/widget/LinearLayout;
 
-    const v8, 0x7f110706
+    const v8, 0x7f110709
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2397,7 +2397,7 @@
 
     iput-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mSUWPrevBtnImg:Landroid/widget/ImageView;
 
-    const v8, 0x7f110707
+    const v8, 0x7f11070a
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2407,7 +2407,7 @@
 
     iput-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mSUWNextBtn:Landroid/widget/LinearLayout;
 
-    const v8, 0x7f110708
+    const v8, 0x7f11070b
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2417,7 +2417,7 @@
 
     iput-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mSUWNextText:Landroid/widget/TextView;
 
-    const v8, 0x7f110709
+    const v8, 0x7f11070c
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2554,13 +2554,13 @@
 
     iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterLeftButton:Landroid/widget/TextView;
 
-    const v9, 0x7f020390
+    const v9, 0x7f0203b6
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
     iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterRightButton:Landroid/widget/TextView;
 
-    const v9, 0x7f020390
+    const v9, 0x7f0203b6
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -2735,7 +2735,7 @@
 
     iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
 
-    const v9, 0x7f0b12d5
+    const v9, 0x7f0b1370
 
     invoke-virtual {p0, v9}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2812,7 +2812,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b09f7
+    const v10, 0x7f0b0a65
 
     invoke-virtual {v9, v10}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2822,7 +2822,7 @@
 
     new-array v10, v10, [Ljava/lang/Object;
 
-    const v11, 0x7f0b12dd
+    const v11, 0x7f0b1378
 
     invoke-virtual {p0, v11}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -3184,7 +3184,7 @@
 
     iget-object v2, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v3, 0x7f0b1630
+    const v3, 0x7f0b16cc
 
     invoke-virtual {p0, v3}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 

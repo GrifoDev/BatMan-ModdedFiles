@@ -262,7 +262,7 @@
 
     iput v11, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->mSubId:I
 
-    const v11, 0x7f110618
+    const v11, 0x7f11061a
 
     invoke-virtual {v7, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -272,7 +272,7 @@
 
     iput-object v11, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->mSeekbar:Landroid/widget/SeekBar;
 
-    const v11, 0x7f1109a3
+    const v11, 0x7f1109a9
 
     invoke-virtual {v7, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -282,7 +282,7 @@
 
     iput-object v11, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->mStartPercent:Landroid/widget/TextView;
 
-    const v11, 0x7f1109a5
+    const v11, 0x7f1109ab
 
     invoke-virtual {v7, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -292,7 +292,7 @@
 
     iput-object v11, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->mediumText:Landroid/widget/TextView;
 
-    const v11, 0x7f1109a4
+    const v11, 0x7f1109aa
 
     invoke-virtual {v7, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -302,7 +302,7 @@
 
     iput-object v11, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->mEndPercent:Landroid/widget/TextView;
 
-    const v11, 0x7f1109a6
+    const v11, 0x7f1109ac
 
     invoke-virtual {v7, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -316,7 +316,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a030b
+    const v12, 0x7f0a0309
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -813,7 +813,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0d00eb
+    const v13, 0x7f0d00ec
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -831,7 +831,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0d00eb
+    const v13, 0x7f0d00ec
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -849,7 +849,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0b0503
+    const v13, 0x7f0b0566
 
     invoke-virtual {p0, v13}, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->getString(I)Ljava/lang/String;
 

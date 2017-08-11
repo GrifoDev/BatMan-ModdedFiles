@@ -287,72 +287,87 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
-
-    const/4 v0, 0x0
+    .locals 3
 
     const/4 v1, 0x0
 
+    const/4 v2, 0x0
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenStates:Ljava/util/LinkedHashSet;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenStates:Ljava/util/LinkedHashSet;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mPfScreenParams:Ljava/util/List;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mPfScreenParams:Ljava/util/List;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmStateReqCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmStateReqCallback;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmStateReqCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmStateReqCallback;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmParamFillingCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmParamFillingCallback;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmParamFillingCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmParamFillingCallback;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmRuleCanceledCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmRuleCanceledCallback;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmRuleCanceledCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmRuleCanceledCallback;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmPathRuleSplitCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmPathRuleSplitCallback;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmPathRuleSplitCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmPathRuleSplitCallback;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmChattyModeCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmChattyModeCallback;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmChattyModeCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmChattyModeCallback;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmTestSetupCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmTestSetupCallback;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmTestSetupCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmTestSetupCallback;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmTestTearDownCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmTestTearDownCallback;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmTestTearDownCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmTestTearDownCallback;
 
-    iput-boolean v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mPendingState:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mPendingState:Z
 
-    iput v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mResponseCallCount:I
+    iput v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mResponseCallCount:I
 
-    iput v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mNlgCallCount:I
+    iput v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mNlgCallCount:I
 
-    new-instance v0, Lcom/samsung/android/settings/bixby/EmSettingsManager$1;
+    new-instance v1, Lcom/samsung/android/settings/bixby/EmSettingsManager$1;
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/settings/bixby/EmSettingsManager$1;-><init>(Lcom/samsung/android/settings/bixby/EmSettingsManager;)V
+    invoke-direct {v1, p0}, Lcom/samsung/android/settings/bixby/EmSettingsManager$1;-><init>(Lcom/samsung/android/settings/bixby/EmSettingsManager;)V
 
-    iput-object v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mInterimStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
+    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mInterimStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mMultiPathRuleListener:Lcom/samsung/android/sdk/bixby/BixbyApi$MultiPathRuleListener;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mMultiPathRuleListener:Lcom/samsung/android/sdk/bixby/BixbyApi$MultiPathRuleListener;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mChattyModeListener:Lcom/samsung/android/sdk/bixby/BixbyApi$ChattyModeListener;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mChattyModeListener:Lcom/samsung/android/sdk/bixby/BixbyApi$ChattyModeListener;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mTestListener:Lcom/samsung/android/sdk/bixby/BixbyApi$TestListener;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mTestListener:Lcom/samsung/android/sdk/bixby/BixbyApi$TestListener;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenParamList:Ljava/util/List;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenParamList:Ljava/util/List;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mResultParamList:Ljava/util/List;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mResultParamList:Ljava/util/List;
 
-    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mNlgrequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    iput-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mNlgrequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportBixby()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
+    :try_start_0
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEm:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEm:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "EmSettingsManager"
+
+    const-string/jumbo v2, "EmSettingsManager() getInstance IllegalStateException"
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method private callRequestNlg(Ljava/lang/String;)V
@@ -681,119 +696,153 @@
 .end method
 
 .method public bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
-    .locals 3
+    .locals 4
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportBixby()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     return-void
 
     :cond_0
+    iget-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEm:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    if-nez v1, :cond_1
+
+    :try_start_0
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEm:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_1
+    :goto_0
     iput-object p1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mContext:Landroid/content/Context;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     invoke-direct {p0, p2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setEmCallback(Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;)V
 
-    iget-object v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEm:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    iget-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEm:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    iget-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mInterimStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
+    iget-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mInterimStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setInterimStateListener(Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;)V
-
-    :cond_1
-    instance-of v0, p3, Ljava/util/LinkedHashSet;
-
-    if-eqz v0, :cond_4
-
-    move-object v0, p3
-
-    check-cast v0, Ljava/util/LinkedHashSet;
-
-    iput-object v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenStates:Ljava/util/LinkedHashSet;
-
-    iget-object v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenStates:Ljava/util/LinkedHashSet;
-
-    invoke-direct {p0, v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setLogEnterStates(Landroid/content/Context;Ljava/util/Set;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setInterimStateListener(Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;)V
 
     :cond_2
-    :goto_0
-    const-string/jumbo v0, "EmSettingsManager"
+    instance-of v1, p3, Ljava/util/LinkedHashSet;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    if-eqz v1, :cond_5
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-object v1, p3
 
-    const-string/jumbo v2, "bindEmService() : "
+    check-cast v1, Ljava/util/LinkedHashSet;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " / "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getClass()Ljava/lang/Class;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    return-void
-
-    :cond_4
-    instance-of v0, p3, Ljava/lang/String;
-
-    if-eqz v0, :cond_2
-
-    new-instance v0, Ljava/util/LinkedHashSet;
-
-    invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenStates:Ljava/util/LinkedHashSet;
-
-    iget-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenStates:Ljava/util/LinkedHashSet;
-
-    move-object v0, p3
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-virtual {v1, v0}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
+    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenStates:Ljava/util/LinkedHashSet;
 
     iget-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mContext:Landroid/content/Context;
 
-    move-object v0, p3
+    iget-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenStates:Ljava/util/LinkedHashSet;
 
-    check-cast v0, Ljava/lang/String;
+    invoke-direct {p0, v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setLogEnterStates(Landroid/content/Context;Ljava/util/Set;)V
 
-    invoke-direct {p0, v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setLogEnterState(Landroid/content/Context;Ljava/lang/String;)V
+    :cond_3
+    :goto_1
+    const-string/jumbo v1, "EmSettingsManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "bindEmService() : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " / "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getClass()Ljava/lang/Class;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "EmSettingsManager"
+
+    const-string/jumbo v2, "bindEmService() getInstance IllegalStateException"
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v1, "Settings"
+
+    invoke-static {p1, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->createInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEm:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     goto :goto_0
+
+    :cond_5
+    instance-of v1, p3, Ljava/lang/String;
+
+    if-eqz v1, :cond_3
+
+    new-instance v1, Ljava/util/LinkedHashSet;
+
+    invoke-direct {v1}, Ljava/util/LinkedHashSet;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenStates:Ljava/util/LinkedHashSet;
+
+    iget-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mScreenStates:Ljava/util/LinkedHashSet;
+
+    move-object v1, p3
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-virtual {v2, v1}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
+
+    iget-object v2, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mContext:Landroid/content/Context;
+
+    move-object v1, p3
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-direct {p0, v2, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setLogEnterState(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_1
 .end method
 
 .method public bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmStateReqCallback;)V
@@ -1055,22 +1104,6 @@
     iget-object v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmStateId:Ljava/lang/String;
 
     return-object v0
-.end method
-
-.method public isLandingState()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/settings/bixby/EmSettingsManager;->mEmState:Lcom/samsung/android/sdk/bixby/data/State;
-
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/State;->isLandingState()Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public isLastState()Z

@@ -747,7 +747,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/location/SatelliteView;->calendarDate:Ljava/lang/String;
 
-    const v3, 0x7f1106ec
+    const v3, 0x7f1106ef
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/location/SatelliteView;->findViewById(I)Landroid/view/View;
 
@@ -757,7 +757,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/location/SatelliteView;->btn_log:Landroid/widget/Button;
 
-    const v3, 0x7f1106ea
+    const v3, 0x7f1106ed
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/location/SatelliteView;->findViewById(I)Landroid/view/View;
 
@@ -801,7 +801,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b0c7d
+    const v4, 0x7f0b0cf1
 
     invoke-virtual {p0, v4, v3}, Lcom/samsung/android/settings/location/SatelliteView;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -905,7 +905,7 @@
 
     sput v2, Lcom/samsung/android/settings/location/SatelliteView;->CIRCLE_RADIUS:I
 
-    const v2, 0x7f1106eb
+    const v2, 0x7f1106ee
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/location/SatelliteView;->findViewById(I)Landroid/view/View;
 
@@ -975,11 +975,11 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/location/SatelliteView;->mHandler:Lcom/samsung/android/settings/location/SatelliteView$SetHandler;
 
-    const v1, 0x7f040274
+    const v1, 0x7f040278
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/location/SatelliteView;->setContentView(I)V
 
-    const v1, 0x7f1106e9
+    const v1, 0x7f1106ec
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/location/SatelliteView;->findViewById(I)Landroid/view/View;
 

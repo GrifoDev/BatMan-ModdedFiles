@@ -24,5 +24,6 @@
     <com.android.settings.CopyablePreference android:persistent="false" android:enabled="false" android:title="@string/status_wimax_mac_address" android:key="wimax_mac_address" android:summary="@string/device_info_not_available" android:shouldDisableView="false" />
     <com.android.settings.CopyablePreference android:persistent="false" android:enabled="false" android:title="@string/sysscope_status" android:key="sysscope_status" android:summary="@string/device_info_not_available" android:shouldDisableView="false" />
     <com.samsung.android.settings.deviceinfo.AvoidRootPreference android:persistent="false" android:enabled="false" android:title="@string/sysscope_status" android:key="sysscope_status_root" android:summary="@string/device_info_not_available" android:shouldDisableView="false" />
+    <com.android.settings.activation.ActivationPreference android:persistent="false" android:enabled="false" android:title="@string/activation_title" android:key="activation_status" android:summary="@string/device_info_not_available" android:shouldDisableView="false" />
     <com.android.settings.CopyablePreference android:persistent="false" android:enabled="false" android:title="@string/installment_balance" android:key="installment_balance" android:summary="@string/installment_balance_summary" android:shouldDisableView="false" />
 </PreferenceScreen>

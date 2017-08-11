@@ -215,7 +215,7 @@
 
     invoke-direct {v8, v11}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v11, 0x7f040245
+    const v11, 0x7f040249
 
     invoke-virtual {v8, v11}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -245,7 +245,7 @@
 
     aput-object v4, v12, v13
 
-    const v13, 0x7f0b0e25
+    const v13, 0x7f0b0eb2
 
     invoke-virtual {v11, v13, v12}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -266,7 +266,7 @@
 
     aput-object v4, v12, v13
 
-    const v13, 0x7f0b0e26
+    const v13, 0x7f0b0eb3
 
     invoke-virtual {v11, v13, v12}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
     :try_end_1
@@ -333,7 +333,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/WifiNoItemsPreference;-><init>(Landroid/content/Context;I)V
 
-    const v1, 0x7f0b0e27
+    const v1, 0x7f0b0eb4
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/wifi/WifiNoItemsPreference;->setTitle(I)V
 
@@ -493,7 +493,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b165f
+    const v3, 0x7f0b16fb
 
     move-object v5, v4
 

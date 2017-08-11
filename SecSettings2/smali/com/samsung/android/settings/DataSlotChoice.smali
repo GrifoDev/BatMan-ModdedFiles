@@ -478,11 +478,11 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b192a
+    const v1, 0x7f0b19c6
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0c10
+    const v1, 0x7f0b0c82
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -494,7 +494,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/DataSlotChoice$3;-><init>(Lcom/samsung/android/settings/DataSlotChoice;)V
 
-    const v2, 0x7f0b0c0f
+    const v2, 0x7f0b0c81
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -934,7 +934,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 11
 
-    const v1, 0x7f0400a8
+    const v1, 0x7f0400a9
 
     const/4 v3, 0x0
 
@@ -954,7 +954,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0c0c
+    const v4, 0x7f0b0c7e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -970,7 +970,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0c0d
+    const v4, 0x7f0b0c7f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1016,13 +1016,13 @@
 
     move-result-object v8
 
-    const v1, 0x7f0a0505
+    const v1, 0x7f0a0504
 
     invoke-virtual {v8, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a04fa
+    const v3, 0x7f0a04f8
 
     invoke-virtual {v8, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1030,7 +1030,7 @@
 
     add-int/2addr v1, v3
 
-    const v3, 0x7f0a050d
+    const v3, 0x7f0a050c
 
     invoke-virtual {v8, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1068,7 +1068,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/DataSlotChoice;->flag:[Z
 
-    const v10, 0x7f04017d
+    const v10, 0x7f04017f
 
     invoke-direct {v1, v3, v10, v4, v5}, Lcom/samsung/android/settings/DataSlotChoice$RadioAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/String;[Z)V
 
@@ -1215,7 +1215,7 @@
 
     sget-object v5, Lcom/samsung/android/settings/DataSlotChoice;->toastAlert:Landroid/widget/Toast;
 
-    const v6, 0x7f0b0c0e
+    const v6, 0x7f0b0c80
 
     invoke-virtual {v5, v6}, Landroid/widget/Toast;->setText(I)V
 
@@ -1629,7 +1629,7 @@
 
     sget-object v7, Lcom/samsung/android/settings/DataSlotChoice;->toastAlert:Landroid/widget/Toast;
 
-    const v8, 0x7f0b0370
+    const v8, 0x7f0b03cf
 
     invoke-virtual {v7, v8}, Landroid/widget/Toast;->setText(I)V
 
@@ -1729,7 +1729,7 @@
 
     invoke-direct {v2, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f0b0bff
+    const v7, 0x7f0b0c71
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/DataSlotChoice;->getString(I)Ljava/lang/String;
 
@@ -1743,7 +1743,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0c00
+    const v8, 0x7f0b0c72
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/DataSlotChoice;->getString(I)Ljava/lang/String;
 

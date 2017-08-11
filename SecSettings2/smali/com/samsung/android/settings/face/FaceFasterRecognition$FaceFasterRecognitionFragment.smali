@@ -99,7 +99,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f0402a1
+    const v0, 0x7f0402a5
 
     const/4 v1, 0x0
 
@@ -223,7 +223,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f1106fb
+    const v1, 0x7f1106fe
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -260,7 +260,7 @@
     invoke-virtual {v1, v0}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
 
     :cond_0
-    const v1, 0x7f110725
+    const v1, 0x7f110728
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

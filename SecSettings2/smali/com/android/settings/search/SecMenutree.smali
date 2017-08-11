@@ -319,11 +319,11 @@
 
     iget-object v2, v0, Lcom/android/settings/search/SecMenutree;->root:Lcom/android/settings/search/SecMenu;
 
+    const-string/jumbo v4, ""
+
+    const-string/jumbo v5, ""
+
     iget-object v7, v15, Lcom/android/settingslib/drawer/Tile;->fragment:Ljava/lang/String;
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
 
     invoke-direct/range {v1 .. v7}, Lcom/android/settings/search/SecInnerMenu;-><init>(Lcom/android/settings/search/SecMenu;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -360,11 +360,11 @@
 
     iget-object v2, v0, Lcom/android/settings/search/SecMenutree;->root:Lcom/android/settings/search/SecMenu;
 
+    const-string/jumbo v4, ""
+
+    const-string/jumbo v5, ""
+
     iget-object v7, v15, Lcom/android/settingslib/drawer/Tile;->intent:Landroid/content/Intent;
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
 
     invoke-direct/range {v1 .. v7}, Lcom/android/settings/search/SecLinkedMenu;-><init>(Lcom/android/settings/search/SecMenu;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;)V
 

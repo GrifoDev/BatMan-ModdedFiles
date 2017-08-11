@@ -237,9 +237,9 @@
 
     const/4 v3, 0x0
 
-    const v5, 0x7f040224
+    const v5, 0x7f040228
 
-    const v6, 0x7f110652
+    const v6, 0x7f110658
 
     move-object v0, p0
 
@@ -1012,7 +1012,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b059b
+    const v2, 0x7f0b05fe
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1215,7 +1215,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/BrightnessSeekBarPreference;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0204eb
+    const v2, 0x7f020554
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1231,7 +1231,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0139
+    const v2, 0x7f0d013a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -1291,7 +1291,7 @@
 
     const/4 v8, -0x1
 
-    const v7, 0x7f110653
+    const v7, 0x7f110659
 
     const/4 v4, 0x1
 
@@ -1312,7 +1312,7 @@
 
     iput v8, p0, Lcom/samsung/android/settings/display/BrightnessSeekBarPreference;->mCurBrightness:I
 
-    const v3, 0x7f110652
+    const v3, 0x7f110658
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1332,7 +1332,7 @@
     goto :goto_0
 
     :cond_1
-    const v3, 0x7f110656
+    const v3, 0x7f11065c
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1342,7 +1342,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/display/BrightnessSeekBarPreference;->mOverheatTextview:Landroid/widget/TextView;
 
-    const v3, 0x7f110655
+    const v3, 0x7f11065b
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1560,7 +1560,7 @@
     return-void
 
     :cond_3
-    const v3, 0x7f110654
+    const v3, 0x7f11065a
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1576,7 +1576,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0b059f
+    const v6, 0x7f0b0602
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2702,7 +2702,7 @@
 .method public setBrightnessIcon(Z)V
     .locals 1
 
-    const v0, 0x7f02056b
+    const v0, 0x7f0205d4
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/BrightnessSeekBarPreference;->setIcon(I)V
 

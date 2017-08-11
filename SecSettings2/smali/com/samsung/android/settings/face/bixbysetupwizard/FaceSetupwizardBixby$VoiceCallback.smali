@@ -99,7 +99,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b123a
+    const v3, 0x7f0b12d5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -115,7 +115,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0de7
+    const v3, 0x7f0b0e72
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -129,7 +129,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby$VoiceCallback;->this$0:Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;
 
-    const v3, 0x7f110737
+    const v3, 0x7f11073a
 
     invoke-static {v2, v3, v5}, Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;->-wrap7(Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;II)V
 
@@ -152,7 +152,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby$VoiceCallback;->this$0:Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;
 
-    const v3, 0x7f110736
+    const v3, 0x7f110739
 
     invoke-static {v2, v3, v5}, Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;->-wrap7(Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;II)V
 

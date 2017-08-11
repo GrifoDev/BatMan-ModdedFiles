@@ -87,7 +87,7 @@
 
     iget-object v3, p0, Lcom/android/settingslib/wifi/WifiTracker$WorkHandler;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {v3}, Lcom/android/settingslib/wifi/WifiTracker;->-get12(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/net/wifi/WifiManager;
+    invoke-static {v3}, Lcom/android/settingslib/wifi/WifiTracker;->-get13(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/net/wifi/WifiManager;
 
     move-result-object v3
 
@@ -193,7 +193,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/wifi/WifiTracker$WorkHandler;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {v2}, Lcom/android/settingslib/wifi/WifiTracker;->-get1(Lcom/android/settingslib/wifi/WifiTracker;)Ljava/util/ArrayList;
+    invoke-static {v2}, Lcom/android/settingslib/wifi/WifiTracker;->-get11(Lcom/android/settingslib/wifi/WifiTracker;)Ljava/lang/Object;
 
     move-result-object v2
 

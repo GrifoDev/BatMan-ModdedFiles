@@ -34,9 +34,9 @@
 .method public onChange(Z)V
     .locals 11
 
-    const v7, 0x7f0b1b38
+    const v7, 0x7f0b1bd4
 
-    const v6, 0x7f0b1b37
+    const v6, 0x7f0b1bd3
 
     const/4 v10, 0x1
 
@@ -100,7 +100,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b044b
+    const v8, 0x7f0b04ad
 
     invoke-virtual {v5, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -158,7 +158,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b0a55
+    const v8, 0x7f0b0ac3
 
     invoke-virtual {v5, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -216,7 +216,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b0a53
+    const v8, 0x7f0b0ac1
 
     invoke-virtual {v5, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -268,7 +268,7 @@
 
     move-result-object v5
 
-    invoke-static {}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap5()I
+    invoke-static {}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap6()I
 
     move-result v6
 
@@ -382,7 +382,7 @@
     goto :goto_5
 
     :cond_8
-    const v5, 0x7f0b044b
+    const v5, 0x7f0b04ad
 
     goto :goto_6
 
@@ -414,7 +414,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b0a54
+    const v8, 0x7f0b0ac2
 
     invoke-virtual {v5, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -506,12 +506,12 @@
 
     if-eqz v5, :cond_10
 
-    const v5, 0x7f0b0a55
+    const v5, 0x7f0b0ac3
 
     goto :goto_9
 
     :cond_10
-    const v5, 0x7f0b0a54
+    const v5, 0x7f0b0ac2
 
     goto :goto_9
 
@@ -543,7 +543,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b0a52
+    const v8, 0x7f0b0ac0
 
     invoke-virtual {v5, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -635,12 +635,12 @@
 
     if-eqz v5, :cond_18
 
-    const v5, 0x7f0b0a53
+    const v5, 0x7f0b0ac1
 
     goto :goto_c
 
     :cond_18
-    const v5, 0x7f0b0a52
+    const v5, 0x7f0b0ac0
 
     goto :goto_c
 
@@ -743,7 +743,7 @@
     goto :goto_e
 
     :cond_1e
-    invoke-static {}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap5()I
+    invoke-static {}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap6()I
 
     move-result v6
 

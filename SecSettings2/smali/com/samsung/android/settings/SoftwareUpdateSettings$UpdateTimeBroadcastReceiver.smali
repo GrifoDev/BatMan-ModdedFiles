@@ -88,7 +88,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$UpdateTimeBroadcastReceiver;->this$0:Lcom/samsung/android/settings/SoftwareUpdateSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-wrap2(Lcom/samsung/android/settings/SoftwareUpdateSettings;)V
+    invoke-static {v1}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-wrap3(Lcom/samsung/android/settings/SoftwareUpdateSettings;)V
 
     :cond_2
     return-void

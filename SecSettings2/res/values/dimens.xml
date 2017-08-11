@@ -602,8 +602,6 @@
     <dimen name="bluetooth_settings_empty_view_text_size">16.0sp</dimen>
     <dimen name="bluetooth_divider_start_margin">56.0dip</dimen>
     <dimen name="bluetooth_divider_end_margin">10.0dip</dimen>
-    <dimen name="bluetooth_list_text_end_margin">16.0dip</dimen>
-    <dimen name="bluetooth_dialog_list_text_end_margin">20.0dip</dimen>
     <dimen name="bluetooth_dual_play_settings_content_padding_top">16.0dip</dimen>
     <dimen name="body_margin_first">56.0dip</dimen>
     <dimen name="body_text_bottom_padding">16.0dip</dimen>
@@ -1257,7 +1255,8 @@
     <dimen name="list_dialog_sim_icon_margin">16.0dip</dimen>
     <dimen name="list_divider_additional_inset">0.0dip</dimen>
     <dimen name="list_divider_height">2.0px</dimen>
-    <dimen name="list_divider_padding">10.0dip</dimen>
+    <dimen name="list_divider_padding">12.0dip</dimen>
+    <dimen name="list_divider_vertical_height">22.0dip</dimen>
     <dimen name="list_icon_create_width">32.0dip</dimen>
     <dimen name="list_item_add_icon_inner_padding">29.0dip</dimen>
     <item type="dimen" name="list_item_bottom_padding">@android:dimen/tw_preference_item_padding_bottom</item>
@@ -1919,7 +1918,7 @@
     <dimen name="wifi_setup_switchbar_margin_left">48.0dip</dimen>
     <dimen name="wifi_setup_switchbar_margin_right">16.0dip</dimen>
     <dimen name="wifi_setup_titlebar_total_height">62.0dip</dimen>
-    <dimen name="wifi_setup_titlebar_text_height">34.0dip</dimen>
+    <dimen name="wifi_setup_titlebar_text_height">45.0dip</dimen>
     <dimen name="suw_small_header_side_margin">24.0dip</dimen>
     <dimen name="suw_small_header_top_margin">47.0dip</dimen>
     <dimen name="suw_small_header_bottom_margin">13.0dip</dimen>
@@ -2037,6 +2036,11 @@
     <dimen name="icgl_list_item_inner_padding">16.0dip</dimen>
     <item type="dimen" name="icgl_list_item_top_padding">@android:dimen/tw_preference_item_padding_top</item>
     <item type="dimen" name="icgl_list_item_bottom_padding">@android:dimen/tw_preference_item_padding_bottom</item>
+    <dimen name="datepicker_dialog_layout_padding_top_data_rank">20.0dip</dimen>
+    <dimen name="datepicker_dialog_layout_padding_bottom_data_rank">4.0dip</dimen>
+    <dimen name="datepicker_dialog_layout_min_height_data_rank">205.0dip</dimen>
+    <dimen name="datepicker_dialog_layout_min_width_data_rank">400.0dip</dimen>
+    <dimen name="datepicker_fromto_min_width_land">253.0dip</dimen>
     <dimen name="led_cover_caller_id_item_height">117.0dip</dimen>
     <dimen name="led_cover_caller_id_item_width">117.0dip</dimen>
     <dimen name="led_cover_caller_id_item_padding_top_bottom">4.0dip</dimen>

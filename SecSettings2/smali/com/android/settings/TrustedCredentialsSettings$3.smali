@@ -3,12 +3,12 @@
 .source "TrustedCredentialsSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/TrustedCredentialsSettings;->showTrustAllCaDialog(Ljava/util/List;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/TrustedCredentialsSettings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,28 +34,38 @@
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+.method public onStateReceived()V
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings$3;->this$0:Lcom/android/settings/TrustedCredentialsSettings;
+    iget-object v1, p0, Lcom/android/settings/TrustedCredentialsSettings$3;->this$0:Lcom/android/settings/TrustedCredentialsSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings;->getActivity()Landroid/app/Activity;
+    iget-object v1, v1, Lcom/android/settings/TrustedCredentialsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "ARG_SHOW_NEW_FOR_USER"
+    const-string/jumbo v1, "TrustedCredentialsSettings"
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->removeExtra(Ljava/lang/String;)V
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings$3;->this$0:Lcom/android/settings/TrustedCredentialsSettings;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/16 v1, -0x2710
+    const-string/jumbo v3, "mEmCallback stateId : "
 
-    invoke-static {v0, v1}, Lcom/android/settings/TrustedCredentialsSettings;->-set2(Lcom/android/settings/TrustedCredentialsSettings;I)I
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

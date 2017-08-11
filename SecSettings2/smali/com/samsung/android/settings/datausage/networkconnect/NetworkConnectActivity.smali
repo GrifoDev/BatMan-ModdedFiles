@@ -1047,7 +1047,7 @@
     :cond_0
     iget-object v3, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mDialog:Landroid/app/ProgressDialog;
 
-    const v4, 0x7f0b03e2
+    const v4, 0x7f0b0443
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->getString(I)Ljava/lang/String;
 
@@ -1378,7 +1378,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f11058f
+    .packed-switch 0x7f110591
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -1398,7 +1398,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0401aa
+    const v0, 0x7f0401ac
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->setContentView(I)V
 
@@ -1418,7 +1418,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mPolicyManager:Landroid/net/NetworkPolicyManager;
 
-    const v0, 0x7f110590
+    const v0, 0x7f110592
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->findViewById(I)Landroid/view/View;
 
@@ -1428,7 +1428,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mWlanText:Landroid/widget/TextView;
 
-    const v0, 0x7f110298
+    const v0, 0x7f11029a
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->findViewById(I)Landroid/view/View;
 
@@ -1460,7 +1460,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setDescendantFocusability(I)V
 
-    const v0, 0x7f11058f
+    const v0, 0x7f110591
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->findViewById(I)Landroid/view/View;
 
@@ -1470,7 +1470,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mMobileCheckBox:Landroid/widget/CheckBox;
 
-    const v0, 0x7f110591
+    const v0, 0x7f110593
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->findViewById(I)Landroid/view/View;
 
@@ -1651,7 +1651,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mWlanText:Landroid/widget/TextView;
 
-    const v8, 0x7f0b0db2
+    const v8, 0x7f0b0e3d
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->getString(I)Ljava/lang/String;
 
@@ -1661,7 +1661,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->mMobileText:Landroid/widget/TextView;
 
-    const v8, 0x7f0b0db1
+    const v8, 0x7f0b0e3c
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/datausage/networkconnect/NetworkConnectActivity;->getString(I)Ljava/lang/String;
 

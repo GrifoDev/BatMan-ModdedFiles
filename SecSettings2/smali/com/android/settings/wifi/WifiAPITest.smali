@@ -76,7 +76,7 @@
 
     iput-object v1, p0, Lcom/android/settings/wifi/WifiAPITest;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    const v1, 0x7f04037c
+    const v1, 0x7f040381
 
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiAPITest;->addPreferencesFromResource(I)V
 

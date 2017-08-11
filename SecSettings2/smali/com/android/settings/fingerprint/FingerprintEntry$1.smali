@@ -67,7 +67,7 @@
 
     if-eqz v3, :cond_1
 
-    invoke-static {}, Lcom/android/settings/fingerprint/FingerprintEntry;->-get3()I
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v3
 
@@ -99,7 +99,7 @@
 
     if-eqz v3, :cond_3
 
-    invoke-static {}, Lcom/android/settings/fingerprint/FingerprintEntry;->-get3()I
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v3
 
@@ -161,6 +161,67 @@
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+.end method
+
+.method public getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;
+    .locals 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Z)",
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/settings/search/SearchIndexableRaw;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    new-instance v0, Lcom/android/settings/search/SearchIndexableRaw;
+
+    invoke-direct {v0, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
+
+    const-string/jumbo v3, "samsung_pass"
+
+    iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
+
+    const v3, 0x7f0b07ea
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const v5, 0x7f0b07e9
+
+    invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    aput-object v5, v4, v6
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->summaryOn:Ljava/lang/String;
+
+    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-object v2
 .end method
 
 .method public getXmlResourcesToIndex(Landroid/content/Context;Z)Ljava/util/List;

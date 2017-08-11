@@ -35,63 +35,37 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 4
+    .locals 3
 
-    iget-object v2, p0, Lcom/samsung/android/settings/LGTRoamingEnv$6;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
+    iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv$6;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    invoke-static {v2, v3}, Lcom/samsung/android/settings/LGTRoamingEnv;->-set0(Lcom/samsung/android/settings/LGTRoamingEnv;Z)Z
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/LGTRoamingEnv;->-set0(Lcom/samsung/android/settings/LGTRoamingEnv;Z)Z
 
-    iget-object v2, p0, Lcom/samsung/android/settings/LGTRoamingEnv$6;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
+    iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv$6;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
 
-    invoke-virtual {v2}, Lcom/samsung/android/settings/LGTRoamingEnv;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    const-string/jumbo v2, "phone"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
+    invoke-virtual {v1}, Lcom/samsung/android/settings/LGTRoamingEnv;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
-    :try_start_0
-    invoke-interface {v1}, Lcom/android/internal/telephony/ITelephony;->getPhoneServiceState()I
+    const/4 v2, 0x0
 
-    move-result v2
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
-    const/4 v3, 0x3
+    const-string/jumbo v1, "phone"
 
-    if-ne v2, v3, :cond_0
+    invoke-static {v1}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    iget-object v2, p0, Lcom/samsung/android/settings/LGTRoamingEnv$6;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
+    move-result-object v1
 
-    invoke-static {v2}, Lcom/samsung/android/settings/LGTRoamingEnv;->-wrap2(Lcom/samsung/android/settings/LGTRoamingEnv;)V
+    invoke-static {v1}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
 
-    :goto_0
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv$6;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/LGTRoamingEnv;->-wrap2(Lcom/samsung/android/settings/LGTRoamingEnv;)V
+
     return-void
-
-    :cond_0
-    iget-object v2, p0, Lcom/samsung/android/settings/LGTRoamingEnv$6;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/LGTRoamingEnv;->-wrap2(Lcom/samsung/android/settings/LGTRoamingEnv;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
-
-    goto :goto_0
 .end method

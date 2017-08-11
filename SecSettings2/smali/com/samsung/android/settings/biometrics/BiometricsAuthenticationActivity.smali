@@ -267,13 +267,13 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0703
+    const v2, 0x7f0b0769
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b0751
+    const v2, 0x7f0b07b7
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -305,52 +305,55 @@
 .end method
 
 .method private showErrorPopup(I)V
-    .locals 8
+    .locals 7
 
-    const v7, 0x7f0b089e
+    const v6, 0x7f0b0908
+
+    const v5, 0x7f0b08e7
 
     const-string/jumbo v1, ""
 
-    iget-object v5, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b087d
+    const v4, 0x7f0b08e5
 
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
     packed-switch p1, :pswitch_data_0
 
     :goto_0
+    :pswitch_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    new-instance v5, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$1;
+    new-instance v3, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$1;
 
-    invoke-direct {v5, p0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$1;-><init>(Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;)V
+    invoke-direct {v3, p0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$1;-><init>(Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;)V
 
-    const v6, 0x7f0b1639
+    const v4, 0x7f0b16d5
 
-    invoke-virtual {v0, v6, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    new-instance v5, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$2;
+    new-instance v3, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$2;
 
-    invoke-direct {v5, p0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$2;-><init>(Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;)V
+    invoke-direct {v3, p0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$2;-><init>(Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;)V
 
-    const/high16 v6, 0x1040000
+    const/high16 v4, 0x1040000
 
-    invoke-virtual {v0, v6, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    new-instance v5, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$3;
+    new-instance v3, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$3;
 
-    invoke-direct {v5, p0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$3;-><init>(Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;)V
+    invoke-direct {v3, p0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity$3;-><init>(Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;)V
 
-    invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
@@ -358,98 +361,105 @@
 
     return-void
 
-    :pswitch_0
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v5, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
-
-    const v6, 0x7f0b0879
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
     :pswitch_1
-    new-instance v2, Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const v4, 0x7f0b08ea
 
-    iget-object v5, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
-
-    const v6, 0x7f0b087b
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
+
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
 
     goto :goto_0
 
     :pswitch_2
-    iget-object v5, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0881
+    const v4, 0x7f0b08e3
 
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v5, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b087f
+    invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
+    move-result-object v2
 
     goto :goto_0
 
     :pswitch_3
-    iget-object v5, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b089f
+    const v4, 0x7f0b08e9
 
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v5, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v5, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
     goto :goto_0
 
     :pswitch_4
-    iget-object v5, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b08a0
+    const v4, 0x7f0b0909
 
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v5, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v5, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
+
+    goto :goto_0
+
+    :pswitch_5
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f0b090a
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :pswitch_6
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f0b08eb
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
 
     goto/16 :goto_0
 
@@ -457,11 +467,13 @@
 
     :pswitch_data_0
     .packed-switch 0x4
-        :pswitch_0
         :pswitch_1
         :pswitch_2
         :pswitch_3
         :pswitch_4
+        :pswitch_5
+        :pswitch_0
+        :pswitch_6
     .end packed-switch
 .end method
 
@@ -508,7 +520,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v7, 0x7f0b0706
+    const v7, 0x7f0b076c
 
     invoke-direct {p0, v7}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->showSensorErrorDialog(I)V
 
@@ -835,7 +847,7 @@
 .method private showSensorErrorDialog(I)V
     .locals 4
 
-    const v1, 0x7f0b0706
+    const v1, 0x7f0b076c
 
     if-ne p1, v1, :cond_0
 
@@ -851,14 +863,14 @@
 
     if-eqz v1, :cond_0
 
-    const p1, 0x7f0b0707
+    const p1, 0x7f0b076d
 
     :cond_0
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0703
+    const v2, 0x7f0b0769
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1037,17 +1049,17 @@
 .end method
 
 .method public IrisAuthenticateDialogEvent(I)V
-    .locals 8
+    .locals 7
 
-    const-wide/16 v6, 0x0
+    const/16 v6, 0xa
 
     const/4 v5, 0x6
 
-    const/4 v4, 0x5
+    const/4 v3, 0x5
 
-    const/4 v3, 0x4
+    const/4 v2, 0x4
 
-    const/4 v2, 0x2
+    const/4 v4, 0x2
 
     const-string/jumbo v0, "BiometricsAuthenticationActivity"
 
@@ -1069,13 +1081,13 @@
     return-void
 
     :cond_0
-    if-ne p1, v2, :cond_2
+    if-ne p1, v4, :cond_2
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/view/Window;->addFlags(I)V
+    invoke-virtual {v0, v4}, Landroid/view/Window;->addFlags(I)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
 
@@ -1083,7 +1095,9 @@
 
     move-result-wide v0
 
-    cmp-long v0, v0, v6
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
 
     if-lez v0, :cond_1
 
@@ -1115,21 +1129,28 @@
     goto :goto_0
 
     :cond_4
-    if-ne p1, v3, :cond_5
+    if-ne p1, v2, :cond_5
+
+    invoke-direct {p0, v2}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->showErrorPopup(I)V
+
+    goto :goto_0
+
+    :cond_5
+    if-ne p1, v3, :cond_6
 
     invoke-direct {p0, v3}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->showErrorPopup(I)V
 
     goto :goto_0
 
-    :cond_5
-    if-ne p1, v4, :cond_6
+    :cond_6
+    if-ne p1, v6, :cond_7
 
-    invoke-direct {p0, v4}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->showErrorPopup(I)V
+    invoke-direct {p0, v6}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->showErrorPopup(I)V
 
     goto :goto_0
 
-    :cond_6
-    if-ne p1, v5, :cond_8
+    :cond_7
+    if-ne p1, v5, :cond_9
 
     iget-object v0, p0, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->mContext:Landroid/content/Context;
 
@@ -1137,26 +1158,28 @@
 
     move-result-wide v0
 
-    cmp-long v0, v0, v6
+    const-wide/16 v2, 0x0
 
-    if-lez v0, :cond_7
+    cmp-long v0, v0, v2
+
+    if-lez v0, :cond_8
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/view/Window;->addFlags(I)V
+    invoke-virtual {v0, v4}, Landroid/view/Window;->addFlags(I)V
 
     invoke-direct {p0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->showRemainingTimeoutDialog()V
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     invoke-direct {p0, v5}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->showErrorPopup(I)V
 
     goto :goto_0
 
-    :cond_8
+    :cond_9
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->setResult(I)V
@@ -1417,7 +1440,7 @@
     :goto_0
     const-string/jumbo v0, "BiometricsAuthenticationActivity"
 
-    const v1, 0x7f0b08a4
+    const v1, 0x7f0b090e
 
     invoke-static {p0, v1, v0}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 

@@ -91,7 +91,7 @@
     return-void
 
     :cond_1
-    const v4, 0x7f0b1691
+    const v4, 0x7f0b172d
 
     invoke-virtual {p0, v4}, Lcom/android/settings/applications/PremiumSmsAccess;->setEmptyText(I)V
 
@@ -159,7 +159,7 @@
 
     invoke-virtual {v3, v6}, Lcom/android/settings/DividerPreference;->setSelectable(Z)V
 
-    const v4, 0x7f0b1cae
+    const v4, 0x7f0b1d4a
 
     invoke-virtual {v3, v4}, Lcom/android/settings/DividerPreference;->setSummary(I)V
 
@@ -236,7 +236,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f040212
+    const v0, 0x7f040214
 
     const/4 v1, 0x0
 

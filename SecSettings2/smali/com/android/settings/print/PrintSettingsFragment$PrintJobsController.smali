@@ -279,7 +279,7 @@
 
     aput-object v0, v12, v1
 
-    const v0, 0x7f0b17b6
+    const v0, 0x7f0b1852
 
     invoke-virtual {v11, v0, v12}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -344,7 +344,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b17b7
+    const v2, 0x7f0b1853
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -369,7 +369,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b17b8
+    const v2, 0x7f0b1854
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -394,7 +394,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b17b9
+    const v2, 0x7f0b1855
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -425,7 +425,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b17ba
+    const v2, 0x7f0b1856
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -450,7 +450,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b17b8
+    const v2, 0x7f0b1854
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -461,14 +461,14 @@
     goto/16 :goto_1
 
     :pswitch_5
-    const v0, 0x7f0201f7
+    const v0, 0x7f02021c
 
     invoke-virtual {v8, v0}, Landroid/preference/PreferenceScreen;->setIcon(I)V
 
     goto/16 :goto_2
 
     :pswitch_6
-    const v0, 0x7f0201f8
+    const v0, 0x7f02021d
 
     invoke-virtual {v8, v0}, Landroid/preference/PreferenceScreen;->setIcon(I)V
 

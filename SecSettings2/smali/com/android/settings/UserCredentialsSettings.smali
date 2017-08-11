@@ -9,6 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/settings/UserCredentialsSettings$1;,
         Lcom/android/settings/UserCredentialsSettings$AliasLoader;,
         Lcom/android/settings/UserCredentialsSettings$Credential;,
         Lcom/android/settings/UserCredentialsSettings$CredentialAdapter;,
@@ -18,6 +19,10 @@
 
 
 # instance fields
+.field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+.field protected mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
 .field private mListView:Landroid/widget/ListView;
 
 .field private mProgressBar:Landroid/widget/ProgressBar;
@@ -53,9 +58,19 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/settings/OptionsMenuFragment;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/settings/UserCredentialsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    new-instance v0, Lcom/android/settings/UserCredentialsSettings$1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/UserCredentialsSettings$1;-><init>(Lcom/android/settings/UserCredentialsSettings;)V
+
+    iput-object v0, p0, Lcom/android/settings/UserCredentialsSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
     return-void
 .end method
@@ -70,12 +85,26 @@
     return v0
 .end method
 
+.method public onCreate(Landroid/os/Bundle;)V
+    .locals 1
+
+    invoke-super {p0, p1}, Lcom/android/settings/OptionsMenuFragment;->onCreate(Landroid/os/Bundle;)V
+
+    new-instance v0, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-direct {v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/UserCredentialsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    return-void
+.end method
+
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
     const/4 v2, 0x0
 
-    const v0, 0x7f04033e
+    const v0, 0x7f040343
 
     invoke-virtual {p1, v0, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -85,7 +114,7 @@
 
     iget-object v0, p0, Lcom/android/settings/UserCredentialsSettings;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f11080c
+    const v1, 0x7f11080f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +152,7 @@
 
     iget-object v0, p0, Lcom/android/settings/UserCredentialsSettings;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f11080b
+    const v1, 0x7f11080e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -165,12 +194,38 @@
     return-void
 .end method
 
+.method public onPause()V
+    .locals 2
+
+    invoke-super {p0}, Lcom/android/settings/OptionsMenuFragment;->onPause()V
+
+    iget-object v0, p0, Lcom/android/settings/UserCredentialsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "UserCertificates"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
 .method public onResume()V
-    .locals 0
+    .locals 4
 
     invoke-super {p0}, Lcom/android/settings/OptionsMenuFragment;->onResume()V
 
     invoke-virtual {p0}, Lcom/android/settings/UserCredentialsSettings;->refreshItems()V
+
+    iget-object v0, p0, Lcom/android/settings/UserCredentialsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {p0}, Lcom/android/settings/UserCredentialsSettings;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/UserCredentialsSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v3, "UserCertificates"
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
 
     return-void
 .end method

@@ -22,7 +22,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/DefaultPhonePreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0b03c3
+    const v0, 0x7f0b0424
 
     invoke-virtual {p0, v0}, Lcom/android/settings/applications/DefaultPhonePreference;->setResDescription(I)V
 

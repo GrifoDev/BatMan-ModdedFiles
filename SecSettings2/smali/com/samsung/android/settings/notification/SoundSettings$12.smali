@@ -370,7 +370,7 @@
         }
     .end annotation
 
-    const v5, 0x7f0b0adf
+    const v5, 0x7f0b0b4e
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -413,7 +413,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v3, 0x7f0b0ae1
+    const v3, 0x7f0b0b50
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -427,7 +427,7 @@
 
     invoke-static {v3}, Lcom/samsung/android/settings/notification/SoundSettings;->-set3(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {}, Lcom/samsung/android/settings/notification/SoundSettings;->-get12()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/settings/notification/SoundSettings;->-get13()Ljava/lang/String;
 
     move-result-object v3
 
@@ -478,7 +478,7 @@
     if-eqz v3, :cond_2
 
     :cond_1
-    const v3, 0x7f0b0ae4
+    const v3, 0x7f0b0b53
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -528,7 +528,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v3, 0x7f0b0ae2
+    const v3, 0x7f0b0b51
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

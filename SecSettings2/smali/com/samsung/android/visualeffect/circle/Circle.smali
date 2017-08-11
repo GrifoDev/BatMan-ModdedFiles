@@ -141,7 +141,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a02a1
+    const v1, 0x7f0a029f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -151,7 +151,7 @@
 
     iput v0, p0, Lcom/samsung/android/visualeffect/circle/Circle;->ringThickness:F
 
-    const v0, 0x7f0d01be
+    const v0, 0x7f0d01bf
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -177,7 +177,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/visualeffect/circle/Circle;->bgPaint:Landroid/graphics/Paint;
 
-    const v1, 0x7f0d00f0
+    const v1, 0x7f0d00f1
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 

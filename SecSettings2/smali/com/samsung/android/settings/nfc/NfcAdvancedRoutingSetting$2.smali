@@ -3,12 +3,12 @@
 .source "NfcAdvancedRoutingSetting.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->showErrorDialog(Ljava/lang/String;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
 
-.field final synthetic val$Route:Ljava/lang/String;
-
-.field final synthetic val$route_gsim_no:I
-
 
 # direct methods
-.method constructor <init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;Ljava/lang/String;I)V
+.method constructor <init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)V
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
-
-    iput-object p2, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->val$Route:Ljava/lang/String;
-
-    iput p3, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->val$route_gsim_no:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,87 +34,40 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 5
+.method public onStateReceived()V
+    .locals 4
 
-    :try_start_0
     iget-object v1, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->-get1(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)Landroid/nfc/cardemulation/CardEmulation;
+    invoke-static {v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->-get4(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/nfc/cardemulation/CardEmulation;->disableAutoRouting()Z
+    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->-get5(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;)Landroid/nfc/NfcAdapter;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->val$Route:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Landroid/nfc/NfcAdapter;->setDefaultRoutingDestination(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
-
-    iget-object v2, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->val$Route:Ljava/lang/String;
-
-    invoke-static {v1, v2}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->-set2(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;Ljava/lang/String;)Ljava/lang/String;
-
-    iget-object v1, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
-
-    invoke-virtual {v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f1000bf
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v1
-
-    invoke-static {v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->-set0(I)I
-
-    invoke-static {}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->-get2()Landroid/content/Context;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
-
-    invoke-virtual {v2}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->getMetricsCategory()I
-
-    move-result v2
-
-    invoke-static {}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->-get0()I
-
-    move-result v3
-
-    iget v4, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->val$route_gsim_no:I
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-static {v1, v2, v3, v4}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;IILjava/lang/Object;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$2;->this$0:Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;
-
-    invoke-virtual {v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;->finish()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
+    move-result-object v0
 
     const-string/jumbo v1, "NfcAdvancedRoutingSetting"
 
-    const-string/jumbo v2, "Exception occurred - setDefaultRoutingDestination"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    goto :goto_0
+    const-string/jumbo v3, "onStateReceived = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 .end method

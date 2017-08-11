@@ -101,7 +101,7 @@
 .method public getPhoneNumber()Ljava/lang/String;
     .locals 2
 
-    const v1, 0x7f1104b6
+    const v1, 0x7f1104b8
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 
@@ -125,7 +125,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v2, 0x7f11052d
+    const v2, 0x7f11052f
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 
@@ -133,7 +133,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    const v2, 0x7f1104b6
+    const v2, 0x7f1104b8
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 
@@ -173,7 +173,7 @@
 
     check-cast v1, Landroid/view/inputmethod/InputMethodManager;
 
-    const v2, 0x7f1104b6
+    const v2, 0x7f1104b8
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 
@@ -214,7 +214,7 @@
 .method public setPhoneNumber(Ljava/lang/String;)V
     .locals 2
 
-    const v1, 0x7f1104b6
+    const v1, 0x7f1104b8
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 

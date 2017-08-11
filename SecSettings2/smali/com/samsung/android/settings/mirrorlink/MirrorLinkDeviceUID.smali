@@ -452,7 +452,7 @@
 
     const/4 v2, 0x0
 
-    const v1, 0x7f0401a0
+    const v1, 0x7f0401a2
 
     invoke-virtual {p1, v1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -460,7 +460,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f11057d
+    const v1, 0x7f11057f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -470,7 +470,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLinkDeviceUID;->mTextViewTitle:Landroid/widget/TextView;
 
-    const v1, 0x7f11057e
+    const v1, 0x7f110580
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

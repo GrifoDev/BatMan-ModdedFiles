@@ -95,7 +95,7 @@
 
     move-result-object v5
 
-    const v2, 0x7f040341
+    const v2, 0x7f040346
 
     move-object v6, p0
 
@@ -357,7 +357,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b171e
+    const v3, 0x7f0b17ba
 
     move-object v5, v4
 
@@ -390,7 +390,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b171b
+    const v8, 0x7f0b17b7
 
     invoke-virtual {v7, v8}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -439,7 +439,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v7, 0x7f0b172b
+    const v7, 0x7f0b17c7
 
     invoke-virtual {v1, v7}, Landroid/widget/TextView;->setText(I)V
 
@@ -519,13 +519,13 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f0b171d
+    const v2, 0x7f0b17b9
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    const v2, 0x7f0201e8
+    const v2, 0x7f02020d
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -541,7 +541,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x10900c9
+    const v0, 0x10900ca
 
     const/4 v1, 0x0
 

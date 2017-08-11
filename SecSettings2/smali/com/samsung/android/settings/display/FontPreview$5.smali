@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/FontPreview$5;->this$0:Lcom/samsung/android/settings/display/FontPreview;
 
-    invoke-static {v0, p2}, Lcom/samsung/android/settings/display/FontPreview;->-wrap2(Lcom/samsung/android/settings/display/FontPreview;I)V
+    invoke-static {v0, p2}, Lcom/samsung/android/settings/display/FontPreview;->-wrap1(Lcom/samsung/android/settings/display/FontPreview;I)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/FontPreview$5;->this$0:Lcom/samsung/android/settings/display/FontPreview;
 

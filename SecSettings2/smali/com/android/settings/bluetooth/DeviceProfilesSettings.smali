@@ -82,6 +82,8 @@
 
 .field private mRenameTextWatcher:Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;
 
+.field private mScreenId:Ljava/lang/String;
+
 .field mTempName:Ljava/lang/String;
 
 
@@ -122,6 +124,14 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mRenameButton:Landroid/widget/Button;
+
+    return-object v0
+.end method
+
+.method static synthetic -get13(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mScreenId:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -596,7 +606,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f020344
+    const v3, 0x7f020369
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -605,7 +615,7 @@
     :goto_0
     if-eqz v0, :cond_0
 
-    const v3, 0x7f0d00e9
+    const v3, 0x7f0d00ea
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -811,41 +821,41 @@
 
     const/4 v12, 0x2
 
-    const/4 v11, 0x1
+    const/4 v7, 0x1
 
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
-    const-string/jumbo v7, "DeviceProfilesSettings"
+    const-string/jumbo v9, "DeviceProfilesSettings"
 
-    const-string/jumbo v8, "onProfileClicked :: "
+    const-string/jumbo v10, "onProfileClicked :: "
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v7, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    iget-object v9, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
+    invoke-virtual {v9}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v0
 
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v9
 
-    const-string/jumbo v8, "PBAP Server"
+    const-string/jumbo v10, "PBAP Server"
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_3
+    if-eqz v9, :cond_3
 
-    iget-object v7, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    iget-object v8, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getPhonebookPermissionChoice()I
+    invoke-virtual {v8}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getPhonebookPermissionChoice()I
 
-    move-result v7
+    move-result v8
 
-    if-ne v7, v11, :cond_1
+    if-ne v8, v7, :cond_1
 
     const/4 v4, 0x2
 
@@ -925,23 +935,23 @@
     :cond_3
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v9
 
-    const-string/jumbo v8, "MAP"
+    const-string/jumbo v10, "MAP"
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_6
+    if-eqz v9, :cond_6
 
-    iget-object v7, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    iget-object v8, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getMessagePermissionChoice()I
+    invoke-virtual {v8}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getMessagePermissionChoice()I
 
-    move-result v7
+    move-result v8
 
-    if-ne v7, v11, :cond_5
+    if-ne v8, v7, :cond_5
 
     const/4 v4, 0x2
 
@@ -997,23 +1007,23 @@
     :cond_6
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v9
 
-    const-string/jumbo v8, "SAP"
+    const-string/jumbo v10, "SAP"
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_9
+    if-eqz v9, :cond_9
 
-    iget-object v7, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    iget-object v8, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getSimPermissionChoice()I
+    invoke-virtual {v8}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getSimPermissionChoice()I
 
-    move-result v7
+    move-result v8
 
-    if-ne v7, v11, :cond_8
+    if-ne v8, v7, :cond_8
 
     const/4 v4, 0x2
 
@@ -1073,107 +1083,86 @@
 
     const/4 v5, -0x1
 
-    sget-boolean v7, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->DBG:Z
+    sget-boolean v9, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->DBG:Z
 
-    if-eqz v7, :cond_a
+    if-eqz v9, :cond_a
 
-    const-string/jumbo v7, "DeviceProfilesSettings"
+    const-string/jumbo v9, "DeviceProfilesSettings"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "onProfileClicked :: device : "
+    const-string/jumbo v11, "onProfileClicked :: device : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothDevice;->getName()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v11
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    const-string/jumbo v9, ", profile : "
+    const-string/jumbo v11, ", profile : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    const-string/jumbo v9, ", getstate : "
+    const-string/jumbo v11, ", getstate : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_a
-    if-ne v6, v12, :cond_d
+    if-ne v6, v12, :cond_c
 
-    const/4 v1, 0x1
+    move v1, v7
 
     :goto_4
-    move-object v7, p1
-
-    check-cast v7, Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v7, v10}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
-
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_d
 
     const-string/jumbo v7, "DeviceProfilesSettings"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "Calling disconnect of "
+    const-string/jumbo v10, "Calling disconnect of "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object v7, p1
-
-    check-cast v7, Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v7}, Landroid/preference/SwitchPreference;->isChecked()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_b
-
-    check-cast p1, Landroid/preference/SwitchPreference;
-
-    invoke-virtual {p1, v10}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    :cond_b
     const/4 v5, 0x0
 
     iget-object v7, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
@@ -1182,7 +1171,7 @@
 
     move-result-object v7
 
-    invoke-interface {p2, v7, v10}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;->setPreferred(Landroid/bluetooth/BluetoothDevice;Z)V
+    invoke-interface {p2, v7, v8}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;->setPreferred(Landroid/bluetooth/BluetoothDevice;Z)V
 
     :goto_5
     new-instance v2, Lcom/android/settings/bluetooth/DeviceProfilesSettings$6;
@@ -1195,7 +1184,7 @@
 
     iput v5, v3, Landroid/os/Message;->what:I
 
-    const-wide/16 v8, 0x12c
+    const-wide/16 v8, 0x64
 
     invoke-virtual {v2, v3, v8, v9}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
@@ -1211,51 +1200,36 @@
 
     move-result v7
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_b
 
     iget-object v7, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->refresh()V
 
-    :cond_c
+    :cond_b
     return-void
 
-    :cond_d
-    const/4 v1, 0x0
+    :cond_c
+    move v1, v8
 
     goto :goto_4
 
-    :cond_e
+    :cond_d
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string/jumbo v8, "PAN"
+    const-string/jumbo v9, "PAN"
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v8
 
-    if-nez v7, :cond_f
+    if-nez v8, :cond_e
 
-    invoke-interface {p2, v0, v11}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;->setPreferred(Landroid/bluetooth/BluetoothDevice;Z)V
+    invoke-interface {p2, v0, v7}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;->setPreferred(Landroid/bluetooth/BluetoothDevice;Z)V
 
-    :cond_f
-    move-object v7, p1
-
-    check-cast v7, Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v7}, Landroid/preference/SwitchPreference;->isChecked()Z
-
-    move-result v7
-
-    if-nez v7, :cond_10
-
-    check-cast p1, Landroid/preference/SwitchPreference;
-
-    invoke-virtual {p1, v11}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    :cond_10
+    :cond_e
     const/4 v5, 0x1
 
     goto :goto_5
@@ -1355,9 +1329,9 @@
 
     move-result v3
 
-    if-eq v3, v9, :cond_1
+    if-eq v3, v9, :cond_0
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_1
 
     move v1, v4
 
@@ -1366,7 +1340,7 @@
 
     instance-of v6, p2, Lcom/android/settingslib/bluetooth/MapProfile;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_3
 
     iget-object v6, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
@@ -1374,7 +1348,7 @@
 
     move-result v6
 
-    if-ne v6, v4, :cond_3
+    if-ne v6, v4, :cond_2
 
     :goto_1
     invoke-virtual {p1, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
@@ -1407,29 +1381,28 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
     :goto_2
     return-void
 
-    :cond_1
+    :cond_0
     move v1, v4
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     move v1, v5
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     move v4, v5
 
     goto :goto_1
 
-    :cond_4
+    :cond_3
     instance-of v6, p2, Lcom/android/settingslib/bluetooth/PbapServerProfile;
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_6
 
     new-array v2, v4, [Ljava/lang/String;
 
@@ -1451,7 +1424,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_4
 
     const-string/jumbo v6, "DeviceProfilesSettings"
 
@@ -1463,14 +1436,14 @@
 
     invoke-virtual {v6, v9}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->setPhonebookPermissionChoice(I)V
 
-    :cond_5
+    :cond_4
     iget-object v6, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     invoke-virtual {v6}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getPhonebookPermissionChoice()I
 
     move-result v6
 
-    if-ne v6, v4, :cond_6
+    if-ne v6, v4, :cond_5
 
     :goto_3
     invoke-virtual {p1, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
@@ -1505,15 +1478,15 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_5
     move v4, v5
 
     goto :goto_3
 
-    :cond_7
+    :cond_6
     instance-of v6, p2, Lcom/android/settingslib/bluetooth/SapProfile;
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_8
 
     iget-object v6, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
@@ -1521,7 +1494,7 @@
 
     move-result v6
 
-    if-ne v6, v4, :cond_8
+    if-ne v6, v4, :cond_7
 
     :goto_4
     invoke-virtual {p1, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
@@ -1556,38 +1529,40 @@
 
     goto/16 :goto_2
 
-    :cond_8
+    :cond_7
     move v4, v5
 
     goto :goto_4
 
-    :cond_9
-    instance-of v4, p2, Lcom/android/settingslib/bluetooth/PanProfile;
+    :cond_8
+    instance-of v6, p2, Lcom/android/settingslib/bluetooth/PanProfile;
 
-    if-eqz v4, :cond_a
+    if-eqz v6, :cond_9
 
     invoke-interface {p2, v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;->getNameResource(Landroid/bluetooth/BluetoothDevice;)I
 
-    move-result v4
+    move-result v6
 
-    invoke-virtual {p1, v4}, Landroid/preference/SwitchPreference;->setTitle(I)V
+    invoke-virtual {p1, v6}, Landroid/preference/SwitchPreference;->setTitle(I)V
 
     invoke-interface {p2, v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;->getSummaryResourceForDevice(Landroid/bluetooth/BluetoothDevice;)I
 
-    move-result v4
+    move-result v6
 
-    invoke-virtual {p1, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
+    invoke-virtual {p1, v6}, Landroid/preference/SwitchPreference;->setSummary(I)V
+
+    :cond_9
+    if-eq v3, v9, :cond_a
+
+    if-ne v3, v4, :cond_b
 
     :cond_a
-    if-eqz v1, :cond_0
-
-    iget-object v4, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
-
-    invoke-virtual {v4, p2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnectedProfile(Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;)Z
-
-    move-result v4
-
     invoke-virtual {p1, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    goto/16 :goto_2
+
+    :cond_b
+    invoke-virtual {p1, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     goto/16 :goto_2
 .end method
@@ -2090,7 +2065,7 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040057
+    const v3, 0x7f040058
 
     invoke-virtual {v1, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -2132,7 +2107,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b135d
+    const v5, 0x7f0b13f8
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2144,7 +2119,7 @@
 
     iget-object v4, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mDialogClickListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v5, 0x7f0b11c3
+    const v5, 0x7f0b125e
 
     invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2288,6 +2263,24 @@
     invoke-virtual {v3, v8}, Landroid/widget/Button;->setFocusable(Z)V
 
     :goto_1
+    iget-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mScreenId:Ljava/lang/String;
+
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f0b0035
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;)V
+
     return-void
 
     :cond_2
@@ -2618,6 +2611,20 @@
 
     iput-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mBixbyDeviceName:Ljava/lang/String;
 
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0b0008
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mScreenId:Ljava/lang/String;
+
+    invoke-virtual {p0, v7}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->setHasOptionsMenu(Z)V
+
     return-void
 .end method
 
@@ -2667,10 +2674,49 @@
     return-void
 .end method
 
-.method public onPause()V
-    .locals 4
+.method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    .locals 3
 
-    const/4 v3, 0x0
+    invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    :goto_0
+    invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+
+    move-result v0
+
+    return v0
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mScreenId:Ljava/lang/String;
+
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0b0034
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x102002c
+        :pswitch_0
+    .end packed-switch
+.end method
+
+.method public onPause()V
+    .locals 3
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onPause()V
 
@@ -2703,10 +2749,6 @@
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
     if-eqz v1, :cond_2
-
-    iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-
-    invoke-virtual {v1, v3}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->setForegroundActivity(Landroid/content/Context;)V
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
@@ -2752,191 +2794,136 @@
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .locals 6
+    .locals 8
 
-    instance-of v2, p1, Landroid/preference/SwitchPreference;
+    instance-of v4, p1, Landroid/preference/SwitchPreference;
 
-    if-eqz v2, :cond_1
+    if-eqz v4, :cond_0
 
     invoke-direct {p0, p1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getProfileOf(Landroid/preference/Preference;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_2
 
     invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "com.android.bluetooth"
-
-    const-string/jumbo v4, "BPDO"
-
-    const-string/jumbo v5, "Profile"
-
-    invoke-static {v2, v3, v4, v5}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;->getOrdinal()I
-
-    move-result v2
-
-    packed-switch v2, :pswitch_data_0
-
-    :goto_0
-    :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x7f100047
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v3
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-static {v2, v3, v4}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
+    invoke-virtual {v4}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
-    invoke-direct {p0, p1, v0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->onProfileClicked(Landroid/preference/Preference;Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;)V
+    move-result-object v4
 
-    :goto_1
-    const/4 v2, 0x0
+    const-string/jumbo v5, "com.android.bluetooth"
 
-    return v2
+    const-string/jumbo v6, "BPDO"
 
-    :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
+    const-string/jumbo v7, "Profile"
 
-    move-result-object v2
+    invoke-static {v4, v5, v6, v7}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v3, 0x7f10004d
+    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
+    move-result-object v3
 
-    move-result v1
+    move-object v4, p1
 
-    goto :goto_0
+    check-cast v4, Landroid/preference/SwitchPreference;
 
-    :pswitch_2
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v4}, Landroid/preference/SwitchPreference;->isChecked()Z
 
-    move-result-object v2
+    move-result v4
 
-    const v3, 0x7f10004e
+    if-eqz v4, :cond_1
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
 
-    move-result v1
+    move-result-object v4
 
-    goto :goto_0
+    invoke-virtual {v4}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    :pswitch_3
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
+    move-result-object v4
 
-    move-result-object v2
+    const v5, 0x7f0b0056
 
-    const v3, 0x7f10004f
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
+    move-result-object v0
 
-    move-result v1
+    :goto_0
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    :pswitch_4
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    const v3, 0x7f100050
+    const-string/jumbo v5, " : "
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v1
+    move-result-object v4
 
-    goto :goto_0
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :pswitch_5
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
+    move-result-object v4
 
-    move-result-object v2
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const v3, 0x7f100051
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
+    iget-object v4, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mScreenId:Ljava/lang/String;
 
-    move-result v1
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
 
-    goto :goto_0
+    move-result-object v5
 
-    :pswitch_6
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v5
 
-    const v3, 0x7f100052
+    const v6, 0x7f0b0039
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result v1
+    move-result-object v5
 
-    goto :goto_0
+    invoke-static {v4, v5, v1}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    :pswitch_7
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f100053
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v1
-
-    goto :goto_0
+    invoke-direct {p0, p1, v2}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->onProfileClicked(Landroid/preference/Preference;Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;)V
 
     :cond_0
-    const-string/jumbo v2, "DeviceProfilesSettings"
+    :goto_1
+    const/4 v4, 0x1
 
-    const-string/jumbo v3, "prof is null in onPreferenceChange"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
+    return v4
 
     :cond_1
-    const/4 v2, 0x1
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
 
-    return v2
+    move-result-object v4
 
-    nop
+    invoke-virtual {v4}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_2
-        :pswitch_0
-        :pswitch_3
-        :pswitch_4
-        :pswitch_5
-        :pswitch_0
-        :pswitch_0
-        :pswitch_6
-        :pswitch_7
-    .end packed-switch
+    move-result-object v4
+
+    const v5, 0x7f0b0055
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v4, "DeviceProfilesSettings"
+
+    const-string/jumbo v5, "prof is null in onPreferenceChange"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
@@ -2995,21 +2982,23 @@
 
     invoke-static {v1, v2, v3, v4}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mScreenId:Ljava/lang/String;
+
     invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f100045
+    invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
+    move-result-object v2
 
-    move-result v2
+    const v3, 0x7f0b0038
 
-    invoke-static {v1, v2}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;I)V
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string/jumbo v1, "DeviceProfilesSettings"
 
@@ -3093,22 +3082,6 @@
     return v1
 
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f100042
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v2
-
-    invoke-static {v1, v2}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;I)V
-
     invoke-direct {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->showRenameDialog()V
 
     goto :goto_0
@@ -3409,14 +3382,6 @@
     return-void
 
     :cond_2
-    iget-object v5, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->setForegroundActivity(Landroid/content/Context;)V
-
     iget-object v5, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     invoke-virtual {v5, p0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->registerCallback(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$Callback;)V
@@ -3569,6 +3534,10 @@
     move-result-object v5
 
     invoke-virtual {v5, p0}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->registerSemCallback(Lcom/samsung/android/settingslib/bluetooth/SemBluetoothCallback;)V
+
+    iget-object v5, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mScreenId:Ljava/lang/String;
+
+    invoke-static {v5}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;)V
 
     return-void
 

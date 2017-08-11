@@ -162,7 +162,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1003dc
+    const v1, 0x7f1003df
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -232,7 +232,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v4, 0x7f0b1290
+    const v4, 0x7f0b132b
 
     iput v4, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -265,7 +265,7 @@
 
     iput-object v0, v2, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v4, 0x7f0b0be4
+    const v4, 0x7f0b0c56
 
     iput v4, v2, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -286,7 +286,7 @@
 
     iput-object v0, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v4, 0x7f0b18ff
+    const v4, 0x7f0b199b
 
     iput v4, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -1003,7 +1003,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f1003dd
+    const v10, 0x7f1003e0
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 

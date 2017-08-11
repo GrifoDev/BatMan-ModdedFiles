@@ -215,7 +215,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/multisound/AudioDeviceType;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b1b0f
+    const v6, 0x7f0b1bab
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -265,7 +265,7 @@
     :cond_4
     iget-object v5, p0, Lcom/samsung/android/settings/multisound/AudioDeviceType;->mBluetoothDevice:Lcom/samsung/android/settings/notification/RadioPreference;
 
-    const v6, 0x7f0b0b2d
+    const v6, 0x7f0b0b9e
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/notification/RadioPreference;->setSummary(I)V
 
@@ -349,6 +349,22 @@
     const/16 v0, 0x150
 
     return v0
+.end method
+
+.method public onActivityCreated(Landroid/os/Bundle;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/AudioDeviceType;->getListView()Landroid/widget/ListView;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
+
+    return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V

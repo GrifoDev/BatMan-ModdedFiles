@@ -73,7 +73,7 @@
 
     sput-object p1, Lcom/samsung/android/settings/fmm/MultipleLineTitlePreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04022f
+    const v0, 0x7f040233
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/fmm/MultipleLineTitlePreference;->setLayoutResource(I)V
 
@@ -87,7 +87,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v6, 0x7f110627
+    const v6, 0x7f110629
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -122,7 +122,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0b083f
+    const v8, 0x7f0b08a7
 
     invoke-virtual {v6, v8, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -162,7 +162,7 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    const v6, 0x7f0f0290
+    const v6, 0x7f0f0291
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setTextAppearance(I)V
 

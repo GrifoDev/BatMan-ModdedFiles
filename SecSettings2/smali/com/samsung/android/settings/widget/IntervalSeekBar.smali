@@ -192,7 +192,7 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/widget/IntervalSeekBar;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f020604
+    const v0, 0x7f02066d
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/widget/IntervalSeekBar;->setDrawable(I)V
 
@@ -662,7 +662,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a07d3
+    const v2, 0x7f0a07d2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -784,7 +784,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01d7
+    const v3, 0x7f0d01d8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -800,7 +800,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a07d4
+    const v3, 0x7f0a07d3
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -818,7 +818,7 @@
 
     move-result-object v3
 
-    const v4, 0x1060119
+    const v4, 0x106011f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -840,7 +840,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/widget/IntervalSeekBar;->mPaint1:Landroid/graphics/Paint;
 
-    const v3, 0x7f0d016b
+    const v3, 0x7f0d016c
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -862,7 +862,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/widget/IntervalSeekBar;->mPaint2:Landroid/graphics/Paint;
 
-    const v3, 0x1060125
+    const v3, 0x106012b
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getColor(I)I
 

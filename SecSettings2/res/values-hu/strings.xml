@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="battery_history_hours_no_seconds">%1$d ó %2$d p</string>
-    <string name="battery_history_minutes_no_seconds">%d p</string>
+    <string name="battery_history_minutes_no_seconds">%d perc</string>
     <string name="wifi_fail_to_scan">Nem lehet beolvasni a hálózatokat</string>
     <string name="wifi_failed_to_obtain_IP">Nem lehet lekérni az IP-címet.</string>
     <string name="wifi_security_none">Nincs</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Nem lehet kapcsolódni a(z) %s eszközhöz.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Nem sikerült kapcsolódni a(z) %1$s rendszerhez. Ellenőrizze a(z) %2$s beállításait, és próbálja újra.</string>
     <string name="bluetooth_pairing_rejected_error_message">A(z) %s elutasította a párosítást.</string>
+    <string name="bluetooth_getting_remote_device_name">Eszköznév lekérése…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Az eszköz neve az eszköz kapcsolódásakor jelenik meg.</string>
     <string name="accessibility_wifi_off">Wi-Fi kikapcsolva.</string>
     <string name="accessibility_no_wifi">Nincs Wi-Fi-kapcsolat.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi-jel: egy sáv.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Támogatás</string>
     <string name="reset_network_settings_list_summary">Visszaállítja a Wi-Fi, a Bluetooth és más hálózati beállítások alapértelmezéseit.</string>
     <string name="master_clear_list_summary">Visszaállítja az eszköz gyári alapértelmezéseit. Ez minden adatot töröl az eszközről, a fájlokat és a letöltött alkalmazásokat is beleértve.</string>
-    <string name="auto_restart_summary">A megadott időpontokban történő automatikus újraindítással optimalizálhatja az eszközt. Újraindításkor elvesznek a nem mentett adatok.</string>
+    <string name="auto_restart_summary">Heti egyszeri újraindítással optimalizálja a telefont. Újraindításakor a nem mentett adatok elvesznek.</string>
+    <string name="auto_restart_summary_tablet">Heti egyszeri újraindítással optimalizálja a táblagépet. Újraindításakor a nem mentett adatok elvesznek.</string>
     <string name="search_settings">Keresés</string>
     <string name="related_results">%d kapcsolódó elem</string>
     <string name="no_results_found">Nincs találat</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">A hangbalansz beállítása %d százalék jobbra. A csúszkát két ujjal húzhatja.</string>
     <string name="sound_balance_set">Beállítás</string>
     <string name="accessibility_assistant_menu">Segítő menü</string>
-    <string name="assistant_menu_summary">Az eszköz használatát csökkent kézügyességű felhasználók számára megkönnyítő funkciók engedélyezése.</string>
+    <string name="assistant_menu_summary">Megkönnyíti a telefon használatát a csökkent kézügyességű felhasználók számára.</string>
     <string name="color_blind_title">Színkorrekció</string>
     <string name="no_result">Ha nehezen olvasható a megjelenített szöveg, akkor állítsa be a képernyő színeit.</string>
     <string name="you_are_normal">Nincs szükség színkorrekcióra.</string>
@@ -653,6 +656,7 @@ Amíg ez a funkció be van kapcsolva, a képernyő automatikus elforgatása nem 
     <string name="direct_access_actions_accessibility_title">Kisegítő lehetőségek</string>
     <string name="direct_access_actions_negative_title">Színek invertálása</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">A Közvetlen hozzáférés és a Képernyőméret csökkentése nem kapcsolható be egyszerre. A Képernyőméret csökkentése kikapcsol.</string>
+    <string name="direct_access_exclusive_popup_msg">A(z) %1$s és a(z) %2$s nem kapcsolható be egyszerre. A(z) %3$s kikapcsol.</string>
     <string name="direct_access_actions_color_adjustment_summary">A Közvetlen hozzáférésben való használathoz állítsa be a Színkorrekciót a Látás menüpontban</string>
     <string name="direct_access_actions_screen_reader_summary">Kapcsolja be a Felolvasót a Közvetlen hozzáférés funkcióban történő használathoz.</string>
     <string name="direct_access_actions_accesscontrol_title">Interaktív vezérlés</string>
@@ -850,7 +854,9 @@ A Wi-Fi és a Bluetooth is kikapcsol, de a Beállításokban vagy a gyorsbeáll�
     <string name="premium_sms_values_ask">Kérés</string>
     <string name="premium_sms_values_never">Sosem engedélyezi</string>
     <string name="premium_sms_values_allow">Mindig engedélyezi</string>
-    <string name="assist_and_voice_input_summary">Az eszközasszisztens-alkalmazások további lehetőségeket és információkat biztosítanak minden képernyőn.</string>
+    <string name="assist_and_voice_input_summary">Válassza ki, milyen alkalmazás nyíljon meg, ha nyomva tartja a Kezdőlap gombot.</string>
+    <string name="assist_footer_phone">Válassza ki, milyen alkalmazás nyíljon meg, ha nyomva tartja a Kezdőlap gombot. Az eszközasszisztens-alkalmazásokkal összegyűjtheti a telefon képernyőjén éppen látható információkat.</string>
+    <string name="assist_footer_tablet">Válassza ki, milyen alkalmazás nyíljon meg, ha nyomva tartja a Kezdőlap gombot. Az eszközasszisztens-alkalmazásokkal összegyűjtheti a táblagép képernyőjén éppen látható információkat.</string>
     <string name="default_app_title">Legyen alapértelmezett</string>
     <string name="premium_sms_title">Premium SMS küldése</string>
     <string name="default_app_selection">Alapér. alk.ok kiválaszt.</string>
@@ -939,7 +945,7 @@ Ezt később módosíthatja a Bluetooth-beállításokban."</string>
 
 Előfordulhat, hogy a 2 csatlakoztatott eszköz hangja között apróbb eltérés tapasztalható."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Kikapcs. a Médiahangerő szinkronizálását?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">A Két hangszóró funkció használatához ki kell kapcsolni a Médiahangerő szinkronizálását.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Ha az egyes hangeszközök hangerejét külön szeretné vezérelni, ki kell kapcsolni a Médiahangerő szinkronizálása beállítást.</string>
     <string name="bluetooth_avc_title">Médiahangerő szinkron.</string>
     <string name="bluetooth_avc_description">Ha a csatlakoztatott Bluetooth-eszköz képes a telefon médiahangerejének szabályozására, akkor a rendszer szinkronizálja a Bluetooth-eszköz által beállított hangerőt a telefonnal.</string>
     <string name="bluetooth_avc_volume_change_description">A funkció bekapcsolása nem várt hangerőváltozásokat okozhat.</string>
@@ -948,6 +954,7 @@ Előfordulhat, hogy a 2 csatlakoztatott eszköz hangja között apróbb eltéré
     <string name="bluetooth_avc_ask_popup_title">Kikapcsolja a Két hangszórót?</string>
     <string name="bluetooth_avc_ask_popup_content">A Médiahangerő szinkronizálása funkció használatához ki kell kapcsolni a Két hangszórót.</string>
     <string name="bluetooth_avc_disable_description">A csatlakoztatott Bluetooth-eszköz nem támogatja a Médiahangerő szinkronizálása funkciót. Nem lehet szinkronizálni az eszköz hangerejét a telefonnal.</string>
+    <string name="bluetooth_avc_available_description">A csatlakoztatott Bluetooth-eszköz támogatja a Médiahangerő szinkronizálása funkciót, és a Bluetooth-eszköz által beállított hangerő szinkronizálódik a telefonnal.</string>
     <string name="bluetooth_enter_pin_msg">Adja meg a PIN-t a(z) %s eszköz párosításához. (Próbálkozzon a 0000 vagy az 1234 kóddal.)</string>
     <string name="bluetooth_pin_maximum_number_message">Elérte a karakterek maximális számát.</string>
     <string name="settings_menu_done">Kész</string>
@@ -1036,6 +1043,7 @@ A Gyors funkciók használatával akkor is hozzáférhet az Intelligens felvéte
     <string name="dual_app_summary">Két külön fiókot használhat egyazon alkalmazásban.</string>
     <string name="finger_sensor_gesture_title">Ujjlenyomat-érzékelős mozdulatok</string>
     <string name="finger_sensor_gesture_summary">Az ujjlenyomat-érzékelővel alkalmazásokat és funkciókat nyithat meg és zárhat be.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Megnyithatja, illetve bezárhatja az értesítési panelt az ujjlenyomat-érzékelővel.</string>
     <string name="finger_sensor_gesture_description">Az értesítési panel megnyitásához vagy bezárásához húzza ujját fel-, illetve lefelé az ujjlenyomat-érzékelőn.</string>
     <string name="open_samsung_pay_title">Samsung Pay megnyitása</string>
     <string name="open_samsung_pay_summary">A Samsung Pay megnyitásához húzza felfelé ujját az ujjlenyomat-érzékelőn, amikor a kezdőképernyő van megnyitva.</string>
@@ -1070,6 +1078,7 @@ A Gyors funkciók használatával akkor is hozzáférhet az Intelligens felvéte
 %s"</string>
     <string name="enable_ps_title">%s engedélyezése</string>
     <string name="setup_wizard">Beállítóvarázsló</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normál</string>
     <string name="large">Nagy</string>
     <string name="small">Kicsi</string>
@@ -1359,7 +1368,7 @@ Az OK gombot megérintve engedélyezheti a fényerő biztonságosnál magasabb s
     <string name="adjust_your_display_colour">A fehér színtónusok megjelenésének módosításához átállíthatja a kijelző színeit.</string>
     <string name="display_temperature_preset_cool">Hűvös</string>
     <string name="display_temperature_preset_warm">Meleg</string>
-    <string name="display_advanced_option">Speciális beállítások</string>
+    <string name="display_advanced_option">Speciális opciók</string>
     <string name="color_balance_subtext_1">A színegyensúly csak az Adaptív megjelenítési módban állítható be.</string>
     <string name="color_balance_subtext_2">A beállításokat a rendszer nem alkalmazza addig, amíg be van kapcsolva a Kékfényszűrő.</string>
     <string name="poc_balance_title">Képernyőszélek színegyensúlya</string>
@@ -1417,6 +1426,7 @@ Az OK gombot megérintve engedélyezheti a fényerő biztonságosnál magasabb s
     <string name="navigationbar_summary">Kezelheti a Kezdőlap, a Vissza és a Legutóbbi gombot.</string>
     <string name="navigationbar_theme_switch">Jelenlegi téma beállítása</string>
     <string name="navigationbar_color_title">Háttérszín</string>
+    <string name="navigationbar_color_summary">Előfordulhat, hogy a kiválasztott háttérszín nem minden alkalmazásban jelenik meg.</string>
     <string name="navigationbar_order_title">Gombelrendezés</string>
     <string name="navigationbar_order_default">Legut. – Kezdől. – Vissza</string>
     <string name="navigationbar_order_mirrored">Vissza – Kezdőlap – Legut.</string>
@@ -1443,12 +1453,13 @@ Az OK gombot megérintve engedélyezheti a fényerő biztonságosnál magasabb s
     <string name="blue_light_filter_off_time">Befejezés ideje</string>
     <string name="blue_light_filter_off_time_next_day_summary_format">Másnap %s-kor</string>
     <string name="blue_light_filter_user_schedule_title">Egyéni ütemezés</string>
-    <string name="blue_light_filter_auto_schedule_title">Napkeltétől napnyugtáig</string>
+    <string name="blue_light_filter_auto_schedule_title">Napnyugtától napkeltéig</string>
     <string name="blue_light_filter_desc">Ha este a Kékfényszűrőt használja, jobban alhat. A Kékfényszűrő használatának ütemezését ön állíthatja be. A Napnyugtától napkeltéig beállítás használatához be kell kapcsolni a helymeghatározást.</string>
     <string name="blue_light_filter_enable_now">Bekapcsolás most</string>
     <string name="blue_light_filter_enable_as_scheduled">Bekapcsolás ütemezés szerint</string>
     <string name="blue_light_filter_scheduled_toast">Bekapcsolta a Kékfényszűrőt. A funkció a beütemezett befejezési időpontban automatikusan kikapcsol.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">A(z) %s és a Kékfényszűrő nem használható egyszerre. A Kékfényszűrő kikapcsol.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Kikapcsolja a Kékfényszűrőt?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">A(z) %s csak a Kékfényszűrő kikapcsolása után használható.</string>
     <string name="blue_light_filter_dlg_turn_on_location">A Napnyugtától napkeltéig beállítás használatához be kell kapcsolni a helymeghatározást.</string>
     <string name="dlg_turn_on">Bekapcsol</string>
     <string name="screen_resolution_title">Képernyőfelbontás</string>
@@ -1503,7 +1514,7 @@ Az OK gombot megérintve engedélyezheti a fényerő biztonságosnál magasabb s
     <string name="screen_mode_premium_movie">AMOLED-mozi</string>
     <string name="screen_mode_auto_adaptive">Adaptív megjelenítés</string>
     <string name="screen_mode_amoled_photo">AMOLED-fénykép</string>
-    <string name="screen_mode_basic">Alapvető</string>
+    <string name="screen_mode_basic">Alap</string>
     <string name="screen_mode_auto_adaptive_description">A képernyő színtartományának, telítettségének és élességének automatikus optimalizálása. Előfordulhat, hogy ez az üzemmód nem kompatibilis a külső alkalmazásokkal.</string>
     <string name="font_preview_description">Ilyen lesz a főszöveg.</string>
     <string name="font_preview_size_subtitle">Betűméret</string>
@@ -1665,6 +1676,7 @@ A titkosítás egy óránál is tovább tarthat. A kezdés előtt töltse fel az
     <string name="crypt_keeper_last_warn_wipe">Még csak 1 próbálkozása maradt az eszköz indítására. Ennek sikertelensége esetén visszaállnak a gyári alapértelmezések. Ebben az esetben minden adat törlődik az eszközről, a fájlokat és a letöltött alkalmazásokat is beleértve.</string>
     <string name="crypt_keeper_failed_title_dec">Visszafejtési hiba</string>
     <string name="crypt_keeper_failed_summary_dec">A dekódolás megszakítás miatt nem fejezhető be. A használathoz vissza kell állítani a gyári adatokat (minden adat törlődik).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Képernyőzár típusának beá.</string>
     <string name="encryption_interstitial_message">"Tovább javíthatja a telefon védelmét a(z) %s bekérésével az eszköz indításához. Ez segíti az elveszett vagy ellopott eszközön található adatok védelmét. A funkciókhoz, például az e-mail-szinkronizáláshoz való hozzáférésre vonatkozó eszköztitkosítási házirend értelmében egyes alkalmazások Biztonságos indítást igényelhetnek.
 
 Amíg az eszköz el nem indul, nem fogadhat hívást, üzenetet és értesítést, és nem szólalnak meg a jelzések."</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Ujjlenyomat használata</string>
     <string name="wifi_ap_close">Bezárás</string>
     <string name="fingerscanner_add_summary">Adja hozzá ujjlenyomatait.</string>
+    <string name="fingerscanner_register_1_finger_summary">Hozzáadott 1 ujjlenyomatot.</string>
     <string name="fingerscanner_register_summary">Hozzáadott %d ujjlenyomatot.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Használja ujjlenyomatát, vagy adja meg a jelenlegi PIN-kódot.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Használja ujjlenyomatát, vagy rajzolja le a jelenlegi mintát.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">A képernyő bekapcsolása után azonnal feloldhatja a telefont arcfelismeréssel, nem kell előtte elhúzni a képernyőt.</string>
     <string name="facelock_recognition_speed_up">Gyorsabb felismerés</string>
     <string name="facelock_recognition_speed_up_summary">Kapcsolja be a gyorsabb felismeréshez. Kapcsolja ki a biztonság fokozásához, valamint a képpel vagy videóval történő feloldás megnehezítéséhez.</string>
+    <string name="facelock_samsungpass_summary">Arcfelismeréssel igazolhatja személyazonosságát a %sban és egyéb támogatott alkalmazásokban.</string>
     <string name="face_remove_face_popup_title">Törli az arcadatokat?</string>
     <string name="face_remove_face_popup_message_1">Az eszköz a továbbiakban nem fogja felismerni az arcát, az Arcfelismeréses zárolás pedig kikapcsol.</string>
     <string name="face_remove_face_popup_message_2">Az arcfelismerést használó funkciók kikapcsolnak.</string>
@@ -2070,7 +2084,7 @@ Ha biometrikus adatok vagy %s segítségével szeretné feloldani a telefont, ka
     <string name="biometrics_backup_locktype_title">Íriszalapú védelem beállítása</string>
     <string name="biometrics_register_your_iris">Regisztrálja íriszeit.</string>
     <string name="biometrics_backup_locktype_summary">Ha az íriszeit szeretné használni az eszköz zárolásának feloldásához, akkor egy mintát, PIN-kódot vagy jelszót is be kell állítania.</string>
-    <string name="biometrics_backup_locktype_message">A telefon íriszekkel való feloldásához, illetve a biztonságos hitelesítéshez tegye a következőket:</string>
+    <string name="biometrics_backup_locktype_message">Ha íriszeivel szeretné feloldani a telefont, illetve azonosítani magát az alkalmazásokban, tegye a következőket:</string>
     <string name="iris_delete_popup_title">Törli az íriszadatokat?</string>
     <string name="iris_delete_popup_message">Törli az íriszadatokat?</string>
     <string name="iris_delete_popup_message_with_related_func">Az íriszeket használó funkciók kikapcsolnak.</string>
@@ -2078,7 +2092,7 @@ Ha biometrikus adatok vagy %s segítségével szeretné feloldani a telefont, ka
     <string name="iris_timeout_popop_title">Megprób. később</string>
     <string name="iris_timeout_popop_message">Nem ismerhetők fel az íriszei. Lehet, hogy piszkos az íriszkamera. Tisztítsa meg a képernyő feletti részt, és próbálja újra.</string>
     <string name="iris_timeout_popop_message_1">Lehet, hogy piszkos az íriszkamera. Tisztítsa meg a képernyő feletti részt, és próbálja újra.</string>
-    <string name="iris_proximity_restriction_popop_message">Nem ismerhetők fel az íriszei. Lehet, hogy túl közel van a telefon az arcához, vagy piszkos a közelítésérzékelő. Tisztítsa meg a képernyő feletti részt, és próbálja újra.</string>
+    <string name="iris_proximity_restriction_popop_message">Tartsa a telefont távolabb az arcától, és próbálja újra.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Lehet, hogy piszkos a közelítésérzékelő.
 Tisztítsa meg a képernyő feletti részt."</string>
     <string name="iris_try_again">Prób. újra</string>
@@ -2086,6 +2100,8 @@ Tisztítsa meg a képernyő feletti részt."</string>
     <string name="iris_failed_to_verity_identify">Nem ellenőrizhető a személyazonossága</string>
     <string name="iris_failed_popup_description">%1$d alkalommal nem sikerült felismerni az íriszét. Próbálja újra %2$d másodperc múlva.</string>
     <string name="iris_no_match">Nincs találat</string>
+    <string name="iris_eye_safety_msg">Nem sikerült felismerni az íriszeit.</string>
+    <string name="iris_timeout_msg">Az eszköz nem ismerte fel az íriszeit.</string>
     <string name="biometrics_registered">Regisztrálva</string>
     <string name="iris_turn_on_toast_message">Az ujjlenyomatos zárolás helyett bekapcsolta az íriszalapú zárolást.</string>
     <string name="iris_wrong_backup_password">Helytelen tartalék jelszó</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">A Kezdőlap gomb és egy óra vagy információk megjelenítése a képernyőn készenléti állapotban.</string>
     <string name="aod_feature_off_popup_title">Kikapcsolja a(z) %s funkciót?</string>
     <string name="aod_feature_off_popup_description">A(z) %1$s csak a(z) %2$s kikapcsolása után használható.</string>
+    <string name="aod_features_off_popup_title">Kikapcsolja a többi funkciót?</string>
+    <string name="aod_features_off_popup_description">Az Always On Display használatához a következő funkciókat ki kell kapcsolni:</string>
     <string name="aod_features_off_popup_btn_ok">Kikapcsol</string>
     <string name="aod_disable_by_negative_colors">Nem használható, amikor be van kapcsolva a Színek invertálása.</string>
     <string name="aod_disable_by_powersaving_mode">Nem használható, amikor be van kapcsolva az Energiatakarékos mód.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Színes cseppek</string>
     <string name="lock_screen_show_information_summary_wifi_only">A zárolt képernyőn megjelennek az eszköztulajdonos információi vagy az alkalmazások parancsikonjai.</string>
     <string name="lock_screen_sview_show_information_summary">A zárolt képernyőn és az S View ablakban megjelennek az alkalmazások parancsikonjai, a második óra vagy az eszköztulajdonos információi.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">A roamingóra vagy a telefontulajdonos kapcsolatfelvételi adatainak megjelenítése a zárolt képernyőn és az S View ablakban.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Válassza ki azokat az alkalmazás-parancsikonokat, amelyek a zárolt képernyőn és az S View ablakban megjelennek.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Értesítések megjelenítése a zárolt képernyőn és az S View ablakban.</string>
     <string name="lock_screen_and_cover_show_information_summary">A zárolt képernyőn és a Clear View Coveren át látható lesz a második óra.</string>
     <string name="lock_screen_secured_lock_settings_title">Biztonságos zárolás beállításai</string>
     <string name="lock_screen_secured_lock_settings_summary">Beállíthatja a biztonságos zárolás funkcióit, például az automatikus zárolást és az azonnali zárolást a Bekapcsolás gombbal.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Otthoni időzóna</string>
     <string name="contact_info_settings_title">Kapcsolattartási adatok</string>
     <string name="show_contact_info_on_lockscreen_label">Információk, például a telefonszám vagy az e-mail-cím megjelenítése a zárolt képernyőn.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Információk, például a telefonszám vagy az e-mail-cím megjelenítése a zárolt képernyőn és az Always On Display funkcióban.</string>
     <string name="unlock_effect">Feloldási effektus</string>
     <string name="walking_mate_title">Lépésszámláló</string>
     <string name="help_text_title">Súgószöveg</string>
@@ -2415,7 +2437,7 @@ Javasolt eltávolítani a biometrikus adatait, de a kapcsolódó funkciók haszn
     <string name="toast_set_lock_pattern">Ha elfelejti a mintát, minden adat törlődik, és a visszaállnak a telefon alapértelmezett beállításai.</string>
     <string name="toast_set_lock_password">Ha elfelejti a jelszót, minden adat törlődik, és a visszaállnak a telefon alapértelmezett beállításai.</string>
     <string name="toast_set_lock_pin">Ha elfelejti a PIN-kódot, minden adat törlődik, és a visszaállnak a telefon alapértelmezett beállításai.</string>
-    <string name="chooselock_warning_text">Ez a %s szükséges lesz az eszköz újraindítása után, ezért jegyezze meg.</string>
+    <string name="chooselock_warning_text">Ez a %s a telefon újraindítása után fog kelleni, ezért jegyezze meg.</string>
     <string name="lockpassword_password_exists_history">Ezt a jelszót már használta. Új jelszót adjon meg.</string>
     <string name="lockpassword_pin_repeating_nums">A PIN nem tartalmazhat ismétlődő számokat.</string>
     <string name="lockpassword_pin_sequential_nums">A PIN nem tartalmazhat sorrendben egymás után leírt számokat.</string>
@@ -2533,6 +2555,9 @@ Kikapcsolja a mobilinternetet?"</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Az adatkapcsolatot igénylő alkalmazások, például az Internet és az E-mail használatához Wi-Fi-re lesz szüksége.
 
 Kikapcsolja a mobilinternetet?"</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Wi-Fi-hálózati kapcsolat nélkül nem használhatók az adatkapcsolatot igénylő alkalmazások, például az Internet és az E-mail.</string>
@@ -2691,10 +2716,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Egyéni hangerő-korlátozás</string>
     <string name="volume_limiter_descryption">Hallásának védelme a médialejátszási hangerő korlátozásának beállításával. A korlátozást csak fülhallgatók és Bluetooth-hangeszközök használatakor alkalmazza a rendszer.</string>
     <string name="multi_sound_title">Külön alkalmazáshang</string>
-    <string name="multi_sound_summary">Egy alkalmazás hangjának lejátszása egy hangszórón vagy fejhallgatón, az eszköz többi hangjától külön.</string>
-    <string name="multi_sound_descryption">"Egy alkalmazás médiahangját a többiétől elkülönítve játssza le hangszóró vagy fejhallgató segítségével.
+    <string name="multi_sound_summary">Egy alkalmazás médiahangjának lejátszása a telefon fő hangszórójától különböző hangeszközön.</string>
+    <string name="multi_sound_descryption">"A telefon fő hangszórójától eltérő hangkimeneti eszközön játszhatja le egy alkalmazás médiahangját. A funkció bekapcsolásához válasszon ki egy alkalmazást és egy hangeszközt.
 
-Bluetooth-hangeszköz kiválasztása esetén az eszköz az alapértelmezett hangeszközön játssza le a hangot, amikor a Bluetooth-eszköz nincs csatlakoztatva."</string>
+A Külön alkalmazáshang funkció működéséhez a telefon fő hangkimeneti eszközétől eltérő hangeszközt kell kiválasztani.
+
+A telefon fő hangkimeneti eszközét a gyorsbeállító panelen módosíthatja. Ha a hangkimenet nem látható, akkor kapcsolja be a Samsung Connect > Beállítások > Samsung Connect panelen."</string>
     <string name="set_application_title">Alkalmazás</string>
     <string name="set_application_summary">Válassza ki azt az alkalmazást, amelynek a hangját külön hangeszközön szeretné lejátszani.</string>
     <string name="set_application_descryption">Válassza ki alább azt a multimédiás alkalmazást, amelynek a hangját külön hangeszközön szeretné lejátszani.</string>
@@ -2705,9 +2732,11 @@ Bluetooth-hangeszköz kiválasztása esetén az eszköz az alapértelmezett hang
     <string name="multi_sound_popup_msg">A(z) %s bekapcsolásához ki kell választani egy alkalmazást és egy hangeszközt.</string>
     <string name="multi_sound_network_msg">A rendelkezésre álló alkalmazások kereséséhez a telefonnak csatlakoznia kell a hálózatra. Ellenőrizze a hálózati beállításokat, és próbálja újra.</string>
     <string name="multi_sound_wifi_msg">A rendelkezésre álló alkalmazások kereséséhez a telefonnak hálózati kapcsolatra van szüksége. A mobilinternet használata további költséggel járhat.</string>
+    <string name="multi_sound_add_application">Alkalmazás hozzáadása</string>
     <string name="dlg_btn_select">Választ</string>
-    <string name="audio_device_type_descryption">Válassza ki, hogy melyik hangeszközt szeretné használni az alkalmazáshoz. A Bluetooth-eszközök csak akkor választhatók, ha csatlakoztatva vannak.</string>
+    <string name="audio_device_type_descryption">Válassza ki, hogy melyik hangeszközt szeretné használni a kiválasztott alkalmazáshoz. A Bluetooth-eszközök csak akkor választhatók, ha csatlakoztatva vannak.</string>
     <string name="my_phone_title">Telefon</string>
+    <string name="my_phone_summary">Fejhallgató/hangszóró/USB-hangeszköz</string>
     <string name="bluetooth_device_title">Bluetooth-eszköz</string>
     <string name="no_connected_devices">Nincs csatlakoztatott eszköz</string>
     <string name="two_hours">2 óra</string>
@@ -2715,7 +2744,8 @@ Bluetooth-hangeszköz kiválasztása esetén az eszköz az alapértelmezett hang
     <string name="stop_setup_popup_msg">A módosított beállítások nem lépnek érvénybe.</string>
     <string name="app_turned_on">%s bekapcsolva.</string>
     <string name="force_touch_title">Rezgő visszajelzés erős nyomásra</string>
-    <string name="volume_key_control_title">Hangerő gomb alapért. vezérlése</string>
+    <string name="volume_key_control_title">H.erőgombok használata médiához</string>
+    <string name="volume_key_control_summary">A médiahangerő vezérlése a Hangerő gombok megnyomásával.</string>
     <string name="sound_mode">Hangmód</string>
     <string name="sound_mode_vibrate">Rezgés</string>
     <string name="sound_mode_mute">Néma</string>
@@ -2929,14 +2959,13 @@ Próbálja újra."</string>
     <string name="text_biometrics_title_enterprise">A(z) %1$s kiválasztása esetén biometrikus adatok nem állíthatók be a(z) %2$s feloldásához.</string>
     <string name="text_biometrics_finger_title_enterprise">A(z) %1$s nem támogatja a(z) %2$s ujjlenyomatos feloldását.</string>
     <string name="edge_feeds_title">Edge-hírcsat.</string>
-    <string name="screensaver_settings_summary">"Beállíthatja, hogyan viselkedjen az eszköz dokkolás vagy töltés közben. A képernyő időkorlátjának letelte után megjelenik a képernyőkímélő.
-
-Ez a funkció Képernyővédő néven is ismert."</string>
+    <string name="screensaver_settings_summary">Képernyőkímélő megjelenítése, miután a telefon töltése közben a képernyő automatikusan kikapcsol.</string>
     <string name="screensaver_settings_summary_wo_dock">Képernyőkímélő megjelenítése, miután a telefon töltése közben a képernyő automatikusan kikapcsol.</string>
     <string name="apn_already_exists">Már létezik.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">A portszámnak %1$d és %2$d között kell lennie.</string>
     <string name="apn_restore_warning">Eltávolítja az ön által hozzáadott összes APN-t. A többi APN visszaáll az alapértelmezett beállításokra.</string>
+    <string name="apn_restore_title">Visszaállítja az APN-beállításokat?</string>
     <string name="master_clear_desc_google_account">Google-fiók</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2948,7 +2977,8 @@ Ez a funkció Képernyővédő néven is ismert."</string>
     <string name="sound_balance_summary">Beállíthatja a bal-jobb hangbalanszt fejhallgató használatához.</string>
     <string name="backup_samsung_account_title">Biztonsági mentés beállításai</string>
     <string name="restore_samsung_account_title">Helyreállítás</string>
-    <string name="auto_restart_header">Eszközkezelés</string>
+    <string name="auto_restart_header">Telefonkezelés</string>
+    <string name="auto_restart_header_tablet">Táblagép kezelése</string>
     <string name="auto_restart_title">Automatikus újraindítás</string>
     <string name="switch_turn_on_text">Bekapcsolás</string>
     <string name="switch_turn_off_text">Kikapcsolás</string>
@@ -3071,6 +3101,14 @@ A művelet nem érinti a személyes adatokat és a letöltött alkalmazások be�
     <string name="tether_settings_summary_usb_bt">Eszköz mobilinternet-kapcsolatának megosztása USB-n vagy Bluetooth-on</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Elfogad</string>
+    <string name="bluetooth_tethering_off_subtext_phone">A telefon internetkapcsolatának megosztása Bluetoothon keresztül.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">A táblagép internetkapcsolatának megosztása Bluetoothon keresztül.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Készen áll a telefon internetkapcsolatának megosztására.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Készen áll a táblagép internetkapcsolatának megosztására.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">A telefon internetkapcsolatának megosztása 1 eszközzel.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">A táblagép internetkapcsolatának megosztása 1 eszközzel.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">A telefon internetkapcsolatának megosztása %d eszközzel.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">A táblagép internetkapcsolatának megosztása %d eszközzel.</string>
     <string name="onehand_settings_title">Egykezes mód</string>
     <string name="onehand_settings_text_1">A kijelzőméret csökkentéséhez húzza ujját átlósan felfelé bármelyik alsó sarokból.</string>
     <string name="onehand_settings_text_2">A képernyő kicsinyítéséhez érintse meg a Kezdőlap gombot 3-szor gyorsan egymás után.</string>
@@ -3398,10 +3436,12 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Ki</string>
     <string name="wifi_or_mobile_network">Wi-Fi vagy mobilhálózat</string>
     <string name="wifi_network_only">Csak Wi-Fi-hálózat</string>
+    <string name="wifi_adps_title">Energiatakarékos Wi-Fi-mód</string>
+    <string name="wifi_adps_summary">Az akkumulátorhasználat csökkentése a Wi-Fi-használati minták elemzésével.</string>
     <string name="wifi_auto_reconnect">Automatikus újrakapcsolódás</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">A Wi-Fi bekapcsolásával letiltja a Mobile Hotspotot. Folytatja?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Aktív Mobil hotspot mellett a Wi-Fi kikapcsol. A Wi-Fi bekapcsolásához kapcsolja ki a Mobil hotspotot.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Aktív Mobil hotspot mellett a Wi-Fi kikapcsol. A Wi-Fi bekapcsolásához kapcsolja ki a Mobil hotspotot.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
@@ -3603,6 +3643,10 @@ A mobil hotspot nevének vagy jelszavának módosítása után új QR-kódot kel
     <string name="wifi_wps_pin_client_mobileap">Csatlakozás a klienshez a(z) %1$s PIN-kód használatával. A beállítás akár %2$d percig is eltarthat.</string>
     <string name="wifi_wps_complete_mobileap">Létrejött a kapcsolat az eszköz és a másik eszköz között.</string>
     <string name="wifi_ap_disconnect_warn">Eszköz leválasztása</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">A jelenleg csatlakoztatott valamennyi eszköz le lesz választva a Mobil hotspotról.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">A jelenleg csatlakoztatott valamennyi eszköz le lesz választva a Mobil hotspotról.</string>
     <string name="wifi_ap_warn_max_whitelist">Elérte az engedélyezett eszközök maximális számát (%d).</string>
     <string name="wifiap_one_item_deleted">Törölni fog 1 tételt.</string>
@@ -3738,6 +3782,8 @@ A Mobil hotspot használata esetén gyorsabban merül az akkumulátor, és megn�
     <string name="wifi_ap_first_time_configuration">Hotspot kezdeti konfigurálása</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Adja meg a helyes PIN-kódot.</string>
+    <string name="open_mobileap_warning">Ez a mobil hozzáférési pont nem biztonságos.</string>
+    <string name="hidden_mobileap_warning">Ha a felhasználó rejtett SSID-t állít be, a WPS kikapcsol.</string>
     <string name="wifi_ssid_max_byte_error">Elérte a karakterek maximális számát.</string>
     <string name="tethering_attention_title">Figyelem</string>
     <string name="wfd_select_device">Válasszon eszközt</string>
@@ -3871,7 +3917,7 @@ A roaminggal kapcsolatban az ingyenesen hívható roaming-ügyfélszolgálatnál
     <string name="security_settings_fingerprint_setup_title">Ujjlenyomat-felism. beállítása</string>
     <string name="security_settings_iris_setup_title">Íriszfelism. beállítása</string>
     <string name="master_clear_desc_sec">Minden adatot töröl a telefon tárhelyéről, beleértve a következőket is:</string>
-    <string name="master_clear_desc_app">El fogja eltávolítani a következő alkalmazásokat. A szolgáltatótól függően lehetséges, hogy egyes alkalmazásokat a visszaállítás után újra lehet telepíteni.</string>
+    <string name="master_clear_desc_app">El fogja távolítani a következő alkalmazásokat. A szolgáltatótól függően lehetséges, hogy egyes alkalmazásokat a visszaállítás után újra lehet telepíteni.</string>
     <string name="master_clear_desc_system_and_app_data">A rendszer és az alkalmazások adatai</string>
     <string name="master_clear_desc_device_settings">Beállítások</string>
     <string name="master_clear_desc_downloaded_apps">Letöltött alkalmazások</string>
@@ -3968,6 +4014,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Szinkronizálás</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Ez az engedély lehetővé teszi az alkalmazás számára, hogy más alkalmazásokat eltakarva jelenítsen meg dolgokat. Ez zavarhatja a többi alkalmazás használatát.</string>
+    <string name="write_settings_body_description">A rendszerbeállítások módosításának – például. a Bluetooth be- és kikapcsolásának – engedélyezése az alkalmazás számára.</string>
+    <string name="reset_app_preferences_desc1">Ezzel visszaállítja a következőre vonatkozó beállításait:</string>
+    <string name="reset_app_preferences_desc2">Letiltott alkalmazások</string>
+    <string name="reset_app_preferences_desc3">Alkalmazások értesítéseinek korlátozásai</string>
+    <string name="reset_app_preferences_desc4">Alapértelmezett alkalmazások</string>
+    <string name="reset_app_preferences_desc5">Alkalmazások háttér-adatkapcsolatának korlátozása</string>
+    <string name="reset_app_preferences_desc6">Engedélykorlátozások</string>
+    <string name="reset_app_preferences_desc7">A meglévő alkalmazásadatai nem vesznek el.</string>
     <string name="knox_security_mode_title">Knox-biztonság</string>
     <string name="kap_title">Knox Aktív védelem</string>
     <string name="kap_eula_title">Adatvédelmi nyilatk.</string>
@@ -3982,6 +4036,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Kezelheti személyes adatait és a Samsung accounthoz tartozó adatokat.</string>
     <string name="my_profile_summary_jpn">Kezelheti személyes adatait és a Galaxy-fiókhoz tartozó adatokat.</string>
     <string name="arbitration_agreement">Vitarendezési megállapodás</string>
+    <string name="activation_title">Aktiválás állapota</string>
+    <string name="activation_summary">Aktiválva a következő időpontban: %1$s. További információért látogasson el a(z) %2$s webhelyre.</string>
+    <string name="wifi_ap_pmf_on">PMF bekapcsolása</string>
+    <string name="edit_event_start_short">Kezdet</string>
+    <string name="edit_event_end_short">Vége</string>
+    <string name="select_date_to_view">Dátum kiválasztása a megtekintéshez</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Igen</string>
     <string name="no">Nem</string>
     <string name="create">Új</string>
@@ -5474,7 +5535,7 @@ Frissített alkalmazásengedélyt bármely felhasználó elfogadhat a többiek n
     <string name="app_notification_block_title">Értesítések engedélyezése</string>
     <string name="app_notification_block_summary">Az alkalmazástól értesítéseket – többek között értesítő üzeneteket, valamint hang- és a rezgéses jelzéseket – fog kapni.</string>
     <string name="app_notification_override_dnd_title">Beállítás fontosként</string>
-    <string name="app_notification_override_dnd_summary">Az alkalmazás értesítései megszólalhatnak, valamint a képernyőt is bekapcsolhatják Ne zavarjanak üzemmódban.</string>
+    <string name="app_notification_override_dnd_summary">Ne zavarjanak üzemmódban az értesítések megjelennek az értesítési panel tetején, és az engedélyezettek listájára kerülnek.</string>
     <string name="app_notification_visibility_override_title">A zárolt képernyőn</string>
     <string name="app_notifications_dialog_done">Kész</string>
     <string name="zen_mode_choose_rule_type">Szabálytípus kiválasztása</string>
@@ -5511,6 +5572,7 @@ Frissített alkalmazásengedélyt bármely felhasználó elfogadhat a többiek n
     <string name="restr_pin_enter_admin_pin">Rendszergazda-PIN megadása</string>
     <string name="switch_on_text">Be</string>
     <string name="switch_off_text">Ki</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">A munkaprofil kezelője:</string>
     <string name="managing_admin">Kezelő: %s</string>
     <string name="display_auto_rotate_title">Képernyő elforgatása</string>
     <string name="display_auto_rotate_rotate">Képernyőtartalom elforgatása</string>
@@ -5547,9 +5609,9 @@ Amíg az eszköz el nem indul, nem fogadhat hívást, üzenetet és értesítés
     <string name="encrypt_talkback_dialog_require_pin">PIN bekérése</string>
     <string name="encrypt_talkback_dialog_require_pattern">Minta bekérése</string>
     <string name="encrypt_talkback_dialog_require_password">Jelszó bekérése</string>
-    <string name="encrypt_talkback_dialog_message_pin">Az eszköz bekapcsolása után a PIN megadását követően átmenetileg nem állnak rendelkezésre a kisegítő funkciók, mint például a(z) %1$s.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Az eszköz bekapcsolása után a minta lerajzolását követően átmenetileg nem állnak rendelkezésre a kisegítő funkciók, mint például a(z) %1$s.</string>
-    <string name="encrypt_talkback_dialog_message_password">Az eszköz bekapcsolása után a jelszó megadását követően átmenetileg nem állnak rendelkezésre a kisegítő funkciók, mint például a(z) %1$s.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Bekapcsoláskor az eszköz bekéri a PIN-t. Amíg az eszköz el nem indul, a kisegítő lehetőségek nem állnak rendelkezésre.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Bekapcsoláskor az eszköz bekéri a mintát. Amíg az eszköz el nem indul, a kisegítő lehetőségek nem állnak rendelkezésre.</string>
+    <string name="encrypt_talkback_dialog_message_password">Bekapcsoláskor az eszköz bekéri a jelszót. Amíg az eszköz el nem indul, a kisegítő lehetőségek nem állnak rendelkezésre.</string>
     <string name="slot_number">(%d. hely)</string>
     <string name="app_launch_domain_links_title">Alkalmazáshivatkozások</string>
     <string name="app_launch_open_domain_urls_title">Ugrás a támogat. URL-ekre</string>
@@ -5625,18 +5687,18 @@ Amíg az eszköz el nem indul, nem fogadhat hívást, üzenetet és értesítés
     <string name="usb_use_power_only">Csatlak. eszköz töltése</string>
     <string name="usb_use_power_only_desc">A csatlakoztatott eszköz töltése USB-n keresztül.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Médiafájlok átvitele</string>
+    <string name="usb_use_file_transfers">Fájlok átvitele</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Képek átvitele</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Válassza ezt a módot, ha a Médiafájlok átvitele mód nem működik. Csak képfájlokat vihet át.</string>
+    <string name="usb_use_photo_transfers_summary">Akkor válassza ezt a módot, ha a Médiafájlok átvitele mód nem működik. Ebben a módban csak képfájlokat vihet át.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">MIDI-eszköz csatlakozt.</string>
-    <string name="usb_use">USB használati módja</string>
-    <string name="assist_access_context_title">Szövegolv. a képernyőről</string>
-    <string name="assist_access_context_summary">Engedélyezi az eszközasszisztens-alkalmazás számára a képernyőn látható bármely szöveg olvasását.</string>
-    <string name="assist_access_screenshot_title">Képernyőfotók készítése/elérése</string>
-    <string name="assist_access_screenshot_summary">Engedélyezi, hogy az eszközasszisztens-alkalmazás képernyőfotókat készítsen, valamint hozzáférjen azokhoz.</string>
+    <string name="usb_use">USB használata a következőhöz:</string>
+    <string name="assist_access_context_title">Képernyőn lévő szöveg elemzése</string>
+    <string name="assist_access_context_summary">A képernyőn megjelenő szöveg elemzésének engedélyezése az eszközasszisztens-alkalmazás számára a kapcsolódó tartalmak biztosításához.</string>
+    <string name="assist_access_screenshot_title">Képernyőn látható képek elemzése</string>
+    <string name="assist_access_screenshot_summary">A képernyőképek készítésének és használatának engedélyezése az eszközasszisztens-alkalmazás számára.</string>
     <string name="assist_footer">Az eszközasszisztens-alkalmazásokkal összegyűjtheti a telefon képernyőjén éppen látható információkat. Egyes, integrált asszisztenciát nyújtó eszközasszisztens-alkalmazásokkal egyéb alkalmazások nyithatók meg, és hangbevitellel írható be szöveg.</string>
     <string name="average_memory_use">Átlagos RAM-használat</string>
     <string name="maximum_memory_use">Maximális RAM-használat</string>
@@ -5665,7 +5727,7 @@ Amíg az eszköz el nem indul, nem fogadhat hívást, üzenetet és értesítés
     <string name="ignore_optimizations_on_desc">Gyorsabban merülhet az akkumulátor</string>
     <string name="ignore_optimizations_off_desc">Javasolt az akkumulátor kíméléséhez</string>
     <string name="app_list_preference_none">Nincs</string>
-    <string name="allow_overlay_description">Válassza ki azokat az alkalmazásokat, amelyeknek gombjait, előugró ablakait és más elemeit meg szeretné jeleníteni a többi használt alkalmazás felett.</string>
+    <string name="allow_overlay_description">Ez az engedély lehetővé teszi az alkalmazás számára, hogy más alkalmazásokat eltakarva jelenítsen meg dolgokat. Ez zavarhatja a többi alkalmazás használatát.</string>
     <string name="overlay_settings">Más alkalmazások eltakarására képes alkalmazások</string>
     <string name="filter_overlay_apps">Engedéllyel rendelkező alk.ok</string>
     <string name="filter_write_settings_apps">Engedéllyel rendelkező alk.ok</string>
@@ -5712,14 +5774,14 @@ Amíg az eszköz el nem indul, nem fogadhat hívást, üzenetet és értesítés
     <string name="ethernet_data_template">%1$s Ethernet-adat</string>
     <string name="cell_warning_only">Adathasználati figyelmeztetés %s felhasználásakor</string>
     <string name="cell_warning_and_limit">%1$s Adathasználati figyelmeztetés/%2$s Adathasználati korlát</string>
-    <string name="billing_cycle">Számlázási ciklus</string>
+    <string name="billing_cycle">Száml. és adathaszn. figyelmezt.</string>
     <string name="billing_cycle_summary">Minden hónap %s. napján</string>
     <string name="billing_cycle_fragment_summary">Minden hónap %s. napján</string>
     <string name="network_restrictions">Hálózatkorlátozás</string>
     <string name="operator_warning">Az adathasználati információk az eszköz saját mérésein alapulnak. A szolgáltató eltérő módon mérheti a használatot.</string>
     <string name="data_used_template">%s adatot használt fel</string>
     <string name="data_warning">Adathasználati figyelmeztetés</string>
-    <string name="set_data_limit">Adatkorlát</string>
+    <string name="set_data_limit">Adatkorlát beállítása</string>
     <string name="data_limit">Adatkorlát</string>
     <string name="data_usage_template">%1$s adatot használt fel a(z) %2$s időszakban</string>
     <string name="data_usage_other_apps">Kapcsolódó alk.ok használata is</string>
@@ -5761,5 +5823,4 @@ Az eszközén olyan diagnosztikai szoftver található, amely az Ön beleegyezé
     <string name="enable_iris_lock_desc_3">"A képernyőzár jelenlegi típusa Ujjlenyomatok.
 
 Ha a képernyőzár típusaként inkább az Írisz beállítást szeretné megadni, érintse meg a BEKAPCSOLÁS lehetőséget. Ennek elvégzése után az eszközt íriszével vagy a %s megadásával oldhatja fel."</string>
-    <string name="my_phone_summary">Fejhallgató/hangszóró/USB-hangeszköz</string>
 </resources>

@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%sに接続できません。</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$sに接続できません。%2$sで設定を確認し、再度実行してください。</string>
     <string name="bluetooth_pairing_rejected_error_message">%sにペアリングを拒否されました。</string>
+    <string name="bluetooth_getting_remote_device_name">デバイス名称を取得中…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">このデバイスが接続されると、デバイス名称が表示されます。</string>
     <string name="accessibility_wifi_off">Wi-FiはOFFです。</string>
     <string name="accessibility_no_wifi">Wi-Fiが切断されました。</string>
     <string name="accessibility_wifi_one_bar">Wi-Fiはレベル1です。</string>
@@ -387,7 +389,8 @@ Verizonから入手したコードを入力してください。"</string>
     <string name="support">サポート</string>
     <string name="reset_network_settings_list_summary">Wi-Fi、Bluetooth、およびその他のネットワーク設定を初期値にリセットします。</string>
     <string name="master_clear_list_summary">端末を工場出荷時の状態にリセットします。ファイルおよびダウンロードしたアプリを含む全てのデータが削除されます。</string>
-    <string name="auto_restart_summary">設定された時刻に自動的に再起動することで、端末を最適化します。端末の再起動時、保存されていないデータは失われます。</string>
+    <string name="auto_restart_summary">1週間に1回、自動的に再起動することで、端末を最適化します。端末の再起動時、保存されていないデータは失われます。</string>
+    <string name="auto_restart_summary_tablet">1週間に1回、自動的に再起動することで、タブレットを最適化します。タブレットの再起動時、保存されていないデータは失われます。</string>
     <string name="search_settings">検索</string>
     <string name="related_results">関連アイテム%d件</string>
     <string name="no_results_found">検索結果がありません</string>
@@ -457,7 +460,7 @@ Verizonから入手したコードを入力してください。"</string>
     <string name="sound_balance_right_message">サウンドバランスは右側に%dパーセントです。スライダーを調整するには、2本の指でドラッグしてください。</string>
     <string name="sound_balance_set">設定</string>
     <string name="accessibility_assistant_menu">アシスタントメニュー</string>
-    <string name="assistant_menu_summary">手先が不自由なユーザーのために、端末のユーザー補助を向上させる機能を有効にします。</string>
+    <string name="assistant_menu_summary">手先が不自由なユーザーのために、端末のアクセシビリティを向上させます。</string>
     <string name="color_blind_title">色の調整</string>
     <string name="no_result">色を調整して画面を見やすくすることができます。</string>
     <string name="you_are_normal">色の調整は必要ありません。</string>
@@ -653,6 +656,7 @@ Verizonから入手したコードを入力してください。"</string>
     <string name="direct_access_actions_accessibility_title">ユーザー補助</string>
     <string name="direct_access_actions_negative_title">ネガポジ反転</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">[ダイレクトアクセス]と[画面サイズを縮小]を同時に有効にすることはできません。[画面サイズを縮小]は無効になります。</string>
+    <string name="direct_access_exclusive_popup_msg">%1$sと%2$sを同時に有効にすることはできません。%3$sが無効になります。</string>
     <string name="direct_access_actions_color_adjustment_summary">ダイレクトアクセスでこの機能を使用するには、[視覚]で[色の調整]を設定してください。</string>
     <string name="direct_access_actions_screen_reader_summary">画面読み上げを有効にし、ダイレクトアクセスで使用します。</string>
     <string name="direct_access_actions_accesscontrol_title">入力操作制御</string>
@@ -850,7 +854,9 @@ Wi-FiとBluetoothもOFFになりますが、設定またはクイック設定パ
     <string name="premium_sms_values_ask">確認</string>
     <string name="premium_sms_values_never">許可しない</string>
     <string name="premium_sms_values_allow">常に許可</string>
-    <string name="assist_and_voice_input_summary">端末アシスタンスアプリは、各画面に関する詳細オプションおよび情報を提供します。</string>
+    <string name="assist_and_voice_input_summary">ホームボタンを長押ししたときに使用するアプリを選択してください。</string>
+    <string name="assist_footer_phone">ホームボタンを長押ししたときに使用するアプリを選択してください。端末アシスタンスアプリは、端末の画面に表示されている情報に基づいてユーザーをサポートします。</string>
+    <string name="assist_footer_tablet">ホームボタンを長押ししたときに使用するアプリを選択してください。端末アシスタンスアプリは、タブレットの画面に表示されている情報に基づいてユーザーをサポートします。</string>
     <string name="default_app_title">標準アプリとして設定</string>
     <string name="premium_sms_title">プレミアムSMSを送信</string>
     <string name="default_app_selection">標準アプリ選択</string>
@@ -939,7 +945,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
 
 接続された2台のデバイスの音声出力は、多少異なって聞こえる場合があります。"</string>
     <string name="bluetooth_dual_play_ask_popup_title">メディア音量同期をOFFにしますか？</string>
-    <string name="bluetooth_dual_play_ask_popup_content">デュアルオーディオを使用するには、メディア音量同期をOFFにする必要があります。</string>
+    <string name="bluetooth_dual_play_ask_popup_content">各オーディオデバイスで個別に音量を調節するには、メディア音量の同期をOFFにする必要があります。</string>
     <string name="bluetooth_avc_title">メディア音量の同期</string>
     <string name="bluetooth_avc_description">接続したBluetoothデバイスで端末のメディア音量を調整できる場合、Bluetoothデバイスで設定された音量レベルが端末と同期されます。</string>
     <string name="bluetooth_avc_volume_change_description">この機能をONにすると、音量が予期せず変化する可能性があります。</string>
@@ -948,6 +954,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="bluetooth_avc_ask_popup_title">デュアルオーディオをOFFにしますか？</string>
     <string name="bluetooth_avc_ask_popup_content">メディア音量同期を使用するには、デュアルオーディオをOFFにする必要があります。</string>
     <string name="bluetooth_avc_disable_description">接続されたBluetoothデバイスが[メディア音量の同期]に対応していません。端末の音量を接続されたBluetoothデバイスと同期することはできません。</string>
+    <string name="bluetooth_avc_available_description">接続されたBluetoothデバイスは[メディア音量の同期]に対応しているため、Bluetoothデバイスで設定された音量レベルを端末と同期します。</string>
     <string name="bluetooth_enter_pin_msg">%sとペアリングするためのPIN(0000または1234)を入力してください。</string>
     <string name="bluetooth_pin_maximum_number_message">最大文字数に達しました。</string>
     <string name="settings_menu_done">完了</string>
@@ -1031,11 +1038,12 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="swipe_to_call_title">ｽﾜｲﾌﾟして発信/ﾒｯｾｰｼﾞ送信</string>
     <string name="swipe_to_call_summary">[電話]、[連絡先]、または[メッセージ]アプリで、連絡先または電話番号を右にスワイプすると電話を発信し、左にスワイプするとメッセージを送信します。</string>
     <string name="swipe_to_call_summary_dcm">[ダイヤル]、[連絡先]、または[メッセージ]アプリで、連絡先または電話番号を右にスワイプすると電話を発信し、左にスワイプするとメッセージを送信します。</string>
-    <string name="swipe_to_call_summary_kddi">[電話]または[連絡先]アプリで、連絡先または電話番号を右にスワイプすると電話を発信し、左にスワイプするとメッセージを送信します。</string>
+    <string name="swipe_to_call_summary_kddi">[ダイヤル]または[連絡先]アプリで、連絡先または電話番号を右にスワイプすると電話を発信し、左にスワイプするとメッセージを送信します。</string>
     <string name="dual_app_title">デュアルメッセンジャー</string>
     <string name="dual_app_summary">同じアプリを2つの別のアカウントで使用します。</string>
     <string name="finger_sensor_gesture_title">指紋センサーのジェスチャー</string>
-    <string name="finger_sensor_gesture_summary">指紋センサーでアプリや機能を起動/終了します。</string>
+    <string name="finger_sensor_gesture_summary">指紋センサーでアプリや機能を起動または終了します。</string>
+    <string name="finger_sensor_gesture_summary_noapp">指紋センサーで通知パネルを開閉します。</string>
     <string name="finger_sensor_gesture_description">指紋センサーを上下にスワイプすると、通知パネルを開閉できます。</string>
     <string name="open_samsung_pay_title">Samsung Payを起動</string>
     <string name="open_samsung_pay_summary">ホーム画面からSamsung Payを起動するには、指紋センサーで上にスワイプします。</string>
@@ -1070,6 +1078,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
 %s"</string>
     <string name="enable_ps_title">[%s]を有効にする</string>
     <string name="setup_wizard">セットアップウィザード</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">標準</string>
     <string name="large">大</string>
     <string name="small">小</string>
@@ -1213,9 +1222,9 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="last_checked_date">最終確認日:</string>
     <string name="auto_update">更新を自動的にダウンロード</string>
     <string name="auto_update_summary">Wi-Fiネットワーク接続時に、ソフトウェア更新を自動的にダウンロードします。ダウンロード中も、端末は使用可能です。</string>
-    <string name="auto_update_over_wifi">Wi-Fiで自動ダウンロード</string>
-    <string name="auto_update_over_wifi_summary">Wi-Fiネットワーク接続時に、ソフトウェア更新を自動的にダウンロードします。サービスプロバイダによっては、モバイルデータを使用しても追加料金なしで更新をダウンロードされる場合があります。ダウンロード中も、端末は使用可能です。</string>
-    <string name="scheduled_update">ソフトウェアの更新予約</string>
+    <string name="auto_update_over_wifi">Wi-Fi接続時に自動ダウンロード</string>
+    <string name="auto_update_over_wifi_summary">Wi-Fiネットワーク接続時に、ソフトウェア更新を自動的にダウンロードします。サービスプロバイダによっては、モバイルデータで更新がダウンロードされる場合がありますが、追加料金は発生しません。またダウンロード中も、端末は使用可能です。</string>
+    <string name="scheduled_update">ソフトウェア更新予約</string>
     <string name="scheduled_update_summary_default">OFF</string>
     <string name="scheduled_update_summary_set_time">%sに更新を開始</string>
     <string name="scheduled_update_summary_set_time_everyday">毎日%sに更新を開始</string>
@@ -1367,7 +1376,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="poc_balance_description_1">エッジスクリーンのカラーを調整して､最適化します。最初に全画面のカラーバランスを最適化してください。さらに画面のエッジ部分にカラー調整が必要な場合のみ使用してください。</string>
     <string name="poc_balance_description_2">この操作には、%d分ほどかかります。調整を適用するために、端末が最大2回再起動します。</string>
     <string name="poc_balance_not_enough_battery_title">バッテリー残量不足</string>
-    <string name="poc_balance_not_enough_battery">画面端の色を調整する前に、バッテリー残量が%d%%以上になるまで充電してください。</string>
+    <string name="poc_balance_not_enough_battery">エッジスクリーンのカラーを調整する前に、バッテリー残量が%d%%以上になるまで充電してください。</string>
     <string name="poc_progress_description_1">エッジスクリーンのカラーを最適化中…</string>
     <string name="poc_progress_description_2">調整を適用するために、端末を最大2回再起動する場合があります。</string>
     <string name="poc_progress_description_3">最適化中には、端末の操作をしないでください。</string>
@@ -1376,7 +1385,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="poc_balance_error_occurred_popup_title">前回のカラー最適化に失敗</string>
     <string name="poc_balance_error_occurred_popup_summary_1">カラーバランスの調整中に問題が発生しました。</string>
     <string name="poc_balance_error_occurred_popup_summary_2">再度実行してください。</string>
-    <string name="poc_balance_was_stopped_popup_summary">画面端の色を再度調整してください。</string>
+    <string name="poc_balance_was_stopped_popup_summary">エッジスクリーンのカラーを再度調整してください。</string>
     <string name="poc_balance_was_stopped_popup_title">画面の最適化をキャンセル</string>
     <string name="poc_balance_need_restart_popup_title">エッジスクリーンのカラーを最適化しますか？</string>
     <string name="led_indicator_settings">LEDインジケーター</string>
@@ -1417,6 +1426,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="navigationbar_summary">ホームボタン、戻るボタン、履歴ボタンを管理します。</string>
     <string name="navigationbar_theme_switch">現在のテーマを適用</string>
     <string name="navigationbar_color_title">背景色</string>
+    <string name="navigationbar_color_summary">選択した背景色は、一部のアプリには適用されない場合があります。</string>
     <string name="navigationbar_order_title">ボタンのレイアウト</string>
     <string name="navigationbar_order_default">履歴 - ホーム - 戻る</string>
     <string name="navigationbar_order_mirrored">戻る - ホーム - 履歴</string>
@@ -1448,7 +1458,8 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="blue_light_filter_enable_now">今すぐON</string>
     <string name="blue_light_filter_enable_as_scheduled">予定時刻にON</string>
     <string name="blue_light_filter_scheduled_toast">ブルーライトフィルターがONです。予定終了時刻に自動的にOFFになります。</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%sとブルーライトフィルターを同時に使用することはできません。ブルーライトフィルターは無効になります。</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">ブルーライトフィルターをOFFにしますか？</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">%sを使用するには、ブルーライトフィルターをOFFにする必要があります。</string>
     <string name="blue_light_filter_dlg_turn_on_location">[日の入りから日の出まで]を使用するには、位置情報をONにする必要があります。</string>
     <string name="dlg_turn_on">ON</string>
     <string name="screen_resolution_title">画面の解像度</string>
@@ -1462,7 +1473,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="outdoor_mode_summary_vzw">アウトドアモードは、日光の下で最適に表示されるように画面の明るさを最大にします。画面を使用しない場合、15分後に画面の明るさは前回の設定に戻ります。</string>
     <string name="screen_zoom_and_font">画面のズームとフォント</string>
     <string name="screen_zoom_easymode_desc">画面のズームを使用するには、かんたんモードをOFFにしてください。</string>
-    <string name="intelligent_sleep_title">スマート​ステイ</string>
+    <string name="intelligent_sleep_title">スマートステイ</string>
     <string name="screen_mode_setting">画面モード</string>
     <string name="screen_mode_summary">お好みのコントラストを選択します。</string>
     <string name="automatic_brightness_message">自動明るさ設定は、メイン画面のみ適用されます。</string>
@@ -1665,6 +1676,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="crypt_keeper_last_warn_wipe">端末の起動にあと1回失敗すると、端末が工場出荷時の状態にリセットされ、ファイルおよびダウンロードしたアプリを含む全てのデータが削除されます。</string>
     <string name="crypt_keeper_failed_title_dec">復号に失敗しました。</string>
     <string name="crypt_keeper_failed_summary_dec">中断したため、復号を完了できませんでした。使用前に工場出荷状態に初期化（全データの消去）を行ってください。</string>
+    <string name="crypt_keeper_set_screen_lock_type">画面ロックの種類を設定</string>
     <string name="encryption_interstitial_message">"端末を起動する前に%sの入力を要求することで、端末をより安全に保護することができます。端末が紛失または盗難された場合、データの保護に役立ちます。Eメール同期などの機能にアクセスするための端末の暗号化ポリシーにより、一部のアプリに安全な起動が必要になる場合があります。
 
 端末を起動するまで、着信、メッセージ、通知は受信せず、アラームは鳴動しません。"</string>
@@ -1903,6 +1915,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="verify_fingerprint_btn">指紋を使用</string>
     <string name="wifi_ap_close">閉じる</string>
     <string name="fingerscanner_add_summary">指紋を登録してください。</string>
+    <string name="fingerscanner_register_1_finger_summary">1件の指紋を追加しました。</string>
     <string name="fingerscanner_register_summary">%d件の指紋が追加されました。</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">指紋認証を使用するか、現在のPINを入力してください。</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">指紋認証を使用するか、現在のパターンを入力してください。</string>
@@ -1929,6 +1942,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="facelock_without_swipe_to_unlock_summary">画面がONになると、スワイプせずに顔認証で端末のロックを解除します。</string>
     <string name="facelock_recognition_speed_up">認証速度を向上</string>
     <string name="facelock_recognition_speed_up_summary">ONにすると、より素早く認証できます。OFFにすると、セキュリティが高まり、画像や動画でロックが解除されないようにします。</string>
+    <string name="facelock_samsungpass_summary">顔認証を使用して、%sやその他の対応するアプリでユーザーを認証します。</string>
     <string name="face_remove_face_popup_title">顔データを削除しますか？</string>
     <string name="face_remove_face_popup_message_1">今後あなたの顔は認識されず、フェイスロックはOFFになります。</string>
     <string name="face_remove_face_popup_message_2">顔認証を使用する機能をOFFにします。</string>
@@ -2034,7 +2048,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="fast_cable_charging_summary">より速くバッテリーを充電することができます。急速ケーブル充電中は端末が過熱することがあります。急速ケーブル充電を無効にすると、通常の速度で充電されます。</string>
     <string name="battery_app_optimisation_title">アプリの最適化</string>
     <string name="iris_backup_password">ﾊﾞｯｸｱｯﾌﾟﾊﾟｽﾜｰﾄﾞ使用</string>
-    <string name="iris_title">虹彩</string>
+    <string name="iris_title">虹彩認証</string>
     <string name="iris_add_summary">虹彩を登録してください。</string>
     <string name="iris_register_summary">虹彩が登録されました。</string>
     <string name="manage_irises">虹彩認証の管理</string>
@@ -2070,7 +2084,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="biometrics_backup_locktype_title">虹彩認証セキュリティを設定</string>
     <string name="biometrics_register_your_iris">虹彩を登録します。</string>
     <string name="biometrics_backup_locktype_summary">端末のロック解除に虹彩認証を使用するには、パターン、PIN、またはパスワードを設定する必要があります。</string>
-    <string name="biometrics_backup_locktype_message">端末のロック解除または安全な認証に虹彩認証を使用するには、以下を設定する必要があります。</string>
+    <string name="biometrics_backup_locktype_message">端末のロック解除またはアプリのユーザー認証に虹彩を使用するには、以下を設定する必要があります。</string>
     <string name="iris_delete_popup_title">虹彩データを削除しますか？</string>
     <string name="iris_delete_popup_message">虹彩データを削除しますか？</string>
     <string name="iris_delete_popup_message_with_related_func">虹彩認証を使用する機能をOFFにします。</string>
@@ -2078,7 +2092,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="iris_timeout_popop_title">後で試す</string>
     <string name="iris_timeout_popop_message">虹彩を認識できません。虹彩カメラが汚れている可能性があります。端末の上部をきれいにしてから、再度実行してください。</string>
     <string name="iris_timeout_popop_message_1">虹彩カメラが汚れている可能性があります。画面より上の部分をきれいにしてから、再度実行してください。</string>
-    <string name="iris_proximity_restriction_popop_message">虹彩を認識できません。端末と顔が近すぎるか、近接センサーが汚れている可能性があります。画面より上の部分をきれいにしてから、再度実行してください。</string>
+    <string name="iris_proximity_restriction_popop_message">端末を顔から離して持ち、再度実行してください。</string>
     <string name="iris_proximity_restriction_popop_message_1">"近接センサーが汚れている可能性があるため、
 画面より上の部分をきれいにしてください"</string>
     <string name="iris_try_again">再試行</string>
@@ -2086,6 +2100,8 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="iris_failed_to_verity_identify">ユーザー認証に失敗</string>
     <string name="iris_failed_popup_description">虹彩認証を%1$d回試行しました。%2$d秒後に再度実行してください。</string>
     <string name="iris_no_match">一致するものがありません</string>
+    <string name="iris_eye_safety_msg">虹彩を認識できませんでした。</string>
+    <string name="iris_timeout_msg">虹彩を検出できませんでした。</string>
     <string name="biometrics_registered">登録済み</string>
     <string name="iris_turn_on_toast_message">指紋ロックの代わりに虹彩ロックが有効になりました。</string>
     <string name="iris_wrong_backup_password">不正なﾊﾞｯｸｱｯﾌﾟﾊﾟｽﾜｰﾄﾞです</string>
@@ -2124,7 +2140,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
 3.虹彩を記録したときと照明が大きく異なる場合(部屋がより明るい、など)。
 4.本デバイスが過度に傾いている、または動いている場合。"</string>
     <string name="use_iris_first_lock">画面ON時に虹彩ロック解除</string>
-    <string name="use_iris_first_lock_summary">画面がONになると、最初にスワイプすることなく、虹彩認証で端末のロックを解除します。</string>
+    <string name="use_iris_first_lock_summary">画面がONになると、スワイプすることなく、虹彩認証で端末のロックを解除します。</string>
     <string name="use_iris_first_lock_dialog_title">ｽﾜｲﾌﾟなしで虹彩ﾛｯｸ解除を使用しますか？</string>
     <string name="use_iris_first_lock_dialog_msg">[スワイプなしで虹彩ロック解除を使用]がONの間は、フェイスアンロックを使用できません。フェイスアンロックをOFFにします。</string>
     <string name="iris_sensor_not_working_popup_title">虹彩認証不可</string>
@@ -2132,9 +2148,9 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="iris_hw_problem_msg">この問題が引き続き発生する場合、端末を再起動してください。</string>
     <string name="iris_go_to_samsung_theme">Galaxy Themesに移動</string>
     <string name="bio_face_recognition_title">顔認証</string>
-    <string name="bio_fingerprint_sanner_title">指紋スキャナー</string>
-    <string name="bio_iris_scanner_title">虹彩スキャナー</string>
-    <string name="biometrics_unclickable_description">顔認証ロック解除と虹彩ロック解除を同時にONにすることはできません。</string>
+    <string name="bio_fingerprint_sanner_title">指紋認証</string>
+    <string name="bio_iris_scanner_title">虹彩認証</string>
+    <string name="biometrics_unclickable_description">ロック解除方法として顔認証と虹彩認証を同時にONにすることはできません。</string>
     <string name="iris_popup_irislock_turn_on_title">虹彩ロック解除を使用しますか？</string>
     <string name="iris_popup_irislock_turn_on_message">虹彩ロック解除は顔認証ロック解除と同時に使用することはできません。顔認証ロック解除はOFFになります。</string>
     <string name="irislock_use_iris_lock_turn_on_title_with_face">ロック解除の種類を選択</string>
@@ -2277,6 +2293,8 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="aod_off_summary">画面消灯時にホームボタンと時計または情報を表示します。</string>
     <string name="aod_feature_off_popup_title">%sをOFFにしますか？</string>
     <string name="aod_feature_off_popup_description">%1$sを使用するには、%2$sをOFFにする必要があります。</string>
+    <string name="aod_features_off_popup_title">その他の機能をOFFにしますか？</string>
+    <string name="aod_features_off_popup_description">Always On Displayを使用するには、以下の機能をOFFにする必要があります。</string>
     <string name="aod_features_off_popup_btn_ok">OFF</string>
     <string name="aod_disable_by_negative_colors">ネガポジ反転がONの間は使用できません。</string>
     <string name="aod_disable_by_powersaving_mode">省電力モードがONの間は使用できません。</string>
@@ -2300,6 +2318,9 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="unlock_effect_colour_droplet">色とりどりの雫</string>
     <string name="lock_screen_show_information_summary_wifi_only">オーナー情報またはアプリのショートカットをロック画面に表示します。</string>
     <string name="lock_screen_sview_show_information_summary">デュアル時計、オーナー情報、アプリのショートカットをロック画面およびSビューウィンドウに表示します。</string>
+    <string name="lock_screen_sview_show_information_summary_aod">ローミング時計や端末所有者の連絡先情報をロック画面およびSビューウィンドウに表示します。</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">ロック画面およびSビューウィンドウに表示するアプリのショートカットを選択します。</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">ロック画面およびSビューウィンドウに通知を表示します。</string>
     <string name="lock_screen_and_cover_show_information_summary">Clear View Coverでは、ロック画面にデュアル時計を表示します。</string>
     <string name="lock_screen_secured_lock_settings_title">安全ロック設定</string>
     <string name="lock_screen_secured_lock_settings_summary">[自動ロック]や[電源キーですぐにロック]などの、安全ロック機能を設定します。</string>
@@ -2316,6 +2337,7 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="set_home_city">ホームタイムゾーン</string>
     <string name="contact_info_settings_title">連絡先情報</string>
     <string name="show_contact_info_on_lockscreen_label">ロック画面に電話番号やEメールアドレスなどの情報を表示します。</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">ロック画面およびAlways On Displayに電話番号やEメールアドレスなどの情報を表示します。</string>
     <string name="unlock_effect">ロック解除エフェクト</string>
     <string name="walking_mate_title">歩数計</string>
     <string name="help_text_title">ヘルプ</string>
@@ -2370,8 +2392,8 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="screen_pinning_description_4">画面に表示し続けたいアプリのウィンドウの右下にある%sをタップします。</string>
     <string name="setup_lock_screen_intro_title">端末を保護</string>
     <string name="setup_lock_screen_intro_text">端末の保護機能を有効にして、この端末を他者に無断で使用されないようにします。</string>
-    <string name="setup_lock_screen_intro_radio_iris">虹彩スキャナーを設定</string>
-    <string name="setup_lock_screen_intro_radio_fingerprint">指紋スキャナーを設定</string>
+    <string name="setup_lock_screen_intro_radio_iris">虹彩認証を設定</string>
+    <string name="setup_lock_screen_intro_radio_fingerprint">指紋認証を設定</string>
     <string name="setup_lock_screen_intro_radio_face">顔認証を設定</string>
     <string name="setup_lock_screen_intro_radio_generic">PIN、パターン、またはパスワードを設定</string>
     <string name="setup_lock_screen_intro_radio_no">設定しない</string>
@@ -2533,6 +2555,9 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="data_usage_disable_mobile_warning_lgt">"Wi-Fiを使用しない場合、ブラウザ、Eメール、その他データ接続が必要なアプリを使用できません。
 
 モバイルデータは無効になります。"</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"モバイルデータがOFFの場合、ネットワーク接続を必要とするサービスを使用するには、端末をWi-Fiネットワークに接続する必要があります。
+
+モバイルデータをOFFにします。"</string>
     <string name="mobile_data_off_dialog_text_vzw">Wi-Fiを使用しない場合、ブラウザ、Eメール、その他データ接続が必要なアプリを使用できません。モバイルデータ接続をOFFにしますか？</string>
     <string name="mobile_data_off_dialog_text_volte">モバイルデータがOFFの場合、端末のビデオコール機能を使用できません。また、Wi-Fiを使用しない場合、ブラウザ、Eメール、その他データ接続が必要なアプリを使用できません。モバイルデータ接続をOFFにしますか？</string>
     <string name="mobile_data_off_dialog_text_common">Wi-Fiネットワークに接続しない場合、ブラウザやEメール、またはネットワーク接続を必要とする他のアプリを使用することはできません。</string>
@@ -2691,10 +2716,12 @@ NFC決済およびモバイル決済サービスによっては、別の標準�
     <string name="maximum_volume_title">音量制限をカスタム</string>
     <string name="volume_limiter_descryption">メディアの最大音量を制限することで、耳を保護します。この制限は、イヤホンやBluetoothオーディオデバイスを使用中のみ適用されます。</string>
     <string name="multi_sound_title">アプリサウンドの出力デバイスを設定</string>
-    <string name="multi_sound_summary">選択したアプリのサウンドはスピーカーやヘッドホンで再生し、それ以外のサウンドは端末で再生します。</string>
-    <string name="multi_sound_descryption">"選択したアプリのメディアサウンドはスピーカーやヘッドホンで再生し、それ以外のアプリのメディアサウンドは端末で再生します。
+    <string name="multi_sound_summary">選択したアプリのメディアサウンドを、端末のメインオーディオ出力デバイスとは別のオーディオデバイスで再生します。</string>
+    <string name="multi_sound_descryption">"選択したアプリのメディアサウンドを、端末のメインオーディオ出力デバイスとは別のオーディオデバイスで再生します。この機能をONにするには、アプリとオーディオデバイスを選択してください。
 
-Bluetoothオーディオデバイスを選択した場合、Bluetoothデバイスが接続されていないと、標準のオーディオデバイスで再生されます。"</string>
+[アプリサウンドの出力デバイスを設定]は、選択したオーディオデバイスと端末のメインオーディオ出力デバイスが異なる場合のみ機能します。
+
+端末のメインオーディオ出力デバイスは、クイック設定パネルで変更できます。オーディオ出力が表示されない場合、[Samsung Connect] > [設定] > [Samsung Connectパネル]でオーディオ出力をONにしてください。"</string>
     <string name="set_application_title">アプリ</string>
     <string name="set_application_summary">個別のオーディオデバイスでサウンドを再生するアプリを選択します。</string>
     <string name="set_application_descryption">個別のオーディオデバイスでサウンドを再生するマルチメディアアプリを以下から選択してください。</string>
@@ -2705,9 +2732,11 @@ Bluetoothオーディオデバイスを選択した場合、Bluetoothデバイ�
     <string name="multi_sound_popup_msg">[%s]をONにするには、アプリとオーディオデバイスを選択する必要があります。</string>
     <string name="multi_sound_network_msg">利用可能なアプリを確認するには、端末をネットワークに接続する必要があります。ネットワーク設定を確認し、再度実行してください。</string>
     <string name="multi_sound_wifi_msg">利用可能なアプリを確認するには、この端末をネットワークに接続する必要があります。モバイルデータを使用すると、追加料金が発生する可能性があります。</string>
+    <string name="multi_sound_add_application">アプリケーションを追加</string>
     <string name="dlg_btn_select">選択</string>
     <string name="audio_device_type_descryption">選択したアプリで使用するオーディオデバイスを選択してください。Bluetoothデバイスは、接続中のみ使用できます。</string>
     <string name="my_phone_title">端末</string>
+    <string name="my_phone_summary">スピーカー/ヘッドホン/USBオーディオデバイス</string>
     <string name="bluetooth_device_title">Bluetoothデバイス</string>
     <string name="no_connected_devices">接続デバイスがありません</string>
     <string name="two_hours">2時間</string>
@@ -2715,7 +2744,8 @@ Bluetoothオーディオデバイスを選択した場合、Bluetoothデバイ�
     <string name="stop_setup_popup_msg">変更した設定は全て適用されません。</string>
     <string name="app_turned_on">%sを設定しました。</string>
     <string name="force_touch_title">ボタンの押し込み操作バイブ</string>
-    <string name="volume_key_control_title">音量キーの標準操作</string>
+    <string name="volume_key_control_title">音量キーでメディアを調整</string>
+    <string name="volume_key_control_summary">音量キーを押したときに、メディア音量を調整します。</string>
     <string name="sound_mode">サウンドモード</string>
     <string name="sound_mode_vibrate">バイブ</string>
     <string name="sound_mode_mute">サイレント</string>
@@ -2928,12 +2958,13 @@ Bluetoothオーディオデバイスを選択した場合、Bluetoothデバイ�
     <string name="text_biometrics_title_enterprise">%1$sを選択すると、%2$sのロック解除方法として生体認証を設定できません。</string>
     <string name="text_biometrics_finger_title_enterprise">%2$sのロック解除方法として%1$sを選択すると、指紋認証を設定できません。</string>
     <string name="edge_feeds_title">エッジフィード</string>
-    <string name="screensaver_settings_summary">充電中やドックに接続中、端末の画面がOFFになった後、スクリーンセーバーを表示します。</string>
-    <string name="screensaver_settings_summary_wo_dock">端末を充電中に画面が自動的にOFFになると、スクリーンセーバーを表示します。</string>
+    <string name="screensaver_settings_summary">端末を充電中に画面が自動的にOFFになると、スクリーンセーバーを表示します。</string>
+    <string name="screensaver_settings_summary_wo_dock">ドックに接続中または充電中に端末の画面が自動的にOFFになった後、スクリーンセーバーを表示します。</string>
     <string name="apn_already_exists">既に登録されています。</string>
     <string name="error_unavailable_apn">このAPNは、この端末では使用できません。別のAPNをお試しください。</string>
     <string name="error_message_port_out_of_range">ポート番号は、%1$d～%2$dの間に設定して下さい。</string>
     <string name="apn_restore_warning">追加した全てのAPNを削除します。その他のAPNは初期設定にリセットされます。</string>
+    <string name="apn_restore_title">APN設定をリセットしますか？</string>
     <string name="master_clear_desc_google_account">Googleアカウント</string>
     <string name="first_use_tether_title">USBテザリングのヘルプを表示</string>
     <string name="first_use_usb_tether_msg">USBテザリングの使い方について確認するには、[OK]をタップしてください。</string>
@@ -2946,6 +2977,7 @@ Bluetoothオーディオデバイスを選択した場合、Bluetoothデバイ�
     <string name="backup_samsung_account_title">バックアップ設定</string>
     <string name="restore_samsung_account_title">復元</string>
     <string name="auto_restart_header">端末管理</string>
+    <string name="auto_restart_header_tablet">タブレット管理</string>
     <string name="auto_restart_title">自動再起動</string>
     <string name="switch_turn_on_text">ON</string>
     <string name="switch_turn_off_text">OFF</string>
@@ -3068,6 +3100,16 @@ Bluetoothオーディオデバイスを選択した場合、Bluetoothデバイ�
     <string name="tether_settings_summary_usb_bt">USBまたはBluetoothでモバイルデータ接続を共有</string>
     <string name="dialog_tethering_warning">&lt;b>テザリングの紹介&lt;/b>&lt;br/>&lt;br/>テザリング機能により、Android端末を利用しながら、ノートPCでインターネットにアクセスするためのモデムとして使用することができます。この機能はバッテリーを消費し、データ使用量が増加します。このサービスには、該当のモデムプランへの登録が必要です。ご利用の前に該当のデータプランに登録していることを確認してください。お問い合わせは、1-877-872-2249までお電話ください。サービスを利用することで、&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html>スマートフォンモデム規約&lt;/a>に同意したものとみなされます。</string>
     <string name="dialog_hotspot_button_accept">承認</string>
+    <string name="bluetooth_tethering_off_subtext_phone">この端末のインターネット接続をBluetoothで共有します。</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">このタブレットのインターネット接続をBluetoothで共有します。</string>
+    <string name="bluetooth_tethering_available_subtext_phone">この端末のインターネット接続を共有する準備ができました。</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">このタブレットのインターネット接続を共有する準備ができました。</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">この端末のインターネット接続を1台のデバイスと共有しています。</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">このタブレットのインターネット接続を1台のデバイスと共有しています。</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">この端末のインターネット接続を%d台のデバイスと共有しています。</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">このタブレットのインターネット接続を%d台のデバイスと共有しています。</string>
+    <string name="tether_settings_summary_bt_phone">この端末のインターネット接続をBluetoothで共有します。</string>
+    <string name="tether_settings_summary_bt_tablet">このタブレットのインターネット接続をBluetoothで共有します。</string>
     <string name="onehand_settings_title">片手モード</string>
     <string name="onehand_settings_text_1">画面表示サイズを縮小するには、画面の右下または左下から斜め上にスワイプします。</string>
     <string name="onehand_settings_text_2">画面表示サイズを縮小するには、ホームボタンを素早く3回タップします。</string>
@@ -3395,6 +3437,8 @@ Bluetoothオーディオデバイスを選択した場合、Bluetoothデバイ�
     <string name="wifi_settings_dialog_radio_off">OFF</string>
     <string name="wifi_or_mobile_network">Wi-Fiまたはモバイルネットワーク</string>
     <string name="wifi_network_only">Wi-Fiネットワークのみ</string>
+    <string name="wifi_adps_title">Wi-Fi省電力モード</string>
+    <string name="wifi_adps_summary">Wi-Fiのトラフィックパターンを分析して、バッテリー使用量を削減します。</string>
     <string name="wifi_auto_reconnect">自動再接続</string>
     <string name="wifi_enable_warning_chn">WLANをONにすると、WLANテザリングが無効になります。</string>
     <string name="wifi_enable_warning_vzw">Wi-FiをONにすると、Wi-Fiテザリングが無効になります。続行しますか？</string>
@@ -3600,6 +3644,10 @@ Wi-Fiテザリング名またはパスワードを変更した後は、新たに
     <string name="wifi_wps_pin_client_mobileap">PIN「%1$s」でクライアントに接続します。設定が完了するまで%2$d分ほどかかることがあります。</string>
     <string name="wifi_wps_complete_mobileap">他のデバイスがこの端末に接続されました。</string>
     <string name="wifi_ap_disconnect_warn">デバイスの接続を解除</string>
+    <string name="wifi_ap_change_policy_warn_chn">現在ポータブルWLANテザリングで接続されているデバイスの接続を解除します。</string>
+    <string name="wifi_ap_change_policy_warn_att">現在接続しているデバイスをポータブルWi-Fiテザリングから接続解除します。</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Wi-Fiテザリングに接続されている全てのデバイスの接続が解除されます。</string>
+    <string name="wifi_ap_change_policy_warn_mtr">現在接続しているデバイスをポータブルWi-Fiテザリングから接続解除します。</string>
     <string name="wifi_ap_change_policy_warn">Wi-Fiテザリングに接続されている全てのデバイスの接続が解除されます。</string>
     <string name="wifi_ap_warn_max_whitelist">許可デバイスの最大数(%d台)に達しています。</string>
     <string name="wifiap_one_item_deleted">1件のアイテムを削除します。</string>
@@ -3735,6 +3783,8 @@ Wi-FiをONにします。"</string>
     <string name="wifi_ap_first_time_configuration">Wi-Fiテザリングの初期設定</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-FiとWi-Fiテザリング</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">正しいPINを入力してください。</string>
+    <string name="open_mobileap_warning">このモバイルAPは保護されていません。</string>
+    <string name="hidden_mobileap_warning">ユーザーがSSIDを非表示に設定している場合、WPSは無効になります。</string>
     <string name="wifi_ssid_max_byte_error">最大文字数に達しました。</string>
     <string name="tethering_attention_title">注意</string>
     <string name="wfd_select_device">デバイスを選択</string>
@@ -3868,7 +3918,7 @@ Wi-FiをONにします。"</string>
     <string name="security_settings_fingerprint_setup_title">指紋認証を設定</string>
     <string name="security_settings_iris_setup_title">虹彩認証を設定</string>
     <string name="master_clear_desc_sec">以下を含め、端末から全てのデータが削除されます。</string>
-    <string name="master_clear_desc_app">以下のアプリをアンインストールします。サービスプロバイダによっては、リセットした後に一部のアプリが再インストールされる場合があります。</string>
+    <string name="master_clear_desc_app">以下のアプリはアンインストールされます。サービスプロバイダによっては、リセットした後に一部のアプリが再インストールされる場合があります。</string>
     <string name="master_clear_desc_system_and_app_data">システムおよびアプリデータ</string>
     <string name="master_clear_desc_device_settings">設定</string>
     <string name="master_clear_desc_downloaded_apps">ダウンロード済みアプリ</string>
@@ -3965,6 +4015,14 @@ SMS受信"</string>
     <string name="quick_tile_sync_title">同期</string>
     <string name="permission_usage">権限の使用</string>
     <string name="draw_overlay_settings_description">この権限を許可すると、使用中の他のアプリより前面にフローティング表示することができます。フローティング表示により、他のアプリの使用が妨げられる可能性があります。</string>
+    <string name="write_settings_body_description">BluetoothのON/OFFなどのシステム設定の変更をこのアプリに許可できます。</string>
+    <string name="reset_app_preferences_desc1">この操作は、以下の全ての設定をリセットします。</string>
+    <string name="reset_app_preferences_desc2">無効なアプリ</string>
+    <string name="reset_app_preferences_desc3">アプリの通知の制限</string>
+    <string name="reset_app_preferences_desc4">標準アプリ</string>
+    <string name="reset_app_preferences_desc5">アプリのバックグラウンドデータの制限</string>
+    <string name="reset_app_preferences_desc6">権限の制限</string>
+    <string name="reset_app_preferences_desc7">既存のアプリデータが失われることはありません。</string>
     <string name="knox_security_mode_title">Knoxセキュリティ</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">プライバシーポリシー</string>
@@ -3979,6 +4037,13 @@ SMS受信"</string>
     <string name="my_profile_summary">個人情報およびSamsungアカウントの詳細を管理します。</string>
     <string name="my_profile_summary_jpn">個人情報およびGalaxyアカウントの詳細を管理します。</string>
     <string name="arbitration_agreement">仲裁契約</string>
+    <string name="activation_title">有効化の状態</string>
+    <string name="activation_summary">%1$sに有効化されました。詳細情報は、%2$sを参照してください。</string>
+    <string name="wifi_ap_pmf_on">PMF ON</string>
+    <string name="edit_event_start_short">開始</string>
+    <string name="edit_event_end_short">終了</string>
+    <string name="select_date_to_view">表示する日付を選択</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">はい</string>
     <string name="no">いいえ</string>
     <string name="create">作成</string>
@@ -4343,10 +4408,10 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="wifi_sns_poor_settings">設定</string>
     <string name="wifi_smart_network_switch_excluded_body_text">%sを例外のネットワークから削除します。</string>
     <string name="wifi_smart_network_switch_excluded_networks">例外のネットワーク</string>
-    <string name="wifi_smart_network_switch_excluded_networks_body">スマートネットワーク切り替えのON/OFFに関係なく、これらのネットワークと端末との接続を維持します。</string>
+    <string name="wifi_smart_network_switch_excluded_networks_body">スマートネットワーク切り替えのON/OFFに関係なく、以下のネットワークと端末との接続を維持します。</string>
     <string name="wifi_smart_network_switch_excluded_noitem">例外のネットワークがありません</string>
     <string name="wifi_watchdog_connectivity_check_disabled_no_sim">SIMカードが挿入されていないため、この機能は無効になりました。</string>
-    <string name="wifi_watchdog_connectivity_check_disabled_airplane_mode">機内モードが有効なため、この機能は無効</string>
+    <string name="wifi_watchdog_connectivity_check_disabled_airplane_mode">機内モードが有効なため、この機能は無効になりました。</string>
     <string name="wifi_watchdog_connectivity_check_disabled_mobile_data_off">モバイルデータが無効なため、この機能は無効になりました。</string>
     <string name="wifi_p2p_settings_title">Wi-Fi Direct</string>
     <string name="wifi_p2p_menu_rename">デバイス名称を変更</string>
@@ -5468,7 +5533,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="app_notification_block_title">通知を許可</string>
     <string name="app_notification_block_summary">通知メッセージ、サウンド、バイブなど、このアプリからの通知を受信します。</string>
     <string name="app_notification_override_dnd_title">重要な通知として設定</string>
-    <string name="app_notification_override_dnd_summary">[通知をミュート]が有効な間でも、このアプリからの通知を受信したときは、サウンドやバイブが鳴動し、画面がONになります。</string>
+    <string name="app_notification_override_dnd_summary">[通知をミュート]モードが有効な場合でも通知されるように、このアプリを例外として設定します。また、通知は常に通知パネルの上部に表示されます。</string>
     <string name="app_notification_visibility_override_title">ロック画面</string>
     <string name="app_notifications_dialog_done">完了</string>
     <string name="zen_mode_choose_rule_type">規則のタイプを選択</string>
@@ -5492,9 +5557,9 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="zen_mode_end_time">終了時刻</string>
     <string name="zen_mode_end_time_next_day_summary_format">翌日の%s</string>
     <string name="zen_mode_screen_on">画面がONのときに非表示</string>
-    <string name="zen_mode_screen_on_summary">[通知をミュート]が適用されている通知を受信したときに、ポップアップで画面に表示することを許可しません。</string>
+    <string name="zen_mode_screen_on_summary">[通知をミュート]が適用されている通知を受信したときに、ポップアップを表示しないように設定します。</string>
     <string name="zen_mode_screen_off">画面がOFFのときに非表示</string>
-    <string name="zen_mode_screen_off_summary">[通知をミュート]が適用されている通知を受信したときに、LEDインジケーターを点灯することを許可しません。</string>
+    <string name="zen_mode_screen_off_summary">[通知をミュート]が適用されている通知を受信したときに、LEDインジケーターを点灯しないように設定します。</string>
     <string name="zen_mode_screen_off_summary_no_led">[通知をミュート]が有効中に通知を受信した際、画面がONにならないようにします。</string>
     <string name="zen_mode_all_visual_interruptions">OFF</string>
     <string name="zen_mode_screen_on_visual_interruptions">画面ON時</string>
@@ -5505,6 +5570,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="restr_pin_enter_admin_pin">管理者PINを入力</string>
     <string name="switch_on_text">ON</string>
     <string name="switch_off_text">OFF</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">この業務用プロファイルは、以下の組織により管理されています。</string>
     <string name="managing_admin">%sで管理</string>
     <string name="display_auto_rotate_title">画面回転</string>
     <string name="display_auto_rotate_rotate">画面を回転</string>
@@ -5541,9 +5607,9 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="encrypt_talkback_dialog_require_pin">PINを要求</string>
     <string name="encrypt_talkback_dialog_require_pattern">パターンを要求</string>
     <string name="encrypt_talkback_dialog_require_password">パスワードを要求</string>
-    <string name="encrypt_talkback_dialog_message_pin">端末の電源をONにした後、PINを入力するときに、%1$sなどのユーザー補助機能を一時的に無効にします。</string>
-    <string name="encrypt_talkback_dialog_message_pattern">端末の電源をONにした後、パターンを入力するときに、%1$sなどのユーザー補助機能を一時的に無効にします。</string>
-    <string name="encrypt_talkback_dialog_message_password">端末の電源をONにした後、パスワードを入力するときに、%1$sなどのユーザー補助機能を一時的に無効にします。</string>
+    <string name="encrypt_talkback_dialog_message_pin">端末の電源をONにしたときに、PINの入力を要求されます。端末を起動するまで、ユーザー補助機能は使用できません。</string>
+    <string name="encrypt_talkback_dialog_message_pattern">端末の電源をONにしたときに、パターンの入力を要求されます。端末を起動するまで、ユーザー補助機能は使用できません。</string>
+    <string name="encrypt_talkback_dialog_message_password">端末の電源をONにしたときに、パスワードの入力を要求されます。端末を起動するまで、ユーザー補助機能は使用できません。</string>
     <string name="slot_number">(スロット%d)</string>
     <string name="app_launch_domain_links_title">アプリリンク</string>
     <string name="app_launch_open_domain_urls_title">対応するURLに移動</string>
@@ -5619,18 +5685,18 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="usb_use_power_only">接続されたﾃﾞﾊﾞｲｽに給電</string>
     <string name="usb_use_power_only_desc">USBで接続したデバイスに給電します。</string>
     <string name="usb_use_file_transfers_vzw">ファイル転送</string>
-    <string name="usb_use_file_transfers">メディアファイルを転送</string>
+    <string name="usb_use_file_transfers">ファイルを転送</string>
     <string name="usb_use_photo_transfers_vzw">写真の転送</string>
     <string name="usb_use_photo_transfers">画像を転送</string>
     <string name="usb_use_photo_transfers_summary_vzw">カメラの写真をコンピューターに転送します。</string>
-    <string name="usb_use_photo_transfers_summary">[メディアファイルを転送]が機能しない場合、このモードを選択してください。画像ファイルのみを転送できます。</string>
+    <string name="usb_use_photo_transfers_summary">[ファイルを転送]が機能しない場合、このモードを選択してください。このモードでは、画像ファイルのみを転送できます。</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">MIDI機器に接続</string>
-    <string name="usb_use">USBの使用</string>
-    <string name="assist_access_context_title">テキストの読み取りを許可</string>
-    <string name="assist_access_context_summary">画面に表示されているテキストの読み取りを端末アシスタンスアプリに許可します。</string>
-    <string name="assist_access_screenshot_title">画面キャプチャとアクセスを許可</string>
-    <string name="assist_access_screenshot_summary">画面のキャプチャとキャプチャした画像へのアクセスを端末アシスタンスアプリに許可します。</string>
+    <string name="usb_use">USBを使用</string>
+    <string name="assist_access_context_title">画面上のテキストを分析</string>
+    <string name="assist_access_context_summary">画面に表示されているテキストを分析して関連コンテンツを提供することを端末アシスタンスアプリに許可します。</string>
+    <string name="assist_access_screenshot_title">画面上の画像を分析</string>
+    <string name="assist_access_screenshot_summary">画面のキャプチャとキャプチャの使用を端末アシスタンスアプリに許可します。</string>
     <string name="assist_footer">端末アシスタンスアプリは、端末の画面に表示されている情報に基づいてユーザーをサポートします。一部の端末アシスタンスアプリは、他のアプリの起動や音声入力によるテキスト入力に対応し、総合的なサポートを提供します。</string>
     <string name="average_memory_use">平均RAM使用量</string>
     <string name="maximum_memory_use">最大RAM使用量</string>
@@ -5659,7 +5725,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="ignore_optimizations_on_desc">バッテリー消費が増加</string>
     <string name="ignore_optimizations_off_desc">バッテリー消費を節約</string>
     <string name="app_list_preference_none">なし</string>
-    <string name="allow_overlay_description">他のアプリの使用中でも、ボタンやポップアップなどの状態でフローティング表示できるようにするアプリを選択してください。</string>
+    <string name="allow_overlay_description">この権限を許可すると、使用中の他のアプリより前面にフローティング表示することができます。フローティング表示により、他のアプリの使用が妨げられる可能性があります。</string>
     <string name="overlay_settings">フローティング表示するアプリ</string>
     <string name="filter_overlay_apps">権限を持つアプリ</string>
     <string name="filter_write_settings_apps">権限を持つアプリ</string>
@@ -5706,14 +5772,14 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="ethernet_data_template">%1$sのイーサネットデータ</string>
     <string name="cell_warning_only">データを%s使用時に警告</string>
     <string name="cell_warning_and_limit">データを%1$s使用時に警告/データを%2$s使用時に制限</string>
-    <string name="billing_cycle">請求サイクル</string>
+    <string name="billing_cycle">請求サイクルとデータ警告</string>
     <string name="billing_cycle_summary">毎月%s日</string>
     <string name="billing_cycle_fragment_summary">毎月%s日</string>
     <string name="network_restrictions">ネットワークを制限</string>
     <string name="operator_warning">データ使用量は端末で測定されます。サービスプロバイダの測定結果とは使用量が異なる場合があります。</string>
     <string name="data_used_template">%s使用</string>
     <string name="data_warning">データ警告</string>
-    <string name="set_data_limit">データ制限</string>
+    <string name="set_data_limit">データ制限を設定</string>
     <string name="data_limit">データ制限</string>
     <string name="data_usage_template">%2$sの間に%1$s使用</string>
     <string name="data_usage_other_apps">使用量に含まれる関連アプリ</string>
@@ -5755,5 +5821,4 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="enable_iris_lock_desc_3">"現在、画面ロックの種類として指紋認証が設定されています。
 
 画面ロックの種類として指紋認証の代わりに虹彩認証を設定するには、[有効]をタップししてください。虹彩認証または%sで端末のロックを解除できるようになります。"</string>
-    <string name="my_phone_summary">スピーカー/ヘッドホン/USBオーディオデバイス</string>
 </resources>

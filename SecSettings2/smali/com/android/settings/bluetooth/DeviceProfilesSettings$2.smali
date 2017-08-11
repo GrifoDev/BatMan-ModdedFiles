@@ -112,23 +112,27 @@
     :cond_0
     iget-object v2, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$2;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
+    invoke-static {v2}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get13(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$2;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-virtual {v3}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    const v4, 0x7f100044
+    invoke-virtual {v3}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
+    move-result-object v3
 
-    move-result v3
+    const v4, 0x7f0b0037
 
-    invoke-static {v2, v3}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;I)V
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v2, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$2;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
@@ -162,23 +166,27 @@
 
     iget-object v2, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$2;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
+    invoke-static {v2}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get13(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$2;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-virtual {v3}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    const v4, 0x7f100043
+    invoke-virtual {v3}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
+    move-result-object v3
 
-    move-result v3
+    const v4, 0x7f0b0036
 
-    invoke-static {v2, v3}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;I)V
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v2, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$2;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 

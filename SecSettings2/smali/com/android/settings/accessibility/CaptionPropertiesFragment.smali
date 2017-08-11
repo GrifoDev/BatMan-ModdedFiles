@@ -245,7 +245,7 @@
 .method public static applyCaptionProperties(Landroid/view/accessibility/CaptioningManager;Lcom/android/internal/widget/SubtitleView;Landroid/view/View;I)V
     .locals 8
 
-    const v7, 0x7f0b1787
+    const v7, 0x7f0b1823
 
     invoke-virtual {p1, p3}, Lcom/android/internal/widget/SubtitleView;->setStyle(I)V
 
@@ -265,7 +265,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a044a
+    const v6, 0x7f0a0448
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4913,7 +4913,7 @@
 
     aput v12, v1, v12
 
-    const v9, 0x7f0b178b
+    const v9, 0x7f0b1827
 
     invoke-virtual {p0, v9}, Lcom/android/settings/accessibility/CaptionPropertiesFragment;->getString(I)Ljava/lang/String;
 
@@ -5221,7 +5221,7 @@
 .method private refreshPreviewText()V
     .locals 10
 
-    const v9, 0x7f0b1786
+    const v9, 0x7f0b1822
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/CaptionPropertiesFragment;->getActivity()Landroid/app/Activity;
 
@@ -5795,7 +5795,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a028a
+    const v2, 0x7f0a0288
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -5869,7 +5869,7 @@
 
     const/4 v4, -0x1
 
-    const v2, 0x7f040064
+    const v2, 0x7f040065
 
     const/4 v3, 0x0
 
@@ -5997,7 +5997,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f10032a
+    const v5, 0x7f100330
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6038,7 +6038,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f100326
+    const v5, 0x7f10032c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6082,7 +6082,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f100324
+    const v5, 0x7f10032a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6334,7 +6334,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a028a
+    const v3, 0x7f0a0288
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 

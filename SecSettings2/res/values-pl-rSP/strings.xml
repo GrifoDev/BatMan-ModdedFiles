@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d godz. %2$d min</string>
+    <string name="battery_history_minutes_no_seconds">%d min.</string>
     <string name="wifi_failed_to_obtain_IP">Niy idzie chycić adresy IP</string>
     <string name="wifi_security_none">Żŏdyn</string>
     <string name="wifi_unknown_security_type">Niyznany typ zabezpieczyń</string>
@@ -49,6 +49,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Niy idzie pożynić z maszinōm %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Niy idzie zepnōńć z %1$s. Wybadej sztalowania w %2$s i badnij drugi rŏz.</string>
     <string name="bluetooth_pairing_rejected_error_message">Powiōnzanie ôdciepane bez %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Pobieranie nazwy urządzenia…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Nazwa urządzenia pojawi się po połączeniu tego urządzenia.</string>
     <string name="process_kernel_label">OS Android</string>
     <string name="data_usage_uninstalled_apps">Wyciepniynte aplikacyje</string>
     <string name="data_usage_uninstalled_apps_users">Wyciepniynte aplikacyje a wyciepniyńci użytkownicy</string>
@@ -258,7 +260,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Pōmoc</string>
     <string name="reset_network_settings_list_summary">Resetuj sztalowania Wi-Fi, Bluetooth i inkszych sieci do wartości dōmyślnych.</string>
     <string name="master_clear_list_summary">Resetuj maszina do dōmyślnych sztalowań fabrycznych. Sprŏwi to skasowanie wszyjskich danych, w tym plikōw i zebranych aplikacyji.</string>
-    <string name="auto_restart_summary">Ôptymalizuj swoja maszina, autōmatycznie bez załónczynie ônyj jeszcze roz w ôbsztalowanych ôdstympach czasu. Wszyjske niyzachowane dane bydōm stracone przi sztartniyńciu masziny jeszcze roz.</string>
+    <string name="auto_restart_summary">Sztaluj mobilniŏk na ôptimum skuli autōmatycznego drugigo sztartniyńcio rŏz za tydziyń. Wszyjske niyzachowane dane bydōm stracōne przi resztarcie mobilniŏka.</string>
+    <string name="auto_restart_summary_tablet">Sztaluj tablet na ôptimum skuli autōmatycznego drugigo sztartniyńcio rŏz za tydziyń. Wszyjske niyzachowane dane bydōm stracōne przi resztarcie tableta.</string>
     <string name="search_settings">Sznupej</string>
     <string name="related_results">Zepniyntych dingsōw: %d</string>
     <string name="no_results_found">Niy znŏdłŏ wynikōw.</string>
@@ -328,7 +331,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Balans klangu je ôdchylōne na prawo ô %d procynt. Przeciōngnij dings dwōma placami.</string>
     <string name="sound_balance_set">Nastŏw</string>
     <string name="accessibility_assistant_menu">Menu asystynta</string>
-    <string name="assistant_menu_summary">Załōnczŏ fōnkcyje, kere pōmŏgajōm w używaniu masziny użytkownikōm z ôgraniczōnymi możliwościami manualnymi.</string>
+    <string name="assistant_menu_summary">Popraw dostępność telefonu dla użytkowników z ograniczonymi możliwościami manualnymi.</string>
     <string name="color_blind_title">Przidŏwanie farby</string>
     <string name="no_result">Napasuj farby ekranu, kej czytaniy zawartości ekranu je trudne dlŏ Cia.</string>
     <string name="you_are_normal">Regulacja farby niy je kōniecznŏ.</string>
@@ -376,7 +379,7 @@ Dorada: Tykniyńcie 3 razy coby powielgszyć fōnguje wszyndy ôkrōm tastatury.
     <string name="accessibility_global_gesture_description">Załōnczej fōnkcyje dostympności gibcij bez skrōt, kery skłŏdŏ się z 2 krokōw.</string>
     <string name="accessibility_easy_interaction_preference_title">Tryb jednygo tykniyńcia</string>
     <string name="single_tap_mode_title">Zepniyńcie Trybu jednego tykniyńciŏ</string>
-    <string name="single_tap_mode_description">Automatycznie włączono tryb jednego dotknięcia.</string>
+    <string name="single_tap_mode_description">Autōmatycznie załōnczōno tryb jednego tykniyńcio.</string>
     <string name="dont_show_dialog">Niy pokŏzuj jeszcze rŏz</string>
     <string name="accessibility_speak_password_summary">Nastŏw maszina coby ôdczytywała znaki bez czas podŏwaniŏ haseł. Przed podŏwaniym haseł podłōncz suchŏwki abo przelyź kaj nikt inkszy niy bydzie słyszōł haseł.</string>
     <string name="accessibility_screen_reader_summary">Nastŏw coby maszina ôdczytywała zawartość pokazywanŏ na leda jakim ekranie bez naciśniyńcie knefla ekranu dōmowego trzi razy gibko rŏz za rŏz.</string>
@@ -524,6 +527,7 @@ Kej ta fōnkcyjo je załōnczōno, fōnkcyjo Autōmatyczny zwyrt ekranu bydzie w
     <string name="direct_access_actions_accessibility_title">Dostympność</string>
     <string name="direct_access_actions_negative_title">Farby w negatywie</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Fōnkcyje Gibki dostymp i Zmyńszanie miary ekranu niy śmiōm być załōnczōne narŏz. Fōnkcyjo Zmyńszanie miary ekranu bydzie wyłōnczōno.</string>
+    <string name="direct_access_exclusive_popup_msg">Fōnkcyje %1$s i %2$s niy mogōm być załōnczōne bez jedyn czas. Fōnkcyjŏ %3$s ôstanie wyłōczōnŏ.</string>
     <string name="direct_access_actions_color_adjustment_summary">Narychtuj Sztalowanie farby w menu Wzrok, coby używać ônyj w Gibkim dostympie</string>
     <string name="direct_access_actions_screen_reader_summary">Załōncz Czytŏcz zajtōw, coby używać go w usudze Dostymp bezpostrzedni.</string>
     <string name="direct_access_actions_accesscontrol_title">Kōntrola interakcyje</string>
@@ -721,7 +725,9 @@ Nec Wi-Fi i zepniyńcie Bluetooth tyż bydōm wyłōnczōne, ale poradzisz ône 
     <string name="premium_sms_values_ask">Pytej</string>
     <string name="premium_sms_values_never">Nigdy niy gŏdej „ja”</string>
     <string name="premium_sms_values_allow">Zŏwdy gŏdej „ja”</string>
-    <string name="assist_and_voice_input_summary">Aplikacyje spōmŏganio masziny dowajōm wiyncyj ôpcyji i informacyji ôd kożdych jednych ekranōw.</string>
+    <string name="assist_and_voice_input_summary">Wybierz, której aplikacji chcesz używać po dotknięciu i przytrzymaniu przycisku ekranu startowego.</string>
+    <string name="assist_footer_phone">Wybierz aplikację do użycia po dotknięciu i przytrzymaniu przycisku ekranu startowego. Aplikacje wspomagania urządzenia mogą Ci pomóc, zbierając informacje z ekranu wyświetlonego obecnie w telefonie.</string>
+    <string name="assist_footer_tablet">Wybierz aplikację do użycia po dotknięciu i przytrzymaniu przycisku ekranu startowego. Aplikacje wspomagania urządzenia mogą Ci pomóc, zbierając informacje z ekranu wyświetlonego obecnie w tablecie.</string>
     <string name="default_app_title">Sztalowanie za dōmyślno</string>
     <string name="premium_sms_title">Poślij SMS premium</string>
     <string name="default_app_selection">Ôbier fabrycznŏ aplikacyjŏ.</string>
@@ -810,15 +816,16 @@ Możesz zmiynić to niyskorzij, bez przeleziynie do nasztalowań Bluetooth."</st
 
 Może wystąpić niewielka różnica dźwięku emitowanego przez te 2 połączone urządzenia."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Wyłączyć Synchronizację głośności mediów?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Aby używać trybu Dual audio, trzeba wyłączyć Synchronizację głośności mediów.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Aby sterować głośnością każdego urządzenia audio z osobna, trzeba wyłączyć Synchronizację głośności mediów.</string>
     <string name="bluetooth_avc_title">Synchrōn. głośnoś mediōw</string>
-    <string name="bluetooth_avc_description">Jeśli podłączone urządzenie Bluetooth może sterować głośnością multimediów w telefonie, poziom głośności ustawiony przez urządzenie Bluetooth będzie synchronizowany z telefonem.</string>
-    <string name="bluetooth_avc_volume_change_description">Włączenie tej funkcji może spowodować nieoczekiwane zmiany głośności.</string>
+    <string name="bluetooth_avc_description">Eli zepniynto maszina Bluetooth poradzi kerować poziōmym głosu multimediōw w mobilniŏku, poziōm głosu nasztalowany bez maszina Bluetooth bydzie synchrōnizowany z mobilniŏkym.</string>
+    <string name="bluetooth_avc_volume_change_description">Załōnczynie tyj fōnkcyji poradzi sprŏwić niyspodziane pomiany głośności.</string>
     <string name="bluetooth_avc_adapt_sound_notice_description">Tryb Adapt sound może nie działać prawidłowo przy włączonej Synchronizacji głośności mediów.</string>
     <string name="bluetooth_avc_loud_sounds_description">Długotrwałe słuchanie głośnych dźwięków może uszkodzić słuch.</string>
     <string name="bluetooth_avc_ask_popup_title">Wyłączyć tryb Dual audio?</string>
     <string name="bluetooth_avc_ask_popup_content">Aby używać Synchronizacji głośności mediów, trzeba wyłączyć tryb Dual audio.</string>
     <string name="bluetooth_avc_disable_description">Podłączone urządzenie Bluetooth nie obsługuje Synchronizacji głośności mediów. Nie możesz synchronizować głośności telefonu z podłączonym urządzeniem Bluetooth.</string>
+    <string name="bluetooth_avc_available_description">Podłączone urządzenie Bluetooth obsługuje Synchronizację głośności mediów, więc głośność urządzenia Bluetooth będzie synchronizowana z telefonem.</string>
     <string name="bluetooth_enter_pin_msg">Podej PIN, coby skuplować z %s (Sprōbuj 0000 abo 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Szafniynto je nojwiynkszŏ wieloś znakōw.</string>
     <string name="settings_menu_done">Fertich</string>
@@ -865,7 +872,7 @@ Ale tyż po wyłōnczyniu fōnkcyji Przechytywanie inteligyntne idzie mieć dost
 -kryślić po screenshocie,
 -przistrzic screenshot,
 -podać screenshot."</string>
-    <string name="smart_capture_summary">Pokaż dodatkowe opcje po przech. zrzutu ekranu. Dzięki Przechwytywaniu inteligentnemu można:</string>
+    <string name="smart_capture_summary">Pokŏż ekstra ôpcyje po chyceniu screenshota. Bez Chytanie inteligyntne idzie:</string>
     <string name="smart_capture_summary_1">Przechwytywać ukryte obszary ekranu.</string>
     <string name="smart_capture_summary_2">Rysować na zrzuc. ekranu.</string>
     <string name="smart_capture_summary_3">Przycinać zrzut ekranu.</string>
@@ -902,11 +909,12 @@ Ale tyż po wyłōnczyniu fōnkcyji Przechytywanie inteligyntne idzie mieć dost
     <string name="swipe_to_call_title">Przec. coby złōn.gŏdka abo wiad.</string>
     <string name="swipe_to_call_summary">W aplikacyjach Telefōn, Kōntakty, Wiadōmość przejedź kōntaktem abo nōmerem w prawo, coby gŏdać, abo w lewo, coby posłać wiadōmość.</string>
     <string name="swipe_to_call_summary_dcm">W aplikacjach wybierania numeru, kontaktów i wiadomości przeciągnij kontakt lub numer w prawo, aby zadzwonić, lub w lewo, aby wysłać wiadomość.</string>
-    <string name="swipe_to_call_summary_kddi">W aplikacjach Telefon lub Kontakty przeciągnij kontakt lub numer w prawo, aby zadzwonić, lub w lewo, aby wysłać wiadomość.</string>
+    <string name="swipe_to_call_summary_kddi">W aplikacjach wybierania numeru lub kontaktów przeciągnij kontakt lub numer w prawo, aby zadzwonić, lub w lewo, aby wysłać wiadomość.</string>
     <string name="dual_app_title">Podwójny komunikator</string>
     <string name="dual_app_summary">Używaj dwóch oddzielnych kont dla tej samej aplikacji.</string>
-    <string name="finger_sensor_gesture_title">Gesty czujnika palców</string>
-    <string name="finger_sensor_gesture_summary">Otwieraj i zamykaj aplikacje i funkcje przy użyciu czujnika odcisków palców.</string>
+    <string name="finger_sensor_gesture_title">Gesty czujnika palcōw</string>
+    <string name="finger_sensor_gesture_summary">Ôtwiyrej i zawiyrej aplikacyje i fōnkcyje bez czujnik ôdciskōw palcōw.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Otwórz i zamknij panel powiadomień przy użyciu czujnika odcisków palców.</string>
     <string name="finger_sensor_gesture_description">Przeciągnij palcem w górę lub w dół na czujniku odcisków palców, aby otworzyć lub zamknąć panel powiadomień.</string>
     <string name="open_samsung_pay_title">Otwórz Samsung Pay</string>
     <string name="open_samsung_pay_summary">Na ekranie startowym przeciągnij palcem w górę na czujniku odcisków palców, aby otworzyć usługę Samsung Pay.</string>
@@ -941,6 +949,7 @@ Ale tyż po wyłōnczyniu fōnkcyji Przechytywanie inteligyntne idzie mieć dost
 %s"</string>
     <string name="enable_ps_title">Załōncz %s</string>
     <string name="setup_wizard">Kreator kōnfiguracje</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normalny</string>
     <string name="large">Wielgi</string>
     <string name="small">Niywielgi</string>
@@ -1086,7 +1095,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Autōmatycznie zebiyrej uaktualniynia ôprogramowanio bez czas zepniyńcio z necym Wi-Fi. Bez czas zebiyranio idzie dalij używać masziny.</string>
     <string name="auto_update_over_wifi">Automat. pobieraj przez Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">Automatycznie pobieraj aktualizacje oprogramowania podczas połączenia z siecią Wi-Fi. W zależności od dostawcy usług aktualizacje mogą być także pobierane za pośrednictwem danych komórkowych bez dodatkowych opłat. Podczas pobierania nadal będzie można korzystać z telefonu.</string>
-    <string name="scheduled_update">Zaplanow. aktualiz. oprogram.</string>
+    <string name="scheduled_update">Zaplanowane sōm aktualizacje ôprogramowaniŏ</string>
     <string name="scheduled_update_summary_default">Wył.</string>
     <string name="scheduled_update_summary_set_time">Uaktualniynie sztartnie ô godzinie %s</string>
     <string name="scheduled_update_summary_set_time_everyday">Uaktualniynie bydzie sztartować kożdy dziyń ô godzinie %s</string>
@@ -1230,7 +1239,7 @@ Tyknij OK, coby przizwolić na zwielgszynie widności wiyncyj co bezpieczny pozi
     <string name="adjust_your_display_colour">Nasztaluj farby wyświetlŏcza, coby pōmiynić wyglōnd ôdcieni biŏłygo.</string>
     <string name="display_temperature_preset_cool">Zimny</string>
     <string name="display_temperature_preset_warm">Ciepły</string>
-    <string name="display_advanced_option">Ôpcyje rozszyrzōne</string>
+    <string name="display_advanced_option">Opcje zaawansowane</string>
     <string name="color_balance_subtext_1">Balans koloru można regulować tylko w Trybie adaptacyjnym wyświetlacza.</string>
     <string name="color_balance_subtext_2">Regulacje nie zostaną zastosowane przy włączonym Filtrze światła niebieskiego.</string>
     <string name="poc_balance_title">Balans koloru krawędzi ekranu</string>
@@ -1288,6 +1297,7 @@ Tyknij OK, coby przizwolić na zwielgszynie widności wiyncyj co bezpieczny pozi
     <string name="navigationbar_summary">Zarządzaj przyciskami ekranu startowego, Wstecz i Ostatnie.</string>
     <string name="navigationbar_theme_switch">Zastosuj bieżący motyw</string>
     <string name="navigationbar_color_title">Kolor tła</string>
+    <string name="navigationbar_color_summary">Wybrany kolor tła może nie być stosowany we wszystkich aplikacjach.</string>
     <string name="navigationbar_order_title">Układ przycisków</string>
     <string name="navigationbar_order_default">Ostat.—Ekr. start.—Wstecz</string>
     <string name="navigationbar_order_mirrored">Wstecz—Ekr. start.—Ost.</string>
@@ -1295,7 +1305,7 @@ Tyknij OK, coby przizwolić na zwielgszynie widności wiyncyj co bezpieczny pozi
     <string name="navigationbar_unlock_with_home_btn_summary">Po wyłączeniu ekranu naciśnij mocno przycisk ekranu startowego, aby pominąć blokadę ekranu i przejść bezpośrednio do ekranu startowego.</string>
     <string name="navigationbar_category_button">Przyciski</string>
     <string name="navigationbar_pressure_sensitivity_title">Wrażliw. przyc. ekr. startowego</string>
-    <string name="navigationbar_pressure_sensitivity_summary">Dostosuj siłę nacisku potrzebnego do mocnego naciśnięcia przycisku ekranu startowego.</string>
+    <string name="navigationbar_pressure_sensitivity_summary">Napasuj druk potrzebny do fest ściśniyńciŏ knefla ekranu bazowego.</string>
     <string name="navigationbar_pressure_low">Większa czułość</string>
     <string name="navigationbar_pressure_high">Mniejsza czułość</string>
     <string name="navigationbar_hide_bar">Przycisk pokaż i ukryj</string>
@@ -1315,11 +1325,12 @@ Tyknij OK, coby przizwolić na zwielgszynie widności wiyncyj co bezpieczny pozi
     <string name="blue_light_filter_off_time_next_day_summary_format">%s na drugi dziyń</string>
     <string name="blue_light_filter_user_schedule_title">Terminŏrz niytypowy</string>
     <string name="blue_light_filter_auto_schedule_title">Ôd zachodu do wschodu słōńca</string>
-    <string name="blue_light_filter_desc">Używaj w nocy filtru światła niebieskiego, aby lepiej spać. Możesz ustawić harmonogram korzystania z filtru światła niebieskiego. Aby użyć opcji Od zachodu do wschodu słońca, należy włączyć funkcję Lokalizacja.</string>
+    <string name="blue_light_filter_desc">Używej bez noc filtru modrego światła, coby lepij spać. Poradzisz nasztalować harmōnogram używanio filtru modrego światła. Coby użyć ôpcyji ôd zachodu do wschodu słōńca, trza załōnczyć fōnkcyjo Lokalizacyjo.</string>
     <string name="blue_light_filter_enable_now">Włącz teraz</string>
-    <string name="blue_light_filter_enable_as_scheduled">Włączanie według planu</string>
+    <string name="blue_light_filter_enable_as_scheduled">Załōnczanie podug planu</string>
     <string name="blue_light_filter_scheduled_toast">Włączono filtr światła niebieskiego. Zostanie on automatycznie wyłączony o zaplanowanym czasie zakończenia.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">Fōnkcyjŏ %s i filter modrygo światła niy mogōm być używane wrŏz. Filter modrygo światła bydzie wyłōnczōny.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Wyłōnczyć Filter modrygo światła?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Coby używać fōnkcyji %s, trza wyłōnczyć Filter modrygo światła.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Aby korzystać z opcji Od zachodu do wschodu słońca, trzeba włączyć funkcję Lokalizacja.</string>
     <string name="dlg_turn_on">Włącz</string>
     <string name="screen_resolution_title">Rozdziylczoś ekranu</string>
@@ -1399,7 +1410,7 @@ Tyknij OK, coby przizwolić na zwielgszynie widności wiyncyj co bezpieczny pozi
     <string name="intelligent_help_summary_2">Przedni aparat nie jest używany przez inną aplikację.</string>
     <string name="enable_smartstay_title">Załōncz %s</string>
     <string name="device_visibility_title">Widoczność telefōnu</string>
-    <string name="device_visibility_text">Zezwalaj innym urządzeniom na znajdowanie Twojego telefonu i przesyłanie plików.</string>
+    <string name="device_visibility_text">Dozwolej inkszym maszinōm na znŏjdywanie Twojigo telefōnu i posyłanie plikōw.</string>
     <string name="device_visibility_text_full">Zezwalaj innym urządzeniom na znajdowanie Twojego telefonu (%s) i przesyłanie plików. Twój telefon pojawi się na liście dostępnych urządzeń podczas przesyłania plików za pomocą funkcji Przesyłanie plików do urządzeń.</string>
     <string name="easy_mode">Tryb Ulekszynia</string>
     <string name="standard_mode">Tryb Standardowy</string>
@@ -1536,6 +1547,7 @@ Szyfrowanie poradzi zetrwać nojmynij godzina. Przed sztartniyńciym bydź ziche
     <string name="crypt_keeper_last_warn_wipe">Ôstała już ino 1 prōba sztartniyńcio masziny, zanim maszina bydzie zresetowano do dōmyślnych sztalowań fabrycznych. Sprŏwi to co bydōm wypucowane wszyjske dane, w tym pliki i zebrane aplikacyje.</string>
     <string name="crypt_keeper_failed_title_dec">Niy poradziłżech ôdszifrować</string>
     <string name="crypt_keeper_failed_summary_dec">Niy dŏ się zakōńczyć ôdszyfrowaniŏ skuli sztopniyńciŏ. Wrōć nazŏd nasztalowania fabryczne (wyciepnie to wszyjskie dane) przed użyciem.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Nasztaluj typ blokady ekrōnu</string>
     <string name="encryption_interstitial_message">"Możesz dodatkowo chronić telefon, wymagając wprowadzenia %s przed uruchomieniem telefonu. Pomaga to chronić dane na zagubionych lub skradzionych urządzeniach. Niektóre aplikacje mogą wymagać Bezpiecznego uruchamiania zgodnie z zasadami szyfrowania urządzenia w celu uzyskania dostępu do funkcji, takich jak synchronizacja poczty e-mail.
 
 Nie będziesz odbierać żadnych połączeń, wiadomości czy powiadomień ani słyszeć alarmów do momentu uruchomienia telefonu."</string>
@@ -1774,7 +1786,8 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Użyj ôdcisku palca</string>
     <string name="wifi_ap_close">Zawrzij</string>
     <string name="fingerscanner_add_summary">Dodaj odciski palców.</string>
-    <string name="fingerscanner_register_summary">Dodano odcisków palców: %d.</string>
+    <string name="fingerscanner_register_1_finger_summary">Ôstoł przidany 1 ôdcisk palca.</string>
+    <string name="fingerscanner_register_summary">Przidano %d ôdciskōw palcōw.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Użyj ôdcisku palca abo wkludź terŏźny kod PIN.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Użyj ôdcisku palca abo naszkryflej terŏźny znak.</string>
     <string name="lockpassword_confirm_your_password_with_fingerprint">Użyj ôdcisku palca abo wkludź terŏźne hasło.</string>
@@ -1793,13 +1806,14 @@ You will also need it when:"</string>
     <string name="facelock_category_feature">Weryfikacja twarzy</string>
     <string name="facelock_category_unlock">Odblokowywanie za pomocą twarzy</string>
     <string name="facelock_face_unlock">Odblokowywanie za pomocą twarzy</string>
-    <string name="facelock_face_unlock_summary">Odblokuj telefon po rozpoznaniu twarzy.</string>
+    <string name="facelock_face_unlock_summary">Ôdblokuj telefōn po rozpoznōniu gymby.</string>
     <string name="facelock_swipe_to_unlock">Przeciągnij, aby odblokować</string>
     <string name="facelock_swipe_to_unlock_summary">Wymagaj przeciągnięcia, aby odblokować telefon po rozpoznaniu twarzy.</string>
     <string name="facelock_without_swipe_to_unlock">Odblokuj twarzą po włączeniu ekranu</string>
     <string name="facelock_without_swipe_to_unlock_summary">Odblokuj telefon przy użyciu rozpoznawania twarzy zaraz po włączeniu ekranu, bez wcześniejszego przeciągania.</string>
     <string name="facelock_recognition_speed_up">Szybsze rozpoznawanie</string>
     <string name="facelock_recognition_speed_up_summary">Włącz, aby rozpoznawać szybciej. Wyłącz, aby zwiększyć bezpieczeństwo i utrudnić odblokowywanie przy użyciu obrazu lub filmu wideo.</string>
+    <string name="facelock_samsungpass_summary">Używej rozpoznŏwaniŏ gymby do weryfikowaniŏ tożsamości bez usugi %s i inksze ôbsugiwane aplikacyje.</string>
     <string name="face_remove_face_popup_title">Usunąć dane twarzy?</string>
     <string name="face_remove_face_popup_message_1">Twoja twarz przestanie być rozpoznawana, a funkcja blokady twarzy zostanie wyłączona.</string>
     <string name="face_remove_face_popup_message_2">Funkcje korzystające z rozpoznawania twarzy zostaną wyłączone.</string>
@@ -1812,7 +1826,7 @@ You will also need it when:"</string>
 - Postaraj się, aby podczas rejestrowania otoczenie, w którym przebywasz, było dobrze oświetlone, a obiektyw aparatu był czysty.
 - Upewnij się, czy Twoje zdjęcie nie jest rozmazane, aby system lepiej rozpoznawał Twoją twarz."</string>
     <string name="facelock_setup_title">Konfigurowanie zabezpieczeń rozpoznawania twarzy</string>
-    <string name="facelock_setup_desc">Aby używać rozpoznawania twarzy do odblokowywania telefonu lub do weryfikowania siebie w aplikacjach, wykonaj następujące czynności:</string>
+    <string name="facelock_setup_desc">Coby używać poznŏwaniŏ gymby do ôdblokowywaniŏ telefōnu abo do weryfikowaniŏ siebie w aplikacyjach, zrychtuj dalij pokŏzane dziŏłania:</string>
     <string name="facelock_setup_sub_desc2">Zaregistruj swoje ôblicze.</string>
     <string name="face_chooselock_help_text_1">Aby bezpiecznie używać funkcji rozpoznawania twarzy, trzeba ustawić symbol, kod PIN lub hasło.</string>
     <string name="face_chooselock_help_text_2">Spamiyntej ôbrane info. Bydzie kōnieczne do ôdblokowaniŏ telefōnu po resztarcie abo kej niy używano go przez pōnad %d godz.</string>
@@ -1853,7 +1867,7 @@ Wybierz sposób odblokowywania telefonu. Nie można jednocześnie używać odblo
     <string name="biometrics_lock_setup_desc_number_1">1</string>
     <string name="biometrics_lock_setup_desc_number_2">2</string>
     <string name="biometrics_lock_setup_sub_desc1">Nasztaluj bezpieczne blokniyńcie ekranu.</string>
-    <string name="biometrics_chooselock_title">Ustawianie bezpiecznej blokady ekranu</string>
+    <string name="biometrics_chooselock_title">Sztalowanie bezpiecznyj blokady ekranu.</string>
     <string name="biometrics_button_not_now">Nie teraz</string>
     <string name="biometrics_button_turn_on">Włącz</string>
     <string name="disable_reactivation_lock_title">Wyłōncz blokada reaktywacyji</string>
@@ -1905,8 +1919,8 @@ Przed tym jak bydziesz dŏwōł do naprawy gwarancyjnyj, trza wyłōnczyć bloka
     <string name="fast_cable_charging_summary">Foluj bateria gibcij. Bez czas Gibkigo folowanio przewodowego maszina poradzi stoć sie gorko. Eli Gibke folowanie przewodowe je wyłōnczōne, za to bydzie używane folowanie sztandardowe.</string>
     <string name="battery_app_optimisation_title">Ôptymalizowanie aplikacyji</string>
     <string name="iris_backup_password">Użyj hasła kopii zapasowej</string>
-    <string name="iris_title">Tęczówka</string>
-    <string name="iris_add_summary">Zarejestruj swoje tęczówki.</string>
+    <string name="iris_title">Tynczōwka</string>
+    <string name="iris_add_summary">Zaregistruj swoje tynczōwki.</string>
     <string name="iris_register_summary">Twoje tęczówki zostały zarejestrowane.</string>
     <string name="manage_irises">Reskyrowanie tynczōwkami</string>
     <string name="my_irises">Usuń dane tęczówek</string>
@@ -1921,8 +1935,8 @@ Przed tym jak bydziesz dŏwōł do naprawy gwarancyjnyj, trza wyłōnczyć bloka
     <string name="iris_use_samsung_pass">Samsung Pass</string>
     <string name="iris_use_samsung_pass_summary">Używej tynczōwek do weryfikowanio tōżsamości bez aplikacyji %s i inkszych ôbsugiwanych aplikacyji.</string>
     <string name="iris_use_samsung_pass_description_internet">Internet</string>
-    <string name="iris_unlock">Ôblokuj bez tynczōwki</string>
-    <string name="iris_unlock_summary">Odblokuj telefon przy użyciu tęczówek.</string>
+    <string name="iris_unlock">Odblokuj za pomocą tęczówki</string>
+    <string name="iris_unlock_summary">Ôdblokuj telefōn bez tynczōwki.</string>
     <string name="tips_for_iris">Poznŏw. tynczōwek — dorady</string>
     <string name="iris_remove_popup_1">Dane tynczōwek bydōm wyciepane. Zorta blokniyńcio ekranu bydzie pomiyniōno na %s.</string>
     <string name="iris_remove_popup_2">Dane tynczōwek bydōm wyciepane, a wszyjske fōnkcyje pożyniōne z tynczōwkami bydōm wyłōnczōne. Zorta blokniyńcio ekranu bydzie pomiyniōno na %s.</string>
@@ -1939,9 +1953,9 @@ Aby odblokowywać telefon przy użyciu biometrii wraz z blokadą typu %2$s, wł�
 
 Włącz odblokowanie za pomocą tęczówki, aby używać biometrii lub %s do odblokowywania telefonu."</string>
     <string name="biometrics_backup_locktype_title">Rychtowanie zabezpieczyń tynczōwek</string>
-    <string name="biometrics_register_your_iris">Zarejestruj swoje tęczówki.</string>
+    <string name="biometrics_register_your_iris">Zaregistruj swoje tynczōwki.</string>
     <string name="biometrics_backup_locktype_summary">Coby ôdbloknōńć maszina bez tynczōwki, trza nasztalować znak, kod PIN abo hasło.</string>
-    <string name="biometrics_backup_locktype_message">Aby używać tęczówek do odblokowywania telefonu lub do bezpiecznej weryfikacji, trzeba:</string>
+    <string name="biometrics_backup_locktype_message">Aby używać tęczówek do odblokowywania telefonu lub do weryfikowania siebie w aplikacjach, wykonaj następujące czynności:</string>
     <string name="iris_delete_popup_title">Usunąć dane tęczówek?</string>
     <string name="iris_delete_popup_message">Usunąć dane tęczówek?</string>
     <string name="iris_delete_popup_message_with_related_func">Funkcje korzystające z tęczówek zostaną wyłączone.</string>
@@ -1949,7 +1963,7 @@ Włącz odblokowanie za pomocą tęczówki, aby używać biometrii lub %s do odb
     <string name="iris_timeout_popop_title">Badnij potym</string>
     <string name="iris_timeout_popop_message">Niy rozpoznōno tynczōwek. Fotoaparat do tynczōwek może być zmaraszōny. Wypucuj plac powyyj ekranu i badnij zajś.</string>
     <string name="iris_timeout_popop_message_1">Fotoaparat do tynczōwek poradzi być zmaraszōny. Wypucuj plac wyżyj ekranu i badnij drugi rŏz.</string>
-    <string name="iris_proximity_restriction_popop_message">Nie rozpoznano tęczówek. Telefon znajduje się zbyt blisko twarzy lub czujnik zbliżeniowy może być brudny. Wyczyść obszar powyżej ekranu i spróbuj ponownie.</string>
+    <string name="iris_proximity_restriction_popop_message">Trzymaj telefon dalej od twarzy i spróbuj ponownie.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Synsor zbliżyniowy poradzi być zmaraszōny.
 Wypucuj plac nad ekranym."</string>
     <string name="iris_try_again">Wyb. zajś</string>
@@ -1957,12 +1971,14 @@ Wypucuj plac nad ekranym."</string>
     <string name="iris_failed_to_verity_identify">Nie można zweryfikować tożsamości</string>
     <string name="iris_failed_popup_description">Podjęto prób weryfikacji tęczówek: %1$d. Spróbuj ponownie za %2$d s.</string>
     <string name="iris_no_match">Niy znojdziōno</string>
+    <string name="iris_eye_safety_msg">Nie rozpoznano tęczówek.</string>
+    <string name="iris_timeout_msg">Nie wykryto tęczówek.</string>
     <string name="biometrics_registered">Zaregistrowano</string>
     <string name="iris_turn_on_toast_message">We plac blokniyńcio bez ôdcisk palca załōnczōno blokniyńcie bez tynczōwka.</string>
     <string name="iris_wrong_backup_password">Felerne zapasowe hasło</string>
     <string name="iris_backup_password_title">Podej zapasowe hasło</string>
     <string name="iris_backup_password_guide">Hasło składa się z co najmniej %d znaków, w tym z co najmniej 1 litery i 1 cyfry.</string>
-    <string name="iris_backup_lock_type_helptext_1">Zapamiętaj wybrane informacje. Będą one potrzebne do odblokowania telefonu po jego ponownym uruchomieniu lub gdy nie był on używany przez ponad 24 godziny.</string>
+    <string name="iris_backup_lock_type_helptext_1">Spamiyntej ôbrane info. Bydzie kōnieczne do ôdblokowaniŏ telefōnu po resztarcie abo kej niy używano go przez pōnad %d godz.</string>
     <string name="iris_backup_lock_type_helptext_2">Coby bezpiecznie używać fōnkcyji rozpoznŏwaniŏ tynczōwek, trza nasztalować znak, kod PIN abo hasło.</string>
     <string name="iris_backup_lock_type_helptext_ppp_directions">Coby bezpiecznie używać fōnkcyji poznŏwaniŏ tynczōwki, trza nasztalować znak, kod PIN, hasło abo sekwencyjŏ kerunkōw.</string>
     <string name="iris_time_attempt_popup_desc">Zrobiōno prōb weryfikacyji tynczōwek: %d.</string>
@@ -1995,7 +2011,7 @@ Urządzenie wyposażone jest w dodatkowe opcje zabezpieczeń. Aby z nich skorzys
 3. Oświetlenie w znaczącym stopniu różni się od oświetlenia, w którym tęczówki zostały zapisane (np. użytkownik znajduje się w jaśniejszym pokoju).
 4. Telefon jest nadmiernie nachylony lub poruszany."</string>
     <string name="use_iris_first_lock">Odblokuj tęczówką po wł. ekranu</string>
-    <string name="use_iris_first_lock_summary">Odblokuj telefon tęczówkami zaraz po włączeniu ekranu, bez wcześniejszego przeciągania.</string>
+    <string name="use_iris_first_lock_summary">Ôdblokuj telefōn tynczōwkami zarŏz, kej załōnczysz ekran bez przōdziyjszego przejechaniŏ.</string>
     <string name="use_iris_first_lock_dialog_title">Użyć odblokow. tęczówką bez przeciągania?</string>
     <string name="use_iris_first_lock_dialog_msg">Nie można używać Odblokowywania za pomocą twarzy przy włączonym Odblokowywaniu tęczówką bez przeciągania. Odblokowywanie za pomocą twarzy zostanie wyłączone.</string>
     <string name="iris_sensor_not_working_popup_title">Rozpoznawanie tęczówek nie działa</string>
@@ -2003,7 +2019,7 @@ Urządzenie wyposażone jest w dodatkowe opcje zabezpieczeń. Aby z nich skorzys
     <string name="iris_hw_problem_msg">Kej problym niy mijŏ, resztartuj telefōn.</string>
     <string name="iris_go_to_samsung_theme">Idź do Samsung Themes</string>
     <string name="bio_face_recognition_title">Rozpoznawanie twarzy</string>
-    <string name="bio_fingerprint_sanner_title">Skaner odcisków palców</string>
+    <string name="bio_fingerprint_sanner_title">Skaner ôdciskōw palcōw</string>
     <string name="bio_iris_scanner_title">Skaner tęczówki</string>
     <string name="biometrics_unclickable_description">Nie można włączyć jednocześnie Odblokowywania za pomocą twarzy i Odblokowywania tęczówką.</string>
     <string name="iris_popup_irislock_turn_on_title">Użyć odblokowywania za pomocą tęczówki?</string>
@@ -2130,7 +2146,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="device_security_category">Bezpieczeństwo telefonu</string>
     <string name="lock_and_always_category">Ekran blokady i Always On Display</string>
     <string name="information_and_quicktools">Informacje i elementy FaceWidget</string>
-    <string name="information_and_quicktools_summary">Wybierz elementy do pokazania na ekranie blokady i ekranie Always On Display.</string>
+    <string name="information_and_quicktools_summary">Ôbier dingsy do pokŏzaniŏ na ekranie blokady i na ekranie Zŏwdy na wyświetlŏczu.</string>
     <string name="other_security_settings">Inksze nasztalowania zabezpieczyń</string>
     <string name="other_security_settings_summary">Zmiyń inksze nasztalowania bezpieczyństwa, take co nasztalowania aktualizacyji zabezpieczyń jak tyż przechowywania certyfikatōw.</string>
     <string name="lockpassword_press_continue">Po zakōńczyniu tyknij knefel Dalij</string>
@@ -2148,6 +2164,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Pokaż przycisk ekranu startowego i zegar lub informacje na ekranie oczekiwania.</string>
     <string name="aod_feature_off_popup_title">Załōnczyć fōnkcyjŏ %s?</string>
     <string name="aod_feature_off_popup_description">Aby korzystać z %1$s, trzeba wyłączyć %2$s.</string>
+    <string name="aod_features_off_popup_title">Wyłōnczyć inksze fōnkcyje?</string>
+    <string name="aod_features_off_popup_description">Coby używać fōnkcyji Zŏwdy na wyświetlŏczu, trza wyłōnczyć dalij pokŏzane fōnkcyje:</string>
     <string name="aod_features_off_popup_btn_ok">Wyłōncz</string>
     <string name="aod_disable_by_negative_colors">Nie można używać przy włączonych Kolorach w negatywie.</string>
     <string name="aod_disable_by_powersaving_mode">Nie można używać przy włączonym Trybie oszczędzania energii.</string>
@@ -2171,6 +2189,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Farbowane kapki</string>
     <string name="lock_screen_show_information_summary_wifi_only">Pokŏż informacyje ô właścicielu masziny abo skrōty aplikacyji na ekranie blokniyńcio.</string>
     <string name="lock_screen_sview_show_information_summary">Pokŏż podwōjny zygŏr, informacyje ô właścicielu masziny abo skrōty aplikacyji na ekranie blokniyńcio i w ôknie aplikacyji S View.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Pokazuj zegar dla roamingu lub informacje kontaktowe właściciela telefonu na ekranie blokady i w oknie aplikacji S View.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Wybierz skróty aplikacji do pokazania na Ekranie blokady i w oknie aplikacji S View.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Pokazuj powiadomienia na Ekranie blokady i w oknie aplikacji S View.</string>
     <string name="lock_screen_and_cover_show_information_summary">Pokŏż podwōjny zygŏr na ekranie blokady bez Przeźroczysty Deklik..</string>
     <string name="lock_screen_secured_lock_settings_title">Sztalowanie bezpiecznyj blokady</string>
     <string name="lock_screen_secured_lock_settings_summary">Nastŏw fōnkcyje bezpiecznyj blokady, take co Autōmatycznŏ blokada abo Bloknij kneflym ZAŁ/WYŁ.</string>
@@ -2187,6 +2208,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Macierzysta strefa czasowa</string>
     <string name="contact_info_settings_title">Informacje kontaktowe</string>
     <string name="show_contact_info_on_lockscreen_label">Pokazuj informacje, takie jak numer telefonu lub adres e-mail, na ekranie blokady.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Pokŏż informacyje, take co nōmer telefōnu abo adresa e-mail, na ekranie blokniyńcio i Always On Display.</string>
     <string name="unlock_effect">Efekt ôdblokowaniŏ</string>
     <string name="walking_mate_title">Krokōmiyrz</string>
     <string name="help_text_title">Tekst pōmocy</string>
@@ -2240,7 +2262,7 @@ Coby przipnōńć aplikacyj dŏ ekranu:n
     <string name="screen_pinning_description_4">Tyknij %s na prawym spodnim rancie ôkna aplikacyji, kerŏ chcesz przitrzimać na ekranie.</string>
     <string name="setup_lock_screen_intro_title">Ôchrōna mobilniŏka</string>
     <string name="setup_lock_screen_intro_text">Aktywuj fōnkcyje ôchrōny masziny, coby niy przizwolić używaniu tego mobilniŏka bez inksze ôsoby bez Twojigo przizwŏlynio.</string>
-    <string name="setup_lock_screen_intro_radio_iris">Konfiguruj skaner tęczówki</string>
+    <string name="setup_lock_screen_intro_radio_iris">Rychtuj skaner tynczōwki</string>
     <string name="setup_lock_screen_intro_radio_fingerprint">Konfiguruj skaner odcisków palców</string>
     <string name="setup_lock_screen_intro_radio_face">Konfiguruj rozpoznawanie twarzy</string>
     <string name="setup_lock_screen_intro_radio_generic">Rychtuj kod PIN, znak abo hasło</string>
@@ -2285,7 +2307,7 @@ Usunięcie danych biometrycznych jest zalecane, ale można je zachować, aby nad
     <string name="toast_set_lock_pattern">W przypadku zapomnienia symbolu wszystkie dane zostaną usunięte, a telefon zostanie zresetowany.</string>
     <string name="toast_set_lock_password">W przypadku zapomnienia hasła wszystkie dane zostaną usunięte, a telefon zostanie wyzerowany.</string>
     <string name="toast_set_lock_pin">W przypadku zapomnienia kodu PIN wszystkie dane zostaną usunięte, a telefon zostanie wyzerowany.</string>
-    <string name="chooselock_warning_text">Spamiyntej %s. Trza Ci tego bydzie po drugim sztartniyńciu masziny.</string>
+    <string name="chooselock_warning_text">Spamiyntej %s. Bydzie tego trza po resztarcie telefōnu.</string>
     <string name="lockpassword_password_exists_history">To hasło było już używane. Wkludź nowe hasło.</string>
     <string name="lockpassword_pin_repeating_nums">Cyfry w kodzie PIN niy śmiōm sie powtŏrzać</string>
     <string name="lockpassword_pin_sequential_nums">Cyfry w kodzie PIN niy śmiōm być za rajōm.</string>
@@ -2342,7 +2364,7 @@ Usunięcie danych biometrycznych jest zalecane, ale można je zachować, aby nad
     <string name="palm_swipe_title">Przejydź rynkōm, coby chycić.</string>
     <string name="screen_recorder_title">Record screen</string>
     <string name="screen_recorder_summary">Record video screenshots while you use your device.</string>
-    <string name="multi_window_setting_title">Akcja widoku wyskakującego okna</string>
+    <string name="multi_window_setting_title">Akcyjo widoku ôkynka pop-up</string>
     <string name="multi_window_setting_description">Kej aplikacyjŏ je ôtwartŏ na ekranie, przejedź palcym na przek na spodek z jedynyj ze eki na wiyrchu ekranu, coby napasować wielgość aplikacyji.</string>
     <string name="multi_window_screen_title">Wiele okien</string>
     <string name="multi_window_screen_summary">Pokŏzuj wiyncyj co jedna aplikacyjŏ narŏz.</string>
@@ -2351,7 +2373,7 @@ Usunięcie danych biometrycznych jest zalecane, ale można je zachować, aby nad
     <string name="multi_window_split_screen_description_hwkey_2">W widoku podzielonego ekranu naciśnij i przytrzymaj klawisz Ostatnie, aby zamknąć aplikację w dolnej części.</string>
     <string name="multi_window_split_screen_description_swkey_1">Tyknij knefla Niydąwne i trzimej go, coby pōmiynic widok terŏźnyj aplikacyji z pōłnygo ekranu na widok potajlowanego ekranu.</string>
     <string name="multi_window_split_screen_description_swkey_2">We widoku potajlowanego ekranu naciś i trzimej knefel Niydŏwne, coby zawrzić aplikacyjŏ we spodnij tajli.</string>
-    <string name="multi_window_use_recents_button">Używaj przycisku Ostatnie</string>
+    <string name="multi_window_use_recents_button">Używej knefla Niydŏwne</string>
     <string name="multi_window_use_recents_key">Używaj klawisza Ostatnie</string>
     <string name="multi_window_use_recents_key_summary_hwkey">Naciśnij i przytrzymaj klawisz Ostatnie, aby otworzyć aplikacje w widoku podzielonego ekranu.</string>
     <string name="multi_window_use_recents_key_summary_swkey">Dotknij przycisku Ostatnie i przytrzymaj go, aby otworzyć aplikacje w widoku podzielonego ekranu.</string>
@@ -2403,6 +2425,9 @@ Dane mobilne ôstanōm wyłōnczōne."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Jak niy używŏsz neca Wi-Fi, niy bydzie myjglich używanie Interneca, aplikacyji E-mail i inkszych aplikacyjōw, kerym trza połōnczyniŏ danych.
 
 Dane mobilne ôstanōm wyłōnczōne."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Jeśli nie połączysz się z siecią Wi-Fi, nie będzie możliwe korzystanie z Internetu, poczty e-mail lub innych aplikacji, które wymagają połączenia z siecią.</string>
@@ -2508,7 +2533,7 @@ Do niykerych transakcyjōw i płatōw mobilnych trza bydzie inkszyj dōmyślnyj 
     <string name="keyboard_vibration">Dyrgōwki tastatury</string>
     <string name="keyboard_vibration_summary">Dyrgotej po tykniyńciu knefla tastatury Samsung.</string>
     <string name="keyboard_sound">Klang ôd tastatury</string>
-    <string name="keyboard_sound_summary">Odtwarzaj dźwięki podczas dotykania klawiszy na klawiaturze Samsung.</string>
+    <string name="keyboard_sound_summary">Puszczej klangi bez czas tykanio knefli na tastaturze Samsung.</string>
     <string name="vibration_power_saving_enabled_summary">Wyłōncz Tryb szporowanio energie, coby załōnczyć fōnkcyjo Dyrgōwki.</string>
     <string name="vibrations_title">Wibracyje</string>
     <string name="sound_effect_title">Jakość klangu i efekty</string>
@@ -2561,10 +2586,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Niytypowe ôgr. głośności</string>
     <string name="volume_limiter_descryption">Coby chrōnić such, używej maksimum limitu głośności multimediōw. Ukrōcynie bydzie używane ino bez czas używanio suchŏwek abo maszin audio Bluetooth.</string>
     <string name="multi_sound_title">Ôsobny klang aplikacyji</string>
-    <string name="multi_sound_summary">Puszczej klang z jednyj aplikacyji na głośniku abo w suchŏwkach ôsobno ôd inkszych klangōw masziny.</string>
-    <string name="multi_sound_descryption">"Odtwarzaj dźwięk multimediów z jednej aplikacji przy użyciu głośnika lub słuchawek oddzielnie od dźwięku multimediów z innych aplikacji.
+    <string name="multi_sound_summary">Puszczej klang multimediōw z jednyj aplikacyji w maszinie audio ôsobnie ôd bazowyj wyjściowyj masziny audio mobilniŏka.</string>
+    <string name="multi_sound_descryption">"Puszczej klang multimediōw z jednyj aplikacyji na maszinie audio ôsobnyj ôd bazowyj wyjściowyj masziny audio mobilniŏka. Ôbier aplikacyjo i maszina audio, coby to załōnczyć.
 
-Jeśli wybierzesz urządzenie audio Bluetooth, dźwięk będzie odtwarzany na domyślnym urządzeniu audio, jeśli urządzenie Bluetooth nie zostało podłączone."</string>
+Ôsobny klang aplikacyji fōnguje, ô wiela ôbrano maszina audio je inkszo ôd bazowyj wyjściowyj masziny audio mobilniŏka.
+
+Poradzisz pōmiynić bazowo wyjściowo maszina audio mobilniŏka w panelu gibkich sztalowań. Eli wyjście audio niyma pokŏzane, załōncz je w panelu Samsung Connect > Sztalowanie > Samsung Connect."</string>
     <string name="set_application_title">Aplikacja</string>
     <string name="set_application_summary">Ôbier aplikacyjo, coby puszczać ônyj klang na ôsobnyj maszinie audio.</string>
     <string name="set_application_descryption">Wybierz poniżej aplikację multimediów, aby odtwarzać jej dźwięk na osobnym urządzeniu audio.</string>
@@ -2575,9 +2602,11 @@ Jeśli wybierzesz urządzenie audio Bluetooth, dźwięk będzie odtwarzany na do
     <string name="multi_sound_popup_msg">Coby załōnczyć sztalowanie %s, trza Ci ôbrać aplikacyjo i maszina audio.</string>
     <string name="multi_sound_network_msg">Aby wyszukać dostępne aplikacje, należy połączyć telefon z siecią. Sprawdź ustawienia sieciowe i spróbuj ponownie.</string>
     <string name="multi_sound_wifi_msg">Aby sprawdzić dostępność aplikacji, trzeba podłączyć telefon do sieci. Użycie danych komórkowych może spowodować naliczenie dodatkowych opłat.</string>
+    <string name="multi_sound_add_application">Dodej aplikacjŏ</string>
     <string name="dlg_btn_select">Ôbier</string>
-    <string name="audio_device_type_descryption">Ôbier maszina audio do użycio dlo tyj aplikacyji. Masziny Bluetooth bydōm do chycynio ino po przipniyńciu.</string>
-    <string name="my_phone_title">Telefon</string>
+    <string name="audio_device_type_descryption">Ôbier maszina audio do użycio dlo ôbranyj aplikacyji. Masziny Bluetooth bydōm do chycynio ino po podepniyńciu.</string>
+    <string name="my_phone_title">Mobilniŏk</string>
+    <string name="my_phone_summary">Głośnik/suchŏwki/maszina audio USB</string>
     <string name="bluetooth_device_title">Urządzenie Bluetooth</string>
     <string name="no_connected_devices">Niy ma połōnczōnych maszin</string>
     <string name="two_hours">2 godziny</string>
@@ -2585,7 +2614,8 @@ Jeśli wybierzesz urządzenie audio Bluetooth, dźwięk będzie odtwarzany na do
     <string name="stop_setup_popup_msg">Zmienione ustawienia nie zostaną zastosowane.</string>
     <string name="app_turned_on">%s zał.</string>
     <string name="force_touch_title">Wibracje przy silnym naciskaniu</string>
-    <string name="volume_key_control_title">Dōmyślne kerowanie kneflami głośności</string>
+    <string name="volume_key_control_title">Użyj klaw. głośn. dla multimed.</string>
+    <string name="volume_key_control_summary">Keruj mocōm głosu multimediōw, kej tykosz knefele głosu.</string>
     <string name="sound_mode">Tryb klangu</string>
     <string name="sound_mode_vibrate">Wibracyjŏ</string>
     <string name="sound_mode_mute">Wycisz</string>
@@ -2798,14 +2828,13 @@ prywatny"</string>
     <string name="text_biometrics_title_enterprise">W przypadku wybrania blokady %1$s biometria nie będzie obsługiwana jako metoda odblokowywania kontenera %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">Odciski palców nie są obsługiwane przez kartę %1$s jako metoda odblokowywania kontenera %2$s.</string>
     <string name="edge_feeds_title">Kanały Edge</string>
-    <string name="screensaver_settings_summary">"Badej, co je z maszinōm, kej je ôna zadokowano i/abo je folowano. Wygŏszŏcz ekranu bydzie pokŏzany kej minie limit czasu ekranu.
-
-Ta fōnkcyjo mianuje sie tyż Daydream."</string>
-    <string name="screensaver_settings_summary_wo_dock">Pokazuj wygaszacz ekranu po automatycznym wyłączeniu ekranu podczas ładowania telefonu.</string>
+    <string name="screensaver_settings_summary">Pokŏzuj wygaszŏcz ekranu po autōmatycznym wyłōnczyniu ekranu bez czas folowanio mobilniŏka.</string>
+    <string name="screensaver_settings_summary_wo_dock">Pokazuj wygaszacz ekranu po automatycznym wyłączeniu ekranu podczas zadokowania lub ładowania telefonu.</string>
     <string name="apn_already_exists">Już sam je.</string>
     <string name="error_unavailable_apn">Tyn APN niy je dozwolōny na tyj maszinie. Sprōbuj inkszy.</string>
     <string name="error_message_port_out_of_range">Nōmer portu musi być ôd %1$d do %2$d.</string>
     <string name="apn_restore_warning">Wszyjske przidane APN bydōm wyciepane. Inksze APN bydōm wynulowane do sztalowań dōmyślnych.</string>
+    <string name="apn_restore_title">Wynulować sztalowania APN?</string>
     <string name="master_clear_desc_google_account">Kōnto Google</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2817,7 +2846,8 @@ Ta fōnkcyjo mianuje sie tyż Daydream."</string>
     <string name="sound_balance_summary">Reguluj balans dźwięku po lewej i prawej stronie na potrzeby słuchawek.</string>
     <string name="backup_samsung_account_title">Ustawienia kopii zapasowej</string>
     <string name="restore_samsung_account_title">Wrōć nazŏd</string>
-    <string name="auto_restart_header">Reskyrowaniy maszikōm</string>
+    <string name="auto_restart_header">Resykrowanie mobilniŏkym</string>
+    <string name="auto_restart_header_tablet">Reskyrowanie tabletym</string>
     <string name="auto_restart_title">Autōmatyczny resztart</string>
     <string name="switch_turn_on_text">Załōncz</string>
     <string name="switch_turn_off_text">Wyłōncz</string>
@@ -2940,6 +2970,14 @@ Nie wpłynie to na dane osobiste i ustawienia pobranych aplikacji."</string>
     <string name="tether_settings_summary_usb_bt">Udostympniej transmisyjŏ danych po necu masziny bez USB abo Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">OK.</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Udostępnij połączenie internetowe telefonu przez Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Udostępnij połączenie internetowe tabletu przez Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Gotowość do udostępnienia połączenia internetowego tego telefonu.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Gotowość do udostępnienia połączenia internetowego tego tabletu.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Połączenie internetowe tego telefonu jest udostępniane 1 urządzeniu.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Połączenie internetowe tego tabletu jest udostępniane 1 urządzeniu.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Połączenie internetowe tego telefonu jest udostępniane %d urządzeniom.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Połączenie internetowe tego tabletu jest udostępniane %d urządzeniom.</string>
     <string name="onehand_settings_title">Tryb ôbsugi jednōm rynkōm.</string>
     <string name="onehand_settings_text_1">Przejedź na wiyrch po przekōntnyj z leda keryj eki ekranu, coby pōmyńszyć wielgość wyświetlŏcza.</string>
     <string name="onehand_settings_text_2">Coby pōmyńszyć wielgość wyświetlŏcza, 3 razy tyknij gibko knefla ekranu bazowego.</string>
@@ -3267,12 +3305,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Wył.</string>
     <string name="wifi_or_mobile_network">Wi-Fi abo mobilne nece</string>
     <string name="wifi_network_only">ino nec Wi-Fi</string>
+    <string name="wifi_adps_title">Tryb oszczędzania energii Wi-Fi</string>
+    <string name="wifi_adps_summary">Zmniejsz użycie baterii dzięki analizie wzorców ruchu Wi-Fi.</string>
     <string name="wifi_auto_reconnect">Autōmatyczne druge łōnczynie</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Wyłōnczynie necu Wi-Fi spowoduje wyłōnczynie Mobile Hotspot. Iść dalij?</string>
     <string name="wifi_enable_warning_tmo">Wi-Fi je wyłōnczōne kej Mobile Hotspot je aktywny. Coby załōnczyć Wi-Fi, wyłōncz Mobile HotSpot.</string>
     <string name="wifi_enable_warning_spr">Załōnczynie Wi-Fi wyłōnczy mobilny hotspot.</string>
-    <string name="wifi_enable_warning_mtr">Sieć Wi-Fi jest wyłączona, gdy router Wi-Fi jest aktywny. Aby włączyć sieć Wi-Fi, wyłącz router Wi-Fi.</string>
+    <string name="wifi_enable_warning_mtr">Sieć Wi-Fi jest wyłączona, gdy funkcja Mobile Hotspot jest aktywna. Aby włączyć sieć Wi-Fi, wyłącz funkcję Mobile Hotspot.</string>
     <string name="wifi_enable_warning_usc">Jak wyłōnczysz Mobilny Wi-Fi Hotspot, wyłōnczy sie Wi-Fi. Ijś dalij?</string>
     <string name="wifi_enable_warning">Załōnaczanie neca Wi-Fi wyłōnczy Router Wi-Fi.</string>
     <string name="wifi_control_history_title">Historia sterowania Wi-Fi</string>
@@ -3472,6 +3512,10 @@ Po zmianie miana abo hasła routera Wi-Fi trza wygenerować nowy kod QR."</strin
     <string name="wifi_wps_pin_client_mobileap">Łączenie z klientem za pomocą kodu PIN %1$s. Konfigurowanie może trwać do %2$d min.</string>
     <string name="wifi_wps_complete_mobileap">Drugŏ maszina je terŏzki podłōnczōnŏ do Twojij masziny</string>
     <string name="wifi_ap_disconnect_warn">Ôdłōnczanie masziny</string>
+    <string name="wifi_ap_change_policy_warn_chn">Terŏźnie połōnczōnŏ maszina bydzie ôdłōnczōnŏ ôd Mobilnygo hotspotu WLAN.</string>
+    <string name="wifi_ap_change_policy_warn_att">Rozłōncza maszina, kero terŏzki je połōnczōnŏ, z mobilnygo Wi-Fi Hotspotu.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Wszyjskie terŏzki podłōnczone masziny bydōm odłōnczone ôd Routera Wi-Fi</string>
+    <string name="wifi_ap_change_policy_warn_mtr">Rozłōncza maszina, kero terŏzki je połōnczōnŏ, z mobilnygo Wi-Fi Hotspotu.</string>
     <string name="wifi_ap_change_policy_warn">Wszyjskie terŏzki podłōnczone masziny bydōm odłōnczone ôd Routera Wi-Fi</string>
     <string name="wifi_ap_warn_max_whitelist">Szafniynto maksymalno wieloś zwōlōnych maszin (%d).</string>
     <string name="wifiap_one_item_deleted">1 elymynt ôstanie wyciepniynty</string>
@@ -3607,6 +3651,8 @@ Używanie fōnkcyji Router Wi-Fi zwielgszŏ spotrzebowanie bateryji i danych."</
     <string name="wifi_ap_first_time_configuration">Nasztŏwianiy HotSpotu piyrwszy rŏz</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Wprowadź prawidłowy kod PIN.</string>
+    <string name="open_mobileap_warning">Tyn mobilny pōnkt dostympu niyma bezpieczny.</string>
+    <string name="hidden_mobileap_warning">Metoda WPS zostanie wyłączona, gdy użytkownik ustawi ukrytą nazwę SSID.</string>
     <string name="wifi_ssid_max_byte_error">Szafniynto je nojwiynkszŏ wieloś znakōw.</string>
     <string name="tethering_attention_title">Pozōr</string>
     <string name="wfd_select_device">Ôbier maszina</string>
@@ -3837,6 +3883,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Synchrōnizacyjŏ</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">To uprawnienie pozwala aplikacji na wyświetlanie rzeczy na innych używanych aplikacjach. Może to zakłócać korzystanie z innych aplikacji.</string>
+    <string name="write_settings_body_description">Zezwól tej aplikacji na zmianę ustawień systemu, np. włączania lub wyłączania funkcji Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Sprŏwi to wynulowanie wszyjskich preferyncyji dalij podanych dingsōw:</string>
+    <string name="reset_app_preferences_desc2">Wyłōnczōne aplikacyje</string>
+    <string name="reset_app_preferences_desc3">Ukrōcynia nowin dlo aplikacyji</string>
+    <string name="reset_app_preferences_desc4">Dōmyślne aplikacyje</string>
+    <string name="reset_app_preferences_desc5">Ukrōcynia danych we tle dlo aplikacyji</string>
+    <string name="reset_app_preferences_desc6">Ukrōcynia dozwŏlynio</string>
+    <string name="reset_app_preferences_desc7">Niy stracisz danych aplikacyji kere już sōm.</string>
     <string name="knox_security_mode_title">Zabezpieczynia apl. KNOX</string>
     <string name="kap_title">Aktywnŏ ôchrōna KNOX</string>
     <string name="kap_eula_title">Prawidła ôchrōny prywat.</string>
@@ -3851,6 +3905,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Zarządzaj danymi osobowymi i szczegółami konta Samsung.</string>
     <string name="my_profile_summary_jpn">Zarządzaj danymi osobowymi i szczegółami konta Galaxy.</string>
     <string name="arbitration_agreement">Umowa dotycząca arbitrażu</string>
+    <string name="activation_title">Stan aktywacji</string>
+    <string name="activation_summary">Aktywowano dnia %1$s. Więcej informacji można znaleźć pod adresem %2$s.</string>
+    <string name="wifi_ap_pmf_on">Włączono funkcję PMF</string>
+    <string name="edit_event_start_short">Pocz.</string>
+    <string name="edit_event_end_short">Kōniec</string>
+    <string name="select_date_to_view">Wybier data do wyświetleniŏ.</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Ja</string>
     <string name="no">Niy</string>
     <string name="create">Złōnacz</string>
@@ -4609,8 +4670,8 @@ Poradzisz nasztalować nowe blokniyńcie jednako dlo masziny, jak tyż dlo profi
     <string name="show_running_services">Pokŏz używane usugi</string>
     <string name="show_background_processes">Pokŏz procesy w pamiyńci</string>
     <string name="default_emergency_app">Aplikacyjo alarmowo</string>
-    <string name="reset_app_preferences">Zeruj preferencje aplik.</string>
-    <string name="reset_app_preferences_title">Zeruj preferencje aplik.</string>
+    <string name="reset_app_preferences">Nuluj preferyncyje aplik.</string>
+    <string name="reset_app_preferences_title">Nuluj preferyncyje aplik.</string>
     <string name="reset_app_preferences_desc">"Sprŏwi to wynulowanie wszyjskich Twoich preferyncji dlo:
 
 — Wyłōnczōnych aplikacyji
@@ -5322,7 +5383,7 @@ Kŏżdy użytkownik może przituplować uprawniynia do zeaktualizowanych aplikac
     <string name="app_notification_block_title">Przizwōl na nowiny</string>
     <string name="app_notification_block_summary">Przijmuj nowiny z tyj aplikacyji, w tym wiadōmości z nowinami, klangi i dyrgōwki.</string>
     <string name="app_notification_override_dnd_title">Nastŏw jako priorytet</string>
-    <string name="app_notification_override_dnd_summary">Zezwalaj na powiadomienia dźwiękowe z tej aplikacji oraz na włączanie przez nie ekranu przy włączonym trybie Nie przeszkadzać.</string>
+    <string name="app_notification_override_dnd_summary">Pokazuj nowina na wiyrchu panelu nowinōw i dŏwej je na lista dozwolōnych nawet jak załōnczōny je tryb Niy zawŏdzej.</string>
     <string name="app_notification_visibility_override_title">Na ekranie blokniyńcio</string>
     <string name="app_notifications_dialog_done">Fertich</string>
     <string name="zen_mode_choose_rule_type">Ôbiyranie zorty prawidła</string>
@@ -5346,9 +5407,9 @@ Kŏżdy użytkownik może przituplować uprawniynia do zeaktualizowanych aplikac
     <string name="zen_mode_end_time">Godzina zakōńczyniŏ</string>
     <string name="zen_mode_end_time_next_day_summary_format">%s na drugi dziyń</string>
     <string name="zen_mode_screen_on">Ukryj przy włączonym ekranie</string>
-    <string name="zen_mode_screen_on_summary">Nie zezwalaj na pokazywanie na ekranie powiadomień wyciszonych przez tryb Nie przeszkadzać.</string>
+    <string name="zen_mode_screen_on_summary">Niy przizwolej na pokŏzywanie na ekranie nowin danych blank cicho bez tryb Niy zawŏdzać.</string>
     <string name="zen_mode_screen_off">Ukryj przy wyłączonym ekranie</string>
-    <string name="zen_mode_screen_off_summary">Nie zezwalaj na włączanie wskaźnika LED przez powiadomienia wyciszone przez tryb Nie przeszkadzać.</string>
+    <string name="zen_mode_screen_off_summary">Niy przizwolej na załōnczanie blyndki LED bez nowiny dane blank cicho bez tryb Niy zawŏdzać.</string>
     <string name="zen_mode_screen_off_summary_no_led">Niy załōnczej ekranu po przijyńciu nowin przi załōnczōnym trybie Niy zawŏdzej.</string>
     <string name="zen_mode_all_visual_interruptions">Wył.</string>
     <string name="zen_mode_screen_on_visual_interruptions">Przi załōnczōnym ekranie</string>
@@ -5359,6 +5420,7 @@ Kŏżdy użytkownik może przituplować uprawniynia do zeaktualizowanych aplikac
     <string name="restr_pin_enter_admin_pin">Podowaniy kodu PIN administratora</string>
     <string name="switch_on_text">Wł.</string>
     <string name="switch_off_text">Wył.</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Ten profil służbowy jest zarządzany przez:</string>
     <string name="managing_admin">Reskyrowany bez %s</string>
     <string name="display_auto_rotate_title">Ôbrŏcanie ekranu</string>
     <string name="display_auto_rotate_rotate">Ôbrōć zawartości ekranu</string>
@@ -5395,9 +5457,9 @@ Niy bydziesz przijmować żodnych gŏdek, wiadōmości abo nowin ani słyszeć a
     <string name="encrypt_talkback_dialog_require_pin">Trza podać PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Trza podać znak</string>
     <string name="encrypt_talkback_dialog_require_password">Trza podać hasło</string>
-    <string name="encrypt_talkback_dialog_message_pin">Kiedy wprowadzisz kod PIN po włączeniu urządzenia, funkcje dostępności, takie jak %1$s, będą chwilowo wyłączone.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Kiedy narysujesz symbol po włączeniu urządzenia, funkcje dostępności, takie jak %1$s, będą chwilowo wyłączone.</string>
-    <string name="encrypt_talkback_dialog_message_password">Kiedy wprowadzisz hasło po włączeniu urządzenia, funkcje dostępności, takie jak %1$s, będą chwilowo wyłączone.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Po załōnczyniu folowanio masziny trza bydzie mieć kod PIN. Fōnkcyje dostympności niy bydōm do chycynio do czasu sztartniyńcio masziny.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Po załōnczyniu folowanio masziny trza bydzie mieć znak. Fōnkcyje dostympności niy bydōm do chycynio do czasu sztartniyńcio masziny.</string>
+    <string name="encrypt_talkback_dialog_message_password">Po załōnczyniu folowanio masziny trza bydzie mieć hasło. Fōnkcyje dostympności niy bydōm do chycynio do czasu sztartniyńcio masziny.</string>
     <string name="slot_number">(gniŏzdo %d)</string>
     <string name="app_launch_domain_links_title">Linki aplikacyji</string>
     <string name="app_launch_open_domain_urls_title">Idź do ôbsugiwanych URL</string>
@@ -5473,18 +5535,18 @@ Niy bydziesz przijmować żodnych gŏdek, wiadōmości abo nowin ani słyszeć a
     <string name="usb_use_power_only">Foluj zep. maszina</string>
     <string name="usb_use_power_only_desc">Foluj przipniynto maszina bez USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Poślij pliki multim.</string>
+    <string name="usb_use_file_transfers">Poślij pliki</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Poślij ôbrŏzki</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Ôbier tyn tryb, eli posyłanie plikōw multimedialnych niy fōnguje. Poradzisz posyłać ino pliki ôbrŏzkōw.</string>
+    <string name="usb_use_photo_transfers_summary">Wybierz ten tryb, jeśli Przesyłanie plików nie działa. W tym trybie możesz przesyłać tylko pliki obrazów.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Przipnij maszina MIDI</string>
-    <string name="usb_use">Używej USB do</string>
-    <string name="assist_access_context_title">Czytej tekst na ekranie</string>
-    <string name="assist_access_context_summary">Przizwŏlej aplikacyji spōmŏganio masziny na czytanie leda kerego tekstu pokŏzanego na ekranie.</string>
-    <string name="assist_access_screenshot_title">Zrzuty ekranu — robienie/dostęp</string>
-    <string name="assist_access_screenshot_summary">Przizwŏlej aplikacyji spōmŏganio masziny na łōnaczynie ściepōw ekranu i dostymp do nich.</string>
+    <string name="usb_use">Użyj USB, coby zrobić dalij podano aktywnoś</string>
+    <string name="assist_access_context_title">Analizuj tekst na ekranie</string>
+    <string name="assist_access_context_summary">Zezwól aplikacji wspomagania urządzenia na analizowanie tekstu wyświetlonego na ekranie w celu udostępnienia powiązanej zawartości.</string>
+    <string name="assist_access_screenshot_title">Analizuj obrazy na ekranie</string>
+    <string name="assist_access_screenshot_summary">Zezwól aplikacji wspomagania urządzenia na wykonywanie i używanie obrazów przedstawiających ekran.</string>
     <string name="assist_footer">Aplikacyje spōmŏganio masziny poradzōm Ci pōmōc, bez zebranie informacyji z ekranu pokŏzanego terŏzki w mobilniŏku. Niykere aplikacyje spōmŏganio masziny poradzōm ôdmykać inksze aplikacyje i wkludzać tekst bez użycie zachowywanio głosym, bez co je na zicher zintegrowane spōmŏganie.</string>
     <string name="average_memory_use">Strzednie użycie pamiyńci RAM</string>
     <string name="maximum_memory_use">Maksymalne użycie pamiyńci RAM</string>
@@ -5513,12 +5575,12 @@ Niy bydziesz przijmować żodnych gŏdek, wiadōmości abo nowin ani słyszeć a
     <string name="ignore_optimizations_on_desc">Może sprŏwiać zwielgszynie zużycio baterji</string>
     <string name="ignore_optimizations_off_desc">Doradzane coby szporować nafolowanie nafolowanio baterji</string>
     <string name="app_list_preference_none">Żŏdyn</string>
-    <string name="allow_overlay_description">Ôbier aplikacyje, coby przizwolić ônych kneflōm, ôkiynkōm pop-up i inkszym dingsōm na pokŏzywanie sie nad inkszymi używanymi aplikacyjami.</string>
+    <string name="allow_overlay_description">To uprawnienie pozwala aplikacji na wyświetlanie rzeczy na innych używanych aplikacjach. Może to zakłócać korzystanie z innych aplikacji.</string>
     <string name="overlay_settings">Aplikacyje, kere poradzōm pokozać sie na wiyrchu</string>
     <string name="filter_overlay_apps">Aplikacyje z uprŏwniyniym</string>
     <string name="filter_write_settings_apps">Aplikacyje z uprŏwniyniym</string>
     <string name="write_settings_title">Sztalowania masziny</string>
-    <string name="write_system_settings">Aplikacje, które mogą zmieniać ustawienia systemu</string>
+    <string name="write_system_settings">Aplikacyje, kere poradzōm pōmiyniać sztalowania systymu</string>
     <string name="permit_write_settings">Zamiyń sztalowania systymu</string>
     <string name="write_settings_description">Ôbier, kere aplikacyje poradzōm zamiyniać sztalowanie systymu, take co załōnczanie abo wyłōnczanie Bluetooth.</string>
     <string name="troaming_use_roaming_packages">Użyj paketōw roamingu</string>
@@ -5560,22 +5622,22 @@ Niy bydziesz przijmować żodnych gŏdek, wiadōmości abo nowin ani słyszeć a
     <string name="ethernet_data_template">%1$s danych Ethernet</string>
     <string name="cell_warning_only">Ostrzeżenie danych przy %s</string>
     <string name="cell_warning_and_limit">%1$s Ostrzeżenie o wykorzystaniu danych/%2$s Limit wykorzystania danych</string>
-    <string name="billing_cycle">Cykl ôbrachōnkowy</string>
+    <string name="billing_cycle">Cykl rozl. i ostrz. dot. danych</string>
     <string name="billing_cycle_summary">%s dnia każdego miesiąca</string>
     <string name="billing_cycle_fragment_summary">%s dnia każdego miesiąca</string>
     <string name="network_restrictions">Ôgraniczej nece</string>
     <string name="operator_warning">Użycie danych je mierzōne bez maszina. Twōj dostŏwca serwisōw poradzi je rachować inakszyj.</string>
     <string name="data_used_template">%s użyto</string>
     <string name="data_warning">Ostrzeżenie o danych</string>
-    <string name="set_data_limit">Limit danych</string>
+    <string name="set_data_limit">Ustaw limit danych</string>
     <string name="data_limit">Limit danych</string>
     <string name="data_usage_template">%1$s wykorzystano w dniach %2$s</string>
     <string name="data_usage_other_apps">Pożyniōne aplik. u zużyciu</string>
     <string name="data_saver_title">Szporowanie danych</string>
-    <string name="unrestricted_data_saver">Zezw. apl. przy wł. Oszcz. dan.</string>
+    <string name="unrestricted_data_saver">Prziz. apl. przi zał. Szpor. dan.</string>
     <string name="restrict_background_blacklisted">Załōnczōno fōnkcyjo Ukrōcanie danych we tle</string>
     <string name="data_saver_on">Załōnczōne</string>
-    <string name="unrestricted_app_title">Zezw. apl. przy wł. Oszcz. dan.</string>
+    <string name="unrestricted_app_title">Prziz. apl. przi zał. Szpor. dan.</string>
     <string name="unrestricted_app_summary">Zezwól tej aplikacji na korzystanie z danych komórkowych bez ograniczeń, nawet przy włączonej funkcji Oszczędzanie danych.</string>
     <string name="home_app">Ekran sztartowy</string>
     <string name="no_default_home">Niy ma dōmyślnego ekranu sztartowego</string>
@@ -5609,5 +5671,4 @@ Twojŏ maszina mŏ ôprogramowanie diagnostyczne, kere kej przituplujesz może a
     <string name="enable_iris_lock_desc_3">"Za typ blokniyńcio ekranu terŏzki sōm nasztalowane Ôdciski palcōw.
 
 Coby we plac Odciskōw palcōw za typ blokniyńcio ekranu nasztalować Tynczōwki, tyknij ôpcyji ZAŁŌNCZ. Maszina pudzie wtynczos ôdbloknōńć bez tynczōwka abo %s."</string>
-    <string name="my_phone_summary">Głośnik/suchŏwki/maszina audio USB</string>
 </resources>

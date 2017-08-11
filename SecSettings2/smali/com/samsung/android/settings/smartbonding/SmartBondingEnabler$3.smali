@@ -32,9 +32,9 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 4
+    .locals 6
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     iget-object v1, p0, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler$3;->this$0:Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;
 
@@ -48,7 +48,7 @@
 
     const-string/jumbo v2, "smart_bonding"
 
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v1, v2, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
@@ -96,20 +96,28 @@
 
     move-result-object v2
 
-    if-eqz v0, :cond_3
-
-    const v1, 0x7f0b1b37
-
-    :goto_1
-    invoke-virtual {v2, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
-
     iget-object v1, p0, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler$3;->this$0:Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;->-get2(Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;)Landroid/preference/SwitchPreference;
+    invoke-static {v1}, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;->-get0(Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;)Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "smart_bonding"
+
+    invoke-static {v1, v3, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    const v1, 0x7f0b1bd3
+
+    :goto_1
+    invoke-virtual {v2, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
     const-string/jumbo v1, "SmartBondingEnabler"
 
@@ -123,7 +131,23 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler$3;->this$0:Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;->-get0(Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;)Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "smart_bonding"
+
+    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -142,7 +166,7 @@
     goto :goto_0
 
     :cond_3
-    const v1, 0x7f0b1b38
+    const v1, 0x7f0b1bd4
 
     goto :goto_1
 .end method

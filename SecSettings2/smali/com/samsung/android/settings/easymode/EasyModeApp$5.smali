@@ -53,7 +53,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f1002ed
+    const v6, 0x7f1002f3
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -228,6 +228,14 @@
     move-result v4
 
     if-ne v4, v7, :cond_4
+
+    iget-object v4, p0, Lcom/samsung/android/settings/easymode/EasyModeApp$5;->this$0:Lcom/samsung/android/settings/easymode/EasyModeApp;
+
+    invoke-static {v4}, Lcom/samsung/android/settings/easymode/EasyModeApp;->-get5(Lcom/samsung/android/settings/easymode/EasyModeApp;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
 
     if-nez v2, :cond_3
 

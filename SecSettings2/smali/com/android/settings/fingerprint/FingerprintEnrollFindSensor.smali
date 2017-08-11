@@ -57,7 +57,7 @@
 .method private launchConfirmLock()V
     .locals 9
 
-    const v8, 0x7f0b1296
+    const v8, 0x7f0b1331
 
     const/4 v2, 0x1
 
@@ -222,7 +222,7 @@
 .method protected getContentView()I
     .locals 1
 
-    const v0, 0x7f040107
+    const v0, 0x7f040109
 
     return v0
 .end method
@@ -334,7 +334,7 @@
 
     move-result-object v3
 
-    const v4, 0x10e009b
+    const v4, 0x10e009c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -368,7 +368,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->setContentView(I)V
 
-    const v0, 0x7f0b12a6
+    const v0, 0x7f0b1341
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->setHeaderText(I)V
 
@@ -408,7 +408,7 @@
 
     :cond_2
     :goto_0
-    const v0, 0x7f1103ac
+    const v0, 0x7f1103ae
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->findViewById(I)Landroid/view/View;
 

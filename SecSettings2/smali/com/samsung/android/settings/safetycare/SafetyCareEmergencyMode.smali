@@ -230,13 +230,13 @@
     invoke-virtual {v8, v9}, Lcom/android/settings/widget/SwitchBar;->setEnabled(Z)V
 
     :cond_0
-    const v8, 0x7f040273
+    const v8, 0x7f040277
 
     invoke-virtual {p1, v8, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v6
 
-    const v8, 0x7f1106e6
+    const v8, 0x7f1106e9
 
     invoke-virtual {v6, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -246,7 +246,7 @@
 
     iput-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mMessageView:Landroid/widget/TextView;
 
-    const v8, 0x7f1106e5
+    const v8, 0x7f1106e8
 
     invoke-virtual {v6, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -256,7 +256,7 @@
 
     iput-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mImageView:Landroid/widget/ImageView;
 
-    const v8, 0x7f1106e7
+    const v8, 0x7f1106ea
 
     invoke-virtual {v6, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -266,7 +266,7 @@
 
     iput-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mMoreInfo:Landroid/widget/TextView;
 
-    const v8, 0x7f1106e8
+    const v8, 0x7f1106eb
 
     invoke-virtual {v6, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b0bd8
+    const v9, 0x7f0b0c4a
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -292,7 +292,7 @@
 
     iput-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mHelpContent:Ljava/lang/String;
 
-    const v8, 0x7f020507
+    const v8, 0x7f020570
 
     iput v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mHelpImgResID:I
 
@@ -343,7 +343,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b0b73
+    const v9, 0x7f0b0be5
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -363,7 +363,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b0b75
+    const v9, 0x7f0b0be7
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -374,7 +374,7 @@
     :cond_2
     iget-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b0b76
+    const v9, 0x7f0b0be8
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -392,7 +392,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b0b77
+    const v9, 0x7f0b0be9
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -432,7 +432,7 @@
     :cond_4
     iget-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b0b78
+    const v9, 0x7f0b0bea
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -465,13 +465,13 @@
 
     move-result-object v8
 
-    const v9, 0x7f0401e1
+    const v9, 0x7f0401e3
 
     invoke-static {v8, v9, v10}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    const v8, 0x7f110600
+    const v8, 0x7f110602
 
     invoke-virtual {v0, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -490,7 +490,7 @@
     :cond_6
     iget-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b0b79
+    const v9, 0x7f0b0beb
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -503,7 +503,7 @@
     :cond_7
     iget-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b0bd9
+    const v9, 0x7f0b0c4b
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -512,7 +512,7 @@
     iput-object v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mHelpContent:Ljava/lang/String;
 
     :cond_8
-    const v8, 0x7f020508
+    const v8, 0x7f020571
 
     iput v8, p0, Lcom/samsung/android/settings/safetycare/SafetyCareEmergencyMode;->mHelpImgResID:I
 

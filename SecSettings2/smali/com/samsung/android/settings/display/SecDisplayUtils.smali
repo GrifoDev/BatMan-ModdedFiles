@@ -4,9 +4,9 @@
 
 
 # static fields
-.field public static final DREAM2_PROJECT:Z
+.field public static final CRUISER_PROJECT:Z
 
-.field private static final mIsCaseD1:Z
+.field public static final DREAM2_PROJECT:Z
 
 .field public static mListPocImages:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -24,15 +24,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
-
-    const/4 v1, 0x1
+    .locals 2
 
     const-string/jumbo v0, "ro.product.device"
 
-    const-string/jumbo v2, "NONE"
+    const-string/jumbo v1, "NONE"
 
-    invoke-static {v0, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -44,43 +42,44 @@
 
     sget-object v0, Lcom/samsung/android/settings/display/SecDisplayUtils;->mProductName:Ljava/lang/String;
 
-    const-string/jumbo v2, "dream2"
+    const-string/jumbo v1, "dream2"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    sget-object v0, Lcom/samsung/android/settings/display/SecDisplayUtils;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v2, "SC-03J"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     sget-object v0, Lcom/samsung/android/settings/display/SecDisplayUtils;->mProductName:Ljava/lang/String;
 
-    const-string/jumbo v2, "SCV35"
+    const-string/jumbo v1, "SC-03J"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/settings/display/SecDisplayUtils;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v1, "SCV35"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
     :goto_0
     sput-boolean v0, Lcom/samsung/android/settings/display/SecDisplayUtils;->DREAM2_PROJECT:Z
 
-    sget-boolean v0, Lcom/samsung/android/settings/display/SecDisplayUtils;->DREAM2_PROJECT:Z
+    sget-object v0, Lcom/samsung/android/settings/display/SecDisplayUtils;->mProductName:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    const-string/jumbo v1, "cruiser"
 
-    const/4 v1, 0x0
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    :cond_0
-    sput-boolean v1, Lcom/samsung/android/settings/display/SecDisplayUtils;->mIsCaseD1:Z
+    move-result v0
+
+    sput-boolean v0, Lcom/samsung/android/settings/display/SecDisplayUtils;->CRUISER_PROJECT:Z
 
     const/4 v0, 0x0
 
@@ -88,8 +87,8 @@
 
     return-void
 
-    :cond_1
-    move v0, v1
+    :cond_0
+    const/4 v0, 0x1
 
     goto :goto_0
 .end method
@@ -160,6 +159,16 @@
     const-string/jumbo v3, "screen_brightness_mode"
 
     invoke-static {v2, v3, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "screen_brightness"
+
+    const/16 v4, 0x80
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     const-string/jumbo v2, "SecDisplayUtils"
 
@@ -588,15 +597,23 @@
 .end method
 
 .method public static getPocEstimatedTime(Lcom/samsung/android/hardware/display/SemMdnieManager;)J
-    .locals 8
+    .locals 10
+
+    const-wide/32 v8, 0x668a0
 
     const-wide/16 v6, 0x2710
+
+    const-string/jumbo v3, "SecDisplayUtils"
+
+    const-string/jumbo v4, "[stpoc] check poc state"
+
+    invoke-static {v3, v4}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/hardware/display/SemMdnieManager;->isMdniePocFused()Z
 
     move-result v1
 
-    invoke-virtual {p0}, Lcom/samsung/android/hardware/display/SemMdnieManager;->isMdniePocSupported()Z
+    invoke-static {p0}, Lcom/samsung/android/settings/display/SecDisplayUtils;->isMdniePocSupported(Lcom/samsung/android/hardware/display/SemMdnieManager;)Z
 
     move-result v2
 
@@ -610,7 +627,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "[stpoc] check need read poc : 1.Fused-"
+    const-string/jumbo v5, "[stpoc] check poc state : 1.Fused-"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -630,7 +647,7 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, ", 3.FirstUsed"
+    const-string/jumbo v5, ", 3.FirstUsed-"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -646,18 +663,22 @@
 
     invoke-static {v3, v4}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {p0}, Lcom/samsung/android/settings/display/SecDisplayUtils;->isPocCaseD1(Lcom/samsung/android/hardware/display/SemMdnieManager;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
     if-nez v2, :cond_1
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v3, "SecDisplayUtils"
+
+    const-string/jumbo v4, "[stpoc] Estimated Time : case 3 - isMdnieFisrtUsed() false"
+
+    invoke-static {v3, v4}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-wide v8
 
     :cond_0
     const-string/jumbo v3, "SecDisplayUtils"
 
-    const-string/jumbo v4, "[stpoc] Estimated Time D2 case 3 && D1"
+    const-string/jumbo v4, "[stpoc] Estimated Time : case 3 - isMdnieFisrtUsed() true"
 
     invoke-static {v3, v4}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -672,18 +693,16 @@
 
     const-string/jumbo v3, "SecDisplayUtils"
 
-    const-string/jumbo v4, "[stpoc] Estimated Time D2 case 2 at isMdnieFisrtUsed() false"
+    const-string/jumbo v4, "[stpoc] Estimated Time : case 2 - isMdnieFisrtUsed() false"
 
     invoke-static {v3, v4}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-wide/32 v4, 0x668a0
-
-    return-wide v4
+    return-wide v8
 
     :cond_2
     const-string/jumbo v3, "SecDisplayUtils"
 
-    const-string/jumbo v4, "[stpoc] Estimated Time D2 case 1 && D2 case 2 at isMdnieFisrtUsed() true"
+    const-string/jumbo v4, "[stpoc] Estimated Time : case 1 or case 2 - isMdnieFisrtUsed() true"
 
     invoke-static {v3, v4}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1088,2333 +1107,5424 @@
 .end method
 
 .method public static initPocImageArray(Landroid/content/Context;Lcom/samsung/android/hardware/display/SemMdnieManager;)V
-    .locals 10
+    .locals 13
 
-    const v9, 0x7f020488
+    const/4 v12, 0x4
 
-    const v8, 0x7f020482
+    const/4 v11, 0x3
 
-    const v7, 0x7f02047c
+    const/4 v10, 0x1
 
-    const v6, 0x7f020476
+    const/4 v9, 0x6
 
-    const v5, 0x7f020470
+    const/4 v8, 0x7
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    if-nez v2, :cond_1
+    if-nez v5, :cond_3
 
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v5, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    sput-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sput-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
     :goto_0
     invoke-static {p0}, Lcom/samsung/android/settings/display/SecDisplayUtils;->getPocFactoryDefaultIndex(Landroid/content/Context;)I
 
-    move-result v0
+    move-result v3
 
     invoke-static {p0}, Lcom/samsung/android/settings/display/SecDisplayUtils;->getPocCurrentUser(Landroid/content/Context;)I
 
-    move-result v2
+    move-result v5
 
-    rsub-int/lit8 v1, v2, 0x5
+    rsub-int/lit8 v4, v5, 0x5
 
-    const-string/jumbo v2, "SecDisplayUtils"
+    const-string/jumbo v5, "SecDisplayUtils"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "[stpoc] pocFactoryIndex : "
+    const-string/jumbo v7, "[stpoc] pocFactoryIndex : "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-static {v2, v3}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v6}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v2, "SecDisplayUtils"
+    const-string/jumbo v5, "SecDisplayUtils"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "[stpoc] pocUserIndexConvert : "
+    const-string/jumbo v7, "[stpoc] pocUserIndexConvert : "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-static {v2, v3}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v6}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {p1}, Lcom/samsung/android/settings/display/SecDisplayUtils;->isPocCaseD1(Lcom/samsung/android/hardware/display/SemMdnieManager;)Z
+    sget-boolean v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->CRUISER_PROJECT:Z
 
-    move-result v2
+    if-nez v5, :cond_0
 
-    if-eqz v2, :cond_2
+    invoke-static {p1}, Lcom/samsung/android/settings/display/SecDisplayUtils;->isMdniePocSupported(Lcom/samsung/android/hardware/display/SemMdnieManager;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    move-result v5
 
-    const v3, 0x7f020466
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020467
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020468
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020469
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02046a
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    if-nez v5, :cond_6
 
     :cond_0
+    const-string/jumbo v5, "SecDisplayUtils"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "[stpoc] initPocImageArray for Cruiser : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    sget-boolean v7, Lcom/samsung/android/settings/display/SecDisplayUtils;->CRUISER_PROJECT:Z
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    sget-boolean v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->CRUISER_PROJECT:Z
+
+    if-eqz v5, :cond_4
+
+    invoke-static {p1}, Lcom/samsung/android/settings/display/SecDisplayUtils;->isMdniePocSupported(Lcom/samsung/android/hardware/display/SemMdnieManager;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    const-string/jumbo v5, "SecDisplayUtils"
+
+    const-string/jumbo v6, "[stpoc] initPocImageArray for Cruiser Case1,2"
+
+    invoke-static {v5, v6}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-array v0, v8, [[I
+
+    new-array v5, v8, [I
+
+    fill-array-data v5, :array_0
+
+    const/4 v6, 0x0
+
+    aput-object v5, v0, v6
+
+    new-array v5, v8, [I
+
+    fill-array-data v5, :array_1
+
+    aput-object v5, v0, v10
+
+    new-array v5, v8, [I
+
+    fill-array-data v5, :array_2
+
+    const/4 v6, 0x2
+
+    aput-object v5, v0, v6
+
+    new-array v5, v8, [I
+
+    fill-array-data v5, :array_3
+
+    aput-object v5, v0, v11
+
+    new-array v5, v8, [I
+
+    fill-array-data v5, :array_4
+
+    aput-object v5, v0, v12
+
+    new-array v5, v8, [I
+
+    fill-array-data v5, :array_5
+
+    const/4 v6, 0x5
+
+    aput-object v5, v0, v6
+
+    new-array v5, v8, [I
+
+    fill-array-data v5, :array_6
+
+    aput-object v5, v0, v9
+
+    move-object v1, v0
+
     :goto_1
-    return-void
+    if-lt v4, v10, :cond_1
+
+    if-le v4, v9, :cond_5
 
     :cond_1
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    const-string/jumbo v5, "SecDisplayUtils"
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "[stpoc] error initPocImageArray for Case 3 : pocUserIndex is "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2
+    :goto_2
+    return-void
+
+    :cond_3
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    invoke-virtual {v5}, Ljava/util/ArrayList;->clear()V
 
     goto/16 :goto_0
 
-    :cond_2
-    const/4 v2, 0x1
+    :cond_4
+    const-string/jumbo v5, "SecDisplayUtils"
 
-    if-ne v1, v2, :cond_3
+    const-string/jumbo v6, "[stpoc] initPocImageArray for Case 3"
 
-    packed-switch v0, :pswitch_data_0
+    invoke-static {v5, v6}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    new-array v2, v8, [[I
 
-    const v3, 0x7f02046d
+    new-array v5, v8, [I
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    fill-array-data v5, :array_7
 
-    move-result-object v3
+    const/4 v6, 0x0
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    aput-object v5, v2, v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    new-array v5, v8, [I
 
-    const v3, 0x7f02046e
+    fill-array-data v5, :array_8
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aput-object v5, v2, v10
 
-    move-result-object v3
+    new-array v5, v8, [I
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    fill-array-data v5, :array_9
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    const/4 v6, 0x2
 
-    const v3, 0x7f02046f
+    aput-object v5, v2, v6
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    new-array v5, v8, [I
 
-    move-result-object v3
+    fill-array-data v5, :array_a
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    aput-object v5, v2, v11
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    new-array v5, v8, [I
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    fill-array-data v5, :array_b
 
-    move-result-object v3
+    aput-object v5, v2, v12
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    new-array v5, v8, [I
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    fill-array-data v5, :array_c
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v6, 0x5
 
-    move-result-object v3
+    aput-object v5, v2, v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    new-array v5, v8, [I
+
+    fill-array-data v5, :array_d
+
+    aput-object v5, v2, v9
+
+    move-object v1, v2
 
     goto :goto_1
 
+    :cond_5
+    packed-switch v3, :pswitch_data_0
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    aget v6, v6, v11
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    aget v6, v6, v12
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    const/4 v7, 0x5
+
+    aget v6, v6, v7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    aget v6, v6, v9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    aget v6, v6, v9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
     :pswitch_0
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02046b
+    aget-object v6, v1, v4
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aget v6, v6, v10
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f02046b
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aget-object v6, v1, v4
 
-    move-result-object v3
+    aget v6, v6, v10
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    move-result-object v6
 
-    const v3, 0x7f02046b
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    move-result-object v3
+    aget-object v6, v1, v4
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    aget v6, v6, v10
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const v3, 0x7f02046c
+    move-result-object v6
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result-object v3
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    aget-object v6, v1, v4
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    const/4 v7, 0x2
 
-    const v3, 0x7f02046d
+    aget v6, v6, v7
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    aget v6, v6, v11
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
 
     :pswitch_1
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02046b
+    aget-object v6, v1, v4
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aget v6, v6, v10
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f02046b
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aget-object v6, v1, v4
 
-    move-result-object v3
+    aget v6, v6, v10
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    move-result-object v6
 
-    const v3, 0x7f02046c
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    move-result-object v3
+    aget-object v6, v1, v4
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const/4 v7, 0x2
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget v6, v6, v7
 
-    const v3, 0x7f02046d
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v6
 
-    move-result-object v3
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget-object v6, v1, v4
 
-    const v3, 0x7f02046e
+    aget v6, v6, v11
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    aget v6, v6, v12
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
 
     :pswitch_2
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02046b
+    aget-object v6, v1, v4
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aget v6, v6, v10
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f02046c
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aget-object v6, v1, v4
 
-    move-result-object v3
+    const/4 v7, 0x2
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    aget v6, v6, v7
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const v3, 0x7f02046d
+    move-result-object v6
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result-object v3
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    aget-object v6, v1, v4
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget v6, v6, v11
 
-    const v3, 0x7f02046e
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v6
 
-    move-result-object v3
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget-object v6, v1, v4
 
-    const v3, 0x7f02046f
+    aget v6, v6, v12
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    const/4 v7, 0x5
+
+    aget v6, v6, v7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
 
     :pswitch_3
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02046c
+    aget-object v6, v1, v4
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v7, 0x2
 
-    move-result-object v3
+    aget v6, v6, v7
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    move-result-object v6
 
-    const v3, 0x7f02046d
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    move-result-object v3
+    aget-object v6, v1, v4
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    aget v6, v6, v11
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const v3, 0x7f02046e
+    move-result-object v6
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result-object v3
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    aget-object v6, v1, v4
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget v6, v6, v12
 
-    const v3, 0x7f02046f
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v6
 
-    move-result-object v3
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget-object v6, v1, v4
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v7, 0x5
 
-    move-result-object v3
+    aget v6, v6, v7
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    goto/16 :goto_1
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    aget v6, v6, v9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
 
     :pswitch_4
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02046d
+    aget-object v6, v1, v4
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aget v6, v6, v11
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f02046e
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aget-object v6, v1, v4
 
-    move-result-object v3
+    aget v6, v6, v12
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    move-result-object v6
 
-    const v3, 0x7f02046f
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    move-result-object v3
+    aget-object v6, v1, v4
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const/4 v7, 0x5
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget v6, v6, v7
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aget-object v6, v1, v4
 
-    move-result-object v3
+    aget v6, v6, v9
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    goto/16 :goto_1
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    aget v6, v6, v9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
 
     :pswitch_5
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02046e
+    aget-object v6, v1, v4
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02046f
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :cond_3
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_4
-
-    packed-switch v0, :pswitch_data_1
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020473
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020474
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020475
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget v6, v6, v12
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    aget-object v6, v1, v4
+
+    const/4 v7, 0x5
+
+    aget v6, v6, v7
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    :pswitch_6
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget-object v6, v1, v4
 
-    const v3, 0x7f020471
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020471
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020471
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020472
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020473
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_7
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020471
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020471
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020472
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020473
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020474
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_8
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020471
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020472
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020473
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020474
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020475
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_9
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020472
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020473
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020474
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020475
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget v6, v6, v9
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    :pswitch_a
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget-object v6, v1, v4
 
-    const v3, 0x7f020473
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020474
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020475
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget v6, v6, v9
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aget-object v6, v1, v4
 
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_b
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020474
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020475
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    aget v6, v6, v9
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :cond_4
-    const/4 v2, 0x3
-
-    if-ne v1, v2, :cond_5
-
-    packed-switch v0, :pswitch_data_2
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020479
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047a
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047b
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_c
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020477
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020477
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020477
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020478
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020479
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_d
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020477
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020477
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020478
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020479
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047a
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_e
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020477
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020478
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020479
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047a
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047b
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_f
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020478
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020479
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047a
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047b
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_10
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020479
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047a
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047b
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_11
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047a
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047b
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :cond_5
-    const/4 v2, 0x4
-
-    if-ne v1, v2, :cond_6
-
-    packed-switch v0, :pswitch_data_3
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047f
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020480
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020481
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_12
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047d
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047d
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047d
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047e
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047f
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_13
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047d
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047d
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047e
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047f
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020480
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_14
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047d
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047e
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047f
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020480
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020481
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_15
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047e
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047f
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020480
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020481
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_16
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f02047f
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020480
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020481
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :pswitch_17
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020480
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    const v3, 0x7f020481
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :cond_6
-    const/4 v2, 0x5
+    sget-boolean v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->DREAM2_PROJECT:Z
 
-    if-ne v1, v2, :cond_7
+    if-eqz v5, :cond_c
 
-    packed-switch v0, :pswitch_data_4
+    const-string/jumbo v5, "SecDisplayUtils"
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    const-string/jumbo v6, "[stpoc] initPocImageArray for D2 case"
 
-    const v3, 0x7f020485
+    invoke-static {v5, v6}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    if-ne v4, v10, :cond_7
 
-    move-result-object v3
+    packed-switch v3, :pswitch_data_1
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    const v6, 0x7f0204b2
 
-    const v3, 0x7f020486
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v6
 
-    move-result-object v3
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    const v6, 0x7f0204b3
 
-    const v3, 0x7f020487
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v6
 
-    move-result-object v3
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    const v6, 0x7f0204b4
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b5
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    goto/16 :goto_1
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :pswitch_18
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f020483
+    const v6, 0x7f0204b5
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    goto/16 :goto_2
 
-    const v3, 0x7f020483
+    :pswitch_6
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b0
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020483
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b0
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020484
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b0
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020485
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b1
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    goto/16 :goto_1
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :pswitch_19
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f020483
+    const v6, 0x7f0204b2
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    goto/16 :goto_2
 
-    const v3, 0x7f020483
+    :pswitch_7
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b0
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020484
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b0
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020485
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b1
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020486
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b2
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    goto/16 :goto_1
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :pswitch_1a
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f020483
+    const v6, 0x7f0204b3
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    goto/16 :goto_2
 
-    const v3, 0x7f020484
+    :pswitch_8
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b0
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020485
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b1
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020486
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b2
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020487
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b3
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    goto/16 :goto_1
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :pswitch_1b
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f020484
+    const v6, 0x7f0204b4
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    goto/16 :goto_2
 
-    const v3, 0x7f020485
+    :pswitch_9
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b1
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020486
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b2
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020487
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b3
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    move-result-object v3
+    const v6, 0x7f0204b4
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    goto/16 :goto_1
+    move-result-object v6
 
-    :pswitch_1c
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020485
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b5
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v3, 0x7f020486
+    goto/16 :goto_2
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    :pswitch_a
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    move-result-object v3
+    const v6, 0x7f0204b2
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    move-result-object v6
 
-    const v3, 0x7f020487
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    move-result-object v3
+    const v6, 0x7f0204b3
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    move-result-object v6
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result-object v3
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const v6, 0x7f0204b4
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v6
 
-    move-result-object v3
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    goto/16 :goto_1
+    const v6, 0x7f0204b5
 
-    :pswitch_1d
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const v3, 0x7f020486
+    move-result-object v6
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result-object v3
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const v6, 0x7f0204b5
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const v3, 0x7f020487
+    move-result-object v6
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result-object v3
+    goto/16 :goto_2
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :pswitch_b
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    const v6, 0x7f0204b3
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v6, 0x7f0204b4
 
-    move-result-object v3
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    move-result-object v3
+    const v6, 0x7f0204b5
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    goto/16 :goto_1
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
 
     :cond_7
-    const/4 v2, 0x6
+    const/4 v5, 0x2
 
-    if-ne v1, v2, :cond_0
+    if-ne v4, v5, :cond_8
 
-    packed-switch v0, :pswitch_data_5
+    packed-switch v3, :pswitch_data_2
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048b
+    const v6, 0x7f0204b8
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048c
+    const v6, 0x7f0204b9
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048d
+    const v6, 0x7f0204ba
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048e
+    const v6, 0x7f0204bb
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048e
+    const v6, 0x7f0204bb
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
+
+    :pswitch_c
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b8
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_d
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b8
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_e
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b8
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ba
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_f
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b8
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ba
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bb
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_10
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b8
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ba
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bb
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bb
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_11
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204b9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ba
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bb
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bb
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bb
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_8
+    if-ne v4, v11, :cond_9
+
+    packed-switch v3, :pswitch_data_3
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204be
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bf
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_12
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bc
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bc
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bc
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bd
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204be
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_13
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bc
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bc
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bd
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204be
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bf
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_14
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bc
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bd
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204be
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bf
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_15
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bd
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204be
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bf
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_16
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204be
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bf
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_17
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204bf
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_9
+    if-ne v4, v12, :cond_a
+
+    packed-switch v3, :pswitch_data_4
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_18
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_19
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_1a
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_1b
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_1c
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_1d
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204c7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_a
+    const/4 v5, 0x5
+
+    if-ne v4, v5, :cond_b
+
+    packed-switch v3, :pswitch_data_5
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ca
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204cb
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204cc
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204cd
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204cd
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
 
     :pswitch_1e
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f020489
+    const v6, 0x7f0204c8
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f020489
+    const v6, 0x7f0204c8
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f020489
+    const v6, 0x7f0204c8
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048a
+    const v6, 0x7f0204c9
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048b
+    const v6, 0x7f0204ca
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :pswitch_1f
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f020489
+    const v6, 0x7f0204c8
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f020489
+    const v6, 0x7f0204c8
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048a
+    const v6, 0x7f0204c9
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048b
+    const v6, 0x7f0204ca
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048c
+    const v6, 0x7f0204cb
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :pswitch_20
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f020489
+    const v6, 0x7f0204c8
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048a
+    const v6, 0x7f0204c9
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048b
+    const v6, 0x7f0204ca
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048c
+    const v6, 0x7f0204cb
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048d
+    const v6, 0x7f0204cc
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :pswitch_21
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048a
+    const v6, 0x7f0204c9
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048b
+    const v6, 0x7f0204ca
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048c
+    const v6, 0x7f0204cb
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048d
+    const v6, 0x7f0204cc
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048e
+    const v6, 0x7f0204cd
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :pswitch_22
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048b
+    const v6, 0x7f0204ca
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048c
+    const v6, 0x7f0204cb
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048d
+    const v6, 0x7f0204cc
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048e
+    const v6, 0x7f0204cd
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048e
+    const v6, 0x7f0204cd
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :pswitch_23
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048c
+    const v6, 0x7f0204cb
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048d
+    const v6, 0x7f0204cc
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048e
+    const v6, 0x7f0204cd
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048e
+    const v6, 0x7f0204cd
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v2, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
 
-    const v3, 0x7f02048e
+    const v6, 0x7f0204cd
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    nop
+    :cond_b
+    if-ne v4, v9, :cond_2
+
+    packed-switch v3, :pswitch_data_6
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_24
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ce
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ce
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ce
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204cf
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_25
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ce
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ce
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204cf
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_26
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ce
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204cf
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_27
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204cf
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_28
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_29
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204d3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_c
+    const-string/jumbo v5, "SecDisplayUtils"
+
+    const-string/jumbo v6, "[stpoc] initPocImageArray for D1 case"
+
+    invoke-static {v5, v6}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-ne v4, v10, :cond_d
+
+    packed-switch v3, :pswitch_data_7
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048f
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020490
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020491
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020491
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_2a
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_2b
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048f
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_2c
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048f
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020490
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_2d
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048f
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020490
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020491
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_2e
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048f
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020490
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020491
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020491
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_2f
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02048f
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020490
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020491
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020491
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020491
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_d
+    const/4 v5, 0x2
+
+    if-ne v4, v5, :cond_e
+
+    packed-switch v3, :pswitch_data_8
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020494
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020495
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020496
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020497
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020497
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_30
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020492
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020492
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020492
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020493
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020494
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_31
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020492
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020492
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020493
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020494
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020495
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_32
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020492
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020493
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020494
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020495
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020496
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_33
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020493
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020494
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020495
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020496
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020497
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_34
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020494
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020495
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020496
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020497
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020497
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_35
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020495
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020496
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020497
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020497
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020497
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_e
+    if-ne v4, v11, :cond_f
+
+    packed-switch v3, :pswitch_data_9
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049a
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049b
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_36
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020498
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020498
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020498
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020499
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049a
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_37
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020498
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020498
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020499
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049a
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049b
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_38
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020498
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020499
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049a
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049b
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_39
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f020499
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049a
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049b
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_3a
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049a
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049b
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_3b
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049b
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049d
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_f
+    if-ne v4, v12, :cond_10
+
+    packed-switch v3, :pswitch_data_a
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_3c
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049f
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_3d
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049f
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_3e
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049e
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049f
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_3f
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f02049f
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_40
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_41
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a3
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_10
+    const/4 v5, 0x5
+
+    if-ne v4, v5, :cond_11
+
+    packed-switch v3, :pswitch_data_b
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a8
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_42
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_43
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_44
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a8
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_45
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a5
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a8
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_46
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a8
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_47
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a7
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a8
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204a9
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_11
+    if-ne v4, v9, :cond_2
+
+    packed-switch v3, :pswitch_data_c
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ac
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ad
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ae
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204af
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204af
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_48
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204aa
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204aa
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204aa
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ab
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ac
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_49
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204aa
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204aa
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ab
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ac
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ad
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_4a
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204aa
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ab
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ac
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ad
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ae
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_4b
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ab
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ac
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ad
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ae
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204af
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_4c
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ac
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ad
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ae
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204af
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204af
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :pswitch_4d
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ad
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204ae
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204af
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204af
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Lcom/samsung/android/settings/display/SecDisplayUtils;->mListPocImages:Ljava/util/ArrayList;
+
+    const v6, 0x7f0204af
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :array_0
+    .array-data 4
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+    .end array-data
+
+    :array_1
+    .array-data 4
+        0x0
+        0x7f020118
+        0x7f020117
+        0x7f020116
+        0x7f020115
+        0x7f020114
+        0x7f020119
+    .end array-data
+
+    :array_2
+    .array-data 4
+        0x0
+        0x7f020112
+        0x7f020111
+        0x7f020110
+        0x7f02010f
+        0x7f02010e
+        0x7f020113
+    .end array-data
+
+    :array_3
+    .array-data 4
+        0x0
+        0x7f02010c
+        0x7f02010b
+        0x7f02010a
+        0x7f020109
+        0x7f020108
+        0x7f02010d
+    .end array-data
+
+    :array_4
+    .array-data 4
+        0x0
+        0x7f020106
+        0x7f020105
+        0x7f020104
+        0x7f020103
+        0x7f020102
+        0x7f020107
+    .end array-data
+
+    :array_5
+    .array-data 4
+        0x0
+        0x7f020100
+        0x7f0200ff
+        0x7f0200fe
+        0x7f0200fd
+        0x7f0200fc
+        0x7f020101
+    .end array-data
+
+    :array_6
+    .array-data 4
+        0x0
+        0x7f02011e
+        0x7f02011d
+        0x7f02011c
+        0x7f02011b
+        0x7f02011a
+        0x7f02011f
+    .end array-data
+
+    :array_7
+    .array-data 4
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+        0x0
+    .end array-data
+
+    :array_8
+    .array-data 4
+        0x0
+        0x7f0204f0
+        0x7f0204ef
+        0x7f0204ee
+        0x7f0204ed
+        0x7f0204ec
+        0x7f0204f1
+    .end array-data
+
+    :array_9
+    .array-data 4
+        0x0
+        0x7f0204ea
+        0x7f0204e9
+        0x7f0204e8
+        0x7f0204e7
+        0x7f0204e6
+        0x7f0204eb
+    .end array-data
+
+    :array_a
+    .array-data 4
+        0x0
+        0x7f0204e4
+        0x7f0204e3
+        0x7f0204e2
+        0x7f0204e1
+        0x7f0204e0
+        0x7f0204e5
+    .end array-data
+
+    :array_b
+    .array-data 4
+        0x0
+        0x7f0204de
+        0x7f0204dd
+        0x7f0204dc
+        0x7f0204db
+        0x7f0204da
+        0x7f0204df
+    .end array-data
+
+    :array_c
+    .array-data 4
+        0x0
+        0x7f0204d8
+        0x7f0204d7
+        0x7f0204d6
+        0x7f0204d5
+        0x7f0204d4
+        0x7f0204d9
+    .end array-data
+
+    :array_d
+    .array-data 4
+        0x0
+        0x7f0204f6
+        0x7f0204f5
+        0x7f0204f4
+        0x7f0204f3
+        0x7f0204f2
+        0x7f0204f7
+    .end array-data
 
     :pswitch_data_0
     .packed-switch -0x1
@@ -3475,26 +6585,108 @@
         :pswitch_1f
         :pswitch_1e
     .end packed-switch
+
+    :pswitch_data_6
+    .packed-switch -0x1
+        :pswitch_29
+        :pswitch_28
+        :pswitch_27
+        :pswitch_26
+        :pswitch_25
+        :pswitch_24
+    .end packed-switch
+
+    :pswitch_data_7
+    .packed-switch -0x1
+        :pswitch_2f
+        :pswitch_2e
+        :pswitch_2d
+        :pswitch_2c
+        :pswitch_2b
+        :pswitch_2a
+    .end packed-switch
+
+    :pswitch_data_8
+    .packed-switch -0x1
+        :pswitch_35
+        :pswitch_34
+        :pswitch_33
+        :pswitch_32
+        :pswitch_31
+        :pswitch_30
+    .end packed-switch
+
+    :pswitch_data_9
+    .packed-switch -0x1
+        :pswitch_3b
+        :pswitch_3a
+        :pswitch_39
+        :pswitch_38
+        :pswitch_37
+        :pswitch_36
+    .end packed-switch
+
+    :pswitch_data_a
+    .packed-switch -0x1
+        :pswitch_41
+        :pswitch_40
+        :pswitch_3f
+        :pswitch_3e
+        :pswitch_3d
+        :pswitch_3c
+    .end packed-switch
+
+    :pswitch_data_b
+    .packed-switch -0x1
+        :pswitch_47
+        :pswitch_46
+        :pswitch_45
+        :pswitch_44
+        :pswitch_43
+        :pswitch_42
+    .end packed-switch
+
+    :pswitch_data_c
+    .packed-switch -0x1
+        :pswitch_4d
+        :pswitch_4c
+        :pswitch_4b
+        :pswitch_4a
+        :pswitch_49
+        :pswitch_48
+    .end packed-switch
 .end method
 
-.method public static isPocCaseD1(Lcom/samsung/android/hardware/display/SemMdnieManager;)Z
-    .locals 1
+.method public static isMdniePocSupported(Lcom/samsung/android/hardware/display/SemMdnieManager;)Z
+    .locals 4
 
     invoke-virtual {p0}, Lcom/samsung/android/hardware/display/SemMdnieManager;->isMdniePocSupported()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    const-string/jumbo v1, "SecDisplayUtils"
 
-    const/4 v0, 0x0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    :goto_0
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "[stpoc] isMdniePocSupported : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public static restoreDefaultScreenBrightnessMode(Landroid/content/Context;)V

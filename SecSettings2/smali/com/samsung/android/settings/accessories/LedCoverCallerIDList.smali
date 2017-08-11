@@ -243,7 +243,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f110516
+    const v4, 0x7f110518
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -278,7 +278,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f110517
+    const v4, 0x7f110519
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -336,7 +336,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mContactInfoList:Ljava/util/List;
 
-    const v3, 0x7f040176
+    const v3, 0x7f040178
 
     const/4 v4, 0x0
 
@@ -591,7 +591,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040177
+    const v1, 0x7f040179
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -628,7 +628,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mSelectActionView:Landroid/view/View;
 
-    const v1, 0x7f11051b
+    const v1, 0x7f11051d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -648,7 +648,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mSelectActionView:Landroid/view/View;
 
-    const v1, 0x7f11051a
+    const v1, 0x7f11051c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -668,7 +668,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mSelectActionView:Landroid/view/View;
 
-    const v1, 0x7f11051c
+    const v1, 0x7f11051e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -734,7 +734,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f110516
+    const v4, 0x7f110518
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1294,7 +1294,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b030f
+    const v1, 0x7f0b036e
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1303,7 +1303,7 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0339
+    const v1, 0x7f0b0398
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->getString(I)Ljava/lang/String;
 
@@ -1554,7 +1554,7 @@
 
     if-ne v15, v1, :cond_9
 
-    const v1, 0x7f0b033a
+    const v1, 0x7f0b0399
 
     move-object/from16 v0, p0
 
@@ -1608,7 +1608,7 @@
 
     if-ne v11, v1, :cond_a
 
-    const v1, 0x7f0b033c
+    const v1, 0x7f0b039b
 
     move-object/from16 v0, p0
 
@@ -1755,7 +1755,7 @@
     goto/16 :goto_0
 
     :cond_9
-    const v1, 0x7f0b033b
+    const v1, 0x7f0b039a
 
     move-object/from16 v0, p0
 
@@ -1784,7 +1784,7 @@
     :cond_a
     const/16 v17, 0x0
 
-    const v1, 0x7f0b033d
+    const v1, 0x7f0b039c
 
     move-object/from16 v0, p0
 
@@ -1899,7 +1899,7 @@
     :cond_1
     if-ne v1, v4, :cond_2
 
-    const v3, 0x7f0b033a
+    const v3, 0x7f0b0399
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->getString(I)Ljava/lang/String;
 
@@ -1949,7 +1949,7 @@
     return-void
 
     :cond_2
-    const v3, 0x7f0b033b
+    const v3, 0x7f0b039a
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->getString(I)Ljava/lang/String;
 
@@ -1975,7 +1975,7 @@
 
     const/4 v4, 0x0
 
-    const v1, 0x7f0b033e
+    const v1, 0x7f0b039d
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->getString(I)Ljava/lang/String;
 
@@ -2572,7 +2572,7 @@
 
     invoke-interface {v0}, Landroid/view/Menu;->clear()V
 
-    const v0, 0x7f0b0467
+    const v0, 0x7f0b04ca
 
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2582,7 +2582,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b0460
+    const v1, 0x7f0b04c3
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2592,7 +2592,7 @@
 
     const/4 v0, 0x3
 
-    const v1, 0x7f0b1b68
+    const v1, 0x7f0b1c04
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2602,7 +2602,7 @@
 
     const/4 v0, 0x4
 
-    const v1, 0x7f0b0468
+    const v1, 0x7f0b04cb
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2618,7 +2618,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v1, 0x7f040175
+    const v1, 0x7f040177
 
     const/4 v2, 0x0
 
@@ -2626,7 +2626,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1102be
+    const v1, 0x7f1102c0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2646,7 +2646,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f110516
+    const v1, 0x7f110518
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2736,7 +2736,7 @@
     return v3
 
     :cond_0
-    const v1, 0x7f110516
+    const v1, 0x7f110518
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3064,7 +3064,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b033f
+    const v4, 0x7f0b039e
 
     invoke-virtual {v2, v4, v3}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3091,7 +3091,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mSelectedContactTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0340
+    const v2, 0x7f0b039f
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -3176,7 +3176,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b033f
+    const v4, 0x7f0b039e
 
     invoke-virtual {v2, v4, v3}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3222,7 +3222,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList;->mSelectedContactTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0340
+    const v2, 0x7f0b039f
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

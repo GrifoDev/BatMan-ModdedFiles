@@ -906,7 +906,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f10036a
+    const v5, 0x7f100370
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -918,7 +918,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f10036e
+    const v6, 0x7f100374
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1089,7 +1089,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f10036a
+    const v3, 0x7f100370
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1101,7 +1101,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f10036c
+    const v4, 0x7f100372
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1450,7 +1450,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/accessibility/notificationreminder/NotificationReminderPreferenceFragment;->mLoadPreference:Landroid/preference/Preference;
 
-    const v7, 0x7f0b0218
+    const v7, 0x7f0b0276
 
     invoke-virtual {v6, v7}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -1566,7 +1566,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/accessibility/notificationreminder/NotificationReminderPreferenceFragment;->settingCategory:Landroid/preference/PreferenceCategory;
 
-    const v7, 0x7f0b0219
+    const v7, 0x7f0b0277
 
     invoke-virtual {v6, v7}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -1619,7 +1619,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/accessibility/notificationreminder/NotificationReminderPreferenceFragment;->summaryPreference:Lcom/samsung/android/settings/UnclickablePreference;
 
-    const v7, 0x7f0b021a
+    const v7, 0x7f0b0278
 
     invoke-virtual {v6, v7}, Lcom/samsung/android/settings/UnclickablePreference;->setTitle(I)V
 
@@ -2026,7 +2026,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f10036a
+    const v3, 0x7f100370
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 

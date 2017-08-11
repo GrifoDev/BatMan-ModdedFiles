@@ -75,7 +75,7 @@
     if-eqz p4, :cond_1
 
     :cond_0
-    const v0, 0x7f040266
+    const v0, 0x7f04026a
 
     invoke-virtual {p0, v0}, Lcom/android/settings/users/UserPreference;->setWidgetLayoutResource(I)V
 
@@ -259,7 +259,7 @@
 
     invoke-direct {p0, v2}, Lcom/android/settings/users/UserPreference;->dimIcon(Z)V
 
-    const v7, 0x7f1106d6
+    const v7, 0x7f1106d9
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -289,19 +289,19 @@
 
     check-cast v5, Landroid/os/UserManager;
 
-    const v7, 0x7f110672
+    const v7, 0x7f110675
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    const v7, 0x7f110671
+    const v7, 0x7f110674
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    const v7, 0x7f11066f
+    const v7, 0x7f110672
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -336,7 +336,7 @@
 
     :cond_2
     :goto_1
-    const v7, 0x7f11066d
+    const v7, 0x7f110670
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

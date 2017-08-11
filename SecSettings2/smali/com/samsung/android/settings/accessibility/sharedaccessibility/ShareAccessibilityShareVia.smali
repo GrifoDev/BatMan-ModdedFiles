@@ -59,7 +59,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f100371
+    const v2, 0x7f100377
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -69,7 +69,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f100373
+    const v3, 0x7f100379
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -259,6 +259,79 @@
 
     :cond_3
     throw v2
+.end method
+
+.method private isSystemPreloadedQuickConnect()Z
+    .locals 6
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityShareVia;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    sget-object v4, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityShareVia;->PACKAGE_QCONNECT:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget v3, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit8 v3, v3, 0x1
+
+    if-gtz v3, :cond_0
+
+    iget v3, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit16 v3, v3, 0x80
+
+    if-lez v3, :cond_1
+
+    :cond_0
+    const-string/jumbo v3, "ShareAccessibilityShareVia"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "isSystemPreloadedQuickConnect(): flag = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 v2, 0x1
+
+    :cond_1
+    :goto_0
+    return v2
+
+    :catch_0
+    move-exception v1
+
+    goto :goto_0
 .end method
 
 .method private showContent(I)V
@@ -475,11 +548,7 @@
 
     invoke-virtual {v4, v6, v0}, Landroid/content/Intent;->putParcelableArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
-    iget-object v6, p0, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityShareVia;->mContext:Landroid/content/Context;
-
-    sget-object v7, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityShareVia;->PACKAGE_QCONNECT:Ljava/lang/String;
-
-    invoke-static {v6, v7}, Lcom/android/settings/Utils;->isPackageExists(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-direct {p0}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityShareVia;->isSystemPreloadedQuickConnect()Z
 
     move-result v6
 
@@ -496,7 +565,7 @@
 
     invoke-virtual {v4, v6}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    const v6, 0x7f0b0266
+    const v6, 0x7f0b02c4
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityShareVia;->getText(I)Ljava/lang/CharSequence;
 
@@ -582,11 +651,7 @@
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    iget-object v4, p0, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityShareVia;->mContext:Landroid/content/Context;
-
-    sget-object v5, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityShareVia;->PACKAGE_QCONNECT:Ljava/lang/String;
-
-    invoke-static {v4, v5}, Lcom/android/settings/Utils;->isPackageExists(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-direct {p0}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityShareVia;->isSystemPreloadedQuickConnect()Z
 
     move-result v4
 
@@ -603,7 +668,7 @@
 
     invoke-virtual {v2, v4}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    const v4, 0x7f0b0266
+    const v4, 0x7f0b02c4
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityShareVia;->getText(I)Ljava/lang/CharSequence;
 

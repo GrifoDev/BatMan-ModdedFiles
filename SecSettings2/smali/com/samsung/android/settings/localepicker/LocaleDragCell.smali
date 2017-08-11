@@ -53,7 +53,7 @@
 
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
-    const v0, 0x7f1104f8
+    const v0, 0x7f1104fa
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/localepicker/LocaleDragCell;->findViewById(I)Landroid/view/View;
 
@@ -63,7 +63,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleDragCell;->mLabel:Landroid/widget/TextView;
 
-    const v0, 0x7f110532
+    const v0, 0x7f110534
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/localepicker/LocaleDragCell;->findViewById(I)Landroid/view/View;
 
@@ -73,7 +73,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleDragCell;->mLocalized:Landroid/widget/TextView;
 
-    const v0, 0x7f110531
+    const v0, 0x7f110533
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/localepicker/LocaleDragCell;->findViewById(I)Landroid/view/View;
 
@@ -119,7 +119,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0502
+    const v3, 0x7f0a0501
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -131,7 +131,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0500
+    const v3, 0x7f0a04ff
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -143,7 +143,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a04fd
+    const v4, 0x7f0a04fc
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

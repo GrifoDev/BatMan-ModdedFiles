@@ -391,7 +391,17 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0617
+    const v5, 0x7f0b067b
+
+    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v4
+
+    const v5, 0x7f0b067c
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -399,7 +409,7 @@
 
     new-array v6, v6, [Ljava/lang/Object;
 
-    const v7, 0x7f0b062d
+    const v7, 0x7f0b0692
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -417,7 +427,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1699
+    const v5, 0x7f0b1735
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -431,7 +441,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1698    # 1.8488E38f
+    const v5, 0x7f0b1734
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -724,7 +734,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0655
+    const v2, 0x7f0b06ba
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -738,7 +748,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0654
+    const v2, 0x7f0b06b9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -752,7 +762,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0656
+    const v2, 0x7f0b06bb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -766,7 +776,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0657
+    const v2, 0x7f0b06bc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -827,7 +837,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b062d
+    const v1, 0x7f0b0692
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -837,7 +847,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ModePreviewTablet;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0401a2
+    const v1, 0x7f0401a4
 
     invoke-virtual {v0, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -849,7 +859,7 @@
 
     iput-object p0, v6, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v0, 0x7f0b124f
+    const v0, 0x7f0b12ea
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -857,7 +867,7 @@
 
     iput-object v0, v6, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
-    const v0, 0x7f0b1698    # 1.8488E38f
+    const v0, 0x7f0b1734
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -867,7 +877,7 @@
 
     iget-object v0, v6, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x7f110580
+    const v1, 0x7f110582
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -928,7 +938,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/ModePreviewTablet;->mColorBalanceList:Ljava/util/ArrayList;
 
-    const v3, 0x7f040077
+    const v3, 0x7f040078
 
     move-object v1, p0
 
@@ -940,7 +950,7 @@
 
     iget-object v0, v6, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x7f110581
+    const v1, 0x7f110583
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1491,7 +1501,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0448
+    const v4, 0x7f0a0446
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 

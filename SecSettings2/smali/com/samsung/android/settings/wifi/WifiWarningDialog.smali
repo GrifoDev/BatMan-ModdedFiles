@@ -6,6 +6,8 @@
 # instance fields
 .field private mEnableWarningDialogIntent:Landroid/content/Intent;
 
+.field private mFinishThis:Z
+
 .field private mIsLightTheme:Z
 
 .field mWifiEnableWarningDialog:Landroid/app/AlertDialog;
@@ -31,7 +33,9 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -39,9 +43,9 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/wifi/WifiWarningDialog;->mWifiEnableWarningDialog:Landroid/app/AlertDialog;
 
-    const/4 v0, 0x0
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiWarningDialog;->mIsLightTheme:Z
 
-    iput-boolean v0, p0, Lcom/samsung/android/settings/wifi/WifiWarningDialog;->mIsLightTheme:Z
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/WifiWarningDialog;->mFinishThis:Z
 
     return-void
 .end method
@@ -108,7 +112,7 @@
     :goto_0
     invoke-direct {v4, v5, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0b0d9f
+    const v3, 0x7f0b0e2a
 
     invoke-virtual {v4, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -128,7 +132,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b0da0
+    const v5, 0x7f0b0e2b
 
     invoke-virtual {p0, v5, v4}, Lcom/samsung/android/settings/wifi/WifiWarningDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -138,13 +142,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b046a
+    const v4, 0x7f0b04cd
 
     invoke-virtual {v3, v4, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x7f0b0461
+    const v4, 0x7f0b04c4
 
     invoke-virtual {v3, v4, v0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -429,10 +433,15 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/wifi/WifiWarningDialog;->showEnableWarningDialog()V
 
-    :cond_0
+    :goto_0
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     return-void
+
+    :cond_0
+    iput-boolean v3, p0, Lcom/samsung/android/settings/wifi/WifiWarningDialog;->mFinishThis:Z
+
+    goto :goto_0
 .end method
 
 .method public onDestroy()V
@@ -469,10 +478,17 @@
 .end method
 
 .method public onResume()V
-    .locals 0
+    .locals 1
 
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
+    iget-boolean v0, p0, Lcom/samsung/android/settings/wifi/WifiWarningDialog;->mFinishThis:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/wifi/WifiWarningDialog;->finish()V
+
+    :cond_0
     return-void
 .end method
 

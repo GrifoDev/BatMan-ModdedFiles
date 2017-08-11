@@ -57,7 +57,7 @@
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/VirtualKeyboardFragment$3;->val$context:Landroid/content/Context;
 
-    invoke-static {v0, v1}, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->-wrap0(Lcom/android/settings/inputmethod/VirtualKeyboardFragment;Landroid/content/Context;)V
+    invoke-static {v0, v1}, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->-wrap1(Lcom/android/settings/inputmethod/VirtualKeyboardFragment;Landroid/content/Context;)V
 
     :cond_0
     return-void

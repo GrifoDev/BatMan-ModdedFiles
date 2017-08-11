@@ -143,7 +143,7 @@
 
     move-result-object p2
 
-    const v2, 0x7f1104d1
+    const v2, 0x7f1104d3
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -153,7 +153,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/iris/IrisPreveiwStyleFragment$IrisPreviewAdapter$Holder;->mPreviewLayout:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f1104bf
+    const v2, 0x7f1104c1
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -163,7 +163,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/iris/IrisPreveiwStyleFragment$IrisPreviewAdapter$Holder;->mCheckBtnLayout:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f1104d2
+    const v2, 0x7f1104d4
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -236,7 +236,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b08a2
+    const v5, 0x7f0b090c
 
     invoke-virtual {v3, v5, v4}, Lcom/samsung/android/settings/iris/IrisPreveiwStyleFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

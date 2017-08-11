@@ -151,7 +151,7 @@
 
     const/4 v8, 0x0
 
-    const v7, 0x7f0b045b
+    const v7, 0x7f0b04bd
 
     iget-object v5, p0, Lcom/samsung/android/settings/usefulfeature/FingerSensorGestureSettings;->mContext:Landroid/content/Context;
 
@@ -163,7 +163,7 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04033b
+    const v5, 0x7f040340
 
     invoke-virtual {v1, v5, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -173,7 +173,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/usefulfeature/FingerSensorGestureSettings;->mFingerSensorGestureView:Landroid/view/View;
 
-    const v6, 0x7f1105d6
+    const v6, 0x7f1105d8
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -183,7 +183,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/usefulfeature/FingerSensorGestureSettings;->mFingerSensorGestureView:Landroid/view/View;
 
-    const v6, 0x7f1105d7
+    const v6, 0x7f1105d9
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -193,7 +193,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/usefulfeature/FingerSensorGestureSettings;->mFingerSensorGestureView:Landroid/view/View;
 
-    const v6, 0x7f1105d5
+    const v6, 0x7f1105d7
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -217,7 +217,7 @@
 
     invoke-virtual {v5, v7}, Landroid/app/ActionBar;->setTitle(I)V
 
-    const v5, 0x7f0b045d
+    const v5, 0x7f0b04c0
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/usefulfeature/FingerSensorGestureSettings;->getString(I)Ljava/lang/String;
 
@@ -225,7 +225,7 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v5, 0x7f020139
+    const v5, 0x7f02015e
 
     invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -504,7 +504,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100255
+    const v1, 0x7f10025b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -790,7 +790,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f100257
+    const v5, 0x7f10025d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1015,7 +1015,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f100256
+    const v3, 0x7f10025c
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 

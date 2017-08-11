@@ -173,7 +173,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a07b7
+    const v12, 0x7f0a07b6
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -280,7 +280,7 @@
 
     move v10, v5
 
-    const v11, 0x7f0403b7
+    const v11, 0x7f0403bc
 
     const/4 v12, 0x0
 
@@ -292,7 +292,7 @@
 
     check-cast v8, Landroid/widget/LinearLayout;
 
-    const v11, 0x7f11098f
+    const v11, 0x7f110995
 
     invoke-virtual {v8, v11}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -306,7 +306,7 @@
 
     if-eqz v11, :cond_3
 
-    const v11, 0x7f110990
+    const v11, 0x7f110996
 
     invoke-virtual {v8, v11}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -317,7 +317,7 @@
     invoke-virtual {v11, v12}, Landroid/view/View;->setVisibility(I)V
 
     :cond_3
-    const v11, 0x7f11098e
+    const v11, 0x7f110994
 
     invoke-virtual {v8, v11}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -389,7 +389,7 @@
     goto :goto_1
 
     :cond_4
-    const v11, 0x7f0b0c92
+    const v11, 0x7f0b0d06
 
     invoke-virtual {v2, v11}, Landroid/widget/CheckBox;->setText(I)V
 

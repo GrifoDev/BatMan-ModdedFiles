@@ -41,7 +41,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$6;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get7(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/CheckBox;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get8(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/CheckBox;
 
     move-result-object v1
 
@@ -59,7 +59,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$6;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get13(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/SharedPreferences;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get14(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/SharedPreferences;
 
     move-result-object v1
 
@@ -69,7 +69,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$6;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get5(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get6(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -84,7 +84,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$6;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get13(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/SharedPreferences;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get14(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/SharedPreferences;
 
     move-result-object v1
 

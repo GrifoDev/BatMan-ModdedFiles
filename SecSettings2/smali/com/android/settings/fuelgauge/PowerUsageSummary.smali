@@ -8,6 +8,7 @@
     value = {
         Lcom/android/settings/fuelgauge/PowerUsageSummary$1;,
         Lcom/android/settings/fuelgauge/PowerUsageSummary$2;,
+        Lcom/android/settings/fuelgauge/PowerUsageSummary$3;,
         Lcom/android/settings/fuelgauge/PowerUsageSummary$SummaryProvider;
     }
 .end annotation
@@ -21,6 +22,10 @@
 .field private mAppListGroup:Landroid/preference/PreferenceGroup;
 
 .field private mBatteryUsageDescPref:Landroid/preference/Preference;
+
+.field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+.field private mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
 .field mHandler:Landroid/os/Handler;
 
@@ -57,6 +62,12 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageSummary;->mHandler:Landroid/os/Handler;
 
+    new-instance v0, Lcom/android/settings/fuelgauge/PowerUsageSummary$3;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/fuelgauge/PowerUsageSummary$3;-><init>(Lcom/android/settings/fuelgauge/PowerUsageSummary;)V
+
+    iput-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageSummary;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
     return-void
 .end method
 
@@ -89,7 +100,7 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v2, 0x7f0b17c0
+    const v2, 0x7f0b185c
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -482,9 +493,9 @@
     goto :goto_5
 
     :cond_c
-    new-instance v17, Lcom/android/settings/fuelgauge/PowerUsageSummary$3;
+    new-instance v17, Lcom/android/settings/fuelgauge/PowerUsageSummary$4;
 
-    invoke-direct/range {v17 .. v17}, Lcom/android/settings/fuelgauge/PowerUsageSummary$3;-><init>()V
+    invoke-direct/range {v17 .. v17}, Lcom/android/settings/fuelgauge/PowerUsageSummary$4;-><init>()V
 
     move-object/from16 v0, v17
 
@@ -534,7 +545,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a04
+    const v0, 0x7f0b1aa0
 
     return v0
 .end method
@@ -570,7 +581,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageSummary;->mBatteryUsageDescPref:Landroid/preference/Preference;
 
-    const v1, 0x7f04004c
+    const v1, 0x7f04004d
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -593,6 +604,12 @@
     check-cast v0, Landroid/preference/PreferenceGroup;
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageSummary;->mAppListGroup:Landroid/preference/PreferenceGroup;
+
+    new-instance v0, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-direct {v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageSummary;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     return-void
 .end method
@@ -630,7 +647,7 @@
 
     const/4 v1, 0x4
 
-    const v2, 0x7f0b1baf
+    const v2, 0x7f0b1c4b
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -727,7 +744,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1baf
+    const v3, 0x7f0b1c4b
 
     move-object v5, v4
 
@@ -756,6 +773,12 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
     invoke-super {p0}, Lcom/android/settings/fuelgauge/PowerUsageBase;->onPause()V
+
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageSummary;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "BatteryUsage"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -806,11 +829,23 @@
 .end method
 
 .method public onResume()V
-    .locals 0
+    .locals 4
 
     invoke-super {p0}, Lcom/android/settings/fuelgauge/PowerUsageBase;->onResume()V
 
     invoke-virtual {p0}, Lcom/android/settings/fuelgauge/PowerUsageSummary;->refreshStats()V
+
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageSummary;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/PowerUsageSummary;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/fuelgauge/PowerUsageSummary;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v3, "BatteryUsage"
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -953,7 +988,7 @@
 
     aput-object v14, v40, v41
 
-    const v41, 0x7f0b17c7
+    const v41, 0x7f0b1863
 
     move-object/from16 v0, v39
 
@@ -1603,7 +1638,7 @@
 
     move-result-object v39
 
-    const v40, 0x7f0b1037
+    const v40, 0x7f0b10c4
 
     invoke-virtual/range {v39 .. v40}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

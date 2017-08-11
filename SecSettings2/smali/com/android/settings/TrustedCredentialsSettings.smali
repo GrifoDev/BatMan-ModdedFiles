@@ -11,6 +11,7 @@
     value = {
         Lcom/android/settings/TrustedCredentialsSettings$1;,
         Lcom/android/settings/TrustedCredentialsSettings$2;,
+        Lcom/android/settings/TrustedCredentialsSettings$3;,
         Lcom/android/settings/TrustedCredentialsSettings$AdapterData;,
         Lcom/android/settings/TrustedCredentialsSettings$AliasOperation;,
         Lcom/android/settings/TrustedCredentialsSettings$CertHolder;,
@@ -51,6 +52,10 @@
 .field private mConfirmingCredentialUser:I
 
 .field protected mEdmRefreshUiReceiver:Landroid/content/BroadcastReceiver;
+
+.field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+.field protected mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
 .field private mGroupAdapters:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -223,6 +228,10 @@
 
     invoke-direct {p0}, Lcom/android/settings/OptionsMenuFragment;-><init>()V
 
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
@@ -256,6 +265,12 @@
     invoke-direct {v0, p0}, Lcom/android/settings/TrustedCredentialsSettings$2;-><init>(Lcom/android/settings/TrustedCredentialsSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings;->mEdmRefreshUiReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance v0, Lcom/android/settings/TrustedCredentialsSettings$3;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/TrustedCredentialsSettings$3;-><init>(Lcom/android/settings/TrustedCredentialsSettings;)V
+
+    iput-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
     return-void
 .end method
@@ -581,9 +596,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/TrustedCredentialsSettings$3;
+    new-instance v2, Lcom/android/settings/TrustedCredentialsSettings$4;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/TrustedCredentialsSettings$3;-><init>(Lcom/android/settings/TrustedCredentialsSettings;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/TrustedCredentialsSettings$4;-><init>(Lcom/android/settings/TrustedCredentialsSettings;)V
 
     invoke-virtual {v1, v2}, Lcom/android/settings/TrustedCredentialsDialogBuilder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
 
@@ -923,13 +938,19 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    new-instance v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-direct {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+
+    iput-object v2, p0, Lcom/android/settings/TrustedCredentialsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f040327
+    const v0, 0x7f04032b
 
     const/4 v1, 0x0
 
@@ -1073,7 +1094,7 @@
 .end method
 
 .method public onPause()V
-    .locals 1
+    .locals 2
 
     invoke-super {p0}, Lcom/android/settings/OptionsMenuFragment;->onPause()V
 
@@ -1081,11 +1102,17 @@
 
     iput-boolean v0, p0, Lcom/android/settings/TrustedCredentialsSettings;->mInForeground:Z
 
+    iget-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "ViewSecurityCertificates"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
+
     return-void
 .end method
 
 .method public onResume()V
-    .locals 1
+    .locals 4
 
     invoke-super {p0}, Lcom/android/settings/OptionsMenuFragment;->onResume()V
 
@@ -1100,6 +1127,18 @@
     invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsSettings;->refreshUI()V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {p0}, Lcom/android/settings/TrustedCredentialsSettings;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/TrustedCredentialsSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v3, "ViewSecurityCertificates"
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
+
     return-void
 .end method
 

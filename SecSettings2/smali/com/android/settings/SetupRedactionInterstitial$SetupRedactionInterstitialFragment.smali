@@ -31,7 +31,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f0402c2
+    const v0, 0x7f0402c6
 
     const/4 v1, 0x0
 
@@ -87,7 +87,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v2, 0x7f1103a5
+    const v2, 0x7f1103a7
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d minuti</string>
     <string name="wifi_fail_to_scan">Impossibile cercare reti</string>
     <string name="wifi_failed_to_obtain_IP">Impossibile ottenere indirizzo IP.</string>
     <string name="wifi_security_none">Nessuno</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Impossibile connettersi a %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Impossibile connettersi a %1$s. Controllate le impostazioni in %2$s e riprovate.</string>
     <string name="bluetooth_pairing_rejected_error_message">Associazione rifiutata da %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Acquisizione del nome del dispositivo in corso…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Il nome del dispositivo verrà mostrato alla connessione di questo dispositivo.</string>
     <string name="accessibility_wifi_off">Wi-Fi non attivo.</string>
     <string name="accessibility_no_wifi">Rete Wi-Fi scollegata.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi: una barra.</string>
@@ -387,7 +389,8 @@ Inserite il codice ricevuto da Verizon:"</string>
     <string name="support">Supporto</string>
     <string name="reset_network_settings_list_summary">Ripristina il Wi-Fi, il Bluetooth e altre impostazioni di rete ai valori predefiniti.</string>
     <string name="master_clear_list_summary">Ripristina le impostazioni predefinite di fabbrica del dispositivo. Verranno cancellati tutti i dati, inclusi i file e le applicazioni scaricate.</string>
-    <string name="auto_restart_summary">Ottimizzate il dispositivo con il riavvio automatico a orari impostati. Al riavvio del dispositivo, i dati non salvati andranno persi.</string>
+    <string name="auto_restart_summary">Ottimizza il telefono riavviandolo automaticamente una volta a settimana. Al riavvio del telefono, i dati non salvati andranno persi.</string>
+    <string name="auto_restart_summary_tablet">Ottimizza il tablet riavviandolo automaticamente una volta a settimana. Al riavvio del tablet, i dati non salvati andranno persi.</string>
     <string name="search_settings">Cerca</string>
     <string name="related_results">%d elementi correlati</string>
     <string name="no_results_found">Nessun risultato trovato</string>
@@ -457,7 +460,7 @@ Inserite il codice ricevuto da Verizon:"</string>
     <string name="sound_balance_right_message">Il bilanciamento del suono è al %d percento sul lato destro. Utilizzate due dita per trascinare il dispositivo di scorrimento.</string>
     <string name="sound_balance_set">Imposta</string>
     <string name="accessibility_assistant_menu">Menu assistenza</string>
-    <string name="assistant_menu_summary">"Attiva delle funzioni che migliorano l'utilizzo del dispositivo di utenti con manualità ridotta."</string>
+    <string name="assistant_menu_summary">"Migliora l'accessibilità del telefono per gli utenti con manualità ridotta."</string>
     <string name="color_blind_title">Regolazione colore</string>
     <string name="no_result">Regolate i colori dello schermo se avete delle difficoltà nella lettura del display.</string>
     <string name="you_are_normal">La regolazione del colore non è necessaria.</string>
@@ -653,6 +656,7 @@ Quando questa funzione è attivata, la rotazione automatica dello schermo verrà
     <string name="direct_access_actions_accessibility_title">Accessibilità</string>
     <string name="direct_access_actions_negative_title">Colori negativi</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Le funzioni Accesso diretto e Riduci dimensioni schermo non possono essere attivate contemporaneamente. La funzione Riduci dimensioni schermo verrà disattivata.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s e %2$s non possono essere attivati contemporaneamente. %3$s verrà disattivato.</string>
     <string name="direct_access_actions_color_adjustment_summary">"Configurate Regolazione colore in Vista per l'uso in Accesso diretto"</string>
     <string name="direct_access_actions_screen_reader_summary">Attivate la lettura delle pagine per utilizzarla in Accesso diretto.</string>
     <string name="direct_access_actions_accesscontrol_title">Controllo interazioni</string>
@@ -850,7 +854,9 @@ Verranno disattivati anche il Wi-Fi e il Bluetooth, ma potrete riattivarli in Im
     <string name="premium_sms_values_ask">Chiedi</string>
     <string name="premium_sms_values_never">Non consentire mai</string>
     <string name="premium_sms_values_allow">Consenti sempre</string>
-    <string name="assist_and_voice_input_summary">Le applicazioni di assistenza dispositivo offrono ulteriori opzioni e informazioni su ciascuna schermata.</string>
+    <string name="assist_and_voice_input_summary">Selezionate quale applicazione utilizzare quando tenete premuto il pulsante Home.</string>
+    <string name="assist_footer_phone">Selezionate le applicazioni da utilizzare quando tenete premuto il pulsante Home. Le applicazioni di assistenza dispositivo possono aiutarvi raccogliendo informazioni dalla schermata attualmente visualizzata sul telefono.</string>
+    <string name="assist_footer_tablet">Selezionate le applicazioni da utilizzare quando tenete premuto il pulsante Home. Le applicazioni di assistenza dispositivo possono aiutarvi raccogliendo informazioni dalla schermata attualmente visualizzata sul tablet.</string>
     <string name="default_app_title">Imposta come predefinita</string>
     <string name="premium_sms_title">Invia Premium SMS</string>
     <string name="default_app_selection">Selezione app predefinita</string>
@@ -939,15 +945,16 @@ Potrete modificare in seguito questa impostazione andando in Impostazioni Blueto
 
 L'output audio dei 2 dispositivi connessi potrebbe essere leggermente diverso."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Disattivare Sincronizzaz. volume supporti?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Per utilizzare Audio doppio, occorre disattivare la funzione Sincronizzazione volume supporti.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Per controllare il volume di ciascun dispositivo audio separatamente, occorre disattivare la funzione Sincronizzazione volume supporti.</string>
     <string name="bluetooth_avc_title">Sincron. volume supporti</string>
-    <string name="bluetooth_avc_description">Se il dispositivo Bluetooth connesso può controllare il volume dei supporti del telefono, il livello del volume impostato dal dispositivo Bluetooth verrà sincronizzato con il telefono.</string>
-    <string name="bluetooth_avc_volume_change_description">"L'attivazione di questa funzione può causare cambiamenti del volume non previsti."</string>
+    <string name="bluetooth_avc_description">Se il dispositivo Bluetooth connesso supporta la sincronizzazione del volume, il livello del volume sul dispositivo mobile verrà sincronizzato con quello del dispositivo Bluetooth.</string>
+    <string name="bluetooth_avc_volume_change_description">L’attivazione di questa funzione potrebbe causare sbalzi o variazioni del volume non previsti.</string>
     <string name="bluetooth_avc_adapt_sound_notice_description">Audio personalizzato potrebbe non funzionare correttamente mentre la funzione Sincronizzazione volume supporti è attivata.</string>
     <string name="bluetooth_avc_loud_sounds_description">"L'ascolto prolungato di suoni ad alto volume può danneggiare l'udito."</string>
     <string name="bluetooth_avc_ask_popup_title">Disattivare Audio doppio?</string>
     <string name="bluetooth_avc_ask_popup_content">Per utilizzare Sincronizzazione volume supporti, occorre disattivare la funzione Audio doppio.</string>
     <string name="bluetooth_avc_disable_description">"Il dispositivo Bluetooth connesso non supporta l'opzione di sincronizzazione del volume dei supporti. Non potrete sincronizzare il volume del telefono con il dispositivo Bluetooth connesso."</string>
+    <string name="bluetooth_avc_available_description">Il dispositivo Bluetooth connesso supporta la funzione Sincronizzazione volume supporti e il livello del volume impostato dal dispositivo Bluetooth verrà sincronizzato con il telefono.</string>
     <string name="bluetooth_enter_pin_msg">"Inserire PIN per l'associazione con %s (Provare 0000 o 1234)."</string>
     <string name="bluetooth_pin_maximum_number_message">Il numero massimo di caratteri è stato raggiunto.</string>
     <string name="settings_menu_done">Fatto</string>
@@ -1031,11 +1038,12 @@ Potete accedere alle funzioni di Acquisizione intelligente con Air command, anch
     <string name="swipe_to_call_title">Trasc. per chiamare/inviare msg</string>
     <string name="swipe_to_call_summary">Trascinate un contatto o un numero verso destra per effettuare una chiamata o verso sinistra per inviare un messaggio nelle applicazioni Telefono, Rubrica o Messaggi.</string>
     <string name="swipe_to_call_summary_dcm">Trascinate un contatto o un numero verso destra per effettuare una chiamata o verso sinistra per inviare un messaggio nelle applicazioni Chiamata, Rubrica o Messaggi.</string>
-    <string name="swipe_to_call_summary_kddi">Trascinate un contatto o un numero verso destra per effettuare una chiamata o verso sinistra per inviare un messaggio nelle applicazioni Telefono o Rubrica.</string>
+    <string name="swipe_to_call_summary_kddi">Trascinate un contatto o un numero verso destra per effettuare una chiamata o verso sinistra per inviare un messaggio in Componi o Rubrica.</string>
     <string name="dual_app_title">Messenger doppio</string>
     <string name="dual_app_summary">Utilizzate due account separati per la stessa applicazione.</string>
     <string name="finger_sensor_gesture_title">Gesti sensore impronte</string>
     <string name="finger_sensor_gesture_summary">"Aprite e chiudete le applicazioni e le funzioni con il sensore dell'impronta digitale."</string>
+    <string name="finger_sensor_gesture_summary_noapp">"Aprite e chiudete il pannello notifiche utilizzando il sensore dell'impronta digitale."</string>
     <string name="finger_sensor_gesture_description">"Trascinate verso l'alto o il basso il sensore dell'impronta digitale per aprire o chiudere il pannello notifiche."</string>
     <string name="open_samsung_pay_title">Apri Samsung Pay</string>
     <string name="open_samsung_pay_summary">"Dalla schermata Home, trascinate verso l'alto il sensore dell'impronta digitale per aprire Samsung Pay."</string>
@@ -1070,6 +1078,7 @@ Potete accedere alle funzioni di Acquisizione intelligente con Air command, anch
 %s"</string>
     <string name="enable_ps_title">Attiva %s</string>
     <string name="setup_wizard">Configurazione guidata</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normale</string>
     <string name="large">Grande</string>
     <string name="small">Piccolo</string>
@@ -1120,7 +1129,7 @@ Potete accedere alle funzioni di Acquisizione intelligente con Air command, anch
     <string name="language_settings_noti_desc">Le lingue supportate nel vostro Paese potrebbero differire da quelle mostrate nel modello dimostrativo.</string>
     <string name="language_settings_set_locale_title">Impostare %s come lingua predefinita?</string>
     <string name="keep_current_btn">Mantieni corrente</string>
-    <string name="set_as_default_btn">Predefinita</string>
+    <string name="set_as_default_btn">Imp. come predefinita</string>
     <string name="more_connection_settings_title">Altre impostazioni di rete</string>
     <string name="lock_and_security_settings_title">Scherm. blocco e sicurezza</string>
     <string name="privacy_and_safety_settings_title">Privacy ed emergenza</string>
@@ -1215,7 +1224,7 @@ L'uso dei dati è calcolato dal dispositivo. Il gestore telefonico potrebbe calc
     <string name="auto_update_summary">Scarica automaticamente gli aggiornamenti del software quando siete connessi a una rete Wi-Fi. Potrete comunque utilizzare il dispositivo durante il download.</string>
     <string name="auto_update_over_wifi">Download automatico su Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">Scarica automaticamente gli aggiornamenti software quando connesso a una rete Wi-Fi. A seconda del gestore telefonico, potete scaricare gli aggiornamenti anche tramite la connessione dati senza costi aggiuntivi. Potrete utilizzare il telefono durante il download.</string>
-    <string name="scheduled_update">Aggiornamenti SW programmati</string>
+    <string name="scheduled_update">Aggiornamenti software programmati</string>
     <string name="scheduled_update_summary_default">Disattivata</string>
     <string name="scheduled_update_summary_set_time">"L'aggiornamento verrà avviato alle %s"</string>
     <string name="scheduled_update_summary_set_time_everyday">"L'aggiornamento verrà avviato ogni giorno alle %s"</string>
@@ -1417,6 +1426,7 @@ Toccate OK per consentire l'aumento della luminosità oltre i livelli di sicurez
     <string name="navigationbar_summary">Gestite i pulsanti Home, Indietro e Applicazioni recenti.</string>
     <string name="navigationbar_theme_switch">Applica tema corrente</string>
     <string name="navigationbar_color_title">Colore sfondo</string>
+    <string name="navigationbar_color_summary">Il colore di sfondo selezionato potrebbe non essere applicato a tutte le applicazioni.</string>
     <string name="navigationbar_order_title">Layout pulsante</string>
     <string name="navigationbar_order_default">App recenti - Home - Ind.</string>
     <string name="navigationbar_order_mirrored">Indietro - Home - App rec.</string>
@@ -1448,7 +1458,8 @@ Toccate OK per consentire l'aumento della luminosità oltre i livelli di sicurez
     <string name="blue_light_filter_enable_now">Attiva adesso</string>
     <string name="blue_light_filter_enable_as_scheduled">Attiva come programmato</string>
     <string name="blue_light_filter_scheduled_toast">"Filtro Luce blu attivato. Verrà disattivato automaticamente all'ora di fine programmata."</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s e il filtro Luce blu non possono essere utilizzati contemporaneamente. Il filtro Luce blu verrà disattivato.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Disattivare il filtro Luce blu?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Per utilizzare %s, occorre disattivare il filtro Luce blu.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Per utilizzare la funzione Giornata intera, è necessario attivare la posizione.</string>
     <string name="dlg_turn_on">Attiva</string>
     <string name="screen_resolution_title">Risoluzione schermo</string>
@@ -1665,6 +1676,7 @@ Il processo di crittografia richiede un'ora o più. Prima di avviarlo, assicurat
     <string name="crypt_keeper_last_warn_wipe">Vi è rimasto 1 solo tentativo per avviare il dispositivo prima che venga ripristinato alle impostazioni predefinite di fabbrica. Ciò comporterà la cancellazione di tutti i dati, inclusi i file e le applicazioni scaricate.</string>
     <string name="crypt_keeper_failed_title_dec">Decodifica non eseguita.</string>
     <string name="crypt_keeper_failed_summary_dec">"Impossibile completare la decrittografia a causa di un'interruzione. Eseguite il ripristino dei dati di fabbrica (cancellazione di tutti i dati) prima dell'utilizzo."</string>
+    <string name="crypt_keeper_set_screen_lock_type">Imposta tipo di blocco schermo</string>
     <string name="encryption_interstitial_message">"Potete proteggere ulteriormente il telefono richiedendo l'inserimento di %s prima dell'avvio del telefono. Questa funzione consente di proteggere i dati in caso di furto o smarrimento del telefono. In base ai criteri di crittografia del dispositivo, per alcune applicazioni potrebbe essere necessaria la funzione Avvio protetto per accedere a funzioni come l'e-mail e la sincronizzazione.
 
 Non riceverete chiamate, messaggi o notifiche e sveglie finché il telefono non viene avviato."</string>
@@ -1903,6 +1915,7 @@ Utilizzerete questo tipo di blocco schermo anche quando:"</string>
     <string name="verify_fingerprint_btn">Usa impronta digitale</string>
     <string name="wifi_ap_close">Chiudi</string>
     <string name="fingerscanner_add_summary">Aggiungete le impronte digitali.</string>
+    <string name="fingerscanner_register_1_finger_summary">È stata aggiunta 1 impronta digitale.</string>
     <string name="fingerscanner_register_summary">%d impronte digitali sono state aggiunte.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">"Utilizzate un'impronta digitale o inserite il PIN corrente."</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">"Utilizzate un'impronta digitale o tracciate il segno corrente."</string>
@@ -1929,6 +1942,7 @@ Utilizzerete questo tipo di blocco schermo anche quando:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Sbloccate il telefono con il riconoscimento del viso non appena lo schermo si accende senza dover trascinare lo schermo.</string>
     <string name="facelock_recognition_speed_up">Riconoscimento più rapido</string>
     <string name="facelock_recognition_speed_up_summary">"Attivate questa opzione per un riconoscimento più rapido. Disattivatela per aumentare la sicurezza e rendere più difficile lo sblocco con un'immagine o un video."</string>
+    <string name="facelock_samsungpass_summary">"Utilizzate il riconoscimento del viso per confermare l'identità con %s e altre applicazioni supportate."</string>
     <string name="face_remove_face_popup_title">Rimuovere i dati sul viso?</string>
     <string name="face_remove_face_popup_message_1">Il viso non verrà più riconosciuto e la funzione Blocco con viso verrà disattivata.</string>
     <string name="face_remove_face_popup_message_2">Le funzioni che utilizzano il riconoscimento del viso verranno disattivate.</string>
@@ -2070,7 +2084,7 @@ Attivate Sblocco con iride per utilizzare i dati biometrici o %s per sbloccare i
     <string name="biometrics_backup_locktype_title">Configura protezione con iride</string>
     <string name="biometrics_register_your_iris">Registrate le iridi.</string>
     <string name="biometrics_backup_locktype_summary">Per utilizzare le iridi per sbloccare il dispositivo, occorre impostare un segno, un PIN o una password.</string>
-    <string name="biometrics_backup_locktype_message">Per utilizzare le iridi per sbloccare il telefono o per la verifica sicura, dovrete effettuare queste azioni:</string>
+    <string name="biometrics_backup_locktype_message">"Per utilizzare le iridi per sbloccare il telefono o per la conferma dell'identità nelle applicazioni, sarà necessario:"</string>
     <string name="iris_delete_popup_title">"Rimuovere i dati sull'iride?"</string>
     <string name="iris_delete_popup_message">"Rimuovere i dati sull'iride?"</string>
     <string name="iris_delete_popup_message_with_related_func">Le funzioni che utilizzano le iridi verranno disattivate.</string>
@@ -2078,7 +2092,7 @@ Attivate Sblocco con iride per utilizzare i dati biometrici o %s per sbloccare i
     <string name="iris_timeout_popop_title">Riprovate dopo</string>
     <string name="iris_timeout_popop_message">"Iridi non riconosciute. La fotocamera per l'iride potrebbe essere sporca. Pulite l'area sopra lo schermo e riprovate."</string>
     <string name="iris_timeout_popop_message_1">"La fotocamera per l'iride potrebbe essere sporca. Pulite l'area sopra lo schermo e riprovate."</string>
-    <string name="iris_proximity_restriction_popop_message">"Iridi non riconosciute. Il telefono è troppo vicino al viso o il sensore di prossimità potrebbe essere sporco. Pulite l'area sopra lo schermo e riprovate."</string>
+    <string name="iris_proximity_restriction_popop_message">Tenete il telefono più lontano dal viso e riprovate.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Il sensore di prossimità potrebbe essere sporco.
 Pulite l'area sopra lo schermo."</string>
     <string name="iris_try_again">Riprova</string>
@@ -2086,6 +2100,8 @@ Pulite l'area sopra lo schermo."</string>
     <string name="iris_failed_to_verity_identify">"Impossibile confermare l'identità"</string>
     <string name="iris_failed_popup_description">Avete tentato di confermare le iridi per %1$d volte. Riprovate tra %2$d secondi.</string>
     <string name="iris_no_match">Nessuna corrispondenza</string>
+    <string name="iris_eye_safety_msg">Le iridi non sono state riconosciute.</string>
+    <string name="iris_timeout_msg">Le iridi non sono state rilevate.</string>
     <string name="biometrics_registered">Registrato</string>
     <string name="iris_turn_on_toast_message">Blocco con iride attivato al posto del blocco con impronta digitale.</string>
     <string name="iris_wrong_backup_password">Password di backup errata</string>
@@ -2132,8 +2148,8 @@ Opzioni di sicurezza alternative sono disponibili sul dispositivo dell’utente.
     <string name="iris_hw_problem_msg">Se il problema persiste, riavviate il telefono.</string>
     <string name="iris_go_to_samsung_theme">Vai a Samsung Themes</string>
     <string name="bio_face_recognition_title">Riconoscimento del viso</string>
-    <string name="bio_fingerprint_sanner_title">"Scanner dell'impronta digitale"</string>
-    <string name="bio_iris_scanner_title">"Scanner dell'iride"</string>
+    <string name="bio_fingerprint_sanner_title">"Scansione dell'impronta digitale"</string>
+    <string name="bio_iris_scanner_title">"Scansione dell'iride"</string>
     <string name="biometrics_unclickable_description">Sblocco con viso e Sblocco con iride non possono essere attivati contemporaneamente.</string>
     <string name="iris_popup_irislock_turn_on_title">Utilizzare Sblocco con iride?</string>
     <string name="iris_popup_irislock_turn_on_message">Le funzioni Sblocco con iride e Sblocco con viso non possono essere utilizzate contemporaneamente. La funzione Sblocco con viso verrà disattivata.</string>
@@ -2277,6 +2293,8 @@ La determinazione della posizione comporta un utilizzo della rete mobile. Verrà
     <string name="aod_off_summary">Mostra il pulsante Home e un orologio o delle informazioni sulla schermata di standby.</string>
     <string name="aod_feature_off_popup_title">Disattivare %s?</string>
     <string name="aod_feature_off_popup_description">Per utilizzare %1$s, occorre disattivare %2$s.</string>
+    <string name="aod_features_off_popup_title">Disattivare le altre funzioni?</string>
+    <string name="aod_features_off_popup_description">Per utilizzare Always On Display, è necessario disattivare queste funzioni.</string>
     <string name="aod_features_off_popup_btn_ok">Disattiva</string>
     <string name="aod_disable_by_negative_colors">"Impossibile utilizzare mentre l'opzione Negativo è attiva."</string>
     <string name="aod_disable_by_powersaving_mode">Impossibile utilizzare mentre la modalità Risparmio energetico è attiva.</string>
@@ -2300,6 +2318,9 @@ La determinazione della posizione comporta un utilizzo della rete mobile. Verrà
     <string name="unlock_effect_colour_droplet">Goccioline colorate</string>
     <string name="lock_screen_show_information_summary_wifi_only">Consente di visualizzare collegamenti ad applicazioni o informazioni sul proprietario del dispositivo nella schermata di blocco.</string>
     <string name="lock_screen_sview_show_information_summary">"Consente di visualizzare collegamenti ad applicazioni, l'orologio doppio o informazioni sul proprietario del dispositivo nella schermata di blocco e nella finestra di S View."</string>
+    <string name="lock_screen_sview_show_information_summary_aod">"Mostra l'orologio roaming o le informazioni di contatto del proprietario del telefono nella schermata di blocco e nella finestra di S View."</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Selezionate i collegamenti alle applicazioni da mostrare sulla schermata di blocco e nella finestra di S View.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Mostra le notifiche sulla schermata di blocco e nella finestra di S View.</string>
     <string name="lock_screen_and_cover_show_information_summary">"Mostra l'orologio doppio sulla schermata di blocco e in Clear View Cover."</string>
     <string name="lock_screen_secured_lock_settings_title">Impostazioni blocco sicuro</string>
     <string name="lock_screen_secured_lock_settings_summary">Impostate le funzioni del blocco sicuro, come Blocco automatico e Blocca istantaneamente con tasto di accensione.</string>
@@ -2316,6 +2337,7 @@ La determinazione della posizione comporta un utilizzo della rete mobile. Verrà
     <string name="set_home_city">Fuso orario locale</string>
     <string name="contact_info_settings_title">Informazioni contatto</string>
     <string name="show_contact_info_on_lockscreen_label">Mostra informazioni come numero di telefono o indirizzo e-mail sulla schermata di blocco.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">"Mostra le informazioni, ad esempio il numero di telefono o l'indirizzo e-mail, nella schermata di blocco e in Always On Display."</string>
     <string name="unlock_effect">Effetto sblocco</string>
     <string name="walking_mate_title">Contapassi</string>
     <string name="help_text_title">Testo guida</string>
@@ -2415,7 +2437,7 @@ La rimozione dei dati biometrici è consigliata, anche se potete conservarli per
     <string name="toast_set_lock_pattern">Se dimenticate il segno, tutti i dati verranno cancellati e il telefono verrà ripristinato.</string>
     <string name="toast_set_lock_password">Se dimenticate la password, tutti i dati verranno cancellati e il telefono verrà ripristinato.</string>
     <string name="toast_set_lock_pin">Se dimenticate il PIN, tutti i dati verranno cancellati e il telefono verrà ripristinato.</string>
-    <string name="chooselock_warning_text">%s da annotare perché da inserire in seguito al riavvio del dispositivo.</string>
+    <string name="chooselock_warning_text">%s da annotare perché da inserire in seguito al riavvio del telefono.</string>
     <string name="lockpassword_password_exists_history">Password già utilizzata in precedenza. Inserire una nuova password.</string>
     <string name="lockpassword_pin_repeating_nums">Il PIN non deve contenere numeri ripetuti.</string>
     <string name="lockpassword_pin_sequential_nums">Il PIN non deve contenere numeri in sequenza.</string>
@@ -2533,6 +2555,9 @@ La connessione dati verrà disattivata."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"A meno che non utilizziate una rete Wi-Fi, non potrete più utilizzare Internet, E-mail o altre applicazioni che richiedono una connessione dati.
 
 La connessione dati verrà disattivata."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">A meno che non utilizziate il Wi-Fi, non potrete utilizzare Internet, E-mail o altre applicazioni che richiedono una connessione dati. Disattivare la connessione dati?</string>
     <string name="mobile_data_off_dialog_text_volte">La funzione di videochiamata del dispositivo non sarà attiva quando la connessione dati è disattivata. Inoltre, a meno che non utilizziate una rete Wi-Fi, non potrete utilizzare Internet, E-mail o altre applicazioni che richiedono una connessione dati. Disattivare la connessione dati?</string>
     <string name="mobile_data_off_dialog_text_common">Se non vi connettete a una rete Wi-Fi, non potrete utilizzare Internet, E-mail o altre applicazioni che richiedono una connessione di rete.</string>
@@ -2691,10 +2716,12 @@ Per sbloccarla e connettervi ad altri dispositivi con un cavo USB, inserite una 
     <string name="maximum_volume_title">Lim. volume personalizzato</string>
     <string name="volume_limiter_descryption">"Proteggete l'udito con un limite massimo per il volume dei supporti. Il limite verrà applicato soltanto mentre utilizzate le cuffie o dei dispositivi audio Bluetooth."</string>
     <string name="multi_sound_title">Separa audio applicazione</string>
-    <string name="multi_sound_summary">"Riproduce i suoni di un'applicazione su un altoparlante o su delle cuffie separatamente dagli altri suoni del dispositivo."</string>
-    <string name="multi_sound_descryption">"Riproduce l'audio multimediale di un'applicazione su un altoparlante o delle cuffie separatamente dall'audio multimediale delle altre applicazioni.
+    <string name="multi_sound_summary">"Riproduce l'audio multimediale di un'applicazione su un dispositivo audio separatamente dal dispositivo di uscita audio principale del telefono."</string>
+    <string name="multi_sound_descryption">"Riproduce l'audio multimediale di un'applicazione su un dispositivo audio separatamente dal dispositivo di uscita audio principale del telefono. Selezionate un'applicazione e un dispositivo audio per attivare questa funzione.
 
-Se selezionate un dispositivo audio Bluetooth, l'audio verrà riprodotto sul dispositivo audio predefinito se il dispositivo Bluetooth non è connesso."</string>
+La funzione Separa audio applicazione sarà disponibile soltanto se il dispositivo audio selezionato è diverso dal dispositivo di uscita audio principale del telefono.
+
+Potete modificare il dispositivo di uscita audio principale del telefono nel pannello Impostazioni rapide. Se l'uscita audio non viene mostrata, attivatela in Samsung Connect > Impostazioni > Pannello di Samsung Connect."</string>
     <string name="set_application_title">Applicazione</string>
     <string name="set_application_summary">"Selezionate un'applicazione per riprodurne l'audio su un dispositivo audio separato."</string>
     <string name="set_application_descryption">"Selezionate un'applicazione multimediale tra quelle riportate di seguito per riprodurne l'audio su un dispositivo audio separato."</string>
@@ -2705,9 +2732,11 @@ Se selezionate un dispositivo audio Bluetooth, l'audio verrà riprodotto sul dis
     <string name="multi_sound_popup_msg">"Per attivare %s, è necessario selezionare un'applicazione e un dispositivo audio."</string>
     <string name="multi_sound_network_msg">Per controllare se vi sono applicazioni disponibili, è necessario che il telefono sia connesso a una rete. Verificate le impostazioni di rete e riprovate.</string>
     <string name="multi_sound_wifi_msg">"Per verificare la presenza di applicazioni disponibili, il telefono deve connettersi a una rete. L'uso della connessione dati può comportare costi aggiuntivi."</string>
+    <string name="multi_sound_add_application">Aggiungi applicazione</string>
     <string name="dlg_btn_select">Seleziona</string>
-    <string name="audio_device_type_descryption">Selezionate quale dispositivo audio volete utilizzare per questa applicazione. I dispositivi Bluetooth saranno disponibili soltanto se sono connessi.</string>
+    <string name="audio_device_type_descryption">"Selezionate quale dispositivo audio volete utilizzare per l'applicazione selezionata. I dispositivi Bluetooth saranno disponibili soltanto se sono connessi."</string>
     <string name="my_phone_title">Telefono</string>
+    <string name="my_phone_summary">Altoparlante/cuffie/dispositivo audio USB</string>
     <string name="bluetooth_device_title">Dispositivo Bluetooth</string>
     <string name="no_connected_devices">Nessun dispositivo connesso</string>
     <string name="two_hours">2 ore</string>
@@ -2715,7 +2744,8 @@ Se selezionate un dispositivo audio Bluetooth, l'audio verrà riprodotto sul dis
     <string name="stop_setup_popup_msg">Le impostazioni modificate non verranno applicate.</string>
     <string name="app_turned_on">%s attivato.</string>
     <string name="force_touch_title">Feedback vibraz. press. prolung.</string>
-    <string name="volume_key_control_title">Controllo tasto volume predef.</string>
+    <string name="volume_key_control_title">Usa tasti volume per multimedia</string>
+    <string name="volume_key_control_summary">Controlla il volume dei contenuti multimediali quando premete i tasti del volume.</string>
     <string name="sound_mode">Modalità audio</string>
     <string name="sound_mode_vibrate">Vibrazione</string>
     <string name="sound_mode_mute">Silenzioso</string>
@@ -2928,14 +2958,13 @@ privata"</string>
     <string name="text_biometrics_title_enterprise">Se selezionate %1$s, i dati biometrici non saranno supportati come metodo di sblocco di %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">Le impronte digitali non sono supportate da %1$s come metodo di sblocco di %2$s.</string>
     <string name="edge_feeds_title">Feed Tag edge</string>
-    <string name="screensaver_settings_summary">"Controlla quello che si verifica quando il dispositivo è nella base e/o in carica. Lo screensaver non verrà visualizzato dopo lo spegnimento dello schermo.
-
-Questa funzione è denominata anche Pausa schermo."</string>
-    <string name="screensaver_settings_summary_wo_dock">Mostra uno screensaver in seguito allo spegnimento automatico dello schermo durante la ricarica del telefono.</string>
+    <string name="screensaver_settings_summary">Mostra uno screensaver in seguito allo spegnimento automatico dello schermo durante la ricarica del telefono.</string>
+    <string name="screensaver_settings_summary_wo_dock">Mostra uno screensaver in seguito allo spegnimento automatico dello schermo mentre il telefono è nella docking station o in carica.</string>
     <string name="apn_already_exists">Già esiste.</string>
     <string name="error_unavailable_apn">APN non consentito su questo dispositivo. Provarne un altro.</string>
     <string name="error_message_port_out_of_range">Il numero di porta deve essere compreso tra %1$d e %2$d.</string>
     <string name="apn_restore_warning">Tutti gli APN aggiunti verranno rimossi. Gli altri APN verranno ripristinati alle impostazioni predefinite.</string>
+    <string name="apn_restore_title">"Ripristinare le impostazioni dell'APN?"</string>
     <string name="master_clear_desc_google_account">Account Google</string>
     <string name="first_use_tether_title">Visualizza la guida del tethering USB</string>
     <string name="first_use_usb_tether_msg">"Toccate OK per ulteriori informazioni sull'utilizzo del tethering USB."</string>
@@ -2947,7 +2976,8 @@ Questa funzione è denominata anche Pausa schermo."</string>
     <string name="sound_balance_summary">Regola il bilanciamento del suono di destra e sinistra per le cuffie.</string>
     <string name="backup_samsung_account_title">Impostazioni backup</string>
     <string name="restore_samsung_account_title">Ripristino</string>
-    <string name="auto_restart_header">Gestione dispositivo</string>
+    <string name="auto_restart_header">Gestione telefono</string>
+    <string name="auto_restart_header_tablet">Gestione tablet</string>
     <string name="auto_restart_title">Riavvio automatico</string>
     <string name="switch_turn_on_text">Attiva</string>
     <string name="switch_turn_off_text">Disattiva</string>
@@ -3070,6 +3100,14 @@ I dati personali e le impostazioni delle applicazioni scaricate non verranno inf
     <string name="tether_settings_summary_usb_bt">Condividi la connessione dati di rete mobile del dispositivo via USB, Wi-Fi o Bluetooth</string>
     <string name="dialog_tethering_warning">"&lt;b>Introduzione al tethering&lt;/b>&lt;br/>&lt;br/> Il tethering vi consente di utilizzare un dispositivo Android come modem per accedere a Internet dal portatile in qualsiasi luogo. Tale funzione aumenta il consumo della batteria e l'uso dei dati. Il servizio richiede un abbonamento a un piano tariffario applicabile per l'utilizzo del dispositivo come modem. Assicuratevi di aver effettuato l'abbonamento al piano dati appropriato prima di utilizzare questo servizio. Per ricevere assistenza, chiamate il numero 1-877-872-2249. L'utilizzo del servizio implica l'accettazione delle&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Condizioni di Smartphone Modem.&lt;/a>"</string>
     <string name="dialog_hotspot_button_accept">Accetta</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Condividete la connessione a Internet del telefono con il Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Condividete la connessione a Internet del tablet con il Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Pronto a condividere la connessione a Internet del telefono.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Pronto a condividere la connessione a Internet del tablet.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Condivisione della connessione a Internet del telefono con 1 dispositivo.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Condivisione della connessione a Internet del tablet con 1 dispositivo.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Condivisione della connessione a Internet del telefono con %d dispositivi.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Condivisione della connessione a Internet del tablet con %d dispositivi.</string>
     <string name="onehand_settings_title">Modalità con una mano</string>
     <string name="onehand_settings_text_1">Trascinate il dito in diagonale da uno degli angoli inferiori dello schermo per ridurre le dimensioni dello schermo.</string>
     <string name="onehand_settings_text_2">Toccate rapidamente il tasto Home per 3 volte per ridurre la dimensione dello schermo.</string>
@@ -3397,12 +3435,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Disattiva</string>
     <string name="wifi_or_mobile_network">Wi-Fi o reti mobili</string>
     <string name="wifi_network_only">Solo rete Wi-Fi</string>
+    <string name="wifi_adps_title">Modalità risparmio energ. Wi-Fi</string>
+    <string name="wifi_adps_summary">"Riducete l'uso della batteria tramite l'analisi dei modelli del traffico Wi-Fi."</string>
     <string name="wifi_auto_reconnect">Riconnessione automatica</string>
     <string name="wifi_enable_warning_chn">"L'attivazione del WLAN comporterà la disattivazione di Router WLAN."</string>
     <string name="wifi_enable_warning_vzw">"L'attivazione del Wi-Fi disattiva il Router Wi-Fi. Continuare?"</string>
     <string name="wifi_enable_warning_tmo">Quando Router Wi-Fi è attivo, il Wi-Fi viene disattivato. Per attivare il Wi-Fi, disattivate Router Wi-Fi.</string>
     <string name="wifi_enable_warning_spr">"L'attivazione del Wi-Fi, comporterà la disattivazione di Hotspot."</string>
-    <string name="wifi_enable_warning_mtr">Quando Router Wi-Fi è attivo, il Wi-Fi viene disattivato. Per attivare il Wi-Fi, disattivate Router Wi-Fi.</string>
+    <string name="wifi_enable_warning_mtr">Quando Router Wi-Fi è attivato, il Wi-Fi viene disattivato. Per attivare il Wi-Fi, disattivate Router Wi-Fi.</string>
     <string name="wifi_enable_warning_usc">Se attivate il Wi-Fi, Router Wi-Fi verrà disattivato. Continuare?</string>
     <string name="wifi_enable_warning">"L'attivazione del Wi-Fi comporterà la disattivazione di Router Wi-Fi."</string>
     <string name="wifi_control_history_title">Cronologia controllo Wi-Fi</string>
@@ -3602,6 +3642,10 @@ Se modificate il nome o la password del Router Wi-Fi, dovrete generare un nuovo 
     <string name="wifi_wps_pin_client_mobileap">Connessione al client con il PIN %1$s in corso. Il completamento della configurazione può richiedere fino a %2$d minuti.</string>
     <string name="wifi_wps_complete_mobileap">"L'altro dispositivo è adesso connesso al dispositivo in uso."</string>
     <string name="wifi_ap_disconnect_warn">Disconnetti dispositivo</string>
+    <string name="wifi_ap_change_policy_warn_chn">Il dispositivo attualmente connesso verrà disconnesso da Router WLAN.</string>
+    <string name="wifi_ap_change_policy_warn_att">Il dispositivo attualmente connesso verrà disconnesso da Router Wi-Fi.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Tutti i dispositivi attualmente connessi verranno disconnessi da Router Wi-Fi.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">Il dispositivo attualmente connesso verrà disconnesso da Router Wi-Fi.</string>
     <string name="wifi_ap_change_policy_warn">Tutti i dispositivi attualmente connessi verranno disconnessi da Router Wi-Fi.</string>
     <string name="wifi_ap_warn_max_whitelist">È stato raggiunto il numero massimo di dispositivi consentiti (%d).</string>
     <string name="wifiap_one_item_deleted">1 elemento verrà eliminato.</string>
@@ -3737,6 +3781,8 @@ L'utilizzo di Router Wi-Fi comporta l'aumento del consumo della batteria e dell'
     <string name="wifi_ap_first_time_configuration">Prima configurazione HotSpot</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi e Router Wi-Fi</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Inserite il PIN corretto.</string>
+    <string name="open_mobileap_warning">Questo Router Wi-Fi non è protetto.</string>
+    <string name="hidden_mobileap_warning">"Il WPS verrà disattivato se l'utente imposta un SSID nascosto."</string>
     <string name="wifi_ssid_max_byte_error">Il numero massimo di caratteri è stato raggiunto.</string>
     <string name="tethering_attention_title">Attenzione</string>
     <string name="wfd_select_device">Selezionate il dispositivo</string>
@@ -3967,6 +4013,14 @@ Ricezione di SMS"</string>
     <string name="quick_tile_sync_title">Sincronizza</string>
     <string name="permission_usage">Uso autorizzazione</string>
     <string name="draw_overlay_settings_description">"Questa autorizzazione consente a un'applicazione di mostrare degli elementi sopra ad altre applicazioni in uso. Ciò potrebbe interferire con l'utilizzo delle altre applicazioni."</string>
+    <string name="write_settings_body_description">"Consente a questa applicazione di modificare le impostazioni di sistema, come l'attivazione o la disattivazione del Bluetooth."</string>
+    <string name="reset_app_preferences_desc1">Questa operazione comporterà il ripristino di tutte le preferenze per:</string>
+    <string name="reset_app_preferences_desc2">Applicazioni disattivate</string>
+    <string name="reset_app_preferences_desc3">Restrizioni delle notifiche per le applicazioni</string>
+    <string name="reset_app_preferences_desc4">Applicazioni predefinite</string>
+    <string name="reset_app_preferences_desc5">Limitazioni dei dati in background per le applicazioni</string>
+    <string name="reset_app_preferences_desc6">Restrizioni autorizzazione</string>
+    <string name="reset_app_preferences_desc7">"Non perderete i dati dell'applicazione esistenti."</string>
     <string name="knox_security_mode_title">Protezione Knox</string>
     <string name="kap_title">Knox Active Protection</string>
     <string name="kap_eula_title">Regole privacy</string>
@@ -3981,6 +4035,13 @@ Ricezione di SMS"</string>
     <string name="my_profile_summary">"Gestite le informazioni personali e i dettagli sull'account Samsung."</string>
     <string name="my_profile_summary_jpn">"Gestite le informazioni personali e i dettagli sull'account Galaxy."</string>
     <string name="arbitration_agreement">Contratto di arbitrato</string>
+    <string name="activation_title">Stato di attivazione</string>
+    <string name="activation_summary">Attivato su %1$s. Per ulteriori informazioni, visitate %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF attiva</string>
+    <string name="edit_event_start_short">Inizio</string>
+    <string name="edit_event_end_short">Fine</string>
+    <string name="select_date_to_view">Selezionate la data da visualizzare</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Sì</string>
     <string name="no">No</string>
     <string name="create">Crea</string>
@@ -4080,7 +4141,7 @@ Potrete modificare in seguito questa impostazione andando in Impostazioni Blueto
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
     <string name="done">Fatto</string>
-    <string name="settings_label">Impostazioni</string>
+    <string name="settings_label">Impostaz.</string>
     <string name="settings_label_launcher">Impostaz.</string>
     <string name="settings_shortcut">Impostazioni</string>
     <string name="airplane_mode">Modalità offline</string>
@@ -5473,7 +5534,7 @@ Qualsiasi utente può accettare le autorizzazioni delle applicazioni aggiornate 
     <string name="app_notification_block_title">Consenti notifiche</string>
     <string name="app_notification_block_summary">"Ricevete delle notifiche dall'applicazione, inclusi messaggi di notifica, suoni e vibrazione."</string>
     <string name="app_notification_override_dnd_title">Imposta come priorità</string>
-    <string name="app_notification_override_dnd_summary">"Potete attivare l'audio delle notifiche da questa applicazione, nonché attivare lo schermo quando la funzione Non disturbare è abilitata."</string>
+    <string name="app_notification_override_dnd_summary">"Mostra le notifiche nella parte superiore del pannello e le include nell'elenco dei consentiti quando la modalità Non disturbare è attivata."</string>
     <string name="app_notification_visibility_override_title">Sulla schermata di blocco</string>
     <string name="app_notifications_dialog_done">Fatto</string>
     <string name="zen_mode_choose_rule_type">Seleziona tipo di regola</string>
@@ -5510,6 +5571,7 @@ Qualsiasi utente può accettare le autorizzazioni delle applicazioni aggiornate 
     <string name="restr_pin_enter_admin_pin">"Inserite il codice PIN dell'amministratore"</string>
     <string name="switch_on_text">Attivata</string>
     <string name="switch_off_text">Disattivata</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Questo profilo di lavoro è gestito da:</string>
     <string name="managing_admin">Gestito da %s</string>
     <string name="display_auto_rotate_title">Rotazione schermo</string>
     <string name="display_auto_rotate_rotate">Ruota contenuto dello schermo</string>
@@ -5546,9 +5608,9 @@ Non riceverete chiamate, messaggi o notifiche e sveglie finché il dispositivo n
     <string name="encrypt_talkback_dialog_require_pin">Richiedi PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Richiedi segno</string>
     <string name="encrypt_talkback_dialog_require_password">Richiedi password</string>
-    <string name="encrypt_talkback_dialog_message_pin">"Quando inserite il PIN dopo l'accensione del dispositivo, le funzioni di accessibilità come %1$s saranno temporaneamente disattivate."</string>
-    <string name="encrypt_talkback_dialog_message_pattern">"Quando tracciate il segno dopo l'accensione del dispositivo, le funzioni di accessibilità come %1$s saranno temporaneamente disattivate."</string>
-    <string name="encrypt_talkback_dialog_message_password">"Quando inserite la password dopo l'accensione del dispositivo, le funzioni di accessibilità come %1$s saranno temporaneamente disattivate."</string>
+    <string name="encrypt_talkback_dialog_message_pin">"Il PIN verrà richiesto all'accensione del dispositivo. Le funzioni di accessibilità non saranno disponibili fino all'avvio del dispositivo."</string>
+    <string name="encrypt_talkback_dialog_message_pattern">"Il segno verrà richiesto all'accensione del dispositivo. Le funzioni di accessibilità non saranno disponibili fino all'avvio del dispositivo."</string>
+    <string name="encrypt_talkback_dialog_message_password">"La password verrà richiesta all'accensione del dispositivo. Le funzioni di accessibilità non saranno disponibili fino all'avvio del dispositivo."</string>
     <string name="slot_number">(slot %d)</string>
     <string name="app_launch_domain_links_title">Collegamenti applicazioni</string>
     <string name="app_launch_open_domain_urls_title">Vai agli URL supportati</string>
@@ -5620,22 +5682,22 @@ Non riceverete chiamate, messaggi o notifiche e sveglie finché il dispositivo n
     <string name="sharing_remote_bugreport_dialog_message">"Questa segnalazione di bug verrà condivisa con l'amministratore IT. Contattatelo per ulteriori dettagli."</string>
     <string name="share_remote_bugreport_action">Condividi</string>
     <string name="decline_remote_bugreport_action">Rifiuta</string>
-    <string name="usb_use_charging_only">Ricarica questo telefono</string>
-    <string name="usb_use_power_only">Ricarica dispos. connesso</string>
+    <string name="usb_use_charging_only">Ricarica dispositivo</string>
+    <string name="usb_use_power_only">Ricarica disp. connesso</string>
     <string name="usb_use_power_only_desc">Caricate il dispositivo connesso con USB.</string>
     <string name="usb_use_file_transfers_vzw">Trasferimento file</string>
-    <string name="usb_use_file_transfers">Trasferisci file multim.</string>
+    <string name="usb_use_file_transfers">Trasferisci file</string>
     <string name="usb_use_photo_transfers_vzw">Trasferimento foto</string>
     <string name="usb_use_photo_transfers">Trasferisci immagini</string>
     <string name="usb_use_photo_transfers_summary_vzw">Potete trasferire foto della fotocamera su un computer.</string>
-    <string name="usb_use_photo_transfers_summary">Selezionate questa modalità se Trasferisci file multimediali non funziona. Potete trasferire soltanto i file di immagine.</string>
+    <string name="usb_use_photo_transfers_summary">Selezionate questa modalità se la funzione Trasferisci file multimediali non funziona. Con questa modalità, potrete trasferire soltanto i file immagine.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Connetti dispositivo MIDI</string>
     <string name="usb_use">Usa USB per</string>
-    <string name="assist_access_context_title">Lettura testo su schermo</string>
-    <string name="assist_access_context_summary">"Consente all'applicazione di assistenza dispositivo di leggere il testo visualizzato sullo schermo."</string>
-    <string name="assist_access_screenshot_title">Acquisizione/accesso schermate</string>
-    <string name="assist_access_screenshot_summary">"Consente all'applicazione di assistenza dispositivo di acquisire e accedere alle schermate."</string>
+    <string name="assist_access_context_title">Analizza testo sullo schermo</string>
+    <string name="assist_access_context_summary">"Consente all'applicazione di assistenza dispositivo di analizzare il testo visualizzato sullo schermo per fornire contenuti correlati."</string>
+    <string name="assist_access_screenshot_title">Analizza immagini sullo schermo</string>
+    <string name="assist_access_screenshot_summary">"Consente all'applicazione di assistenza dispositivo di acquisire e utilizzare immagini dello schermo."</string>
     <string name="assist_footer">"Le applicazioni di assistenza dispositivo possono aiutarvi raccogliendo informazioni dalla schermata attualmente visualizzata sul telefono. Alcune di queste applicazioni possono essere utilizzate per aprirne altre e inserire del testo attraverso l'inserimento vocale, fornendo un'assistenza integrata."</string>
     <string name="average_memory_use">Uso medio RAM</string>
     <string name="maximum_memory_use">Uso massimo RAM</string>
@@ -5664,12 +5726,12 @@ Non riceverete chiamate, messaggi o notifiche e sveglie finché il dispositivo n
     <string name="ignore_optimizations_on_desc">Potrebbe aumentare il consumo della batteria</string>
     <string name="ignore_optimizations_off_desc">Consigliato per risparmiare carica della batteria</string>
     <string name="app_list_preference_none">Nessuno</string>
-    <string name="allow_overlay_description">"Potete abilitare le applicazioni per l'utilizzo dei relativi comandi, popup o altri elementi sulle altre applicazioni in uso."</string>
+    <string name="allow_overlay_description">"Questa autorizzazione consente a un'applicazione di mostrare degli elementi sopra ad altre applicazioni in uso. Ciò potrebbe interferire con l'utilizzo delle altre applicazioni."</string>
     <string name="overlay_settings">Interazione comandi applicazioni</string>
     <string name="filter_overlay_apps">Le app con autorizzazioni</string>
     <string name="filter_write_settings_apps">Le app con autorizzazioni</string>
     <string name="write_settings_title">Impostazioni dispositivo</string>
-    <string name="write_system_settings">Applicazioni in grado di modificare le impostazioni di sistema</string>
+    <string name="write_system_settings">App. in grado di modif. le impostaz. di sistema</string>
     <string name="permit_write_settings">Modifica impostazioni di sistema</string>
     <string name="write_settings_description">"Selezionate quali applicazioni sono in grado di modificare le impostazioni di sistema, come l'attivazione o la disattivazione del Bluetooth."</string>
     <string name="troaming_use_roaming_packages">Usa pacchetti roaming</string>
@@ -5711,14 +5773,14 @@ Non riceverete chiamate, messaggi o notifiche e sveglie finché il dispositivo n
     <string name="ethernet_data_template">%1$s di dati Ethernet</string>
     <string name="cell_warning_only">Avviso dati al raggiungimento di %s</string>
     <string name="cell_warning_and_limit">"%1$s Avviso sull'uso dei dati/%2$s Limite uso dati"</string>
-    <string name="billing_cycle">Ciclo di fatturazione</string>
+    <string name="billing_cycle">Avviso su dati e ciclo fatturaz.</string>
     <string name="billing_cycle_summary">%s giorno di ogni mese</string>
     <string name="billing_cycle_fragment_summary">%s giorno di ogni mese</string>
     <string name="network_restrictions">Limita reti</string>
     <string name="operator_warning">"L'uso dei dati viene misurato dal dispositivo. Il gestore telefonico potrebbe applicare una tariffa diversa per l'uso dei dati."</string>
     <string name="data_used_template">%s utilizzati</string>
     <string name="data_warning">Avviso sui dati</string>
-    <string name="set_data_limit">Limite dati</string>
+    <string name="set_data_limit">Imposta limite dati</string>
     <string name="data_limit">Limite dati</string>
     <string name="data_usage_template">%1$s utilizzati tra %2$s</string>
     <string name="data_usage_other_apps">"App correlate incluse nell'uso"</string>
@@ -5760,5 +5822,4 @@ Nel dispositivo in uso è incluso un software di diagnostica che, con il vostro 
     <string name="enable_iris_lock_desc_3">"Il tipo di blocco schermo è attualmente impostato su Impronte digitali.
 
 Per impostare il tipo di blocco schermo su Iridi invece che su Impronte digitali, toccate ATTIVA. Potrete quindi sbloccare il dispositivo utilizzando le iridi o il tipo di blocco con %s."</string>
-    <string name="my_phone_summary">Altoparlante/cuffie/dispositivo audio USB</string>
 </resources>

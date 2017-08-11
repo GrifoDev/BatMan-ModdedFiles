@@ -632,6 +632,10 @@
     :cond_0
     iget-object v2, p0, Lcom/samsung/android/settings/display/FullScreenAppsSettings;->mGameManagerService:Lcom/samsung/android/game/IGameManagerService;
 
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/samsung/android/settings/display/FullScreenAppsSettings;->mGameManagerService:Lcom/samsung/android/game/IGameManagerService;
+
     invoke-interface {v2, p1}, Lcom/samsung/android/game/IGameManagerService;->identifyGamePackage(Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
@@ -801,7 +805,7 @@
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    const v4, 0x7f0b0606
+    const v4, 0x7f0b066a
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -829,7 +833,7 @@
 
     :cond_2
     :goto_2
-    const v4, 0x7f0b0607
+    const v4, 0x7f0b066b
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1181,7 +1185,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0604
+    const v1, 0x7f0b0668
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1191,7 +1195,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f029a
+    const v2, 0x7f0f029b
 
     invoke-direct {v0, v1, v2}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 
@@ -1239,13 +1243,13 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b0608
+    const v1, 0x7f0b066c
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b0609
+    const v1, 0x7f0b066d
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

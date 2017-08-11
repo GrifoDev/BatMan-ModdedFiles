@@ -440,14 +440,14 @@
 .method private getLockOptionValues(I)I
     .locals 3
 
-    const v2, 0x7f0b1abf
+    const v2, 0x7f0b1b5b
 
     if-eq p1, v2, :cond_0
 
     const/4 v0, 0x1
 
     :goto_0
-    const v2, 0x7f0b1abd
+    const v2, 0x7f0b1b59
 
     if-ne p1, v2, :cond_1
 
@@ -885,7 +885,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b09bc
+    const v10, 0x7f0b0a2a
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1189,7 +1189,7 @@
 
     invoke-virtual {v8, v11}, Lcom/samsung/android/settings/lockscreen/LockNotiRestrictedPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
-    const v8, 0x7f0b1abd
+    const v8, 0x7f0b1b59
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->getString(I)Ljava/lang/String;
 
@@ -1207,7 +1207,7 @@
 
     invoke-direct {p0, v4, v5, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
-    const v8, 0x7f0b1abe
+    const v8, 0x7f0b1b5a
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->getString(I)Ljava/lang/String;
 
@@ -1225,7 +1225,7 @@
 
     invoke-direct {p0, v2, v3, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
-    const v8, 0x7f0b1abf
+    const v8, 0x7f0b1b5b
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->getString(I)Ljava/lang/String;
 
@@ -1331,7 +1331,7 @@
 
     if-nez v1, :cond_1
 
-    const v2, 0x7f0b1abf
+    const v2, 0x7f0b1b5b
 
     :goto_0
     iput v2, p0, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->mLockOptionResID:I
@@ -1361,12 +1361,12 @@
     :cond_1
     if-eqz v0, :cond_2
 
-    const v2, 0x7f0b1abd
+    const v2, 0x7f0b1b59
 
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0b1abe
+    const v2, 0x7f0b1b5a
 
     goto :goto_0
 .end method
@@ -1380,7 +1380,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100210
+    const v1, 0x7f100216
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1591,7 +1591,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f029a
+    const v7, 0x7f0f029b
 
     invoke-direct {v5, v6, v7}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 
@@ -1882,7 +1882,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f100214
+    const v6, 0x7f10021a
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getInteger(I)I
 

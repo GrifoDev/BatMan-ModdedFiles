@@ -57,7 +57,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get26(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get27(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v1
 
@@ -241,7 +241,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get26(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v1
 
@@ -777,7 +777,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get24(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Landroid/preference/Preference;
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -965,7 +965,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get27(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get28(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v1
 
@@ -1363,7 +1363,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
@@ -1379,6 +1379,62 @@
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/usefulfeature/DisabledAppearanceSecSettingsSwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
 
+    iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get7(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_29
+    const-string/jumbo v1, "RecordScreenSettings"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get24(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Landroid/preference/PreferenceScreen;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get7(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2a
+
+    iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get7(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_2a
     iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$20;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
     invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get7(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/samsung/android/settings/bixby/EmSettingsManager;

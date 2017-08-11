@@ -117,7 +117,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/location/LocationDropDownPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f04028a
+    const v6, 0x7f04028e
 
     invoke-direct {v4, v5, v6}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
 
@@ -562,7 +562,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0655
+    const v4, 0x7f0a0654
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

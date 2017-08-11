@@ -168,7 +168,7 @@
 .method private initPreferences()V
     .locals 5
 
-    const v3, 0x7f0b0293
+    const v3, 0x7f0b02f1
 
     const/4 v1, 0x6
 
@@ -290,7 +290,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0294
+    const v3, 0x7f0b02f2
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -332,7 +332,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0282
+    const v4, 0x7f0b02e0
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -342,7 +342,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0299
+    const v3, 0x7f0b02f7
 
     invoke-virtual {v1, v3, v2}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -359,7 +359,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0290
+    const v2, 0x7f0b02ee
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -507,7 +507,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100357
+    const v1, 0x7f10035d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -823,7 +823,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0796
+    const v1, 0x7f0b07fc
 
     const/4 v2, 0x0
 
@@ -838,7 +838,7 @@
     :cond_0
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b12d5
+    const v3, 0x7f0b1370
 
     const/16 v4, 0x7b
 
@@ -858,7 +858,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f100359
+    const v2, 0x7f10035f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

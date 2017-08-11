@@ -13,6 +13,8 @@
         Lcom/android/settings/datausage/AppDataUsage$1;,
         Lcom/android/settings/datausage/AppDataUsage$2;,
         Lcom/android/settings/datausage/AppDataUsage$3;,
+        Lcom/android/settings/datausage/AppDataUsage$4;,
+        Lcom/android/settings/datausage/AppDataUsage$5;,
         Lcom/android/settings/datausage/AppDataUsage$AppPrefLoader;
     }
 .end annotation
@@ -70,7 +72,11 @@
 
 .field private mDataSaverBackend:Lcom/android/settings/datausage/DataSaverBackend;
 
+.field private mDateSetListener:Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog$OnDateSetListener;
+
 .field private mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
+
+.field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
 .field private mEnd:J
 
@@ -143,10 +149,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get10(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+.method static synthetic -get10(Lcom/android/settings/datausage/AppDataUsage;)Landroid/net/INetworkStatsSession;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mUnrestrictedData:Landroid/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mStatsSession:Landroid/net/INetworkStatsSession;
 
     return-object v0
 .end method
@@ -154,12 +160,20 @@
 .method static synthetic -get11(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
     .locals 1
 
+    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mUnrestrictedData:Landroid/preference/SwitchPreference;
+
+    return-object v0
+.end method
+
+.method static synthetic -get12(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+    .locals 1
+
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mUnrestrictedDataPco:Landroid/preference/SwitchPreference;
 
     return-object v0
 .end method
 
-.method static synthetic -get12()I
+.method static synthetic -get13()I
     .locals 1
 
     sget v0, Lcom/android/settings/datausage/AppDataUsage;->sCycle:I
@@ -199,7 +213,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/settings/datausage/AppDataUsage;)Landroid/net/NetworkPolicy;
+.method static synthetic -get6(Lcom/android/settings/datausage/AppDataUsage;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get7(Lcom/android/settings/datausage/AppDataUsage;)Landroid/net/NetworkPolicy;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mPolicy:Landroid/net/NetworkPolicy;
@@ -207,7 +229,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+.method static synthetic -get8(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mRestrictBackground:Landroid/preference/SwitchPreference;
@@ -215,18 +237,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
+.method static synthetic -get9(Lcom/android/settings/datausage/AppDataUsage;)Landroid/preference/SwitchPreference;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mRestrictBackgroundPco:Landroid/preference/SwitchPreference;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Lcom/android/settings/datausage/AppDataUsage;)Landroid/net/INetworkStatsSession;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mStatsSession:Landroid/net/INetworkStatsSession;
 
     return-object v0
 .end method
@@ -307,7 +321,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/settings/datausage/AppDataUsage;)V
+.method static synthetic -wrap3(Lcom/android/settings/datausage/AppDataUsage;I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/datausage/AppDataUsage;->showDialog(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap4(Lcom/android/settings/datausage/AppDataUsage;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/datausage/AppDataUsage;->updatePrefs()V
@@ -354,11 +376,11 @@
 
     iput v0, p0, Lcom/android/settings/datausage/AppDataUsage;->RESTRICTION_DURING_ROAMING:I
 
-    const v0, 0x7f0b04f7
+    const v0, 0x7f0b055a
 
-    const v1, 0x7f0b04f8
+    const v1, 0x7f0b055b
 
-    const v2, 0x7f0b04f9
+    const v2, 0x7f0b055c
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -386,13 +408,25 @@
 
     invoke-direct {v0, p0}, Lcom/android/settings/datausage/AppDataUsage$2;-><init>(Lcom/android/settings/datausage/AppDataUsage;)V
 
-    iput-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
+    iput-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mDateSetListener:Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog$OnDateSetListener;
 
     new-instance v0, Lcom/android/settings/datausage/AppDataUsage$3;
 
     invoke-direct {v0, p0}, Lcom/android/settings/datausage/AppDataUsage$3;-><init>(Lcom/android/settings/datausage/AppDataUsage;)V
 
+    iput-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
+
+    new-instance v0, Lcom/android/settings/datausage/AppDataUsage$4;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/datausage/AppDataUsage$4;-><init>(Lcom/android/settings/datausage/AppDataUsage;)V
+
     iput-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mChartDataCallbacks:Landroid/app/LoaderManager$LoaderCallbacks;
+
+    new-instance v0, Lcom/android/settings/datausage/AppDataUsage$5;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/datausage/AppDataUsage$5;-><init>(Lcom/android/settings/datausage/AppDataUsage;)V
+
+    iput-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
     return-void
 .end method
@@ -2108,7 +2142,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b04ea
+    const v25, 0x7f0b054d
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2130,7 +2164,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b04eb
+    const v25, 0x7f0b054e
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2232,7 +2266,7 @@
 
     move-object/from16 v24, v0
 
-    const v25, 0x7f0b04f7
+    const v25, 0x7f0b055a
 
     move-object/from16 v0, p0
 
@@ -2246,7 +2280,7 @@
 
     aput-object v25, v24, v26
 
-    const v25, 0x7f0b04f8
+    const v25, 0x7f0b055b
 
     move-object/from16 v0, p0
 
@@ -2260,7 +2294,7 @@
 
     aput-object v25, v24, v26
 
-    const v25, 0x7f0b04f9
+    const v25, 0x7f0b055c
 
     move-object/from16 v0, p0
 
@@ -2632,6 +2666,16 @@
     iput-object v0, v1, Lcom/android/settings/datausage/AppDataUsage;->mUnrestrictedData:Landroid/preference/SwitchPreference;
 
     :cond_16
+    new-instance v23, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-direct/range {v23 .. v23}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/settings/datausage/AppDataUsage;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
     return-void
 
     :cond_17
@@ -2659,7 +2703,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b0077
+    const v24, 0x7f0b00d4
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2756,7 +2800,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b007c
+    const v24, 0x7f0b00d9
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2795,7 +2839,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b016f
+    const v24, 0x7f0b01cc
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3005,6 +3049,68 @@
     goto/16 :goto_4
 .end method
 
+.method public onCreateDialog(I)Landroid/app/Dialog;
+    .locals 8
+
+    const/4 v6, 0x1
+
+    packed-switch p1, :pswitch_data_0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v1}, Ljava/lang/IllegalArgumentException;-><init>()V
+
+    throw v1
+
+    :pswitch_0
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+
+    move-result-object v7
+
+    new-instance v0, Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog;
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/AppDataUsage;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage;->mDateSetListener:Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog$OnDateSetListener;
+
+    invoke-virtual {v7, v6}, Ljava/util/Calendar;->get(I)I
+
+    move-result v3
+
+    const/4 v4, 0x2
+
+    invoke-virtual {v7, v4}, Ljava/util/Calendar;->get(I)I
+
+    move-result v4
+
+    const/4 v5, 0x5
+
+    invoke-virtual {v7, v5}, Ljava/util/Calendar;->get(I)I
+
+    move-result v5
+
+    invoke-direct/range {v0 .. v6}, Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog;-><init>(Landroid/content/Context;Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog$OnDateSetListener;IIII)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    const/16 v2, 0x20
+
+    invoke-virtual {v1, v2}, Landroid/view/Window;->setSoftInputMode(I)V
+
+    return-object v0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x65
+        :pswitch_0
+    .end packed-switch
+.end method
+
 .method public onDataSaverChanged(Z)V
     .locals 0
 
@@ -3047,7 +3153,7 @@
 .end method
 
 .method public onPause()V
-    .locals 1
+    .locals 2
 
     invoke-super {p0}, Lcom/android/settings/datausage/DataUsageBase;->onPause()V
 
@@ -3060,6 +3166,12 @@
     invoke-virtual {v0, p0}, Lcom/android/settings/datausage/DataSaverBackend;->remListener(Lcom/android/settings/datausage/DataSaverBackend$Listener;)V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "MobileData"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
+
     return-void
 .end method
 
@@ -3348,6 +3460,18 @@
 
     invoke-direct {p0}, Lcom/android/settings/datausage/AppDataUsage;->updatePrefs()V
 
+    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/AppDataUsage;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v3, "MobileData"
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
+
     return-void
 .end method
 
@@ -3360,7 +3484,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/datausage/DataUsageBase;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v0, 0x7f040036
+    const v0, 0x7f040037
 
     invoke-virtual {p0, v0}, Lcom/android/settings/datausage/AppDataUsage;->setPinnedHeaderView(I)Landroid/view/View;
 

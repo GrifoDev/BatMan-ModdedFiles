@@ -1037,7 +1037,7 @@
     iput v6, v4, Lcom/samsung/android/settings/guide/HelpHubImageSpan;->fontScale:F
 
     :cond_2
-    const v6, 0x7f0a07b5
+    const v6, 0x7f0a07b4
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimension(I)F
 

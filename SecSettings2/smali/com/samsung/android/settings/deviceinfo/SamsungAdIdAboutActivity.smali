@@ -49,7 +49,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1003e0
+    const v1, 0x7f1003e3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -63,11 +63,11 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/InstrumentedActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const v2, 0x7f040221
+    const v2, 0x7f040225
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/deviceinfo/SamsungAdIdAboutActivity;->setContentView(I)V
 
-    const v2, 0x7f11064e
+    const v2, 0x7f110654
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/deviceinfo/SamsungAdIdAboutActivity;->findViewById(I)Landroid/view/View;
 
@@ -77,13 +77,13 @@
 
     sput-object v2, Lcom/samsung/android/settings/deviceinfo/SamsungAdIdAboutActivity;->textView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0592
+    const v2, 0x7f0b05f5
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/deviceinfo/SamsungAdIdAboutActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v2, 0x7f0b0593
+    const v2, 0x7f0b05f6
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/deviceinfo/SamsungAdIdAboutActivity;->getString(I)Ljava/lang/String;
 

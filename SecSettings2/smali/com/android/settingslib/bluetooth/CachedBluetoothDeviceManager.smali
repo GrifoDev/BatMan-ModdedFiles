@@ -424,9 +424,9 @@
 .end method
 
 .method public needListFiltering(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
-    .locals 11
+    .locals 10
 
-    const/16 v10, 0xa
+    const/16 v6, 0xa
 
     const/4 v9, 0x2
 
@@ -439,23 +439,61 @@
     return v8
 
     :cond_0
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v5
 
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5}, Landroid/bluetooth/BluetoothDevice;->getType()I
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-ne v5, v9, :cond_4
+
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getManufacturerData()Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {v0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getDeviceId()[B
+
+    move-result-object v1
+
+    aget-byte v5, v1, v7
+
+    if-nez v5, :cond_4
+
+    aget-byte v5, v1, v8
+
+    if-ne v5, v8, :cond_4
+
+    invoke-virtual {v0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getManufacturerType()I
+
+    move-result v5
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    if-ne v5, v8, :cond_2
+
+    invoke-virtual {v0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getManufacturerRawData()[B
+
+    move-result-object v4
+
+    if-eqz v4, :cond_4
+
+    array-length v5, v4
+
+    if-le v5, v6, :cond_4
+
+    aget-byte v3, v4, v6
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    and-int/lit8 v5, v3, 0x2
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    if-ne v5, v9, :cond_1
 
     const-string/jumbo v5, "CachedBluetoothDeviceManager"
 
@@ -477,7 +515,7 @@
 
     move-result-object v6
 
-    const-string/jumbo v7, "]device name is same with address."
+    const-string/jumbo v7, "] is LE gear device."
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -492,61 +530,33 @@
     return v8
 
     :cond_1
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    if-nez v3, :cond_4
+
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDeviceName()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/bluetooth/BluetoothDevice;->getType()I
+    invoke-virtual {v5}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v5, "GEAR"
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-ne v5, v9, :cond_5
+    if-eqz v5, :cond_4
 
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getManufacturerData()Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;
+    const-string/jumbo v5, " LE"
 
-    move-result-object v0
-
-    if-eqz v0, :cond_5
-
-    invoke-virtual {v0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getDeviceId()[B
-
-    move-result-object v1
-
-    aget-byte v5, v1, v7
-
-    if-nez v5, :cond_5
-
-    aget-byte v5, v1, v8
-
-    if-ne v5, v8, :cond_5
-
-    invoke-virtual {v0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getManufacturerType()I
+    invoke-virtual {v2, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    if-ne v5, v8, :cond_3
-
-    invoke-virtual {v0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getManufacturerRawData()[B
-
-    move-result-object v4
-
-    if-eqz v4, :cond_5
-
-    array-length v5, v4
-
-    if-le v5, v10, :cond_5
-
-    aget-byte v3, v4, v10
-
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    and-int/lit8 v5, v3, 0x2
-
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    if-ne v5, v9, :cond_2
+    if-eqz v5, :cond_4
 
     const-string/jumbo v5, "CachedBluetoothDeviceManager"
 
@@ -583,33 +593,27 @@
     return v8
 
     :cond_2
+    invoke-virtual {v0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getManufacturerType()I
+
+    move-result v5
+
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    if-nez v3, :cond_5
+    const/4 v6, 0x3
 
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDeviceName()Ljava/lang/String;
+    if-ne v5, v6, :cond_4
 
-    move-result-object v5
+    invoke-virtual {v0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getBluetoothType()B
 
-    invoke-virtual {v5}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+    move-result v3
 
-    move-result-object v2
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    const-string/jumbo v5, "GEAR"
+    and-int/lit8 v5, v3, 0x2
 
-    invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    const-string/jumbo v5, " LE"
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
+    if-ne v5, v9, :cond_3
 
     const-string/jumbo v5, "CachedBluetoothDeviceManager"
 
@@ -646,27 +650,33 @@
     return v8
 
     :cond_3
-    invoke-virtual {v0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getManufacturerType()I
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    if-nez v3, :cond_4
+
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDeviceName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v5, "GEAR"
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    if-eqz v5, :cond_4
 
-    const/4 v6, 0x3
+    const-string/jumbo v5, " LE"
 
-    if-ne v5, v6, :cond_5
+    invoke-virtual {v2, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    invoke-virtual {v0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getBluetoothType()B
+    move-result v5
 
-    move-result v3
-
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    and-int/lit8 v5, v3, 0x2
-
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    if-ne v5, v9, :cond_4
+    if-eqz v5, :cond_4
 
     const-string/jumbo v5, "CachedBluetoothDeviceManager"
 
@@ -703,69 +713,6 @@
     return v8
 
     :cond_4
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    if-nez v3, :cond_5
-
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDeviceName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v5, "GEAR"
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    const-string/jumbo v5, " LE"
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    const-string/jumbo v5, "CachedBluetoothDeviceManager"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "needListFiltering :: skip device listing, ["
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getNameForLog()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "] is LE gear device."
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v8
-
-    :cond_5
     return v7
 .end method
 

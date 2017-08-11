@@ -110,13 +110,13 @@
 
     iput p3, p0, Lcom/android/settings/applications/RunningState$MergedItem;->mLastNumServices:I
 
-    const v0, 0x7f0b16d7
+    const v0, 0x7f0b1773
 
     if-eq p2, v5, :cond_4
 
     if-eq p3, v5, :cond_3
 
-    const v0, 0x7f0b16da
+    const v0, 0x7f0b1776
 
     :cond_1
     :goto_0
@@ -152,14 +152,14 @@
     return-void
 
     :cond_3
-    const v0, 0x7f0b16d9
+    const v0, 0x7f0b1775
 
     goto :goto_0
 
     :cond_4
     if-eq p3, v5, :cond_1
 
-    const v0, 0x7f0b16d8
+    const v0, 0x7f0b1774
 
     goto :goto_0
 .end method
@@ -210,7 +210,7 @@
     return-object v1
 
     :cond_2
-    const v1, 0x108045e
+    const v1, 0x1080448
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -106,15 +106,15 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/PreviewSeekBarPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v3, 0x7f04027b
+    const v3, 0x7f04027f
 
     iput v3, p0, Lcom/android/settings/display/ScreenZoomSettings;->mActivityLayoutResId:I
 
-    const v3, 0x7f04027c
+    const v3, 0x7f040280
 
-    const v4, 0x7f04027d
+    const v4, 0x7f040281
 
-    const v5, 0x7f04027f
+    const v5, 0x7f040283
 
     filled-new-array {v3, v4, v5}, [I
 

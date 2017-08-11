@@ -3,12 +3,12 @@
 .source "DataUsageList.java"
 
 # interfaces
-.implements Landroid/preference/Preference$OnPreferenceClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/datausage/DataUsageList;->bindStats(Landroid/net/NetworkStats;[I)V
+    value = Lcom/android/settings/datausage/DataUsageList;->updatePolicy(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,22 +34,38 @@
 
 
 # virtual methods
-.method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .locals 3
+.method public onClick(Landroid/view/View;)V
+    .locals 6
 
-    move-object v1, p1
+    new-instance v5, Landroid/os/Bundle;
 
-    check-cast v1, Lcom/android/settings/datausage/AppDataUsagePreference;
+    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
-    invoke-virtual {v1}, Lcom/android/settings/datausage/AppDataUsagePreference;->getItem()Lcom/android/settingslib/AppItem;
+    const-string/jumbo v0, "network_template"
 
-    move-result-object v0
+    iget-object v1, p0, Lcom/android/settings/datausage/DataUsageList$11;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    iget-object v2, p0, Lcom/android/settings/datausage/DataUsageList$11;->this$0:Lcom/android/settings/datausage/DataUsageList;
+    invoke-static {v1}, Lcom/android/settings/datausage/DataUsageList;->-get6(Lcom/android/settings/datausage/DataUsageList;)Landroid/net/NetworkTemplate;
 
-    invoke-static {v2, v0}, Lcom/android/settings/datausage/DataUsageList;->-wrap3(Lcom/android/settings/datausage/DataUsageList;Lcom/android/settingslib/AppItem;)V
+    move-result-object v1
 
-    const/4 v2, 0x1
+    invoke-virtual {v5, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    return v2
+    iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList$11;->this$0:Lcom/android/settings/datausage/DataUsageList;
+
+    iget-object v1, p0, Lcom/android/settings/datausage/DataUsageList$11;->this$0:Lcom/android/settings/datausage/DataUsageList;
+
+    const-class v2, Lcom/android/settings/datausage/BillingCycleSettings;
+
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const v3, 0x7f0b1cff
+
+    const/4 v4, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/settings/datausage/DataUsageList;->startFragment(Landroid/app/Fragment;Ljava/lang/String;IILandroid/os/Bundle;)Z
+
+    return-void
 .end method

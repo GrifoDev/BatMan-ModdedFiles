@@ -196,7 +196,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_8
 
     const/4 v2, 0x0
 
@@ -234,6 +234,12 @@
 
     invoke-virtual {v5, v6}, Lcom/android/settings/Settings;->startActivity(Landroid/content/Intent;)V
 
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6
+
     iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
 
     iget-object v5, v5, Lcom/android/settings/Settings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -250,9 +256,9 @@
 
     const-string/jumbo v6, "SearchKeyword"
 
-    const-string/jumbo v7, "match"
+    const-string/jumbo v7, "exists"
 
-    const-string/jumbo v8, "yes"
+    const-string/jumbo v8, "no"
 
     invoke-virtual {v5, v6, v7, v8}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -269,7 +275,7 @@
 
     iget-object v5, v5, Lcom/android/settings/Settings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
     :try_end_1
@@ -293,6 +299,51 @@
     goto/16 :goto_0
 
     :cond_6
+    :try_start_2
+    iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
+
+    iget-object v5, v5, Lcom/android/settings/Settings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
+
+    iget-object v5, v5, Lcom/android/settings/Settings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v6, "SearchKeyword"
+
+    const-string/jumbo v7, "match"
+
+    const-string/jumbo v8, "yes"
+
+    invoke-virtual {v5, v6, v7, v8}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
+
+    iget-object v5, v5, Lcom/android/settings/Settings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v6, "User manual_Search"
+
+    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_7
+    iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
+
+    iget-object v5, v5, Lcom/android/settings/Settings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    :try_end_2
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
+
+    goto/16 :goto_0
+
+    :cond_8
     iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
 
     invoke-static {v5}, Lcom/android/settings/Settings;->-wrap2(Lcom/android/settings/Settings;)V
@@ -303,7 +354,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_c
 
     iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
 
@@ -349,13 +400,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_9
 
     invoke-static {}, Lcom/android/settings/Utils;->isDomesticSKTModel()Z
 
     move-result v5
 
-    if-nez v5, :cond_8
+    if-nez v5, :cond_a
 
     iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
 
@@ -373,20 +424,20 @@
 
     return-void
 
-    :cond_7
+    :cond_9
     const-string/jumbo v5, "ServiceProvider"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_a
 
     invoke-static {}, Lcom/android/settings/Utils;->isDomesticKTTModel()Z
 
     move-result v5
 
-    if-nez v5, :cond_8
+    if-nez v5, :cond_a
 
     iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
 
@@ -404,7 +455,7 @@
 
     return-void
 
-    :cond_8
+    :cond_a
     iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
 
     invoke-virtual {v5, v4}, Lcom/android/settings/Settings;->openTileForBiby(Ljava/lang/String;)Z
@@ -417,7 +468,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_b
 
     iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
 
@@ -425,7 +476,7 @@
 
     invoke-virtual {v5, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_9
+    :cond_b
     iget-object v5, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
 
     iget-object v5, v5, Lcom/android/settings/Settings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -434,6 +485,6 @@
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    :cond_a
+    :cond_c
     return-void
 .end method

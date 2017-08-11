@@ -70,7 +70,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;->mList:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;->mList:Ljava/util/ArrayList;
 
@@ -78,11 +78,26 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     monitor-enter p0
 
     :try_start_0
+    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;->mList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-le p1, v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;->mList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;->mList:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
@@ -112,7 +127,7 @@
 
     throw v0
 
-    :cond_0
+    :cond_1
     const-string/jumbo v0, "BluetoothDevicePreferenceGroup"
 
     const-string/jumbo v1, "addPreference :: contains preference"
@@ -121,7 +136,7 @@
 
     return v2
 
-    :cond_1
+    :cond_2
     const-string/jumbo v0, "BluetoothDevicePreferenceGroup"
 
     const-string/jumbo v1, "addPreference :: mList is null"

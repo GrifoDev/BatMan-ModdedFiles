@@ -790,9 +790,9 @@
 .method private AssignDragItem()V
     .locals 5
 
-    const v4, 0x7f11075e
+    const v4, 0x7f110761
 
-    const v3, 0x7f0203a5
+    const v3, 0x7f0203cb
 
     const/4 v2, -0x1
 
@@ -882,9 +882,9 @@
 
     const/4 v12, 0x1
 
-    const v11, 0x7f0a0451
+    const v11, 0x7f0a044f
 
-    const v10, 0x7f0a0450
+    const v10, 0x7f0a044e
 
     iget-object v7, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mGridViewUpper:Landroid/widget/GridView;
 
@@ -932,7 +932,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a07f0
+    const v8, 0x7f0a07ef
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1104,7 +1104,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a0453
+    const v8, 0x7f0a0451
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1121,7 +1121,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a0455
+    const v8, 0x7f0a0453
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1138,7 +1138,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a0456
+    const v8, 0x7f0a0454
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1151,7 +1151,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a0457
+    const v8, 0x7f0a0455
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1179,7 +1179,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a0452
+    const v8, 0x7f0a0450
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1192,7 +1192,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a0454
+    const v8, 0x7f0a0452
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1235,9 +1235,9 @@
 .method private ChangelayoutByLine(ZI)V
     .locals 12
 
-    const v11, 0x7f0a0451
+    const v11, 0x7f0a044f
 
-    const v10, 0x7f0a0450
+    const v10, 0x7f0a044e
 
     const/4 v9, 0x2
 
@@ -1315,7 +1315,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a07f0
+    const v6, 0x7f0a07ef
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1404,7 +1404,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0453
+    const v6, 0x7f0a0451
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1421,7 +1421,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0455
+    const v6, 0x7f0a0453
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1438,7 +1438,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0456
+    const v6, 0x7f0a0454
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1451,7 +1451,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0457
+    const v6, 0x7f0a0455
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1479,7 +1479,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0452
+    const v6, 0x7f0a0450
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1492,7 +1492,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0454
+    const v6, 0x7f0a0452
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1532,7 +1532,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mResources:Landroid/content/res/Resources;
 
-    const v8, 0x7f0a069e
+    const v8, 0x7f0a069d
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2330,7 +2330,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0a069e
+    const v2, 0x7f0a069d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2437,7 +2437,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f0a069e
+    const v4, 0x7f0a069d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2865,13 +2865,13 @@
 .method private InitUI()V
     .locals 4
 
-    const v3, 0x7f0402b2
+    const v3, 0x7f0402b6
 
     invoke-direct {p0}, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->GetWindowSize()V
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->lin_Layout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f11075a
+    const v1, 0x7f11075d
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2883,7 +2883,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->lin_Layout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f11075b
+    const v1, 0x7f11075e
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2905,7 +2905,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->lin_Layout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f11075c
+    const v1, 0x7f11075f
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2927,7 +2927,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->lin_Layout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f11075d
+    const v1, 0x7f110760
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2939,7 +2939,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mControlBar:Landroid/widget/ImageView;
 
-    const v1, 0x7f02039b
+    const v1, 0x7f0203c1
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -3082,7 +3082,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mResources:Landroid/content/res/Resources;
 
-    const v5, 0x7f0a069e
+    const v5, 0x7f0a069d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3155,7 +3155,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mResources:Landroid/content/res/Resources;
 
-    const v13, 0x7f0a07ef
+    const v13, 0x7f0a07ee
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3327,7 +3327,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0a0459
+    const v11, 0x7f0a0457
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3337,7 +3337,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0a0458
+    const v11, 0x7f0a0456
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3347,7 +3347,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0a045b
+    const v11, 0x7f0a0459
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3357,7 +3357,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0a045a
+    const v11, 0x7f0a0458
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4426,7 +4426,7 @@
 .method private changeLayoutAccordingNewScreensize(Z)V
     .locals 9
 
-    const v8, 0x7f0a07f3
+    const v8, 0x7f0a07f2
 
     const/16 v7, 0x8
 
@@ -4440,7 +4440,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a044f
+    const v4, 0x7f0a044d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4921,7 +4921,7 @@
 
     :cond_0
     :goto_0
-    const v4, 0x7f11075e
+    const v4, 0x7f110761
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4976,7 +4976,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mResources:Landroid/content/res/Resources;
 
-    const v7, 0x7f0a069e
+    const v7, 0x7f0a069d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5280,7 +5280,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 2
 
-    const v0, 0x7f0b0465
+    const v0, 0x7f0b04c8
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
@@ -5306,7 +5306,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->frag_Act:Landroid/app/Activity;
 
-    const v0, 0x7f0402b1
+    const v0, 0x7f0402b5
 
     const/4 v1, 0x0
 

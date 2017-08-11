@@ -60,7 +60,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f10034c
+    const v2, 0x7f100352
 
     invoke-static {v1, v2, v0}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
 

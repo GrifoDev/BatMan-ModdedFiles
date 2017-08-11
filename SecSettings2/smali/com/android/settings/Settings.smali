@@ -35,7 +35,6 @@
         Lcom/android/settings/Settings$BillingCycleChnSettingsActivity;,
         Lcom/android/settings/Settings$BlockNotificationListActivity;,
         Lcom/android/settings/Settings$BlueLightFilterSettingsActivity;,
-        Lcom/android/settings/Settings$BluetoothAVCSettingsActivity;,
         Lcom/android/settings/Settings$BluetoothControlHistoryActivity;,
         Lcom/android/settings/Settings$BluetoothDualPlaySettingsActivity;,
         Lcom/android/settings/Settings$BluetoothHelpPageActivity;,
@@ -103,6 +102,7 @@
         Lcom/android/settings/Settings$MemorySettingsActivity;,
         Lcom/android/settings/Settings$MultiSoundSettingsActivity;,
         Lcom/android/settings/Settings$MultiWindowSettinsActivity;,
+        Lcom/android/settings/Settings$NavigationBarSettingsActivity;,
         Lcom/android/settings/Settings$NearbyScanningPickerActivity;,
         Lcom/android/settings/Settings$NearbySettingsActivity;,
         Lcom/android/settings/Settings$NfcOsaifukeitaiSettingsActivity;,
@@ -491,6 +491,14 @@
     const-string/jumbo v1, "ServiceProvider"
 
     const-string/jumbo v2, "gigalte_settings"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/android/settings/Settings;->mBixbyList:Ljava/util/HashMap;
+
+    const-string/jumbo v1, "AdvancedCalling"
+
+    const-string/jumbo v2, "vzw_provision_volte"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

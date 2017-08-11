@@ -98,6 +98,98 @@
     return-object v0
 .end method
 
+.method public getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Z)",
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/settings/search/SearchIndexableRaw;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v3, 0x3
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-static {p1}, Lcom/android/settings/Utils;->isShopDemo(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-static {}, Lcom/android/settings/Utils;->isLDUModel()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    new-instance v0, Lcom/android/settings/search/SearchIndexableRaw;
+
+    invoke-direct {v0, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
+
+    const-string/jumbo v2, "settings_reset"
+
+    iput-object v2, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
+
+    iput v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->menu_type:I
+
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v0, Lcom/android/settings/search/SearchIndexableRaw;
+
+    invoke-direct {v0, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
+
+    const-string/jumbo v2, "network_reset"
+
+    iput-object v2, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
+
+    iput v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->menu_type:I
+
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_1
+    invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    new-instance v0, Lcom/android/settings/search/SearchIndexableRaw;
+
+    invoke-direct {v0, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
+
+    const-string/jumbo v2, "pref_auto_clean"
+
+    iput-object v2, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0b0235
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/android/settings/search/SearchIndexableRaw;->summaryOn:Ljava/lang/String;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_2
+    return-object v1
+.end method
+
 .method public getXmlResourcesToIndex(Landroid/content/Context;Z)Ljava/util/List;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;

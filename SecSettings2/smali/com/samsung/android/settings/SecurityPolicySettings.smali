@@ -58,7 +58,25 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Lcom/samsung/android/settings/SecurityPolicySettings;)V
+.method static synthetic -wrap0(Lcom/samsung/android/settings/SecurityPolicySettings;I)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/samsung/android/settings/SecurityPolicySettings;->getDownloadViaEntryString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap1(Lcom/samsung/android/settings/SecurityPolicySettings;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/samsung/android/settings/SecurityPolicySettings;->setDownloadVia(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap2(Lcom/samsung/android/settings/SecurityPolicySettings;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->updateLastCheckedDate()V
@@ -98,6 +116,37 @@
     return-void
 .end method
 
+.method private getDownloadViaEntryString(I)Ljava/lang/String;
+    .locals 2
+
+    if-nez p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0b0ea3
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0b0c88
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method private initWifiOnlyPreference()V
     .locals 7
 
@@ -135,17 +184,13 @@
 
     new-array v2, v6, [Ljava/lang/CharSequence;
 
-    const v3, 0x7f0b0e18
-
-    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SecurityPolicySettings;->getString(I)Ljava/lang/String;
+    invoke-direct {p0, v4}, Lcom/samsung/android/settings/SecurityPolicySettings;->getDownloadViaEntryString(I)Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0c16
-
-    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SecurityPolicySettings;->getString(I)Ljava/lang/String;
+    invoke-direct {p0, v5}, Lcom/samsung/android/settings/SecurityPolicySettings;->getDownloadViaEntryString(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -157,11 +202,15 @@
 
     new-array v2, v6, [Ljava/lang/CharSequence;
 
-    const-string/jumbo v3, "0"
+    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v3
 
     aput-object v3, v2, v4
 
-    const-string/jumbo v3, "1"
+    invoke-static {v5}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v3
 
     aput-object v3, v2, v5
 
@@ -194,10 +243,33 @@
     return-void
 .end method
 
+.method private setDownloadVia(I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mUseWifiOnly:Lcom/android/settings/SecDropDownPreference;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mUseWifiOnly:Lcom/android/settings/SecDropDownPreference;
+
+    invoke-virtual {v0, p1}, Lcom/android/settings/SecDropDownPreference;->setValueIndex(I)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mUseWifiOnly:Lcom/android/settings/SecDropDownPreference;
+
+    invoke-direct {p0, p1}, Lcom/samsung/android/settings/SecurityPolicySettings;->getDownloadViaEntryString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/SecDropDownPreference;->setSummary(Ljava/lang/CharSequence;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method private updateLastCheckedDate()V
     .locals 9
 
-    const v8, 0x7f0b051f
+    const v8, 0x7f0b0582
 
     iget-object v4, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mManualUpdatePolicy:Landroid/preference/PreferenceScreen;
 
@@ -238,7 +310,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b051f
+    const v5, 0x7f0b0582
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
     :try_end_0
@@ -265,7 +337,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0522
+    const v7, 0x7f0b0585
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -326,7 +398,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100292
+    const v1, 0x7f100298
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -475,7 +547,9 @@
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .locals 6
+    .locals 7
+
+    const/4 v4, 0x0
 
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
@@ -491,25 +565,9 @@
 
     const-string/jumbo v3, "SecuritySettings"
 
-    const-string/jumbo v4, "pressed autoupdate key"
+    const-string/jumbo v5, "pressed autoupdate key"
 
-    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x7f100294
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v4
-
-    invoke-static {v3, v4}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;I)V
+    invoke-static {v3, v5}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object v3, p2
 
@@ -524,7 +582,7 @@
     const/4 v2, 0x1
 
     :goto_0
-    iget-object v4, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
+    iget-object v5, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
 
     move-object v3, p2
 
@@ -534,15 +592,15 @@
 
     move-result v3
 
-    invoke-virtual {v4, v3}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v5, v3}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
-    const-string/jumbo v4, "security_update_db"
+    const-string/jumbo v5, "security_update_db"
 
-    invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v3, v5, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     new-instance v0, Landroid/content/Intent;
 
@@ -550,15 +608,17 @@
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "changed_data"
+    const-string/jumbo v5, "changed_data"
 
-    check-cast p2, Ljava/lang/Boolean;
+    move-object v3, p2
 
-    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
+    check-cast v3, Ljava/lang/Boolean;
 
-    move-result v4
+    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    move-result v3
+
+    invoke-virtual {v0, v5, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     const/16 v3, 0x20
 
@@ -570,15 +630,49 @@
 
     invoke-virtual {v3, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    :cond_0
-    const/4 v3, 0x0
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getActivity()Landroid/app/Activity;
 
-    return v3
+    move-result-object v5
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v6, 0x7f10029a
+
+    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v6
+
+    check-cast p2, Ljava/lang/Boolean;
+
+    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    const/16 v3, 0x3e8
+
+    :goto_1
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-static {v5, v6, v3}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
+
+    :cond_0
+    return v4
 
     :cond_1
     const/4 v2, 0x0
 
     goto :goto_0
+
+    :cond_2
+    move v3, v4
+
+    goto :goto_1
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
@@ -610,7 +704,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f100293
+    const v4, 0x7f100299
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -639,11 +733,11 @@
 .end method
 
 .method public onResume()V
-    .locals 7
+    .locals 6
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onResume()V
 
@@ -651,140 +745,102 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v3
+    move-result-object v2
 
-    const-string/jumbo v4, "security_update_db"
+    const-string/jumbo v3, "security_update_db"
 
-    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    :goto_0
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "use_wifi_only_db"
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    invoke-direct {p0, v1}, Lcom/samsung/android/settings/SecurityPolicySettings;->setDownloadVia(I)V
 
-    :goto_0
-    const/4 v0, 0x0
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "use_wifi_only_db"
-
-    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mUseWifiOnly:Lcom/android/settings/SecDropDownPreference;
-
-    invoke-virtual {v3, v5}, Lcom/android/settings/SecDropDownPreference;->setValueIndex(I)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x7f0b0e18
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_1
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mUseWifiOnly:Lcom/android/settings/SecDropDownPreference;
-
-    invoke-virtual {v3, v0}, Lcom/android/settings/SecDropDownPreference;->setSummary(Ljava/lang/CharSequence;)V
-
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getContext()Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v3
 
-    iget-object v5, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+    iget-object v4, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
-    const-string/jumbo v6, "SecurityPolicyUpdates"
+    const-string/jumbo v5, "SecurityPolicyUpdates"
 
-    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
 
     return-void
 
     :pswitch_0
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v6}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mManualUpdatePolicy:Landroid/preference/PreferenceScreen;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mManualUpdatePolicy:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v3, v6}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v5}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
     goto :goto_0
 
     :pswitch_1
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v6}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v2, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v6}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mManualUpdatePolicy:Landroid/preference/PreferenceScreen;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mManualUpdatePolicy:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v3, v6}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v5}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
     goto :goto_0
 
     :pswitch_2
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mManualUpdatePolicy:Landroid/preference/PreferenceScreen;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mManualUpdatePolicy:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v3, v5}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
     goto :goto_0
 
     :pswitch_3
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v6}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v2, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mAutoUpdatePolicy:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v5}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mManualUpdatePolicy:Landroid/preference/PreferenceScreen;
+    iget-object v2, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mManualUpdatePolicy:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v3, v6}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v5}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
     goto :goto_0
-
-    :cond_0
-    iget-object v3, p0, Lcom/samsung/android/settings/SecurityPolicySettings;->mUseWifiOnly:Lcom/android/settings/SecDropDownPreference;
-
-    invoke-virtual {v3, v6}, Lcom/android/settings/SecDropDownPreference;->setValueIndex(I)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SecurityPolicySettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x7f0b0c16
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_1
 
     nop
 

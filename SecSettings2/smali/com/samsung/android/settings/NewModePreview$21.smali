@@ -255,7 +255,7 @@
 
     move-result v5
 
-    invoke-static {v4, v5}, Lcom/samsung/android/settings/NewModePreview;->-wrap1(Lcom/samsung/android/settings/NewModePreview;Z)V
+    invoke-static {v4, v5}, Lcom/samsung/android/settings/NewModePreview;->-wrap2(Lcom/samsung/android/settings/NewModePreview;Z)V
 
     :goto_0
     return-void
@@ -470,7 +470,7 @@
 
     move-result v5
 
-    invoke-static {v4, v5}, Lcom/samsung/android/settings/NewModePreview;->-wrap1(Lcom/samsung/android/settings/NewModePreview;Z)V
+    invoke-static {v4, v5}, Lcom/samsung/android/settings/NewModePreview;->-wrap2(Lcom/samsung/android/settings/NewModePreview;Z)V
 
     goto/16 :goto_0
 .end method

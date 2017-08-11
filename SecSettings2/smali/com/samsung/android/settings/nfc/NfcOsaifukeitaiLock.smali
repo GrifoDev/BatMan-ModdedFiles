@@ -331,7 +331,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b10c6
+    const v2, 0x7f0b115b
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -456,7 +456,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f0401bc
+    const v0, 0x7f0401be
 
     const/4 v1, 0x0
 
@@ -468,7 +468,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiLock;->mView:Landroid/view/View;
 
-    const v1, 0x7f1105af
+    const v1, 0x7f1105b1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -616,7 +616,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiLock;->mTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b10e2
+    const v1, 0x7f0b1177
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -655,7 +655,7 @@
     :cond_2
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiLock;->mTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b10e1
+    const v1, 0x7f0b1176
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

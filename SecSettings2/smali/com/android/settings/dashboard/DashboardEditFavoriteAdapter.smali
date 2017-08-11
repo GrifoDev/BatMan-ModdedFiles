@@ -242,7 +242,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f1003f3
+    const v5, 0x7f1003f9
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -325,7 +325,7 @@
 
     iget-boolean v5, p0, Lcom/android/settings/dashboard/DashboardEditFavoriteAdapter;->mIsShowingAll:Z
 
-    const v6, 0x7f0400a1
+    const v6, 0x7f0400a2
 
     invoke-direct {p0, v0, v6, v5, v7}, Lcom/android/settings/dashboard/DashboardEditFavoriteAdapter;->countItem(Ljava/lang/Object;IZI)V
 
@@ -387,7 +387,7 @@
     :cond_1
     iget-boolean v5, p0, Lcom/android/settings/dashboard/DashboardEditFavoriteAdapter;->mIsShowingAll:Z
 
-    const v6, 0x7f0400a2
+    const v6, 0x7f0400a3
 
     invoke-direct {p0, v3, v6, v5, v7}, Lcom/android/settings/dashboard/DashboardEditFavoriteAdapter;->countItem(Ljava/lang/Object;IZI)V
 
@@ -559,7 +559,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0400a1
+    .packed-switch 0x7f0400a2
         :pswitch_0
         :pswitch_1
     .end packed-switch

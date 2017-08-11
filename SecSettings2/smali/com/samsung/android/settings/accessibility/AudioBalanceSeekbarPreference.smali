@@ -93,7 +93,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/accessibility/AudioBalanceSeekbarPreference;->mAudioFocusListener:Landroid/media/AudioManager$OnAudioFocusChangeListener;
 
-    const v0, 0x7f040222
+    const v0, 0x7f040226
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/accessibility/AudioBalanceSeekbarPreference;->setLayoutResource(I)V
 
@@ -480,7 +480,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v3, 0x1020468
+    const v3, 0x1020471
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -546,7 +546,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b04a2
+    const v4, 0x7f0b0505
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -556,7 +556,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b04a3
+    const v4, 0x7f0b0506
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -885,7 +885,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f100319
+    const v2, 0x7f10031f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -899,7 +899,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f10033d
+    const v3, 0x7f100343
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 

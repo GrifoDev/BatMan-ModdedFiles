@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d နာရီ %2$d မိနစ္</string>
+    <string name="battery_history_minutes_no_seconds">%d မိနစ္</string>
     <string name="wifi_failed_to_obtain_IP">IP လိပ္စာ ရယူရန္ မေအာင္ျမင္ပါ။</string>
     <string name="wifi_security_none">မရွိ</string>
     <string name="wifi_unknown_security_type">အမည္မသိ လံုျခံဳမႈ အမ်ိဳးအား</string>
@@ -49,6 +49,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s သုိ႔ခ်ိတ္ဆက္၍ မရပါ။</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s ႏွင့္ ခ်ိတ္ဆက္၍ မရပါ။ %2$s ထဲရွိ သင့္ သတ္မွတ္ခ်က္မ်ားကုိ စစ္ေဆးၿပီး ထပ္ႀကိဳးစားပါ။</string>
     <string name="bluetooth_pairing_rejected_error_message">ယွဥ္တြဲသုံးစြဲျခင္းကုိ %sမွ ပယ္ခ်ထားပါသည္။</string>
+    <string name="bluetooth_getting_remote_device_name">ကိရိယာအမည္ကုိ ရယူေနသည္…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">ဤကိရိယာကုိ ခ်ိတ္ဆက္သည့္အခါ ကိရိယာအမည္ ေပၚလာပါမည္။</string>
     <string name="process_kernel_label">အန္ဒရြိဳက္ဒ္ OS</string>
     <string name="data_usage_uninstalled_apps">ျဖဳတ္ပစ္ထားေသာ အက္ပ္မ်ား</string>
     <string name="data_usage_uninstalled_apps_users">ျဖဳတ္ထားၿပီး အပ္မ်ားႏွင့္ သံုးသူမ်ား</string>
@@ -258,7 +260,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">ပံ့ပိုးပါ</string>
     <string name="reset_network_settings_list_summary">Wi-Fi၊ ဘလူးတုသ္ႏွင့္ အျခားကြန္ယက္သတ္မွတ္ခ်က္မ်ားကို ၎တို႔၏မူရင္းပါပုံစံသို႔ ျပန္လည္သတ္မွတ္ပါ။</string>
     <string name="master_clear_list_summary">သင္၏ကိရိယာကို ၎၏မူရင္းပါပုံစံ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ပါ။ ဤအရာသည္ ဖိုင္မ်ားႏွင့္ ေဒါင္းလုတ္လုပ္ထားသည့္ အက္ပ္မ်ားအပါအဝင္ ေဒတာအားလုံးကိုဖ်က္သြားမည္။</string>
-    <string name="auto_restart_summary">သတ္မွတ္အခ်ိန္မ်ားတြင္ ၎ကိုအလိုအေလ်ာက္ ျပန္လည္စတင္ျခင္းျဖင့္ သင့္ကိရိယာကို သင့္ျမတ္ေအာင္လုပ္ေဆာင္ပါ။ ကိရိယာ ျပန္လည္စတင္သည့္အခါ သိမ္းဆည္းမထားေသာ ေဒတာသည္ ေပ်ာက္ဆုံးသြားမည္။</string>
+    <string name="auto_restart_summary">သင့္ဖုန္းကုိ တစ္ပတ္တစ္ႀကိမ္ အလုိအေလ်ာက္ ပိတ္ၿပီးျပန္ပြင့္ေစျခင္းျဖင့္ ပုိေကာင္းေအာင္ လုပ္ပါ။ သင့္ဖုန္း ျပန္စပြင့္သည့္အခါ သိမ္းဆည္းမထားေသာ ေဒတာအားလံုး ေပ်ာက္ဆံုးပါမည္။</string>
+    <string name="auto_restart_summary_tablet">သင့္တက္ဘလက္ကုိ တစ္ပတ္တစ္ႀကိမ္ အလုိအေလ်ာက္ ပိတ္ၿပီးျပန္ပြင့္ေစျခင္းျဖင့္ ပုိေကာင္းေအာင္ လုပ္ပါ။ သင့္တက္ဘလက္ ျပန္စပြင့္သည့္အခါ သိမ္းဆည္းမထားေသာ ေဒတာအားလံုး ေပ်ာက္ဆံုးပါမည္။</string>
     <string name="search_settings">ရွာေဖြ</string>
     <string name="related_results">သက္ဆိုင္ရာ အရာဝတၳဳ %d ခု</string>
     <string name="no_results_found">ရလဒ္မ်ား မေတြ႔ပါ</string>
@@ -328,7 +331,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">အသံ ဟန္ခ်က္မွာ ညာသို႔ %d ရာခိုင္ႏႈန္း ျဖစ္သည္။ ဆလိုက္ဒါ ပြတ္ဆြဲရန္ လက္ႏွစ္ေခ်ာင္း သံုးပါ။</string>
     <string name="sound_balance_set">သတ္မွတ္ပါ</string>
     <string name="accessibility_assistant_menu">အေထာက္အကူ မီႏူး</string>
-    <string name="assistant_menu_summary">အားနည္းသည့္ အသံုးျပဳသူအတြက္ ကိရိယာ အသံုးျပဳႏိုင္စြမ္း တိုးတက္ေစရန္ လုပ္ေဆာင္ခ်က္မ်ားကို ဖြင့္ထားပါ။</string>
+    <string name="assistant_menu_summary">လက္အသံုးျပဳႏုိင္မႈ အားနည္းသူမ်ားအတြက္ ဖုန္းဝင္ေရာက္သုံးစြဲႏိုင္မႈကို ပုိမုိေကာင္းမြန္ေအာင္လုပ္ပါ။</string>
     <string name="color_blind_title">အေရာင္ ထိန္းညွိျခင္း</string>
     <string name="no_result">သင့္ ျပသမႈ ဖတ္ရန္ ခက္ခဲေနပါက ဖန္သားျပင္ အေရာင္မ်ား ညွိပါ။</string>
     <string name="you_are_normal">အေရာင္ ညွိျခင္းမွာ မလိုအပ္ပါ။</string>
@@ -524,6 +527,7 @@ Enter the code you get from Verizon:"</string>
     <string name="direct_access_actions_accessibility_title">ဝင္ေရာက္ႏုိင္ခြင့္</string>
     <string name="direct_access_actions_negative_title">နက္ဂတစ္ အေရာင္မ်ား</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">တိုက္႐ိုက္ ဝင္ေရာက္ျခင္းႏွင့္ ဖန္သားျပင္ အ႐ြယ္အစားေလၽွာ႔ခ်ျခင္းကို တစ္ၿပိဳင္တည္း ဖြင့္၍မရႏိုင္ပါ။ ဖန္သားျပင္အ႐ြယ္ေလၽွာ႔ခ်မႈ ပိတ္သြားမည္။</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s ႏွင့္ %2$s တို႔ကို တၿပိဳင္တည္း ဖြင့္မရပါ။ %3$s ကို ပိတ္သြားမည္။</string>
     <string name="direct_access_actions_color_adjustment_summary">အေရာင္ ခ်ိန္ၫွိမႈကို တိုက္႐ိုက္ သုံးခြင့္ရမႈတြင္ အသုံးျပဳရန္ ျမင္ကြင္းဆိုင္ရာမွ ၎ကို စီစဥ္ဖြဲ႕စည္းပါ</string>
     <string name="direct_access_actions_screen_reader_summary">တိုက္႐ိုက္ ဝင္ေရာက္မႈတြင္ စာမ်က္ႏွာ ဖတ္စက္ကိုသုံးရန္ ၄င္းကို ဖြင့္ပါ။</string>
     <string name="direct_access_actions_accesscontrol_title">တု႔ံျပန္မႈထိန္းခ်ဳပ္ျခင္း</string>
@@ -721,7 +725,9 @@ Wi-Fi ႏွင့္ဘလူးတုသ္ကို ပိတ္လုိက�
     <string name="premium_sms_values_ask">ေမးပါ</string>
     <string name="premium_sms_values_never">ဘယ္ေတာ့မွ ခြင့္မျပဳ</string>
     <string name="premium_sms_values_allow">အျမဲ ခြင့္ျပဳပါ</string>
-    <string name="assist_and_voice_input_summary">ကိရိယာ အေထာက္အကူအက္ပ္မ်ားသည္ ဖန္သားျပင္တစ္ခုစီ၏ ေနာက္ထပ္ေ႐ြးစရာမ်ားႏွင့္ အခ်က္အလက္ကို စီစဥ္လုပ္ေဆာင္သည္။</string>
+    <string name="assist_and_voice_input_summary">ပင္မခလုတ္ကုိ ဖိ၍ ႏွိပ္ထားသည့္အခါ အသံုးျပဳမည့္ အက္ပ္ကုိ ေရြးပါ။</string>
+    <string name="assist_footer_phone">ပင္မခလုတ္ကုိ ဖိ၍ ႏွိပ္ထားသည့္အခါ အသံုးျပဳမည့္ အက္ပ္ကုိ ေရြးပါ။ ကိရိယာအေထာက္အကူအက္ပ္မ်ားသည္ သင့္ဖုန္းတြင္ လက္ရွိျပသထားသည့္ ဖန္သားျပင္မွ အခ်က္အလက္မ်ားကုိ စုေဆာင္းျခင္းျဖင့္ သင့္ကိုေထာက္ကူေပးႏိုင္သည္။</string>
+    <string name="assist_footer_tablet">ပင္မခလုတ္ကုိ ဖိ၍ ႏွိပ္ထားသည့္အခါ အသံုးျပဳမည့္ အက္ပ္ကုိ ေရြးပါ။ ကိရိယာအေထာက္အကူအက္ပ္မ်ားသည္ သင့္တက္ဘလက္တြင္ လက္ရွိျပသထားသည့္ ဖန္သားျပင္မွ အခ်က္အလက္မ်ားကုိ စုေဆာင္းျခင္းျဖင့္ သင့္ကိုေထာက္ကူေပးႏိုင္သည္။</string>
     <string name="default_app_title">မူရင္းပါပုံစံအျဖစ္ သတ္မွတ္ပါ</string>
     <string name="premium_sms_title">ပရီမီယမ် SMS ကို ပို့ပါ</string>
     <string name="default_app_selection">မူရင္းပါပုံစံ အက္ပ္ ေရြးခ်ယ္ခ်က္</string>
@@ -810,7 +816,7 @@ Wi-Fi ႏွင့္ဘလူးတုသ္ကို ပိတ္လုိက�
 
 ခ်ိတ္ဆက္ထားေသာ ကိရိယာ ၂ ခု၏ ထြက္ေသာအသံမ်ားတြင္ အနည္းငယ္ျခားနားေနတာမ်ိဳး ႀကံဳေတြ႕ရႏိုင္သည္။"</string>
     <string name="bluetooth_dual_play_ask_popup_title">မီဒီယာ အသံအတုိးအက်ယ္ ဆင့္ခ္ကုိ ပိတ္မလား?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">ႏွစ္မ်ိဳးသံုး ေအာ္ဒီယုိကုိ သံုးရန္ မီဒီယာ အသံအတုိးအက်ယ္ ဆင့္ခ္ကုိ ပိတ္ရန္ လုိပါသည္။</string>
+    <string name="bluetooth_dual_play_ask_popup_content">ေအာ္ဒီယုိကိရိယာအသီးသီးတြင္ အသံတုိးက်ယ္ကုိ ထိန္းခ်ဳပ္ရန္ မီဒီယာ အသံတုိးက်ယ္ ဆင့္ခ္ကုိ ပိတ္ရန္ လုိပါသည္။</string>
     <string name="bluetooth_avc_title">မီဒီယာအသံပမာဏ ဆင့္ခ္လုပ္ျခင္း</string>
     <string name="bluetooth_avc_description">ခ်ိတ္ဆက္ထားသည့္ ဘလူးတုသ္ကိရိယာက သင့္ဖုန္း၏ မီဒီယာသံ တုိးက်ယ္ကုိ ထိန္းခ်ဳပ္ႏုိင္လွ်င္ ဘလူးတုသ္ကိရိယာမွ သတ္မွတ္ထားေသာ အသံအတုိးအက်ယ္ကုိ သင့္ဖုန္းႏွင့္အတူ ဆင့္ခ္လုပ္ပါမည္။</string>
     <string name="bluetooth_avc_volume_change_description">ဤလုပ္ေဆာင္ခ်က္ကို ဖြင့္ျခင္းသည္ ေမွ်ာ္မွန္းမထားသည့္ အသံအတိုးအက်ယ္ေျပာင္းလဲမႈကို ျဖစ္ေစႏိုင္သည္။</string>
@@ -819,6 +825,7 @@ Wi-Fi ႏွင့္ဘလူးတုသ္ကို ပိတ္လုိက�
     <string name="bluetooth_avc_ask_popup_title">ႏွစ္မ်ိဳးသံုး ေအာ္ဒီယုိကုိ ပိတ္မလား?</string>
     <string name="bluetooth_avc_ask_popup_content">မီဒီယာ အသံအတုိးအက်ယ္ဆင့္ခ္ကုိ သံုးရန္ ႏွစ္မ်ိဳးသံုး ေအာ္ဒီယုိကုိ ပိတ္ရန္ လုိပါသည္။</string>
     <string name="bluetooth_avc_disable_description">ခ်ိတ္ဆက္ထားေသာ ဘလူးတုသ္ကိရိယာသည္ မီဒီယာအသံပမာဏဆင့္ခ္လုပ္ျခင္းကို ပံ့ပိုးမေပးပါ။ ဖုန္းအသံပမာဏကို ခ်ိတ္ဆက္ထားေသာ ဘလူးတုသ္ကိရိယာျဖင့္ ဆင့္ခ္လုပ္၍မရပါ။</string>
+    <string name="bluetooth_avc_available_description">ခ်ိတ္ဆက္ထားသည့္ ဘလူးတုသ္ကိရိယာက မီဒီယာသံ တုိးက်ယ္ဆင့္ခ္လုပ္ျခင္းကုိ ပံ့ပုိးေပးၿပီး ဘလူးတုသ္ကိရိယာမွ သတ္မွတ္ထားေသာ အသံအတုိးအက်ယ္ကုိ သင့္ဖုန္းႏွင့္အတူ ဆင့္ခ္လုပ္ပါမည္။</string>
     <string name="bluetooth_enter_pin_msg">%s ျဖင့္တြဲရန္ PIN ထည့္ပါ (၀၀၀၀ သို႔မဟုတ္ ၁၂၃၄ စမ္းၾကည့္ပါ)။</string>
     <string name="bluetooth_pin_maximum_number_message">အကၡရာ အေရအတြက္ အမ်ားဆံုးသို႔ ေရာက္ပါၿပီ။</string>
     <string name="settings_menu_done">ၿပီးပါၿပီ</string>
@@ -832,7 +839,7 @@ Wi-Fi ႏွင့္ဘလူးတုသ္ကို ပိတ္လုိက�
     <string name="airmessage_settings_title">ေပါေလာေပၚေနေသာ မက္ေဆ့ခ်္</string>
     <string name="airmessage_settings_summary">Check and reply to messages instantly without interrupting videos or games playing in full screen.</string>
     <string name="hongbao_assistant_title">Hongbao assistant</string>
-    <string name="useful_feature_title">အဆင့္ျမင့္ ဝိေသသမ်ား</string>
+    <string name="useful_feature_title">အဆင့္ျမင့္ လုပ္ေဆာင္ခ်က္မ်ား</string>
     <string name="game_home_title">ဂိမ္းမ်ား</string>
     <string name="galaxy_labs_title">Galaxy Labs</string>
     <string name="smart_capture_title">စမတ္က်ေသာ ရုိက္ကူးမႈ</string>
@@ -849,7 +856,7 @@ Wi-Fi ႏွင့္ဘလူးတုသ္ကို ပိတ္လုိက�
     <string name="aod_smartview_summary">%1$s ႏွင့္ %2$s တို႔ကိုက တၿပိဳင္တည္း မဖြင့္ႏိုင္ပါ။</string>
     <string name="aod_psm_summary">Always On Display ႏွင့္ ပါဝါေခၽြတာေရး အေနအထားကို တစ္ၿပိဳင္တည္းဖြင့္၍မရႏိုင္ပါ။</string>
     <string name="galaxy_labs_summary">ေနာက္ဆုံးေပၚသုံးစြဲမႈလုပ္ေဆာင္ခ်က္မ်ားကို ႀကိဳးစားၾကည့္ပါ။</string>
-    <string name="game_home_summary">သင္ဂိမ္းမ်ားကစားစဥ္ အသုံးဝင္သည့္ ဝိေသသမ်ားကိုစီမံပါ။</string>
+    <string name="game_home_summary">သင္ဂိမ္းမ်ား ကစားေနစဥ္ အသံုးဝင္သည့္ လုပ္ေဆာင္ခ်က္မ်ားကို စီမံပါ။</string>
     <string name="smart_capture_description">ဖန္သားျပင္၏ ေဖ်ာက္ထားေသာေနရာမ်ားကုိ သင့္ဖန္သားျပင္ရုုိက္ပုုံမ်ားထဲတြင္ ထည့္သြင္းပါ။ ဖန္သားျပင္ရိုု္က္ပုုံမ်ား ႐ိုက္ယူၿပီးေနာက္ ၎တို႔ကို ျပင္ဆင္တည္းျဖတ္ႏိုုင္ သို႔မဟုတ္ မွ်ေဝႏိုင္ပါသည္။</string>
     <string name="smart_capture_description_grace">"ဖန္သားျပင္႐ိုက္ခ်က္တစ္ခု ဖမ္းယူၿပီးေနာက္ ျဖည့္စြက္ ေရြးစရာမ်ားကို ျပသပါ။ Smart capture ျဖင့္ လုပ္ေဆာင္ႏိုင္သည္တို႔မွာ :
 
@@ -873,7 +880,7 @@ Smart capture ကို ပိတ္ထားလင့္ကစား ၎၏ဝ�
     <string name="identify_unsaved_numbers_title">ဖုန္းေခၚသူ ID ႏွင့္ စပန္းကို ကာကြယ္ျခင္း</string>
     <string name="identify_unsaved_numbers_title_usa">ေၾကာ္ျငာနံပါတ္မ်ားကို သတ္မွတ္ေဖာ္ထုတ္ပါ</string>
     <string name="call_message_spam_filter_title">Call/message spam filter</string>
-    <string name="onehand_operation_summary">သင့္ဖုန္းကုိ လက္တစ္ဖက္တည္းျဖင့္ အလြယ္တကူ ထိန္းခ်ဳပ္ႏုိင္ရန္ ျပသသည့္အရြယ္အစားႏွင့္ အခင္းအက်င္းပံုစံကုိ ခ်ိန္ညႇိပါ။</string>
+    <string name="onehand_operation_summary">သင့္ကိရိယာကို လက္တစ္ဖက္ျဖင့္ လြယ္ကူစြာ ထိန္းခ်ဳပ္ရန္ ဖန္သားျပင္အရြယ္အစားႏွင့္ အျပင္အဆင္ကို ထိန္းညွိပါ။</string>
     <string name="direct_share_title">တိုက္႐ိုက္ မွ်ေဝျခင္း</string>
     <string name="direct_share_summary">အျခားအက္ပ္တစ္ခုခုအတြင္း မၽွေဝမႈအကန္႔မွတဆင့္ သတ္မွတ္ထားသည့္လူမ်ားျဖင့္ ပါဝင္ခ်က္ကိုတိုက္႐ိုက္မၽွေဝပါ။</string>
     <string name="direct_share_description">Google တိုက္႐ိုက္မွ်ေဝမႈ လုပ္ေဆာင္ခ်က္ျဖင့္ ပံ့ပိုးသည့္ အက္ပ္မ်ားတြင္ မက္ေဆ့ခ်္ (သို႔) အီးေမးလ္မ်ား ေပးပို႔ျခင္းကဲ့သို႔ လုပ္ေဆာင္ခ်က္မ်ား ျပဳလုပ္ေနစဥ္ တိုက္႐ိုက္မွ်ေဝမႈ သေကၤတကို မွ်ေဝအကန္႔ထိပ္တြင္ ျပသသြားပါမည္။</string>
@@ -902,11 +909,12 @@ Smart capture ကို ပိတ္ထားလင့္ကစား ၎၏ဝ�
     <string name="swipe_to_call_title">ေခၚဆိုရန္ (သို႕) မက္ေဆ့ခ်္မ်ား ပို႕ရန္အတြက္ ဆြဲပါ</string>
     <string name="swipe_to_call_summary">ဖုန္း၊ အဆက္အသြယ္မ်ား (သုိ႔) မက္ေဆ့ခ်္မ်ားထဲတြင္ ဖုန္းေခၚရန္ အဆက္အသြယ္ (သုိ႔) နံပါတ္ကုိ ညာသုိ႔ ပြတ္ဆြဲပါ (သုိ႔) မက္ေဆ့ခ်္ေပးပုိ႔ရန္ ဘယ္သုိ႔ ပြတ္ဆြဲပါ။</string>
     <string name="swipe_to_call_summary_dcm">ဖုန္းေခၚရန္ (သုိ႔) ဖုန္း၊ အဆက္အသြယ္မ်ား (သုိ႔) မက္ေဆ့ခ်္မ်ားထဲတြင္ မက္ေဆ့ခ်္ေပးပုိ႔ရန္ အဆက္အသြယ္ (သုိ႔) နံပါတ္ကုိ ညာသုိ႔ ပြတ္ဆြဲပါ။</string>
-    <string name="swipe_to_call_summary_kddi">ဖုန္းေခၚရန္ (သုိ႔) ဖုန္း၊ အဆက္အသြယ္မ်ား (သုိ႔) မက္ေဆ့ခ်္မ်ားထဲတြင္ မက္ေဆ့ခ်္ေပးပုိ႔ရန္ အဆက္အသြယ္ (သုိ႔) နံပါတ္ကုိ ဘယ္သုိ႔ ပြတ္ဆြဲပါ။</string>
+    <string name="swipe_to_call_summary_kddi">ဖုန္းေခၚရန္ အဆက္အသြယ္ (သုိ႔) နံပါတ္ကုိ ညာသုိ႔ ပြတ္ဆြဲပါ (သုိ႔) မက္ေဆ့ခ်္ေပးပုိ႔ရန္ ဖုန္းေခၚ (သုိ႔) အဆက္အသြယ္မ်ားထဲတြင္ ဘယ္သုိ႔ ပြတ္ဆြဲပါ။</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">တူညီသည့္ အက္ပ္အတြက္ သီးျခားအေကာင့္ႏွစ္ခုကုိ သံုးပါ။</string>
     <string name="finger_sensor_gesture_title">လက္ေခ်ာင္း အာ႐ုံခံ လက္ဟန္ျပမႈမ်ား</string>
     <string name="finger_sensor_gesture_summary">အက္ပ္မ်ားႏွင့္ အဂၤါရပ္မ်ားကို လက္ေဗြအာ႐ုံခံဆင္ဆာျဖင့္ ဖြင့္၊ ပိတ္ပါ။</string>
+    <string name="finger_sensor_gesture_summary_noapp">လက္ေဗြအာရုံခံဆင္ဆာကို အသုံးျပဳ၍ အသိေပးခ်က္ပန္နယ္ကို အဖြင့္၊ အပိတ္လုပ္ပါ။</string>
     <string name="finger_sensor_gesture_description">အသိေပးခ်က္ ပန္နယ္ကုိ ဖြင့္ (သုိ႔) ပိတ္ရန္ လက္ေဗြအာရံုခံေပၚတြင္ အေပၚ (သုိ႔) ေအာက္သုိ႔ ပြတ္ဆြဲပါ။</string>
     <string name="open_samsung_pay_title">Samsung Pay ကုိဖြင့္ပါ</string>
     <string name="open_samsung_pay_summary">ပင္မဖန္သားျပင္မွေန၍ Samsung Pay ကိုဖြင့္ရန္ လက္ေဗြရာ အာ႐ုံခံဆင္ဆာကို အေပၚသို႔ပြတ္ဆြဲပါ။</string>
@@ -941,6 +949,7 @@ Smart capture ကို ပိတ္ထားလင့္ကစား ၎၏ဝ�
 %s"</string>
     <string name="enable_ps_title">%s ဖြင့္ပါ</string>
     <string name="setup_wizard">၀စ္ဇာ့တ္ သတ္မွတ္ပါ</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">ပံုမွန္</string>
     <string name="large">အႀကီး</string>
     <string name="small">အေသး</string>
@@ -1086,7 +1095,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Wi-Fi ကြန္ယက္တစ္ခုသို႔ ခ်ိတ္ဆက္ထားသည့္အခါ ေဆာ့ဖ္ဝဲအပ္ဒိတ္မ်ားကို အလိုအေလ်ာက္ေဒါင္းလုတ္လုပ္ပါ။ ေဒါင္းလုတ္လုပ္ေနစဥ္ သင့္ကိရိယာကို အသုံးျပဳႏိုင္ဆဲရွိမည္ျဖစ္သည္။</string>
     <string name="auto_update_over_wifi">Wi-Fi သံုးၿပီး ေအာ္တုိ ေဒါင္းလုတ္လုပ္ပါ</string>
     <string name="auto_update_over_wifi_summary">Wi-Fi ကြန္ရက္တစ္ခုသို႔ ခ်ိတ္ဆက္ထားသည့္အခါ ေဆာ့ဝဲလ္ အပ္ဒိတ္မ်ားကို အလိုအေလ်ာက္ေဒါင္းလုတ္လုပ္ပါ။ သင္၏ ဝန္ေဆာင္မႈေပးသူအေပၚ မူတည္ၿပီး မည္သည့္ ကုန္က်စရိတ္မွ်မရွိဘဲ အပ္ဒိတ္မ်ားကုိ မုိဘုိင္းေဒတာသံုးၿပီး ေဒါင္းလုတ္လည္း လုပ္ႏုိင္ပါသည္။ ေဒါင္းလုတ္လုပ္ေနစဥ္ သင့္ဖုန္းကို ဆက္သံုးႏုိင္မည္။</string>
-    <string name="scheduled_update">အခ်ိန္ျဖင့္ စီစဥ္ထားေသာ ေဆာ့ပ္ဝဲ အပ္ဒိတ္မ်ား</string>
+    <string name="scheduled_update">စီစဥ္ထားသည့္ ေဆာ့ဝဲအပ္ဒိတ္မ်ား</string>
     <string name="scheduled_update_summary_default">ပိတ္</string>
     <string name="scheduled_update_summary_set_time">%s တြင္ အပ္ဒိတ္စတင္သြားမည္</string>
     <string name="scheduled_update_summary_set_time_everyday">%s တစ္ရက္စီတြင္ အပ္ဒိတ္စတင္သြားမည္</string>
@@ -1230,7 +1239,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="adjust_your_display_colour">အျဖဴေရာင္တုံးမ်ား၏ ပုံပန္းအသြင္ကို ေျပာင္းရန္ မ်က္ႏွာျပင္ျပကြက္၏ အေရာင္မ်ားကို ခ်ိန္ညႇိပါ။</string>
     <string name="display_temperature_preset_cool">အေအးေရာင္</string>
     <string name="display_temperature_preset_warm">မပူမေအးေရာင္</string>
-    <string name="display_advanced_option">အဆင့္ျမင့္ ေ႐ြးစရာမ်ား</string>
+    <string name="display_advanced_option">အဆင့္ျမင့္ ေရြးခ်ယ္ရန္မ်ား</string>
     <string name="color_balance_subtext_1">အေရာင္ညႇိျခင္းကို အလိုက္သင့္ျပင္ေပးေသာ ျပကြက္အေနအထားတြင္သာ ညႇိႏိုင္သည္။</string>
     <string name="color_balance_subtext_2">မီးျပာအခ်က္ျပ လင္းေနစဥ္အတြင္း သင့္ညွိခ်က္မ်ားက အက်ိဳးသက္ေရာက္မည္မဟုတ္ပါ။</string>
     <string name="poc_balance_title">ဖန္သားျပင္အစြန္းမ်ား အေရာင္ညႇိခ်က္</string>
@@ -1288,6 +1297,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_summary">ပင္မ၊ ေနာက္သုိ႔ႏွင့္ လတ္တေလာ ခလုတ္မ်ားကုိ စီမံပါ။</string>
     <string name="navigationbar_theme_switch">လက္႐ွိ အျပင္အဆင္ကို အသုံးျပဳပါ</string>
     <string name="navigationbar_color_title">ေနာက္ခံ အေရာင္</string>
+    <string name="navigationbar_color_summary">သင္ေရြးခ်ယ္ထားသည့္ ေနာက္ခံအေရာင္ကုိ အက္ပ္အားလံုးတြင္ အသံုးျပဳမည္ မဟုတ္ပါ။</string>
     <string name="navigationbar_order_title">ခလုတ္ ေနရာခ်ထားမႈပံုစံ</string>
     <string name="navigationbar_order_default">လတ္တေလာ - ပင္မ - ေနာက္သို႔</string>
     <string name="navigationbar_order_mirrored">ေနာက္သုိ႔ - ပင္မ - လတ္တေလာ</string>
@@ -1319,7 +1329,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="blue_light_filter_enable_now">အခုဖြင့္ပါ</string>
     <string name="blue_light_filter_enable_as_scheduled">သတ္မွတ္ထားသည့္အခ်ိန္တြင္ ဖြင့္ပါ</string>
     <string name="blue_light_filter_scheduled_toast">အလင္းျပာစစ္ထုတ္ခ်က္ကုိ ဖြင့္ထားသည္။ သတ္မွတ္ထားသည့္ ၿပီးဆံုးခ်ိန္တြင္ ၎ကုိ အလုိအေလ်ာက္ ပိတ္လုိက္ပါမည္။</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s ႏွင့္ အျပာေရာင္ အလင္း စစ္ထုတ္ကိရိယာတို႔ကို တၿပိဳင္တည္း အသုံးမျပဳႏိုင္ပါ။ အျပာေရာင္ အလင္း စစ္ထုတ္ကိရိယာကို ပိတ္သြားပါမည္။</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">အျပာေရာင္မီး စစ္ထုတ္ခ်က္ကို ပိတ္မလား?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s ကိုဖြင့္ရန္ အျပာေရာင္မီး စစ္ထုတ္ခ်က္ကို ပိတ္ရန္လိုအပ္ပါသည္။</string>
     <string name="blue_light_filter_dlg_turn_on_location">ေနဝင္မွ ေနထြက္ကုိသံုးရန္ တည္ေနရာကုိ ဖြင့္ထားရန္ လုိသည္။</string>
     <string name="dlg_turn_on">ဖြင့္ပါ</string>
     <string name="screen_resolution_title">ဖန္သားျပင္ ပုံရိပ္ျပတ္သားမႈ</string>
@@ -1536,6 +1547,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">သင့္ကိရိယာကို ၎၏ စက္႐ုံထုတ္ မူရင္းပါ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္မသတ္မွတ္မီ သင့္တြင္ စဖြင့္ႏိုင္ခြင့္ ၁ ႀကိမ္ က်န္ေနေသးသည္။ ၎က ဖိုင္မ်ားႏွင့္ ေဒါင္းလုတ္ထားေသာ အက္ပ္မ်ား အပါအဝင္၊ ေဒတာအားလုံးကို ဖ်က္ပါမည္။</string>
     <string name="crypt_keeper_failed_title_dec">ျပန္ေဖာ္ျခင္း မေအာင္ျမင္ပါ။</string>
     <string name="crypt_keeper_failed_summary_dec">အျပတ္အေတာက္ရွိသျဖင့္ ေဖာ္ျခင္း မျပီးစီးပါ။ အသံုးမျပဳမီ (ေဒတာ အားလံုး ဖ်က္ျခင္း) စက္ရံုေဒတာ ျပန္သတ္မွတ္ျခင္းကို ေဆာင္ရြက္ပါ။</string>
+    <string name="crypt_keeper_set_screen_lock_type">ဖန္သားျပင္ ေသာ့အမ်ဳိးအစား စီစဥ္ပါ</string>
     <string name="encryption_interstitial_message">"ဖုန္း စတင္မလုပ္ေဆာင္မီ %s ကုိ ထည့္ခုိင္းျခင္းျဖင့္ ဤဖုန္းကုိ ေနာက္ထပ္ ကာကြယ္ႏုိင္သည္။ ဖုန္းေပ်ာက္ဆံုး (သုိ႔) အခုိးခံရလွ်င္ ယင္းက သင့္ေဒတာကုိ ကာကြယ္ရန္ ကူညီေပးသည္။ အီးေမးလ္ဆင့္ခ္ကဲ့သုိ႔ အဂၤါရပ္မ်ားကုိ ဝင္ေရာက္သံုးစြဲျခင္းအတြက္ ကိရိယာကုဒ္ေျပာင္းျခင္းဆုိင္ရာ မူဝါဒမ်ားအရ အက္ပ္အခ်ိဳ႕က လံုျခံဳစိတ္ခ်ရေသာ စတင္လုပ္ေဆာင္မႈကုိ လုိအပ္ႏုိင္သည္။
 
 ဖုန္း စတင္မလုပ္ေဆာင္မခ်င္း ဖုန္းေခၚဆုိမႈမ်ား၊ မက္ေဆ့ခ်္မ်ား သုိ႔မဟုတ္ အသိေပးခ်က္မ်ားကုိ လက္ခံ ရရွိမည္မဟုတ္ဘဲ ႏႈိးစက္မ်ား အသံျမည္မည္ မဟုတ္ပါ။"</string>
@@ -1774,6 +1786,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">လက္ေဗြရာကို အသုံးျပဳပါ</string>
     <string name="wifi_ap_close">ပိတ္ပါ</string>
     <string name="fingerscanner_add_summary">လက္ေဗြမ်ား ထည့္ပါ။</string>
+    <string name="fingerscanner_register_1_finger_summary">လက္ေဗြ ၁ ခုကုိ ထည့္ထားၿပီးၿပီ။</string>
     <string name="fingerscanner_register_summary">လက္ေဗြ %d ခုကုိ ထည့္ၿပီးပါၿပီ။</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">လက္ေဗြရာတစ္ခု အသုံးျပဳပါ (သို႔) လက္ရွိ PIN ထည့္သြင္းပါ။</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">လက္ေဗြရာတစ္ခု (သို႔) လက္ရွိပုံစံေရးဆြဲပါ။</string>
@@ -1800,6 +1813,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">ဖန္သားျပင္ပြင့္လွ်င္ပြင့္ခ်င္း ဖုန္းကုိ အရင္ဆံုး ပြတ္မဆြဲဘဲ မ်က္ႏွာျဖင့္ ေသာ့ဖြင့္ပါ။</string>
     <string name="facelock_recognition_speed_up">ပုိျမန္သည့္ မွတ္သားစနစ္</string>
     <string name="facelock_recognition_speed_up_summary">ပုိျမန္သည့္ မွတ္သားစနစ္အတြက္ ဖြင့္ပါ။ လံုျခံဳေရးကုိ တုိးျမႇင့္ရန္ ပိတ္ပါ၊ ပံု (သုိ႔) ဗီဒီယုိကုိ သံုးၿပီး ေသာ့ဖြင့္ရန္ ပုိ၍ ခက္ခဲေအာင္လုပ္ပါ။</string>
+    <string name="facelock_samsungpass_summary">သင့္သက္ေသခံအခ်က္အလက္ကို %s ႏွင့္ ပ့ံပိုးေပးေသာ အျခားအက္ပ္မ်ားျဖင့္ စိစစ္ရန္ မ်က္ႏွာမွတ္သားမႈကို သုံးပါ။</string>
     <string name="face_remove_face_popup_title">မ်က္ႏွာ ေဒတာကို ဖယ္ရွားမလား?</string>
     <string name="face_remove_face_popup_message_1">သင့္မ်က္ႏွာကို ထပ္ၿပီး မွတ္သားေတာ့မည္မဟုတ္ဘဲ မ်က္ႏွာသံုး ေသာ့ကုိ ပိတ္ပစ္ပါလိမ့္မည္။</string>
     <string name="face_remove_face_popup_message_2">မ်က္ႏွာမွတ္သားမႈသုံးေသာ အစီအစဥ္မ်ားကို ပိတ္ပါမည္။</string>
@@ -1921,7 +1935,7 @@ You will also need it when:"</string>
     <string name="iris_use_samsung_pass">Samsung Pass</string>
     <string name="iris_use_samsung_pass_summary">အေထာက္အထားကို %s ႏွင့္ အျခားေသာ ပံ့ပိုးမႈရွိသည့္ အက္ပ္မ်ားမွတဆင့္ စစ္ေဆးအတည္ျပဳရန္ မ်က္ဝန္းမ်ားကို အသုံးျပဳပါ။</string>
     <string name="iris_use_samsung_pass_description_internet">အင္တာနက္</string>
-    <string name="iris_unlock">မ်က္ဝန္း ေသာ့ဖြင့္မႈ</string>
+    <string name="iris_unlock">မ်က္ဝန္းျဖင့္ ေသာ့ဖြင့္မႈ</string>
     <string name="iris_unlock_summary">သင့္မ်က္ဝန္းမ်ားသံုးၿပီး သင့္ဖုန္းကုိ ေသာ့ဖြင့္ပါ။</string>
     <string name="tips_for_iris">မ်က္ဝန္းမွတ္သားျခင္း အသုံးျပဳမႈအတြက္ လမ္းၫႊန္ခ်က္မ်ား</string>
     <string name="iris_remove_popup_1">သင့္မ်က္ဝန္းေဒတာကို ဖယ္ရွားသြားမည္။ ဖန္သားျပင္ေသာ့အမ်ိဳးအစားကို %s သို႔ ေျပာင္းသြားမည္။</string>
@@ -1941,7 +1955,7 @@ You will also need it when:"</string>
     <string name="biometrics_backup_locktype_title">မ်က္ဝန္း လံုၿခံဳေရး သတ္မွတ္လုပ္ေဆာင္ပါ</string>
     <string name="biometrics_register_your_iris">သင့္မ်က္ဝန္းမ်ားကုိ မွတ္ပံုတင္ပါ။</string>
     <string name="biometrics_backup_locktype_summary">ကိရိယာေသာ့ဖြင့္ရန္အတြက္ သင့္မ်က္ဝန္းမ်ားအသုံးျပဳရန္ ပုံစံ၊ PIN (သို႔) စကားဝွက္တစ္ခု သတ္မွတ္ရမည္။</string>
-    <string name="biometrics_backup_locktype_message">သင့္မ်က္ဝန္းမ်ားကုိ သံုးၿပီး သင့္ဖုန္းကုိ ေသာ့ဖြင့္ရန္ သို႔မဟုတ္ လုံျခံဳေသာ စိစစ္အတည္ျပဳျခင္းအတြက္ ေအာက္ပါကုိ သင္ လုပ္ေဆာင္ရန္လုိသည္ :</string>
+    <string name="biometrics_backup_locktype_message">သင့္ဖုန္းကို ေသာ့ဖြင့္ရန္ သို႔မဟုတ္ အက္ပ္မ်ားတြင္ သင့္ကိုယ္သင္ စိစစ္အတည္ျပဳရန္အတြက္ သင့္မ်က္ဝန္းမ်ားကို အသုံးျပဳရန္ ေဖာ္ျပပါကုိ လုပ္ေဆာင္ရန္လုိပါသည္ :</string>
     <string name="iris_delete_popup_title">မ်က္ဝန္း ေဒတာကုိ ဖယ္ရွားမလား?</string>
     <string name="iris_delete_popup_message">မ်က္ဝန္း ေဒတာကုိ ဖယ္ရွားမလား?</string>
     <string name="iris_delete_popup_message_with_related_func">မ်က္ဝန္းမ်ားကို အသုံးျပဳေသာ အဂၤါရပ္မ်ားကို ပိတ္လုိက္ပါမည္။</string>
@@ -1949,7 +1963,7 @@ You will also need it when:"</string>
     <string name="iris_timeout_popop_title">ေနာက္မွ ထပ္ႀကိဳးစားပါ</string>
     <string name="iris_timeout_popop_message">မ်က္ဝန္းမ်ားကို မွတ္သားမထားပါ။ မ်က္ဝန္းဖတ္ ကင္မရာ ညစ္ေပေနႏိုင္သည္။ ဖန္သားျပင္ေပၚမွ ဧရိယာကို ရွင္းလင္းၿပီး ထပ္မံႀကိဳးစားပါ။</string>
     <string name="iris_timeout_popop_message_1">မ်က္ဝန္းဖတ္ ကင္မရာ ညစ္ေပေနႏိုင္သည္။ ဖန္သားျပင္ေပၚမွ ဧရိယာကို ရွင္းလင္ၿပီး ထပ္မံႀကိဳးစားပါ။</string>
-    <string name="iris_proximity_restriction_popop_message">မ်က္ဝန္းမ်ားကို မွတ္သားမထားပါ။ ဖုန္းသည္ မ်က္ႏွာခ်င္းဆိုင္ရန္ အလြန္နီးကပ္လြန္းေနသည္ သို႔မဟုတ္ နီးကပ္မႈ အာ႐ုံခံဆင္ဆာသည္ ညစ္ပတ္ေနျခင္းျဖစ္ႏုိင္သည္။ ဖန္သားျပင္ေပၚမွ ဧရိယာကို ရွင္းလင္းၿပီး ထပ္မံႀကိဳးစားပါ။</string>
+    <string name="iris_proximity_restriction_popop_message">သင့္ဖုန္းကုိ မ်က္ႏွာႏွင့္ အနည္းငယ္ ေဝးသည့္ေနရာတြင္ ကုိင္ထားၿပီးေနာက္ ထပ္မံႀကိဳးစားပါ။</string>
     <string name="iris_proximity_restriction_popop_message_1">"အနီးကပ္မႈ အာ႐ုံခံ ညစ္ေပေနႏိုင္ပါသည္။
 ဖန္သားျပင္ေပၚမွ ေနရာကို ရွင္းလင္းပါ။"</string>
     <string name="iris_try_again">ထပ္မံႀကိဳးစားပါ</string>
@@ -1957,6 +1971,8 @@ You will also need it when:"</string>
     <string name="iris_failed_to_verity_identify">သင့္ အေထာက္အထားကို စိစစ္၍မရပါ</string>
     <string name="iris_failed_popup_description">မ်က္ဝန္းပုံစံ စိစစ္ရာတြင္ %1$d ခါ ထည့္ထားၿပီးျဖစ္သည္။ %2$d စကၠန္႔အၾကာမွာ ထပ္မံႀကိဳးစားပါ။</string>
     <string name="iris_no_match">ကိုက္ညီသည့္အရာ မရွိပါ</string>
+    <string name="iris_eye_safety_msg">သင့္မ်က္ဝန္းမ်ားကုိ မွတ္သားထားျခင္း မရွိပါ။</string>
+    <string name="iris_timeout_msg">သင့္မ်က္ဝန္းမ်ားကုိ ရွာေဖြ မေတြ႕ရွိပါ။</string>
     <string name="biometrics_registered">မွတ္ပုံတင္ထားသည္</string>
     <string name="iris_turn_on_toast_message">လက္ေဗြရာျဖင့္ ေသာ့ခ်မႈအစား မ်က္ဝန္း ေသာ့ကို ဖြင့္ထားသည္။</string>
     <string name="iris_wrong_backup_password">မမွန္ေသာ အရံသိမ္း စကားဝွက္</string>
@@ -2148,6 +2164,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">ပင္မခလုတ္ႏွင့္ နာရီ (သုိ႔) အခ်က္အလက္ကုိ အရံသင့္ ဖန္သားျပင္ေပၚတြင္ ျပပါ။</string>
     <string name="aod_feature_off_popup_title">%s ကုိ ပိတ္မလား?</string>
     <string name="aod_feature_off_popup_description">%1$s ကုိသံုးရန္ %2$s ကုိ ပိတ္ရန္လုိသည္။</string>
+    <string name="aod_features_off_popup_title">အျခား လုပ္ေဆာင္ခ်က္မ်ားကုိ ပိတ္မလား?</string>
+    <string name="aod_features_off_popup_description">Always On Display ကုိသံုးရန္ ေအာက္ပါ လုပ္ေဆာင္ခ်က္မ်ားကုိ ပိတ္ထားရန္ လုိသည္ :</string>
     <string name="aod_features_off_popup_btn_ok">ပိတ္ရန္</string>
     <string name="aod_disable_by_negative_colors">နဂၢတစ္အေရာင္မ်ားကုိ ဖြင့္ထားစဥ္ သံုး၍မရပါ။</string>
     <string name="aod_disable_by_powersaving_mode">ပါဝါ ေခြ်တာေရး အေနအထားကုိ ဖြင့္ထားစဥ္ သံုး၍မရပါ။</string>
@@ -2171,6 +2189,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">အေရာင္ျခယ္ထားသည့္ အစက္ကေလးမ်ား</string>
     <string name="lock_screen_show_information_summary_wifi_only">ေသာ့ဖန္သားျပင္တြင္ ကိရိယာပိုင္ရွင္၏ အခ်က္အလက္ (သို႔) အက္ပ္အျမန္သုံးသေကၤတမ်ားျပသပါ။</string>
     <string name="lock_screen_sview_show_information_summary">ေသာ့ဖန္သားျပင္ႏွင့္ S View window မွတဆင့္ ႏွစ္မ်ိဳးျပနာရီ၊ ကိရိယာပိုင္ရွင္၏ အခ်က္အလက္ (သို႔) အက္ပ္အျမန္သုံးသေကၤတမ်ားျပသပါ။</string>
+    <string name="lock_screen_sview_show_information_summary_aod">အျခားကြန္ရက္သုံး နာရီ (သို႔) ဖုန္းပိုင္ရွင္၏ ဆက္သြယ္ရန္ အခ်က္အလက္ကို ေသာ့ဖန္သာျပင္ေပၚႏွင့္ S View ဝင္ဒိုးမွတဆင့္ ျပပါ။</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">အက္ပ္ၾကားျဖတ္မ်ားကို ေသာ့ဖန္သားျပင္ေပၚႏွင့္ S View ဝင္းဒိုးမွတဆင့္ ျပရန္အတြက္ ေ႐ြးပါ။</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">အသိေပးခ်က္မ်ားကို ေသာ့ဖန္သားျပင္ေပၚႏွင့္ S View ဝင္းဒိုးမွတဆင့္ ျပပါ။</string>
     <string name="lock_screen_and_cover_show_information_summary">ေသာ့ ဖန္သားျပင္ႏွင့္ ကလီးရား ဗ်ဴး အဖံုးမွတဆင့္ စံေတာ္ခ်ိန္ ႏွစ္မ်ဳိးျပ နာရီကို ျပပါ။</string>
     <string name="lock_screen_secured_lock_settings_title">စိတ္ခ်ရေသာ ေသာ့ခတ္ သတ္မွတ္ခ်က္မ်ား</string>
     <string name="lock_screen_secured_lock_settings_summary">အလိုအေလ်ာက္ ေသာ့၊ ပါဝါ ခလုတ္ႏွင့္ ခ်က္ခ်င္း ေသာ့ခ်ျခင္းတို႔ကဲ့သို႔ စိတ္ခ်ရေသာ သင္၏ ေသာ့ခ် လကၡဏာမ်ားကို သတ္မွတ္ပါ။</string>
@@ -2187,6 +2208,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">အိမ္အခ်ိန္ဇုန္</string>
     <string name="contact_info_settings_title">ဆက္သြယ္ရန္ အခ်က္အလက္</string>
     <string name="show_contact_info_on_lockscreen_label">ေသာ့ခတ္ဖန္သားျပင္တြင္ သင့္ဖုန္းနံပါတ္ သို႔မဟုတ္ အီးေမးလ္လိပ္စာ စသည့္အခ်က္အလက္တို႔ကို ျပသပါ။</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">ေသာ့ပိတ္ ဖန္သားျပင္ႏွင့္ Always On Display တြင္ သင့္ဖုန္းနံပါတ္ သို႔မဟုတ္ အီးေမးလ္လိပ္စာ စသည့္အခ်က္အလက္တို႔ကို ျပသပါ။</string>
     <string name="unlock_effect">ေသာ့ဖြင့္ အထူးျပဳလုပ္ခ်က္</string>
     <string name="walking_mate_title">ပီဒိုမီတာ</string>
     <string name="help_text_title">အကူအညီ စာသား</string>
@@ -2286,7 +2308,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="toast_set_lock_pattern">ပံုစံကုိ သင္ေမ့သြားပါက ေဒတာအားလံုးကုိ ဖ်က္ပစ္မည္ျဖစ္ၿပီး ဖုန္းကုိ ျပန္သတ္မွတ္ပါမည္။</string>
     <string name="toast_set_lock_password">စကားဝွက္ကို ေမ့သြားလွ်င္ ေဒတာအားလုံးကုိ ဖ်က္ပစ္မည္ျဖစ္ၿပီး ဖုန္းကို ျပန္လည္စတင္သတ္မွတ္ပါလိမ့္မည္။</string>
     <string name="toast_set_lock_pin">PIN ကို ေမ့သြားလွ်င္ ေဒတာအားလုံးကုိ ဖ်က္ပစ္မည္ျဖစ္ၿပီး ဖုန္းကို ျပန္လည္စတင္သတ္မွတ္ပါလိမ့္မည္။</string>
-    <string name="chooselock_warning_text">ဤ %s ကို မွတ္သားထားပါ။ ၎ကို ကိရိယာျပန္စတင္ၿပီးလွ်င္ လိုအပ္လာမည္။</string>
+    <string name="chooselock_warning_text">ဤ %s ကို မွတ္သားထားပါ။ သင့္ဖုန္းကို ပိတ္ၿပီး ျပန္ဖြင့္ၿပီးေနာက္တြင္ ၎ကိုလိုအပ္ပါမည္။</string>
     <string name="lockpassword_password_exists_history">စကားဝွက္အသစ္ျဖည့္ပါ</string>
     <string name="lockpassword_pin_repeating_nums">PIN တြင္ ျပန္ေက်ာ့သည့္ နံပါတ္မ်ား မပါရပါ။</string>
     <string name="lockpassword_pin_sequential_nums">PIN တြင္ ျပန္ေက်ာ့သည့္ နံပါတ္မ်ား အစဥ္လိုက္ မျဖစ္ေစရပါ။</string>
@@ -2340,7 +2362,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="pick_up_to_call_out_title">တုိက္ရိုက္ ေခၚမႈ</string>
     <string name="pick_up_title">စမတ္ အခ်က္ေပးသံ</string>
     <string name="mute_title">လြယ္ကူစြာ အသံေဖ်ာက္</string>
-    <string name="palm_swipe_title">ဖမ္းယူရန္ ပြတ္ဆြဲပါ</string>
+    <string name="palm_swipe_title">ဖမ္းယူရန္ ပြတ္ဆြဲျခင္း</string>
     <string name="screen_recorder_title">Record screen</string>
     <string name="screen_recorder_summary">Record video screenshots while you use your device.</string>
     <string name="multi_window_setting_title">ေပါ့အပ္ ၾကည့္႐ႈမႈ ေဆာင္ရြက္ခ်က္</string>
@@ -2404,6 +2426,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="data_usage_disable_mobile_warning_lgt">"Wi-Fi မသုံးပါက ေဒတာ ခ်ိတ္ဆက္မႈ လိုအပ္သည့္ အင္တာနက္၊ အီးေမးလ္ (သို႔) အျခား အက္ပ္မ်ား သုံးႏိုင္ေတာ့မည္ မဟုတ္ပါ။
 
 မိုဘိုင္း ေဒတာကို ပိတ္မည္။"</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Wi-Fi ကြန္ရက္ႏွင့္ မခ်ိတ္ဆက္ပါက ကြန္ရက္ ခ်ိတ္ဆက္မႈ လိုအပ္သည့္ အင္တာနက္၊ အီးေမးလ္ (သုိ႔) အျခား အက္ပ္မ်ား သင္ သံုးမရႏိုင္ပါ။</string>
@@ -2562,10 +2587,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">အသံအတိုးအက်ယ္ စိတ္ႀကိဳက္ ကန္႔သတ္</string>
     <string name="volume_limiter_descryption">မီဒီယာအတြက္ အျမင့္ဆံုး အသံကန္႔သတ္ခ်က္ကုိသာသံုးၿပီး သင့္နားမ်ားကုိ ကာကြယ္ပါ။ နားၾကပ္မ်ား (သုိ႔) ဘလူးတုသ္ ေအာ္ဒီယုိကိရိယာမ်ားကုိ သံုးစဥ္တြင္သာ ကန္႔သတ္ခ်က္ကုိ သံုးပါမည္။</string>
     <string name="multi_sound_title">အက္ပ္ အသံကို ခြဲျခားပါ</string>
-    <string name="multi_sound_summary">အက္ပ္တစ္ခုမွ အသံကို သင္၏ စက္ကိရိယာရွိ အျခားေသာ အသံမ်ားမွ ခြဲထုတ္၍ စပီကာေပၚတြင္ သို႔မဟုတ္ နားၾကပ္မ်ားတြင္ ဖြင့္ပါ။</string>
-    <string name="multi_sound_descryption">"အျခားအက္ပ္မ်ားထံမွ မီဒီယာအသံႏွင့္ သီးျခားခြဲထုတ္၍ စပီကာ (သို႔) နားၾကပ္ေပၚရွိ အက္ပ္တစ္ခုမွ မီဒီယာအသံကို ဖြင့္ပါ။
+    <string name="multi_sound_summary">သင့္ဖုန္း၏ ပင္မ ေအာ္ဒီယုိအထြက္ကိရိယာႏွင့္ မတူေသာ သီးျခား ေအာ္ဒီယုိကိရိယာတြင္ အက္ပ္တစ္ခုထံမွ မီဒီယာအသံကုိ ဖြင့္ပါ။</string>
+    <string name="multi_sound_descryption">"သင့္ဖုန္း၏ ပင္မ ေအာ္ဒီယုိအထြက္ကိရိယာႏွင့္ မတူေသာ သီးျခား ေအာ္ဒီယုိကိရိယာတြင္ အက္ပ္တစ္ခုထံမွ မီဒီယာအသံကုိ ဖြင့္ပါ။ ၎ကုိ ဖြင့္ရန္ အက္ပ္ႏွင့္ ေအာ္ဒီယုိကိရိယာ တစ္ခုကုိ ေရြးခ်ယ္ပါ။
 
-ဘလူးတုသ္ေအာ္ဒီယို ကိရိယာတစ္ခုကို ေ႐ြးေသာအခါ၊ ဘလူးတုသ္ကိရိယာျဖင့္ ခ်ိတ္ဆက္မေနပါက အသံကို မူရင္းပါပုံစံရွိသည့္ ေအာ္ဒီယိုကိရိယာတြင္ ဖြင့္ပါမည္။"</string>
+သင္ေရြးခ်ယ္ထားသည့္ ေအာ္ဒီယိုကိရိယာက သင့္ဖုန္း၏ အဓိက ေအာ္ဒီယုိအထြက္ကိရိယာႏွင့္ မတူညီသည့္အခါ သီးျခား အက္ပ္အသံကသာ အလုပ္လုပ္ပါသည္။
+
+အျမန္ သတ္မွတ္ခ်က္မ်ား ပန္နယ္ထဲတြင္ သင္ဖုန္း၏ ပင္မ ေအာ္ဒီယုိအထြက္ကိရိယာကုိ ေျပာင္းႏုိင္သည္။ ေအာ္ဒီယိုအထြက္ကုိ မျပသလွ်င္ ၎ကုိ Samsung Connect > သတ္မွတ္ခ်က္မ်ား > Samsung Connect ပန္နယ္ထဲတြင္ ဖြင့္ပါ။"</string>
     <string name="set_application_title">အက္ပ္</string>
     <string name="set_application_summary">အက္ပ္၏အသံကုိ သီျခား ေအာ္ဒီယို ကိရိယာတြင္ ဖြင့္ရန္ ေရြးပါ။</string>
     <string name="set_application_descryption">မာတီမီဒီယာတစ္ခု၏ အသံကို သီးျခားေအာ္ဒီယိုကိရိယာတစ္ခုတြင္ ဖြင့္ရန္အတြက္ ေ႐ြးခ်ယ္ပါ။</string>
@@ -2576,9 +2603,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="multi_sound_popup_msg">%s ကိုဖြင့္ရန္ အက္ပ္တစ္ခုႏွင့္ ေအာ္ဒီယို ကိရိယာတစ္ခုကို ေရြးခ်ယ္ရန္လိုအပ္ပါသည္။</string>
     <string name="multi_sound_network_msg">ရရွိႏိုင္ေသာ အက္ပ္မ်ားကို စစ္ေဆးရန္ သင့္ဖုန္းကုိ ကြန္ရက္ႏွင့္ ခ်ိတ္ဆက္ရန္ လုိသည္။ သင့္ကြန္ရက္ သတ္မွတ္ခ်က္မ်ားကုိ စစ္ေဆးၿပီး ျပန္ၾကိဳးစားပါ။</string>
     <string name="multi_sound_wifi_msg">သုံးႏိုင္ေသာ အက္ပ္မ်ားကို စစ္ၾကည့္ရန္၊ ဖုန္းကို ကြန္ယက္တစ္ခုျဖင့္ ခ်ိတ္ဆက္ရမည္။ မိုဘိုင္းေဒတာသုံးျခင္းသည္ ေနာက္ထပ္ အဖိုးအခမ်ား က်သင့္ႏိုင္သည္။</string>
+    <string name="multi_sound_add_application">အပလီေကးရွင္း ထည့္ပါ</string>
     <string name="dlg_btn_select">ေရြးခ်ယ္</string>
-    <string name="audio_device_type_descryption">ဤအက္ပ္အတြက္ သင္ အသံုးျပဳလုိသည့္ ေအာ္ဒီယို ကိရိယာအား ေရြးခ်ယ္ပါ။ ဘလူးတုသ္ စက္ကိရိယာမ်ားကုိ ခ်ိတ္ဆက္ထားမွသာလွ်င္ ၎တုိ႔ကုိ အသံုးျပဳႏုိင္ပါမည္။</string>
+    <string name="audio_device_type_descryption">ေရြးထားသည့္အက္ပ္အတြက္ သင္ အသံုးျပဳလုိသည့္ ေအာ္ဒီယို ကိရိယာအား ေရြးခ်ယ္ပါ။ ဘလူးတုသ္ စက္ကိရိယာမ်ားကုိ ခ်ိတ္ဆက္ထားမွသာလွ်င္ ၎တုိ႔ကုိ အသံုးျပဳႏုိင္ပါမည္။</string>
     <string name="my_phone_title">ဖုန္း</string>
+    <string name="my_phone_summary">စပီကာ/နားၾကပ္မ်ား/USB ေအာ္ဒီယုိ ကိရိယာ</string>
     <string name="bluetooth_device_title">ဘလူးတုသ္ ကိရိယာ</string>
     <string name="no_connected_devices">ခ်ိတ္ဆက္ထားေသာ ကိရိယာ မရွိပါ</string>
     <string name="two_hours">၂ နာရီ</string>
@@ -2586,7 +2615,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="stop_setup_popup_msg">သင္ေျပာင္းထားသည့္ သတ္မွတ္ခ်က္မ်ားအေပၚ သက္ေရာက္မည္ မဟုတ္ပါ။</string>
     <string name="app_turned_on">%s ပိတ္ထားၿပီးျဖစ္သည္။</string>
     <string name="force_touch_title">ခပ္ျပင္းျပင္းဖိႏွိပ္သည့္အခါ တုန္ခါမႈ တုန္႔ျပန္ခ်က္</string>
-    <string name="volume_key_control_title">မူရင္းပုံစံပါ အသံထိန္းကီးခလုတ္</string>
+    <string name="volume_key_control_title">မီဒီယာအတြက္ အသံတုိးက်ယ္ ခလုတ္မ်ားကုိ သံုးပါ</string>
+    <string name="volume_key_control_summary">အသံအတိုးအက်ယ္ခလုတ္မ်ားကို ႏွိပ္ျခင္းျဖင့္ မီဒီယာအသံကို ထိန္းခ်ဳပ္ပါ။</string>
     <string name="sound_mode">အသံ အေနအထား</string>
     <string name="sound_mode_vibrate">တုန္ခါမႈ</string>
     <string name="sound_mode_mute">အသံတိတ္</string>
@@ -2729,7 +2759,7 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="game_tools_title">Game Tools</string>
     <string name="game_tools_summary">ဂိမ္းမ်ားကစားစဥ္ ေရြ႕လ်ားခလုတ္ကုိ အဆင္ေျပေသာ အဂၤါရပ္မ်ားႏွင့္အတူ ျပသပါ။</string>
     <string name="print_download_subtitle">Play Store မွ ဝန္ေဆာင္မႈ ပူးတြဲပုံႏွိပ္တစ္ေစာင္ ေဒါင္းလုတ္လုပ္ပါ။</string>
-    <string name="safetycare_send_emergency_message_title">SOS မက္ေဆ့ခ်္မ်ား ပို႔ပါ</string>
+    <string name="safetycare_send_emergency_message_title">SOS မက္ေဆ့ခ်္မ်ား ပို႔ျခင္း</string>
     <string name="safetycare_sending_help_message">အေရးေပၚ မက္ေဆ့ခ်္မ်ားကို ပို႔ျခင္း</string>
     <string name="emergency_mode_title">အေရးေပၚ အေနအထား</string>
     <string name="safetycare_low_power_help_msg">အနည္းဆံုး မူလဖန္သားျပင္ အျပင္အဆင္တစ္ခု သံုးၿပီး သံုးႏိုင္ေသာ အပလီေကးရွင္း အေရအတြက္ ကန္႔သတ္ျခင္းျဖင့္ အေရးေပၚ အေနအထားက ဘက္ထရီအား ေခၽြတာသည္။</string>
@@ -2799,14 +2829,13 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="text_biometrics_title_enterprise">%1$s ကုိ ေရြးခ်ယ္သည့္အခါ %2$s အတြက္ ေသာ့ဖြင့္နည္းလမ္းအျဖစ္ ဇီဝရုပ္လကၡဏာမ်ားကုိ ပံ့ပုိးမေပးထားပါ။</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s အတြက္ ေသာ့ဖြင့္စနစ္တစ္ခုအျဖစ္ လက္ေဗြရာမ်ားကို %1$s မွ ပံ့ပိုးမထားပါ။</string>
     <string name="edge_feeds_title">Edge ေဖာ္ျပခ်က္မ်ား</string>
-    <string name="screensaver_settings_summary">"ကိရိယာကို ေဒါ့ခ္ ႏွင့္/သို႔မဟုတ္ အားသြင္းေနစဥ္ ျဖစ္ပ်က္သမၽွကို ထိန္းခ်ဳပ္ပါ။ ဖန္သားျပင္ေနာက္ခံပုံရိပ္ကို ဖန္သားျပင္ အခ်ိန္ေစ့ၿပီးေနာက္ ျပသသြားမည္။
-
-ဤလုပ္ေဆာင္ခ်က္ကို Daydream ဟုေခၚသည္။"</string>
-    <string name="screensaver_settings_summary_wo_dock">သင့္ဖုန္းအားသြင္းေနစဥ္ ဖန္သားျပင္ အလိုအေလ်ာက္ပိတ္သြားၿပီးေနာက္ ဖန္သားျပင္ေနာက္ခံပုံရိပ္တစ္ခု ျပသပါ။</string>
+    <string name="screensaver_settings_summary">သင့္ဖုန္းအားသြင္းေနစဥ္ ဖန္သားျပင္ အလိုအေလ်ာက္ပိတ္သြားၿပီးေနာက္ ဖန္သားျပင္ေနာက္ခံပုံရိပ္တစ္ခု ျပသပါ။</string>
+    <string name="screensaver_settings_summary_wo_dock">သင့္ဖုန္းကုိ ခ်ထားစဥ္ (သုိ႔) အားသြင္းေနစဥ္ ဖန္သားျပင္ အလိုအေလ်ာက္ပိတ္သြားၿပီးေနာက္ ဖန္သားျပင္ေနာက္ခံပုံရိပ္တစ္ခု ျပသပါ။</string>
     <string name="apn_already_exists">ရွိေနၿပီး</string>
     <string name="error_unavailable_apn">ဤကိရိယာေပၚမွာ APN ခြင့္မျပဳပါ။ ေက်းဇူးျပဳျပီး အျခားဟာကို ၾကိဳးစားပါ။</string>
     <string name="error_message_port_out_of_range">ပို႔တ္နံပါတ္မွာ %1$d ႏွင့္ %2$d အၾကား ရွိရမည္။</string>
     <string name="apn_restore_warning">သင္ထည့္ထားသည့္ APN မ်ားအားလုံးကို ဖယ္ရွားမည္။ အျခား APN မ်ားကို ၄င္းတို႔၏ မူရင္းပါသတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္သြားမည္။</string>
+    <string name="apn_restore_title">APN္ သတ္မွတ္ခ်က္မ်ားကုိ ျပန္သတ္မွတ္မလား?</string>
     <string name="master_clear_desc_google_account">Google account</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2818,7 +2847,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="sound_balance_summary">နားၾကပ္မ်ားျဖင့္ နားဆင္ရန္ ဘယ္ႏွင့္ညာ အသံကုိ ခ်ိန္ညႇိပါ။</string>
     <string name="backup_samsung_account_title">အရန္သိမ္းျခင္း ဆက္တင္မ်ား</string>
     <string name="restore_samsung_account_title">ျပန္ေဖၚထုတ္ပါ</string>
-    <string name="auto_restart_header">စက္ကိရိယာ စီမံခန္႔ခြဲမႈ</string>
+    <string name="auto_restart_header">ဖုန္းစီမံခန္႔ခြဲမႈ</string>
+    <string name="auto_restart_header_tablet">တက္ဘလက္ စီမံခန္႔ခြဲမႈ</string>
     <string name="auto_restart_title">အလိုလို ျပန္လည္စတင္မႈ</string>
     <string name="switch_turn_on_text">ဖြင့္ပါ</string>
     <string name="switch_turn_off_text">ပိတ္ပါ</string>
@@ -2941,7 +2971,15 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="tether_settings_summary_usb_bt">သင့္ ကိရိယာ၏ မိုဘိုင္း အခ်က္အလက္ ခ်ိတ္ဆက္မႈကို USB သို႔မဟုတ္ Bluetooth မွ တဆင့္ မွ်ေဝပါ။</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">လက္ခံပါသည္</string>
-    <string name="onehand_settings_title">လက္တစ္ဖက္သံုး အေနအထား</string>
+    <string name="bluetooth_tethering_off_subtext_phone">သင့္ဖုန္း၏ အင္တာနက္ခ်ိတ္ဆက္မႈကုိ ဘလူးတုသ္သံုးၿပီး မွ်ေဝပါ။</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">သင့္တက္ဘလက္၏ အင္တာနက္ခ်ိတ္ဆက္မႈကုိ ဘလူးတုသ္သံုးၿပီး မွ်ေဝပါ။</string>
+    <string name="bluetooth_tethering_available_subtext_phone">ဤဖုန္း၏ အင္တာနက္ခ်ိတ္ဆက္မႈကုိ မွ်ေဝရန္ အသင့္ျဖစ္ပါၿပီ။</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">ဤတက္ဘလက္၏ အင္တာနက္ခ်ိတ္ဆက္မႈကုိ မွ်ေဝရန္ အသင့္ျဖစ္ပါၿပီ။</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">သင့္ဖုန္း၏ အင္တာနက္ခ်ိတ္ဆက္မႈကုိ ကိရိယာ ၁ ခုႏွင့္အတူ မွ်ေဝထားသည္။</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">သင့္တက္ဘလက္၏ အင္တာနက္ခ်ိတ္ဆက္မႈကုိ ကိရိယာ ၁ ခုႏွင့္အတူ မွ်ေဝထားသည္။</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">သင့္ဖုန္း၏ အင္တာနက္ခ်ိတ္ဆက္မႈကုိ ကိရိယာ %d ခုႏွင့္အတူ မွ်ေဝထားသည္။</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">သင့္တက္ဘလက္၏ အင္တာနက္ခ်ိတ္ဆက္မႈကုိ ကိရိယာ %d ခုႏွင့္အတူ မွ်ေဝထားသည္။</string>
+    <string name="onehand_settings_title">လက္တစ္ဖက္ျဖင့္ လုပ္ေဆာင္မႈ</string>
     <string name="onehand_settings_text_1">ျမင္ကြင္းအရြယ္အစားကုိ ေလွ်ာ့ခ်ရန္ ဖန္သားျပင္၏ ေထာင့္တစ္ဖက္ဖက္မွ အေပၚသုိ႔ ေထာင့္ျဖတ္ ပြတ္ဆြဲပါ။</string>
     <string name="onehand_settings_text_2">ျပသအရြယ္အစားကုိ ေလွ်ာ့ခ်ရန္ ပင္မခလုတ္ကုိ ၃ ႀကိမ္ အျမန္ ႏွိပ္ပါ။</string>
     <string name="onehand_settings_text_2_hardkey">ျပသအရြယ္အစားကုိ ေလွ်ာ့ခ်ရန္ ပင္မခလုတ္ကုိ ၃ ႀကိမ္ အျမန္ႏွိပ္ပါ။</string>
@@ -3268,12 +3306,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">ပိတ္</string>
     <string name="wifi_or_mobile_network">Wi-Fi သို႔မဟုတ္ မိုဘိုင္းကြန္ယက္မ်ား</string>
     <string name="wifi_network_only">Wi-Fi ကြန္ယက္မွ်သာ</string>
+    <string name="wifi_adps_title">Wi-Fi ပါဝါ ေခြ်တာေရး အေနအထား</string>
+    <string name="wifi_adps_summary">Wi-Fi သံုးစြဲမႈ ပံုစံမ်ားကုိ အကဲျဖတ္ဆန္းစစ္ျခင္းျဖင့္ ဘက္ထရီသံုးစြဲမႈကုိ ေလွ်ာ့ခ်ပါ။</string>
     <string name="wifi_auto_reconnect">အလိုအေလ်ာက္ ျပန္လည္ခ်ိတ္ဆက္သည္</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">ဆက္လက္လုပ္ေဆာင္လိုပါသလား?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">မိုဘိုင္းေဟာ့စေပါ့ အလုပ္လုပ္အခါ Wi-Fi ပိတ္သြားပါမည္။ Wi-Fi ဖြင့္ရန္၊ မိုဘိုင္းေဟာ့စေပါ့ ပိတ္ပါ။</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">မိုဘိုင္းေဟာ့စေပါ့ကုိ ဖြင့္ထားသည့္အခါ Wi-Fi ကုိ ပိတ္လုိက္ပါသည္။ Wi-Fi ကုိ ဖြင့္ရန္ မိုဘိုင္းေဟာ့စေပါ့ကုိ ပိတ္ပါ။</string>
+    <string name="wifi_enable_warning_mtr">မိုဘိုင္းေဟာ့စေပါ့ကုိ ဖြင့္ထားသည့္အခါ Wi-Fi ကုိ ပိတ္လုိက္ပါသည္။ Wi-Fi ဖြင့္ရန္ မိုဘိုင္းေဟာ့စေပါ့ ပိတ္ပါ။</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">Wi-Fi ဖြင့္ျခင္းက မိုဘိုင္း ေဟာ့စေပါ့ကို မလုပ္ေစလိမ့္မည္။</string>
     <string name="wifi_control_history_title">Wi-Fi ထိန္းခ်ဳပ္မွတ္တမ္း</string>
@@ -3473,6 +3513,10 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_wps_pin_client_mobileap">သုံးသူေဖာက္သည္ကို PIN %1$s ျဖင့္ ခ်ိတ္ဆက္ရန္လုပ္ေနသည္။ တပ္ဆင္မႈ ၿပီးေျမာက္ေစရန္ %2$d မိနစ္အထိ ၾကာႏိုင္သည္။</string>
     <string name="wifi_wps_complete_mobileap">ယခုဆိုလွ်င္ အျခား ကိရိယာက သင့္ကိရိယာသို႔ ခ်ိတ္ဆက္ထားပါသည္။</string>
     <string name="wifi_ap_disconnect_warn">ကိရိယာ အဆက္ျဖတ္ပါ</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">လက္ရွိ ခ်ိတ္ဆက္ေနေသာ ကိရိယာအားလုံးတို႔အား မိုဘုိင္း ေဟာ့စေပါ့မွ ခ်ိတ္ဆက္ထာျခင္းကို ျဖတ္ပါလိမ့္မည္။</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">လက္ရွိ ခ်ိတ္ဆက္ေနေသာ ကိရိယာအားလုံးတို႔အား မိုဘုိင္း ေဟာ့စေပါ့မွ ခ်ိတ္ဆက္ထာျခင္းကို ျဖတ္ပါလိမ့္မည္။</string>
     <string name="wifi_ap_warn_max_whitelist">ခြင့္ျပဳထားေသာ ကိရိယာ အမ်ားဆံုး အေရအတြက္ (%d) ေရာက္ပါၿပီ။</string>
     <string name="wifiap_one_item_deleted">အိုင္တမ္ ၁ ခု ဖ်က္ပစ္မည္။</string>
@@ -3608,6 +3652,8 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_first_time_configuration">ေဟာ့စေပါ့ သီးသန္႔စီစဥ္ထားျခင္းပထမအၾကိမ္</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">မွန္ေသာ PIN ကို ထည့္ပါ။</string>
+    <string name="open_mobileap_warning">ဤမိုဘိုင္း AP ကစိတ္မခ်ရပါ။</string>
+    <string name="hidden_mobileap_warning">ေဖ်ာက္ထားေသာ SSID ကုိ အသံုးျပဳသူက သတ္မွတ္သည့္အခါ WPS ကုိ ပိတ္ပါမည္။</string>
     <string name="wifi_ssid_max_byte_error">အကၡရာ အေရအတြက္ အမ်ားဆံုးသို႔ ေရာက္ပါၿပီ။</string>
     <string name="tethering_attention_title">သတိ</string>
     <string name="wfd_select_device">ကိရိယာ ေရြးပါ</string>
@@ -3838,6 +3884,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">ခ်ိန္သားကုိက္မႈ</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">ဤခြင့္ျပဳခ်က္သည္ သင္အသံုးျပဳေနသည့္ အျခားအက္ပ္မ်ား အေပၚမွေန၍ ျပသခြင့္ကို အက္ပ္တစ္ခုအား ခြင့္ျပဳေပးသည္။ ၎သည္ အျခား အက္ပ္မ်ားအား အသံုးျပဳမႈကို အေႏွာင့္အယွက္ျဖစ္ႏိုင္ပါသည္။</string>
+    <string name="write_settings_body_description">ဘလူးတုသ္ကုိ ဖြင့္ (သုိ႔) ပိတ္ျခင္းကဲ့သုိ႔ စနစ္ သတ္မွတ္ခ်က္မ်ားကုိေျပာင္းရန္ ဤအက္ပ္ကုိ ခြင့္ျပဳပါ။</string>
+    <string name="reset_app_preferences_desc1">အတြက္ သင့္ဦးစားေပးမ်ားကုိ ယင္းက ျပန္သတ္မွတ္ပါမည္ :</string>
+    <string name="reset_app_preferences_desc2">ပိတ္ထားေသာ အက္ပ္မ်ား</string>
+    <string name="reset_app_preferences_desc3">အက္ပ္မ်ားအတြက္ သတိေပးခ်က္ ကန္႔သတ္ခ်က္မ်ား</string>
+    <string name="reset_app_preferences_desc4">မူရင္းပါပုံစံ အက္ပ္မ်ား</string>
+    <string name="reset_app_preferences_desc5">အက္ပ္မ်ားအတြက္ ေနာက္ခံေဒတာ ကန္႔သတ္ခ်က္မ်ား</string>
+    <string name="reset_app_preferences_desc6">ခြင့္ျပဳခ်က္ ကန္႔သတ္ခ်က္မ်ား</string>
+    <string name="reset_app_preferences_desc7">သင့္ရွိၿပီးသား အက္ပ္ေဒတာကုိ ဆံုးရံႈးမည္မဟုတ္ပါ။</string>
     <string name="knox_security_mode_title">Knox လံုျခံဳေရး</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">သီးသန္႔တည္ရွိေနမွဳ မူ၀ါဒ</string>
@@ -3852,6 +3906,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">သင့္ကုိယ္ေရးကုိယ္တာ အခ်က္အလက္မ်ားႏွင့္ Samsung account အေသးစိတ္အခ်က္မ်ားကုိ စီမံပါ။</string>
     <string name="my_profile_summary_jpn">သင့္ကုိယ္ေရးကုိယ္တာ အခ်က္အလက္မ်ားႏွင့္ Galaxy အေကာင့္ အေသးစိတ္မ်ားကုိ စီမံပါ။</string>
     <string name="arbitration_agreement">ခုံသမာဓိ စီရင္ခြင့္သေဘာတူခ်က္</string>
+    <string name="activation_title">သက္ဝင္ေအာင္လုပ္သည့္ အေျခအေန</string>
+    <string name="activation_summary">%1$s တြင္ သက္ဝင္ေအာင္ လုပ္ထားသည္။ ေနာက္ထပ္ အခ်က္အလက္မ်ားကုိ သိရွိရန္ %2$s သုိ႔ သြားေရာက္ပါ။</string>
+    <string name="wifi_ap_pmf_on">PMF ဖြင့္</string>
+    <string name="edit_event_start_short">စတင္ပါ</string>
+    <string name="edit_event_end_short">ၿပီးပါၿပီ</string>
+    <string name="select_date_to_view">ၾကည့္ရန္ ရက္စြဲ ေရြးပါ</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">ဟုတ္ကဲ့</string>
     <string name="no">မဟုတ္ပါ</string>
     <string name="create">ဖန္တီးပါ</string>
@@ -5323,7 +5384,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="app_notification_block_title">သတိေပးခ်က္မ်ား ခြင့္ျပဳပါ</string>
     <string name="app_notification_block_summary">ဤအက္ပ္မွ အသိေပးခ်က္ မက္ေဆ့ခ္်မ်ား၊ အသံမ်ားႏွင့္ တုန္ခါမႈ အပါအဝင္ သတိေပးခ်က္မ်ားလက္ခံပါ။</string>
     <string name="app_notification_override_dnd_title">ဦးစားေပးအျဖစ္ ထားပါ</string>
-    <string name="app_notification_override_dnd_summary">မေႏွာင့္ယွက္ပါႏွင့္ကို ဖြင့္ထားစဥ္အတြင္း ဤအက္ပ္ထံမွ သတိေပးခ်က္မ်ားကို အသံျမည္ေစရန္ႏွင့္ ဖန္သားျပင္ကို ဖြင့္ရန္အတြက္ ခြင့္ေပးပါ။</string>
+    <string name="app_notification_override_dnd_summary">သတိေပးခ်က္မ်ားကို သတိေပးခ်က္ ပင္နယ္၏ ထိပ္ဆံုးမွာ ျပသ၍ မေႏွာက္ယွက္ပါႏွင့္ အေနအထားကို ဖြင့္ထားစဥ္တြင္း ၄င္းတို႔ကို ခြင့္ျပဳပါ စာရင္းမွာ ထည့္ထားပါ။</string>
     <string name="app_notification_visibility_override_title">ေသာ့ခ်ထားေသာစခရင္</string>
     <string name="app_notifications_dialog_done">ၿပီးပါၿပီ</string>
     <string name="zen_mode_choose_rule_type">သတ္မွတ္စနစ္ပုံစံကို ေ႐ြးပါ</string>
@@ -5360,6 +5421,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="restr_pin_enter_admin_pin">စီမံခန္႔ခြဲသူ PIN ကို ထည့္သြင္းပါ</string>
     <string name="switch_on_text">ဖြင့္</string>
     <string name="switch_off_text">ပိတ္</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">ဤအလုပ္ပရုိဖုိင္ကုိ စီမံခန္႔ခြဲသူမွာ :</string>
     <string name="managing_admin">%s မွ စီမံခန္႔ခြဲသည္</string>
     <string name="display_auto_rotate_title">ဖုန္းမ်က္နွာျပင္ လွည့္လည္ျခင္း</string>
     <string name="display_auto_rotate_rotate">ဖန္သားျပင္ ပါဝင္သည့္အရာကို လွည့္ပါ</string>
@@ -5396,9 +5458,9 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="encrypt_talkback_dialog_require_pin">PIN လိုအပ္ပါသည္</string>
     <string name="encrypt_talkback_dialog_require_pattern">ပုံစံ လိုအပ္ပါသည္</string>
     <string name="encrypt_talkback_dialog_require_password">စကားဝွက္ လိုအပ္ပါသည္</string>
-    <string name="encrypt_talkback_dialog_message_pin">ကိရိယာ ပါဝါ ဖြင့္ၿပီးေနာက္ သင့္ PIN နံပါတ္ ထည့္သြင္းသည့္အခါ %1$s ကဲ့သို႔ေသာ သုံးခြင့္ရမႈ လုပ္ေဆာင္ခ်က္တို႔ကို ယာယီ ပိတ္သြားမည္။</string>
-    <string name="encrypt_talkback_dialog_message_pattern">ကိရိယာ ပါဝါ ဖြင့္ၿပီးေနာက္ သင့္ပုံစံ ေရးဆြဲသည့္အခါ %1$s ကဲ့သို႔ေသာ သုံးခြင့္ရမႈ လုပ္ေဆာင္ခ်က္တို႔ကို ယာယီ ပိတ္သြားမည္။</string>
-    <string name="encrypt_talkback_dialog_message_password">ကိရိယာ ပါဝါ ဖြင့္ၿပီးေနာက္ သင့္စကားဝွက္ ထည့္သြင္းသည့္အခါ %1$s ကဲ့သို႔ေသာ သုံးခြင့္ရမႈ လုပ္ေဆာင္ခ်က္တို႔ကို ယာယီ ပိတ္သြားမည္။</string>
+    <string name="encrypt_talkback_dialog_message_pin">ကိရိယာ ပါဝါဖြင့္သည့္အခါ PIN လိုအပ္ပါမည္။ ကိရိယာ စတင္မႈမျပဳမျခင္း သုံးခြင့္ရႏိုင္စြမ္း လုပ္ေဆာင္ခ်က္မ်ား ရရွိမည္မဟုတ္ပါ။</string>
+    <string name="encrypt_talkback_dialog_message_pattern">ကိရိယာ ပါဝါဖြင့္သည့္အခါ ပုံစံ လိုအပ္ပါမည္။ ကိရိယာ စတင္မႈမျပဳမျခင္း သုံးခြင့္ရႏိုင္စြမ္း လုပ္ေဆာင္ခ်က္မ်ား ရရွိမည္မဟုတ္ပါ။</string>
+    <string name="encrypt_talkback_dialog_message_password">ကိရိယာ ပါဝါဖြင့္သည့္အခါ စကားဝွက္ လိုအပ္ပါမည္။ ကိရိယာ စတင္မႈမျပဳမျခင္း သုံးခြင့္ရႏိုင္စြမ္း လုပ္ေဆာင္ခ်က္မ်ား ရရွိမည္မဟုတ္ပါ။</string>
     <string name="slot_number">(ထည့္ရန္ေနရာ %d)</string>
     <string name="app_launch_domain_links_title">အက္ပ္ လင့္ခ္မ်ား</string>
     <string name="app_launch_open_domain_urls_title">ပံ့ပိုးထားသည့္ URL မ်ားသို႔သြားပါ</string>
@@ -5474,18 +5536,18 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="usb_use_power_only">ခ်ိတ္ဆက္ထားေသာ စက္ကို အားသြင္းပါ</string>
     <string name="usb_use_power_only_desc">USB မွတဆင့္ ခ်ိတ္ဆက္ထားသည့္ ကိရိယာကိုအားသြင္းပါ။</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">မီဒီယာဖုိင္မ်ားကုိ လႊဲေျပာင္းပါ</string>
+    <string name="usb_use_file_transfers">ဖိုင္မ်ား လႊဲေျပာင္းပါ</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">ပုံမ်ားကို လႊဲေျပာင္းပါ</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">မီဒီယာဖုိင္မ်ားကုိ လႊဲေျပာင္းပါ အလုပ္မလုပ္လွ်င္ ဤအေနအထားကို ေရြးခ်ယ္ပါ။ သင္သည္ ပုံဖိုင္မ်ားကိုသာ လႊဲေျပာင္းႏိုင္ပါသည္။</string>
+    <string name="usb_use_photo_transfers_summary">ဖုိင္မ်ားကုိ လႊဲေျပာင္းပါ အလုပ္မလုပ္လွ်င္ ဤအေနအထားကို ေရြးခ်ယ္ပါ။ ဤအေနအထားတြင္ ပံုဖုိင္မ်ားကုိသာ လႊဲေျပာင္းႏုိင္သည္။</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">MIDI ကိရိယာတစ္ခုသို႔ ခ်ိတ္ဆက္ပါ</string>
-    <string name="usb_use">USB အသံုးျပဳရန္မွာ</string>
-    <string name="assist_access_context_title">ဖန္သားျပင္ေပၚရွိ စာသားကို ဖတ္႐ႈပါ</string>
-    <string name="assist_access_context_summary">ကိရိယာေပၚတြင္ ျပသထားသည့္ မည္သည့္စာသားကိုမဆို ဖတ္႐ႈရန္ ကိရိယာအေထာက္အကူအက္ပ္ကို ခြင့္ျပဳပါ။</string>
-    <string name="assist_access_screenshot_title">စခရင္ေရွာ့မ်ား ရုိက္ပါ/ဝင္သံုးပါ</string>
-    <string name="assist_access_screenshot_summary">ဖန္သားျပင္႐ိုက္ခ်က္မ်ားကို ႐ိုက္ယူရန္ႏွင့္ သုံးခြင့္ရရန္ ကိရိယာအေထာက္အကူအက္ပ္ကို ခြင့္ျပဳပါ။</string>
+    <string name="usb_use">လုပ္ရန္ USB ကိုအသုံးျပဳပါ</string>
+    <string name="assist_access_context_title">ဖန္သားျပင္ေပၚရွိ စာသားကုိ ေလ့လာဆန္းစစ္ပါ</string>
+    <string name="assist_access_context_summary">ဆက္စပ္ အေၾကာင္းအရာကုိ ပံ့ပုိးရန္ ကိရိယာေထာက္ကူအက္ပ္ကုိ ဖန္သားျပင္ေပၚတြင္ ျပထားသည့္ စာသားအား ေလ့လာဆန္းစစ္ခြင့္ျပဳပါ။</string>
+    <string name="assist_access_screenshot_title">ဖန္သားျပင္ေပၚရွိ ပံုမ်ားကုိ ေလ့လာဆန္းစစ္ပါ</string>
+    <string name="assist_access_screenshot_summary">ကိရိယာေထာက္ကူအက္ပ္ကုိ ဖန္သားျပင္၏ ပံုမ်ားယူၿပီး အသံုးျပဳခြင့္ေပးပါ။</string>
     <string name="assist_footer">ကိရိယာအေထာက္အကူအက္ပ္မ်ားသည္ သင့္ဖုန္းတြင္ လက္ရွိျပသထားသည့္ ဖန္သားျပင္မွ အခ်က္အလက္မ်ားကုိ စုေဆာင္းျခင္းျဖင့္ သင့္ကိုေထာက္ကူေပးႏိုင္သည္။ ဘက္စုံအေထာက္အကူျဖင့္ သင့္ကို စီစဥ္ေဆာင္႐ြက္ေပးၿပီး အျခားအက္ပ္မ်ားဖြင့္ရန္ႏွင့္ အသံထည့္သြင္းမႈကိုအသုံးျပဳ၍ စာသားထည့္သြင္းရန္ အခ်ိဳ႕ေသာကိရိယာအေထာက္အကူအက္ပ္မ်ားကုိ အသုံးျပဳႏိုင္သည္။</string>
     <string name="average_memory_use">ပ်မ္းမၽွ RAM အသုံးျပဳမႈ</string>
     <string name="maximum_memory_use">အမ်ားဆုံး RAM အသုံးျပဳမႈ</string>
@@ -5514,7 +5576,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ignore_optimizations_on_desc">ဘက္ထရီစားသုံးမႈကို တိုးျမင့္ေစႏိုင္သည္</string>
     <string name="ignore_optimizations_off_desc">ဘက္ထရီပါဝါေခၽြတာရန္ အႀကံျပဳထားသည္</string>
     <string name="app_list_preference_none">မရွိ</string>
-    <string name="allow_overlay_description">အက္ပ္ခလုတ္မ်ားကို ခြင့္ျပဳရန္ ၎တို႔ကိုေ႐ြးခ်ယ္ပါ (သို႔) သင္အသုံးျပဳေနသည့္ အျခားအက္ပ္မ်ားတြင္ေပၚလာေစရန္ အျခားေသာအေျခခံသေဘာတရားမ်ားကို ေ႐ြးခ်ယ္ပါ။</string>
+    <string name="allow_overlay_description">ဤခြင့္ျပဳခ်က္သည္ သင္အသံုးျပဳေနသည့္ အျခားအက္ပ္မ်ား အေပၚမွေန၍ ျပသခြင့္ကို အက္ပ္တစ္ခုအား ခြင့္ျပဳေပးသည္။ ၎သည္ အျခား အက္ပ္မ်ားအား အသံုးျပဳမႈကို အေႏွာင့္အယွက္ျဖစ္ႏိုင္ပါသည္။</string>
     <string name="overlay_settings">အက္ပ္မ်ားသည္ အေပၚတြင္ေပၚလာေစရန္ ျပဳလုပ္ႏိုင္သည္</string>
     <string name="filter_overlay_apps">ခြင့္ျပဳခ်က္မ်ားႏွင့္ အက္ပ္မ်ား</string>
     <string name="filter_write_settings_apps">ခြင့္ျပဳခ်က္မ်ားႏွင့္ အက္ပ္မ်ား</string>
@@ -5561,14 +5623,14 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ethernet_data_template">အီတာနက္ေဒတာ၏ %1$s</string>
     <string name="cell_warning_only">%s ၌ေဒတာသတိေပးမႈ</string>
     <string name="cell_warning_and_limit">%1$s ေဒတာအသုံးျပဳမႈ သတိေပးခ်က္/%2$s ေဒတာအသုံးျပဳမႈ ကန္႔သတ္ပမာဏ</string>
-    <string name="billing_cycle">ဘီလ္ပို႔အပတ္</string>
+    <string name="billing_cycle">ေငြေတာင္းခံသည့္ ကာလစက္ဝန္းႏွင့္ ေဒတာ သတိေပးခ်က္</string>
     <string name="billing_cycle_summary">လအသီးသီး၏ %s ရက္ေန႔</string>
     <string name="billing_cycle_fragment_summary">လအသီးသီး၏ %s ရက္ေန႔</string>
     <string name="network_restrictions">ကြန္ယက္မ်ား ကန္႔သတ္ပါ</string>
     <string name="operator_warning">ေဒတာအသုံးျပဳမႈကို သင့္ကိရိယာျဖင့္ တိုင္းတာပါသည္။ သင့္အတြက္ ဝန္ေဆာင္မႈ စီစဥ္ေပးသူကသာ အသုံးျပဳမႈကို ကြဲျပားေစေသာ အေၾကာင္းရင္းျဖစ္ႏိုင္သည္။</string>
     <string name="data_used_template">%s အသုံးျပဳထားသည္</string>
     <string name="data_warning">ေဒတာသတိေပးခ်က္</string>
-    <string name="set_data_limit">ေဒတာ အကန္႔အသတ္</string>
+    <string name="set_data_limit">ေဒတာ ကန္႔သတ္ခ်က္ကုိ သတ္မွတ္ပါ</string>
     <string name="data_limit">ေဒတာ အကန္႔အသတ္</string>
     <string name="data_usage_template">%1$s ကိ %2$s ၾကား၌ အသုံးျပဳထားသည္</string>
     <string name="data_usage_other_apps">သက္ဆိုင္ေသာ အက္ပ္မ်ားကို အသုံးျပဳမႈထဲ၌ ထည့္ထားသည္</string>
@@ -5610,5 +5672,4 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="enable_iris_lock_desc_3">"လက္ရွိတြင္ လက္ေဗြရာမ်ားကို ဖန္သားျပင္ေသာ့ အမ်ိဳးအစားအျဖစ္ သတ္မွတ္ထားသည္။
 
 ဖန္သားျပင္ေသာ့ အမ်ိဳးအစားကို လက္ေဗြရာမ်ားအစား မ်က္ဝန္းမ်ားအျဖစ္ သတ္မွတ္ရန္ “ဖြင့္ပါ” ကိုႏွိပ္ပါ။ ထို႔ေနာက္ ဤကိရိယာကို သင့္မ်က္ဝန္းမ်ား (သို႔) %s အသုံးျပဳၿပီး ေသာ့ဖြင့္ႏိုင္ပါသည္။"</string>
-    <string name="my_phone_summary">စပီကာ/နားၾကပ္မ်ား/USB ေအာ္ဒီယုိ ကိရိယာ</string>
 </resources>

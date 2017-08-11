@@ -172,7 +172,7 @@
 
     iput v1, p0, Lcom/android/settings/ApnPreference;->mSimSlot:I
 
-    const v0, 0x7f040031
+    const v0, 0x7f040032
 
     invoke-virtual {p0, v0}, Lcom/android/settings/ApnPreference;->setLayoutResource(I)V
 

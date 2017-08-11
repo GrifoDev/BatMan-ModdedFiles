@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="battery_history_hours_no_seconds">%1$ds %2$dd</string>
-    <string name="battery_history_minutes_no_seconds">%dd</string>
+    <string name="battery_history_minutes_no_seconds">%d d</string>
     <string name="wifi_fail_to_scan">Şəbəkə axtarmaq olmur</string>
     <string name="wifi_failed_to_obtain_IP">IP ünvanın əldə edilməsi alınmadı.</string>
     <string name="wifi_security_none">Yoxdur</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s-a qoşulmaq olmadı.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s-a qoşulmaq olmur. Parametrlərinizi %2$s-də yoxlayın və yenidən cəhd edin.</string>
     <string name="bluetooth_pairing_rejected_error_message">Qoşma %s tərəfindən rədd edildi.</string>
+    <string name="bluetooth_getting_remote_device_name">Cihazın adı əldə edilir…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Cihazın adı cihaz qoşulduqda görünəcək.</string>
     <string name="accessibility_wifi_off">Wifi sönülüdür.</string>
     <string name="accessibility_no_wifi">Wifi bağlantı kəsildi.</string>
     <string name="accessibility_wifi_one_bar">Wifi bir xətdir.</string>
@@ -386,7 +388,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Dəstək</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth və başqa şəbəkələri defolt vəziyyətinə bərpa et.</string>
     <string name="master_clear_list_summary">Cihazı defolt parametrlərinə sıfırla. Bu, fayllar və yüklənmiş proqramlar daxil olmaqla bütün məlumatları siləcək.</string>
-    <string name="auto_restart_summary">Cihazınızı qurulan vaxtlarda söndürüb yandırmaq üçün cihazınızı optimallaşdırın. Hər hansı saxlanmamış məlumat cihaz söndürülüb yandırılan zaman itəcək.</string>
+    <string name="auto_restart_summary">Telefonu həftədə bir dəfə söndürüb yandırmaqla optimallaşdırın. Hər hansı yadda saxlanmamış məlumat telefon söndürülüb yandırılan zaman itəcək.</string>
+    <string name="auto_restart_summary_tablet">Tableti həftədə bir dəfə söndürüb yandırmaqla optimallaşdırın. Hər hansı yadda saxlanmamış məlumat tablet söndürülüb yandırılan zaman itəcək.</string>
     <string name="search_settings">Axtar</string>
     <string name="related_results">%d əlaqədar element</string>
     <string name="no_results_found">Nəticə tapılmadı</string>
@@ -456,7 +459,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Səs balansı sağa %d faizdir. Sürüngəci çəkmək üçün iki barmağınızdan istifadə edin.</string>
     <string name="sound_balance_set">Qur</string>
     <string name="accessibility_assistant_menu">Köməkçi menyu</string>
-    <string name="assistant_menu_summary">Cihazın fiziki məhdudiyyətləri olan istifadəçilər üçün funksiyalarını aktiv edir.</string>
+    <string name="assistant_menu_summary">Zəif çevik istifadəçilər üçün telefona çıxışı yaxşılaşdır.</string>
     <string name="color_blind_title">Rəng tənzimləməsi</string>
     <string name="no_result">Displeyi oxumaqda çətinlik çəksəniz, ekran rənglərini tənzimləyin.</string>
     <string name="you_are_normal">Rəng tənzimləməsi zəruri deyil.</string>
@@ -652,6 +655,7 @@ Bu funksiya aktiv olan zaman Ekranın avtomatik fırlanması qeyri-aktiv olacaq.
     <string name="direct_access_actions_accessibility_title">Xüsusi imkanlar</string>
     <string name="direct_access_actions_negative_title">Neqativ rənglər</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Birbaşa çıxış və Ekran ölçüsünün kiçildilməsi eyni zamanda aktiv edilə bilməz. Ekranın ölçüsünün kiçildilməsi qeyri-aktiv ediləcək.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s və %2$s eyni anda aktivləşdirilə bilməz. %3$s qeyri-aktiv ediləcəkdir.</string>
     <string name="direct_access_actions_color_adjustment_summary">Birbaşa Çıxışda istifadə etmək üçün Rəng tənzimləməsini Görünüşdə qur</string>
     <string name="direct_access_actions_screen_reader_summary">Səhifə oxuyucusundan Birbaşa çıxışda istifadə etmək üçün onu aktivləşdirin.</string>
     <string name="direct_access_actions_accesscontrol_title">Əlaqəyə nəzarət</string>
@@ -849,7 +853,9 @@ Wi-Fi və Bluetooth da sönəcək, lakin onları Parametrlər və ya cəld param
     <string name="premium_sms_values_ask">Soruş</string>
     <string name="premium_sms_values_never">Heç vaxt icazə vermə</string>
     <string name="premium_sms_values_allow">Həmişə icazə ver</string>
-    <string name="assist_and_voice_input_summary">Cihaz köməkçisi proqramları hər ekran barədə daha çox seçim və məlumat təmin edir.</string>
+    <string name="assist_and_voice_input_summary">Əsas ekran düyməsinə toxunub saxladıqda istifadə edilməli proqramı seçin.</string>
+    <string name="assist_footer_phone">Əsas ekran düyməsinə toxunub saxladıqda istifadə edilməli proqramı seçin. Cihaz köməkçi proqramları sizə hazırda telefonda görünən ekrandan məlumat toplamağa kömək edə bilər.</string>
+    <string name="assist_footer_tablet">Əsas ekran düyməsinə toxunub saxladıqda istifadə edilməli proqramı seçin. Cihaz köməkçi proqramları sizə hazırda tabletdə görünən ekrandan məlumat toplamağa kömək edə bilər.</string>
     <string name="default_app_title">Defolt kimi qur</string>
     <string name="premium_sms_title">Premium SMS göndər</string>
     <string name="default_app_selection">Defolt proqram seçimi</string>
@@ -938,7 +944,7 @@ Siz bunu daha sonra Bluetooth parametrlərindən dəyişə bilərsiniz."</string
 
 2 qoşulmuş cihaz səs çıxışında azca fərq yarada bilər."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Media səs sinx sönsün?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">İkili audiodan istifadə etmək üçün Media səs sinxronlaşması sönməlidir.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Hər audii cihazında ayrıca səsi idarə etmək üçün Media səsinin sinx sönməlidir.</string>
     <string name="bluetooth_avc_title">Media səs sinx</string>
     <string name="bluetooth_avc_description">Qoşulan Bluetooth cihazı telefonun media səsini idarə edə bilərsə, Bluetooth cihazı tərəfindən qurulan səs səviyyəsi telefonunuzu sinxronlaşdıracaq.</string>
     <string name="bluetooth_avc_volume_change_description">Bu funksiyanın yandırılması gözlənilməz həcm dəyişikliyinə səbəb ola bilər.</string>
@@ -947,6 +953,7 @@ Siz bunu daha sonra Bluetooth parametrlərindən dəyişə bilərsiniz."</string
     <string name="bluetooth_avc_ask_popup_title">İkili audio sönsün?</string>
     <string name="bluetooth_avc_ask_popup_content">Media səs sinxronlaşmasından istifadə etmək üçün İkili audio sönməlidir.</string>
     <string name="bluetooth_avc_disable_description">Qoşulan Bluetooth cihazı Media səs sinx dəstəkləmir. Siz telefonun səsini qoşulan Bluetooth cihazı ilə sinxronlaşdıra bilməzsiniz.</string>
+    <string name="bluetooth_avc_available_description">Qoşulan Bluetooth cihazı Media səs sinx dəstəkləyir və Bluetooth cihazı ilə qurulan səs səviyyəsi telefonda sinxronlaşacaq.</string>
     <string name="bluetooth_enter_pin_msg">%s ilə qoşmaq üçün PIN daxil et (0000 və ya 1234 daxil et).</string>
     <string name="bluetooth_pin_maximum_number_message">Simvolların sayı maksimuma çatıb.</string>
     <string name="settings_menu_done">Yerinə yetirildi</string>
@@ -1030,11 +1037,12 @@ Hətta ağıllı çəkim qeyri-aktiv edilən zaman Hava əmri ilə onun funksiya
     <string name="swipe_to_call_title">Zəng et və msj gönd üç sürüşdür</string>
     <string name="swipe_to_call_summary">Telefon, Kontaktlar və ya Mesajlarda kontakt və ya nömrəyə zəng etmək üçün sağa, mesaj göndərmək üçün isə sola sürüşdürün.</string>
     <string name="swipe_to_call_summary_dcm">Yığım, Kontaktlar və ya Mesajlarda kontakt və ya nömrəyə zəng etmək üçün sağa, mesaj göndərmək üçün isə sola sürüşdürün.</string>
-    <string name="swipe_to_call_summary_kddi">Telefon və ya Kontaktlarda kontakt və ya nömrəyə zəng etmək üçün sağa, mesaj göndərmək üçün isə sola sürüşdürün.</string>
+    <string name="swipe_to_call_summary_kddi">Yığım və ya Kontaktlarda kontakt və ya nömrəyə zəng etmək üçün sağa, mesaj göndərmək üçün isə sola sürüşdürün.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">Eyni proqram üçün iki ayrı hesabdan istifadə et.</string>
     <string name="finger_sensor_gesture_title">Barmaq sensor jestləri</string>
     <string name="finger_sensor_gesture_summary">Barmaq izi sensoru ilə proqram və funksiyaları açın və bağlayın.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Barmaq izi sensoru ilə bildiriş panelini açın və bağlayın.</string>
     <string name="finger_sensor_gesture_description">Bildiriş panelini açmaq və ya bağlamaq üçün barmaq izi sensorunda yuxarı və ya aşağı sürüşdürün.</string>
     <string name="open_samsung_pay_title">Samsung Pay-i aç</string>
     <string name="open_samsung_pay_summary">Əsas ekrandan barmaq izi sensorunda sürüşdürün və Samsung Pay-i açın.</string>
@@ -1069,6 +1077,7 @@ Hətta ağıllı çəkim qeyri-aktiv edilən zaman Hava əmri ilə onun funksiya
 %s"</string>
     <string name="enable_ps_title">Aktiv et: %s</string>
     <string name="setup_wizard">Quraşdırma ustası</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normal</string>
     <string name="large">Geniş</string>
     <string name="small">Kiçik</string>
@@ -1214,7 +1223,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Wi-Fi şəbəkəsinə qoşulan zaman proqram yeniləmələrini avtomatik yükləyin. Siz yenə də yükləmə zamanı cihazdan istifadə edə biləcəksiniz.</string>
     <string name="auto_update_over_wifi">Wi-Fi ilə avtomatik yüklə</string>
     <string name="auto_update_over_wifi_summary">Wi-Fi şəbəkəsinə qoşulan zaman proqram yeniləmələrini avtomatik yükləyin. Xidmət təminatçısından asılı olaraq yeniləmələr əlavə xərc olmadan mobil data ilə yüklənə bilər. Yükləmə zamanı yenə də telefonunuzdan istifadə edə biləcəksiniz.</string>
-    <string name="scheduled_update">Planlaşd proqram yeniləmələri</string>
+    <string name="scheduled_update">Planlaşdırılmış proqram yeniləmələri</string>
     <string name="scheduled_update_summary_default">Söndür</string>
     <string name="scheduled_update_summary_set_time">Yeniləmə %s-də başlayacaq</string>
     <string name="scheduled_update_summary_set_time_everyday">Yeniləmə hər gün %s-də başlayacaq</string>
@@ -1416,6 +1425,7 @@ Parlaqlığın təhlükəsizlik ssəviyyələrindən artmasına icazə vermək �
     <string name="navigationbar_summary">Əsas, Geri və Sonuncular düymələrini idarə et.</string>
     <string name="navigationbar_theme_switch">Cari mövzunu tətbiq et</string>
     <string name="navigationbar_color_title">Fon rəngi</string>
+    <string name="navigationbar_color_summary">Seçdiyiniz fon rəngi bütün proqramlara tətbiq edilə bilməz.</string>
     <string name="navigationbar_order_title">Düymə tərtibatı</string>
     <string name="navigationbar_order_default">Sonunc - Əsas ekr - Geri</string>
     <string name="navigationbar_order_mirrored">Geri - Əsas ekr - Sonuncul</string>
@@ -1447,7 +1457,8 @@ Parlaqlığın təhlükəsizlik ssəviyyələrindən artmasına icazə vermək �
     <string name="blue_light_filter_enable_now">İndi yandır</string>
     <string name="blue_light_filter_enable_as_scheduled">Planlaşdırılan kimi yandır</string>
     <string name="blue_light_filter_scheduled_toast">Mavi işıq filtri yanılıdır. O, planlaşdırılan bitmə vaxtında avtomatik qeyri-aktiv ediləcəkdir.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s və Mavi işıq filtri eyni anda istifadə edilə bilməz. Mavi işıq filtri qeyri-aktiv ediləcək.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Mavi işıq filtri sönsün?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s-dən istifadə etmək üçün Mavi işıq filtri söndürülməlidir.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Gün batımından gün çıxışınadək istifadə etmək üçün Məkan yandırılmalıdır.</string>
     <string name="dlg_turn_on">Yandır</string>
     <string name="screen_resolution_title">Ekran ölçüsü</string>
@@ -1461,7 +1472,7 @@ Parlaqlığın təhlükəsizlik ssəviyyələrindən artmasına icazə vermək �
     <string name="outdoor_mode_summary_vzw">Outdoor mode will maximize screen brightness for best viewing in sunlight. If the screen is not in use, screen brightness will return to the previous setting in 15 minutes.</string>
     <string name="screen_zoom_and_font">Ekranın miqyası və şrifti</string>
     <string name="screen_zoom_easymode_desc">Ekran miqyasından istifadə etmək üçün Asan rejimi söndür.</string>
-    <string name="intelligent_sleep_title">Ağıllı qalma</string>
+    <string name="intelligent_sleep_title">Smart stay</string>
     <string name="screen_mode_setting">Ekran rejimi</string>
     <string name="screen_mode_summary">Ekran rejimini sec.</string>
     <string name="automatic_brightness_message">Avtomatik parlaqlıq parametrləri yalnız daxili ekrana tətbiq olunur.</string>
@@ -1664,6 +1675,7 @@ Parlaqlığın təhlükəsizlik ssəviyyələrindən artmasına icazə vermək �
     <string name="crypt_keeper_last_warn_wipe">Zavod defolt parametrlərinə sıfırlanmazdan öncə cihazı işə salmaq üçün 1 cəhdiniz qalır. Bu, fayllar və yüklənmiş proqramlar daxil olmaqla bütün məlumatları siləcək.</string>
     <string name="crypt_keeper_failed_title_dec">Şifrələrin açılması alınmadı.</string>
     <string name="crypt_keeper_failed_summary_dec">Dayandırılmaya görə şifrlaçmanı tamamlamaq mümkün olmadı. İstifadədən əvvəl zavod parametrlərinə bərpa edin (bütün məlumatlarınız silinir).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ekranın kilid növünü qur</string>
     <string name="encryption_interstitial_message">"Gələcəkdə telefonun işə salınmasından öncə %s daxil edilməsini tələb etməklə bu telefonu qoruya bilərsiniz. Bu, telefon itdikdə və ya oğurlandıqda məlumatınızı qorumağa kömək edir. Bəzi proqramlar Cihazın şifrləmə siyasətlərindən asılı olaraq e-poçt və s. kimi funksiyalara çıxmaq üçün Təhlükəsiz İşəsalma tələb edə bilər.
 
 Telefon işə salınmayanadək siz zəng, mesaj və ya bildirişlər almayacaqsınız və siqnallar səslənməyəcək."</string>
@@ -1734,7 +1746,7 @@ Cihaz işə salınanadək siz heç bir zəng, mesaj və ya bildiriş və siqnal 
     <string name="fingerprint_register_success">Barmaq izi əlavə edildi</string>
     <string name="fingerprint_register_add_another_fingerprint">Başqa barmaq izi əlavə edilsin?</string>
     <string name="fingerprint_register_add">Əlavə et</string>
-    <string name="fingerprint_register_done">Yerinə yetirildi</string>
+    <string name="fingerprint_register_done">Tamam</string>
     <string name="fingerprint_register_dex_guide_msg">Barmaq izinizi telefonda qeydiyyatdan keçirin.</string>
     <string name="remove_mobile_keyboard">%s istifadə etmək üçün cihazı klaviatura qapağından çıxarın.</string>
     <string name="fingerprint_already_registered_title">Barm iz qeyd keçir mümk deyil</string>
@@ -1902,6 +1914,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Barmaq izindn istifadə et</string>
     <string name="wifi_ap_close">Bağla</string>
     <string name="fingerscanner_add_summary">Barmaq izlərini əlavə et.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 barmaq izi əlavə edildi.</string>
     <string name="fingerscanner_register_summary">%d barmaq izi əlavə edilib.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Barmaq izindən istifadə et və ya cari PIN-i daxil et.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Barmaq izindən istifadə et və ya cari modeli çək.</string>
@@ -1928,6 +1941,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Ekran yanan kimi sürüşdürmədən telefonu üz tanınması ilə kiliddən açın.</string>
     <string name="facelock_recognition_speed_up">Daha tez tanıma</string>
     <string name="facelock_recognition_speed_up_summary">Daha tez tanımaq üçün yandır. Təhlükəsizliyi artırmaq və şəkil və ya video ilə kiliddən açmanı çətinləşdirmək üçün söndür.</string>
+    <string name="facelock_samsungpass_summary">%s və başqa dəstəklənən proqramlarla eyniliyi təsdiq etmək üçün üz tanınmasından istifadə edin.</string>
     <string name="face_remove_face_popup_title">Üz məlumatı silinsin?</string>
     <string name="face_remove_face_popup_message_1">Üzünüz artıq tanınmayacaq və Üz kilidi sönəcək.</string>
     <string name="face_remove_face_popup_message_2">Üz tanınmasından istifadə edən funksiyalar sönəcək.</string>
@@ -2049,7 +2063,7 @@ Siz zəmanət əsasında təmiri sorğulamamışdan əvvəl Təkrar aktivləşdi
     <string name="iris_use_samsung_pass">Samsung Pass</string>
     <string name="iris_use_samsung_pass_summary">%s və başqa dəstəklənən proqramlarla kimliyinizi təsdiq etmək üçün diafraqmalardan istifadə edin.</string>
     <string name="iris_use_samsung_pass_description_internet">İnternet</string>
-    <string name="iris_unlock">Diafraqma kiliddən açıldı</string>
+    <string name="iris_unlock">Diafraqmanın kiliddən açılması</string>
     <string name="iris_unlock_summary">Telefonu diafraqmalarla kiliddən açın.</string>
     <string name="tips_for_iris">Diafr tanın istif üçün məsl</string>
     <string name="iris_remove_popup_1">Diafraqma məlumatınız silinəcək. Ekran kilid növü %s-ə dəyişəcək.</string>
@@ -2069,7 +2083,7 @@ Bioölçülərdən istifadə etmək üçün Diafraqma ilə kiliddən açmanı ya
     <string name="biometrics_backup_locktype_title">Diafraqma təhlükəsizliyini qur</string>
     <string name="biometrics_register_your_iris">göz qişalarınızı qeydiyyatdan keçirin.</string>
     <string name="biometrics_backup_locktype_summary">Cihazı kiliddən açmaq üçün diafraqmalardan istifadə etmək üçün model, PIN və parol qurmalısınız.</string>
-    <string name="biometrics_backup_locktype_message">Telefonu kiliddən açmaq və təhlükəsiz təsdiq üçün diafraqmalardan istifadə etmək üçün:</string>
+    <string name="biometrics_backup_locktype_message">Diafraqmalarla telefonu kiliddən açmaq və proqramlarda özünüzü təsdiq etmək üçün:</string>
     <string name="iris_delete_popup_title">Diafraqma məlumatı silinsin?</string>
     <string name="iris_delete_popup_message">Diafraqma məlumatı silinsin?</string>
     <string name="iris_delete_popup_message_with_related_func">Diafraqmalardan istifadə edən funksiyalar sönəcək.</string>
@@ -2077,7 +2091,7 @@ Bioölçülərdən istifadə etmək üçün Diafraqma ilə kiliddən açmanı ya
     <string name="iris_timeout_popop_title">Sonr yen chd et</string>
     <string name="iris_timeout_popop_message">Difraqmalar tanınmadı. Diafraqma kamerası çirkli ola bilər. Ekranın üstündəki yeri silin və yenidən cəhd edin.</string>
     <string name="iris_timeout_popop_message_1">Diafraqma kamerası çirkli ola bilər. Ekranın üstündəki yeri silin və yenidən cəhd edin.</string>
-    <string name="iris_proximity_restriction_popop_message">Difraqmalar tanınmadı. Telefon üzünüzə çox yaxındır və ya təxminilik sensoru çirkli ola bilər. Ekranın üstündəki yeri silin və yenidən cəhd edin.</string>
+    <string name="iris_proximity_restriction_popop_message">Telefonu üzünüzdən uzaq tutun və yenidən cəhd edin.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Yaxınlıq sensoru çirkli ola bilər.
 Ekran üzərində boş yer."</string>
     <string name="iris_try_again">Yn cəhd et</string>
@@ -2085,6 +2099,8 @@ Ekran üzərində boş yer."</string>
     <string name="iris_failed_to_verity_identify">Kimliyinizi təsdiq etmək olmadı</string>
     <string name="iris_failed_popup_description">Diafraqmaları təsdiq etmək üçün %1$d cəhd edildi. %2$d saniyə sonra yenidən cəhd edin.</string>
     <string name="iris_no_match">Uyğunluq yoxdur</string>
+    <string name="iris_eye_safety_msg">Diaqramlarınız tanınmadı.</string>
+    <string name="iris_timeout_msg">Diafraqmalarınız aşkar edilmədi.</string>
     <string name="biometrics_registered">Qeydiyyatdan keçmiş</string>
     <string name="iris_turn_on_toast_message">Diafraqma kilidi əvəzinə barmaq izini kilidi aktivdir.</string>
     <string name="iris_wrong_backup_password">Yanlış nüsxə parolu</string>
@@ -2276,6 +2292,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Əsas ekran düyməsini və saatı və ya məlumatı gözləmə ekranında göstər.</string>
     <string name="aod_feature_off_popup_title">%s sönsün?</string>
     <string name="aod_feature_off_popup_description">%1$s istifadə etmək üçün %2$s sönməlidir.</string>
+    <string name="aod_features_off_popup_title">Başqa funksiyalar sönsün?</string>
+    <string name="aod_features_off_popup_description">Always On Display-dən istifadə etmək üçün aşağıdakı funksiyalar söndürülməlidir:</string>
     <string name="aod_features_off_popup_btn_ok">Söndür</string>
     <string name="aod_disable_by_negative_colors">Mənfi rəng aktiv olan zaman istifadə etmək olmur.</string>
     <string name="aod_disable_by_powersaving_mode">Enerjiyə qənaət rejimi yanılı olan zaman istifadə etmək olmur.</string>
@@ -2299,6 +2317,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Rəngli Damcılar</string>
     <string name="lock_screen_show_information_summary_wifi_only">Cihaz sahibinin məlumatını və ya proqram qısayollarını kilid ekranında göstər.</string>
     <string name="lock_screen_sview_show_information_summary">Proqram qısayolları, ikili saat və ya cihaz sahibinin məlumatını kilid ekranında və ya S View pəncərəsində göstər.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Kilid ekranında və ya S View pəncərəsi ilə rouminq saatı və ya telefon sahibinin əlaqə məlumatını göstər.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Kilid ekranı və S View pəncərəsində göstərmək üçün proqram qısayolları seçin.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Bildirişləri Kilid ekranında və S View pəncərəsində göstər.</string>
     <string name="lock_screen_and_cover_show_information_summary">Kilid ekranında və Aydın Görünüş Qapağı ilə ikili saatı göstər.</string>
     <string name="lock_screen_secured_lock_settings_title">Təhlükəsiz kilid parametrləri</string>
     <string name="lock_screen_secured_lock_settings_summary">Avtokilid və Enerji düyməsini ilə Ani kilid kimi kilid funksiyalarını qurun.</string>
@@ -2315,6 +2336,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Yerli saat qurşağı</string>
     <string name="contact_info_settings_title">Kontakt məlumatı</string>
     <string name="show_contact_info_on_lockscreen_label">Telefon nömrəniz və ya e-poçt ünvanınız kimi məlumatı Kilid ekranında göstərin.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Telefon nömrəsi və ya e-poçt ünvanı kimi məlumatı Kilid ekranı və Always On Display-də göstər.</string>
     <string name="unlock_effect">Kilidaçma effekti</string>
     <string name="walking_mate_title">Pedometr</string>
     <string name="help_text_title">Yardımçı mətn</string>
@@ -2414,7 +2436,7 @@ Bioölçü məlumatının silinməsi tövsiyə edilir, lakin əlaqədar funksiya
     <string name="toast_set_lock_pattern">Bütün məlumatlar silinəcək və modeli unutduğunuzda telefon sıfırlanacaq.</string>
     <string name="toast_set_lock_password">Parolu unutduğunuzda bütün məlumatlar silinəcək və telefon sıfırlanacaq.</string>
     <string name="toast_set_lock_pin">PIN-i unutduğunuzda bütün məlumatlar silinəcək və telefon sıfırlanacaq.</string>
-    <string name="chooselock_warning_text">Bu %s unutma. Cihazın sönüb yandıqdan sonra o, tələb ediləcək.</string>
+    <string name="chooselock_warning_text">Bu %s unutmayın. Telefonu söndürüb yandırdıqdan sonra o, tələb ediləcək.</string>
     <string name="lockpassword_password_exists_history">Paroldan əvvəl istifadə olunub. Yeni parolu daxil et.</string>
     <string name="lockpassword_pin_repeating_nums">PIN koda təkrarlanan simvollar daxil olmamalıdır.</string>
     <string name="lockpassword_pin_sequential_nums">PIN koda ardıcıl rəqəmlər daxil olmamalıdır.</string>
@@ -2532,6 +2554,9 @@ Mobil məlumatlar yandırılıb."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Wi-Fi-dan istifadə etməyənə kimi siz İnternet, E-poçt və məlumat bağlantısı tələb edən digər proqramlardan istifadə edə bilməyəcəksiniz.
 
 Mobil məlumatlar yandırılacaqdır."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Wi-Fi şəbəkəsinə qoşulmadığınız təqdirdə siz İnternetdən, E-poçtdan və şəbəkə bağlantısı tələb edən digər proqramlardan istifadə edə biləməyəcəksiniz.</string>
@@ -2690,10 +2715,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Fərdi səs limiti</string>
     <string name="volume_limiter_descryption">Maksimal media səs limiti ilə qulaqlarınızı qoruyun. Limit yalnız qulaqlıqla və ya Bluetooth audio cihazlarından istifadə zamanı tətbiq ediləcək.</string>
     <string name="multi_sound_title">Ayrı proqram səsi</string>
-    <string name="multi_sound_summary">Bir proqramın səsini cihazın digər səslərindən ayrı olaraq dinamik və ya qulaqlıqda dinləyin.</string>
-    <string name="multi_sound_descryption">"Bir proqramın media səsini başqa proqramlardan ayrı dinamik və ya qulaqlıqlarda səsləndirin.
+    <string name="multi_sound_summary">Telefonun əsas audio çıxış cihazından fərqli audio cihazda media səsi bir proqramdan səsləndir.</string>
+    <string name="multi_sound_descryption">"Bir proqramın media səsini telefonun əsas audio çıxış cihazından fərqli audio cihazda səsləndir. Bunu yandırmaq üçün proqram və audio cihaz seçin.
 
-Bluetooth audio cihazı seçsəniz, Bluetooth cihazı qoşulmayan zaman səs defolt audio cihazda səslənəcək."</string>
+Ayrıca proqram səsi yalnız seçdiyiniz audio cihaz telefonun əsas audio çıxış cihazından fərqli olduqda işləyir.
+
+Siz telefonun əsas audio çıxış cihazını cəld parametrlər panelində dəyişə bilərsiniz. Audio çıxışı görünürsə, Samsung Connect > Parametrlər > Samsung Connect paneli seçərək onu yandırın."</string>
     <string name="set_application_title">Proqram</string>
     <string name="set_application_summary">Səsinə ayrı audio cihazda qulaq asmaq üçün proqram seçin.</string>
     <string name="set_application_descryption">Səsini ayrı audio cihazda səsləndirmək üçün aşağıdan multimedia proqramı seçin.</string>
@@ -2704,9 +2731,11 @@ Bluetooth audio cihazı seçsəniz, Bluetooth cihazı qoşulmayan zaman səs def
     <string name="multi_sound_popup_msg">%s yandırmaq üçün proqram və audio cihazı seçməlisiniz.</string>
     <string name="multi_sound_network_msg">Mövcud proqramları yoxlamaq üçün telefonunuz şəbəkəyə qoşulmalıdır. Şəbəkə parametrlərini yoxlayın və yenidən cəhd edin.</string>
     <string name="multi_sound_wifi_msg">Mövcud proqramları yoxlamaq üçün telefonunuz şəbəkəyə qoşulmalıdır. Mobil datadan istifadə əlavə xərclərə səbəb ola bilər.</string>
+    <string name="multi_sound_add_application">Proqram əlavə et</string>
     <string name="dlg_btn_select">Göndər</string>
-    <string name="audio_device_type_descryption">Bu proqram üçün istifadə ediləcək audio cihazı seçin. Bluetooth cihazları yalnız qoşulan zaman mövcud olacaq.</string>
+    <string name="audio_device_type_descryption">Seçilən proqram üçün istifadə ediləcək audio cihazı seçin. Bluetooth cihazları yalnız qoşulan zaman mövcud olacaq.</string>
     <string name="my_phone_title">Telefon</string>
+    <string name="my_phone_summary">Dinamik/qulaqlıqlar/USB audio cihazı</string>
     <string name="bluetooth_device_title">Bluetooth cihazı</string>
     <string name="no_connected_devices">Qoşulan cihaz yoxdur</string>
     <string name="two_hours">2 saat</string>
@@ -2714,7 +2743,8 @@ Bluetooth audio cihazı seçsəniz, Bluetooth cihazı qoşulmayan zaman səs def
     <string name="stop_setup_popup_msg">Dəyişdiyiniz bütün parametrlər tətbiq edilməyəcək.</string>
     <string name="app_turned_on">%s yandırılıb.</string>
     <string name="force_touch_title">Sıxıb saxl vibrasya əks-əlaqəsi</string>
-    <string name="volume_key_control_title">Standart Səs düyməsilə idarəetmə</string>
+    <string name="volume_key_control_title">Media üçün Səs düym istif edin</string>
+    <string name="volume_key_control_summary">Səs düymələrinə sıxan zaman media səsi idarə et.</string>
     <string name="sound_mode">Səs rejimi</string>
     <string name="sound_mode_vibrate">Titrəmə</string>
     <string name="sound_mode_mute">Səssiz</string>
@@ -2928,14 +2958,13 @@ Xahiş olunur yenidən cəhd edin."</string>
     <string name="text_biometrics_title_enterprise">%1$s seçdiyinizdə bioölçülər %2$s üçün kiliddən açma metodu kimi dəstəklənməyəcək.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s %2$s kiliddən açma metodu kimi barmaq izlərini dəstəkləmir.</string>
     <string name="edge_feeds_title">Kənar mənbələr</string>
-    <string name="screensaver_settings_summary">"Cihaz yerində olduqda və/və ya yükləndikdə nə baş verdiyinə bax. Ekran qoruyucusu ekran söndükdən sonra görünəcək.
-
-Bu funksiya eləcə də Mürgüləmə adlanır."</string>
-    <string name="screensaver_settings_summary_wo_dock">Telefon yüklənən zaman ekran avtomatik söndükdən sonra ekran qoruyucusunu göstər.</string>
+    <string name="screensaver_settings_summary">Telefon yüklənən zaman ekran avtomatik söndükdən sonra ekran qoruyucusunu göstər.</string>
+    <string name="screensaver_settings_summary_wo_dock">Telefon yığılan və ya yüklənən zaman ekran avtomatik söndükdən sonra ekran qoruyucusunu göstər.</string>
     <string name="apn_already_exists">Artıq mövcuddur.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Port nömrəsi %1$d və %2$d arasında olmalıdır.</string>
     <string name="apn_restore_warning">Əlavə etdiyiniz bütün APN-lər silinəcək. Digər APN-lər defolt parametrlərinə sıfırlanacaq.</string>
+    <string name="apn_restore_title">APN parametrləri sıfırlansın?</string>
     <string name="master_clear_desc_google_account">Google hesabı</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2947,7 +2976,8 @@ Bu funksiya eləcə də Mürgüləmə adlanır."</string>
     <string name="sound_balance_summary">Qulaqlıqlar üçün sol və sağ səs balansını tənzimləyin.</string>
     <string name="backup_samsung_account_title">Nüsxə çıxartma parametrləri</string>
     <string name="restore_samsung_account_title">Bərpa et</string>
-    <string name="auto_restart_header">Cihaz idarəetməsi</string>
+    <string name="auto_restart_header">Telefonun idarə edilməsi</string>
+    <string name="auto_restart_header_tablet">Tablet idarəetməsi</string>
     <string name="auto_restart_title">Avtom söndürüb yandırma</string>
     <string name="switch_turn_on_text">Yandır</string>
     <string name="switch_turn_off_text">Söndür</string>
@@ -3070,6 +3100,14 @@ Zəng melodiyası və Narahat etmə parametrləri kimi telefonda etdiyiniz büt�
     <string name="tether_settings_summary_usb_bt">USB və ya Bluetooth vasitəsilə qurğunun mobil məlumat bağlantısını paylaşın</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Qəbul et</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Telefonun internet bağlantısını Bluetooth-la paylaşın.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Tabletin internet bağlantısını Bluetooth-la paylaşın.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Bu telefonun internet bağlantısını paylaşmağa hazırdır.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Bu tabletin internet bağlantısını paylaşmağa hazırdır.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Bu telefonun internet bağlantısı 1 cihazla paylaşılır.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Bu tabletin internet bağlantısı 1 cihazla paylaşılır.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Bu telefonun internet bağlantısı %d cihazla paylaşılır.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Bu tabletin internet bağlantısı %d cihazla paylaşılır.</string>
     <string name="onehand_settings_title">Bir əlli rejim</string>
     <string name="onehand_settings_text_1">Ekranın ölçüsünü azaltmaq üçün istənilən aşağı küncdən diaqonal şəkildə yuxarı sürüşdürün.</string>
     <string name="onehand_settings_text_2">Ekranın ölçüsünü azaltmaq üçün Əsas ekran düyməsinə 3 dəfə vurun.</string>
@@ -3397,10 +3435,12 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Söndür</string>
     <string name="wifi_or_mobile_network">Wi-Fi və ya mobil şəbəkələr</string>
     <string name="wifi_network_only">Yalnız Wi-Fi şəbəkəsi</string>
+    <string name="wifi_adps_title">Wi-Fi enerjiyə qənaət rejimi</string>
+    <string name="wifi_adps_summary">Wi-Fi trafik nümunələrini təhlil etməklə batareya istifadəsini azaldın.</string>
     <string name="wifi_auto_reconnect">Avtomatik təkrar qoşulma</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Wi-Fi yandırılması mobil giriş nöqtəsini qeyri-aktiv edəcək. Davam edilsin?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Mobil Giriş Nöqtəsi aktiv olanda Wi-Fi söndürülür. Wi-Fi-ı yandırmaq üçün lütfən, Mobil Giriş Nöqtəsini söndürün.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Mobil Giriş Nöqtəsi aktiv olanda Wi-Fi söndürülür. Wi-Fi-ı yandırmaq üçün Mobil Giriş Nöqtəsini söndürün.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
@@ -3602,6 +3642,10 @@ Mobil giriş nöqtəsinin adını və ya parolunu dəyişdikdən sonra yeni QR k
     <string name="wifi_wps_pin_client_mobileap">PIN %1$s ilə müştəriyə qoşulur. Quraşdırmanın tamamlanması %2$d dəqiqə çəkə bilər.</string>
     <string name="wifi_wps_complete_mobileap">Digər cihaz sizin cihazınıza qoşulmuşdur.</string>
     <string name="wifi_ap_disconnect_warn">Cihazla bağlantını kəs</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Hazırda qoşulmuş olan bütün cihazlar Mobil giriş nöqtəsindən ayrılacaqdır.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Hazırda qoşulmuş olan bütün cihazlar Mobil giriş nöqtəsindən ayrılacaqdır.</string>
     <string name="wifi_ap_warn_max_whitelist">İcazə verilən cihazların sayı maksimuma (%d) çatmışdır.</string>
     <string name="wifiap_one_item_deleted">1 element silinəcək.</string>
@@ -3737,6 +3781,8 @@ Mobil giriş nöqtəsindən istifadə batareya sərfiyyatını və tarifdən ist
     <string name="wifi_ap_first_time_configuration">Birinci dəfə Mobil Giriş Nöqtəsinin konfiqurasiyası</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Düzgün PIN-i daxil edin.</string>
+    <string name="open_mobileap_warning">Bu mobil AP qorunmur.</string>
+    <string name="hidden_mobileap_warning">İstifadəçi Gizli SSID quran zaman WPS qeyri-aktiv ediləcək.</string>
     <string name="wifi_ssid_max_byte_error">Simvolların sayı maksimuma çatıb.</string>
     <string name="tethering_attention_title">Diqqət</string>
     <string name="wfd_select_device">Cihazı seç</string>
@@ -3967,6 +4013,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Sinxronizasiya</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Bu icazə proqrama məlumatı istifadə etdiyiniz digər proqramların üstündə göstərmək imkanı verir. Bu, digər proqramlardan istifadənizə təsir edə bilər.</string>
+    <string name="write_settings_body_description">Bu proqrama Bluetooth-un yandırılması və ya söndürülməsi kimi sistem parametrlərini dəyişmək imkanı verin.</string>
+    <string name="reset_app_preferences_desc1">Bu, aşağıdakılar üçün bütün tərcehlərinizi sıfırlayacaq:</string>
+    <string name="reset_app_preferences_desc2">Qeyri-aktiv proqramlar</string>
+    <string name="reset_app_preferences_desc3">Proqramlar üçün bildiriş məhdudiyyətləri</string>
+    <string name="reset_app_preferences_desc4">Standart proqramlar</string>
+    <string name="reset_app_preferences_desc5">Proqramlar üçün fon data məhdudiyyətləri</string>
+    <string name="reset_app_preferences_desc6">İcazə məhdudiyyəti</string>
+    <string name="reset_app_preferences_desc7">Mövcud proqram məlumatı itməyəcək.</string>
     <string name="knox_security_mode_title">Knox təhlükəsizliyi</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">Məxfilik Siyasəti</string>
@@ -3980,6 +4034,13 @@ Receiving SMS"</string>
     <string name="my_profile_title">Mənim profilim</string>
     <string name="my_profile_summary">Şəxsi məlumat və Samsung hesab məlumatını idarə edin.</string>
     <string name="arbitration_agreement">Arbitrasiya Müqaviləsi</string>
+    <string name="activation_title">Aktivləşdirmə statusu</string>
+    <string name="activation_summary">%1$s-də aktiv. Ətraflı məlumat almaq üçün %2$s daxil olun.</string>
+    <string name="wifi_ap_pmf_on">PMF yan</string>
+    <string name="edit_event_start_short">Başla</string>
+    <string name="edit_event_end_short">Bitir</string>
+    <string name="select_date_to_view">Baxmaq üçün tarixi seç</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Bəli</string>
     <string name="no">Xeyr</string>
     <string name="create">Yarat</string>
@@ -5472,7 +5533,7 @@ Hər hansı istifadəçi bütün digər istifadəçilərin adından yenilənmiş
     <string name="app_notification_block_title">Bildirişlərə icazə ver</string>
     <string name="app_notification_block_summary">Bildiriş mesajları, səs və vibrasiya daxil olmaqla bu proqramdan bildirişlər al.</string>
     <string name="app_notification_override_dnd_title">Üstünlük kimi qur</string>
-    <string name="app_notification_override_dnd_summary">Bu proqramın bildirişlərinə səslənmək imkanı verin və Narahat etmə aktiv olan zaman ekranı yandırın.</string>
+    <string name="app_notification_override_dnd_summary">Narahat etmə rejimi aktiv olan zaman bildiriş panelinin yuxarısında bildirişləri göstər və onları icazə verilən siyahıya əlavə et.</string>
     <string name="app_notification_visibility_override_title">Kilid ekranında</string>
     <string name="app_notifications_dialog_done">Tamamlandı</string>
     <string name="zen_mode_choose_rule_type">Qayda növünü seç</string>
@@ -5509,6 +5570,7 @@ Hər hansı istifadəçi bütün digər istifadəçilərin adından yenilənmiş
     <string name="restr_pin_enter_admin_pin">Administrator PIN-i daxil et</string>
     <string name="switch_on_text">Qoş</string>
     <string name="switch_off_text">Söndür</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Bu iş profili aşağıdakı ilə idarə edilir:</string>
     <string name="managing_admin">%s ilə idarə edilir</string>
     <string name="display_auto_rotate_title">Ekran fırlanması</string>
     <string name="display_auto_rotate_rotate">Ekran məzmununu fırlat</string>
@@ -5545,9 +5607,9 @@ Cihaz işə salınanadək siz heç bir zəng, mesaj və ya bildiriş və siqnal 
     <string name="encrypt_talkback_dialog_require_pin">PIN tələb et</string>
     <string name="encrypt_talkback_dialog_require_pattern">Model tələb et</string>
     <string name="encrypt_talkback_dialog_require_password">Parol tələb et</string>
-    <string name="encrypt_talkback_dialog_message_pin">Cihazı yandırdıqdan sonra PIN daxil etdiyinizdə, %1$s kimi çıxış funksiyaları müvəqqəti qeyri-aktiv olacaqdır.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Cihazı yandırdıqdan sonra modeli çəkdiyinizdə, %1$s kimi çıxış funksiyaları müvəqqəti qeyri-aktiv olacaqdır.</string>
-    <string name="encrypt_talkback_dialog_message_password">Cihazı yandırdıqdan sonra parolu daxil etdiyinizdə, %1$s kimi çıxış funksiyaları müvəqqəti qeyri-aktiv olacaqdır.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Cihaz yanan zaman PIN tələb ediləcək. Cihaz işə salınanadək çıxış imkanı funksiyaları mövcud olmayacaq.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Cihaz yanan zaman model tələb ediləcək. Cihaz işə salınanadək çıxış imkanı funksiyaları mövcud olmayacaq.</string>
+    <string name="encrypt_talkback_dialog_message_password">Cihaz yanan zaman parol tələb ediləcək. Cihaz işə salınanadək çıxış imkanı funksiyaları mövcud olmayacaq.</string>
     <string name="slot_number">(giriş %d)</string>
     <string name="app_launch_domain_links_title">Proqram keçidləri</string>
     <string name="app_launch_open_domain_urls_title">Dəstəklənən URL-lara keç</string>
@@ -5623,18 +5685,18 @@ Cihaz işə salınanadək siz heç bir zəng, mesaj və ya bildiriş və siqnal 
     <string name="usb_use_power_only">Qoşulan cihazları yüklə</string>
     <string name="usb_use_power_only_desc">USB ilə qoşulan cihazı yükləyin.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Media faylları köçür</string>
+    <string name="usb_use_file_transfers">Faylları köçür</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Şəkilləri köçür</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Media faylların köçürülməsi işləmədikdə bu rejimi seçin. Yalnız şəkil faylları köçürə bilərsiniz.</string>
+    <string name="usb_use_photo_transfers_summary">Faylların köçürülməsi işləmirsə, bu rejimi seçin. Bu rejimdə yalnız şəkil faylları köçürə bilərsiniz.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">MIDI cihazını qoşul</string>
-    <string name="usb_use">USB-dən istifadə et</string>
-    <string name="assist_access_context_title">Ekranda mətni oxu</string>
-    <string name="assist_access_context_summary">Cihaz kömək proqramına ekranda görünən istənilən mətni oxumağa imkan ver.</string>
-    <string name="assist_access_screenshot_title">Ekranın şəkillərini çək/çıx</string>
-    <string name="assist_access_screenshot_summary">Cihaz kömək proqramına ekran təsvirlərini çəkmək və istifadə etmək imkanı ver.</string>
+    <string name="usb_use">USB istifadə edin</string>
+    <string name="assist_access_context_title">Ekrandakı mətni təhlil edin</string>
+    <string name="assist_access_context_summary">Əlaqədar məzmunu təmin etmək üçün cihaza kömək proqramına ekranda görünən mətni təhlil etmək imkanı ver.</string>
+    <string name="assist_access_screenshot_title">Ekrandakı şəkilləri təhlil edin</string>
+    <string name="assist_access_screenshot_summary">Cihaza kömək proqramına ekranın şəklini çəkmək və istifadə etmək imkanı ver.</string>
     <string name="assist_footer">Cihaz köməkliyi proqramları sizə hazırda telefonda görünən ekrandan məlumatı toplamaqla kömək edə bilər. Bəzi cihaz köməkliyi proqramları səsli giriş vasitəsilə proqramları açmaq və mətni daxil etmək və sizi qabaqcıl köməkliklə təmin etmək üçün istifadə edilə bilər.</string>
     <string name="average_memory_use">Orta RAM istifadəsi</string>
     <string name="maximum_memory_use">Maksimum RAM istifadəsi</string>
@@ -5663,7 +5725,7 @@ Cihaz işə salınanadək siz heç bir zəng, mesaj və ya bildiriş və siqnal 
     <string name="ignore_optimizations_on_desc">Batareya sərfiyyatını artıra bilər</string>
     <string name="ignore_optimizations_off_desc">Batareya enerjisinə qənaət üçün tövsiyə edilmişdir</string>
     <string name="app_list_preference_none">Yoxdur</string>
-    <string name="allow_overlay_description">Düymələri, ani mesajları və başqa elementlərinin istifadə etdiyiniz başqa proqramlardan öndə görünməsi üçün proqramlar seçin.</string>
+    <string name="allow_overlay_description">Bu icazə proqrama məlumatı istifadə etdiyiniz digər proqramların üstündə göstərmək imkanı verir. Bu, digər proqramlardan istifadənizə təsir edə bilər.</string>
     <string name="overlay_settings">Yuxarıda peyda ola bilən proqramlar</string>
     <string name="filter_overlay_apps">İcazəli proqramlar</string>
     <string name="filter_write_settings_apps">İcazəli proqramlar</string>
@@ -5710,14 +5772,14 @@ Cihaz işə salınanadək siz heç bir zəng, mesaj və ya bildiriş və siqnal 
     <string name="ethernet_data_template">%1$s Ethernet data</string>
     <string name="cell_warning_only">%s-da data xəbərdarlığı</string>
     <string name="cell_warning_and_limit">%1$s Data istifadə xəbərdarlığı/%2$s Data istifadə limiti</string>
-    <string name="billing_cycle">Hesablaşma dövrü</string>
+    <string name="billing_cycle">Hesabl dövrü və data xəbərdarl</string>
     <string name="billing_cycle_summary">Hər ayın %s-cü günü</string>
     <string name="billing_cycle_fragment_summary">Hər ayın %s-cü günü</string>
     <string name="network_restrictions">Şəbəkələri məhdudlaşdır</string>
     <string name="operator_warning">Data istifadə məlumatı cihazınız tərəfindən ölçülür. Xidmət təminatçınız istifadəni fərqli hesablaya bilər.</string>
     <string name="data_used_template">%s istifadə edilib</string>
     <string name="data_warning">Data xəbərdarlığı</string>
-    <string name="set_data_limit">Data limiti</string>
+    <string name="set_data_limit">Data limiti qur</string>
     <string name="data_limit">Data limiti</string>
     <string name="data_usage_template">%1$s istifadə %2$s</string>
     <string name="data_usage_other_apps">İstif daxil ed əlaqədar proq</string>
@@ -5759,5 +5821,4 @@ Cihazınıza razılığınızla avtomatik olaraq diaqnostik və istifadə məlum
     <string name="enable_iris_lock_desc_3">"Barmaq izləri hazırda ekran kilid növü kimi quruldu.
 
 Ekran kilid növünü Barmaq izləri əvəzinə Diafraqmalar kimi qurmaq üçün AKTİV ET vurun. Cihaz sonra diafraqma və ya %s ilə kiliddən açıla bilər."</string>
-    <string name="my_phone_summary">Dinamik/qulaqlıqlar/USB audio cihazı</string>
 </resources>

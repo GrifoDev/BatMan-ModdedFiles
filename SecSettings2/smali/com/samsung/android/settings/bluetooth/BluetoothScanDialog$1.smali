@@ -35,45 +35,89 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .locals 4
 
-    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
+    iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
 
-    invoke-virtual {v0}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->updateScanButton()V
+    invoke-virtual {v1}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->updateScanButton()V
 
-    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
+    iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->-get0(Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+    invoke-static {v1}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->-get0(Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->isDiscovering()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
+
+    invoke-virtual {v1}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0b0046
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->isDiscovering()Z
+    iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
 
-    move-result v0
+    invoke-static {v1}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->-get0(Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
 
-    if-eqz v0, :cond_0
+    move-result-object v1
 
-    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
-
-    invoke-static {v0}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->-get0(Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->stopScanning()V
+    invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->stopScanning()V
 
     :goto_0
+    iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->-get1(Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0b003e
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v0}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
+    iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->-get0(Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+    invoke-virtual {v1}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0b0047
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog$1;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;
 
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->startScanning(Z)Z
+    invoke-static {v1}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->-get0(Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->startScanning(Z)Z
 
     goto :goto_0
 .end method

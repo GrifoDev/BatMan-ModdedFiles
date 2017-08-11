@@ -78,13 +78,13 @@
 
     move-result-object v1
 
-    const v4, 0x7f0403b3
+    const v4, 0x7f0403b8
 
     invoke-virtual {v1, v4, v5, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f11098a
+    const v1, 0x7f110990
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -115,7 +115,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0b1af2
+    const v1, 0x7f0b1b8e
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -130,13 +130,13 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/notification/ZenRuleNameDialog$1;-><init>(Lcom/android/settings/notification/ZenRuleNameDialog;)V
 
-    const v3, 0x7f0b0810
+    const v3, 0x7f0b0878
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b124f
+    const v2, 0x7f0b12ea
 
     invoke-virtual {v1, v2, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -156,7 +156,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b1aef
+    const v1, 0x7f0b1b8b
 
     goto :goto_1
 .end method

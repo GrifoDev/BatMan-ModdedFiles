@@ -105,7 +105,7 @@
 
     iput-object v1, p0, Lcom/android/settings/notification/ImportanceSeekBarPreference;->mNotifyChanged:Ljava/lang/Runnable;
 
-    const v1, 0x7f04020d
+    const v1, 0x7f04020f
 
     invoke-virtual {p0, v1}, Lcom/android/settings/notification/ImportanceSeekBarPreference;->setLayoutResource(I)V
 
@@ -300,7 +300,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1ad0
+    const v1, 0x7f0b1b6c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -313,7 +313,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1aca
+    const v1, 0x7f0b1b66
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -326,7 +326,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1acb
+    const v1, 0x7f0b1b67
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -339,7 +339,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1acc
+    const v1, 0x7f0b1b68
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -352,7 +352,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1acd
+    const v1, 0x7f0b1b69
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -365,7 +365,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1ace
+    const v1, 0x7f0b1b6a
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -378,7 +378,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1acf
+    const v1, 0x7f0b1b6b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -444,7 +444,7 @@
 
     iput-object v1, p0, Lcom/android/settings/notification/ImportanceSeekBarPreference;->mSummaryTextView:Landroid/widget/TextView;
 
-    const v1, 0x1020468
+    const v1, 0x1020471
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -454,7 +454,7 @@
 
     iput-object v1, p0, Lcom/android/settings/notification/ImportanceSeekBarPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    const v1, 0x7f110641
+    const v1, 0x7f110643
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

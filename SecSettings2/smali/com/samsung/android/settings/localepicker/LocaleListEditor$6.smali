@@ -49,7 +49,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1003ae
+    const v2, 0x7f1003b3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -69,15 +69,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;->initFeedItemList()V
-
-    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$6;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
-
-    invoke-static {v0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-get0(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;->doTheUpdate()V
 
     return-void
 .end method

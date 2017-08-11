@@ -154,7 +154,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get11(Lcom/android/settingslib/wifi/WifiTracker;)Lcom/android/settingslib/wifi/WeChatWifiManager;
+.method static synthetic -get11(Lcom/android/settingslib/wifi/WifiTracker;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mUpdateAccessPoints:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -get12(Lcom/android/settingslib/wifi/WifiTracker;)Lcom/android/settingslib/wifi/WeChatWifiManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mWeChatWifiManager:Lcom/android/settingslib/wifi/WeChatWifiManager;
@@ -162,7 +170,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get12(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/net/wifi/WifiManager;
+.method static synthetic -get13(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/net/wifi/WifiManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -170,7 +178,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get13(Lcom/android/settingslib/wifi/WifiTracker;)Lcom/android/settingslib/wifi/WifiTracker$WorkHandler;
+.method static synthetic -get14(Lcom/android/settingslib/wifi/WifiTracker;)Lcom/android/settingslib/wifi/WifiTracker$WorkHandler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mWorkHandler:Lcom/android/settingslib/wifi/WifiTracker$WorkHandler;
@@ -619,12 +627,6 @@
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mFilter:Landroid/content/IntentFilter;
 
-    const-string/jumbo v1, "com.samsung.android.net.wifi.WECHAT_ERRORCODE"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mFilter:Landroid/content/IntentFilter;
-
     const-string/jumbo v1, "com.samsung.android.net.wifi.WECHAT_LOGOUT"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -681,7 +683,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v1, p0, Lcom/android/settingslib/wifi/WifiTracker;->mAccessPoints:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/settingslib/wifi/WifiTracker;->mUpdateAccessPoints:Ljava/lang/Object;
 
     monitor-enter v1
 
@@ -2873,7 +2875,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/settingslib/wifi/WifiTracker;->mAccessPoints:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/settingslib/wifi/WifiTracker;->mUpdateAccessPoints:Ljava/lang/Object;
 
     monitor-enter v1
 

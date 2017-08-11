@@ -147,7 +147,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f110587
+    const v6, 0x7f110589
 
     invoke-virtual {v5, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -194,7 +194,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f02068e
+    const v6, 0x7f0206f7
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -985,7 +985,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1307
+    const v5, 0x7f0b13a2
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1033,7 +1033,7 @@
 
     aput-object v6, v5, v8
 
-    const v6, 0x7f0b1306
+    const v6, 0x7f0b13a1
 
     invoke-virtual {v4, v6, v5}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1053,13 +1053,13 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b130b
+    const v5, 0x7f0b13a6
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v4, 0x7f0b130c
+    const v4, 0x7f0b13a7
 
     invoke-direct {p0, v6, v1, v4, v8}, Lcom/android/settings/ConfirmDeviceCredentialBaseFragment;->showDialog(Ljava/lang/String;Ljava/lang/String;IZ)V
 

@@ -485,9 +485,9 @@
 .method private addMyDeviceCenterText(Z)V
     .locals 3
 
-    const v0, 0x7f0b0dcb
+    const v0, 0x7f0b0e56
 
-    const v1, 0x7f0b0dce
+    const v1, 0x7f0b0e59
 
     const/4 v2, 0x0
 
@@ -543,7 +543,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f040394
+    const v2, 0x7f040399
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -655,7 +655,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDevicePicker;->mNoDevicesPreference:Landroid/preference/Preference;
 
-    const v2, 0x7f040399
+    const v2, 0x7f04039e
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -665,7 +665,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0e31
+    const v3, 0x7f0b0ebe
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1130,7 +1130,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDevicePicker;->progressBarItem:Landroid/view/MenuItem;
 
-    const v1, 0x7f04039a
+    const v1, 0x7f04039f
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setActionView(I)Landroid/view/MenuItem;
 
@@ -1262,7 +1262,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f020659
+    const v3, 0x7f0206c2
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1297,7 +1297,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0e32
+    const v2, 0x7f0b0ebf
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1358,7 +1358,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f020658
+    const v3, 0x7f0206c1
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1493,7 +1493,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02065b
+    const v2, 0x7f0206c4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1554,7 +1554,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02065a
+    const v2, 0x7f0206c3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1676,7 +1676,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0dcc
+    const v8, 0x7f0b0e57
 
     invoke-static {v7, v8, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2012,7 +2012,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDevicePicker;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
-    const v2, 0x7f0b0dc4
+    const v2, 0x7f0b0e4f
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDevicePicker;->getString(I)Ljava/lang/String;
 
@@ -2120,7 +2120,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020659
+    const v4, 0x7f0206c2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2148,7 +2148,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f02065b
+    const v4, 0x7f0206c4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2173,7 +2173,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020658
+    const v4, 0x7f0206c1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2192,7 +2192,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f02065a
+    const v4, 0x7f0206c3
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2549,7 +2549,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 7
 
-    const v6, 0x7f04039a
+    const v6, 0x7f04039f
 
     const/4 v5, 0x0
 
@@ -2557,7 +2557,7 @@
 
     const/4 v3, 0x0
 
-    const v1, 0x7f0b0dc9
+    const v1, 0x7f0b0e54
 
     invoke-interface {p1, v3, v2, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2582,7 +2582,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f140012
+    const v1, 0x7f140013
 
     invoke-virtual {p2, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -2717,7 +2717,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0b0e32
+    const v4, 0x7f0b0ebf
 
     invoke-virtual {v1, v4}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -2743,7 +2743,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 11
 
-    const v10, 0x7f0b0e32
+    const v10, 0x7f0b0ebf
 
     const/4 v7, 0x0
 
@@ -2755,7 +2755,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f04039b
+    const v6, 0x7f0403a0
 
     invoke-virtual {p1, v6, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -2765,7 +2765,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDevicePicker;->actionbarpviewSelectAllConnected:Landroid/view/View;
 
-    const v7, 0x7f110932
+    const v7, 0x7f110938
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2789,7 +2789,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDevicePicker;->actionbarpviewSelectAllConnected:Landroid/view/View;
 
-    const v7, 0x7f110934
+    const v7, 0x7f11093a
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2855,7 +2855,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a0784
+    const v7, 0x7f0a0783
 
     invoke-virtual {v6, v7, v5, v9}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -4073,7 +4073,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0dca
+    const v4, 0x7f0b0e55
 
     invoke-static {v3, v4, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -4168,7 +4168,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0e32
+    const v4, 0x7f0b0ebf
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

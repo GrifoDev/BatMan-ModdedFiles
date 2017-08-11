@@ -147,7 +147,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$WifiEapIdTextWatcher;->mErrorText:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0de0
+    const v2, 0x7f0b0e6b
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

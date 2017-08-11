@@ -323,7 +323,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100346
+    const v1, 0x7f10034c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -345,7 +345,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a0275
+    const v3, 0x7f0a0273
 
     invoke-virtual {v1, v3, v0, v4}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -357,7 +357,7 @@
 
     iput v3, p0, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->value_textSize:F
 
-    const v3, 0x7f0a0272
+    const v3, 0x7f0a0270
 
     invoke-virtual {v1, v3, v0, v4}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -448,7 +448,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f100348
+    const v4, 0x7f10034e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -506,7 +506,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f100347
+    const v4, 0x7f10034d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -561,7 +561,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f100348
+    const v4, 0x7f10034e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -614,7 +614,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f100347
+    const v4, 0x7f10034d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -663,13 +663,13 @@
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->removeDialog(I)V
 
     :cond_0
-    const v3, 0x7f04031e
+    const v3, 0x7f040322
 
     invoke-virtual {v0, v3, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    const v3, 0x7f1107c2
+    const v3, 0x7f1107c5
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -679,7 +679,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->mTabAndHoldView:Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldView;
 
-    const v3, 0x7f1107c4
+    const v3, 0x7f1107c7
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -693,7 +693,7 @@
 
     invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v3, 0x7f1107c5
+    const v3, 0x7f1107c8
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -707,7 +707,7 @@
 
     invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v3, 0x7f1107be
+    const v3, 0x7f1107c1
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -725,7 +725,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/widget/TextView;->setLineSpacing(FF)V
 
-    const v3, 0x7f1107bf
+    const v3, 0x7f1107c2
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -741,7 +741,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f1107c1
+    const v3, 0x7f1107c4
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -781,7 +781,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a02c6
+    const v6, 0x7f0a02c4
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -844,7 +844,7 @@
 
     iput v2, p0, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->mShownDialogId:I
 
-    const v2, 0x7f0b0214
+    const v2, 0x7f0b0272
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->getString(I)Ljava/lang/String;
 
@@ -866,7 +866,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1592
+    const v3, 0x7f0b162e
 
     invoke-virtual {v2, v3, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -878,7 +878,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1593
+    const v3, 0x7f0b162f
 
     invoke-virtual {v2, v3, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -913,7 +913,7 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->initDP()V
 
-    const v1, 0x7f04031e
+    const v1, 0x7f040322
 
     const/4 v2, 0x0
 
@@ -921,7 +921,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1107c2
+    const v1, 0x7f1107c5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -931,7 +931,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->mTabAndHoldView:Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldView;
 
-    const v1, 0x7f1107c4
+    const v1, 0x7f1107c7
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -945,7 +945,7 @@
 
     invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f1107c5
+    const v1, 0x7f1107c8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -959,7 +959,7 @@
 
     invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f1107be
+    const v1, 0x7f1107c1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -977,7 +977,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/TextView;->setLineSpacing(FF)V
 
-    const v1, 0x7f1107bf
+    const v1, 0x7f1107c2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -987,7 +987,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->mTextViewPressTime:Landroid/widget/TextView;
 
-    const v1, 0x7f1107c1
+    const v1, 0x7f1107c4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1017,7 +1017,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a02c6
+    const v4, 0x7f0a02c4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1137,7 +1137,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b176c
+    const v2, 0x7f0b1808
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1159,7 +1159,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b176d
+    const v2, 0x7f0b1809
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

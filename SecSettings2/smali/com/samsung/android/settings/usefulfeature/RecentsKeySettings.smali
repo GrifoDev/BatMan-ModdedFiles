@@ -165,7 +165,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200e1
+    const v2, 0x7f0200e2
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -182,7 +182,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200e2
+    const v2, 0x7f0200e3
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -253,7 +253,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001c6
+    const v1, 0x7f1001cd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -295,7 +295,7 @@
 
     check-cast v5, Landroid/view/LayoutInflater;
 
-    const v8, 0x7f040124
+    const v8, 0x7f040126
 
     const/4 v9, 0x0
 
@@ -347,7 +347,7 @@
 
     invoke-virtual {v8, v9}, Lcom/samsung/android/settings/WrapContentHeightViewPager;->setOnPageChangeListener(Landroid/support/v4/view/ViewPager$OnPageChangeListener;)V
 
-    const v8, 0x7f110416
+    const v8, 0x7f110418
 
     invoke-virtual {v3, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -370,7 +370,7 @@
 
     move v1, v4
 
-    const v8, 0x7f040074
+    const v8, 0x7f040075
 
     const/4 v9, 0x0
 
@@ -380,7 +380,7 @@
 
     check-cast v6, Landroid/widget/ImageView;
 
-    const v8, 0x7f0b0a5a
+    const v8, 0x7f0b0ac8
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/usefulfeature/RecentsKeySettings;->getString(I)Ljava/lang/String;
 
@@ -447,7 +447,7 @@
 
     check-cast v8, Landroid/widget/ImageView;
 
-    const v9, 0x7f0200e2
+    const v9, 0x7f0200e3
 
     invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -717,11 +717,47 @@
 .end method
 
 .method public onRadioButtonClicked(Lcom/samsung/android/settings/SecRadioButtonPreference;)V
-    .locals 0
+    .locals 3
 
     invoke-direct {p0, p1}, Lcom/samsung/android/settings/usefulfeature/RecentsKeySettings;->updateRadioButtons(Lcom/samsung/android/settings/SecRadioButtonPreference;)V
 
+    invoke-virtual {p0}, Lcom/samsung/android/settings/usefulfeature/RecentsKeySettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/usefulfeature/RecentsKeySettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v2, 0x7f1001d0
+
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v2
+
+    iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeySettings;->mSplitScreenview:Lcom/samsung/android/settings/SecRadioButtonPreference;
+
+    invoke-virtual {p1, v0}, Lcom/samsung/android/settings/SecRadioButtonPreference;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x3e8
+
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v1, v2, v0}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
+
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public onResume()V
@@ -882,25 +918,52 @@
 .end method
 
 .method public onSwitchChanged(Landroid/widget/Switch;Z)V
-    .locals 3
+    .locals 4
+
+    const/4 v1, 0x0
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/usefulfeature/RecentsKeySettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "db_split_screen_view_shortcut"
+    const-string/jumbo v3, "db_split_screen_view_shortcut"
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1
 
     const/4 v0, 0x1
 
     :goto_0
-    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/usefulfeature/RecentsKeySettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/usefulfeature/RecentsKeySettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f1001cf
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v2
+
+    if-eqz p2, :cond_0
+
+    const/16 v1, 0x3e8
+
+    :cond_0
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v0, v2, v1}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
 
     return-void
 
-    :cond_0
-    const/4 v0, 0x0
+    :cond_1
+    move v0, v1
 
     goto :goto_0
 .end method

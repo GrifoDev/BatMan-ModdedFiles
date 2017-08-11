@@ -21,7 +21,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040036
+    const v1, 0x7f040037
 
     invoke-virtual {v0, v1, p5, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -121,7 +121,7 @@
 .method public static createAppHeader(Lcom/samsung/android/settings/SecSettingsPreferenceFragment;Landroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Ljava/lang/String;IILandroid/content/Intent;Z)V
     .locals 10
 
-    const v0, 0x7f040036
+    const v0, 0x7f040037
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->setPinnedHeaderView(I)Landroid/view/View;
 

@@ -45,7 +45,7 @@
 .method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
     .locals 12
 
-    const v11, 0x7f0d00eb
+    const v11, 0x7f0d00ec
 
     iget-object v8, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity$OnSeekBarChangeListenerImp;->this$0:Lcom/android/settings/datausage/WarningSettingsGraceActivity;
 
@@ -292,7 +292,7 @@
 
     iget-object v10, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity$OnSeekBarChangeListenerImp;->this$0:Lcom/android/settings/datausage/WarningSettingsGraceActivity;
 
-    const v11, 0x7f0b0503
+    const v11, 0x7f0b0566
 
     invoke-virtual {v10, v11}, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->getString(I)Ljava/lang/String;
 

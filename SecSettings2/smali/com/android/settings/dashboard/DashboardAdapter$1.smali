@@ -248,12 +248,6 @@
 
     if-eqz v5, :cond_5
 
-    invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
     iget-object v5, p0, Lcom/android/settings/dashboard/DashboardAdapter$1;->this$0:Lcom/android/settings/dashboard/DashboardAdapter;
 
     invoke-static {v5}, Lcom/android/settings/dashboard/DashboardAdapter;->-get0(Lcom/android/settings/dashboard/DashboardAdapter;)Landroid/content/Context;
@@ -270,13 +264,19 @@
 
     move-result-object v6
 
-    const v7, 0x7f1003c7
+    const v7, 0x7f1003cd
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v6
 
     invoke-static {v5, v6}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;I)V
+
+    invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6
 
     iget-object v6, p0, Lcom/android/settings/dashboard/DashboardAdapter$1;->this$0:Lcom/android/settings/dashboard/DashboardAdapter;
 
@@ -315,7 +315,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f1001e9
+    const v7, 0x7f1001ef
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -406,7 +406,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f1003eb
+    const v7, 0x7f1003ee
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
 

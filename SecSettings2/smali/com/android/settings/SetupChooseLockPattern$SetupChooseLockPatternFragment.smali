@@ -217,7 +217,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v1, 0x7f0402ba
+    const v1, 0x7f0402be
 
     const/4 v2, 0x0
 
@@ -276,7 +276,7 @@
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
     .locals 1
 
-    const v0, 0x7f110766
+    const v0, 0x7f110769
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

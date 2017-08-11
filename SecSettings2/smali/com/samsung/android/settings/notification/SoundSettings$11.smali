@@ -43,7 +43,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SoundSettings$11;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get15(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/Preference;
+    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get16(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -63,7 +63,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SoundSettings$11;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get9(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/settings/notification/SoundSettings$H;
+    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get10(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/settings/notification/SoundSettings$H;
 
     move-result-object v1
 
@@ -76,7 +76,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SoundSettings$11;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get14(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/Preference;
+    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get15(Lcom/samsung/android/settings/notification/SoundSettings;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -98,7 +98,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SoundSettings$11;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get9(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/settings/notification/SoundSettings$H;
+    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get10(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/settings/notification/SoundSettings$H;
 
     move-result-object v1
 
@@ -113,7 +113,7 @@
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SoundSettings$11;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get13(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/android/settings/DefaultRingtonePreference;
+    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get14(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/android/settings/DefaultRingtonePreference;
 
     move-result-object v1
 
@@ -133,7 +133,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SoundSettings$11;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get9(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/settings/notification/SoundSettings$H;
+    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-get10(Lcom/samsung/android/settings/notification/SoundSettings;)Lcom/samsung/android/settings/notification/SoundSettings$H;
 
     move-result-object v1
 

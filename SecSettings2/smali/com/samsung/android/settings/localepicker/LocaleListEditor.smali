@@ -12,8 +12,7 @@
     value = {
         Lcom/samsung/android/settings/localepicker/LocaleListEditor$1;,
         Lcom/samsung/android/settings/localepicker/LocaleListEditor$2;,
-        Lcom/samsung/android/settings/localepicker/LocaleListEditor$3;,
-        Lcom/samsung/android/settings/localepicker/LocaleListEditor$4;
+        Lcom/samsung/android/settings/localepicker/LocaleListEditor$3;
     }
 .end annotation
 
@@ -29,11 +28,7 @@
 
 .field private mCancelButton:Landroid/widget/Button;
 
-.field mCustomLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
-
 .field private mDataSetObserver:Landroid/database/DataSetObserver;
-
-.field private mDefLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
 
 .field private mDndAnimator:Lcom/samsung/android/animation/SemDragAndDropListAnimator;
 
@@ -226,23 +221,17 @@
 
     invoke-direct {v0, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$1;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
-    iput-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mCustomLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
+    iput-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mDataSetObserver:Landroid/database/DataSetObserver;
 
     new-instance v0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$2;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$2;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
-    iput-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mDataSetObserver:Landroid/database/DataSetObserver;
+    iput-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mDndController:Lcom/samsung/android/animation/SemAbsDragAndDropAnimator$DragAndDropController;
 
     new-instance v0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$3;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$3;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
-
-    iput-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mDndController:Lcom/samsung/android/animation/SemAbsDragAndDropAnimator$DragAndDropController;
-
-    new-instance v0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$4;
-
-    invoke-direct {v0, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$4;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
     iput-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
@@ -260,7 +249,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1003ab
+    const v3, 0x7f1003b1
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -318,7 +307,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f110533
+    const v0, 0x7f110535
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -367,7 +356,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mDndAnimator:Lcom/samsung/android/animation/SemDragAndDropListAnimator;
 
-    const v1, 0x7f020372
+    const v1, 0x7f020398
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/animation/SemDragAndDropListAnimator;->setDragGrabHandleDrawable(I)V
 
@@ -383,9 +372,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/samsung/android/settings/localepicker/LocaleListEditor$13;
+    new-instance v1, Lcom/samsung/android/settings/localepicker/LocaleListEditor$12;
 
-    invoke-direct {v1, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$13;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
+    invoke-direct {v1, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$12;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
@@ -444,7 +433,7 @@
 .method private initActionBarBtn(I)V
     .locals 10
 
-    const v9, 0x7f020631
+    const v9, 0x7f02069a
 
     const/4 v8, 0x2
 
@@ -502,7 +491,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mActionBar:Landroid/app/ActionBar;
 
-    const v6, 0x7f04009f
+    const v6, 0x7f0400a0
 
     invoke-virtual {v5, v6}, Landroid/app/ActionBar;->setCustomView(I)V
 
@@ -547,7 +536,7 @@
 
     if-eqz v5, :cond_5
 
-    const v5, 0x7f020100
+    const v5, 0x7f020125
 
     invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -572,9 +561,9 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mCancelButton:Landroid/widget/Button;
 
-    new-instance v6, Lcom/samsung/android/settings/localepicker/LocaleListEditor$6;
+    new-instance v6, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;
 
-    invoke-direct {v6, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$6;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
+    invoke-direct {v6, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -602,16 +591,16 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mSaveButton:Landroid/widget/Button;
 
-    const v6, 0x7f0b0469
+    const v6, 0x7f0b04cc
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setText(I)V
 
     :cond_3
     iget-object v5, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mSaveButton:Landroid/widget/Button;
 
-    new-instance v6, Lcom/samsung/android/settings/localepicker/LocaleListEditor$7;
+    new-instance v6, Lcom/samsung/android/settings/localepicker/LocaleListEditor$6;
 
-    invoke-direct {v6, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$7;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
+    invoke-direct {v6, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$6;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -632,7 +621,7 @@
     return-void
 
     :cond_5
-    const v5, 0x7f020123
+    const v5, 0x7f020148
 
     invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -675,7 +664,7 @@
     :cond_8
     iget-object v5, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mMenu:Landroid/view/Menu;
 
-    const v6, 0x7f0b01db
+    const v6, 0x7f0b0239
 
     invoke-interface {v5, v7, v8, v7, v6}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -700,15 +689,6 @@
 
     const/4 v2, 0x1
 
-    if-nez p1, :cond_1
-
-    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mListView:Landroid/widget/ListView;
-
-    iget-object v1, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mCustomLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
-
-    :goto_0
     iput-boolean p1, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mRemoveMode:Z
 
     iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mAdapter:Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;
@@ -719,7 +699,7 @@
 
     iget-boolean v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mRemoveMode:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mListView:Landroid/widget/ListView;
 
@@ -736,21 +716,12 @@
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->removeFooterView(Landroid/view/View;)Z
 
     :cond_0
-    :goto_1
+    :goto_0
     invoke-direct {p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->updateViewConfiguration()V
 
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mListView:Landroid/widget/ListView;
-
-    iget-object v1, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mDefLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
-
-    goto :goto_0
-
-    :cond_2
     iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mListView:Landroid/widget/ListView;
 
     invoke-virtual {v0}, Landroid/widget/ListView;->getFooterViewsCount()I
@@ -765,7 +736,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->addFooterView(Landroid/view/View;)V
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method private showNotificationDialog(Landroid/content/Context;)V
@@ -788,23 +759,23 @@
 
     invoke-direct {v0, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b1019
+    const v1, 0x7f0b10a6
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b04bf
+    const v1, 0x7f0b0522
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/samsung/android/settings/localepicker/LocaleListEditor$14;
+    new-instance v1, Lcom/samsung/android/settings/localepicker/LocaleListEditor$13;
 
-    invoke-direct {v1, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$14;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
+    invoke-direct {v1, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$13;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
-    const v2, 0x7f0b1698    # 1.8488E38f
+    const v2, 0x7f0b1734
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -873,29 +844,29 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b1240
+    const v3, 0x7f0b12db
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b1241
+    const v3, 0x7f0b12dc
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/samsung/android/settings/localepicker/LocaleListEditor$7;
+
+    invoke-direct {v3, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$7;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
+
+    invoke-virtual {v2, v5, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
     new-instance v3, Lcom/samsung/android/settings/localepicker/LocaleListEditor$8;
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$8;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
-
-    invoke-virtual {v2, v5, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/samsung/android/settings/localepicker/LocaleListEditor$9;
-
-    invoke-direct {v3, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$9;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
 
@@ -934,15 +905,15 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b123f
+    const v3, 0x7f0b12da
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    new-instance v3, Lcom/samsung/android/settings/localepicker/LocaleListEditor$10;
+    new-instance v3, Lcom/samsung/android/settings/localepicker/LocaleListEditor$9;
 
-    invoke-direct {v3, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$10;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
+    invoke-direct {v3, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$9;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
     const v4, 0x1040009
 
@@ -950,17 +921,17 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/samsung/android/settings/localepicker/LocaleListEditor$11;
+    new-instance v3, Lcom/samsung/android/settings/localepicker/LocaleListEditor$10;
 
-    invoke-direct {v3, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$11;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
+    invoke-direct {v3, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$10;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
     invoke-virtual {v2, v5, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    new-instance v3, Lcom/samsung/android/settings/localepicker/LocaleListEditor$12;
+    new-instance v3, Lcom/samsung/android/settings/localepicker/LocaleListEditor$11;
 
-    invoke-direct {v3, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$12;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
+    invoke-direct {v3, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$11;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
 
@@ -997,7 +968,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0502
+    const v3, 0x7f0a0501
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1051,7 +1022,7 @@
 
     if-eqz v0, :cond_2
 
-    const v4, 0x7f0b18fa
+    const v4, 0x7f0b1996
 
     invoke-interface {v0, v4}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -1300,7 +1271,7 @@
 
     check-cast v3, Landroid/view/ViewGroup;
 
-    const v4, 0x7f040287
+    const v4, 0x7f04028b
 
     invoke-virtual {p1, v4, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1310,19 +1281,19 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b16f5
+    const v4, 0x7f0b1791
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->setTitle(I)V
 
     invoke-direct {p0, v1}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->configureDragAndDrop(Landroid/view/View;)V
 
-    const v3, 0x7f040289
+    const v3, 0x7f04028d
 
     invoke-virtual {p1, v3, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    const v3, 0x7f040288
+    const v3, 0x7f04028c
 
     invoke-virtual {p1, v3, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1336,25 +1307,11 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mListView:Landroid/widget/ListView;
 
-    new-instance v4, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;
+    new-instance v4, Lcom/samsung/android/settings/localepicker/LocaleListEditor$4;
 
-    invoke-direct {v4, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
+    invoke-direct {v4, p0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor$4;-><init>(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
     invoke-virtual {v3, v4}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
-
-    iget-object v3, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mListView:Landroid/widget/ListView;
-
-    invoke-virtual {v3}, Landroid/widget/ListView;->getOnItemLongClickListener()Landroid/widget/AdapterView$OnItemLongClickListener;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mDefLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
-
-    iget-object v3, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mListView:Landroid/widget/ListView;
-
-    iget-object v4, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mCustomLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
-
-    invoke-virtual {v3, v4}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
 
     iget-object v3, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->mAdapter:Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;
 
@@ -1404,7 +1361,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1003ac
+    const v2, 0x7f1003b2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1426,7 +1383,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1003aa
+    const v2, 0x7f1003b0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

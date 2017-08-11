@@ -74,7 +74,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f0400d8
+    const v0, 0x7f0400da
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SettingsListPreference;->setDialogLayoutResource(I)V
 
@@ -229,7 +229,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f1102ca
+    const v1, 0x7f1102cc
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -253,12 +253,12 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f020100
+    const v1, 0x7f020125
 
     invoke-virtual {v8, v1}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
     :cond_1
-    const v1, 0x7f1102cb
+    const v1, 0x7f1102cd
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -344,7 +344,7 @@
 
     move-result-object v10
 
-    const v1, 0x7f0a050d
+    const v1, 0x7f0a050c
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -497,7 +497,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f02a5
+    const v5, 0x7f0f02a6
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 

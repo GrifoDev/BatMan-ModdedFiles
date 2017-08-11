@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dt %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d t. og %2$d min.</string>
+    <string name="battery_history_minutes_no_seconds">%d min.</string>
     <string name="wifi_fail_to_scan">Der kan ikke søges efter netværk</string>
     <string name="wifi_failed_to_obtain_IP">Det lykkedes ikke at finde en IP-adresse.</string>
     <string name="wifi_security_none">Ingen</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Det er ikke muligt at oprette forbindelse til %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Kan ikke oprette forbindelse til %1$s. Tjek dine indstillinger i %2$s, og prøv igen.</string>
     <string name="bluetooth_pairing_rejected_error_message">Parring afvist af %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Henter enhedsnavn …</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Enhedsnavn vises, når denne enhed er tilsluttet.</string>
     <string name="accessibility_wifi_off">Wi-Fi er slået fra.</string>
     <string name="accessibility_no_wifi">Wi-Fi er afbrudt.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi har én bjælke.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Support</string>
     <string name="reset_network_settings_list_summary">Nulstil Wi-Fi-, Bluetooth- og andre netværksindstillinger til deres standardindstillinger.</string>
     <string name="master_clear_list_summary">Nulstil din enhed til fabrikkens standardindstillinger. Dette vil slette alle data inklusive filer og downloadede apps.</string>
-    <string name="auto_restart_summary">Optimer din enhed ved at genstarte den automatisk på faste tidspunkter. Data, der ikke er blevet gemt, vil blive mistet, når enheden genstarter.</string>
+    <string name="auto_restart_summary">Optimer din telefon ved at genstarte den automatisk en gang om ugen. Data, der ikke er blevet gemt, mistes, når telefonen genstarter.</string>
+    <string name="auto_restart_summary_tablet">Optimer din tablet ved at genstarte den automatisk en gang om ugen. Data, der ikke er blevet gemt, mistes, når tabletten genstarter.</string>
     <string name="search_settings">Søg</string>
     <string name="related_results">%d-relaterede elementer</string>
     <string name="no_results_found">Ingen resultater fundet</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Lydbalance er %d procent til højre. Brug to fingre til at trække skyderen.</string>
     <string name="sound_balance_set">Angiv</string>
     <string name="accessibility_assistant_menu">Assistentmenu</string>
-    <string name="assistant_menu_summary">Muliggør funktioner til forbedring af enheds tilgængelighed for brugere med nedsatte færdigheder.</string>
+    <string name="assistant_menu_summary">Forøg telefonens tilgængelighed for brugere med nedsatte færdigheder.</string>
     <string name="color_blind_title">Farvejustering</string>
     <string name="no_result">Juster skærmfarverne, hvis du finder det vanskeligt at læse din skærm.</string>
     <string name="you_are_normal">Farvejustering er ikke nødvendig.</string>
@@ -653,6 +656,7 @@ Når denne funktion er aktiveret, bliver automatisk skærmrotation deaktiveret. 
     <string name="direct_access_actions_accessibility_title">Tilgængelighed</string>
     <string name="direct_access_actions_negative_title">Negative farver</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Direkte adgang og Reducer skærmstørrelse kan ikke være aktiverede på samme tid. Reducer skærmstørrelse vil blive deaktiveret.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s og %2$s kan ikke være aktiveret på samme tid. %3$s vil blive deaktiveret.</string>
     <string name="direct_access_actions_color_adjustment_summary">Konfigurer Farvejustering under Syn for at bruge det i Direkte adgang</string>
     <string name="direct_access_actions_screen_reader_summary">Aktiver Sidelæser for at bruge det i Direkte adgang.</string>
     <string name="direct_access_actions_accesscontrol_title">Interaktionskontrol</string>
@@ -851,7 +855,9 @@ Wi-Fi og Bluetooth vil også blive deaktiveret, men du kan aktivere dem igen und
     <string name="premium_sms_values_ask">Spørg</string>
     <string name="premium_sms_values_never">Tillad aldrig</string>
     <string name="premium_sms_values_allow">Tillad altid</string>
-    <string name="assist_and_voice_input_summary">Enhedsassistanceapps giver flere indstillinger og oplysninger om hvert enkelt skærmbillede.</string>
+    <string name="assist_and_voice_input_summary">Vælg, hvilken app du vil bruge, når du trykker og holder på startknappen.</string>
+    <string name="assist_footer_phone">Vælg, hvilken app der skal bruges, når du trykker og holder på startknappen. Enhedsassistanceapps kan hjælpe dig med at indsamle oplysninger fra den skærm, der i øjeblikket vises på din telefon.</string>
+    <string name="assist_footer_tablet">Vælg, hvilken app der skal bruges, når du trykker og holder på startknappen. Enhedsassistanceapps kan hjælpe dig med at indsamle oplysninger fra den skærm, der i øjeblikket vises på din tablet.</string>
     <string name="default_app_title">Angiv som standard</string>
     <string name="premium_sms_title">Send premium sms</string>
     <string name="default_app_selection">Standardappvalg</string>
@@ -940,7 +946,7 @@ Du kan ændre dette senere ved at gå til Bluetooth-indstillinger."</string>
 
 De 2 forbundne enheder kan have en lille forskel i lydoutputtet."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Vil du deaktivere Medielydstyrkesynk.?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Hvis du vil bruge Dobbelt lyd, skal Medielydstyrkesynkronisering deaktiveres.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Hvis du vil styre lydstyrken på hver enkelt lydenhed separat, skal Medielydstyrkesynkronisering deaktiveres.</string>
     <string name="bluetooth_avc_title">Medielydstyrkesynk.</string>
     <string name="bluetooth_avc_description">Hvis den tilsluttede Bluetooth-enhed kan styre medielydstyrken på din telefon, vil det lydstyrkeniveau, der er angivet af Bluetooth-enheden, synkronisere med din telefon.</string>
     <string name="bluetooth_avc_volume_change_description">Aktivering af denne funktion kan medføre uventede ændringer af lydstyrken.</string>
@@ -949,6 +955,7 @@ De 2 forbundne enheder kan have en lille forskel i lydoutputtet."</string>
     <string name="bluetooth_avc_ask_popup_title">Vil du deaktivere Dobbelt lyd?</string>
     <string name="bluetooth_avc_ask_popup_content">Hvis du vil bruge Medielydstyrkesynkronisering, skal Dobbelt lyd deaktiveres.</string>
     <string name="bluetooth_avc_disable_description">Den tilsluttede Bluetooth-enhed understøtter ikke Medielydstyrkesynkronisering. Du kan ikke synkronisere lydstyrken for din telefon med den tilsluttede Bluetooth-enhed.</string>
+    <string name="bluetooth_avc_available_description">Den tilsluttede Bluetooth-enhed understøtter Medielydstyrkesynkronisering, og den lydstyrke, der er indstillet af Bluetooth-enheden, vil blive synkroniseret med din telefon.</string>
     <string name="bluetooth_enter_pin_msg">Angiv PIN-kode for at parre med %s (Prøv 0000 eller 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Det maksimale antal tegn er nået.</string>
     <string name="settings_menu_done">Udført</string>
@@ -1032,11 +1039,12 @@ Selvom Smart skærmbillede er deaktiveret, har du stadig adgang til dets funktio
     <string name="swipe_to_call_title">Stryg f. at ringe/sende beskeder</string>
     <string name="swipe_to_call_summary">Stryg en kontakt eller et nummer mod højre for at foretage et opkald eller mod venstre for at sende en besked under Telefon, Kontakter eller Beskeder.</string>
     <string name="swipe_to_call_summary_dcm">Stryg en kontakt eller et nummer mod højre for at foretage et opkald eller mod venstre for at sende en besked under Ring, Kontakter eller Beskeder.</string>
-    <string name="swipe_to_call_summary_kddi">Stryg en kontakt eller et nummer mod højre for at foretage et opkald eller mod venstre for at sende en besked under Telefon eller Kontakter.</string>
+    <string name="swipe_to_call_summary_kddi">Stryg en kontakt eller et nummer mod højre for at foretage et opkald eller mod venstre for at sende en besked under Ring til eller Kontakter.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">Brug to separate konti til den samme app.</string>
     <string name="finger_sensor_gesture_title">Fingersensorbevægelser</string>
     <string name="finger_sensor_gesture_summary">Åbn og luk apps og funktioner med fingeraftrykssensoren.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Åbn og luk informationspanelet med fingeraftrykssensoren.</string>
     <string name="finger_sensor_gesture_description">Stryg op eller ned på fingeraftrykssensoren for at åbne eller lukke informationspanelet.</string>
     <string name="open_samsung_pay_title">Åbn Samsung Pay</string>
     <string name="open_samsung_pay_summary">Stryg opad på fingeraftrykssensoren fra Startskærmen for at åbne Samsung Pay.</string>
@@ -1071,6 +1079,7 @@ Selvom Smart skærmbillede er deaktiveret, har du stadig adgang til dets funktio
 %s"</string>
     <string name="enable_ps_title">Aktiver %s</string>
     <string name="setup_wizard">Konfigurationsguide</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normal</string>
     <string name="large">Stor</string>
     <string name="small">Lille</string>
@@ -1360,7 +1369,7 @@ Tryk på OK for at tillade, at lysstyrken øges til over sikkerhedsniveauet."</s
     <string name="adjust_your_display_colour">Juster farverne på din skærm for at ændre, hvordan hvide toner vises.</string>
     <string name="display_temperature_preset_cool">Kølig</string>
     <string name="display_temperature_preset_warm">Varm</string>
-    <string name="display_advanced_option">Avancerede indstillinger</string>
+    <string name="display_advanced_option">Avanc. indstillinger</string>
     <string name="color_balance_subtext_1">Farvebalance kan kun justeres i Tilpasset skærmtilstand.</string>
     <string name="color_balance_subtext_2">Dine justeringer vil ikke blive anvendt, mens Blåt lys-filter er aktiveret.</string>
     <string name="poc_balance_title">Farvebalance for skærmkanter</string>
@@ -1418,6 +1427,7 @@ Tryk på OK for at tillade, at lysstyrken øges til over sikkerhedsniveauet."</s
     <string name="navigationbar_summary">Administrer knapperne Start, Tilbage og Seneste.</string>
     <string name="navigationbar_theme_switch">Anvend aktuelt tema</string>
     <string name="navigationbar_color_title">Baggrundsfarve</string>
+    <string name="navigationbar_color_summary">Den baggrundsfarve, du vælger, anvendes muligvis ikke i alle apps.</string>
     <string name="navigationbar_order_title">Knaplayout</string>
     <string name="navigationbar_order_default">Seneste – Start – Tilbage</string>
     <string name="navigationbar_order_mirrored">Tilbage – Start – Seneste</string>
@@ -1449,7 +1459,8 @@ Tryk på OK for at tillade, at lysstyrken øges til over sikkerhedsniveauet."</s
     <string name="blue_light_filter_enable_now">Aktiver nu</string>
     <string name="blue_light_filter_enable_as_scheduled">Aktiver som planlagt</string>
     <string name="blue_light_filter_scheduled_toast">Blåt lys-filter er aktiveret. Det vil blive deaktiveret automatisk på det planlagte sluttidspunkt.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s og Blåt lys-filter kan ikke bruges på samme tid. Blåt lys-filter vil blive deaktiveret.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Vil du deaktivere Blåt lys-filter?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Blåt lys-filter skal deaktiveres, hvis du vil bruge %s.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Placering skal være aktiveret, før du kan bruge Solnedgang til solopgang.</string>
     <string name="dlg_turn_on">Aktiver</string>
     <string name="screen_resolution_title">Skærmopløsning</string>
@@ -1666,6 +1677,7 @@ Kryptering tager en time eller længere. Før du starter, skal du sørge for, at
     <string name="crypt_keeper_last_warn_wipe">Du har kun 1 forsøg tilbage til at starte din enhed, før den bliver nulstillet til fabriksindstillingerne. Dette vil slette alle data, herunder filer og downloadede apps.</string>
     <string name="crypt_keeper_failed_title_dec">Dekrypteringen mislykkedes.</string>
     <string name="crypt_keeper_failed_summary_dec">Kunne ikke udføre dekryptering på grund af afbrydelse. Udfør fabriksdatanulstilling (sletter alle dine data) før brug.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Indstil skærmlåsningstype</string>
     <string name="encryption_interstitial_message">"Du kan beskytte denne telefon yderligere ved at kræve, at din %s indtastes, før telefonen starter. Dette hjælper med at beskytte dine data, hvis telefonen bliver væk eller stjålet. Nogle apps kan kræve Sikker start i henhold til politikker for enhedskryptering for at få adgang til funktioner, som f.eks. e-mailsynkronisering.
 
 Du vil ikke modtage opkald, beskeder eller meddelelser, og alarmer vil ikke lyde, før telefonen er startet."</string>
@@ -1904,6 +1916,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Brug fingeraftryk</string>
     <string name="wifi_ap_close">Luk</string>
     <string name="fingerscanner_add_summary">Tilføj dine fingeraftryk.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 fingeraftryk er blevet tilføjet.</string>
     <string name="fingerscanner_register_summary">Der er blevet tilføjet %d fingeraftryk.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Brug et fingeraftryk, eller indtast den aktuelle PIN-kode.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Brug et fingeraftryk, eller tegn det aktuelle mønster.</string>
@@ -1930,6 +1943,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Lås din telefon op med ansigtsgenkendelse, så snart skærmen tændes, uden at du behøver at stryge først.</string>
     <string name="facelock_recognition_speed_up">Hurtigere genkendelse</string>
     <string name="facelock_recognition_speed_up_summary">Aktiver for at få hurtigere genkendelse. Deaktiver for at øge sikkerheden og gøre det sværere at låse op ved hjælp af billede eller video.</string>
+    <string name="facelock_samsungpass_summary">Brug ansigtsgenkendelse til at bekræfte din identitet med %s og andre understøttede apps.</string>
     <string name="face_remove_face_popup_title">Vil du fjerne ansigtsdata?</string>
     <string name="face_remove_face_popup_message_1">Dit ansigt vil ikke længere blive genkendt, og Ansigtslås vil blive deaktiveret.</string>
     <string name="face_remove_face_popup_message_2">Funktioner, der bruger ansigtsgenkendelse, vil blive deaktiveret.</string>
@@ -2073,7 +2087,7 @@ Aktiver Oplåsning med iris for at bruge dine biometriske data eller din/dit %s 
     <string name="biometrics_backup_locktype_title">Konfigurer sikkerhed for iris</string>
     <string name="biometrics_register_your_iris">Registrer din iris.</string>
     <string name="biometrics_backup_locktype_summary">Hvis du vil bruge din iris til at låse enheden op med, skal du angive et mønster, en PIN-kode eller en adgangskode.</string>
-    <string name="biometrics_backup_locktype_message">For at bruge din iris til at låse din telefon op eller til sikker bekræftelse skal du:</string>
+    <string name="biometrics_backup_locktype_message">Hvis du vil bruge din iris til at låse din telefon op med eller til at bekræfte dig selv i apps, skal du:</string>
     <string name="iris_delete_popup_title">Vil du fjerne irisdata?</string>
     <string name="iris_delete_popup_message">Vil du fjerne irisdata?</string>
     <string name="iris_delete_popup_message_with_related_func">Funktioner, der bruger iris, vil blive deaktiveret.</string>
@@ -2081,7 +2095,7 @@ Aktiver Oplåsning med iris for at bruge dine biometriske data eller din/dit %s 
     <string name="iris_timeout_popop_title">Prøv senere</string>
     <string name="iris_timeout_popop_message">Iris blev ikke genkendt. Iriskameraet er muligvis snavset. Rengør området over skærmen, og prøv igen.</string>
     <string name="iris_timeout_popop_message_1">Iriskameraet er muligvis snavset. Rengør området over skærmen, og prøv igen.</string>
-    <string name="iris_proximity_restriction_popop_message">Iris blev ikke genkendt. Telefonen er for tæt på ansigtet, eller nærhedssensoren kan være snavset. Rengør området over skærmen, og prøv igen.</string>
+    <string name="iris_proximity_restriction_popop_message">Hold din telefon længere væk fra dit ansigt, og prøv igen.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Nærhedssensoren kan være snavset.
 Rengør området over skærmen."</string>
     <string name="iris_try_again">Prøv igen</string>
@@ -2089,6 +2103,8 @@ Rengør området over skærmen."</string>
     <string name="iris_failed_to_verity_identify">Kunne ikke bekræfte din identitet</string>
     <string name="iris_failed_popup_description">Der har været %1$d forsøg på at bekræfte din iris. Prøv igen om %2$d sekunder.</string>
     <string name="iris_no_match">Intet match</string>
+    <string name="iris_eye_safety_msg">Din iris blev ikke genkendt.</string>
+    <string name="iris_timeout_msg">Din iris blev ikke registreret.</string>
     <string name="biometrics_registered">Registreret</string>
     <string name="iris_turn_on_toast_message">Irislås er aktiveret i stedet for Fingeraftrykslås.</string>
     <string name="iris_wrong_backup_password">Forkert alt. adgangskode</string>
@@ -2280,6 +2296,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Vælg startknappen og et ur eller oplysninger på standby-skærmen.</string>
     <string name="aod_feature_off_popup_title">Vil du deaktivere %s?</string>
     <string name="aod_feature_off_popup_description">Hvis du vil bruge %1$s, skal %2$s deaktiveres.</string>
+    <string name="aod_features_off_popup_title">Vil du deaktivere andre funktioner?</string>
+    <string name="aod_features_off_popup_description">Hvis du vil bruge Always On Display, skal følgende funktioner være deaktiveret:</string>
     <string name="aod_features_off_popup_btn_ok">Deaktiver</string>
     <string name="aod_disable_by_negative_colors">Kan ikke bruges, når Negative farver er aktiveret.</string>
     <string name="aod_disable_by_powersaving_mode">Kan ikke bruges, når Strømbesparende tilstand er aktiveret.</string>
@@ -2303,6 +2321,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Farvede dråber</string>
     <string name="lock_screen_show_information_summary_wifi_only">Vis oplysninger om enhedens ejer eller appgenveje på låseskærmen.</string>
     <string name="lock_screen_sview_show_information_summary">Vis dobbelt-uret, oplysninger om enhedens ejer eller appgenveje på låseskærmen og gennem S View-vinduet.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Vis dobbelt-uret ved roaming eller kontaktoplysninger for telefonens ejer på låseskærmen og gennem S View-vinduet.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Vælg appgenveje, der skal vises på låseskærmen og gennem S View-vinduet.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Vis meddelelser på låseskærmen og gennem S View-vinduet.</string>
     <string name="lock_screen_and_cover_show_information_summary">Vis dobbelt-uret på låseskærmen og gennem dit Clear View Cover.</string>
     <string name="lock_screen_secured_lock_settings_title">Indstillinger for sikker lås</string>
     <string name="lock_screen_secured_lock_settings_summary">Angiv dine funktioner til sikkerhedslåsning. Det kan for eksempel være Automatisk lås og Lås straks med tænd/sluk-tast.</string>
@@ -2319,6 +2340,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Hjemmetidszone</string>
     <string name="contact_info_settings_title">Kontaktoplysninger</string>
     <string name="show_contact_info_on_lockscreen_label">Vis oplysninger som f.eks. dit telefonnummer eller din e-mailadresse på låseskærmen.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Vis oplysninger som f.eks. dit telefonnummer eller din e-mailadresse på låseskærmen og Always On Display.</string>
     <string name="unlock_effect">Oplåsningseffekt</string>
     <string name="walking_mate_title">Skridttæller</string>
     <string name="help_text_title">Hjælpetekst</string>
@@ -2418,7 +2440,7 @@ Vi anbefaler, at du fjerner dine biometriske data, men du kan beholde dem, hvis 
     <string name="toast_set_lock_pattern">Alle data bliver slettet, og telefonen vil blive nulstillet, hvis du glemmer mønsteret.</string>
     <string name="toast_set_lock_password">Alle data bliver slettet, og telefonen vil blive nulstillet, hvis du glemmer adgangskoden.</string>
     <string name="toast_set_lock_pin">Alle data bliver slettet, og telefonen vil blive nulstillet, hvis du glemmer PIN-koden.</string>
-    <string name="chooselock_warning_text">Husk denne %s. Du skal bruge den, når enheden er blevet genstartet.</string>
+    <string name="chooselock_warning_text">Husk denne %s. Du skal bruge den, når du har genstartet din telefon.</string>
     <string name="lockpassword_password_exists_history">Adgangskode brugt tidligere. Angiv ny adgangskode.</string>
     <string name="lockpassword_pin_repeating_nums">PIN-kode må ikke indeholde gentagende tal.</string>
     <string name="lockpassword_pin_sequential_nums">PIN-kode må ikke indeholde tal i rækkefølge.</string>
@@ -2536,6 +2558,9 @@ Mobile data vil blive slået fra."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Medmindre du bruger Wi-Fi, kan du ikke længere bruge Internet, E-mail eller andre apps, der kræver en dataforbindelse.
 
 Mobile data vil blive slået fra."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Hvis du ikke opretter forbindelse til et Wi-Fi-netværk, kan du ikke bruge Internet, E-mail eller andre apps, der kræver en netværksforbindelse.</string>
@@ -2694,10 +2719,12 @@ Du kan fjerne blokeringen og tilslutte andre enheder via et USB-kabel, isæt et 
     <string name="maximum_volume_title">Tilpasset lydstyrkegrænse</string>
     <string name="volume_limiter_descryption">Beskyt dine ører med en grænse for maksimal lydstyrke. Grænsen anvendes kun, når du bruger hovedtelefoner eller Bluetooth-lydenheder.</string>
     <string name="multi_sound_title">Separat applyd</string>
-    <string name="multi_sound_summary">Afspil lyd fra en app på en højttaler eller hovedtelefoner separat fra de andre lyde på din enhed.</string>
-    <string name="multi_sound_descryption">"Afspil medielyd fra en app på en højttaler eller hovedtelefoner separat fra medielyd fra andre apps.
+    <string name="multi_sound_summary">Afspil medielyd fra en app på en lydenhed, der ikke er den samme som din telefons primære enhed til lydoutput.</string>
+    <string name="multi_sound_descryption">"Afspil medielyd fra en app på en lydenhed, der ikke er den samme som din telefons primære enhed til lydoutput. Vælg en app og en lydenhed for at aktivere dette.
 
-Hvis du vælger en lydenhed med Bluetooth, vil lyden blive afspillet på standardlydenheden, hvis der ikke er forbindelse til Bluetooth-enheden."</string>
+Separat applyd fungerer kun, når den lydenhed, du vælger, er en anden end telefonens primære enhed til lydoutput.
+
+Du kan ændre din telefons primære enhed til lydoutput i hurtigindstillingspanelet. Hvis lydoutput ikke vises, kan du aktivere det under Samsung Connect > Indstillinger > Samsung Connect-panel."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Vælg en app for at afspille dens lyd på en separat lydenhed.</string>
     <string name="set_application_descryption">Vælg en multimedieapp herunder for at afspille dens lyd på en separat lydenhed.</string>
@@ -2708,9 +2735,11 @@ Hvis du vælger en lydenhed med Bluetooth, vil lyden blive afspillet på standar
     <string name="multi_sound_popup_msg">Hvis du vil aktivere %s, skal du vælge en app og en lydenhed.</string>
     <string name="multi_sound_network_msg">Din telefon skal have forbindelse til et netværk for at kunne søge efter tilgængelige apps. Kontroller dine netværksindstillinger, og prøv igen.</string>
     <string name="multi_sound_wifi_msg">For at tjekke, om der er tilgængelige apps, skal din telefon oprette forbindelse til et netværk. Brug af mobile data kan medføre yderligere gebyrer.</string>
+    <string name="multi_sound_add_application">Tilføj program</string>
     <string name="dlg_btn_select">Vælg</string>
-    <string name="audio_device_type_descryption">Vælg, hvilken lydenhed du vil bruge til denne app. Bluetooth-enheder vil kun være synlige, når der er forbindelse til dem.</string>
+    <string name="audio_device_type_descryption">Vælg, hvilken lydenhed du vil bruge til den valgte app. Bluetooth-enheder vil kun være synlige, når der er forbindelse til dem.</string>
     <string name="my_phone_title">Telefon</string>
+    <string name="my_phone_summary">Højttaler/hovedtelefoner/USB-lydenhed</string>
     <string name="bluetooth_device_title">Bluetooth-enhed</string>
     <string name="no_connected_devices">Ingen tilsluttede enheder</string>
     <string name="two_hours">2 timer</string>
@@ -2718,7 +2747,8 @@ Hvis du vælger en lydenhed med Bluetooth, vil lyden blive afspillet på standar
     <string name="stop_setup_popup_msg">Indstillinger, du har ændret, vil ikke blive anvendt.</string>
     <string name="app_turned_on">%s tændt.</string>
     <string name="force_touch_title">Tryk på vibrationsfeedback</string>
-    <string name="volume_key_control_title">Lydstyrketast funktion</string>
+    <string name="volume_key_control_title">Brug lydstyrketaster til medier</string>
+    <string name="volume_key_control_summary">Kontroller medielydstyrken, når du trykker på Lydstyrketasterne.</string>
     <string name="sound_mode">Lydtilstand</string>
     <string name="sound_mode_vibrate">Vibration</string>
     <string name="sound_mode_mute">Lydløs</string>
@@ -2932,14 +2962,13 @@ Prøv igen."</string>
     <string name="text_biometrics_title_enterprise">Når du vælger %1$s, vil biometriske data ikke blive understøttet som en oplåsningsmetode for %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">Fingeraftryk understøttes ikke af %1$s som oplåsningsmetode for %2$s.</string>
     <string name="edge_feeds_title">Edge-feeds</string>
-    <string name="screensaver_settings_summary">"Kontroller, hvad der sker, når enheden er i dock og/eller oplader. Pauseskærmen vises, når skærmen får timeout.
-
-Denne funktion kaldes også Dagdrøm."</string>
-    <string name="screensaver_settings_summary_wo_dock">Vis en pauseskærm, når skærmen slukkes automatisk, mens telefonen oplader.</string>
+    <string name="screensaver_settings_summary">Vis en pauseskærm, når skærmen slukkes automatisk, mens telefonen oplader.</string>
+    <string name="screensaver_settings_summary_wo_dock">Vis en pauseskærm, når skærmen slukkes automatisk, mens telefonen er placeret i dock eller oplader.</string>
     <string name="apn_already_exists">Findes allerede.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Portnummeret skal være mellem %1$d og %2$d.</string>
     <string name="apn_restore_warning">"Alle APN'er, du har tilføjet, vil blive fjernet. De andre APN'er vil blive nulstillet til deres standardindstillinger."</string>
+    <string name="apn_restore_title">Vil du nulstille APN-indstillinger?</string>
     <string name="master_clear_desc_google_account">Google-konto</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2951,7 +2980,8 @@ Denne funktion kaldes også Dagdrøm."</string>
     <string name="sound_balance_summary">Juster lydbalancen mellem venstre og højre til hovedtelefoner.</string>
     <string name="backup_samsung_account_title">Indstillinger for sikkerhedskopiering</string>
     <string name="restore_samsung_account_title">Gendan</string>
-    <string name="auto_restart_header">Enhedsstyring</string>
+    <string name="auto_restart_header">Telefonadministration</string>
+    <string name="auto_restart_header_tablet">Tabletadministration</string>
     <string name="auto_restart_title">Auto-genstart</string>
     <string name="switch_turn_on_text">Aktiver</string>
     <string name="switch_turn_off_text">Slå fra</string>
@@ -3074,6 +3104,14 @@ Dine personlige data og indstillingerne for downloadede apps vil ikke blive påv
     <string name="tether_settings_summary_usb_bt">Del din enheds mobile dataforbindelse via USB eller Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Godkend</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Del din telefons internetforbindelse via Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Del din tablets internetforbindelse via Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Klar til at dele denne telefons internetforbindelse.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Klar til at dele denne tablets internetforbindelse.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Deler denne telefons internetforbindelse med 1 enhed.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Deler denne tablets internetforbindelse med 1 enhed.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Deler denne telefons internetforbindelse med %d enheder.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Deler denne tablets internetforbindelse med %d enheder.</string>
     <string name="onehand_settings_title">Enkelthåndstilstand</string>
     <string name="onehand_settings_text_1">Stryg diagonalt opad fra et af hjørnerne i bunden af skærmen for at gøre skærmbilledet mindre.</string>
     <string name="onehand_settings_text_2">Tryk tre gange hurtigt på startknappen for at gøre skærmbilledet mindre.</string>
@@ -3401,12 +3439,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Fra</string>
     <string name="wifi_or_mobile_network">Wi-Fi eller mobile netværk</string>
     <string name="wifi_network_only">Kun Wi-Fi-netværk</string>
+    <string name="wifi_adps_title">Wi-Fi-strømbesparende tilstand</string>
+    <string name="wifi_adps_summary">Reducer batteriforbruget ved at analysere Wi-Fi-trafikmønstre.</string>
     <string name="wifi_auto_reconnect">Tilslut automatisk</string>
     <string name="wifi_enable_warning_chn">Hvis WLAN bliver slået til, bliver Mobilt hotspot deaktiveret.</string>
     <string name="wifi_enable_warning_vzw">Aktivering af Wi-Fi deaktiverer Mobilt hotspot. Fortsæt?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Wi-Fi er deaktiveret, når Mobilt hotspot er aktivt. Hvis du vil aktivere Wi-Fi, skal du deaktivere Mobilt hotspot.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">Wi-Fi er deaktiveret, når Mobilt hotspot er aktivt. Aktiver Wi-Fi, og deaktiver Mobilt hotspot.</string>
+    <string name="wifi_enable_warning_mtr">Wi-Fi er deaktiveret, når Mobilt hotspot er aktivt. Deaktiver Mobilt hotspot for at aktivere Wi-Fi.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">Aktivering af Wi-Fi deaktiverer Mobilt hotspot.</string>
     <string name="wifi_control_history_title">Oversigt over Wi-Fi-styring</string>
@@ -3606,6 +3646,10 @@ Hvis du ændrer navnet på det mobile hotspot eller ændrer adgangskode, skal de
     <string name="wifi_wps_pin_client_mobileap">Opretter forbindelse til klient med PIN-koden %1$s. Det kan tage op til %2$d minutter at gennemføre konfigurationen.</string>
     <string name="wifi_wps_complete_mobileap">Den anden enhed er nu forbundet til din enhed.</string>
     <string name="wifi_ap_disconnect_warn">Frakobl enhed</string>
+    <string name="wifi_ap_change_policy_warn_chn">Den forbundne enhed vil blive frakoblet bærbart WLAN-hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Alle enheder, der i øjeblikket er forbundet, vil blive koblet fra Mobilt hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Alle enheder, der i øjeblikket er forbundet, vil blive koblet fra Mobilt hotspot.</string>
     <string name="wifi_ap_warn_max_whitelist">Det maksimalt antal tilladte enheder er (%d) nået.</string>
     <string name="wifiap_one_item_deleted">1 element vil blive slettet.</string>
@@ -3741,6 +3785,8 @@ Brug af bærbart Mobilt hotspot øger batteri- og dataforbruget."</string>
     <string name="wifi_ap_first_time_configuration">Første Hotspot-konfiguration</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Indtast den korrekte PIN-kode.</string>
+    <string name="open_mobileap_warning">Dette mobile AP er ikke sikkert.</string>
+    <string name="hidden_mobileap_warning">WPS vil blive deaktiveret, når brugeren angiver et Skjult SSID.</string>
     <string name="wifi_ssid_max_byte_error">Det maksimale antal tegn er nået.</string>
     <string name="tethering_attention_title">Bemærk!</string>
     <string name="wfd_select_device">Vælg enhed</string>
@@ -3971,6 +4017,14 @@ Modtager sms"</string>
     <string name="quick_tile_sync_title">Synkroniser</string>
     <string name="permission_usage">Tilladelsesbrug</string>
     <string name="draw_overlay_settings_description">Denne tilladelse giver en app mulighed for at vise ting oven på andre apps, du bruger. Dette kan påvirke din brug af andre apps.</string>
+    <string name="write_settings_body_description">Giv denne app tilladelse til at ændre systemindstillingerne. Den kan for eksempel aktivere eller deaktivere Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Dette vil nulstille alle dine præferencer for:</string>
+    <string name="reset_app_preferences_desc2">Deaktiverede apps</string>
+    <string name="reset_app_preferences_desc3">Meddelelsesbegrænsninger for apps</string>
+    <string name="reset_app_preferences_desc4">Standardapps</string>
+    <string name="reset_app_preferences_desc5">Baggrundsdatabegrænsninger for apps</string>
+    <string name="reset_app_preferences_desc6">Tilladelsesbegrænsninger</string>
+    <string name="reset_app_preferences_desc7">Du vil ikke miste dine eksisterende appdata.</string>
     <string name="knox_security_mode_title">Knox-sikkerhed</string>
     <string name="kap_title">Knox Active Protection</string>
     <string name="kap_eula_title">Fortrolighedspolitik</string>
@@ -3985,6 +4039,13 @@ Modtager sms"</string>
     <string name="my_profile_summary">Administrer dine personlige oplysninger og Samsung account-oplysninger.</string>
     <string name="my_profile_summary_jpn">Administrer dine personlige oplysninger og Galaxy-kontooplysninger.</string>
     <string name="arbitration_agreement">Voldgiftsaftale</string>
+    <string name="activation_title">Aktiveringsstatus</string>
+    <string name="activation_summary">Aktiveret %1$s. Gå til %2$s, hvis du vil have flere oplysninger.</string>
+    <string name="wifi_ap_pmf_on">PMF til</string>
+    <string name="edit_event_start_short">Start</string>
+    <string name="edit_event_end_short">Afslut</string>
+    <string name="select_date_to_view">Vælg, hvilken dato du vil se</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
     <string name="create">Opret</string>
@@ -5477,7 +5538,7 @@ Enhver bruger kan acceptere opdaterede programtilladelser på vegne af alle andr
     <string name="app_notification_block_title">Tillad meddelelser</string>
     <string name="app_notification_block_summary">Modtag meddelelser fra denne app, inklusive beskedmeddelelser, lyde og vibration.</string>
     <string name="app_notification_override_dnd_title">Angiv som prioritet</string>
-    <string name="app_notification_override_dnd_summary">Tillad, at meddelelser fra denne app afgiver lyd og aktiverer skærmen, når Forstyr ikke er aktiveret.</string>
+    <string name="app_notification_override_dnd_summary">Vis nye meddelelser øverst i informationspanelet, og inkluder dem på listen over tilladte, mens tilstanden Forstyr ikke er aktiveret.</string>
     <string name="app_notification_visibility_override_title">På låseskærm</string>
     <string name="app_notifications_dialog_done">Udført</string>
     <string name="zen_mode_choose_rule_type">Vælg regeltype</string>
@@ -5514,6 +5575,7 @@ Enhver bruger kan acceptere opdaterede programtilladelser på vegne af alle andr
     <string name="restr_pin_enter_admin_pin">Indtast administrators PIN-kode</string>
     <string name="switch_on_text">Til</string>
     <string name="switch_off_text">Fra</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Denne arbejdsprofil administreres af:</string>
     <string name="managing_admin">Administreret af %s</string>
     <string name="display_auto_rotate_title">Skærmrotation</string>
     <string name="display_auto_rotate_rotate">Roter skærmindhold</string>
@@ -5550,9 +5612,9 @@ Du vil ikke modtage opkald, beskeder eller meddelelser, og alarmer vil ikke lyde
     <string name="encrypt_talkback_dialog_require_pin">Kræv PIN-kode</string>
     <string name="encrypt_talkback_dialog_require_pattern">Kræv mønster</string>
     <string name="encrypt_talkback_dialog_require_password">Kræv adgangskode</string>
-    <string name="encrypt_talkback_dialog_message_pin">Når du indtaster din PIN-kode efter at have tændt enheden, vil tilgængelighedsfunktioner som for eksempel %1$s være deaktiveret midlertidigt.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Når du tegner dit mønster efter at have tændt enheden, vil tilgængelighedsfunktioner som for eksempel %1$s være deaktiveret midlertidigt.</string>
-    <string name="encrypt_talkback_dialog_message_password">Når du indtaster din adgangskode efter at have tændt enheden, vil tilgængelighedsfunktioner som for eksempel %1$s være deaktiveret midlertidigt.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Du vil skulle indtaste din PIN-kode, når din enhed tændes. Tilgængelighedsfunktioner vil ikke være tilgængelige, før enheden er startet.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Du vil skulle indtaste dit mønster, når din enhed tændes. Tilgængelighedsfunktioner vil ikke være tilgængelige, før enheden er startet.</string>
+    <string name="encrypt_talkback_dialog_message_password">Du vil skulle indtaste din adgangskode, når din enhed tændes. Tilgængelighedsfunktioner vil ikke være tilgængelige, før enheden er startet.</string>
     <string name="slot_number">(kortplads %d)</string>
     <string name="app_launch_domain_links_title">Applinks</string>
     <string name="app_launch_open_domain_urls_title">"Gå til understøt. URL'er"</string>
@@ -5628,18 +5690,18 @@ Du vil ikke modtage opkald, beskeder eller meddelelser, og alarmer vil ikke lyde
     <string name="usb_use_power_only">Oplad tilsluttet enhed</string>
     <string name="usb_use_power_only_desc">Oplad den tilsluttede enhed via USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Overføre mediefiler</string>
+    <string name="usb_use_file_transfers">Overfør filer</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Overføre billeder</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Vælg denne tilstand, hvis Overfør mediefiler ikke virker. Du kan kun overføre billedfiler.</string>
+    <string name="usb_use_photo_transfers_summary">Vælg denne tilstand, hvis Overfør filer ikke virker. Du kan kun overføre billedfiler i denne tilstand.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Tilslut en MIDI-enhed</string>
-    <string name="usb_use">Brug USB til</string>
-    <string name="assist_access_context_title">Læs tekst på skærmen</string>
-    <string name="assist_access_context_summary">Tillad, at enhedsassistanceappen læser al tekst, der vises på skærmen, højt.</string>
-    <string name="assist_access_screenshot_title">Tag/åbn skærmbilleder</string>
-    <string name="assist_access_screenshot_summary">Tillad, at enhedsassistanceappen tager og har adgang til skærmbilleder.</string>
+    <string name="usb_use">Brug USB til at</string>
+    <string name="assist_access_context_title">Analyser tekst på skærmen</string>
+    <string name="assist_access_context_summary">Tillad, at enhedsassistanceappen analyserer tekst, der vises på skærmen, for at levere relateret indhold.</string>
+    <string name="assist_access_screenshot_title">Analyser billeder på skærmen</string>
+    <string name="assist_access_screenshot_summary">Tillad, at enhedsassistanceappen tager og bruger billeder af skærmen.</string>
     <string name="assist_footer">Enhedsassistanceapps kan hjælpe dig med at indsamle oplysninger fra den skærm, der i øjeblikket vises på din telefon. Nogle enhedsassistanceapps kan bruges til at åbne andre apps og indtaste tekst ved hjælp af stemmeinput og give dig øjeblikkelig hjælp.</string>
     <string name="average_memory_use">Gennemsnitligt RAM-forbrug</string>
     <string name="maximum_memory_use">Maksimalt RAM-forbrug</string>
@@ -5668,7 +5730,7 @@ Du vil ikke modtage opkald, beskeder eller meddelelser, og alarmer vil ikke lyde
     <string name="ignore_optimizations_on_desc">Kan forøge batteriforbruget</string>
     <string name="ignore_optimizations_off_desc">Anbefales for at spare batteristrøm</string>
     <string name="app_list_preference_none">Ingen</string>
-    <string name="allow_overlay_description">Vælg apps for at tillade deres knapper, pop op-vinduer og andre elementer at blive vist over andre apps, du bruger.</string>
+    <string name="allow_overlay_description">Denne tilladelse giver en app mulighed for at vise ting oven på andre apps, du bruger. Dette kan påvirke din brug af andre apps.</string>
     <string name="overlay_settings">Apps, der kan vises øverst</string>
     <string name="filter_overlay_apps">Apps med tilladelse</string>
     <string name="filter_write_settings_apps">Apps med tilladelse</string>
@@ -5715,14 +5777,14 @@ Du vil ikke modtage opkald, beskeder eller meddelelser, og alarmer vil ikke lyde
     <string name="ethernet_data_template">%1$s af Ethernet-data</string>
     <string name="cell_warning_only">Dataadvarsel ved %s</string>
     <string name="cell_warning_and_limit">%1$s Advarsel om databrug/%2$s Grænse for databrug</string>
-    <string name="billing_cycle">Faktureringscyklus</string>
+    <string name="billing_cycle">Advarsel om fakt.cykl. og -data</string>
     <string name="billing_cycle_summary">%s dag i hver måned</string>
     <string name="billing_cycle_fragment_summary">%s dag i hver måned</string>
     <string name="network_restrictions">Begræns netværk</string>
     <string name="operator_warning">Databrugen måles af din enhed. Din tjenesteudbyder kan opkræve forskelligt for databrug.</string>
     <string name="data_used_template">%s brugt</string>
     <string name="data_warning">Dataadvarsel</string>
-    <string name="set_data_limit">Datagrænse</string>
+    <string name="set_data_limit">Angiv datagrænse</string>
     <string name="data_limit">Datagrænse</string>
     <string name="data_usage_template">%1$s brugt mellem %2$s</string>
     <string name="data_usage_other_apps">Relaterede apps inkl. i brug</string>
@@ -5764,5 +5826,4 @@ Din enhed indeholder diagnostisk software, der automatisk indsamler diagnostiske
     <string name="enable_iris_lock_desc_3">"Din skærmlåsningstype er i øjeblikket angivet til Fingeraftryk.
 
 Hvis du hellere vil have Iris end Fingeraftryk som skærmlåsningstype, skal du trykke på AKTIVER. Derefter kan enheden låses op med din iris eller %s."</string>
-    <string name="my_phone_summary">Højttaler/hovedtelefoner/USB-lydenhed</string>
 </resources>

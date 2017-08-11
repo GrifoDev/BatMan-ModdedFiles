@@ -527,7 +527,7 @@
 
     const-string/jumbo v3, "noaction"
 
-    const v4, 0x7f0b036a
+    const v4, 0x7f0b03c9
 
     move-object/from16 v0, p0
 
@@ -539,7 +539,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f020502
+    const v6, 0x7f02056b
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -559,7 +559,7 @@
 
     const-string/jumbo v3, "torch"
 
-    const v4, 0x7f0b036b
+    const v4, 0x7f0b03ca
 
     move-object/from16 v0, p0
 
@@ -571,7 +571,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f020691
+    const v6, 0x7f0206fa
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -589,7 +589,7 @@
 
     new-instance v2, Lcom/samsung/android/settings/activekey/AppList$AppListAdapter;
 
-    const v5, 0x7f040189
+    const v5, 0x7f04018b
 
     const/4 v6, 0x0
 
@@ -646,7 +646,7 @@
     :cond_7
     new-instance v8, Lcom/samsung/android/settings/activekey/AppList$AppListAdapter;
 
-    const v11, 0x7f040189
+    const v11, 0x7f04018b
 
     const/4 v12, 0x0
 

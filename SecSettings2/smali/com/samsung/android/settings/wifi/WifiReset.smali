@@ -16,6 +16,8 @@
 
 .field private static final mIsDisableWifi:Z
 
+.field private static final mIsSupportAdpsMenu:Z
+
 
 # instance fields
 .field private final mContext:Landroid/content/Context;
@@ -88,6 +90,18 @@
     move-result-object v0
 
     sput-object v0, Lcom/samsung/android/settings/wifi/WifiReset;->mConfigAutoConnectHotspot:Ljava/lang/String;
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "SEC_FLOATING_FEATURE_WIFI_SUPPORT_ADPS"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/samsung/android/settings/wifi/WifiReset;->mIsSupportAdpsMenu:Z
 
     return-void
 .end method
@@ -193,7 +207,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     const-string/jumbo v2, "wifi_networks_available_notification_on"
 
@@ -206,34 +220,32 @@
 
     invoke-static {v0, v2, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    sget-boolean v2, Lcom/samsung/android/settings/wifi/WifiReset;->mIsSupportAdpsMenu:Z
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "wifi_adps"
+
+    invoke-static {v0, v2, v5}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    :cond_0
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiReset;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->isPasspointDefaultOn()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     const-string/jumbo v2, "wifi_hotspot20_enable"
 
     invoke-static {v0, v2, v6}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     :goto_1
-    const-string/jumbo v2, "ssid"
-
-    const-string/jumbo v3, "rssi"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
     const-string/jumbo v2, "wifi_ap_sort"
 
-    invoke-static {v0, v2, v5}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v2, v6}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :goto_2
     const-string/jumbo v2, "DEFAULT_ON"
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
@@ -256,7 +268,7 @@
 
     invoke-static {v0, v2, v6}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :goto_3
+    :goto_2
     const-string/jumbo v2, "wifi_watchdog_poor_network_aggressive_mode_on"
 
     invoke-static {v0, v2, v5}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
@@ -269,13 +281,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     const-string/jumbo v2, "wifi_auto_connecct"
 
     invoke-static {v0, v2, v6}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :cond_0
+    :cond_1
     new-instance v1, Landroid/os/Message;
 
     invoke-direct {v1}, Landroid/os/Message;-><init>()V
@@ -296,7 +308,7 @@
 
     iput v5, v1, Landroid/os/Message;->arg1:I
 
-    :goto_4
+    :goto_3
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiReset;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2, v1}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
@@ -321,7 +333,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -345,8 +357,8 @@
 
     invoke-static {v2, v3, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :cond_1
-    :goto_5
+    :cond_2
+    :goto_4
     const/16 v2, 0xf2
 
     iput v2, v1, Landroid/os/Message;->what:I
@@ -365,10 +377,10 @@
 
     invoke-virtual {v2}, Lcom/samsung/android/settings/wifi/WifiReset$2;->start()V
 
-    :goto_6
+    :goto_5
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiReset;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiReset;->mProgressDialog:Landroid/app/ProgressDialog;
 
@@ -376,7 +388,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiReset;->mProgressDialog:Landroid/app/ProgressDialog;
 
@@ -384,41 +396,34 @@
 
     iput-object v7, p0, Lcom/samsung/android/settings/wifi/WifiReset;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    :cond_2
+    :cond_3
     return-void
 
-    :cond_3
+    :cond_4
     const-string/jumbo v2, "wifi_networks_available_notification_on"
 
     invoke-static {v0, v2, v6}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_5
     const-string/jumbo v2, "wifi_hotspot20_enable"
 
     invoke-static {v0, v2, v5}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto/16 :goto_1
 
-    :cond_5
-    const-string/jumbo v2, "wifi_ap_sort"
-
-    invoke-static {v0, v2, v6}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    goto/16 :goto_2
-
     :cond_6
     const-string/jumbo v2, "wifi_watchdog_poor_network_test_enabled"
 
     invoke-static {v0, v2, v5}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :cond_7
     iput v6, v1, Landroid/os/Message;->arg1:I
 
-    goto/16 :goto_4
+    goto :goto_3
 
     :cond_8
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiReset;->mContext:Landroid/content/Context;
@@ -431,7 +436,7 @@
 
     invoke-static {v2, v3, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    goto :goto_5
+    goto :goto_4
 
     :cond_9
     new-instance v2, Lcom/samsung/android/settings/wifi/WifiReset$3;
@@ -440,7 +445,7 @@
 
     invoke-virtual {v2}, Lcom/samsung/android/settings/wifi/WifiReset$3;->start()V
 
-    goto :goto_6
+    goto :goto_5
 .end method
 
 .method public start()V
@@ -466,7 +471,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0dd7
+    const v4, 0x7f0b0e62
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

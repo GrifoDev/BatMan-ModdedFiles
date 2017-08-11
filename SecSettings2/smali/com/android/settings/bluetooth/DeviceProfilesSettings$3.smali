@@ -223,26 +223,6 @@
     :cond_3
     iget-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$3;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-virtual {v3}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$3;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
-
-    invoke-virtual {v4}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x7f100042
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v4
-
-    invoke-static {v3, v4}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;I)V
-
-    iget-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$3;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
-
     invoke-static {v3}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-wrap5(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)V
 
     goto :goto_0
@@ -320,7 +300,7 @@
 
     invoke-static {v3, v7}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-wrap4(Lcom/android/settings/bluetooth/DeviceProfilesSettings;Z)V
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_7
     const-string/jumbo v3, "BluetoothUnpair"
@@ -552,9 +532,9 @@
 
     const-string/jumbo v4, "BTProfileName"
 
-    const-string/jumbo v5, "Match"
+    const-string/jumbo v5, "AlreadySet"
 
-    const-string/jumbo v6, "no"
+    const-string/jumbo v6, "yes"
 
     invoke-static {v3, v4, v5, v6}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-wrap2(Lcom/android/settings/bluetooth/DeviceProfilesSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -820,7 +800,7 @@
 
     const-string/jumbo v4, "BTProfileName"
 
-    const-string/jumbo v5, "Match"
+    const-string/jumbo v5, "AlreadySet"
 
     const-string/jumbo v6, "no"
 

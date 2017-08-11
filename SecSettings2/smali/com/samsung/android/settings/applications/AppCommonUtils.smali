@@ -27,12 +27,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b03a2
+    const v0, 0x7f0b0401
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b1c02
+    const v0, 0x7f0b1c9e
 
     return v0
 .end method
@@ -52,12 +52,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b03a3
+    const v0, 0x7f0b0402
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b1c0c
+    const v0, 0x7f0b1ca8
 
     return v0
 .end method
@@ -111,7 +111,7 @@
 .method public static updateDefaultBrowserPreference(Landroid/content/Context;Landroid/content/pm/PackageManager;Lcom/android/settings/applications/DefaultBrowserPreference;)V
     .locals 7
 
-    const v6, 0x7f0b0169
+    const v6, 0x7f0b01c6
 
     const/4 v4, 0x0
 
@@ -419,7 +419,7 @@
     return-void
 
     :cond_2
-    const v3, 0x7f0b0169
+    const v3, 0x7f0b01c6
 
     invoke-virtual {p2, v3}, Lcom/android/settings/applications/DefaultPhonePreference;->setSummary(I)V
 
@@ -487,7 +487,7 @@
     return-void
 
     :cond_1
-    const v2, 0x7f0b0169
+    const v2, 0x7f0b01c6
 
     invoke-virtual {p2, v2}, Lcom/android/settings/applications/DefaultSmsPreference;->setSummary(I)V
 

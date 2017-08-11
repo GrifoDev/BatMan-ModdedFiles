@@ -184,14 +184,14 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApAllowedList$AllowedDevicesAdapter;->inflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x7f04035e
+    const v4, 0x7f040363
 
     invoke-virtual {v3, v4, p3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p2
 
     :cond_0
-    const v3, 0x7f11086b
+    const v3, 0x7f11086e
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -201,7 +201,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApAllowedList$AllowedDevicesAdapter;->rowLayout:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f11086d
+    const v3, 0x7f110870
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -209,7 +209,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v3, 0x7f11086c
+    const v3, 0x7f11086f
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

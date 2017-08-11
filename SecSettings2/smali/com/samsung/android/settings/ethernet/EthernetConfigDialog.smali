@@ -515,7 +515,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400f4
+    const v1, 0x7f0400f6
 
     const/4 v2, 0x0
 
@@ -529,7 +529,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f11037d
+    const v1, 0x7f11037f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -539,7 +539,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110377
+    const v1, 0x7f110379
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -551,7 +551,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110378
+    const v1, 0x7f11037a
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -563,7 +563,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f11037b
+    const v1, 0x7f11037d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -575,7 +575,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f11037c
+    const v1, 0x7f11037e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -587,7 +587,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f11037f
+    const v1, 0x7f110381
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -605,7 +605,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110381
+    const v1, 0x7f110383
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -623,7 +623,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110383
+    const v1, 0x7f110385
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -641,7 +641,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110385
+    const v1, 0x7f110387
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -659,7 +659,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f110375
+    const v1, 0x7f110377
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -736,7 +736,7 @@
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->setInverseBackgroundForced(Z)V
 
-    const v0, 0x7f0b1592
+    const v0, 0x7f0b162e
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -746,7 +746,7 @@
 
     invoke-virtual {p0, v1, v0, p0}, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v0, 0x7f0b1593
+    const v0, 0x7f0b162f
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

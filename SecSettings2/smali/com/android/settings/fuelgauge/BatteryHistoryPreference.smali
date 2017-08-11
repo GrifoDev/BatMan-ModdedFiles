@@ -15,7 +15,7 @@
 
     invoke-direct {p0, p1, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const v0, 0x7f04004e
+    const v0, 0x7f04004f
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/BatteryHistoryPreference;->setLayoutResource(I)V
 
@@ -33,8 +33,6 @@
 
     const/16 v5, 0x8
 
-    const/4 v2, 0x1
-
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryPreference;->mBatteryInfo:Lcom/android/settingslib/BatteryInfo;
@@ -44,7 +42,9 @@
     return-void
 
     :cond_0
-    invoke-virtual {p1, v2}, Landroid/view/View;->setClickable(Z)V
+    const/4 v3, 0x1
+
+    invoke-virtual {p1, v3}, Landroid/view/View;->setClickable(Z)V
 
     const-string/jumbo v3, "VZW"
 
@@ -54,16 +54,9 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
-
     move-result v2
 
-    :cond_1
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     const v3, 0x7f110188
 
@@ -75,7 +68,7 @@
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_2
+    :cond_1
     const v3, 0x7f11017a
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -106,7 +99,7 @@
 
     check-cast v1, Lcom/android/settingslib/graph/UsageView;
 
-    const v3, 0x7f1107f0
+    const v3, 0x7f1107f3
 
     invoke-virtual {v1, v3}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
 
@@ -116,6 +109,19 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setAlpha(F)V
 
+    iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryPreference;->mHelper:Lcom/android/internal/os/BatteryStatsHelper;
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryPreference;->mHelper:Lcom/android/internal/os/BatteryStatsHelper;
+
+    invoke-virtual {v3}, Lcom/android/internal/os/BatteryStatsHelper;->getBatteryBroadcast()Landroid/content/Intent;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Lcom/android/settingslib/graph/UsageView;->setBatteryGraphColor(Landroid/content/Intent;)V
+
+    :cond_2
     iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryPreference;->mBatteryInfo:Lcom/android/settingslib/BatteryInfo;
 
     const/4 v4, 0x0

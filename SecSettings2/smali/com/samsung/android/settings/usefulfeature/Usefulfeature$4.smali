@@ -38,7 +38,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$4;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get24(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Landroid/preference/Preference;
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -63,13 +63,13 @@
     :goto_0
     iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$4;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get24(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Landroid/preference/Preference;
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Landroid/preference/Preference;
 
     move-result-object v2
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b1b37
+    const v1, 0x7f0b1bd3
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/preference/Preference;->setSummary(I)V
@@ -83,7 +83,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b1b38
+    const v1, 0x7f0b1bd4
 
     goto :goto_1
 .end method

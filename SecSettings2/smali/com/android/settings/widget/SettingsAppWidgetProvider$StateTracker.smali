@@ -80,7 +80,7 @@
 
     aput-object v1, v2, v3
 
-    const v3, 0x7f0b1856
+    const v3, 0x7f0b18f2
 
     invoke-virtual {p1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -351,7 +351,7 @@
     return-void
 
     :pswitch_1
-    const v4, 0x7f0b1858
+    const v4, 0x7f0b18f4
 
     invoke-direct {p0, p1, v4}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getContentDescription(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -376,7 +376,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v4, 0x7f0b1857
+    const v4, 0x7f0b18f3
 
     invoke-direct {p0, p1, v4}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getContentDescription(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -407,7 +407,7 @@
 
     if-eqz v4, :cond_0
 
-    const v4, 0x7f0b1859
+    const v4, 0x7f0b18f5
 
     invoke-direct {p0, p1, v4}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getContentDescription(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -432,7 +432,7 @@
     goto :goto_0
 
     :cond_0
-    const v4, 0x7f0b185a
+    const v4, 0x7f0b18f6
 
     invoke-direct {p0, p1, v4}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getContentDescription(Landroid/content/Context;I)Ljava/lang/String;
 

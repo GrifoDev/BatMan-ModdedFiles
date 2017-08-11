@@ -154,15 +154,15 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b1327
+    const v3, 0x7f0b13c2
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b11c1
+    const v3, 0x7f0b125c
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b124f
+    const v3, 0x7f0b12ea
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -176,7 +176,7 @@
 
     check-cast v3, Landroid/view/ViewGroup;
 
-    const v4, 0x7f040056
+    const v4, 0x7f040057
 
     invoke-virtual {v2, v4, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -280,7 +280,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0b16e7
+    const v1, 0x7f0b1783
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -291,7 +291,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0b11c1
+    const v1, 0x7f0b125c
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -451,7 +451,7 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f0f0320
+    const v4, 0x7f0f0323
 
     invoke-virtual {p0, v4}, Lcom/android/settings/bluetooth/DevicePickerActivity;->setTheme(I)V
 
@@ -472,7 +472,7 @@
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0f01e2
+    const v4, 0x7f0f01e3
 
     invoke-virtual {p0, v4}, Lcom/android/settings/bluetooth/DevicePickerActivity;->setTheme(I)V
 
@@ -689,7 +689,7 @@
     invoke-virtual {v4, v6}, Landroid/app/ActionBar;->setDisplayShowHomeEnabled(Z)V
 
     :cond_9
-    const v4, 0x7f040055
+    const v4, 0x7f040056
 
     invoke-virtual {p0, v4}, Lcom/android/settings/bluetooth/DevicePickerActivity;->setContentView(I)V
 
@@ -811,25 +811,6 @@
 
     sput-boolean v0, Lcom/android/settings/bluetooth/DevicePickerActivity;->canLaunchQuickBtView:Z
 
-    iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->stopScanning()V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
-
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mIsTablet:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
-
-    const v1, 0x7f0b11c1
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
-
-    :cond_0
     return-void
 .end method
 
@@ -1082,7 +1063,7 @@
 .method public onScanningStateChanged(Z)V
     .locals 2
 
-    const v1, 0x7f04012a
+    const v1, 0x7f04012c
 
     iget-boolean v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->fromHelp:Z
 
@@ -1094,7 +1075,7 @@
 
     if-eqz p1, :cond_1
 
-    const v0, 0x7f0b03db
+    const v0, 0x7f0b043c
 
     invoke-virtual {p0, v0, v1}, Lcom/android/settings/bluetooth/DevicePickerActivity;->showHelpDialog(II)V
 
@@ -1103,11 +1084,38 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0b03dc
+    const v0, 0x7f0b043d
 
     invoke-virtual {p0, v0, v1}, Lcom/android/settings/bluetooth/DevicePickerActivity;->showHelpDialog(II)V
 
     goto :goto_0
+.end method
+
+.method public onStop()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
+
+    iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->stopScanning()V
+
+    iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mIsTablet:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
+
+    const v1, 0x7f0b125c
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
+
+    :cond_0
+    return-void
 .end method
 
 .method public showHelpDialog(II)V
@@ -1164,7 +1172,7 @@
 
     if-nez v3, :cond_1
 
-    const v4, 0x7f110417
+    const v4, 0x7f110419
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

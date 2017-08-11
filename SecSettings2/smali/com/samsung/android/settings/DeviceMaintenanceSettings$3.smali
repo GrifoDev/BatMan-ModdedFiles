@@ -99,7 +99,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/DeviceMaintenanceSettings$3;->this$0:Lcom/samsung/android/settings/DeviceMaintenanceSettings;
 
-    const v4, 0x7f0b01d1
+    const v4, 0x7f0b022e
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/DeviceMaintenanceSettings;->getString(I)Ljava/lang/String;
 

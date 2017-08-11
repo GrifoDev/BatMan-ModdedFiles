@@ -41,8 +41,6 @@
 
 .field private mIsAirplaneMode:Z
 
-.field private mIsSupportSecWhitelist:Z
-
 .field private mNfcManager:Landroid/nfc/NfcManager;
 
 .field private mOpBranding:Ljava/lang/String;
@@ -168,73 +166,27 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 4
-
-    const/4 v3, 0x0
+    .locals 2
 
     const/4 v0, 0x0
 
+    const/4 v1, 0x0
+
     invoke-direct {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;-><init>()V
 
-    iput-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
+    iput-object v1, p0, Lcom/android/settings/wifi/WifiSettings;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
 
-    iput-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mQrConfig:Landroid/net/wifi/WifiConfiguration;
+    iput-object v1, p0, Lcom/android/settings/wifi/WifiSettings;->mQrConfig:Landroid/net/wifi/WifiConfiguration;
 
     iput-boolean v0, p0, Lcom/android/settings/wifi/WifiSettings;->isWifiQr:Z
 
     iput-boolean v0, p0, Lcom/android/settings/wifi/WifiSettings;->mIsAirplaneMode:Z
 
-    sget-object v1, Lcom/android/settings/Utils;->CONFIG_OP_BRANDING:Ljava/lang/String;
+    sget-object v0, Lcom/android/settings/Utils;->CONFIG_OP_BRANDING:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/android/settings/wifi/WifiSettings;->mOpBranding:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mOpBranding:Ljava/lang/String;
 
-    const-string/jumbo v1, "KOO"
-
-    iget-object v2, p0, Lcom/android/settings/wifi/WifiSettings;->mOpBranding:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "SKT"
-
-    iget-object v2, p0, Lcom/android/settings/wifi/WifiSettings;->mOpBranding:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "KTT"
-
-    iget-object v2, p0, Lcom/android/settings/wifi/WifiSettings;->mOpBranding:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "LGU"
-
-    iget-object v2, p0, Lcom/android/settings/wifi/WifiSettings;->mOpBranding:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :cond_1
-    iput-boolean v0, p0, Lcom/android/settings/wifi/WifiSettings;->mIsSupportSecWhitelist:Z
-
-    iput-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mWifiInfo:Landroid/net/wifi/WifiInfo;
+    iput-object v1, p0, Lcom/android/settings/wifi/WifiSettings;->mWifiInfo:Landroid/net/wifi/WifiInfo;
 
     return-void
 .end method
@@ -855,7 +807,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b19fc
+    const v0, 0x7f0b1a98
 
     return v0
 .end method
@@ -1452,7 +1404,7 @@
 
     const/4 v4, 0x7
 
-    const v5, 0x7f0b13a8
+    const v5, 0x7f0b1443
 
     invoke-interface {p1, v6, v4, v6, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1595,7 +1547,7 @@
 
     const/16 v4, 0x8
 
-    const v5, 0x7f0b13aa
+    const v5, 0x7f0b1445
 
     invoke-interface {p1, v6, v4, v6, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1654,7 +1606,7 @@
     if-nez v4, :cond_a
 
     :cond_f
-    const v4, 0x7f0b13ab
+    const v4, 0x7f0b1446
 
     invoke-interface {p1, v6, v8, v6, v4}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1671,7 +1623,7 @@
 
     const/16 v4, 0xa
 
-    const v5, 0x7f0b13ac
+    const v5, 0x7f0b1447
 
     invoke-interface {p1, v6, v4, v6, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1681,9 +1633,9 @@
 .method public onCreateDialog(I)Landroid/app/Dialog;
     .locals 9
 
-    const v8, 0x7f0b046a
+    const v8, 0x7f0b04cd
 
-    const v6, 0x7f0b0461
+    const v6, 0x7f0b04c4
 
     const/4 v2, 0x1
 
@@ -1910,7 +1862,7 @@
 
     aput-object v2, v1, v5
 
-    const v2, 0x7f0b0ebc
+    const v2, 0x7f0b0f49
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1928,7 +1880,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0ebb
+    const v1, 0x7f0b0f48
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1976,13 +1928,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0daa
+    const v1, 0x7f0b0e35
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b0da9
+    const v1, 0x7f0b0e34
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2138,7 +2090,7 @@
 
     instance-of v3, p2, Lcom/android/settings/wifi/LongPressAccessPointPreference;
 
-    if-eqz v3, :cond_11
+    if-eqz v3, :cond_10
 
     check-cast p2, Lcom/android/settings/wifi/LongPressAccessPointPreference;
 
@@ -2203,7 +2155,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b04d3
+    const v4, 0x7f0b0536
 
     invoke-static {v3, v4, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2238,7 +2190,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_e
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mSelectedAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
@@ -2475,15 +2427,6 @@
 
     if-nez v3, :cond_7
 
-    iget-boolean v3, p0, Lcom/android/settings/wifi/WifiSettings;->mIsSupportSecWhitelist:Z
-
-    if-eqz v3, :cond_e
-
-    iget-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mSelectedAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/WifiSettings;->setSecBssidWhitelist(Lcom/android/settingslib/wifi/AccessPoint;)V
-
-    :cond_e
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mSelectedAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
     invoke-virtual {v3}, Lcom/android/settingslib/wifi/AccessPoint;->getConfig()Landroid/net/wifi/WifiConfiguration;
@@ -2494,14 +2437,14 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_e
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mSelectedAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
     invoke-virtual {v3}, Lcom/android/settingslib/wifi/AccessPoint;->isWeChatAp()Z
 
     move-result v3
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_f
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mSelectedAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
@@ -2529,23 +2472,23 @@
 
     goto/16 :goto_0
 
-    :cond_10
+    :cond_f
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mSelectedAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
     invoke-direct {p0, v3, v6}, Lcom/android/settings/wifi/WifiSettings;->showDialog(Lcom/android/settingslib/wifi/AccessPoint;I)V
 
     goto/16 :goto_0
 
-    :cond_11
+    :cond_10
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mAddPreference:Landroid/preference/Preference;
 
-    if-ne p2, v3, :cond_12
+    if-ne p2, v3, :cond_11
 
     invoke-virtual {p0}, Lcom/android/settings/wifi/WifiSettings;->onAddNetworkPressed()V
 
     goto/16 :goto_0
 
-    :cond_12
+    :cond_11
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v3
@@ -2735,7 +2678,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f0403a0
+    const v1, 0x7f0403a5
 
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiSettings;->setPinnedHeaderView(I)Landroid/view/View;
 

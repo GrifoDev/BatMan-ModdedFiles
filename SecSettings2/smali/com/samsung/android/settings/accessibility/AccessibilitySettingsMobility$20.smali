@@ -20,12 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
+.field final synthetic val$assistantMenu:Landroid/content/Intent;
+
+.field final synthetic val$edit:Landroid/content/SharedPreferences$Editor;
+
+.field final synthetic val$mcheck_assistantmenu:Landroid/widget/CheckBox;
+
 
 # direct methods
-.method constructor <init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+.method constructor <init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;Landroid/content/SharedPreferences$Editor;Landroid/widget/CheckBox;Landroid/content/Intent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+
+    iput-object p2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->val$edit:Landroid/content/SharedPreferences$Editor;
+
+    iput-object p3, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->val$mcheck_assistantmenu:Landroid/widget/CheckBox;
+
+    iput-object p4, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->val$assistantMenu:Landroid/content/Intent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,155 +47,90 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 7
+    .locals 5
 
-    const/4 v6, 0x1
+    const/4 v4, 0x1
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->val$edit:Landroid/content/SharedPreferences$Editor;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap0(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Landroid/content/ContentResolver;
+    const-string/jumbo v1, "pref_assistant_noti"
 
-    move-result-object v2
+    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->val$mcheck_assistantmenu:Landroid/widget/CheckBox;
 
-    const-string/jumbo v3, "easy_interaction"
-
-    invoke-static {v2, v3, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
-
-    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
-
-    invoke-virtual {v3}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
-
-    sget v4, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
-
-    invoke-virtual {v2, v3, v4}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->turnOffExlusiveOptions(Landroid/content/Context;I)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-get0(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Lcom/samsung/android/settings/SettingsSwitchPreference;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v6}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setChecked(Z)V
-
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap2(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Z
+    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->val$edit:Landroid/content/SharedPreferences$Editor;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap4(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    :goto_0
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-get5(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Lcom/samsung/android/settings/SettingsSwitchPreference;
+    invoke-virtual {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2, v5}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setChecked(Z)V
+    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
 
-    return-void
+    move-result-object v0
+
+    const-string/jumbo v1, "easy_interaction"
+
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "easy_interaction"
+
+    invoke-static {v0, v1, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     :cond_0
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
-    invoke-virtual {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {v2}, Lcom/android/settings/Utils;->isInLockTaskMode(Landroid/content/Context;)Z
+    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result v2
+    move-result-object v0
 
-    if-eqz v2, :cond_1
+    const-string/jumbo v1, "assistant_menu"
 
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+    invoke-static {v0, v1, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    invoke-static {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-get0(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Lcom/samsung/android/settings/SettingsSwitchPreference;
+    const-string/jumbo v0, "AccessibilitySettings_Mobility"
 
-    move-result-object v2
+    const-string/jumbo v1, "Assistant menu switch on"
 
-    invoke-virtual {v2, v5}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setChecked(Z)V
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
-    invoke-virtual {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v0
 
-    const v3, 0x7f0b02f6
+    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->val$assistantMenu:Landroid/content/Intent;
 
-    invoke-static {v2, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap0(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "assistant_menu"
-
-    invoke-static {v2, v3, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    if-nez v1, :cond_2
-
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap0(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "easy_interaction"
-
-    invoke-static {v2, v3, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    :cond_2
-    new-instance v0, Landroid/content/Intent;
-
-    const-string/jumbo v2, "android.intent.action.MAIN"
-
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    new-instance v2, Landroid/content/ComponentName;
-
-    const-string/jumbo v3, "com.samsung.android.app.assistantmenu"
-
-    const-string/jumbo v4, "com.samsung.android.app.assistantmenu.serviceframework.AssistantMenuService"
-
-    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$20;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
-
-    invoke-virtual {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-
-    goto :goto_0
+    return-void
 .end method

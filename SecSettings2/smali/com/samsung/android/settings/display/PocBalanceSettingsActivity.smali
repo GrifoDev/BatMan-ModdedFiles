@@ -484,7 +484,7 @@
 
     invoke-static {v4, v5}, Lcom/samsung/android/settings/display/SecDisplayUtils;->initPocImageArray(Landroid/content/Context;Lcom/samsung/android/hardware/display/SemMdnieManager;)V
 
-    const v4, 0x7f1105ea
+    const v4, 0x7f1105ec
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -498,7 +498,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0b05ac
+    const v4, 0x7f0b060f
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -510,7 +510,7 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v4, 0x7f0b05ad
+    const v4, 0x7f0b0610
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -541,7 +541,7 @@
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_0
-    const v4, 0x7f1105ec
+    const v4, 0x7f1105ee
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -561,12 +561,12 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :cond_1
     iget-object v4, p0, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->mPocApplyButton:Landroid/widget/Button;
 
     invoke-virtual {v4, v7}, Landroid/widget/Button;->setEnabled(Z)V
 
-    const v4, 0x7f1105eb
+    :cond_1
+    const v4, 0x7f1105ed
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -578,7 +578,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->mPocBalanceSeekBar:Lcom/samsung/android/settings/widget/IntervalSeekBar;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2
 
     iget-object v4, p0, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->mPocBalanceSeekBar:Lcom/samsung/android/settings/widget/IntervalSeekBar;
 
@@ -594,27 +594,6 @@
 
     add-int/lit8 v1, v4, -0x1
 
-    iget-object v4, p0, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->mMdnie:Lcom/samsung/android/hardware/display/SemMdnieManager;
-
-    invoke-static {v4}, Lcom/samsung/android/settings/display/SecDisplayUtils;->isPocCaseD1(Lcom/samsung/android/hardware/display/SemMdnieManager;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "sec_poc_case_d1_index"
-
-    const/4 v6, 0x2
-
-    invoke-static {v4, v5, v6, v7}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v1
-
-    :cond_2
     add-int/lit8 v4, v1, 0x1
 
     iput v4, p0, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->mPocPreviousIndex:I
@@ -653,7 +632,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     invoke-static {v1}, Lcom/samsung/android/settings/display/SecDisplayUtils;->getPocImageFromArray(I)I
 
@@ -661,7 +640,7 @@
 
     invoke-virtual {v0, v4}, Landroid/view/View;->setBackgroundResource(I)V
 
-    :cond_3
+    :cond_2
     return-void
 .end method
 
@@ -709,13 +688,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b05ba
+    const v4, 0x7f0b061d
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x7f0b05ad
+    const v4, 0x7f0b0610
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -741,7 +720,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1699
+    const v4, 0x7f0b1735
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -755,7 +734,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b046a
+    const v4, 0x7f0b04cd
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -826,7 +805,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b05ae
+    const v3, 0x7f0b0611
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -840,7 +819,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b05af
+    const v3, 0x7f0b0612
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -866,7 +845,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b046a
+    const v3, 0x7f0b04cd
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -961,13 +940,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b05b9
+    const v4, 0x7f0b061c
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x7f0b05b8
+    const v4, 0x7f0b061b
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -977,7 +956,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b046a
+    const v4, 0x7f0b04cd
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -1072,7 +1051,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b05b5
+    const v4, 0x7f0b0618
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1082,7 +1061,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v5, 0x7f0b05b6
+    const v5, 0x7f0b0619
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -1098,7 +1077,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b05b7
+    const v5, 0x7f0b061a
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -1116,7 +1095,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b046a
+    const v4, 0x7f0b04cd
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -1315,7 +1294,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v2, 0x7f0401da
+    const v2, 0x7f0401dc
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->setContentView(I)V
 

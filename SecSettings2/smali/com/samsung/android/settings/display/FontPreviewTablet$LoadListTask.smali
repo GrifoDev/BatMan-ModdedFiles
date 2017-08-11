@@ -434,7 +434,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/FontPreviewTablet$LoadListTask;->this$0:Lcom/samsung/android/settings/display/FontPreviewTablet;
 
-    const v2, 0x7f0b1610
+    const v2, 0x7f0b16ac
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/display/FontPreviewTablet;->getString(I)Ljava/lang/String;
 

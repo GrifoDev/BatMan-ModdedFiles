@@ -43,7 +43,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get6()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get7()Ljava/lang/String;
 
     move-result-object v2
 
@@ -55,7 +55,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get6()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get7()Ljava/lang/String;
 
     move-result-object v2
 
@@ -74,7 +74,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b052e
+    const v3, 0x7f0b0591
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -96,7 +96,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0527
+    const v3, 0x7f0b058a
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -122,7 +122,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b04d7
+    const v3, 0x7f0b053a
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -144,7 +144,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b04d8
+    const v3, 0x7f0b053b
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

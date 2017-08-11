@@ -224,7 +224,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b14ab    # 1.8487E38f
+    const v3, 0x7f0b1547
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -236,7 +236,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b14aa
+    const v3, 0x7f0b1546
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -248,7 +248,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b14a9
+    const v3, 0x7f0b1545
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -283,7 +283,7 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b14ae
+    const v3, 0x7f0b154a
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -358,7 +358,7 @@
 
     if-nez v1, :cond_0
 
-    const v2, 0x7f0b14ac
+    const v2, 0x7f0b1548
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -515,7 +515,7 @@
 .method public getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a09
+    const v0, 0x7f0b1aa5
 
     return v0
 .end method
@@ -571,7 +571,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0f0290
+    const v9, 0x7f0f0291
 
     invoke-virtual {v0, v8, v9}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
@@ -579,7 +579,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0d013a
+    const v9, 0x7f0d013b
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -591,7 +591,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0274
+    const v9, 0x7f0a0272
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -609,7 +609,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0276
+    const v9, 0x7f0a0274
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -617,10 +617,23 @@
 
     invoke-virtual {v0, v3, v5, v4, v2}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    const v8, 0x7f0b0c24
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "SEC_FLOATING_FEATURE_SETTINGS_SUPPORT_DOCK"
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_1
+
+    const v8, 0x7f0b0c95
 
     invoke-virtual {v0, v8}, Landroid/widget/TextView;->setText(I)V
 
+    :goto_0
     new-instance v8, Landroid/text/method/ScrollingMovementMethod;
 
     invoke-direct {v8}, Landroid/text/method/ScrollingMovementMethod;-><init>()V
@@ -669,6 +682,13 @@
 
     :cond_0
     return-void
+
+    :cond_1
+    const v8, 0x7f0b0c96
+
+    invoke-virtual {v0, v8}, Landroid/widget/TextView;->setText(I)V
+
+    goto :goto_0
 .end method
 
 .method public onAttach(Landroid/app/Activity;)V
@@ -812,7 +832,7 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/DreamSettings$2;-><init>(Lcom/android/settings/DreamSettings;)V
 
-    const v2, 0x7f0b14af
+    const v2, 0x7f0b154b
 
     move-object v0, p0
 
@@ -854,7 +874,7 @@
 
     invoke-direct {v10, p0}, Lcom/android/settings/DreamSettings$3;-><init>(Lcom/android/settings/DreamSettings;)V
 
-    const v7, 0x7f0b14ae
+    const v7, 0x7f0b154a
 
     const/4 v8, 0x0
 

@@ -99,7 +99,7 @@
 .end method
 
 .method protected onClick()V
-    .locals 3
+    .locals 2
 
     iget-boolean v0, p0, Lcom/samsung/android/settings/display/DisplayDisabledAppearanceSwitchPreference;->mIsEnabled:Z
 
@@ -118,23 +118,8 @@
     :cond_0
     invoke-super {p0}, Lcom/samsung/android/settings/SettingsSwitchPreference;->onClick()V
 
-    :goto_0
-    return-void
-
     :cond_1
-    iget-object v0, p0, Lcom/samsung/android/settings/display/DisplayDisabledAppearanceSwitchPreference;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/samsung/android/settings/display/DisplayDisabledAppearanceSwitchPreference;->mMsg:Ljava/lang/String;
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    goto :goto_0
+    return-void
 .end method
 
 .method public setEnabledAppearance(Z)V

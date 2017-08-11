@@ -56,102 +56,134 @@
 .end method
 
 .method private showExclusiveDialog()V
-    .locals 6
-
-    const/4 v2, 0x0
-
-    const/4 v5, 0x1
-
-    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
-
-    iput-object v2, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
-
-    :cond_0
-    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mContext:Landroid/content/Context;
-
-    new-array v2, v5, [Ljava/lang/Object;
-
-    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mContext:Landroid/content/Context;
-
-    const v4, 0x7f0b024e
-
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
+    .locals 9
 
     const/4 v4, 0x0
 
-    aput-object v3, v2, v4
+    const v8, 0x7f0b02ac
 
-    const v3, 0x7f0b047b
+    const/4 v6, 0x0
 
-    invoke-virtual {v1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v7, 0x1
+
+    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v3}, Landroid/app/AlertDialog;->dismiss()V
+
+    iput-object v4, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+
+    :cond_0
+    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mContext:Landroid/content/Context;
+
+    new-array v4, v7, [Ljava/lang/Object;
+
+    iget-object v5, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v4, v6
+
+    const v5, 0x7f0b04de
+
+    invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v1, Landroid/app/AlertDialog$Builder;
+    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mContext:Landroid/content/Context;
-
-    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    const v2, 0x7f0b02de
-
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v3, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v2, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$1;
+    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mContext:Landroid/content/Context;
 
-    invoke-direct {v2, p0}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$1;-><init>(Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;)V
+    const v4, 0x7f0b0d3f
 
-    const v3, 0x7f0b1674
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    move-result-object v2
 
-    move-result-object v1
+    new-instance v3, Landroid/app/AlertDialog$Builder;
 
-    new-instance v2, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$2;
+    iget-object v4, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mContext:Landroid/content/Context;
 
-    invoke-direct {v2, p0}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$2;-><init>(Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;)V
+    invoke-direct {v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const/high16 v3, 0x1040000
+    iget-object v4, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    const/4 v5, 0x3
 
-    move-result-object v1
+    new-array v5, v5, [Ljava/lang/Object;
 
-    invoke-virtual {v1, v5}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    aput-object v1, v5, v6
 
-    move-result-object v1
+    aput-object v2, v5, v7
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    const/4 v6, 0x2
 
-    move-result-object v1
+    aput-object v2, v5, v6
 
-    iput-object v1, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+    const v6, 0x7f0b033d
 
-    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+    invoke-virtual {v4, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v1, v5}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
+    move-result-object v4
 
-    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+    invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    new-instance v2, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$3;
+    move-result-object v3
 
-    invoke-direct {v2, p0}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$3;-><init>(Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;)V
+    new-instance v4, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$1;
 
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
+    invoke-direct {v4, p0}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$1;-><init>(Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;)V
 
-    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+    const v5, 0x7f0b1710
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v3
+
+    new-instance v4, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$2;
+
+    invoke-direct {v4, p0}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$2;-><init>(Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;)V
+
+    const/high16 v5, 0x1040000
+
+    invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v7}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+
+    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v3, v7}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
+
+    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+
+    new-instance v4, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$3;
+
+    invoke-direct {v4, p0}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$3;-><init>(Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;)V
+
+    invoke-virtual {v3, v4}, Landroid/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
+
+    iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v3}, Landroid/app/AlertDialog;->show()V
 
     return-void
 .end method
@@ -161,7 +193,7 @@
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 7
 
-    const v4, 0x7f100360
+    const v4, 0x7f100366
 
     const/4 v6, 0x1
 

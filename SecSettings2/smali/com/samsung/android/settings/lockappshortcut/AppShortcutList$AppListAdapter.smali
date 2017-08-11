@@ -74,7 +74,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/lockappshortcut/AppShortcutList$AppListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040186
+    const v3, 0x7f040188
 
     const/4 v4, 0x0
 
@@ -82,7 +82,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f11053a
+    const v2, 0x7f11053c
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -114,7 +114,7 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 7
 
-    const v5, 0x7f11053a
+    const v5, 0x7f11053c
 
     const/high16 v6, 0x3f800000    # 1.0f
 

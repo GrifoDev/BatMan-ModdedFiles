@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothAVCSettings$3;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothAVCSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/bluetooth/BluetoothAVCSettings;->-get1(Lcom/samsung/android/settings/bluetooth/BluetoothAVCSettings;)Lcom/samsung/android/settings/bluetooth/BluetoothAVCSettings$AVCModeEnabler;
+    invoke-static {v0}, Lcom/samsung/android/settings/bluetooth/BluetoothAVCSettings;->-get0(Lcom/samsung/android/settings/bluetooth/BluetoothAVCSettings;)Lcom/samsung/android/settings/bluetooth/BluetoothAVCSettings$AVCModeEnabler;
 
     move-result-object v0
 

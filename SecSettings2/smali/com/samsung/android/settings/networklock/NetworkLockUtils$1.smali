@@ -88,7 +88,7 @@
     :cond_0
     iget-object v3, p0, Lcom/samsung/android/settings/networklock/NetworkLockUtils$1;->this$0:Lcom/samsung/android/settings/networklock/NetworkLockUtils;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/networklock/NetworkLockUtils;->-get3(Lcom/samsung/android/settings/networklock/NetworkLockUtils;)Lcom/samsung/android/settings/networklock/NetworkLockUtils$OnLockStatusListener;
+    invoke-static {v3}, Lcom/samsung/android/settings/networklock/NetworkLockUtils;->-get4(Lcom/samsung/android/settings/networklock/NetworkLockUtils;)Lcom/samsung/android/settings/networklock/NetworkLockUtils$OnLockStatusListener;
 
     move-result-object v3
 
@@ -96,7 +96,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/networklock/NetworkLockUtils$1;->this$0:Lcom/samsung/android/settings/networklock/NetworkLockUtils;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/networklock/NetworkLockUtils;->-get3(Lcom/samsung/android/settings/networklock/NetworkLockUtils;)Lcom/samsung/android/settings/networklock/NetworkLockUtils$OnLockStatusListener;
+    invoke-static {v3}, Lcom/samsung/android/settings/networklock/NetworkLockUtils;->-get4(Lcom/samsung/android/settings/networklock/NetworkLockUtils;)Lcom/samsung/android/settings/networklock/NetworkLockUtils$OnLockStatusListener;
 
     move-result-object v3
 

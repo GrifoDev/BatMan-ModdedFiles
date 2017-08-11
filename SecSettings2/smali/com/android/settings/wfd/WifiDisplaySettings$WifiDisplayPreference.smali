@@ -71,7 +71,7 @@
 
     invoke-virtual {p0, v5}, Lcom/android/settings/wfd/WifiDisplaySettings$WifiDisplayPreference;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v5, 0x7f040350
+    const v5, 0x7f040355
 
     invoke-virtual {p0, v5}, Lcom/android/settings/wfd/WifiDisplaySettings$WifiDisplayPreference;->setLayoutResource(I)V
 
@@ -182,7 +182,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0fcd
+    const v6, 0x7f0b105a
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -198,7 +198,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d023d
+    const v7, 0x7f0d023e
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -340,22 +340,22 @@
 
     :array_0
     .array-data 4
-        0x7f02067a
-        0x7f020672
-        0x7f02067c
-        0x7f02066e
-        0x7f020686
-        0x7f020678
-        0x7f020689
-        0x7f020684
-        0x7f020671
-        0x7f020675
-        0x7f020673
-        0x7f0202b4
-        0x7f0202ad
-        0x7f0202b5
-        0x7f0202a9
-        0x7f0202aa
+        0x7f0206e3
+        0x7f0206db
+        0x7f0206e5
+        0x7f0206d7
+        0x7f0206ef
+        0x7f0206e1
+        0x7f0206f2
+        0x7f0206ed
+        0x7f0206da
+        0x7f0206de
+        0x7f0206dc
+        0x7f0202d9
+        0x7f0202d2
+        0x7f0202da
+        0x7f0202ce
+        0x7f0202cf
     .end array-data
 .end method
 
@@ -403,7 +403,7 @@
 
     if-eqz v2, :cond_1
 
-    const v3, 0x7f0202e0
+    const v3, 0x7f020305
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

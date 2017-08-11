@@ -30,6 +30,8 @@
 
 .field private mEmergencyCallbackMode:Z
 
+.field private mEventId:Ljava/lang/String;
+
 .field private mIsAccept:Z
 
 .field private mOkButton:Landroid/widget/Button;
@@ -45,6 +47,8 @@
 .field private mRecRegistered:Z
 
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
+
+.field private mScreenId:Ljava/lang/String;
 
 .field private mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -119,7 +123,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b132a
+    const v1, 0x7f0b13c5
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -133,7 +137,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x7f0b046a
+    const v1, 0x7f0b04cd
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -143,7 +147,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0b0461
+    const v1, 0x7f0b04c4
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -165,7 +169,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b132a
+    const v1, 0x7f0b13c5
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -179,7 +183,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x7f0b046a
+    const v1, 0x7f0b04cd
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -189,7 +193,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0b0461
+    const v1, 0x7f0b04c4
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -211,7 +215,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v2, 0x7f0b132a
+    const v2, 0x7f0b13c5
 
     invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -225,7 +229,7 @@
 
     iput-object v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v2, 0x7f0b0461
+    const v2, 0x7f0b04c4
 
     invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -280,7 +284,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b0410
+    const v1, 0x7f0b0472
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -294,7 +298,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x7f0b046a
+    const v1, 0x7f0b04cd
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -304,7 +308,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0b0461
+    const v1, 0x7f0b04c4
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -334,7 +338,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f04005c
+    const v9, 0x7f04005d
 
     invoke-virtual {v8, v9, v13}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -400,7 +404,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f1003fa
+    const v9, 0x7f100400
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -416,7 +420,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f1003fb
+    const v10, 0x7f100401
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -439,7 +443,7 @@
 
     invoke-virtual {v8, v9}, Landroid/widget/EditText;->setPrivateImeOptions(Ljava/lang/String;)V
 
-    const v4, 0x7f0b132e
+    const v4, 0x7f0b13c9
 
     iget v8, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mType:I
 
@@ -472,10 +476,10 @@
     return-object v13
 
     :sswitch_0
-    const v4, 0x7f0b132f
+    const v4, 0x7f0b13ca
 
     :sswitch_1
-    const v3, 0x7f0b040d
+    const v3, 0x7f0b046f
 
     const/16 v2, 0x11
 
@@ -561,7 +565,7 @@
     return-object v7
 
     :sswitch_2
-    const v3, 0x7f0b132c
+    const v3, 0x7f0b13c7
 
     const/4 v2, 0x6
 
@@ -584,7 +588,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b132a
+    const v1, 0x7f0b13c5
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -598,7 +602,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x7f0b046a
+    const v1, 0x7f0b04cd
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -608,7 +612,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0b0461
+    const v1, 0x7f0b04c4
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -644,7 +648,7 @@
 
     const/4 v12, 0x0
 
-    const v11, 0x7f0b1332
+    const v11, 0x7f0b13cd
 
     const/4 v10, 0x2
 
@@ -656,7 +660,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f04005b
+    const v6, 0x7f04005c
 
     invoke-virtual {v5, v6, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -740,7 +744,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f1003fa
+    const v6, 0x7f100400
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -772,7 +776,7 @@
 
     aput-object v3, v5, v9
 
-    const v6, 0x7f0b1334
+    const v6, 0x7f0b13cf
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -803,7 +807,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b1332
+    const v6, 0x7f0b13cd
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
     :try_end_0
@@ -837,7 +841,7 @@
 
     aput-object v3, v5, v8
 
-    const v6, 0x7f0b03f3
+    const v6, 0x7f0b0454
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -850,7 +854,7 @@
 
     aput-object v3, v5, v8
 
-    const v6, 0x7f0b040e
+    const v6, 0x7f0b0470
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1189,119 +1193,186 @@
 .end method
 
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 3
+    .locals 5
 
-    const-string/jumbo v0, "BluetoothPairingDialog"
+    const-string/jumbo v2, "BluetoothPairingDialog"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "onCheckedChanged :: isChecked = "
+    const-string/jumbo v4, "onCheckedChanged :: isChecked = "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const v2, 0x7f0b0030
+
+    invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v0, 0x0
 
     if-eqz p2, :cond_0
 
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
+    const v2, 0x7f0b0057
 
-    const/16 v1, 0x81
+    invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setInputType(I)V
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
+
+    const/16 v3, 0x81
+
+    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setInputType(I)V
 
     :goto_0
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
 
-    invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
+    invoke-virtual {v2}, Landroid/widget/EditText;->requestFocus()Z
+
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mScreenId:Ljava/lang/String;
+
+    invoke-static {v2, v1, v0}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
+    const v2, 0x7f0b0058
 
-    const/16 v1, 0x12
+    invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setInputType(I)V
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
+
+    const/16 v3, 0x12
+
+    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setInputType(I)V
 
     goto :goto_0
 .end method
 
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     packed-switch p2, :pswitch_data_0
 
     invoke-direct {p0}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->onCancel()V
 
-    :goto_0
-    const-string/jumbo v1, "input_method"
+    const v2, 0x7f0b005b
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
+    :goto_0
+    const-string/jumbo v2, "input_method"
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
+    move-result-object v1
+
+    check-cast v1, Landroid/view/inputmethod/InputMethodManager;
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->getWindowToken()Landroid/os/IBinder;
+    if-eqz v2, :cond_0
 
-    move-result-object v1
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
 
-    const/4 v2, 0x0
+    invoke-virtual {v2}, Landroid/widget/EditText;->getWindowToken()Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
     :cond_0
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mEventId:Ljava/lang/String;
+
+    const v3, 0x7f0b0033
+
+    invoke-virtual {p0, v3}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mScreenId:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mEventId:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_1
     return-void
 
     :pswitch_0
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    iput-boolean v1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mIsAccept:Z
+    iput-boolean v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mIsAccept:Z
 
-    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingView:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Landroid/text/Editable;->toString()Ljava/lang/String;
+    invoke-interface {v2}, Landroid/text/Editable;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->onPair(Ljava/lang/String;)V
+    invoke-direct {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->onPair(Ljava/lang/String;)V
+
+    :goto_2
+    const v2, 0x7f0b005c
+
+    invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
 
     goto :goto_0
 
     :cond_1
-    invoke-direct {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->onPair(Ljava/lang/String;)V
+    invoke-direct {p0, v3}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->onPair(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_2
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mScreenId:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mEventId:Ljava/lang/String;
+
+    invoke-static {v2, v3, v0}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
 
     :pswitch_data_0
     .packed-switch -0x1
@@ -1466,6 +1537,27 @@
     return-void
 
     :cond_3
+    iget-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    invoke-virtual {v10}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getBluetoothAdapter()Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->isDiscovering()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_4
+
+    const-string/jumbo v10, "BluetoothPairingDialog"
+
+    const-string/jumbo v11, "onCreate :: stop scanning before launch pairingdialog"
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v4}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->cancelDiscovery()V
+
+    :cond_4
     iget-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mCachedDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     iget-object v11, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mDevice:Landroid/bluetooth/BluetoothDevice;
@@ -1474,19 +1566,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     iget-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
     invoke-virtual {v10}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getProfileManager()Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object v5
-
-    iget-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-
-    invoke-virtual {v10}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getBluetoothAdapter()Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
-
-    move-result-object v4
 
     iget-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mCachedDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
@@ -1496,11 +1582,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->refresh()V
 
-    :cond_4
+    :cond_5
     const/4 v10, 0x0
 
     iput-boolean v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mIsAccept:Z
@@ -1511,7 +1597,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_6
 
     iget-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPartialWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -1521,7 +1607,7 @@
 
     invoke-virtual {v10}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    :cond_5
+    :cond_6
     iget v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mType:I
 
     sparse-switch v10, :sswitch_data_0
@@ -1532,13 +1618,13 @@
 
     move-result v10
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_7
 
     iget-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v10}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    :cond_6
+    :cond_7
     const-string/jumbo v10, "BluetoothPairingDialog"
 
     const-string/jumbo v11, "Incorrect pairing type received, not showing any dialog"
@@ -1560,7 +1646,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_8
 
     iget-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mReceiver:Landroid/content/BroadcastReceiver;
 
@@ -1574,7 +1660,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
 
     const-string/jumbo v10, "phoneinECMState"
 
@@ -1588,11 +1674,11 @@
 
     iget-boolean v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mEmergencyCallbackMode:Z
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_8
 
     invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->dismiss()V
 
-    :cond_7
+    :cond_8
     const-string/jumbo v10, "window"
 
     invoke-static {v10}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -1647,12 +1733,28 @@
 
     invoke-virtual {p0, v10, v11}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    const v10, 0x7f0b0007
+
+    invoke-virtual {p0, v10}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mScreenId:Ljava/lang/String;
+
     return-void
 
     :sswitch_0
     invoke-direct {p0}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->createUserEntryDialog()V
 
-    goto :goto_0
+    const v10, 0x7f0b002f
+
+    invoke-virtual {p0, v10}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mEventId:Ljava/lang/String;
+
+    goto/16 :goto_0
 
     :sswitch_1
     const-string/jumbo v10, "android.bluetooth.device.extra.PAIRING_KEY"
@@ -1665,7 +1767,7 @@
 
     const/high16 v10, -0x80000000
 
-    if-ne v8, v10, :cond_8
+    if-ne v8, v10, :cond_9
 
     const-string/jumbo v10, "BluetoothPairingDialog"
 
@@ -1681,7 +1783,7 @@
 
     return-void
 
-    :cond_8
+    :cond_9
     sget-object v10, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string/jumbo v11, "%06d"
@@ -1706,10 +1808,26 @@
 
     invoke-direct {p0}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->createConfirmationDialog()V
 
+    const v10, 0x7f0b0031
+
+    invoke-virtual {p0, v10}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mEventId:Ljava/lang/String;
+
     goto/16 :goto_0
 
     :sswitch_2
     invoke-direct {p0}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->createConsentDialog()V
+
+    const v10, 0x7f0b0032
+
+    invoke-virtual {p0, v10}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mEventId:Ljava/lang/String;
 
     goto/16 :goto_0
 
@@ -1724,7 +1842,7 @@
 
     const/high16 v10, -0x80000000
 
-    if-ne v7, v10, :cond_9
+    if-ne v7, v10, :cond_a
 
     const-string/jumbo v10, "BluetoothPairingDialog"
 
@@ -1740,7 +1858,7 @@
 
     return-void
 
-    :cond_9
+    :cond_a
     const-string/jumbo v10, "%06d"
 
     const/4 v11, 0x1
@@ -1762,6 +1880,14 @@
     iput-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingKey:Ljava/lang/String;
 
     invoke-direct {p0}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->createDisplayPasskeyOrPinDialog()V
+
+    const v10, 0x7f0b0033
+
+    invoke-virtual {p0, v10}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mEventId:Ljava/lang/String;
 
     goto/16 :goto_0
 
@@ -2127,6 +2253,10 @@
     invoke-virtual {v0}, Landroid/app/StatusBarManager;->collapsePanels()V
 
     :cond_3
+    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mScreenId:Ljava/lang/String;
+
+    invoke-static {v1}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;)V
+
     return-void
 .end method
 
@@ -2184,7 +2314,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d023c
+    const v3, 0x7f0d023d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -2194,7 +2324,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mPairingViewErrorText:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0fb7
+    const v2, 0x7f0b1044
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -2214,7 +2344,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d011e
+    const v3, 0x7f0d011f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 

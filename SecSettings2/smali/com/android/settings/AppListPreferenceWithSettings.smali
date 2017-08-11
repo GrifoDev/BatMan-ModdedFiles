@@ -23,7 +23,7 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/AppListPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const v0, 0x7f040239
+    const v0, 0x7f04023d
 
     invoke-virtual {p0, v0}, Lcom/android/settings/AppListPreferenceWithSettings;->setWidgetLayoutResource(I)V
 
@@ -65,6 +65,14 @@
 
 
 # virtual methods
+.method public getSettingsIcon()Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/AppListPreferenceWithSettings;->mSettingsIcon:Landroid/view/View;
+
+    return-object v0
+.end method
+
 .method protected loggingSettingsIcon()V
     .locals 0
 
@@ -78,7 +86,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/AppListPreference;->onBindView(Landroid/view/View;)V
 
-    const v1, 0x7f110676
+    const v1, 0x7f110679
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="battery_history_hours_no_seconds">%1$dس %2$dد</string>
-    <string name="battery_history_minutes_no_seconds">%dد</string>
+    <string name="battery_history_minutes_no_seconds">%d د</string>
     <string name="wifi_fail_to_scan">لا يمكن فحص الشبكات</string>
     <string name="wifi_failed_to_obtain_IP">فشل في الحصول على عنوان IP.</string>
     <string name="wifi_security_none">لاشيء</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">يتعذر الاتصال بـ %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">يتعذر الاتصال بـ %1$s. تحقق من الضبط لديك في %2$s وحاول مرة أخرى.</string>
     <string name="bluetooth_pairing_rejected_error_message">تم رفض الإقتران بواسطة %s.</string>
+    <string name="bluetooth_getting_remote_device_name">جارٍ الحصول على اسم الجهاز…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">سيظهر اسم الجهاز عند توصيل هذا الجهاز.</string>
     <string name="accessibility_wifi_off">‏تم إيقاف Wi-Fi.</string>
     <string name="accessibility_no_wifi">‏تم قطع اتصال Wi-Fi.</string>
     <string name="accessibility_wifi_one_bar">‏إشارة Wi-Fi تتكون من شريط واحد.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">دعم</string>
     <string name="reset_network_settings_list_summary">أعد ضبط شبكة Wi-Fi والبلوتوث وغيرها من الشبكات إلى ضبط المصنع الافتراضي.</string>
     <string name="master_clear_list_summary">أعد ضبط جهازك إلى ضبط المصنع الافتراضي. سيمحو هذا الإجراء كل البيانات، بما فيها الملفات والتطبيقات التي تم تنزيلها.</string>
-    <string name="auto_restart_summary">حسّن جهازك بإعادة تشغيله تلقائياً في أوقات محددة. سيتم فقدان أي بيانات غير محفوظة عند إعادة تشغيل الجهاز.</string>
+    <string name="auto_restart_summary">حسّن هاتفك من خلال إعادة تشغيله تلقائياً مرة واحدة أسبوعياً. سيتم فقدان أي بيانات غير محفوظة عند إعادة تشغيل الهاتف.</string>
+    <string name="auto_restart_summary_tablet">حسّن جهازك اللوحي من خلال إعادة تشغيله تلقائياً مرة واحدة أسبوعياً. سيتم فقدان أي بيانات غير محفوظة عند إعادة تشغيل الجهاز اللوحي.</string>
     <string name="search_settings">بحث</string>
     <string name="related_results">%d من العناصر ذات الصلة</string>
     <string name="no_results_found">لم يتم العثور علي اي نتيجة</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">نسبة توازن الصوت هي %d من اليمين. استخدم إصبعين لسحب ‏‫شريط التمرير.</string>
     <string name="sound_balance_set">تعيين</string>
     <string name="accessibility_assistant_menu">قائمة المساعد</string>
-    <string name="assistant_menu_summary">يقوم بتفعيل الوظائف من أجل تحسين إمكانية وصول المستخدمين ذوي المهارات المحدودة إلى الجهاز.</string>
+    <string name="assistant_menu_summary">حسّن إمكانية الوصول إلى الهاتف للمستخدمين قليلي المهارات.</string>
     <string name="color_blind_title">ضبط الألوان</string>
     <string name="no_result">عدل ألوان الشاشة في حال وجدت قراءة الشاشة صعبة.</string>
     <string name="you_are_normal">لا يلزم ضبط اللون</string>
@@ -653,6 +656,7 @@ Enter the code you get from Verizon:"</string>
     <string name="direct_access_actions_accessibility_title">إمكانية الوصول</string>
     <string name="direct_access_actions_negative_title">ألوان سلبية</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">لا يمكن تفعيل الوصول المباشر وتصغير حجم الشاشة في الوقت نفسه. سيتم إلغاء تفعيل تصغير حجم الشاشة.</string>
+    <string name="direct_access_exclusive_popup_msg">يتعذر تفعيل %1$s و%2$s في الوقت نفسه. سيتم إلغاء تفعيل %3$s.</string>
     <string name="direct_access_actions_color_adjustment_summary">يمكنك إعداد ضبط اللون في الرؤية لاستخدامه في الوصول المباشر</string>
     <string name="direct_access_actions_screen_reader_summary">قم بتفعيل قارئ الصفحات لاستخدامه في الوصول المباشر.</string>
     <string name="direct_access_actions_accesscontrol_title">التحكم التفاعلي</string>
@@ -850,7 +854,9 @@ Enter the code you get from Verizon:"</string>
     <string name="premium_sms_values_ask">السؤال</string>
     <string name="premium_sms_values_never">عدم السماح مطلقا</string>
     <string name="premium_sms_values_allow">السماح دائما</string>
-    <string name="assist_and_voice_input_summary">توفر تطبيقات مساعدة الجهاز المزيد من الخيارات والمعلومات حول كل شاشة.</string>
+    <string name="assist_and_voice_input_summary">حدد التطبيق الذي تريد استخدامه عند لمس زر الشاشة الرئيسية مع الاستمرار.</string>
+    <string name="assist_footer_phone">حدد التطبيق الذي تريد استخدامه عند لمس زر الشاشة الرئيسية مع الاستمرار. يمكن لتطبيقات مساعدة الجهاز مساعدتك عن طريق جمع المعلومات من الشاشة المعروضة حالياً على هاتفك.</string>
+    <string name="assist_footer_tablet">حدد التطبيق الذي تريد استخدامه عند لمس زر الشاشة الرئيسية مع الاستمرار. يمكن لتطبيقات مساعدة الجهاز مساعدتك من خلال جمع المعلومات من الشاشة المعروضة حالياً على جهازك اللوحي.</string>
     <string name="default_app_title">الضبط كالتطبيق الافتراضي</string>
     <string name="premium_sms_title">إرسال premium SMS</string>
     <string name="default_app_selection">تحديد التطبيق الافتراضي</string>
@@ -939,7 +945,7 @@ Enter the code you get from Verizon:"</string>
 
 قد يكون إخراج الصوت مختلفاً بعض الشيء في الجهازَين المتصلَين."</string>
     <string name="bluetooth_dual_play_ask_popup_title">هل تريد إيقاف تشغيل مزامنة مستوى صوت الوسائط؟</string>
-    <string name="bluetooth_dual_play_ask_popup_content">لاستخدام الصوت المزدوج، يجب أن يتم إيقاف تشغيل مزامنة مستوى صوت الوسائط.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">للتحكم في مستوى الصوت على كل جهاز صوت بشكل منفصل، يجب إيقاف تشغيل مزامنة مستوى صوت الوسائط.</string>
     <string name="bluetooth_avc_title">مزامنة مستوى صوت الوسائط</string>
     <string name="bluetooth_avc_description">إذا تمكن جهاز البلوتوث المتصل من التحكم في مستوى صوت الوسائط على هاتفك، فستتم مزامنة مستوى الصوت الذي قام جهاز البلوتوث بضبطه مع هاتفك.</string>
     <string name="bluetooth_avc_volume_change_description">يمكن أن يؤدي تشغيل هذه الوظيفة إلى تسبب تغييرات غير متوقعة في مستوى الصوت.</string>
@@ -948,6 +954,7 @@ Enter the code you get from Verizon:"</string>
     <string name="bluetooth_avc_ask_popup_title">هل تريد إيقاف تشغيل ميزة الصوت المزدوج؟</string>
     <string name="bluetooth_avc_ask_popup_content">لاستخدام مزامنة مستوى صوت الوسائط، يجب أن يتم إيقاف تشغيل الصوت المزدوج.</string>
     <string name="bluetooth_avc_disable_description">لا يدعم الجهاز المتصل المزود بتقنية البلوتوث خيار مزامنة صوت الوسائط. لا يمكنك مزامنة صوت الوسائط في هاتفك مع الجهاز المتصل المزود بتقنية البلوتوث.</string>
+    <string name="bluetooth_avc_available_description">يدعم جهاز البلوتوث المتصل مزامنة مستوى صوت الوسائط وستتم مزامنة مستوى الصوت الذي قام جهاز البلوتوث بضبطه مع هاتفك.</string>
     <string name="bluetooth_enter_pin_msg">أدخل رمز PIN للإقران مع %s (جرب 0000 أو 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">تم بلوغ الحد الأقصى لعدد الأحرف.</string>
     <string name="settings_menu_done">تمت</string>
@@ -1031,11 +1038,12 @@ Enter the code you get from Verizon:"</string>
     <string name="swipe_to_call_title">اسحب الشاشة للاتصال أو لإرسال رسائل</string>
     <string name="swipe_to_call_summary">اسحب جهة اتصال أو رقم نحو اليمين لإجراء مكالمة أو نحو اليسار لإرسال رسالة في تطبيقات الهاتف، أو جهات الاتصال، أو الرسائل.</string>
     <string name="swipe_to_call_summary_dcm">اسحب جهة اتصال أو رقماً نحو اليمين لإجراء مكالمة أو نحو اليسار لإرسال رسالة من تطبيقات الاتصال، أو جهات الاتصال، أو الرسائل.</string>
-    <string name="swipe_to_call_summary_kddi">اسحب جهة اتصال أو رقماً نحو اليمين لإجراء مكالمة أو نحو اليسار لإرسال رسالة من تطبيقات الهاتف أو جهات الاتصال.</string>
+    <string name="swipe_to_call_summary_kddi">اسحب جهة اتصال أو رقماً نحو اليمين لإجراء مكالمة أو نحو اليسار لإرسال رسالة من تطبيقي الاتصال أو جهات الاتصال.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">استخدم حسابين منفصلين للتطبيق نفسه.</string>
     <string name="finger_sensor_gesture_title">إيماءات مستشعر الإصبع</string>
     <string name="finger_sensor_gesture_summary">افتح التطبيقات والميزات وأغلقها باستخدام مستشعر بصمة الإصبع.</string>
+    <string name="finger_sensor_gesture_summary_noapp">افتح لوحة الإشعارات وأغلقها باستخدام مستشعر بصمة الإصبع.</string>
     <string name="finger_sensor_gesture_description">اسحب للأعلى أو للأسفل على مستشعر بصمة الإصبع لفتح لوحة الإشعارات أو إغلاقها.</string>
     <string name="open_samsung_pay_title">فتح Samsung Pay</string>
     <string name="open_samsung_pay_summary">من الشاشة الرئيسية، مرر إصبعك نحو الأعلى على مستشعر بصمة الإصبع لفتح Samsung Pay.</string>
@@ -1070,6 +1078,7 @@ Enter the code you get from Verizon:"</string>
 ‏%s"</string>
     <string name="enable_ps_title">تفعيل %s</string>
     <string name="setup_wizard">معالج الإعداد</string>
+    <string name="icon_number_1">۱</string>
     <string name="normal">عادي</string>
     <string name="large">كبير</string>
     <string name="small">صغير</string>
@@ -1214,7 +1223,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update">تنزيل التحديثات تلقائياً</string>
     <string name="auto_update_summary">قم بتنزيل تحديثات البرنامج تلقائياً عند الاتصال بشبكة Wi-Fi. سيزال بإمكانك استخدام جهازك أثناء التنزيل.</string>
     <string name="auto_update_over_wifi">التنزيل التلقائي عبر Wi-Fi</string>
-    <string name="auto_update_over_wifi_summary">تنزيل تحديثات البرنامج تلقائيًّا عند الاتصال بشبكة Wi-Fi. حسب موفر الخدمة لديك، يمكن تنزيل التحديثات أيضًا باستخدام بيانات الهاتف المحمول من دون أي رسوم إضافية. لا يزال بإمكانك استخدام هاتفك أثناء التنزيل.</string>
+    <string name="auto_update_over_wifi_summary">تنزيل تحديثات البرنامج تلقائياً عند الاتصال بشبكة Wi-Fi. حسب مزود الخدمة الخاص بك، يمكن تنزيل التحديثات أيضاً باستخدام بيانات الهاتف المحمول بدون أي رسوم إضافية. ولا يزال بإمكانك استخدام هاتفك أثناء التنزيل.</string>
     <string name="scheduled_update">تحديثات البرامج المجدولة</string>
     <string name="scheduled_update_summary_default">غير مفعل</string>
     <string name="scheduled_update_summary_set_time">ستبدأ عملية التحديث عند الساعة %s</string>
@@ -1359,7 +1368,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="adjust_your_display_colour">يمكنك تعديل ألوان شاشة العرض لتغيير درجات اللون الأبيض.</string>
     <string name="display_temperature_preset_cool">بارد</string>
     <string name="display_temperature_preset_warm">دافئ</string>
-    <string name="display_advanced_option">خيارات متقدمة</string>
+    <string name="display_advanced_option">الخيارات المتقدمة</string>
     <string name="color_balance_subtext_1">يمكن تعديل توازن الألوان في وضع العرض التكيفي فقط.</string>
     <string name="color_balance_subtext_2">لن يتم تطبيق التعديلات التي أجريتها عندما يكون عامل تصفية الضوء الأزرق قيد التشغيل.</string>
     <string name="poc_balance_title">توازن ألوان جانبي الشاشة</string>
@@ -1417,6 +1426,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_summary">يمكنك إدارة أزرار ”الشاشة الرئيسية“، و”الرجوع“، و”التطبيقات الأخيرة“.</string>
     <string name="navigationbar_theme_switch">تطبيق السمة الحالية</string>
     <string name="navigationbar_color_title">لون الخلفية</string>
+    <string name="navigationbar_color_summary">قد لا يتم تطبيق لون الخلفية الذي حددته على كل التطبيقات.</string>
     <string name="navigationbar_order_title">تخطيط الأزرار</string>
     <string name="navigationbar_order_default">رجوع - الشاشة الرئيسية - التطبيقات الأخيرة</string>
     <string name="navigationbar_order_mirrored">التطبيقات الأخيرة - الشاشة الرئيسية - رجوع</string>
@@ -1448,7 +1458,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="blue_light_filter_enable_now">التشغيل الآن</string>
     <string name="blue_light_filter_enable_as_scheduled">تشغيل كما هو مجدول</string>
     <string name="blue_light_filter_scheduled_toast">تم تشغيل تصفية الضوء الأزرق. سيتم إيقاف تشغيله تلقائياً في وقت الإنهاء المجدول.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">يتعذر استخدام %s وعامل تصفية اللون الأزرق في الوقت نفسه. سيتم إلغاء تفعيل عامل تصفية اللون الأزرق.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">هل تريد إيقاف تشغيل عامل تصفية الضوء الأزرق؟</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">لاستخدام %s، يجب إيقاف تشغيل عامل تصفية الضوء الأزرق.</string>
     <string name="blue_light_filter_dlg_turn_on_location">لاستخدام من غروب الشمس إلى شروق الشمس، يجب تشغيل الموقع.</string>
     <string name="dlg_turn_on">تشغيل</string>
     <string name="screen_resolution_title">دقة الشاشة</string>
@@ -1665,6 +1676,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">تبقّت لك محاولة واحدة فقط لبدء تشغيل جهازك قبل إعادة ضبطه إلى ضبط المصنع الافتراضي. سيمحو هذا الإجراء كل البيانات، بما فيها الملفات والتطبيقات التي تم تنزيلها.</string>
     <string name="crypt_keeper_failed_title_dec">فشل إلغاء التشفير.</string>
     <string name="crypt_keeper_failed_summary_dec">يتعذر إكمال فك التشفير نتيجة لمقاطعته. قم بإجراء إعادة ضبط بيانات المصنع (مسح جميع البيانات) قبل بدء الاستخدام.</string>
+    <string name="crypt_keeper_set_screen_lock_type">تعيين نوع قفل الشاشة</string>
     <string name="encryption_interstitial_message">"يمكنك توفير حماية إضافية لهذا الهاتف بطلب إدخال %s قبل بدء تشغيل الهاتف. سيساعد ذلك على حماية البيانات في حال فقدان الهاتف أو سرقته. قد تتطلب بعض التطبيقات بدء التشغيل الآمن وفقاً لسياسات تشفير الجهاز للوصول إلى الميزات، مثل مزامنة البريد الإلكتروني.
 
 لن تتلقى أي مكالمات، أو رسائل، أو إشعارات، ولن تصدر التنبيهات صوتاً حتى يتم بدء تشغيل الهاتف."</string>
@@ -1735,7 +1747,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="fingerprint_register_success">تمت إضافة بصمة الإصبع</string>
     <string name="fingerprint_register_add_another_fingerprint">هل تريد إضافة بصمة إصبع أخرى؟</string>
     <string name="fingerprint_register_add">إضافة</string>
-    <string name="fingerprint_register_done">تمت</string>
+    <string name="fingerprint_register_done">تم</string>
     <string name="fingerprint_register_dex_guide_msg">يمكنك تسجيل بصمة إصبعك على هاتفك.</string>
     <string name="remove_mobile_keyboard">لاستخدام %s، قم بإزالة الجهاز من غلاف لوحة المفاتيح.</string>
     <string name="fingerprint_already_registered_title">يتعذر تسجيل بصمة الإصبع</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">استخدام بصمة الإصبع</string>
     <string name="wifi_ap_close">إغلاق</string>
     <string name="fingerscanner_add_summary">أضف بصمة أصابعك.</string>
+    <string name="fingerscanner_register_1_finger_summary">تمت إضافة بصمة إصبع واحدة.</string>
     <string name="fingerscanner_register_summary">تمت إضافة %d من بصمة الأصابع.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">استخدم بصمة الإصبع أو أدخِل رقم PIN الحالي.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">استخدم بصمة الإصبع أو ارسم النمط الحالي.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">قم بإلغاء قفل هاتفك باستخدام ميزة التعرف على الوجه عند تشغيل الشاشة من دون سحبها أولاً.</string>
     <string name="facelock_recognition_speed_up">تعرف أسرع</string>
     <string name="facelock_recognition_speed_up_summary">قم بالتشغيل للحصول على تعرف أسرع. أوقف التشغيل لزيادة الحماية وزيادة صعوبة إلغاء القفل باستخدام صورة أو فيديو.</string>
+    <string name="facelock_samsungpass_summary">استخدم ميزة التعرف على الوجه للتحقق من هويتك بواسطة %s وتطبيقات مدعومة أخرى.</string>
     <string name="face_remove_face_popup_title">هل تريد إزالة بيانات الوجه؟</string>
     <string name="face_remove_face_popup_message_1">لن يتم التعرف على وجهك بعد الآن وسيتم إيقاف تشغيل قفل الوجه.</string>
     <string name="face_remove_face_popup_message_2">سيتم إيقاف تشغيل الميزات التي تستخدم التعرف على الوجه.</string>
@@ -2070,7 +2084,7 @@ You will also need it when:"</string>
     <string name="biometrics_backup_locktype_title">إعداد حماية بصمة العين</string>
     <string name="biometrics_register_your_iris">سجّل بصمة عينيك.</string>
     <string name="biometrics_backup_locktype_summary">لاستخدام بصمة عينيك لإلغاء قفل الجهاز، عليك ضبط نمط أو رقم PIN أو كلمة مرور.</string>
-    <string name="biometrics_backup_locktype_message">لاستخدام بصمة عينيك لإلغاء قفل هاتفك أو للتحقق الآمن، أنت بحاجة إلى:</string>
+    <string name="biometrics_backup_locktype_message">لاستخدام بصمة عينيك لإلغاء قفل هاتفك أو للتحقق من هويتك في التطبيقات، سيتوجّب عليك:</string>
     <string name="iris_delete_popup_title">هل تريد إزالة بيانات بصمة العين؟</string>
     <string name="iris_delete_popup_message">هل تريد إزالة بيانات بصمة العين؟</string>
     <string name="iris_delete_popup_message_with_related_func">سيتم إيقاف تشغيل الميزات التي تستخدم بصمة العينين.</string>
@@ -2078,7 +2092,7 @@ You will also need it when:"</string>
     <string name="iris_timeout_popop_title">المحاولة مرة أخرى لاحقاً</string>
     <string name="iris_timeout_popop_message">لم يتم التعرّف على بصمة العينين. قد تكون الكاميرا الخاصة ببصمة العين متّسخة. نظّف المنطقة أعلى الشاشة وحاول مرة أخرى.</string>
     <string name="iris_timeout_popop_message_1">قد تكون الكاميرا الخاصة ببصمة العين متّسخة. نظّف المنطقة أعلى الشاشة، وحاول مرة أخرى.</string>
-    <string name="iris_proximity_restriction_popop_message">لم يتم التعرّف على بصمة العينين. قد يكون الهاتف قريباً جداً من وجهك أو أن مستشعر التقارب متسخ. نظّف المنطقة أعلى الشاشة وحاول مرة أخرى.</string>
+    <string name="iris_proximity_restriction_popop_message">أبعد هاتفك عن وجهك أكثر وحاول مرة أخرى.</string>
     <string name="iris_proximity_restriction_popop_message_1">"قد يكون مستشعر التقارب متسخاً.
 نظّف المنطقة فوق الشاشة."</string>
     <string name="iris_try_again">المحاولة مرة أخرى</string>
@@ -2086,6 +2100,8 @@ You will also need it when:"</string>
     <string name="iris_failed_to_verity_identify">تعذر التحقق من هويتك</string>
     <string name="iris_failed_popup_description">تم إجراء %1$d من المحاولات للتحقق من بصمة عينيك. حاول مرة أخرى خلال %2$d من الثواني.</string>
     <string name="iris_no_match">لا يوجد تطابق</string>
+    <string name="iris_eye_safety_msg">لم يتم التعرف على بصمة عينيك.</string>
+    <string name="iris_timeout_msg">لم يتم اكتشاف بصمة عينيك.</string>
     <string name="biometrics_registered">تم التسجيل</string>
     <string name="iris_turn_on_toast_message">تم تفعيل الإقفال ببصمة العين بدلاً من الإقفال ببصمة الإصبع.</string>
     <string name="iris_wrong_backup_password">كلمة مرور احتياطية غير صحيحة</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">يمكنك إظهار زر الشاشة الرئيسية وساعة أو معلومات على شاشة الاستعداد.</string>
     <string name="aod_feature_off_popup_title">هل تريد إيقاف تشغيل %s؟</string>
     <string name="aod_feature_off_popup_description">لاستخدام %1$s، يجب إيقاف تشغيل %2$s.</string>
+    <string name="aod_features_off_popup_title">هل تريد إيقاف تشغيل وظائف أخرى؟</string>
+    <string name="aod_features_off_popup_description">لاستخدام Always On Display، يجب إيقاف تشغيل الوظائف التالية:</string>
     <string name="aod_features_off_popup_btn_ok">إيقاف تشغيل</string>
     <string name="aod_disable_by_negative_colors">يتعذر استخدامه عندما تكون الألوان السلبية قيد التشغيل.</string>
     <string name="aod_disable_by_powersaving_mode">يتعذر استخدامه عندما يكون وضع توفير الطاقة قيد التشغيل.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">قطرات ملونة</string>
     <string name="lock_screen_show_information_summary_wifi_only">عرض معلومات مالك الجهاز، أو اختصارات التطبيقات على شاشة القفل.</string>
     <string name="lock_screen_sview_show_information_summary">إظهار الساعة المزدوجة أو معلومات مالك الجهاز أو اختصارات التطبيقات على شاشة القفل وعبر إطار عرض S.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">يمكنك إظهار ساعة التجوال أو معلومات الاتصال التابعة لمالك الهاتف على شاشة القفل وعبر إطار S الشفاف.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">حدد اختصارات التطبيقات لإظهارها على شاشة القفل وعبر إطار غلاف S الشفاف.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">يمكنك إظهار الإشعارات على شاشة القفل وعبر إطار غلاف S الشفاف.</string>
     <string name="lock_screen_and_cover_show_information_summary">يمكنك عرض الساعة المزدوجة على شاشة القفل وعبر غلاف العرض الواضح.</string>
     <string name="lock_screen_secured_lock_settings_title">ضبط القفل الآمن</string>
     <string name="lock_screen_secured_lock_settings_summary">اضبط وظائف القفل الآمن، مثل قفل تلقائي وقفل على الفور باستخدام مفتاح الطاقة.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">المنطقة الزمنية المحلية</string>
     <string name="contact_info_settings_title">معلومات حول جهة الاتصال</string>
     <string name="show_contact_info_on_lockscreen_label">يمكنك إظهار معلومات مثل رقم هاتفك أو عنوان بريدك الإلكتروني على شاشة القفل.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">قم بإظهار معلومات مثل رقم الهاتف أو عنوان البريد الإلكتروني على شاشة القفل وAlways On Display.</string>
     <string name="unlock_effect">تأثير إلغاء القفل</string>
     <string name="walking_mate_title">مقياس الخطوات</string>
     <string name="help_text_title">نص المساعدة</string>
@@ -2415,7 +2437,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="toast_set_lock_pattern">إذا نسيت النمط الخاص بك، فسيتم محو كل البيانات وإعادة ضبط هاتفك.</string>
     <string name="toast_set_lock_password">إذا نسيت كلمة المرور، فسيتم محو كل البيانات وسيُعاد ضبط الهاتف.</string>
     <string name="toast_set_lock_pin">إذا نسيت رقم PIN، فسيتم محو كل البيانات وسيُعاد ضبط الهاتف.</string>
-    <string name="chooselock_warning_text">تذكر طريقة إلغاء القفل هذه عبر %s. ستتم المطالبة بتوفيرها عند إعادة تشغيل الجهاز.</string>
+    <string name="chooselock_warning_text">تذكر %s. فسيكون مطلوباً بعد أن تعيد تشغيل هاتفك.</string>
     <string name="lockpassword_password_exists_history">كلمة المرور مستخدمة من قبل. أدخل كلمة مرور جديدة.</string>
     <string name="lockpassword_pin_repeating_nums">يجب ألا يحتوي رمز PIN على أرقام متكررة.</string>
     <string name="lockpassword_pin_sequential_nums">يجب ألا يحتوي رمز PIN على أرقام مرتبة.</string>
@@ -2533,6 +2555,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="data_usage_disable_mobile_warning_lgt">"في حال عدم استخدام شبكة Wi-Fi، لن يعود بإمكانك استخدام الإنترنت أو البريد الإلكتروني أو التطبيقات الأخرى التي تتطلّب اتصال بيانات.
 
 سيتم إيقاف تشغيل بيانات الهاتف المحمول."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">ما لم يتم الاتصال بشبكة Wi-Fi، لن تتمكن من استخدام الإنترنت، أو البريد الإلكتروني، أو التطبيقات الأخرى التي تتطلب الاتصال بالشبكة.</string>
@@ -2691,10 +2716,12 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="maximum_volume_title">تخصيص حد مستوى الصوت</string>
     <string name="volume_limiter_descryption">احمِ أذنيك باستخدام حد أقصى لمستوى صوت الوسائط. سيتم تطبيق هذا الحد فقط أثناء استخدام سماعات الرأس أو أجهزة الصوت بتقنية البلوتوث.</string>
     <string name="multi_sound_title">صوت تطبيق منفصل</string>
-    <string name="multi_sound_summary">قم بتشغيل الصوت من تطبيق واحد على مكبر الصوت أو سماعات الرأس بشكل منفصل عن باقي الأصوات على جهازك.</string>
-    <string name="multi_sound_descryption">"قم بتشغيل صوت الوسائط من تطبيق واحد على مكبر صوت أو سماعات رأس بشكل منفصل عن صوت الوسائط من تطبيقات أخرى.
+    <string name="multi_sound_summary">يمكنك تشغيل صوت الوسائط من تطبيق واحد على جهاز صوت بشكل منفصل عن جهاز إخراج الصوت الأساسي الخاص بهاتفك.</string>
+    <string name="multi_sound_descryption">"يمكنك تشغيل صوت الوسائط من تطبيق على جهاز صوت منفصل عن جهاز إخراج الصوت الرئيسي الخاص بهاتفك. حدد تطبيقاً وجهاز صوت لتشغيل هذه الميزة.
 
-إذا حددت جهاز الصوت الذي يعمل بتقنية البلوتوث، فسيتم تشغيل الصوت على جهاز الصوت الافتراضي في حال لم يكن الجهاز الذي يعمل بتقنية البلوتوث متصلاً."</string>
+يعمل صوت التطبيق المنفصل فقط عندما يكون جهاز الصوت الذي حددته مختلفاً عن جهاز إخراج الصوت الرئيسي الخاص بهاتفك.
+
+يمكنك تغيير جهاز إخراج الصوت الرئيسي الخاص بهاتفك في لوحة الضبط السريع. إذا كان إخراج الصوت غير ظاهر، فقم بتشغيله في Samsung Connect > الضبط > لوحة Samsung Connect."</string>
     <string name="set_application_title">التطبيق</string>
     <string name="set_application_summary">حدد تطبيقاً لتشغيل صوته على جهاز صوت منفصل.</string>
     <string name="set_application_descryption">حدد تطبيق وسائط متعددة أدناه لتشغيل صوته على جهاز صوت منفصل.</string>
@@ -2705,9 +2732,11 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="multi_sound_popup_msg">لتشغيل %s، يترتب عليك تحديد تطبيق وجهاز صوت.</string>
     <string name="multi_sound_network_msg">للتحقق من التطبيقات المتوفرة، يجب أن يكون هاتفك متصلاً بشبكة. تحقق من ضبط الشبكة وحاول مرة أخرى.</string>
     <string name="multi_sound_wifi_msg">للتحقق من التطبيقات المتوفرة، يجب توصيل هاتفك بشبكة. قد يترتب على استخدام بيانات الهاتف المحمول فرض تكاليف إضافية.</string>
+    <string name="multi_sound_add_application">إضافة تطبيق</string>
     <string name="dlg_btn_select">اختيار</string>
-    <string name="audio_device_type_descryption">حدد الجهاز الصوتي الذي تريد استخدامه لهذا التطبيق. تكون أجهزة البلوتوث متوفرة فقط عندما تكون متصلة.</string>
+    <string name="audio_device_type_descryption">حدد جهاز الصوت الذي تريد استخدامه للتطبيق المحدد. ستكون أجهزة البلوتوث متوفرة فقط عندما تكون متصلة.</string>
     <string name="my_phone_title">الهاتف</string>
+    <string name="my_phone_summary">السماعة/سماعات الرأس/جهاز صوت USB</string>
     <string name="bluetooth_device_title">جهاز بتقنية البلوتوث</string>
     <string name="no_connected_devices">ما من أجهزة متّصلة</string>
     <string name="two_hours">ساعتان</string>
@@ -2715,7 +2744,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="stop_setup_popup_msg">لن يتم تطبيق أي ضبط قمت بتغييره.</string>
     <string name="app_turned_on">تم تشغيل %s.</string>
     <string name="force_touch_title">ملاحظات الاهتزاز عند الضغط بقوة</string>
-    <string name="volume_key_control_title">التحكم بمفتاح مستوى الصوت الافتراضي</string>
+    <string name="volume_key_control_title">استخدم مفاتيح الصوت للوسائط</string>
+    <string name="volume_key_control_summary">يمكنك التحكم في مستوى صوت الوسائط عندما تضغط على مفاتيح مستوى الصوت.</string>
     <string name="sound_mode">وضع الصوت</string>
     <string name="sound_mode_vibrate">اهتزاز</string>
     <string name="sound_mode_mute">كتم</string>
@@ -2929,14 +2959,13 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="text_biometrics_title_enterprise">عندما تحدد %1$s، لن تكون المقاييس الحيوية معتمدة كطريقة لإلغاء قفل %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">لا تدعم %1$s بصمة الأصابع كطريقة لإلغاء قفل %2$s.</string>
     <string name="edge_feeds_title">موجزات جانبية</string>
-    <string name="screensaver_settings_summary">"تحكّم بما سيحدث أثناء إرساء الجهاز و/أو شحنه. ستظهر شاشة التوقف بعد انتهاء مهلة الشاشة.
-
-يُطلق أيضاً على هذه الوظيفة اسم شاشة التوقف."</string>
-    <string name="screensaver_settings_summary_wo_dock">يمكنك إظهار شاشة التوقف بعد إيقاف تشغيل الشاشة تلقائياً أثناء شحن هاتفك.</string>
+    <string name="screensaver_settings_summary">يمكنك إظهار شاشة التوقف بعد إيقاف تشغيل الشاشة تلقائياً أثناء شحن هاتفك.</string>
+    <string name="screensaver_settings_summary_wo_dock">يمكنك إظهار شاشة توقف بعد إيقاف تشغيل الشاشة تلقائياً أثناء إرساء هاتفك أو شحنه.</string>
     <string name="apn_already_exists">موجود مسبقا.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">يجب أن يكون رقم المنفذ ما بين %1$d و%2$d.</string>
     <string name="apn_restore_warning">ستتم إزالة أسماء نقاط الوصول APN التي أضفتها. ستتم إعادة ضبط أسماء APN الأخرى إلى ضبطها الافتراضي.</string>
+    <string name="apn_restore_title">هل تريد إعادة ضبط ضبط APN؟</string>
     <string name="master_clear_desc_google_account">حساب Google</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2948,7 +2977,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="sound_balance_summary">عدّل توازن الصوت لسماعتي الرأس اليسرى واليمنى.</string>
     <string name="backup_samsung_account_title">إعداد النسخ الاحتياطي</string>
     <string name="restore_samsung_account_title">ارجاع الضبط</string>
-    <string name="auto_restart_header">إدارة الجهاز</string>
+    <string name="auto_restart_header">إدارة الهاتف</string>
+    <string name="auto_restart_header_tablet">إدارة الجهاز اللوحي</string>
     <string name="auto_restart_title">إعادة التشغيل التلقائي</string>
     <string name="switch_turn_on_text">تشغيل</string>
     <string name="switch_turn_off_text">إيقاف التشغيل</string>
@@ -3071,6 +3101,16 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="tether_settings_summary_usb_bt">مشاركة اتصال بيانات الهاتف المحمول لجهازك عبر USB أو البلوتوث</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">قبول</string>
+    <string name="bluetooth_tethering_off_subtext_phone">شارك اتصال الإنترنت على الهاتف باستخدام البلوتوث.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">شارك اتصال الإنترنت على الجهاز اللوحي باستخدام البلوتوث.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">جاهز لمشاركة اتصال الإنترنت على هذا الهاتف.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">جاهز لمشاركة اتصال الإنترنت على هذا الجهاز اللوحي.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">مشاركة اتصال الإنترنت على هذا الهاتف مع جهاز واحد.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">مشاركة اتصال الإنترنت على هذا الجهاز اللوحي مع جهاز واحد.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">مشاركة اتصال الإنترنت على هذا الهاتف مع %d من الأجهزة.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">مشاركة اتصال الإنترنت على هذا الجهاز اللوحي مع %d من الأجهزة.</string>
+    <string name="tether_settings_summary_bt_phone">شارك اتصال الإنترنت على الهاتف باستخدام البلوتوث.</string>
+    <string name="tether_settings_summary_bt_tablet">شارك اتصال الإنترنت على الجهاز اللوحي باستخدام البلوتوث.</string>
     <string name="onehand_settings_title">وضع اليد الواحدة</string>
     <string name="onehand_settings_text_1">اسحب نحو الأعلى من أي زاوية سفلية على الشاشة لإنقاص حجم شاشة العرض.</string>
     <string name="onehand_settings_text_2">انقر فوق زر الشاشة الرئيسية ٣ مرات بشكل سريع لإنقاص حجم شاشة العرض.</string>
@@ -3398,12 +3438,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">غير مفعل</string>
     <string name="wifi_or_mobile_network">‏Wi-Fi أو شبكات الهاتف المحمول</string>
     <string name="wifi_network_only">شبكة Wi-Fi فقط</string>
+    <string name="wifi_adps_title">وضع توفير طاقة Wi-Fi</string>
+    <string name="wifi_adps_summary">قلل استخدام البطارية عن طريق تحليل أنماط حركة مرور Wi-Fi.</string>
     <string name="wifi_auto_reconnect">إعادة اتصال تلقائياً</string>
     <string name="wifi_enable_warning_chn">سيؤدي تشغيل شبكة WLAN إلى إلغاء تفعيل نقطة اتصال الهواتف المحمولة.</string>
     <string name="wifi_enable_warning_vzw">سوف يؤدي تشغيل شبكة Wi-Fi إلى إلغاء تفعيل Mobile Hotspot. هل تريد المتابعة؟</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">يتم إيقاف تشغيل Wi-Fi عندما تكون نقطة اتصال الهواتف المحمولة نشطة. لتشغيل Wi-Fi، يُرجى إيقاف تشغيل نقطة اتصال الهواتف المحمولة.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">يتم إيقاف تشغيل Wi-Fi عندما تكون نقطة اتصال الهواتف المحمولة نشطة. لتشغيل Wi-Fi، أوقف تشغيل نقطة اتصال الهواتف المحمولة.</string>
+    <string name="wifi_enable_warning_mtr">يتم إيقاف تشغيل Wi-Fi عندما تكون نقطة اتصال الهواتف المحمولة نشطة. لتشغيل Wi-Fi، يُرجى إيقاف تشغيل نقطة اتصال الهواتف المحمولة.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">سيؤدي تشغيل Wi-Fi مباشر إلى إلغاء تفعيل نقطة اتصال الهواتف المحمولة.</string>
     <string name="wifi_control_history_title">محفوظات التحكم بشبكة Wi-Fi</string>
@@ -3603,6 +3645,10 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_wps_pin_client_mobileap">يتم إنشاء اتصال مع العميل بواسطة رقم PIN وهو %1$s. قد تستغرق عملية الإعداد %2$d من الدقائق لتكتمل.</string>
     <string name="wifi_wps_complete_mobileap">أصبح الآن الجهاز الآخر موصولا بجهازك.</string>
     <string name="wifi_ap_disconnect_warn">قطع اتصال الجهاز</string>
+    <string name="wifi_ap_change_policy_warn_chn">سيتم قطع اتصال الجهاز المتصل حالياً بنقطة اتصال شبكة WLAN المحمولة.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">سيتم قطع اتصال كل الأجهزة المتصلة حاليًا من نقطة اتصال الهواتف المحمولة.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">سيتم قطع اتصال كل الأجهزة المتصلة حاليًا من نقطة اتصال الهواتف المحمولة.</string>
     <string name="wifi_ap_warn_max_whitelist">تم بلوغ الحد الأقصى لعدد الأجهزة المسموح بها (%d).</string>
     <string name="wifiap_one_item_deleted">سيتم حذف عنصر واحد.</string>
@@ -3738,6 +3784,8 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_first_time_configuration">إعداد نقطة اتصال للمرة الأولى</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">أدخل رقم PIN الصحيح.</string>
+    <string name="open_mobileap_warning">إن نقطة وصول الهاتف المحمول هذه غير آمنة.</string>
+    <string name="hidden_mobileap_warning">سيتم تعطيل WPS عندما يقوم المستخدم بضبط SSID مخفي.</string>
     <string name="wifi_ssid_max_byte_error">تم بلوغ الحد الأقصى لعدد الأحرف.</string>
     <string name="tethering_attention_title">انتباه</string>
     <string name="wfd_select_device">تحديد الجهاز</string>
@@ -3968,6 +4016,14 @@ Wi-Fi is now on."</string>
     <string name="quick_tile_sync_title">مزامنة</string>
     <string name="permission_usage">استخدام الإذن</string>
     <string name="draw_overlay_settings_description">يتيح هذا الإذن لتطبيق ما عرض المحتويات فوق تطبيقات أخرى تستخدمها. قد يتداخل هذا الأمر مع استخدامك لتطبيقات أخرى.</string>
+    <string name="write_settings_body_description">يمكنك السماح لهذا التطبيق بتغيير ضبط النظام، مثل تشغيل البلوتوث أو إيقاف تشغيله.</string>
+    <string name="reset_app_preferences_desc1">سيؤدي هذا الإجراء إلى إعادة ضبط كل تفضيلاتك لـ:</string>
+    <string name="reset_app_preferences_desc2">التطبيقات التي تم إلغاء تفعيلها</string>
+    <string name="reset_app_preferences_desc3">قيود الإشعارات للتطبيقات</string>
+    <string name="reset_app_preferences_desc4">التطبيقات الافتراضية</string>
+    <string name="reset_app_preferences_desc5">قيود بيانات الخلفية للتطبيقات</string>
+    <string name="reset_app_preferences_desc6">قيود الأذونات</string>
+    <string name="reset_app_preferences_desc7">لن تفقد بيانات التطبيق الموجودة.</string>
     <string name="knox_security_mode_title">حماية Knox</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">سياسة الخصوصية</string>
@@ -3981,6 +4037,13 @@ Wi-Fi is now on."</string>
     <string name="my_profile_title">ملف تعريفي</string>
     <string name="my_profile_summary">يمكنك إدارة معلوماتك الشخصية وتفاصيل Samsung account.</string>
     <string name="arbitration_agreement">اتفاقية التحكيم</string>
+    <string name="activation_title">حالة التفعيل</string>
+    <string name="activation_summary">تم التفعيل في %1$s. لمزيد من المعلومات، يرجى زيارة %2$s.</string>
+    <string name="wifi_ap_pmf_on">تشغيل PMF</string>
+    <string name="edit_event_start_short">بدء</string>
+    <string name="edit_event_end_short">إنهاء</string>
+    <string name="select_date_to_view">تحديد التاريخ لعرضه</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">نعم</string>
     <string name="no">لا</string>
     <string name="create">إنشاء</string>
@@ -5473,7 +5536,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="app_notification_block_title">السماح بالإشعارات</string>
     <string name="app_notification_block_summary">تلقي إشعارات من هذا التطبيق بما في ذلك رسائل الإشعارات والأصوات والاهتزاز.</string>
     <string name="app_notification_override_dnd_title">الضبط كأولوية</string>
-    <string name="app_notification_override_dnd_summary">يمكنك السماح لإشعارات هذا التطبيق بإصدار صوت وتشغيل الشاشة عندما يكون وضع عدم الإزعاج مفعلاً.</string>
+    <string name="app_notification_override_dnd_summary">يمكنك عرض الإشعارات في أعلى لوحة الإشعارات وتضمينها في القائمة المسموح بها عندما يكون وضع عدم الإزعاج مفعلاً.</string>
     <string name="app_notification_visibility_override_title">على شاشة القفل</string>
     <string name="app_notifications_dialog_done">تمت</string>
     <string name="zen_mode_choose_rule_type">تحديد نوع القاعدة</string>
@@ -5510,6 +5573,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="restr_pin_enter_admin_pin">إدخال رمز PIN الخاص بالمسؤول</string>
     <string name="switch_on_text">مفعل</string>
     <string name="switch_off_text">غير مفعل</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">تتم إدارة ملف تعريف العمل هذا من قبل:</string>
     <string name="managing_admin">تمت الإدارة من قبل %s</string>
     <string name="display_auto_rotate_title">تدوير الشاشة</string>
     <string name="display_auto_rotate_rotate">تدوير محتوى الشاشة</string>
@@ -5546,9 +5610,9 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="encrypt_talkback_dialog_require_pin">المطالبة برقم PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">المطالبة بنمط</string>
     <string name="encrypt_talkback_dialog_require_password">المطالبة بكلمة مرور</string>
-    <string name="encrypt_talkback_dialog_message_pin">عند إدخال رقم PIN بعد تشغيل الجهاز، سيتم إلغاء تفعيل وظائف إمكانية الوصول مثل %1$s بشكل مؤقت.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">عند رسم نقشك بعد تشغيل الجهاز، سيتم إلغاء تفعيل وظائف إمكانية الوصول مثل %1$s بشكل مؤقت.</string>
-    <string name="encrypt_talkback_dialog_message_password">عند إدخال كلمة المرور بعد تشغيل الجهاز، سيتم إلغاء تفعيل وظائف إمكانية الوصول مثل %1$s بشكل مؤقت.</string>
+    <string name="encrypt_talkback_dialog_message_pin">ستتم مطالبتك برقم PIN عند تشغيل جهازك. لن تتوفر وظائف إمكانية الوصول حتى يتم تشغيل جهازك.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">ستتم مطالبتك بالنمط عند تشغيل جهازك. لن تتوفر وظائف إمكانية الوصول حتى يتم تشغيل جهازك.</string>
+    <string name="encrypt_talkback_dialog_message_password">ستتم مطالبتك بتوفير كلمة المرور عند تشغيل جهازك. لن تتوفر وظائف إمكانية الوصول حتى يتم تشغيل جهازك.</string>
     <string name="slot_number">(الفتحة %d)</string>
     <string name="app_launch_domain_links_title">روابط التطبيقات</string>
     <string name="app_launch_open_domain_urls_title">الانتقال إلى عناوين URL المدعومة</string>
@@ -5624,18 +5688,18 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="usb_use_power_only">شحن الجهاز المتصل</string>
     <string name="usb_use_power_only_desc">اشحن الجهاز المتصل عبر USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">نقل ملفات الوسائط</string>
+    <string name="usb_use_file_transfers">نقل الملفات</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">نقل الصور</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">حدد هذا الوضع إذا لم تكن ميزة نقل ملفات الوسائط تعمل. يمكنك نقل ملفات الصور فقط.</string>
+    <string name="usb_use_photo_transfers_summary">حدد هذا الوضع إذا لم تكن ميزة نقل الملفات تعمل. يمكنك نقل ملفات الصور فقط في هذا الوضع.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">توصيل جهاز MIDI</string>
-    <string name="usb_use">استخدم USB من أجل</string>
-    <string name="assist_access_context_title">قراءة النص على الشاشة</string>
-    <string name="assist_access_context_summary">اسمح لتطبيق مساعدة الجهاز بقراءة أي نص معروض على الشاشة.</string>
-    <string name="assist_access_screenshot_title">التقاط/الوصول إلى لقطات الشاشة</string>
-    <string name="assist_access_screenshot_summary">اسمح لتطبيق مساعدة الجهاز بالتقاط لقطات الشاشة والوصول إليها.</string>
+    <string name="usb_use">استخدام USB من أجل</string>
+    <string name="assist_access_context_title">تحليل النص المعروض على الشاشة</string>
+    <string name="assist_access_context_summary">اسمح لتطبيق مساعدة الجهاز بتحليل النص الظاهر على الشاشة لتوفير المحتوى ذي الصلة.</string>
+    <string name="assist_access_screenshot_title">تحليل الصور المعروضة على الشاشة</string>
+    <string name="assist_access_screenshot_summary">اسمح لتطبيق مساعدة الجهاز بالتقاط صور للشاشة واستخدامها.</string>
     <string name="assist_footer">يمكن لتطبيقات مساعدة الجهاز مساعدتك عن طريق جمع المعلومات من الشاشة المعروضة حالياً على هاتفك. يمكن استخدام بعض تطبيقات مساعدة الجهاز لفتح تطبيقات أخرى وإدخال نص باستخدام إدخال الصوت، مما يوفر لك مساعدة متكاملة.</string>
     <string name="average_memory_use">معدل استخدام ذاكرة الوصول العشوائي</string>
     <string name="maximum_memory_use">الحد الأقصى لاستخدام ذاكرة الوصول العشوائي</string>
@@ -5664,7 +5728,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ignore_optimizations_on_desc">قد يؤدي ذلك إلى زيادة استهلاك طاقة البطارية</string>
     <string name="ignore_optimizations_off_desc">موصى به لتوفير طاقة البطارية</string>
     <string name="app_list_preference_none">لاشيء</string>
-    <string name="allow_overlay_description">حدد التطبيقات للسماح بظهور أزرارها أو إطاراتها المنبثقة أو غيرها من العناصر فوق التطبيقات الأخرى التي تستخدمها.</string>
+    <string name="allow_overlay_description">يتيح هذا الإذن لتطبيق ما عرض المحتويات فوق تطبيقات أخرى تستخدمها. قد يتداخل هذا الأمر مع استخدامك لتطبيقات أخرى.</string>
     <string name="overlay_settings">التطبيقات التي قد تظهر فوق تطبيقات أخرى</string>
     <string name="filter_overlay_apps">التطبيقات الحاصلة على إذن</string>
     <string name="filter_write_settings_apps">التطبيقات الحاصلة على إذن</string>
@@ -5711,14 +5775,14 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ethernet_data_template">%1$s من بيانات Ethernet</string>
     <string name="cell_warning_only">تحذير بشأن البيانات عند %s</string>
     <string name="cell_warning_and_limit">%1$s تستدعي تحذيراً حول استخدام البيانات/%2$s هي حد استخدام البيانات</string>
-    <string name="billing_cycle">دورة الفوترة</string>
+    <string name="billing_cycle">دورة الفوترة وتحذير حول البيانات</string>
     <string name="billing_cycle_summary">%s يوم من كل شهر</string>
     <string name="billing_cycle_fragment_summary">%s يوم من كل شهر</string>
     <string name="network_restrictions">الشبكات المقيدة</string>
     <string name="operator_warning">يقيس جهازك استخدام البيانات. قد يحتسب مزود الخدمة استخدام البيانات بشكل مختلف.</string>
     <string name="data_used_template">%s هي الكمية المُستخدمة</string>
     <string name="data_warning">تحذير البيانات</string>
-    <string name="set_data_limit">حد البيانات</string>
+    <string name="set_data_limit">ضبط حد البيانات</string>
     <string name="data_limit">حد البيانات</string>
     <string name="data_usage_template">%1$s مُستخدمة ما بين %2$s</string>
     <string name="data_usage_other_apps">التطبيقات ذات الصلة المشمولة في الاستخدام</string>
@@ -5760,5 +5824,4 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="enable_iris_lock_desc_3">"تم حالياً ضبط بصمات الأصابع كنوع قفل شاشتك.
 
 لضبط نوع قفل شاشتك إلى بصمة العينين بدلاً من بصمات الأصابع، انقر فوق ”تفعيل“. يمكن عندها إلغاء قفل الجهاز باستخدام بصمة العينين أو %s."</string>
-    <string name="my_phone_summary">السماعة/سماعات الرأس/جهاز صوت USB</string>
 </resources>

@@ -37,9 +37,11 @@
 .method public onStateReceived()V
     .locals 5
 
+    const/4 v4, 0x1
+
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -87,7 +89,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/graphics/Bitmap;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get4(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/graphics/Bitmap;
 
     move-result-object v1
 
@@ -95,7 +97,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get4(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get5(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -107,7 +109,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v3}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get4(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get5(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -115,18 +117,16 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set1(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->updateView(Z)V
+    invoke-virtual {v1, v4}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->updateView(Z)V
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -138,7 +138,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -152,7 +152,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -163,7 +163,7 @@
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -178,7 +178,7 @@
     :cond_3
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get5(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/widget/Button;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get6(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/widget/Button;
 
     move-result-object v1
 
@@ -186,7 +186,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get5(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/widget/Button;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get6(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/widget/Button;
 
     move-result-object v1
 
@@ -198,7 +198,15 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get5(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/widget/Button;
+    invoke-static {v1, v4}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set1(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Z)Z
+
+    iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
+
+    invoke-static {v1, v4}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-set0(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Z)Z
+
+    iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get6(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/widget/Button;
 
     move-result-object v1
 
@@ -206,7 +214,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -218,7 +226,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -232,7 +240,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -243,7 +251,7 @@
     :cond_4
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -256,7 +264,7 @@
     :cond_5
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -268,7 +276,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -282,7 +290,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -293,7 +301,7 @@
     :cond_6
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -330,7 +338,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -342,7 +350,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -356,7 +364,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -367,7 +375,7 @@
     :cond_8
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -380,7 +388,7 @@
     :cond_9
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -394,7 +402,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -404,7 +412,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode$2;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->-get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 

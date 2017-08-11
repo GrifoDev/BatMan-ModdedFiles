@@ -96,7 +96,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get16(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get17(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -104,7 +104,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get16(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get17(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -126,7 +126,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v5}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get16(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get17(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -194,7 +194,7 @@
     :cond_0
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get11(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
 
     move-result-object v4
 
@@ -209,23 +209,23 @@
     :goto_1
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get13(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
 
     move-result-object v4
 
-    const v5, 0x7f0b0fb7
+    const v5, 0x7f0b1044
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get11(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v5}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get5(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get6(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/Context;
 
     move-result-object v5
 
@@ -233,7 +233,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d023c
+    const v6, 0x7f0d023d
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -243,7 +243,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get13(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
 
     move-result-object v4
 
@@ -251,13 +251,13 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get11(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v5}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get11(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
+    invoke-static {v5}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
 
     move-result-object v5
 
@@ -278,7 +278,7 @@
     :cond_2
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get11(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
 
     move-result-object v4
 
@@ -293,13 +293,13 @@
     :cond_3
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get11(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v5}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get16(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get17(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -310,7 +310,7 @@
     :cond_4
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get11(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
 
     move-result-object v4
 
@@ -335,7 +335,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get13(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/TextView;
 
     move-result-object v4
 
@@ -345,13 +345,13 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get11(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
+    invoke-static {v4}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get12(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/widget/EditText;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec$4;->this$0:Lcom/samsung/android/settings/wifi/WifiApDialogSec;
 
-    invoke-static {v5}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get5(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->-get6(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)Landroid/content/Context;
 
     move-result-object v5
 
@@ -359,7 +359,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d011e
+    const v6, 0x7f0d011f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 

@@ -58,7 +58,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     const-string/jumbo v1, "scheduled_update"
 
@@ -70,39 +70,52 @@
 
     :cond_1
     :goto_0
-    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get1()Z
+    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get5()Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    const-string/jumbo v1, "update_profile"
+    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-wrap2()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    const/4 v1, 0x1
+
+    invoke-static {v1}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-set0(Z)Z
 
     :cond_2
-    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get2()Z
+    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get1()Z
 
     move-result v1
 
     if-nez v1, :cond_3
 
-    const-string/jumbo v1, "update_prl"
+    const-string/jumbo v1, "update_profile"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_3
-    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get3()Z
+    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get2()Z
 
     move-result v1
 
     if-nez v1, :cond_4
 
-    const-string/jumbo v1, "uicc_unlock"
+    const-string/jumbo v1, "update_prl"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_4
+    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-get3()Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    const-string/jumbo v1, "uicc_unlock"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_5
     const-string/jumbo v1, "SoftwareUpdateSettings"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -131,7 +144,7 @@
 
     return-object v0
 
-    :cond_5
+    :cond_6
     invoke-static {p1}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->-wrap1(Landroid/content/Context;)J
 
     move-result-wide v2

@@ -184,7 +184,7 @@
 .method private getCurrentSecurityTitle()Ljava/lang/String;
     .locals 6
 
-    const v5, 0x7f0b09c4
+    const v5, 0x7f0b0a32
 
     const/4 v4, 0x1
 
@@ -203,7 +203,7 @@
     sparse-switch v0, :sswitch_data_0
 
     :cond_0
-    const v1, 0x7f0b02d4
+    const v1, 0x7f0b0332
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessibility/ToggleAccessControlPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -214,7 +214,7 @@
     :sswitch_0
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b12df
+    const v2, 0x7f0b137a
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/ToggleAccessControlPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -231,7 +231,7 @@
     :sswitch_1
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b12e1
+    const v2, 0x7f0b137c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/ToggleAccessControlPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -260,7 +260,7 @@
 
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b12dd
+    const v2, 0x7f0b1378
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/ToggleAccessControlPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -325,7 +325,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b02d4
+    const v2, 0x7f0b0332
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/ToggleAccessControlPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -574,7 +574,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f10034a
+    const v1, 0x7f100350
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -676,7 +676,7 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 5
 
-    const v4, 0x7f10034b
+    const v4, 0x7f100351
 
     const/4 v3, 0x1
 
@@ -835,7 +835,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b02c2
+    const v1, 0x7f0b0320
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -913,7 +913,7 @@
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v10, 0x7f0b02d2
+    const v10, 0x7f0b0330
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/accessibility/ToggleAccessControlPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -933,7 +933,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b02d3
+    const v9, 0x7f0b0331
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/accessibility/ToggleAccessControlPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -957,7 +957,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0464
+    const v10, 0x7f0b04c7
 
     invoke-virtual {v9, v10, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1040,7 +1040,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b02c2
+    const v12, 0x7f0b0320
 
     invoke-virtual {v11, v12}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1050,7 +1050,7 @@
 
     aput-object v11, v10, v12
 
-    const v11, 0x7f0b02a1
+    const v11, 0x7f0b02ff
 
     invoke-virtual {v9, v11, v10}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -90,7 +90,7 @@
     :try_start_0
     iget-object v5, p0, Lcom/samsung/android/settings/multisound/SelectAudioApplications$AlphaComparator;->this$0:Lcom/samsung/android/settings/multisound/SelectAudioApplications;
 
-    invoke-static {v5}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->-get2(Lcom/samsung/android/settings/multisound/SelectAudioApplications;)Landroid/content/pm/PackageManager;
+    invoke-static {v5}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->-get4(Lcom/samsung/android/settings/multisound/SelectAudioApplications;)Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
@@ -102,7 +102,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/multisound/SelectAudioApplications$AlphaComparator;->this$0:Lcom/samsung/android/settings/multisound/SelectAudioApplications;
 
-    invoke-static {v5}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->-get2(Lcom/samsung/android/settings/multisound/SelectAudioApplications;)Landroid/content/pm/PackageManager;
+    invoke-static {v5}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->-get4(Lcom/samsung/android/settings/multisound/SelectAudioApplications;)Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
@@ -112,7 +112,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/multisound/SelectAudioApplications$AlphaComparator;->this$0:Lcom/samsung/android/settings/multisound/SelectAudioApplications;
 
-    invoke-static {v5}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->-get2(Lcom/samsung/android/settings/multisound/SelectAudioApplications;)Landroid/content/pm/PackageManager;
+    invoke-static {v5}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->-get4(Lcom/samsung/android/settings/multisound/SelectAudioApplications;)Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
@@ -124,7 +124,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/multisound/SelectAudioApplications$AlphaComparator;->this$0:Lcom/samsung/android/settings/multisound/SelectAudioApplications;
 
-    invoke-static {v5}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->-get2(Lcom/samsung/android/settings/multisound/SelectAudioApplications;)Landroid/content/pm/PackageManager;
+    invoke-static {v5}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->-get4(Lcom/samsung/android/settings/multisound/SelectAudioApplications;)Landroid/content/pm/PackageManager;
 
     move-result-object v5
 

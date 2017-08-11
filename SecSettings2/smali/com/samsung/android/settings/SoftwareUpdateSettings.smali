@@ -27,6 +27,14 @@
 
 .field private static mCscFeatureUsOpen:Z
 
+.field private static mDisplayMenu:Z
+
+.field private static mDisplayPRL:Z
+
+.field private static mDisplayUICC:Z
+
+.field private static mEnableMenu:Z
+
 .field private static mInitialHour:I
 
 .field private static mInitialMin:I
@@ -37,7 +45,9 @@
 
 .field private static mSearchSimUnlock:Z
 
-.field private static salesCode:Ljava/lang/String;
+.field private static mSprMenuUpdate:Z
+
+.field private static sSalesCode:Ljava/lang/String;
 
 
 # instance fields
@@ -95,7 +105,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
+.method static synthetic -get5()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSprMenuUpdate:Z
+
+    return v0
+.end method
+
+.method static synthetic -get6(Lcom/samsung/android/settings/SoftwareUpdateSettings;)Landroid/preference/SwitchPreference;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
@@ -103,12 +121,20 @@
     return-object v0
 .end method
 
-.method static synthetic -get6()Ljava/lang/String;
+.method static synthetic -get7()Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->salesCode:Ljava/lang/String;
+    sget-object v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method static synthetic -set0(Z)Z
+    .locals 0
+
+    sput-boolean p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSprMenuUpdate:Z
+
+    return p0
 .end method
 
 .method static synthetic -wrap0()Z
@@ -131,7 +157,15 @@
     return-wide v0
 .end method
 
-.method static synthetic -wrap2(Lcom/samsung/android/settings/SoftwareUpdateSettings;)V
+.method static synthetic -wrap2()V
+    .locals 0
+
+    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->intializeAndUpdateSprMenus()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap3(Lcom/samsung/android/settings/SoftwareUpdateSettings;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->updateLastCheckedDate()V
@@ -144,11 +178,11 @@
 
     const/4 v1, 0x0
 
-    invoke-static {}, Lcom/android/settings/Utils;->getSalesCode()Ljava/lang/String;
+    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
 
     move-result-object v0
 
-    sput-object v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->salesCode:Ljava/lang/String;
+    sput-object v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
     const/4 v0, 0x2
 
@@ -161,6 +195,16 @@
     sput-boolean v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSearchPrl:Z
 
     sput-boolean v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSearchSimUnlock:Z
+
+    sput-boolean v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSprMenuUpdate:Z
+
+    sput-boolean v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayMenu:Z
+
+    sput-boolean v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEnableMenu:Z
+
+    sput-boolean v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayPRL:Z
+
+    sput-boolean v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayUICC:Z
 
     sput-boolean v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mCscFeatureUsOpen:Z
 
@@ -226,7 +270,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
 
-    const v1, 0x7f04022a
+    const v1, 0x7f04022e
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -361,7 +405,7 @@
     return-void
 
     :cond_0
-    sget-object v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->salesCode:Ljava/lang/String;
+    sget-object v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -371,7 +415,7 @@
 
     const-string/jumbo v0, "SKT/SKC/SKO/KT/KTC/KTO/LG/LUC/LUO"
 
-    sget-object v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->salesCode:Ljava/lang/String;
+    sget-object v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -381,7 +425,7 @@
 
     const-string/jumbo v0, "ANY/KOO"
 
-    sget-object v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->salesCode:Ljava/lang/String;
+    sget-object v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -396,7 +440,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0525
+    const v2, 0x7f0b0588
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -410,7 +454,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0526
+    const v2, 0x7f0b0589
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -461,341 +505,288 @@
 .end method
 
 .method private initSoftwareUpdate()V
-    .locals 14
+    .locals 10
 
-    const/4 v11, 0x1
+    const/4 v7, 0x1
 
-    const/4 v10, 0x0
+    const/4 v6, 0x0
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    move-result-object v6
+    move-result-object v2
 
-    if-eqz v6, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v6}, Landroid/preference/PreferenceScreen;->removeAll()V
+    invoke-virtual {v2}, Landroid/preference/PreferenceScreen;->removeAll()V
 
     :cond_0
-    const v7, 0x7f080125
+    const v3, 0x7f080125
 
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->addPreferencesFromResource(I)V
 
-    const-string/jumbo v7, "update"
+    const-string/jumbo v3, "update"
 
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v7
+    move-result-object v3
 
-    iput-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
+    iput-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
 
     invoke-direct {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->addSoftwareUpdateBadge()V
 
-    const-string/jumbo v7, "wifi_only"
+    const-string/jumbo v3, "wifi_only"
 
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v7
+    move-result-object v3
 
-    check-cast v7, Landroid/preference/SwitchPreference;
+    check-cast v3, Landroid/preference/SwitchPreference;
 
-    iput-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
+    iput-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
 
-    const-string/jumbo v7, "scheduled_update"
+    const-string/jumbo v3, "scheduled_update"
 
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v7
+    move-result-object v3
 
-    check-cast v7, Landroid/preference/SwitchPreference;
+    check-cast v3, Landroid/preference/SwitchPreference;
 
-    iput-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduledUpdatePref:Landroid/preference/SwitchPreference;
+    iput-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduledUpdatePref:Landroid/preference/SwitchPreference;
 
-    const-string/jumbo v7, "scheduled_update_time"
+    const-string/jumbo v3, "scheduled_update_time"
 
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v7
+    move-result-object v3
 
-    iput-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v7
-
-    const-string/jumbo v12, "CscFeature_SyncML_ConfigGroupOpCode"
-
-    const-string/jumbo v13, ""
-
-    invoke-virtual {v7, v12, v13}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_3
-
-    const-string/jumbo v7, "USOpen"
-
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v7
-
-    :goto_0
-    sput-boolean v7, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mCscFeatureUsOpen:Z
-
-    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
-
-    if-eqz v7, :cond_1
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v7
-
-    invoke-static {v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->isNoNeedAutoDownloadMenu(Landroid/content/Context;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    const-string/jumbo v7, "wifi_only"
-
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->removePreference(Ljava/lang/String;)V
-
-    :cond_1
-    :goto_1
-    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduledUpdatePref:Landroid/preference/SwitchPreference;
-
-    if-eqz v7, :cond_2
-
-    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->isSupportInAppFOTASchedule()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    const-string/jumbo v7, "scheduled_update"
-
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->removePreference(Ljava/lang/String;)V
-
-    const-string/jumbo v7, "scheduled_update_time"
-
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->removePreference(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v7
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v12
-
-    const v13, 0x7f0b14d7
-
-    invoke-virtual {v12, v13}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-virtual {v7, v12}, Landroid/app/Activity;->setTitle(Ljava/lang/CharSequence;)V
-
-    :cond_2
-    :goto_2
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v7
-
-    const-string/jumbo v12, "CscFeature_Common_UseChameleon"
-
-    invoke-virtual {v7, v12, v10}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v1
+    iput-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v7
+    move-result-object v3
 
-    const-string/jumbo v12, "CscFeature_Setting_EnableMultipleSWUpdate"
+    const-string/jumbo v8, "CscFeature_SyncML_ConfigGroupOpCode"
 
-    invoke-virtual {v7, v12, v10}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
+    const-string/jumbo v9, ""
 
-    move-result v4
+    invoke-virtual {v3, v8, v9}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v7, "update_profile"
+    move-result-object v1
 
-    invoke-direct {p0, v7, v1, v4}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->updateSprPrefMenu(Ljava/lang/String;ZZ)V
-
-    if-eqz v1, :cond_a
-
-    move v7, v4
-
-    :goto_3
-    sput-boolean v7, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSearchDC:Z
-
-    if-eqz v1, :cond_b
-
-    const-string/jumbo v7, "persist.sys.omadm_hfa_prl"
-
-    const-string/jumbo v12, "1"
-
-    invoke-static {v7, v12}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    const-string/jumbo v12, "1"
-
-    invoke-virtual {v7, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    :goto_4
-    const-string/jumbo v7, "update_prl"
-
-    invoke-direct {p0, v7, v2, v4}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->updateSprPrefMenu(Ljava/lang/String;ZZ)V
-
-    if-eqz v2, :cond_c
-
-    move v7, v4
-
-    :goto_5
-    sput-boolean v7, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSearchPrl:Z
-
-    if-eqz v1, :cond_d
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v7
-
-    const-string/jumbo v12, "CscFeature_Setting_SupportSimUnlock"
-
-    invoke-virtual {v7, v12, v11}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    :goto_6
-    const-string/jumbo v7, "uicc_unlock"
+    if-nez v3, :cond_3
 
-    invoke-direct {p0, v7, v3, v4}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->updateSprPrefMenu(Ljava/lang/String;ZZ)V
+    const-string/jumbo v3, "USOpen"
 
-    if-eqz v3, :cond_e
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    :goto_7
-    sput-boolean v4, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSearchSimUnlock:Z
+    move-result v3
+
+    :goto_0
+    sput-boolean v3, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mCscFeatureUsOpen:Z
+
+    iget-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->isNoNeedAutoDownloadMenu(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    const-string/jumbo v3, "wifi_only"
+
+    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->removePreference(Ljava/lang/String;)V
+
+    :cond_1
+    :goto_1
+    iget-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduledUpdatePref:Landroid/preference/SwitchPreference;
+
+    if-eqz v3, :cond_2
+
+    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->isSupportInAppFOTASchedule()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    const-string/jumbo v3, "scheduled_update"
+
+    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->removePreference(Ljava/lang/String;)V
+
+    const-string/jumbo v3, "scheduled_update_time"
+
+    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->removePreference(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    const v8, 0x7f0b1573
+
+    invoke-virtual {v6, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Landroid/app/Activity;->setTitle(Ljava/lang/CharSequence;)V
+
+    :cond_2
+    :goto_2
+    sput-boolean v7, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSprMenuUpdate:Z
+
+    invoke-static {}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->intializeAndUpdateSprMenus()V
+
+    const-string/jumbo v3, "update_profile"
+
+    sget-boolean v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayMenu:Z
+
+    sget-boolean v7, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEnableMenu:Z
+
+    invoke-direct {p0, v3, v6, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->updateSprPrefMenu(Ljava/lang/String;ZZ)V
+
+    const-string/jumbo v3, "update_prl"
+
+    sget-boolean v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayPRL:Z
+
+    sget-boolean v7, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEnableMenu:Z
+
+    invoke-direct {p0, v3, v6, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->updateSprPrefMenu(Ljava/lang/String;ZZ)V
+
+    const-string/jumbo v3, "uicc_unlock"
+
+    sget-boolean v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayUICC:Z
+
+    sget-boolean v7, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEnableMenu:Z
+
+    invoke-direct {p0, v3, v6, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->updateSprPrefMenu(Ljava/lang/String;ZZ)V
 
     invoke-direct {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->updateLastCheckedDate()V
 
     return-void
 
     :cond_3
-    move v7, v10
+    move v3, v6
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_4
-    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
+    iget-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v7, v10}, Landroid/preference/SwitchPreference;->setPersistent(Z)V
+    invoke-virtual {v3, v6}, Landroid/preference/SwitchPreference;->setPersistent(Z)V
 
-    iget-object v12, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
+    iget-object v8, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v7
+    move-result-object v3
 
-    const-string/jumbo v13, "SOFTWARE_UPDATE_WIFI_ONLY2"
+    const-string/jumbo v9, "SOFTWARE_UPDATE_WIFI_ONLY2"
 
-    invoke-static {v7, v13, v10}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v9, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v7
+    move-result v3
 
-    if-eqz v7, :cond_5
+    if-eqz v3, :cond_5
 
-    move v7, v11
+    move v3, v7
 
-    :goto_8
-    invoke-virtual {v12, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    :goto_3
+    invoke-virtual {v8, v3}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
+    iget-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mWifiOnlyPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v7, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     invoke-direct {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->changeTitleSummaryOfAutoDownloadMenu()V
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_5
-    move v7, v10
+    move v3, v6
 
-    goto :goto_8
+    goto :goto_3
 
     :cond_6
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getContext()Landroid/content/Context;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-static {v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getScheduledInstallTime(Landroid/content/Context;)J
+    invoke-static {v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getScheduledInstallTime(Landroid/content/Context;)J
 
-    move-result-wide v8
+    move-result-wide v4
 
-    const-string/jumbo v7, "SoftwareUpdateSettings"
+    const-string/jumbo v3, "SoftwareUpdateSettings"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "get scheduledUpdateTime : "
+    const-string/jumbo v9, "get scheduledUpdateTime : "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v8
 
-    invoke-virtual {v12, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v8
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v8
 
-    invoke-static {v7, v12}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-wide/16 v12, 0x0
+    const-wide/16 v8, 0x0
 
-    cmp-long v7, v8, v12
+    cmp-long v3, v4, v8
 
-    if-lez v7, :cond_9
+    if-lez v3, :cond_9
 
-    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduledUpdatePref:Landroid/preference/SwitchPreference;
+    iget-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduledUpdatePref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v7, v11}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v3, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
+    iget-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
 
-    if-eqz v7, :cond_7
+    if-eqz v3, :cond_7
 
-    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
+    iget-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v12
+    move-result-object v6
 
-    invoke-static {v12}, Landroid/text/format/DateFormat;->getTimeFormat(Landroid/content/Context;)Ljava/text/DateFormat;
+    invoke-static {v6}, Landroid/text/format/DateFormat;->getTimeFormat(Landroid/content/Context;)Ljava/text/DateFormat;
 
-    move-result-object v12
+    move-result-object v6
 
-    invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v13
+    move-result-object v8
 
-    invoke-virtual {v12, v13}, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v6, v8}, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v6
 
-    invoke-virtual {v7, v12}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v6}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
+    iget-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
 
-    invoke-virtual {v7, v11}, Landroid/preference/Preference;->semSetSummaryColorToColorPrimaryDark(Z)V
+    invoke-virtual {v3, v7}, Landroid/preference/Preference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
     :cond_7
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -804,67 +795,161 @@
 
     if-eqz v0, :cond_8
 
-    invoke-virtual {v0, v8, v9}, Ljava/util/Calendar;->setTimeInMillis(J)V
+    invoke-virtual {v0, v4, v5}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    const/16 v7, 0xb
+    const/16 v3, 0xb
 
-    invoke-virtual {v0, v7}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
 
-    move-result v7
+    move-result v3
 
-    sput v7, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mInitialHour:I
+    sput v3, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mInitialHour:I
 
-    const/16 v7, 0xc
+    const/16 v3, 0xc
 
-    invoke-virtual {v0, v7}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
 
-    move-result v7
+    move-result v3
 
-    sput v7, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mInitialMin:I
+    sput v3, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mInitialMin:I
 
     :cond_8
-    :goto_9
-    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduledUpdatePref:Landroid/preference/SwitchPreference;
+    :goto_4
+    iget-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduledUpdatePref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v7, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     goto/16 :goto_2
 
     :cond_9
-    iget-object v7, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduledUpdatePref:Landroid/preference/SwitchPreference;
+    iget-object v3, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduledUpdatePref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v7, v10}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v3, v6}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    const-string/jumbo v7, "scheduled_update_time"
+    const-string/jumbo v3, "scheduled_update_time"
 
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->removePreference(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->removePreference(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_4
+.end method
 
-    :cond_a
-    move v7, v10
+.method private static intializeAndUpdateSprMenus()V
+    .locals 4
 
-    goto/16 :goto_3
+    const/4 v1, 0x0
 
-    :cond_b
-    const/4 v2, 0x0
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    goto/16 :goto_4
+    move-result-object v0
 
-    :cond_c
-    move v7, v10
+    const-string/jumbo v2, "CscFeature_Common_UseChameleon"
 
-    goto/16 :goto_5
+    invoke-virtual {v0, v2, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
 
-    :cond_d
-    const/4 v3, 0x0
+    move-result v0
 
-    goto/16 :goto_6
+    sput-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayMenu:Z
 
-    :cond_e
-    move v4, v10
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    goto/16 :goto_7
+    move-result-object v0
+
+    const-string/jumbo v2, "CscFeature_Setting_EnableMultipleSWUpdate"
+
+    invoke-virtual {v0, v2, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEnableMenu:Z
+
+    sget-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayMenu:Z
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v0, "persist.sys.omadm_hfa_prl"
+
+    const-string/jumbo v2, "1"
+
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "1"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    :goto_0
+    sput-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayPRL:Z
+
+    sget-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayMenu:Z
+
+    if-eqz v0, :cond_2
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "CscFeature_Setting_SupportSimUnlock"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    :goto_1
+    sput-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayUICC:Z
+
+    sget-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayMenu:Z
+
+    if-eqz v0, :cond_3
+
+    sget-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEnableMenu:Z
+
+    :goto_2
+    sput-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSearchDC:Z
+
+    sget-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayPRL:Z
+
+    if-eqz v0, :cond_4
+
+    sget-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEnableMenu:Z
+
+    :goto_3
+    sput-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSearchPrl:Z
+
+    sget-boolean v0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mDisplayUICC:Z
+
+    if-eqz v0, :cond_0
+
+    sget-boolean v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mEnableMenu:Z
+
+    :cond_0
+    sput-boolean v1, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSearchSimUnlock:Z
+
+    return-void
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
+    move v0, v1
+
+    goto :goto_1
+
+    :cond_3
+    move v0, v1
+
+    goto :goto_2
+
+    :cond_4
+    move v0, v1
+
+    goto :goto_3
 .end method
 
 .method public static isNoNeedAutoDownloadMenu(Landroid/content/Context;)Z
@@ -902,7 +987,7 @@
 
     move-result v5
 
-    if-ne v5, v4, :cond_1
+    if-ne v5, v4, :cond_2
 
     :cond_0
     const/4 v2, 0x1
@@ -918,32 +1003,45 @@
 
     move-result v1
 
-    sget-object v5, Lcom/samsung/android/settings/SoftwareUpdateSettings;->salesCode:Ljava/lang/String;
+    sget-object v5, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
-    if-eqz v5, :cond_3
+    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
 
     const-string/jumbo v5, "TMB/TMK"
 
-    sget-object v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->salesCode:Ljava/lang/String;
+    sget-object v6, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    sget-boolean v5, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mCscFeatureUsOpen:Z
+
+    if-eqz v5, :cond_4
+
+    :cond_1
+    const/4 v0, 0x0
 
     :goto_1
-    if-nez v2, :cond_4
+    if-nez v2, :cond_5
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_5
 
     :goto_2
     return v0
 
-    :cond_1
+    :cond_2
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3
 
     const-string/jumbo v5, "wifi_dedicated"
 
@@ -953,17 +1051,17 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const/4 v2, 0x0
 
     goto :goto_0
 
-    :cond_3
-    const/4 v0, 0x0
+    :cond_4
+    const/4 v0, 0x1
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     move v0, v4
 
     goto :goto_2
@@ -1140,188 +1238,204 @@
 .end method
 
 .method private updateLastCheckedDate()V
-    .locals 15
+    .locals 14
 
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
-    const/4 v13, 0x0
+    const/4 v12, 0x0
 
-    iget-object v9, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
+    iget-object v8, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
 
-    if-nez v9, :cond_0
+    if-nez v8, :cond_0
 
     return-void
 
     :cond_0
-    const-string/jumbo v4, ""
+    const-string/jumbo v3, ""
 
-    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
+    sget-object v8, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
-    move-result-object v3
+    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v8
 
-    move-result v9
+    if-nez v8, :cond_5
 
-    if-nez v9, :cond_5
+    const-string/jumbo v8, "SKT/SKC/SKO/KT/KTC/KTO/LG/LUC/LUO"
 
-    const-string/jumbo v9, "SKT/SKC/SKO/KT/KTC/KTO/LG/LUC/LUO"
+    sget-object v9, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual {v9, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_5
+    if-eqz v8, :cond_5
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v9
+    move-result-object v8
 
-    const v10, 0x7f0b0520
+    const v9, 0x7f0b0583
 
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
     :goto_0
     :try_start_0
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v8
 
-    const-string/jumbo v10, "SOFTWARE_UPDATE_LAST_CHECKED_DATE"
+    const-string/jumbo v9, "SOFTWARE_UPDATE_LAST_CHECKED_DATE"
 
-    invoke-static {v9, v10}, Landroid/provider/Settings$System;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;)J
+    invoke-static {v8, v9}, Landroid/provider/Settings$System;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;)J
 
     move-result-wide v6
 
-    const-wide/16 v10, 0x0
+    const-wide/16 v8, 0x0
 
-    cmp-long v9, v6, v10
+    cmp-long v8, v6, v8
 
-    if-eqz v9, :cond_1
+    if-eqz v8, :cond_1
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v10
+    move-result-wide v8
 
-    cmp-long v9, v6, v10
+    cmp-long v8, v6, v8
 
-    if-gtz v9, :cond_1
+    if-gtz v8, :cond_1
 
-    const-string/jumbo v9, "%s %s"
+    const-string/jumbo v8, "%s %s"
 
-    const/4 v10, 0x2
+    const/4 v9, 0x2
 
-    new-array v10, v10, [Ljava/lang/Object;
+    new-array v9, v9, [Ljava/lang/Object;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v11
+    move-result-object v10
 
-    const v12, 0x7f0b0522
+    const v11, 0x7f0b0585
 
-    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v10
 
-    const/4 v12, 0x0
+    const/4 v11, 0x0
 
-    aput-object v11, v10, v12
+    aput-object v10, v9, v11
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-static {v11}, Landroid/text/format/DateFormat;->getDateFormat(Landroid/content/Context;)Ljava/text/DateFormat;
+    invoke-static {v10}, Landroid/text/format/DateFormat;->getDateFormat(Landroid/content/Context;)Ljava/text/DateFormat;
 
-    move-result-object v11
+    move-result-object v10
 
     invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
-
     move-result-object v11
 
-    const/4 v12, 0x1
+    invoke-virtual {v10, v11}, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
 
-    aput-object v11, v10, v12
+    move-result-object v10
 
-    invoke-static {v9, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v11, 0x1
+
+    aput-object v10, v9, v11
+
+    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     :try_end_0
     .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v4
+    move-result-object v3
 
     :cond_1
     :goto_1
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v9
+    move-result-object v8
 
-    const-string/jumbo v10, "CscFeature_SyncML_DisableWarning4DataCostDuringFota"
+    const-string/jumbo v9, "CscFeature_SyncML_DisableWarning4DataCostDuringFota"
 
-    invoke-virtual {v9, v10}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v8, v9}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v9
+    move-result v8
 
-    if-nez v9, :cond_6
+    if-nez v8, :cond_6
 
-    if-eqz v3, :cond_2
+    sget-object v8, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
-    const-string/jumbo v9, "TMB/TMK"
+    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v9, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v8
 
-    move-result v9
+    if-nez v8, :cond_2
 
-    if-nez v9, :cond_6
+    const-string/jumbo v8, "TMB/TMK"
+
+    sget-object v9, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_6
 
     :cond_2
-    if-eqz v3, :cond_7
+    sget-object v8, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
 
-    const-string/jumbo v9, "SKT/SKC/SKO/KT/KTC/KTO/LG/LUC/LUO"
+    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v9, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v8
+
+    if-nez v8, :cond_7
+
+    const-string/jumbo v8, "SKT/SKC/SKO/KT/KTC/KTO/LG/LUC/LUO"
+
+    sget-object v9, Lcom/samsung/android/settings/SoftwareUpdateSettings;->sSalesCode:Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     :goto_2
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v9
-
-    const-string/jumbo v10, "CscFeature_SyncML_DeltaBinaryDownVia"
-
-    const-string/jumbo v11, "Not_Define"
-
-    invoke-virtual {v9, v10, v11}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
     move-result-object v8
+
+    const-string/jumbo v9, "CscFeature_SyncML_DeltaBinaryDownVia"
+
+    const-string/jumbo v10, "Not_Define"
+
+    invoke-virtual {v8, v9, v10}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-static {v9}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+    invoke-static {v8}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
 
-    move-result v9
+    move-result v8
 
-    if-nez v9, :cond_3
+    if-nez v8, :cond_3
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v8
 
-    const-string/jumbo v10, "SMLDM_BEARER"
+    const-string/jumbo v9, "SMLDM_BEARER"
 
-    invoke-static {v9, v10, v13}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v8, v9, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v9
+    move-result v8
 
-    if-ne v9, v14, :cond_8
+    if-ne v8, v13, :cond_8
 
     :cond_3
     const/4 v1, 0x1
@@ -1332,9 +1446,9 @@
     if-eqz v1, :cond_a
 
     :cond_4
-    iget-object v9, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
+    iget-object v8, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
 
-    invoke-virtual {v9, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v8, v3}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     :goto_4
     return-void
@@ -1342,24 +1456,24 @@
     :cond_5
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v9
+    move-result-object v8
 
-    const v10, 0x7f0b051f
+    const v9, 0x7f0b0582
 
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
     goto/16 :goto_0
 
     :catch_0
     move-exception v2
 
-    const-string/jumbo v9, "SoftwareUpdateSettings"
+    const-string/jumbo v8, "SoftwareUpdateSettings"
 
-    const-string/jumbo v10, "SettingNotFoundException in updateLastCheckedDate"
+    const-string/jumbo v9, "SettingNotFoundException in updateLastCheckedDate"
 
-    invoke-static {v9, v10}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
@@ -1374,15 +1488,15 @@
     goto :goto_2
 
     :cond_8
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v9
+    move-result v8
 
-    if-nez v9, :cond_9
+    if-nez v8, :cond_9
 
-    const-string/jumbo v9, "wifi_dedicated"
+    const-string/jumbo v8, "wifi_dedicated"
 
-    invoke-virtual {v9, v8}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v8, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1396,39 +1510,39 @@
     :cond_a
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v8
+
+    const v9, 0x7f0b0584
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v8, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v9
 
-    const v10, 0x7f0b0521
+    const-string/jumbo v10, "\n"
 
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v9
 
-    iget-object v9, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
+    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    move-result-object v9
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v9
 
-    move-result-object v10
-
-    const-string/jumbo v11, "\n"
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v8, v9}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto :goto_4
 .end method
@@ -1501,9 +1615,17 @@
 
 # virtual methods
 .method protected getMetricsCategory()I
-    .locals 1
+    .locals 2
 
-    const/16 v0, 0x28
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f1003ee
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
 
     return v0
 .end method
@@ -1656,13 +1778,13 @@
 
     const/4 v4, 0x1
 
-    const v5, 0x7f0b046e
+    const v5, 0x7f0b04d1
 
     invoke-interface {p1, v2, v3, v4, v5}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v3, 0x7f0201ee
+    const v3, 0x7f020213
 
     invoke-interface {v2, v3}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1859,77 +1981,63 @@
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .locals 9
+    .locals 10
 
-    const/4 v3, 0x0
+    const/16 v3, 0x3e8
 
-    const/4 v8, -0x1
+    const/4 v9, -0x1
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const-string/jumbo v5, "SoftwareUpdateSettings"
+    const/4 v4, 0x0
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "SoftwareUpdateSettings"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "key: "
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "key: "
 
-    move-result-object v6
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "/"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v6, "scheduled_update"
 
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "/"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v5, "scheduled_update"
-
-    invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    const v7, 0x7f1003cb
-
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    invoke-static {v5, v6}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;I)V
+    if-eqz v6, :cond_4
 
     check-cast p2, Ljava/lang/Boolean;
 
@@ -1937,80 +2045,92 @@
 
     move-result v1
 
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f1003f1
+
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v7
+
+    if-eqz v1, :cond_2
+
+    :goto_0
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-static {v6, v7, v3}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
+
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v3
 
     const-string/jumbo v6, "SOFTWARE_UPDATE_SET_INSTALL_EVERYDAY"
 
     if-eqz v1, :cond_0
 
-    move v3, v4
+    move v4, v5
 
     :cond_0
-    invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v3, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     sget v3, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mInitialHour:I
 
-    sget v5, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mInitialMin:I
+    sget v4, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mInitialMin:I
 
-    invoke-direct {p0, v3, v5}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->setScheduledInstallTime(II)V
+    invoke-direct {p0, v3, v4}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->setScheduledInstallTime(II)V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
-    iget-object v5, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
+    iget-object v4, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v5}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
 
     :cond_1
-    :goto_0
-    return v4
+    :goto_1
+    return v5
 
     :cond_2
-    invoke-direct {p0, v8, v8}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->setScheduledInstallTime(II)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v3
-
-    iget-object v5, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
-
-    invoke-virtual {v3, v5}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    move v3, v4
 
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v5, "wifi_only"
+    invoke-direct {p0, v9, v9}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->setScheduledInstallTime(II)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mScheduleTimePref:Landroid/preference/Preference;
+
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    goto :goto_1
+
+    :cond_4
+    const-string/jumbo v6, "wifi_only"
 
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    const v7, 0x7f1003ca
-
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    invoke-static {v5, v6}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;I)V
+    if-eqz v6, :cond_1
 
     check-cast p2, Ljava/lang/Boolean;
 
@@ -2018,18 +2138,41 @@
 
     move-result v0
 
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f1003f0
+
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v7
+
+    if-eqz v0, :cond_6
+
+    :goto_2
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-static {v6, v7, v3}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
+
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v3
 
     const-string/jumbo v6, "SOFTWARE_UPDATE_WIFI_ONLY2"
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
-    move v3, v4
+    move v4, v5
 
-    :cond_4
-    invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    :cond_5
+    invoke-static {v3, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     new-instance v2, Landroid/content/Intent;
 
@@ -2051,7 +2194,12 @@
 
     invoke-virtual {v3, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    goto :goto_0
+    goto :goto_1
+
+    :cond_6
+    move v3, v4
+
+    goto :goto_2
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
@@ -2087,7 +2235,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1003c9
+    const v4, 0x7f1003ef
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 

@@ -76,7 +76,7 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f040061
+    const v2, 0x7f040062
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(I)Landroid/app/AlertDialog$Builder;
 
@@ -88,7 +88,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/bluetooth/BluetoothEnablingActivity;->alertDialog:Landroid/app/AlertDialog;
 
-    const v3, 0x7f0b03e2
+    const v3, 0x7f0b0443
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog;->setTitle(I)V
 
@@ -106,7 +106,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f0b03e3
+    const v2, 0x7f0b0444
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/bluetooth/BluetoothEnablingActivity;->getString(I)Ljava/lang/String;
 

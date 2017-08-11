@@ -346,7 +346,7 @@
 
     invoke-virtual {v3, v9, v10}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
-    const v9, 0x7f0a047e
+    const v9, 0x7f0a047c
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -356,7 +356,7 @@
 
     iput v9, v3, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
-    const v9, 0x7f0a047f
+    const v9, 0x7f0a047d
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -370,11 +370,11 @@
 
     invoke-direct {v2, p2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    const v9, 0x7f0205a6
+    const v9, 0x7f02060f
 
     invoke-virtual {v2, v9}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    const v9, 0x7f0b03e7
+    const v9, 0x7f0b0448
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -423,7 +423,7 @@
 
     check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
 
-    const v9, 0x7f0a0461
+    const v9, 0x7f0a045f
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

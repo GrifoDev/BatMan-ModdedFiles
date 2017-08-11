@@ -3,12 +3,12 @@
 .source "LocaleListEditor.java"
 
 # interfaces
-.implements Landroid/widget/AdapterView$OnItemClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/settings/localepicker/LocaleListEditor;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+    value = Lcom/samsung/android/settings/localepicker/LocaleListEditor;->initActionBarBtn(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,78 +34,50 @@
 
 
 # virtual methods
-.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/widget/AdapterView",
-            "<*>;",
-            "Landroid/view/View;",
-            "IJ)V"
-        }
-    .end annotation
+.method public onClick(Landroid/view/View;)V
+    .locals 3
 
-    instance-of v1, p2, Lcom/samsung/android/settings/localepicker/LocaleDragCell;
+    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
 
-    if-eqz v1, :cond_2
+    invoke-virtual {v0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->getActivity()Landroid/app/Activity;
 
-    move-object v0, p2
+    move-result-object v0
 
-    check-cast v0, Lcom/samsung/android/settings/localepicker/LocaleDragCell;
+    iget-object v1, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
 
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/samsung/android/settings/localepicker/LocaleDragCell;->getCheckbox()Landroid/widget/CheckBox;
+    invoke-virtual {v1}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    const v2, 0x7f1003b4
 
-    invoke-virtual {v0}, Lcom/samsung/android/settings/localepicker/LocaleDragCell;->getCheckbox()Landroid/widget/CheckBox;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    invoke-static {v0, v1}, Lcom/android/settings/Utils;->insertEventLog(Landroid/content/Context;I)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
 
     const/4 v1, 0x0
 
-    :goto_0
-    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/localepicker/LocaleDragCell;->setChecked(Z)V
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-wrap2(Lcom/samsung/android/settings/localepicker/LocaleListEditor;I)V
 
-    :cond_0
-    :goto_1
+    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-get0(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;->initFeedItemList()V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-get0(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;->notifyDataSetChanged()V
+
     return-void
-
-    :cond_1
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    instance-of v1, p2, Landroid/widget/LinearLayout;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-get4(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {p2, v1}, Landroid/view/View;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$5;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-wrap1(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
-
-    goto :goto_1
 .end method

@@ -63,7 +63,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b1b37
+    const v0, 0x7f0b1bd3
 
     :goto_0
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -73,7 +73,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f0b1b38
+    const v0, 0x7f0b1bd4
 
     goto :goto_0
 .end method
@@ -258,19 +258,19 @@
 
     iget-object v1, p0, Lcom/android/settings/applications/WriteSettingsDetails;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b03a4
+    const v2, 0x7f0b0403
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setTitle(I)V
 
     iget-object v1, p0, Lcom/android/settings/applications/WriteSettingsDetails;->mWriteSettingsPrefs:Landroid/preference/Preference;
 
-    const v2, 0x7f0b1c0d
+    const v2, 0x7f0b1ca9
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
     iget-object v1, p0, Lcom/android/settings/applications/WriteSettingsDetails;->mWriteSettingsDesc:Lcom/samsung/android/settings/UnclickablePreference;
 
-    const v2, 0x7f0b1c0f
+    const v2, 0x7f0b1143
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/UnclickablePreference;->setTitle(I)V
 

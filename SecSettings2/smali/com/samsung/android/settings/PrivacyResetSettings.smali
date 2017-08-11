@@ -545,57 +545,45 @@
 .method private updateAutoRestartSummary(Z)V
     .locals 2
 
-    const v0, 0x7f0b1b37
+    iget-object v0, p0, Lcom/samsung/android/settings/PrivacyResetSettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
 
-    invoke-static {}, Lcom/android/settings/Utils;->isSupportGraceUX()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/samsung/android/settings/PrivacyResetSettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
-
-    invoke-virtual {v1, p1}, Lcom/android/settings/SecSettingsSwitchPreference;->setChecked(Z)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/PrivacyResetSettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-virtual {v0, p1}, Lcom/android/settings/SecSettingsSwitchPreference;->setChecked(Z)V
 
     if-eqz p1, :cond_0
 
-    :goto_0
-    invoke-virtual {v1, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
+    iget-object v0, p0, Lcom/samsung/android/settings/PrivacyResetSettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
 
+    const v1, 0x7f0b1bd3
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
+
+    :goto_0
     iget-object v0, p0, Lcom/samsung/android/settings/PrivacyResetSettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
 
     invoke-virtual {v0, p1}, Lcom/android/settings/SecSettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
-    :goto_1
     return-void
 
     :cond_0
-    const v0, 0x7f0b01d7
+    iget-object v1, p0, Lcom/samsung/android/settings/PrivacyResetSettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
+
+    invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const v0, 0x7f0b0235
+
+    :goto_1
+    invoke-virtual {v1, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
     goto :goto_0
 
     :cond_1
-    iget-object v1, p0, Lcom/samsung/android/settings/PrivacyResetSettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
-
-    if-eqz p1, :cond_2
-
-    :goto_2
-    invoke-virtual {v1, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
-
-    iget-object v0, p0, Lcom/samsung/android/settings/PrivacyResetSettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
+    const v0, 0x7f0b0234
 
     goto :goto_1
-
-    :cond_2
-    const v0, 0x7f0b1b38
-
-    goto :goto_2
 .end method
 
 
@@ -607,7 +595,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f10038c
+    const v1, 0x7f100392
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -690,6 +678,17 @@
 
     check-cast v7, Landroid/preference/PreferenceCategory;
 
+    invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_5
+
+    const v13, 0x7f0b0ca8
+
+    :goto_0
+    invoke-virtual {v7, v13}, Landroid/preference/PreferenceCategory;->setTitle(I)V
+
     const-string/jumbo v13, "pref_auto_clean"
 
     invoke-virtual {v8, v13}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -758,10 +757,10 @@
     :cond_2
     if-eqz v10, :cond_3
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     :cond_3
-    :goto_0
+    :goto_1
     new-instance v3, Ljava/util/HashSet;
 
     invoke-direct {v3}, Ljava/util/HashSet;-><init>()V
@@ -778,8 +777,8 @@
 
     add-int/lit8 v0, v9, -0x1
 
-    :goto_1
-    if-ltz v0, :cond_8
+    :goto_2
+    if-ltz v0, :cond_9
 
     invoke-virtual {v8, v0}, Landroid/preference/PreferenceScreen;->getPreference(I)Landroid/preference/Preference;
 
@@ -793,23 +792,28 @@
 
     move-result v13
 
-    if-eqz v13, :cond_6
+    if-eqz v13, :cond_7
 
     invoke-virtual {v8, v6}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     :cond_4
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_5
-    const/4 v13, 0x0
-
-    invoke-direct {p0, v7, v8, v13}, Lcom/samsung/android/settings/PrivacyResetSettings;->showPreference(Landroid/preference/Preference;Landroid/preference/PreferenceGroup;Z)V
+    const v13, 0x7f0b0ca7
 
     goto :goto_0
 
     :cond_6
+    const/4 v13, 0x0
+
+    invoke-direct {p0, v7, v8, v13}, Lcom/samsung/android/settings/PrivacyResetSettings;->showPreference(Landroid/preference/Preference;Landroid/preference/PreferenceGroup;Z)V
+
+    goto :goto_1
+
+    :cond_7
     instance-of v13, v6, Landroid/preference/PreferenceCategory;
 
     if-eqz v13, :cond_4
@@ -824,7 +828,7 @@
 
     add-int/lit8 v2, v12, -0x1
 
-    :goto_2
+    :goto_3
     if-ltz v2, :cond_4
 
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceCategory;->getPreference(I)Landroid/preference/Preference;
@@ -839,16 +843,16 @@
 
     move-result v13
 
-    if-eqz v13, :cond_7
+    if-eqz v13, :cond_8
 
     invoke-virtual {v5, v11}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
-    :cond_7
+    :cond_8
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_8
+    :cond_9
     new-instance v13, Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     invoke-direct {v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V

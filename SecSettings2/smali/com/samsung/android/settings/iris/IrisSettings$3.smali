@@ -1293,9 +1293,9 @@
 
     const-string/jumbo v3, "IrisUnlockWhenScreenTurnsOn"
 
-    const-string/jumbo v4, "AlreadyOn"
+    const-string/jumbo v4, "AlreadyOff"
 
-    const-string/jumbo v5, "yes"
+    const-string/jumbo v5, "no"
 
     invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1331,9 +1331,9 @@
 
     const-string/jumbo v3, "IrisUnlockWhenScreenTurnsOn"
 
-    const-string/jumbo v4, "AlreadyOn"
+    const-string/jumbo v4, "AlreadyOff"
 
-    const-string/jumbo v5, "no"
+    const-string/jumbo v5, "yes"
 
     invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 

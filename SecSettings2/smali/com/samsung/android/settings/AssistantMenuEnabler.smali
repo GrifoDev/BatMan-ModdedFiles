@@ -431,7 +431,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b01f6
+    const v6, 0x7f0b0254
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -445,7 +445,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b02f9
+    const v5, 0x7f0b0358
 
     invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -503,7 +503,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b024c
+    const v4, 0x7f0b02aa
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -575,7 +575,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0ce3
+    const v4, 0x7f0b0d62
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -620,7 +620,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0251
+    const v4, 0x7f0b02af
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -677,7 +677,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b02c2
+    const v4, 0x7f0b0320
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -722,7 +722,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0239
+    const v4, 0x7f0b0297
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -762,7 +762,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0463
+    const v4, 0x7f0b04c6
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -780,7 +780,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/AssistantMenuEnabler$2;-><init>(Lcom/samsung/android/settings/AssistantMenuEnabler;)V
 
-    const v4, 0x7f0b1699
+    const v4, 0x7f0b1735
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -875,7 +875,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/AssistantMenuEnabler;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b0244
+    const v2, 0x7f0b02a2
 
     invoke-static {v1, v2, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1498,7 +1498,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/AssistantMenuEnabler;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b02f5
+    const v6, 0x7f0b0354
 
     invoke-static {v5, v6, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

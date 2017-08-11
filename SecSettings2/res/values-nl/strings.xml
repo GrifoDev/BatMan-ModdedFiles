@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$du %2$dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d u %2$d m</string>
     <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">Kan niet zoeken naar netwerken</string>
     <string name="wifi_failed_to_obtain_IP">Kan IP-adres niet verkrijgen.</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Kan niet verbinden met %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Kan niet met %1$s verbinden. Controleer uw instellingen in %2$s en probeer het opnieuw.</string>
     <string name="bluetooth_pairing_rejected_error_message">Koppelen geweigerd door %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Apparaatnaam ophalen…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Apparaatnaam verschijnt wanneer dit apparaat is aangesloten.</string>
     <string name="accessibility_wifi_off">Wifi: uitgeschakeld.</string>
     <string name="accessibility_no_wifi">Wifi-verbinding verbroken.</string>
     <string name="accessibility_wifi_one_bar">Wifi: één streepje.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Ondersteuning</string>
     <string name="reset_network_settings_list_summary">Reset Wi-Fi, Bluetooth en andere netwerkinstellingen naar hun standaardwaarden.</string>
     <string name="master_clear_list_summary">Reset uw apparaat naar de fabrieksinstellingen. Hierdoor worden alle gegevens gewist, met inbegrip van bestanden en gedownloade apps.</string>
-    <string name="auto_restart_summary">Optimaliseer uw apparaat door dit automatisch opnieuw op te starten op ingestelde tijden. Niet-opgeslagen gegevens gaan verloren wanneer u het apparaat opnieuw opstart.</string>
+    <string name="auto_restart_summary">Optimaliseer uw telefoon door deze één keer per week automatisch opnieuw te starten. Niet-opgeslagen gegevens gaan verloren wanneer u de telefoon opnieuw start.</string>
+    <string name="auto_restart_summary_tablet">Optimaliseer uw tablet door deze één keer per week automatisch opnieuw te starten. Niet-opgeslagen gegevens gaan verloren wanneer u de tablet opnieuw start.</string>
     <string name="search_settings">Zoeken</string>
     <string name="related_results">%d samenhangende items</string>
     <string name="no_results_found">Geen resultaten gevonden</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Geluidsbalans is %d procent naar rechts. Verschuif de regelaar met twee vingers.</string>
     <string name="sound_balance_set">Instellen</string>
     <string name="accessibility_assistant_menu">Hulpmenu</string>
-    <string name="assistant_menu_summary">Schakelt functies in voor betere toegank. apparaat voor gebruikers met verminderde behendigheid.</string>
+    <string name="assistant_menu_summary">Verbeter toegankelijkheid telefoon voor gebruikers met verminderde behendigheid.</string>
     <string name="color_blind_title">Kleurcorrectie</string>
     <string name="no_result">Pas de schermkleuren aan als u moeite hebt met het lezen van het scherm.</string>
     <string name="you_are_normal">Kleurcorrectie is niet nodig.</string>
@@ -653,6 +656,7 @@ Terwijl deze functie is ingeschakeld, wordt Scherm automatisch draaien uitgescha
     <string name="direct_access_actions_accessibility_title">Toegankelijkheid</string>
     <string name="direct_access_actions_negative_title">Negatieve kleuren</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Directe toegang en Schermgrootte verkleinen kunnen niet tegelijk zijn ingeschakeld. Schermgrootte verkleinen wordt uitgeschakeld.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s en %2$s kunnen niet tegelijk zijn ingeschakeld. %3$s wordt uitgeschakeld.</string>
     <string name="direct_access_actions_color_adjustment_summary">Kleurcorrectie in Zicht instellen om dit in Directe toegang te gebruiken</string>
     <string name="direct_access_actions_screen_reader_summary">Schakel Paginalezer in om te gebruiken in Directe toegang.</string>
     <string name="direct_access_actions_accesscontrol_title">Interactiebeheer</string>
@@ -851,7 +855,9 @@ Wi-Fi en Bluetooth worden ook uitgeschakeld, maar u kunt ze opnieuw inschakelen 
     <string name="premium_sms_values_ask">Vragen</string>
     <string name="premium_sms_values_never">Nooit toestaan</string>
     <string name="premium_sms_values_allow">Altijd toestaan</string>
-    <string name="assist_and_voice_input_summary">Apps voor apparaatondersteuning leveren meer opties en informatie over elk scherm.</string>
+    <string name="assist_and_voice_input_summary">Selecteer welke app u wilt gebruiken wanneer u de knop Start ingedrukt houdt.</string>
+    <string name="assist_footer_phone">Selecteer welke app u wilt gebruiken wanneer u de knop Start aanraakt en vasthoudt. Apps voor apparaatondersteuning kunnen u helpen door informatie te verzamelen van het scherm dat momenteel op uw telefoon wordt weergegeven.</string>
+    <string name="assist_footer_tablet">Selecteer welke app u wilt gebruiken wanneer u de knop Start aanraakt en vasthoudt. Apps voor apparaatondersteuning kunnen u helpen door informatie te verzamelen van het scherm dat momenteel op uw tablet wordt weergegeven.</string>
     <string name="default_app_title">Instellen als standaard</string>
     <string name="premium_sms_title">Premium sms verzenden</string>
     <string name="default_app_selection">Selectie standaard-app</string>
@@ -940,7 +946,7 @@ U kunt dit later wijzigen via Bluetooth-instellingen."</string>
 
 Er kan een klein verschil optreden in de geluidsuitvoer tussen de 2 verbonden apparaten."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Mediavolume synchroniseren uitschakelen?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Als u Dubbele audio wilt gebruiken, moet Mediavolume synchroniseren zijn uitgeschakeld.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Als u het volume op elk audioapparaat afzonderlijk wilt bedienen, moet Mediavolume synchroniseren zijn uitgeschakeld.</string>
     <string name="bluetooth_avc_title">Mediavolume synchroniseren</string>
     <string name="bluetooth_avc_description">Als het verbonden Bluetooth-apparaat het mediavolume van uw telefoon kan bedienen, wordt het door het Bluetooth-apparaat ingestelde volumeniveau gesynchroniseerd met uw telefoon.</string>
     <string name="bluetooth_avc_volume_change_description">Als u deze functie inschakelt, kan dat onverwachte volumewijzigingen veroorzaken.</string>
@@ -949,6 +955,7 @@ Er kan een klein verschil optreden in de geluidsuitvoer tussen de 2 verbonden ap
     <string name="bluetooth_avc_ask_popup_title">Dubbele audio uitschakelen?</string>
     <string name="bluetooth_avc_ask_popup_content">Als u Mediavolume synchroniseren wilt gebruiken, moet Dubbele audio zijn uitgeschakeld.</string>
     <string name="bluetooth_avc_disable_description">Het verbonden Bluetooth-apparaat ondersteunt niet Mediavolume synchroniseren. U kunt het volume van de telefoon niet synchroniseren met het verbonden Bluetooth-apparaat.</string>
+    <string name="bluetooth_avc_available_description">Het verbonden Bluetooth-apparaat ondersteunt Mediavolume synchroniseren en het volume van het Bluetooth-apparaat wordt gesynchroniseerd met uw telefoon.</string>
     <string name="bluetooth_enter_pin_msg">Geef pincode in om te koppelen met %s (probeer 0000 of 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Maximumaantal tekens bereikt.</string>
     <string name="settings_menu_done">Gereed</string>
@@ -1032,11 +1039,12 @@ Zelfs wanneer Slim vastleggen is uitgeschakeld, hebt u toegang tot de functies e
     <string name="swipe_to_call_title">Veeg voor oproep/bericht verz.</string>
     <string name="swipe_to_call_summary">Veeg in Telefoon, Contacten of Berichten een contact of nummer naar rechts om te bellen of naar links om een bericht te verzenden.</string>
     <string name="swipe_to_call_summary_dcm">Veeg in Kiezen, Contacten of Berichten over een contact of nummer naar rechts om te bellen of naar links om een bericht te verzenden.</string>
-    <string name="swipe_to_call_summary_kddi">Veeg in Telefoon of Contacten over een contact of nummer naar rechts om te bellen of naar links om een bericht te verzenden.</string>
+    <string name="swipe_to_call_summary_kddi">Veeg in Kiezen of Contacten over een contact of nummer naar rechts om te bellen of naar links om een bericht te verzenden.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">Gebruik twee afzonderlijke accounts voor dezelfde app.</string>
-    <string name="finger_sensor_gesture_title">Gebaren vingeradruksensor</string>
+    <string name="finger_sensor_gesture_title">Gebaren vingerafdruksensor</string>
     <string name="finger_sensor_gesture_summary">Open en sluit apps en functies met de vingerafdruksensor.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Open en sluit het meldingenvenster met de vingerafdruksensor.</string>
     <string name="finger_sensor_gesture_description">Veeg omhoog of omlaag over de vingerafdruksensor om het meldingenvenster te openen of te sluiten.</string>
     <string name="open_samsung_pay_title">Samsung Pay openen</string>
     <string name="open_samsung_pay_summary">Veeg op het Startscherm omhoog over de vingerafdruksensor om Samsung Pay te openen.</string>
@@ -1071,6 +1079,7 @@ Zelfs wanneer Slim vastleggen is uitgeschakeld, hebt u toegang tot de functies e
 %s"</string>
     <string name="enable_ps_title">%s inschakelen</string>
     <string name="setup_wizard">Installatiewizard</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normaal</string>
     <string name="large">Groot</string>
     <string name="small">Klein</string>
@@ -1418,6 +1427,7 @@ Tik op OK om toe te staan dat de helderheid boven veilige niveaus wordt verhoogd
     <string name="navigationbar_summary">Beheer de knoppen Start, Terug en Recent.</string>
     <string name="navigationbar_theme_switch">Huidig thema toepassen</string>
     <string name="navigationbar_color_title">Achtergrondkleur</string>
+    <string name="navigationbar_color_summary">De achtergrondkleur die u selecteert, wordt mogelijk niet toegepast op alle apps.</string>
     <string name="navigationbar_order_title">Knoplay-out</string>
     <string name="navigationbar_order_default">Recent - Start - Terug</string>
     <string name="navigationbar_order_mirrored">Terug - Start - Recent</string>
@@ -1449,7 +1459,8 @@ Tik op OK om toe te staan dat de helderheid boven veilige niveaus wordt verhoogd
     <string name="blue_light_filter_enable_now">Nu inschakelen</string>
     <string name="blue_light_filter_enable_as_scheduled">Inschak. als gepland</string>
     <string name="blue_light_filter_scheduled_toast">Filter blauw licht ingeschakeld. Dit wordt automatisch uitgeschakeld op de geplande eindtijd.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s en Filter blauw licht kunnen niet tegelijkertijd worden gebruikt. Filter blauw licht wordt uitgeschakeld.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Filter blauw licht uitschakelen?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Als u het filter Blauw licht gebruikt, moet %s zijn uitgeschakeld.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Als u Van zonsondergang tot zonsopkomst wilt gebruiken, moet Locatie zijn ingeschakeld.</string>
     <string name="dlg_turn_on">Inschakelen</string>
     <string name="screen_resolution_title">Schermresolutie</string>
@@ -1666,6 +1677,7 @@ Het coderen duurt een uur of langer. Zorg dat de batterij is opgeladen voordat u
     <string name="crypt_keeper_last_warn_wipe">U hebt slechts 1 poging over om uw apparaat op te starten voordat het wordt gereset naar de fabrieksinstellingen. Hiermee worden alle gegevens gewist, inclusief bestanden en gedownloade apps.</string>
     <string name="crypt_keeper_failed_title_dec">Coderen mislukt.</string>
     <string name="crypt_keeper_failed_summary_dec">Kan decoderen niet voltooien vanwege een onderbreking. Zet voor gebruik de fabriekswaarden terug (alle gegevens worden gewist).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Type schermvergrend. instellen</string>
     <string name="encryption_interstitial_message">"U kunt deze telefoon verder beveiligen door te eisen dat uw %s moet worden ingevoerd voordat de telefoon wordt opgestart. Dit helpt om uw gegevens te beschermen als de telefoon zoekraakt of wordt gestolen. Sommige apps vereisen mogelijk Veilig opstarten conform het Apparaatcoderingsbeleid voor toegang tot functies zoals e-mailsynchronisatie.
 
 U ontvangt geen oproepen, berichten of meldingen en hoort geen alarmen tot de telefoon is opgestart."</string>
@@ -1904,6 +1916,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Vingerafdruk gebruiken</string>
     <string name="wifi_ap_close">Sluiten</string>
     <string name="fingerscanner_add_summary">Voeg uw vingerafdrukken toe.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 vingerafdruk is toegevoegd.</string>
     <string name="fingerscanner_register_summary">%d vingerafdrukken zijn toegevoegd.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Gebruik een vingerafdruk of voer de huidige pincode in.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Gebruik een vingerafdruk of teken het huidige patroon.</string>
@@ -1930,6 +1943,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Ontgrendel uw telefoon met gezichtsherkenning zodra het scherm wordt ingeschakeld, zonder eerst te vegen.</string>
     <string name="facelock_recognition_speed_up">Snellere herkenning</string>
     <string name="facelock_recognition_speed_up_summary">Schakel in voor sneller herkenning. Schakel uit om de veiligheid te verhogen en het moeilijker te maken om een afbeelding of video te ontgrendelen.</string>
+    <string name="facelock_samsungpass_summary">Gebruik gezichtsherkenning om uw identiteit te verifiëren met %s en andere ondersteunde apps.</string>
     <string name="face_remove_face_popup_title">Gezichtgegevens wissen?</string>
     <string name="face_remove_face_popup_message_1">Uw gezicht wordt niet meer herkend en Gezichtsvergrendeling wordt uitgeschakeld.</string>
     <string name="face_remove_face_popup_message_2">Functies die gezichtsherkenning gebruiken worden uitgeschakeld.</string>
@@ -2071,7 +2085,7 @@ Schakel Ontgrendelen met iris in om uw biometrische gegevens of uw %s te gebruik
     <string name="biometrics_backup_locktype_title">Irisbeveiliging instellen</string>
     <string name="biometrics_register_your_iris">Registreer uw irissen.</string>
     <string name="biometrics_backup_locktype_summary">Als u uw irissen wilt gebruiken om het apparaat te ontgrendelen, moet u een patroon, pincode of wachtwoord instellen.</string>
-    <string name="biometrics_backup_locktype_message">Als u uw irissen wilt gebruiken om uw telefoon te ontgrendelen of voor veilige verificatie, moet u:</string>
+    <string name="biometrics_backup_locktype_message">Als u uw irissen wilt gebruiken om uw telefoon te ontgrendelen of om uzelf in apps te verifiëren, moet u:</string>
     <string name="iris_delete_popup_title">Irisgegevens verwijderen?</string>
     <string name="iris_delete_popup_message">Irisgegevens verwijderen?</string>
     <string name="iris_delete_popup_message_with_related_func">Functies die irissen gebruiken worden uitgeschakeld.</string>
@@ -2079,7 +2093,7 @@ Schakel Ontgrendelen met iris in om uw biometrische gegevens of uw %s te gebruik
     <string name="iris_timeout_popop_title">Probeer later</string>
     <string name="iris_timeout_popop_message">Irissen niet herkend. Iriscamera is mogelijk vuil. Maak gebied boven het scherm schoon en probeer het opnieuw.</string>
     <string name="iris_timeout_popop_message_1">Iriscamera is mogelijk vuil. Maak gebied boven scherm schoon en probeer het opnieuw.</string>
-    <string name="iris_proximity_restriction_popop_message">Irissen niet herkend. Telefoon te dicht bij uw gezicht of nabijheidssensor vuil. Maak het gebied boven het scherm schoon en probeer het opnieuw.</string>
+    <string name="iris_proximity_restriction_popop_message">Houd uw telefoon verder van uw gezicht en probeer het opnieuw.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Nabijheidssensor is mogelijk vuil.
 Maak gebied boven scherm schoon."</string>
     <string name="iris_try_again">Opnieuw</string>
@@ -2087,6 +2101,8 @@ Maak gebied boven scherm schoon."</string>
     <string name="iris_failed_to_verity_identify">Kan uw identiteit niet verifiëren</string>
     <string name="iris_failed_popup_description">Er zijn %1$d pogingen gedaan om uw irissen te verifiëren. Probeer het opnieuw over %2$d seconden.</string>
     <string name="iris_no_match">Geen overeenkomst</string>
+    <string name="iris_eye_safety_msg">Uw irissen zijn niet herkend.</string>
+    <string name="iris_timeout_msg">Uw irissen zijn niet gedetecteerd.</string>
     <string name="biometrics_registered">Geregistreerd</string>
     <string name="iris_turn_on_toast_message">Irisvergrendeling ingeschakeld in plaats van Vingerafdrukvergrendeling.</string>
     <string name="iris_wrong_backup_password">Onjuist back-upwachtwoord</string>
@@ -2278,6 +2294,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Geef de knop Start en een klok of informatie weer op het stand-byscherm.</string>
     <string name="aod_feature_off_popup_title">%s uitschakelen?</string>
     <string name="aod_feature_off_popup_description">Als u %1$s wilt gebruiken, moet %2$s zijn uitgeschakeld.</string>
+    <string name="aod_features_off_popup_title">Overige functies uitschakelen?</string>
+    <string name="aod_features_off_popup_description">Als u Always On Display wilt gebruiken, moeten de volgende functies zijn uitgeschakeld:</string>
     <string name="aod_features_off_popup_btn_ok">Uitschak.</string>
     <string name="aod_disable_by_negative_colors">Kan niet worden gebruikt terwijl Negatieve kleuren is ingeschakeld.</string>
     <string name="aod_disable_by_powersaving_mode">Kan niet worden gebruikt terwijl Spaarstand is ingeschakeld.</string>
@@ -2301,6 +2319,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Gekleurde druppels</string>
     <string name="lock_screen_show_information_summary_wifi_only">Geef informatie over de apparaateigenaar of app-sneltoetsen weer op het vergrendelscherm.</string>
     <string name="lock_screen_sview_show_information_summary">Geef de dubbele klok, informatie over de apparaateigenaar of app-sneltoetsen weer op het vergrendelscherm en op het S View-venster.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Geef de roamingklok of de contactgegevens van de telefooneigenaar weer op het Vergrendelscherm en op het S View-venster.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Selecteer app-sneltoetsen om weer te geven op het Vergrendelscherm en in het S View-venster.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Geef meldingen weer op het Vergrendelscherm en in het S View-venster.</string>
     <string name="lock_screen_and_cover_show_information_summary">Geef de dubbele klok weer op het vergrendelscherm en door de Clear View Cover.</string>
     <string name="lock_screen_secured_lock_settings_title">Instell. veilige vergrendeling</string>
     <string name="lock_screen_secured_lock_settings_summary">Stel uw veilige vergrendelingsfuncties zoals Automatisch vergrendelen en Direct vergrendelen in met de Aan/uit-toets.</string>
@@ -2317,6 +2338,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Thuistijdzone</string>
     <string name="contact_info_settings_title">Contactgegevens</string>
     <string name="show_contact_info_on_lockscreen_label">Geef informatie zoals uw telefoonnummer of e-mailadres weer op het Vergrendelscherm.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Geef informatie zoals uw telefoonnummer of e-mailadres weer op het vergrendelscherm en Always On Display.</string>
     <string name="unlock_effect">Ontgrendeleffect</string>
     <string name="walking_mate_title">Stappenteller</string>
     <string name="help_text_title">Help-tekst</string>
@@ -2416,7 +2438,7 @@ Het wordt aanbevolen om uw biometrische gegevens te verwijderen, maar u kunt ze 
     <string name="toast_set_lock_pattern">Alle gegevens worden gewist en de telefoon wordt gereset als u uw patroon bent vergeten.</string>
     <string name="toast_set_lock_password">Alle gegevens worden gewist en de telefoon wordt gereset als u uw wachtwoord bent vergeten.</string>
     <string name="toast_set_lock_pin">Alle gegevens worden gewist en de telefoon wordt gereset als u uw pincode bent vergeten.</string>
-    <string name="chooselock_warning_text">Onthoud %s. Dit is vereist nadat het apparaat opnieuw is gestart.</string>
+    <string name="chooselock_warning_text">Onthoud %s. Dit is vereist als de telefoon opnieuw is gestart.</string>
     <string name="lockpassword_password_exists_history">Wachtwoord is al eerder gebruikt. Geef nieuw wachtwoord in.</string>
     <string name="lockpassword_pin_repeating_nums">Pincode mag geen herhalende cijfers bevatten.</string>
     <string name="lockpassword_pin_sequential_nums">Pincode mag geen opeenvolgende cijfers bevatten.</string>
@@ -2534,6 +2556,9 @@ Mobiele gegevens worden uitgeschakeld."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"U kunt geen gebruik meer maken van internet, e-mail of andere apps waarvoor een gegevensverbinding vereist is, tenzij u Wi-Fi- gebruikt.
 
 Mobiele gegevens worden uitgeschakeld."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Tenzij u verbonden bent met een Wi-Fi-netwerk, kunt u niet gebruikmaken van internet, e-mail of andere apps waarvoor een netwerkverbinding is vereist.</string>
@@ -2692,10 +2717,12 @@ U kunt de blokkering ongedaan maken en verbinding maken met andere apparaten via
     <string name="maximum_volume_title">Aangepaste volumelimiet</string>
     <string name="volume_limiter_descryption">Bescherm uw oren met de maximale limiet voor mediavolume. Deze limiet wordt alleen toegepast als u een koptelefoon of Bluetooth-audioapparaten gebruikt.</string>
     <string name="multi_sound_title">Afzonderlijk app-geluid</string>
-    <string name="multi_sound_summary">Speel geluid van één app af op een luidspreker of koptelefoon, afzonderlijk van de overige geluiden op uw apparaat.</string>
-    <string name="multi_sound_descryption">"Speel mediageluid van één app af op een luidspreker of koptelefoon, afzonderlijk van mediageluid van andere apps.
+    <string name="multi_sound_summary">Speel mediageluid van één app af op een audioapparaat, los van het primaire audio-uitvoerapparaat van uw telefoon.</string>
+    <string name="multi_sound_descryption">"Speel mediageluid van één app af op een audioapparaat, los van het primaire audio-uitvoerapparaat van uw telefoon. Selecteer een app en een audioapparaat om dit in te schakelen.
 
-Als u een Bluetooth-audioapparaat selecteert, wordt het geluid op het standaard audioapparaat afgespeeld als het Bluetooth-apparaat niet is verbonden."</string>
+Afzonderlijk app-geluid werkt alleen als het audioapparaat dat u hebt geselecteerd, verschilt van het primaire audio-uitvoerapparaat van uw telefoon.
+
+U kunt het primaire audio-uitvoerapparaat van uw telefoon wijzigen in het venster Snelle instellingen. Als audio-uitvoer niet wordt weergegeven, schakelt u dit in via Samsung Connect > Instellingen > Samsung Connect-venster."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Selecteer een app om het geluid op een afzonderlijk audioapparaat af te spelen.</string>
     <string name="set_application_descryption">Selecteer hieronder een multimedia-app om het geluid op een afzonderlijk audioapparaat af te spelen.</string>
@@ -2706,9 +2733,11 @@ Als u een Bluetooth-audioapparaat selecteert, wordt het geluid op het standaard 
     <string name="multi_sound_popup_msg">Als u %s wilt inschakelen, moet u een app en een audioapparaat selecteren.</string>
     <string name="multi_sound_network_msg">Als u op beschikbare apps wilt controleren, moet uw telefoon zijn verbonden met een netwerk. Controleer uw netwerkinstellingen en probeer het opnieuw.</string>
     <string name="multi_sound_wifi_msg">Uw telefoon moet verbinding maken met een netwerk om te controleren op beschikbare apps. Het gebruiken van mobiele gegevens kan extra kosten met zich meebrengen.</string>
+    <string name="multi_sound_add_application">Applicatie toevoegen</string>
     <string name="dlg_btn_select">Select.</string>
-    <string name="audio_device_type_descryption">Selecteer welk audioapparaat u wilt gebruiken voor deze app. Bluetooth-apparaten zijn alleen beschikbaar als ze zijn verbonden.</string>
+    <string name="audio_device_type_descryption">Selecteer welk audioapparaat u wilt gebruiken voor de geselecteerde app. Bluetooth-apparaten zijn alleen beschikbaar als ze zijn verbonden.</string>
     <string name="my_phone_title">Telefoon</string>
+    <string name="my_phone_summary">Luidspreker/koptelefoons/USB-audioapparaat</string>
     <string name="bluetooth_device_title">Bluetooth-apparaat</string>
     <string name="no_connected_devices">Geen verbonden apparaten</string>
     <string name="two_hours">2 uur</string>
@@ -2716,7 +2745,8 @@ Als u een Bluetooth-audioapparaat selecteert, wordt het geluid op het standaard 
     <string name="stop_setup_popup_msg">Alle gewijzigde instellingen worden niet toegepast.</string>
     <string name="app_turned_on">%s ingeschakeld.</string>
     <string name="force_touch_title">Trilfeedback bij hard drukken</string>
-    <string name="volume_key_control_title">Standaardbediening Volumetoets</string>
+    <string name="volume_key_control_title">Gebruik volumetoetsen voor media</string>
+    <string name="volume_key_control_summary">Stel het mediavolume in wanneer u op de Volumetoetsen drukt.</string>
     <string name="sound_mode">Geluidstand</string>
     <string name="sound_mode_vibrate">Trillen</string>
     <string name="sound_mode_mute">Stil</string>
@@ -2930,14 +2960,13 @@ Probeer het opnieuw."</string>
     <string name="text_biometrics_title_enterprise">Wanneer u %1$s selecteert, worden biometrische gegevens niet ondersteund als een ontgrendelmethode voor %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">Vingerafdrukken worden niet ondersteund door %1$s als een ontgrendelmethode voor %2$s.</string>
     <string name="edge_feeds_title">Edge-feeds</string>
-    <string name="screensaver_settings_summary">"Bepaal wat er gebeurt als het apparaat wordt gedokt en/of wordt opgeladen. De screensaver wordt weergegeven na de time-out van het scherm.
-
-Deze functie wordt Dagdromen genoemd."</string>
-    <string name="screensaver_settings_summary_wo_dock">Geef een screensaver weer nadat het scherm automatisch is uitgeschakeld terwijl uw telefoon wordt opgeladen.</string>
+    <string name="screensaver_settings_summary">Geef een screensaver weer nadat het scherm automatisch is uitgeschakeld terwijl uw telefoon wordt opgeladen.</string>
+    <string name="screensaver_settings_summary_wo_dock">Geef een screensaver weer nadat het scherm automatisch is uitgeschakeld terwijl uw telefoon is gedokt of wordt opgeladen.</string>
     <string name="apn_already_exists">Bestaat al.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Poortnummer moet tussen %1$d en %2$d liggen.</string>
     <string name="apn_restore_warning">Alle toegangspunten die u hebt toegevoegd, worden verwijderd. De overige toegangspunten worden teruggezet naar hun standaardinstellingen.</string>
+    <string name="apn_restore_title">APN-instellingen resetten?</string>
     <string name="master_clear_desc_google_account">Google-account</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2949,7 +2978,8 @@ Deze functie wordt Dagdromen genoemd."</string>
     <string name="sound_balance_summary">Pas de linker en rechter geluidsbalans aan voor koptelefoons.</string>
     <string name="backup_samsung_account_title">Back-upinstellingen</string>
     <string name="restore_samsung_account_title">Herstel</string>
-    <string name="auto_restart_header">Apparaatbeheer</string>
+    <string name="auto_restart_header">Telefoonbeheer</string>
+    <string name="auto_restart_header_tablet">Tabletbeheer</string>
     <string name="auto_restart_title">Autom. opnieuw starten</string>
     <string name="switch_turn_on_text">Inschakelen</string>
     <string name="switch_turn_off_text">Uit</string>
@@ -3072,6 +3102,14 @@ Dit is niet van invloed op uw persoonlijke gegevens en de instellingen voor gedo
     <string name="tether_settings_summary_usb_bt">Mobiele gegevensverbinding van uw apparaat delen via USB of Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">OK</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Deel de internetverbinding van uw telefoon met behulp van Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Deel de internetverbinding van uw tablet met behulp van Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Gereed om internetverbinding van deze telefoon te delen.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Gereed om internetverbinding van deze tablet te delen.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Deel de internetverbinding van deze telefoon met 1 apparaat.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Deel de internetverbinding van deze tablet met 1 apparaat.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Deel de internetverbinding van deze telefoon met %d apparaten.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Deel de internetverbinding van deze tablet met %d apparaten.</string>
     <string name="onehand_settings_title">Bediening met één hand</string>
     <string name="onehand_settings_text_1">Veeg diagonaal naar boven vanuit een benedenhoek van het scherm om de weergave te verkleinen.</string>
     <string name="onehand_settings_text_2">Tik 3 keer snel op de knop Start om de weergavegrootte te verkleinen.</string>
@@ -3399,10 +3437,12 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Uit</string>
     <string name="wifi_or_mobile_network">Wi-Fi of mobiele netwerken</string>
     <string name="wifi_network_only">Alleen Wi-Fi-netwerk</string>
+    <string name="wifi_adps_title">Wi-Fi-spaarstand</string>
+    <string name="wifi_adps_summary">Verminder batterijgebruik door patronen van Wi-Fi-verkeer te analyseren.</string>
     <string name="wifi_auto_reconnect">Automatisch opnieuw verbinden</string>
     <string name="wifi_enable_warning_chn">Als u WLAN inschakelt, wordt Mobiele hotspot uitgeschakeld.</string>
     <string name="wifi_enable_warning_vzw">Als u Wi-Fi inschakelt, wordt Mobiele hotspot uitgeschakeld. Doorgaan?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Wi-Fi wordt uitgeschakeld wanneer Mobiele hotspot actief is. Als u Wi-Fi wilt inschakelen, moet u Mobiele hotspot uitschakelen.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Wi-Fi wordt uitgeschakeld wanneer Mobiele hotspot actief is. Als u Wi-Fi wilt inschakelen, moet u Mobiele hotspot uitschakelen.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
@@ -3604,6 +3644,10 @@ Na het wijzigen van de naam of het wachtwoord van de mobiele hotspot, moet een n
     <string name="wifi_wps_pin_client_mobileap">Verbinden met client met pincode %1$s. Het kan %2$d minuten duren voordat het instellen is voltooid.</string>
     <string name="wifi_wps_complete_mobileap">Het andere apparaat is nu verbonden met uw apparaat.</string>
     <string name="wifi_ap_disconnect_warn">Verbinding apparaat verbreken</string>
+    <string name="wifi_ap_change_policy_warn_chn">De verbinding van het apparaat dat momenteel is verbonden met Draagbare WLAN-hotspot, wordt verbroken.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">De verbinding van alle momenteel verbonden apparaten met de Mobiele hotspot wordt verbroken.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">De verbinding van alle momenteel verbonden apparaten met de Mobiele hotspot wordt verbroken.</string>
     <string name="wifi_ap_warn_max_whitelist">Maximumaantal toegestane apparaten (%d) is bereikt.</string>
     <string name="wifiap_one_item_deleted">1 item wordt verwijderd.</string>
@@ -3739,6 +3783,8 @@ Door Mobiele hotspot verbruikt u meer batterijvoeding en neemt uw gegevensverbru
     <string name="wifi_ap_first_time_configuration">Eerste Hotspot-configuratie</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Voer de correcte pincode in.</string>
+    <string name="open_mobileap_warning">Dit mobiele toegangspunt is niet veilig.</string>
+    <string name="hidden_mobileap_warning">WPS wordt uitgeschakeld wanneer de gebruiker een verborgen SSID instelt.</string>
     <string name="wifi_ssid_max_byte_error">Maximumaantal tekens bereikt.</string>
     <string name="tethering_attention_title">Let op</string>
     <string name="wfd_select_device">Apparaat selecteren</string>
@@ -3969,6 +4015,14 @@ Sms ontvangen"</string>
     <string name="quick_tile_sync_title">Synchroniseer</string>
     <string name="permission_usage">Gebruik machtigingen</string>
     <string name="draw_overlay_settings_description">Met deze machtiging kan een app dingen weergeven boven op andere apps die u gebruikt. Dit kan van invloed zijn op uw gebruik van andere apps.</string>
+    <string name="write_settings_body_description">Sta toe dat deze app systeeminstellingen kan wijzigen, zoals Bluetooth in- of uitschakelen.</string>
+    <string name="reset_app_preferences_desc1">Hiermee worden al uw voorkeuren gereset voor:</string>
+    <string name="reset_app_preferences_desc2">Uitgeschakelde apps</string>
+    <string name="reset_app_preferences_desc3">Meldingrestricties voor apps</string>
+    <string name="reset_app_preferences_desc4">Standaard-apps</string>
+    <string name="reset_app_preferences_desc5">Restricties achtergrondgegevens voor apps</string>
+    <string name="reset_app_preferences_desc6">Restricties voor machtigingen</string>
+    <string name="reset_app_preferences_desc7">Uw bestaande app-gegevens gaan niet verloren.</string>
     <string name="knox_security_mode_title">Knox-beveiliging</string>
     <string name="kap_title">Actieve Knox-beveiliging</string>
     <string name="kap_eula_title">Privacybeleid</string>
@@ -3983,6 +4037,13 @@ Sms ontvangen"</string>
     <string name="my_profile_summary">Beheer uw persoonlijke gegevens en Samsung account-details.</string>
     <string name="my_profile_summary_jpn">Beheer uw persoonlijke gegevens en Galaxy account-details.</string>
     <string name="arbitration_agreement">Arbitrageovereenkomst</string>
+    <string name="activation_title">Activeringsstatus</string>
+    <string name="activation_summary">Geactiveerd op %1$s. Ga voor meer informatie naar %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF aan</string>
+    <string name="edit_event_start_short">Start</string>
+    <string name="edit_event_end_short">Einde</string>
+    <string name="select_date_to_view">Selecteer datum om weer te geven</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Ja</string>
     <string name="no">Nee</string>
     <string name="create">Nieuw</string>
@@ -5475,7 +5536,7 @@ Elke gebruiker kan bijgewerkte appmachtigingen accepteren uit naam van alle ande
     <string name="app_notification_block_title">Meldingen toestaan</string>
     <string name="app_notification_block_summary">Ontvang meldingen van deze app, inclusief berichten, geluiden en trillen.</string>
     <string name="app_notification_override_dnd_title">Ingesteld als prioriteit</string>
-    <string name="app_notification_override_dnd_summary">Sta toe dat meldingen van deze app klinken en het scherm inschakelen terwijl Niet storen is ingeschakeld.</string>
+    <string name="app_notification_override_dnd_summary">Geef meldingen weer boven aan het meldingenvenster en neem ze op in de toegestane lijst wanneer de stand Niet storen is ingeschakeld.</string>
     <string name="app_notification_visibility_override_title">Op vergrendelscherm</string>
     <string name="app_notifications_dialog_done">Gereed</string>
     <string name="zen_mode_choose_rule_type">Regeltype selecteren</string>
@@ -5512,6 +5573,7 @@ Elke gebruiker kan bijgewerkte appmachtigingen accepteren uit naam van alle ande
     <string name="restr_pin_enter_admin_pin">Geef pincode beheerder op</string>
     <string name="switch_on_text">Aan</string>
     <string name="switch_off_text">Uit</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Dit werkprofiel wordt beheerd door:</string>
     <string name="managing_admin">Beheerd door %s</string>
     <string name="display_auto_rotate_title">Schermrotatie</string>
     <string name="display_auto_rotate_rotate">Scherminhoud draaien</string>
@@ -5548,9 +5610,9 @@ U ontvangt geen oproepen, berichten of meldingen en hoort geen alarmen tot het a
     <string name="encrypt_talkback_dialog_require_pin">Pincode</string>
     <string name="encrypt_talkback_dialog_require_pattern">Patroon</string>
     <string name="encrypt_talkback_dialog_require_password">Wachtwoord</string>
-    <string name="encrypt_talkback_dialog_message_pin">Wanneer u uw pincode invoert na het opstarten van het apparaat, worden toegankelijkheidsfuncties als %1$s tijdelijk uitgeschakeld.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Wanneer u uw patroon tekent na het opstarten van het apparaat, worden toegankelijkheidsfuncties als %1$s tijdelijk uitgeschakeld.</string>
-    <string name="encrypt_talkback_dialog_message_password">Wanneer u uw wachtwoord invoert na het opstarten van het apparaat, worden toegankelijkheidsfuncties als %1$s tijdelijk uitgeschakeld.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Uw pincode is vereist wanneer het apparaat wordt gestart. Toegankelijkheidsfuncties zijn pas beschikbaar als uw apparaat is gestart.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Uw patroon is vereist wanneer het apparaat wordt gestart. Toegankelijkheidsfuncties zijn pas beschikbaar als uw apparaat is gestart.</string>
+    <string name="encrypt_talkback_dialog_message_password">Uw wachtwoord is vereist wanneer het apparaat wordt gestart. Toegankelijkheidsfuncties zijn pas beschikbaar als uw apparaat is gestart.</string>
     <string name="slot_number">(slot %d)</string>
     <string name="app_launch_domain_links_title">App-koppelingen</string>
     <string name="app_launch_open_domain_urls_title">"Naar ondersteunde URL's"</string>
@@ -5626,18 +5688,18 @@ U ontvangt geen oproepen, berichten of meldingen en hoort geen alarmen tot het a
     <string name="usb_use_power_only">Verb. apparaat opladen</string>
     <string name="usb_use_power_only_desc">Laad het aangesloten apparaat op via USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Mediabest. overzetten</string>
+    <string name="usb_use_file_transfers">Bestanden overzetten</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Afbeeldingen overzetten</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Selecteer deze stand als Mediabestanden overzetten niet werkt. U kunt alleen afbeeldingsbestanden overzetten.</string>
+    <string name="usb_use_photo_transfers_summary">Selecteer deze stand als Bestanden overzetten niet werkt. U kunt in deze stand alleen afbeeldingsbestanden overzetten.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">MIDI-apparaat verbinden</string>
-    <string name="usb_use">USB gebruiken voor</string>
-    <string name="assist_access_context_title">Tekst op scherm voorlezen</string>
-    <string name="assist_access_context_summary">De app voor apparaatondersteuning mag tekst lezen die op het scherm wordt weergegeven.</string>
-    <string name="assist_access_screenshot_title">Schermafbeeldingen maken/openen</string>
-    <string name="assist_access_screenshot_summary">De app voor apparaatondersteuning mag schermafbeeldingen vastleggen en openen.</string>
+    <string name="usb_use">USB gebruiken om</string>
+    <string name="assist_access_context_title">Tekst op scherm analyseren</string>
+    <string name="assist_access_context_summary">De app voor apparaatondersteuning mag tekst analyseren die op het scherm wordt weergegeven om gerelateerde inhoud te leveren.</string>
+    <string name="assist_access_screenshot_title">Afbeeld. op scherm analyseren</string>
+    <string name="assist_access_screenshot_summary">De app voor apparaatondersteuning mag afbeeldingen van het scherm gebruiken.</string>
     <string name="assist_footer">Apps voor apparaatondersteuning kunnen u helpen door informatie te verzamelen van het scherm dat momenteel op uw telefoon wordt weergegeven. Sommige apps voor apparaatondersteuning kunnen worden gebruikt om andere apps te openen en tekst in te voeren met spraakinvoer, zodat u geïntegreerde ondersteuning ontvangt.</string>
     <string name="average_memory_use">Gemiddeld RAM-gebruik</string>
     <string name="maximum_memory_use">Maximaal RAM-gebruik</string>
@@ -5666,7 +5728,7 @@ U ontvangt geen oproepen, berichten of meldingen en hoort geen alarmen tot het a
     <string name="ignore_optimizations_on_desc">Kan batterijverbruik verhogen</string>
     <string name="ignore_optimizations_off_desc">Aanbevolen om batterijvoeding te besparen</string>
     <string name="app_list_preference_none">Geen</string>
-    <string name="allow_overlay_description">Selecteer apps en sta toe dat knoppen, pop-ups of andere elementen daarvan worden weergegeven over andere apps die u gebruikt.</string>
+    <string name="allow_overlay_description">Met deze machtiging kan een app dingen weergeven boven op andere apps die u gebruikt. Dit kan van invloed zijn op uw gebruik van andere apps.</string>
     <string name="overlay_settings">Apps die bovenop kunnen worden weergegeven</string>
     <string name="filter_overlay_apps">Apps met machtiging</string>
     <string name="filter_write_settings_apps">Apps met machtiging</string>
@@ -5713,14 +5775,14 @@ U ontvangt geen oproepen, berichten of meldingen en hoort geen alarmen tot het a
     <string name="ethernet_data_template">%1$s Ethernet-gegevens</string>
     <string name="cell_warning_only">Waarschuwing over gegevens bij %s</string>
     <string name="cell_warning_and_limit">%1$s Waarschuwing gegevensgebruik/%2$s Limiet gegevensgebruik</string>
-    <string name="billing_cycle">Factuurcyclus</string>
+    <string name="billing_cycle">Factuurcyclus en gegev.waarsch.</string>
     <string name="billing_cycle_summary">%s dag van elke maand</string>
     <string name="billing_cycle_fragment_summary">%s dag van elke maand</string>
     <string name="network_restrictions">Netwerken beperken</string>
     <string name="operator_warning">Het gegevensgebruik is gemeten door uw apparaat. Mogelijk meet uw serviceprovider het gebruik anders.</string>
     <string name="data_used_template">%s gebruikt</string>
     <string name="data_warning">Gegevenswaarschuwing</string>
-    <string name="set_data_limit">Gegevenslimiet</string>
+    <string name="set_data_limit">Gegevenslimiet instellen</string>
     <string name="data_limit">Gegevenslimiet</string>
     <string name="data_usage_template">%1$s gebruikt tussen %2$s</string>
     <string name="data_usage_other_apps">Gerelateerde apps opgenomen</string>
@@ -5762,5 +5824,4 @@ Uw apparaat omvat diagnosesoftware die automatisch, zonder uw toestemming, diagn
     <string name="enable_iris_lock_desc_3">"Vingerafdrukken is momenteel ingesteld als uw schermvergrendeltype.
 
 Als u uw schermvergrendeltype wilt instellen op Irissen in plaats van op Vingerafdrukken, tikt u op INSCHAKELEN. Het apparaat kan dan worden ontgrendeld met uw irissen of uw %s."</string>
-    <string name="my_phone_summary">Luidspreker/koptelefoons/USB-audioapparaat</string>
 </resources>

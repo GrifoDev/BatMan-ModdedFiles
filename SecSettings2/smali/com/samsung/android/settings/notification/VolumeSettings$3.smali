@@ -29,4511 +29,1499 @@
     return-void
 .end method
 
+.method private doAction(Ljava/lang/String;ILandroid/os/Message;)V
+    .locals 15
 
-# virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 17
+    const/4 v8, 0x0
 
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-virtual {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v13
-
-    if-nez v13, :cond_0
-
-    return-void
-
-    :cond_0
-    move-object/from16 v0, p1
-
-    iget-object v8, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v8, Ljava/lang/String;
-
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
     const/4 v5, 0x0
 
-    move-object/from16 v0, p1
+    const/4 v9, 0x0
 
-    iget v13, v0, Landroid/os/Message;->what:I
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    packed-switch v13, :pswitch_data_0
+    move/from16 v0, p2
 
-    :goto_0
-    return-void
+    invoke-static {v11, v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-wrap0(Lcom/samsung/android/settings/notification/VolumeSettings;I)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
 
-    :pswitch_0
-    move-object/from16 v0, p0
+    move-result-object v10
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    if-eqz v10, :cond_1b
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getInitFinish()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_15
-
-    const-string/jumbo v13, "VolumeRingtoneLevel"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamsSize()I
-
-    move-result v13
-
-    if-nez v13, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    const-string/jumbo v15, "Exists"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    :cond_1
-    :goto_1
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v13
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->removeMessages(I)V
-
-    goto :goto_0
-
-    :cond_2
-    :try_start_0
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamInt(I)I
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getInitFinish()Z
 
     move-result v11
 
-    move-object/from16 v0, p0
+    if-eqz v11, :cond_1b
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    const-string/jumbo v11, "Level"
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    move-object/from16 v0, p1
 
-    move-result-object v13
+    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    move-result v11
 
-    move-result-object v13
+    if-eqz v11, :cond_1
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getMax()I
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-result v13
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    mul-int/2addr v13, v11
+    move-result-object v11
 
-    div-int/lit8 v7, v13, 0x64
+    invoke-virtual {v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamsSize()I
 
-    if-ltz v11, :cond_3
+    move-result v11
 
-    const/16 v13, 0x64
+    if-nez v11, :cond_7
 
-    if-le v11, v13, :cond_4
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    :cond_3
-    move-object/from16 v0, p0
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    const-string/jumbo v12, "Level"
 
-    move-result-object v13
+    const-string/jumbo v13, "Exist"
 
-    const-string/jumbo v14, "Level"
+    const-string/jumbo v14, "no"
 
-    const-string/jumbo v15, "Valid"
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v16, "no"
+    :goto_0
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-object/from16 v0, p0
+    move-result-object v11
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    const-string/jumbo v12, "VolumeSetting"
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    move-result-object v13
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    const-string/jumbo v14, "VolumeSetting"
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    move-result-object v11
 
-    move-object/from16 v0, p0
+    sget-object v12, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    :cond_0
+    :goto_1
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-result-object v13
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
 
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    move-result-object v11
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    move/from16 v0, p2
+
+    invoke-virtual {v11, v0}, Landroid/os/Handler;->removeMessages(I)V
+
+    :goto_2
+    return-void
+
+    :cond_1
+    const-string/jumbo v11, "UpByPercentage"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_2
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamsSize()I
+
+    move-result v11
+
+    if-nez v11, :cond_b
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "Level"
+
+    const-string/jumbo v13, "Exist"
+
+    const-string/jumbo v14, "no"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_3
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "VolumeSetting"
+
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    sget-object v12, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto :goto_1
 
-    :catch_0
-    move-exception v2
+    :cond_2
+    const-string/jumbo v11, "DownByPercentage"
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, p1
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result v11
 
-    move-result-object v13
+    if-eqz v11, :cond_3
 
-    const-string/jumbo v14, "Level"
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    const-string/jumbo v15, "Valid"
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    const-string/jumbo v16, "no"
+    move-result-object v11
 
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamsSize()I
 
-    move-object/from16 v0, p0
+    move-result v11
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    if-nez v11, :cond_10
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-result-object v13
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    const-string/jumbo v14, "VolumeSetting"
+    move-result-object v11
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    const-string/jumbo v12, "Level"
 
-    move-object/from16 v0, p0
+    const-string/jumbo v13, "Exist"
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    const-string/jumbo v14, "no"
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v13
+    :goto_4
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    move-result-object v11
 
-    return-void
+    const-string/jumbo v12, "VolumeSetting"
+
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    sget-object v12, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_1
+
+    :cond_3
+    const-string/jumbo v11, "Up"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_4
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getProgress()I
+
+    move-result v11
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Landroid/widget/SeekBar;->getMax()I
+
+    move-result v12
+
+    if-ne v11, v12, :cond_15
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
+
+    move-result-object v12
+
+    aget-object v12, v12, p2
+
+    const-string/jumbo v13, "AlreadyMax"
+
+    const-string/jumbo v14, "yes"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_5
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "VolumeSetting"
+
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    sget-object v12, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_1
 
     :cond_4
-    move-object/from16 v0, p0
+    const-string/jumbo v11, "Down"
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-object/from16 v0, p1
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v13
+    move-result v11
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    if-eqz v11, :cond_5
 
-    move-result-object v13
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
+    move-result-object v11
 
-    move-result v13
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getProgress()I
 
-    add-int/lit8 v14, v7, 0x32
+    move-result v11
 
-    if-gt v13, v14, :cond_5
+    if-nez v11, :cond_17
 
-    move-object/from16 v0, p0
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    move-result-object v11
 
-    move-result-object v13
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    move-result-object v12
 
-    move-result-object v13
+    aget-object v12, v12, p2
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
+    const-string/jumbo v13, "AlreadyMin"
 
-    move-result v13
+    const-string/jumbo v14, "yes"
 
-    add-int/lit8 v14, v7, -0x32
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    if-lt v13, v14, :cond_5
+    :goto_6
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-object/from16 v0, p0
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    const-string/jumbo v12, "VolumeSetting"
 
-    move-result-object v13
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    const-string/jumbo v14, "Level"
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    const-string/jumbo v15, "AlreadySet"
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    const-string/jumbo v16, "yes"
+    move-result-object v11
 
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    sget-object v12, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v16, ""
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v13, v14, v15}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_1
 
     :cond_5
-    move-object/from16 v0, p0
+    const-string/jumbo v11, "Max"
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-object/from16 v0, p1
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_6
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getProgress()I
+
+    move-result v11
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Landroid/widget/SeekBar;->getMax()I
+
+    move-result v12
+
+    if-ne v11, v12, :cond_19
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
+
+    move-result-object v12
+
+    aget-object v12, v12, p2
+
+    const-string/jumbo v13, "AlreadyMax"
+
+    const-string/jumbo v14, "yes"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_7
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "VolumeSetting"
+
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    sget-object v12, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_1
+
+    :cond_6
+    const-string/jumbo v11, "Min"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_0
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getProgress()I
+
+    move-result v11
+
+    if-nez v11, :cond_1a
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
+
+    move-result-object v12
+
+    aget-object v12, v12, p2
+
+    const-string/jumbo v13, "AlreadyMin"
+
+    const-string/jumbo v14, "yes"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_8
+    const-string/jumbo v11, "VolumeSettings"
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
 
     move-result-object v13
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    aget-object v13, v13, p2
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, " newValue is "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
     move-result-object v13
 
-    const/4 v14, 0x1
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v13, v7, v14, v15}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
 
     move-result v13
 
-    if-eqz v13, :cond_6
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p0
+    move-result-object v12
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v12
 
-    move-result-object v13
+    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v14, "Level"
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    const-string/jumbo v15, "AlreadySet"
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    const-string/jumbo v16, "no"
+    move-result-object v11
 
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v12, "VolumeSetting"
 
-    move-object/from16 v0, p0
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v13
+    move-result-object v11
 
-    const-string/jumbo v14, "Level"
+    sget-object v12, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v16, ""
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v13, v14, v15}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_6
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_1
 
     :cond_7
-    const-string/jumbo v13, "VolumeRingtoneUp"
+    :try_start_0
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result v13
+    move-result-object v11
 
-    if-eqz v13, :cond_b
+    const/4 v12, 0x0
 
-    move-object/from16 v0, p0
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamInt(I)I
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result v9
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
-    move-result-object v13
+    move-result-object v11
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getMax()I
 
-    move-result-object v13
+    move-result v11
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
+    mul-int/2addr v11, v9
 
-    move-result v13
+    div-int/lit8 v8, v11, 0x64
 
-    move-object/from16 v0, p0
+    if-ltz v9, :cond_8
 
-    iget-object v14, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    const/16 v11, 0x64
 
-    invoke-static {v14}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result v14
-
-    if-ne v13, v14, :cond_8
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "RingtoneVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_1
+    if-le v9, v11, :cond_9
 
     :cond_8
-    new-instance v3, Landroid/view/KeyEvent;
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    const/4 v13, 0x0
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    const/16 v14, 0x16
+    move-result-object v11
 
-    invoke-direct {v3, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
+    const-string/jumbo v12, "Level"
 
-    new-instance v4, Landroid/view/KeyEvent;
+    const-string/jumbo v13, "Valid"
 
-    const/4 v13, 0x1
+    const-string/jumbo v14, "no"
 
-    const/16 v14, 0x16
-
-    invoke-direct {v4, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    const/16 v14, 0x3e8
-
-    if-le v13, v14, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "RingtoneVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_a
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_1
-
-    :cond_b
-    const-string/jumbo v13, "VolumeRingtoneDown"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    if-nez v13, :cond_c
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "RingtoneVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_1
-
-    :cond_c
-    new-instance v3, Landroid/view/KeyEvent;
-
-    const/4 v13, 0x0
-
-    const/16 v14, 0x15
-
-    invoke-direct {v3, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    new-instance v4, Landroid/view/KeyEvent;
-
-    const/4 v13, 0x1
-
-    const/16 v14, 0x15
-
-    invoke-direct {v4, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    const/16 v14, 0x1f4
-
-    if-ge v13, v14, :cond_d
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    :cond_d
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_e
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "RingtoneVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_e
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_1
-
-    :cond_f
-    const-string/jumbo v13, "VolumeRingtoneMax"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_12
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v14}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result v14
-
-    if-ne v13, v14, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "RingtoneVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_1
-
-    :cond_10
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result v6
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v13, v6, v14, v15}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_11
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "RingtoneVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_11
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_1
-
-    :cond_12
-    const-string/jumbo v13, "VolumeRingtoneMin"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_1
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    if-nez v13, :cond_13
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "RingtoneVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    :goto_2
-    const-string/jumbo v13, "VolumeSettings"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "Ringtone volume newValue is "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v15}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v15
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-
-    :cond_13
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    const/4 v14, 0x0
-
-    const/4 v15, 0x1
-
-    const/16 v16, 0x1
-
-    invoke-virtual/range {v13 .. v16}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_14
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "RingtoneVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_14
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto :goto_2
-
-    :cond_15
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v13
-
-    const-wide/16 v14, 0x64
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v13, v0, v14, v15}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    :pswitch_1
-    move-object/from16 v0, p0
+    :catch_0
+    move-exception v2
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "Level"
+
+    const-string/jumbo v13, "Valid"
+
+    const-string/jumbo v14, "no"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "VolumeSetting"
+
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    sget-object v12, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
+
+    move-result-object v11
+
+    move/from16 v0, p2
+
+    invoke-virtual {v11, v0}, Landroid/os/Handler;->removeMessages(I)V
+
+    return-void
+
+    :cond_9
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getProgress()I
+
+    move-result v11
+
+    add-int/lit8 v12, v8, 0x32
+
+    if-gt v11, v12, :cond_a
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getProgress()I
+
+    move-result v11
+
+    add-int/lit8 v12, v8, -0x32
+
+    if-lt v11, v12, :cond_a
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "Level"
+
+    const-string/jumbo v13, "AlreadySet"
+
+    const-string/jumbo v14, "yes"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "Level"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, ""
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v13
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getInitFinish()Z
+    invoke-virtual {v13, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result v13
+    move-result-object v13
 
-    if-eqz v13, :cond_22
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v13, "VolumeMediaLevel"
+    move-result-object v13
 
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v12, v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result v13
+    goto/16 :goto_0
 
-    if-eqz v13, :cond_1a
+    :cond_a
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
+    move-result-object v11
+
+    const/4 v12, 0x1
+
+    const/4 v13, 0x1
+
+    invoke-virtual {v11, v8, v12, v13}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "Level"
+
+    const-string/jumbo v13, "AlreadySet"
+
+    const-string/jumbo v14, "no"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "Level"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, ""
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v11, v12, v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_b
     :try_start_1
-    move-object/from16 v0, p0
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v11
 
-    move-result-object v13
+    const/4 v12, 0x0
 
-    const/4 v14, 0x0
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamInt(I)I
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamInt(I)I
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result v10
+    move-result v9
 
-    move-object/from16 v0, p0
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getProgress()I
 
-    move-result-object v13
+    move-result v5
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    mul-int v11, v5, v9
 
-    move-result-object v13
+    div-int/lit8 v8, v11, 0x64
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getMax()I
+    add-int/2addr v8, v5
 
-    move-result v13
+    if-lez v9, :cond_c
 
-    mul-int/2addr v13, v10
+    const/16 v11, 0x64
 
-    div-int/lit8 v7, v13, 0x64
+    if-le v9, v11, :cond_d
 
-    if-ltz v10, :cond_16
+    :cond_c
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    const/16 v13, 0x64
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    if-le v10, v13, :cond_18
+    move-result-object v11
 
-    :cond_16
-    move-object/from16 v0, p0
+    const-string/jumbo v12, "Level"
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    const-string/jumbo v13, "Valid"
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    const-string/jumbo v14, "no"
 
-    move-result-object v13
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v14, "Level"
-
-    const-string/jumbo v15, "Valid"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    :cond_17
-    :goto_3
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->removeMessages(I)V
-
-    goto/16 :goto_0
+    goto/16 :goto_3
 
     :catch_1
     move-exception v2
 
-    move-object/from16 v0, p0
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v11
 
-    move-result-object v13
+    const-string/jumbo v12, "Level"
 
-    const-string/jumbo v14, "Level"
+    const-string/jumbo v13, "Valid"
 
-    const-string/jumbo v15, "Valid"
+    const-string/jumbo v14, "no"
 
-    const-string/jumbo v16, "no"
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-object/from16 v0, p0
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    const-string/jumbo v12, "VolumeSetting"
 
-    move-result-object v13
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    const-string/jumbo v14, "VolumeSetting"
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-object/from16 v0, p0
+    move-result-object v11
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    sget-object v12, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    move-result-object v13
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    move-result-object v11
+
+    move/from16 v0, p2
+
+    invoke-virtual {v11, v0}, Landroid/os/Handler;->removeMessages(I)V
 
     return-void
 
-    :cond_18
-    move-object/from16 v0, p0
+    :cond_d
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getMax()I
 
-    move-result-object v13
+    move-result v11
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    if-ne v5, v11, :cond_e
 
-    move-result-object v13
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result v13
+    move-result-object v11
 
-    add-int/lit8 v14, v7, 0x32
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
 
-    if-gt v13, v14, :cond_19
+    move-result-object v12
 
-    move-object/from16 v0, p0
+    aget-object v12, v12, p2
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    const-string/jumbo v13, "AlreadyMax"
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    const-string/jumbo v14, "yes"
 
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    add-int/lit8 v14, v7, -0x32
-
-    if-lt v13, v14, :cond_19
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    const-string/jumbo v15, "AlreadySet"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v16, ""
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v13, v14, v15}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_3
 
-    :cond_19
-    move-object/from16 v0, p0
+    :cond_e
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getMax()I
 
-    move-result-object v13
+    move-result v11
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    if-le v8, v11, :cond_f
 
-    move-result-object v13
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
-    const/4 v14, 0x1
+    move-result-object v11
 
-    const/4 v15, 0x1
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getMax()I
 
-    invoke-virtual {v13, v7, v14, v15}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
+    move-result v8
 
-    move-object/from16 v0, p0
+    :cond_f
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    const-string/jumbo v15, "AlreadySet"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v16, ""
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v13, v14, v15}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_3
-
-    :cond_1a
-    const-string/jumbo v13, "VolumeMediaUp"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_1c
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v14}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result v14
-
-    if-ne v13, v14, :cond_1b
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "MediaVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_3
-
-    :cond_1b
-    new-instance v3, Landroid/view/KeyEvent;
-
-    const/4 v13, 0x0
-
-    const/16 v14, 0x16
-
-    invoke-direct {v3, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    new-instance v4, Landroid/view/KeyEvent;
+    const/4 v12, 0x1
 
     const/4 v13, 0x1
 
-    const/16 v14, 0x16
+    invoke-virtual {v11, v8, v12, v13}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
 
-    invoke-direct {v4, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-object/from16 v0, p0
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    aget-object v12, v12, p2
 
-    move-result-object v13
+    const-string/jumbo v13, "AlreadyMax"
 
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    const-string/jumbo v14, "no"
 
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "MediaVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_3
 
-    :cond_1c
-    const-string/jumbo v13, "VolumeMediaDown"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_1e
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    if-nez v13, :cond_1d
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "MediaVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_3
-
-    :cond_1d
-    new-instance v3, Landroid/view/KeyEvent;
-
-    const/4 v13, 0x0
-
-    const/16 v14, 0x15
-
-    invoke-direct {v3, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    new-instance v4, Landroid/view/KeyEvent;
-
-    const/4 v13, 0x1
-
-    const/16 v14, 0x15
-
-    invoke-direct {v4, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "MediaVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_3
-
-    :cond_1e
-    const-string/jumbo v13, "VolumeMediaMax"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_20
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result v6
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    if-ne v13, v6, :cond_1f
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "MediaVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_3
-
-    :cond_1f
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v13, v6, v14, v15}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "MediaVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_3
-
-    :cond_20
-    const-string/jumbo v13, "VolumeMediaMin"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_17
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    if-nez v13, :cond_21
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "MediaVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_3
-
-    :cond_21
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    const/4 v14, 0x0
-
-    const/4 v15, 0x1
-
-    const/16 v16, 0x1
-
-    invoke-virtual/range {v13 .. v16}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "MediaVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_3
-
-    :cond_22
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v13
-
-    const-wide/16 v14, 0x64
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v13, v0, v14, v15}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    goto/16 :goto_0
-
-    :pswitch_2
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getInitFinish()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_31
-
-    const-string/jumbo v13, "VolumeNotificationsLevel"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_27
-
+    :cond_10
     :try_start_2
-    move-object/from16 v0, p0
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v11
 
-    move-result-object v13
+    const/4 v12, 0x0
 
-    const/4 v14, 0x0
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamInt(I)I
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamInt(I)I
     :try_end_2
     .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_2
 
     move-result v9
 
-    move-object/from16 v0, p0
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getProgress()I
 
-    move-result-object v13
+    move-result v5
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    mul-int v11, v5, v9
 
-    move-result-object v13
+    div-int/lit8 v8, v11, 0x64
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getMax()I
+    sub-int v8, v5, v8
 
-    move-result v13
+    if-lez v9, :cond_11
 
-    mul-int/2addr v13, v9
+    const/16 v11, 0x64
 
-    div-int/lit8 v7, v13, 0x64
+    if-le v9, v11, :cond_12
 
-    if-ltz v9, :cond_23
+    :cond_11
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    const/16 v13, 0x64
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    if-le v9, v13, :cond_25
+    move-result-object v11
 
-    :cond_23
-    move-object/from16 v0, p0
+    const-string/jumbo v12, "Level"
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    const-string/jumbo v13, "Valid"
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    const-string/jumbo v14, "no"
 
-    move-result-object v13
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v14, "Level"
-
-    const-string/jumbo v15, "Valid"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    :cond_24
-    :goto_4
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v13
-
-    const/4 v14, 0x2
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->removeMessages(I)V
-
-    goto/16 :goto_0
+    goto/16 :goto_4
 
     :catch_2
     move-exception v2
 
-    move-object/from16 v0, p0
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v11
 
-    move-result-object v13
+    const-string/jumbo v12, "Level"
 
-    const-string/jumbo v14, "Level"
+    const-string/jumbo v13, "Valid"
 
-    const-string/jumbo v15, "Valid"
+    const-string/jumbo v14, "no"
 
-    const-string/jumbo v16, "no"
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-object/from16 v0, p0
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    const-string/jumbo v12, "VolumeSetting"
 
-    move-result-object v13
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    const-string/jumbo v14, "VolumeSetting"
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-object/from16 v0, p0
+    move-result-object v11
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    sget-object v12, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-virtual {v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    move-result-object v13
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    move-result-object v11
+
+    move/from16 v0, p2
+
+    invoke-virtual {v11, v0}, Landroid/os/Handler;->removeMessages(I)V
 
     return-void
 
-    :cond_25
-    move-object/from16 v0, p0
+    :cond_12
+    if-nez v5, :cond_13
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v13
+    move-result-object v11
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
+    aget-object v12, v12, p2
 
-    move-result v13
+    const-string/jumbo v13, "AlreadyMin"
 
-    add-int/lit8 v14, v7, 0x32
+    const-string/jumbo v14, "yes"
 
-    if-gt v13, v14, :cond_26
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    add-int/lit8 v14, v7, -0x32
-
-    if-lt v13, v14, :cond_26
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    const-string/jumbo v15, "AlreadySet"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v16, ""
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v13, v14, v15}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_4
 
-    :cond_26
-    move-object/from16 v0, p0
+    :cond_13
+    if-gez v8, :cond_14
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    const/4 v8, 0x0
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    :cond_14
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
-    move-result-object v13
+    move-result-object v11
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v13, v7, v14, v15}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    const-string/jumbo v15, "AlreadySet"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v16, ""
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v13, v14, v15}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_4
-
-    :cond_27
-    const-string/jumbo v13, "VolumeNotificationsUp"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_2a
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v14}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result v14
-
-    if-ne v13, v14, :cond_28
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "notificationsVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_4
-
-    :cond_28
-    new-instance v3, Landroid/view/KeyEvent;
-
-    const/4 v13, 0x0
-
-    const/16 v14, 0x16
-
-    invoke-direct {v3, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    new-instance v4, Landroid/view/KeyEvent;
+    const/4 v12, 0x1
 
     const/4 v13, 0x1
 
-    const/16 v14, 0x16
+    invoke-virtual {v11, v8, v12, v13}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
 
-    invoke-direct {v4, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-object/from16 v0, p0
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    aget-object v12, v12, p2
 
-    move-result-object v13
+    const-string/jumbo v13, "AlreadyMin"
 
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    const-string/jumbo v14, "no"
 
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    const/16 v14, 0x3e8
-
-    if-le v13, v14, :cond_29
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    :cond_29
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "notificationsVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_4
 
-    :cond_2a
-    const-string/jumbo v13, "VolumeNotificationsDown"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_2d
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    if-nez v13, :cond_2b
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "notificationsVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_4
-
-    :cond_2b
+    :cond_15
     new-instance v3, Landroid/view/KeyEvent;
 
-    const/4 v13, 0x0
+    const/4 v11, 0x0
 
-    const/16 v14, 0x15
+    const/16 v12, 0x16
 
-    invoke-direct {v3, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
+    invoke-direct {v3, v11, v12}, Landroid/view/KeyEvent;-><init>(II)V
 
     new-instance v4, Landroid/view/KeyEvent;
 
+    const/4 v11, 0x1
+
+    const/16 v12, 0x16
+
+    invoke-direct {v4, v11, v12}, Landroid/view/KeyEvent;-><init>(II)V
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getProgress()I
+
+    move-result v11
+
+    const/16 v12, 0x3e8
+
+    if-le v11, v12, :cond_16
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+
+    :cond_16
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
+
+    move-result-object v12
+
+    aget-object v12, v12, p2
+
+    const-string/jumbo v13, "AlreadyMax"
+
+    const-string/jumbo v14, "no"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_17
+    new-instance v3, Landroid/view/KeyEvent;
+
+    const/4 v11, 0x0
+
+    const/16 v12, 0x15
+
+    invoke-direct {v3, v11, v12}, Landroid/view/KeyEvent;-><init>(II)V
+
+    new-instance v4, Landroid/view/KeyEvent;
+
+    const/4 v11, 0x1
+
+    const/16 v12, 0x15
+
+    invoke-direct {v4, v11, v12}, Landroid/view/KeyEvent;-><init>(II)V
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getProgress()I
+
+    move-result v11
+
+    const/16 v12, 0x1f4
+
+    if-ge v11, v12, :cond_18
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+
+    :cond_18
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v11
+
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
+
+    move-result-object v12
+
+    aget-object v12, v12, p2
+
+    const-string/jumbo v13, "AlreadyMin"
+
+    const-string/jumbo v14, "no"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_6
+
+    :cond_19
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/widget/SeekBar;->getMax()I
+
+    move-result v7
+
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+
+    move-result-object v11
+
+    const/4 v12, 0x1
+
     const/4 v13, 0x1
 
-    const/16 v14, 0x15
+    invoke-virtual {v11, v7, v12, v13}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
 
-    invoke-direct {v4, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-object/from16 v0, p0
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    aget-object v12, v12, p2
 
-    move-result-object v13
+    const-string/jumbo v13, "AlreadyMax"
 
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    const-string/jumbo v14, "no"
 
-    move-object/from16 v0, p0
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    goto/16 :goto_7
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    :cond_1a
+    invoke-virtual {v10}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
 
-    move-result-object v13
+    move-result-object v11
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    const/4 v12, 0x0
 
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    const/16 v14, 0x1f4
-
-    if-ge v13, v14, :cond_2c
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    :cond_2c
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "notificationsVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_4
-
-    :cond_2d
-    const-string/jumbo v13, "VolumeNotificationsMax"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_2f
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result v6
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    if-ne v13, v6, :cond_2e
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "notificationsVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_4
-
-    :cond_2e
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
+    const/4 v13, 0x1
 
     const/4 v14, 0x1
 
-    const/4 v15, 0x1
+    invoke-virtual {v11, v12, v13, v14}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
 
-    invoke-virtual {v13, v6, v14, v15}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-object/from16 v0, p0
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v11
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0()[Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    const-string/jumbo v14, "notificationsVolume"
+    aget-object v12, v12, p2
 
-    const-string/jumbo v15, "AlreadyMax"
+    const-string/jumbo v13, "AlreadyMin"
 
-    const-string/jumbo v16, "no"
+    const-string/jumbo v14, "no"
 
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v11, v12, v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v0, p0
+    goto/16 :goto_8
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    :cond_1b
+    iget-object v11, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v11}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
 
-    move-result-object v13
+    move-result-object v11
 
-    const-string/jumbo v14, "VolumeSetting"
+    const-wide/16 v12, 0x64
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    move-object/from16 v0, p3
 
-    move-object/from16 v0, p0
+    invoke-virtual {v11, v0, v12, v13}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    goto/16 :goto_2
+.end method
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v13
+# virtual methods
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 6
 
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->getActivity()Landroid/app/Activity;
 
-    goto/16 :goto_4
+    move-result-object v2
 
-    :cond_2f
-    const-string/jumbo v13, "VolumeNotificationsMin"
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget v2, p1, Landroid/os/Message;->what:I
 
-    move-result v13
+    if-ltz v2, :cond_0
 
-    if-eqz v13, :cond_24
+    iget v2, p1, Landroid/os/Message;->what:I
 
-    move-object/from16 v0, p0
+    const/4 v3, 0x5
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    if-lt v2, v3, :cond_1
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    :cond_0
+    return-void
 
-    move-result-object v13
+    :cond_1
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    check-cast v1, Ljava/lang/String;
 
-    move-result-object v13
+    iget v2, p1, Landroid/os/Message;->what:I
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
+    packed-switch v2, :pswitch_data_0
 
-    move-result v13
+    :cond_2
+    :goto_0
+    return-void
 
-    if-nez v13, :cond_30
+    :pswitch_0
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-object/from16 v0, p0
+    const-string/jumbo v3, "bixby_volume"
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v2
 
-    move-result-object v13
+    if-nez v2, :cond_3
 
-    const-string/jumbo v14, "notificationsVolume"
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    const-string/jumbo v15, "AlreadyMin"
+    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    const-string/jumbo v16, "yes"
+    move-result-object v2
 
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlgForNotSupportMenu()V
 
-    move-object/from16 v0, p0
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v2
 
-    move-result-object v13
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    const-string/jumbo v14, "VolumeSetting"
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-object/from16 v0, p0
+    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v2
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iget v3, p1, Landroid/os/Message;->what:I
 
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_4
-
-    :cond_30
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    const/4 v14, 0x0
-
-    const/4 v15, 0x1
-
-    const/16 v16, 0x1
-
-    invoke-virtual/range {v13 .. v16}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "notificationsVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_4
-
-    :cond_31
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v13
-
-    const-wide/16 v14, 0x64
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v13, v0, v14, v15}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    goto/16 :goto_0
-
-    :pswitch_3
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getInitFinish()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_40
-
-    const-string/jumbo v13, "VolumeSystemLevel"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_36
-
-    :try_start_3
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamInt(I)I
-    :try_end_3
-    .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_3} :catch_3
-
-    move-result v12
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result v13
-
-    mul-int/2addr v13, v12
-
-    div-int/lit8 v7, v13, 0x64
-
-    if-ltz v12, :cond_32
-
-    const/16 v13, 0x64
-
-    if-le v12, v13, :cond_34
-
-    :cond_32
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    const-string/jumbo v15, "Valid"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    :cond_33
-    :goto_5
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v13
-
-    const/4 v14, 0x3
-
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->removeMessages(I)V
-
-    goto/16 :goto_0
-
-    :catch_3
-    move-exception v2
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    const-string/jumbo v15, "Valid"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->removeMessages(I)V
 
     return-void
 
-    :cond_34
-    move-object/from16 v0, p0
+    :cond_3
+    :pswitch_1
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get1(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/media/AudioManager;
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    move-result-object v2
 
-    move-result-object v13
+    invoke-virtual {v2}, Landroid/media/AudioManager;->getRingerModeInternal()I
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    move-result v2
 
-    move-result-object v13
+    const/4 v3, 0x2
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
+    if-eq v3, v2, :cond_4
 
-    move-result v13
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    add-int/lit8 v14, v7, 0x32
+    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    if-gt v13, v14, :cond_35
+    move-result-object v2
 
-    move-object/from16 v0, p0
+    const-string/jumbo v3, "SoundMode"
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    const-string/jumbo v4, "Sound"
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
+    const-string/jumbo v5, "no"
 
-    move-result-object v13
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-result-object v13
+    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
+    move-result-object v2
 
-    move-result v13
+    const-string/jumbo v3, "VolumeSetting"
 
-    add-int/lit8 v14, v7, -0x32
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    if-lt v13, v14, :cond_35
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-object/from16 v0, p0
+    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    move-result-object v2
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    move-result-object v13
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    const-string/jumbo v14, "Level"
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    const-string/jumbo v15, "AlreadySet"
+    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
 
-    const-string/jumbo v16, "yes"
+    move-result-object v2
 
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    iget v3, p1, Landroid/os/Message;->what:I
 
-    move-object/from16 v0, p0
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->removeMessages(I)V
 
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    return-void
 
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    :cond_4
+    :pswitch_2
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    move-result-object v13
+    invoke-static {v2, v1}, Lcom/samsung/android/settings/notification/VolumeSettings;->-wrap2(Lcom/samsung/android/settings/notification/VolumeSettings;Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v14, "Level"
+    move-result-object v0
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    if-eqz v0, :cond_2
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    iget v2, p1, Landroid/os/Message;->what:I
 
-    const-string/jumbo v16, ""
+    invoke-direct {p0, v0, v2, p1}, Lcom/samsung/android/settings/notification/VolumeSettings$3;->doAction(Ljava/lang/String;ILandroid/os/Message;)V
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v13, v14, v15}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_5
-
-    :cond_35
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v13, v7, v14, v15}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    const-string/jumbo v15, "AlreadySet"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "Level"
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v16, ""
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v13, v14, v15}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgResultParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_5
-
-    :cond_36
-    const-string/jumbo v13, "VolumeSystemUp"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_39
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v14}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result v14
-
-    if-ne v13, v14, :cond_37
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "SystemVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_5
-
-    :cond_37
-    new-instance v3, Landroid/view/KeyEvent;
-
-    const/4 v13, 0x0
-
-    const/16 v14, 0x16
-
-    invoke-direct {v3, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    new-instance v4, Landroid/view/KeyEvent;
-
-    const/4 v13, 0x1
-
-    const/16 v14, 0x16
-
-    invoke-direct {v4, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    const/16 v14, 0x3e8
-
-    if-le v13, v14, :cond_38
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    :cond_38
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "SystemVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_5
-
-    :cond_39
-    const-string/jumbo v13, "VolumeSystemDown"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3c
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    if-nez v13, :cond_3a
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "SystemVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_5
-
-    :cond_3a
-    new-instance v3, Landroid/view/KeyEvent;
-
-    const/4 v13, 0x0
-
-    const/16 v14, 0x15
-
-    invoke-direct {v3, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    new-instance v4, Landroid/view/KeyEvent;
-
-    const/4 v13, 0x1
-
-    const/16 v14, 0x15
-
-    invoke-direct {v4, v13, v14}, Landroid/view/KeyEvent;-><init>(II)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    const/16 v14, 0x1f4
-
-    if-ge v13, v14, :cond_3b
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v3}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Landroid/widget/SeekBar;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    :cond_3b
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "SystemVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_5
-
-    :cond_3c
-    const-string/jumbo v13, "VolumeSystemMax"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3e
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result v6
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    if-ne v13, v6, :cond_3d
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "SystemVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_5
-
-    :cond_3d
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v13, v6, v14, v15}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "SystemVolume"
-
-    const-string/jumbo v15, "AlreadyMax"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_5
-
-    :cond_3e
-    const-string/jumbo v13, "VolumeSystemMin"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_33
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result v13
-
-    if-nez v13, :cond_3f
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "SystemVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "yes"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_5
-
-    :cond_3f
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getSeekBar()Landroid/widget/SeekBar;
-
-    move-result-object v13
-
-    const/4 v14, 0x0
-
-    const/4 v15, 0x1
-
-    const/16 v16, 0x1
-
-    invoke-virtual/range {v13 .. v16}, Landroid/widget/SeekBar;->setProgressInternal(IZZ)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "SystemVolume"
-
-    const-string/jumbo v15, "AlreadyMin"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "VolumeSetting"
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v13, v14}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_5
-
-    :cond_40
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/samsung/android/settings/notification/VolumeSettings$3;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v13}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v13
-
-    const-wide/16 v14, 0x64
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v13, v0, v14, v15}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    goto/16 :goto_0
+    goto :goto_0
 
     nop
 
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
         :pswitch_2
-        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

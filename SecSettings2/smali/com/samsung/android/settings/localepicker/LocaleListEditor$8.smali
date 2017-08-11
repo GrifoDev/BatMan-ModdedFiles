@@ -3,7 +3,7 @@
 .source "LocaleListEditor.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -34,8 +34,14 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$8;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-set2(Lcom/samsung/android/settings/localepicker/LocaleListEditor;Z)Z
 
     return-void
 .end method

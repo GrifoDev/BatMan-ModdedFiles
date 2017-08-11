@@ -1124,7 +1124,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a01
+    const v0, 0x7f0b1a9d
 
     return v0
 .end method
@@ -1488,7 +1488,7 @@
 
     move-object/from16 v35, v0
 
-    const v36, 0x7f0b1b38
+    const v36, 0x7f0b1bd4
 
     invoke-virtual/range {v35 .. v36}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1498,7 +1498,7 @@
 
     move-object/from16 v35, v0
 
-    const v36, 0x7f0b1b38
+    const v36, 0x7f0b1bd4
 
     invoke-virtual/range {v35 .. v36}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -2137,7 +2137,7 @@
 
     move-object/from16 v35, v0
 
-    const v36, 0x7f0b007c
+    const v36, 0x7f0b00d9
 
     invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -2147,7 +2147,7 @@
 
     move-object/from16 v35, v0
 
-    const v36, 0x7f0b0cb8
+    const v36, 0x7f0b0d2c
 
     invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -3154,7 +3154,7 @@
 
     move-object/from16 v35, v0
 
-    const v36, 0x7f0b007b
+    const v36, 0x7f0b00d8
 
     invoke-virtual/range {v35 .. v36}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -3590,7 +3590,7 @@
 
     check-cast v20, Landroid/preference/PreferenceScreen;
 
-    const v35, 0x7f0b0d02
+    const v35, 0x7f0b0d81
 
     move-object/from16 v0, v20
 
@@ -4251,7 +4251,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b0f9d
+    const v20, 0x7f0b102a
 
     invoke-virtual/range {v19 .. v20}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4646,7 +4646,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b1b38
+    const v20, 0x7f0b1bd4
 
     invoke-virtual/range {v19 .. v20}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4682,7 +4682,7 @@
 
     if-eqz v19, :cond_19
 
-    const v19, 0x7f0b1b37
+    const v19, 0x7f0b1bd3
 
     :goto_7
     move/from16 v0, v19
@@ -4796,7 +4796,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b0f9e
+    const v20, 0x7f0b102b
 
     invoke-virtual/range {v19 .. v20}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4903,7 +4903,7 @@
     goto :goto_9
 
     :cond_19
-    const v19, 0x7f0b1b38
+    const v19, 0x7f0b1bd4
 
     goto/16 :goto_7
 
@@ -4954,7 +4954,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_1e
+    if-eqz v19, :cond_1f
 
     :cond_1d
     const-string/jumbo v19, "network_unlock"
@@ -4966,6 +4966,35 @@
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/WirelessSettings;->removePreference(Ljava/lang/String;)V
 
     :goto_a
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/WirelessSettings;->mHdmiModePreference:Lcom/android/settings/SecDropDownPreference;
+
+    move-object/from16 v19, v0
+
+    if-eqz v19, :cond_1e
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/WirelessSettings;->mHdmiModePreference:Lcom/android/settings/SecDropDownPreference;
+
+    move-object/from16 v19, v0
+
+    const-string/jumbo v20, "persist.service.dex.hdmi"
+
+    const/16 v21, -0x1
+
+    invoke-static/range {v20 .. v21}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v20
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Lcom/android/settings/SecDropDownPreference;->setValue(Ljava/lang/String;)V
+
+    :cond_1e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/WirelessSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -4988,7 +5017,7 @@
 
     return-void
 
-    :cond_1e
+    :cond_1f
     const-string/jumbo v19, "network_unlock"
 
     move-object/from16 v0, p0
@@ -4999,7 +5028,7 @@
 
     move-result-object v19
 
-    if-eqz v19, :cond_1f
+    if-eqz v19, :cond_20
 
     const-string/jumbo v19, "network_unlock"
 
@@ -5015,7 +5044,7 @@
 
     invoke-virtual/range {v19 .. v20}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    :cond_1f
+    :cond_20
     new-instance v15, Lcom/samsung/android/settings/networklock/NetworkLockUtils;
 
     move-object/from16 v0, p0

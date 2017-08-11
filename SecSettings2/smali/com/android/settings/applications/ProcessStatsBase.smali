@@ -99,13 +99,13 @@
 
     sput-object v0, Lcom/android/settings/applications/ProcessStatsBase;->sDurations:[J
 
-    const v0, 0x7f0b183a
+    const v0, 0x7f0b18d6
 
-    const v1, 0x7f0b183b
+    const v1, 0x7f0b18d7
 
-    const v2, 0x7f0b183c
+    const v2, 0x7f0b18d8
 
-    const v3, 0x7f0b183d
+    const v3, 0x7f0b18d9
 
     filled-new-array {v0, v1, v2, v3}, [I
 
@@ -182,7 +182,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1bdc
+    const v3, 0x7f0b1c78
 
     move-object v0, p0
 
@@ -432,7 +432,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v1, 0x7f040043
+    const v1, 0x7f040044
 
     invoke-virtual {p0, v1}, Lcom/android/settings/applications/ProcessStatsBase;->setPinnedHeaderView(I)Landroid/view/View;
 
@@ -460,7 +460,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0400fe
+    const v3, 0x7f040100
 
     invoke-direct {v1, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
 

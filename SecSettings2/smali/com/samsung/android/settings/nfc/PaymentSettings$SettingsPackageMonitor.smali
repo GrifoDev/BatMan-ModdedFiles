@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings$SettingsPackageMonitor;->this$0:Lcom/samsung/android/settings/nfc/PaymentSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/nfc/PaymentSettings;->-get0(Lcom/samsung/android/settings/nfc/PaymentSettings;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/samsung/android/settings/nfc/PaymentSettings;->-get1(Lcom/samsung/android/settings/nfc/PaymentSettings;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -62,7 +62,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings$SettingsPackageMonitor;->this$0:Lcom/samsung/android/settings/nfc/PaymentSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/nfc/PaymentSettings;->-get0(Lcom/samsung/android/settings/nfc/PaymentSettings;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/samsung/android/settings/nfc/PaymentSettings;->-get1(Lcom/samsung/android/settings/nfc/PaymentSettings;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -80,7 +80,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings$SettingsPackageMonitor;->this$0:Lcom/samsung/android/settings/nfc/PaymentSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/nfc/PaymentSettings;->-get0(Lcom/samsung/android/settings/nfc/PaymentSettings;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/samsung/android/settings/nfc/PaymentSettings;->-get1(Lcom/samsung/android/settings/nfc/PaymentSettings;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -98,7 +98,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/PaymentSettings$SettingsPackageMonitor;->this$0:Lcom/samsung/android/settings/nfc/PaymentSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/nfc/PaymentSettings;->-get0(Lcom/samsung/android/settings/nfc/PaymentSettings;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/samsung/android/settings/nfc/PaymentSettings;->-get1(Lcom/samsung/android/settings/nfc/PaymentSettings;)Landroid/os/Handler;
 
     move-result-object v0
 

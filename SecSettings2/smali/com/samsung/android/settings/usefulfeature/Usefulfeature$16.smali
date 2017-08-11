@@ -32,69 +32,77 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+    iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get8(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get8(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+    iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap0(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Landroid/content/ContentResolver;
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap0(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "fingerprint_gesture_quick"
+    const-string/jumbo v3, "fingerprint_gesture_quick"
 
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     const/4 v0, 0x1
 
     :goto_0
     invoke-static {}, Lcom/android/settings/Utils;->isSupportGraceUX()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get8(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->setChecked(Z)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get8(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get8(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
-
-    move-result-object v2
+    const-string/jumbo v1, ""
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b1b37
+    iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    const v3, 0x7f0b1bd3
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
 
     :goto_1
-    invoke-virtual {v2, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
+    iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get8(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->setChecked(Z)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get8(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get8(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     :cond_0
     return-void
@@ -105,7 +113,34 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b045c
+    invoke-static {}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get3()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap5(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    const v3, 0x7f0b04be
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_1
+
+    :cond_3
+    iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
+
+    const v3, 0x7f0b04bf
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
 
     goto :goto_1
 .end method

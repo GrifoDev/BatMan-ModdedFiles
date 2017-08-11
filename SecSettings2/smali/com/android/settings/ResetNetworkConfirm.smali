@@ -25,6 +25,8 @@
 
 .field private isFirstResume:Z
 
+.field private isUnderProgress:Z
+
 .field private isWiFiEnabled:Z
 
 .field private mContentView:Landroid/view/View;
@@ -152,12 +154,20 @@
 .method static synthetic -set2(Lcom/android/settings/ResetNetworkConfirm;Z)Z
     .locals 0
 
+    iput-boolean p1, p0, Lcom/android/settings/ResetNetworkConfirm;->isUnderProgress:Z
+
+    return p1
+.end method
+
+.method static synthetic -set3(Lcom/android/settings/ResetNetworkConfirm;Z)Z
+    .locals 0
+
     iput-boolean p1, p0, Lcom/android/settings/ResetNetworkConfirm;->isWiFiEnabled:Z
 
     return p1
 .end method
 
-.method static synthetic -set3(Lcom/android/settings/ResetNetworkConfirm;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;
+.method static synthetic -set4(Lcom/android/settings/ResetNetworkConfirm;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;
     .locals 0
 
     iput-object p1, p0, Lcom/android/settings/ResetNetworkConfirm;->progressDialog:Landroid/app/ProgressDialog;
@@ -216,6 +226,10 @@
 
     iput-boolean v0, p0, Lcom/android/settings/ResetNetworkConfirm;->isATTReset:Z
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/ResetNetworkConfirm;->isUnderProgress:Z
+
     new-instance v0, Lcom/android/settings/ResetNetworkConfirm$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/ResetNetworkConfirm$1;-><init>(Lcom/android/settings/ResetNetworkConfirm;)V
@@ -250,13 +264,13 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b0c83
+    const v1, 0x7f0b0cf7
 
     invoke-virtual {p0, v1}, Lcom/android/settings/ResetNetworkConfirm;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f0b0c85
+    const v2, 0x7f0b0cf9
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ResetNetworkConfirm;->getString(I)Ljava/lang/String;
 
@@ -275,7 +289,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f1106d1
+    const v1, 0x7f1106d4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -324,7 +338,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm;->progressDialog:Landroid/app/ProgressDialog;
 
-    const v1, 0x7f0b0cee
+    const v1, 0x7f0b0d6d
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setTitle(I)V
 
@@ -334,7 +348,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b15b4
+    const v2, 0x7f0b1650
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -380,6 +394,8 @@
 .method private resetNetwork()V
     .locals 8
 
+    const/4 v4, 0x1
+
     iget-boolean v3, p0, Lcom/android/settings/ResetNetworkConfirm;->DisableListner:Z
 
     if-eqz v3, :cond_0
@@ -387,6 +403,21 @@
     return-void
 
     :cond_0
+    iget-boolean v3, p0, Lcom/android/settings/ResetNetworkConfirm;->isUnderProgress:Z
+
+    if-eqz v3, :cond_1
+
+    const-string/jumbo v3, "ResetNetworkConfirm"
+
+    const-string/jumbo v4, "already under resetNetwork progress. Skip request"
+
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    iput-boolean v4, p0, Lcom/android/settings/ResetNetworkConfirm;->isUnderProgress:Z
+
     invoke-virtual {p0}, Lcom/android/settings/ResetNetworkConfirm;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
@@ -395,11 +426,9 @@
 
     iget-boolean v3, p0, Lcom/android/settings/ResetNetworkConfirm;->isATTReset:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
-    const/4 v3, 0x1
-
-    iput-boolean v3, p0, Lcom/android/settings/ResetNetworkConfirm;->DisableListner:Z
+    iput-boolean v4, p0, Lcom/android/settings/ResetNetworkConfirm;->DisableListner:Z
 
     const/4 v3, 0x0
 
@@ -459,7 +488,7 @@
     :goto_0
     invoke-direct {p0}, Lcom/android/settings/ResetNetworkConfirm;->restoreDefaultApn()Z
 
-    :cond_1
+    :cond_2
     new-instance v3, Lcom/android/settings/ResetNetworkConfirm$4;
 
     invoke-direct {v3, p0}, Lcom/android/settings/ResetNetworkConfirm$4;-><init>(Lcom/android/settings/ResetNetworkConfirm;)V
@@ -640,7 +669,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f0401ab
+    const v2, 0x7f0401ad
 
     invoke-virtual {p1, v2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -651,7 +680,7 @@
     :cond_0
     if-eqz v0, :cond_1
 
-    const v2, 0x7f040028
+    const v2, 0x7f040029
 
     invoke-virtual {p1, v2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -668,7 +697,7 @@
     return-object v1
 
     :cond_1
-    const v2, 0x7f04025f
+    const v2, 0x7f040263
 
     invoke-virtual {p1, v2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

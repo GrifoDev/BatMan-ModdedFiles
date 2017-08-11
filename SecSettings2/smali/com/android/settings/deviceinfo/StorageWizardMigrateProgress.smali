@@ -60,7 +60,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0402e7
+    const v1, 0x7f0402eb
 
     invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;->setContentView(I)V
 
@@ -92,7 +92,7 @@
 
     aput-object v0, v1, v5
 
-    const v2, 0x7f0b1566
+    const v2, 0x7f0b1602
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;->setHeaderText(I[Ljava/lang/String;)V
 
@@ -100,7 +100,7 @@
 
     aput-object v0, v1, v5
 
-    const v2, 0x7f0b1567
+    const v2, 0x7f0b1603
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;->setBodyText(I[Ljava/lang/String;)V
 

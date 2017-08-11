@@ -40,7 +40,7 @@
 .end method
 
 .method protected static getLocalIpAddress(Landroid/content/Context;)Ljava/lang/String;
-    .locals 8
+    .locals 6
 
     const-string/jumbo v4, "wifi"
 
@@ -56,59 +56,59 @@
 
     iget v2, v0, Landroid/net/DhcpInfo;->ipAddress:I
 
-    const-string/jumbo v4, "%d.%d.%d.%d"
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const/4 v5, 0x4
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-array v5, v5, [Ljava/lang/Object;
+    and-int/lit16 v5, v2, 0xff
 
-    and-int/lit16 v6, v2, 0xff
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v4
 
-    move-result-object v6
+    const-string/jumbo v5, "."
 
-    const/4 v7, 0x0
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aput-object v6, v5, v7
+    move-result-object v4
 
-    shr-int/lit8 v6, v2, 0x8
+    shr-int/lit8 v5, v2, 0x8
 
-    and-int/lit16 v6, v6, 0xff
+    and-int/lit16 v5, v5, 0xff
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    const/4 v7, 0x1
+    const-string/jumbo v5, "."
 
-    aput-object v6, v5, v7
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    shr-int/lit8 v6, v2, 0x10
+    move-result-object v4
 
-    and-int/lit16 v6, v6, 0xff
+    shr-int/lit8 v5, v2, 0x10
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    and-int/lit16 v5, v5, 0xff
 
-    move-result-object v6
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const/4 v7, 0x2
+    move-result-object v4
 
-    aput-object v6, v5, v7
+    const-string/jumbo v5, "."
 
-    shr-int/lit8 v6, v2, 0x18
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    and-int/lit16 v6, v6, 0xff
+    move-result-object v4
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    shr-int/lit8 v5, v2, 0x18
 
-    move-result-object v6
+    and-int/lit16 v5, v5, 0xff
 
-    const/4 v7, 0x3
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    aput-object v6, v5, v7
+    move-result-object v4
 
-    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 

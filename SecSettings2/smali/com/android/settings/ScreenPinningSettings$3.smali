@@ -41,7 +41,7 @@
 
     iget-object v1, p0, Lcom/android/settings/ScreenPinningSettings$3;->this$0:Lcom/android/settings/ScreenPinningSettings;
 
-    const v3, 0x7f0b09c3
+    const v3, 0x7f0b0a31
 
     invoke-virtual {v1, v3}, Lcom/android/settings/ScreenPinningSettings;->getString(I)Ljava/lang/String;
 
@@ -70,7 +70,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f1002a3
+    const v3, 0x7f1002a9
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -134,7 +134,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f1002a4
+    const v3, 0x7f1002aa
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 

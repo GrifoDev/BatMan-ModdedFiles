@@ -179,7 +179,7 @@
 
     if-nez v12, :cond_7
 
-    invoke-static {}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap3()Z
+    invoke-static/range {p1 .. p1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap3(Landroid/content/Context;)Z
 
     move-result v12
 
@@ -826,7 +826,7 @@
 
     iput-object v14, v1, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
 
-    const v14, 0x7f0b0357
+    const v14, 0x7f0b03b6
 
     invoke-virtual {v12, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -834,7 +834,7 @@
 
     iput-object v14, v1, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v14, 0x7f0b041d
+    const v14, 0x7f0b047f
 
     invoke-virtual {v12, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -887,17 +887,49 @@
     invoke-interface {v13, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_2
+    invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
+
+    move-result v14
+
+    if-nez v14, :cond_3
+
+    invoke-static/range {p1 .. p1}, Lcom/android/settings/Utils;->isNoSIM(Landroid/content/Context;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_6
+
+    invoke-static/range {p1 .. p1}, Lcom/android/settings/Utils;->isRoaming(Landroid/content/Context;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_3
+
+    invoke-static {}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap2()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_3
+
+    invoke-static {}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->isSupportMccSmartCall()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_6
+
+    :cond_3
+    :goto_0
     invoke-static {}, Lcom/android/settings/Utils;->isDesktopModeSupported()Z
 
     move-result v14
 
-    if-eqz v14, :cond_4
+    if-eqz v14, :cond_5
 
     invoke-static/range {p1 .. p1}, Lcom/android/settings/Utils;->isDesktopMode(Landroid/content/Context;)Z
 
     move-result v14
 
-    if-eqz v14, :cond_4
+    if-eqz v14, :cond_5
 
     const-string/jumbo v14, "VZW"
 
@@ -909,7 +941,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_4
 
     const/4 v2, 0x0
 
@@ -929,7 +961,7 @@
 
     invoke-interface {v13, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_3
+    :cond_4
     const/4 v3, 0x0
 
     new-instance v3, Lcom/android/settings/search/SearchIndexableRaw;
@@ -958,7 +990,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_7
 
     const/4 v4, 0x0
 
@@ -978,7 +1010,7 @@
 
     invoke-interface {v13, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :goto_0
+    :goto_1
     const/4 v5, 0x0
 
     new-instance v5, Lcom/android/settings/search/SearchIndexableRaw;
@@ -1087,7 +1119,7 @@
 
     invoke-interface {v13, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_4
+    :cond_5
     const/4 v1, 0x0
 
     new-instance v1, Lcom/android/settings/search/SearchIndexableRaw;
@@ -1108,7 +1140,28 @@
 
     return-object v13
 
-    :cond_5
+    :cond_6
+    const/4 v1, 0x0
+
+    new-instance v1, Lcom/android/settings/search/SearchIndexableRaw;
+
+    move-object/from16 v0, p1
+
+    invoke-direct {v1, v0}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
+
+    const-string/jumbo v14, "identify_unsaved_numbers"
+
+    iput-object v14, v1, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
+
+    const/4 v14, 0x3
+
+    iput v14, v1, Lcom/android/settings/search/SearchIndexableRaw;->menu_type:I
+
+    invoke-interface {v13, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
+
+    :cond_7
     const/4 v4, 0x0
 
     new-instance v4, Lcom/android/settings/search/SearchIndexableRaw;
@@ -1127,7 +1180,7 @@
 
     invoke-interface {v13, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 .end method
 
 .method public getXmlResourcesToIndex(Landroid/content/Context;Z)Ljava/util/List;

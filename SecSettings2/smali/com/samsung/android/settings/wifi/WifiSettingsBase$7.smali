@@ -374,7 +374,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap5(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap4(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)V
 
     goto/16 :goto_0
 
@@ -444,7 +444,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
-    invoke-static {v0, v3}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-set4(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
+    invoke-static {v0, v3}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-set3(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -496,7 +496,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -530,26 +530,27 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v8, :cond_c
+    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
-    invoke-virtual {v8}, Ljava/lang/String;->isEmpty()Z
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_c
 
-    :cond_c
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
-    const-string/jumbo v1, "Name"
+    const-string/jumbo v1, "WiFi"
 
-    const-string/jumbo v2, "Exists"
+    const-string/jumbo v2, "AlreadyON"
 
-    const-string/jumbo v3, "no"
+    const-string/jumbo v3, "yes"
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -569,37 +570,20 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v1, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    return-void
-
-    :cond_d
-    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
-
-    iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_e
-
-    iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
-
-    invoke-static {v0, v8}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap4(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Ljava/lang/String;)V
-
     goto/16 :goto_0
 
-    :cond_e
+    :cond_c
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap3(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Z
 
     move-result v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_d
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -607,7 +591,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -645,7 +629,7 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_d
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -654,23 +638,45 @@
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
-    invoke-static {v0, v3}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-set4(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Z)Z
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "WiFi"
+
+    const-string/jumbo v2, "AlreadyON"
+
+    const-string/jumbo v3, "yes"
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->addNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
-    invoke-static {v0, v9}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-set1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "WiFiSettings"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
-    invoke-static {v0, v8}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-set2(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
-    :cond_10
+    :cond_e
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -707,14 +713,14 @@
 
     goto/16 :goto_0
 
-    :cond_11
+    :cond_f
     const-string/jumbo v0, "WiFiRemoveConnectAp"
 
     invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -724,7 +730,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -736,14 +742,14 @@
 
     const/4 v7, -0x1
 
-    if-eqz v10, :cond_12
+    if-eqz v10, :cond_10
 
     invoke-virtual {v10}, Landroid/net/wifi/WifiInfo;->getNetworkId()I
 
     move-result v7
 
-    :cond_12
-    if-eq v7, v5, :cond_16
+    :cond_10
+    if-eq v7, v5, :cond_14
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -753,7 +759,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -765,7 +771,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -791,7 +797,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_13
+    :cond_11
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -805,7 +811,7 @@
     :goto_1
     return-void
 
-    :cond_14
+    :cond_12
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -816,7 +822,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -842,7 +848,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_15
+    :cond_13
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -855,7 +861,7 @@
 
     goto :goto_1
 
-    :cond_16
+    :cond_14
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -892,14 +898,14 @@
 
     goto/16 :goto_0
 
-    :cond_17
+    :cond_15
     const-string/jumbo v0, "WiFiSelectConnectedAp"
 
     invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1b
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -911,14 +917,14 @@
 
     const/4 v7, -0x1
 
-    if-eqz v10, :cond_18
+    if-eqz v10, :cond_16
 
     invoke-virtual {v10}, Landroid/net/wifi/WifiInfo;->getNetworkId()I
 
     move-result v7
 
-    :cond_18
-    if-eq v7, v5, :cond_1a
+    :cond_16
+    if-eq v7, v5, :cond_18
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -948,7 +954,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_17
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -974,7 +980,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_19
+    :cond_17
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -987,14 +993,14 @@
 
     goto/16 :goto_0
 
-    :cond_1a
+    :cond_18
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-wrap3(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_19
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -1002,7 +1008,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_19
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -1041,7 +1047,7 @@
 
     goto/16 :goto_0
 
-    :cond_1b
+    :cond_19
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -1050,7 +1056,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_1a
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -1078,7 +1084,7 @@
 
     goto :goto_2
 
-    :cond_1c
+    :cond_1a
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -1105,14 +1111,14 @@
 
     goto :goto_2
 
-    :cond_1d
+    :cond_1b
     const-string/jumbo v0, "WiFiAdvanced"
 
     invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1d
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -1128,7 +1134,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_1c
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -1140,7 +1146,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_1e
+    :cond_1c
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get1(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -1153,7 +1159,7 @@
 
     goto/16 :goto_0
 
-    :cond_1f
+    :cond_1d
     const-string/jumbo v0, "WiFiDirectSettings"
 
     invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1170,7 +1176,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_1e
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -1178,14 +1184,14 @@
 
     invoke-virtual {v0, v3}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    :cond_20
+    :cond_1e
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     invoke-static {v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-get0(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Landroid/os/CountDownTimer;
 
     move-result-object v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_1f
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
@@ -1199,7 +1205,7 @@
 
     invoke-static {v0, v4}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->-set0(Lcom/samsung/android/settings/wifi/WifiSettingsBase;Landroid/os/CountDownTimer;)Landroid/os/CountDownTimer;
 
-    :cond_21
+    :cond_1f
     iget-object v11, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7;->this$0:Lcom/samsung/android/settings/wifi/WifiSettingsBase;
 
     new-instance v0, Lcom/samsung/android/settings/wifi/WifiSettingsBase$7$1;

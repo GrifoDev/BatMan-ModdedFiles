@@ -102,7 +102,7 @@
 .end method
 
 .method private loadOtherConf(Ljava/lang/String;)Z
-    .locals 25
+    .locals 26
 
     const/4 v10, 0x0
 
@@ -115,23 +115,23 @@
 
     invoke-direct {v11, v0}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
     :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_9
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_7
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_5
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_c
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_8
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_6
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
     new-instance v16, Ljava/io/BufferedReader;
 
-    new-instance v22, Ljava/io/InputStreamReader;
+    new-instance v23, Ljava/io/InputStreamReader;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-direct {v0, v11}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
 
     move-object/from16 v0, v16
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     invoke-direct {v0, v1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
@@ -141,7 +141,7 @@
 
     invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
     :try_end_1
-    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_c
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_d
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_e
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_10
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
@@ -151,18 +151,18 @@
     :try_start_2
     invoke-static {}, Landroid/net/wifi/WifiApWhiteList;->getInstance()Landroid/net/wifi/WifiApWhiteList;
 
-    move-result-object v20
+    move-result-object v21
 
     :goto_0
     invoke-virtual/range {v16 .. v16}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v14
 
-    if-eqz v14, :cond_7
+    if-eqz v14, :cond_8
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     if-ne v4, v0, :cond_1
 
@@ -170,7 +170,36 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore$WifiApBRthread;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
+
+    invoke-virtual {v14}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v24 .. v24}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore$WifiApBRthread;->mContext:Landroid/content/Context;
+
+    move-object/from16 v25, v0
+
+    invoke-virtual/range {v23 .. v25}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore;->setTimeout(ILandroid/content/Context;)V
+
+    :cond_0
+    :goto_1
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/16 v23, 0x2
+
+    move/from16 v0, v23
+
+    if-ne v4, v0, :cond_5
 
     invoke-virtual {v14}, Ljava/lang/String;->trim()Ljava/lang/String;
 
@@ -178,63 +207,35 @@
 
     invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v23
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore$WifiApBRthread;->mContext:Landroid/content/Context;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {v22 .. v24}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore;->setTimeout(ILandroid/content/Context;)V
-
-    :cond_0
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/16 v22, 0x2
-
-    move/from16 v0, v22
-
-    if-ne v4, v0, :cond_5
-
-    invoke-virtual {v14}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
     move-result v3
 
-    invoke-virtual/range {v20 .. v20}, Landroid/net/wifi/WifiApWhiteList;->getSize()I
+    invoke-virtual/range {v21 .. v21}, Landroid/net/wifi/WifiApWhiteList;->getSize()I
 
     move-result v5
 
-    add-int v22, v5, v3
+    add-int v23, v5, v3
 
-    const/16 v23, 0xa
+    const/16 v24, 0xa
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     if-le v0, v1, :cond_0
 
-    const-string/jumbo v22, "WifiApBackupRestore"
+    const-string/jumbo v23, "WifiApBackupRestore"
 
-    const-string/jumbo v23, "Exceeds allowed List Size of 10. Delete old devices in Restore DUTB"
+    const-string/jumbo v24, "Exceeds allowed List Size of 10. Delete old devices in Restore DUTB"
 
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual/range {v20 .. v20}, Landroid/net/wifi/WifiApWhiteList;->getIterator()Ljava/util/Iterator;
+    invoke-virtual/range {v21 .. v21}, Landroid/net/wifi/WifiApWhiteList;->getIterator()Ljava/util/Iterator;
 
     move-result-object v13
 
-    const/16 v22, 0xa
+    const/16 v23, 0xa
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     new-array v6, v0, [Ljava/lang/String;
 
@@ -242,386 +243,475 @@
 
     if-eqz v13, :cond_2
 
-    :goto_1
+    :goto_2
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v22
+    move-result v23
 
-    if-eqz v22, :cond_2
+    if-eqz v23, :cond_2
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v21
-
-    check-cast v21, Landroid/net/wifi/WifiApWhiteList$WhiteList;
-
-    invoke-virtual/range {v21 .. v21}, Landroid/net/wifi/WifiApWhiteList$WhiteList;->getMac()Ljava/lang/String;
-
     move-result-object v22
 
-    aput-object v22, v6, v12
+    check-cast v22, Landroid/net/wifi/WifiApWhiteList$WhiteList;
+
+    invoke-virtual/range {v22 .. v22}, Landroid/net/wifi/WifiApWhiteList$WhiteList;->getMac()Ljava/lang/String;
+
+    move-result-object v23
+
+    aput-object v23, v6, v12
 
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_2
     const/4 v12, 0x0
 
-    :goto_2
+    :goto_3
     if-eqz v5, :cond_4
 
     aget-object v17, v6, v12
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiApWhiteList;->removeWhiteList(Ljava/lang/String;)I
 
-    move-result v22
+    move-result v23
 
-    const/16 v23, 0x2
+    const/16 v24, 0x2
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     if-ne v0, v1, :cond_3
 
-    const-string/jumbo v22, "WifiApBackupRestore"
+    const-string/jumbo v23, "WifiApBackupRestore"
 
-    const-string/jumbo v23, "Error in removing WhiteList!!"
+    const-string/jumbo v24, "Error in removing WhiteList!!"
 
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
-    .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_d
+    .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_3
     .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_f
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_11
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     :try_start_3
     invoke-virtual {v11}, Ljava/io/InputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    return v22
+    return v23
 
     :catch_0
     move-exception v8
 
     invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return v22
+    return v23
 
     :cond_3
     add-int/lit8 v5, v5, -0x1
 
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_4
     if-eqz v5, :cond_0
 
     :try_start_4
-    const-string/jumbo v22, "WifiApBackupRestore"
+    const-string/jumbo v23, "WifiApBackupRestore"
 
-    const-string/jumbo v23, "unknown error in removing WifiApWhitelist"
+    const-string/jumbo v24, "unknown error in removing WifiApWhitelist"
 
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_4
-    .catch Ljava/io/FileNotFoundException; {:try_start_4 .. :try_end_4} :catch_d
+    .catch Ljava/io/FileNotFoundException; {:try_start_4 .. :try_end_4} :catch_3
     .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_4} :catch_f
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_11
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     :try_start_5
     invoke-virtual {v11}, Ljava/io/InputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
 
-    return v22
+    return v23
 
     :catch_1
     move-exception v8
 
     invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return v22
+    return v23
 
     :cond_5
     :try_start_6
-    const-string/jumbo v22, ";"
+    const-string/jumbo v23, ";"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-virtual {v14, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v22
+    move-result v23
 
-    if-eqz v22, :cond_6
+    if-eqz v23, :cond_6
 
-    const-string/jumbo v22, ";"
+    const-string/jumbo v23, ";"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-virtual {v14, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v15
 
-    const/16 v22, 0x1
-
-    aget-object v22, v15, v22
-
-    const/16 v23, 0x0
+    const/16 v23, 0x1
 
     aget-object v23, v15, v23
 
-    move-object/from16 v0, v20
+    const/16 v24, 0x0
 
-    move-object/from16 v1, v22
+    aget-object v24, v15, v24
 
-    move-object/from16 v2, v23
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/WifiApWhiteList;->addWhiteList(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v22
+    move-result v23
 
-    const/16 v23, 0x3
+    const/16 v24, 0x3
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     if-ne v0, v1, :cond_0
 
-    const-string/jumbo v22, "WifiApBackupRestore"
+    const-string/jumbo v23, "WifiApBackupRestore"
 
-    const-string/jumbo v23, "Whitelist is NOTMAC. QUIT!!"
+    const-string/jumbo v24, "Whitelist is NOTMAC. QUIT!!"
 
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_6
-    .catch Ljava/io/FileNotFoundException; {:try_start_6 .. :try_end_6} :catch_d
+    .catch Ljava/io/FileNotFoundException; {:try_start_6 .. :try_end_6} :catch_3
     .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_6} :catch_f
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_11
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     :try_start_7
     invoke-virtual {v11}, Ljava/io/InputStream;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
 
-    return v22
+    return v23
 
     :catch_2
     move-exception v8
 
     invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return v22
+    return v23
 
     :cond_6
     :try_start_8
-    const-string/jumbo v22, "WifiApBackupRestore"
+    const-string/jumbo v23, "PMFChecked"
 
-    const-string/jumbo v23, "Invlaid format. RETURN FALSE"
+    move-object/from16 v0, v23
 
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v14, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_7
+
+    const/16 v23, 0x3d
+
+    move/from16 v0, v23
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v12
+
+    const/16 v23, -0x1
+
+    move/from16 v0, v23
+
+    if-eq v12, v0, :cond_0
+
+    add-int/lit8 v23, v12, 0x1
+
+    move/from16 v0, v23
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const-string/jumbo v23, "WifiApBackupRestore"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "restore pmf:"
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore$WifiApBRthread;->this$0:Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v24 .. v24}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore$WifiApBRthread;->mContext:Landroid/content/Context;
+
+    move-object/from16 v25, v0
+
+    invoke-virtual/range {v23 .. v25}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore;->setPMFChecked(ILandroid/content/Context;)V
     :try_end_8
-    .catch Ljava/io/FileNotFoundException; {:try_start_8 .. :try_end_8} :catch_d
+    .catch Ljava/io/FileNotFoundException; {:try_start_8 .. :try_end_8} :catch_3
     .catch Ljava/lang/NumberFormatException; {:try_start_8 .. :try_end_8} :catch_f
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_11
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
-    const/16 v22, 0x0
-
-    :try_start_9
-    invoke-virtual {v11}, Ljava/io/InputStream;->close()V
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_3
-
-    return v22
+    goto/16 :goto_1
 
     :catch_3
-    move-exception v8
+    move-exception v7
 
-    invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
+    move-object/from16 v18, v19
 
-    const/16 v22, 0x0
+    move-object v10, v11
 
-    return v22
+    :goto_4
+    :try_start_9
+    invoke-virtual {v7}, Ljava/io/FileNotFoundException;->printStackTrace()V
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+
+    const/16 v23, 0x0
+
+    :try_start_a
+    invoke-virtual {v10}, Ljava/io/InputStream;->close()V
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_a
+
+    return v23
 
     :cond_7
-    :try_start_a
+    :try_start_b
+    const-string/jumbo v23, "WifiApBackupRestore"
+
+    const-string/jumbo v24, "Invlaid format. RETURN FALSE"
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_b
+    .catch Ljava/io/FileNotFoundException; {:try_start_b .. :try_end_b} :catch_3
+    .catch Ljava/lang/NumberFormatException; {:try_start_b .. :try_end_b} :catch_f
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_11
+    .catchall {:try_start_b .. :try_end_b} :catchall_2
+
+    const/16 v23, 0x0
+
+    :try_start_c
     invoke-virtual {v11}, Ljava/io/InputStream;->close()V
-    :try_end_a
-    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_4
+    :try_end_c
+    .catch Ljava/io/IOException; {:try_start_c .. :try_end_c} :catch_4
 
-    const/16 v22, 0x1
-
-    return v22
+    return v23
 
     :catch_4
     move-exception v8
 
     invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return v22
+    return v23
+
+    :cond_8
+    :try_start_d
+    invoke-virtual {v11}, Ljava/io/InputStream;->close()V
+    :try_end_d
+    .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_5
+
+    const/16 v23, 0x1
+
+    return v23
 
     :catch_5
     move-exception v8
 
-    :goto_3
-    :try_start_b
     invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_0
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    :try_start_c
-    invoke-virtual {v10}, Ljava/io/InputStream;->close()V
-    :try_end_c
-    .catch Ljava/io/IOException; {:try_start_c .. :try_end_c} :catch_6
-
-    return v22
+    return v23
 
     :catch_6
     move-exception v8
 
+    :goto_5
+    :try_start_e
     invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_0
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return v22
+    :try_start_f
+    invoke-virtual {v10}, Ljava/io/InputStream;->close()V
+    :try_end_f
+    .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_7
+
+    return v23
 
     :catch_7
-    move-exception v9
-
-    :goto_4
-    :try_start_d
-    invoke-virtual {v9}, Ljava/lang/NumberFormatException;->printStackTrace()V
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_0
-
-    const/16 v22, 0x0
-
-    :try_start_e
-    invoke-virtual {v10}, Ljava/io/InputStream;->close()V
-    :try_end_e
-    .catch Ljava/io/IOException; {:try_start_e .. :try_end_e} :catch_8
-
-    return v22
-
-    :catch_8
     move-exception v8
 
     invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return v22
+    return v23
+
+    :catch_8
+    move-exception v9
+
+    :goto_6
+    :try_start_10
+    invoke-virtual {v9}, Ljava/lang/NumberFormatException;->printStackTrace()V
+    :try_end_10
+    .catchall {:try_start_10 .. :try_end_10} :catchall_0
+
+    const/16 v23, 0x0
+
+    :try_start_11
+    invoke-virtual {v10}, Ljava/io/InputStream;->close()V
+    :try_end_11
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_11} :catch_9
+
+    return v23
 
     :catch_9
-    move-exception v7
+    move-exception v8
 
-    :goto_5
-    :try_start_f
-    invoke-virtual {v7}, Ljava/io/FileNotFoundException;->printStackTrace()V
-    :try_end_f
-    .catchall {:try_start_f .. :try_end_f} :catchall_0
+    invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    :try_start_10
-    invoke-virtual {v10}, Ljava/io/InputStream;->close()V
-    :try_end_10
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_10} :catch_a
-
-    return v22
+    return v23
 
     :catch_a
     move-exception v8
 
     invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return v22
+    return v23
 
     :catchall_0
-    move-exception v22
+    move-exception v23
 
-    :goto_6
-    :try_start_11
+    :goto_7
+    :try_start_12
     invoke-virtual {v10}, Ljava/io/InputStream;->close()V
-    :try_end_11
-    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_11} :catch_b
+    :try_end_12
+    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_12} :catch_b
 
-    throw v22
+    throw v23
 
     :catch_b
     move-exception v8
 
     invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    return v22
+    return v23
 
     :catchall_1
-    move-exception v22
+    move-exception v23
 
     move-object v10, v11
 
-    goto :goto_6
+    goto :goto_7
 
     :catchall_2
-    move-exception v22
+    move-exception v23
 
     move-object/from16 v18, v19
 
     move-object v10, v11
 
-    goto :goto_6
+    goto :goto_7
 
     :catch_c
     move-exception v7
 
-    move-object v10, v11
-
-    goto :goto_5
+    goto :goto_4
 
     :catch_d
     move-exception v7
 
-    move-object/from16 v18, v19
-
     move-object v10, v11
 
-    goto :goto_5
+    goto :goto_4
 
     :catch_e
     move-exception v9
 
     move-object v10, v11
 
-    goto :goto_4
+    goto :goto_6
 
     :catch_f
     move-exception v9
@@ -630,14 +720,14 @@
 
     move-object v10, v11
 
-    goto :goto_4
+    goto :goto_6
 
     :catch_10
     move-exception v8
 
     move-object v10, v11
 
-    goto :goto_3
+    goto :goto_5
 
     :catch_11
     move-exception v8
@@ -646,7 +736,7 @@
 
     move-object v10, v11
 
-    goto :goto_3
+    goto :goto_5
 .end method
 
 .method private loadWifiApConfig(Ljava/lang/String;)Z
@@ -1103,7 +1193,7 @@
 .end method
 
 .method private writeOtherConf(Ljava/lang/String;)V
-    .locals 11
+    .locals 12
 
     const/4 v6, 0x0
 
@@ -1251,12 +1341,58 @@
     return-void
 
     :cond_1
+    :try_start_4
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "PMFChecked="
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBackupRestore$WifiApBRthread;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "wifi_ap_pmf_checked"
+
+    const/4 v11, 0x0
+
+    invoke-static {v9, v10, v11}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v9
+
+    invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+
+    const-string/jumbo v8, "\n"
+
+    invoke-virtual {v7, v8}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
     if-eqz v7, :cond_2
 
-    :try_start_4
+    :try_start_5
     invoke-virtual {v7}, Ljava/io/FileWriter;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
 
     :cond_2
     :goto_3
@@ -1284,10 +1420,10 @@
     :goto_4
     if-eqz v6, :cond_3
 
-    :try_start_5
+    :try_start_6
     invoke-virtual {v6}, Ljava/io/FileWriter;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
 
     :cond_3
     :goto_5

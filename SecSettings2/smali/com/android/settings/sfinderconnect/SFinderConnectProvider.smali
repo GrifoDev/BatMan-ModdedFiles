@@ -266,7 +266,7 @@
 
     iget-object v13, v0, Lcom/android/settings/sfinderconnect/SFinderConnectProvider;->mContext:Landroid/content/Context;
 
-    const v14, 0x7f0b1253
+    const v14, 0x7f0b12ee
 
     invoke-virtual {v13, v14}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -283,7 +283,7 @@
 
     const-string/jumbo v10, "com.android.settings"
 
-    const v5, 0x7f020574
+    const v5, 0x7f0205dd
 
     :cond_1
     move-object/from16 v0, p0
@@ -393,7 +393,7 @@
 
     iget-object v14, v0, Lcom/android/settings/sfinderconnect/SFinderConnectProvider;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f0b1253
+    const v15, 0x7f0b12ee
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -671,7 +671,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0112
+    const v2, 0x7f0d0113
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 

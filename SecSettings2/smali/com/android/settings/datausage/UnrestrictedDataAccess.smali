@@ -11,6 +11,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/settings/datausage/UnrestrictedDataAccess$1;,
         Lcom/android/settings/datausage/UnrestrictedDataAccess$AccessPreference;
     }
 .end annotation
@@ -31,9 +32,13 @@
 
 .field private mDataUsageBridge:Lcom/android/settings/datausage/AppStateDataUsageBridge;
 
+.field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
 .field private mExtraLoaded:Z
 
 .field private mFilter:Lcom/android/settingslib/applications/ApplicationsState$AppFilter;
+
+.field private mRestrictOption:Landroid/view/Menu;
 
 .field private mSession:Lcom/android/settingslib/applications/ApplicationsState$Session;
 
@@ -59,6 +64,38 @@
     return-object v0
 .end method
 
+.method static synthetic -get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/view/Menu;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mRestrictOption:Landroid/view/Menu;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mShowSortSelected:Z
+
+    return v0
+.end method
+
+.method static synthetic -get5(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mShowSystem:Z
+
+    return v0
+.end method
+
 .method static synthetic -wrap0(Lcom/android/settings/datausage/UnrestrictedDataAccess;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
     .locals 1
 
@@ -69,10 +106,24 @@
     return-object v0
 .end method
 
-.method public constructor <init>()V
+.method static synthetic -wrap1(Lcom/android/settings/datausage/UnrestrictedDataAccess;)V
     .locals 0
 
+    invoke-direct {p0}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->searchUnrestrictedDatausageApps()V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 1
+
     invoke-direct {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;-><init>()V
+
+    new-instance v0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;-><init>(Lcom/android/settings/datausage/UnrestrictedDataAccess;)V
+
+    iput-object v0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
     return-void
 .end method
@@ -125,12 +176,313 @@
     return-void
 .end method
 
+.method private searchUnrestrictedDatausageApps()V
+    .locals 13
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {v10}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
+
+    move-result-object v9
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {v10}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamsSize()I
+
+    move-result v8
+
+    const-string/jumbo v10, "AllowUnrestrictedDataUsageOn"
+
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_0
+
+    const/4 v5, 0x1
+
+    :goto_0
+    const/4 v10, 0x1
+
+    if-ge v8, v10, :cond_1
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v11, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    return-void
+
+    :cond_0
+    const/4 v5, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_2
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v11, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    return-void
+
+    :cond_2
+    const-string/jumbo v0, ""
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mSession:Lcom/android/settingslib/applications/ApplicationsState$Session;
+
+    iget-object v11, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mFilter:Lcom/android/settingslib/applications/ApplicationsState$AppFilter;
+
+    sget-object v12, Lcom/android/settingslib/applications/ApplicationsState;->ALPHA_COMPARATOR:Ljava/util/Comparator;
+
+    invoke-virtual {v10, v11, v12}, Lcom/android/settingslib/applications/ApplicationsState$Session;->rebuild(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;Ljava/util/Comparator;)Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    const/4 v3, 0x0
+
+    :goto_1
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v10
+
+    if-ge v3, v10, :cond_8
+
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+
+    iget-object v10, v10, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->label:Ljava/lang/String;
+
+    invoke-virtual {v10}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+
+    invoke-virtual {v0, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_7
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v11, v2, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v11, v11, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, "|"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    iget-object v11, v2, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
+
+    iget v11, v11, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {p0, v4}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->getCachedPreference(Ljava/lang/String;)Landroid/preference/Preference;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/settings/datausage/UnrestrictedDataAccess$AccessPreference;
+
+    if-nez v6, :cond_3
+
+    new-instance v6, Lcom/android/settings/datausage/UnrestrictedDataAccess$AccessPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->getPrefContext()Landroid/content/Context;
+
+    move-result-object v10
+
+    invoke-direct {v6, p0, v10, v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess$AccessPreference;-><init>(Lcom/android/settings/datausage/UnrestrictedDataAccess;Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)V
+
+    invoke-virtual {v6, v4}, Lcom/android/settings/datausage/UnrestrictedDataAccess$AccessPreference;->setKey(Ljava/lang/String;)V
+
+    invoke-virtual {v6, p0}, Lcom/android/settings/datausage/UnrestrictedDataAccess$AccessPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v6}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+
+    :goto_2
+    invoke-virtual {v6}, Lcom/android/settings/datausage/UnrestrictedDataAccess$AccessPreference;->isChecked()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_5
+
+    if-eqz v5, :cond_4
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v11, "AlreadyOn"
+
+    const-string/jumbo v12, "Yes"
+
+    invoke-virtual {v10, v9, v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v11, "AllowUnrestrictedDataUsage"
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v11, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    :goto_3
+    return-void
+
+    :cond_3
+    invoke-virtual {v6}, Lcom/android/settings/datausage/UnrestrictedDataAccess$AccessPreference;->reuse()V
+
+    goto :goto_2
+
+    :cond_4
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v10
+
+    invoke-virtual {p0, v6, v10}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v11, "AlreadyOff"
+
+    const-string/jumbo v12, "no"
+
+    invoke-virtual {v10, v9, v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v11, "AllowUnrestrictedDataUsage"
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v11, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto :goto_3
+
+    :cond_5
+    if-eqz v5, :cond_6
+
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v10
+
+    invoke-virtual {p0, v6, v10}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v11, "AlreadyOn"
+
+    const-string/jumbo v12, "no"
+
+    invoke-virtual {v10, v9, v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v11, "AllowUnrestrictedDataUsage"
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v11, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto :goto_3
+
+    :cond_6
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v11, "AlreadyOff"
+
+    const-string/jumbo v12, "Yes"
+
+    invoke-virtual {v10, v9, v11, v12}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v11, "AllowUnrestrictedDataUsage"
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    sget-object v11, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto :goto_3
+
+    :cond_7
+    add-int/lit8 v3, v3, 0x1
+
+    goto/16 :goto_1
+
+    :cond_8
+    return-void
+.end method
+
 
 # virtual methods
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a00
+    const v0, 0x7f0b1a9c
 
     return v0
 .end method
@@ -249,6 +601,12 @@
 
     invoke-virtual {p0, v0}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->setHasOptionsMenu(Z)V
 
+    new-instance v0, Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-direct {v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
     return-void
 
     :cond_1
@@ -271,7 +629,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b183f
+    const v0, 0x7f0b18db
 
     :goto_0
     const/16 v1, 0x2b
@@ -280,16 +638,18 @@
 
     const/16 v0, 0x2c
 
-    const v1, 0x7f0b10ae
+    const v1, 0x7f0b113b
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
+
+    iput-object p1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mRestrictOption:Landroid/view/Menu;
 
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
     return-void
 
     :cond_0
-    const v0, 0x7f0b183e
+    const v0, 0x7f0b18da
 
     goto :goto_0
 .end method
@@ -390,7 +750,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0b183f
+    const v0, 0x7f0b18db
 
     :goto_2
     invoke-interface {p1, v0}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -443,7 +803,7 @@
     goto :goto_1
 
     :cond_2
-    const v0, 0x7f0b183e
+    const v0, 0x7f0b18da
 
     goto :goto_2
 
@@ -464,7 +824,7 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f0b167e
+    const v0, 0x7f0b171a
 
     :goto_5
     invoke-interface {p1, v0}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -508,7 +868,7 @@
     goto :goto_4
 
     :cond_6
-    const v0, 0x7f0b10ae
+    const v0, 0x7f0b113b
 
     goto :goto_5
 
@@ -540,7 +900,7 @@
 .end method
 
 .method public onPause()V
-    .locals 1
+    .locals 2
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onPause()V
 
@@ -551,6 +911,12 @@
     iget-object v0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mSession:Lcom/android/settingslib/applications/ApplicationsState$Session;
 
     invoke-virtual {v0}, Lcom/android/settingslib/applications/ApplicationsState$Session;->pause()V
+
+    iget-object v0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "AllowUnrestrictedDataUsage"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -866,7 +1232,7 @@
 .end method
 
 .method public onResume()V
-    .locals 1
+    .locals 4
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onResume()V
 
@@ -877,6 +1243,18 @@
     iget-object v0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mDataUsageBridge:Lcom/android/settings/datausage/AppStateDataUsageBridge;
 
     invoke-virtual {v0}, Lcom/android/settings/datausage/AppStateDataUsageBridge;->resume()V
+
+    iget-object v0, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+
+    const-string/jumbo v3, "AllowUnrestrictedDataUsage"
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
 
     return-void
 .end method

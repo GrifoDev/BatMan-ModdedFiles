@@ -61,7 +61,7 @@
 
     iput-boolean v0, p0, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment$MagnifierImageZoom;->mIsLongkeyProcessing:Z
 
-    const v0, 0x7f040194
+    const v0, 0x7f040196
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment$MagnifierImageZoom;->setLayoutResource(I)V
 
@@ -87,7 +87,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const v3, 0x7f110556
+    const v3, 0x7f110558
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment$MagnifierImageZoom;->mZoomLayer:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f110555
+    const v3, 0x7f110557
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -107,7 +107,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment$MagnifierImageZoom;->mTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f11055a
+    const v3, 0x7f11055c
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -121,7 +121,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment$MagnifierImageZoom;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f020623
+    const v5, 0x7f02068c
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -137,7 +137,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d01d7
+    const v5, 0x7f0d01d8
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -151,7 +151,7 @@
 
     invoke-virtual {v3, v2}, Lcom/samsung/android/settings/widget/IntervalSeekBar;->setProgressTintList(Landroid/content/res/ColorStateList;)V
 
-    const v3, 0x7f110559
+    const v3, 0x7f11055b
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -161,7 +161,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment$MagnifierImageZoom;->mPlusMagnifier:Landroid/widget/ImageView;
 
-    const v3, 0x7f110557
+    const v3, 0x7f110559
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -479,7 +479,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f110557
+    .packed-switch 0x7f110559
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -660,7 +660,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f110557
+    .packed-switch 0x7f110559
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -710,7 +710,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f100310
+    const v2, 0x7f100316
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

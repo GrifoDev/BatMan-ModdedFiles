@@ -80,7 +80,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv$4;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
 
@@ -98,15 +98,16 @@
 
     invoke-virtual {v1, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
+    :cond_0
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     invoke-static {p1}, Lcom/android/settings/Utils;->isSupportKorRoamingConcept(Landroid/content/Context;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv$4;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
 
@@ -115,6 +116,12 @@
     move-result-object v1
 
     invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    invoke-static {}, Lcom/android/settings/Utils;->isExceptionalUSIM()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
 
     iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv$4;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
 
@@ -126,7 +133,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object v1, p0, Lcom/samsung/android/settings/LGTRoamingEnv$4;->this$0:Lcom/samsung/android/settings/LGTRoamingEnv;
 
     invoke-static {v1}, Lcom/samsung/android/settings/LGTRoamingEnv;->-get1(Lcom/samsung/android/settings/LGTRoamingEnv;)Landroid/preference/Preference;

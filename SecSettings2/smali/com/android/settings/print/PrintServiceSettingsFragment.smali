@@ -289,11 +289,11 @@
 .method private updateEmptyView()V
     .locals 10
 
-    const v9, 0x7f0b17b1
+    const v9, 0x7f0b184d
 
-    const v8, 0x7f0b17a8
+    const v8, 0x7f0b1844
 
-    const v7, 0x7f0400ef
+    const v7, 0x7f0400f1
 
     const/4 v6, 0x0
 
@@ -329,7 +329,7 @@
 
     move-result v4
 
-    const v5, 0x7f11036f
+    const v5, 0x7f110371
 
     if-eq v4, v5, :cond_0
 
@@ -403,7 +403,7 @@
 
     move-result v4
 
-    const v5, 0x7f110371
+    const v5, 0x7f110373
 
     if-eq v4, v5, :cond_3
 
@@ -422,7 +422,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0400f0
+    const v5, 0x7f0400f2
 
     invoke-virtual {v4, v5, v0, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -453,7 +453,7 @@
 
     move-result v4
 
-    const v5, 0x7f11036f
+    const v5, 0x7f110371
 
     if-eq v4, v5, :cond_5
 
@@ -718,15 +718,15 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 7
 
-    const v6, 0x7f1109d1
+    const v6, 0x7f1109d7
 
-    const v5, 0x7f1109d0
+    const v5, 0x7f1109d6
 
-    const v4, 0x7f1109cf
+    const v4, 0x7f1109d5
 
     invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    const v3, 0x7f14000a
+    const v3, 0x7f14000b
 
     invoke-virtual {p2, v3, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 

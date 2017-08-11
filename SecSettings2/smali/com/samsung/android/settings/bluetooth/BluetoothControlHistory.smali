@@ -34,6 +34,8 @@
 
 .field private mResolver:Landroid/content/ContentResolver;
 
+.field private mScreenId:Ljava/lang/String;
+
 .field private mTimeFormat:Ljava/text/DateFormat;
 
 .field private mTitleView:Landroid/widget/TextView;
@@ -65,7 +67,7 @@
 
     sput-boolean v0, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->DBG:Z
 
-    const-string/jumbo v0, "caller_name!= \'com.android.bluetooth\' AND caller_name!= \'com.android.nfc\' AND caller_name!= \'com.android.settings\' AND caller_name!= \'com.android.systemui\' AND caller_name!= \'com.samsung.android.easysetup\' AND caller_name!= \'com.samsung.android.oneconnect\' AND caller_name!= \'com.sec.android.easysettings\' AND caller_name!= \'com.sec.android.emergencymode.service\'"
+    const-string/jumbo v0, "caller_name!= \'com.android.bluetooth\' AND caller_name!= \'com.android.nfc\' AND caller_name!= \'com.android.settings\' AND caller_name!= \'com.android.systemui\' AND caller_name!= \'com.samsung.android.easysetup\' AND caller_name!= \'com.samsung.android.oneconnect\' AND caller_name!= \'com.sec.android.easysettings\' AND caller_name!= \'com.sec.android.emergencymode.service\' AND caller_name!= \'com.samsung.android.bixby.agent\'"
 
     sput-object v0, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->CLAUSE_ONLY_3RD_PARTY_APP:Ljava/lang/String;
 
@@ -458,7 +460,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b03fe
+    const v2, 0x7f0b045f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -466,7 +468,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bluetooth/BluetoothNoItemPreference;->setMainText(Ljava/lang/String;)V
 
-    const v1, 0x7f0f0288
+    const v1, 0x7f0f0289
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bluetooth/BluetoothNoItemPreference;->setMainTextAppearance(I)V
 
@@ -583,7 +585,7 @@
 
     invoke-direct {v3, v6}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0401ef
+    const v6, 0x7f0401f1
 
     invoke-virtual {v3, v6}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -759,7 +761,7 @@
 
     aput-object v1, v4, v6
 
-    const v5, 0x7f0b03ff
+    const v5, 0x7f0b0460
 
     invoke-virtual {v3, v5, v4}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -776,7 +778,7 @@
 
     aput-object v1, v4, v6
 
-    const v5, 0x7f0b0400
+    const v5, 0x7f0b0461
 
     invoke-virtual {v3, v5, v4}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1001,6 +1003,8 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 2
 
+    const/4 v1, 0x1
+
     invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     const v0, 0x7f080032
@@ -1019,8 +1023,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->mApplicationCategory:Landroid/preference/PreferenceGroup;
 
-    const/4 v1, 0x1
-
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->setOrderingAsAdded(Z)V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->getActivity()Landroid/app/Activity;
@@ -1036,6 +1038,20 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->mLocalManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->setHasOptionsMenu(Z)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0b0006
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->mScreenId:Ljava/lang/String;
 
     return-void
 .end method
@@ -1097,6 +1113,47 @@
     .locals 0
 
     return-void
+.end method
+
+.method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    .locals 3
+
+    invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    :goto_0
+    invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+
+    move-result v0
+
+    return v0
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->mScreenId:Ljava/lang/String;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0b002a
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x102002c
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public onPause()V
@@ -1167,6 +1224,20 @@
 
     invoke-static {v0, v1, v3, v7}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->mScreenId:Ljava/lang/String;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v3, 0x7f0b002b
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1, v7}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
     new-instance v2, Landroid/os/Bundle;
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
@@ -1187,7 +1258,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b165f
+    const v3, 0x7f0b16fb
 
     move-object v5, v4
 
@@ -1242,6 +1313,10 @@
     iput-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->mResolver:Landroid/content/ContentResolver;
 
     invoke-direct {p0}, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->refreshApplicationPreferences()V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->mScreenId:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;)V
 
     return-void
 

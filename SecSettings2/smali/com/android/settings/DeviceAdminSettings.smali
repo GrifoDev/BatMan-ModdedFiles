@@ -562,7 +562,7 @@
 
     iput-object v0, p0, Lcom/android/settings/DeviceAdminSettings;->mUm:Landroid/os/UserManager;
 
-    const v0, 0x7f0400d0
+    const v0, 0x7f0400d2
 
     const/4 v1, 0x0
 
@@ -794,7 +794,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f100297
+    const v2, 0x7f10029d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

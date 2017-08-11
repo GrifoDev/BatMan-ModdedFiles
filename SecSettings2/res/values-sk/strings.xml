@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">Siete sa nedajú vyhľadávať</string>
     <string name="wifi_failed_to_obtain_IP">Nepodarilo sa získať adresu IP.</string>
     <string name="wifi_security_none">Žiadny</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Nedá sa pripojiť k zariadeniu %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Nedá sa pripojiť k zariadeniu %1$s. Skontrolujte nastavenia zariadenia %2$s a skúste to znova.</string>
     <string name="bluetooth_pairing_rejected_error_message">Zariadenie %s odmietlo párovanie.</string>
+    <string name="bluetooth_getting_remote_device_name">Získava sa názov zariadenia…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Pri pripojení tohto zariadenia sa zobrazí jeho názov.</string>
     <string name="accessibility_wifi_off">Sieť Wi-Fi je vypnutá.</string>
     <string name="accessibility_no_wifi">Sieť Wi-Fi je odpojená.</string>
     <string name="accessibility_wifi_one_bar">Jedna čiarka signálu Wi-Fi.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Podpora</string>
     <string name="reset_network_settings_list_summary">Pre nastavenia pripojení Wi-Fi, Bluetooth a ďalšie sieťové nastavenia sa obnovia predvolené hodnoty.</string>
     <string name="master_clear_list_summary">Zariadenie sa resetuje s obnovením predvolených nastavení od výrobcu. Tým sa vymažú všetky údaje vrátane súborov a stiahnutých aplikácií.</string>
-    <string name="auto_restart_summary">Zariadenie sa bude optimalizovať automatickým reštartovaním v nastavených časoch. Pri reštartovaní zariadenia sa stratia všetky neuložené údaje.</string>
+    <string name="auto_restart_summary">Telefón sa optimalizuje automatickým reštartovaním raz týždenne. Pri reštartovaní telefónu dôjde k strate všetkých neuložených údajov.</string>
+    <string name="auto_restart_summary_tablet">Tablet sa optimalizuje automatickým reštartovaním raz týždenne. Pri reštartovaní tabletu dôjde k strate všetkých neuložených údajov.</string>
     <string name="search_settings">Hľadať</string>
     <string name="related_results">Súvisiace položky: %d</string>
     <string name="no_results_found">Nenašli sa žiadne výsledky</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Vyváženie zvuku je %d percent doprava. Dvomi prstami presuňte jazdec.</string>
     <string name="sound_balance_set">Nastaviť</string>
     <string name="accessibility_assistant_menu">Asistenčné menu</string>
-    <string name="assistant_menu_summary">Aktivuje funkcie na zjednodušenie ovládania zariadenia pre používateľov so zníženou zručnosťou.</string>
+    <string name="assistant_menu_summary">Zlepší sa zjednodušenie ovládania telefónu pre používateľov so zníženou zručnosťou.</string>
     <string name="color_blind_title">Nastavenie farieb</string>
     <string name="no_result">Ak zistíte, že je zložité čítať z displeja, upravte farby obrazovky.</string>
     <string name="you_are_normal">Úprava farieb nie je potrebná.</string>
@@ -653,6 +656,7 @@ Keď je zapnutá táto funkcia, automatické otáčanie obrazovky sa vypne. Zabl
     <string name="direct_access_actions_accessibility_title">Zjednodušenie ovládania</string>
     <string name="direct_access_actions_negative_title">Negatívne farby</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Funkcie Priamy prístup a Zmenšiť veľkosť obrazovky nemôžu byť zapnuté súčasne. Funkcia Zmenšiť veľkosť obrazovky sa vypne.</string>
+    <string name="direct_access_exclusive_popup_msg">Funkcie %1$s a %2$s nemôžu byť zapnuté súčasne. Funkcia %3$s sa vypne.</string>
     <string name="direct_access_actions_color_adjustment_summary">Po nastavení funkcie Nastavenie farieb v menu Zrak ju môžete používať v rámci funkcie Priamy prístup</string>
     <string name="direct_access_actions_screen_reader_summary">Po zapnutí funkcie Čítačka stránok ju môžete používať vo funkcii Priamy prístup.</string>
     <string name="direct_access_actions_accesscontrol_title">﻿Interakčné ovládanie</string>
@@ -850,7 +854,9 @@ Vypnú sa aj funkcie Wi-Fi a Bluetooth, ale môžete ich znova zapnúť v menu N
     <string name="premium_sms_values_ask">Pýtať sa</string>
     <string name="premium_sms_values_never">Nikdy nepovoliť</string>
     <string name="premium_sms_values_allow">Vždy povoliť</string>
-    <string name="assist_and_voice_input_summary">Aplikácie na pomoc so zariadením poskytujú ďalšie možnosti a informácie o jednotlivých obrazovkách.</string>
+    <string name="assist_and_voice_input_summary">Vyberte, ktorú aplikáciu chcete použiť pri dotyku a podržaní tlačidla Domov.</string>
+    <string name="assist_footer_phone">Vyberte, ktorú aplikáciu chcete použiť pri dotyku a podržaní tlačidla Domov. Aplikácie na pomoc so zariadením vám pomôžu získavať informácie z obrazovky aktuálne zobrazenej na telefóne.</string>
+    <string name="assist_footer_tablet">Vyberte, ktorú aplikáciu chcete použiť pri dotyku a podržaní tlačidla Domov. Aplikácie na pomoc so zariadením vám pomôžu získavať informácie z obrazovky aktuálne zobrazenej na tablete.</string>
     <string name="default_app_title">Predvolenie</string>
     <string name="premium_sms_title">Odoslať prémiovú správu SMS</string>
     <string name="default_app_selection">Výber predvol. aplikácií</string>
@@ -939,7 +945,7 @@ Môžete to neskôr zmeniť v menu Nastavenia rozhrania Bluetooth."</string>
 
 Tieto 2 pripojené zariadenia môžu mať mierne rozdielny zvukový výstup."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Vypnúť Synchronizáciu hlasitosti médií?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Pred použitím funkcie Duálny zvuk sa musí vypnúť funkcia Synchronizácia hlasitosti médií.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Ak chcete ovládať hlasitosť jednotlivých zvukových zariadení samostatne, je potrebné vypnúť funkciu Synchronizácia hlasitosti médií.</string>
     <string name="bluetooth_avc_title">Synchr. hlasitosti médií</string>
     <string name="bluetooth_avc_description">Ak pripojené zariadenie Bluetooth dokáže ovládať hlasitosť médií v telefóne, úroveň hlasitosti nastavená zariadením Bluetooth sa bude synchronizovať s telefónom.</string>
     <string name="bluetooth_avc_volume_change_description">Zapnutie tejto funkcie môže spôsobiť neočakávané zmeny hlasitosti.</string>
@@ -948,6 +954,7 @@ Tieto 2 pripojené zariadenia môžu mať mierne rozdielny zvukový výstup."</s
     <string name="bluetooth_avc_ask_popup_title">Chcete vypnúť funkciu Duálny zvuk?</string>
     <string name="bluetooth_avc_ask_popup_content">Pred použitím funkcie Synchronizácia hlasitosti médií sa musí vypnúť funkcia Duálny zvuk.</string>
     <string name="bluetooth_avc_disable_description">Pripojené zariadenie Bluetooth nepodporuje funkciu Synchronizácia hlasitosti médií. Nemôžete synchronizovať hlasitosť telefónu s pripojeným zariadením Bluetooth.</string>
+    <string name="bluetooth_avc_available_description">Pripojené zariadenie Bluetooth podporuje funkciu Synchronizácia hlasitosti médií a úroveň hlasitosti nastavená zariadením Bluetooth sa bude synchronizovať s telefónom.</string>
     <string name="bluetooth_enter_pin_msg">Zadajte PIN na spárovanie so zariadením %s (skúste 0000 alebo 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Dosiahol sa maximálny počet znakov.</string>
     <string name="settings_menu_done">Hotovo</string>
@@ -1031,11 +1038,12 @@ Aj keď je funkcia Inteligentné snímanie vypnutá, môžete pristupovať k jej
     <string name="swipe_to_call_title">Hovory alebo správy potiahnutím</string>
     <string name="swipe_to_call_summary">Potiahnutím cez kontakt alebo číslo smerom doprava môžete uskutočniť hovor a potiahnutím doľava môžete odoslať správu v aplikácii Telefón, Kontakty alebo Správy.</string>
     <string name="swipe_to_call_summary_dcm">Potiahnutím cez kontakt alebo číslo smerom doprava môžete uskutočniť hovor a potiahnutím doľava môžete odoslať správu v aplikácii Ciferník, Kontakty alebo Správy.</string>
-    <string name="swipe_to_call_summary_kddi">Potiahnutím cez kontakt alebo číslo smerom doprava môžete uskutočniť hovor a potiahnutím doľava môžete odoslať správu v aplikácii Telefón alebo Kontakty.</string>
+    <string name="swipe_to_call_summary_kddi">Potiahnutím prstom cez kontakt alebo číslo smerom doprava môžete uskutočniť hovor a potiahnutím doľava môžete odoslať správu v aplikácii Volič alebo Kontakty.</string>
     <string name="dual_app_title">Duálny komunikátor</string>
     <string name="dual_app_summary">Môžete používať dve samostatné kontá pre rovnakú aplikáciu.</string>
     <string name="finger_sensor_gesture_title">Gestá snímača prstov</string>
     <string name="finger_sensor_gesture_summary">Pomocou snímača odtlačkov prstov môžete otvárať a zatvárať aplikácie a funkcie.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Pomocou snímača odtlačkov prstov môžete otvoriť a zavrieť panel oznámení.</string>
     <string name="finger_sensor_gesture_description">Potiahnutím nahor alebo nadol po snímači odtlačkov prstov môžete otvoriť alebo zavrieť panel oznámení.</string>
     <string name="open_samsung_pay_title">Otvoriť Samsung Pay</string>
     <string name="open_samsung_pay_summary">Aplikáciu Samsung Pay môžete otvoriť z domovskej obrazovky potiahnutím po snímači odtlačkov prstov smerom nahor.</string>
@@ -1070,6 +1078,7 @@ Aj keď je funkcia Inteligentné snímanie vypnutá, môžete pristupovať k jej
 %s"</string>
     <string name="enable_ps_title">Zapnúť funkciu %s</string>
     <string name="setup_wizard">Sprievodca inštaláciou</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normálne</string>
     <string name="large">Veľké</string>
     <string name="small">Malé</string>
@@ -1215,7 +1224,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Pri pripojení k sieti Wi-Fi sa automaticky stiahnu aktualizácie softvéru. Počas sťahovania budete môcť zariadenie aj naďalej používať.</string>
     <string name="auto_update_over_wifi">Automaticky stiahnuť cez Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">Pri pripojení k sieti Wi-Fi sa automaticky stiahnu aktualizácie softvéru. V závislosti od operátora sa môžu aktualizácie stiahnuť aj cez mobilné dátové pripojenie bez ďalších poplatkov. Telefón budete môcť počas sťahovania naďalej používať.</string>
-    <string name="scheduled_update">Plánované aktualiz. softvéru</string>
+    <string name="scheduled_update">Naplánované aktualizácie softvéru</string>
     <string name="scheduled_update_summary_default">Vypnuté</string>
     <string name="scheduled_update_summary_set_time">Aktualizácia sa spustí o %s</string>
     <string name="scheduled_update_summary_set_time_everyday">Aktualizácia sa spustí o %s každý deň</string>
@@ -1359,7 +1368,7 @@ Upozorňujeme tiež, že spoločnosť Samsung môže aj naďalej zhromažďovať
     <string name="adjust_your_display_colour">Úpravou farieb displeja môžete zmeniť vzhľad odtieňov bielej farby.</string>
     <string name="display_temperature_preset_cool">Studené</string>
     <string name="display_temperature_preset_warm">Teplé</string>
-    <string name="display_advanced_option">Spresniť nastavenia</string>
+    <string name="display_advanced_option">Rozšírené možnosti</string>
     <string name="color_balance_subtext_1">Vyváženie farieb možno upraviť iba v režime adaptívneho zobrazenia.</string>
     <string name="color_balance_subtext_2">Vaše nastavenia sa nepoužijú, kým bude zapnutá funkcia Filter modrého svetla.</string>
     <string name="poc_balance_title">Vyváženie farieb okrajov obraz.</string>
@@ -1417,6 +1426,7 @@ Upozorňujeme tiež, že spoločnosť Samsung môže aj naďalej zhromažďovať
     <string name="navigationbar_summary">Môžete spravovať tlačidlá Domov, Späť a Nedávne.</string>
     <string name="navigationbar_theme_switch">Použiť aktuálnu tému</string>
     <string name="navigationbar_color_title">Farba pozadia</string>
+    <string name="navigationbar_color_summary">Vybratá farba pozadia sa nemusí použiť pre všetky aplikácie.</string>
     <string name="navigationbar_order_title">Rozloženie tlačidiel</string>
     <string name="navigationbar_order_default">Nedávne – Domov – Späť</string>
     <string name="navigationbar_order_mirrored">Späť – Domov – Nedávne</string>
@@ -1448,7 +1458,8 @@ Upozorňujeme tiež, že spoločnosť Samsung môže aj naďalej zhromažďovať
     <string name="blue_light_filter_enable_now">Zapnúť teraz</string>
     <string name="blue_light_filter_enable_as_scheduled">Zapnutie podľa plánu</string>
     <string name="blue_light_filter_scheduled_toast">Funkcia Filter modrého svetla sa zapla. V naplánovanom čase ukončenia sa automaticky vypne.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">Funkcie %s a Filter modrého svetla sa nemôžu používať súčasne. Funkcia Filter modrého svetla sa vypne.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Vypnúť funkciu Filter modrého svetla?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Pred použitím funkcie %s sa musí vypnúť funkcia Filter modrého svetla.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Ak chcete použiť funkciu Od súmraku do úsvitu, musí byť zapnutá funkcia Lokalizácia.</string>
     <string name="dlg_turn_on">Zapnúť</string>
     <string name="screen_resolution_title">Rozlíšenie obrazovky</string>
@@ -1665,6 +1676,7 @@ Počas procesu dešifrovania sa karta SD nedá používať."</string>
     <string name="crypt_keeper_last_warn_wipe">Ešte 1 raz sa môžete pokúsiť o spustenie zariadenia a potom sa resetuje s obnovením predvolených nastavení od výrobcu. Tým sa vymažú všetky údaje vrátane súborov a stiahnutých aplikácií.</string>
     <string name="crypt_keeper_failed_title_dec">Dešifrovanie zlyhalo.</string>
     <string name="crypt_keeper_failed_summary_dec">Dešifrovanie sa nedá dokončiť z dôvodu prerušenia. Pred použitím vykonajte obnovenie údajov od výrobcu (vymazanie všetkých údajov).</string>
+    <string name="crypt_keeper_set_screen_lock_type">Nast. typ zamknutia obrazovky</string>
     <string name="encryption_interstitial_message">"Môžete zvýšiť ochranu telefónu tým, že pred jeho spustením sa bude vyžadovať %s. To pomôže ochrániť vaše údaje v prípade straty alebo odcudzenia telefónu. Niektoré aplikácie môžu vyžadovať pri prístupe k funkciám, ako je napríklad synchronizácia e-mailov, zabezpečené spustenie v súlade so zásadami šifrovania zariadenia.
 
 Kým sa telefón nespustí, nebudete prijímať hovory, správy ani oznámenia a nebudú znieť budíky."</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Použiť odtlačok prsta</string>
     <string name="wifi_ap_close">Zavrieť</string>
     <string name="fingerscanner_add_summary">Pridajte odtlačky prstov.</string>
+    <string name="fingerscanner_register_1_finger_summary">Bol pridaný 1 odtlačok prsta.</string>
     <string name="fingerscanner_register_summary">Vykonalo sa pridanie %d odtlačkov prstov.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Použite odtlačok prsta alebo zadajte aktuálny kód PIN.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Použite odtlačok prsta alebo nakreslite aktuálny vzor.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Telefón môžete odomknúť pomocou rozpoznávania tváre hneď po zapnutí obrazovky bez toho, aby ste museli najprv vykonať potiahnutie.</string>
     <string name="facelock_recognition_speed_up">Rýchlejšie rozpoznávanie</string>
     <string name="facelock_recognition_speed_up_summary">Zapnutím sa zrýchli rozpoznávanie. Vypnutím sa zvýši zabezpečenie a sťaží sa odomknutie telefónu pomocou fotografie alebo videa.</string>
+    <string name="facelock_samsungpass_summary">Pomocou rozpoznávania tváre môžete overovať svoju identitu cez %s a iné podporované aplikácie.</string>
     <string name="face_remove_face_popup_title">Chcete odstrániť údaje o tvári?</string>
     <string name="face_remove_face_popup_message_1">Vaša tvár sa už nebude rozpoznávať a funkcia Tvárový zámok sa vypne.</string>
     <string name="face_remove_face_popup_message_2">Funkcie, ktoré používajú rozpoznávanie tváre, sa vypnú.</string>
@@ -2070,7 +2084,7 @@ Ak chcete používať na odomykanie telefónu biometrické údaje alebo %s, zapn
     <string name="biometrics_backup_locktype_title">Nastavenie zabezpečenia dúhovkami</string>
     <string name="biometrics_register_your_iris">Zaregistrujte svoje dúhovky.</string>
     <string name="biometrics_backup_locktype_summary">Ak chcete používať na odomykanie zariadenia dúhovky, musíte nastaviť vzor, kód PIN alebo heslo.</string>
-    <string name="biometrics_backup_locktype_message">Ak chcete používať na odomykanie telefónu alebo na bezpečné overovanie dúhovky, musíte:</string>
+    <string name="biometrics_backup_locktype_message">Na odomykanie telefónu alebo svoje overovanie v aplikáciách pomocou dúhoviek musíte vykonať nasledujúce kroky:</string>
     <string name="iris_delete_popup_title">Chcete odstrániť údaje o dúhovkách?</string>
     <string name="iris_delete_popup_message">Chcete odstrániť údaje o dúhovkách?</string>
     <string name="iris_delete_popup_message_with_related_func">Funkcie, ktoré používajú dúhovky, sa vypnú.</string>
@@ -2078,7 +2092,7 @@ Ak chcete používať na odomykanie telefónu biometrické údaje alebo %s, zapn
     <string name="iris_timeout_popop_title">Skúsiť neskôr</string>
     <string name="iris_timeout_popop_message">Dúhovky sa nerozpoznali. Fotoaparát snímajúci dúhovky je možno znečistený. Očistite oblasť nad obrazovkou a skúste to znova.</string>
     <string name="iris_timeout_popop_message_1">Fotoaparát snímajúci dúhovky je zrejme znečistený. Očistite oblasť nad obrazovkou a skúste to znova.</string>
-    <string name="iris_proximity_restriction_popop_message">Dúhovky sa nerozpoznali. Telefón je príliš blízko tváre alebo snímač priblíženia je možno znečistený. Očistite oblasť nad obrazovkou a skúste to znova.</string>
+    <string name="iris_proximity_restriction_popop_message">Podržte telefón ďalej od svojej tváre a skúste to znova.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Snímač priblíženia je zrejme znečistený.
 Vyčistite oblasť nad obrazovkou."</string>
     <string name="iris_try_again">Skúsiť znova</string>
@@ -2086,6 +2100,8 @@ Vyčistite oblasť nad obrazovkou."</string>
     <string name="iris_failed_to_verity_identify">Nepodarilo sa overiť vašu identitu</string>
     <string name="iris_failed_popup_description">%1$d-krát ste sa pokúsili overiť dúhovky. Skúste to znova po uplynutí %2$d sekúnd.</string>
     <string name="iris_no_match">Žiadna zhoda</string>
+    <string name="iris_eye_safety_msg">Vaše dúhovky sa nerozpoznali.</string>
+    <string name="iris_timeout_msg">Vaše dúhovky sa nezistili.</string>
     <string name="biometrics_registered">Zaregistrovaná</string>
     <string name="iris_turn_on_toast_message">Zaplo sa zamykanie dúhovkou namiesto zamykania odtlačkom prsta.</string>
     <string name="iris_wrong_backup_password">Nesprávne záložné heslo</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Na pohotovostnej obrazovke zobrazí tlačidlo Domov a hodiny alebo informácie.</string>
     <string name="aod_feature_off_popup_title">Chcete vypnúť funkciu %s?</string>
     <string name="aod_feature_off_popup_description">Pred použitím funkcie %1$s sa musí vypnúť funkcia %2$s.</string>
+    <string name="aod_features_off_popup_title">Chcete vypnúť ostatné funkcie?</string>
+    <string name="aod_features_off_popup_description">Pred použitím funkcie Always On Display sa musia vypnúť nasledujúce funkcie:</string>
     <string name="aod_features_off_popup_btn_ok">Vypnúť</string>
     <string name="aod_disable_by_negative_colors">Nedá sa použiť, keď je zapnutá funkcia Negatívne farby.</string>
     <string name="aod_disable_by_powersaving_mode">Nedá sa použiť, keď je zapnutá funkcia Režim šetrenia energie.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Farebné kvapôčky</string>
     <string name="lock_screen_show_information_summary_wifi_only">Na zamknutej obrazovke sa zobrazia informácie o vlastníkovi zariadenia alebo odkazy na aplikácie.</string>
     <string name="lock_screen_sview_show_information_summary">Na zamknutej obrazovke a cez okienko S View sa zobrazia duálne hodiny, informácie o vlastníkovi zariadenia alebo odkazy na aplikácie.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Na zamknutej obrazovke a cez okienko S View sa zobrazia roamingové hodiny alebo kontaktné údaje vlastníka telefónu.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Vyberte odkazy na aplikácie, ktoré chcete zobraziť na zamknutej obrazovke a cez okienko S View.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Zobrazuje oznámenia na zamknutej obrazovke a cez okienko S View.</string>
     <string name="lock_screen_and_cover_show_information_summary">Môžete zobraziť duálne hodiny na zamknutej obrazovke a cez priehľadný kryt.</string>
     <string name="lock_screen_secured_lock_settings_title">Nastavenia bezpečného zámku</string>
     <string name="lock_screen_secured_lock_settings_summary">Môžete nastaviť funkcie bezpečného zámku, ako napríklad automatické zamykanie a okamžité zamykanie tlačidlom napájania.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Domovské časové pásmo</string>
     <string name="contact_info_settings_title">Kontaktné údaje</string>
     <string name="show_contact_info_on_lockscreen_label">Môžete zobrazovať informácie na zamknutej obrazovke, napríklad vaše telefónne číslo alebo vašu e-mailovú adresu.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Môžete zobrazovať informácie na zamknutej obrazovke a obrazovke Always On Display, napríklad svoje telefónne číslo alebo svoju e-mailovú adresu.</string>
     <string name="unlock_effect">Efekt odomknutia</string>
     <string name="walking_mate_title">Krokomer</string>
     <string name="help_text_title">Text pomocníka</string>
@@ -2415,7 +2437,7 @@ Odporúča sa odstrániť biometrické údaje, môžete si ich však ponechať, 
     <string name="toast_set_lock_pattern">Ak zabudnete vzor, vymažú sa všetky údaje a telefón sa resetuje.</string>
     <string name="toast_set_lock_password">Ak zabudnete heslo, vymažú sa všetky údaje a telefón sa resetuje.</string>
     <string name="toast_set_lock_pin">Ak zabudnete kód PIN, vymažú sa všetky údaje a telefón sa resetuje.</string>
-    <string name="chooselock_warning_text">Zapamätajte si %s. Bude sa vyžadovať po reštartovaní zariadenia.</string>
+    <string name="chooselock_warning_text">Zapamätajte si %s. Bude sa vyžadovať po reštartovaní telefónu.</string>
     <string name="lockpassword_password_exists_history">Heslo sa už používalo. Zadajte nové heslo.</string>
     <string name="lockpassword_pin_repeating_nums">Kód PIN nesmie obsahovať opakujúce sa čísla.</string>
     <string name="lockpassword_pin_sequential_nums">Kód PIN nesmie obsahovať číslice idúce v poradí za sebou.</string>
@@ -2533,6 +2555,9 @@ Mobilné dátové pripojenie sa vypne."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Pokiaľ nepoužijete pripojenie Wi-Fi, nebudete už môcť používať Internet, E-mail ani iné aplikácie, ktoré vyžadujú dátové pripojenie.
 
 Mobilné dátové pripojenie sa vypne."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Pokiaľ sa nepripojíte k sieti Wi-Fi, nebudete môcť používať Internet, E-mail ani iné aplikácie, ktoré vyžadujú sieťové pripojenie.</string>
@@ -2691,10 +2716,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Vlastný limit hlasitosti</string>
     <string name="volume_limiter_descryption">Chráňte svoj sluch obmedzením maximálnej hlasitosti médií. Tento limit sa použije len pri používaní slúchadiel alebo zvukových zariadení Bluetooth.</string>
     <string name="multi_sound_title">Oddelený zvuk aplikácie</string>
-    <string name="multi_sound_summary">Môžete prehrávať zvuk z jednej aplikácie cez reproduktor alebo slúchadlá oddelene od ostatných zvukov zariadenia.</string>
-    <string name="multi_sound_descryption">"Zvuk médií z jednej aplikácie sa bude prehrávať pomocou reproduktora alebo slúchadiel samostatne od zvuku médií z iných aplikácií.
+    <string name="multi_sound_summary">Prehráva zvuk médií z jednej aplikácie pomocou samostatného zvukového zariadenia iného než hlavné výstupné zvukové zariadenie telefónu.</string>
+    <string name="multi_sound_descryption">"Prehráva zvuk médií z jednej aplikácie pomocou samostatného zvukového zariadenia iného než hlavné výstupné zvukové zariadenie telefónu. Pred zapnutím tejto funkcie vyberte aplikáciu a zvukové zariadenie.
 
-Ak vyberiete zvukové zariadenie Bluetooth a toto zariadenie Bluetooth nebude pripojené, zvuk sa bude prehrávať cez predvolené zvukové zariadenie."</string>
+Oddelený zvuk aplikácie funguje iba v prípade, keď sa vybraté zvukové zariadenie líši od hlavného výstupného zvukového zariadenia telefónu.
+
+Hlavné výstupné zvukové zariadenie telefónu môžete zmeniť na paneli rýchlych nastavení. Ak sa zvukový výstup neobjaví, zapnite ho v menu Samsung Connect > Nastavenia > Panel Samsung Connect."</string>
     <string name="set_application_title">Aplikácia</string>
     <string name="set_application_summary">Vyberte aplikáciu, ktorej zvuk chcete prehrávať cez samostatné zvukové zariadenie.</string>
     <string name="set_application_descryption">Nižšie vyberte multimediálnu aplikáciu, ktorej zvuk chcete prehrávať cez samostatné zvukové zariadenie.</string>
@@ -2705,9 +2732,11 @@ Ak vyberiete zvukové zariadenie Bluetooth a toto zariadenie Bluetooth nebude pr
     <string name="multi_sound_popup_msg">Ak chcete zapnúť funkciu %s, musíte vybrať aplikáciu a zvukové zariadenie.</string>
     <string name="multi_sound_network_msg">Ak chcete skontrolovať dostupné aplikácie, telefón musí byť pripojený k sieti. Skontrolujte nastavenia siete a skúste to znova.</string>
     <string name="multi_sound_wifi_msg">Ak chcete skontrolovať dostupné aplikácie, telefón musí byť pripojený k sieti. Používanie mobilného dátového pripojenia môže mať za následok ďalšie poplatky.</string>
+    <string name="multi_sound_add_application">Pridať aplikáciu</string>
     <string name="dlg_btn_select">Vybrať</string>
-    <string name="audio_device_type_descryption">Vyberte, ktoré zvukové zariadenie chcete používať pre túto aplikáciu. Zariadenia Bluetooth budú k dispozícii iba počas ich pripojenia.</string>
+    <string name="audio_device_type_descryption">Vyberte, ktoré zvukové zariadenie chcete používať pre vybratú aplikáciu. Zariadenia Bluetooth budú k dispozícii iba počas ich pripojenia.</string>
     <string name="my_phone_title">Telefón</string>
+    <string name="my_phone_summary">Reproduktor/slúchadlá/zvukové zariadenie USB</string>
     <string name="bluetooth_device_title">Zariadenie Bluetooth</string>
     <string name="no_connected_devices">Žiadne pripojené zariadenia</string>
     <string name="two_hours">2 hodiny</string>
@@ -2715,7 +2744,8 @@ Ak vyberiete zvukové zariadenie Bluetooth a toto zariadenie Bluetooth nebude pr
     <string name="stop_setup_popup_msg">Žiadne zmenené nastavenia sa nepoužijú.</string>
     <string name="app_turned_on">%s je zapnutý.</string>
     <string name="force_touch_title">Vibrovať pri silnom stlačení</string>
-    <string name="volume_key_control_title">Predv. ovládací prvok hlasitosti</string>
+    <string name="volume_key_control_title">Použ. tlač. hlasitosti pre médiá</string>
+    <string name="volume_key_control_summary">Stlačením tlačidiel ovládania hlasitosti budete ovládať hlasitosť médií.</string>
     <string name="sound_mode">Režim zvuku</string>
     <string name="sound_mode_vibrate">Vibrovať</string>
     <string name="sound_mode_mute">Stlmiť</string>
@@ -2929,14 +2959,13 @@ Skúste to znova."</string>
     <string name="text_biometrics_title_enterprise">Keď vyberiete %1$s, biometrické údaje sa nebudú podporovať ako spôsob odomykania kontajnera %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s nepodporuje odtlačky prstov ako spôsob odomknutia kontajnera %2$s.</string>
     <string name="edge_feeds_title">Informačný panel</string>
-    <string name="screensaver_settings_summary">"Umožňuje nastaviť, čo sa vykoná pri pripojení zariadenia do doku alebo pri nabíjaní. Po uplynutí časového limitu obrazovky sa zobrazí šetrič obrazovky.
-
-Táto funkcia sa nazýva aj Denný sen."</string>
-    <string name="screensaver_settings_summary_wo_dock">Po automatickom vypnutí obrazovky počas nabíjania telefónu sa zobrazí šetrič obrazovky.</string>
+    <string name="screensaver_settings_summary">Po automatickom vypnutí obrazovky počas nabíjania telefónu sa zobrazí šetrič obrazovky.</string>
+    <string name="screensaver_settings_summary_wo_dock">Po automatickom vypnutí obrazovky počas nabíjania alebo pripojenia telefónu k doku sa zobrazí šetrič obrazovky.</string>
     <string name="apn_already_exists">Už existuje.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Číslo portu musí byť od %1$d do %2$d.</string>
     <string name="apn_restore_warning">Všetky pridané názvy prístupových bodov sa odstránia. Pre ostatné názvy prístupových bodov sa obnovia ich predvolené nastavenia.</string>
+    <string name="apn_restore_title">Resetovať nastavenia názvu prístup. bodu?</string>
     <string name="master_clear_desc_google_account">Konto Google</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2948,7 +2977,8 @@ Táto funkcia sa nazýva aj Denný sen."</string>
     <string name="sound_balance_summary">Môžete upraviť vyváženie ľavého a pravého zvukového kanála pre slúchadlá.</string>
     <string name="backup_samsung_account_title">Nastavenia zálohovania</string>
     <string name="restore_samsung_account_title">Obnoviť</string>
-    <string name="auto_restart_header">Správa zariadenia</string>
+    <string name="auto_restart_header">Spravovanie telefónu</string>
+    <string name="auto_restart_header_tablet">Spravovanie tabletu</string>
     <string name="auto_restart_title">Automatické reštartovanie</string>
     <string name="switch_turn_on_text">Zapnúť</string>
     <string name="switch_turn_off_text">Vypnúť</string>
@@ -3071,6 +3101,14 @@ Neovplyvní to vaše osobné údaje ani nastavenia stiahnutých aplikácií."</s
     <string name="tether_settings_summary_usb_bt">Zdieľanie mobilného dátového pripojenia vášho zariadenia cez USB alebo Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Prijať</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Môžete zdieľať internetové pripojenie telefónu cez Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Môžete zdieľať internetové pripojenie tabletu cez Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Pripravené na zdieľanie internetového pripojenia tohto telefónu.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Pripravené na zdieľanie internetového pripojenia tohto tabletu.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Internetové pripojenie tohto telefónu sa zdieľa s 1 zariadením.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Internetové pripojenie tohto tabletu sa zdieľa s 1 zariadením.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Internetové pripojenie tohto telefónu sa zdieľa s %d zariadeniami.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Internetové pripojenie tohto tabletu sa zdieľa s %d zariadeniami.</string>
     <string name="onehand_settings_title">Režim ovládania jednou rukou</string>
     <string name="onehand_settings_text_1">Potiahnutím nahor diagonálne z niektorého dolného rohu obrazovky môžete zmenšiť veľkosť zobrazenia.</string>
     <string name="onehand_settings_text_2">Ťuknutím na tlačidlo Domov 3-krát za sebou zmenšíte veľkosť zobrazenia.</string>
@@ -3398,10 +3436,12 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Vyp.</string>
     <string name="wifi_or_mobile_network">Wi-Fi alebo mobilné siete</string>
     <string name="wifi_network_only">Iba sieť Wi-Fi</string>
+    <string name="wifi_adps_title">Režim šetrenia energie Wi-Fi</string>
+    <string name="wifi_adps_summary">Na základe analyzovania vzorov prevádzky v sieti Wi-Fi sa znižuje spotreba energie z batérie.</string>
     <string name="wifi_auto_reconnect">Automaticky pripojiť znova</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Zapnutím siete Wi-Fi sa vypne mobilný prístupový bod. Pokračovať?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Keď je aktívna funkcia Mobilný prístupový bod, funkcia Wi-Fi sa vypne. Ak chcete zapnúť funkciu Wi-Fi, vypnite funkciu Mobilný prístupový bod.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Keď sa aktivuje funkcia Mobilný prístupový bod, funkcia Wi-Fi sa vypne. Ak chcete zapnúť funkciu Wi-Fi, vypnite funkciu Mobilný prístupový bod.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
@@ -3603,6 +3643,10 @@ Po zmene názvu alebo hesla mobilného prístupového bodu sa musí vygenerovať
     <string name="wifi_wps_pin_client_mobileap">Pripája sa ku klientovi pomocou kódu PIN %1$s. Inštalácia sa dokončí najneskôr do %2$d minút.</string>
     <string name="wifi_wps_complete_mobileap">Druhé zariadenie je teraz pripojené k vášmu zariadeniu.</string>
     <string name="wifi_ap_disconnect_warn">Odpojenie zariadenia</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Všetky aktuálne pripojené zariadenia sa odpoja od mobilného prístupového bodu.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Všetky aktuálne pripojené zariadenia sa odpoja od mobilného prístupového bodu.</string>
     <string name="wifi_ap_warn_max_whitelist">Dosiahol sa maximálny počet povolených zariadení (%d).</string>
     <string name="wifiap_one_item_deleted">1 položka sa vymaže.</string>
@@ -3738,6 +3782,8 @@ Používanie funkcie Mobilný prístupový bod zvyšuje vybíjanie batérie a sp
     <string name="wifi_ap_first_time_configuration">Prvá konfigurácia prístupového bodu</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Zadajte správny kód PIN.</string>
+    <string name="open_mobileap_warning">Tento mobilný prístupový bod nie je bezpečný.</string>
+    <string name="hidden_mobileap_warning">Keď používateľ nastaví Skrytý identifikátor siete SSID, WPS sa vypne.</string>
     <string name="wifi_ssid_max_byte_error">Dosiahol sa maximálny počet znakov.</string>
     <string name="tethering_attention_title">Pozor</string>
     <string name="wfd_select_device">Vyberte zariadenie</string>
@@ -3871,7 +3917,7 @@ Informácie o roamingu získate zavolaním na bezplatné číslo roamingových s
     <string name="security_settings_fingerprint_setup_title">Nast. rozpozn. odtlačkov prstov</string>
     <string name="security_settings_iris_setup_title">Nast. rozpoznáv. dúhoviek</string>
     <string name="master_clear_desc_sec">Z telefónu sa vymažú všetky údaje vrátane nasledujúcich:</string>
-    <string name="master_clear_desc_app">Nasledujúce aplikácie sa odinštalujú. Po resetovaní môže byť potrebné znova nainštalovať niektoré aplikácie (v závislosti od operátora).</string>
+    <string name="master_clear_desc_app">Nasledujúce aplikácie sa odinštalujú. Po resetovaní môže byť potrebné znova nainštalovať niektoré aplikácie (v závislosti od operátora).</string>
     <string name="master_clear_desc_system_and_app_data">Systémové a aplikačné údaje</string>
     <string name="master_clear_desc_device_settings">Nastavenia</string>
     <string name="master_clear_desc_downloaded_apps">Stiahnuté aplikácie</string>
@@ -3968,6 +4014,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Synchronizovať</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Toto povolenie umožňuje aplikácii zobrazovať veci nad inými aplikáciami, ktoré používate. Môže to rušiť vaše používanie iných aplikácií.</string>
+    <string name="write_settings_body_description">Tejto aplikácii sa povolí zmena systémových nastavení, napríklad zapnutie alebo vypnutie funkcie Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Týmto sa obnovia všetky predvolené nastavenia pre:</string>
+    <string name="reset_app_preferences_desc2">Zakázané aplikácie</string>
+    <string name="reset_app_preferences_desc3">Obmedzenia oznámení pre aplikácie</string>
+    <string name="reset_app_preferences_desc4">Predvolené aplikácie</string>
+    <string name="reset_app_preferences_desc5">Obmedzenia dátových prenosov na pozadí pre aplikácie</string>
+    <string name="reset_app_preferences_desc6">Obmedzenia povolení</string>
+    <string name="reset_app_preferences_desc7">Nestratíte svoje existujúce údaje v aplikáciách.</string>
     <string name="knox_security_mode_title">Zabezpečenie Knox</string>
     <string name="kap_title">Aktívna ochrana Knox</string>
     <string name="kap_eula_title">Ochrana osobných údajov</string>
@@ -3982,6 +4036,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Môžete spravovať svoje osobné údaje a informácie o konte Samsung.</string>
     <string name="my_profile_summary_jpn">Môžete spravovať svoje osobné údaje a informácie o konte Galaxy.</string>
     <string name="arbitration_agreement">Zmluva o rozhodcovskom konaní</string>
+    <string name="activation_title">Stav aktivácie</string>
+    <string name="activation_summary">Aktivované %1$s. Ďalšie informácie nájdete na stránke %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF zapnuté</string>
+    <string name="edit_event_start_short">Štart</string>
+    <string name="edit_event_end_short">Koniec</string>
+    <string name="select_date_to_view">Vybrať dátum na zobrazenie</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Áno</string>
     <string name="no">Nie</string>
     <string name="create">Vytv.</string>
@@ -5474,7 +5535,7 @@ Po vytvorení nového používateľa musí daná osoba prejsť procesom nastaven
     <string name="app_notification_block_title">Povoliť oznámenia</string>
     <string name="app_notification_block_summary">Budete dostávať oznámenia z tejto aplikácie vrátane oznamovacích správ, zvukov a vibrovania.</string>
     <string name="app_notification_override_dnd_title">Nastaviť ako prioritné</string>
-    <string name="app_notification_override_dnd_summary">Povolí zvukové oznámenia z tejto aplikácie a zapnutie obrazovky, keď je zapnutá funkcia Nerušiť.</string>
+    <string name="app_notification_override_dnd_summary">Keď je zapnutý režim Nerušiť, v hornej časti panela oznámení sa zobrazia oznámenia a zahrnú sa v zozname povolených.</string>
     <string name="app_notification_visibility_override_title">Na zamknutej obrazovke</string>
     <string name="app_notifications_dialog_done">OK</string>
     <string name="zen_mode_choose_rule_type">Vyberte typ pravidla</string>
@@ -5511,6 +5572,7 @@ Po vytvorení nového používateľa musí daná osoba prejsť procesom nastaven
     <string name="restr_pin_enter_admin_pin">Zadajte správcovský kód PIN</string>
     <string name="switch_on_text">Zapnuté</string>
     <string name="switch_off_text">Vypnuté</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Tento pracovný profil spravuje:</string>
     <string name="managing_admin">Spravuje: %s</string>
     <string name="display_auto_rotate_title">Otočenie obrazovky</string>
     <string name="display_auto_rotate_rotate">Rotácia obsahu obrazovky</string>
@@ -5547,9 +5609,9 @@ Kým sa zariadenie nespustí, nebudú sa prijímať hovory, správy ani oznámen
     <string name="encrypt_talkback_dialog_require_pin">Vyžaduje sa PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Vyžaduje sa vzor</string>
     <string name="encrypt_talkback_dialog_require_password">Vyžaduje sa heslo</string>
-    <string name="encrypt_talkback_dialog_message_pin">Keď po zapnutí zariadenia zadávate kód PIN, funkcie zjednodušenia ovládania, ako napríklad %1$s, budú dočasne vypnuté.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Keď po zapnutí zariadenia kreslíte svoj vzor, funkcie zjednodušenia ovládania, ako napríklad %1$s, budú dočasne vypnuté.</string>
-    <string name="encrypt_talkback_dialog_message_password">Keď po zapnutí zariadenia zadávate heslo, funkcie zjednodušenia ovládania, ako napríklad %1$s, budú dočasne vypnuté.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Pri zapnutí zariadenia sa bude vyžadovať zadanie kódu PIN. Funkcie zjednodušenia ovládania nebudú k dispozícii, kým sa zariadenie nespustí.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Pri zapnutí zariadenia sa bude vyžadovať nakreslenie vzoru. Funkcie zjednodušenia ovládania nebudú k dispozícii, kým sa zariadenie nespustí.</string>
+    <string name="encrypt_talkback_dialog_message_password">Pri zapnutí zariadenia sa bude vyžadovať zadanie hesla. Funkcie zjednodušenia ovládania nebudú k dispozícii, kým sa zariadenie nespustí.</string>
     <string name="slot_number">(zásuvka %d)</string>
     <string name="app_launch_domain_links_title">Prepojenia na aplikácie</string>
     <string name="app_launch_open_domain_urls_title">Prejsť na podporované URL</string>
@@ -5625,18 +5687,18 @@ Kým sa zariadenie nespustí, nebudú sa prijímať hovory, správy ani oznámen
     <string name="usb_use_power_only">Nabiť pripoj. zariadenie</string>
     <string name="usb_use_power_only_desc">Nabite pripojené zariadenie cez USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Prenos multimed. súborov</string>
+    <string name="usb_use_file_transfers">Preniesť súbory</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Prenos fotografií</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Tento režim vyberte, ak nefunguje režim Prenos multimediálnych súborov. Môžete prenášať iba súbory fotografií.</string>
+    <string name="usb_use_photo_transfers_summary">Tento režim vyberte, ak nefunguje režim prenosu súborov. V tomto režime môžete prenášať iba súbory fotografií.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Pripojiť zariadenie MIDI</string>
     <string name="usb_use">Použiť USB na</string>
-    <string name="assist_access_context_title">Čítať text na obrazovke</string>
-    <string name="assist_access_context_summary">Aplikácii na pomoc so zariadením sa povolí čítanie ľubovoľného textu zobrazeného na obrazovke.</string>
-    <string name="assist_access_screenshot_title">Snímanie/použ. snímok obrazovky</string>
-    <string name="assist_access_screenshot_summary">Aplikácii na pomoc so zariadením sa povolí snímanie a používanie snímok obrazovky.</string>
+    <string name="assist_access_context_title">Analyzovať text na obrazovke</string>
+    <string name="assist_access_context_summary">Aplikácii na pomoc so zariadením sa povolí analyzovanie textu zobrazeného na obrazovke na poskytovanie súvisiaceho obsahu.</string>
+    <string name="assist_access_screenshot_title">Analyzovať fotografie na obraz.</string>
+    <string name="assist_access_screenshot_summary">Aplikácii na pomoc so zariadením sa povolí snímanie a používanie fotografií na obrazovke.</string>
     <string name="assist_footer">Aplikácie na pomoc so zariadením vám pomôžu získavať informácie z obrazovky aktuálne zobrazenej na telefóne. Niektoré aplikácie na pomoc so zariadením možno používať na otváranie iných aplikácií a zadávanie textu pomocou hlasového vstupu, čím poskytujú integrovanú pomoc.</string>
     <string name="average_memory_use">Priemerné využitie pamäte RAM</string>
     <string name="maximum_memory_use">Maximálne využitie pamäte RAM</string>
@@ -5665,7 +5727,7 @@ Kým sa zariadenie nespustí, nebudú sa prijímať hovory, správy ani oznámen
     <string name="ignore_optimizations_on_desc">Môže zvyšovať spotrebu energie z batérie</string>
     <string name="ignore_optimizations_off_desc">Odporúča sa na šetrenie energie batérie</string>
     <string name="app_list_preference_none">Žiadny</string>
-    <string name="allow_overlay_description">Vyberte aplikácie, ktorým chcete povoliť zobrazovať ich tlačidlá, kontextové okná alebo iné prvky nad inými používanými aplikáciami.</string>
+    <string name="allow_overlay_description">Toto povolenie umožňuje aplikácii zobrazovať veci nad inými aplikáciami, ktoré používate. Môže to rušiť vaše používanie iných aplikácií.</string>
     <string name="overlay_settings">Aplikácie, ktoré sa môžu zobrazovať hore</string>
     <string name="filter_overlay_apps">Aplikácie s povolením</string>
     <string name="filter_write_settings_apps">Aplikácie s povolením</string>
@@ -5712,14 +5774,14 @@ Kým sa zariadenie nespustí, nebudú sa prijímať hovory, správy ani oznámen
     <string name="ethernet_data_template">%1$s cez siete Ethernet</string>
     <string name="cell_warning_only">Upozornenie na spotrebu dát pri %s</string>
     <string name="cell_warning_and_limit">Upozornenie na spotrebu %1$s dát/%2$s limit spotreby dát</string>
-    <string name="billing_cycle">Fakturačné obdobie</string>
+    <string name="billing_cycle">Upozor. na faktur. cyklus/údaje</string>
     <string name="billing_cycle_summary">%s deň každého mesiaca</string>
     <string name="billing_cycle_fragment_summary">%s deň každého mesiaca</string>
     <string name="network_restrictions">Obmedziť siete</string>
     <string name="operator_warning">Spotrebu dát meria vaše zariadenie. Váš mobilný operátor môže počítať spotrebu dát odlišne.</string>
     <string name="data_used_template">Spotrebovali ste %s</string>
     <string name="data_warning">Upozornenie na spotrebu dát</string>
-    <string name="set_data_limit">Dátový limit</string>
+    <string name="set_data_limit">Nastaviť dátový limit</string>
     <string name="data_limit">Dátový limit</string>
     <string name="data_usage_template">Spotrebovali ste %1$s v období %2$s</string>
     <string name="data_usage_other_apps">Súvis. apl. zahrnuté vo využití</string>
@@ -5761,5 +5823,4 @@ Vaše zariadenie obsahuje diagnostický softvér, ktorý môže s vaším súhla
     <string name="enable_iris_lock_desc_3">"Typ zámku obrazovky je momentálne nastavený na možnosť Odtlačky prstov.
 
 Ak chcete nastaviť typ zámku obrazovky na možnosť Dúhovky namiesto možnosti Odtlačky prstov, ťuknite na tlačidlo ZAPNÚŤ. Zariadenie môžete potom odomykať dúhovkami alebo môžete použiť %s."</string>
-    <string name="my_phone_summary">Reproduktor/slúchadlá/zvukové zariadenie USB</string>
 </resources>

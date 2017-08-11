@@ -53,7 +53,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b08df
+    const v3, 0x7f0b0949
 
     const/4 v6, 0x0
 
@@ -62,6 +62,26 @@
     move-object v5, v2
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/settings/SettingsActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
+
+    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$6;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
+
+    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothSettings$6;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
+
+    invoke-virtual {v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0b001b
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

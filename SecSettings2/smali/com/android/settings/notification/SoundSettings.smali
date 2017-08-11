@@ -551,7 +551,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x10405e5
+    const v4, 0x10405e9
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -582,7 +582,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x108038c
+    const v0, 0x1080376
 
     :goto_0
     invoke-virtual {v1, v0}, Lcom/android/settings/notification/VolumeSeekBarPreference;->showIcon(I)V
@@ -603,12 +603,12 @@
     if-eqz v0, :cond_2
 
     :cond_1
-    const v0, 0x108038d
+    const v0, 0x1080377
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x108038b
+    const v0, 0x1080375
 
     goto :goto_0
 .end method
@@ -909,7 +909,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 9
 
-    const v8, 0x108038c
+    const v8, 0x1080376
 
     const/4 v7, 0x2
 
@@ -995,7 +995,7 @@
 
     const/4 v4, 0x3
 
-    const v5, 0x1080386
+    const v5, 0x1080370
 
     invoke-direct {p0, v3, v4, v5}, Lcom/android/settings/notification/SoundSettings;->initVolumePreference(Ljava/lang/String;II)Lcom/android/settings/notification/VolumeSeekBarPreference;
 
@@ -1003,7 +1003,7 @@
 
     const/4 v4, 0x4
 
-    const v5, 0x1080384
+    const v5, 0x108036e
 
     invoke-direct {p0, v3, v4, v5}, Lcom/android/settings/notification/SoundSettings;->initVolumePreference(Ljava/lang/String;II)Lcom/android/settings/notification/VolumeSeekBarPreference;
 

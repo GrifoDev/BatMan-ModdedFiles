@@ -169,7 +169,7 @@
 
     const/4 v4, 0x0
 
-    const v2, 0x7f0400a0
+    const v2, 0x7f0400a1
 
     const/4 v3, 0x0
 

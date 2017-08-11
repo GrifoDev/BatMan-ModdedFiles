@@ -36,7 +36,7 @@
 
     const/4 v2, 0x1
 
-    invoke-static {}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-get8()I
+    invoke-static {}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-get6()I
 
     move-result v0
 
@@ -58,7 +58,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$4;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-get9(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/os/CountDownTimer;
+    invoke-static {v0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-get7(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/os/CountDownTimer;
 
     move-result-object v0
 
@@ -72,7 +72,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap9(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap8(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$4;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
@@ -84,7 +84,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$4;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-static {v0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap9(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
+    invoke-static {v0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap8(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
 
     goto :goto_0
 .end method

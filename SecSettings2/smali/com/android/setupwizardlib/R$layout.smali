@@ -4,23 +4,23 @@
 
 
 # static fields
-.field public static final suw_items_button_bar:I = 0x7f0402fc
+.field public static final suw_items_button_bar:I = 0x7f040300
 
-.field public static final suw_items_default:I = 0x7f0402fd
+.field public static final suw_items_default:I = 0x7f040301
 
-.field public static final suw_items_switch:I = 0x7f0402ff
+.field public static final suw_items_switch:I = 0x7f040303
 
-.field public static final suw_list_template:I = 0x7f0403c0
+.field public static final suw_list_template:I = 0x7f0403c5
 
-.field public static final suw_navbar_view:I = 0x7f040306
+.field public static final suw_navbar_view:I = 0x7f04030a
 
-.field public static final suw_preference_recycler_view:I = 0x7f0403b8
+.field public static final suw_preference_recycler_view:I = 0x7f0403bd
 
-.field public static final suw_preference_template:I = 0x7f0403b9
+.field public static final suw_preference_template:I = 0x7f0403be
 
-.field public static final suw_recycler_template:I = 0x7f0403ba
+.field public static final suw_recycler_template:I = 0x7f0403bf
 
-.field public static final suw_template:I = 0x7f0403be
+.field public static final suw_template:I = 0x7f0403c3
 
 
 # direct methods

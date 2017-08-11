@@ -493,417 +493,437 @@
 .end method
 
 .method public onSwitchStateChange(Z)Z
-    .locals 19
+    .locals 22
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
 
-    invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getBluetoothState()I
+    invoke-virtual {v3}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getBluetoothState()I
 
-    move-result v16
+    move-result v18
 
     if-eqz p1, :cond_3
 
-    const/16 v1, 0xa
+    const/16 v3, 0xa
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v3, :cond_3
 
     :goto_0
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
     move-object/from16 v0, p0
 
-    iput-boolean v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mIsUserInteraction:Z
+    iput-boolean v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mIsUserInteraction:Z
 
     :cond_0
-    const-string/jumbo v1, "BluetoothEnabler"
+    const-string/jumbo v3, "BluetoothEnabler"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "onSwitchChanged :: isChecked = "
+    const-string/jumbo v5, "onSwitchChanged :: isChecked = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
     move/from16 v0, p1
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string/jumbo v3, ", mIsUserInteraction = "
+    const-string/jumbo v5, ", mIsUserInteraction = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
     move-object/from16 v0, p0
 
-    iget-boolean v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mIsUserInteraction:Z
+    iget-boolean v5, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mIsUserInteraction:Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string/jumbo v3, ", mPolicyEnabled = "
+    const-string/jumbo v5, ", mPolicyEnabled = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
+
+    move-object/from16 v0, p0
+
+    iget-boolean v5, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mPolicyEnabled:Z
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mPolicyEnabled:Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v3, :cond_4
 
     move-object/from16 v0, p0
 
-    iget-boolean v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mPolicyEnabled:Z
+    iget-boolean v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mIsUserInteraction:Z
 
-    if-nez v1, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-boolean v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mIsUserInteraction:Z
-
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_1
 
     if-eqz p1, :cond_1
 
-    const-string/jumbo v7, " User Interaction: User actionEnabling Bluetooth failed Reason: MDM policy"
+    const-string/jumbo v9, " User Interaction: User actionEnabling Bluetooth failed Reason: MDM policy"
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
-    move-result v5
+    move-result v7
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/bluetooth/BluetoothEnabler;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    move-result v8
+    move-result v10
 
-    const/4 v2, 0x5
+    const/4 v4, 0x5
 
-    const/4 v3, 0x5
+    const/4 v5, 0x5
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    invoke-static/range {v1 .. v8}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertMDMLog(Landroid/content/Context;IIZILjava/lang/String;Ljava/lang/String;I)V
+    invoke-static/range {v3 .. v10}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertMDMLog(Landroid/content/Context;IIZILjava/lang/String;Ljava/lang/String;I)V
 
     :cond_1
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
 
-    if-eqz v1, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->setChecked(Z)V
+    if-eqz v3, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->setEnabled(Z)V
+    invoke-virtual {v3, v4}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->setChecked(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->setEnabled(Z)V
 
     :cond_2
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    return v1
+    return v3
 
     :cond_3
     if-nez p1, :cond_0
 
-    const/16 v1, 0xc
+    const/16 v3, 0xc
 
-    move/from16 v0, v16
+    move/from16 v0, v18
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v3, :cond_0
 
     goto/16 :goto_0
 
     :cond_4
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
-    const/16 v2, 0x9f
+    const/16 v4, 0x9f
 
     move/from16 v0, p1
 
-    invoke-static {v1, v2, v0}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;IZ)V
+    invoke-static {v3, v4, v0}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;IZ)V
 
     if-eqz p1, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v2, "bluetooth"
+    const-string/jumbo v4, "bluetooth"
 
-    invoke-static {v1, v2}, Lcom/android/settingslib/WirelessUtils;->isRadioAllowed(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static {v3, v4}, Lcom/android/settingslib/WirelessUtils;->isRadioAllowed(Landroid/content/Context;Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_8
+    if-eqz v3, :cond_8
 
     :cond_5
     :goto_1
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
 
-    invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->stopScanning()V
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
-
-    if-eqz v1, :cond_6
+    invoke-virtual {v3}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->stopScanning()V
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
 
-    const/4 v2, 0x0
+    if-eqz v3, :cond_6
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->setEnabled(Z)V
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->setEnabled(Z)V
 
     :cond_6
     move-object/from16 v0, p0
 
-    iget-boolean v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mIsUserInteraction:Z
+    iget-boolean v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mIsUserInteraction:Z
 
-    if-eqz v1, :cond_7
+    if-eqz v3, :cond_7
 
     invoke-direct/range {p0 .. p1}, Lcom/android/settings/bluetooth/BluetoothEnabler;->updateBluetoothState(Z)V
 
-    const-string/jumbo v14, ""
-
-    const/16 v18, 0x0
-
-    const/16 v17, 0x0
+    const-string/jumbo v16, ""
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
 
-    invoke-virtual {v1}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->getSwitchObject()Ljava/lang/Object;
+    invoke-virtual {v3}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->getSwitchObject()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v3
 
-    instance-of v1, v1, Lcom/android/settings/widget/SwitchBar;
+    instance-of v3, v3, Lcom/android/settings/widget/SwitchBar;
 
-    if-eqz v1, :cond_9
+    if-eqz v3, :cond_9
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v3
 
-    const v2, 0x7f100040
+    const v4, 0x7f0b0003
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result v18
+    move-result-object v21
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0b0010
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
 
     :goto_2
     if-eqz p1, :cond_a
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v3
 
-    const v2, 0x7f10004c
+    const v4, 0x7f0b0044
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result v17
+    move-result-object v19
 
-    const-string/jumbo v14, " User Interaction: User actionEnabling Bluetooth succeeded"
+    const-string/jumbo v16, " User Interaction: User actionEnabling Bluetooth succeeded"
 
     :goto_3
-    move-object/from16 v0, p0
+    move-object/from16 v0, v21
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    move-object/from16 v1, v20
 
-    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-object/from16 v2, v19
 
-    move-result-object v2
-
-    move/from16 v0, v18
-
-    invoke-static {v1, v0, v2}, Lcom/android/settings/Utils;->insertEventwithDetailLog(Landroid/content/Context;ILjava/lang/Object;)V
+    invoke-static {v0, v1, v2}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    iget-object v8, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    iget-object v10, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
-    move-result v12
+    move-result v14
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/bluetooth/BluetoothEnabler;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v15
 
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    move-result v15
+    move-result v17
 
-    const/4 v9, 0x5
+    const/4 v11, 0x5
 
-    const/4 v10, 0x5
+    const/4 v12, 0x5
 
-    const/4 v11, 0x0
+    const/4 v13, 0x0
 
-    invoke-static/range {v8 .. v15}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertMDMLog(Landroid/content/Context;IIZILjava/lang/String;Ljava/lang/String;I)V
+    invoke-static/range {v10 .. v17}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertMDMLog(Landroid/content/Context;IIZILjava/lang/String;Ljava/lang/String;I)V
 
     :cond_7
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    return v1
+    return v3
 
     :cond_8
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b1389
+    const v4, 0x7f0b1424
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v3, v4, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
-
-    if-eqz v1, :cond_5
+    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->setChecked(Z)V
+    if-eqz v3, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->setEnabled(Z)V
+    invoke-virtual {v3, v4}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->setChecked(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mSwitchType:Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Lcom/android/settings/bluetooth/BluetoothEnabler$BluetoothSwitchType;->setEnabled(Z)V
 
     goto/16 :goto_1
 
     :cond_9
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v3
 
-    const v2, 0x7f100048
+    const v4, 0x7f0b0002
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result v18
+    move-result-object v21
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0b000d
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v20
 
     goto :goto_2
 
     :cond_a
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
 
-    invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getConnectionState()I
+    invoke-virtual {v3}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getConnectionState()I
 
-    move-result v1
+    move-result v3
 
-    const/4 v2, 0x2
+    const/4 v4, 0x2
 
-    if-ne v1, v2, :cond_b
+    if-ne v3, v4, :cond_b
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v2, "com.android.bluetooth"
+    const-string/jumbo v4, "com.android.bluetooth"
 
-    const-string/jumbo v3, "BDDC"
+    const-string/jumbo v5, "BDDC"
 
-    const-string/jumbo v4, "Bluetooth Settings Off"
+    const-string/jumbo v6, "Bluetooth Settings Off"
 
-    invoke-static {v1, v2, v3, v4}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v3, v4, v5, v6}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_b
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v3
 
-    const v2, 0x7f10004b
+    const v4, 0x7f0b0045
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result v17
+    move-result-object v19
 
-    const-string/jumbo v14, " User Interaction: User actionDisabling Bluetooth succeeded"
+    const-string/jumbo v16, " User Interaction: User actionDisabling Bluetooth succeeded"
 
     goto/16 :goto_3
 .end method

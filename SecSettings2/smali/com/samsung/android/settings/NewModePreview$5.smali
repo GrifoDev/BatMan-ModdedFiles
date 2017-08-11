@@ -25,6 +25,79 @@
 
 
 # virtual methods
+.method public getNonIndexableKeys(Landroid/content/Context;)Ljava/util/List;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    const-string/jumbo v5, "ro.product.name"
+
+    invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v4, Lcom/samsung/android/settings/policy/SCPMHelper;
+
+    invoke-direct {v4, p1}, Lcom/samsung/android/settings/policy/SCPMHelper;-><init>(Landroid/content/Context;)V
+
+    const-string/jumbo v5, "edge_color_balance"
+
+    invoke-virtual {v4, v2, v5}, Lcom/samsung/android/settings/policy/SCPMHelper;->isSupportedMenu(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "sec_display_temperature_custom"
+
+    const/4 v7, 0x0
+
+    invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    const/4 v6, 0x1
+
+    if-ne v5, v6, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
+    if-eqz v0, :cond_1
+
+    if-eqz v1, :cond_1
+
+    :goto_1
+    return-object v3
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v5, "edge_color_balance_title"
+
+    invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+.end method
+
 .method public getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
@@ -39,7 +112,7 @@
         }
     .end annotation
 
-    const v4, 0x7f0b062d
+    const v4, 0x7f0b0692
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -57,7 +130,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v3, 0x7f0b05a3
+    const v3, 0x7f0b0606
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -81,7 +154,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v3, 0x7f0b05aa
+    const v3, 0x7f0b060d
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

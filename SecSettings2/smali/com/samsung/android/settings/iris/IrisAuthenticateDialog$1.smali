@@ -159,27 +159,9 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog$1;->this$0:Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;
 
-    iput v3, v0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mResultValue:I
+    const/16 v1, 0xa
 
-    iget-object v0, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog$1;->this$0:Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;
-
-    iget-object v0, v0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog$1;->this$0:Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;
-
-    iget-object v1, v1, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mContext:Landroid/content/Context;
-
-    const v2, 0x7f0b0890
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    iput v1, v0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mResultValue:I
 
     goto :goto_1
 
@@ -196,7 +178,7 @@
 
     iget-object v1, v1, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b088f
+    const v2, 0x7f0b08f9
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

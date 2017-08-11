@@ -4,19 +4,19 @@
 
 
 # static fields
-.field public static final restricted_icon:I = 0x7f040263
+.field public static final restricted_icon:I = 0x7f040267
 
-.field public static final restricted_switch_preference:I = 0x7f040268
+.field public static final restricted_switch_preference:I = 0x7f04026c
 
-.field public static final restricted_switch_widget:I = 0x7f040269
+.field public static final restricted_switch_widget:I = 0x7f04026d
 
-.field public static final settings_with_drawer:I = 0x7f0402b5
+.field public static final settings_with_drawer:I = 0x7f0402b9
 
-.field public static final usage_view:I = 0x7f040337
+.field public static final usage_view:I = 0x7f04033c
 
-.field public static final user_preference:I = 0x7f040345
+.field public static final user_preference:I = 0x7f04034a
 
-.field public static final wifi_preference:I = 0x7f04039f
+.field public static final wifi_preference:I = 0x7f0403a4
 
 
 # direct methods

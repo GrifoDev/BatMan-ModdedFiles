@@ -290,15 +290,15 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/fingerprint/FingerprintEnrollBase;->onCreate(Landroid/os/Bundle;)V
 
-    const v4, 0x7f04010c
+    const v4, 0x7f04010e
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->setContentView(I)V
 
-    const v4, 0x7f0b129c
+    const v4, 0x7f0b1337
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->setHeaderText(I)V
 
-    const v4, 0x7f1103a5
+    const v4, 0x7f1103a7
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->findViewById(I)Landroid/view/View;
 
@@ -320,7 +320,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/setupwizardlib/items/RecyclerItemAdapter;->setOnItemSelectedListener(Lcom/android/setupwizardlib/items/RecyclerItemAdapter$OnItemSelectedListener;)V
 
-    const v4, 0x7f110993
+    const v4, 0x7f110999
 
     invoke-virtual {v0, v4}, Lcom/android/setupwizardlib/items/RecyclerItemAdapter;->findItemById(I)Lcom/android/setupwizardlib/items/ItemHierarchy;
 
@@ -328,7 +328,7 @@
 
     check-cast v1, Lcom/android/setupwizardlib/items/Item;
 
-    const v4, 0x7f0b1a0f
+    const v4, 0x7f0b1aab
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->getString(I)Ljava/lang/String;
 
@@ -349,7 +349,7 @@
     const-string/jumbo v3, ""
 
     :cond_0
-    const v4, 0x7f0b129d
+    const v4, 0x7f0b1338
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollIntroduction;->getText(I)Ljava/lang/CharSequence;
 

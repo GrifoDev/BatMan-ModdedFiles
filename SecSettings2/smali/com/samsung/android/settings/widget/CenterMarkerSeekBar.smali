@@ -89,13 +89,13 @@
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/widget/CenterMarkerSeekBar;->setProgressTintList(Landroid/content/res/ColorStateList;)V
 
-    const v3, 0x7f0a0677
+    const v3, 0x7f0a0676
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a0676
+    const v3, 0x7f0a0675
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -121,7 +121,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/widget/CenterMarkerSeekBar;->mMarkerPaint:Landroid/graphics/Paint;
 
-    const v4, 0x7f0d01d7
+    const v4, 0x7f0d01d8
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getColor(I)I
 

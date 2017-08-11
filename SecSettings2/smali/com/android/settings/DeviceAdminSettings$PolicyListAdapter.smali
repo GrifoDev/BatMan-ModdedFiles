@@ -186,7 +186,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DeviceAdminSettings$PolicyListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f0400cf
+    const v3, 0x7f0400d1
 
     const/4 v4, 0x0
 
@@ -208,7 +208,7 @@
 
     iput-object v2, v0, Lcom/android/settings/DeviceAdminSettings$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    const v2, 0x7f110292
+    const v2, 0x7f110294
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -228,7 +228,7 @@
 
     iput-object v2, v0, Lcom/android/settings/DeviceAdminSettings$ViewHolder;->checkbox:Landroid/widget/CheckBox;
 
-    const v2, 0x7f1102be
+    const v2, 0x7f1102c0
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

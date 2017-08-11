@@ -30,7 +30,7 @@
 
     invoke-direct {p0, p1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0401b3
+    const v0, 0x7f0401b5
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nfc/OtherSettings$OtherAppPreference;->setLayoutResource(I)V
 
@@ -101,7 +101,7 @@
 
     if-eqz v7, :cond_3
 
-    const v7, 0x7f11059d
+    const v7, 0x7f11059f
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     :cond_1
     :goto_0
-    const v7, 0x7f11059f
+    const v7, 0x7f1105a1
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -160,7 +160,7 @@
     return-void
 
     :cond_3
-    const v7, 0x7f11059e
+    const v7, 0x7f1105a0
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -168,7 +168,7 @@
 
     if-eqz v4, :cond_1
 
-    const v7, 0x7f11059a
+    const v7, 0x7f11059c
 
     invoke-virtual {v4, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -176,7 +176,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v7, 0x7f11059b
+    const v7, 0x7f11059d
 
     invoke-virtual {v4, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

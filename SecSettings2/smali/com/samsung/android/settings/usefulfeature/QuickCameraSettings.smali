@@ -128,7 +128,7 @@
 .method private quickCameraDisablePopup()V
     .locals 9
 
-    const v8, 0x7f0b0229
+    const v8, 0x7f0b0287
 
     const/4 v7, 0x1
 
@@ -136,7 +136,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/usefulfeature/QuickCameraSettings;->dismissAllDialog()V
 
-    const v3, 0x7f0b0452
+    const v3, 0x7f0b04b4
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/QuickCameraSettings;->getString(I)Ljava/lang/String;
 
@@ -154,7 +154,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0453
+    const v3, 0x7f0b04b5
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/QuickCameraSettings;->getString(I)Ljava/lang/String;
 
@@ -164,7 +164,7 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    const v5, 0x7f0b0422
+    const v5, 0x7f0b0484
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/usefulfeature/QuickCameraSettings;->getString(I)Ljava/lang/String;
 
@@ -214,7 +214,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0454
+    const v5, 0x7f0b04b6
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -316,7 +316,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001c6
+    const v1, 0x7f1001c7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -360,7 +360,7 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    const v6, 0x7f04033b
+    const v6, 0x7f040340
 
     const/4 v7, 0x0
 
@@ -368,7 +368,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f1105d6
+    const v6, 0x7f1105d8
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -376,7 +376,7 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    const v6, 0x7f1105d7
+    const v6, 0x7f1105d9
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -384,7 +384,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v6, 0x7f1105d5
+    const v6, 0x7f1105d7
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -396,7 +396,7 @@
 
     invoke-virtual {v4, v8}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v6, 0x7f0b0425
+    const v6, 0x7f0b0487
 
     invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(I)V
 

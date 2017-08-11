@@ -99,7 +99,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0286
+    const v9, 0x7f0b02e4
 
     invoke-virtual {v8, v9}, Landroid/widget/Button;->setText(I)V
 
@@ -135,7 +135,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0281
+    const v10, 0x7f0b02df
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -195,7 +195,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b01df
+    const v11, 0x7f0b023d
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -264,7 +264,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0b0282
+    const v13, 0x7f0b02e0
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -274,7 +274,7 @@
 
     aput-object v12, v11, v13
 
-    const v12, 0x7f0b09f7
+    const v12, 0x7f0b0a65
 
     invoke-virtual {v10, v12, v11}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -872,7 +872,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b027f
+    const v10, 0x7f0b02dd
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

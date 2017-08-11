@@ -63,7 +63,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$30;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get25(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
+    invoke-static {v0}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get26(Lcom/samsung/android/settings/usefulfeature/Usefulfeature;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v0
 
@@ -81,7 +81,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f1001d9
+    const v2, 0x7f1001df
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

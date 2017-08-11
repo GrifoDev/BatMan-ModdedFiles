@@ -17,8 +17,27 @@
 
 .field private static final PM_PERMISSION:[Ljava/lang/String;
 
+.field private static list:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
+.method static synthetic -get0()Ljava/util/List;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/applications/AppStateUsageBridge;->list:Ljava/util/List;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -44,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState;Lcom/android/settings/applications/AppStateBaseBridge$Callback;)V
-    .locals 6
+    .locals 9
 
     sget-object v5, Lcom/android/settings/applications/AppStateUsageBridge;->PM_PERMISSION:[Ljava/lang/String;
 
@@ -60,7 +79,40 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/settings/applications/AppStateAppOpsBridge;-><init>(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState;Lcom/android/settings/applications/AppStateBaseBridge$Callback;I[Ljava/lang/String;)V
 
+    :try_start_0
+    const-string/jumbo v0, "persona"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/samsung/android/knox/SemPersonaManager;
+
+    invoke-virtual {v8}, Lcom/samsung/android/knox/SemPersonaManager;->getContainerHideUsageStatsApps()Ljava/util/List;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/settings/applications/AppStateUsageBridge;->list:Ljava/util/List;
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v6
+
+    invoke-virtual {v6}, Ljava/lang/NoSuchMethodError;->printStackTrace()V
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/NullPointerException;->printStackTrace()V
+
+    goto :goto_0
 .end method
 
 

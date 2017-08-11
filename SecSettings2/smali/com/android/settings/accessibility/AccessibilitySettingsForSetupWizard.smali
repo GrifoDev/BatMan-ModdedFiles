@@ -186,7 +186,7 @@
 
     if-eqz v6, :cond_0
 
-    const v6, 0x7f0b17a3
+    const v6, 0x7f0b183f
 
     invoke-virtual {p0, v6}, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;->getString(I)Ljava/lang/String;
 
@@ -286,7 +286,7 @@
 
     const-string/jumbo v3, "title"
 
-    const v4, 0x7f0b175c
+    const v4, 0x7f0b17f8
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;->getString(I)Ljava/lang/String;
 
@@ -296,7 +296,7 @@
 
     const-string/jumbo v3, "summary"
 
-    const v4, 0x7f0b175e
+    const v4, 0x7f0b17fa
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;->getText(I)Ljava/lang/CharSequence;
 

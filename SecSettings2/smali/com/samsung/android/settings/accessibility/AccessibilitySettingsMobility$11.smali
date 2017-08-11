@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->showAutoClickExclusivePopup()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,45 +21,37 @@
 .field final synthetic this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
 
-# direct methods
-.method constructor <init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 4
+    .locals 3
 
-    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+    const/4 v2, 0x1
 
-    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
-    invoke-virtual {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v0
 
-    sget v3, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->option_flag:I
+    invoke-static {v0, v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap5(Landroid/content/Context;Z)V
 
-    invoke-virtual {v1, v2, v3}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->turnOffExlusiveOptions(Landroid/content/Context;I)V
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
-    new-instance v0, Landroid/os/Handler;
+    invoke-static {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-get0(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    move-result-object v0
 
-    new-instance v1, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11$1;
+    const/4 v1, 0x0
 
-    invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11$1;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11;)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setChecked(Z)V
 
-    const-wide/16 v2, 0x1f4
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$11;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-static {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-get5(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Lcom/samsung/android/settings/SettingsSwitchPreference;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setChecked(Z)V
 
     return-void
 .end method

@@ -363,7 +363,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f04018d
+    const v1, 0x7f04018f
 
     const/4 v2, 0x0
 
@@ -375,7 +375,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->guideView:Landroid/view/View;
 
-    const v2, 0x7f110542
+    const v2, 0x7f110544
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1094,7 +1094,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b09bc
+    const v10, 0x7f0b0a2a
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1335,7 +1335,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->headerImgView:Landroid/widget/ImageView;
 
-    const v2, 0x7f020386
+    const v2, 0x7f0203ac
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1351,7 +1351,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->headerImgView:Landroid/widget/ImageView;
 
-    const v2, 0x7f020384
+    const v2, 0x7f0203aa
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1360,7 +1360,7 @@
     :cond_2
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->headerImgView:Landroid/widget/ImageView;
 
-    const v2, 0x7f020385
+    const v2, 0x7f0203ab
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -2486,7 +2486,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f029a
+    const v7, 0x7f0f029b
 
     invoke-direct {v5, v6, v7}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 
@@ -2645,7 +2645,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v1, 0x7f04018c
+    const v1, 0x7f04018e
 
     const/4 v2, 0x0
 
@@ -2653,7 +2653,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1103f0
+    const v1, 0x7f1103f2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2665,7 +2665,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->descTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b09b9
+    const v2, 0x7f0b0a27
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -3005,7 +3005,7 @@
 
     move-result-object v5
 
-    const v9, 0x7f100213
+    const v9, 0x7f100219
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3086,7 +3086,7 @@
 
     move-result-object v7
 
-    const v9, 0x7f100214
+    const v9, 0x7f10021a
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getInteger(I)I
 

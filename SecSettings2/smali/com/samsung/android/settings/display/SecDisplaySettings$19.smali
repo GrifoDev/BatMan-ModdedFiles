@@ -1161,7 +1161,19 @@
 
     if-nez v21, :cond_16
 
-    const-string/jumbo v21, ", "
+    const-string/jumbo v21, " "
+
+    const-string/jumbo v22, ""
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v12, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string/jumbo v21, ","
 
     const-string/jumbo v22, ""
 
@@ -1458,6 +1470,34 @@
 
     move-object/from16 v21, v0
 
+    invoke-virtual/range {v21 .. v21}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getListView()Landroid/widget/ListView;
+
+    move-result-object v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings$19;->this$0:Lcom/samsung/android/settings/display/SecDisplaySettings;
+
+    move-object/from16 v22, v0
+
+    invoke-static/range {v22 .. v22}, Lcom/samsung/android/settings/display/SecDisplaySettings;->-get20(Lcom/samsung/android/settings/display/SecDisplaySettings;)Lcom/android/settings/TimeoutListPreference;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Lcom/android/settings/TimeoutListPreference;->getOrder()I
+
+    move-result v22
+
+    const/16 v23, 0x0
+
+    invoke-virtual/range {v21 .. v23}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings$19;->this$0:Lcom/samsung/android/settings/display/SecDisplaySettings;
+
+    move-object/from16 v21, v0
+
     invoke-static/range {v21 .. v21}, Lcom/samsung/android/settings/display/SecDisplaySettings;->-get8(Lcom/samsung/android/settings/display/SecDisplaySettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v21
@@ -1519,6 +1559,34 @@
     goto/16 :goto_0
 
     :cond_1a
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings$19;->this$0:Lcom/samsung/android/settings/display/SecDisplaySettings;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getListView()Landroid/widget/ListView;
+
+    move-result-object v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings$19;->this$0:Lcom/samsung/android/settings/display/SecDisplaySettings;
+
+    move-object/from16 v22, v0
+
+    invoke-static/range {v22 .. v22}, Lcom/samsung/android/settings/display/SecDisplaySettings;->-get20(Lcom/samsung/android/settings/display/SecDisplaySettings;)Lcom/android/settings/TimeoutListPreference;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Lcom/android/settings/TimeoutListPreference;->getOrder()I
+
+    move-result v22
+
+    const/16 v23, 0x0
+
+    invoke-virtual/range {v21 .. v23}, Landroid/widget/ListView;->setSelectionFromTop(II)V
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings$19;->this$0:Lcom/samsung/android/settings/display/SecDisplaySettings;

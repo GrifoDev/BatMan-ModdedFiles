@@ -3,12 +3,12 @@
 .source "DataUsageList.java"
 
 # interfaces
-.implements Lcom/android/settings/datausage/CycleAdapter$SpinnerInterface;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/datausage/DataUsageList;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/datausage/DataUsageList;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,60 +34,42 @@
 
 
 # virtual methods
-.method public getSelectedItem()Ljava/lang/Object;
-    .locals 1
+.method public onClick(Landroid/view/View;)V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList$8;->this$0:Lcom/android/settings/datausage/DataUsageList;
+    new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/DataUsageList;->-get3(Lcom/android/settings/datausage/DataUsageList;)Landroid/widget/Spinner;
+    iget-object v1, p0, Lcom/android/settings/datausage/DataUsageList$8;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/android/settings/datausage/DataUsageList;->getActivity()Landroid/app/Activity;
 
-    invoke-virtual {v0}, Landroid/widget/Spinner;->getSelectedItem()Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    return-object v0
-.end method
+    const v1, 0x7f0b055f
 
-.method public setAdapter(Lcom/android/settings/datausage/CycleAdapter;)V
-    .locals 1
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList$8;->this$0:Lcom/android/settings/datausage/DataUsageList;
+    const v1, 0x7f0b0563
 
-    invoke-static {v0}, Lcom/android/settings/datausage/DataUsageList;->-get3(Lcom/android/settings/datausage/DataUsageList;)Landroid/widget/Spinner;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v0
+    new-instance v1, Lcom/android/settings/datausage/DataUsageList$8$1;
 
-    invoke-virtual {v0, p1}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/datausage/DataUsageList$8$1;-><init>(Lcom/android/settings/datausage/DataUsageList$8;)V
 
-    return-void
-.end method
+    const v2, 0x104000a
 
-.method public setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
-    .locals 1
+    invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList$8;->this$0:Lcom/android/settings/datausage/DataUsageList;
+    const/high16 v1, 0x1040000
 
-    invoke-static {v0}, Lcom/android/settings/datausage/DataUsageList;->-get3(Lcom/android/settings/datausage/DataUsageList;)Landroid/widget/Spinner;
+    const/4 v2, 0x0
 
-    move-result-object v0
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {v0, p1}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
-
-    return-void
-.end method
-
-.method public setSelection(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList$8;->this$0:Lcom/android/settings/datausage/DataUsageList;
-
-    invoke-static {v0}, Lcom/android/settings/datausage/DataUsageList;->-get3(Lcom/android/settings/datausage/DataUsageList;)Landroid/widget/Spinner;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     return-void
 .end method

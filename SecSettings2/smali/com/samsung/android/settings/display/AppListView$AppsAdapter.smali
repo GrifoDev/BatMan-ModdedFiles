@@ -65,7 +65,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/AppListView$AppsAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040189
+    const v2, 0x7f04018b
 
     const/4 v3, 0x0
 
@@ -265,7 +265,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d01d5
+    const v4, 0x7f0d01d6
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 

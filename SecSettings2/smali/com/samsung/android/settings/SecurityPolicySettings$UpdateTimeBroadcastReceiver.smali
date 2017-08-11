@@ -88,7 +88,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/SecurityPolicySettings$UpdateTimeBroadcastReceiver;->this$0:Lcom/samsung/android/settings/SecurityPolicySettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/SecurityPolicySettings;->-wrap0(Lcom/samsung/android/settings/SecurityPolicySettings;)V
+    invoke-static {v1}, Lcom/samsung/android/settings/SecurityPolicySettings;->-wrap2(Lcom/samsung/android/settings/SecurityPolicySettings;)V
 
     :cond_2
     return-void

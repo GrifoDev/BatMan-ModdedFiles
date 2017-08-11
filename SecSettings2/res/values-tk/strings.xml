@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$ds %2$dm</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_failed_to_obtain_IP">IP salgysyny alyp bolmady.</string>
     <string name="wifi_security_none">Ýok</string>
     <string name="wifi_unknown_security_type">Tanalmaýan howpsuzlyk görnüşi</string>
@@ -49,6 +49,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s birigip bolmaýar.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s birigip bolmaýar. %2$s sazlamalaryny barlap synanyşyň.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s tarapyndan yzyna gaýtarylan jübütlenýär</string>
+    <string name="bluetooth_getting_remote_device_name">Enjam ady alynýar…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Bu enjam birigende, enjam ady görner.</string>
     <string name="process_kernel_label">Android OS</string>
     <string name="data_usage_uninstalled_apps">Öçürlen gollanmalar</string>
     <string name="data_usage_uninstalled_apps_users">Goşundylary we ulanyjylary aýyrdy</string>
@@ -258,7 +260,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Goldaw</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth we beýleki tor sazlamalaryňyzy asyllaryna dikeldiň.</string>
     <string name="master_clear_list_summary">Enjamyňyzy asyl sazlamalaryna nol ediň. Ol ähli maglumaty, şol sanda faýllary we göçürilip alnan goýmalary öçürer.</string>
-    <string name="auto_restart_summary">Enjamyňyzy bellen wagtlarda awtomatik açyp ýapmak arkaly optimizirläň. Enjam açylyp ýapylanda, islendik ýazdyrylmadyk maglumat ýiter.</string>
+    <string name="auto_restart_summary">Telefonyňyzy hepdede bir gezek açyp ýapyp optimizläň. Telefon açylyp ýapylanda, islendik ýazdyrylmadyk maglumat ýiter.</string>
+    <string name="auto_restart_summary_tablet">Planşetiňizi hepdede bir gezek açyp ýapyp optimizläň. Planşet açylyp ýapylanda, islendik ýazdyrylmadyk maglumat ýiter.</string>
     <string name="search_settings">Gözleg</string>
     <string name="related_results">%d dahylly element</string>
     <string name="no_results_found">Netije tapylmady</string>
@@ -328,7 +331,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Ses balansy %d göterim sagda. Slaýderi eltmek üçin iki barmak ulanyň.</string>
     <string name="sound_balance_set">Düz</string>
     <string name="accessibility_assistant_menu">Kömek menýusy</string>
-    <string name="assistant_menu_summary">Hereketleri çäklenen ulanyjylaryň enjam elýeterlilikleriini özgertýän funksiýalary açýar</string>
+    <string name="assistant_menu_summary">Düşbüligi pes ulanyjylar üçin telefona giriş ukybyny gowulandyryň.</string>
     <string name="color_blind_title">Reňk sazlama</string>
     <string name="no_result">Eger size ekranyň ýüzündäkileri okamak kyn düşýän bolsa, ekranyň reňklerini sazlaň.</string>
     <string name="you_are_normal">Reňk sazlamasy hökman däl</string>
@@ -524,6 +527,7 @@ Bu funksiýa açyk wagty, Awto-aýlanyş ekrany ýapylar. Ähli jaňlar, käbir 
     <string name="direct_access_actions_accessibility_title">Elýeterlilik</string>
     <string name="direct_access_actions_negative_title">Negatiw reňkler</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Göni giriş bilen Ekran ölçegini kiçeltmegi bilelikde işledip bolmaýar. Ekran ölçegini kiçeltmek ýapylar.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s bilen %2$s bilelikde işledip bolmaýar. %3$s ýapylar.</string>
     <string name="direct_access_actions_color_adjustment_summary">Göni girişde ulanmak üçin, Görüşde Reňk sazlamasyny sazla</string>
     <string name="direct_access_actions_screen_reader_summary">Göni girişde ulanmak üçin, sahypa okaýjyny işlediň.</string>
     <string name="direct_access_actions_accesscontrol_title">Özara täsir barlagy</string>
@@ -721,7 +725,9 @@ Wi-Fi bilen Bluetooth hem ýapylar, ýöne olary Sazlamalardan ýa-da çalt sazl
     <string name="premium_sms_values_ask">Sora</string>
     <string name="premium_sms_values_never">Hiç-haçan rugsat berme</string>
     <string name="premium_sms_values_allow">Hemişe rugsat bermek</string>
-    <string name="assist_and_voice_input_summary">Enjam kömekçi goýmalary her ekran hakda goşmaça opsiýa we maglumat berýär.</string>
+    <string name="assist_and_voice_input_summary">Öý düwmesini basyp saklanyňda ulanmaly goýma saýlaň.</string>
+    <string name="assist_footer_phone">Öý düwmesini basyp saklanyňda ulanmaly goýma saýlaň. Enjam kömegi goýmalary telefonda häzirki ekranda görkezilýän maglumaty ýygnamak arkaly kömek edip bilýär.</string>
+    <string name="assist_footer_tablet">Öý düwmesini basyp saklanyňda ulanmaly goýma saýlaň. Enjam kömegi goýmalary planşetde häzirki ekranda görkezilýän maglumaty ýygnamak arkaly kömek edip bilýär.</string>
     <string name="default_app_title">Standart belle</string>
     <string name="premium_sms_title">Premium SMS iber</string>
     <string name="default_app_selection">Standart goýma saýlawy</string>
@@ -810,7 +816,7 @@ Ony soň Bluetooth sazlamalaryna baryp hem düzedip bilersiňiz."</string>
 
 2 sany birigen enjamda ses çykyşy azajyk üýtgeşik bolup biler."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Multimedia ses sinhr-i ýapmalymy?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Jübüt audio ulanmak üçin, Multimedia ses sinhr-i ýapmaly.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Sesi her audio enjamda aýratyn ulanmak üçin, Multimedia ses sinhr-i ýapmaly.</string>
     <string name="bluetooth_avc_title">Multimedia ses sinhr</string>
     <string name="bluetooth_avc_description">Birigen Bluetooth enjam telefonyňyzyň multimedia sesini dolandyryp bilýän bolsa, Bluetooth enjamyň bellän ses derejesi telefona sinhronlanar.</string>
     <string name="bluetooth_avc_volume_change_description">Bu funksiýany açmak garaşylmadyk ses üýtgemelerine eltip biler.</string>
@@ -819,6 +825,7 @@ Ony soň Bluetooth sazlamalaryna baryp hem düzedip bilersiňiz."</string>
     <string name="bluetooth_avc_ask_popup_title">Jübüt audiony ýapmalymy?</string>
     <string name="bluetooth_avc_ask_popup_content">Multimedia ses sinhr-i ulanmak üçin, Jübüt audiony ýapmaly.</string>
     <string name="bluetooth_avc_disable_description">Birigen Bluetooth enjamy Multimedia ses sinhr goldamaýar. Telefonyň sesini birigen Bluetooth enjam bilen sinhronlap bilmeýärsiňiz.</string>
+    <string name="bluetooth_avc_available_description">Birigen Bluetooth enjamy Multimedia ses sinhronlamany goldaýar we Bluetooth enjamyň bellän ses derejesi telefonyňyz sinhronlanar.</string>
     <string name="bluetooth_enter_pin_msg">%s bilen baglamak üçin PIN giriziň (0000 ýa-da 1234 ýazyp görüň).</string>
     <string name="bluetooth_pin_maximum_number_message">Nyşanlaryň iň ýokary sanyna ýetildi.</string>
     <string name="settings_menu_done">Tamam</string>
@@ -902,11 +909,12 @@ Smart-düşüriş ýapyk hem bolsa, Degmeýän buýruk arkaly onuň funksiýalar
     <string name="swipe_to_call_title">Jaň ýa-da hat üçin syr</string>
     <string name="swipe_to_call_summary">Telefonda, Kontaktlarda ýa-da Hatlarda jaň etmek üçin, kontakty ýa-da belgini saga syryň ýa-da hat ibermek üçin, çepe syryň.</string>
     <string name="swipe_to_call_summary_dcm">Aýlawda, Kontaktlarda ýa-da Hatlarda jaň etmek üçin, kontakty ýa-da belgini saga syryň ýa-da hat ibermek üçin, çepe syryň.</string>
-    <string name="swipe_to_call_summary_kddi">Telefonda ýa-da Kontaktlarda jaň etmek üçin, kontakty ýa-da belgini saga syryň ýa-da hat ibermek üçin, çepe syryň.</string>
+    <string name="swipe_to_call_summary_kddi">Aýlawda ýa-da Kontaktlarda jaň etmek üçin, kontakty ýa-da belgini saga syryň ýa-da hat ibermek üçin, çepe syryň.</string>
     <string name="dual_app_title">Jübüt habarçy</string>
     <string name="dual_app_summary">Şol bir goýma üçin iki aýry hasap ulanyň.</string>
     <string name="finger_sensor_gesture_title">Barmak sensory ümleri</string>
     <string name="finger_sensor_gesture_summary">Barmak yzy sensory bilen goýmadyr funksiýalary açyň we ýapyň.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Barmak yzy sensory arkaly habarnama panelini açyň we ýapyň.</string>
     <string name="finger_sensor_gesture_description">Habarnama panelini açmak ýa-da ýapmak üçin, barmak yzy sensorynda ýokaryk ýa-da aşak syryň.</string>
     <string name="open_samsung_pay_title">Samsung Pay-i aç</string>
     <string name="open_samsung_pay_summary">Öý ekranda Samsung Pay-i açmak üçin, barmak yzy sensoryny ýokaryk syryň.</string>
@@ -941,6 +949,7 @@ Smart-düşüriş ýapyk hem bolsa, Degmeýän buýruk arkaly onuň funksiýalar
 %s"</string>
     <string name="enable_ps_title">%s Ýakyň</string>
     <string name="setup_wizard">Gurma masteri</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normal</string>
     <string name="large">Uly</string>
     <string name="small">Kiçi</string>
@@ -1086,7 +1095,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Wi-Fi toruna birigilende, programma üpjünçiligi täzelemelerini awtomatik göçürip alyň. Göçürip alýan wagtyňyz hem enjamyňyzy ulanyp bilersiňiz.</string>
     <string name="auto_update_over_wifi">Wi-Fi arkaly awto-göçürip al</string>
     <string name="auto_update_over_wifi_summary">Wi-Fi toruna birigilende, programma üpjünçiligi täzelemelerini awtomatik göçürip alyň. Hyzmat üpjün edijiňize baglylykda, goşmaça töleg bolmazdan, täzelemeleri mobil maglumat arkaly hem göçürilip alnyp biler. Göçürim wagtynda öz telefonyňyzy ulanyp bilersiňiz.</string>
-    <string name="scheduled_update">Planl. prog. üpj. täzelemeleri</string>
+    <string name="scheduled_update">Tertibe salnan programma üpjünçiliginiň ýüklemeleri</string>
     <string name="scheduled_update_summary_default">Ýapyk</string>
     <string name="scheduled_update_summary_set_time">Täzeleme %s sagatda başlar</string>
     <string name="scheduled_update_summary_set_time_everyday">Täzeleme her gün %s sagatda başlar</string>
@@ -1230,7 +1239,7 @@ Emma, ýöriteleşdirilen marketingi almakdan çyksaňyz hem, ol mobil enjamlary
     <string name="adjust_your_display_colour">Ak tonlaryň görnüşini üýtgetmek üçin, displeýiň reňklerini sazlaň.</string>
     <string name="display_temperature_preset_cool">Sowuk</string>
     <string name="display_temperature_preset_warm">Ýyly</string>
-    <string name="display_advanced_option">Giňişleýin opsiýalar</string>
+    <string name="display_advanced_option">Kämil opsiýalar</string>
     <string name="color_balance_subtext_1">Reňk balansyny diňe Adaptiw displeý tertibinde sazlap bolýar.</string>
     <string name="color_balance_subtext_2">Gök yşyk filtri açyk wagty, sazlamalaryňyz ulanylmaz.</string>
     <string name="poc_balance_title">Ekran gyrasy reňk balansy</string>
@@ -1288,6 +1297,7 @@ Emma, ýöriteleşdirilen marketingi almakdan çyksaňyz hem, ol mobil enjamlary
     <string name="navigationbar_summary">Öý, Yza we Soňkular düwmelerini dolandyryň.</string>
     <string name="navigationbar_theme_switch">Häzirki temany ulan</string>
     <string name="navigationbar_color_title">Fon reňki</string>
+    <string name="navigationbar_color_summary">Saýlaýan fon reňkiňiz ähli goýmalarda ulanylman biler.</string>
     <string name="navigationbar_order_title">Düwme ýerleşişi</string>
     <string name="navigationbar_order_default">Soňkular - Öý - Yza</string>
     <string name="navigationbar_order_mirrored">Yza - Öý - Soňkular</string>
@@ -1319,7 +1329,8 @@ Emma, ýöriteleşdirilen marketingi almakdan çyksaňyz hem, ol mobil enjamlary
     <string name="blue_light_filter_enable_now">Häzir aç</string>
     <string name="blue_light_filter_enable_as_scheduled">Rejelenişi ýaly aç</string>
     <string name="blue_light_filter_scheduled_toast">Gök yşyk filtri açyk. Ol rejelenen gutaryş wagtynda awtomatik ýapylar.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s bilen Gök yşyk filtrini birlikde ulanyp bolmaýar. Gök yşyk filtri ýapylar.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Gök yşyk filtrini ýapmalymy?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s ulanmak üçin, Gök yşyk filtrini ýapmaly.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Gün doguş-batyş ulanmak üçin, Ýerleşişi açmaly.</string>
     <string name="dlg_turn_on">Işlet</string>
     <string name="screen_resolution_title">Ekran çözgüdi</string>
@@ -1333,7 +1344,7 @@ Emma, ýöriteleşdirilen marketingi almakdan çyksaňyz hem, ol mobil enjamlary
     <string name="outdoor_mode_summary_vzw">Outdoor mode will maximize screen brightness for best viewing in sunlight. If the screen is not in use, screen brightness will return to the previous setting in 15 minutes.</string>
     <string name="screen_zoom_and_font">Ekranyň zumy we şrifti</string>
     <string name="screen_zoom_easymode_desc">Ekran zumuny ulanmak üçin, Aňsat tertibi ýapyň.</string>
-    <string name="intelligent_sleep_title">Smart eýerleşmesi</string>
+    <string name="intelligent_sleep_title">Akylly öçüriş</string>
     <string name="screen_mode_setting">Ekran režimi</string>
     <string name="screen_mode_summary">Ekran režimini saýlaň</string>
     <string name="automatic_brightness_message">Awtomatiki ýagtylyk sazlamalary diňe içki ekrana täsir edýär.</string>
@@ -1536,6 +1547,7 @@ Maglumatyň möçberine baglylykda, şifrlemek uzaga çekip biler. Başlamankaň
     <string name="crypt_keeper_last_warn_wipe">Enjamy başlatmak üçin diňe 1 synanyşyk galdy, soňra ol standart sazlamalaryna nol ediler. Ol ähli maglumaty, şol sanda faýllary we göçürilip alnan goýmalary öçürer.</string>
     <string name="crypt_keeper_failed_title_dec">Aýanlaşyk amala aşyrylmady</string>
     <string name="crypt_keeper_failed_summary_dec">Päsgel berlendigi sebäpli şifri açmagy tamamlamak mümkin däl. Ulanmazdan öň zawodyň maglumatlary täzeden düzmegini (ähli maglumatlary öçüriň) ýerine ýetiriň.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Ekrany gulplama görnüş amaly gurnamak</string>
     <string name="encryption_interstitial_message">"Başlatmazdan öň %s girizilmegini sorap, bu telefony has-da gorap bilersiňiz. Ol eger telefon ýitse ýa-da ogurlansa maglumatyňyzy goramaga kömek edýär. E-poçta sinhronlama ýaly funksiýalara giriş üçin, Enjam şifrleme syýasatlaryna laýyklykda, käbir goýmalara Howpsuz başlangyç gerek bolup biler.
 
 Telefon başlaýança, enjam jaňlary, hatlary ýa-da habarnamalary almaz ýa-da oýaryjylar işlemez."</string>
@@ -1774,6 +1786,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Barmak yzyny ulan</string>
     <string name="wifi_ap_close">Ýap</string>
     <string name="fingerscanner_add_summary">Barmak yzlaryňyzy goşuň.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 barmak yzy goşuldy.</string>
     <string name="fingerscanner_register_summary">%d barmak yzy goşuldy.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Barmak yzy ulanyň ýa-da häzirki PIN-i giriziň.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Barmak yzy ulanyň ýa-da häzirki şablony çyzyň.</string>
@@ -1800,6 +1813,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Ekran açylan badyna, ilki bilen syrman, telefonyň gulpuny ýüz tanaýyş bilen açyň.</string>
     <string name="facelock_recognition_speed_up">Has çalt tanamak</string>
     <string name="facelock_recognition_speed_up_summary">Has çalt tanamak üçin açyň. Howpsuzlygy artdyrmak we surat ýa-da wideo arkaly gulpuny açmagy kynlaşdyrmak üçin ýapyň.</string>
+    <string name="facelock_samsungpass_summary">%s we beýleki goldanylýan goýmalar bilen şahsyýetiňizi tassyklamak üçin, ýüz tanamagy ulanyň.</string>
     <string name="face_remove_face_popup_title">Ýüz maglumatyny aýyrmalymy?</string>
     <string name="face_remove_face_popup_message_1">Ýüzüňiz indi tanalmaz we Ýüz gulpy ýapylar.</string>
     <string name="face_remove_face_popup_message_2">Ýüz tanamagy ulanýan funksiýalar ýapylar.</string>
@@ -1921,7 +1935,7 @@ Kepillik boýunça abatlamagy soramankaňyz, Täzeden işjeňleşdiriş gulpuny 
     <string name="iris_use_samsung_pass">Samsung Pass</string>
     <string name="iris_use_samsung_pass_summary">%s we beýleki goldanylýan goýmalar arkaly şahsyýetiňizi tassyklamak üçin, gözleriňizi ulanyň.</string>
     <string name="iris_use_samsung_pass_description_internet">Internet</string>
-    <string name="iris_unlock">Göz açyk</string>
+    <string name="iris_unlock">Göz bilen açyş</string>
     <string name="iris_unlock_summary">Telefonyň gulpuny gözleriňiz bilen açyň.</string>
     <string name="tips_for_iris">Göz tanamak ulanyş maslahatlary</string>
     <string name="iris_remove_popup_1">Göz maglumatyňyz aýrylar. Ekran gulpy %s diýlip üýtgediler.</string>
@@ -1941,7 +1955,7 @@ Telefonyňyzy açar ýaly, biometrika ýa-da %s ulanmak üçin, Göz gulpuny aç
     <string name="biometrics_backup_locktype_title">Göz howpsuzlygyny sazla</string>
     <string name="biometrics_register_your_iris">Gözleriňiz bellige alyň.</string>
     <string name="biometrics_backup_locktype_summary">Enjamyň gulpuny açmakda gözleri ulanmak üçin, şablon, PIN ýa-da parol bellemeli.</string>
-    <string name="biometrics_backup_locktype_message">Telefonyň gulpuny açmak ýa-da howpsuz tassyklamak üçin, gözleriňizi ulanar ýaly, siz şeýtmeli:</string>
+    <string name="biometrics_backup_locktype_message">Telefonyň gulpuny açmak ýa-da goýmalarda özüňizi tassyklamak üçin, gözleri ulanar ýaly, siz şeýtmeli:</string>
     <string name="iris_delete_popup_title">Göz maglumatyny aýyrmalymy?</string>
     <string name="iris_delete_popup_message">Göz maglumatyny aýyrmalymy?</string>
     <string name="iris_delete_popup_message_with_related_func">Gözleri ulanýan funksiýalar ýapylar.</string>
@@ -1949,7 +1963,7 @@ Telefonyňyzy açar ýaly, biometrika ýa-da %s ulanmak üçin, Göz gulpuny aç
     <string name="iris_timeout_popop_title">Soňra synanyş</string>
     <string name="iris_timeout_popop_message">Gözler tanalmady. Göz kamerasy hapa bolup biler. Ýokarky ekrany arassalap synanyşyň.</string>
     <string name="iris_timeout_popop_message_1">Göz kamerasy hap bolup biler. Ýokarky ekrany arassalap synanyşyň.</string>
-    <string name="iris_proximity_restriction_popop_message">Gözler tanalmady. Telefon ýüze gaty ýakyn ýa-da ýakynlyk sensory hapa. Ýokarky ekrany arassalap synanyşyň.</string>
+    <string name="iris_proximity_restriction_popop_message">Telefony ýüzüňizden uzakda saklap synanyşyň.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Ýakynlyk sensory hapa bolup biler.
 Ekranyň ýokaryndaky ýeri arassalaň."</string>
     <string name="iris_try_again">Ýene synan</string>
@@ -1957,6 +1971,8 @@ Ekranyň ýokaryndaky ýeri arassalaň."</string>
     <string name="iris_failed_to_verity_identify">Şahsyýetiňizi tassyklap bolmady</string>
     <string name="iris_failed_popup_description">Gözleriňizi tassyklamaga %1$d synanyşyk edildi. Ýene %2$d sekuntdan synanyşyň.</string>
     <string name="iris_no_match">Deň gelme ýok</string>
+    <string name="iris_eye_safety_msg">Gözleriňiz tanalmady.</string>
+    <string name="iris_timeout_msg">Gözleriňiz tapylmady.</string>
     <string name="biometrics_registered">Bellige alyndy</string>
     <string name="iris_turn_on_toast_message">Barmak yzy gulpuna derek, Göz gulpy işledildi.</string>
     <string name="iris_wrong_backup_password">Nädogry ätiýaç parol</string>
@@ -2148,6 +2164,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Garaşma ekranynda Öý düwmesini we sagat ýa-da maglumat görkeziň.</string>
     <string name="aod_feature_off_popup_title">%s ýapmalymy?</string>
     <string name="aod_feature_off_popup_description">%1$s ulanmak üçin, %2$s ýapylmaly.</string>
+    <string name="aod_features_off_popup_title">Başga funksiýalary ýapmalymy?</string>
+    <string name="aod_features_off_popup_description">Always On Display ulanmak üçin, şu funksiýalary ýapmaly:</string>
     <string name="aod_features_off_popup_btn_ok">Ýap</string>
     <string name="aod_disable_by_negative_colors">Negatiw reňkler açyk wagty, ulanyp bolmaýar.</string>
     <string name="aod_disable_by_powersaving_mode">Güýç tygşytlaýjy tertip açyk wagty, ulanyp bolmaýar.</string>
@@ -2171,6 +2189,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Reňkli damjalar</string>
     <string name="lock_screen_show_information_summary_wifi_only">Gulply ekranda enjam eýesiniň maglumatyny ýa-da goýma çykgytlaryny görkez.</string>
     <string name="lock_screen_sview_show_information_summary">Gulply ekranda we S View penjiresi arkaly ikilik sagady, enjam eýesiniň maglumatyny ýa-da goýma çykgytlaryny görkez.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Gulply ekranda we S View penjiresi arkaly rouming sagadyny ýa-da telefon eýesiniň kontakt maglumatyny görkez.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Gulply ekranda we S View penjiresinde görkezmäge goýma çykgytlaryny saýlaň.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Gulply ekranda we S View penjiresinde habarnamalary görkeziň.</string>
     <string name="lock_screen_and_cover_show_information_summary">Gulply ekranda we arassa görnüş gapagynda ikilik sagady görkez.</string>
     <string name="lock_screen_secured_lock_settings_title">Howpsuz gulp sazlamalary</string>
     <string name="lock_screen_secured_lock_settings_summary">Awto-gulp we Gulp ýaly howpsuz gulplaýyş funksiýalaryňyzy Güýç düwmesi bilen derrew belläň.</string>
@@ -2187,6 +2208,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Öý sagat guşaklygy</string>
     <string name="contact_info_settings_title">Kontakt maglumaty</string>
     <string name="show_contact_info_on_lockscreen_label">Gulply ekranda telefon belgiňiz ýa-da e-poçta salgyňyz ýaly maglumaty görkeziň.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Gulply ekranda we Always On Display-de telefon belgiňiz ýa-da e-poçta salgyňyz ýaly maglumaty görkeziň.</string>
     <string name="unlock_effect">Açma efekti</string>
     <string name="walking_mate_title">Pedometr</string>
     <string name="help_text_title">Kömekçi metin</string>
@@ -2286,7 +2308,7 @@ Biometrik maglumatyňyzy aýyrmak maslahat berilýär, ýöne ony dahylly funksi
     <string name="toast_set_lock_pattern">Şablony ýatdan çykarsaňyz, ähli maglumat pozular we telefon nol ediler.</string>
     <string name="toast_set_lock_password">Paroly ýatdan çykarsaňyz, ähli maglumat pozular we telefon nol ediler.</string>
     <string name="toast_set_lock_pin">PIN-i ýatdan çykarsaňyz, ähli maglumat pozular we telefon nol ediler.</string>
-    <string name="chooselock_warning_text">Şu %s ýatda saklaň. Ol enjam açylyp ýapylansoň soralar.</string>
+    <string name="chooselock_warning_text">Şu %s ýatda saklaň. Ol enjamyňyzy açyp ýapanyňyzdan soň soralar.</string>
     <string name="lockpassword_password_exists_history">Öň ulanylan açarsöz. Täze açarsöz ýazyň.</string>
     <string name="lockpassword_pin_repeating_nums">PIN gaýtalanýan sanlary öz içine almaly däldir.</string>
     <string name="lockpassword_pin_sequential_nums">PIN yzly-yzyna sanlary öz içine almaly däldir.</string>
@@ -2404,6 +2426,9 @@ Mobil maglumat ýapylar."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Wi-Fi ulanmazdan, indi siz Interneti, E-poçtany ýa-da maglumat birikmesi gerek bolan başga goýmalary ulanyp bilmersiňiz.
 
 Mobil maglumat ýapylar."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Wi-Fi toruna birikmeseňiz, tor birikmesini talap edýän interneti, e-poçtany we beýleki goýmalary ulanyp bilmersiňiz.</string>
@@ -2562,10 +2587,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Laýyk ses limiti</string>
     <string name="volume_limiter_descryption">Gulagyňyzy maksimum multimedia ses çägi bilen goraň. Çäk diňe garnitura ýa-da Bluetooth audio enjamlar ulanylanda ulanylar.</string>
     <string name="multi_sound_title">Aýratyn goýma sesi</string>
-    <string name="multi_sound_summary">Enjamyňyzda başga seslerden aýratynlykda dinamikde ýa-da garniturada bir goýmadan ses goýberiň.</string>
-    <string name="multi_sound_descryption">"Başga goýmalardan gelýän multimedia sesinden aýratynlykda dinamikde ýa-da garniturada bir goýmadan multimedia sesini goýberiň.
+    <string name="multi_sound_summary">Telefonyňyzyň esasy audio çykyş enjamyndan aýratyn audio enjamda bir goýmadan multimedia sesini goýberiň.</string>
+    <string name="multi_sound_descryption">"Telefonyňyzyň esasy audio çykyş enjamyndan aýratyn audio enjamda bir goýmadan multimedia sesini goýberiň. Muny açmak üçin, goýma we audio enjam saýlaň.
 
-Eger Bluetooth audio enjam saýlasaňyz, Bluetooth enjam birikmedik bolsa, ses standart audio enjamda goýberiler."</string>
+Aýratyn goýma sesi diňe saýlan audio enjamyňyz telefonyň esasy audio çykyş enjamyndan tapawutly bolsa işleýär.
+
+Çalt sazlamalar paneline baryp, telefonyň esasy audio çykyş enjamyny üýtgedip bilersiňiz. Eger audio çykyş görkezilmese, Samsung Connect > Sazlamalar > Samsung Connect paneli-ne baryp, ony açyň."</string>
     <string name="set_application_title">Goýma</string>
     <string name="set_application_summary">Aýratyn audio enjamda öz sesini goýberer ýaly goýma saýlaň.</string>
     <string name="set_application_descryption">Aýratyn audio enjamda öz sesini goýberer ýaly, multimedia goýmasy saýlaň.</string>
@@ -2576,9 +2603,11 @@ Eger Bluetooth audio enjam saýlasaňyz, Bluetooth enjam birikmedik bolsa, ses s
     <string name="multi_sound_popup_msg">%s açmak üçin, siz goýma we audio enjam saýlamaly.</string>
     <string name="multi_sound_network_msg">Elýeterli goýmalary barlamak üçin, telefonyňyzy tora birikdirmeli. Tor sazlamalaryňyzy barlap synanyşyň.</string>
     <string name="multi_sound_wifi_msg">Elýeterli goýmalary barlamak üçin, telefonyňyz tora birikmeli. Mobil maglumat ulansaňyz, goşmaça tölegli bolup biler.</string>
+    <string name="multi_sound_add_application">Gollanmalary goşuň</string>
     <string name="dlg_btn_select">Saýla</string>
-    <string name="audio_device_type_descryption">Şu goýma üçin ulanmak isleýän audio enjamyňyzy saýlaň. Bluetooth enjamlar diňe birigen wagtlary elýeterli bolar.</string>
+    <string name="audio_device_type_descryption">Saýlanan goýma üçin ulanmak isleýän audio enjamyňyzy saýlaň. Bluetooth enjamlar diňe birigen wagtlary elýeterli bolar.</string>
     <string name="my_phone_title">Telefon</string>
+    <string name="my_phone_summary">Spiker/garnitura/USB audio enjamy</string>
     <string name="bluetooth_device_title">Bluetooth enjamy</string>
     <string name="no_connected_devices">Birikdirilen enjam ýok</string>
     <string name="two_hours">2 sagat</string>
@@ -2586,7 +2615,8 @@ Eger Bluetooth audio enjam saýlasaňyz, Bluetooth enjam birikmedik bolsa, ses s
     <string name="stop_setup_popup_msg">Üýtgeden hiç bir sazlamaňyz ulanylmaz.</string>
     <string name="app_turned_on">%s-I ýakyldy.</string>
     <string name="force_touch_title">Gaty basyş titreme seslenmesi</string>
-    <string name="volume_key_control_title">Standart Ses düwmesi dolandyryş</string>
+    <string name="volume_key_control_title">Media üçin Ses düwmelerini ulan</string>
+    <string name="volume_key_control_summary">Ses düwmelerine basanyňyzda, multimedia sesini dolandyryň.</string>
     <string name="sound_mode">Ses režimi</string>
     <string name="sound_mode_vibrate">Wibrirle</string>
     <string name="sound_mode_mute">Sessiz</string>
@@ -2799,14 +2829,13 @@ tertip"</string>
     <string name="text_biometrics_title_enterprise">%1$s saýlanyňyzda, biometrika %2$s gulp açyş usuly hökmünde goldanylmaz.</string>
     <string name="text_biometrics_finger_title_enterprise">%2$s üçin gulp açyş usuly hökmünde, barmak yzlary %1$s tarapyndan goldanylmaýar.</string>
     <string name="edge_feeds_title">Edge web-kanal</string>
-    <string name="screensaver_settings_summary">"Enjam dakylanda we/ýa-da zarýad alýarka bolýan zatlary dolandyryň. Ekran taým-autynda ekran goraýjy görkeziler.
-
-Bu funksiýa Irkiliş hem diýilýär."</string>
-    <string name="screensaver_settings_summary_wo_dock">Telefonyňyz zarýad alýarka, ekran awtomatik ýapylansoň, ekran goraýjy görkez.</string>
+    <string name="screensaver_settings_summary">Telefonyňyz zarýad alýarka, ekran awtomatik ýapylansoň, ekran goraýjy görkez.</string>
+    <string name="screensaver_settings_summary_wo_dock">Telefonyňyz dakylgy ýa-da zarýad alýan wagty, ekran awtomatik ýapylansoň, ekran goraýjy görkez.</string>
     <string name="apn_already_exists">Eýýäm bar</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Port belgisi %1$d bilen %2$d aralygynda bolmaly.</string>
     <string name="apn_restore_warning">Goşan ähli APN-leriňiz aýrylar. Başga APN-ler standart sazlamalaryna nol ediler.</string>
+    <string name="apn_restore_title">APN sazlamalaryny nol etmelimi?</string>
     <string name="master_clear_desc_google_account">Googly hasaby</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2818,7 +2847,8 @@ Bu funksiýa Irkiliş hem diýilýär."</string>
     <string name="sound_balance_summary">Garnitura üçin çep we sag ses balansyny sazlaň.</string>
     <string name="backup_samsung_account_title">Ätiýaçlaýyş sazlamalary</string>
     <string name="restore_samsung_account_title">Dikelt</string>
-    <string name="auto_restart_header">Enjamy dolandyrmak</string>
+    <string name="auto_restart_header">Telefon dolandyryş</string>
+    <string name="auto_restart_header_tablet">Planşet dolandyryş</string>
     <string name="auto_restart_title">Awto-açyp-ýapyş</string>
     <string name="switch_turn_on_text">Açyk</string>
     <string name="switch_turn_off_text">Ýap</string>
@@ -2941,6 +2971,14 @@ Telefonda eden laýyklamalaryňyz (mes. jaň sazy we Bimaza etmäň sazlamalary)
     <string name="tether_settings_summary_usb_bt">USB ýa-da Bluetooth arkaly enjamyň telefon maglumatyny paýlaşyň.</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Kabul et</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Telefonyň internet birikmesini Bluetooth arkaly paýlaşyň.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Planşetiň internet birikmesini Bluetooth arkaly paýlaşyň.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Bu telefonyň internet birikmesi paýlaşmaga taýýar.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Bu planşetiň internet birikmesi paýlaşmaga taýýar.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Bu telefonyň internet birikmesi 1 enjam bilen paýlaşylýar.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Bu planşetiň internet birikmesi 1 enjam bilen paýlaşylýar.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Bu telefonyň internet birikmesi %d enjam bilen paýlaşylýar.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Bu planşetiň internet birikmesi %d enjam bilen paýlaşylýar.</string>
     <string name="onehand_settings_title">Ýeke elli tertip</string>
     <string name="onehand_settings_text_1">Displeý ölçegini kiçeltmek üçin, ekranyň bir aşaky burçundan ýokaryk atanaklaýyn syryň.</string>
     <string name="onehand_settings_text_2">Displeý ölçegini kiçeltmek üçin, Öý düwmesine çalt 3 gezek basyň.</string>
@@ -3268,10 +3306,12 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Ýapyk</string>
     <string name="wifi_or_mobile_network">Wi-Fi ýa-da mobil ulgamlar</string>
     <string name="wifi_network_only">Diňe Wi-Fi ulgamy</string>
+    <string name="wifi_adps_title">Wi-Fi güýç tygşytlaýjy tertip</string>
+    <string name="wifi_adps_summary">Wi-Fi trafik galyplaryny seljerip, zarýad ulanyşy azaldyň.</string>
     <string name="wifi_auto_reconnect">Awto-täzeden-birik</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Turning on Wi-Fi will disable Mobile Hotspot. Continue?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Mobil hotspot işjeň wagty, Wi-Fi ýapylýar. Wi-Fi açmak üçin, Mobil hotspoty ýapyň.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
     <string name="wifi_enable_warning_mtr">Mobil hotspot işjeň wagty, Wi-Fi ýapylýar. Wi-Fi açmak üçin, Mobil hotspoty ýapyň.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
@@ -3473,6 +3513,10 @@ Mobil giriş nokadynyň ady ýa-da paroly üýtgedilensoň, täze QR koduny dör
     <string name="wifi_wps_pin_client_mobileap">PIN %1$s bilen müşderä birigilýär. Gurnawyň tamamlanmagy %2$d minuta çekip biler.</string>
     <string name="wifi_wps_complete_mobileap">Beýleki enjam indi siziň enjamyňyza birikdirildi.</string>
     <string name="wifi_ap_disconnect_warn">Enjamyň birikmesini kes</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Şu wagt bagly bolan ähli enjamlaryň Mobil geçiş nokady bilen baglanyşyklary kesiler.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Şu wagt bagly bolan ähli enjamlaryň Mobil geçiş nokady bilen baglanyşyklary kesiler.</string>
     <string name="wifi_ap_warn_max_whitelist">Rugsat berilen enjamlaryň maksimum sanyna (%d) ýetildi.</string>
     <string name="wifiap_one_item_deleted">1 zat öçüriler</string>
@@ -3608,6 +3652,8 @@ Mobil giriş nokadyny ulanmak köp zarýad we maglumat ulanýar."</string>
     <string name="wifi_ap_first_time_configuration">Ilkinji gezek hotspot düzüş</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Dogry PIN-i giriziň.</string>
+    <string name="open_mobileap_warning">Bu mobil AP howpsuz däl.</string>
+    <string name="hidden_mobileap_warning">Ulanyjy Gizlenen SSID bellände, WPS ýapylar.</string>
     <string name="wifi_ssid_max_byte_error">Nyşanlaryň iň ýokary sanyna ýetildi.</string>
     <string name="tethering_attention_title">Üns beriň</string>
     <string name="wfd_select_device">Enjam saýla</string>
@@ -3838,6 +3884,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Sinhronla</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Bu rugsat goýmanyň zatlary siziň ulanýan beýleki goýmalaryňyzyň üstünde görkezmäge rugsat berýär. Ol siziň beýleki goýmalary ulanmagyňyzy päsgel berip biler.</string>
+    <string name="write_settings_body_description">Bu goýmanyň enjam sazlamalaryny (mes. Bluetooth açmagy/ýapmagy) üýtgetmegine rugsat beriň.</string>
+    <string name="reset_app_preferences_desc1">Ol şundaky ähli ileri tutmalaryňyz nol eder:</string>
+    <string name="reset_app_preferences_desc2">Ýapyk goýmalar</string>
+    <string name="reset_app_preferences_desc3">Goýmalar üçin habarnama çäklendirmeleri</string>
+    <string name="reset_app_preferences_desc4">Standart goýmalar</string>
+    <string name="reset_app_preferences_desc5">Goýmalar üçin fon maglumat çäklendirmeleri</string>
+    <string name="reset_app_preferences_desc6">Rugsat çäklendirmeleri</string>
+    <string name="reset_app_preferences_desc7">Bar bolan goýma maglumatyňyzy ýitirmersiňiz.</string>
     <string name="knox_security_mode_title">Knox goragy</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">Gizlinlik syýasaty</string>
@@ -3852,6 +3906,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Şahsy maglumatyňyzy we Samsung hasap jikme-jikligiňizi dolandyryň.</string>
     <string name="my_profile_summary_jpn">Şahsy maglumatyňyzy we Galaxy hasap jikme-jikligiňizi dolandyryň.</string>
     <string name="arbitration_agreement">Arbitraž ylalaşygy</string>
+    <string name="activation_title">Işjeňleşme ýagdaýy</string>
+    <string name="activation_summary">%1$s üçin işjeňleşdi. Goşmaça maglumat üçin, %2$s baryň.</string>
+    <string name="wifi_ap_pmf_on">PMF açyk</string>
+    <string name="edit_event_start_short">Başla</string>
+    <string name="edit_event_end_short">Gutar</string>
+    <string name="select_date_to_view">Görmäge sene saýla</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Hawa</string>
     <string name="no">Ýok</string>
     <string name="create">Döret</string>
@@ -5321,7 +5382,7 @@ Islendik ulanyjy beýleki ähli ulanyjylaryň adyndan täzelenen gollanmalaryň 
     <string name="app_notification_block_title">Habarnamalara rugsat ber</string>
     <string name="app_notification_block_summary">Bu goýmadan habarnamalary, şol sanda habarnama hatlaryny, sesleri we titremeleri alyň.</string>
     <string name="app_notification_override_dnd_title">Öňürti diýip belle</string>
-    <string name="app_notification_override_dnd_summary">Şu goýmadan habarnamalaryň ses çykarmagyna we Bimaza etmäň açyk wagty ekrany açmaga rugsat beriň.</string>
+    <string name="app_notification_override_dnd_summary">Bimaza etmäň tertibi açyk wagty, habarnama paneliniň ýokarsynda habarnamalary görkez we olary rugsatly sanawa goş.</string>
     <string name="app_notification_visibility_override_title">Gulply ekranda</string>
     <string name="app_notifications_dialog_done">Tamamlandy</string>
     <string name="zen_mode_choose_rule_type">Kada görnüşini saýla</string>
@@ -5358,6 +5419,7 @@ Islendik ulanyjy beýleki ähli ulanyjylaryň adyndan täzelenen gollanmalaryň 
     <string name="restr_pin_enter_admin_pin">Administrator PIN-ini giriz</string>
     <string name="switch_on_text">Aç</string>
     <string name="switch_off_text">Ýapyk</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Bu iş profili şu tarapyndan dolandyrylýar:</string>
     <string name="managing_admin">Dolandyrýan: %s</string>
     <string name="display_auto_rotate_title">Ekran aýlama</string>
     <string name="display_auto_rotate_rotate">Ekrandaky materialy aýla</string>
@@ -5394,9 +5456,9 @@ Enjam başlaýança, enjam jaňlary, hatlary ýa-da habarnamalary almaz ýa-da o
     <string name="encrypt_talkback_dialog_require_pin">PIN sora</string>
     <string name="encrypt_talkback_dialog_require_pattern">Şablon sora</string>
     <string name="encrypt_talkback_dialog_require_password">Parol sora</string>
-    <string name="encrypt_talkback_dialog_message_pin">Enjam açylansoň, PIN-iňizi girizeniňizde, %1$s ýaly giriş ukyby funksiýalary wagtlaýynça ýapylar.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Enjam açylansoň, şablonyňyzy çyzanyňyzda, %1$s ýaly giriş ukyby funksiýalary wagtlaýynça ýapylar.</string>
-    <string name="encrypt_talkback_dialog_message_password">Enjam açylansoň, parolyňyzy girizeniňizde, %1$s ýaly giriş ukyby funksiýalary wagtlaýynça ýapylar.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Enjamyňyzy açanyňyzda PIN-iňiz soralar. Enjamyňyz işläp başlaýança, giriş ukyby funksiýalary elýeterli bolmaz.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Enjamyňyzy açanyňyzda şablonyňyz soralar. Enjamyňyz işläp başlaýança, giriş ukyby funksiýalary elýeterli bolmaz.</string>
+    <string name="encrypt_talkback_dialog_message_password">Enjamyňyzy açanyňyzda parolyňyz soralar. Enjamyňyz işläp başlaýança, giriş ukyby funksiýalary elýeterli bolmaz.</string>
     <string name="slot_number">(deşik %d)</string>
     <string name="app_launch_domain_links_title">Goýma baglary</string>
     <string name="app_launch_open_domain_urls_title">Goldanylýan URL-lere bar</string>
@@ -5472,18 +5534,18 @@ Enjam başlaýança, enjam jaňlary, hatlary ýa-da habarnamalary almaz ýa-da o
     <string name="usb_use_power_only">Birigen enj. zarýad ber</string>
     <string name="usb_use_power_only_desc">Birigen enjama USB arkaly zarýad beriň.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Multimedia faýl geçir</string>
+    <string name="usb_use_file_transfers">Faýllary geçir</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Suratlary geçir</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Multimedia faýllaryny geçirmek işlemeýän bolsa, şu tertibi saýlaň. Diňe surat faýllaryny geçirip bilersiňiz.</string>
+    <string name="usb_use_photo_transfers_summary">Faýllary geçirmek işlemeýän bolsa, şu tertibi saýlaň. Bu tertipde diňe surat faýllaryny geçirip bilersiňiz.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">MIDI enjamy birikdir</string>
     <string name="usb_use">Şuňa USB ulan</string>
-    <string name="assist_access_context_title">Ekrandaky teksti oka</string>
-    <string name="assist_access_context_summary">Enjam kömegi goýmasynyň ekranda görünýän islendik teksti okamagyna rugsat beriň.</string>
-    <string name="assist_access_screenshot_title">Skrinşotlary düşür/gir</string>
-    <string name="assist_access_screenshot_summary">Enjam kömegi goýmasynyň skrinşot düşürmegine we girmegine rugsat beriň.</string>
+    <string name="assist_access_context_title">Ekrandaky teksti seljer</string>
+    <string name="assist_access_context_summary">Enjam kömegi goýmasynyň dahylly material üpjün etmek üçin ekranda görkezilýän teksti seljermegine rugsat beriň.</string>
+    <string name="assist_access_screenshot_title">Ekrandaky suratlary seljer</string>
+    <string name="assist_access_screenshot_summary">Enjam kömegi goýmasynyň ekranyň suratlaryny almagyna we ulanmagyna rugsat beriň.</string>
     <string name="assist_footer">Enjam kömegi goýmalary telefonda häzirki ekranda görkezilýän maglumaty ýygnamak arkaly kömek edip bilýär. Käbir enjam kömegi goýmalary arkaly başga goýmalary açyp we bitewi kömekde sesli giriziş arkaly tekst girizip bolýar.</string>
     <string name="average_memory_use">Ortaça RAM ulanyş</string>
     <string name="maximum_memory_use">Maksimum RAM ulanyş</string>
@@ -5512,7 +5574,7 @@ Enjam başlaýança, enjam jaňlary, hatlary ýa-da habarnamalary almaz ýa-da o
     <string name="ignore_optimizations_on_desc">Köp zarýad almagy mümkin</string>
     <string name="ignore_optimizations_off_desc">Zarýad tygşytlamak üçin maslahat berilýär</string>
     <string name="app_list_preference_none">Ýok</string>
-    <string name="allow_overlay_description">Düwmeleri, açylýan penjireleri we başga zatlary ulanýan goýmalaryňyzyň üztünde görner ýaly goýmalary saýlaň.</string>
+    <string name="allow_overlay_description">Bu rugsat goýmanyň zatlary siziň ulanýan beýleki goýmalaryňyzyň üstünde görkezmäge rugsat berýär. Ol siziň beýleki goýmalary ulanmagyňyzy päsgel berip biler.</string>
     <string name="overlay_settings">Ýokarda görünýän goýmalar</string>
     <string name="filter_overlay_apps">Rugsatly goýmalar</string>
     <string name="filter_write_settings_apps">Rugsatly goýmalar</string>
@@ -5559,14 +5621,14 @@ Enjam başlaýança, enjam jaňlary, hatlary ýa-da habarnamalary almaz ýa-da o
     <string name="ethernet_data_template">%1$s Ethernet maglumaty</string>
     <string name="cell_warning_only">%s-da maglumat duýduryşy</string>
     <string name="cell_warning_and_limit">%1$s Maglumat ulanyş duýduryşy/%2$s Maglumat ulanyş çägi</string>
-    <string name="billing_cycle">Faktura döwri</string>
+    <string name="billing_cycle">Faktura döwr. we maglumat duýd.</string>
     <string name="billing_cycle_summary">Her aýyň %s-nji güni</string>
     <string name="billing_cycle_fragment_summary">Her aýyň %s-nji güni</string>
     <string name="network_restrictions">Torlary çäklendir</string>
     <string name="operator_warning">Maglumat ulanyşy enjamyňyz ölçeýär. Hyzmat üpjün edijiňiz ony başgaça hasaplap biler.</string>
     <string name="data_used_template">%s ulanyldy</string>
     <string name="data_warning">Maglumat duýduryşy</string>
-    <string name="set_data_limit">Maglumat çägi</string>
+    <string name="set_data_limit">Maglumat çägini belle</string>
     <string name="data_limit">Maglumat çägi</string>
     <string name="data_usage_template">%1$s ulanyldy: %2$s</string>
     <string name="data_usage_other_apps">Ulanyşa goşulan degişli goýma</string>
@@ -5608,5 +5670,4 @@ Enjamyňyzda siziň razylygyňyz esasynda enjamyňyz barada anyklaýyş we ulany
     <string name="enable_iris_lock_desc_3">"Şu wagt ekran gulpy hökmünde barmak yzy bellenilen.
 
 Ekran gulpuny barmak yzyna derek göz edip bellemek üçin, IŞLET-e basyň. Enjamyň gulpuny soň gözleri ýa-da %s ulanyp açyp bolýar."</string>
-    <string name="my_phone_summary">Spiker/garnitura/USB audio enjamy</string>
 </resources>

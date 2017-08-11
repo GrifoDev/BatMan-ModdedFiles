@@ -1909,7 +1909,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0584
+    const v4, 0x7f0b05e7
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1944,7 +1944,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0585
+    const v4, 0x7f0b05e8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2009,7 +2009,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f040089
+    const v4, 0x7f04008a
 
     const/4 v6, 0x0
 
@@ -2027,7 +2027,7 @@
 
     invoke-virtual {v3, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f0b0467
+    const v4, 0x7f0b04ca
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2518,13 +2518,61 @@
 
     if-eqz v1, :cond_3
 
+    invoke-static {p0}, Lcom/samsung/android/settings/networklock/NetworkLockUtils;->isSPRNetworkUnLocked(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v0, 0x0
+
+    const-string/jumbo v1, "ApnSettings"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "spr simlock unlocked but non-spr sim enable Add:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/LogMsg;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    if-le v1, v2, :cond_0
+
     invoke-static {p3}, Lcom/android/settings/Utils;->isSPRSimInserted(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    const/4 v0, 0x0
+    const-string/jumbo v1, "ApnSettings"
+
+    const-string/jumbo v2, "spr simlock unlocked but non-spr sim enable Add"
+
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/LogMsg;->out(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x1
 
     goto :goto_0
 
@@ -2586,7 +2634,7 @@
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public static isEnabledRestore(Landroid/content/Context;Landroid/content/Intent;Landroid/preference/PreferenceGroup;Ljava/lang/String;)Z
@@ -2960,7 +3008,11 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0c28
+    const v1, 0x7f0b0c9b
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    const v1, 0x7f0b0c9a
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2968,7 +3020,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/ApnSettings$11;-><init>(Lcom/android/settings/ApnSettings;)V
 
-    const v2, 0x7f0b0465
+    const v2, 0x7f0b04c8
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -3255,7 +3307,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b00a9
+    const v1, 0x7f0b0106
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -3271,7 +3323,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a0505
+    const v3, 0x7f0a0504
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3636,7 +3688,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1599
+    const v2, 0x7f0b1635
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3663,7 +3715,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 7
 
-    const v6, 0x7f0b0467
+    const v6, 0x7f0b04ca
 
     const/4 v5, 0x2
 
@@ -3726,7 +3778,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b159a
+    const v2, 0x7f0b1636
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3772,7 +3824,7 @@
 
     if-le v13, v14, :cond_2
 
-    const v13, 0x7f0401a5
+    const v13, 0x7f0401a7
 
     const/4 v14, 0x0
 
@@ -3784,7 +3836,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f110587
+    const v13, 0x7f110589
 
     invoke-virtual {v12, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3901,7 +3953,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b1a4b
+    const v17, 0x7f0b1ae7
 
     move/from16 v0, v17
 

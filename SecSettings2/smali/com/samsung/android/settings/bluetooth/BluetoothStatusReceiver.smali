@@ -197,7 +197,7 @@
 
     iget-object v13, v0, Lcom/samsung/android/settings/bluetooth/BluetoothStatusReceiver;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-    invoke-virtual {v13}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->isForegroundActivity()Z
+    invoke-virtual {v13}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->semIsForegroundActivity()Z
 
     move-result v13
 

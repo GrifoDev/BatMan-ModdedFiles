@@ -15,6 +15,10 @@
 # instance fields
 .field private enabled:Z
 
+.field private isBixbyShareMenuItem:Z
+
+.field private isBixbymQrBmp:Z
+
 .field private mActivity:Landroid/app/Activity;
 
 .field private mBinder:Lcom/samsung/android/app/qragent/service/IQRService;
@@ -57,7 +61,15 @@
     return v0
 .end method
 
-.method static synthetic -get1(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/app/Activity;
+.method static synthetic -get1(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->isBixbymQrBmp:Z
+
+    return v0
+.end method
+
+.method static synthetic -get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/app/Activity;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mActivity:Landroid/app/Activity;
@@ -65,7 +77,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+.method static synthetic -get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
@@ -73,7 +85,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/graphics/Bitmap;
+.method static synthetic -get4(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/graphics/Bitmap;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mQrBmp:Landroid/graphics/Bitmap;
@@ -81,7 +93,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Ljava/lang/String;
+.method static synthetic -get5(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mQrCode:Ljava/lang/String;
@@ -89,7 +101,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/widget/Button;
+.method static synthetic -get6(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/widget/Button;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mQrGenerate:Landroid/widget/Button;
@@ -97,7 +109,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/net/wifi/WifiManager;
+.method static synthetic -get7(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;)Landroid/net/wifi/WifiManager;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -105,7 +117,23 @@
     return-object v0
 .end method
 
-.method static synthetic -set0(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Lcom/samsung/android/app/qragent/service/IQRService;)Lcom/samsung/android/app/qragent/service/IQRService;
+.method static synthetic -set0(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->isBixbyShareMenuItem:Z
+
+    return p1
+.end method
+
+.method static synthetic -set1(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->isBixbymQrBmp:Z
+
+    return p1
+.end method
+
+.method static synthetic -set2(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Lcom/samsung/android/app/qragent/service/IQRService;)Lcom/samsung/android/app/qragent/service/IQRService;
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mBinder:Lcom/samsung/android/app/qragent/service/IQRService;
@@ -113,7 +141,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set1(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+.method static synthetic -set3(Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mQrBmp:Landroid/graphics/Bitmap;
@@ -956,7 +984,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mView:Landroid/view/View;
 
-    const v3, 0x7f1108b6
+    const v3, 0x7f1108bc
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -968,7 +996,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mView:Landroid/view/View;
 
-    const v3, 0x7f1108b7
+    const v3, 0x7f1108bd
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1020,7 +1048,9 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -1048,19 +1078,23 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->isBixbymQrBmp:Z
+
+    iput-boolean v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->isBixbyShareMenuItem:Z
+
     return-void
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    const/4 v0, 0x1
+    const v0, 0x7f0b0f62
 
-    const v1, 0x7f0b0ed5
-
-    invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
+    invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
@@ -1072,19 +1106,33 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
+    iget-boolean v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->isBixbyShareMenuItem:Z
+
+    if-eqz v0, :cond_0
+
+    iput-boolean v2, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->isBixbyShareMenuItem:Z
+
+    iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mShareMenuItem:Landroid/view/MenuItem;
+
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    :goto_0
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->mShareMenuItem:Landroid/view/MenuItem;
 
     iget-boolean v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApQrCode;->enabled:Z
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f04036e
+    const v0, 0x7f040373
 
     const/4 v1, 0x0
 
@@ -1264,7 +1312,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0ed6
+    const v2, 0x7f0b0f63
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

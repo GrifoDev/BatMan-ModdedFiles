@@ -51,7 +51,7 @@
 
     move-result-object v0
 
-    const v5, 0x7f040037
+    const v5, 0x7f040038
 
     const/4 v6, 0x0
 
@@ -69,7 +69,7 @@
 
     check-cast v5, Landroid/view/ViewGroup;
 
-    const v6, 0x7f040357
+    const v6, 0x7f04035c
 
     invoke-virtual {v0, v6, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -172,7 +172,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/ProcessStatsMemDetail;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f110687
+    const v1, 0x7f11068a
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -184,7 +184,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/ProcessStatsMemDetail;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f110688
+    const v1, 0x7f11068b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -289,7 +289,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1834
+    const v4, 0x7f0b18d0
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -305,7 +305,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1837
+    const v4, 0x7f0b18d3
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -321,7 +321,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1835
+    const v4, 0x7f0b18d1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -359,7 +359,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1836
+    const v4, 0x7f0b18d2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -375,7 +375,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1838
+    const v4, 0x7f0b18d4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -391,7 +391,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1839
+    const v4, 0x7f0b18d5
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -511,7 +511,7 @@
 
     const/4 v2, 0x0
 
-    const v1, 0x7f04024c
+    const v1, 0x7f040250
 
     invoke-virtual {p1, v1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

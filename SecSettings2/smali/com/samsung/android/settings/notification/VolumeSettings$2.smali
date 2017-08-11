@@ -37,366 +37,70 @@
 .method public onStateReceived()V
     .locals 6
 
-    const-wide/16 v4, 0x64
+    iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get3(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
+    iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v3, v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-wrap1(Lcom/samsung/android/settings/notification/VolumeSettings;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 
-    const-string/jumbo v2, "VolumeRingtoneLevel"
+    const/4 v3, -0x1
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eq v0, v3, :cond_0
 
-    move-result v2
+    iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    if-nez v2, :cond_0
+    invoke-static {v3, v0}, Lcom/samsung/android/settings/notification/VolumeSettings;->-wrap0(Lcom/samsung/android/settings/notification/VolumeSettings;I)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
 
-    const-string/jumbo v2, "VolumeRingtoneUp"
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getInitFinish()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-eqz v3, :cond_1
 
-    const-string/jumbo v2, "VolumeRingtoneDown"
+    iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
 
-    move-result v2
+    move-result-object v3
 
-    if-nez v2, :cond_0
-
-    const-string/jumbo v2, "VolumeRingtoneMax"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string/jumbo v2, "VolumeRingtoneMin"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
+    invoke-virtual {v3, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     :cond_0
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get8(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getInitFinish()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    :cond_1
     :goto_0
     return-void
 
-    :cond_2
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+    :cond_1
+    iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-wide/16 v4, 0x3e8
+    const-wide/16 v4, 0x64
 
-    invoke-virtual {v2, v0, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    goto :goto_0
-
-    :cond_3
-    const-string/jumbo v2, "VolumeMediaLevel"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    const-string/jumbo v2, "VolumeMediaUp"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    const-string/jumbo v2, "VolumeMediaDown"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    const-string/jumbo v2, "VolumeMediaMax"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    const-string/jumbo v2, "VolumeMediaMin"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    :cond_4
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v3, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get5(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getInitFinish()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v3, v1, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     goto :goto_0
-
-    :cond_5
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    goto :goto_0
-
-    :cond_6
-    const-string/jumbo v2, "VolumeNotificationsLevel"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_7
-
-    const-string/jumbo v2, "VolumeNotificationsUp"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_7
-
-    const-string/jumbo v2, "VolumeNotificationsDown"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_7
-
-    const-string/jumbo v2, "VolumeNotificationsMax"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_7
-
-    const-string/jumbo v2, "VolumeNotificationsMin"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_9
-
-    :cond_7
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    const/4 v3, 0x2
-
-    invoke-virtual {v2, v3, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get7(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getInitFinish()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_8
-
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto/16 :goto_0
-
-    :cond_8
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    goto/16 :goto_0
-
-    :cond_9
-    const-string/jumbo v2, "VolumeSystemLevel"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_a
-
-    const-string/jumbo v2, "VolumeSystemUp"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_a
-
-    const-string/jumbo v2, "VolumeSystemDown"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_a
-
-    const-string/jumbo v2, "VolumeSystemMax"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_a
-
-    const-string/jumbo v2, "VolumeSystemMin"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    :cond_a
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    const/4 v3, 0x3
-
-    invoke-virtual {v2, v3, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get9(Lcom/samsung/android/settings/notification/VolumeSettings;)Lcom/android/settings/notification/SecVolumeSeekBarPreference;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->getInitFinish()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto/16 :goto_0
-
-    :cond_b
-    iget-object v2, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get0(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    goto/16 :goto_0
 .end method

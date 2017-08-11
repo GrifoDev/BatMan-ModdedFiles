@@ -58,14 +58,14 @@
     return v5
 
     :cond_0
-    const v3, 0x7f0b1ac4
+    const v3, 0x7f0b1b60
 
     if-eq v2, v3, :cond_2
 
     const/4 v0, 0x1
 
     :goto_0
-    const v3, 0x7f0b1ac2
+    const v3, 0x7f0b1b5e
 
     if-ne v2, v3, :cond_3
 
@@ -124,7 +124,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f10021c
+    const v5, 0x7f100222
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 

@@ -3,7 +3,7 @@
 .source "AccessibilitySettingsMobility.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnKeyListener;
 
 
 # annotations
@@ -34,8 +34,25 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
+    .locals 2
 
-    return-void
+    const/4 v1, 0x0
+
+    const/4 v0, 0x4
+
+    if-ne p2, v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$24;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-get1(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Lcom/samsung/android/settings/SettingsSwitchPreference;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setChecked(Z)V
+
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+
+    :cond_0
+    return v1
 .end method

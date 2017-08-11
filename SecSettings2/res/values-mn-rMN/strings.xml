@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dц %2$dм</string>
-    <string name="battery_history_minutes_no_seconds">%dм</string>
+    <string name="battery_history_hours_no_seconds">%1$dц %2$dмин</string>
+    <string name="battery_history_minutes_no_seconds">%d мин</string>
     <string name="wifi_fail_to_scan">Сүлжээнүүдийг скан хийх боломжгүй</string>
     <string name="wifi_failed_to_obtain_IP">Failed to obtain IP address.</string>
     <string name="wifi_security_none">Алга</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s-д холбогдох боломжгүй.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s-д холбогдох боломжгүй. %2$s дээр тохиргоонуудаа шалгаад дахин оролдоно уу.</string>
     <string name="bluetooth_pairing_rejected_error_message">Хослуулалтыг %s няцаав</string>
+    <string name="bluetooth_getting_remote_device_name">Төхөөрөмжийн нэрийг авч байна…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Энэ төхөөрөмж холбогдох үед төхөөрөмжийн нэр харагдана.</string>
     <string name="accessibility_wifi_off">Wifi унтраалттай байна.</string>
     <string name="accessibility_no_wifi">Wifi холбогдоогүй байна.</string>
     <string name="accessibility_wifi_one_bar">Wifi сүлжээний дохио нэг баганатай байна.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Тохируулах</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth болон бусад сүлжээний тохиргоог өгөгдмөл болгож сэргээ.</string>
     <string name="master_clear_list_summary">Төхөөрөмжийнхөө үйлдвэрийн өгөгдмөл тохиргоог сэргээ. Энэ нь файл болон татаж авсан хэрэглүүрүүд зэрэг бүх өгөгдлийг арилгана.</string>
-    <string name="auto_restart_summary">Тогтоосон цагт төхөөрөмжөө автоматаар унтрааж асаагаад ажиллагааг тохиромжтой болго. Төхөөрөмжийг унтрааж асаахад хадгалагдаагүй бүх өгөгдөл устана.</string>
+    <string name="auto_restart_summary">Утсаа долоо хоногт нэг удаа автоматаар унтрааж асаагаад тохируул. Утас унтарч асахад хадгалаагүй өгөгдлүүд алдагдана.</string>
+    <string name="auto_restart_summary_tablet">Таблетаа долоо хоногт нэг удаа автоматаар унтрааж асаагаад тохируул. Таблет унтарч асахад хадгалаагүй өгөгдлүүд алдагдана.</string>
     <string name="search_settings">Хайх</string>
     <string name="related_results">%d холбогдох зүйл</string>
     <string name="no_results_found">Үр дүн олдсонгүй</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Дууны тэнцвэр баруун тийш %d хувь байна. Гулгагчийг чирэхдээ хоёр хуруугаа ашигла.</string>
     <string name="sound_balance_set">Тохируулах</string>
     <string name="accessibility_assistant_menu">Туслах цэс</string>
-    <string name="assistant_menu_summary">Эв дүй муутай хэрэглэгчдэд зориулан төхөөрөмжид хандах боломжийг сайжруулах функцуудыг идэвхжүүлнэ.</string>
+    <string name="assistant_menu_summary">Эв дүй муутай хэрэглэгчдэд зориулан утасны хандалтыг хялбаршуулахыг сайжруул.</string>
     <string name="color_blind_title">Өнгө тохируулах</string>
     <string name="no_result">Дэлгэцээ уншихад хүндрэлтэй байвал дэлгэцийн өнгүүдийг тохируул.</string>
     <string name="you_are_normal">Өнгө тохируулах шаардлагагүй</string>
@@ -653,6 +656,7 @@ Enter the code you get from Verizon:"</string>
     <string name="direct_access_actions_accessibility_title">Тусгай боломжууд</string>
     <string name="direct_access_actions_negative_title">Негативын өнгөнүүд</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Шууд хандалт ба Дэлгэцийн хэмжээ багасгахыг нэгэн зэрэг идэвхжүүлэх боломжгүй. Дэлгэцийн хэмжээ багасгах боломжгүй болно.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s ба %2$s нэгэн зэрэг идэвхижиж чадахгүй. %3$s идэвхигүй болно.</string>
     <string name="direct_access_actions_color_adjustment_summary">Хараа дээрх Өнгөний тохируулгыг тохируулж, Шууд хандалтад ашигла</string>
     <string name="direct_access_actions_screen_reader_summary">Шууд хандалтанд Хуудас уншигчийг ашиглахаар идэвхжүүлэх.</string>
     <string name="direct_access_actions_accesscontrol_title">Харилцан үйлчлэлийн удирдлага</string>
@@ -850,7 +854,9 @@ Wi-Fi болон Bluetooth мөн унтрах боловч тэднийг То�
     <string name="premium_sms_values_ask">Асуух</string>
     <string name="premium_sms_values_never">Хэзээ ч зөвшөөрөхгүй</string>
     <string name="premium_sms_values_allow">Үргэлж зөвшөөрөх</string>
-    <string name="assist_and_voice_input_summary">Төхөөрөмжийн тусламжийн хэрэглүүр нь нэмэлт сонголт болон дэлгэц тус бүрийн талаарх мэдээллээр хангана.</string>
+    <string name="assist_and_voice_input_summary">Үндсэн товчийг дараад барихад аль хэрэглүүрийг ашиглахаа сонго.</string>
+    <string name="assist_footer_phone">Үндсэн товчийг дараад барихад аль хэрэглүүрийг ашиглахаа сонго. Төхөөрөмжийн туслах хэрэглүүрүүд нь таны утсан дээр яг одоо харагдаж байгаа дэлгэцээс мэдээлэл цуглуулж танд тусалж чадна.</string>
+    <string name="assist_footer_tablet">Үндсэн товчийг дараад барихад аль хэрэглүүрийг ашиглахаа сонго. Төхөөрөмжийн туслах хэрэглүүрүүд нь таны таблет дээр яг одоо харагдаж байгаа дэлгэцээс мэдээлэл цуглуулж танд тусалж чадна.</string>
     <string name="default_app_title">Өгөгдмөл болго</string>
     <string name="premium_sms_title">Дээд зэргийн SMS илгээх</string>
     <string name="default_app_selection">Өгөгдмөл хэр.н сонголт</string>
@@ -939,7 +945,7 @@ Wi-Fi болон Bluetooth мөн унтрах боловч тэднийг То�
 
 Холбогдсон 2 төхөөрөмжийн дууны гаралт бага зэрэг ялгаатай мэдрэгдэж болно."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Медиа дууны түвшин синхронч.ыг унтраах уу?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Хос аудио ашиглахын тулд Медиа дууны түвшин синхрончлохыг унтраах хэрэгтэй.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Аудио төхөөрөмж бүрийн дууны түвшинг тус тусад нь удирдахын тулд Медиа дууны түвшиний синхроныг унтраах хэрэгтэй.</string>
     <string name="bluetooth_avc_title">Медиа дууны түвшин син.х</string>
     <string name="bluetooth_avc_description">Холбогдсон Bluetooth төхөөрөмж утасны медиа дууны түвшинг удирдаж чадах бол Bluetooth төхөөрөмжид тохируулсан дууны түвшинг утастай синхрончилно.</string>
     <string name="bluetooth_avc_volume_change_description">Энэ функцийг идэвхжүүлснээр дууны түвшин санамсаргүйгээр өөрчлөгдөж болзошгүй.</string>
@@ -948,6 +954,7 @@ Wi-Fi болон Bluetooth мөн унтрах боловч тэднийг То�
     <string name="bluetooth_avc_ask_popup_title">Хос аудиог унтраах уу?</string>
     <string name="bluetooth_avc_ask_popup_content">Медиа дууны түвшин синхрончлохыг ашиглахын тулд Хос аудиог унтраах хэрэгтэй.</string>
     <string name="bluetooth_avc_disable_description">Холбоотой Bluetooth төхөөрөмж Медиа дууны түвшний синхрончлол ашигладаггүй. Та утасны дууны түвшнийг холбоотой буй Bluetooth төхөөрөмжтэй синхрончлох боломжгүй.</string>
+    <string name="bluetooth_avc_available_description">Холбогдсон Bluetooth төхөөрөмж Медиа дууны түвшин синхрончлохыг дэмждэг, Bluetooth төхөөрөмж дээр тохируулсан дууны түвшинг таны утастай синхрончилно.</string>
     <string name="bluetooth_enter_pin_msg">%s-тай хослуулахын тулд PIN оруул (0000 эсвэл 1234 гэж оруулж үз).</string>
     <string name="bluetooth_pin_maximum_number_message">Тэмдэгтийн дээд хязгаарт хүрсэн.</string>
     <string name="settings_menu_done">Дууслаа</string>
@@ -1031,11 +1038,12 @@ Wi-Fi болон Bluetooth мөн унтрах боловч тэднийг То�
     <string name="swipe_to_call_title">Шударч залгах буюу зурвас илгээ</string>
     <string name="swipe_to_call_summary">Утас, Харилцагчид, Зурвасууд дээрх харилцагч эсвэл дугаарыг баруун тийш шудраад дуудлага хийж, зүүн тийш шудраад зурвас илгээнэ.</string>
     <string name="swipe_to_call_summary_dcm">Залгагч, Харилцагчид, Зурвасууд дээрх харилцагч эсвэл дугаарыг баруун тийш шудраад дуудлага хийж, зүүн тийш шудраад зурвас илгээнэ.</string>
-    <string name="swipe_to_call_summary_kddi">Утас эсвэл Харилцагчид дээрх харилцагч эсвэл дугаарыг баруун тийш шудраад дуудлага хийж, зүүн тийш шудраад зурвас илгээнэ.</string>
+    <string name="swipe_to_call_summary_kddi">Дугаар цуглуулагч эсвэл Харилцагчид дээрх харилцагч эсвэл дугаарыг баруун тийш шудраад дуудлага хийж, зүүн тийш шудраад зурвас илгээнэ.</string>
     <string name="dual_app_title">Хос Mессенжер</string>
     <string name="dual_app_summary">Ижил хэрэглүүрүүдэд хоёр тусдаа данс ашигла.</string>
     <string name="finger_sensor_gesture_title">Хуруу мэдрэгчийн дохионууд</string>
     <string name="finger_sensor_gesture_summary">Хурууны хээний мэдрэгчтэй хэрэглүүрүүд болон функцүүдийг нээгээд хаа.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Мэдэгдлийн самбарыг хурууны хээ мэдрэгч ашиглан нээж хаана.</string>
     <string name="finger_sensor_gesture_description">Мэдэгдлийн самбарыг нээх эсвэл хаахын тулд хурууны хээний мэдрэгч дээр дээшээ эсвэл доошоо шударна уу.</string>
     <string name="open_samsung_pay_title">Samsung Pay-г нээ</string>
     <string name="open_samsung_pay_summary">Samsung Pay-г нээхийн тулд Эх дэлгэцээс хурууны хээ мэдрэгчийн дээр дээшээ шудар.</string>
@@ -1070,6 +1078,7 @@ Wi-Fi болон Bluetooth мөн унтрах боловч тэднийг То�
 %s"</string>
     <string name="enable_ps_title">%s идэвхжүүлэх</string>
     <string name="setup_wizard">Суулгацын заавар</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Хэвийн</string>
     <string name="large">Том</string>
     <string name="small">Жижиг</string>
@@ -1215,7 +1224,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Wi-Fi сүлжээ холбогдсон үед програм хангамжийн шинэчлэлүүдийг автоматаар татаж ав. Та татаж авах явцдаа төхөөрөмжөө ашиглах боломжтой хэвээр байна.</string>
     <string name="auto_update_over_wifi">Wi-Fi-р автоматаар татаж авах</string>
     <string name="auto_update_over_wifi_summary">Wi-Fi сүлжээнд холбогдсон үед програм хангамжийн шинэчлэлүүдийг автоматаар татаж ав. Таны үйлчилгээ үзүүлэгчээс хамааран шинэчлэлүүдийг аливаа нэмэлт төлбөргүйгээр мобайл дата ашиглан татаж авах боломжтой. Татан авалтын үед та утсаа ашигласаар байх боломжтой.</string>
-    <string name="scheduled_update">Төлөвлөсөн програмын шинэчлэл</string>
+    <string name="scheduled_update">Төлөвлөсөн програм хангамжийн шинэчлэлүүд</string>
     <string name="scheduled_update_summary_default">Идэвхгүй</string>
     <string name="scheduled_update_summary_set_time">Шинэчлэлийг %s-д эхлүүлнэ</string>
     <string name="scheduled_update_summary_set_time_everyday">Шинэчлэлийг өдөр бүрийн %s-д эхлүүлнэ</string>
@@ -1359,7 +1368,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="adjust_your_display_colour">Дэлгэцийнхээ өнгийг тааруулаад цагааны харагдах хэмжээг өөрчил.</string>
     <string name="display_temperature_preset_cool">Сэрүүн</string>
     <string name="display_temperature_preset_warm">Дулаан</string>
-    <string name="display_advanced_option">Advanced options</string>
+    <string name="display_advanced_option">Нарийвчилсан сонголт</string>
     <string name="color_balance_subtext_1">Өнгийн тэнцвэрирйг зөвхөн Адаптив дэлгэцийн горимд тааруулж болно.</string>
     <string name="color_balance_subtext_2">Цэнхэр гэрлийн шүүлтүүр идэвхтэй үед таны тохиргоог хэрэглэх боломжгүй.</string>
     <string name="poc_balance_title">Дэлгэцийн захын өнгийн тэнцвэр</string>
@@ -1417,6 +1426,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_summary">Үндсэн, Буцах, Сүүлийн товчуудыг удирдах.</string>
     <string name="navigationbar_theme_switch">Одоогийн загварыг хэрэглэ</string>
     <string name="navigationbar_color_title">Дэвсгэр өнгө</string>
+    <string name="navigationbar_color_summary">Таны сонгосон дэвсгэр өнгийг бүх хэрэглүүрт хэрэглэх боломжгүй.</string>
     <string name="navigationbar_order_title">Товчлуурын зураглал</string>
     <string name="navigationbar_order_default">Сүүлийн - Үндсэн - Буцах</string>
     <string name="navigationbar_order_mirrored">Буцах - Үндсэн - Сүүлийн</string>
@@ -1448,7 +1458,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="blue_light_filter_enable_now">Одоо асаа</string>
     <string name="blue_light_filter_enable_as_scheduled">Хуваарийн дагуу асаа</string>
     <string name="blue_light_filter_scheduled_toast">Цэнхэр гэрлийн шүүлтүүрийг асаасан. Энэ нь хуваарьт дуусах хугацаа болоход автоматаар унтарна.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s ба Цэнхэр гэрлийн шүүлтүүрийг нэгэн зэрэг ашиглах боломжгүй. Цэнхэр гэрлийн шүүлтүүр идэвхгүй болно.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Цэнхэр гэрлийн шүүлтүүрийг унтраах уу?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s-г ашиглахын тулд Цэнхэр гэрлийн шүүлтүүрийг унтраах ёстой.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Нар мандахаас жаргах хүртэлхийг ашиглахын тулд Байршилаа асаасан байх хэрэгтэй.</string>
     <string name="dlg_turn_on">Асаах</string>
     <string name="screen_resolution_title">Дэлгэцийн нягтрал</string>
@@ -1665,6 +1676,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="crypt_keeper_last_warn_wipe">Төхөөрөмжийн үйлдвэрийн өгөгдмөл тохиргоог сэргээх хүртэл та 1 л удаа асаахаар оролдох боломжтой. Энэ нь таны файл, татаж авсан хэрэглүүрүүд зэрэг бүх мэдээллийг бүрмөсөн арчина.</string>
     <string name="crypt_keeper_failed_title_dec">Кодыг тайлж чадсангүй.</string>
     <string name="crypt_keeper_failed_summary_dec">Тасалдлаас шалтгаалж шифр тайлах боломжгүй байна. Ашиглахаас өмнө үйлдвэрийн өгөгдөл тэглэх (бүх өгөгдлийг арилгаж) ажиллагаа гүйцэтгэ.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Дэлгэц түгжээн төрөл тохируул</string>
     <string name="encryption_interstitial_message">"Та цаашид энэ утсыг хамгаалахын тулд утас асахын өмнө %s оруулахыг шаардаж болно. Энэ нь утас хаягдсан эсвэл хулгайлагдсан нөхцөлд өгөгдлөө хамгаалахад тусална. Э-шуудан синхрончлол гэх мэт боломжуудын хандалтад зориулсан Төхөөрөмжийн шифрлэлтийн бодлогын дагуу зарим хэрэглүүр Найдвартай эхлүүлэхийг шаардаж болно.
 
 Та утас астал ямар ч дуудлага, зурвас болон мэдэгдэл хүлээн авахгүй бөгөөд дохиоллууд дуугарахгүй."</string>
@@ -1735,7 +1747,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="fingerprint_register_success">Хурууны хээ нэмэгдлээ</string>
     <string name="fingerprint_register_add_another_fingerprint">Өөр хурууны хээ нэмэх үү?</string>
     <string name="fingerprint_register_add">Нэмэх</string>
-    <string name="fingerprint_register_done">Дууслаа</string>
+    <string name="fingerprint_register_done">Болсон</string>
     <string name="fingerprint_register_dex_guide_msg">Утсандаа хурууны хээгээ бүртгүүлнэ үү.</string>
     <string name="remove_mobile_keyboard">%s ашиглах бол төхөөрөмжийг гарны хавтаснаас салга.</string>
     <string name="fingerprint_already_registered_title">Хурууны хээ бүртгүүл боломжгүй</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Хурууны хээ ашигла</string>
     <string name="wifi_ap_close">Хаах</string>
     <string name="fingerscanner_add_summary">Хурууны хээ нэм.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 хурууны хээ нэмэгдлээ.</string>
     <string name="fingerscanner_register_summary">%d хурууны хээ нэмэгдлээ.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Хурууны хээ ашиглах буюу одоо байгаа PIN-г оруулна уу.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Хурууны хээ ашиглах буюу одоо байгаа хээгээ зурна уу.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Утасны дэлгэц асмагц шудралгүйгээр нүүр таних аргаар түгжээг тайлна уу.</string>
     <string name="facelock_recognition_speed_up">Хурдан таних арга</string>
     <string name="facelock_recognition_speed_up_summary">Түргэн таних аргыг идэвхгүй болго. Идэвхгүй болгоод хамгаалалтыг нэмэгдүүлж, зураг ба видеогоор түгжээ тайлахад бэрх болго.</string>
+    <string name="facelock_samsungpass_summary">Нүүр таних аргаар %s-д болон тохирох хэрэглүүрүүдэд өөрийгөө таниул.</string>
     <string name="face_remove_face_popup_title">Нүүрний өгөгдлийг арилгах уу?</string>
     <string name="face_remove_face_popup_message_1">Таны нүүрийг цаашид таних боломжгүй ба Нүүрний түгжээг идэвхгүй болгоно.</string>
     <string name="face_remove_face_popup_message_2">Нүүр таних арга ашигладаг функцуудыг унтраана.</string>
@@ -2050,7 +2064,7 @@ You will also need it when:"</string>
     <string name="iris_use_samsung_pass">Samsung Pass</string>
     <string name="iris_use_samsung_pass_summary">Нүдний солонгон бүрхэвчээ ашиглан %s ба бусад тохирох хэрэглүүрээр таних мэдээллээ баталгаажуул.</string>
     <string name="iris_use_samsung_pass_description_internet">Интернет</string>
-    <string name="iris_unlock">Сол. бүрхэвч түгж. тайл.</string>
+    <string name="iris_unlock">Соло.н бүрхэвчээр түгжээ тайлах</string>
     <string name="iris_unlock_summary">Утасныхаа түгжээг солонгон бүрхэвчээрээ тайл.</string>
     <string name="tips_for_iris">Сол. бүрхэвч таниулах зөвлөмж</string>
     <string name="iris_remove_popup_1">Таны солонгон бүрхэвчийн өгөгдөл арилна. Дэлгэцийн түгжээний төрөл %s болж өөрчлөгдөнө.</string>
@@ -2070,7 +2084,7 @@ You will also need it when:"</string>
     <string name="biometrics_backup_locktype_title">Нүдний солонгон бүрхэвчийн хамгаалалтыг тохируулах</string>
     <string name="biometrics_register_your_iris">Солонгон бүрхэвчээ бүртгүүл.</string>
     <string name="biometrics_backup_locktype_summary">Хоёр нүдний солонгон бүрхэвчээрээ төхөөрөмжийн түгжээг тайлахын тулд хээ, PIN, нууц үгийн аль нэгийг тохируулах ёстой.</string>
-    <string name="biometrics_backup_locktype_message">Солонгон бүрхэвчээ утасныхаа түгжээг тайлах эсвэл найдвартай баталгаажуулалтад ашиглахын тулд танд дараах зүйлс шаардлагатай:</string>
+    <string name="biometrics_backup_locktype_message">Утасны түгжээг тайлах, хэрэглүүрүүдэд өөрийгөө таниулахын тулд солонгон бүрхэвчийг ашиглахдаа:</string>
     <string name="iris_delete_popup_title">Солонгон бүрхэвчийн өгөгдлийг арилгах уу?</string>
     <string name="iris_delete_popup_message">Солонгон бүрхэвчийн өгөгдлийг арилгах уу?</string>
     <string name="iris_delete_popup_message_with_related_func">Солонгон бүрхэвч ашигладаг функцуудыг унтраана.</string>
@@ -2078,7 +2092,7 @@ You will also need it when:"</string>
     <string name="iris_timeout_popop_title">Дараа дах/оролд</string>
     <string name="iris_timeout_popop_message">Солонгон бүрхэвч танигдаагүй. Солонгон бүрхэвч камер бохир байж магадгүй. Дэлгэцийн дээд талын хэсгийг цэвэрлээд дахин оролдоно уу.</string>
     <string name="iris_timeout_popop_message_1">Солонгон бүрхэвчийн камер бохир байна. Уг хэсгийг цэвэрлээд дахин оролдоно уу.</string>
-    <string name="iris_proximity_restriction_popop_message">Солонгон бүрхэвч танигдаагүй. Утас нүүрэнд хэт ойр эсвэл ойрын мэдрэгч бохир. Дэлгэцийн дээд талын хэсгийг цэвэрлээд дахин оролдоно уу.</string>
+    <string name="iris_proximity_restriction_popop_message">Утсаа нүүрнээсээ холдуулж бариад дахин оролд.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Зайнаас мэдрэгч бохирдсон байж болзошгүй.
 Дэлгэцэн дээрх хэсгийг цэвэрлэ."</string>
     <string name="iris_try_again">Дахин оролд.</string>
@@ -2086,6 +2100,8 @@ You will also need it when:"</string>
     <string name="iris_failed_to_verity_identify">Таны таних мэдээллийг баталг.х боломжгүй</string>
     <string name="iris_failed_popup_description">Солонгон бүрхэвчийг баталгаажуулахаар %1$d удаа оролдсон. %2$d секундын дараа дахин оролдоно уу.</string>
     <string name="iris_no_match">Таарсан зүйл байхгүй</string>
+    <string name="iris_eye_safety_msg">Таны солонгон бүрхэвч танигдаагүй.</string>
+    <string name="iris_timeout_msg">Таны солонгон бүрхэвч танигдсангүй.</string>
     <string name="biometrics_registered">Бүртгүүлсэн</string>
     <string name="iris_turn_on_toast_message">Хурууны хээний түгжээний оронд Нүдний солонгон бүрхэвчийн түгжээг идэвхжүүлсэн.</string>
     <string name="iris_wrong_backup_password">Нөөц нууц үг буруу</string>
@@ -2133,7 +2149,7 @@ You will also need it when:"</string>
     <string name="iris_go_to_samsung_theme">Samsung Themes рүү оч</string>
     <string name="bio_face_recognition_title">Нүүр Танилт</string>
     <string name="bio_fingerprint_sanner_title">Хурууны хээ Уншигч</string>
-    <string name="bio_iris_scanner_title">Солонгон бүрхэвч Сканер</string>
+    <string name="bio_iris_scanner_title">Солонгон бүрхэвч Уншигч</string>
     <string name="biometrics_unclickable_description">Нүүр таних ба Солонгон бүрхэвч таних аргыг нэгэн зэрэг идэвхжүүлэх боломжгүй.</string>
     <string name="iris_popup_irislock_turn_on_title">Солонгон бүрхэвчээр түгжээ тайлах уу?</string>
     <string name="iris_popup_irislock_turn_on_message">Солонгон бүрхэвчээр түгжээ тайлах аргыг Нүүрээр түгжээ тайлахтай зэрэг ашиглах боломжгүй. Нүүрээр түгжээ тайлах аргыг идэвхгүй болгоно.</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Үндсэн товч ба цаг, мэдээллийн аль нэгийг амарч буй дэлгэцэн дээр харуул.</string>
     <string name="aod_feature_off_popup_title">%s-г унтраах уу?</string>
     <string name="aod_feature_off_popup_description">%1$s-г ашиглахын тулд %2$s-г идэвхжүүлэх хэрэгтэй.</string>
+    <string name="aod_features_off_popup_title">Бусад функцийг идэвхгүй болгох уу?</string>
+    <string name="aod_features_off_popup_description">Always On Display-г ашиглахын тулд дараах функцүүдийг идэвхгүй болгох хэрэгтэй:</string>
     <string name="aod_features_off_popup_btn_ok">Унтраах</string>
     <string name="aod_disable_by_negative_colors">Негатив өнгөтэй үед ашиглах боломжгүй.</string>
     <string name="aod_disable_by_powersaving_mode">Тэжээл хэмнэх горимд идэвхтэй үед ашиглах боломжгүй.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Өнгөт дусал</string>
     <string name="lock_screen_show_information_summary_wifi_only">Төхөөрөмжийн эзэмшигчийн мэдээлэл эсвэл хэрэглүүрийн холбоосыг түгжих дэлгэц дээр харуул.</string>
     <string name="lock_screen_sview_show_information_summary">Түгжих дэлгэц дээр ба S View цонхоор хос цаг, төхөөрөмжийн эзэмшигчийн мэдээлэл эсвэл хэрэглүүрийн холбоосыг харуул.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Түгжих дэлгэц ба S View цонхоор утасны эзэмшигчтэй холбоо барих мэдээлэл ба роуминг горимд буй нутгийн цагийг харуул.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Түгжих дэлгэц дээр ба S View-гээр харуулах хэрэглүүрийн холбоосыг сонго.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">S View цонхоор ба Түгжих дэлгэцэнд мэдэгдлийг харуул.</string>
     <string name="lock_screen_and_cover_show_information_summary">Түгжээтэй дэлгэц дээр Цэвэрхэн Харагдах Хавтасаар дамжуулан хос цаг харуулах.</string>
     <string name="lock_screen_secured_lock_settings_title">Хамгаалалтын түгжээний тохиргоо</string>
     <string name="lock_screen_secured_lock_settings_summary">Автоматар түгжих ба Тэжээлийн товчоор түгжих зэрэг аюулгүй түгжээ функцүүдийг тохируул.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Үндсэн цагийн бүс</string>
     <string name="contact_info_settings_title">Холбоо барих мэдээлэл</string>
     <string name="show_contact_info_on_lockscreen_label">Утасны дугаар э-шуудангийн хаяг зэрэг мэдээллүүдээ Түгжих дэлгэцэн дээр харуул.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Дэлгэцийг түгжихэд эсвэл Always On Display дээр утасны дугаар эсвэл э-шуудангийн хаяг зэрэг мэдээллийг харуул.</string>
     <string name="unlock_effect">Нээх эффект</string>
     <string name="walking_mate_title">Алхаа хэмжигч</string>
     <string name="help_text_title">Тусламжийн текст</string>
@@ -2415,7 +2437,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="toast_set_lock_pattern">Хэрвээ та хээгээ мартсан бол утасны бүх өгөгдлийг арилгаад, утсыг дахин тохируулна.</string>
     <string name="toast_set_lock_password">Хэрэв та нууц үгээ мартвал бүх өгөгдөл устах ба утсыг дахин тохируулна.</string>
     <string name="toast_set_lock_pin">Хэрэв та PIN кодоо мартвал бүх өгөгдөл устах ба утсыг дахин тохируулна.</string>
-    <string name="chooselock_warning_text">Энэ %s-г сана. Төхөөрөмжийг унтарч ассаны дараа энэ шаардлагатай.</string>
+    <string name="chooselock_warning_text">Энэ %s-г сана. Та утсаа дахин эхлүүлсний дараа энэ шаардлагатай болно.</string>
     <string name="lockpassword_password_exists_history">Нууц үгийг урьд нь ашигласан. Шинэ нууц үг оруул.</string>
     <string name="lockpassword_pin_repeating_nums">PIN-д тоо давтагдан орж болохгүй</string>
     <string name="lockpassword_pin_sequential_nums">PIN-д дараалсан тоо орж болохгүй</string>
@@ -2533,6 +2555,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="data_usage_disable_mobile_warning_lgt">"Wi-Fi ашиглаагүй бол та Интернэт, э-шуудан болон дата холболт ашигладаг хэрэглүүрүүд ажиллахгүй.
 
 Хөдөлгөөнт өгөгдлийг идэвхгүй болгоно."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Wi-Fi сүлжээнд холбогдолгүйгээр та, Интернет, Э-шуудан эсвэл сүлжээний холболт шаардлагатай бусад хэрэглүүр ашиглах боломжгүй.</string>
@@ -2691,10 +2716,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Дууны дурын хязгаарлалт</string>
     <string name="volume_limiter_descryption">Медиа дууны түвшингийн дээд хязгаараар чихээ хамгаална уу. Хязгаарыг зөвхөн чихэвч эсвэл Bluetooth аудио төхөөрөмж ашиглаж байх үед л хэрэглэнэ.</string>
     <string name="multi_sound_title">Хэрэглүүрийн дууг тусад нь гаргах</string>
-    <string name="multi_sound_summary">Төхөөрөмж дээрээ нэг хэрэглүүрийн дууг бусад хэрэглүүрээс тусдаа чанга яригч эсвэл чихэвчин дээр тоглуулаарай.</string>
-    <string name="multi_sound_descryption">"Нэг хэрэглүүрийн медиаг бусад хэрэглүүрийн медианаас тусдаа чанга яригч эсвэл чихэвчинд тоглуулах.
+    <string name="multi_sound_summary">Нэг хэрэглүүрийн медиа дууг утасны үндсэн аудио гаралтын төхөөрөмжөөс өөр аудио төхөөрөмж дээр тоглуулна.</string>
+    <string name="multi_sound_descryption">"Нэг хэрэглүүрийн медиа дууг таны утасны үндсэн аудио гаралтын төхөөрөмжөөс өөр аудио төхөөрөмж дээр тоглуулна. Үүнийг асаах хэрэглүүр ба аудио төхөөрөмжийг сонго.
 
-Хэрвээ Bluetooth аудио төхөөрөмж сонгосон бол Bluetooth төхөөрөмж холбогдоогүй байвал өгөгдмөл аудио төхөөрөмжин дээр дууг тоглуулна."</string>
+Хэрэглүүрийн салангид дуу зөвхөн таны сонгосон аудио төхөөрөмж нь таны утасны үндсэн аудио гаралтын төхөөрөмжөөс өөр байх үед ажиллана.
+
+Та утасныхаа үндсэн аудио төхөөрөмжийг шуурхай тохиргооны самбараас өөрчилж болно. Хэрэв аудио төхөөрөмж харагдахгүй бол Samsung Connect > Тохиргоо > Samsung Connect самбараас асаа."</string>
     <string name="set_application_title">Хэрэглүүр</string>
     <string name="set_application_summary">Тусдаа аудио төхөөрөмж дээр дууг нь гаргах хэрэглүүрээ сонго.</string>
     <string name="set_application_descryption">Дараах мультимедиа хэрэглүүрийг сонгоод дууг нь тусдаа аудио төхөөрөмжин дээр тоглуул.</string>
@@ -2705,9 +2732,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="multi_sound_popup_msg">%s-г нээхийн тулд та хэрэглүүр ба аудио төхөөрөмжөө сонгох ёстой.</string>
     <string name="multi_sound_network_msg">Боломжит хэрэглүүр байгаа эсэхийг шалгахдаа таны утас сүлжээнд холбогдсон байх ёстой. Сүлжээний тохиргоогоо шалгаад дахин оролдоно уу.</string>
     <string name="multi_sound_wifi_msg">Боломжит хэрэглүүр байгаа эсэхийг шалгахдаа таны утас сүлжээнд холбогдсон байх ёстой. Мобайл дата хэрэглэхэд нэмэлт төлбөр гарч болно.</string>
+    <string name="multi_sound_add_application">Програм нэмэх</string>
     <string name="dlg_btn_select">Сонгох</string>
-    <string name="audio_device_type_descryption">Энэ хэрэглүүрт ямар аудио төхөөрөмжийг ашиглахаа сонго. Bluetooth төхөөрөмжийг холбогдсон үед л ашиглах боломжтой.</string>
+    <string name="audio_device_type_descryption">Сонгосон хэрэглүүрт ямар аудио төхөөрөмжийг ашиглахаа сонго. Bluetooth төхөөрөмжийг холбогдсон үед л ашиглах боломжтой.</string>
     <string name="my_phone_title">Утас</string>
+    <string name="my_phone_summary">Чанга яригч/чихэвч/USB аудио төхөөрөмж</string>
     <string name="bluetooth_device_title">Bluetooth төхөөрөмж</string>
     <string name="no_connected_devices">Холбогдсон төхөөрөмж байхгүй</string>
     <string name="two_hours">2 цаг</string>
@@ -2715,7 +2744,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="stop_setup_popup_msg">Таны өөрчилсөн тохиргоог хэрэглэхгүй.</string>
     <string name="app_turned_on">%s ассан</string>
     <string name="force_touch_title">Чанга дарахад чичрэх хариу үй.л</string>
-    <string name="volume_key_control_title">Дууны түвшний өгөгд. удирдлага</string>
+    <string name="volume_key_control_title">Медиад Дууны түвшин товч ашигла</string>
+    <string name="volume_key_control_summary">Дууны түвшний товчийг дарахад медиа дууны түвшинг удирдах уу.</string>
     <string name="sound_mode">Дууны горим</string>
     <string name="sound_mode_vibrate">Чичиргээ</string>
     <string name="sound_mode_mute">Дуу хаах</string>
@@ -2928,14 +2958,13 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="text_biometrics_title_enterprise">Та %1$s-г %2$s-г сонгосон үед биометрээр түгжээ тайлах боломжгүй.</string>
     <string name="text_biometrics_finger_title_enterprise">%1$s-д хурууны хээг %2$s-н түгжээ тайлах арга болгон ашиглах боломжгүй.</string>
     <string name="edge_feeds_title">Захын эх сурв.</string>
-    <string name="screensaver_settings_summary">"Төхөөрөмжийг сууринд бэхэлсэн эсвэл цэнэглэж байх үед юу болохыг хяна. Цаг нь болмогц дэлгэц амраагч харагдана.
-
-Энэ функцийг Өдрийн зүүд гэдэг."</string>
-    <string name="screensaver_settings_summary_wo_dock">Утсаа цэнэглэх үеэр дэлгэц унтрахад дэлгэц амраагч харуул.</string>
+    <string name="screensaver_settings_summary">Утсаа цэнэглэх үеэр дэлгэц унтрахад дэлгэц амраагч харуул.</string>
+    <string name="screensaver_settings_summary_wo_dock">Утсыг сууринд залгасан эсвэл цэнэглэх үеэр дэлгэц унтрахад дэлгэц амраагч харуул.</string>
     <string name="apn_already_exists">Хэдийн оршиж байна</string>
     <string name="error_unavailable_apn">Энэ APN энэ төхөөрөмж дээр зөвшөөрөгдөөгүй. Өөрийг оролдож үзнэ үү.</string>
     <string name="error_message_port_out_of_range">Портын дугаар %1$d - %2$d тэмдэгтээс бүрдэх ёстой</string>
     <string name="apn_restore_warning">Таны нэмсэн бүх APN-г арилгана. Бусад APN-г өгөдмөл тохиргоо руу нь дахин тохируулна.</string>
+    <string name="apn_restore_title">APN тохиргоог дахин тохируулах уу?</string>
     <string name="master_clear_desc_google_account">Google-ийн бүртгэл</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2947,7 +2976,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="sound_balance_summary">Чихэвчид зориулж баруун болон зүүн дууны тэнцвэрийг тохируул.</string>
     <string name="backup_samsung_account_title">Backup settings</string>
     <string name="restore_samsung_account_title">Сэргээх</string>
-    <string name="auto_restart_header">Төхөөрөмжийн удирдлага</string>
+    <string name="auto_restart_header">Утасны удирдлага</string>
+    <string name="auto_restart_header_tablet">Таблетын удирдлага</string>
     <string name="auto_restart_title">Автоматаар дахин эхлүүл</string>
     <string name="switch_turn_on_text">Идэвхжүүлэх</string>
     <string name="switch_turn_off_text">Унтраах</string>
@@ -3070,6 +3100,14 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="tether_settings_summary_usb_bt">Төхөөрөмжийнхөө хөдөлгөөнт өгөгдлийн холболтыг USB эсвэл Bluetooth-ээр дамжуулж хуваалц</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Зөвшөөр</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Утасныхаа интернет холболтыг Bluetooth ашиглан хуваалц.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Таблетынхаа интернет холболтыг Bluetooth ашиглан хуваалц.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Энэ утасны интернет холболтыг хуваалцахад бэлэн болсон.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Энэ таблетын интернет холболтыг хуваалцахад бэлэн болсон.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Энэ утасны интернет холболтыг 1 төхөөрөмжтэй хуваалцаж байна.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Энэ таблетын интернет холболтыг 1 төхөөрөмжтэй хуваалцаж байна.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Энэ утасны интернет холболтыг %d төхөөрөмжтэй хуваалцаж байна.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Энэ таблетын интернет холболтыг %d төхөөрөмжтэй хуваалцаж байна.</string>
     <string name="onehand_settings_title">Нэг гарын горим</string>
     <string name="onehand_settings_text_1">Дэлгэцийн доод булангаас ташуулдаж шудраад дэлгэцийн хэмжээг багасгана.</string>
     <string name="onehand_settings_text_2">Үндсэн товчийг 3 удаа түргэн дараад дэлгэцийн хэмжээг багасгана.</string>
@@ -3397,12 +3435,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Идэвхгүй</string>
     <string name="wifi_or_mobile_network">Wi-Fi эсвэл гар утасны сүлжээнүүд</string>
     <string name="wifi_network_only">Зөвхөн Wi-Fi сүлжээ</string>
+    <string name="wifi_adps_title">Wi-Fi тэжээл хэмнэх горим</string>
+    <string name="wifi_adps_summary">Wi-Fi ачааллын хэв маягийг шинжилж зайн ашиглалтыг багасга.</string>
     <string name="wifi_auto_reconnect">Автоматаар дахин холбогдох</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Wi-Fi-г асаавал Хөдөлгөөнт голомтыг идэвхгүй болгоно. Үргэлжлүүлэх үү?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Мобайл хотспот идэвхтэй үед Wi-Fi унтарна. Wi-Fi-г асаахын тулд Мобайл хотспотыг унтраана уу.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">Мобайл Хотспот идэвхтэй үед Wi-Fi унтарсан. Wi-Fi асаахын тулд Мобайл Хотспотыг унтраана уу.</string>
+    <string name="wifi_enable_warning_mtr">Мобайл хотспот идэвхтэй үед Wi-Fi унтарсан. Wi-Fi-г асаахын тулд Мобайл хотспотыг унтраана уу.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">Wi-Fi-г асаавал Мобайл голомтыг идэвхгүй болгоно.</string>
     <string name="wifi_control_history_title">Wi-Fi удирдлагын түүх</string>
@@ -3602,6 +3642,10 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_wps_pin_client_mobileap">Клиент рүү PIN %1$s-р холбогдож байна. Тохируулга дуусахад %2$d минут хэрэгтэй.</string>
     <string name="wifi_wps_complete_mobileap">Нөгөө төхөөрөмж одоо таны төхөөрөмжид холбогдсон.</string>
     <string name="wifi_ap_disconnect_warn">Төхөөрөмж салгах</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Одоогоор холбогдсон бүх төхөөрөмж Мобайл голомтоос салгагдана.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Одоогоор холбогдсон бүх төхөөрөмж Мобайл голомтоос салгагдана.</string>
     <string name="wifi_ap_warn_max_whitelist">Зөвшөөрөгдсөн төхөөрөмжийн (%d) тооны дээд хязгаарт хүрсэн.</string>
     <string name="wifiap_one_item_deleted">1 зүйл устгана</string>
@@ -3737,6 +3781,8 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_first_time_configuration">Анхны Голомтын тохируулга</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">PIN-гээ зөв оруул.</string>
+    <string name="open_mobileap_warning">Энэ хөдөлгөөнт AP найдвартай биш.</string>
+    <string name="hidden_mobileap_warning">Хэрэглэгч Нууц SSID тохируулахад WPS идэвхгүй болно.</string>
     <string name="wifi_ssid_max_byte_error">Тэмдэгтийн дээд хязгаарт хүрсэн.</string>
     <string name="tethering_attention_title">Хэнд</string>
     <string name="wfd_select_device">Төхөөрөмж сонгох</string>
@@ -3967,6 +4013,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Тааруулалт</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Энэ зөвшөөрөл нь хэрэглүүрт таны ашиглаж байгаа бусад хэрэглүүрүүдийн дээрх зүйлсийг харуулахыг зөвшөөрнө. Энэ нь таныг бусад хэрэглүүрүүдийг ашиглахад саад болж болно.</string>
+    <string name="write_settings_body_description">Энэ хэрэглүүрт Bluetooth унтраах, асаах зэрэг системийн тохиргоог өөрчлөхийг зөвшөөр.</string>
+    <string name="reset_app_preferences_desc1">Энэ нь бүх сонголтот тохиргоог дахин тохируулна:</string>
+    <string name="reset_app_preferences_desc2">Идэвхгүй хэрэглүүрүүд</string>
+    <string name="reset_app_preferences_desc3">Хэрэглүүрүүдийн мэдэгдлүүдийн хязгаарлалт</string>
+    <string name="reset_app_preferences_desc4">Өгөгдмөл хэрэглүүрүүд</string>
+    <string name="reset_app_preferences_desc5">Хэрэглүүрүүдийн далд өгөгдлийн хязгаарлалт</string>
+    <string name="reset_app_preferences_desc6">Зөвшөөрлийн хязгаарлалтууд</string>
+    <string name="reset_app_preferences_desc7">Та одоогийн хэрэглүүрийн өгөгдлөө алдахгүй.</string>
     <string name="knox_security_mode_title">Knox хамгаалалт</string>
     <string name="kap_title">Knox идэвхитэй хамгаалалт</string>
     <string name="kap_eula_title">Нууцлалын бодлого</string>
@@ -3981,6 +4035,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Хувийн мэдээлэл ба Samsung account-н мэдээллээ удирд.</string>
     <string name="my_profile_summary_jpn">Хувийн мэдээлэл болон Galaxy дансныхаа дэлгэрэнгүйг удирд.</string>
     <string name="arbitration_agreement">Арбитрын гэрээ</string>
+    <string name="activation_title">Идэвхжүүлэлтийн төлөв</string>
+    <string name="activation_summary">%1$s-д идэвхжүүлсэн. %2$s-д орж дэлгэрэнгүй мэдээлэл авна уу.</string>
+    <string name="wifi_ap_pmf_on">PMF ассан</string>
+    <string name="edit_event_start_short">Эхлэх</string>
+    <string name="edit_event_end_short">Дуусах</string>
+    <string name="select_date_to_view">Харах огноо сонгох</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Тийм</string>
     <string name="no">Үгүй</string>
     <string name="create">Үүсгэх</string>
@@ -5473,7 +5534,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="app_notification_block_title">Мэдэгдлүүдийг зөвшөөр</string>
     <string name="app_notification_block_summary">Энэ хэрэглүүрээс мэдэгдлийн зурвас, дуу чимээ, чичиргээ зэрэг мэдэгдэл хүлээн ав.</string>
     <string name="app_notification_override_dnd_title">Чухал болгож тохируулах</string>
-    <string name="app_notification_override_dnd_summary">Энэ хэрэглүүрийн мэдэгдлийг зөвшөөрөөд Бүү үймүүл горимд дэлгэц асааж, дуу гаргана.</string>
+    <string name="app_notification_override_dnd_summary">Бүү үймүүл горим идэвхтэй байх үед мэдэгдлүүд ба зөвшөөрсөн жагсаалтыг мэдэгдлийн самбарын дээд хэсэг харуулна.</string>
     <string name="app_notification_visibility_override_title">Түгжих дэлгэц дээр</string>
     <string name="app_notifications_dialog_done">Хийсэн</string>
     <string name="zen_mode_choose_rule_type">Дүрмийн төрлийг сонго</string>
@@ -5510,6 +5571,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="restr_pin_enter_admin_pin">Админы PIN оруул</string>
     <string name="switch_on_text">Идэвхтэй</string>
     <string name="switch_off_text">Идэвхгүй</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Энэ ажлын профилийг удирдана:</string>
     <string name="managing_admin">%s-н удирдлагатай</string>
     <string name="display_auto_rotate_title">Дэлгэц эргүүлэлт</string>
     <string name="display_auto_rotate_rotate">Дэлгэц дээрх контентийг эргүүлэх</string>
@@ -5546,9 +5608,9 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="encrypt_talkback_dialog_require_pin">PIN шаардах</string>
     <string name="encrypt_talkback_dialog_require_pattern">Хээ шаардах</string>
     <string name="encrypt_talkback_dialog_require_password">Нууц үг шаардах</string>
-    <string name="encrypt_talkback_dialog_message_pin">Төхөөрөмж ассан хойно PIN оруулах үед хялбар ашиглах функц болох %1$s түр зуур идэвхгүй байна.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Төхөөрөмж ассан хойно хээ зурах үед хялбар ашиглах функц болох %1$s түр зуур идэвхгүй байна.</string>
-    <string name="encrypt_talkback_dialog_message_password">Төхөөрөмж ассан хойно нууц үг оруулах үед хялбар ашиглах функц болох %1$s түр зуур идэвхгүй байна.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Төхөөрөмж асах үед таны PIN шаардлагатай. Төхөөрөмж асаагүй бол хандалтыг хялбаршуулах функцүүдийг ашиглах боломжгүй.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Төхөөрөмж асах үед таны хээ шаардлагатай. Төхөөрөмж асаагүй бол хандалтыг хялбаршуулах функцүүдийг ашиглах боломжгүй.</string>
+    <string name="encrypt_talkback_dialog_message_password">Төхөөрөмж асах үед таны нууц үг шаардлагатай. Төхөөрөмж асаагүй бол хандалтыг хялбаршуулах функцүүдийг ашиглах боломжгүй.</string>
     <string name="slot_number">(үүр %d)</string>
     <string name="app_launch_domain_links_title">Хэрэглүүрийн холбоосууд</string>
     <string name="app_launch_open_domain_urls_title">Тохирох URL-уудыг нээ</string>
@@ -5624,18 +5686,18 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="usb_use_power_only">Холбогдсон төх.г цэнэглэ</string>
     <string name="usb_use_power_only_desc">Холбогдсон төхөөрөмжийг USB-ээр цэнэглэ.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Медиа файлууд шилжүүлэх</string>
+    <string name="usb_use_file_transfers">Файлууд шилжүүлэх</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Зураг шилжүүлэх</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Медиа файл шилжүүлэх функц ажиллахгүй байвал горимыг сонго. Та зөвхөн зургийн файлууд шилжүүлж болно.</string>
+    <string name="usb_use_photo_transfers_summary">Файлууд шилжүүлэх ажиллахгүй байвал энэ горимыг сонго. Энэ горимд та зөвхөн зурган файлууд шилжүүлэх боломжтой.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">MIDI төхөөрөмж холбо</string>
-    <string name="usb_use">USB ашигла</string>
-    <string name="assist_access_context_title">Дэлгэц дэх бичвэрийг унш</string>
-    <string name="assist_access_context_summary">Төхөөрөмжийн туслах хэрэглүүрт дэлгэц дээр харагдаж байгаа ямар ч бичвэрийг уншихыг зөвшөөр.</string>
-    <string name="assist_access_screenshot_title">Дэлгэцийн агшин авах/хандах</string>
-    <string name="assist_access_screenshot_summary">Төхөөрөмжийн туслах хэрэглүүрт дэлгэцийн зураг авч, хандахыг зөвшөөр.</string>
+    <string name="usb_use">USB-г энд ашигла</string>
+    <string name="assist_access_context_title">Дэлгэцэн дээрх текстийг шинжлэх</string>
+    <string name="assist_access_context_summary">Холбогдох контентыг олгохын тулд дэлгэцэн дээр харуулсан текстийг шинжлэхийг төхөөрөмжийн туслах хэрэглүүрт зөвшөөр.</string>
+    <string name="assist_access_screenshot_title">Дэлгэцэн дээрх зургуудыг шинжил</string>
+    <string name="assist_access_screenshot_summary">Дэлгэцэн дээрх зургуудыг авч ашиглахыг төхөөрөмжийн туслах хэрэглүүрт зөвшөөр.</string>
     <string name="assist_footer">Төхөөрөмжийн туслах хэрэглүүрүүд нь таны утасан дээр яг одоо харагдаж байгаа дэлгэцээс мэдээлэл цуглуулж танд тусалж чадна. Зарим төхөөрөмжийн туслах хэрэглүүр нь бусад хэрэглүүрийг нээж, ашиглах, дуу хоолойн оролтыг ашиглан бичвэр оруулах боломжтой бөгөөд танд нэгдсэн туслалцаа үзүүлнэ.</string>
     <string name="average_memory_use">RAM-ын дундаж ашиглалт</string>
     <string name="maximum_memory_use">RAM-ын дээд ашиглалт</string>
@@ -5664,7 +5726,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ignore_optimizations_on_desc">Зайн зарцуулалтыг өсгөж болзошгүй</string>
     <string name="ignore_optimizations_off_desc">Зайн цэнэг хэмнэхэд санал болгосон</string>
     <string name="app_list_preference_none">Алга</string>
-    <string name="allow_overlay_description">Таны хэрэглэж буй хэрэглүүрийн дээгүүр товч, жижиг цонх, бусад элемент зэргийг харагдахыг зөвшөөрөх хэрэглүүрийг сонго.</string>
+    <string name="allow_overlay_description">Энэ зөвшөөрөл нь хэрэглүүрт таны ашиглаж байгаа бусад хэрэглүүрүүдийн дээрх зүйлсийг харуулахыг зөвшөөрнө. Энэ нь таныг бусад хэрэглүүрүүдийг ашиглахад саад болж болно.</string>
     <string name="overlay_settings">Хэрэглүүрүүдийг дээд талд харуулах боломжтой</string>
     <string name="filter_overlay_apps">Зөвшөөрөлтэй хэрэглүүрүүд</string>
     <string name="filter_write_settings_apps">Зөвшөөрөлтэй хэрэглүүрүүд</string>
@@ -5711,14 +5773,14 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ethernet_data_template">%1$s Ethernet өгөгдөл</string>
     <string name="cell_warning_only">Өгөгдлийн анхааруулга %s</string>
     <string name="cell_warning_and_limit">%1$s Өгөгдөл ашиглалтын анхааруулга/%2$s Өгөгдөл ашиглалтын хязгаар</string>
-    <string name="billing_cycle">Төлбөр тооцооны хугацаа</string>
+    <string name="billing_cycle">Нэхэмжлэх мөчлөг, дата сануулга</string>
     <string name="billing_cycle_summary">Сар бүрийн %s дахь/дэх өдөр</string>
     <string name="billing_cycle_fragment_summary">Сар бүрийн %s дахь/дэх өдөр</string>
     <string name="network_restrictions">Сүлжээг хязгаарлах</string>
     <string name="operator_warning">Өгөгдлийн хэрэглээний мэдээллийг таны төхөөрөмжөөр хэмждэг. Таны үйлчилгээний оператор дансны хэрэглээг өөрөөр тооцож магадгүй.</string>
     <string name="data_used_template">%s ашигласан</string>
     <string name="data_warning">Дата ашиглалтын анхааруулга</string>
-    <string name="set_data_limit">Дата ашиглах хязгаар</string>
+    <string name="set_data_limit">Өгөгдлийн хязгаарыг тохируул</string>
     <string name="data_limit">Дата ашиглах хязгаар</string>
     <string name="data_usage_template">%2$s %1$s ашигласан</string>
     <string name="data_usage_other_apps">Ашиглалтанд орсон хэрэглүүрүүд</string>
@@ -5760,5 +5822,4 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="enable_iris_lock_desc_3">"Таны одоогийн дэлгэцийн түгжээний төрөл бол Хурууны хээ юм.
 
 ИДЭВХЖҮҮЛЭХ дээр товшоод Хурууны хээний оронд нүдний солонгон бүрхэвчийг дэлгэцийн түгжээний төрлөөр тохируулна уу. Нүдний солонгон бүрхэвч буюу %s-ээр төхөөрөмжийнхөө түгжээг тайлж болно."</string>
-    <string name="my_phone_summary">Чанга яригч/чихэвч/USB аудио төхөөрөмж</string>
 </resources>

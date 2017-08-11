@@ -35,13 +35,13 @@
 
 # virtual methods
 .method public onStateReceived()V
-    .locals 11
+    .locals 10
 
-    const v5, 0x7f0b0401
+    const v5, 0x7f0b0462
 
-    const v3, 0x7f0b03f5
+    const v3, 0x7f0b0456
 
-    const/4 v10, 0x1
+    const/4 v9, 0x1
 
     const/4 v2, 0x0
 
@@ -51,7 +51,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -79,7 +79,7 @@
 
     invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->isEnabled()Z
 
-    move-result v9
+    move-result v8
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -87,7 +87,7 @@
 
     invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->isDiscovering()Z
 
-    move-result v8
+    move-result v7
 
     const-string/jumbo v0, "BluetoothSettings"
 
@@ -133,7 +133,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -145,12 +145,12 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v9}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     :cond_1
     :goto_0
@@ -171,7 +171,7 @@
 
     if-eqz v0, :cond_4
 
-    if-nez v9, :cond_3
+    if-nez v8, :cond_3
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -179,7 +179,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v10}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
+    invoke-virtual {v0, v9}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
 
     goto :goto_0
 
@@ -192,15 +192,15 @@
 
     const-string/jumbo v3, "yes"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto :goto_0
 
@@ -219,7 +219,7 @@
 
     if-eqz v0, :cond_6
 
-    if-eqz v9, :cond_5
+    if-eqz v8, :cond_5
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -240,15 +240,15 @@
 
     const-string/jumbo v3, "yes"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto :goto_0
 
@@ -267,7 +267,7 @@
 
     if-eqz v0, :cond_9
 
-    if-nez v9, :cond_7
+    if-nez v8, :cond_7
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -275,12 +275,12 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v10}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
+    invoke-virtual {v0, v9}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
 
     goto/16 :goto_0
 
     :cond_7
-    if-nez v8, :cond_8
+    if-nez v7, :cond_8
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -291,11 +291,11 @@
     :cond_8
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v9}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
@@ -314,7 +314,7 @@
 
     if-eqz v0, :cond_c
 
-    if-nez v9, :cond_a
+    if-nez v8, :cond_a
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -324,20 +324,20 @@
 
     const-string/jumbo v3, "no"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
     :cond_a
-    if-eqz v8, :cond_b
+    if-eqz v7, :cond_b
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -356,15 +356,15 @@
 
     const-string/jumbo v3, "no"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
@@ -383,7 +383,7 @@
 
     if-eqz v0, :cond_e
 
-    if-nez v9, :cond_d
+    if-nez v8, :cond_d
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -391,7 +391,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v10}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
+    invoke-virtual {v0, v9}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -401,16 +401,16 @@
 
     const-string/jumbo v3, "no"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_1
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v9}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
@@ -423,7 +423,7 @@
 
     const-string/jumbo v3, "yes"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -440,11 +440,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -452,13 +452,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_10
+    if-lez v0, :cond_f
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -468,92 +468,8 @@
 
     invoke-static {v0, v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-set0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get0(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_f
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get0(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_11
-
-    :cond_f
-    const-string/jumbo v0, "BluetoothSettings"
-
-    const-string/jumbo v1, "Bixby :: DeviceName is EMPTY"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    const-string/jumbo v2, "Match"
-
-    const-string/jumbo v3, "no"
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
-
-    return-void
-
-    :cond_10
-    const-string/jumbo v0, "BluetoothSettings"
-
-    const-string/jumbo v1, "Bixby :: parameter size is 0"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    const-string/jumbo v2, "Match"
-
-    const-string/jumbo v3, "no"
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
-
-    return-void
-
-    :cond_11
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v0
-
-    const/16 v1, 0x3c
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->extendTimeout(I)V
-
-    if-nez v9, :cond_12
+    :goto_2
+    if-nez v8, :cond_10
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -561,162 +477,31 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v10}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-set5(Lcom/android/settings/bluetooth/BluetoothSettings;Z)Z
+    invoke-virtual {v0, v9}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
 
     goto/16 :goto_0
 
-    :cond_12
+    :cond_f
+    const-string/jumbo v0, "BluetoothSettings"
+
+    const-string/jumbo v1, "Bixby :: parameter size is 0"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    :cond_10
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get0(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->findDeviceByName(Ljava/lang/String;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_16
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-set3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)Z
-
-    if-eqz v8, :cond_13
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    iget-object v0, v0, Lcom/android/settings/bluetooth/BluetoothSettings;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->stopScanning()V
-
-    :cond_13
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnected()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_14
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-set0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;)Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    const-string/jumbo v2, "AlreadyConnected"
-
-    const-string/jumbo v3, "yes"
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get0(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v1, v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v9}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
-    :cond_14
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    iget-object v0, v0, Lcom/android/settings/bluetooth/BluetoothSettings;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getState()I
-
-    move-result v0
-
-    const/16 v1, 0xc
-
-    if-ne v0, v1, :cond_15
-
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isSupportProfilesReady()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_15
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v7}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_15
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    const-string/jumbo v2, "ExistedApp"
-
-    const-string/jumbo v3, "yes"
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v1, v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
-
-    :cond_15
-    invoke-virtual {v7, v10}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->connect(Z)V
-
-    goto/16 :goto_0
-
-    :cond_16
-    if-nez v8, :cond_1
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->startScanning()Z
-
-    goto/16 :goto_0
-
-    :cond_17
+    :cond_11
     const-string/jumbo v0, "BluetoothDeviceDisconnect"
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
@@ -729,9 +514,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_13
 
-    if-nez v9, :cond_18
+    if-nez v8, :cond_12
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -741,277 +526,40 @@
 
     const-string/jumbo v3, "no"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
-    return-void
+    goto/16 :goto_0
 
-    :cond_18
+    :cond_12
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    const-string/jumbo v1, "Bluetooth"
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamsSize()I
-
-    move-result v0
-
-    if-lez v0, :cond_1a
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-set0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;)Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get0(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_19
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get0(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1b
-
-    :cond_19
-    const-string/jumbo v0, "BluetoothSettings"
-
-    const-string/jumbo v1, "Bixby :: DeviceName is EMPTY"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    const-string/jumbo v2, "Match"
-
-    const-string/jumbo v3, "no"
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
-
-    return-void
-
-    :cond_1a
-    const-string/jumbo v0, "BluetoothSettings"
-
-    const-string/jumbo v1, "Bixby :: parameter size is 0"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    const-string/jumbo v2, "Match"
-
-    const-string/jumbo v3, "no"
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
-
-    return-void
-
-    :cond_1b
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get0(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->findDeviceByName(Ljava/lang/String;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_1f
-
-    if-eqz v8, :cond_1c
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    iget-object v0, v0, Lcom/android/settings/bluetooth/BluetoothSettings;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->stopScanning()V
-
-    :cond_1c
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnected()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1e
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v7}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1d
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v7}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap1(Lcom/android/settings/bluetooth/BluetoothSettings;Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1d
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    const-string/jumbo v2, "ExistedApp"
+    const-string/jumbo v2, "On"
 
     const-string/jumbo v3, "yes"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    const-string/jumbo v1, "Name"
-
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v1, v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
-
-    :cond_1d
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->disconnect()V
+    invoke-static {v0, v9}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
-    :cond_1e
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-virtual {v7}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-set0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;)Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    const-string/jumbo v2, "AlreadyConnected"
-
-    const-string/jumbo v3, "no"
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get0(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v1, v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
-
-    goto/16 :goto_0
-
-    :cond_1f
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    const-string/jumbo v2, "Match"
-
-    const-string/jumbo v3, "no"
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    const-string/jumbo v1, "Name"
-
-    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get0(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v1, v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
-
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
-
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
-
-    goto/16 :goto_0
-
-    :cond_20
+    :cond_13
     const-string/jumbo v0, "BluetoothControlHistory"
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
@@ -1024,7 +572,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_17
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1034,7 +582,7 @@
 
     instance-of v0, v0, Landroid/preference/PreferenceActivity;
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1056,10 +604,10 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    :goto_2
+    :goto_3
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1067,11 +615,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1079,14 +627,14 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_21
+    :cond_14
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v9}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
-    :cond_22
+    :cond_15
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
@@ -1095,7 +643,7 @@
 
     instance-of v0, v0, Lcom/android/settings/SettingsActivity;
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_16
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1117,9 +665,9 @@
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/settings/SettingsActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_23
+    :cond_16
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
@@ -1138,9 +686,9 @@
 
     invoke-static {v0, v1}, Lcom/android/settings/bluetooth/Utils;->launchActivity(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_24
+    :cond_17
     const-string/jumbo v0, "BluetoothPairedDeviceSetting"
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
@@ -1153,11 +701,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_1d
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1165,13 +713,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_26
+    if-lez v0, :cond_19
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v1
 
@@ -1187,7 +735,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1199,9 +747,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_1a
 
-    :cond_25
+    :cond_18
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     const-string/jumbo v1, "Name"
@@ -1210,19 +758,19 @@
 
     const-string/jumbo v3, "no"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     return-void
 
-    :cond_26
+    :cond_19
     const-string/jumbo v0, "BluetoothSettings"
 
     const-string/jumbo v1, "Bixby :: parameter size is 0"
@@ -1237,24 +785,24 @@
 
     const-string/jumbo v3, "no"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     return-void
 
-    :cond_27
-    if-nez v9, :cond_29
+    :cond_1a
+    if-nez v8, :cond_1c
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1262,7 +810,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_1b
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1272,37 +820,37 @@
 
     const-string/jumbo v3, "no"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     return-void
 
-    :cond_28
+    :cond_1b
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get4(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/android/settings/widget/SwitchBar;
 
     move-result-object v0
 
-    invoke-virtual {v0, v10}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
+    invoke-virtual {v0, v9}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
 
     return-void
 
-    :cond_29
+    :cond_1c
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->findDeviceByCachedManager()V
 
     goto/16 :goto_0
 
-    :cond_2a
+    :cond_1d
     const-string/jumbo v0, "DualAudioSettings"
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
@@ -1315,9 +863,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_22
 
-    if-nez v9, :cond_2b
+    if-nez v8, :cond_1e
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1325,11 +873,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v10}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
+    invoke-virtual {v0, v9}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
 
     goto/16 :goto_0
 
-    :cond_2b
+    :cond_1e
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
@@ -1338,7 +886,7 @@
 
     instance-of v0, v0, Landroid/preference/PreferenceActivity;
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_20
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1362,10 +910,10 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    :goto_3
+    :goto_4
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1373,11 +921,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_1f
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1385,14 +933,14 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_2c
+    :cond_1f
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v9}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
-    :cond_2d
+    :cond_20
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
@@ -1401,7 +949,7 @@
 
     instance-of v0, v0, Lcom/android/settings/SettingsActivity;
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_21
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1425,9 +973,9 @@
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/settings/SettingsActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_2e
+    :cond_21
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
@@ -1446,9 +994,9 @@
 
     invoke-static {v0, v1}, Lcom/android/settings/bluetooth/Utils;->launchActivity(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_2f
+    :cond_22
     const-string/jumbo v0, "MediaVolumeSyncSettings"
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
@@ -1461,9 +1009,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_27
 
-    if-nez v9, :cond_30
+    if-nez v8, :cond_23
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1471,11 +1019,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v10}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
+    invoke-virtual {v0, v9}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
 
     goto/16 :goto_0
 
-    :cond_30
+    :cond_23
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
@@ -1484,7 +1032,7 @@
 
     instance-of v0, v0, Landroid/preference/PreferenceActivity;
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_25
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1500,7 +1048,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0405
+    const v3, 0x7f0b0466
 
     move-object v4, v2
 
@@ -1508,10 +1056,10 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    :goto_4
+    :goto_5
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1519,11 +1067,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_24
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1531,14 +1079,14 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_31
+    :cond_24
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v9}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
-    :cond_32
+    :cond_25
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
@@ -1547,7 +1095,7 @@
 
     instance-of v0, v0, Lcom/android/settings/SettingsActivity;
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_26
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1563,7 +1111,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0405
+    const v3, 0x7f0b0466
 
     move-object v4, v2
 
@@ -1571,9 +1119,9 @@
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/settings/SettingsActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_33
+    :cond_26
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
@@ -1592,9 +1140,9 @@
 
     invoke-static {v0, v1}, Lcom/android/settings/bluetooth/Utils;->launchActivity(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_34
+    :cond_27
     const-string/jumbo v0, "BluetoothHelp"
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
@@ -1607,7 +1155,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_2a
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1615,7 +1163,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_36
+    if-eqz v0, :cond_29
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1623,7 +1171,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_36
+    if-eqz v0, :cond_29
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1631,7 +1179,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1639,7 +1187,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_28
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1649,20 +1197,20 @@
 
     const-string/jumbo v3, "yes"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
-    :cond_35
+    :cond_28
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v9}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
-    :cond_36
+    :cond_29
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     const-string/jumbo v1, "HelpMenu"
@@ -1671,19 +1219,19 @@
 
     const-string/jumbo v3, "no"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap2(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
-    :cond_37
+    :cond_2a
     const-string/jumbo v0, "BluetoothReceivedFiles"
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
@@ -1704,7 +1252,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_39
+    if-eqz v0, :cond_2c
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1712,7 +1260,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1720,7 +1268,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_38
+    if-eqz v0, :cond_2b
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -1730,11 +1278,11 @@
 
     const-string/jumbo v3, "yes"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1746,14 +1294,14 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    :cond_38
+    :cond_2b
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v10}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v9}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 
-    :cond_39
+    :cond_2c
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     const-string/jumbo v1, "ReceivedFiles"
@@ -1762,11 +1310,11 @@
 
     const-string/jumbo v3, "no"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap0(Lcom/android/settings/bluetooth/BluetoothSettings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get2(Lcom/android/settings/bluetooth/BluetoothSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     move-result-object v0
 
@@ -1780,7 +1328,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$5;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v0, v6}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap3(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto/16 :goto_0
 .end method

@@ -364,14 +364,6 @@
     return-object v0
 .end method
 
-.method public isLandingState()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLandingState:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
 .method public isLastState()Ljava/lang/Boolean;
     .locals 1
 

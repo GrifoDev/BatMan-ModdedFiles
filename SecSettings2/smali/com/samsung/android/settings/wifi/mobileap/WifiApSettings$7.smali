@@ -135,7 +135,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0fb7
+    const v1, 0x7f0b1044
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -155,7 +155,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d023c
+    const v2, 0x7f0d023d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -251,7 +251,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d011e
+    const v2, 0x7f0d011f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 

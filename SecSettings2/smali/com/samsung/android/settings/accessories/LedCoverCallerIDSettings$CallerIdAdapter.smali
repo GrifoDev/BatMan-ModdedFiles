@@ -76,7 +76,7 @@
 
     if-nez p2, :cond_1
 
-    const v2, 0x7f040178
+    const v2, 0x7f04017a
 
     invoke-virtual {v1, v2, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -86,7 +86,7 @@
 
     invoke-direct {v0}, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;-><init>()V
 
-    const v2, 0x7f110518
+    const v2, 0x7f11051a
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -96,7 +96,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;->icon:Landroid/widget/ImageView;
 
-    const v2, 0x7f110519
+    const v2, 0x7f11051b
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -106,7 +106,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;->name:Landroid/widget/TextView;
 
-    const v2, 0x7f11051e
+    const v2, 0x7f110520
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -116,7 +116,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;->count:Landroid/widget/TextView;
 
-    const v2, 0x7f110520
+    const v2, 0x7f110522
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -126,7 +126,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;->check:Landroid/widget/CheckBox;
 
-    const v2, 0x7f11051f
+    const v2, 0x7f110521
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -136,7 +136,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/accessories/AccessoriesUtils$CallerIDListViewHolder;->checkArea:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f110521
+    const v2, 0x7f110523
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -264,7 +264,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings$CallerIdAdapter;->this$0:Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;
 
-    const v4, 0x7f0b0342
+    const v4, 0x7f0b03a1
 
     invoke-virtual {v2, v4}, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->getString(I)Ljava/lang/String;
 

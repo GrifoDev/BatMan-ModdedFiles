@@ -161,7 +161,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b15dd
+    const v1, 0x7f0b1679
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -170,7 +170,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b15dc
+    const v1, 0x7f0b1678
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -187,7 +187,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b08f5
+    const v1, 0x7f0b095f
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -196,7 +196,7 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b15db
+    const v1, 0x7f0b1677
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -213,7 +213,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b08f2
+    const v1, 0x7f0b095c
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -222,7 +222,7 @@
     :cond_2
     iget-object v0, p0, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b15da
+    const v1, 0x7f0b1676
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -309,7 +309,7 @@
 
     move-result-object v5
 
-    const v9, 0x7f1002dd
+    const v9, 0x7f1002e3
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -378,7 +378,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b08d3
+    const v8, 0x7f0b093d
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -392,7 +392,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b08d4
+    const v8, 0x7f0b093e
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -408,7 +408,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b046f
+    const v6, 0x7f0b04d2
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -426,7 +426,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0470
+    const v6, 0x7f0b04d3
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

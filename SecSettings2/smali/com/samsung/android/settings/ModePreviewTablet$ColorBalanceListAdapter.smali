@@ -74,7 +74,7 @@
 
     if-nez p2, :cond_1
 
-    const v2, 0x7f040077
+    const v2, 0x7f040078
 
     invoke-virtual {v1, v2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -121,13 +121,13 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/ModePreviewTablet$ViewHolder;->title:Landroid/widget/TextView;
 
-    const v3, 0x7f0b05a3
+    const v3, 0x7f0b0606
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v2, v0, Lcom/samsung/android/settings/ModePreviewTablet$ViewHolder;->summary:Landroid/widget/TextView;
 
-    const v3, 0x7f0b05a4
+    const v3, 0x7f0b0607
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

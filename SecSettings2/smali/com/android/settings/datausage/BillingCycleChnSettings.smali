@@ -1252,7 +1252,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b1b38
+    const v10, 0x7f0b1bd4
 
     invoke-virtual {v9, v10}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1319,7 +1319,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b193b
+    const v11, 0x7f0b19d7
 
     invoke-virtual {v10, v11}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1924,7 +1924,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0b1089
+    const v3, 0x7f0b1116
 
     const/4 v4, 0x0
 
@@ -1954,7 +1954,7 @@
 
     const/4 v3, 0x0
 
-    const v4, 0x7f0b1089
+    const v4, 0x7f0b1116
 
     const/4 v5, 0x0
 
@@ -1989,7 +1989,7 @@
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0b1089
+    const v5, 0x7f0b1116
 
     const/4 v6, 0x0
 
@@ -2018,7 +2018,7 @@
 
     const/4 v3, 0x0
 
-    const v4, 0x7f0b1089
+    const v4, 0x7f0b1116
 
     const/4 v5, 0x0
 
@@ -2052,9 +2052,13 @@
 .method public onResume()V
     .locals 4
 
-    invoke-super {p0}, Lcom/android/settings/datausage/DataUsageBase;->onResume()V
+    const-string/jumbo v0, "BillingCycleChnSettings"
 
-    invoke-direct {p0}, Lcom/android/settings/datausage/BillingCycleChnSettings;->updatePrefs()V
+    const-string/jumbo v1, "onResume()"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-super {p0}, Lcom/android/settings/datausage/DataUsageBase;->onResume()V
 
     iget-object v0, p0, Lcom/android/settings/datausage/BillingCycleChnSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
@@ -2067,6 +2071,22 @@
     const-string/jumbo v3, "DataUsageLimitSettings"
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public onStart()V
+    .locals 2
+
+    const-string/jumbo v0, "BillingCycleChnSettings"
+
+    const-string/jumbo v1, "onStart()"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-super {p0}, Lcom/android/settings/datausage/DataUsageBase;->onStart()V
+
+    invoke-direct {p0}, Lcom/android/settings/datausage/BillingCycleChnSettings;->updatePrefs()V
 
     return-void
 .end method

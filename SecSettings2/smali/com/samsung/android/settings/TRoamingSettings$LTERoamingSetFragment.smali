@@ -73,11 +73,11 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0b1019
+    const v1, 0x7f0b10a6
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b101d
+    const v1, 0x7f0b10aa
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -105,11 +105,11 @@
     return-object v1
 
     :cond_0
-    const v1, 0x7f0b0c15
+    const v1, 0x7f0b0c87
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0c14
+    const v1, 0x7f0b0c86
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 

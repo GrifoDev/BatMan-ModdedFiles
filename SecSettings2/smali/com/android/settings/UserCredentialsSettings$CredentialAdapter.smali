@@ -51,7 +51,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f04033c
+    const v4, 0x7f040341
 
     invoke-virtual {v1, v4, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -64,7 +64,7 @@
 
     check-cast v0, Lcom/android/settings/UserCredentialsSettings$Credential;
 
-    const v1, 0x7f110805
+    const v1, 0x7f110808
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -76,7 +76,7 @@
 
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f110806
+    const v1, 0x7f110809
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
     :goto_0
     invoke-virtual {v4, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v1, 0x7f110807
+    const v1, 0x7f11080a
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -118,7 +118,7 @@
     :goto_1
     invoke-virtual {v4, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v1, 0x7f110808
+    const v1, 0x7f11080b
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

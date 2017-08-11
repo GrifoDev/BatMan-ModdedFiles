@@ -37,11 +37,35 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
 
-    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$10;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
-
     const/4 v1, 0x0
 
+    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$10;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-set1(Lcom/samsung/android/settings/localepicker/LocaleListEditor;Z)Z
+
+    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$10;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-set2(Lcom/samsung/android/settings/localepicker/LocaleListEditor;Z)Z
+
+    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$10;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-get0(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;->removeChecked()V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$10;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
+
     invoke-static {v0, v1}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-wrap3(Lcom/samsung/android/settings/localepicker/LocaleListEditor;Z)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$10;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-get0(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;->doTheUpdate()V
 
     return-void
 .end method

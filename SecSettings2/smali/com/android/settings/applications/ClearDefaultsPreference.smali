@@ -86,7 +86,7 @@
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    const v1, 0x7f04003e
+    const v1, 0x7f04003f
 
     invoke-virtual {p0, v1}, Lcom/android/settings/applications/ClearDefaultsPreference;->setLayoutResource(I)V
 
@@ -217,7 +217,7 @@
 .method private resetLaunchDefaultsUi(Landroid/widget/TextView;)V
     .locals 2
 
-    const v0, 0x7f0b0169
+    const v0, 0x7f0b01c6
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -232,6 +232,22 @@
 
 
 # virtual methods
+.method protected getView()Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mRootView:Landroid/view/View;
+
+    return-object v0
+.end method
+
+.method protected getmActivitiesButton()Landroid/widget/Button;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mActivitiesButton:Landroid/widget/Button;
+
+    return-object v0
+.end method
+
 .method protected onBindView(Landroid/view/View;)V
     .locals 2
 
@@ -430,7 +446,7 @@
     :goto_1
     if-eqz v13, :cond_a
 
-    const v21, 0x7f0b1662
+    const v21, 0x7f0b16fe
 
     move/from16 v0, v21
 
@@ -455,7 +471,7 @@
 
     if-eqz v8, :cond_2
 
-    const v21, 0x7f0b1677
+    const v21, 0x7f0b1713
 
     move/from16 v0, v21
 
@@ -523,7 +539,7 @@
     :cond_2
     if-eqz v13, :cond_4
 
-    const v21, 0x7f0b1678
+    const v21, 0x7f0b1714
 
     move/from16 v0, v21
 
@@ -763,7 +779,7 @@
     goto/16 :goto_1
 
     :cond_a
-    const v21, 0x7f0b1b87
+    const v21, 0x7f0b1c23
 
     move/from16 v0, v21
 

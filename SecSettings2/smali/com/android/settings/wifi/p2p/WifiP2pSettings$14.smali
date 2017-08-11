@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/wifi/p2p/WifiP2pSettings;->endConnection()V
+    value = Lcom/android/settings/wifi/p2p/WifiP2pSettings;->cancelConnect()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -43,7 +43,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, " remove group fail "
+    const-string/jumbo v2, " cancelConnect fail "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -59,17 +59,33 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$14;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap7(Lcom/android/settings/wifi/p2p/WifiP2pSettings;ZZ)V
+
     return-void
 .end method
 
 .method public onSuccess()V
-    .locals 2
+    .locals 3
 
     const-string/jumbo v0, "WifiP2pSettings"
 
-    const-string/jumbo v1, " remove group success"
+    const-string/jumbo v1, " cancelConnect success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$14;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-wrap7(Lcom/android/settings/wifi/p2p/WifiP2pSettings;ZZ)V
 
     return-void
 .end method

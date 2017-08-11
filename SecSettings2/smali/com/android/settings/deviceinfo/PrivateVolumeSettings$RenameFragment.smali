@@ -117,7 +117,7 @@
 
     move-result-object v2
 
-    const v9, 0x7f0400d4
+    const v9, 0x7f0400d6
 
     const/4 v10, 0x0
 
@@ -125,7 +125,7 @@
 
     move-result-object v7
 
-    const v9, 0x7f1102c6
+    const v9, 0x7f1102c8
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     invoke-virtual {v4, v9}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    const v9, 0x7f0b1541
+    const v9, 0x7f0b15dd
 
     invoke-virtual {v0, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -149,11 +149,11 @@
 
     invoke-direct {v9, p0, v6, v3, v4}, Lcom/android/settings/deviceinfo/PrivateVolumeSettings$RenameFragment$1;-><init>(Lcom/android/settings/deviceinfo/PrivateVolumeSettings$RenameFragment;Landroid/os/storage/StorageManager;Ljava/lang/String;Landroid/widget/EditText;)V
 
-    const v10, 0x7f0b1251
+    const v10, 0x7f0b12ec
 
     invoke-virtual {v0, v10, v9}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v9, 0x7f0b124f
+    const v9, 0x7f0b12ea
 
     invoke-virtual {v0, v9, v11}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

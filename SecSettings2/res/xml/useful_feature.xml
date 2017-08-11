@@ -31,7 +31,7 @@
     <SwitchPreference android:title="@string/quick_dial_title" android:key="quick_dial" android:summary="@string/quick_dial_summary" />
     <SwitchPreference android:title="@string/quick_camera_launch_title" android:key="quick_camera_launch_power" android:summary="@string/quick_camera_launch_summary_by_powerkey" />
     <SwitchPreference android:title="@string/quick_camera_launch_title" android:key="quick_camera_launch" android:summary="@string/quick_camera_launch_summary" />
-    <PreferenceScreen android:title="@string/assist_and_voice_input_title" android:key="assist_and_voice_input" android:fragment="com.android.settings.applications.ManageAssist" />
+    <PreferenceScreen android:title="@string/assist_and_voice_input_title" android:key="assist_and_voice_input" android:summary="@string/assist_and_voice_input_summary" android:fragment="com.android.settings.applications.ManageAssist" />
     <PreferenceScreen android:title="@string/multi_window_screen_title" android:key="multi_window_setting" android:summary="@string/multi_window_screen_summary" android:fragment="com.samsung.android.settings.usefulfeature.MultiWindowSettings" />
     <com.android.settings.SecSettingsSwitchPreference android:title="@string/smart_capture_title" android:key="smart_capture" android:fragment="com.samsung.android.settings.usefulfeature.UsefulFeatureHub">
         <extra android:name="type" android:value="smart_capture" />

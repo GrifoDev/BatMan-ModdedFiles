@@ -37,6 +37,8 @@
 .method public run()V
     .locals 2
 
+    const/4 v1, 0x1
+
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist$3;->this$0:Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;
 
     invoke-static {v0}, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->-wrap0(Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;)V
@@ -72,14 +74,36 @@
 
     if-eqz v0, :cond_1
 
+    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist$3;->this$0:Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->getListView()Landroid/widget/ListView;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->semSetGoToTopEnabled(Z)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist$3;->this$0:Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->getListView()Landroid/widget/ListView;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->semSetFastScrollCustomEffectEnabled(Z)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist$3;->this$0:Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->getListView()Landroid/widget/ListView;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setFastScrollEnabled(Z)V
+
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist$3;->this$0:Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;
 
     invoke-static {v0}, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->-get2(Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;)Landroid/preference/SwitchPreference;
 
     move-result-object v0
-
-    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 

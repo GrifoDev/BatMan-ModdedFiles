@@ -18,6 +18,8 @@
 
 
 # instance fields
+.field private isSwitchListenerRegistered:Z
+
 .field private mSwitchBar:Lcom/android/settings/widget/SwitchBar;
 
 .field final synthetic this$0:Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings;
@@ -25,11 +27,15 @@
 
 # direct methods
 .method public constructor <init>(Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings;Lcom/android/settings/widget/SwitchBar;)V
-    .locals 0
+    .locals 1
 
     iput-object p1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->this$0:Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->isSwitchListenerRegistered:Z
 
     iput-object p2, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->mSwitchBar:Lcom/android/settings/widget/SwitchBar;
 
@@ -53,16 +59,33 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->mSwitchBar:Lcom/android/settings/widget/SwitchBar;
 
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->isSwitchListenerRegistered:Z
+
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->mSwitchBar:Lcom/android/settings/widget/SwitchBar;
 
     invoke-virtual {v0, p0}, Lcom/android/settings/widget/SwitchBar;->removeOnSwitchChangeListener(Lcom/android/settings/widget/SwitchBar$OnSwitchChangeListener;)V
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->isSwitchListenerRegistered:Z
+
     :goto_0
     return-void
 
     :cond_0
+    const-string/jumbo v0, "BluetoothDualPlaySettings"
+
+    const-string/jumbo v1, "pause :: Switch change listener is not registered"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_1
     const-string/jumbo v0, "BluetoothDualPlaySettings"
 
     const-string/jumbo v1, "pause :: mSwitchBar is null"
@@ -77,16 +100,33 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->mSwitchBar:Lcom/android/settings/widget/SwitchBar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->isSwitchListenerRegistered:Z
+
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->mSwitchBar:Lcom/android/settings/widget/SwitchBar;
 
     invoke-virtual {v0, p0}, Lcom/android/settings/widget/SwitchBar;->addOnSwitchChangeListener(Lcom/android/settings/widget/SwitchBar$OnSwitchChangeListener;)V
 
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothDualPlaySettings$DualPlayModeEnabler;->isSwitchListenerRegistered:Z
+
     :goto_0
     return-void
 
     :cond_0
+    const-string/jumbo v0, "BluetoothDualPlaySettings"
+
+    const-string/jumbo v1, "resume :: Switch change listener is already registered"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_1
     const-string/jumbo v0, "BluetoothDualPlaySettings"
 
     const-string/jumbo v1, "resume :: mSwitchBar is null"

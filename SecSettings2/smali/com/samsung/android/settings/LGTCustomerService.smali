@@ -82,14 +82,14 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/LGTCustomerService;->mCustomerService:Landroid/preference/Preference;
 
-    const v1, 0x7f0b1268
+    const v1, 0x7f0b1303
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/LGTCustomerService;->mCustomerService:Landroid/preference/Preference;
 
-    const v1, 0x7f0b100b
+    const v1, 0x7f0b1098
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/LGTCustomerService;->getString(I)Ljava/lang/String;
 
@@ -110,6 +110,8 @@
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
     .locals 7
+
+    invoke-super {p0, p1, p2}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     invoke-virtual {p2}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 

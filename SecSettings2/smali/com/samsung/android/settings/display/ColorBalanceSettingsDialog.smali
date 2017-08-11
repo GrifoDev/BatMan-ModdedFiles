@@ -53,7 +53,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/ColorBalanceSettingsDialog;->mParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v2, 0x7f0b05a3
+    const v2, 0x7f0b0606
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/ColorBalanceSettingsDialog;->getString(I)Ljava/lang/String;
 
@@ -65,7 +65,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040078
+    const v2, 0x7f040079
 
     invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -77,7 +77,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/ColorBalanceSettingsDialog;->mParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v2, 0x7f0b0be5
+    const v2, 0x7f0b0c57
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/ColorBalanceSettingsDialog;->getString(I)Ljava/lang/String;
 

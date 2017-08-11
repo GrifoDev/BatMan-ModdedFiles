@@ -188,7 +188,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f02019e
+    const v1, 0x7f0201c3
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -206,7 +206,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f0201a0
+    const v1, 0x7f0201c5
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -235,7 +235,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f02019f
+    const v1, 0x7f0201c4
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -253,7 +253,7 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f0201a1
+    const v1, 0x7f0201c6
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -290,9 +290,9 @@
     :sswitch_data_0
     .sparse-switch
         0x7f1101b3 -> :sswitch_2
-        0x7f11036c -> :sswitch_3
-        0x7f110428 -> :sswitch_1
-        0x7f11042a -> :sswitch_0
+        0x7f11036e -> :sswitch_3
+        0x7f11042a -> :sswitch_1
+        0x7f11042c -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -313,9 +313,9 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 7
 
-    const v6, 0x7f0b0234
+    const v6, 0x7f0b0292
 
-    const v5, 0x7f02062f
+    const v5, 0x7f020698
 
     const/4 v1, 0x1
 
@@ -335,7 +335,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040142
+    const v0, 0x7f040144
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->setContentView(I)V
 
@@ -356,7 +356,7 @@
     :goto_0
     iput-boolean v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mIsEnabledShowBtnBg:Z
 
-    const v0, 0x7f11042a
+    const v0, 0x7f11042c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -366,7 +366,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mIconBackgroundsLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f110428
+    const v0, 0x7f11042a
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -376,7 +376,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mIconOnlyLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f11036a
+    const v0, 0x7f11036c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -386,7 +386,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f11042b
+    const v0, 0x7f11042d
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -396,7 +396,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mIconBackgroundsRadio:Landroid/widget/RadioButton;
 
-    const v0, 0x7f110429
+    const v0, 0x7f11042b
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -416,7 +416,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mCancelButton:Landroid/widget/TextView;
 
-    const v0, 0x7f11036c
+    const v0, 0x7f11036e
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/IconBackgrounds;->findViewById(I)Landroid/view/View;
 
@@ -444,7 +444,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0b0461
+    const v4, 0x7f0b04c4
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/IconBackgrounds;->getString(I)Ljava/lang/String;
 
@@ -484,7 +484,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0b0462
+    const v4, 0x7f0b04c5
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/IconBackgrounds;->getString(I)Ljava/lang/String;
 
@@ -579,7 +579,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f02019e
+    const v1, 0x7f0201c3
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -600,7 +600,7 @@
     :cond_4
     iget-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f0201a0
+    const v1, 0x7f0201c5
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -619,7 +619,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f02019f
+    const v1, 0x7f0201c4
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -628,7 +628,7 @@
     :cond_6
     iget-object v0, p0, Lcom/samsung/android/settings/display/IconBackgrounds;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f0201a1
+    const v1, 0x7f0201c6
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 

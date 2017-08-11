@@ -70,7 +70,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mOnKeyListener:Landroid/view/View$OnKeyListener;
 
-    const v0, 0x7f04022e
+    const v0, 0x7f040223
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/notification/RadioPreference;->setLayoutResource(I)V
 
@@ -118,80 +118,99 @@
 
 # virtual methods
 .method public getView(Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 6
+    .locals 8
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     invoke-super {p0, p1, p2}, Landroid/preference/Preference;->getView(Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v5
 
-    const v4, 0x7f110669
+    const v7, 0x7f11064f
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/RadioButton;
-
-    iget-object v4, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mRadioChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
-
-    invoke-virtual {v2, v4}, Landroid/widget/RadioButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    const/4 v4, 0x1
-
-    iput-boolean v4, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mPreventRadioButtonCallbacks:Z
-
-    iget-boolean v4, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mChecked:Z
-
-    invoke-virtual {v2, v4}, Landroid/widget/RadioButton;->setChecked(Z)V
-
-    iput-boolean v5, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mPreventRadioButtonCallbacks:Z
-
-    iput-object v2, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mRadioButton:Landroid/widget/RadioButton;
-
-    invoke-virtual {v3}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v5, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
-    invoke-static {v4}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
+    check-cast v4, Landroid/widget/RadioButton;
+
+    iget-object v7, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mRadioChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+
+    invoke-virtual {v4, v7}, Landroid/widget/RadioButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    const/4 v7, 0x1
+
+    iput-boolean v7, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mPreventRadioButtonCallbacks:Z
+
+    iget-boolean v7, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mChecked:Z
+
+    invoke-virtual {v4, v7}, Landroid/widget/RadioButton;->setChecked(Z)V
+
+    iput-boolean v6, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mPreventRadioButtonCallbacks:Z
+
+    iput-object v4, p0, Lcom/samsung/android/settings/notification/RadioPreference;->mRadioButton:Landroid/widget/RadioButton;
+
+    invoke-virtual {v5}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-static {v7}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
 
-    move-result v4
+    move-result v7
 
-    if-eqz v4, :cond_0
+    if-eqz v7, :cond_0
 
-    invoke-virtual {v2, v5}, Landroid/widget/RadioButton;->setClickable(Z)V
+    invoke-virtual {v4, v6}, Landroid/widget/RadioButton;->setClickable(Z)V
 
-    invoke-virtual {v2, v5}, Landroid/widget/RadioButton;->setFocusable(Z)V
+    invoke-virtual {v4, v6}, Landroid/widget/RadioButton;->setFocusable(Z)V
 
     :cond_0
-    const v4, 0x7f110668
+    const v7, 0x7f11064e
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v5, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    new-instance v7, Lcom/samsung/android/settings/notification/RadioPreference$3;
+
+    invoke-direct {v7, p0, v4}, Lcom/samsung/android/settings/notification/RadioPreference$3;-><init>(Lcom/samsung/android/settings/notification/RadioPreference;Landroid/widget/RadioButton;)V
+
+    invoke-virtual {v3, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const v7, 0x1020006
+
+    invoke-virtual {v5, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/ImageView;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/notification/RadioPreference;->getIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    new-instance v4, Lcom/samsung/android/settings/notification/RadioPreference$3;
+    if-eqz v2, :cond_1
 
-    invoke-direct {v4, p0, v2}, Lcom/samsung/android/settings/notification/RadioPreference$3;-><init>(Lcom/samsung/android/settings/notification/RadioPreference;Landroid/widget/RadioButton;)V
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v1, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v4, 0x7f11066b
+    :cond_1
+    if-eqz v1, :cond_2
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    :goto_0
+    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    move-result-object v4
+    return-object v5
 
-    const/16 v5, 0x8
+    :cond_2
+    const/16 v6, 0x8
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->setVisibility(I)V
-
-    return-object v3
+    goto :goto_0
 .end method
 
 .method public setChecked(Z)V

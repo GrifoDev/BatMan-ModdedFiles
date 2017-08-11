@@ -3,12 +3,12 @@
 .source "WifiP2pSettings.java"
 
 # interfaces
-.implements Landroid/speech/tts/TextToSpeech$OnInitListener;
+.implements Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/wifi/p2p/WifiP2pSettings;->onResume()V
+    value = Lcom/android/settings/wifi/p2p/WifiP2pSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,68 +34,42 @@
 
 
 # virtual methods
-.method public onInit(I)V
+.method public onFailure(I)V
     .locals 3
 
-    if-nez p1, :cond_1
+    const-string/jumbo v0, "WifiP2pSettings"
 
-    iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$9;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-get18(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/speech/tts/TextToSpeech;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, " connect fail "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Landroid/speech/tts/TextToSpeech;->isLanguageAvailable(Ljava/util/Locale;)I
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v0
+    move-result-object v1
 
-    const/4 v1, -0x1
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eq v0, v1, :cond_0
-
-    const/4 v1, -0x2
-
-    if-ne v0, v1, :cond_2
-
-    :cond_0
-    const-string/jumbo v1, "WifiP2pSettings"
-
-    const-string/jumbo v2, "TTS : This Language is not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    :goto_0
     return-void
+.end method
 
-    :cond_2
-    const/4 v1, 0x1
+.method public onSuccess()V
+    .locals 2
 
-    if-eq v0, v1, :cond_3
+    const-string/jumbo v0, "WifiP2pSettings"
 
-    const/4 v1, 0x2
+    const-string/jumbo v1, " connect success"
 
-    if-ne v0, v1, :cond_4
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
-    const-string/jumbo v1, "WifiP2pSettings"
-
-    const-string/jumbo v2, "TTS : This Language is not downloaded"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_4
-    const-string/jumbo v1, "WifiP2pSettings"
-
-    const-string/jumbo v2, "TTS : Initilization Failed!"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
+    return-void
 .end method

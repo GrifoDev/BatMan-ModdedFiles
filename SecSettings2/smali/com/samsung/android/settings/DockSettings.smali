@@ -45,6 +45,10 @@
 
 .field private mShowNotifications:Landroid/preference/PreferenceScreen;
 
+.field private mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
+
+.field private mShowShortCuts:Landroid/preference/PreferenceScreen;
+
 .field private mSmartAccessorySettings:Landroid/preference/PreferenceScreen;
 
 .field private showWireLessChargeMenu:I
@@ -106,11 +110,11 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b030d
+    const v1, 0x7f0b036c
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b030e
+    const v1, 0x7f0b036d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -118,7 +122,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/DockSettings$3;-><init>(Lcom/samsung/android/settings/DockSettings;)V
 
-    const v2, 0x7f0b0640
+    const v2, 0x7f0b06a5
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -138,7 +142,9 @@
 .end method
 
 .method private initDockSettings()V
-    .locals 5
+    .locals 6
+
+    const/16 v5, 0x8
 
     const/4 v4, 0x7
 
@@ -194,6 +200,16 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
 
+    const-string/jumbo v1, "cover_show_shortcuts"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/preference/PreferenceScreen;
+
+    iput-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mShowShortCuts:Landroid/preference/PreferenceScreen;
+
     const-string/jumbo v1, "cover_show_notifications"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -203,6 +219,16 @@
     check-cast v1, Landroid/preference/PreferenceScreen;
 
     iput-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mShowNotifications:Landroid/preference/PreferenceScreen;
+
+    const-string/jumbo v1, "cover_show_sec_notifications"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
+
+    iput-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
 
     const-string/jumbo v1, "fast_wireless_charging"
 
@@ -256,7 +282,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0b02fd
+    const v2, 0x7f0b035c
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -267,7 +293,7 @@
 
     const/16 v2, 0x64
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_4
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
 
@@ -277,13 +303,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     const-string/jumbo v1, "sview_wallpaper"
 
@@ -297,7 +323,15 @@
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
+    const-string/jumbo v1, "cover_show_shortcuts"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
+
     const-string/jumbo v1, "cover_show_notifications"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "cover_show_sec_notifications"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
@@ -355,7 +389,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_14
 
     const-string/jumbo v1, "cover_note"
 
@@ -382,13 +416,13 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_11
+    if-ne v1, v2, :cond_15
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportFastWirelessCharger()Z
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_15
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
 
@@ -414,9 +448,31 @@
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
     :cond_2
-    return-void
+    iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverInfomation:Landroid/preference/PreferenceScreen;
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/settings/Utils;->getTypeOfCover(Landroid/content/Context;)I
+
+    move-result v0
+
+    if-ne v0, v5, :cond_16
+
+    iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverInfomation:Landroid/preference/PreferenceScreen;
+
+    const v2, 0x7f0b0366
+
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
     :cond_3
+    :goto_3
+    return-void
+
+    :cond_4
     const-string/jumbo v1, "cover"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
@@ -437,7 +493,15 @@
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
+    const-string/jumbo v1, "cover_show_shortcuts"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
+
     const-string/jumbo v1, "cover_show_notifications"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "cover_show_sec_notifications"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
@@ -455,7 +519,7 @@
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_5
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -466,18 +530,18 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_d
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0b0304
+    const v2, 0x7f0b0363
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
-    :cond_5
-    :goto_3
+    :cond_6
+    :goto_4
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -486,24 +550,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
-
-    const-string/jumbo v1, "sview_wallpaper"
-
-    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
-
-    :cond_6
-    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/settings/Utils;->hasCoverSettingOptions(Landroid/content/Context;)Z
-
-    move-result v1
-
     if-nez v1, :cond_7
 
-    const-string/jumbo v1, "cover_info_and_app_shortcut"
+    const-string/jumbo v1, "sview_wallpaper"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
@@ -512,13 +561,13 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/settings/Utils;->hasCoverDualClockOptionOnly(Landroid/content/Context;)Z
+    invoke-static {v1}, Lcom/android/settings/Utils;->hasCoverSettingOptions(Landroid/content/Context;)Z
 
     move-result v1
 
     if-nez v1, :cond_8
 
-    const-string/jumbo v1, "lock_screen_dualclock"
+    const-string/jumbo v1, "cover_info_and_app_shortcut"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
@@ -527,13 +576,13 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/settings/Utils;->hasCoverSettingShowNotifications(Landroid/content/Context;)Z
+    invoke-static {v1}, Lcom/android/settings/Utils;->hasCoverDualClockOptionOnly(Landroid/content/Context;)Z
 
     move-result v1
 
     if-nez v1, :cond_9
 
-    const-string/jumbo v1, "cover_show_notifications"
+    const-string/jumbo v1, "lock_screen_dualclock"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
@@ -542,17 +591,60 @@
 
     move-result-object v1
 
+    invoke-static {v1}, Lcom/android/settings/Utils;->hasCoverSettingAppShortcut(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportLockAppShortcut()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    invoke-static {}, Lcom/android/settings/Utils;->isLockscreenMenuTreeForAOD()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    :goto_5
+    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/settings/Utils;->hasCoverSettingShowNotifications(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_10
+
+    const-string/jumbo v1, "cover_show_notifications"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "cover_show_sec_notifications"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
+
+    :cond_a
+    :goto_6
+    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
     invoke-static {v1}, Lcom/android/settings/Utils;->hasCoverLEDCallerID(Landroid/content/Context;)Z
 
     move-result v1
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_b
 
     const-string/jumbo v1, "led_cover_caller_id"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
-    :cond_a
+    :cond_b
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -561,14 +653,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_c
 
     const-string/jumbo v1, "led_cover_notifications_icon"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
-    :cond_b
-    if-eq v0, v4, :cond_e
+    :cond_c
+    if-eq v0, v4, :cond_12
 
     const-string/jumbo v1, "led_icon_editor"
 
@@ -576,37 +668,64 @@
 
     goto/16 :goto_0
 
-    :cond_c
-    const/16 v1, 0x8
-
-    if-ne v0, v1, :cond_d
-
-    iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
-
-    const v2, 0x7f0b0305
-
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverInfomation:Landroid/preference/PreferenceScreen;
-
-    const v2, 0x7f0b0307
-
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
-
-    goto :goto_3
-
     :cond_d
-    if-ne v0, v4, :cond_5
+    if-ne v0, v5, :cond_e
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0b0303
+    const v2, 0x7f0b0364
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :cond_e
+    if-ne v0, v4, :cond_6
+
+    iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
+
+    const v2, 0x7f0b0362
+
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
+
+    goto/16 :goto_4
+
+    :cond_f
+    const-string/jumbo v1, "cover_show_shortcuts"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
+
+    goto :goto_5
+
+    :cond_10
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportNotificationsIconsOnly()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_11
+
+    const-string/jumbo v1, "cover_show_notifications"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
+
+    if-eqz v1, :cond_a
+
+    iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
+
+    invoke-virtual {v1, p0}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    goto :goto_6
+
+    :cond_11
+    const-string/jumbo v1, "cover_show_sec_notifications"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
+
+    goto :goto_6
+
+    :cond_12
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -617,7 +736,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_13
 
     const-string/jumbo v1, "led_cover_caller_id"
 
@@ -629,14 +748,14 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_13
     const-string/jumbo v1, "led_icon_editor"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    :cond_10
+    :cond_14
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNote:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, p0}, Landroid/preference/CheckBoxPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
@@ -647,7 +766,7 @@
 
     goto/16 :goto_1
 
-    :cond_11
+    :cond_15
     const-string/jumbo v1, "fast_charing_category"
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
@@ -657,6 +776,30 @@
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/DockSettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_2
+
+    :cond_16
+    invoke-static {}, Lcom/android/settings/Utils;->isLockscreenMenuTreeForAOD()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_17
+
+    iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverInfomation:Landroid/preference/PreferenceScreen;
+
+    const v2, 0x7f0b09f3
+
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+
+    goto/16 :goto_3
+
+    :cond_17
+    iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverInfomation:Landroid/preference/PreferenceScreen;
+
+    const v2, 0x7f0b09f2
+
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+
+    goto/16 :goto_3
 .end method
 
 .method private static isMateCoverAttached(Landroid/content/Context;)Z
@@ -710,7 +853,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0c87
+    const v2, 0x7f0b0cfb
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -724,7 +867,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0c8a
+    const v2, 0x7f0b0cfe
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -791,182 +934,234 @@
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .locals 7
+    .locals 8
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v0
-
-    const-string/jumbo v5, "automatic_unlock"
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    check-cast p2, Ljava/lang/Boolean;
-
-    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v2
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
+    move-result-object v1
 
     const-string/jumbo v6, "automatic_unlock"
 
-    if-eqz v2, :cond_0
+    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move v3, v4
+    move-result v6
 
-    :cond_0
-    invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    :cond_1
-    :goto_0
-    return v4
-
-    :cond_2
-    const-string/jumbo v5, "cover_note"
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
+    if-eqz v6, :cond_2
 
     check-cast p2, Ljava/lang/Boolean;
 
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v2
-
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNote:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v5, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    move-result v3
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v6
 
+    const-string/jumbo v7, "automatic_unlock"
+
+    if-eqz v3, :cond_0
+
+    move v4, v5
+
+    :cond_0
+    invoke-static {v6, v7, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    :cond_1
+    :goto_0
+    return v5
+
+    :cond_2
     const-string/jumbo v6, "cover_note"
 
-    if-eqz v2, :cond_3
+    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move v3, v4
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    check-cast p2, Ljava/lang/Boolean;
+
+    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v3
+
+    iget-object v6, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNote:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v6, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "cover_note"
+
+    if-eqz v3, :cond_3
+
+    move v4, v5
 
     :cond_3
-    invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v6, v7, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    const-string/jumbo v3, "DockSettings"
+    const-string/jumbo v4, "DockSettings"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Save KEY_COVER_NOTE : "
+    const-string/jumbo v7, "Save KEY_COVER_NOTE : "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v3, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v5, "cover_note_weather_unit"
+    const-string/jumbo v6, "cover_note_weather_unit"
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_6
+    if-eqz v6, :cond_6
 
     check-cast p2, Ljava/lang/String;
 
     invoke-static {p2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v1
+    move-result v2
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-eqz v3, :cond_5
+    if-eqz v4, :cond_5
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string/jumbo v5, "cover_note_weather_unit"
+    const-string/jumbo v6, "cover_note_weather_unit"
 
-    invoke-static {v3, v5, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v4, v6, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     :cond_5
-    iget-object v3, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
+    iget-object v4, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v3, v5}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
+    invoke-virtual {v4, v6}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
-    iget-object v3, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
+    iget-object v4, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
+    iget-object v6, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
 
-    invoke-virtual {v5}, Landroid/preference/ListPreference;->getEntry()Ljava/lang/CharSequence;
+    invoke-virtual {v6}, Landroid/preference/ListPreference;->getEntry()Ljava/lang/CharSequence;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v3, v5}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v4, v6}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
     :cond_6
-    const-string/jumbo v5, "fast_wireless_charging"
+    const-string/jumbo v6, "fast_wireless_charging"
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_1
+    if-eqz v6, :cond_8
 
     check-cast p2, Ljava/lang/Boolean;
 
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v2
+    move-result v3
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v6
 
-    const-string/jumbo v6, "wireless_fast_charging"
+    const-string/jumbo v7, "wireless_fast_charging"
 
-    if-eqz v2, :cond_7
+    if-eqz v3, :cond_7
 
-    move v3, v4
+    move v4, v5
 
     :cond_7
-    invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v6, v7, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    return v4
+    return v5
+
+    :cond_8
+    const-string/jumbo v6, "cover_show_sec_notifications"
+
+    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    check-cast p2, Ljava/lang/Boolean;
+
+    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    iget-object v6, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
+
+    invoke-virtual {v6, v0}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setChecked(Z)V
+
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
+
+    if-eqz v0, :cond_a
+
+    const v6, 0x7f0b1bd3
+
+    :goto_1
+    invoke-virtual {v7, v6}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setSummary(I)V
+
+    iget-object v6, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
+
+    invoke-virtual {v6, v0}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "lock_screen_show_notifications"
+
+    if-eqz v0, :cond_9
+
+    move v4, v5
+
+    :cond_9
+    invoke-static {v6, v7, v4}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto/16 :goto_0
+
+    :cond_a
+    const v6, 0x7f0b09f5
+
+    goto :goto_1
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
@@ -1156,346 +1351,375 @@
 .end method
 
 .method public onResume()V
-    .locals 12
+    .locals 14
 
-    const/4 v11, -0x1
+    const/4 v13, -0x1
 
-    const/4 v6, 0x1
+    const/4 v8, 0x1
 
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onResume()V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v8, p0, Lcom/samsung/android/settings/DockSettings;->mAutomaticUnlock:Landroid/preference/SwitchPreference;
+    iget-object v10, p0, Lcom/samsung/android/settings/DockSettings;->mAutomaticUnlock:Landroid/preference/SwitchPreference;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v7
 
-    const-string/jumbo v9, "automatic_unlock"
+    const-string/jumbo v11, "automatic_unlock"
 
-    invoke-static {v5, v9, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v7, v11, v9}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v5
+    move-result v7
 
-    if-ne v5, v6, :cond_7
+    if-ne v7, v8, :cond_8
 
-    move v5, v6
+    move v7, v8
 
     :goto_0
-    invoke-virtual {v8, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v10, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNote:Landroid/preference/CheckBoxPreference;
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNote:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v5, :cond_0
+    if-eqz v7, :cond_0
 
-    const-string/jumbo v5, "cover_note"
+    const-string/jumbo v7, "cover_note"
 
-    invoke-static {v1, v5, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v7, v9}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v7
+
+    if-nez v7, :cond_9
+
+    const/4 v6, 0x0
+
+    :goto_1
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNote:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v7, v6}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    :cond_0
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
+
+    if-eqz v7, :cond_1
+
+    const-string/jumbo v7, "cover_note_weather_unit"
+
+    invoke-static {v2, v7, v9}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v5
 
-    if-nez v5, :cond_8
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
 
-    const/4 v4, 0x0
+    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    :goto_1
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNote:Landroid/preference/CheckBoxPreference;
+    move-result-object v10
 
-    invoke-virtual {v5, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v7, v10}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
-    :cond_0
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
 
-    if-eqz v5, :cond_1
+    iget-object v10, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
 
-    const-string/jumbo v5, "cover_note_weather_unit"
+    invoke-virtual {v10}, Landroid/preference/ListPreference;->getEntry()Ljava/lang/CharSequence;
 
-    invoke-static {v1, v5, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    move-result-object v10
 
-    move-result v3
-
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
-
-    invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v5, v8}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
-
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
-
-    iget-object v8, p0, Lcom/samsung/android/settings/DockSettings;->mCoverNoteWeatherUnit:Landroid/preference/ListPreference;
-
-    invoke-virtual {v8}, Landroid/preference/ListPreference;->getEntry()Ljava/lang/CharSequence;
-
-    move-result-object v8
-
-    invoke-virtual {v5, v8}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v7, v10}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     :cond_1
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
 
-    if-eqz v5, :cond_2
+    if-eqz v7, :cond_2
 
-    const-string/jumbo v5, "oversea"
+    const-string/jumbo v7, "oversea"
 
-    const-string/jumbo v8, "ril.currentplmn"
+    const-string/jumbo v10, "ril.currentplmn"
 
-    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_9
+    if-nez v1, :cond_a
 
     invoke-static {}, Lcom/android/settings/Utils;->isDomesticSKTModel()Z
 
-    move-result v5
+    move-result v7
 
-    if-eqz v5, :cond_9
+    if-eqz v7, :cond_a
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    const v9, 0x7f0b0999
-
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v8, " "
-
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v8
+    move-result-object v10
 
-    const v9, 0x7f0b0c43
+    const v11, 0x7f0b0a06
 
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v10, " "
 
-    move-result-object v2
+    invoke-virtual {v7, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
+    move-result-object v7
 
-    invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getResources()Landroid/content/res/Resources;
 
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
+    move-result-object v10
 
-    invoke-virtual {v5, v7}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    const v11, 0x7f0b0cb7
+
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v7, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v7, v3}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v7, v9}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
     :goto_2
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v5, v6}, Landroid/preference/PreferenceScreen;->semSetSummaryColorToColorPrimaryDark(Z)V
+    invoke-virtual {v7, v8}, Landroid/preference/PreferenceScreen;->semSetSummaryColorToColorPrimaryDark(Z)V
 
     :cond_2
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mShowNotifications:Landroid/preference/PreferenceScreen;
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mShowNotifications:Landroid/preference/PreferenceScreen;
 
-    if-eqz v5, :cond_3
+    if-eqz v7, :cond_3
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
-
-    move-result v5
-
-    if-nez v5, :cond_3
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mShowNotifications:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v5
+    move-result-object v10
 
-    invoke-static {v5}, Lcom/android/settings/Utils;->isCoverVerified(Landroid/content/Context;)Z
+    invoke-static {v10}, Lcom/android/settings/Utils;->getLockScreenShowNotificationSummary(Landroid/content/Context;)I
 
-    move-result v5
+    move-result v10
 
-    if-eqz v5, :cond_3
-
-    invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a
+    invoke-virtual {v7, v10}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
     :cond_3
-    :goto_3
-    iget v5, p0, Lcom/samsung/android/settings/DockSettings;->showWireLessChargeMenu:I
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
 
-    if-ne v5, v6, :cond_5
-
-    invoke-static {}, Lcom/android/settings/Utils;->isSupportFastWirelessCharger()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    const-string/jumbo v5, "wireless_fast_charging"
-
-    invoke-static {v1, v5, v11}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-
-    if-ne v3, v11, :cond_4
-
-    const-string/jumbo v5, "wireless_fast_charging"
-
-    invoke-static {v1, v5, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    const/4 v3, 0x1
-
-    :cond_4
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
-
-    if-ne v3, v6, :cond_b
-
-    :goto_4
-    invoke-virtual {v5, v6}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    :cond_5
-    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/samsung/android/settings/DockSettings;->mBatteryInfoReceiver:Landroid/content/BroadcastReceiver;
-
-    new-instance v7, Landroid/content/IntentFilter;
-
-    const-string/jumbo v8, "android.intent.action.BATTERY_CHANGED"
-
-    invoke-direct {v7, v8}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v5, v6, v7}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/settings/Utils;->hasCoverLEDNotificationIcon(Landroid/content/Context;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_6
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "com.samsung.android.app.ledcovergrace"
-
-    invoke-static {v5, v6}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_c
-
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mLedCoverNotifications:Landroid/preference/PreferenceScreen;
-
-    const v6, 0x7f0b030b
-
-    invoke-virtual {v5, v6}, Landroid/preference/PreferenceScreen;->setSummary(I)V
-
-    :cond_6
-    :goto_5
-    return-void
-
-    :cond_7
-    move v5, v7
-
-    goto/16 :goto_0
-
-    :cond_8
-    const/4 v4, 0x1
-
-    goto/16 :goto_1
-
-    :cond_9
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v8
+    if-eqz v7, :cond_4
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v7
 
-    const-string/jumbo v10, "dualclock_menu_settings"
+    const-string/jumbo v10, "lock_screen_show_notifications"
 
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v7, v10, v9}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v9
+    move-result v7
 
-    invoke-static {v8, v9}, Lcom/android/settings/Utils;->getOnOffstatus(Landroid/content/Context;I)Ljava/lang/String;
+    if-eqz v7, :cond_b
 
-    move-result-object v8
+    const/4 v0, 0x1
 
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    :goto_3
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
 
-    goto/16 :goto_2
+    invoke-virtual {v7, v0}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setChecked(Z)V
 
-    :cond_a
+    iget-object v10, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
+
+    if-eqz v0, :cond_c
+
+    const v7, 0x7f0b1bd3
+
+    :goto_4
+    invoke-virtual {v10, v7}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setSummary(I)V
+
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
+
+    invoke-virtual {v7, v0}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
+
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-static {v5}, Lcom/android/settings/Utils;->hasCoverSettingShowNotifications(Landroid/content/Context;)Z
+    invoke-static {}, Landroid/os/UserHandle;->semGetMyUserId()I
+
+    move-result v10
+
+    const/16 v11, 0xc
+
+    invoke-static {v7, v11, v10}, Lcom/android/settingslib/RestrictedLockUtils;->checkIfKeyguardFeaturesDisabled(Landroid/content/Context;II)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+
+    move-result-object v4
+
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mShowSecNotifications:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
+
+    invoke-virtual {v7, v4}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+
+    :cond_4
+    iget v7, p0, Lcom/samsung/android/settings/DockSettings;->showWireLessChargeMenu:I
+
+    if-ne v7, v8, :cond_6
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportFastWirelessCharger()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_6
+
+    const-string/jumbo v7, "wireless_fast_charging"
+
+    invoke-static {v2, v7, v13}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-ne v5, v13, :cond_5
 
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mShowNotifications:Landroid/preference/PreferenceScreen;
+    const-string/jumbo v7, "wireless_fast_charging"
+
+    invoke-static {v2, v7, v8}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    const/4 v5, 0x1
+
+    :cond_5
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
+
+    if-ne v5, v8, :cond_d
+
+    :goto_5
+    invoke-virtual {v7, v8}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    :cond_6
+    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/samsung/android/settings/DockSettings;->mBatteryInfoReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance v9, Landroid/content/IntentFilter;
+
+    const-string/jumbo v10, "android.intent.action.BATTERY_CHANGED"
+
+    invoke-direct {v9, v10}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v7, v8, v9}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-static {v8}, Lcom/android/settings/Utils;->getLockScreenShowNotificationSummary(Landroid/content/Context;)I
+    invoke-static {v7}, Lcom/android/settings/Utils;->hasCoverLEDNotificationIcon(Landroid/content/Context;)Z
 
-    move-result v8
+    move-result v7
 
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+    if-eqz v7, :cond_7
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "com.samsung.android.app.ledcovergrace"
+
+    invoke-static {v7, v8}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_e
+
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mLedCoverNotifications:Landroid/preference/PreferenceScreen;
+
+    const v8, 0x7f0b036a
+
+    invoke-virtual {v7, v8}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+
+    :cond_7
+    :goto_6
+    return-void
+
+    :cond_8
+    move v7, v9
+
+    goto/16 :goto_0
+
+    :cond_9
+    const/4 v6, 0x1
+
+    goto/16 :goto_1
+
+    :cond_a
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mDualclock:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v10
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "dualclock_menu_settings"
+
+    invoke-static {v11, v12, v9}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v11
+
+    invoke-static {v10, v11}, Lcom/android/settings/Utils;->getOnOffstatus(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v7, v10}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_2
+
+    :cond_b
+    const/4 v0, 0x0
 
     goto/16 :goto_3
 
-    :cond_b
-    move v6, v7
-
-    goto :goto_4
-
     :cond_c
-    iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mLedCoverNotifications:Landroid/preference/PreferenceScreen;
+    const v7, 0x7f0b09f5
 
-    const v6, 0x7f0b030c
+    goto/16 :goto_4
 
-    invoke-virtual {v5, v6}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+    :cond_d
+    move v8, v9
 
     goto :goto_5
+
+    :cond_e
+    iget-object v7, p0, Lcom/samsung/android/settings/DockSettings;->mLedCoverNotifications:Landroid/preference/PreferenceScreen;
+
+    const v8, 0x7f0b036b
+
+    invoke-virtual {v7, v8}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+
+    goto :goto_6
 .end method

@@ -31,6 +31,10 @@
 
 .field private isPocRunning:Z
 
+.field public mEstimatedTime:J
+
+.field public mIsProgressStop:Z
+
 .field private mMdnie:Lcom/samsung/android/hardware/display/SemMdnieManager;
 
 .field private mPercentageTextView:Landroid/widget/TextView;
@@ -180,33 +184,39 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .locals 3
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Lcom/android/settings/InstrumentedActivity;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mMdnie:Lcom/samsung/android/hardware/display/SemMdnieManager;
 
-    iput v1, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->currentPos:I
+    iput v2, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->currentPos:I
 
-    iput v1, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mPocProgressStatus:I
+    iput v2, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mPocProgressStatus:I
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mPocCancelDialog:Landroid/app/AlertDialog;
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mPocWasStoppedDialog:Landroid/app/AlertDialog;
 
-    iput-boolean v1, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->isPocRunning:Z
+    iput-boolean v2, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->isPocRunning:Z
 
-    iput-boolean v1, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->bIsForceWatingForShortModel:Z
+    iput-boolean v2, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->bIsForceWatingForShortModel:Z
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->bIsCallFirst:Z
 
-    iput v1, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mPocWriteValue:I
+    iput v2, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mPocWriteValue:I
+
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mEstimatedTime:J
+
+    iput-boolean v2, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mIsProgressStop:Z
 
     new-instance v0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity$1;
 
@@ -379,11 +389,11 @@
 .method private initUI()V
     .locals 10
 
-    const/4 v9, 0x0
+    const/4 v9, 0x1
 
-    const/4 v8, 0x1
+    const/4 v8, 0x0
 
-    const v4, 0x7f1105ee
+    const v4, 0x7f1105f0
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->findViewById(I)Landroid/view/View;
 
@@ -397,13 +407,9 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v4, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mMdnie:Lcom/samsung/android/hardware/display/SemMdnieManager;
+    iget-wide v4, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mEstimatedTime:J
 
-    invoke-static {v4}, Lcom/samsung/android/settings/display/SecDisplayUtils;->getPocEstimatedTime(Lcom/samsung/android/hardware/display/SemMdnieManager;)J
-
-    move-result-wide v4
-
-    const-wide/32 v6, 0x1d4c0
+    const-wide/32 v6, 0x668a0
 
     cmp-long v4, v4, v6
 
@@ -412,13 +418,13 @@
     iput-boolean v8, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->bIsForceWatingForShortModel:Z
 
     :goto_0
-    const v4, 0x7f0b05ad
+    const v4, 0x7f0b0610
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    new-array v5, v8, [Ljava/lang/Object;
+    new-array v5, v9, [Ljava/lang/Object;
 
     const/16 v6, 0xa
 
@@ -426,7 +432,7 @@
 
     move-result-object v6
 
-    aput-object v6, v5, v9
+    aput-object v6, v5, v8
 
     invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -467,24 +473,7 @@
     return-void
 
     :cond_2
-    iget-object v4, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mMdnie:Lcom/samsung/android/hardware/display/SemMdnieManager;
-
-    invoke-static {v4}, Lcom/samsung/android/settings/display/SecDisplayUtils;->getPocEstimatedTime(Lcom/samsung/android/hardware/display/SemMdnieManager;)J
-
-    move-result-wide v4
-
-    const-wide/32 v6, 0x668a0
-
-    cmp-long v4, v4, v6
-
-    if-nez v4, :cond_3
-
     iput-boolean v9, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->bIsForceWatingForShortModel:Z
-
-    goto :goto_0
-
-    :cond_3
-    iput-boolean v8, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->bIsForceWatingForShortModel:Z
 
     goto :goto_0
 .end method
@@ -608,7 +597,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b05b3
+    const v4, 0x7f0b0616
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
@@ -618,7 +607,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b05b4
+    const v4, 0x7f0b0617
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
@@ -632,7 +621,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0490
+    const v4, 0x7f0b04f3
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
@@ -725,13 +714,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b05b9
+    const v4, 0x7f0b061c
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x7f0b05b8
+    const v4, 0x7f0b061b
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
@@ -741,7 +730,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b046a
+    const v4, 0x7f0b04cd
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
@@ -843,14 +832,6 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mMdnie:Lcom/samsung/android/hardware/display/SemMdnieManager;
-
-    invoke-static {v0}, Lcom/samsung/android/settings/display/SecDisplayUtils;->isPocCaseD1(Lcom/samsung/android/hardware/display/SemMdnieManager;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
     new-instance v0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity$UIThreadPOC;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity$UIThreadPOC;-><init>(Lcom/samsung/android/settings/display/PocBalanceProgressActivity;)V
@@ -875,6 +856,30 @@
 
     :cond_0
     iput-boolean v4, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->isPocRunning:Z
+
+    const-string/jumbo v0, "PocBalanceProgressActivity"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "[stpoc] startPoc, isPocRunning : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->isPocRunning:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -1262,9 +1267,21 @@
     monitor-enter p0
 
     :try_start_0
+    const-string/jumbo v0, "PocBalanceProgressActivity"
+
+    const-string/jumbo v1, "[stpoc] finishReadPoc"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
     iget-object v0, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mProgressBarThread:Ljava/lang/Thread;
 
     if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "PocBalanceProgressActivity"
+
+    const-string/jumbo v1, "[stpoc] stop progressbar"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mProgressBarThread:Ljava/lang/Thread;
 
@@ -1273,6 +1290,10 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mProgressBarThread:Ljava/lang/Thread;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mIsProgressStop:Z
 
     :cond_0
     const/4 v0, 0x0
@@ -1362,7 +1383,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    const v3, 0x7f0401db
+    const v3, 0x7f0401dd
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->setContentView(I)V
 
@@ -1408,7 +1429,7 @@
 
     iput-object v3, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mProgressBar:Landroid/widget/ProgressBar;
 
-    const v3, 0x7f1105f0
+    const v3, 0x7f1105f2
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->findViewById(I)Landroid/view/View;
 
@@ -1417,6 +1438,16 @@
     check-cast v3, Landroid/widget/TextView;
 
     iput-object v3, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mPercentageTextView:Landroid/widget/TextView;
+
+    iput-boolean v5, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mIsProgressStop:Z
+
+    iget-object v3, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mMdnie:Lcom/samsung/android/hardware/display/SemMdnieManager;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/display/SecDisplayUtils;->getPocEstimatedTime(Lcom/samsung/android/hardware/display/SemMdnieManager;)J
+
+    move-result-wide v4
+
+    iput-wide v4, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mEstimatedTime:J
 
     invoke-direct {p0}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->initUI()V
 
@@ -1628,7 +1659,9 @@
 .end method
 
 .method public stopPocAndProgressThread()V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x1
 
     const/4 v3, 0x0
 
@@ -1640,9 +1673,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mPocTask:Lcom/samsung/android/settings/display/PocBalanceProgressActivity$UIThreadPOC;
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity$UIThreadPOC;->cancel(Z)Z
+    invoke-virtual {v1, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity$UIThreadPOC;->cancel(Z)Z
 
     iput-object v3, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mPocTask:Lcom/samsung/android/settings/display/PocBalanceProgressActivity$UIThreadPOC;
 
@@ -1663,11 +1694,19 @@
 
     if-eqz v1, :cond_1
 
+    const-string/jumbo v1, "PocBalanceProgressActivity"
+
+    const-string/jumbo v2, "[stpoc] stop progressbar"
+
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/display/DisplayLog;->out(Ljava/lang/String;Ljava/lang/String;)V
+
     iget-object v1, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mProgressBarThread:Ljava/lang/Thread;
 
     invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
 
     iput-object v3, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mProgressBarThread:Ljava/lang/Thread;
+
+    iput-boolean v4, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->mIsProgressStop:Z
 
     :cond_1
     return-void

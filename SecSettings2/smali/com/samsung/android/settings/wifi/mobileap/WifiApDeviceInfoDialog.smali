@@ -148,13 +148,13 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 14
 
-    const v9, 0x7f0b0ee3
+    const v9, 0x7f0b0f70
 
     const-wide/16 v12, 0x3e8
 
-    const v11, 0x7f11087f
+    const v11, 0x7f110882
 
-    const v8, 0x7f0b0ee4
+    const v8, 0x7f0b0f71
 
     const/4 v10, 0x5
 
@@ -164,7 +164,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f040363
+    const v6, 0x7f040368
 
     const/4 v7, 0x0
 
@@ -204,7 +204,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f11087b
+    const v5, 0x7f11087e
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -245,7 +245,7 @@
     :goto_0
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v5, 0x7f11087c
+    const v5, 0x7f11087f
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -261,7 +261,7 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v5, 0x7f11087d
+    const v5, 0x7f110880
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -302,7 +302,7 @@
     :goto_1
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v5, 0x7f11087e
+    const v5, 0x7f110881
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -406,7 +406,7 @@
 
     if-eqz v5, :cond_0
 
-    const v5, 0x7f11087b
+    const v5, 0x7f11087e
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -416,7 +416,7 @@
 
     invoke-virtual {v5, v10}, Landroid/widget/TextView;->setGravity(I)V
 
-    const v5, 0x7f11087d
+    const v5, 0x7f110880
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -443,7 +443,7 @@
     invoke-virtual {v5, v10}, Landroid/widget/TextView;->setGravity(I)V
 
     :cond_0
-    const v5, 0x7f110880
+    const v5, 0x7f110883
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -479,7 +479,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b1698    # 1.8488E38f
+    const v6, 0x7f0b1734
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

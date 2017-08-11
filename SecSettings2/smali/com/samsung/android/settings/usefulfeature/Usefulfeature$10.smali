@@ -74,7 +74,11 @@
 
     if-nez v1, :cond_0
 
-    invoke-static {}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap3()Z
+    invoke-static {}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-get3()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->-wrap3(Landroid/content/Context;)Z
 
     move-result v1
 

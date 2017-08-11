@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dс %2$dм</string>
-    <string name="battery_history_minutes_no_seconds">%dм</string>
+    <string name="battery_history_hours_no_seconds">%1$dсағ %2$dмин</string>
+    <string name="battery_history_minutes_no_seconds">%d мин</string>
     <string name="wifi_fail_to_scan">Желілерді шолу мүмкін емес</string>
     <string name="wifi_failed_to_obtain_IP">IP мекенжайын алу сәтсіз аяқталды.</string>
     <string name="wifi_security_none">Жоқ</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s құрылғысына қосылу мүмкін емес.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s құрылғысына қосылу мүмкін емес. %2$s параметрлерін тексеріп, әрекетті қайталаңыз.</string>
     <string name="bluetooth_pairing_rejected_error_message">Жұптастыруды %s қабылдамады.</string>
+    <string name="bluetooth_getting_remote_device_name">Құрылғы атауы алынуда…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Құрылғы атауы осы құрылғы қосылған кезде пайда болады.</string>
     <string name="accessibility_wifi_off">Wi-Fi өшірулі.</string>
     <string name="accessibility_no_wifi">Wi-Fi ажыратылған.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi сигналы — бір жолақ.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Қолдау көрсету</string>
     <string name="reset_network_settings_list_summary">Wi-Fi, Bluetooth және басқа да желі параметрлерін өздерінің әдепкі мәндеріне қалпына келтіріңіз.</string>
     <string name="master_clear_list_summary">Құрылғыңызды өзінің зауыттық әдепкі параметрлеріне қалпына келтіріңіз. Бұл барлық деректерді, оның ішінде файлдар мен жүктелген қолданбаларды да өшіреді.</string>
-    <string name="auto_restart_summary">Құрылғыны орнатылған уақытта автоматты түрде қайта қосу арқылы оңтайландырыңыз. Құрылғы қайта қосылған кезде кез келген сақталмаған деректер жоғалады.</string>
+    <string name="auto_restart_summary">Телефонды аптасына бір рет автоматты түрде қайта іске қосу арқылы оңтайландырыңыз. Телефон қайта қосылған кезде, кез келген сақталмаған деректер жоғалады.</string>
+    <string name="auto_restart_summary_tablet">Планшетті аптасына бір рет автоматты түрде қайта іске қосу арқылы оңтайландырыңыз. Планшет қайта қосылған кезде, кез келген сақталмаған деректер жоғалады.</string>
     <string name="search_settings">Тізім</string>
     <string name="related_results">%d қатысты элемент</string>
     <string name="no_results_found">Нәтиже жоқ</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Дыбыс теңдігі оңға қарай %d пайыз. Сырғытпаны екі саусағыңызбен сүйреңіз.</string>
     <string name="sound_balance_set">Орнату</string>
     <string name="accessibility_assistant_menu">Көмекші мәзір</string>
-    <string name="assistant_menu_summary">Ептілігі төмен пайдаланушылардың құрылғы пайдалануын жеңілдететін функцияларды қосады.</string>
+    <string name="assistant_menu_summary">Қимылдау кемістігі бар пайдаланушылар үшін телефонның арнайы мүмкіндіктерін жақсартыңыз.</string>
     <string name="color_blind_title">Түсті реттеу</string>
     <string name="no_result">Дисплейге қарауда қиындық туындаса экран түстерін реттеңіз.</string>
     <string name="you_are_normal">Түсті реттеу қажет емес.</string>
@@ -653,6 +656,7 @@ Enter the code you get from Verizon:"</string>
     <string name="direct_access_actions_accessibility_title">Қол жетімділік</string>
     <string name="direct_access_actions_negative_title">Теріс түстер</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">“Тікелей қатынас” пен “Экран өлшемін кішірейту” әрекеттерін бір уақытта қосу мүмкін емес. “Экран өлшемін кішірейту” әрекеті өшіріледі.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s және %2$s бір уақытта қосу мүмкін емес. %3$s өшіріледі.</string>
     <string name="direct_access_actions_color_adjustment_summary">Тікелей қатынаста пайдалану үшін көріністегі түсті реттеу параметрін орнату</string>
     <string name="direct_access_actions_screen_reader_summary">Тікелей қатынасуда пайдалану үшін бетті оқу құралын қосу.</string>
     <string name="direct_access_actions_accesscontrol_title">Өзара әрекетті басқару</string>
@@ -850,7 +854,9 @@ Wi-Fi және Bluetooth опциялары да өшеді, бірақ олар
     <string name="premium_sms_values_ask">Сұрау</string>
     <string name="premium_sms_values_never">Ешқашан рұқс. бермеу</string>
     <string name="premium_sms_values_allow">Әрқашан рұқсат беру</string>
-    <string name="assist_and_voice_input_summary">Құрылғының көмекші қолданбалары қосымша опциялар мен әр экран туралы ақпаратты қамтамасыз етеді.</string>
+    <string name="assist_and_voice_input_summary">“Бастапқы” пернесін түртіп ұстап тұрған кезде пайдаланылатын қолданбаны таңдаңыз.</string>
+    <string name="assist_footer_phone">“Бастапқы” пернесін түртіп ұстап тұрған кезде пайдаланылатын қолданбаны таңдаңыз. Құрылғының көмекші қолданбалары телефон экранында ағымда көрсетілген ақпаратты жинау арқылы сізге көмектесе алады.</string>
+    <string name="assist_footer_tablet">“Бастапқы” пернесін түртіп ұстап тұрған кезде пайдаланылатын қолданбаны таңдаңыз. Құрылғының көмекші қолданбалары планшет экранында ағымда көрсетілген ақпаратты жинау арқылы сізге көмектесе алады.</string>
     <string name="default_app_title">Әдепкі ретінде орнату</string>
     <string name="premium_sms_title">Premium SMS жіберу</string>
     <string name="default_app_selection">Әдепкі қолданбаны таңдау</string>
@@ -939,7 +945,7 @@ Wi-Fi және Bluetooth опциялары да өшеді, бірақ олар
 
 Қосылған 2 құрылғыда дыбысты шығару кезінде кішкене айырмашылық болуы мүмкін."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Медиа дыбысын синхрондауды өшіру керек пе?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">“Қос аудио” мүмкіндігін пайдалану үшін “Мультимедиа дыбыс деңгейін синхрондау” функциясын өшіру қажет.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Дыбыс деңгейін әр аудио құрылғысында жеке-жеке басқару үшін “Мультимедиа дыбыс деңгейін синхрондау” функциясын өшіру қажет.</string>
     <string name="bluetooth_avc_title">Медиа дыбысын синхрондау</string>
     <string name="bluetooth_avc_description">Қосылған Bluetooth құрылғысы телефонның мультимедиалық дыбыс деңгейін басқара алса, Bluetooth құрылғысымен орнатылған дыбыс деңгейі телефонмен синхрондалады.</string>
     <string name="bluetooth_avc_volume_change_description">Бұл функцияны қосқан кезде дыбыс деңгейі күтпеген жерден өзгеруі мүмкін.</string>
@@ -948,6 +954,7 @@ Wi-Fi және Bluetooth опциялары да өшеді, бірақ олар
     <string name="bluetooth_avc_ask_popup_title">“Қос аудионы” өшіру керек пе?</string>
     <string name="bluetooth_avc_ask_popup_content">“Мультимедиа дыбыс деңгейін синхрондау” мүмкіндігін пайдалану үшін “Қос аудио” функциясын өшіру қажет.</string>
     <string name="bluetooth_avc_disable_description">Қосылған Bluetooth құрылғысы “Мультимедиа дыбысының деңгейін синхрондау” функциясына қолдау көрсетпейді. Телефоныңыздың дыбыс деңгейін қосылған Bluetooth құрылғысымен синхрондай алмайсыз.</string>
+    <string name="bluetooth_avc_available_description">Қосылған Bluetooth құрылғысы “Мультимедиа дыбысының деңгейін синхрондау” функциясына қолдау көрсетеді, сондықтан Bluetooth құрылғысы арқылы орнатылған дыбыс деңгейі телефоныңызбен синхрондалады.</string>
     <string name="bluetooth_enter_pin_msg">%s құрылғысымен жұптастыру үшін PIN кодын енгізіңіз (0000 немесе 1234 енгізіп көріңіз)</string>
     <string name="bluetooth_pin_maximum_number_message">Ең көп таңбалар санына жетті.</string>
     <string name="settings_menu_done">Аяқталды</string>
@@ -1031,11 +1038,12 @@ Wi-Fi және Bluetooth опциялары да өшеді, бірақ олар
     <string name="swipe_to_call_title">Қоң. шалу не хаб. жіб-у үш. сип.</string>
     <string name="swipe_to_call_summary">Телефонда, контактілерде не хабарлар бөлімінде қоңырау шалу үшін контактіні не нөмірді оңға қарай жүргізіп өткізіңіз немесе хабар жіберу үшін солға қарай жүргізіп өткізіңіз.</string>
     <string name="swipe_to_call_summary_dcm">Теру, Контактілер не Хабарлар экранында контактіні не нөмірді қоңырау шалу үшін оңға қарай немесе хабар жіберу үшін солға қарай жүргізіп өткізіңіз.</string>
-    <string name="swipe_to_call_summary_kddi">Телефон немесе Контактілер экранында контактіні не нөмірді қоңырау шалу үшін оңға қарай немесе хабар жіберу үшін солға қарай жүргізіп өткізіңіз.</string>
+    <string name="swipe_to_call_summary_kddi">Теру не контактілер бөлімінде қоңырау шалу үшін контактіні не нөмірді оңға қарай жүргізіп өткізіңіз немесе хабар жіберу үшін солға қарай жүргізіп өткізіңіз.</string>
     <string name="dual_app_title">Қос хабаршы</string>
     <string name="dual_app_summary">Бір қолданба үшін екі жеке есептік жазбаны пайдалану.</string>
     <string name="finger_sensor_gesture_title">Саусақ сенсоры қимылдары</string>
     <string name="finger_sensor_gesture_summary">Қолданбалар мен функцияларды саусақ ізін сканерлеу сенсорымен ашыңыз және жабыңыз.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Саусақ ізі сенсорын пайдаланып, хабарландыру тақтасын ашыңыз және жабыңыз.</string>
     <string name="finger_sensor_gesture_description">Хабарландыру тақтасын ашу немесе жабу үшін саусақ ізін сканерлеу сенсорында жоғары не төмен қарай жүргізіп өтіңіз.</string>
     <string name="open_samsung_pay_title">Samsung Pay қолданбасын ашу</string>
     <string name="open_samsung_pay_summary">Бастапқы экраннан Samsung Pay қолданбасын ашу үшін саусақ ізін сканерлеу сенсорында жоғары қарай жүргізіп өтіңіз.</string>
@@ -1070,6 +1078,7 @@ Wi-Fi және Bluetooth опциялары да өшеді, бірақ олар
 %s"</string>
     <string name="enable_ps_title">%s қосу</string>
     <string name="setup_wizard">Қондырғылар шебері</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Қалыпты</string>
     <string name="large">Үлкен</string>
     <string name="small">Кіші</string>
@@ -1215,7 +1224,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Бағдарлама жаңартуларын Wi-Fi желісіне қосылған кезде автоматты түрде жүктеңіз. Жүктеу кезінде құрылғыны пайдалана аласыз.</string>
     <string name="auto_update_over_wifi">Wi-Fi арқылы автоматты жүктеу</string>
     <string name="auto_update_over_wifi_summary">Wi-Fi желісіне қосылған кезде бағдарламалық жасақтаманың жаңартулары автоматты түрде жүктеледі. Сондай-ақ, жаңартулар ұялы байланыс операторына байланысты ұялы деректер арқылы ешқандай қосымша ақыларсыз да жүктелуі мүмкін. Жүктеу процесі кезінде телефоныңызды пайдалана аласыз.</string>
-    <string name="scheduled_update">Жоспар-ған бағдар-ма жаңар-ры</string>
+    <string name="scheduled_update">Жоспарланған бағдарлама жаңартулары</string>
     <string name="scheduled_update_summary_default">Өшірілген</string>
     <string name="scheduled_update_summary_set_time">Жаңарту %s уақытында басталады</string>
     <string name="scheduled_update_summary_set_time_everyday">Жаңарту күн сайын %s уақытында басталады</string>
@@ -1417,6 +1426,7 @@ Samsung жарнамасының идентификаторын мобильді
     <string name="navigationbar_summary">“Бастапқы”, “Артқа” және “Соңғылар” түймелерін басқарыңыз.</string>
     <string name="navigationbar_theme_switch">Ағымдағы тақырыпты қолдану</string>
     <string name="navigationbar_color_title">Фон түсі</string>
+    <string name="navigationbar_color_summary">Таңдалған фондық түс барлық қолданбаларға қолданылмауы мүмкін.</string>
     <string name="navigationbar_order_title">Түйменің орналасуы</string>
     <string name="navigationbar_order_default">Соңғылар - Баст. - Артқа</string>
     <string name="navigationbar_order_mirrored">Артқа - Басты - Соңғылар</string>
@@ -1448,7 +1458,8 @@ Samsung жарнамасының идентификаторын мобильді
     <string name="blue_light_filter_enable_now">Қазір қосу</string>
     <string name="blue_light_filter_enable_as_scheduled">Жоспарланғандай қосу</string>
     <string name="blue_light_filter_scheduled_toast">Көк түсті жарық сүзгісі қосылды. Ол жоспарланған аяқталу уақытында автоматты түрде өшіріледі.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s опциясы мен “Ультракүлгін сәулелерді сүзгілеу” функциясын бір уақытта пайдалану мүмкін емес. “Ультракүлгін сәулелерді сүзгілеу” функциясы өшіріледі.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Көк түсті жарық сүзгісін өшіру керек пе?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s пайдалану үшін, көк түсті жарық сүзгісін өшіру қажет.</string>
     <string name="blue_light_filter_dlg_turn_on_location">“Күннің батуынан таңның атуына дейін” мүмкіндігін пайдалану үшін “Геодеректер” қосулы болуы керек.</string>
     <string name="dlg_turn_on">Қосу</string>
     <string name="screen_resolution_title">Экран ажыратымдылығы</string>
@@ -1462,7 +1473,7 @@ Samsung жарнамасының идентификаторын мобильді
     <string name="outdoor_mode_summary_vzw">Outdoor mode will maximize screen brightness for best viewing in sunlight. If the screen is not in use, screen brightness will return to the previous setting in 15 minutes.</string>
     <string name="screen_zoom_and_font">Экран масштабы мен қаріпі</string>
     <string name="screen_zoom_easymode_desc">Экранды масштабтауды пайдалану үшін, жеңіл режимді өшіріңіз.</string>
-    <string name="intelligent_sleep_title">Смарт- қалыс</string>
+    <string name="intelligent_sleep_title">Смарт қалу</string>
     <string name="screen_mode_setting">Экран режимі</string>
     <string name="screen_mode_summary">Экран режимін таңдаңыз.</string>
     <string name="automatic_brightness_message">Автоматты ашықтық параметрлері тек негізгі экранға қолданылады.</string>
@@ -1666,6 +1677,7 @@ Samsung жарнамасының идентификаторын мобильді
     <string name="crypt_keeper_failed_title_dec">"Сипаттау
 үзіліп кетті."</string>
     <string name="crypt_keeper_failed_summary_dec">Үзілуден шифрсыздандыруды аяқтау мүмкін емес. Пайдаланудан бұрын зауыттық деректерді (барлық деректерді өшіре отырып) қалпына келтіріңіз.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Экран құлыптау түрін орнату</string>
     <string name="encryption_interstitial_message">"Телефон жұмысы басталғанша, телефонды %s енгізуді сұрау арқылы қорғауға болады. Бұл телефон жоғалған не ұрланған кезде деректерді қорғауға көмектеседі. Электрондық поштаны синхрондау сияқты мүмкіндіктерге қатынасу үшін, құрылғыны шифрлау саясаттарына сәйкес кейбір қолданбалар қауіпсіз бастауды сұрауы мүмкін.
 
 Телефон жұмысы басталмағанша, сіз қоңырауларды, хабарларды не хабарландыруларды алмайсыз және сигналдар ойнатылмайды."</string>
@@ -1736,7 +1748,7 @@ Samsung жарнамасының идентификаторын мобильді
     <string name="fingerprint_register_success">Саусақ ізі қосылды</string>
     <string name="fingerprint_register_add_another_fingerprint">Басқа саусақ ізін қосу керек пе?</string>
     <string name="fingerprint_register_add">Қосу</string>
-    <string name="fingerprint_register_done">Аяқталды</string>
+    <string name="fingerprint_register_done">Дайын</string>
     <string name="fingerprint_register_dex_guide_msg">Телефоныңызда саусақ ізіңізді тіркеңіз.</string>
     <string name="remove_mobile_keyboard">%s элементін пайдалану үшін, құрылғыны пернетақта жаппасынан жойыңыз.</string>
     <string name="fingerprint_already_registered_title">Саусақ ізін тіркеу мүмкін емес</string>
@@ -1904,6 +1916,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Саусақ ізін пайдалану</string>
     <string name="wifi_ap_close">Жабу</string>
     <string name="fingerscanner_add_summary">Саусақ іздеріңізді қосыңыз.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 саусақ ізі қосылды.</string>
     <string name="fingerscanner_register_summary">%d саусақ ізі қосылды.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Саусақ ізін пайдаланыңыз немесе ағымдағы PIN кодты енгізіңіз.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Саусақ ізін пайдаланыңыз немесе ағымдағы үлгіні сызыңыз.</string>
@@ -1930,6 +1943,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Экран қосылған кезде алдымен жүргізіп өтпей-ақ бетті тану арқылы телефоныңыздың құлпын ашыңыз.</string>
     <string name="facelock_recognition_speed_up">Жылдам тану</string>
     <string name="facelock_recognition_speed_up_summary">Жылдамырақ тану үшін қосыңыз. Қауіпсіздікті көтеру және суретті не бейнені пайдаланып құлпын ашуды қиындату үшін өшіріңіз.</string>
+    <string name="facelock_samsungpass_summary">Өзіңізді %s және басқа да қолдау көрсетілетін қолданбалар арқылы куәландыру үшін бетті тануды пайдаланыңыз.</string>
     <string name="face_remove_face_popup_title">Бет деректерін жою керек пе?</string>
     <string name="face_remove_face_popup_message_1">Бетіңіз бұдан былай танылмайды және “Бет құлпы” опциясы өшіріледі.</string>
     <string name="face_remove_face_popup_message_2">Бетті тануды пайдаланатын мүмкіндіктер өшіріледі.</string>
@@ -2071,7 +2085,7 @@ You will also need it when:"</string>
     <string name="biometrics_backup_locktype_title">Көздің мөлбір қабығы қауіпсіздігін орнату</string>
     <string name="biometrics_register_your_iris">Көзіңіздің қабықтарын тіркеңіз.</string>
     <string name="biometrics_backup_locktype_summary">Құрылғының құлпын ашу мақсатында көзіңіздің қабықтарын пайдалану үшін, үлгіні, PIN кодты немесе құпиясөзді орнатуыңыз қажет.</string>
-    <string name="biometrics_backup_locktype_message">Телефоныңыздың құлпын ашу немесе қауіпсіз растау мақсатында көзіңіздің қабықтарын пайдалану үшін келесі әрекеттерді орындауыңыз қажет:</string>
+    <string name="biometrics_backup_locktype_message">Телефоныңыздың құлпын ашу мақсатында көзіңіздің қабықтарын пайдалану немесе қолданбаларда өзіңізді растау үшін келесі әрекеттерді орындауыңыз қажет:</string>
     <string name="iris_delete_popup_title">Көз қабығының деректерін жою керек пе?</string>
     <string name="iris_delete_popup_message">Көз қабығының деректерін жою керек пе?</string>
     <string name="iris_delete_popup_message_with_related_func">Көздің қабықтарын пайдаланатын мүмкіндіктер өшіріледі.</string>
@@ -2079,7 +2093,7 @@ You will also need it when:"</string>
     <string name="iris_timeout_popop_title">Әрекетті қайт.</string>
     <string name="iris_timeout_popop_message">Көздің қабықтары танылмады. Көздің қабығын сканерлеу камерасы лас болуы мүмкін. Экраннан жоғары аумақты тазалап, әрекетті қайталаңыз.</string>
     <string name="iris_timeout_popop_message_1">Көздің қабығын сканерлеу камерасы лас болуы мүмкін. Экранның жоғарғы жағындағы аумақты тазалап, әрекетті қайталаңыз.</string>
-    <string name="iris_proximity_restriction_popop_message">Көздің қабықтары танылмады. Телефон бетке өте жақын тұр немесе жақындық сенсоры лас болуы мүмкін. Экраннан жоғары аумақты тазалап, әрекетті қайталаңыз.</string>
+    <string name="iris_proximity_restriction_popop_message">Телефонды бетіңізден алысырақ ұстап тұрып, әрекетті қайталаңыз.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Жақындық сенсоры лас болуы мүмкін.
 Экранның жоғарғы жағындағы аумақты тазалаңыз."</string>
     <string name="iris_try_again">Қайталау</string>
@@ -2087,6 +2101,8 @@ You will also need it when:"</string>
     <string name="iris_failed_to_verity_identify">Сізді куәландыру мүмкін болмады</string>
     <string name="iris_failed_popup_description">Көзіңіздің қабықтарын растау үшін %1$d рет әрекет жасалды. Әрекетті %2$d секундтан кейін қайталаңыз.</string>
     <string name="iris_no_match">Сәйкес емес</string>
+    <string name="iris_eye_safety_msg">Көзіңіздің қабықтары танылмаған.</string>
+    <string name="iris_timeout_msg">Көзіңіздің қабықтары анықталмады.</string>
     <string name="biometrics_registered">Тіркелген</string>
     <string name="iris_turn_on_toast_message">“Көздің қабығымен құлыптау” опциясы “Саусақ ізімен құлыптау” опциясының орнына қосылды.</string>
     <string name="iris_wrong_backup_password">Қате сақ. көш. құпия сөзі</string>
@@ -2278,6 +2294,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Күту режиміндегі экранда “Бастапқы” түймесі және сағат немесе ақпарат көрсетіледі.</string>
     <string name="aod_feature_off_popup_title">%s функциясын өшіру керек пе?</string>
     <string name="aod_feature_off_popup_description">%1$s пайдалану үшін, %2$s опциясын өшіру қажет.</string>
+    <string name="aod_features_off_popup_title">Басқа функцияларды өшіру керек пе?</string>
+    <string name="aod_features_off_popup_description">Always On Display мүмкіндігін пайдалану үшін келесі функцияларды өшіру қажет:</string>
     <string name="aod_features_off_popup_btn_ok">Өшіру</string>
     <string name="aod_disable_by_negative_colors">“Негатив түстер” функциясы қосулы кезде пайдалану мүмкін емес.</string>
     <string name="aod_disable_by_powersaving_mode">“Қуатты үнемдеу режимі” қосулы кезде пайдалану мүмкін емес.</string>
@@ -2301,6 +2319,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Түрлі түсті тамшылар</string>
     <string name="lock_screen_show_information_summary_wifi_only">Құрылғы иесінің ақпаратын немесе қолданбаның жедел пернелерін құлыптау экранында көрсетіңіз.</string>
     <string name="lock_screen_sview_show_information_summary">Қос сағатты, құрылғы иесінің ақпаратын немесе қолданбаның жедел пернелерін құлыптау экранында S View терезесі арқылы көрсетіңіз.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Роуминг сағатын немесе телефон иесінің байланыс ақпаратын Құлыптау экранында және S View терезесі арқылы көрсету.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Құлыптау экранында және S View терезесі арқылы көрсетілетін қолданба жедел пернелерін таңдаңыз.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Хабарландыруларды Құлыптау экранында және S View терезесі арқылы көрсетіңіз.</string>
     <string name="lock_screen_and_cover_show_information_summary">Құлыптау экранында және көрініс мұқабасын өшіру арқылы қос сағатты көрсетіңіз.</string>
     <string name="lock_screen_secured_lock_settings_title">Қауіпсіз құлыптау параметрлері</string>
     <string name="lock_screen_secured_lock_settings_summary">Автоматты құлыптау және қуат пернесімен дереу құлыптау сияқты қауіпсіз құлып функцияларын орнатыңыз.</string>
@@ -2317,6 +2338,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Жергілікті уақыт белдеуі</string>
     <string name="contact_info_settings_title">Байланыс ақпараты</string>
     <string name="show_contact_info_on_lockscreen_label">Телефон нөміріңіз немесе электрондық пошта мекенжайыңыз сияқты ақпарат құлыптау экранында көрсетіледі.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Телефон нөміріңіз немесе электрондық пошта мекенжайыңыз сияқты ақпарат құлыптау экранында және Always On Display экранында көрсетіледі.</string>
     <string name="unlock_effect">Әсер құлпын ашу</string>
     <string name="walking_mate_title">Қадам өлшегіш</string>
     <string name="help_text_title">Анықтама мәтіні</string>
@@ -2416,7 +2438,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="toast_set_lock_pattern">Үлгіні ұмытып қалған жағдайда барлық деректер өшіріліп, телефон бастапқы қалпына келтіріледі.</string>
     <string name="toast_set_lock_password">Құпиясөзді ұмытып қалған жағдайда, барлық деректер өшіріліп, телефон өзінің бастапқы қалпына келтіріледі.</string>
     <string name="toast_set_lock_pin">PIN кодты ұмытып қалған жағдайда, барлық деректер өшіріліп, телефон өзінің бастапқы қалпына келтіріледі.</string>
-    <string name="chooselock_warning_text">Осы %s түрін есіңізде сақтаңыз. Ол құрылғы қайта іске қосылғаннан кейін сұралады.</string>
+    <string name="chooselock_warning_text">Осы %s түрін есіңізде сақтаңыз. Ол телефоныңыз өшіріліп, қайта қосылғаннан кейін сұралады.</string>
     <string name="lockpassword_password_exists_history">Бұрын пайдаланылған құпиясөз. Жаңа құпиясөз енгізіңіз.</string>
     <string name="lockpassword_pin_repeating_nums">PIN кодында қайталанатын сандар болмауы керек.</string>
     <string name="lockpassword_pin_sequential_nums">PIN кодында реттік сандар болмауы керек.</string>
@@ -2534,6 +2556,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="data_usage_disable_mobile_warning_lgt">"Wi-Fi желісіне қосылмағанша, сіз Интернетті, электрондық поштаны не деректер қосылымын талап ететін басқа қолданбаларды пайдалана алмайсыз.
 
 Ұялы деректер өшіріледі."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Wi-Fi желісіне қосылмағанша, Интернетті, электрондық поштаны не желіге қосылымды қажет ететін басқа қолданбаларды пайдалануға болмайды.</string>
@@ -2692,10 +2717,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Реттелмелі дыбыс шегі</string>
     <string name="volume_limiter_descryption">Мультимедиалық дыбыс деңгейінің ең жоғарғы шегі арқылы құлақтарыңызды қорғаңыз. Бұл шектеу құлаққаптарды немесе Bluetooth аудио құрылғыларын пайдаланған кезде ғана қолданылады.</string>
     <string name="multi_sound_title">Бөлек қолданбаның дыбысы</string>
-    <string name="multi_sound_summary">Бір қолданбаның дыбысын динамикте немесе құлаққаптарда құрылғыңыздағы басқа дыбыстардан бөлек ойнатыңыз.</string>
-    <string name="multi_sound_descryption">"Бір қолданбаның мультимедиалық дыбысы динамикте немесе құлаққаптарда басқа қолданбалардың мультимедиалық дыбысынан бөлек ойнатылады.
+    <string name="multi_sound_summary">Медиа дыбысын бір қолданбадан телефонның негізгі аудио шығыс құрылғысынан бөлек аудио құрылғысында ойнатыңыз.</string>
+    <string name="multi_sound_descryption">"Медиа дыбысын бір қолданбадан телефонның негізгі дыбыс шығару құрылғысынан бөлек аудио құрылғысында ойнатыңыз. Оны қосу үшін қолданба мен аудио дыбысын таңдаңыз.
 
-Егер сіз Bluetooth аудио құрылғысын таңдасаңыз, онда дыбыс Bluetooth құрылғысы қосылмаған жағдайда әдепкі аудио құрылғыда ойнатылады."</string>
+Бөлек қолданба дыбысы таңдалған аудио құрылғы телефонның негізгі дыбыс шығару құрылғысынан басқа болған кезде ғана жұмыс істейді.
+
+Телефонның негізгі дыбыс шығару құрылғысын жылдам параметрлер панелінде өзгертуге болады. Дыбыс шығару көрінбесе, оны Samsung Connect > Параметрлер > Samsung Connect панелі бөлімінде қосыңыз."</string>
     <string name="set_application_title">Қолданба</string>
     <string name="set_application_summary">Бөлек аудио құрылғыда дыбысы ойнатылатын қолданбаны таңдаңыз.</string>
     <string name="set_application_descryption">Дыбысы бөлек аудио құрылғыда ойнатылатын мультимедиалық қолданбаны төменнен таңдаңыз.</string>
@@ -2706,9 +2733,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="multi_sound_popup_msg">%s қосу үшін, қолданбаны және аудио құрылғыны таңдау қажет.</string>
     <string name="multi_sound_network_msg">Қолжетімді қолданбаларды тексеру үшін, телефон желіге қосылуы керек. Желі параметрлерін тексеріп, әрекетті қайталаңыз.</string>
     <string name="multi_sound_wifi_msg">Қолжетімді қолданбаларды тексеру үшін телефоныңызды желіге қосу қажет. Ұялы деректерді пайдалану қосымша ақыларға әкелуі мүмкін.</string>
+    <string name="multi_sound_add_application">Бағдарлама қосу</string>
     <string name="dlg_btn_select">Таңдау</string>
-    <string name="audio_device_type_descryption">Осы қолданба үшін пайдаланғыңыз келетін аудио құрылғыны таңдаңыз. Bluetooth құрылғылары тек қосулы кезде ғана қолжетімді болады.</string>
+    <string name="audio_device_type_descryption">Таңдалған қолданба үшін пайдаланғыңыз келетін аудио құрылғыны таңдаңыз. Bluetooth құрылғылары тек қосулы кезде ғана қолжетімді болады.</string>
     <string name="my_phone_title">Телефон</string>
+    <string name="my_phone_summary">Динамик/құлаққаптар/USB аудио құрылғысы</string>
     <string name="bluetooth_device_title">Bluetooth құрылғысы</string>
     <string name="no_connected_devices">Қосылған құрылғылар жоқ</string>
     <string name="two_hours">2 сағат</string>
@@ -2716,7 +2745,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="stop_setup_popup_msg">Өзгертілген кез келген параметрлер қолданылмайды.</string>
     <string name="app_turned_on">%s қосылды.</string>
     <string name="force_touch_title">Қатты басудан діріл. кері байл.</string>
-    <string name="volume_key_control_title">Әдепкі дыбыс пернесін басқару</string>
+    <string name="volume_key_control_title">Медиа үшін Дыбыс пернесін пайд.</string>
+    <string name="volume_key_control_summary">“Дыбыс деңгейі” пернелерін басқан кезде мультимедианың дыбыс деңгейін басқарыңыз.</string>
     <string name="sound_mode">Дыбыстық режим</string>
     <string name="sound_mode_vibrate">Дірілдеу</string>
     <string name="sound_mode_mute">Дыбыссыз</string>
@@ -2930,14 +2960,13 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="text_biometrics_title_enterprise">%1$s таңдалған кезде, биометриялық деректерге %2$s құлпын ашу әдісі ретінде қолдау көрсетілмейді.</string>
     <string name="text_biometrics_finger_title_enterprise">Саусақ іздеріне %2$s құлпын ашу әдісі ретінде %1$s арқылы қолдау көрсетілмейді.</string>
     <string name="edge_feeds_title">Қырлы арналар</string>
-    <string name="screensaver_settings_summary">"Құрылғы блокталғанда және/немесе зарядтаулы кезде, орындалып жатқан әрекеттерді басқарыңыз. Экран сақтағыш экран уақыты біткеннен кейін көрсетіледі.
-
-Сондай-ақ, бұл функция Daydream (заставка) деп те аталады."</string>
-    <string name="screensaver_settings_summary_wo_dock">Телефон зарядталып жатқан кезде, экран өшкеннен кейін экран сақтағыш автоматты түрде көрсетіледі.</string>
+    <string name="screensaver_settings_summary">Телефон зарядталып жатқан кезде, экран өшкеннен кейін экран сақтағыш автоматты түрде көрсетіледі.</string>
+    <string name="screensaver_settings_summary_wo_dock">Телефоныңыз док-станцияда тұрғанда немесе зарядталып жатқан кезде экран автоматты түрде өшкеннен кейін экран сақтағыш көрсетіледі.</string>
     <string name="apn_already_exists">Қолданыста бар.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Порт нөмірі %1$d және %2$d аралығында болуы керек.</string>
     <string name="apn_restore_warning">Қосылған барлық APN нүктелері жойылады. Басқа APN нүктелері өздерінің әдепкі параметрлеріне қалпына келтіріледі.</string>
+    <string name="apn_restore_title">APN параметрлерін ысыру керек пе?</string>
     <string name="master_clear_desc_google_account">Google есептік жазбасы</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2949,7 +2978,8 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="sound_balance_summary">Құлаққаптардың сол және оң жақ дыбыс теңдігін реттеңіз.</string>
     <string name="backup_samsung_account_title">Сақтық көшірме параметрлері</string>
     <string name="restore_samsung_account_title">Қалпына келтіру</string>
-    <string name="auto_restart_header">Құрылғыны басқару</string>
+    <string name="auto_restart_header">Телефонды басқару</string>
+    <string name="auto_restart_header_tablet">Планшетті басқару</string>
     <string name="auto_restart_title">Автоматты қайта қосу</string>
     <string name="switch_turn_on_text">Қосу</string>
     <string name="switch_turn_off_text">Өшіру</string>
@@ -3072,6 +3102,14 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="tether_settings_summary_usb_bt">Құрылғының ұялы деректер қосылуын USB немесе Bluetooth арқылы бөлісіңіз</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Алу</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Телефоныңыздың Интернет қосылымы Bluetooth арқылы бөлісіледі.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Планшетіңіздің Интернет қосылымы Bluetooth арқылы бөлісіледі.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Осы телефонның Интернет қосылымын бөлісуге дайын.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Осы планшеттің Интернет қосылымын бөлісуге дайын.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Осы телефонның Интернет қосылымы 1 құрылғымен бөлісілуде.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Осы планшеттің Интернет қосылымы 1 құрылғымен бөлісілуде.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Осы телефонның Интернет қосылымы %d құрылғымен бөлісілуде.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Осы планшеттің Интернет қосылымы %d құрылғымен бөлісілуде.</string>
     <string name="onehand_settings_title">Бір қолды режим</string>
     <string name="onehand_settings_text_1">Дисплейдің өлшемін азайту үшін экранның кез келген төменгі бұрышынан қиғаш бағытта жоғарыға қарай жүргізіп өтіңіз.</string>
     <string name="onehand_settings_text_2">Дисплей өлшемін кішірейту үшін “Бастапқы” түймесін 3 рет жылдам басыңыз.</string>
@@ -3399,12 +3437,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Өшірілген</string>
     <string name="wifi_or_mobile_network">Wi-Fi немесе ұялы байланыс желілері</string>
     <string name="wifi_network_only">Тек Wi-Fi желісі</string>
+    <string name="wifi_adps_title">Wi-Fi қуат үнемдеу режимі</string>
+    <string name="wifi_adps_summary">Батарея қуатын пайдалануды Wi-Fi трафигінің модельдерін талдау арқылы азайтыңыз.</string>
     <string name="wifi_auto_reconnect">Автоматты түрде қайта қосу</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Wi-Fi қосылғанда ұялы жедел нүкте өшеді. Жалғастыру керек пе?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Ұялы жедел нүкте қосылған кезде Wi-Fi өшіріледі. Wi-Fi опциясын қосу үшін Ұялы жедел нүктені өшіріңіз.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">Ұялы жедел нүкте қосылған кезде Wi-Fi өшіріледі. Wi-Fi опциясын қосу үшін Ұялы жедел нүктені өшіріңіз.</string>
+    <string name="wifi_enable_warning_mtr">Ұялы жедел нүкте қосылған кезде Wi-Fi өшіріледі. Wi-Fi опциясын қосу үшін “Ұялы жедел нүктені” өшіріңіз.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">Wi-Fi желісін қосу ұялы жедел нүктесін өшіреді.</string>
     <string name="wifi_control_history_title">Wi-Fi желісін басқару журналы</string>
@@ -3604,6 +3644,10 @@ To configure Smartphone Mobile Hotspot, tap on the menu icon, and then tap “Co
     <string name="wifi_wps_pin_client_mobileap">Клиентке PIN %1$s коды арқылы қосылуда. Орнату процесінің аяқталуы %2$d минутқа дейін созылуы мүмкін.</string>
     <string name="wifi_wps_complete_mobileap">Басқа құрылғы қазір құрылғыңызға қосылды.</string>
     <string name="wifi_ap_disconnect_warn">Құрылғы ажырату</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Қазір қосылып тұрған барлық құрылғылар ұялы жедел нүктесінен өшіріледі.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Қазір қосылып тұрған барлық құрылғылар ұялы жедел нүктесінен өшіріледі.</string>
     <string name="wifi_ap_warn_max_whitelist">Рұқсат етілген құрылғылардың максималды санына (%d) жетті.</string>
     <string name="wifiap_one_item_deleted">1 элемент жойылады.</string>
@@ -3739,6 +3783,8 @@ Wi-Fi is now on."</string>
     <string name="wifi_ap_first_time_configuration">Жедел нүктені бірінші рет конфигурациялау</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">PIN кодты дұрыс енгізіңіз.</string>
+    <string name="open_mobileap_warning">Бұл ұялы AP қауіпті.</string>
+    <string name="hidden_mobileap_warning">Пайдаланушы жасырылған SSID орнатқан кезде, WPS өшіріледі.</string>
     <string name="wifi_ssid_max_byte_error">Ең көп таңбалар санына жетті.</string>
     <string name="tethering_attention_title">Назар аударыңыз</string>
     <string name="wfd_select_device">Құрылғыны таңдау</string>
@@ -3969,6 +4015,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Синхрондау</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Бұл рұқсат қолданбаға мазмұнды пайдаланып отырған басқа қолданбалардың жоғарғы жағында көрсетуге мүмкіндік береді. Бұл басқа қолданбаларды пайдалануға кедергі келтіруі мүмкін.</string>
+    <string name="write_settings_body_description">Осы қолданбаға Bluetooth қосу не өшіру сияқты жүйе параметрлерін өзгертуге рұқсат беру.</string>
+    <string name="reset_app_preferences_desc1">Бұл келесі параметрлердің барлығын қалпына келтіреді:</string>
+    <string name="reset_app_preferences_desc2">Өшірілген қолданбалар</string>
+    <string name="reset_app_preferences_desc3">Қолданбалардың хабарландырулар шектеулері</string>
+    <string name="reset_app_preferences_desc4">Әдепкі қолданбалар</string>
+    <string name="reset_app_preferences_desc5">Қолданбаның фондық деректер шектеулері</string>
+    <string name="reset_app_preferences_desc6">Рұқсат шектеулері</string>
+    <string name="reset_app_preferences_desc7">Бұрыннан бар қолданба деректері жоғалмайды.</string>
     <string name="knox_security_mode_title">Knox қауіпсіздігі</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">Құпиялылық саясаты</string>
@@ -3983,6 +4037,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Жеке ақпаратыңыз бен Samsung есептік жазбаңыздың мәліметтерін басқарыңыз.</string>
     <string name="my_profile_summary_jpn">Жеке ақпаратыңыз бен Galaxy есептік жазбаңыздың мәліметтерін басқарыңыз.</string>
     <string name="arbitration_agreement">Арбитраждық келісім</string>
+    <string name="activation_title">Белсендіру күйі</string>
+    <string name="activation_summary">%1$s күні белсендірілген. Қосымша ақпарат алу үшін %2$s сайтына кіріңіз.</string>
+    <string name="wifi_ap_pmf_on">PMF қосулы</string>
+    <string name="edit_event_start_short">Бастау</string>
+    <string name="edit_event_end_short">Аяқ-у</string>
+    <string name="select_date_to_view">Көретін күнді таңдаңыз</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Иә</string>
     <string name="no">Жоқ</string>
     <string name="create">Жзу</string>
@@ -5475,7 +5536,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="app_notification_block_title">Хабарландыруға рұқсат ету</string>
     <string name="app_notification_block_summary">Осы қолданбаның хабарландыруларын, оның ішінде хабарландыру хабарларын, дыбыстары мен дірілін алыңыз.</string>
     <string name="app_notification_override_dnd_title">Басымдықты ретінде орнату</string>
-    <string name="app_notification_override_dnd_summary">Осы қолданбаның хабарландыруларына “Мазаламаңыз” режимі қосулы кезде дыбыс шығаруына және экранды қосуына рұқсат беріңіз.</string>
+    <string name="app_notification_override_dnd_summary">Мазаламау режимі қосылған кезде, хабарландыруларды хабарландыру тақтасының жоғарғы жағында көрсету және оларды рұқсат етілген тізімге қосу.</string>
     <string name="app_notification_visibility_override_title">Құлыптау экранында</string>
     <string name="app_notifications_dialog_done">Дайын</string>
     <string name="zen_mode_choose_rule_type">Ереженің түрін таңдау</string>
@@ -5512,6 +5573,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="restr_pin_enter_admin_pin">Әкімші PIN кодын енгізіңіз</string>
     <string name="switch_on_text">Қосылған</string>
     <string name="switch_off_text">Өшірілген</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Бұл жұмыс профилі келесі арқылы басқарылады:</string>
     <string name="managing_admin">%s арқылы басқарылады</string>
     <string name="display_auto_rotate_title">Экранды бұру</string>
     <string name="display_auto_rotate_rotate">Экран мазмұнын бұру</string>
@@ -5548,9 +5610,9 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="encrypt_talkback_dialog_require_pin">PIN кодты сұрау</string>
     <string name="encrypt_talkback_dialog_require_pattern">Үлгіні сұрау</string>
     <string name="encrypt_talkback_dialog_require_password">Құпиясөзді сұрау</string>
-    <string name="encrypt_talkback_dialog_message_pin">Құрылғыны қосқаннан кейін PIN кодын енгізген кезде %1$s сияқты арнайы мүмкіндіктер функциялары уақытша өшіріледі.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Құрылғыны қосқаннан кейін үлгіні салған кезде %1$s сияқты арнайы мүмкіндіктер функциялары уақытша өшіріледі.</string>
-    <string name="encrypt_talkback_dialog_message_password">Құрылғыны қосқаннан кейін құпия сөзді енгізген кезде %1$s сияқты арнайы мүмкіндіктер функциялары уақытша өшіріледі.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Құрылғыңыз іске қосылған кезде PIN кодты енгізу сұралады. Құрылғыңыз іске қосылмайынша, арнайы мүмкіндіктердің функциялары қолжетімді болмайды.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Құрылғыңыз іске қосылған кезде үлгіні сызу сұралады. Құрылғыңыз іске қосылмайынша, арнайы мүмкіндіктердің функциялары қолжетімді болмайды.</string>
+    <string name="encrypt_talkback_dialog_message_password">Құрылғыңыз іске қосылған кезде құпиясөзді енгізу сұралады. Құрылғыңыз іске қосылмайынша, арнайы мүмкіндіктердің функциялары қолжетімді болмайды.</string>
     <string name="slot_number">(слот %d)</string>
     <string name="app_launch_domain_links_title">Қолданбаның сілтемелері</string>
     <string name="app_launch_open_domain_urls_title">Қолданылатын URL-ға өту</string>
@@ -5626,18 +5688,18 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="usb_use_power_only">Қосылған құрылғы заряд.</string>
     <string name="usb_use_power_only_desc">Қосылған құрылғыны USB арқылы зарядтаңыз.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Медиа файлды тасымалдау</string>
+    <string name="usb_use_file_transfers">Файлдарды тасымалдау</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Суреттерді тасымалдау</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">“Мультимедиалық файлдарды тасымалдау” опциясы жұмыс істемеген жағдайда, осы режимді таңдаңыз. Тек сурет файлдарын ғана тасымалдай аласыз.</string>
+    <string name="usb_use_photo_transfers_summary">Егер “Файлдарды тасымалдау” опциясы жұмыс істемей тұрса, онда осы режимді таңдаңыз. Бұл режимде тек сурет файлдарын ғана тасымалдауға болады.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">MIDI құрылғысын қосу</string>
-    <string name="usb_use">USB-ді пайдалану әдісі</string>
-    <string name="assist_access_context_title">Экрандағы мәтінді оқу</string>
-    <string name="assist_access_context_summary">Құрылғы көмегі қолданбасына экранда көрсетілген кез келген мәтінді оқуына рұқсат беріңіз.</string>
-    <string name="assist_access_screenshot_title">Скриншоттар түсіру/қатынасу</string>
-    <string name="assist_access_screenshot_summary">Құрылғы көмегі қолданбасына скриншоттарды түсіріп, оларға қатынасуына рұқсат беріңіз.</string>
+    <string name="usb_use">USB-ді пайдалану жолы</string>
+    <string name="assist_access_context_title">Экрандағы мәтінді талдау</string>
+    <string name="assist_access_context_summary">Құрылғының көмекші қолданбасына қатысты мазмұнды көрсету үшін экрандағы мәтінді талдауға рұқсат етіңіз.</string>
+    <string name="assist_access_screenshot_title">Экрандағы суреттерді талдау</string>
+    <string name="assist_access_screenshot_summary">Құрылғының көмекші қолданбасына суретке түсіруге және экрандағы суретті пайдалануға рұқсат етіңіз.</string>
     <string name="assist_footer">Құрылғының көмекші қолданбалары телефон экранында ағымда көрсетілген ақпаратты жинау арқылы сізге көмектесе алады. Құрылғы көмегі қолданбаларының кейбірін біріктірілген көмекпен қамтамасыз ету арқылы басқа қолданбаларды ашу және мәтінді дауыспен енгізу үшін пайдалануға болады.</string>
     <string name="average_memory_use">Орташа RAM пайдалану</string>
     <string name="maximum_memory_use">Максималды RAM пайдалану</string>
@@ -5666,7 +5728,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ignore_optimizations_on_desc">Бұл батарея тұтынуды арттыруы мүмкін</string>
     <string name="ignore_optimizations_off_desc">Батарея зарядын сақтау үшін ұсынылған</string>
     <string name="app_list_preference_none">Жоқ</string>
-    <string name="allow_overlay_description">Түймелері, қалқымалы терезелері не басқа да элементтері пайдаланылып отырған басқа қолданбалар үстінен көрсетілетін қолданбаларды таңдаңыз.</string>
+    <string name="allow_overlay_description">Бұл рұқсат қолданбаға мазмұнды пайдаланып отырған басқа қолданбалардың жоғарғы жағында көрсетуге мүмкіндік береді. Бұл басқа қолданбаларды пайдалануға кедергі келтіруі мүмкін.</string>
     <string name="overlay_settings">Жоғарыда пайда болатын қолданбалар</string>
     <string name="filter_overlay_apps">Рұқсаты бар қолданбалар</string>
     <string name="filter_write_settings_apps">Рұқсаты бар қолданбалар</string>
@@ -5713,14 +5775,14 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="ethernet_data_template">%1$s Ethernet деректері</string>
     <string name="cell_warning_only">Деректерді пайдалану көлемі %s болғанда ескерту</string>
     <string name="cell_warning_and_limit">%1$s Деректерді пайдалану туралы ескерту/%2$s Деректерді пайдалану шегі</string>
-    <string name="billing_cycle">Шотты ұсыну мерзімділігі</string>
+    <string name="billing_cycle">Шот ұсыну мер./деректер ескер.</string>
     <string name="billing_cycle_summary">Әр айдың %s-ші күні</string>
     <string name="billing_cycle_fragment_summary">Әр айдың %s-ші күні</string>
     <string name="network_restrictions">Желілерді шектеу</string>
     <string name="operator_warning">Деректерді пайдалану көлемі құрылғыңыз арқылы өлшенеді. Ұялы байланыс операторыңыз пайдалану көлемін басқаша есептеуі мүмкін.</string>
     <string name="data_used_template">%s пайдаланылды</string>
     <string name="data_warning">Деректерді пайдалану туралы ескерту</string>
-    <string name="set_data_limit">Деректер шектеуі</string>
+    <string name="set_data_limit">Деректер шегін орнату</string>
     <string name="data_limit">Деректер шектеуі</string>
     <string name="data_usage_template">%2$s аралығында %1$s пайдаланылды</string>
     <string name="data_usage_other_apps">Пайдаланудағы қатысты қолданба</string>
@@ -5762,5 +5824,4 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="enable_iris_lock_desc_3">"Саусақ іздері қазір экранды құлыптау түрі ретінде орнатылған.
 
 Экранды құлыптау түрін саусақ іздерінің орнына көздің қабықтары ретінде орнату үшін, ҚОСУ түймесін түртіңіз. Бұдан кейін, құрылғының құлпын көзіңіздің қабықтарын немесе %s түрін пайдалану арқылы ашуға болады."</string>
-    <string name="my_phone_summary">Динамик/құлаққаптар/USB аудио құрылғысы</string>
 </resources>

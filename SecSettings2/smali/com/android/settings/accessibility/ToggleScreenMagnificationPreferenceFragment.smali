@@ -179,7 +179,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mVideoPreference:Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$VideoPreference;
 
-    const v1, 0x7f040296
+    const v1, 0x7f04029a
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$VideoPreference;->setLayoutResource(I)V
 
@@ -254,7 +254,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mVideoPreference:Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$VideoPreference;
 
-    const v1, 0x7f040296
+    const v1, 0x7f04029a
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$VideoPreference;->setLayoutResource(I)V
 
@@ -286,13 +286,13 @@
 .method public onCreateDialog(I)Landroid/app/Dialog;
     .locals 13
 
-    const/4 v11, 0x1
+    const/4 v11, 0x0
 
-    const/4 v10, 0x0
+    const/4 v10, 0x1
 
     const/4 v12, 0x0
 
-    if-ne p1, v11, :cond_1
+    if-ne p1, v10, :cond_0
 
     new-instance v2, Landroid/view/ContextThemeWrapper;
 
@@ -314,7 +314,7 @@
 
     const v8, 0x7f04001b
 
-    invoke-virtual {v6, v8, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v6, v8, v11}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v5
 
@@ -340,13 +340,13 @@
 
     move-result-object v8
 
-    new-array v9, v11, [Ljava/lang/Object;
+    new-array v9, v10, [Ljava/lang/Object;
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
 
-    const v11, 0x7f0b175c
+    const v11, 0x7f0b17f8
 
     invoke-virtual {v10, v11}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -354,17 +354,13 @@
 
     aput-object v10, v9, v12
 
-    const v10, 0x7f0b02a1
+    const v10, 0x7f0b02ff
 
     invoke-virtual {v8, v10, v9}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v8
 
     invoke-virtual {v4, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v8, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mDialogContent:Ljava/lang/String;
-
-    if-nez v8, :cond_0
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->getActivity()Landroid/app/Activity;
 
@@ -382,7 +378,6 @@
 
     iput-object v8, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mDialogContent:Ljava/lang/String;
 
-    :cond_0
     iget-object v8, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mDialogContent:Ljava/lang/String;
 
     invoke-virtual {v3, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -439,8 +434,8 @@
 
     return-object v7
 
-    :cond_1
-    return-object v10
+    :cond_0
+    return-object v11
 .end method
 
 .method public onDestroyView()V
@@ -553,7 +548,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f100317
+    const v3, 0x7f10031d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -593,7 +588,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f11070b
+    const v2, 0x7f11070e
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

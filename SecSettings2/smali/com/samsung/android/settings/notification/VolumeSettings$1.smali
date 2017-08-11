@@ -64,15 +64,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
-    invoke-static {}, Lcom/android/settings/Utils;->isDomesticSKTModel()Z
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    invoke-static {}, Lcom/android/settings/Utils;->isDomesticKTTModel()Z
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
 
     move-result v2
 
@@ -102,17 +96,32 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_3
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportBixby()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    invoke-static {p1}, Lcom/android/settings/Utils;->isBixbyVoiceEnable(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    :goto_1
     return-object v0
 
     :cond_4
-    const/4 v2, 0x1
+    move v2, v1
 
     goto :goto_0
 
     :cond_5
-    move v2, v1
+    const-string/jumbo v1, "bixby_volume"
 
-    goto :goto_0
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
 .end method
 
 .method public getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;
@@ -129,7 +138,7 @@
         }
     .end annotation
 
-    const v5, 0x7f0b0b18
+    const v5, 0x7f0b0b87
 
     new-instance v3, Ljava/util/ArrayList;
 
@@ -147,7 +156,7 @@
 
     iput-object v4, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v4, 0x7f0b146f
+    const v4, 0x7f0b150b
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -155,7 +164,7 @@
 
     iput-object v4, v0, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v4, 0x7f0b146a
+    const v4, 0x7f0b1506
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

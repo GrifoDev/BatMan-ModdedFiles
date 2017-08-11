@@ -15,7 +15,9 @@
         Lcom/android/settings/tts/TextToSpeechSettings$1;,
         Lcom/android/settings/tts/TextToSpeechSettings$2;,
         Lcom/android/settings/tts/TextToSpeechSettings$3;,
-        Lcom/android/settings/tts/TextToSpeechSettings$4;
+        Lcom/android/settings/tts/TextToSpeechSettings$4;,
+        Lcom/android/settings/tts/TextToSpeechSettings$5;,
+        Lcom/android/settings/tts/TextToSpeechSettings$6;
     }
 .end annotation
 
@@ -60,6 +62,8 @@
 
 .field private final mInitListener:Landroid/speech/tts/TextToSpeech$OnInitListener;
 
+.field private mPitchObserver:Landroid/database/ContentObserver;
+
 .field private mPlayExample:Landroid/preference/Preference;
 
 .field private mPreviousEngine:Ljava/lang/String;
@@ -69,6 +73,8 @@
 .field private mResetSpeechRate:Landroid/preference/Preference;
 
 .field private mSampleText:Ljava/lang/String;
+
+.field private mSpeechRateObserver:Landroid/database/ContentObserver;
 
 .field private mTts:Landroid/speech/tts/TextToSpeech;
 
@@ -158,7 +164,33 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Lcom/android/settings/tts/TextToSpeechSettings;Ljava/lang/String;I)I
+.method static synthetic -set0(Lcom/android/settings/tts/TextToSpeechSettings;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mDefaultPitch:I
+
+    return p1
+.end method
+
+.method static synthetic -set1(Lcom/android/settings/tts/TextToSpeechSettings;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mDefaultRate:I
+
+    return p1
+.end method
+
+.method static synthetic -wrap0(Lcom/android/settings/tts/TextToSpeechSettings;)Landroid/content/ContentResolver;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/settings/tts/TextToSpeechSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap1(Lcom/android/settings/tts/TextToSpeechSettings;Ljava/lang/String;I)I
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/tts/TextToSpeechSettings;->getSeekBarProgressFromValue(Ljava/lang/String;I)I
@@ -168,7 +200,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/settings/tts/TextToSpeechSettings;)V
+.method static synthetic -wrap2(Lcom/android/settings/tts/TextToSpeechSettings;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/tts/TextToSpeechSettings;->speakSampleText()V
@@ -176,7 +208,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/settings/tts/TextToSpeechSettings;I)V
+.method static synthetic -wrap3(Lcom/android/settings/tts/TextToSpeechSettings;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/tts/TextToSpeechSettings;->updateSpeechPitchValue(I)V
@@ -184,7 +216,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/settings/tts/TextToSpeechSettings;I)V
+.method static synthetic -wrap4(Lcom/android/settings/tts/TextToSpeechSettings;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/tts/TextToSpeechSettings;->updateSpeechRate(I)V
@@ -195,9 +227,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/android/settings/tts/TextToSpeechSettings$3;
+    new-instance v0, Lcom/android/settings/tts/TextToSpeechSettings$5;
 
-    invoke-direct {v0}, Lcom/android/settings/tts/TextToSpeechSettings$3;-><init>()V
+    invoke-direct {v0}, Lcom/android/settings/tts/TextToSpeechSettings$5;-><init>()V
 
     sput-object v0, Lcom/android/settings/tts/TextToSpeechSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/Indexable$SearchIndexProvider;
 
@@ -235,9 +267,29 @@
 
     iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mUpdateListener:Landroid/speech/tts/TextToSpeech$OnInitListener;
 
+    new-instance v0, Lcom/android/settings/tts/TextToSpeechSettings$3;
+
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/tts/TextToSpeechSettings$3;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mSpeechRateObserver:Landroid/database/ContentObserver;
+
     new-instance v0, Lcom/android/settings/tts/TextToSpeechSettings$4;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/tts/TextToSpeechSettings$4;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/tts/TextToSpeechSettings$4;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mPitchObserver:Landroid/database/ContentObserver;
+
+    new-instance v0, Lcom/android/settings/tts/TextToSpeechSettings$6;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/tts/TextToSpeechSettings$6;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
@@ -285,7 +337,7 @@
 
     invoke-direct {p0, v3}, Lcom/android/settings/tts/TextToSpeechSettings;->updateWidgetState(Z)V
 
-    const v3, 0x7f0b0097
+    const v3, 0x7f0b00f4
 
     invoke-direct {p0, v3}, Lcom/android/settings/tts/TextToSpeechSettings;->updateEngineStatus(I)V
 
@@ -415,7 +467,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0092
+    const v4, 0x7f0b00ef
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -449,7 +501,7 @@
 .method private evaluateDefaultLocale()Z
     .locals 11
 
-    const v10, 0x7f0b0097
+    const v10, 0x7f0b00f4
 
     const/4 v9, 0x1
 
@@ -629,7 +681,7 @@
 
     if-eqz v6, :cond_8
 
-    const v6, 0x7f0b0096
+    const v6, 0x7f0b00f3
 
     invoke-direct {p0, v6}, Lcom/android/settings/tts/TextToSpeechSettings;->updateEngineStatus(I)V
 
@@ -639,7 +691,7 @@
     return v9
 
     :cond_8
-    const v6, 0x7f0b0095
+    const v6, 0x7f0b00f2
 
     invoke-direct {p0, v6}, Lcom/android/settings/tts/TextToSpeechSettings;->updateEngineStatus(I)V
 
@@ -730,7 +782,7 @@
     move-exception v1
 
     :cond_1
-    const v5, 0x7f0b0093
+    const v5, 0x7f0b00f0
 
     invoke-virtual {p0, v5}, Lcom/android/settings/tts/TextToSpeechSettings;->getString(I)Ljava/lang/String;
 
@@ -1362,9 +1414,9 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mTts:Landroid/speech/tts/TextToSpeech;
 
-    new-instance v1, Lcom/android/settings/tts/TextToSpeechSettings$5;
+    new-instance v1, Lcom/android/settings/tts/TextToSpeechSettings$7;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/tts/TextToSpeechSettings$5;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/tts/TextToSpeechSettings$7;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
 
     invoke-virtual {v0, v1}, Landroid/speech/tts/TextToSpeech;->setOnUtteranceProgressListener(Landroid/speech/tts/UtteranceProgressListener;)I
 
@@ -1435,7 +1487,7 @@
 
     invoke-direct {p0, v2}, Lcom/android/settings/tts/TextToSpeechSettings;->updateWidgetState(Z)V
 
-    const v2, 0x7f0b0098
+    const v2, 0x7f0b00f5
 
     invoke-direct {p0, v2}, Lcom/android/settings/tts/TextToSpeechSettings;->updateEngineStatus(I)V
 
@@ -1602,7 +1654,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1003a4
+    const v3, 0x7f1003aa
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1680,7 +1732,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1003a3
+    const v3, 0x7f1003a9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1908,7 +1960,7 @@
 
     iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mEngineStatus:Landroid/preference/Preference;
 
-    const v0, 0x7f0b0098
+    const v0, 0x7f0b00f5
 
     invoke-direct {p0, v0}, Lcom/android/settings/tts/TextToSpeechSettings;->updateEngineStatus(I)V
 
@@ -1999,6 +2051,22 @@
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onPause()V
 
+    invoke-virtual {p0}, Lcom/android/settings/tts/TextToSpeechSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mSpeechRateObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    invoke-virtual {p0}, Lcom/android/settings/tts/TextToSpeechSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mPitchObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
     iget-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     const-string/jumbo v1, "TextToSpeech"
@@ -2082,7 +2150,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1003a7
+    const v4, 0x7f1003ad
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2107,7 +2175,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1003a5
+    const v4, 0x7f1003ab
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2142,7 +2210,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1003a6
+    const v4, 0x7f1003ac
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2172,6 +2240,10 @@
 
 .method public onResume()V
     .locals 5
+
+    const/16 v3, 0x64
+
+    const/4 v4, 0x0
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onResume()V
 
@@ -2207,6 +2279,82 @@
 
     :cond_2
     :goto_0
+    invoke-virtual {p0}, Lcom/android/settings/tts/TextToSpeechSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "tts_default_rate"
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mDefaultRate:I
+
+    invoke-virtual {p0}, Lcom/android/settings/tts/TextToSpeechSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "tts_default_pitch"
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mDefaultPitch:I
+
+    iget-object v1, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mDefaultRatePref:Lcom/android/settings/SeekBarPreference;
+
+    const-string/jumbo v2, "tts_default_rate"
+
+    iget v3, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mDefaultRate:I
+
+    invoke-direct {p0, v2, v3}, Lcom/android/settings/tts/TextToSpeechSettings;->getSeekBarProgressFromValue(Ljava/lang/String;I)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/SeekBarPreference;->setProgress(I)V
+
+    iget-object v1, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mDefaultPitchPref:Lcom/android/settings/SeekBarPreference;
+
+    const-string/jumbo v2, "tts_default_pitch"
+
+    iget v3, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mDefaultPitch:I
+
+    invoke-direct {p0, v2, v3}, Lcom/android/settings/tts/TextToSpeechSettings;->getSeekBarProgressFromValue(Ljava/lang/String;I)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/SeekBarPreference;->setProgress(I)V
+
+    invoke-virtual {p0}, Lcom/android/settings/tts/TextToSpeechSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "tts_default_rate"
+
+    invoke-static {v2}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mSpeechRateObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v1, v2, v4, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    invoke-virtual {p0}, Lcom/android/settings/tts/TextToSpeechSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "tts_default_pitch"
+
+    invoke-static {v2}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mPitchObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v1, v2, v4, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
     iget-object v1, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     invoke-virtual {p0}, Lcom/android/settings/tts/TextToSpeechSettings;->getContext()Landroid/content/Context;
@@ -2222,9 +2370,7 @@
     return-void
 
     :cond_3
-    const/4 v1, 0x0
-
-    invoke-direct {p0, v1}, Lcom/android/settings/tts/TextToSpeechSettings;->updateWidgetState(Z)V
+    invoke-direct {p0, v4}, Lcom/android/settings/tts/TextToSpeechSettings;->updateWidgetState(Z)V
 
     invoke-direct {p0}, Lcom/android/settings/tts/TextToSpeechSettings;->checkDefaultLocale()V
 

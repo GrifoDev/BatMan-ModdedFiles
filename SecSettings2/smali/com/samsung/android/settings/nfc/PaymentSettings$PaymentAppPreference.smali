@@ -30,7 +30,7 @@
 
     invoke-direct {p0, p1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0401b7
+    const v0, 0x7f0401b9
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nfc/PaymentSettings$PaymentAppPreference;->setLayoutResource(I)V
 
@@ -90,7 +90,7 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/RadioButton;->setTag(Ljava/lang/Object;)V
 
-    const v3, 0x7f11059d
+    const v3, 0x7f11059f
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -122,7 +122,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f11059f
+    const v3, 0x7f1105a1
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

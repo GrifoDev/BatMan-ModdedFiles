@@ -342,7 +342,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b01d9
+    const v5, 0x7f0b0237
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1296,7 +1296,7 @@
 
     if-eqz v3, :cond_4
 
-    const v9, 0x7f020127
+    const v9, 0x7f02014c
 
     :goto_1
     new-instance v3, Lcom/android/settings/dashboard/SecSearchResultsSummary$SearchResult;
@@ -1479,7 +1479,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f040290
+    const v19, 0x7f040294
 
     const/16 v20, 0x0
 
@@ -1519,7 +1519,7 @@
 
     if-ne v0, v1, :cond_6
 
-    const v18, 0x7f110702
+    const v18, 0x7f110705
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1544,7 +1544,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f040292
+    const v19, 0x7f040296
 
     const/16 v20, 0x0
 
@@ -1606,7 +1606,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f040290
+    const v19, 0x7f040294
 
     const/16 v20, 0x0
 
@@ -1642,7 +1642,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f040292
+    const v19, 0x7f040296
 
     const/16 v20, 0x0
 
@@ -1811,7 +1811,7 @@
 
     if-eqz v18, :cond_a
 
-    const v18, 0x7f020574
+    const v18, 0x7f0205dd
 
     move/from16 v0, v18
 
@@ -1834,7 +1834,7 @@
 
     move/from16 v18, v0
 
-    const v19, 0x7f020127
+    const v19, 0x7f02014c
 
     move/from16 v0, v18
 
@@ -2049,7 +2049,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0d0112
+    const v19, 0x7f0d0113
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2112,7 +2112,7 @@
 
     invoke-virtual {v8, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v18, 0x7f020127
+    const v18, 0x7f02014c
 
     move/from16 v0, v18
 

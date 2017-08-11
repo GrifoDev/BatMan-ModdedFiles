@@ -68,33 +68,13 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 6
 
-    const v2, 0x7f0400ba
+    const v2, 0x7f0400bc
 
     const/4 v3, 0x0
 
     invoke-virtual {p1, v2, p2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v1
-
-    const v2, 0x7f110288
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/TextView;
-
-    iput-object v2, p0, Lcom/android/settings/datausage/DataUsageHelpContents;->mNumberOneTextView:Landroid/widget/TextView;
-
-    const v2, 0x7f110289
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/TextView;
-
-    iput-object v2, p0, Lcom/android/settings/datausage/DataUsageHelpContents;->mNumberOneContentTextView:Landroid/widget/TextView;
 
     const v2, 0x7f11028a
 
@@ -104,7 +84,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    iput-object v2, p0, Lcom/android/settings/datausage/DataUsageHelpContents;->mNumberTwoTextView:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/android/settings/datausage/DataUsageHelpContents;->mNumberOneTextView:Landroid/widget/TextView;
 
     const v2, 0x7f11028b
 
@@ -114,9 +94,29 @@
 
     check-cast v2, Landroid/widget/TextView;
 
+    iput-object v2, p0, Lcom/android/settings/datausage/DataUsageHelpContents;->mNumberOneContentTextView:Landroid/widget/TextView;
+
+    const v2, 0x7f11028c
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/TextView;
+
+    iput-object v2, p0, Lcom/android/settings/datausage/DataUsageHelpContents;->mNumberTwoTextView:Landroid/widget/TextView;
+
+    const v2, 0x7f11028d
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/TextView;
+
     iput-object v2, p0, Lcom/android/settings/datausage/DataUsageHelpContents;->mNumberTwoContentTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f11028e
+    const v2, 0x7f110290
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -126,7 +126,7 @@
 
     iput-object v2, p0, Lcom/android/settings/datausage/DataUsageHelpContents;->mMoreInfoContentTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f11028c
+    const v2, 0x7f11028e
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -216,7 +216,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b04e1
+    const v4, 0x7f0b0544
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -230,7 +230,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b04e2
+    const v4, 0x7f0b0545
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -244,7 +244,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b04e3
+    const v4, 0x7f0b0546
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -273,7 +273,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b04e5
+    const v4, 0x7f0b0548
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -287,7 +287,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b04e6
+    const v4, 0x7f0b0549
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

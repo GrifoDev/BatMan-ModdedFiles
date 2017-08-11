@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">Hindi makapag-scan ng mga network</string>
     <string name="wifi_failed_to_obtain_IP">Nabigong kunin ang IP address.</string>
     <string name="wifi_security_none">Wala</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Hindi makakonekta sa %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Hindi makakonekta sa %1$s. Tingnan ang mga setting mo sa %2$s at subukang muli.</string>
     <string name="bluetooth_pairing_rejected_error_message">Tinanggihan ni %s ang pagpe-pair.</string>
+    <string name="bluetooth_getting_remote_device_name">Kinukuha ang pangalan ng device…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Lilitaw ang pangalan ng device kapag nakakonekta ang device na ito.</string>
     <string name="accessibility_wifi_off">Naka-off ang Wifi.</string>
     <string name="accessibility_no_wifi">Nakadiskonekta ang Wifi.</string>
     <string name="accessibility_wifi_one_bar">May isang bar ang Wifi.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Suporta</string>
     <string name="reset_network_settings_list_summary">I-reset ang Wi-Fi, Bluetooth at iba pang setting ng network sa mga default nito.</string>
     <string name="master_clear_list_summary">I-reset ang device mo sa mga factory default setting nito. Buburahin nito ang lahat ng data, kasama ang mga file at mga nai-download na app.</string>
-    <string name="auto_restart_summary">I-optimize ang device mo sa pamamagitan ng awtomatikong pag-restart dito sa mga takdang oras. Ang anumang data na hindi nai-save ay mawawala kapag nag-restart ang device.</string>
+    <string name="auto_restart_summary">I-optimize ang telepono mo sa pamamagitan ng awtomatikong pag-restart dito nang minsan sa isang linggo. Mawawala ang anumang hindi naka-save na data kapag nag-restart ang telepono mo.</string>
+    <string name="auto_restart_summary_tablet">I-optimize ang tablet mo sa pamamagitan ng awtomatikong pag-restart dito nang minsan sa isang linggo. Mawawala ang anumang hindi naka-save na data kapag nag-restart ang tablet mo.</string>
     <string name="search_settings">Maghanap</string>
     <string name="related_results">%d kaugnay na item</string>
     <string name="no_results_found">Walang nakitang mga resulta</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">%d (na) porsyento ang balanse ng tunog sa kanan. Gumamit ng dalawang daliri upang i-drag ang slider.</string>
     <string name="sound_balance_set">Itakda</string>
     <string name="accessibility_assistant_menu">Assistant na menu</string>
-    <string name="assistant_menu_summary">Pinapagana ang mga function upang maging mas accessible ang device sa mga user na may kapansanan.</string>
+    <string name="assistant_menu_summary">Pahusayin ang accessibility ng telepono para sa mga user na mahina ang deksteridad.</string>
     <string name="color_blind_title">Pag-aayos ng kulay</string>
     <string name="no_result">Ayusin ang mga kulay ng screen kung nahihirapan kang basahin ang iyong display.</string>
     <string name="you_are_normal">Hindi kinakailangan ng pagsasaayos ng kulay.</string>
@@ -653,6 +656,7 @@ Habang gumagana ang function na ito, hindi papaganahin ang Awto rotate screen. I
     <string name="direct_access_actions_accessibility_title">Accessibility</string>
     <string name="direct_access_actions_negative_title">Mga negatibong kulay</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Hindi mapapagana nang sabay ang Direktang pag-access at Pagbawas sa laki ng screen. Hindi pagaganahin ang Pagbawas sa laki ng screen.</string>
+    <string name="direct_access_exclusive_popup_msg">Ang %1$s at %2$s ay hindi mapapagana nang magkasabay. Ang %3$s ay hindi pagaganahin.</string>
     <string name="direct_access_actions_color_adjustment_summary">I-set up ang Color adjustment in Vision para gamitin ito sa Direct Access</string>
     <string name="direct_access_actions_screen_reader_summary">Paganahin ang Page reader para magamit ito sa Direct access.</string>
     <string name="direct_access_actions_accesscontrol_title">Kontrol sa pakikipag-ugnayan</string>
@@ -850,7 +854,9 @@ Io-off din ang Wi-Fi at Bluetooth, pero maaring muling buksan sa Settings o sa q
     <string name="premium_sms_values_ask">Tanungin</string>
     <string name="premium_sms_values_never">Huwag payagan</string>
     <string name="premium_sms_values_allow">Palaging payagan</string>
-    <string name="assist_and_voice_input_summary">Nagbibigay ng mas maraming opsiyon at impormasyon tungkol sa bawat screen ang mga device assistance app.</string>
+    <string name="assist_and_voice_input_summary">Pumili ng app na gagamitin kapag nag-touch at nag-hold ka sa Home button.</string>
+    <string name="assist_footer_phone">Pumili ng app na gagamitin kapag nag-touch at nag-hold ka sa Home button. Matutulungan ka ng mga app na tulong sa device sa pamamagitan ng pagtipon ng impormasyon mula sa screen na kasalukuyang ipinapakita sa telepono mo.</string>
+    <string name="assist_footer_tablet">Pumili ng app na gagamitin kapag nag-touch at nag-hold ka sa Home button. Matutulungan ka ng mga app na tulong sa device sa pamamagitan ng pagtipon ng impormasyon mula sa screen na kasalukuyang ipinapakita sa tablet mo.</string>
     <string name="default_app_title">I-set bilang default</string>
     <string name="premium_sms_title">Magpadala ng premium SMS</string>
     <string name="default_app_selection">Pagpili ng default na app</string>
@@ -939,7 +945,7 @@ Maaari mong palitan ito mamaya sa pagpunta sa mga setting ng Bluetooth."</string
 
 Maaaring makaranas ang 2 nakakonektang device ng kaunting pagkakaiba sa inilalabas na tunog."</string>
     <string name="bluetooth_dual_play_ask_popup_title">I-off ang Media volume sync?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Para magamit ang Dual audio, kailangang i-off ang Media volume sync.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Para makontrol nang hiwalay ang volume sa bawat audio device, kailangang i-off ang Media volume sync.</string>
     <string name="bluetooth_avc_title">Media volume sync</string>
     <string name="bluetooth_avc_description">Kung makokontrol ng nakakonektang Bluetooth device ang volume ng media sa telepono mo, magsi-sync ang level ng volume na nai-set ng Bluetooth device sa telepono mo.</string>
     <string name="bluetooth_avc_volume_change_description">Maaaring magdulot ng mga di-inaasahang pagbabago sa volume ang pag-on sa function na ito.</string>
@@ -948,6 +954,7 @@ Maaaring makaranas ang 2 nakakonektang device ng kaunting pagkakaiba sa inilalab
     <string name="bluetooth_avc_ask_popup_title">I-off ang Dual audio?</string>
     <string name="bluetooth_avc_ask_popup_content">Para magamit ang Media volume sync, kailangang i-off ang Dual audio.</string>
     <string name="bluetooth_avc_disable_description">Hindi suportado ng nakakonektang Bluetooth device ang Media volume sync. Hindi mo maisi-sync ang volume ng telepono mo sa nakakonektang Bluetooth device.</string>
+    <string name="bluetooth_avc_available_description">Suportado ng nakakonektang Bluetooth device ang Media volume sync at isi-sync sa telepono mo ang level ng volume na nai-set ng Bluetooth device.</string>
     <string name="bluetooth_enter_pin_msg">Maglagay ng PIN na ipe-pair sa %s (Subukan ang 0000 o ang 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Naabot na ang maximum na bilang ng mga character.</string>
     <string name="settings_menu_done">Tapos na</string>
@@ -1031,11 +1038,12 @@ Kahit na hindi gumagana ang Smart capture, maa-access mo ang mga feature nito ga
     <string name="swipe_to_call_title">I-swipe para tumawag o magpadala ng mga mensahe</string>
     <string name="swipe_to_call_summary">Mag-swipe pakanan sa isang contact o numero para tumawag o pakaliwa para magpadala ng mensahe sa Phone, Contacts o Messages.</string>
     <string name="swipe_to_call_summary_dcm">Mag-swipe pakanan sa isang contact o numero para tumawag o pakaliwa para magpadala ng mensahe sa Dial, Contacts o Messages.</string>
-    <string name="swipe_to_call_summary_kddi">Mag-swipe pakanan sa isang contact o numero para tumawag o pakaliwa para magpadala ng mensahe sa Phone o Contacts.</string>
+    <string name="swipe_to_call_summary_kddi">Mag-swipe pakanan sa isang contact o numero para tumawag o pakaliwa para magpadala ng mensahe sa Dial o Contacts.</string>
     <string name="dual_app_title">Dual Messenger</string>
     <string name="dual_app_summary">Gumamit ng dalawang hiwalay na account para sa parehong app.</string>
     <string name="finger_sensor_gesture_title">Mga gesture ng Finger sensor</string>
     <string name="finger_sensor_gesture_summary">Buksan at isara ang mga app at feature gamit ang fingerprint sensor.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Buksan at isara ang notification panel gamit ang fingerprint sensor.</string>
     <string name="finger_sensor_gesture_description">Mag-swipe pataas o pababa sa fingerprint sensor para buksan o isara ang notification panel.</string>
     <string name="open_samsung_pay_title">Buksan ang Samsung Pay</string>
     <string name="open_samsung_pay_summary">Mula sa Home screen, mag-swipe pataas sa fingerprint sensor para buksan ang Samsung Pay.</string>
@@ -1070,6 +1078,7 @@ Kahit na hindi gumagana ang Smart capture, maa-access mo ang mga feature nito ga
 %s"</string>
     <string name="enable_ps_title">Paganahin ang %s</string>
     <string name="setup_wizard">Setup wizard</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Normal</string>
     <string name="large">Malaki</string>
     <string name="small">Maliit</string>
@@ -1215,7 +1224,7 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="auto_update_summary">Mag-download ng mga update ng software kapag nakakonekta sa isang Wi-Fi network. Magagamit mo pa rin ang device mo habang nagda-download.</string>
     <string name="auto_update_over_wifi">I-awto download gamit ang Wi-Fi</string>
     <string name="auto_update_over_wifi_summary">Awtomatikong mag-download ng mga update ng software kapag nakakonekta sa isang Wi-Fi network. Depende sa service provider mo, maaari din i-download ang mga update na gamit ang mobile data na walang anumang dagdag na singil. Magagamit mo pa rin ang telepono mo habang nagda-download.</string>
-    <string name="scheduled_update">Nakaiskedyul software updates</string>
+    <string name="scheduled_update">Iiskedyul ang mga update sa software</string>
     <string name="scheduled_update_summary_default">Naka-off</string>
     <string name="scheduled_update_summary_set_time">Magsisimula ang update sa ganap na %s</string>
     <string name="scheduled_update_summary_set_time_everyday">Magsisimula ang update sa ganap na %s bawat araw</string>
@@ -1359,7 +1368,7 @@ I-tap ang OK para payagan na mataasan ang liwanag nang lagpas sa ligtas na level
     <string name="adjust_your_display_colour">I-adjust ang mga kulay ng display mo para baguhin ang paglitaw ng mga puti.</string>
     <string name="display_temperature_preset_cool">Malamig</string>
     <string name="display_temperature_preset_warm">Mainit</string>
-    <string name="display_advanced_option">Mga advanced na pagpipilian</string>
+    <string name="display_advanced_option">Advanced na opsyon</string>
     <string name="color_balance_subtext_1">Maaari lang i-adjust ang balanse ng kulay sa Adaptive display mode.</string>
     <string name="color_balance_subtext_2">Hindi ilalapat ang mga ini-adjust mo habang naka-on ang Blue light filter.</string>
     <string name="poc_balance_title">Balanse ng kulay ng gilid ng screen</string>
@@ -1417,6 +1426,7 @@ I-tap ang OK para payagan na mataasan ang liwanag nang lagpas sa ligtas na level
     <string name="navigationbar_summary">Pamahalaan ang Home, Back at Recents button.</string>
     <string name="navigationbar_theme_switch">Gamitin ang kasalukuyang tema</string>
     <string name="navigationbar_color_title">Kulay ng background</string>
+    <string name="navigationbar_color_summary">Maaaring hindi mailapat sa lahat ng app ang napili mong kulay ng background.</string>
     <string name="navigationbar_order_title">Layout ng button</string>
     <string name="navigationbar_order_default">Recents - Home - Back</string>
     <string name="navigationbar_order_mirrored">Back - Home - Recents</string>
@@ -1448,7 +1458,8 @@ I-tap ang OK para payagan na mataasan ang liwanag nang lagpas sa ligtas na level
     <string name="blue_light_filter_enable_now">Naka-on ngayon</string>
     <string name="blue_light_filter_enable_as_scheduled">I-on gaya ng naka-schedule</string>
     <string name="blue_light_filter_scheduled_toast">Naka-on ang Blue light filter. Awtomatiko itong io-off pagsapit ng nakatakdang oras ng wakas.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">Hindi magagamit ang %s at Blue light filter nang sabay. Hindi papaganahin ang Blue light filter.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">I-off ang Blue light filter?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Para magamit ang %s, kailangang naka-off ang Blue light filter.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Para magamit ang Sunset to sunrise, kailangang naka-on ang Location.</string>
     <string name="dlg_turn_on">Naka-on</string>
     <string name="screen_resolution_title">Resolution ng screen</string>
@@ -1665,6 +1676,7 @@ Inaabot ang pag-encrypt ng isang oras o higit pa. Bago ka magsimula, tiyaking na
     <string name="crypt_keeper_last_warn_wipe">Mayroon ka na lang 1 tangkang nalalabi para i-start up ang device mo bago ito i-reset sa factory default na setting nito. Buburahin nito ang lahat ng data, kasama ang mga file at mga nai-download na app.</string>
     <string name="crypt_keeper_failed_title_dec">Decryption failed.</string>
     <string name="crypt_keeper_failed_summary_dec">Hindi makumpleto ang pag-decrypt dahil sa pagkaantala. Magsagawa ng factory data reset (buburahin nito ang lahat ng data) bago gamitin.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Itakda ang uri ng lock screen</string>
     <string name="encryption_interstitial_message">"Lalo mo pang mapoprotektahan ang telepono na ito sa paghingi na ipasok ang %s mo bago mag-startup ang telepono. Nakatutulong ito na protektahan ang data mo kung mawala o manakaw ang telepono. Maaaring hingin ng ilang app ang Secure Startup ayon sa mga patakaran sa pag-encrypt ng device para ma-access ang mga feature, gaya ng Email sync.
 
 Hindi ka makatatanggap ng anumang tawag, mensahe o notification at hindi tutunog ang mga alarma, hanggang sa mag-start up ang telepono."</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Gamitin ang fingerprint</string>
     <string name="wifi_ap_close">Isara</string>
     <string name="fingerscanner_add_summary">Idagdag ang mga fingerprint mo.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 fingerprint ang naidagdag.</string>
     <string name="fingerscanner_register_summary">%d fingerprint ang naidagdag.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Gumamit ng fingerprint o ipasok ang kasalukuyang PIN.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Gamitin ang fingerprint o iguhit ang kasalukuyang pattern.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">I-unlock ang telepono mo gamit ang face recognition sa sandaling mag-on ang screen, nang hindi muna nagsi-swipe.</string>
     <string name="facelock_recognition_speed_up">Mas mabilis na pagkilala</string>
     <string name="facelock_recognition_speed_up_summary">I-on para sa mas mabilis na recognition. I-off para taasan ang seguridad at gawin itong mas mahirap i-unlock gamit ang isang larawan o video.</string>
+    <string name="facelock_samsungpass_summary">Gamitin ang face recognition para i-verify ang pagkakakilanlan mo gamit ang %s at iba pang suportadong app.</string>
     <string name="face_remove_face_popup_title">Alisin ang data ng mukha?</string>
     <string name="face_remove_face_popup_message_1">Hindi na makikilala ang mukha mo at io-off ang Face lock.</string>
     <string name="face_remove_face_popup_message_2">Io-off ang mga feature na gumagamit ng face recognition.</string>
@@ -2050,7 +2064,7 @@ Bago ka humiling ng pagkukumpuni sa bisa ng warranty, dapat hindi paganahin ang 
     <string name="iris_use_samsung_pass">Samsung Pass</string>
     <string name="iris_use_samsung_pass_summary">Gamitin ang mga iris mo para i-verify ang pagkakakilanlan mo gamit ang %s at iba pang suportadong app.</string>
     <string name="iris_use_samsung_pass_description_internet">Internet</string>
-    <string name="iris_unlock">Iris unlock</string>
+    <string name="iris_unlock">Pag-unlock ng iris</string>
     <string name="iris_unlock_summary">I-unlock ang telepono mo gamit ang mga iris mo.</string>
     <string name="tips_for_iris">Mga tip sa paggamit ng iris recognition</string>
     <string name="iris_remove_popup_1">Aalisin ang iris data mo. Babaguhin ang uri ng screen lock sa %s.</string>
@@ -2070,7 +2084,7 @@ I-on ang Iris unlock para gamitin ang biometrics o %s mo para i-unlock ang telep
     <string name="biometrics_backup_locktype_title">I-set up ang seguridad ng iris</string>
     <string name="biometrics_register_your_iris">Irehistro ang mga iris mo.</string>
     <string name="biometrics_backup_locktype_summary">Para gamitin ang mga iris mo para i-unlock ang device, dapat kang mag-set ng pattern, PIN o password.</string>
-    <string name="biometrics_backup_locktype_message">Para magamit ang mga iris mo para i-unlock ang telepono o para sa ligtas na pag-verify, kakailanganin mong:</string>
+    <string name="biometrics_backup_locktype_message">Para magamit ang mga iris mo sa pag-unlock ng telepono mo o para sa pag-verify ng sarili mo sa mga app, kakailanganin mong:</string>
     <string name="iris_delete_popup_title">Alisin ang iris data?</string>
     <string name="iris_delete_popup_message">Alisin ang iris data?</string>
     <string name="iris_delete_popup_message_with_related_func">Io-off ang mga feature na gumagamit ng mga iris.</string>
@@ -2078,7 +2092,7 @@ I-on ang Iris unlock para gamitin ang biometrics o %s mo para i-unlock ang telep
     <string name="iris_timeout_popop_title">Subukang muli mamaya</string>
     <string name="iris_timeout_popop_message">Hindi nakilala ang mga iris. Baka marumi ang iris camera. Linisin ang area sa ibabaw ng screen at subukang muli.</string>
     <string name="iris_timeout_popop_message_1">Baka marumi ang Iris camera. Linisin ang area sa ibabaw ng screen at subukang muli.</string>
-    <string name="iris_proximity_restriction_popop_message">Hindi nakilala ang mga iris. Napakalapit ng telepono sa mukha o baka marumi ang proximity sensor. Linisin ang area sa ibabaw ng screen at subukang muli.</string>
+    <string name="iris_proximity_restriction_popop_message">Ilayo pa lalo ang telepono mula sa mukha mo at subukang muli.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Baka marumi ang proximity sensor.
 Linisin ang area sa ibabaw ng screen."</string>
     <string name="iris_try_again">Subukang muli</string>
@@ -2086,6 +2100,8 @@ Linisin ang area sa ibabaw ng screen."</string>
     <string name="iris_failed_to_verity_identify">Hindi mai-verify ang pagkakakilanlan mo</string>
     <string name="iris_failed_popup_description">Nagkaroon ng %1$d tangka na i-verify ang mga iris mo. Subukang muli sa loob ng %2$d segundo.</string>
     <string name="iris_no_match">Walang katugma</string>
+    <string name="iris_eye_safety_msg">Hindi nakilala ang mga iris mo.</string>
+    <string name="iris_timeout_msg">Hindi nadetekta ang mga iris mo.</string>
     <string name="biometrics_registered">Nakarehistro</string>
     <string name="iris_turn_on_toast_message">Pinagana ang Iris lock sa halip na Fingerprint lock.</string>
     <string name="iris_wrong_backup_password">Maling password ng backup</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Ipakita ang Home button at orasan o impormasyon sa standby screen.</string>
     <string name="aod_feature_off_popup_title">I-off ang %s?</string>
     <string name="aod_feature_off_popup_description">Para magamit ang %1$s, kailangang naka-off ang %2$s.</string>
+    <string name="aod_features_off_popup_title">I-off ang iba pang function?</string>
+    <string name="aod_features_off_popup_description">Para gamitin ang Always On Display, kailangang i-off ang mga sumusunod na function:</string>
     <string name="aod_features_off_popup_btn_ok">I-off</string>
     <string name="aod_disable_by_negative_colors">Hindi magagamit habang naka-on ang Negative colors.</string>
     <string name="aod_disable_by_powersaving_mode">Hindi magagamit habang naka-on ang Power saving mode.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Colored Droplets</string>
     <string name="lock_screen_show_information_summary_wifi_only">Ipakita ang impormasyon ng may-ari ng device o mga shortcut ng app, sa lock screen.</string>
     <string name="lock_screen_sview_show_information_summary">Ipakita ang dual clock, impormasyon ng may-ari ng device o mga shortcut ng app sa lock screen at sa S View window.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Ipakita ang roaming clock o ang impormasyon ng contact ng may-ari ng telepono sa Lock screen at sa pamamagitan ng window ng S View.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Pumili ng mga shortcut ng app na ipapakita sa Lock screen at sa S View window.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Ipakita ang mga notification sa Lock screen at sa S View window.</string>
     <string name="lock_screen_and_cover_show_information_summary">Ipakita ang dalawahang oras sa lock screen at sa Clear View Cover.</string>
     <string name="lock_screen_secured_lock_settings_title">I-secure ang mga setting ng lock</string>
     <string name="lock_screen_secured_lock_settings_summary">I-set ang mga seguradong function ng lock, tulad ng Auto lock at biglaang pag-lock gamit ang Power key.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Time zone ng home</string>
     <string name="contact_info_settings_title">Impormasyon ng contact</string>
     <string name="show_contact_info_on_lockscreen_label">Ipakita ang impormasyon gaya ng numero ng telepono o Email address mo sa Lock screen.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Ipakita ang impormasyon gaya ng numero ng telepono o Email address mo sa Lock screen at Always On Display.</string>
     <string name="unlock_effect">Effect sa pag-unlock</string>
     <string name="walking_mate_title">Pedometer</string>
     <string name="help_text_title">Text ng tulong</string>
@@ -2415,7 +2437,7 @@ Hindi inirerekomenda ang pag-alis sa biometric data mo, pero mapapanatili mo ang
     <string name="toast_set_lock_pattern">Buburahin ang lahat ng data at ire-reset ang telepono kung malimot mo ang pattern.</string>
     <string name="toast_set_lock_password">Buburahin ang lahat na data at ire-reset ang telepono kung malimot mo ang password.</string>
     <string name="toast_set_lock_pin">Buburahin ang lahat na data at ire-reset ang telepono kung malimot mo ang PIN.</string>
-    <string name="chooselock_warning_text">Tandaan ang %s na ito. Hihingin ito pagkatapos i-restart ng device.</string>
+    <string name="chooselock_warning_text">Tandaan ang %s na ito. Hihingin ito pagkatapos mong i-restart ang telepono mo.</string>
     <string name="lockpassword_password_exists_history">Nagamit na dati ang password. Maglagay ng bagong password.</string>
     <string name="lockpassword_pin_repeating_nums">PIN must not contain repeating numbers.</string>
     <string name="lockpassword_pin_sequential_nums">PIN must not contain numbers in order.</string>
@@ -2533,6 +2555,9 @@ Io-off ang mobile data."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Maliban kung gagamit ka ng Wi-Fi, hindi mo na magagamit ang Internet, Email o iba pang app na nangangailangan ng koneksiyon sa data.
 
 Io-off ang mobile data."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Maliban kung kokonekta ka sa isang Wi-Fi network, hindi mo magagamit ang Internet, Email o iba pang app na kailangan ng koneksiyon sa network.</string>
@@ -2691,10 +2716,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Custom na limit sa volume</string>
     <string name="volume_limiter_descryption">Protektahan ang mga tainga mo gamit ang maximum na limit sa volume ng media. Ilalapat lang ang limit kapag gumagamit ng headphones o mga Bluetooth audio device.</string>
     <string name="multi_sound_title">Hiwalay na tunog ng app</string>
-    <string name="multi_sound_summary">I-play ang tunog mula sa isang app sa isang speaker o headphones nang hiwalay sa iba pang tunog na nasa device mo.</string>
-    <string name="multi_sound_descryption">"I-play ang tunog ng media mula sa isang app sa speaker o headphones na hiwalay sa iba pang tunog ng media sa iba pang app.
+    <string name="multi_sound_summary">Mag-play ng tunog ng media mula sa isang app sa isang audio device na bukod sa pangunahing audio output device ng telepono mo.</string>
+    <string name="multi_sound_descryption">"Mag-play ng tunog ng media mula sa isang app sa isang audio device na bukod sa pangunahing audio output device ng telepono mo. Pumili ng isang app at audio device para i-on ito.
 
-Kung pipili ka ng isang Bluetooth audio device, ipi-play ang tunog sa default na audio device kung hindi nakakonekta ang Bluetooth device."</string>
+Gumagana lang ang hiwalay na tunog ng app kapag naiiba ang pinili mong audio device sa main audio output device ng telepono mo.
+
+Mababago mo ang main audio output device ng telepono mo sa quick settings panel. Kung hindi pinapakita ang audio output, i-on ito sa Samsung Connect > Settings > Samsung Connect panel."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Pumili ng app kung saan ipi-play ang tunog nito sa isang hiwalay na audio device.</string>
     <string name="set_application_descryption">Pumili ng multimedia app sa ibaba para i-play ang tunog nito sa isang hiwalay na audio device.</string>
@@ -2705,9 +2732,11 @@ Kung pipili ka ng isang Bluetooth audio device, ipi-play ang tunog sa default na
     <string name="multi_sound_popup_msg">Para i-on ang %s, kailangan mong pumili ng isang app at isang audio device.</string>
     <string name="multi_sound_network_msg">Para sumilip ng mga magagamit na app, kailangang nakakonekta ang telepono mo sa isang network. Suriin ang mga setting ng network mo at subukan muli.</string>
     <string name="multi_sound_wifi_msg">Para sumilip ng mga magagamit na app, kailangang nakakonekta ang telepono mo sa isang network. Ang paggamit ng mobile data ay maaaring magresulta sa dagdag na singil.</string>
+    <string name="multi_sound_add_application">Magdagdag ng application</string>
     <string name="dlg_btn_select">Piliin</string>
-    <string name="audio_device_type_descryption">Piliin kung aling audio device ang nais mong gamitin para sa app na ito. Magagamit lang ang mga Bluetooth device habang nakakonekta ang mga ito.</string>
+    <string name="audio_device_type_descryption">Piliin kung aling audio device ang nais mong gamitin para sa napiling app. Magagamit lang ang mga Bluetooth device habang nakakonekta ang mga ito.</string>
     <string name="my_phone_title">Telepono</string>
+    <string name="my_phone_summary">Speaker/headphones/USB audio device</string>
     <string name="bluetooth_device_title">Bluetooth device</string>
     <string name="no_connected_devices">Walang mga nakakonektang device</string>
     <string name="two_hours">2 oras</string>
@@ -2715,7 +2744,8 @@ Kung pipili ka ng isang Bluetooth audio device, ipi-play ang tunog sa default na
     <string name="stop_setup_popup_msg">Hindi ilalapat ang anumang setting na binago mo.</string>
     <string name="app_turned_on">Na-on ang %s.</string>
     <string name="force_touch_title">Hard press vibration feedback</string>
-    <string name="volume_key_control_title">Default na kontrol sa Volume key</string>
+    <string name="volume_key_control_title">Gamitin ang Volume keys para sa media</string>
+    <string name="volume_key_control_summary">Kontrolin ang volume ng media kapag pumindot ka sa mga Volume key.</string>
     <string name="sound_mode">Sound mode</string>
     <string name="sound_mode_vibrate">Pag-vibrate</string>
     <string name="sound_mode_mute">I-mute</string>
@@ -2928,14 +2958,13 @@ mode"</string>
     <string name="text_biometrics_title_enterprise">Kapag pinili mo ang %1$s, hindi susuportahan ang biometrics bilang paraan ng pag-unlock para sa %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">Hindi suportado ng %1$s ang mga fingerprint bilang paraan ng pag-unlock para sa %2$s.</string>
     <string name="edge_feeds_title">Mga edge feed</string>
-    <string name="screensaver_settings_summary">"Kontrolin ang nangyayari habang naka-dock at/o nagcha-charge ang device. Ipapakita ang screensaver pagkatapos na mag-time out ang screen.
-
-Tinatawag din na Daydream ang function na ito."</string>
-    <string name="screensaver_settings_summary_wo_dock">Magpakita ng screensaver pagkatapos na awtomatikong mag-off ang screen habang nagcha-charge ang telepono mo.</string>
+    <string name="screensaver_settings_summary">Magpakita ng screensaver pagkatapos na awtomatikong mag-off ang screen habang nagcha-charge ang telepono mo.</string>
+    <string name="screensaver_settings_summary_wo_dock">Magpakita ng screensaver pagkatapos na awtomatikong mag-off ang screen habang naka-dock o nagcha-charge ang telepono mo.</string>
     <string name="apn_already_exists">Umiiral na.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Dapat na nasa pagitan ng %1$d at %2$d ang port number.</string>
     <string name="apn_restore_warning">Aalisin ang lahat ng APN na idinagdag mo. Ire-reset ang iba pang APN sa kani-kanilang mga default na setting.</string>
+    <string name="apn_restore_title">I-reset ang mga setting ng APN?</string>
     <string name="master_clear_desc_google_account">Google account</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2947,7 +2976,8 @@ Tinatawag din na Daydream ang function na ito."</string>
     <string name="sound_balance_summary">I-adjust ang balanse ng kaliwa at kanan na tunog para sa headphones.</string>
     <string name="backup_samsung_account_title">Mga setting ng pag-backup</string>
     <string name="restore_samsung_account_title">Ipanumbalik</string>
-    <string name="auto_restart_header">Device management</string>
+    <string name="auto_restart_header">Pamamahala sa telepono</string>
+    <string name="auto_restart_header_tablet">Pamamahala sa tablet</string>
     <string name="auto_restart_title">I-awto restart</string>
     <string name="switch_turn_on_text">I-on</string>
     <string name="switch_turn_off_text">I-off</string>
@@ -3070,6 +3100,14 @@ Hindi maaapektuhan ang personal mong data at mga setting ng mga nai-download na 
     <string name="tether_settings_summary_usb_bt">Ibahagi ang koneksyon sa mobile data ng iyong device sa pamamagitan ng USB o Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Tanggapin</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Ibahagi ang koneksiyon ng telepono mo sa internet gamit ang Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Ibahagi ang koneksiyon ng tablet mo sa internet gamit ang Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Handa nang ibahagi ang koneksiyon sa internet ng teleponong ito.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Handa nang ibahagi ang koneksiyon sa internet ng tablet na ito.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Nakabahagi ang internet ng teleponong ito sa 1 device.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Nakabahagi ang internet ng tablet na ito sa 1 device.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Nakabahagi ang internet ng teleponong ito sa %d device.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Nakabahagi ang internet ng tablet na ito sa %d device.</string>
     <string name="onehand_settings_title">One-handed mode</string>
     <string name="onehand_settings_text_1">Mag-swipe pataas nang pa-diagonal mula sa alinmang ibabang kanto ng screen para bawasan ang laki ng display.</string>
     <string name="onehand_settings_text_2">I-tap ang Home key nang 3 beses na mabilis para bawasan ang laki ng display.</string>
@@ -3397,12 +3435,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">I-off</string>
     <string name="wifi_or_mobile_network">Mga Wi-Fi o mobile network</string>
     <string name="wifi_network_only">Wi-Fi network lang</string>
+    <string name="wifi_adps_title">Wi-Fi power saving mode</string>
+    <string name="wifi_adps_summary">Bawasan ang paggamit sa baterya sa pamamagitan ng pag-analisa sa mga traffic pattern ng Wi-Fi.</string>
     <string name="wifi_auto_reconnect">Mag-auto reconnect</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Kapag na-on ang Wi-Fi, hindi papaganahin ang Mobile Hotspot. Magpatuloy?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Ino-off ang Wi-Fi kapag aktibo ang Mobile HotSpot. Para i-on ang Wi-Fi, paki-off ang Mobile HotSpot.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">Ino-off ang Wi-Fi kapag aktibo ang Mobile HotSpot. Para i-on ang Wi-Fi, i-off ang Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_mtr">Ino-off ang Wi-Fi kapag aktibo ang Mobile Hotspot. Para i-on ang Wi-Fi, paki-off ang Mobile Hotspot.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">Hindi papaganahin ang Mobile hotspot kapag naka-on ang Wi-Fi</string>
     <string name="wifi_control_history_title">History ng pagkontrol sa Wi-Fi</string>
@@ -3602,6 +3642,10 @@ Pagkatapos baguhin ang pangalan o password ng mobile hotspot, isang bagong QR co
     <string name="wifi_wps_pin_client_mobileap">Pagkonekta sa client gamit ang PIN %1$s. Maaaring abutin ang setup ng hanggang %2$d minuto bago matapos.</string>
     <string name="wifi_wps_complete_mobileap">Nakakonekta na ngayon ang kabilang device sa iyong device.</string>
     <string name="wifi_ap_disconnect_warn">Idiskonekta ang device</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Ang lahat ng device na kasalukuyang nakakonekta ay madidiskonekta mula sa Mobile hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Ang lahat ng device na kasalukuyang nakakonekta ay madidiskonekta mula sa Mobile hotspot.</string>
     <string name="wifi_ap_warn_max_whitelist">Naabot na ang maximum na bilang ng mga pinapayagang device (%d).</string>
     <string name="wifiap_one_item_deleted">1 item ang ide-delete.</string>
@@ -3737,6 +3781,8 @@ Ang paggamit sa Mobile hotspot ay pinatataas ang konsumo sa baterya at paggamit 
     <string name="wifi_ap_first_time_configuration">Pag-configure ng HotSpot sa unang pagkakataon</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Ipasok ang tamang PIN.</string>
+    <string name="open_mobileap_warning">Hindi secure ang AP ng mobile na ito.</string>
+    <string name="hidden_mobileap_warning">Hindi papaganahin ang WPS kapag nag-set ang user ng Hidden SSID.</string>
     <string name="wifi_ssid_max_byte_error">Naabot na ang maximum na bilang ng mga character.</string>
     <string name="tethering_attention_title">Atensyon</string>
     <string name="wfd_select_device">Pumili ng device</string>
@@ -3967,6 +4013,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">I-sync</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Pinapayagan ng pahintulot na ito na magpakita ang app ng mga bagay sa ibabaw ng iba pang app na ginagamit mo. Maaaring makaabala ito sa paggamit mo ng ibang app.</string>
+    <string name="write_settings_body_description">Payagan ang app na ito na baguhin ang mga setting ng system, gaya ng pag-on o pag-off sa Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Ire-reset nito ang mga gusto mo sa:</string>
+    <string name="reset_app_preferences_desc2">Mga hindi pinaganang app</string>
+    <string name="reset_app_preferences_desc3">Mga pagbabawal sa notification para sa mga app</string>
+    <string name="reset_app_preferences_desc4">Mga default na app</string>
+    <string name="reset_app_preferences_desc5">Mga pagbabawal sa background data para sa mga app</string>
+    <string name="reset_app_preferences_desc6">Mga pagbabawal ng pahintulot</string>
+    <string name="reset_app_preferences_desc7">Hindi mawawala ang dati mo nang app data.</string>
     <string name="knox_security_mode_title">Seguridad ng Knox</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">Patakaran sa privacy</string>
@@ -3981,6 +4035,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Pamahalaan ang personal mong impormasyon at mga detalye ng Samsung account.</string>
     <string name="my_profile_summary_jpn">Pamahalaan ang personal mong impormasyon at mga detalye ng Galaxy account.</string>
     <string name="arbitration_agreement">Kasunduan sa Arbitrasyon</string>
+    <string name="activation_title">Status ng pag-activate</string>
+    <string name="activation_summary">Nai-activate noong %1$s. Para sa mas maraming impormasyon, bumisita sa %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF naka-on</string>
+    <string name="edit_event_start_short">Simula</string>
+    <string name="edit_event_end_short">Tapos</string>
+    <string name="select_date_to_view">Pumili ng petsa na titingnan</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Oo</string>
     <string name="no">Hindi</string>
     <string name="create">Lumikha</string>
@@ -5473,7 +5534,7 @@ Ang sinumang user ay makakatanggap ng mga na-update na pahintulot sa app sa ngal
     <string name="app_notification_block_title">Payagan ang mga notification</string>
     <string name="app_notification_block_summary">Tumanggap ng mga notification mula sa app na ito, kasama na ang mga notification message, sound at vibration.</string>
     <string name="app_notification_override_dnd_title">I-set bilang prayoridad</string>
-    <string name="app_notification_override_dnd_summary">Payagan ang mga notification mula sa app na ito na tumunog at i-on ang screen habang gumagana ang Do not disturb.</string>
+    <string name="app_notification_override_dnd_summary">Ipakita ang mga notification sa tuktok ng notification panel at isama ang mga ito sa pinapahintulutang listahan habang pinapagana ang mode na Huwag abalahin.</string>
     <string name="app_notification_visibility_override_title">Sa lock screen</string>
     <string name="app_notifications_dialog_done">Tapos na</string>
     <string name="zen_mode_choose_rule_type">Piliin ang uri ng panuntunan</string>
@@ -5510,6 +5571,7 @@ Ang sinumang user ay makakatanggap ng mga na-update na pahintulot sa app sa ngal
     <string name="restr_pin_enter_admin_pin">Ipasok ang PIN ng administrator</string>
     <string name="switch_on_text">Naka-on</string>
     <string name="switch_off_text">Naka-off</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Ang profile ng trabaho na ito ay pinamamahalaan ng:</string>
     <string name="managing_admin">Pinamamahalaan ng %s</string>
     <string name="display_auto_rotate_title">Pag-rotate ng screen</string>
     <string name="display_auto_rotate_rotate">Iikot ang content ng screen</string>
@@ -5546,9 +5608,9 @@ Hindi ka makatatanggap ng anumang tawag, mensahe o notification at hindi tutunog
     <string name="encrypt_talkback_dialog_require_pin">Hingin ang PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Hingin ang pattern</string>
     <string name="encrypt_talkback_dialog_require_password">Hingin ang password</string>
-    <string name="encrypt_talkback_dialog_message_pin">Kapag pinasok mo ang PIN mo pagkatapos i-on ang device, ang mga function na pang-accessibility gaya ng %1$s ay pansamantalang hindi pagaganahin.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Kapag ginuhit mo ang pattern mo pagkatapos i-on ang device, ang mga function na pang-accessibility gaya ng %1$s ay pansamantalang hindi pagaganahin.</string>
-    <string name="encrypt_talkback_dialog_message_password">Kapag pinasok mo ang password mo pagkatapos i-on ang device, ang mga function na pang-accessibility gaya ng %1$s ay pansamantalang hindi pagaganahin.</string>
+    <string name="encrypt_talkback_dialog_message_pin">Hihingin ang PIN mo kapag nag-power on ang device mo. Hindi magagamit ang mga accessibility function hanggang sa mag-start up ang device mo.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Hihingin ang pattern mo kapag nag-power on ang device mo. Hindi magagamit ang mga accessibility function hanggang sa mag-start up ang device mo.</string>
+    <string name="encrypt_talkback_dialog_message_password">Hihingin ang password mo kapag nag-power on ang device mo. Hindi magagamit ang mga accessibility function hanggang sa mag-start up ang device mo.</string>
     <string name="slot_number">(slot %d)</string>
     <string name="app_launch_domain_links_title">Mga link ng app</string>
     <string name="app_launch_open_domain_urls_title">Pumunta sa suportadong URL</string>
@@ -5624,18 +5686,18 @@ Hindi ka makatatanggap ng anumang tawag, mensahe o notification at hindi tutunog
     <string name="usb_use_power_only">I-charge ang nakakonektang device</string>
     <string name="usb_use_power_only_desc">I-charge ang nakakonektang device gamit ang USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Maglipat ng mga media file</string>
+    <string name="usb_use_file_transfers">Maglipat ng mga file</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Maglipat ng mga larawan</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Piliin ang mode na ito kung hindi gumagana ang Transfer media files. Makapaglilipat ka lang ng mga file na larawan.</string>
+    <string name="usb_use_photo_transfers_summary">Piliin ang mode na ito kung hindi gumagana ang Transfer files. Maaari ka lang maglipat ng mga file na larawan sa mode na ito.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Magkabit ng MIDI device</string>
-    <string name="usb_use">Gamitin ang USB para sa</string>
-    <string name="assist_access_context_title">Basahin ang text sa screen</string>
-    <string name="assist_access_context_summary">Hayaan ang app ng tulong sa device na basahin ang anumang text na ipapakita sa screen.</string>
-    <string name="assist_access_screenshot_title">Kumuha/mag-access ng mga screenshot</string>
-    <string name="assist_access_screenshot_summary">Hayaan ang app ng tulong sa device na kumuha at mag-access ng mga screenshot.</string>
+    <string name="usb_use">Gamitin ang USB para</string>
+    <string name="assist_access_context_title">Analisahin ang teksto na nasa screen</string>
+    <string name="assist_access_context_summary">Payagan ang device assistance app na maanalisa ang ipinapakitang teksto sa screen para makapagbigay ng kaugnay na content.</string>
+    <string name="assist_access_screenshot_title">Analisahin ang mga larawan na nasa screen</string>
+    <string name="assist_access_screenshot_summary">Payagan ang device na assitance app na kunin at gamitin ang mga larawan ng screen.</string>
     <string name="assist_footer">Matutulungan ka ng mga app na tulong sa device sa pamamagitan ng pagtipon ng impormasyon mula sa screen na kasalukuyang ipinapakita sa telepono mo. Magagamit ang ilang app na tulong sa device para buksan ang iba pang mga app at magpasok ng teksto gamit ang voice input, na nagbibigay sa iyo ng isinamang tulong.</string>
     <string name="average_memory_use">Average na paggamit ng RAM</string>
     <string name="maximum_memory_use">Maximum na paggamit ng RAM</string>
@@ -5664,7 +5726,7 @@ Hindi ka makatatanggap ng anumang tawag, mensahe o notification at hindi tutunog
     <string name="ignore_optimizations_on_desc">Maaaring mapataas ang konsumo sa baterya</string>
     <string name="ignore_optimizations_off_desc">Inirerekomenda para makatipid ng baterya</string>
     <string name="app_list_preference_none">Wala</string>
-    <string name="allow_overlay_description">Piliin ang mga app para payagan ang mga button, pop-up o iba pang elemento ng mga ito na lumitaw sa ibabaw ng mga app na ginagamit mo.</string>
+    <string name="allow_overlay_description">Pinapayagan ng pahintulot na ito na magpakita ang app ng mga bagay sa ibabaw ng iba pang app na ginagamit mo. Maaaring makaabala ito sa paggamit mo ng ibang app.</string>
     <string name="overlay_settings">Mga app na maaaring lumitaw sa itaas</string>
     <string name="filter_overlay_apps">Mga app na may pahintulot</string>
     <string name="filter_write_settings_apps">Mga app na may pahintulot</string>
@@ -5711,14 +5773,14 @@ Hindi ka makatatanggap ng anumang tawag, mensahe o notification at hindi tutunog
     <string name="ethernet_data_template">%1$s ng Ethernet data</string>
     <string name="cell_warning_only">Babala ng data sa %s</string>
     <string name="cell_warning_and_limit">%1$s Babala sa nagamit na data/%2$s Limit ng magagamit na data</string>
-    <string name="billing_cycle">Billing cycle</string>
+    <string name="billing_cycle">Billing cycle at babala sa data</string>
     <string name="billing_cycle_summary">%s araw ng bawat buwan</string>
     <string name="billing_cycle_fragment_summary">%s araw ng bawat buwan</string>
     <string name="network_restrictions">Paghigpitan ang mga network</string>
     <string name="operator_warning">Sinusukat ng device mo ang nagamit na data. Maaaring iba ang kuwenta ng service provider sa paggamit.</string>
     <string name="data_used_template">%s nagamit</string>
     <string name="data_warning">Babala sa data</string>
-    <string name="set_data_limit">Limitasyon ng data</string>
+    <string name="set_data_limit">I-set ang limit ng data</string>
     <string name="data_limit">Limitasyon ng data</string>
     <string name="data_usage_template">%1$s ginamit sa pagitan ng %2$s</string>
     <string name="data_usage_other_apps">Mga kaugnay na app na kasama sa nagamit</string>
@@ -5760,5 +5822,4 @@ May kasamang diagnostic software ang device mo na maaaring, kapag pinayagan mo, 
     <string name="enable_iris_lock_desc_3">"Kasalukuyang naka-set ang Fingerprints bilang uri ng screen lock mo.
 
 Para i-set ang uri ng screen lock mo na Irises sa halip na Fingerprints, i-tap ang ENABLE. Pagkatapos ay maaari nang i-unlock gamit ang mga iris o %s mo."</string>
-    <string name="my_phone_summary">Speaker/headphones/USB audio device</string>
 </resources>

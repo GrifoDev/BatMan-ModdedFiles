@@ -51,7 +51,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const v0, 0x7f1102e0
+    const v0, 0x7f1102e2
 
     invoke-virtual {p1, v0}, Lcom/android/settings/SimPinLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -61,7 +61,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SimPinLockSettings$TouchInput;->mZero:Landroid/widget/TextView;
 
-    const v0, 0x7f1102d7
+    const v0, 0x7f1102d9
 
     invoke-virtual {p1, v0}, Lcom/android/settings/SimPinLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -71,7 +71,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SimPinLockSettings$TouchInput;->mOne:Landroid/widget/TextView;
 
-    const v0, 0x7f1102d8
+    const v0, 0x7f1102da
 
     invoke-virtual {p1, v0}, Lcom/android/settings/SimPinLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -81,7 +81,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SimPinLockSettings$TouchInput;->mTwo:Landroid/widget/TextView;
 
-    const v0, 0x7f1102d9
+    const v0, 0x7f1102db
 
     invoke-virtual {p1, v0}, Lcom/android/settings/SimPinLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -91,7 +91,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SimPinLockSettings$TouchInput;->mThree:Landroid/widget/TextView;
 
-    const v0, 0x7f1102da
+    const v0, 0x7f1102dc
 
     invoke-virtual {p1, v0}, Lcom/android/settings/SimPinLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -101,7 +101,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SimPinLockSettings$TouchInput;->mFour:Landroid/widget/TextView;
 
-    const v0, 0x7f1102db
+    const v0, 0x7f1102dd
 
     invoke-virtual {p1, v0}, Lcom/android/settings/SimPinLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SimPinLockSettings$TouchInput;->mFive:Landroid/widget/TextView;
 
-    const v0, 0x7f1102dc
+    const v0, 0x7f1102de
 
     invoke-virtual {p1, v0}, Lcom/android/settings/SimPinLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -121,7 +121,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SimPinLockSettings$TouchInput;->mSix:Landroid/widget/TextView;
 
-    const v0, 0x7f1102dd
+    const v0, 0x7f1102df
 
     invoke-virtual {p1, v0}, Lcom/android/settings/SimPinLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -131,7 +131,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SimPinLockSettings$TouchInput;->mSeven:Landroid/widget/TextView;
 
-    const v0, 0x7f1102de
+    const v0, 0x7f1102e0
 
     invoke-virtual {p1, v0}, Lcom/android/settings/SimPinLockSettings;->findViewById(I)Landroid/view/View;
 
@@ -141,7 +141,7 @@
 
     iput-object v0, p0, Lcom/android/settings/SimPinLockSettings$TouchInput;->mEight:Landroid/widget/TextView;
 
-    const v0, 0x7f1102df
+    const v0, 0x7f1102e1
 
     invoke-virtual {p1, v0}, Lcom/android/settings/SimPinLockSettings;->findViewById(I)Landroid/view/View;
 

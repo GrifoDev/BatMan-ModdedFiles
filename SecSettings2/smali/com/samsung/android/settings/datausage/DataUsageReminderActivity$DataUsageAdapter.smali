@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field private final UID_SAMSUNG_CLOUD:I
+
 .field private final mInsetSide:I
 
 .field private mItems:Ljava/util/ArrayList;
@@ -42,6 +44,10 @@
     iput-object p1, p0, Lcom/samsung/android/settings/datausage/DataUsageReminderActivity$DataUsageAdapter;->this$0:Lcom/samsung/android/settings/datausage/DataUsageReminderActivity;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
+
+    const/16 v0, 0x1391
+
+    iput v0, p0, Lcom/samsung/android/settings/datausage/DataUsageReminderActivity$DataUsageAdapter;->UID_SAMSUNG_CLOUD:I
 
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
@@ -381,11 +387,11 @@
     goto :goto_1
 
     :cond_3
-    const/4 v2, -0x4
+    const/16 v2, 0x1391
 
     if-eq v5, v2, :cond_4
 
-    const/4 v2, -0x5
+    const/4 v2, -0x4
 
     if-ne v5, v2, :cond_5
 
@@ -395,6 +401,10 @@
     goto :goto_1
 
     :cond_5
+    const/4 v2, -0x5
+
+    if-eq v5, v2, :cond_4
+
     const/16 v2, -0x64
 
     if-eq v5, v2, :cond_4
@@ -490,7 +500,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0400bb
+    const v5, 0x7f0400bd
 
     invoke-virtual {v4, v5, p3, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -511,7 +521,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f110291
+    const v4, 0x7f110293
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -541,7 +551,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0db1
+    const v6, 0x7f0b0e3c
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -616,7 +626,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0db2
+    const v6, 0x7f0b0e3d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

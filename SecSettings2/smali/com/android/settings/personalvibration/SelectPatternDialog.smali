@@ -1405,7 +1405,7 @@
 
     iget-object v3, v0, Lcom/android/settings/personalvibration/SelectPatternDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v4, 0x7f0b0af5
+    const v4, 0x7f0b0b64
 
     move-object/from16 v0, p0
 
@@ -1424,7 +1424,7 @@
 
     iget-object v4, v0, Lcom/android/settings/personalvibration/SelectPatternDialog;->mInflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f0400d8
+    const v5, 0x7f0400da
 
     const/4 v7, 0x0
 
@@ -1454,7 +1454,7 @@
 
     iget-object v3, v0, Lcom/android/settings/personalvibration/SelectPatternDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v4, 0x7f0b124f
+    const v4, 0x7f0b12ea
 
     move-object/from16 v0, p0
 
@@ -1468,7 +1468,7 @@
 
     iget-object v3, v0, Lcom/android/settings/personalvibration/SelectPatternDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v4, 0x7f0b1698    # 1.8488E38f
+    const v4, 0x7f0b1734
 
     move-object/from16 v0, p0
 
@@ -1510,7 +1510,7 @@
 
     iget-object v3, v3, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v4, 0x7f1102cc
+    const v4, 0x7f1102ce
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1522,7 +1522,7 @@
 
     iget-object v3, v3, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v4, 0x7f1102cf
+    const v4, 0x7f1102d1
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1559,7 +1559,7 @@
 
     iget-object v4, v0, Lcom/android/settings/personalvibration/SelectPatternDialog;->mListView:Landroid/widget/ListView;
 
-    const v5, 0x7f04032b
+    const v5, 0x7f04032f
 
     const/4 v7, 0x0
 
@@ -1576,7 +1576,7 @@
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_2
-    const v3, 0x7f0b0b3b
+    const v3, 0x7f0b0bad
 
     move-object/from16 v0, v17
 
@@ -1780,7 +1780,7 @@
 
     iget-object v3, v0, Lcom/android/settings/personalvibration/SelectPatternDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v4, 0x7f0b0b3c
+    const v4, 0x7f0b0bae
 
     move-object/from16 v0, p0
 
@@ -1819,14 +1819,14 @@
 
     if-eqz v3, :cond_5
 
-    const v3, 0x7f0b0af5
+    const v3, 0x7f0b0b64
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3}, Lcom/android/settings/personalvibration/SelectPatternDialog;->setTitle(I)V
 
     :goto_4
-    const v3, 0x7f0400d8
+    const v3, 0x7f0400da
 
     move-object/from16 v0, p0
 
@@ -1871,7 +1871,7 @@
 
     move-result-object v16
 
-    const v3, 0x7f0a0504
+    const v3, 0x7f0a0503
 
     move-object/from16 v0, v16
 
@@ -1879,7 +1879,7 @@
 
     move-result v3
 
-    const v4, 0x7f0a04fa
+    const v4, 0x7f0a04f8
 
     move-object/from16 v0, v16
 
@@ -1889,7 +1889,7 @@
 
     add-int/2addr v3, v4
 
-    const v4, 0x7f0a050d
+    const v4, 0x7f0a050c
 
     move-object/from16 v0, v16
 
@@ -1932,7 +1932,7 @@
     goto/16 :goto_1
 
     :cond_5
-    const v3, 0x7f0b0b3c
+    const v3, 0x7f0b0bae
 
     move-object/from16 v0, p0
 
@@ -1978,7 +1978,7 @@
 
     iget-object v4, v0, Lcom/android/settings/personalvibration/SelectPatternDialog;->mListView:Landroid/widget/ListView;
 
-    const v5, 0x7f04017d
+    const v5, 0x7f04017f
 
     const/4 v7, 0x0
 
@@ -2009,7 +2009,7 @@
 .method public onCreateContextMenu(Landroid/view/ContextMenu;Landroid/view/View;Landroid/view/ContextMenu$ContextMenuInfo;)V
     .locals 10
 
-    const v9, 0x7f0b11c3
+    const v9, 0x7f0b125e
 
     const/4 v5, 0x2
 
@@ -2215,7 +2215,7 @@
     :cond_4
     const/4 v0, 0x1
 
-    const v1, 0x7f0b18fa
+    const v1, 0x7f0b1996
 
     invoke-interface {p1, v4, v0, v4, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -3197,13 +3197,13 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0401d1
+    const v0, 0x7f0401d3
 
     invoke-static {p0, v0, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v11
 
-    const v0, 0x7f1105d9
+    const v0, 0x7f1105db
 
     invoke-virtual {v11, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3312,7 +3312,7 @@
 
     invoke-direct {v1, p0, v6, v8, v9}, Lcom/android/settings/personalvibration/SelectPatternDialog$2;-><init>(Lcom/android/settings/personalvibration/SelectPatternDialog;Landroid/widget/TextView;ILandroid/view/inputmethod/InputMethodManager;)V
 
-    const v2, 0x7f0b135d
+    const v2, 0x7f0b13f8
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -3322,7 +3322,7 @@
 
     invoke-direct {v1, p0, v9, v6}, Lcom/android/settings/personalvibration/SelectPatternDialog$3;-><init>(Lcom/android/settings/personalvibration/SelectPatternDialog;Landroid/view/inputmethod/InputMethodManager;Landroid/widget/TextView;)V
 
-    const v2, 0x7f0b124f
+    const v2, 0x7f0b12ea
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

@@ -39,19 +39,19 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference$3;->this$0:Lcom/android/settings/datausage/DataSavingChnPreference;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get3(Lcom/android/settings/datausage/DataSavingChnPreference;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get2(Lcom/android/settings/datausage/DataSavingChnPreference;)Landroid/view/View;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference$3;->this$0:Lcom/android/settings/datausage/DataSavingChnPreference;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get3(Lcom/android/settings/datausage/DataSavingChnPreference;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get2(Lcom/android/settings/datausage/DataSavingChnPreference;)Landroid/view/View;
 
     move-result-object v0
 
@@ -61,15 +61,58 @@
 
     invoke-interface {v0, v1}, Landroid/widget/Checkable;->setChecked(Z)V
 
+    iget-object v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference$3;->this$0:Lcom/android/settings/datausage/DataSavingChnPreference;
+
+    invoke-virtual {v0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "opera_max_china_state"
+
+    iget-boolean v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference$3;->val$checked:Z
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x1
+
     :goto_0
-    return-void
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    iget-object v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference$3;->this$0:Lcom/android/settings/datausage/DataSavingChnPreference;
+
+    invoke-static {v0}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get1(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference$3;->this$0:Lcom/android/settings/datausage/DataSavingChnPreference;
+
+    invoke-static {v0}, Lcom/android/settings/datausage/DataSavingChnPreference;->-get1(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->initDataSavingLayout()V
 
     :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
     const-string/jumbo v0, "DataSavingChnPreference"
 
     const-string/jumbo v1, "mSwitchView is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_1
 .end method

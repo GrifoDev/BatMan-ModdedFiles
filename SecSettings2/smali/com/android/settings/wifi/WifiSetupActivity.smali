@@ -132,7 +132,7 @@
 .method private refreshConnectionState()V
     .locals 4
 
-    const v1, 0x7f0b1239
+    const v1, 0x7f0b12d4
 
     const/4 v3, 0x1
 
@@ -165,7 +165,7 @@
     iput-boolean v2, p0, Lcom/android/settings/wifi/WifiSetupActivity;->mUserSelectedNetwork:Z
 
     :cond_0
-    const v0, 0x7f0b0172
+    const v0, 0x7f0b01cf
 
     invoke-direct {p0, v0}, Lcom/android/settings/wifi/WifiSetupActivity;->setNextButtonText(I)V
 
@@ -436,7 +436,7 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x7f0b13f6
+    const v0, 0x7f0b1491
 
     :goto_1
     invoke-static {v0}, Lcom/android/settings/wifi/WifiSetupActivity$WifiSkipDialog;->newInstance(I)Lcom/android/settings/wifi/WifiSetupActivity$WifiSkipDialog;
@@ -454,7 +454,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0b13f7
+    const v0, 0x7f0b1492
 
     goto :goto_1
 .end method

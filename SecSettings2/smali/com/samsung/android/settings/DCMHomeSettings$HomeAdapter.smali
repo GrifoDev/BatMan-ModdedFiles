@@ -128,7 +128,7 @@
 
     move-result-object p2
 
-    const v6, 0x7f110994
+    const v6, 0x7f11099a
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -136,7 +136,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v6, 0x7f110995
+    const v6, 0x7f11099b
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -144,7 +144,7 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    const v6, 0x7f110996
+    const v6, 0x7f11099c
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -152,7 +152,7 @@
 
     check-cast v5, Landroid/widget/TextView;
 
-    const v6, 0x7f110997
+    const v6, 0x7f11099d
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -212,7 +212,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f020198
+    const v7, 0x7f0201bd
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -221,11 +221,11 @@
     invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :goto_0
-    const v6, 0x7f0b03b8
+    const v6, 0x7f0b0419
 
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setText(I)V
 
-    const v6, 0x7f0b03b9
+    const v6, 0x7f0b041a
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -266,7 +266,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f020199
+    const v7, 0x7f0201be
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -283,7 +283,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f020197
+    const v7, 0x7f0201bc
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -324,7 +324,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f02019b
+    const v7, 0x7f0201c0
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -333,11 +333,11 @@
     invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :goto_3
-    const v6, 0x7f0b03ba
+    const v6, 0x7f0b041b
 
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setText(I)V
 
-    const v6, 0x7f0b03bb
+    const v6, 0x7f0b041c
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -350,7 +350,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f02019c
+    const v7, 0x7f0201c1
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -367,7 +367,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f02019a
+    const v7, 0x7f0201bf
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -392,7 +392,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f02019d
+    const v7, 0x7f0201c2
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -400,11 +400,11 @@
 
     invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v6, 0x7f0b03bc
+    const v6, 0x7f0b041d
 
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setText(I)V
 
-    const v6, 0x7f0b03bd
+    const v6, 0x7f0b041e
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -427,7 +427,7 @@
 
     move-result-object p2
 
-    const v6, 0x7f110994
+    const v6, 0x7f11099a
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -435,7 +435,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v6, 0x7f110995
+    const v6, 0x7f11099b
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -443,7 +443,7 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    const v6, 0x7f110997
+    const v6, 0x7f11099d
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

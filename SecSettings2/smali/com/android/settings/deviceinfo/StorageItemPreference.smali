@@ -27,7 +27,7 @@
 
     sput-object p1, Lcom/android/settings/deviceinfo/StorageItemPreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0402e0
+    const v0, 0x7f0402e4
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setLayoutResource(I)V
 
@@ -39,7 +39,7 @@
 .method public onBindView(Landroid/view/View;)V
     .locals 5
 
-    const v4, 0x7f0d020d
+    const v4, 0x7f0d020e
 
     const v2, 0x102000d
 
@@ -61,7 +61,7 @@
 
     sget-object v2, Lcom/android/settings/deviceinfo/StorageItemPreference;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b1505
+    const v3, 0x7f0b15a1
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -75,7 +75,7 @@
 
     sget-object v2, Lcom/android/settings/deviceinfo/StorageItemPreference;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b1503
+    const v3, 0x7f0b159f
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -89,7 +89,7 @@
 
     sget-object v2, Lcom/android/settings/deviceinfo/StorageItemPreference;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0544
+    const v3, 0x7f0b05a7
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

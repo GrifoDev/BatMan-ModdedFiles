@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="battery_history_hours_no_seconds">%1$dj %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d j %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Tidak boleh mengimbas untuk rangkaian</string>
     <string name="wifi_failed_to_obtain_IP">Gagal utk mendptkan alamat IP.</string>
     <string name="wifi_security_none">Tiada</string>
@@ -81,6 +81,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Tidak dapat menyambung ke %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Tidak dapat menyambung ke %1$s. Semak aturan anda dalam %2$s dan cuba lagi.</string>
     <string name="bluetooth_pairing_rejected_error_message">Perpasangan ditolak oleh %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Mendapatkan nama peranti…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Nama peranti akan muncul apabila peranti ini disambungkan.</string>
     <string name="accessibility_wifi_off">Wi-Fi dimatikan.</string>
     <string name="accessibility_no_wifi">Wi-Fi diputuskan sambungannya.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi satu bar.</string>
@@ -387,7 +389,8 @@ Enter the code you get from Verizon:"</string>
     <string name="support">Sokongan</string>
     <string name="reset_network_settings_list_summary">Tetap semula Wi-Fi, Bluetooth dan aturan rangkaian lain kepada aturan lalai.</string>
     <string name="master_clear_list_summary">Tetap semula peranti anda kepada aturan lalai kilang. Ini akan memadamkan semua data, termasuklah fail dan aplikasi yang dimuat turun.</string>
-    <string name="auto_restart_summary">Optimumkan peranti anda dengan memulakannya semula secara automatik pada masa yang ditetapkan. Sebarang data yang tidak disimpan akan hilang apabila peranti bermula semula.</string>
+    <string name="auto_restart_summary">Optimumkan telefon anda dengan memulakan semula secara automatik seminggu sekali. Sebarang data yang tidak disimpan akan hilang apabila telefon anda dimulakan semula.</string>
+    <string name="auto_restart_summary_tablet">Optimumkan tablet anda dengan memulakan semula secara automatik seminggu sekali. Sebarang data yang tidak disimpan akan hilang apabila tablet anda dimulakan semula.</string>
     <string name="search_settings">Cari</string>
     <string name="related_results">%d item berkaitan</string>
     <string name="no_results_found">Tiada keputusan ditemui</string>
@@ -457,7 +460,7 @@ Enter the code you get from Verizon:"</string>
     <string name="sound_balance_right_message">Imbangan bunyi adalah %d peratus ke sebelah kanan. Gunakan dua jari untuk menyeret lungsur.</string>
     <string name="sound_balance_set">Tetapkan</string>
     <string name="accessibility_assistant_menu">Menu bantuan</string>
-    <string name="assistant_menu_summary">Mengaktifkan fungsi untuk meningkatkan pencapaian peranti untuk pengguna dengan kurang ketangkasan.</string>
+    <string name="assistant_menu_summary">Meningkatkan pencapaian telefon untuk pengguna dengan ketangkasan yang berkurangan.</string>
     <string name="color_blind_title">Pelarasan warna</string>
     <string name="no_result">Laraskan warna skrin jika anda sukar membaca paparan anda.</string>
     <string name="you_are_normal">Tidak perlu pelarasan warna.</string>
@@ -653,6 +656,7 @@ Semasa fungsi ini diaktifkan, Auto putar skrin akan dinyahaktifkan. Semua panggi
     <string name="direct_access_actions_accessibility_title">Pencapaian</string>
     <string name="direct_access_actions_negative_title">Warna negatif</string>
     <string name="direct_access_and_reduce_screen_exclusive_popup_msg">Capaian terus dan Kurangkan saiz skrin tidak boleh diaktifkan pada masa yang sama. Kurangkan saiz skrin akan dinyahaktifkan.</string>
+    <string name="direct_access_exclusive_popup_msg">%1$s dan %2$s tidak dapat diaktifkan pada masa yang sama. %3$s akan dinyahaktifkan.</string>
     <string name="direct_access_actions_color_adjustment_summary">Tetapkan Pelarasan warna dalam Penglihatan untuk menggunakannya dalam Capaian Terus</string>
     <string name="direct_access_actions_screen_reader_summary">Aktifkan Pembaca halaman untuk menggunakannya dalam Capaian terus.</string>
     <string name="direct_access_actions_accesscontrol_title">Kawalan interaksi</string>
@@ -850,7 +854,9 @@ Wi-Fi dan Bluetooth juga akan dimatikan tetapi anda boleh menghidupkannya semula
     <string name="premium_sms_values_ask">Tanya</string>
     <string name="premium_sms_values_never">Tidak pernah izinkan</string>
     <string name="premium_sms_values_allow">Selalu izinkan</string>
-    <string name="assist_and_voice_input_summary">Aplikasi bantuan peranti memberikan lebih banyak pilihan dan maklumat mengenai setiap skrin.</string>
+    <string name="assist_and_voice_input_summary">Pilih aplikasi untuk digunakan apabila anda menekan dan menahan butang Utama.</string>
+    <string name="assist_footer_phone">Pilih aplikasi untuk digunakan apabila anda menekan dan menahan butang Utama. Aplikasi bantuan peranti boleh membantu anda dengan mengumpulkan maklumat daripada skrin yang sedang ditunjukkan pada telefon anda.</string>
+    <string name="assist_footer_tablet">Pilih aplikasi untuk digunakan apabila anda menekan dan menahan butang Utama. Aplikasi bantuan peranti boleh membantu anda dengan mengumpulkan maklumat daripada skrin yang sedang ditunjukkan pada tablet anda.</string>
     <string name="default_app_title">Tetapkan sebagai lalai</string>
     <string name="premium_sms_title">Hantar SMS premium</string>
     <string name="default_app_selection">Pemilihan aplikasi lalai</string>
@@ -939,7 +945,7 @@ Anda boleh mengubah ini kemudian dengan pergi ke aturan Bluetooth."</string>
 
 2 peranti yang bersambung itu mungkin mengalami sedikit perbezaan dalam output suara."</string>
     <string name="bluetooth_dual_play_ask_popup_title">Matikan Penyelaras kelantangan media?</string>
-    <string name="bluetooth_dual_play_ask_popup_content">Untuk menggunakan audio Duaan, Penyelaras kelantangan media mesti dimatikan.</string>
+    <string name="bluetooth_dual_play_ask_popup_content">Untuk mengawal kelantangan pada setiap peranti audio secara berasingan, Pelarasan kelantangan media perlu dimatikan.</string>
     <string name="bluetooth_avc_title">Penyelaras kelantangan media</string>
     <string name="bluetooth_avc_description">Jika peranti Bluetooth yang disambungkan boleh mengawal kelantangan media telefon anda, aras kelantangan yang ditetapkan oleh peranti Bluetooth akan diselaraskan dengan telefon anda.</string>
     <string name="bluetooth_avc_volume_change_description">Menghidupkan fungsi ini boleh menyebabkan perubahan kelantangan luar jangkaan.</string>
@@ -948,6 +954,7 @@ Anda boleh mengubah ini kemudian dengan pergi ke aturan Bluetooth."</string>
     <string name="bluetooth_avc_ask_popup_title">Matikan audio Duaan?</string>
     <string name="bluetooth_avc_ask_popup_content">Untuk menggunakan Penyelaras kelantangan media, audio Duaan mesti dimatikan.</string>
     <string name="bluetooth_avc_disable_description">Peranti Bluetooth yang disambungkan tidak menyokong Penyelaras kelantangan media. Anda tidak boleh menyelaraskan kelantangan telefon anda dengan peranti Bluetooth yang disambungkan.</string>
+    <string name="bluetooth_avc_available_description">Peranti Bluetooth yang disambungkan menyokong Penyelarasan kelantangan media dan aras kelantangan ditetapkan oleh peranti Bluetooth akan diselaraskan dengan telefon anda.</string>
     <string name="bluetooth_enter_pin_msg">Masukkan PIN untuk memasangkan dengan %s (Cuba 0000 atau 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Bilangan maksimum aksara dicapai.</string>
     <string name="settings_menu_done">Selesai</string>
@@ -1031,11 +1038,12 @@ Walaupun jika Tangkapan pintar dinyahaktifkan, anda boleh mencapai cirinya melal
     <string name="swipe_to_call_title">Leret utk pnggil atau hantar msj</string>
     <string name="swipe_to_call_summary">Leret kenalan atau nombor ke kanan untuk membuat panggilan atau ke kiri untuk menghantar mesej dalam Telefon, Kenalan atau Mesej.</string>
     <string name="swipe_to_call_summary_dcm">Leret kenalan atau nombor ke kanan untuk membuat panggilan atau ke kiri untuk menghantar mesej dalam Dail, Kenalan atau Mesej.</string>
-    <string name="swipe_to_call_summary_kddi">Leret kenalan atau nombor ke kanan untuk membuat panggilan atau ke kiri untuk menghantar mesej dalam Telefon atau Kenalan.</string>
+    <string name="swipe_to_call_summary_kddi">Sapu kenalan atau nombor ke kanan untuk membuat panggilan atau ke kiri untuk menghantar mesej dalam Dail atau Kenalan.</string>
     <string name="dual_app_title">Messenger Duaan</string>
     <string name="dual_app_summary">Guna dua akaun berbeza untuk aplikasi yang sama.</string>
     <string name="finger_sensor_gesture_title">Gerak isyarat penderia jari</string>
     <string name="finger_sensor_gesture_summary">Buka dan tutup aplikasi dan ciri dengan penderia cap jari.</string>
+    <string name="finger_sensor_gesture_summary_noapp">Buka dan tutup panel pemberitahuan menggunakan penderia cap jari.</string>
     <string name="finger_sensor_gesture_description">Leret ke atas atau ke bawah pada penderia cap jari untuk membuka atau menutup panel pemberitahuan.</string>
     <string name="open_samsung_pay_title">Buka Samsung Pay</string>
     <string name="open_samsung_pay_summary">Daripada Skrin utama, leret ke atas pada penderia cap jari untuk membuka Samsung Pay.</string>
@@ -1070,6 +1078,7 @@ Walaupun jika Tangkapan pintar dinyahaktifkan, anda boleh mencapai cirinya melal
 %s"</string>
     <string name="enable_ps_title">Aktifkan %s</string>
     <string name="setup_wizard">Bestari penyediaan</string>
+    <string name="icon_number_1">1</string>
     <string name="normal">Biasa</string>
     <string name="large">Besar</string>
     <string name="small">Kecil</string>
@@ -1417,6 +1426,7 @@ Ketik OK untuk membenarkan kecerahan untuk ditingkatkan melebihi paras selamat."
     <string name="navigationbar_summary">Urus butang Utama, Kembali dan Terkini.</string>
     <string name="navigationbar_theme_switch">Gunakan tema semasa</string>
     <string name="navigationbar_color_title">Warna latar belakang</string>
+    <string name="navigationbar_color_summary">Warna latar belakang yang anda pilih mungkin tidak digunakan pada semua aplikasi.</string>
     <string name="navigationbar_order_title">Reka letak butang</string>
     <string name="navigationbar_order_default">Terkini - Utama - Kembali</string>
     <string name="navigationbar_order_mirrored">Kembali - Utama - Terkini</string>
@@ -1448,7 +1458,8 @@ Ketik OK untuk membenarkan kecerahan untuk ditingkatkan melebihi paras selamat."
     <string name="blue_light_filter_enable_now">Hidupkan sekarang</string>
     <string name="blue_light_filter_enable_as_scheduled">Hidupkan seperti dijadualkan</string>
     <string name="blue_light_filter_scheduled_toast">Penapis Cahaya biru dihidupkan. Ia akan dimatikan secara automatik pada masa akhir yang dijadualkan.</string>
-    <string name="screen_mode_dlg_turn_off_blue_light_filter">%s dan Penapis cahaya biru tidak boleh digunakan pada masa yang sama. Penapis cahaya biru akan dinyahaktifkan.</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter_title">Matikan penapis Cahaya biru?</string>
+    <string name="screen_mode_dlg_turn_off_blue_light_filter">Untuk menggunakan %s, penapis Cahaya biru perlu dimatikan.</string>
     <string name="blue_light_filter_dlg_turn_on_location">Untuk menggunakan Matahari terbenam sehingga terbit, Lokasi perlu dihidupkan.</string>
     <string name="dlg_turn_on">Hidupkan</string>
     <string name="screen_resolution_title">Peleraian skrin</string>
@@ -1665,6 +1676,7 @@ Penyulitan mengambil masa satu jam atau lebih. Sebelum anda mula, pastikan bater
     <string name="crypt_keeper_last_warn_wipe">Anda mempunyai 1 percubaan lagi untuk memulakan peranti anda sebelum ia ditetap semula kepada aturan lalai kilang. Ini akan memadamkan semua data, termasuklah fail dan aplikasi yang dimuat turun.</string>
     <string name="crypt_keeper_failed_title_dec">Dekripsi gagal.</string>
     <string name="crypt_keeper_failed_summary_dec">Tidak dapat melengkapkan penyahsulitan kerana gangguan. Lakukan tetapan semula data kilang (yang akan memadam semua data) sebelum guna.</string>
+    <string name="crypt_keeper_set_screen_lock_type">Tetapkan jenis kunci skrin</string>
     <string name="encryption_interstitial_message">"Anda boleh melindungi peranti ini selanjutnya dengan mewajibkan %s anda dimasukkan sebelum telefon dimulakan. Ini akan melindungi data anda jika telefon anda hilang atau dicuri. Sesetengah aplikasi mungkin memerlukan Pemulaan Selamat mengikut dasar Penyulitan peranti untuk capaian ke ciri seperti penyelarasan e-mel.
 
 Anda tidak akan menerima sebarang panggilan, mesej atau pemberitahuan dan penggera tidak akan berbunyi sehingga telefon bermula."</string>
@@ -1903,6 +1915,7 @@ You will also need it when:"</string>
     <string name="verify_fingerprint_btn">Gunakan cap jari</string>
     <string name="wifi_ap_close">Tutup</string>
     <string name="fingerscanner_add_summary">Tambahkan cap jari anda.</string>
+    <string name="fingerscanner_register_1_finger_summary">1 cap jari telah ditambah.</string>
     <string name="fingerscanner_register_summary">%d cap jari telah ditambah.</string>
     <string name="lockpassword_confirm_your_pin_with_fingerprint">Gunakan cap jari atau masukkan PIN semasa.</string>
     <string name="lockpassword_confirm_your_pattern_with_fingerprint">Gunakan cap jari atau lukiskan corak semasa.</string>
@@ -1929,6 +1942,7 @@ You will also need it when:"</string>
     <string name="facelock_without_swipe_to_unlock_summary">Buka kunci telefon anda dengan pengecaman muka anda sebaik sahaja skrin dihidupkan, tanpa perlu menyapu terlebih dahulu.</string>
     <string name="facelock_recognition_speed_up">Pengecaman lebih pantas</string>
     <string name="facelock_recognition_speed_up_summary">Hidupkan untuk pengecaman lebih pantas. Matikan untuk meningkatkan keselamatan dan menyukarkan lagi proses membuka kunci menggunakan imej atau video.</string>
+    <string name="facelock_samsungpass_summary">Gunakan pengecaman muka untuk mengesahkan identiti anda dengan %s dan aplikasi disokong yang lain.</string>
     <string name="face_remove_face_popup_title">Alih keluar data muka?</string>
     <string name="face_remove_face_popup_message_1">Wajah anda tidak akan dicam lagi dan Kunci wajah akan dimatikan.</string>
     <string name="face_remove_face_popup_message_2">Ciri yang menggunakan pengecaman muka akan dimatikan.</string>
@@ -2070,7 +2084,7 @@ Hidupkan Buka kunci iris untuk menggunakan biometrik atau %s anda bagi membuka k
     <string name="biometrics_backup_locktype_title">Sediakan keselamatan iris</string>
     <string name="biometrics_register_your_iris">Daftar iris anda.</string>
     <string name="biometrics_backup_locktype_summary">Untuk menggunakan iris anda untuk membuka kunci peranti, anda mesti menetapkan corak, PIN atau kata laluan.</string>
-    <string name="biometrics_backup_locktype_message">Ketik iris anda untuk membuka kunci telefon anda atau untuk pengesahan keselamatan, anda perlu:</string>
+    <string name="biometrics_backup_locktype_message">Untuk menggunakan iris anda untuk membuka kunci telefon anda atau untuk mengesahkan diri anda dalam aplikasi, anda perlu:</string>
     <string name="iris_delete_popup_title">Alih keluar data iris?</string>
     <string name="iris_delete_popup_message">Alih keluar data iris?</string>
     <string name="iris_delete_popup_message_with_related_func">Ciri yang menggunakan iris akan dimatikan.</string>
@@ -2078,7 +2092,7 @@ Hidupkan Buka kunci iris untuk menggunakan biometrik atau %s anda bagi membuka k
     <string name="iris_timeout_popop_title">Cuba lagi nanti</string>
     <string name="iris_timeout_popop_message">Iris tidak dapat dicam. Kamera iris mungkin kotor. Bersihkan bahagian atas skrin dan cuba lagi.</string>
     <string name="iris_timeout_popop_message_1">Kamera Iris mungkin kotor. Bersihkan kawasan pada bahagian atas skrin dan cuba lagi.</string>
-    <string name="iris_proximity_restriction_popop_message">Iris tidak dapat dicam. Telefon terlalu dekat pada muka atau penderia hampir jarak mungkin kotor. Bersihkan bahagian atas skrin dan cuba lagi.</string>
+    <string name="iris_proximity_restriction_popop_message">Jauhkan lagi telefon anda dari muka anda dan cuba lagi.</string>
     <string name="iris_proximity_restriction_popop_message_1">"Penderia hampir jarak mungkin kotor.
 Bersihkan bahagian di atas skrin."</string>
     <string name="iris_try_again">Cuba lagi</string>
@@ -2086,6 +2100,8 @@ Bersihkan bahagian di atas skrin."</string>
     <string name="iris_failed_to_verity_identify">Tidak dapat mengesahkan identiti anda</string>
     <string name="iris_failed_popup_description">%1$d percubaan telah dilakukan untuk mengesahkan iris anda. Cuba lagi selepas %2$d saat.</string>
     <string name="iris_no_match">Tiada padanan</string>
+    <string name="iris_eye_safety_msg">Iris anda tidak dicam.</string>
+    <string name="iris_timeout_msg">Iris anda tidak dikesan.</string>
     <string name="biometrics_registered">Didaftarkan</string>
     <string name="iris_turn_on_toast_message">Kunci Iris diaktifkan, bukannya kunci Cap jari.</string>
     <string name="iris_wrong_backup_password">Kata laluan sandarn salah</string>
@@ -2277,6 +2293,8 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="aod_off_summary">Tunjukkan butang Utama dan jam atau maklumat pada skrin tunggu sedia.</string>
     <string name="aod_feature_off_popup_title">Matikan %s?</string>
     <string name="aod_feature_off_popup_description">Untuk menggunakan %1$s, %2$s mesti dimatikan.</string>
+    <string name="aod_features_off_popup_title">Matikan fungsi lain?</string>
+    <string name="aod_features_off_popup_description">Untuk menggunakan Always On Display, fungsi berikut perlu dimatikan:</string>
     <string name="aod_features_off_popup_btn_ok">Matikan</string>
     <string name="aod_disable_by_negative_colors">Tidak dapat digunakan semasa warna Negatif dihidupkan.</string>
     <string name="aod_disable_by_powersaving_mode">Tidak dapat digunakan semasa Mod penjimatan kuasa dihidupkan.</string>
@@ -2300,6 +2318,9 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="unlock_effect_colour_droplet">Titisan Kecil Warna</string>
     <string name="lock_screen_show_information_summary_wifi_only">Tunjukkan maklumat pemilik peranti atau pintasan aplikasi pada skrin kunci.</string>
     <string name="lock_screen_sview_show_information_summary">Tunjukkan jam duaan, maklumat pemilik peranti atau pintasan aplikasi pada skrin kunci dan menerusi tetingkap S View.</string>
+    <string name="lock_screen_sview_show_information_summary_aod">Tunjukkan jam perayauan atau maklumat hubungan pemilik telefon pada Skrin kunci dan melalui tetingkap S View.</string>
+    <string name="lock_screen_sview_show_app_shortcuts_summary">Pilih pintasan aplikasi untuk ditunjukkan pada Skrin kunci dan melalui tetingkap S View.</string>
+    <string name="lock_screen_sview_show_sec_notifications_summary">Tunjukkan pemberitahuan pada skrin kunci dan menerusi tetingkap S View.</string>
     <string name="lock_screen_and_cover_show_information_summary">Tunjukkan jam duaan pada skrin kunci dan melalui Kosongkan View Cover.</string>
     <string name="lock_screen_secured_lock_settings_title">Aturan kunci selamat</string>
     <string name="lock_screen_secured_lock_settings_summary">Tetapkan fungsi kunci selamat anda, seperti Auto kunci dan Kunci segera dengan Kekunci kuasa.</string>
@@ -2316,6 +2337,7 @@ Determining your location will use the mobile network. Data usage will apply."</
     <string name="set_home_city">Zon waktu negara sendiri</string>
     <string name="contact_info_settings_title">Maklumat hubungan</string>
     <string name="show_contact_info_on_lockscreen_label">Tunjukkan maklumat seperti nombor telefon atau alamat e-mel pada Skrin kunci.</string>
+    <string name="show_contact_info_on_lockscreen_and_aod">Tunjukkan maklumat seperti nombor telefon atau alamat e-mel anda pada Skrin kunci dan Always On Display.</string>
     <string name="unlock_effect">Kesan buka kunci</string>
     <string name="walking_mate_title">Pedometer</string>
     <string name="help_text_title">Teks bantuan</string>
@@ -2415,7 +2437,7 @@ Mengalih keluar data biometrik anda adalah disarankan tetapi anda boleh mengekal
     <string name="toast_set_lock_pattern">Semua data akan dipadam dan telefon akan ditetapkan semula jika anda terlupa corak.</string>
     <string name="toast_set_lock_password">Semua data akan dipadam dan telefon akan ditetapkan semula jika anda terlupa kata laluan.</string>
     <string name="toast_set_lock_pin">Semua data akan dipadam dan telefon akan ditetapkan semula jika anda terlupa PIN.</string>
-    <string name="chooselock_warning_text">Ingat %s ini. Ini akan diperlukan selepas memulakan semula peranti.</string>
+    <string name="chooselock_warning_text">Ingat %s ini. Ia akan diperlukan selepas anda memulakan semula telefon.</string>
     <string name="lockpassword_password_exists_history">Kata laluan yang digunakan sebelum ini. Masukkan kata laluan baru.</string>
     <string name="lockpassword_pin_repeating_nums">PIN mesti tidak mengandungi nombor berulang.</string>
     <string name="lockpassword_pin_sequential_nums">PIN mesti tidak mengandungi nombor berturutan.</string>
@@ -2533,6 +2555,9 @@ Data mudah alih akan dimatikan."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Melainkan jika anda menggunakan Wi-Fi, anda tidak lagi akan dapat menggunakan Internet, E-mel atau aplikasi lain yang memerlukan sambungan data.
 
 Data mudah alih akan dimatikan."</string>
+    <string name="data_usage_disable_mobile_warning_dcm">"If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.
+
+Mobile data will be turned off."</string>
     <string name="mobile_data_off_dialog_text_vzw">"Unless you use Wi-Fi, you won't be able to use the Internet, Email or other apps that require a data connection. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_volte">"Your phone's Video Calling function won't work when mobile data is off. Also, you won't be able to use the Internet, Email or other apps that need a data connection unless you use Wi-Fi. Turn off the mobile data connection?"</string>
     <string name="mobile_data_off_dialog_text_common">Melainkan anda menyambung ke rangkaian Wi-Fi, anda tidak akan dapat menggunakan Internet, E-mel atau aplikasi lain yang memerlukan sambungan rangkaian.</string>
@@ -2691,10 +2716,12 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="maximum_volume_title">Had kelantangan tersuai</string>
     <string name="volume_limiter_descryption">Lindungi telinga anda dengan had kelantangan media maksimum. Had kelantangan hanya akan digunakan semasa menggunakan fon kepala atau peranti audio Bluetooth.</string>
     <string name="multi_sound_title">Asingkan bunyi aplikasi</string>
-    <string name="multi_sound_summary">Mainkan bunyi daripada satu aplikasi pada pembesar suara atau fon telinga yang berasingan daripada bunyi pada peranti anda.</string>
-    <string name="multi_sound_descryption">"Mainkan bunyi media daripada satu aplikasi pada pembesar suara atau fon kepala yang berasingan dengan bunyi media daripada aplikasi lain.
+    <string name="multi_sound_summary">Mainkan bunyi media daripada satu aplikasi pada peranti audio yang berasingan daripada peranti output audio utama telefon anda.</string>
+    <string name="multi_sound_descryption">"Mainkan bunyi media daripada satu aplikasi pada peranti audio yang berasingan daripada peranti output audio utama telefon anda. Pilih aplikasi dan peranti audio untuk menghidupkan ini.
 
-Jika anda memilih peranti audio Bluetooth, bunyi akan dimainkan pada peranti audio lalai jika peranti Bluetooth tidak disambungkan."</string>
+Pengasingan bunyi hanya berfungsi apabila peranti audio yang anda pilih berbeza daripada peranti output audio utama telefon anda.
+
+Anda boleh mengubah peranti output audio utama telefon anda dalam panel aturan cepat. Jika output audio tidak ditunjukkan, hidupkannya dalam Samsung Connect > Aturan > panel Samsung Connect."</string>
     <string name="set_application_title">Aplikasi</string>
     <string name="set_application_summary">Pilih aplikasi untuk memainkan bunyikan pada peranti audio yang berasingan.</string>
     <string name="set_application_descryption">Pilih aplikasi multimedia berikut untuk memainkan bunyinya pada peranti audio yang berasingan.</string>
@@ -2705,9 +2732,11 @@ Jika anda memilih peranti audio Bluetooth, bunyi akan dimainkan pada peranti aud
     <string name="multi_sound_popup_msg">Untuk menghidupkan %s, anda perlu memilih aplikasi dan peranti audio.</string>
     <string name="multi_sound_network_msg">Untuk menyemak aplikasi tersedia, telefon anda perlu disambungkan ke rangkaian. Semak aturan rangkaian anda dan cuba lagi.</string>
     <string name="multi_sound_wifi_msg">Untuk menyemak aplikasi yang tersedia, telefon anda perlu disambungkan ke rangkaian. Penggunaan data mudah alih mungkin menyebabkan caj tambahan.</string>
+    <string name="multi_sound_add_application">Tambah aplikasi</string>
     <string name="dlg_btn_select">Pilih</string>
-    <string name="audio_device_type_descryption">Pilih peranti audio yang ingin anda guna untuk aplikasi ini. Peranti Bluetooth hanya akan tersedia semasa ia disambungkan.</string>
+    <string name="audio_device_type_descryption">Pilih peranti audio yang ingin anda guna untuk aplikasi yang dipilih. Peranti Bluetooth hanya akan tersedia semasa ia disambungkan.</string>
     <string name="my_phone_title">Telefon</string>
+    <string name="my_phone_summary">Pembesar suara/fon kepala/peranti audio USB</string>
     <string name="bluetooth_device_title">Peranti Bluetooth</string>
     <string name="no_connected_devices">Tiada peranti disambungkan</string>
     <string name="two_hours">2 jam</string>
@@ -2715,7 +2744,8 @@ Jika anda memilih peranti audio Bluetooth, bunyi akan dimainkan pada peranti aud
     <string name="stop_setup_popup_msg">Sebarang aturan yang anda ubah tidak akan digunakan.</string>
     <string name="app_turned_on">%s dihidupkan.</string>
     <string name="force_touch_title">Maklum balas getaran tekan kuat</string>
-    <string name="volume_key_control_title">Kawalan Kunci kelantangan lalai</string>
+    <string name="volume_key_control_title">Guna kekunci Kelantangan utk media</string>
+    <string name="volume_key_control_summary">Kawal kelantangan media apabila anda menekan kekunci Kelantangan.</string>
     <string name="sound_mode">Mod bunyi</string>
     <string name="sound_mode_vibrate">Getar</string>
     <string name="sound_mode_mute">Bisu</string>
@@ -2929,14 +2959,13 @@ Cuba lagi."</string>
     <string name="text_biometrics_title_enterprise">Apabila anda memilih %1$s, biometrik tidak akan disokong sebagai kaedah buka kunci untuk %2$s.</string>
     <string name="text_biometrics_finger_title_enterprise">Cap jari tidak disokong oleh %1$s sebagai kaedah buka kunci untuk %2$s.</string>
     <string name="edge_feeds_title">Suapan Edge</string>
-    <string name="screensaver_settings_summary">"Kawal perkara yang berlaku apabila peranti didok dan/atau sedang dicas. Pemelihara skrin akan ditunjukkan selepas skrin tamat masa.
-
-Fungsi ini dikenali sebagai Pelindung skrin."</string>
-    <string name="screensaver_settings_summary_wo_dock">Tunjukkan pemelihara skrin selepas skrin dimatikan secara automatik semasa telefon anda sedang dicas.</string>
+    <string name="screensaver_settings_summary">Tunjukkan pemelihara skrin selepas skrin dimatikan secara automatik semasa telefon anda sedang dicas.</string>
+    <string name="screensaver_settings_summary_wo_dock">Tunjukkan pemelihara skrin selepas skrin dimatikan secara automatik semasa telefon anda sedang didok atau dicas.</string>
     <string name="apn_already_exists">Telah wujud.</string>
     <string name="error_unavailable_apn">This APN is not allowed on this device. Please try another one.</string>
     <string name="error_message_port_out_of_range">Nombor port mesti antara %1$d dan %2$d.</string>
     <string name="apn_restore_warning">Semua APN yang telah anda tambahkan akan dialih keluar. APN lain akan ditetapkan semula kepada aturan lalai masing-masing.</string>
+    <string name="apn_restore_title">Tetap semula aturan APN?</string>
     <string name="master_clear_desc_google_account">Akaun Google</string>
     <string name="first_use_tether_title">View USB tethering help</string>
     <string name="first_use_usb_tether_msg">Tap OK to learn more about using USB tethering.</string>
@@ -2948,7 +2977,8 @@ Fungsi ini dikenali sebagai Pelindung skrin."</string>
     <string name="sound_balance_summary">Laras imbangan bunyi kiri dan kanan untuk fon kepala.</string>
     <string name="backup_samsung_account_title">Aturan sandaran</string>
     <string name="restore_samsung_account_title">Pulih</string>
-    <string name="auto_restart_header">Pengurusan Alatan</string>
+    <string name="auto_restart_header">Pengurusan telefon</string>
+    <string name="auto_restart_header_tablet">Pengurusan tablet</string>
     <string name="auto_restart_title">Auto mula semula</string>
     <string name="switch_turn_on_text">Hidupkan</string>
     <string name="switch_turn_off_text">Matikan</string>
@@ -3071,6 +3101,14 @@ Data peribadi anda dan aturan aplikasi yang dimuat turun tidak akan terjejas."</
     <string name="tether_settings_summary_usb_bt">Kongsi sambungan data mudah alih peranti anda melalui USB atau Bluetooth</string>
     <string name="dialog_tethering_warning">&lt;b>Introduction for Tethering&lt;/b>&lt;br/>&lt;br/> Tethering allows your Android-powered device to be used as a modem to access the Internet on your laptop while on the go. This feature consumes battery power and increases your data usage. This service requires a subscription to the applicable modem plan. Please ensure you have subscribed to the appropriate data plan prior to use. Call 1-877-872-2249 if you need assistance. Use of service constitutes acceptance of the&lt;a href=http://www.uscellular.com/uscellular/common/common.jsp?path=/android/modem_feature.html> Smartphone Modem Terms.&lt;/a></string>
     <string name="dialog_hotspot_button_accept">Terima</string>
+    <string name="bluetooth_tethering_off_subtext_phone">Kongsi sambungan Internet telefon anda melalui Bluetooth.</string>
+    <string name="bluetooth_tethering_off_subtext_tablet">Kongsi sambungan Internet tablet anda melalui Bluetooth.</string>
+    <string name="bluetooth_tethering_available_subtext_phone">Bersedia untuk berkongsi sambungan Internet telefon ini.</string>
+    <string name="bluetooth_tethering_available_subtext_tablet">Bersedia untuk berkongsi sambungan Internet tablet ini.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_phone">Berkongsi sambungan Internet telefon dengan 1 peranti.</string>
+    <string name="bluetooth_tethering_device_connected_subtext_tablet">Berkongsi sambungan Internet tablet dengan 1 peranti.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_phone">Berkongsi sambungan Internet telefon dengan %d peranti.</string>
+    <string name="bluetooth_tethering_devices_connected_subtext_tablet">Berkongsi sambungan Internet tablet dengan %d peranti.</string>
     <string name="onehand_settings_title">Mod satu tangan</string>
     <string name="onehand_settings_text_1">Leret ke atas secara menyilang dari salah satu sudut bawah skrin untuk mengurangkan saiz paparan.</string>
     <string name="onehand_settings_text_2">Ketik butang Utama sebanyak 3 kali dengan pantas untuk mengurangkan saiz paparan.</string>
@@ -3398,12 +3436,14 @@ Downloading via mobile networks may result in additional charges depending on yo
     <string name="wifi_settings_dialog_radio_off">Matikan</string>
     <string name="wifi_or_mobile_network">Wi-Fi atau rangkaian mudah alih</string>
     <string name="wifi_network_only">Rangkaian Wi-Fi sahaja</string>
+    <string name="wifi_adps_title">Mod penjimatan kuasa Wi-Fi</string>
+    <string name="wifi_adps_summary">Kurangkan penggunaan bateri dengan menganalisis corak trafik Wi-Fi.</string>
     <string name="wifi_auto_reconnect">Auto sambung semula</string>
     <string name="wifi_enable_warning_chn">Turning on WLAN will disable Mobile hotspot.</string>
     <string name="wifi_enable_warning_vzw">Menghidupkan Wi-Fi akan menyahaktifkan Mobile Hotspot. Teruskan?</string>
-    <string name="wifi_enable_warning_tmo">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="wifi_enable_warning_tmo">Wi-Fi dimatikan apabila Mobile HotSpot adalah aktif. Untuk menghidupkan Wi-Fi, sila matikan Mobile HotSpot.</string>
     <string name="wifi_enable_warning_spr">Turning on Wi-Fi will disable Hotspot.</string>
-    <string name="wifi_enable_warning_mtr">Wi-Fi dimatikan apabila Mobile Hotspot adalah aktif. Untuk menghidupkan Wi-Fi, matikan Mobile Hotspot.</string>
+    <string name="wifi_enable_warning_mtr">Wi-Fi dimatikan apabila Mobile Hotspot adalah aktif. Untuk menghidupkan Wi-Fi, sila matikan Mobile Hotspot.</string>
     <string name="wifi_enable_warning_usc">Turning on Wi-Fi will turn off Portable Wi-Fi hotspot. Continue?</string>
     <string name="wifi_enable_warning">Menghidupkan Wi-Fi akan menyahaktifkan Mobile hotspot.</string>
     <string name="wifi_control_history_title">Sejarah kawalan Wi-Fi</string>
@@ -3603,6 +3643,10 @@ Selepas mengubah nama atau kata laluan mobile hotspot, satu kod QR yang baru per
     <string name="wifi_wps_pin_client_mobileap">Menyambungkan klien dengan PIN %1$s. Persediaan boleh mengambil masa sehingga %2$d minit untuk diselesaikan.</string>
     <string name="wifi_wps_complete_mobileap">Peranti lain kini disambungkan ke peranti anda.</string>
     <string name="wifi_ap_disconnect_warn">Nyahsambung peranti</string>
+    <string name="wifi_ap_change_policy_warn_chn">The device currently connected will be disconnected from Portable WLAN hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_att">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_tmo">Semua peranti yang sedang bersambung akan dinyahsambungkan daripada Mobile hotspot.</string>
+    <string name="wifi_ap_change_policy_warn_mtr">The device currently connected will be disconnected from Portable Wi-Fi Hotspot.</string>
     <string name="wifi_ap_change_policy_warn">Semua peranti yang sedang bersambung akan dinyahsambungkan daripada Mobile hotspot.</string>
     <string name="wifi_ap_warn_max_whitelist">Bilangan maksimum peranti yang dibenarkan (%d) telah dicapai.</string>
     <string name="wifiap_one_item_deleted">1 item akan dipadamkan.</string>
@@ -3738,6 +3782,8 @@ Penggunaan Mobile hotspot meningkatkan penggunaan bateri dan penggunaan data."</
     <string name="wifi_ap_first_time_configuration">Tatarajah HotSpot kali pertama</string>
     <string name="title_wifi_notify_mobileap_is_on">Wi-Fi and Mobile Hotspot</string>
     <string name="wifi_wps_pin_client_wrong_text_mobileap">Masukkan PIN yang betul.</string>
+    <string name="open_mobileap_warning">Mobile AP ini tidak selamat.</string>
+    <string name="hidden_mobileap_warning">WPS akan dinyahaktifkan apabila pengguna menetapkan SSID Tersembunyi.</string>
     <string name="wifi_ssid_max_byte_error">Bilangan maksimum aksara dicapai.</string>
     <string name="tethering_attention_title">Perhatian</string>
     <string name="wfd_select_device">Pilih peranti</string>
@@ -3968,6 +4014,14 @@ Receiving SMS"</string>
     <string name="quick_tile_sync_title">Selaras</string>
     <string name="permission_usage">Permission usage</string>
     <string name="draw_overlay_settings_description">Kebenaran ini membenarkan aplikasi untuk menunjukkan perkara di atas aplikasi lain yang anda sedang gunakan. Ini mungkin mengganggu penggunaan aplikasi lain.</string>
+    <string name="write_settings_body_description">Benarkan aplikasi ini untuk mengubah aturan sistem, seperti menghidupkan atau mematikan Bluetooth.</string>
+    <string name="reset_app_preferences_desc1">Ini akan menetapkan semula semua keutamaan untuk:</string>
+    <string name="reset_app_preferences_desc2">Aplikasi dinyahaktifkan</string>
+    <string name="reset_app_preferences_desc3">Pengehadan pemberitahuan untuk aplikasi</string>
+    <string name="reset_app_preferences_desc4">Aplikasi lalai</string>
+    <string name="reset_app_preferences_desc5">Pengehadan data latar belakang untuk aplikasi</string>
+    <string name="reset_app_preferences_desc6">Pengehadan kebenaran</string>
+    <string name="reset_app_preferences_desc7">Anda tidak akan kehilangan data aplikasi sedia ada anda.</string>
     <string name="knox_security_mode_title">Keselamatan Knox</string>
     <string name="kap_title">Knox active protection</string>
     <string name="kap_eula_title">Dasar Keperibadian</string>
@@ -3982,6 +4036,13 @@ Receiving SMS"</string>
     <string name="my_profile_summary">Urus maklumat peribadi dan butiran Samsung account anda.</string>
     <string name="my_profile_summary_jpn">Urus maklumat peribadi dan butiran akaun Galaxy anda.</string>
     <string name="arbitration_agreement">Perjanjian Penimbangtaraan</string>
+    <string name="activation_title">Status pengaktifan</string>
+    <string name="activation_summary">Diaktifkan pada %1$s. Untuk maklumat lanjut, lawati %2$s.</string>
+    <string name="wifi_ap_pmf_on">PMF dihidupkan</string>
+    <string name="edit_event_start_short">Mula</string>
+    <string name="edit_event_end_short">Tamat</string>
+    <string name="select_date_to_view">Pilih tarikh untuk lihat</string>
+    <string name="bixby_volume_option_title">Bixby Voice</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="create">Cipta</string>
@@ -5474,7 +5535,7 @@ Mana-mana pengguna boleh menerima kebenaran aplikasi dikemas kini bagi pihak sem
     <string name="app_notification_block_title">Benarkan pemberitahuan</string>
     <string name="app_notification_block_summary">Terima pemberitahuan daripada aplikasi ini, termasuk mesej pemberitahuan, bunyi dan getaran.</string>
     <string name="app_notification_override_dnd_title">Tetapkn sebagai keutamaan</string>
-    <string name="app_notification_override_dnd_summary">Benarkan pemberitahuan daripada aplikasi ini untuk berbunyi dan menghidupkan skrin semasa Jangan Ganggu diaktifkan.</string>
+    <string name="app_notification_override_dnd_summary">Paparkan pemberitahuan di bahagian atas panel pemberitahuan dan sertakannya dalam senarai yang dibenarkan semasa mod Jangan ganggu diaktifkan.</string>
     <string name="app_notification_visibility_override_title">Pada skrin kunci</string>
     <string name="app_notifications_dialog_done">Selesai</string>
     <string name="zen_mode_choose_rule_type">Pilih jenis peraturan</string>
@@ -5511,6 +5572,7 @@ Mana-mana pengguna boleh menerima kebenaran aplikasi dikemas kini bagi pihak sem
     <string name="restr_pin_enter_admin_pin">Masukkan PIN pentadbir</string>
     <string name="switch_on_text">Hidupkan</string>
     <string name="switch_off_text">Matikan</string>
+    <string name="opening_paragraph_delete_profile_unknown_company">Profil kerja ini diuruskan oleh:</string>
     <string name="managing_admin">Diuruskan oleh %s</string>
     <string name="display_auto_rotate_title">Putaran skrin</string>
     <string name="display_auto_rotate_rotate">Putar kandungan skrin</string>
@@ -5547,9 +5609,9 @@ Anda tidak akan menerima sebarang panggilan, mesej atau pemberitahuan dan pengge
     <string name="encrypt_talkback_dialog_require_pin">Perlukan PIN</string>
     <string name="encrypt_talkback_dialog_require_pattern">Perlukan corak</string>
     <string name="encrypt_talkback_dialog_require_password">Perlukan kata laluan</string>
-    <string name="encrypt_talkback_dialog_message_pin">Apabila anda memasukkan PIN anda selepas menghidupkan peranti, fungsi pencapaian seperti %1$s akan dinyahaktifkan buat sementara.</string>
-    <string name="encrypt_talkback_dialog_message_pattern">Apabila anda melukis corak anda selepas menghidupkan peranti, fungsi pencapaian seperti %1$s akan dinyahaktifkan buat sementara.</string>
-    <string name="encrypt_talkback_dialog_message_password">Apabila anda memasukkan kata laluan anda selepas menghidupkan peranti, fungsi pencapaian seperti %1$s akan dinyahaktifkan buat sementara.</string>
+    <string name="encrypt_talkback_dialog_message_pin">PIN anda diperlukan apabila peranti anda dihidupkan kuasa. Fungsi pencapaian tidak akan tersedia sehingga peranti anda dimulakan.</string>
+    <string name="encrypt_talkback_dialog_message_pattern">Corak anda diperlukan apabila peranti anda dihidupkan kuasa. Fungsi pencapaian tidak akan tersedia sehingga peranti anda dimulakan.</string>
+    <string name="encrypt_talkback_dialog_message_password">Kata laluan anda diperlukan apabila peranti anda dihidupkan kuasa. Fungsi pencapaian tidak akan tersedia sehingga peranti anda dimulakan.</string>
     <string name="slot_number">(slot %d)</string>
     <string name="app_launch_domain_links_title">Pautan aplikasi</string>
     <string name="app_launch_open_domain_urls_title">Pergi ke URL yg disokong</string>
@@ -5625,18 +5687,18 @@ Anda tidak akan menerima sebarang panggilan, mesej atau pemberitahuan dan pengge
     <string name="usb_use_power_only">Cas peranti yg disambungkan</string>
     <string name="usb_use_power_only_desc">Cas peranti yang disambungkan melalui USB.</string>
     <string name="usb_use_file_transfers_vzw">File Transfer</string>
-    <string name="usb_use_file_transfers">Pindahkan fail media</string>
+    <string name="usb_use_file_transfers">Pindahkan fail</string>
     <string name="usb_use_photo_transfers_vzw">Photo Transfer</string>
     <string name="usb_use_photo_transfers">Pindahkan imej</string>
     <string name="usb_use_photo_transfers_summary_vzw">Transfer camera photos to a computer.</string>
-    <string name="usb_use_photo_transfers_summary">Pilih mod ini jika Pindah fail media tidak berfungsi. Anda hanya boleh memindahkan fail imej.</string>
+    <string name="usb_use_photo_transfers_summary">Pilih mod ini jika Pindah fail tidak berfungsi. Anda hanya boleh memindahkan fail imej dalam mod ini.</string>
     <string name="usb_use_MIDI_vzw">MIDI</string>
     <string name="usb_use_MIDI">Sambungkan peranti MIDI</string>
     <string name="usb_use">Gunakan USB untuk</string>
-    <string name="assist_access_context_title">Baca teks pada skrin</string>
-    <string name="assist_access_context_summary">Benarkan aplikasi bantuan peranti membaca mana-mana teks yang ditunjukkan pada skrin.</string>
-    <string name="assist_access_screenshot_title">Tangkap/capai petikan skrin</string>
-    <string name="assist_access_screenshot_summary">Benarkan aplikasi bantuan peranti menangkap dan menggunakan tangkapan skrin.</string>
+    <string name="assist_access_context_title">Analisis teks pada skrin</string>
+    <string name="assist_access_context_summary">Benarkan aplikasi bantuan peranti untuk menganalisis teks yang ditunjukkan pada skrin untuk memberikan kandungan yang berkaitan.</string>
+    <string name="assist_access_screenshot_title">Analisis imej pada skrin</string>
+    <string name="assist_access_screenshot_summary">Benarkan aplikasi bantuan peranti untuk mengambil dan menggunakan imej skrin.</string>
     <string name="assist_footer">Aplikasi bantuan peranti boleh membantu anda dengan mengumpulkan maklumat daripada skrin yang sedang ditunjukkan pada telefon anda. Sesetengah aplikasi bantuan peranti boleh digunakan untuk membuka aplikasi lain dan memasukkan teks menggunakan input suara, menyediakan bantuan bersepadu untuk anda.</string>
     <string name="average_memory_use">Purata penggunaan RAM</string>
     <string name="maximum_memory_use">Penggunaan RAM maksimum</string>
@@ -5665,7 +5727,7 @@ Anda tidak akan menerima sebarang panggilan, mesej atau pemberitahuan dan pengge
     <string name="ignore_optimizations_on_desc">Mungkin meningkatkan penggunaan bateri</string>
     <string name="ignore_optimizations_off_desc">Disyorkan untuk menjimatkan kuasa bateri</string>
     <string name="app_list_preference_none">Tiada</string>
-    <string name="allow_overlay_description">Pilih aplikasi untuk membenarkan butang, pop timbul atau unsur lainnya muncul di atas aplikasi yang anda sedang gunakan.</string>
+    <string name="allow_overlay_description">Kebenaran ini membenarkan aplikasi untuk menunjukkan perkara di atas aplikasi lain yang anda sedang gunakan. Ini mungkin mengganggu penggunaan aplikasi lain.</string>
     <string name="overlay_settings">Aplikasi yang akan muncul pada bahagian atas</string>
     <string name="filter_overlay_apps">Aplikasi dengan kebenaran</string>
     <string name="filter_write_settings_apps">Aplikasi dengan kebenaran</string>
@@ -5712,14 +5774,14 @@ Anda tidak akan menerima sebarang panggilan, mesej atau pemberitahuan dan pengge
     <string name="ethernet_data_template">%1$s data Ethernet</string>
     <string name="cell_warning_only">Amaran data pada %s</string>
     <string name="cell_warning_and_limit">%1$s Amaran penggunaan data/%2$s Had penggunaan data</string>
-    <string name="billing_cycle">Kitaran pengebilan</string>
+    <string name="billing_cycle">Kitaran bil dan amaran data</string>
     <string name="billing_cycle_summary">Hari ke-%s setiap bulan</string>
     <string name="billing_cycle_fragment_summary">Hari ke-%s setiap bulan</string>
     <string name="network_restrictions">Hadkan rangkaian</string>
     <string name="operator_warning">Penggunaan data diukur oleh peranti anda. Pembekal perkhidmatan anda mungkin mengira penggunaan secara berbeza.</string>
     <string name="data_used_template">%s digunakan</string>
     <string name="data_warning">Amaran data</string>
-    <string name="set_data_limit">Had data</string>
+    <string name="set_data_limit">Tetapkan had data</string>
     <string name="data_limit">Had data</string>
     <string name="data_usage_template">%1$s digunakan antara %2$s</string>
     <string name="data_usage_other_apps">Apl berkaitan disertakan dlm penggunaan</string>
@@ -5761,5 +5823,4 @@ Peranti anda disertakan perisian diagnostik yang boleh mengumpul diagnostik dan 
     <string name="enable_iris_lock_desc_3">"Cap jari ditetapkan sebagai jenis kunci skrin anda buat masa ini.
 
 Untuk menetapkan jenis kunci skrin anda sebagai Iris dan bukannya Cap Jari, ketik AKTIFKAN. Peranti akan dapat dibuka kunci menggunakan Iris atau %s anda."</string>
-    <string name="my_phone_summary">Pembesar suara/fon kepala/peranti audio USB</string>
 </resources>

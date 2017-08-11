@@ -43,7 +43,7 @@
 
     const v0, 0x7f01008e
 
-    const v1, 0x7f0f02d6
+    const v1, 0x7f0f02d7
 
     invoke-direct {p0, p1, p2, v0, v1}, Landroid/widget/Button;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -65,7 +65,7 @@
 
     if-ne p1, v0, :cond_0
 
-    const v0, 0x7f02011e
+    const v0, 0x7f020143
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/widget/RoundButtonView;->setBackgroundResource(I)V
 
@@ -74,7 +74,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0166
+    const v1, 0x7f0d0167
 
     const/4 v2, 0x0
 
@@ -88,7 +88,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0430
+    const v1, 0x7f0a042e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -103,7 +103,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f02016a
+    const v0, 0x7f02018f
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/widget/RoundButtonView;->setBackgroundResource(I)V
 
@@ -125,7 +125,7 @@
 
     check-cast v0, Landroid/graphics/drawable/RippleDrawable;
 
-    const v2, 0x7f1109a9
+    const v2, 0x7f1109af
 
     invoke-virtual {v0, v2}, Landroid/graphics/drawable/RippleDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -145,7 +145,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a05ac
+    const v3, 0x7f0a05ab
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -166,7 +166,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0168
+    const v3, 0x7f0d0169
 
     invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 

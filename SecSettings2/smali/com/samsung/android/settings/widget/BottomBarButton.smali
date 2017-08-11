@@ -55,7 +55,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d00e3
+    const v2, 0x7f0d00e4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -90,7 +90,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f020633
+    const v0, 0x7f02069c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/widget/BottomBarButton;->setBackgroundResource(I)V
 

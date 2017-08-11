@@ -1,9 +1,6 @@
 .class Lcom/samsung/android/settings/localepicker/LocaleListEditor$1;
-.super Ljava/lang/Object;
+.super Landroid/database/DataSetObserver;
 .source "LocaleListEditor.java"
-
-# interfaces
-.implements Landroid/widget/AdapterView$OnItemLongClickListener;
 
 
 # annotations
@@ -27,55 +24,21 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$1;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/widget/AdapterView",
-            "<*>;",
-            "Landroid/view/View;",
-            "IJ)Z"
-        }
-    .end annotation
+.method public onChanged()V
+    .locals 1
 
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    instance-of v0, p2, Lcom/samsung/android/settings/localepicker/LocaleDragCell;
-
-    if-eqz v0, :cond_0
+    invoke-super {p0}, Landroid/database/DataSetObserver;->onChanged()V
 
     iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$1;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-get6(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)Z
+    invoke-static {v0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-wrap4(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)V
 
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$1;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
-
-    invoke-static {v0}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-get7(Lcom/samsung/android/settings/localepicker/LocaleListEditor;)I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/samsung/android/settings/localepicker/LocaleListEditor$1;->this$0:Lcom/samsung/android/settings/localepicker/LocaleListEditor;
-
-    invoke-static {v0, v2}, Lcom/samsung/android/settings/localepicker/LocaleListEditor;->-wrap3(Lcom/samsung/android/settings/localepicker/LocaleListEditor;Z)V
-
-    return v2
-
-    :cond_0
-    return v1
+    return-void
 .end method

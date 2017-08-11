@@ -1,19 +1,27 @@
 .class Lcom/android/settings/datausage/DataUsageList$10;
-.super Ljava/lang/Object;
+.super Landroid/os/AsyncTask;
 .source "DataUsageList.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/datausage/DataUsageList;->updatePolicy(Z)V
+    value = Lcom/android/settings/datausage/DataUsageList;->onResume()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x0
     name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/os/AsyncTask",
+        "<",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        ">;"
+    }
 .end annotation
 
 
@@ -27,45 +35,85 @@
 
     iput-object p1, p0, Lcom/android/settings/datausage/DataUsageList$10;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 6
+.method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
-    new-instance v5, Landroid/os/Bundle;
+    check-cast p1, [Ljava/lang/Void;
 
-    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
+    invoke-virtual {p0, p1}, Lcom/android/settings/datausage/DataUsageList$10;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
 
-    const-string/jumbo v0, "network_template"
+    move-result-object v0
 
-    iget-object v1, p0, Lcom/android/settings/datausage/DataUsageList$10;->this$0:Lcom/android/settings/datausage/DataUsageList;
+    return-object v0
+.end method
 
-    invoke-static {v1}, Lcom/android/settings/datausage/DataUsageList;->-get5(Lcom/android/settings/datausage/DataUsageList;)Landroid/net/NetworkTemplate;
+.method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
+    .locals 4
 
-    move-result-object v1
+    const-wide/16 v2, 0x7d0
 
-    invoke-virtual {v5, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    :try_start_0
+    invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
+
+    iget-object v2, p0, Lcom/android/settings/datausage/DataUsageList$10;->this$0:Lcom/android/settings/datausage/DataUsageList;
+
+    iget-object v2, v2, Lcom/android/settings/datausage/DataUsageList;->services:Lcom/android/settings/datausage/TemplatePreference$NetworkServices;
+
+    iget-object v2, v2, Lcom/android/settings/datausage/TemplatePreference$NetworkServices;->mStatsService:Landroid/net/INetworkStatsService;
+
+    invoke-interface {v2}, Landroid/net/INetworkStatsService;->forceUpdate()V
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+
+    :goto_0
+    const/4 v2, 0x0
+
+    return-object v2
+
+    :catch_0
+    move-exception v1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v0
+
+    goto :goto_0
+.end method
+
+.method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Ljava/lang/Void;
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/datausage/DataUsageList$10;->onPostExecute(Ljava/lang/Void;)V
+
+    return-void
+.end method
+
+.method protected onPostExecute(Ljava/lang/Void;)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList$10;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    iget-object v1, p0, Lcom/android/settings/datausage/DataUsageList$10;->this$0:Lcom/android/settings/datausage/DataUsageList;
+    invoke-virtual {v0}, Lcom/android/settings/datausage/DataUsageList;->isAdded()Z
 
-    const-class v2, Lcom/android/settings/datausage/BillingCycleSettings;
+    move-result v0
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    if-eqz v0, :cond_0
 
-    move-result-object v2
+    iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList$10;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    const v3, 0x7f0b1c63
+    invoke-static {v0}, Lcom/android/settings/datausage/DataUsageList;->-wrap5(Lcom/android/settings/datausage/DataUsageList;)V
 
-    const/4 v4, 0x0
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/settings/datausage/DataUsageList;->startFragment(Landroid/app/Fragment;Ljava/lang/String;IILandroid/os/Bundle;)Z
-
+    :cond_0
     return-void
 .end method

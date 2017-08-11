@@ -532,7 +532,7 @@
 .method private handleConnectionEvent(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 12
 
-    const v11, 0x7f0b1074
+    const v11, 0x7f0b1101
 
     const/4 v10, 0x4
 
@@ -662,7 +662,7 @@
     :cond_2
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mPositiveButtonText:Landroid/widget/TextView;
 
-    const v5, 0x7f0b0dee
+    const v5, 0x7f0b0e79
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -758,7 +758,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWifiScreenSubText:Landroid/widget/TextView;
 
-    const v5, 0x7f0b1075
+    const v5, 0x7f0b1102
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -808,7 +808,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWifiScreenSubText:Landroid/widget/TextView;
 
-    const v5, 0x7f0b1073
+    const v5, 0x7f0b1100
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -860,7 +860,7 @@
 .method private hideSoftKeysOnKeyboardDismiss()V
     .locals 3
 
-    const v1, 0x7f110977
+    const v1, 0x7f11097d
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -894,7 +894,7 @@
 .method private initializeView()V
     .locals 11
 
-    const v10, 0x7f11097d
+    const v10, 0x7f110983
 
     const/4 v7, -0x2
 
@@ -912,7 +912,7 @@
 
     invoke-static {p0}, Lcom/samsung/android/settings/wifi/WifiConnectivityUtils;->setCustomTitle(Landroid/app/Activity;)V
 
-    const v5, 0x7f11097b
+    const v5, 0x7f110981
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -922,7 +922,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWifiScreenSubText:Landroid/widget/TextView;
 
-    const v5, 0x7f11097f
+    const v5, 0x7f110985
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -932,7 +932,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mPositiveButtonText:Landroid/widget/TextView;
 
-    const v5, 0x7f11097e
+    const v5, 0x7f110984
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -948,7 +948,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mNegativeButtonLayout:Landroid/view/View;
 
-    const v5, 0x7f11097a
+    const v5, 0x7f110980
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -958,7 +958,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWifiSettingsView:Landroid/view/View;
 
-    const v5, 0x7f11097c
+    const v5, 0x7f110982
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -966,7 +966,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mButtonView:Landroid/view/View;
 
-    const v5, 0x7f110979
+    const v5, 0x7f11097f
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -976,7 +976,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mTitleText:Landroid/widget/TextView;
 
-    const v5, 0x7f110833
+    const v5, 0x7f110836
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -986,7 +986,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWiFiDeviceImage:Landroid/widget/ImageView;
 
-    const v5, 0x7f110834
+    const v5, 0x7f110837
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -1026,7 +1026,7 @@
 
     invoke-direct {v2, v7, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    const v5, 0x7f0a071b
+    const v5, 0x7f0a071a
 
     invoke-direct {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getDimension(I)I
 
@@ -1034,7 +1034,7 @@
 
     float-to-int v6, v4
 
-    const v7, 0x7f0a071d
+    const v7, 0x7f0a071c
 
     invoke-direct {p0, v7}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getDimension(I)I
 
@@ -1112,7 +1112,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWifiScreenSubText:Landroid/widget/TextView;
 
-    const v6, 0x7f0b1075
+    const v6, 0x7f0b1102
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1140,7 +1140,7 @@
 
     invoke-virtual {v1, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v5, 0x7f110980
+    const v5, 0x7f110986
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -1163,43 +1163,43 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWiFiImageEffectList:Ljava/util/ArrayList;
 
-    const v5, 0x7f110835
-
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/widget/ImageView;
-
-    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v6, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWiFiImageEffectList:Ljava/util/ArrayList;
-
-    const v5, 0x7f110836
-
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/widget/ImageView;
-
-    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v6, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWiFiImageEffectList:Ljava/util/ArrayList;
-
-    const v5, 0x7f110837
-
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/widget/ImageView;
-
-    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v6, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWiFiImageEffectList:Ljava/util/ArrayList;
-
     const v5, 0x7f110838
+
+    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/ImageView;
+
+    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v6, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWiFiImageEffectList:Ljava/util/ArrayList;
+
+    const v5, 0x7f110839
+
+    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/ImageView;
+
+    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v6, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWiFiImageEffectList:Ljava/util/ArrayList;
+
+    const v5, 0x7f11083a
+
+    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/ImageView;
+
+    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v6, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mWiFiImageEffectList:Ljava/util/ArrayList;
+
+    const v5, 0x7f11083b
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -1498,7 +1498,7 @@
 
     const/4 v6, 0x0
 
-    const v5, 0x7f0b1698    # 1.8488E38f
+    const v5, 0x7f0b1734
 
     const/4 v4, 0x0
 
@@ -1632,7 +1632,7 @@
 
     invoke-static {v1}, Lcom/samsung/android/settings/wifi/WifiConnectivityUtils;->forgetNetWork(Landroid/net/wifi/WifiManager;)V
 
-    const v1, 0x7f0b1076
+    const v1, 0x7f0b1103
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1640,7 +1640,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b1077
+    const v1, 0x7f0b1104
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1663,7 +1663,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v1, 0x7f0b1078
+    const v1, 0x7f0b1105
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1671,7 +1671,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b1079
+    const v1, 0x7f0b1106
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1679,7 +1679,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b107a
+    const v1, 0x7f0b1107
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1691,7 +1691,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b124f
+    const v1, 0x7f0b12ea
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1714,7 +1714,7 @@
     :pswitch_2
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0dda
+    const v1, 0x7f0b0e65
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1722,7 +1722,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0810
+    const v1, 0x7f0b0878
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1737,7 +1737,7 @@
     goto/16 :goto_0
 
     :pswitch_3
-    const v1, 0x7f0b107b
+    const v1, 0x7f0b1108
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1745,7 +1745,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b107c
+    const v1, 0x7f0b1109
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1768,7 +1768,7 @@
     goto/16 :goto_0
 
     :pswitch_4
-    const v1, 0x7f0b107f
+    const v1, 0x7f0b110c
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1776,7 +1776,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b107e
+    const v1, 0x7f0b110b
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1786,7 +1786,7 @@
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b13f4
+    const v1, 0x7f0b148f
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1798,7 +1798,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b1080
+    const v1, 0x7f0b110d
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1885,7 +1885,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    const v1, 0x7f0b107d
+    const v1, 0x7f0b110a
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -1989,7 +1989,7 @@
 
     const/4 v2, 0x0
 
-    const v0, 0x7f11097a
+    const v0, 0x7f110980
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->findViewById(I)Landroid/view/View;
 
@@ -1997,13 +1997,13 @@
 
     check-cast v5, Landroid/widget/LinearLayout;
 
-    const v0, 0x7f0a0771
+    const v0, 0x7f0a0770
 
     invoke-direct {p0, v0}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getDimension(I)I
 
     move-result v1
 
-    const v0, 0x7f0a0772
+    const v0, 0x7f0a0771
 
     invoke-direct {p0, v0}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getDimension(I)I
 
@@ -2033,7 +2033,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->mPositiveButtonText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b123a
+    const v1, 0x7f0b12d5
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->getString(I)Ljava/lang/String;
 
@@ -2232,7 +2232,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0f0252
+    const v1, 0x7f0f0253
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/SetupWizardWifiScreen;->setTheme(I)V
 
@@ -2610,7 +2610,7 @@
 
     invoke-direct {v0, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f110924
+    const v2, 0x7f11092a
 
     invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->setId(I)V
 

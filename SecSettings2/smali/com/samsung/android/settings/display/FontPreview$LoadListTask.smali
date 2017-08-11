@@ -253,7 +253,7 @@
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/samsung/android/settings/display/FontPreview;->-wrap2(Lcom/samsung/android/settings/display/FontPreview;I)V
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/display/FontPreview;->-wrap1(Lcom/samsung/android/settings/display/FontPreview;I)V
 
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/display/FontPreview$LoadListTask;->this$0:Lcom/samsung/android/settings/display/FontPreview;
@@ -264,7 +264,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/samsung/android/settings/display/FontPreview;->-wrap5(Lcom/samsung/android/settings/display/FontPreview;Landroid/os/Bundle;)V
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/display/FontPreview;->-wrap4(Lcom/samsung/android/settings/display/FontPreview;Landroid/os/Bundle;)V
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/FontPreview$LoadListTask;->this$0:Lcom/samsung/android/settings/display/FontPreview;
 

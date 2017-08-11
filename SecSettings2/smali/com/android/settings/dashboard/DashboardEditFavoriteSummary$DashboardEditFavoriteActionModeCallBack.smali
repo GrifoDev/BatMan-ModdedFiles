@@ -71,7 +71,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400a5
+    const v1, 0x7f0400a6
 
     const/4 v2, 0x0
 
@@ -97,7 +97,7 @@
 
     iget-object v1, p0, Lcom/android/settings/dashboard/DashboardEditFavoriteSummary$DashboardEditFavoriteActionModeCallBack;->this$0:Lcom/android/settings/dashboard/DashboardEditFavoriteSummary;
 
-    const v2, 0x7f0b1033
+    const v2, 0x7f0b10c0
 
     invoke-virtual {v1, v2}, Lcom/android/settings/dashboard/DashboardEditFavoriteSummary;->getString(I)Ljava/lang/String;
 
@@ -208,7 +208,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1034
+    const v4, 0x7f0b10c1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

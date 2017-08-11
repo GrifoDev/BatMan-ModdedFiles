@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection$11;->this$0:Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;
 
-    invoke-static {v0, v2}, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->-set4(Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;Z)Z
+    invoke-static {v0, v2}, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->-set2(Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;Z)Z
 
     const-string/jumbo v0, "ChooseLockDirection"
 
@@ -96,6 +96,14 @@
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection$11;->this$0:Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;
 
     invoke-static {v0}, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->-get17(Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection$11;->this$0:Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->-get18(Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;)Z
 
     move-result v0
 

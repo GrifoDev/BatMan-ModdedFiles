@@ -31,9 +31,9 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    const v7, 0x7f0d01bf
+    const v7, 0x7f0d01c0
 
-    const v6, 0x7f0d01bd
+    const v6, 0x7f0d01be
 
     const/4 v5, 0x3
 
@@ -55,7 +55,7 @@
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->CIRCLE_PROGRESS:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
-    const v1, 0x7f0d01be
+    const v1, 0x7f0d01bf
 
     invoke-static {v0, v3, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 
@@ -69,7 +69,7 @@
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->SCORE_TEXT:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
-    const v1, 0x7f0d01be
+    const v1, 0x7f0d01bf
 
     invoke-static {v0, v3, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 
@@ -80,28 +80,28 @@
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->SCORE_TEXT:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
     invoke-static {v0, v5, v6}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
+
+    sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->FIXNOW_BTN:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
+
+    const v1, 0x7f0d0167
+
+    invoke-static {v0, v3, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
+
+    sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->FIXNOW_BTN:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
+
+    const v1, 0x7f0d016a
+
+    invoke-static {v0, v4, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->FIXNOW_BTN:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
     const v1, 0x7f0d0166
 
-    invoke-static {v0, v3, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
-
-    sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->FIXNOW_BTN:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
-
-    const v1, 0x7f0d0169
-
-    invoke-static {v0, v4, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
-
-    sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->FIXNOW_BTN:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
-
-    const v1, 0x7f0d0165
-
     invoke-static {v0, v5, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->SHORTCUT_BTN:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
-    const v1, 0x7f0d01dd
+    const v1, 0x7f0d01de
 
     invoke-static {v0, v3, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 
@@ -115,25 +115,25 @@
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->SHORTCUT_2ND_TEXT:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
-    const v1, 0x7f0d01c0
+    const v1, 0x7f0d01c1
 
     invoke-static {v0, v3, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->SHORTCUT_2ND_TEXT:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
-    const v1, 0x7f0d01c1
+    const v1, 0x7f0d01c2
 
     invoke-static {v0, v4, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->SHORTCUT_2ND_TEXT:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
-    const v1, 0x7f0d01c2
+    const v1, 0x7f0d01c3
 
     invoke-static {v0, v5, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->RIPPLE:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
-    const v1, 0x7f0d01be
+    const v1, 0x7f0d01bf
 
     const v2, 0x3ecccccd    # 0.4f
 
@@ -153,19 +153,19 @@
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->SECOND_DEPTH_STATUS_TEXT:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
-    const v1, 0x7f0d01c3
+    const v1, 0x7f0d01c4
 
     invoke-static {v0, v3, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->SECOND_DEPTH_STATUS_TEXT:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
-    const v1, 0x7f0d01c4
+    const v1, 0x7f0d01c5
 
     invoke-static {v0, v4, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 
     sget-object v0, Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;->SECOND_DEPTH_STATUS_TEXT:Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;
 
-    const v1, 0x7f0d01c5
+    const v1, 0x7f0d01c6
 
     invoke-static {v0, v5, v1}, Lcom/samsung/android/visualeffect/circle/StateColorManager;->addColorInfo(Lcom/samsung/android/visualeffect/circle/StateColorManager$VIEWTYPE;II)V
 

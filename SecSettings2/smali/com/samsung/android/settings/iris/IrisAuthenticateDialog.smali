@@ -233,7 +233,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mCancelBtn:Landroid/widget/TextView;
 
-    const v2, 0x7f0202f6
+    const v2, 0x7f02031b
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -365,7 +365,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mFingerprintManager:Lcom/samsung/android/fingerprint/FingerprintManager;
 
-    const v1, 0x7f040154
+    const v1, 0x7f040156
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->setContentView(I)V
 
@@ -383,7 +383,7 @@
 
     iput v1, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mBackupPasswordStatusDB:I
 
-    const v1, 0x7f1104c1
+    const v1, 0x7f1104c3
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->findViewById(I)Landroid/view/View;
 
@@ -397,7 +397,7 @@
 
     invoke-virtual {v1, v4}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    const v1, 0x7f1104c4
+    const v1, 0x7f1104c6
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->findViewById(I)Landroid/view/View;
 
@@ -407,7 +407,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->linearlayout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f1104c5
+    const v1, 0x7f1104c7
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->findViewById(I)Landroid/view/View;
 
@@ -417,7 +417,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mCancelBtn:Landroid/widget/TextView;
 
-    const v1, 0x7f1104c2
+    const v1, 0x7f1104c4
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->findViewById(I)Landroid/view/View;
 
@@ -427,7 +427,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mBackupPasswordBtn:Landroid/widget/Button;
 
-    const v1, 0x7f1104c3
+    const v1, 0x7f1104c5
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->findViewById(I)Landroid/view/View;
 
@@ -504,7 +504,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0812
+    const v3, 0x7f0b087a
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

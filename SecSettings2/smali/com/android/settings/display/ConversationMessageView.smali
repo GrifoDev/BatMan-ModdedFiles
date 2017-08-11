@@ -111,7 +111,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040087
+    const v2, 0x7f040088
 
     invoke-virtual {v1, v2, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -119,7 +119,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040086
+    const v2, 0x7f040087
 
     invoke-virtual {v1, v2, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -127,7 +127,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a07cc
+    const v2, 0x7f0a07cb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -299,7 +299,7 @@
 
     if-eqz v17, :cond_2
 
-    const v5, 0x7f0203a6
+    const v5, 0x7f0203cc
 
     :goto_2
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/display/ConversationMessageView;->getContext()Landroid/content/Context;
@@ -388,7 +388,7 @@
     goto :goto_1
 
     :cond_2
-    const v5, 0x7f0203a7
+    const v5, 0x7f0203cd
 
     goto :goto_2
 
@@ -439,7 +439,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200f6
+    const v2, 0x7f0200f7
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

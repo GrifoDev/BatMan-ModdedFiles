@@ -112,7 +112,7 @@
 .method private getRemoteViews()Landroid/widget/RemoteViews;
     .locals 6
 
-    const v5, 0x7f110691
+    const v5, 0x7f110694
 
     new-instance v0, Landroid/widget/RemoteViews;
 
@@ -120,11 +120,11 @@
 
     move-result-object v1
 
-    const v2, 0x7f040251
+    const v2, 0x7f040255
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
-    const v1, 0x7f0b01b8
+    const v1, 0x7f0b0215
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -132,25 +132,7 @@
 
     invoke-virtual {v0, v5, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v1, 0x7f0b0b82
-
-    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v1
-
-    const v2, 0x7f110693
-
-    invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
-
-    const v1, 0x7f0b0b84
+    const v1, 0x7f0b0bf4
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -168,7 +150,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v1, 0x7f0b0b83
+    const v1, 0x7f0b0bf6
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -183,6 +165,24 @@
     move-result-object v1
 
     const v2, 0x7f110699
+
+    invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
+
+    const v1, 0x7f0b0bf5
+
+    invoke-virtual {p0, v1}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
+    move-result-object v1
+
+    const v2, 0x7f11069c
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
@@ -318,7 +318,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f110692
+    const v2, 0x7f110695
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -342,7 +342,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f110695
+    const v2, 0x7f110698
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -366,7 +366,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f110698
+    const v2, 0x7f11069b
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -388,7 +388,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/qstile/PowerSavingTile;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b0b70
+    const v5, 0x7f0b0be2
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -396,7 +396,7 @@
 
     aput-object v4, v3, v6
 
-    const v4, 0x7f0b10b2
+    const v4, 0x7f0b113f
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -429,11 +429,11 @@
 
     const v6, 0x7f0d00b5
 
-    const v1, 0x7f0204a9
+    const v1, 0x7f020512
 
-    const v2, 0x7f0204a6
+    const v2, 0x7f02050f
 
-    const v5, 0x7f0d01ad
+    const v5, 0x7f0d01ae
 
     packed-switch p2, :pswitch_data_0
 
@@ -448,7 +448,7 @@
 
     const-string/jumbo v0, "setEnabled"
 
-    const v1, 0x7f110698
+    const v1, 0x7f11069b
 
     const/4 v2, 0x0
 
@@ -460,7 +460,7 @@
 
     move-result v0
 
-    const v1, 0x7f110699
+    const v1, 0x7f11069c
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -470,7 +470,7 @@
 
     move-result v0
 
-    const v1, 0x7f11069a
+    const v1, 0x7f11069d
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -490,10 +490,10 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f0204a7
+    const v0, 0x7f020510
 
     :goto_1
-    const v4, 0x7f110692
+    const v4, 0x7f110695
 
     invoke-virtual {p1, v4, v3, v0}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -501,7 +501,7 @@
 
     move-result v0
 
-    const v3, 0x7f110693
+    const v3, 0x7f110696
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -509,15 +509,15 @@
 
     move-result v0
 
-    const v3, 0x7f110694
+    const v3, 0x7f110697
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
     const-string/jumbo v0, "setBackgroundResource"
 
-    const v3, 0x7f110695
+    const v3, 0x7f110698
 
-    const v4, 0x7f0204a4
+    const v4, 0x7f02050d
 
     invoke-virtual {p1, v3, v0, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -525,7 +525,7 @@
 
     move-result v0
 
-    const v3, 0x7f110696
+    const v3, 0x7f110699
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -533,7 +533,7 @@
 
     move-result v0
 
-    const v3, 0x7f110697
+    const v3, 0x7f11069a
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -550,7 +550,7 @@
     move v0, v1
 
     :goto_2
-    const v1, 0x7f110698
+    const v1, 0x7f11069b
 
     invoke-virtual {p1, v1, v3, v0}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -558,7 +558,7 @@
 
     move-result v0
 
-    const v1, 0x7f110699
+    const v1, 0x7f11069c
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -566,14 +566,14 @@
 
     move-result v0
 
-    const v1, 0x7f11069a
+    const v1, 0x7f11069d
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
     goto/16 :goto_0
 
     :cond_1
-    const v0, 0x7f0204aa
+    const v0, 0x7f020513
 
     goto :goto_1
 
@@ -596,39 +596,13 @@
     move v0, v2
 
     :goto_3
-    const v4, 0x7f110692
+    const v4, 0x7f110695
 
     invoke-virtual {p1, v4, v3, v0}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
-    const v0, 0x7f0d01af
+    const v0, 0x7f0d01b0
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
-
-    move-result v0
-
-    const v3, 0x7f110693
-
-    invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
-
-    const v0, 0x7f0d01af
-
-    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
-
-    move-result v0
-
-    const v3, 0x7f110694
-
-    invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
-
-    const-string/jumbo v0, "setBackgroundResource"
-
-    const v3, 0x7f110695
-
-    const v4, 0x7f0204a5
-
-    invoke-virtual {p1, v3, v0, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
-
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
 
     move-result v0
 
@@ -636,11 +610,37 @@
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
-    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
+    const v0, 0x7f0d01b0
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
 
     move-result v0
 
     const v3, 0x7f110697
+
+    invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
+
+    const-string/jumbo v0, "setBackgroundResource"
+
+    const v3, 0x7f110698
+
+    const v4, 0x7f02050e
+
+    invoke-virtual {p1, v3, v0, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
+
+    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
+
+    move-result v0
+
+    const v3, 0x7f110699
+
+    invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
+
+    invoke-virtual {p0, v5}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
+
+    move-result v0
+
+    const v3, 0x7f11069a
 
     invoke-virtual {p1, v3, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -655,7 +655,7 @@
     if-nez v3, :cond_4
 
     :goto_4
-    const v2, 0x7f110698
+    const v2, 0x7f11069b
 
     invoke-virtual {p1, v2, v0, v1}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -663,7 +663,7 @@
 
     move-result v0
 
-    const v1, 0x7f110699
+    const v1, 0x7f11069c
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -671,7 +671,7 @@
 
     move-result v0
 
-    const v1, 0x7f11069a
+    const v1, 0x7f11069d
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -699,39 +699,13 @@
     if-nez v3, :cond_5
 
     :goto_5
-    const v1, 0x7f110692
-
-    invoke-virtual {p1, v1, v0, v2}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
-
-    const v0, 0x7f0d01af
-
-    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
-
-    move-result v0
-
-    const v1, 0x7f110693
-
-    invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
-
-    const v0, 0x7f0d01af
-
-    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
-
-    move-result v0
-
-    const v1, 0x7f110694
-
-    invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
-
-    const-string/jumbo v0, "setBackgroundResource"
-
     const v1, 0x7f110695
 
-    const v2, 0x7f0204a4
-
     invoke-virtual {p1, v1, v0, v2}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
-    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
+    const v0, 0x7f0d01b0
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
 
     move-result v0
 
@@ -739,11 +713,37 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
+    const v0, 0x7f0d01b0
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
 
     move-result v0
 
     const v1, 0x7f110697
+
+    invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
+
+    const-string/jumbo v0, "setBackgroundResource"
+
+    const v1, 0x7f110698
+
+    const v2, 0x7f02050d
+
+    invoke-virtual {p1, v1, v0, v2}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
+
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
+
+    move-result v0
+
+    const v1, 0x7f110699
+
+    invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
+
+    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getColor(I)I
+
+    move-result v0
+
+    const v1, 0x7f11069a
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -757,10 +757,10 @@
 
     if-nez v0, :cond_6
 
-    const v0, 0x7f0204ab
+    const v0, 0x7f020514
 
     :goto_6
-    const v2, 0x7f110698
+    const v2, 0x7f11069b
 
     invoke-virtual {p1, v2, v1, v0}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -768,7 +768,7 @@
 
     move-result v0
 
-    const v1, 0x7f110699
+    const v1, 0x7f11069c
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -776,7 +776,7 @@
 
     move-result v0
 
-    const v1, 0x7f11069a
+    const v1, 0x7f11069d
 
     invoke-virtual {p1, v1, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
@@ -788,7 +788,7 @@
     goto :goto_5
 
     :cond_6
-    const v0, 0x7f0204a8
+    const v0, 0x7f020511
 
     goto :goto_6
 
@@ -937,7 +937,7 @@
 
     move-result-object v5
 
-    const v12, 0x7f110694
+    const v12, 0x7f110697
 
     move-object/from16 v0, p1
 
@@ -966,7 +966,7 @@
 
     move-result-object v5
 
-    const v12, 0x7f110697
+    const v12, 0x7f11069a
 
     move-object/from16 v0, p1
 
@@ -995,7 +995,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f11069a
+    const v5, 0x7f11069d
 
     move-object/from16 v0, p1
 
@@ -1013,13 +1013,13 @@
 
     aput-object v4, v12, v13
 
-    const v13, 0x7f0b01b8
+    const v13, 0x7f0b0215
 
     invoke-virtual {v5, v13, v12}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
 
-    const v12, 0x7f110691
+    const v12, 0x7f110694
 
     move-object/from16 v0, p1
 
@@ -1060,7 +1060,7 @@
     return-void
 
     :cond_1
-    const v5, 0x7f110694
+    const v5, 0x7f110697
 
     const/16 v12, 0x8
 
@@ -1071,7 +1071,7 @@
     goto :goto_0
 
     :cond_2
-    const v5, 0x7f110697
+    const v5, 0x7f11069a
 
     const/16 v12, 0x8
 
@@ -1082,7 +1082,7 @@
     goto :goto_1
 
     :cond_3
-    const v5, 0x7f11069a
+    const v5, 0x7f11069d
 
     const/16 v12, 0x8
 
@@ -1094,13 +1094,13 @@
 
     iget-object v5, v0, Lcom/samsung/android/settings/qstile/PowerSavingTile;->mContext:Landroid/content/Context;
 
-    const v12, 0x7f0b01b9
+    const v12, 0x7f0b0216
 
     invoke-virtual {v5, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    const v12, 0x7f110691
+    const v12, 0x7f110694
 
     move-object/from16 v0, p1
 
@@ -1118,7 +1118,7 @@
 
     if-eqz v0, :cond_1
 
-    const v1, 0x7f0204ad
+    const v1, 0x7f020516
 
     invoke-static {p0, v1}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 
@@ -1126,7 +1126,7 @@
 
     invoke-virtual {v0, v1}, Landroid/service/quicksettings/Tile;->setIcon(Landroid/graphics/drawable/Icon;)V
 
-    const v1, 0x7f0b01b5
+    const v1, 0x7f0b0212
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -1480,7 +1480,7 @@
 .method public semGetDetailViewTitle()Ljava/lang/CharSequence;
     .locals 1
 
-    const v0, 0x7f0b0b70
+    const v0, 0x7f0b0be2
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/qstile/PowerSavingTile;->getString(I)Ljava/lang/String;
 

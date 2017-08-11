@@ -39,7 +39,7 @@
 
     new-array v0, v0, [I
 
-    const v1, 0x7f020347
+    const v1, 0x7f02036c
 
     aput v1, v0, v2
 
@@ -47,7 +47,7 @@
 
     iput-object p3, p0, Lcom/android/settings/wfd/WifiDisplaySettings$RoutePreference;->mRoute:Landroid/media/MediaRouter$RouteInfo;
 
-    const v0, 0x7f040350
+    const v0, 0x7f040355
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WifiDisplaySettings$RoutePreference;->setLayoutResource(I)V
 
@@ -97,7 +97,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0b1368
+    const v0, 0x7f0b1403
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WifiDisplaySettings$RoutePreference;->setSummary(I)V
 
@@ -108,7 +108,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0b1369
+    const v0, 0x7f0b1404
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WifiDisplaySettings$RoutePreference;->setSummary(I)V
 
@@ -129,14 +129,14 @@
 
     if-ne v0, v1, :cond_3
 
-    const v0, 0x7f0b136a
+    const v0, 0x7f0b1405
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WifiDisplaySettings$RoutePreference;->setSummary(I)V
 
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f0b136b
+    const v0, 0x7f0b1406
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WifiDisplaySettings$RoutePreference;->setSummary(I)V
 

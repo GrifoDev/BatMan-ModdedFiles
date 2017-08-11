@@ -12,8 +12,6 @@
 
 .field private static mGateTraceTag:Ljava/lang/String;
 
-.field private static mIface:Ljava/lang/String;
-
 .field public static mIsForegroundWifiSettings:Z
 
 .field public static mIsHelpFromTetherSettings:Z
@@ -25,10 +23,6 @@
 .field private static mLastClientNum:I
 
 .field private static mMaxClientNum:I
-
-.field private static mTimeoutSetting:I
-
-.field private static mWifiSharing:Ljava/lang/String;
 
 
 # instance fields
@@ -62,10 +56,6 @@
     sput-boolean v1, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsHelpFromWifiApSettings:Z
 
     sput v1, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
-
-    const-string/jumbo v0, "not_support"
-
-    sput-object v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mWifiSharing:Ljava/lang/String;
 
     sput-boolean v1, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
 
@@ -716,7 +706,7 @@
 
     sget-object v1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    const v2, 0x7f0b0e7c
+    const v2, 0x7f0b0f09
 
     invoke-virtual {v0, v3, v2, v1}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
@@ -743,7 +733,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mNotificationManager:Landroid/app/NotificationManager;
 
-    const v1, 0x7f0b0e7b
+    const v1, 0x7f0b0f08
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
@@ -751,7 +741,7 @@
 .end method
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 54
+    .locals 58
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -759,141 +749,141 @@
 
     invoke-static {}, Landroid/os/UserHandle;->semGetMyUserId()I
 
-    move-result v46
+    move-result v49
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "onReceive: action "
+    const-string/jumbo v55, "onReceive: action "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    const-string/jumbo v52, " userID :"
+    const-string/jumbo v55, " userID :"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
-    move/from16 v1, v46
+    move/from16 v1, v49
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz v5, :cond_0
 
-    const/16 v50, 0x64
+    const/16 v53, 0x64
 
-    move/from16 v0, v46
+    move/from16 v0, v49
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     if-lt v0, v1, :cond_1
 
-    const/16 v50, 0xc8
+    const/16 v53, 0xc8
 
-    move/from16 v0, v46
+    move/from16 v0, v49
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     if-gt v0, v1, :cond_1
 
     :cond_0
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "do nothing, action is null or Knox userID:"
+    const-string/jumbo v55, "do nothing, action is null or Knox userID:"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
-    move/from16 v1, v46
+    move/from16 v1, v49
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_1
-    const-string/jumbo v50, "android.net.wifi.WIFI_AP_STATE_CHANGED"
+    const-string/jumbo v53, "android.net.wifi.WIFI_AP_STATE_CHANGED"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_17
+    if-eqz v53, :cond_17
 
-    const-string/jumbo v50, "wifi_state"
+    const-string/jumbo v53, "wifi_state"
 
-    const/16 v51, 0xe
+    const/16 v54, 0xe
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v9
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "onreceive WIFI_AP_STATE_CHANGED_ACTION] apState : "
+    const-string/jumbo v55, "onreceive WIFI_AP_STATE_CHANGED_ACTION] apState : "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     packed-switch v9, :pswitch_data_0
 
@@ -903,103 +893,103 @@
     return-void
 
     :pswitch_1
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->sendWifiPowerModeAlarmIntent(Landroid/content/Context;I)V
 
     invoke-static {}, Landroid/util/GateConfig;->isGateEnabled()Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_3
+    if-eqz v53, :cond_3
 
-    sget-object v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
+    sget-object v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
 
-    const-string/jumbo v51, "<GATE-M> WIFI_HOTSPOT_CHECKED </GATE-M>"
+    const-string/jumbo v54, "<GATE-M> WIFI_HOTSPOT_CHECKED </GATE-M>"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    sget-boolean v50, Lcom/android/settings/Utils;->SPF_SupportMobileApDataLimit:Z
+    sget-boolean v53, Lcom/android/settings/Utils;->SPF_SupportMobileApDataLimit:Z
 
-    if-eqz v50, :cond_4
+    if-eqz v53, :cond_4
 
     invoke-virtual/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->clearLimitDataReachNotification(Landroid/content/Context;)V
 
     :cond_4
-    const-string/jumbo v50, "ATT"
+    const-string/jumbo v53, "ATT"
 
-    sget-object v51, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v54, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_5
+    if-eqz v53, :cond_5
 
     invoke-virtual/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->clearTimeoutNotification(Landroid/content/Context;)V
 
-    const/16 v50, 0x1
+    const/16 v53, 0x1
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsDeviceATT:Z
 
     :cond_5
-    const-string/jumbo v50, "VZW"
+    const-string/jumbo v53, "VZW"
 
-    sget-object v51, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v54, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_6
+    if-eqz v53, :cond_6
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v11
 
     :try_start_0
-    const-string/jumbo v50, "wifi_ap_saved_state"
+    const-string/jumbo v53, "wifi_ap_saved_state"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-static {v11, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     if-ne v0, v1, :cond_6
 
-    const/16 v50, 0x1
+    const/16 v53, 0x1
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
-    const-string/jumbo v50, "wifi_ap_saved_state"
+    const-string/jumbo v53, "wifi_ap_saved_state"
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     invoke-static {v11, v0, v1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
     :try_end_0
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_9
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_8
 
     :cond_6
     :goto_1
@@ -1007,25 +997,25 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mSharedPref:Landroid/content/SharedPreferences;
 
-    move-object/from16 v50, v0
+    move-object/from16 v53, v0
 
-    if-nez v50, :cond_7
+    if-nez v53, :cond_7
 
-    const-string/jumbo v50, "SAMSUNG_HOTSPOT"
+    const-string/jumbo v53, "SAMSUNG_HOTSPOT"
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v50
+    move-result-object v53
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     move-object/from16 v1, p0
 
@@ -1036,567 +1026,474 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mSharedPref:Landroid/content/SharedPreferences;
 
-    move-object/from16 v50, v0
+    move-object/from16 v53, v0
 
-    const-string/jumbo v51, "PROVISIONING_RESULT"
+    const-string/jumbo v54, "PROVISIONING_RESULT"
 
-    const/16 v52, 0x0
+    const/16 v55, 0x0
 
-    invoke-interface/range {v50 .. v52}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface/range {v53 .. v55}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v42
+    move-result v45
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "value of provisioning result is  and flag value "
+    const-string/jumbo v55, "value of provisioning result is  and flag value "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
-    move/from16 v1, v42
+    move/from16 v1, v45
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    const-string/jumbo v52, "  "
+    const-string/jumbo v55, "  "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    sget-boolean v52, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
+    sget-boolean v55, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isProvisioningNeeded(Landroid/content/Context;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_8
+    if-eqz v53, :cond_8
 
-    sget-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
+    sget-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
-    if-eqz v50, :cond_b
+    if-eqz v53, :cond_b
 
     :cond_8
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
     :cond_9
     :goto_2
     :pswitch_2
-    sget-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
+    sget-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
-    if-nez v50, :cond_a
+    if-nez v53, :cond_a
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v52
 
-    check-cast v49, Landroid/net/wifi/WifiManager;
+    check-cast v52, Landroid/net/wifi/WifiManager;
 
     invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isWifiSharingEnabled(Landroid/content/Context;)Z
 
-    move-result v50
+    move-result v53
 
-    if-nez v50, :cond_a
+    if-nez v53, :cond_a
 
-    invoke-virtual/range {v49 .. v49}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
+    invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isMobileApON(Landroid/content/Context;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_a
+    if-eqz v53, :cond_a
 
-    const/16 v50, 0x0
+    invoke-virtual/range {v52 .. v52}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
 
-    invoke-virtual/range {v49 .. v50}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
+    move-result v53
+
+    if-eqz v53, :cond_a
+
+    const/16 v53, 0x0
+
+    invoke-virtual/range {v52 .. v53}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
     :cond_a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mSharedPref:Landroid/content/SharedPreferences;
 
-    move-object/from16 v50, v0
+    move-object/from16 v53, v0
 
-    invoke-interface/range {v50 .. v50}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface/range {v53 .. v53}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v17
 
-    const-string/jumbo v50, "PROVISIONING_RESULT"
+    const-string/jumbo v53, "PROVISIONING_RESULT"
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
     move-object/from16 v0, v17
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
     invoke-interface/range {v17 .. v17}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    const-string/jumbo v50, "swlan0"
-
-    sput-object v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIface:Ljava/lang/String;
-
-    :try_start_1
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v50
-
-    const-string/jumbo v51, "wifi_ap_timeout_setting"
-
-    invoke-static/range {v50 .. v51}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-
-    move-result v50
-
-    sput v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mTimeoutSetting:I
-
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
-
-    new-instance v51, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v52, "WIFI_AP_TIMEOUT is "
-
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v51
-
-    sget v52, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mTimeoutSetting:I
-
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v51
-
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v51
-
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
-
-    :goto_3
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v50
-
-    const-string/jumbo v51, "wifi_ap_wifi_sharing"
-
-    const/16 v52, 0x0
-
-    invoke-static/range {v50 .. v52}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v50
-
-    const/16 v51, 0x1
-
-    move/from16 v0, v50
-
-    move/from16 v1, v51
-
-    if-ne v0, v1, :cond_f
-
-    const-string/jumbo v50, "sharing_on"
-
-    :goto_4
-    sput-object v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mWifiSharing:Ljava/lang/String;
 
     goto/16 :goto_0
 
     :cond_b
     invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->getRvfMode(Landroid/content/Context;)I
 
-    move-result v50
+    move-result v53
 
-    if-nez v50, :cond_8
+    if-nez v53, :cond_8
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsDeviceATT:Z
 
-    move/from16 v50, v0
+    move/from16 v53, v0
 
-    if-nez v50, :cond_8
+    if-nez v53, :cond_8
 
-    const-string/jumbo v50, "AIO"
+    const-string/jumbo v53, "AIO"
 
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-nez v50, :cond_8
+    if-nez v53, :cond_8
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v52
 
-    check-cast v49, Landroid/net/wifi/WifiManager;
+    check-cast v52, Landroid/net/wifi/WifiManager;
 
-    invoke-virtual/range {v49 .. v49}, Landroid/net/wifi/WifiManager;->getWifiApState()I
+    invoke-virtual/range {v52 .. v52}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0xd
+    const/16 v54, 0xd
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     if-ne v0, v1, :cond_9
 
-    const-string/jumbo v50, "VZW"
+    const-string/jumbo v53, "VZW"
 
-    sget-object v51, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v54, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_d
+    if-eqz v53, :cond_d
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v11
 
-    const-string/jumbo v50, "vzw_provision_result"
+    const-string/jumbo v53, "vzw_provision_result"
 
-    const/16 v51, -0x1
+    const/16 v54, -0x1
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     invoke-static {v11, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v38
+    move-result v41
 
-    sget-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->DBG:Z
+    sget-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->DBG:Z
 
-    if-eqz v50, :cond_c
+    if-eqz v53, :cond_c
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "provisionValue.."
+    const-string/jumbo v55, "provisionValue.."
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
-    move/from16 v1, v38
+    move/from16 v1, v41
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_c
-    packed-switch v38, :pswitch_data_1
+    packed-switch v41, :pswitch_data_1
 
     goto/16 :goto_2
 
     :pswitch_3
-    const/16 v50, 0x6
+    const/16 v53, 0x6
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->startHotspotProvisioningRequest(Landroid/content/Context;I)V
 
     goto/16 :goto_2
 
     :pswitch_4
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
-    invoke-virtual/range {v49 .. v51}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
+    invoke-virtual/range {v52 .. v54}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    const/16 v50, 0x6
+    const/16 v53, 0x6
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->startHotspotProvisioningRequest(Landroid/content/Context;I)V
 
     goto/16 :goto_2
 
     :cond_d
-    if-nez v42, :cond_e
+    if-nez v45, :cond_e
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
-    invoke-virtual/range {v49 .. v51}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
+    invoke-virtual/range {v52 .. v54}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Provisioning is failed, start provisioning once again"
+    const-string/jumbo v54, "Provisioning is failed, start provisioning once again"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v50, 0x6
+    const/16 v53, 0x6
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->startHotspotProvisioningRequest(Landroid/content/Context;I)V
 
     goto/16 :goto_2
 
     :cond_e
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Setting the mIsProvisioningResultOk flag  to false"
+    const-string/jumbo v54, "Setting the mIsProvisioningResultOk flag  to false"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
     goto/16 :goto_2
 
-    :catch_0
-    move-exception v12
-
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
-
-    const-string/jumbo v51, "WIFI_AP_TIMEOUT is not set. This is used at first time"
-
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v50
-
-    const-string/jumbo v51, "wifi_ap_timeout_setting"
-
-    sget v52, Lcom/android/settings/Utils;->DEFAULT_TIMEOUT_MOBILEAP:I
-
-    invoke-static/range {v50 .. v52}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    sget v50, Lcom/android/settings/Utils;->DEFAULT_TIMEOUT_MOBILEAP:I
-
-    sput v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mTimeoutSetting:I
-
-    goto/16 :goto_3
-
-    :cond_f
-    const-string/jumbo v50, "sharing_off"
-
-    goto/16 :goto_4
-
     :pswitch_5
-    sget-boolean v50, Lcom/android/settings/Utils;->SPF_SupportMobileApDataLimit:Z
+    sget-boolean v53, Lcom/android/settings/Utils;->SPF_SupportMobileApDataLimit:Z
 
-    if-eqz v50, :cond_11
+    if-eqz v53, :cond_10
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v50
+    move-result-object v53
 
-    const-string/jumbo v51, "wifi_ap_mobile_data_limit"
+    const-string/jumbo v54, "wifi_ap_mobile_data_limit"
 
-    const/16 v52, 0x0
+    const/16 v55, 0x0
 
-    invoke-static/range {v50 .. v52}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static/range {v53 .. v55}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_14
 
     const/16 v24, 0x1
 
-    :goto_5
+    :goto_3
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v50
+    move-result-object v53
 
-    const-string/jumbo v51, "wifi_ap_mobile_data_limit_value"
+    const-string/jumbo v54, "wifi_ap_mobile_data_limit_value"
 
-    invoke-static/range {v50 .. v51}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v53 .. v54}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v23
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v50
+    move-result-object v53
 
-    const-string/jumbo v51, "wifi_ap_mobile_data_usage_value"
+    const-string/jumbo v54, "wifi_ap_mobile_data_usage_value"
 
-    invoke-static/range {v50 .. v51}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v53 .. v54}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v45
+    move-result-object v48
 
-    sget-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->DBG:Z
+    sget-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->DBG:Z
 
-    if-eqz v50, :cond_10
+    if-eqz v53, :cond_f
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "Mobile AP data limited : "
+    const-string/jumbo v55, "Mobile AP data limited : "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    const-string/jumbo v52, ", limit data : "
+    const-string/jumbo v55, ", limit data : "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     move-object/from16 v1, v23
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    const-string/jumbo v52, ", usage data : "
+    const-string/jumbo v55, ", usage data : "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
-    move-object/from16 v1, v45
+    move-object/from16 v1, v48
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_10
-    if-eqz v24, :cond_11
+    :cond_f
+    if-eqz v24, :cond_10
 
-    if-eqz v45, :cond_11
+    if-eqz v48, :cond_10
 
-    move-object/from16 v0, v45
+    move-object/from16 v0, v48
 
     move-object/from16 v1, v23
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_11
+    if-eqz v53, :cond_10
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Mobile AP usage data reached limit, show notification"
+    const-string/jumbo v54, "Mobile AP usage data reached limit, show notification"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->showLimitDataReachNotification(Landroid/content/Context;)V
 
-    :cond_11
-    const-string/jumbo v50, "wifi"
+    :cond_10
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v52
 
-    check-cast v49, Landroid/net/wifi/WifiManager;
+    check-cast v52, Landroid/net/wifi/WifiManager;
 
-    if-eqz v49, :cond_2
+    if-eqz v52, :cond_2
 
-    new-instance v30, Landroid/os/Message;
+    new-instance v33, Landroid/os/Message;
 
-    invoke-direct/range {v30 .. v30}, Landroid/os/Message;-><init>()V
+    invoke-direct/range {v33 .. v33}, Landroid/os/Message;-><init>()V
 
-    const/16 v50, 0x4d
+    const/16 v53, 0x4d
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v33
 
     iput v0, v1, Landroid/os/Message;->what:I
 
@@ -1604,537 +1501,466 @@
 
     invoke-direct {v10}, Landroid/os/Bundle;-><init>()V
 
-    const-string/jumbo v50, "bigdata"
+    const-string/jumbo v53, "bigdata"
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     invoke-virtual {v10, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    const-string/jumbo v50, "feature"
+    const-string/jumbo v53, "feature"
 
-    const-string/jumbo v51, "MHSI"
+    const-string/jumbo v54, "MHSI"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
-    move-object/from16 v1, v51
+    move-object/from16 v1, v54
 
     invoke-virtual {v10, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual/range {v49 .. v49}, Landroid/net/wifi/WifiManager;->getWifiApConfiguration()Landroid/net/wifi/WifiConfiguration;
+    const-string/jumbo v30, "not_support"
 
-    move-result-object v27
+    const-string/jumbo v25, "swlan0"
 
-    const-string/jumbo v31, "CustomSSID"
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    const-string/jumbo v7, "All"
+    move-result-object v53
 
-    move-object/from16 v0, v27
+    const-string/jumbo v54, "wifi_ap_timeout_setting"
 
-    iget v0, v0, Landroid/net/wifi/WifiConfiguration;->macaddrAcl:I
+    sget v55, Lcom/android/settings/Utils;->DEFAULT_TIMEOUT_MOBILEAP:I
 
-    move/from16 v50, v0
+    div-int/lit8 v55, v55, 0x3c
 
-    const/16 v51, 0x3
+    invoke-static/range {v53 .. v55}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move/from16 v0, v50
-
-    move/from16 v1, v51
-
-    if-eq v0, v1, :cond_12
-
-    const-string/jumbo v7, "Only"
-
-    :cond_12
-    move-object/from16 v0, v27
-
-    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
-
-    move-object/from16 v50, v0
-
-    const-string/jumbo v51, "Android"
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v50
-
-    if-nez v50, :cond_13
-
-    move-object/from16 v0, v27
-
-    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
-
-    move-object/from16 v50, v0
-
-    const-string/jumbo v51, "Verizon"
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v50
-
-    if-nez v50, :cond_13
-
-    move-object/from16 v0, v27
-
-    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
-
-    move-object/from16 v50, v0
-
-    const-string/jumbo v51, "Samsung"
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v50
-
-    if-nez v50, :cond_13
-
-    move-object/from16 v0, v27
-
-    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
-
-    move-object/from16 v50, v0
-
-    const-string/jumbo v51, "Galaxy"
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v50
-
-    if-nez v50, :cond_13
-
-    move-object/from16 v0, v27
-
-    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
-
-    move-object/from16 v50, v0
-
-    const-string/jumbo v51, "SM-"
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v50
-
-    if-eqz v50, :cond_14
-
-    :cond_13
-    const-string/jumbo v31, "DefaultSSID"
-
-    :cond_14
-    const-string/jumbo v29, ""
+    move-result v28
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v11
 
-    const-string/jumbo v50, "wifi_ap_wifi_sharing"
+    const-string/jumbo v53, "wifi_ap_wifi_sharing"
 
-    const/16 v51, 0xa
+    const/16 v54, 0xa
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
-    move/from16 v1, v51
-
-    invoke-static {v11, v0, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v50
-
-    const/16 v51, 0xa
-
-    move/from16 v0, v50
-
-    move/from16 v1, v51
-
-    if-ne v0, v1, :cond_16
-
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
-
-    new-instance v51, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v52, "Wifi Sharing first time provider value "
-
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v51
-
-    const-string/jumbo v52, "wifi_ap_wifi_sharing"
-
-    const/16 v53, 0xa
-
-    move-object/from16 v0, v52
-
-    move/from16 v1, v53
+    move/from16 v1, v54
 
     invoke-static {v11, v0, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v52
+    move-result v53
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/16 v54, 0xa
 
-    move-result-object v51
+    move/from16 v0, v53
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move/from16 v1, v54
 
-    move-result-object v51
+    if-ne v0, v1, :cond_15
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v50, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v50 .. v50}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v51, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIface:Ljava/lang/String;
+    const-string/jumbo v55, "Wifi Sharing first time provider value "
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v50
+    move-result-object v54
 
-    const-string/jumbo v51, " "
+    const-string/jumbo v55, "wifi_ap_wifi_sharing"
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v56, 0xa
 
-    move-result-object v50
+    move-object/from16 v0, v55
 
-    move-object/from16 v0, v50
+    move/from16 v1, v56
 
-    move-object/from16 v1, v31
+    invoke-static {v11, v0, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v55
 
-    move-result-object v50
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v51, " "
+    move-result-object v54
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v50
+    move-result-object v54
 
-    move-object/from16 v0, v27
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v0, v0, Landroid/net/wifi/WifiConfiguration;->hiddenSSID:Z
+    const-string/jumbo v30, "-1"
 
-    move/from16 v51, v0
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    const-string/jumbo v51, " "
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    move-object/from16 v0, v27
-
-    iget v0, v0, Landroid/net/wifi/WifiConfiguration;->apChannel:I
-
-    move/from16 v51, v0
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    const-string/jumbo v51, " "
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    move-object/from16 v0, v50
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    const-string/jumbo v51, " "
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    sget v51, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mMaxClientNum:I
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    const-string/jumbo v51, " "
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    const/16 v51, -0x1
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    const-string/jumbo v51, " "
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    sget v51, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mTimeoutSetting:I
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    invoke-virtual/range {v50 .. v50}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :goto_4
+    invoke-virtual/range {v52 .. v52}, Landroid/net/wifi/WifiManager;->getWifiApConfiguration()Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v29
 
-    :goto_6
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v34, "CustomSSID"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "All"
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v0, v29
 
-    const-string/jumbo v52, "Bigdata logging "
+    iget v0, v0, Landroid/net/wifi/WifiConfiguration;->macaddrAcl:I
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v53, v0
 
-    move-result-object v51
+    const/16 v54, 0x3
 
-    move-object/from16 v0, v51
+    move/from16 v0, v53
 
-    move-object/from16 v1, v29
+    move/from16 v1, v54
+
+    if-eq v0, v1, :cond_11
+
+    const-string/jumbo v7, "Only"
+
+    :cond_11
+    move-object/from16 v0, v29
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
+
+    move-object/from16 v53, v0
+
+    const-string/jumbo v54, "Android"
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v53
+
+    if-nez v53, :cond_12
+
+    move-object/from16 v0, v29
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
+
+    move-object/from16 v53, v0
+
+    const-string/jumbo v54, "Verizon"
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v53
+
+    if-nez v53, :cond_12
+
+    move-object/from16 v0, v29
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
+
+    move-object/from16 v53, v0
+
+    const-string/jumbo v54, "Samsung"
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v53
+
+    if-nez v53, :cond_12
+
+    move-object/from16 v0, v29
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
+
+    move-object/from16 v53, v0
+
+    const-string/jumbo v54, "Galaxy"
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v53
+
+    if-nez v53, :cond_12
+
+    move-object/from16 v0, v29
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
+
+    move-object/from16 v53, v0
+
+    const-string/jumbo v54, "SM-"
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v53
+
+    if-eqz v53, :cond_13
+
+    :cond_12
+    const-string/jumbo v34, "DefaultSSID"
+
+    :cond_13
+    const-string/jumbo v32, ""
+
+    new-instance v53, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v53 .. v53}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v53
+
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v53
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v54, " "
 
-    move-result-object v51
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v53
 
-    const-string/jumbo v50, "data"
+    move-object/from16 v0, v53
 
-    move-object/from16 v0, v50
+    move-object/from16 v1, v34
 
-    move-object/from16 v1, v29
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v53
 
-    move-object/from16 v0, v30
+    const-string/jumbo v54, " "
 
-    iput-object v10, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v49
+    move-result-object v53
+
+    move-object/from16 v0, v29
+
+    iget-boolean v0, v0, Landroid/net/wifi/WifiConfiguration;->hiddenSSID:Z
+
+    move/from16 v54, v0
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v53
+
+    const-string/jumbo v54, " "
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v53
+
+    move-object/from16 v0, v29
+
+    iget v0, v0, Landroid/net/wifi/WifiConfiguration;->apChannel:I
+
+    move/from16 v54, v0
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v53
+
+    const-string/jumbo v54, " "
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v53
+
+    move-object/from16 v0, v53
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v53
+
+    const-string/jumbo v54, " "
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v53
+
+    sget v54, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mMaxClientNum:I
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v53
+
+    const-string/jumbo v54, " "
+
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v53
+
+    move-object/from16 v0, v53
 
     move-object/from16 v1, v30
 
-    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v50, 0x0
+    move-result-object v53
 
-    sput v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mMaxClientNum:I
+    const-string/jumbo v54, " "
 
-    const/16 v50, -0x1
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sput v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mTimeoutSetting:I
+    move-result-object v53
 
-    const-string/jumbo v50, ""
+    move-object/from16 v0, v53
 
-    sput-object v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mWifiSharing:Ljava/lang/String;
+    move/from16 v1, v28
 
-    const-string/jumbo v50, ""
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    sput-object v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIface:Ljava/lang/String;
+    move-result-object v53
 
-    goto/16 :goto_0
+    invoke-virtual/range {v53 .. v53}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_15
-    const/16 v24, 0x0
+    move-result-object v32
 
-    goto/16 :goto_5
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    :cond_16
-    new-instance v50, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v50 .. v50}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v51, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIface:Ljava/lang/String;
+    const-string/jumbo v55, "Bigdata logging "
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v50
+    move-result-object v54
 
-    const-string/jumbo v51, " "
+    move-object/from16 v0, v54
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    move-object/from16 v0, v50
-
-    move-object/from16 v1, v31
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v50
+    move-result-object v54
 
-    const-string/jumbo v51, " "
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v54
 
-    move-result-object v50
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, v27
+    const-string/jumbo v53, "data"
 
-    iget-boolean v0, v0, Landroid/net/wifi/WifiConfiguration;->hiddenSSID:Z
+    move-object/from16 v0, v53
 
-    move/from16 v51, v0
+    move-object/from16 v1, v32
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v50
+    move-object/from16 v0, v33
 
-    const-string/jumbo v51, " "
+    iput-object v10, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v52
 
-    move-result-object v50
+    move-object/from16 v1, v33
 
-    move-object/from16 v0, v27
+    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
 
-    iget v0, v0, Landroid/net/wifi/WifiConfiguration;->apChannel:I
+    goto/16 :goto_0
 
-    move/from16 v51, v0
+    :cond_14
+    const/16 v24, 0x0
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    goto/16 :goto_3
 
-    move-result-object v50
+    :cond_15
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    const-string/jumbo v51, " "
+    move-result-object v53
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v54, "wifi_ap_wifi_sharing"
 
-    move-result-object v50
+    const/16 v55, 0x0
 
-    move-object/from16 v0, v50
+    invoke-static/range {v53 .. v55}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v53
 
-    move-result-object v50
+    const/16 v54, 0x1
 
-    const-string/jumbo v51, " "
+    move/from16 v0, v53
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v1, v54
 
-    move-result-object v50
+    if-ne v0, v1, :cond_16
 
-    sget v51, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mMaxClientNum:I
+    const-string/jumbo v30, "sharing_on"
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    goto/16 :goto_4
 
-    move-result-object v50
+    :cond_16
+    const-string/jumbo v30, "sharing_off"
 
-    const-string/jumbo v51, " "
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    sget-object v51, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mWifiSharing:Ljava/lang/String;
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    const-string/jumbo v51, " "
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    sget v51, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mTimeoutSetting:I
-
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v50
-
-    invoke-virtual/range {v50 .. v50}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v29
-
-    goto/16 :goto_6
+    goto/16 :goto_4
 
     :pswitch_6
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    sput v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
+    sput v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->setRvfMode(Landroid/content/Context;I)V
 
-    const/16 v50, 0x2
+    const/16 v53, 0x2
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->sendWifiPowerModeAlarmIntent(Landroid/content/Context;I)V
 
     invoke-static {}, Landroid/util/GateConfig;->isGateEnabled()Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_2
+    if-eqz v53, :cond_2
 
-    sget-object v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
+    sget-object v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
 
-    const-string/jumbo v51, "<GATE-M> WIFI_HOTSPOT_UNCHECKED </GATE-M>"
+    const-string/jumbo v54, "<GATE-M> WIFI_HOTSPOT_UNCHECKED </GATE-M>"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_17
-    const-string/jumbo v50, "com.samsung.settings.wifi.wifiap_power_mode_alarm"
+    const-string/jumbo v53, "com.samsung.settings.wifi.wifiap_power_mode_alarm"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_24
+    if-eqz v53, :cond_24
 
-    const-string/jumbo v50, "wifiap_power_mode_alarm_option"
+    const-string/jumbo v53, "wifiap_power_mode_alarm_option"
 
-    const/16 v51, 0x3
+    const/16 v54, 0x3
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v33
+    move-result v36
 
-    if-nez v33, :cond_1d
+    if-nez v36, :cond_1d
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -2142,154 +1968,154 @@
 
     invoke-static {}, Lcom/android/settings/Utils;->isTablet()Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_18
+    if-eqz v53, :cond_18
 
-    const-string/jumbo v50, "ATT"
+    const-string/jumbo v53, "ATT"
 
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_18
+    if-eqz v53, :cond_18
 
     return-void
 
     :cond_18
-    :try_start_2
-    const-string/jumbo v50, "wifi_ap_plugged_type"
+    :try_start_1
+    const-string/jumbo v53, "wifi_ap_plugged_type"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-static {v11, v0}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-    :try_end_2
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_1
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-result v35
+    move-result v38
 
-    :goto_7
-    const-string/jumbo v50, "TMO"
+    :goto_5
+    const-string/jumbo v53, "TMO"
 
-    sget-object v51, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v54, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-nez v50, :cond_1a
+    if-nez v53, :cond_1a
 
-    const-string/jumbo v50, "NEWCO"
+    const-string/jumbo v53, "NEWCO"
 
-    sget-object v51, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v54, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    :goto_8
-    if-eqz v50, :cond_19
+    :goto_6
+    if-eqz v53, :cond_19
 
-    if-nez v35, :cond_2
+    if-nez v38, :cond_2
 
     :cond_19
     invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->getTimeoutValueFromSheredPreference(Landroid/content/Context;)I
 
-    move-result v37
+    move-result v40
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "ALARM_START : set "
+    const-string/jumbo v55, "ALARM_START : set "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
-    move/from16 v1, v37
+    move/from16 v1, v40
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    const-string/jumbo v52, " sec"
+    const-string/jumbo v55, " sec"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v37, :cond_1b
+    if-eqz v40, :cond_1b
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v50
+    move-result-wide v54
 
-    move/from16 v0, v37
+    move/from16 v0, v40
 
     mul-int/lit16 v0, v0, 0x3e8
 
-    move/from16 v52, v0
+    move/from16 v53, v0
 
-    move/from16 v0, v52
+    move/from16 v0, v53
 
     int-to-long v0, v0
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    add-long v18, v50, v52
+    add-long v18, v54, v56
 
     new-instance v6, Landroid/content/Intent;
 
-    const-string/jumbo v50, "com.samsung.settings.wifi.wifiap_power_mode_alarm"
+    const-string/jumbo v53, "com.samsung.settings.wifi.wifiap_power_mode_alarm"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v50, "wifiap_power_mode_alarm_option"
+    const-string/jumbo v53, "wifiap_power_mode_alarm_option"
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/high16 v51, 0x10000000
+    const/high16 v54, 0x10000000
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-static {v0, v1, v6, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result-object v34
+    move-result-object v37
 
-    const-string/jumbo v50, "alarm"
+    const-string/jumbo v53, "alarm"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2297,80 +2123,80 @@
 
     check-cast v8, Landroid/app/AlarmManager;
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
     move-wide/from16 v1, v18
 
-    move-object/from16 v3, v34
+    move-object/from16 v3, v37
 
     invoke-virtual {v8, v0, v1, v2, v3}, Landroid/app/AlarmManager;->setExact(IJLandroid/app/PendingIntent;)V
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
 
-    const/16 v50, 0x1
+    const/16 v53, 0x1
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
     goto/16 :goto_0
 
-    :catch_1
+    :catch_0
     move-exception v12
 
-    const/16 v35, 0x0
+    const/16 v38, 0x0
 
-    goto/16 :goto_7
+    goto/16 :goto_5
 
     :cond_1a
-    const/16 v50, 0x1
+    const/16 v53, 0x1
 
-    goto/16 :goto_8
+    goto/16 :goto_6
 
     :cond_1b
-    sget-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
+    sget-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
-    if-eqz v50, :cond_1c
+    if-eqz v53, :cond_1c
 
     new-instance v6, Landroid/content/Intent;
 
-    const-string/jumbo v50, "com.samsung.settings.wifi.wifiap_power_mode_alarm"
+    const-string/jumbo v53, "com.samsung.settings.wifi.wifiap_power_mode_alarm"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v50, "wifiap_power_mode_alarm_option"
+    const-string/jumbo v53, "wifiap_power_mode_alarm_option"
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/high16 v51, 0x10000000
+    const/high16 v54, 0x10000000
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-static {v0, v1, v6, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result-object v34
+    move-result-object v37
 
-    const-string/jumbo v50, "alarm"
+    const-string/jumbo v53, "alarm"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2378,418 +2204,418 @@
 
     check-cast v8, Landroid/app/AlarmManager;
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v37
 
     invoke-virtual {v8, v0}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
     :cond_1c
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
     goto/16 :goto_0
 
     :cond_1d
-    const/16 v50, 0x4
+    const/16 v53, 0x4
 
-    move/from16 v0, v33
+    move/from16 v0, v36
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_1e
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "WIFIAP_POWER_MODE_VALUE_CHANGED, mLastClientNum = "
+    const-string/jumbo v55, "WIFIAP_POWER_MODE_VALUE_CHANGED, mLastClientNum = "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    sget v52, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
+    sget v55, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
+    sget v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
-    if-nez v50, :cond_2
+    if-nez v53, :cond_2
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "ALARM_START because of WIFIAP_POWER_MODE_VALUE_CHANGED"
+    const-string/jumbo v54, "ALARM_START because of WIFIAP_POWER_MODE_VALUE_CHANGED"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->sendWifiPowerModeAlarmIntent(Landroid/content/Context;I)V
 
     goto/16 :goto_0
 
     :cond_1e
-    const/16 v50, 0x1
+    const/16 v53, 0x1
 
-    move/from16 v0, v33
+    move/from16 v0, v36
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_23
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "ALARM_EXPIRE"
+    const-string/jumbo v54, "ALARM_EXPIRE"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v11
 
-    const/16 v50, 0x1
+    const/16 v53, 0x1
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
-    const-string/jumbo v50, "power"
+    const-string/jumbo v53, "power"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v36
+    move-result-object v39
 
-    check-cast v36, Landroid/os/PowerManager;
+    check-cast v39, Landroid/os/PowerManager;
 
-    const-string/jumbo v50, "MobileAPCloseService"
+    const-string/jumbo v53, "MobileAPCloseService"
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v39
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
-    move-object/from16 v2, v50
+    move-object/from16 v2, v53
 
     invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
-    move-result-object v26
+    move-result-object v27
 
-    if-eqz v26, :cond_1f
+    if-eqz v27, :cond_1f
 
-    :try_start_3
-    invoke-virtual/range {v26 .. v26}, Landroid/os/PowerManager$WakeLock;->acquire()V
-    :try_end_3
-    .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_2
+    :try_start_2
+    invoke-virtual/range {v27 .. v27}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_1
 
     :cond_1f
-    :goto_9
-    const-string/jumbo v50, "wifi"
+    :goto_7
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v52
 
-    check-cast v49, Landroid/net/wifi/WifiManager;
+    check-cast v52, Landroid/net/wifi/WifiManager;
 
-    invoke-virtual/range {v49 .. v49}, Landroid/net/wifi/WifiManager;->getWifiApState()I
-
-    move-result v47
-
-    const/16 v48, 0x0
-
-    invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->getTimeoutValueFromSheredPreference(Landroid/content/Context;)I
-
-    move-result v37
-
-    new-instance v30, Landroid/os/Message;
-
-    invoke-direct/range {v30 .. v30}, Landroid/os/Message;-><init>()V
-
-    const/16 v50, 0x3
-
-    move/from16 v0, v50
-
-    move-object/from16 v1, v30
-
-    iput v0, v1, Landroid/os/Message;->what:I
-
-    const/16 v32, 0x0
-
-    :try_start_4
-    move-object/from16 v0, v49
-
-    move-object/from16 v1, v30
-
-    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
-    :try_end_4
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_4 .. :try_end_4} :catch_3
-
-    move-result v32
-
-    :goto_a
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
-
-    new-instance v51, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v52, "powermode_value = "
-
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v51
-
-    move-object/from16 v0, v51
-
-    move/from16 v1, v37
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v51
-
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v51
-
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-nez v32, :cond_20
-
-    const/16 v50, 0xd
-
-    move/from16 v0, v47
-
-    move/from16 v1, v50
-
-    if-ne v0, v1, :cond_20
-
-    invoke-virtual/range {v49 .. v49}, Landroid/net/wifi/WifiManager;->isExtenderEnabled()Z
+    invoke-virtual/range {v52 .. v52}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
     move-result v50
 
-    if-eqz v50, :cond_21
+    const/16 v51, 0x0
+
+    invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->getTimeoutValueFromSheredPreference(Landroid/content/Context;)I
+
+    move-result v40
+
+    new-instance v33, Landroid/os/Message;
+
+    invoke-direct/range {v33 .. v33}, Landroid/os/Message;-><init>()V
+
+    const/16 v53, 0x3
+
+    move/from16 v0, v53
+
+    move-object/from16 v1, v33
+
+    iput v0, v1, Landroid/os/Message;->what:I
+
+    const/16 v35, 0x0
+
+    :try_start_3
+    move-object/from16 v0, v52
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
+    :try_end_3
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_3 .. :try_end_3} :catch_2
+
+    move-result v35
+
+    :goto_8
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
+
+    new-instance v54, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v55, "powermode_value = "
+
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v54
+
+    move-object/from16 v0, v54
+
+    move/from16 v1, v40
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v54
+
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v54
+
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v35, :cond_20
+
+    const/16 v53, 0xd
+
+    move/from16 v0, v50
+
+    move/from16 v1, v53
+
+    if-ne v0, v1, :cond_20
+
+    invoke-virtual/range {v52 .. v52}, Landroid/net/wifi/WifiManager;->isExtenderEnabled()Z
+
+    move-result v53
+
+    if-eqz v53, :cond_21
 
     :cond_20
-    :goto_b
-    if-eqz v26, :cond_2
+    :goto_9
+    if-eqz v27, :cond_2
 
-    :try_start_5
-    invoke-virtual/range {v26 .. v26}, Landroid/os/PowerManager$WakeLock;->release()V
-    :try_end_5
-    .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_4
+    :try_start_4
+    invoke-virtual/range {v27 .. v27}, Landroid/os/PowerManager$WakeLock;->release()V
+    :try_end_4
+    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_3
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
     goto/16 :goto_0
 
-    :catch_2
+    :catch_1
     move-exception v15
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "Cannot acquire wake lock ~~"
+    const-string/jumbo v55, "Cannot acquire wake lock ~~"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_9
+    goto/16 :goto_7
 
-    :catch_3
+    :catch_2
     move-exception v13
 
     invoke-virtual {v13}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
-    goto :goto_a
+    goto :goto_8
 
     :cond_21
-    if-eqz v37, :cond_20
+    if-eqz v40, :cond_20
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "--> ap disable"
+    const-string/jumbo v54, "--> ap disable"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
-    invoke-virtual/range {v49 .. v51}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
+    invoke-virtual/range {v52 .. v54}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    const-string/jumbo v50, "VZW"
+    const-string/jumbo v53, "VZW"
 
-    sget-object v51, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v54, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_22
+    if-eqz v53, :cond_22
 
-    const v50, 0x7f0b0e7d
+    const v53, 0x7f0b0f0a
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v50
+    move-result-object v53
 
-    invoke-virtual/range {v50 .. v50}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v53 .. v53}, Landroid/widget/Toast;->show()V
 
     :cond_22
-    const-string/jumbo v50, "ATT"
+    const-string/jumbo v53, "ATT"
 
-    sget-object v51, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v54, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_20
+    if-eqz v53, :cond_20
 
     invoke-virtual/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->showTimeoutNotification(Landroid/content/Context;)V
 
-    goto :goto_b
+    goto :goto_9
 
-    :catch_4
+    :catch_3
     move-exception v15
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "Cannot release wake lock ~~"
+    const-string/jumbo v55, "Cannot release wake lock ~~"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_23
-    const/16 v50, 0x2
+    const/16 v53, 0x2
 
-    move/from16 v0, v33
+    move/from16 v0, v36
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_2
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "ALARM_STOP"
+    const-string/jumbo v54, "ALARM_STOP"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
+    sget-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
 
-    if-nez v50, :cond_2
+    if-nez v53, :cond_2
 
-    sget-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
+    sget-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
-    if-eqz v50, :cond_2
+    if-eqz v53, :cond_2
 
     new-instance v6, Landroid/content/Intent;
 
-    const-string/jumbo v50, "com.samsung.settings.wifi.wifiap_power_mode_alarm"
+    const-string/jumbo v53, "com.samsung.settings.wifi.wifiap_power_mode_alarm"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v50, "wifiap_power_mode_alarm_option"
+    const-string/jumbo v53, "wifiap_power_mode_alarm_option"
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/high16 v51, 0x10000000
+    const/high16 v54, 0x10000000
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-static {v0, v1, v6, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result-object v34
+    move-result-object v37
 
-    const-string/jumbo v50, "alarm"
+    const-string/jumbo v53, "alarm"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2797,444 +2623,444 @@
 
     check-cast v8, Landroid/app/AlarmManager;
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v37
 
     invoke-virtual {v8, v0}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
     goto/16 :goto_0
 
     :cond_24
-    const-string/jumbo v50, "com.samsung.settings.wifi.PLUG_STATE_CHANGED"
+    const-string/jumbo v53, "com.samsung.settings.wifi.PLUG_STATE_CHANGED"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_26
+    if-eqz v53, :cond_26
 
-    const-string/jumbo v50, "wifiap_plug_state_changed_option"
+    const-string/jumbo v53, "wifiap_plug_state_changed_option"
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v33
+    move-result v36
 
-    if-nez v33, :cond_25
+    if-nez v36, :cond_25
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Unplugged"
+    const-string/jumbo v54, "Unplugged"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v52
 
-    check-cast v49, Landroid/net/wifi/WifiManager;
+    check-cast v52, Landroid/net/wifi/WifiManager;
 
-    invoke-virtual/range {v49 .. v49}, Landroid/net/wifi/WifiManager;->getWifiApState()I
+    invoke-virtual/range {v52 .. v52}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
-    move-result v47
+    move-result v50
 
-    const/16 v50, 0xd
+    const/16 v53, 0xd
 
-    move/from16 v0, v47
+    move/from16 v0, v50
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_2
 
-    sget v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
+    sget v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
-    if-nez v50, :cond_2
+    if-nez v53, :cond_2
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->sendWifiPowerModeAlarmIntent(Landroid/content/Context;I)V
 
     goto/16 :goto_0
 
     :cond_25
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Plugged"
+    const-string/jumbo v54, "Plugged"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
+    sget-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
 
-    if-nez v50, :cond_2
+    if-nez v53, :cond_2
 
-    sget-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
+    sget-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
-    if-eqz v50, :cond_2
+    if-eqz v53, :cond_2
 
-    const/16 v50, 0x2
+    const/16 v53, 0x2
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->sendWifiPowerModeAlarmIntent(Landroid/content/Context;I)V
 
     goto/16 :goto_0
 
     :cond_26
-    const-string/jumbo v50, "com.samsung.android.net.wifi.WIFI_AP_STA_STATUS_CHANGED"
+    const-string/jumbo v53, "com.samsung.android.net.wifi.WIFI_AP_STA_STATUS_CHANGED"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_2e
+    if-eqz v53, :cond_2e
 
-    const-string/jumbo v50, "NUM"
+    const-string/jumbo v53, "NUM"
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v4
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "ClientNum from WIFI_AP_STA_STATUS_CHANGED_ACTION = "
+    const-string/jumbo v55, "ClientNum from WIFI_AP_STA_STATUS_CHANGED_ACTION = "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     if-gez v4, :cond_27
 
     const/4 v4, 0x0
 
     :cond_27
-    sget v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mMaxClientNum:I
+    sget v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mMaxClientNum:I
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
     if-le v4, v0, :cond_28
 
     sput v4, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mMaxClientNum:I
 
     :cond_28
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "MaxClientNum1 = "
+    const-string/jumbo v55, "MaxClientNum1 = "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    sget v52, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mMaxClientNum:I
+    sget v55, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mMaxClientNum:I
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Landroid/util/GateConfig;->isGateEnabled()Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_29
+    if-eqz v53, :cond_29
 
-    sget v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
+    sget v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
     if-le v4, v0, :cond_2c
 
-    sget-object v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
+    sget-object v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
 
-    const-string/jumbo v51, "<GATE-M> WIFI_HOTSPOT_CONNECTED </GATE-M>"
+    const-string/jumbo v54, "<GATE-M> WIFI_HOTSPOT_CONNECTED </GATE-M>"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_29
-    :goto_c
+    :goto_a
     if-nez v4, :cond_2a
 
-    sget-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
+    sget-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
-    if-eqz v50, :cond_2d
+    if-eqz v53, :cond_2d
 
     :cond_2a
     if-lez v4, :cond_2b
 
-    const/16 v50, 0x2
+    const/16 v53, 0x2
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->sendWifiPowerModeAlarmIntent(Landroid/content/Context;I)V
 
     :cond_2b
-    :goto_d
+    :goto_b
     sput v4, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
     goto/16 :goto_0
 
     :cond_2c
-    sget v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
+    sget v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
     if-ge v4, v0, :cond_29
 
-    sget-object v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
+    sget-object v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
 
-    const-string/jumbo v51, "<GATE-M> WIFI_HOTSPOT_DISCONNECTED </GATE-M>"
+    const-string/jumbo v54, "<GATE-M> WIFI_HOTSPOT_DISCONNECTED </GATE-M>"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_c
+    goto :goto_a
 
     :cond_2d
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->sendWifiPowerModeAlarmIntent(Landroid/content/Context;I)V
 
-    goto :goto_d
+    goto :goto_b
 
     :cond_2e
-    const-string/jumbo v50, "com.samsung.settings.wifi.mobileap.TURNOFF_HOTSPOT"
+    const-string/jumbo v53, "com.samsung.settings.wifi.mobileap.TURNOFF_HOTSPOT"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_2f
+    if-eqz v53, :cond_2f
 
     invoke-virtual/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->clearTimeoutNotification(Landroid/content/Context;)V
 
     goto/16 :goto_0
 
     :cond_2f
-    const-string/jumbo v50, "com.samsung.android.net.wifi.WIFI_AP_DRIVER_STATE_HANGED"
+    const-string/jumbo v53, "com.samsung.android.net.wifi.WIFI_AP_DRIVER_STATE_HANGED"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_30
+    if-eqz v53, :cond_30
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "WIFI_AP_DRIVER_STATE_HANGED"
+    const-string/jumbo v54, "WIFI_AP_DRIVER_STATE_HANGED"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v52
 
-    check-cast v49, Landroid/net/wifi/WifiManager;
+    check-cast v52, Landroid/net/wifi/WifiManager;
 
-    invoke-virtual/range {v49 .. v49}, Landroid/net/wifi/WifiManager;->getWifiApState()I
+    invoke-virtual/range {v52 .. v52}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0xd
+    const/16 v54, 0xd
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     if-ne v0, v1, :cond_2
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
-    invoke-virtual/range {v49 .. v51}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
+    invoke-virtual/range {v52 .. v54}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    const-wide/16 v50, 0x5dc
+    const-wide/16 v54, 0x5dc
 
-    :try_start_6
-    invoke-static/range {v50 .. v51}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_6
-    .catch Ljava/lang/InterruptedException; {:try_start_6 .. :try_end_6} :catch_5
+    :try_start_5
+    invoke-static/range {v54 .. v55}, Ljava/lang/Thread;->sleep(J)V
+    :try_end_5
+    .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_5} :catch_4
 
-    :goto_e
-    const/16 v50, 0x1
+    :goto_c
+    const/16 v53, 0x1
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    invoke-virtual/range {v49 .. v51}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
+    invoke-virtual/range {v52 .. v54}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
     goto/16 :goto_0
 
-    :catch_5
+    :catch_4
     move-exception v14
 
     invoke-virtual {v14}, Ljava/lang/InterruptedException;->printStackTrace()V
 
-    goto :goto_e
+    goto :goto_c
 
     :cond_30
-    const-string/jumbo v50, "com.samsung.android.intent.action.WIFI_ENABLE_WARNING"
+    const-string/jumbo v53, "com.samsung.android.intent.action.WIFI_ENABLE_WARNING"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_32
+    if-eqz v53, :cond_32
 
-    const-string/jumbo v50, "req_type"
+    const-string/jumbo v53, "req_type"
 
-    const/16 v51, -0x1
+    const/16 v54, -0x1
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v39
+    move-result v42
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "onreceive WIFI_ENABLE_WARNING req_type:"
+    const-string/jumbo v55, "onreceive WIFI_ENABLE_WARNING req_type:"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
-    move/from16 v1, v39
+    move/from16 v1, v42
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v50, 0xb
+    const/16 v53, 0xb
 
-    move/from16 v0, v39
+    move/from16 v0, v42
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_31
 
-    const/16 v50, 0x9
+    const/16 v53, 0x9
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->startHotspotExtenderModewarning(Landroid/content/Context;I)V
 
     goto/16 :goto_0
 
     :cond_31
-    const/16 v50, 0x4
+    const/16 v53, 0x4
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     move-object/from16 v3, p2
 
@@ -3243,137 +3069,137 @@
     goto/16 :goto_0
 
     :cond_32
-    const-string/jumbo v50, "com.samsung.android.intent.action.WIFIAP_RESET"
+    const-string/jumbo v53, "com.samsung.android.intent.action.WIFIAP_RESET"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_33
+    if-eqz v53, :cond_33
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Received Skip Provision and Reset intent from SoftApStateMachine"
+    const-string/jumbo v54, "Received Skip Provision and Reset intent from SoftApStateMachine"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v52
 
-    check-cast v49, Landroid/net/wifi/WifiManager;
+    check-cast v52, Landroid/net/wifi/WifiManager;
 
-    const/16 v50, 0x1
+    const/16 v53, 0x1
 
-    sput-boolean v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
+    sput-boolean v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
-    new-instance v30, Landroid/os/Message;
+    new-instance v33, Landroid/os/Message;
 
-    invoke-direct/range {v30 .. v30}, Landroid/os/Message;-><init>()V
+    invoke-direct/range {v33 .. v33}, Landroid/os/Message;-><init>()V
 
-    const/16 v50, 0xc5
+    const/16 v53, 0xc5
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v33
 
     iput v0, v1, Landroid/os/Message;->what:I
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v52
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v33
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
 
-    move-result v40
+    move-result v43
 
     goto/16 :goto_0
 
     :cond_33
-    const-string/jumbo v50, "reset_provider"
+    const-string/jumbo v53, "reset_provider"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_35
+    if-eqz v53, :cond_35
 
-    :try_start_7
+    :try_start_6
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v50
+    move-result-object v53
 
-    const-string/jumbo v51, "wifi_ap_wifi_sharing"
+    const-string/jumbo v54, "wifi_ap_wifi_sharing"
 
-    const/16 v52, 0xa
+    const/16 v55, 0xa
 
-    invoke-static/range {v50 .. v52}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static/range {v53 .. v55}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "WIFI_AP_WIFI_SHARING provider value after putting 10"
+    const-string/jumbo v55, "WIFI_AP_WIFI_SHARING provider value after putting 10"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v52
+    move-result-object v55
 
-    const-string/jumbo v53, "wifi_ap_wifi_sharing"
+    const-string/jumbo v56, "wifi_ap_wifi_sharing"
 
-    invoke-static/range {v52 .. v53}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+    invoke-static/range {v55 .. v56}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
-    move-result v52
+    move-result v55
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mSharedPref:Landroid/content/SharedPreferences;
 
-    move-object/from16 v50, v0
+    move-object/from16 v53, v0
 
-    if-nez v50, :cond_34
+    if-nez v53, :cond_34
 
-    const-string/jumbo v50, "SAMSUNG_HOTSPOT"
+    const-string/jumbo v53, "SAMSUNG_HOTSPOT"
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v50
+    move-result-object v53
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     move-object/from16 v1, p0
 
@@ -3384,193 +3210,193 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mSharedPref:Landroid/content/SharedPreferences;
 
-    move-object/from16 v50, v0
+    move-object/from16 v53, v0
 
-    invoke-interface/range {v50 .. v50}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface/range {v53 .. v53}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v17
 
-    const-string/jumbo v50, "wifi_disconnect_do_not_show"
+    const-string/jumbo v53, "wifi_disconnect_do_not_show"
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
     move-object/from16 v0, v17
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
     invoke-interface/range {v17 .. v17}, Landroid/content/SharedPreferences$Editor;->commit()Z
-    :try_end_7
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_7 .. :try_end_7} :catch_6
+    :try_end_6
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_6 .. :try_end_6} :catch_5
 
     goto/16 :goto_0
 
-    :catch_6
+    :catch_5
     move-exception v16
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "Error in putting off provider value"
+    const-string/jumbo v55, "Error in putting off provider value"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_35
-    const-string/jumbo v50, "enable_provider"
+    const-string/jumbo v53, "enable_provider"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_36
+    if-eqz v53, :cond_36
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "Enabling Wifi Sharing "
+    const-string/jumbo v55, "Enabling Wifi Sharing "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    sget-boolean v52, Lcom/android/settings/Utils;->DBG:Z
+    sget-boolean v55, Lcom/android/settings/Utils;->DBG:Z
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-boolean v50, Lcom/android/settings/Utils;->DBG:Z
+    sget-boolean v53, Lcom/android/settings/Utils;->DBG:Z
 
-    if-eqz v50, :cond_2
+    if-eqz v53, :cond_2
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v25
+    move-result-object v26
 
-    check-cast v25, Landroid/net/wifi/WifiManager;
+    check-cast v26, Landroid/net/wifi/WifiManager;
 
-    const/16 v50, 0x1
+    const/16 v53, 0x1
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->setWifiSharingEnabled(Z)Z
 
     goto/16 :goto_0
 
     :cond_36
-    const-string/jumbo v50, "disable_provider"
+    const-string/jumbo v53, "disable_provider"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_37
+    if-eqz v53, :cond_37
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "Disabling Wifi Sharing "
+    const-string/jumbo v55, "Disabling Wifi Sharing "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    sget-boolean v52, Lcom/android/settings/Utils;->DBG:Z
+    sget-boolean v55, Lcom/android/settings/Utils;->DBG:Z
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-boolean v50, Lcom/android/settings/Utils;->DBG:Z
+    sget-boolean v53, Lcom/android/settings/Utils;->DBG:Z
 
-    if-eqz v50, :cond_2
+    if-eqz v53, :cond_2
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v25
+    move-result-object v26
 
-    check-cast v25, Landroid/net/wifi/WifiManager;
+    check-cast v26, Landroid/net/wifi/WifiManager;
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->setWifiSharingEnabled(Z)Z
 
     goto/16 :goto_0
 
     :cond_37
-    const-string/jumbo v50, "com.samsung.intent.action.START_PROVISIONING"
+    const-string/jumbo v53, "com.samsung.intent.action.START_PROVISIONING"
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_2
+    if-eqz v53, :cond_2
 
     invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isWifiSharingEnabled(Landroid/content/Context;)Z
 
@@ -3580,55 +3406,55 @@
 
     invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isMobileApON(Landroid/content/Context;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_3e
+    if-eqz v53, :cond_3e
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v25
+    move-result-object v26
 
-    check-cast v25, Landroid/net/wifi/WifiManager;
+    check-cast v26, Landroid/net/wifi/WifiManager;
 
-    const-string/jumbo v50, "VZW"
+    const-string/jumbo v53, "VZW"
 
-    sget-object v51, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v54, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_3d
+    if-eqz v53, :cond_3d
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mSharedPref:Landroid/content/SharedPreferences;
 
-    move-object/from16 v50, v0
+    move-object/from16 v53, v0
 
-    if-nez v50, :cond_38
+    if-nez v53, :cond_38
 
-    const-string/jumbo v50, "SAMSUNG_HOTSPOT"
+    const-string/jumbo v53, "SAMSUNG_HOTSPOT"
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v50
+    move-result-object v53
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v53
 
     move-object/from16 v1, p0
 
@@ -3639,382 +3465,382 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mSharedPref:Landroid/content/SharedPreferences;
 
-    move-object/from16 v50, v0
+    move-object/from16 v53, v0
 
-    const-string/jumbo v51, "wifi_disconnect_do_not_show"
+    const-string/jumbo v54, "wifi_disconnect_do_not_show"
 
-    const/16 v52, 0x0
+    const/16 v55, 0x0
 
-    invoke-interface/range {v50 .. v52}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface/range {v53 .. v55}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
     move-result v21
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "for VZW show Wi-fiDisconnect isDoNotShowAgain "
+    const-string/jumbo v55, "for VZW show Wi-fiDisconnect isDoNotShowAgain "
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     move/from16 v1, v21
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isWifiConnected(Landroid/content/Context;)Z
 
-    move-result v50
+    move-result v53
 
-    if-nez v50, :cond_3c
+    if-nez v53, :cond_3c
 
-    invoke-virtual/range {v25 .. v25}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
+    invoke-virtual/range {v26 .. v26}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     if-eq v0, v1, :cond_39
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Provisioning failed, mobile ap ON toast"
+    const-string/jumbo v54, "Provisioning failed, mobile ap ON toast"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v50, 0x7f0b0e62
+    const v53, 0x7f0b0eef
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v43
+    move-result-object v46
 
-    invoke-virtual/range {v43 .. v43}, Landroid/widget/Toast;->getView()Landroid/view/View;
+    invoke-virtual/range {v46 .. v46}, Landroid/widget/Toast;->getView()Landroid/view/View;
 
-    move-result-object v50
+    move-result-object v53
 
-    const v51, 0x102000b
+    const v54, 0x102000b
 
-    invoke-virtual/range {v50 .. v51}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual/range {v53 .. v54}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v44
+    move-result-object v47
 
-    check-cast v44, Landroid/widget/TextView;
+    check-cast v47, Landroid/widget/TextView;
 
-    const/16 v50, 0x11
+    const/16 v53, 0x11
 
-    move-object/from16 v0, v44
+    move-object/from16 v0, v47
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setGravity(I)V
 
-    invoke-virtual/range {v43 .. v43}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v46 .. v46}, Landroid/widget/Toast;->show()V
 
-    :try_start_8
+    :try_start_7
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v50
+    move-result-object v53
 
-    const-string/jumbo v51, "wifi_ap_wifi_sharing"
+    const-string/jumbo v54, "wifi_ap_wifi_sharing"
 
-    const/16 v52, 0x0
+    const/16 v55, 0x0
 
-    invoke-static/range {v50 .. v52}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static/range {v53 .. v55}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "WIFI_AP_WIFI_SHARING provider value after putting 0"
+    const-string/jumbo v55, "WIFI_AP_WIFI_SHARING provider value after putting 0"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v52
+    move-result-object v55
 
-    const-string/jumbo v53, "wifi_ap_wifi_sharing"
+    const-string/jumbo v56, "wifi_ap_wifi_sharing"
 
-    invoke-static/range {v52 .. v53}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+    invoke-static/range {v55 .. v56}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
-    move-result v52
+    move-result v55
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_8
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_8 .. :try_end_8} :catch_7
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_7
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_7 .. :try_end_7} :catch_6
 
-    :goto_f
-    new-instance v28, Landroid/content/Intent;
+    :goto_d
+    new-instance v31, Landroid/content/Intent;
 
-    const-string/jumbo v50, "com.samsung.intent.action.UPDATE_OPTIONS_MENU"
+    const-string/jumbo v53, "com.samsung.intent.action.UPDATE_OPTIONS_MENU"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v31
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
     goto/16 :goto_0
 
-    :catch_7
+    :catch_6
     move-exception v16
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "Error in putting off provider value"
+    const-string/jumbo v55, "Error in putting off provider value"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_f
+    goto :goto_d
 
     :cond_39
-    const/16 v50, 0x1
+    const/16 v53, 0x1
 
     move/from16 v0, v21
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_3a
 
-    invoke-virtual/range {v25 .. v25}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
+    invoke-virtual/range {v26 .. v26}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     if-ne v0, v1, :cond_3a
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Provisioning success, mobile ap ON toast"
+    const-string/jumbo v54, "Provisioning success, mobile ap ON toast"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v50, 0x7f0b0e61
+    const v53, 0x7f0b0eee
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v43
+    move-result-object v46
 
-    invoke-virtual/range {v43 .. v43}, Landroid/widget/Toast;->getView()Landroid/view/View;
+    invoke-virtual/range {v46 .. v46}, Landroid/widget/Toast;->getView()Landroid/view/View;
 
-    move-result-object v50
+    move-result-object v53
 
-    const v51, 0x102000b
+    const v54, 0x102000b
 
-    invoke-virtual/range {v50 .. v51}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual/range {v53 .. v54}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v44
+    move-result-object v47
 
-    check-cast v44, Landroid/widget/TextView;
+    check-cast v47, Landroid/widget/TextView;
 
-    const/16 v50, 0x11
+    const/16 v53, 0x11
 
-    move-object/from16 v0, v44
+    move-object/from16 v0, v47
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setGravity(I)V
 
-    invoke-virtual/range {v43 .. v43}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v46 .. v46}, Landroid/widget/Toast;->show()V
 
     goto/16 :goto_0
 
     :cond_3a
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Wi-fi got Disconnected before pop-up appears, Turn OFF MHS"
+    const-string/jumbo v54, "Wi-fi got Disconnected before pop-up appears, Turn OFF MHS"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v52
 
-    check-cast v49, Landroid/net/wifi/WifiManager;
+    check-cast v52, Landroid/net/wifi/WifiManager;
 
-    invoke-virtual/range {v49 .. v49}, Landroid/net/wifi/WifiManager;->getWifiApState()I
+    invoke-virtual/range {v52 .. v52}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0xd
+    const/16 v54, 0xd
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     if-ne v0, v1, :cond_3b
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
-    invoke-virtual/range {v49 .. v51}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
+    invoke-virtual/range {v52 .. v54}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
     :cond_3b
-    new-instance v41, Landroid/content/Intent;
+    new-instance v44, Landroid/content/Intent;
 
-    invoke-direct/range {v41 .. v41}, Landroid/content/Intent;-><init>()V
+    invoke-direct/range {v44 .. v44}, Landroid/content/Intent;-><init>()V
 
-    const-class v50, Lcom/samsung/android/settings/wifi/mobileap/WifiApWarning;
+    const-class v53, Lcom/samsung/android/settings/wifi/mobileap/WifiApWarning;
 
-    move-object/from16 v0, v41
+    move-object/from16 v0, v44
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v50
+    move-object/from16 v2, v53
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    const/high16 v50, 0x10000000
+    const/high16 v53, 0x10000000
 
-    move-object/from16 v0, v41
+    move-object/from16 v0, v44
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    const-string/jumbo v50, "com.samsung.android.settings.wifi.mobileap.wifiapwarning"
+    const-string/jumbo v53, "com.samsung.android.settings.wifi.mobileap.wifiapwarning"
 
-    move-object/from16 v0, v41
+    move-object/from16 v0, v44
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v50, "wifiap_warning_dialog_type"
+    const-string/jumbo v53, "wifiap_warning_dialog_type"
 
-    const/16 v51, 0x7
+    const/16 v54, 0x7
 
-    move-object/from16 v0, v41
+    move-object/from16 v0, v44
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v41
+    move-object/from16 v1, v44
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 
     :cond_3c
-    invoke-virtual/range {v25 .. v25}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
+    invoke-virtual/range {v26 .. v26}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     if-eq v0, v1, :cond_2
 
-    const/16 v50, 0x6
+    const/16 v53, 0x6
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->startHotspotProvisioningRequestWifiSharing(Landroid/content/Context;I)V
 
@@ -4023,252 +3849,252 @@
     :cond_3d
     invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isProvisioningNeeded(Landroid/content/Context;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_2
+    if-eqz v53, :cond_2
 
-    invoke-virtual/range {v25 .. v25}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
+    invoke-virtual/range {v26 .. v26}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     if-eq v0, v1, :cond_2
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Start provisioning Wifi Sharing"
+    const-string/jumbo v54, "Start provisioning Wifi Sharing"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v50, 0x6
+    const/16 v53, 0x6
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->startHotspotProvisioningRequestWifiSharing(Landroid/content/Context;I)V
 
     goto/16 :goto_0
 
     :cond_3e
-    const-string/jumbo v50, "VZW"
+    const-string/jumbo v53, "VZW"
 
-    sget-object v51, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
+    sget-object v54, Lcom/android/settings/Utils;->CONFIGOPBRANDINGFORMOBILEAP:Ljava/lang/String;
 
-    invoke-virtual/range {v50 .. v51}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v53 .. v54}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_40
+    if-eqz v53, :cond_40
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v25
+    move-result-object v26
 
-    check-cast v25, Landroid/net/wifi/WifiManager;
+    check-cast v26, Landroid/net/wifi/WifiManager;
 
     if-eqz v22, :cond_3f
 
-    invoke-virtual/range {v25 .. v25}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
+    invoke-virtual/range {v26 .. v26}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0x2
+    const/16 v54, 0x2
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     if-ne v0, v1, :cond_3f
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Wifi Sharing ON but provision failed toast"
+    const-string/jumbo v54, "Wifi Sharing ON but provision failed toast"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v50, 0x7f0b0e62
+    const v53, 0x7f0b0eef
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v43
+    move-result-object v46
 
-    invoke-virtual/range {v43 .. v43}, Landroid/widget/Toast;->getView()Landroid/view/View;
+    invoke-virtual/range {v46 .. v46}, Landroid/widget/Toast;->getView()Landroid/view/View;
 
-    move-result-object v50
+    move-result-object v53
 
-    const v51, 0x102000b
+    const v54, 0x102000b
 
-    invoke-virtual/range {v50 .. v51}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual/range {v53 .. v54}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v44
+    move-result-object v47
 
-    check-cast v44, Landroid/widget/TextView;
+    check-cast v47, Landroid/widget/TextView;
 
-    const/16 v50, 0x11
+    const/16 v53, 0x11
 
-    move-object/from16 v0, v44
+    move-object/from16 v0, v47
 
-    move/from16 v1, v50
+    move/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setGravity(I)V
 
-    invoke-virtual/range {v43 .. v43}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v46 .. v46}, Landroid/widget/Toast;->show()V
 
-    :try_start_9
+    :try_start_8
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v50
+    move-result-object v53
 
-    const-string/jumbo v51, "wifi_ap_wifi_sharing"
+    const-string/jumbo v54, "wifi_ap_wifi_sharing"
 
-    const/16 v52, 0x0
+    const/16 v55, 0x0
 
-    invoke-static/range {v50 .. v52}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static/range {v53 .. v55}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "WIFI_AP_WIFI_SHARING provider value after putting 0"
+    const-string/jumbo v55, "WIFI_AP_WIFI_SHARING provider value after putting 0"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v52
+    move-result-object v55
 
-    const-string/jumbo v53, "wifi_ap_wifi_sharing"
+    const-string/jumbo v56, "wifi_ap_wifi_sharing"
 
-    invoke-static/range {v52 .. v53}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+    invoke-static/range {v55 .. v56}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
-    move-result v52
+    move-result v55
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_9
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_9 .. :try_end_9} :catch_8
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_8
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_8 .. :try_end_8} :catch_7
 
-    :goto_10
-    new-instance v28, Landroid/content/Intent;
+    :goto_e
+    new-instance v31, Landroid/content/Intent;
 
-    const-string/jumbo v50, "com.samsung.intent.action.UPDATE_OPTIONS_MENU"
+    const-string/jumbo v53, "com.samsung.intent.action.UPDATE_OPTIONS_MENU"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v31
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    const/16 v50, 0x0
+    const/16 v53, 0x0
 
-    const/16 v51, 0x0
+    const/16 v54, 0x0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
     goto/16 :goto_0
 
-    :catch_8
+    :catch_7
     move-exception v16
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    new-instance v51, Ljava/lang/StringBuilder;
+    new-instance v54, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v51 .. v51}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v54 .. v54}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v52, "Error in putting off provider value"
+    const-string/jumbo v55, "Error in putting off provider value"
 
-    invoke-virtual/range {v51 .. v52}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v54 .. v55}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v54
 
     move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-virtual/range {v51 .. v51}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v54 .. v54}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v54
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_10
+    goto :goto_e
 
     :cond_3f
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Showing Wi-Fi Disconnect toast"
+    const-string/jumbo v54, "Showing Wi-Fi Disconnect toast"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v20, Landroid/content/Intent;
 
-    const-string/jumbo v50, "com.samsung.android.net.wifi.SHOW_INFO_MESSAGE"
+    const-string/jumbo v53, "com.samsung.android.net.wifi.SHOW_INFO_MESSAGE"
 
     move-object/from16 v0, v20
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v50, "info_type"
+    const-string/jumbo v53, "info_type"
 
-    const/16 v51, 0x1e
+    const/16 v54, 0x1e
 
     move-object/from16 v0, v20
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
-    move/from16 v2, v51
+    move/from16 v2, v54
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -4285,59 +4111,59 @@
 
     invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isMobileApON(Landroid/content/Context;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_2
+    if-eqz v53, :cond_2
 
-    const-string/jumbo v50, "wifi"
+    const-string/jumbo v53, "wifi"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v25
+    move-result-object v26
 
-    check-cast v25, Landroid/net/wifi/WifiManager;
+    check-cast v26, Landroid/net/wifi/WifiManager;
 
     invoke-direct/range {p0 .. p1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isProvisioningNeeded(Landroid/content/Context;)Z
 
-    move-result v50
+    move-result v53
 
-    if-eqz v50, :cond_2
+    if-eqz v53, :cond_2
 
-    invoke-virtual/range {v25 .. v25}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
+    invoke-virtual/range {v26 .. v26}, Landroid/net/wifi/WifiManager;->getProvisionSuccess()I
 
-    move-result v50
+    move-result v53
 
-    const/16 v51, 0x1
+    const/16 v54, 0x1
 
-    move/from16 v0, v50
+    move/from16 v0, v53
 
-    move/from16 v1, v51
+    move/from16 v1, v54
 
     if-eq v0, v1, :cond_2
 
-    const-string/jumbo v50, "WifiApBroadcastReceiver"
+    const-string/jumbo v53, "WifiApBroadcastReceiver"
 
-    const-string/jumbo v51, "Start Provisioning as Provisioning is needed"
+    const-string/jumbo v54, "Start Provisioning as Provisioning is needed"
 
-    invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v53 .. v54}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v50, 0x6
+    const/16 v53, 0x6
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v50
+    move/from16 v2, v53
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->startHotspotProvisioningRequestWifiSharing(Landroid/content/Context;I)V
 
     goto/16 :goto_0
 
-    :catch_9
+    :catch_8
     move-exception v16
 
     goto/16 :goto_1
@@ -4367,13 +4193,13 @@
 
     const/4 v1, 0x0
 
-    const v6, 0x10808e2
+    const v6, 0x10808d0
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v3, 0x7f0b0e7d
+    const v3, 0x7f0b0f0a
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4383,7 +4209,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0b1914
+    const v3, 0x7f0b19b0
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4488,7 +4314,7 @@
 
     sget-object v3, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
 
-    const v5, 0x7f0b0e7c
+    const v5, 0x7f0b0f09
 
     invoke-virtual {v0, v4, v5, v1, v3}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
 
@@ -4500,7 +4326,7 @@
 
     const/4 v9, 0x0
 
-    const v8, 0x7f0b0e7b
+    const v8, 0x7f0b0f08
 
     const/4 v6, 0x0
 

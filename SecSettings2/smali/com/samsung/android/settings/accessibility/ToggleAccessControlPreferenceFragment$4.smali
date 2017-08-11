@@ -39,7 +39,7 @@
 
     const/16 v5, 0x3e8
 
-    const v4, 0x7f10034b
+    const v4, 0x7f100351
 
     const/4 v2, 0x1
 

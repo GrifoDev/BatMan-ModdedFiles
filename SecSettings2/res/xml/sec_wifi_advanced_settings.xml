@@ -2,6 +2,7 @@
 <PreferenceScreen android:title="@string/wifi_advanced_titlebar" settings:parent="@xml/wifi_settings"
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:persistent="true" android:title="@string/wifi_adps_title" android:key="wifi_adps" android:summary="@string/wifi_adps_summary" />
     <SwitchPreference android:persistent="true" android:title="@string/auto_connect_xfinity_wifi" android:key="auto_connect_xfinity_wifi" android:summary="@string/auto_connect_xfinity_wifi_summary" />
     <SwitchPreference android:persistent="true" android:visibility="gone" android:title="@string/notify_me_available_network" android:key="notifyMe" android:summary="@string/notify_me_available_network_summary" />
     <SwitchPreference android:persistent="true" android:title="@string/wifi_watchdog_connectivity_check" android:key="wifi_poor_network_detection" android:summary="@string/wifi_sns_setting_alert" />

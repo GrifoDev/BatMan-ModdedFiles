@@ -43,7 +43,7 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby$7;->this$0:Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;
 
-    const v1, 0x7f110737
+    const v1, 0x7f11073a
 
     invoke-static {v0, v1, v2}, Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;->-wrap7(Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;II)V
 
@@ -51,7 +51,7 @@
 
     iget-object v0, v0, Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby$7;->this$0:Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;
 
-    const v1, 0x7f110736
+    const v1, 0x7f110739
 
     invoke-static {v0, v1, v2}, Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;->-wrap7(Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;II)V
 

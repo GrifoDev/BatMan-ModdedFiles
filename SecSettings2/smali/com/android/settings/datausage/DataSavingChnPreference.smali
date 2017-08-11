@@ -14,9 +14,9 @@
 
 
 # instance fields
-.field private bConnect:Z
-
 .field public mChecked:Z
+
+.field private mConnect:Z
 
 .field private mDataEnabledObserver:Lcom/android/settings/datausage/DataSavingChnPreference$DataEnabledObserver;
 
@@ -32,15 +32,7 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/settings/datausage/DataSavingChnPreference;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->bConnect:Z
-
-    return v0
-.end method
-
-.method static synthetic -get1(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/datasaving/IOnSavingStateChangeListener;
+.method static synthetic -get0(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/datasaving/IOnSavingStateChangeListener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mOnSavingStateChangeListener:Lcom/samsung/android/datasaving/IOnSavingStateChangeListener;
@@ -48,7 +40,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
+.method static synthetic -get1(Lcom/android/settings/datausage/DataSavingChnPreference;)Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mSecSummaryLayoutCHN:Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
@@ -56,7 +48,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/settings/datausage/DataSavingChnPreference;)Landroid/view/View;
+.method static synthetic -get2(Lcom/android/settings/datausage/DataSavingChnPreference;)Landroid/view/View;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mSwitchView:Landroid/view/View;
@@ -83,7 +75,7 @@
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->bConnect:Z
+    iput-boolean v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mConnect:Z
 
     iput-object v1, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mDataSavingService:Lcom/samsung/android/datasaving/IDataSavingService;
 
@@ -103,7 +95,7 @@
 
     iput-object v0, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mSavingServiceConnection:Landroid/content/ServiceConnection;
 
-    const v0, 0x7f0b10a0
+    const v0, 0x7f0b112d
 
     invoke-virtual {p0, v0}, Lcom/android/settings/datausage/DataSavingChnPreference;->setSummary(I)V
 
@@ -392,6 +384,229 @@
     goto :goto_0
 .end method
 
+.method public isBlocked()Z
+    .locals 8
+
+    const/4 v7, 0x1
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "wifi"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/net/wifi/WifiManager;
+
+    const-string/jumbo v4, "DataSavingChnPreference"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "isBlocked(),WifiManager.isWifiApEnabled()  = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->isWifiApEnabled()Z
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "connectivity"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/net/ConnectivityManager;
+
+    if-eqz v3, :cond_0
+
+    const/4 v4, 0x1
+
+    :try_start_0
+    invoke-virtual {v3, v4}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnectedOrConnecting()Z
+
+    move-result v4
+
+    iput-boolean v4, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mConnect:Z
+
+    :goto_0
+    const-string/jumbo v4, "DataSavingChnPreference"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "isBlocked(), mConnect = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-boolean v6, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mConnect:Z
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_1
+    const-string/jumbo v4, "DataSavingChnPreference"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "isBlocked(),isMobileNetworkEnabled:"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/android/settings/Utils;->isMobileNetworkEnabled(Landroid/content/Context;)Z
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v4, "DataSavingChnPreference"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "isBlocked(),isTetheringEnabled:"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/android/settings/Utils;->isTetheringEnabled(Landroid/content/Context;)Z
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/settings/Utils;->isMobileNetworkEnabled(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->isWifiApEnabled()Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    iget-boolean v4, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mConnect:Z
+
+    if-nez v4, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/settings/Utils;->isTetheringEnabled(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    :cond_1
+    return v7
+
+    :cond_2
+    :try_start_1
+    const-string/jumbo v4, "DataSavingChnPreference"
+
+    const-string/jumbo v5, "isBlocked(), info is null"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto/16 :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v4, "DataSavingChnPreference"
+
+    const-string/jumbo v5, "isBlocked(),Exception happen"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_3
+    const/4 v4, 0x0
+
+    return v4
+.end method
+
 .method protected onBindView(Landroid/view/View;)V
     .locals 2
 
@@ -431,29 +646,24 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/settings/Utils;->isTetheringEnabled(Landroid/content/Context;)Z
+    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->isBlocked()Z
 
     move-result v1
-
-    if-nez v1, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/settings/Utils;->isMobileNetworkEnabled(Landroid/content/Context;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mSwitchView:Landroid/view/View;
 
     if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "DataSavingChnPreference"
+
+    const-string/jumbo v2, "isBlocked,return"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mSwitchView:Landroid/view/View;
+
+    if-eqz v1, :cond_1
 
     const-string/jumbo v1, "DataSavingChnPreference"
 
@@ -511,64 +721,13 @@
     :goto_0
     iget-object v1, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mSecSummaryLayoutCHN:Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->mSecSummaryLayoutCHN:Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;
 
     invoke-virtual {v1}, Lcom/samsung/android/settings/datausage/trafficmanager/SecSummaryLayoutCHN;->initDataSavingLayout()V
 
-    :cond_0
-    return-void
-
     :cond_1
-    const-string/jumbo v1, "DataSavingChnPreference"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "isTetheringEnabled:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/settings/Utils;->isTetheringEnabled(Landroid/content/Context;)Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ",isMobileNetworkEnabled:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/settings/Utils;->isMobileNetworkEnabled(Landroid/content/Context;)Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
 
     :cond_2
@@ -715,200 +874,21 @@
 .end method
 
 .method public updateEnabled()V
-    .locals 7
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v0
 
-    const-string/jumbo v5, "wifi"
+    check-cast v0, Landroid/app/Activity;
 
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    new-instance v1, Lcom/android/settings/datausage/DataSavingChnPreference$4;
 
-    move-result-object v2
+    invoke-direct {v1, p0}, Lcom/android/settings/datausage/DataSavingChnPreference$4;-><init>(Lcom/android/settings/datausage/DataSavingChnPreference;)V
 
-    check-cast v2, Landroid/net/wifi/WifiManager;
-
-    const-string/jumbo v4, "DataSavingChnPreference"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "updateEnabled(),WifiManager.isWifiApEnabled()  = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->isWifiApEnabled()Z
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "connectivity"
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/net/ConnectivityManager;
-
-    if-eqz v3, :cond_0
-
-    const/4 v4, 0x1
-
-    :try_start_0
-    invoke-virtual {v3, v4}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnectedOrConnecting()Z
-
-    move-result v4
-
-    iput-boolean v4, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->bConnect:Z
-
-    :goto_0
-    const-string/jumbo v4, "DataSavingChnPreference"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "updateEnabled(), bConnect = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-boolean v6, p0, Lcom/android/settings/datausage/DataSavingChnPreference;->bConnect:Z
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_1
-    const-string/jumbo v4, "DataSavingChnPreference"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "updateEnabled(),isMobileNetworkEnabled:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-static {v6}, Lcom/android/settings/Utils;->isMobileNetworkEnabled(Landroid/content/Context;)Z
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v4, "DataSavingChnPreference"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "updateEnabled(),isTetheringEnabled:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-static {v6}, Lcom/android/settings/Utils;->isTetheringEnabled(Landroid/content/Context;)Z
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/settings/datausage/DataSavingChnPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/app/Activity;
-
-    new-instance v5, Lcom/android/settings/datausage/DataSavingChnPreference$4;
-
-    invoke-direct {v5, p0, v2}, Lcom/android/settings/datausage/DataSavingChnPreference$4;-><init>(Lcom/android/settings/datausage/DataSavingChnPreference;Landroid/net/wifi/WifiManager;)V
-
-    invoke-virtual {v4, v5}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
     return-void
-
-    :cond_1
-    :try_start_1
-    const-string/jumbo v4, "DataSavingChnPreference"
-
-    const-string/jumbo v5, "updateEnabled(), info is null"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v4, "DataSavingChnPreference"
-
-    const-string/jumbo v5, "updateEnabled(),Exception happen"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
 .end method
 
 .method public updateSwitchState()V

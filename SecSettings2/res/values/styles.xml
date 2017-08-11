@@ -1752,6 +1752,9 @@
     <style name="retry_dialog" parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert">
         <item name="android:windowIsTranslucent">true</item>
     </style>
+    <style name="wifi_actionbar_style" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title.Inverse">
+        <item name="android:textAllCaps">false</item>
+    </style>
     <style name="wifi_ap_item_label">
         <item name="android:textSize">13.0sp</item>
         <item name="android:textStyle">normal</item>
@@ -3553,6 +3556,12 @@
         <item name="android:activityOpenExitAnimation">@anim/slide_next_out</item>
         <item name="android:activityCloseEnterAnimation">@anim/slide_back_in</item>
         <item name="android:activityCloseExitAnimation">@anim/slide_back_out</item>
+    </style>
+    <style name="Theme.WifiSettings" parent="@style/Theme.Settings">
+        <item name="android:actionBarStyle">@style/Theme.Wifi.ActionBarStyle</item>
+    </style>
+    <style name="Theme.Wifi.ActionBarStyle" parent="@style/Theme.ActionBar">
+        <item name="android:titleTextStyle">@style/wifi_actionbar_style</item>
     </style>
     <style name="Theme.WifiDialog" parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert">
         <item name="android:spinnerItemStyle">@style/custom_spinner_item_content</item>
