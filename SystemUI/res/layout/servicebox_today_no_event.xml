@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.android.keyguard.servicebox.pages.calendar.CalendarNoEventView android:gravity="center" android:id="@id/servicebox_no_events" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="@dimen/servicebox_today_event_no_event_size" android:textColor="@color/theme_todays_no_events_text_color_small" android:id="@id/servicebox_no_events_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/servicebox_event_no_events" android:fontFamily="sec-roboto-regular" android:transitionName="servicebox_today_no_event" style="@style/keyguard_headline_text_shadow" />
+    <TextView android:textSize="@dimen/servicebox_today_event_no_event_size" android:textColor="@color/theme_todays_no_events_text_color_small" android:id="@id/servicebox_no_events_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/servicebox_event_no_events" android:alpha="0.7" android:fontFamily="sec-roboto-regular" android:transitionName="servicebox_today_no_event" style="@style/keyguard_headline_text_shadow" />
 </com.android.keyguard.servicebox.pages.calendar.CalendarNoEventView>

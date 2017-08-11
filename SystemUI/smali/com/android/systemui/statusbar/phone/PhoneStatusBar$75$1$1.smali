@@ -61,7 +61,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$75;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set16(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/view/View;)Landroid/view/View;
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set15(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/view/View;)Landroid/view/View;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$75$1$1;->val$scrollLayout:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 

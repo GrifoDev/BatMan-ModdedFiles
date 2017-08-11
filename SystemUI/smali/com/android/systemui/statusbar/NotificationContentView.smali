@@ -241,7 +241,7 @@
 
     const/4 v7, 0x0
 
-    const v6, 0x1020439
+    const v6, 0x1020442
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -307,7 +307,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/NotificationContentView;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b00f8
+    const v7, 0x7f0b00f9
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
 
@@ -316,7 +316,7 @@
     :cond_2
     iget-object v6, p0, Lcom/android/systemui/statusbar/NotificationContentView;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b00f9
+    const v7, 0x7f0b00fa
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
 
@@ -324,7 +324,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/NotificationContentView;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0b00fa
+    const v8, 0x7f0b00fb
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getColor(I)I
 
@@ -1233,7 +1233,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0205
+    const v1, 0x7f0d0206
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1257,7 +1257,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d01ff
+    const v1, 0x7f0d0200
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1982,7 +1982,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0472
+    const v6, 0x7f0d0473
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1994,7 +1994,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0473
+    const v6, 0x7f0d0474
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2006,7 +2006,7 @@
 
     move-result-object v5
 
-    const v6, 0x10503ab
+    const v6, 0x10503bb
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2084,7 +2084,7 @@
 
     move-result-object v8
 
-    const v9, 0x10503ac
+    const v9, 0x10503bc
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

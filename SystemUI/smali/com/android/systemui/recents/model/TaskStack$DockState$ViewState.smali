@@ -788,7 +788,7 @@
 
     iput-object v10, v0, Lcom/android/systemui/recents/model/TaskStack$DockState$ViewState;->mHintText:Ljava/lang/String;
 
-    const v10, 0x7f0d038a
+    const v10, 0x7f0d038b
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -819,7 +819,7 @@
 
     invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setTextSize(F)V
 
-    const v10, 0x7f0d038b
+    const v10, 0x7f0d038c
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -925,7 +925,7 @@
 
     iget-object v10, v0, Lcom/android/systemui/recents/model/TaskStack$DockState$ViewState;->mHintStrokePaint:Landroid/graphics/Paint;
 
-    const v11, 0x7f0d036b
+    const v11, 0x7f0d036c
 
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -939,7 +939,7 @@
 
     iget-object v10, v0, Lcom/android/systemui/recents/model/TaskStack$DockState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
 
-    const v11, 0x7f0b010f
+    const v11, 0x7f0b0110
 
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -957,7 +957,7 @@
 
     const/high16 v13, 0x3f800000    # 1.0f
 
-    const v14, 0x7f0b0111
+    const v14, 0x7f0b0112
 
     invoke-virtual {v6, v14}, Landroid/content/res/Resources;->getColor(I)I
 

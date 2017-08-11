@@ -17,7 +17,7 @@
 .method public getBatteryMeterView()Landroid/view/View;
     .locals 1
 
-    const v0, 0x7f1301b5
+    const v0, 0x7f1301ba
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskStatusBarView;->findViewById(I)Landroid/view/View;
 

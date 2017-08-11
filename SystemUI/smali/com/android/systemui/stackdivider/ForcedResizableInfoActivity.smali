@@ -52,7 +52,7 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 4
 
-    const v3, 0x7f0f0612
+    const v3, 0x7f0f0670
 
     const/4 v2, 0x0
 
@@ -73,7 +73,7 @@
 
     invoke-virtual {p0, v2, v2}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->overridePendingTransition(II)V
 
-    const v1, 0x7f040059
+    const v1, 0x7f04005a
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->setContentView(I)V
 
@@ -99,7 +99,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0f0615
+    const v1, 0x7f0f0673
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -127,7 +127,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f0f0614
+    const v1, 0x7f0f0672
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

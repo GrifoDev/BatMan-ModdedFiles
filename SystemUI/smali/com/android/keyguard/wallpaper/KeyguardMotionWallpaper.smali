@@ -564,13 +564,17 @@
 
     const/4 v6, 0x0
 
-    div-int/lit8 v9, v8, 0x2
+    int-to-float v9, v8
 
-    int-to-float v0, v9
+    const/high16 v10, 0x40000000    # 2.0f
 
-    div-int/lit8 v9, v3, 0x2
+    div-float v0, v9, v10
 
-    int-to-float v1, v9
+    int-to-float v9, v3
+
+    const/high16 v10, 0x40000000    # 2.0f
+
+    div-float v1, v9, v10
 
     const/4 v7, 0x0
 

@@ -91,9 +91,9 @@
 .method public createDetailView(Landroid/content/Context;Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 11
 
-    const v10, 0x7f0f0483
+    const v10, 0x7f0f04e0
 
-    const v9, 0x7f0b0130
+    const v9, 0x7f0b0131
 
     const/4 v8, 0x0
 
@@ -111,13 +111,13 @@
 
     move-result-object v4
 
-    const v5, 0x7f04011c
+    const v5, 0x7f040120
 
     invoke-virtual {v4, v5, p3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p2
 
-    const v4, 0x7f13038c
+    const v4, 0x7f130398
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -188,7 +188,7 @@
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_0
-    const v4, 0x7f13038d
+    const v4, 0x7f130399
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -259,7 +259,7 @@
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_1
-    const v4, 0x7f13038e
+    const v4, 0x7f13039a
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -285,7 +285,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f03c3
+    const v7, 0x7f0f0420
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -293,7 +293,7 @@
 
     aput-object v6, v5, v8
 
-    const v6, 0x7f0f0485
+    const v6, 0x7f0f04e2
 
     invoke-virtual {v4, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -303,7 +303,7 @@
 
     invoke-virtual {v4, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v4, 0x7f13038b
+    const v4, 0x7f130397
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -373,7 +373,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f03ed
+    const v1, 0x7f0f044a
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

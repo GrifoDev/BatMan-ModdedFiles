@@ -82,6 +82,12 @@
 
     invoke-super {p0, p1}, Landroid/service/wallpaper/WallpaperService$Engine;->onVisibilityChanged(Z)V
 
+    invoke-static {}, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->getInstance()Lcom/altamirasoft/glanimationutil/GLAnimatorManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->setVisible(Z)V
+
     iget-boolean v0, p0, Lcom/android/systemui/infinity/GLWallpaperService$GLEngine;->rendererHasBeenSet:Z
 
     if-eqz v0, :cond_0

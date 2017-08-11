@@ -187,9 +187,9 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 6
 
-    const v5, 0x7f0d0347
+    const v5, 0x7f0d0348
 
-    const v4, 0x7f0d0346
+    const v4, 0x7f0d0347
 
     const/4 v1, 0x0
 
@@ -211,7 +211,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b00f5
+    const v2, 0x7f0b00f6
 
     const/4 v3, 0x0
 
@@ -863,7 +863,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0012
+    const v2, 0x7f0b0013
 
     invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -883,7 +883,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b00f5
+    const v2, 0x7f0b00f6
 
     invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -977,7 +977,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0346
+    const v1, 0x7f0d0347
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -989,7 +989,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0347
+    const v1, 0x7f0d0348
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

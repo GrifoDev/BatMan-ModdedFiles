@@ -70,6 +70,12 @@
     .end annotation
 .end field
 
+.field public isFullscreen:Z
+    .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
+        category = "recents"
+    .end annotation
+.end field
+
 .field public isKnoxTask:Z
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
         category = "recents"
@@ -194,7 +200,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/recents/model/Task$TaskKey;IILandroid/graphics/drawable/Drawable;Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIZZZZLandroid/graphics/Rect;Landroid/app/ActivityManager$TaskDescription;ILandroid/content/ComponentName;ZZZZ)V
+.method public constructor <init>(Lcom/android/systemui/recents/model/Task$TaskKey;IILandroid/graphics/drawable/Drawable;Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIZZZZLandroid/graphics/Rect;Landroid/app/ActivityManager$TaskDescription;ILandroid/content/ComponentName;ZZZZZ)V
     .locals 5
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -321,6 +327,10 @@
     iput-boolean v0, p0, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
 
     move/from16 v0, p25
+
+    iput-boolean v0, p0, Lcom/android/systemui/recents/model/Task;->isFullscreen:Z
+
+    move/from16 v0, p26
 
     iput-boolean v0, p0, Lcom/android/systemui/recents/model/Task;->isKnoxTask:Z
 
@@ -479,6 +489,10 @@
     iget-boolean v0, p1, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
 
     iput-boolean v0, p0, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
+
+    iget-boolean v0, p1, Lcom/android/systemui/recents/model/Task;->isFullscreen:Z
+
+    iput-boolean v0, p0, Lcom/android/systemui/recents/model/Task;->isFullscreen:Z
 
     iget-boolean v0, p1, Lcom/android/systemui/recents/model/Task;->isKnoxTask:Z
 

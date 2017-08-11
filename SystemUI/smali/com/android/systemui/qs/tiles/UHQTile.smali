@@ -36,8 +36,6 @@
 
 
 # instance fields
-.field private isBTHeadsetConnected:Z
-
 .field private isHeadsetConnected:Z
 
 .field private final mBroadcastReceiver:Landroid/content/BroadcastReceiver;
@@ -57,20 +55,12 @@
 .method static synthetic -get0(Lcom/android/systemui/qs/tiles/UHQTile;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/UHQTile;->isBTHeadsetConnected:Z
-
-    return v0
-.end method
-
-.method static synthetic -get1(Lcom/android/systemui/qs/tiles/UHQTile;)Z
-    .locals 1
-
     iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/UHQTile;->isHeadsetConnected:Z
 
     return v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/content/Context;
+.method static synthetic -get1(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
@@ -78,7 +68,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/qs/tiles/UHQTile;)Lcom/android/systemui/qs/QSTile$State;
+.method static synthetic -get2(Lcom/android/systemui/qs/tiles/UHQTile;)Lcom/android/systemui/qs/QSTile$State;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mState:Lcom/android/systemui/qs/QSTile$State;
@@ -86,7 +76,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/widget/TextView;
+.method static synthetic -get3(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/widget/TextView;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mSummary:Landroid/widget/TextView;
@@ -97,20 +87,12 @@
 .method static synthetic -set0(Lcom/android/systemui/qs/tiles/UHQTile;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/UHQTile;->isBTHeadsetConnected:Z
-
-    return p1
-.end method
-
-.method static synthetic -set1(Lcom/android/systemui/qs/tiles/UHQTile;Z)Z
-    .locals 0
-
     iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/UHQTile;->isHeadsetConnected:Z
 
     return p1
 .end method
 
-.method static synthetic -set2(Lcom/android/systemui/qs/tiles/UHQTile;Landroid/widget/TextView;)Landroid/widget/TextView;
+.method static synthetic -set1(Lcom/android/systemui/qs/tiles/UHQTile;Landroid/widget/TextView;)Landroid/widget/TextView;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mSummary:Landroid/widget/TextView;
@@ -141,7 +123,7 @@
 .method static synthetic -wrap2(Lcom/android/systemui/qs/tiles/UHQTile;)Z
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/UHQTile;->isUHQModeAvailable()Z
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/UHQTile;->isConnectedBTHeadset()Z
 
     move-result v0
 
@@ -151,6 +133,16 @@
 .method static synthetic -wrap3(Lcom/android/systemui/qs/tiles/UHQTile;)Z
     .locals 1
 
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/UHQTile;->isUHQModeAvailable()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap4(Lcom/android/systemui/qs/tiles/UHQTile;)Z
+    .locals 1
+
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/UHQTile;->isUHQModeEnabled()Z
 
     move-result v0
@@ -158,7 +150,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap4(Lcom/android/systemui/qs/tiles/UHQTile;)Ljava/lang/String;
+.method static synthetic -wrap5(Lcom/android/systemui/qs/tiles/UHQTile;)Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/UHQTile;->getMessage()Ljava/lang/String;
@@ -168,7 +160,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap5(Lcom/android/systemui/qs/tiles/UHQTile;Z)V
+.method static synthetic -wrap6(Lcom/android/systemui/qs/tiles/UHQTile;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/UHQTile;->setEnabled(Z)V
@@ -219,8 +211,6 @@
 
     iput-boolean v4, p0, Lcom/android/systemui/qs/tiles/UHQTile;->isHeadsetConnected:Z
 
-    iput-boolean v4, p0, Lcom/android/systemui/qs/tiles/UHQTile;->isBTHeadsetConnected:Z
-
     new-instance v0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;
 
     const/4 v1, 0x0
@@ -237,7 +227,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0718
+    const v1, 0x7f0f0787
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -304,6 +294,60 @@
     goto :goto_0
 .end method
 
+.method private isConnectedBTHeadset()Z
+    .locals 6
+
+    const/4 v3, 0x2
+
+    const/4 v1, 0x0
+
+    invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0, v3}, Landroid/bluetooth/BluetoothAdapter;->getProfileConnectionState(I)I
+
+    move-result v2
+
+    if-eq v2, v3, :cond_0
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    :cond_1
+    const/4 v0, 0x0
+
+    const-string/jumbo v3, "UHQTile"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "isConnectedBTHeadset : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v1
+.end method
+
 .method private isUHQModeAvailable()Z
     .locals 1
 
@@ -311,7 +355,9 @@
 
     if-nez v0, :cond_0
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/UHQTile;->isBTHeadsetConnected:Z
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/UHQTile;->isConnectedBTHeadset()Z
+
+    move-result v0
 
     if-eqz v0, :cond_1
 
@@ -481,7 +527,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0716
+    const v1, 0x7f0f0785
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -542,7 +588,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f0715
+    const v3, 0x7f0f0784
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -599,7 +645,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0715
+    const v2, 0x7f0f0784
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -645,7 +691,7 @@
 
     iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
-    const v1, 0x7f0203fd
+    const v1, 0x7f020405
 
     invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -655,7 +701,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0716
+    const v2, 0x7f0f0785
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

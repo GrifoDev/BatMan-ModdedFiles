@@ -142,20 +142,24 @@
     <item type="id" name="edit_search">false</item>
     <item type="id" name="btn_search_more">false</item>
     <item type="id" name="btn_search_cancel">false</item>
-    <item type="id" name="search_result_title">false</item>
-    <item type="id" name="search_result_title_text">false</item>
-    <item type="id" name="search_result_count">false</item>
     <item type="id" name="layout_edit_mode_title">false</item>
     <item type="id" name="layout_check_all">false</item>
     <item type="id" name="check_all">false</item>
     <item type="id" name="check_count">false</item>
     <item type="id" name="btn_edit_cancel">false</item>
+    <item type="id" name="search_result_title">false</item>
+    <item type="id" name="search_result_title_text">false</item>
+    <item type="id" name="search_result_count">false</item>
+    <item type="id" name="scrollview_all_apps">false</item>
     <item type="id" name="layout_banner_view_container">false</item>
     <item type="id" name="layout_banner_view_default">false</item>
     <item type="id" name="btn_banner_cancel">false</item>
     <item type="id" name="btn_default_banner_title">false</item>
     <item type="id" name="gridview_all_apps">false</item>
-    <item type="id" name="textview_search">false</item>
+    <item type="id" name="textview_search_no_result">false</item>
+    <item type="id" name="textview_search_no_history">false</item>
+    <item type="id" name="btn_view_more_galaxy_apps">false</item>
+    <item type="id" name="btn_view_more_play_store">false</item>
     <item type="id" name="app_icon">false</item>
     <item type="id" name="assist_orb_scrim">false</item>
     <item type="id" name="assist_orb">false</item>
@@ -340,7 +344,8 @@
     <item type="id" name="header">false</item>
     <item type="id" name="settings_button_container">false</item>
     <item type="id" name="settings_button">false</item>
-    <item type="id" name="badge">false</item>
+    <item type="id" name="badge_background">false</item>
+    <item type="id" name="badge_text">false</item>
     <item type="id" name="vpn">false</item>
     <item type="id" name="nwbooster_combo">false</item>
     <item type="id" name="nwbooster_wifi_strength">false</item>
@@ -397,6 +402,7 @@
     <item type="id" name="divider_snap_button_cancel">false</item>
     <item type="id" name="divider_snap_button_done">false</item>
     <item type="id" name="divider_snap_view_guide_text">false</item>
+    <item type="id" name="right_icon">false</item>
     <item type="id" name="docked_divider_background">false</item>
     <item type="id" name="minimized_dock_shadow">false</item>
     <item type="id" name="docked_divider_focused_frame">false</item>
@@ -411,9 +417,12 @@
     <item type="id" name="keyboard_shortcuts_icon">false</item>
     <item type="id" name="keyboard_shortcuts_keyword">false</item>
     <item type="id" name="keyboard_shortcuts_item_container">false</item>
+    <item type="id" name="info_key_text">false</item>
     <item type="id" name="keyboard_shortcuts_scroll_view">false</item>
     <item type="id" name="keyboard_shortcuts_container">false</item>
+    <item type="id" name="btn_positive">false</item>
     <item type="id" name="keyguard_account_view">false</item>
+    <item type="id" name="stub_keyguard_face_icon_view">false</item>
     <item type="id" name="input_container">false</item>
     <item type="id" name="login_area">false</item>
     <item type="id" name="login">false</item>
@@ -462,7 +471,6 @@
     <item type="id" name="directionLockView">false</item>
     <item type="id" name="direction_diplay_view">false</item>
     <item type="id" name="biometric_timeout_message">false</item>
-    <item type="id" name="stub_keyguard_face_icon_view">false</item>
     <item type="id" name="dot_layout">false</item>
     <item type="id" name="keyguard_selector_fade_container">false</item>
     <item type="id" name="keyguard_dual_clock_view">false</item>
@@ -788,6 +796,10 @@
     <item type="id" name="navigation_inflater">false</item>
     <item type="id" name="left_remoteview">false</item>
     <item type="id" name="right_remoteview">false</item>
+    <item type="id" name="help_dialog_header">false</item>
+    <item type="id" name="help_dialog_message">false</item>
+    <item type="id" name="help_dialog_settings_path">false</item>
+    <item type="id" name="help_dialog_front_dot">false</item>
     <item type="id" name="ends_group">false</item>
     <item type="id" name="center_group">false</item>
     <item type="id" name="nav_bar_widget">false</item>
@@ -1083,9 +1095,7 @@
     <item type="id" name="servicebox_music_page_artist">false</item>
     <item type="id" name="servicebox_music_controller_container">false</item>
     <item type="id" name="servicebox_music_page_prev_btn">false</item>
-    <item type="id" name="servicebox_music_page_play_pause_btn_container">false</item>
     <item type="id" name="servicebox_music_page_play_btn">false</item>
-    <item type="id" name="servicebox_music_page_pause_btn">false</item>
     <item type="id" name="servicebox_music_page_next_btn">false</item>
     <item type="id" name="servicebox_music_page_big_navigation_space">false</item>
     <item type="id" name="servicebox_remoteviews_page_holder">false</item>

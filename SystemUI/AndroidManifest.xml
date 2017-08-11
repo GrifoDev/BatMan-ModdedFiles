@@ -76,6 +76,7 @@
     <uses-permission android:name="android.permission.RESET_FINGERPRINT_LOCKOUT"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="com.wssnps.permission.COM_WSSNPS"/>
+    <uses-permission android:name="android.permission.CRYPT_KEEPER"/>
     <uses-permission android:name="com.samsung.android.bio.face.permission.USE_FACE"/>
     <uses-permission android:name="com.samsung.android.bio.face.permission.MANAGE_FACE"/>
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
@@ -108,6 +109,7 @@
     <uses-permission android:name="com.sec.android.app.desktoplauncher.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="com.samsung.permission.CAPTURE"/>
     <uses-permission android:name="com.samsung.android.app.galaxyfinder.permission.ACCESS_FINDER_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.app.galaxyfinder.permission.ACCESS_APPLICATION_PROVIDER"/>
     <uses-permission android:name="com.sec.knox.APK_INSTALL_LWC"/>
     <protected-broadcast android:name="com.sec.knox.action.INSTALL_APK"/>
     <uses-permission android:name="com.samsung.container.OBSERVER"/>
@@ -175,6 +177,7 @@
     <uses-permission android:name="com.samsung.android.permission.MANAGE_MAXASPECT"/>
     <uses-permission android:name="android.permission.SET_ACTIVITY_WATCHER"/>
     <uses-permission android:name="com.samsung.android.bixby.agent.permission.RECEIVE_BIXBY_VIEW_STATE"/>
+    <uses-permission android:name="com.samsung.android.bixby.agent.permission.READ_LANGUAGE"/>
     <application android:allowBackup="false" android:allowClearUserData="false" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_label" android:largeHeap="true" android:name=".SystemUIApplication" android:persistent="true" android:process="com.android.systemui" android:supportsRtl="true" android:theme="@style/systemui_theme_light">
         <meta-data android:name="com.samsung.android.persistent.downloadable" android:value="true"/>
         <service android:exported="true" android:name="SystemUIService"/>
@@ -263,6 +266,7 @@
             <intent-filter>
                 <action android:name="com.android.systemui.recents.TOGGLE_RECENTS"/>
             </intent-filter>
+            <meta-data android:name="com.samsung.android.non_immersive" android:value="true"/>
         </activity>
         <activity android:excludeFromRecents="true" android:exported="false" android:label="@string/accessibility_desc_recent_apps" android:launchMode="singleInstance" android:name=".recents.tv.RecentsTvActivity" android:resumeWhilePausing="true" android:screenOrientation="behind" android:stateNotNeeded="true" android:theme="@style/RecentsTvTheme.Wallpaper">
             <intent-filter>
@@ -357,7 +361,7 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:excludeFromRecents="true" android:exported="true" android:name="com.android.keyguard.wallpaper.KeyguardWallpaperPreviewActivity" android:process=":WallpaperPreview" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/Theme.KeyguardWallpaperPreviewActivity">
+        <activity android:excludeFromRecents="true" android:exported="true" android:name="com.android.keyguard.wallpaper.KeyguardWallpaperPreviewActivity" android:process=":WallpaperPreview" android:resizeableActivity="true" android:screenOrientation="portrait" android:theme="@style/Theme.KeyguardWallpaperPreviewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>

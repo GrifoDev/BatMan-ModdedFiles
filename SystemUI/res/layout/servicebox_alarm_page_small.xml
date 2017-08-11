@@ -14,6 +14,6 @@
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>
-        <com.android.keyguard.KeyguardTextView android:textSize="@dimen/servicebox_alarm_page_no_alarm_text_size" android:textColor="@color/theme_no_alarm_text_color" android:gravity="center" android:layout_gravity="center" android:id="@id/servicebox_alarm_no_alarm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/servicebox_alarm_page_content_view_height" android:text="@string/servicebox_alarm_no_alarm" android:transitionName="alarm_no_alarm" style="@style/keyguard_headline_text_shadow" />
+        <com.android.keyguard.KeyguardTextView android:textSize="@dimen/servicebox_alarm_page_no_alarm_text_size" android:textColor="@color/theme_alarm_text_color" android:gravity="center" android:layout_gravity="center" android:id="@id/servicebox_alarm_no_alarm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/servicebox_alarm_page_content_view_height" android:text="@string/servicebox_alarm_no_alarm" android:alpha="0.7" android:transitionName="alarm_no_alarm" style="@style/keyguard_headline_text_shadow" />
     </FrameLayout>
 </FrameLayout>

@@ -1517,7 +1517,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0f0243
+    const v6, 0x7f0f02a0
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1619,7 +1619,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0f0243
+    const v6, 0x7f0f02a0
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2761,7 +2761,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0243
+    const v2, 0x7f0f02a0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2821,7 +2821,7 @@
     return v0
 .end method
 
-.method public isRemovedTileList(Ljava/lang/String;)Z
+.method public isRemovedTile(Ljava/lang/String;)Z
     .locals 7
 
     const/4 v3, 0x0
@@ -2978,7 +2978,7 @@
 
     move-result-object v3
 
-    const v7, 0x7f0f0241
+    const v7, 0x7f0f029e
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3122,7 +3122,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0f0244
+    const v10, 0x7f0f02a1
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3132,7 +3132,7 @@
 
     move-result-object v5
 
-    const v9, 0x7f0f0241
+    const v9, 0x7f0f029e
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3258,7 +3258,7 @@
 
     move-result-object v6
 
-    const v10, 0x7f0f0241
+    const v10, 0x7f0f029e
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3449,7 +3449,7 @@
 
     if-eqz v13, :cond_7
 
-    invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/phone/QSTileHost;->isRemovedTileList(Ljava/lang/String;)Z
+    invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/phone/QSTileHost;->isRemovedTile(Ljava/lang/String;)Z
 
     move-result v13
 
@@ -3476,7 +3476,7 @@
 
     if-eqz v1, :cond_8
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QSTileHost;->isRemovedTileList(Ljava/lang/String;)Z
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QSTileHost;->isRemovedTile(Ljava/lang/String;)Z
 
     move-result v13
 
@@ -3545,7 +3545,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0f0242
+    const v9, 0x7f0f029f
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3555,7 +3555,7 @@
 
     move-result-object v3
 
-    const v8, 0x7f0f0241
+    const v8, 0x7f0f029e
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

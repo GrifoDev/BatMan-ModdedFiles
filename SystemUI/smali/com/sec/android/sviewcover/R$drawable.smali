@@ -4,31 +4,31 @@
 
 
 # static fields
-.field public static final clear_ic_cover:I = 0x7f020107
+.field public static final clear_ic_cover:I = 0x7f02010c
 
-.field public static final clear_ic_pin:I = 0x7f02010a
+.field public static final clear_ic_pin:I = 0x7f02010f
 
-.field public static final clear_music_pause_button:I = 0x7f02010e
+.field public static final clear_music_pause_button:I = 0x7f020113
 
-.field public static final clear_music_play_button:I = 0x7f020110
+.field public static final clear_music_play_button:I = 0x7f020115
 
-.field public static final lock_btn_arrow:I = 0x7f020316
+.field public static final lock_btn_arrow:I = 0x7f02031c
 
-.field public static final lock_btn_call_normal:I = 0x7f020317
+.field public static final lock_btn_call_normal:I = 0x7f02031d
 
-.field public static final lock_btn_call_pressed:I = 0x7f020318
+.field public static final lock_btn_call_pressed:I = 0x7f02031e
 
-.field public static final lock_btn_call_swipe:I = 0x7f020319
+.field public static final lock_btn_call_swipe:I = 0x7f02031f
 
-.field public static final lock_btn_camera_normal:I = 0x7f02031a
+.field public static final lock_btn_camera_normal:I = 0x7f020320
 
-.field public static final lock_btn_camera_pressed:I = 0x7f02031b
+.field public static final lock_btn_camera_pressed:I = 0x7f020321
 
-.field public static final lock_btn_camera_swipe:I = 0x7f02031c
+.field public static final lock_btn_camera_swipe:I = 0x7f020322
 
-.field public static final sview_cover_kids_wallpaper:I = 0x7f020777
+.field public static final sview_cover_kids_wallpaper:I = 0x7f020787
 
-.field public static final wallpaper_default_01:I = 0x7f0207e1
+.field public static final wallpaper_default_01:I = 0x7f0207f1
 
 
 # direct methods

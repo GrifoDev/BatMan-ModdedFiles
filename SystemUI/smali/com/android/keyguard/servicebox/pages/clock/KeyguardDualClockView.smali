@@ -307,11 +307,11 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x1
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
@@ -397,11 +397,11 @@
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mRoamingTimeView:Landroid/widget/TextClock;
 
-    invoke-virtual {v1, v3}, Landroid/widget/TextClock;->setElegantTextHeight(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextClock;->setElegantTextHeight(Z)V
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mHomecityTimeView:Landroid/widget/TextClock;
 
-    invoke-virtual {v1, v3}, Landroid/widget/TextClock;->setElegantTextHeight(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextClock;->setElegantTextHeight(Z)V
 
     sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
 
@@ -409,7 +409,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mRoamingDateView:Lcom/android/keyguard/KeyguardTextClock;
 
-    const-string/jumbo v2, "sec-roboto-light"
+    const-string/jumbo v2, "sec-roboto-condensed"
 
     invoke-static {v2, v3}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
 
@@ -419,7 +419,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mHomecityDateView:Lcom/android/keyguard/KeyguardTextClock;
 
-    const-string/jumbo v2, "sec-roboto-light"
+    const-string/jumbo v2, "sec-roboto-condensed"
 
     invoke-static {v2, v3}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
 
@@ -429,11 +429,11 @@
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mRoamingDateView:Lcom/android/keyguard/KeyguardTextClock;
 
-    invoke-virtual {v1, v4}, Lcom/android/keyguard/KeyguardTextClock;->setAllCaps(Z)V
+    invoke-virtual {v1, v3}, Lcom/android/keyguard/KeyguardTextClock;->setAllCaps(Z)V
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mHomecityDateView:Lcom/android/keyguard/KeyguardTextClock;
 
-    invoke-virtual {v1, v4}, Lcom/android/keyguard/KeyguardTextClock;->setAllCaps(Z)V
+    invoke-virtual {v1, v3}, Lcom/android/keyguard/KeyguardTextClock;->setAllCaps(Z)V
 
     :cond_0
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mContext:Landroid/content/Context;

@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Unknown</string>
     <string name="save">Сактоо</string>
     <string name="ok">ОК</string>
-    <string name="battery_history_hours_no_seconds">%1$dс %2$dм</string>
-    <string name="battery_history_minutes_no_seconds">%dм</string>
+    <string name="battery_history_hours_no_seconds">%1$d саат %2$d мүнөт</string>
+    <string name="battery_history_minutes_no_seconds">%d м.</string>
     <string name="wifi_fail_to_scan">Түйүндөрдү издөө мүмкүн эмес</string>
     <string name="wifi_failed_to_obtain_IP">IP дарек алынбай калды.</string>
     <string name="wifi_security_none">Жок</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s туташа албайт.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s туташууга болбойт. Орнотууларыңызды %2$s текшерип, дагы аракеттениңиз.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s байланышууну четке какты</string>
+    <string name="bluetooth_getting_remote_device_name">Түзмөктүн атын алууда…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Түзмөктүн аты бул түзмөк туташылганда чыгат.</string>
     <string name="accessibility_wifi_off">Wifi өчүк.</string>
     <string name="accessibility_no_wifi">Wifi туташуусу жок.</string>
     <string name="accessibility_wifi_one_bar">Wifi: бир таякча.</string>
@@ -556,7 +558,7 @@ For example, your ringtone will not sound, you will not be able to answer phone 
     <string name="accessibility_back">Артка</string>
     <string name="accessibility_home">Үйгө</string>
     <string name="accessibility_menu">Меню</string>
-    <string name="sec_accessibility_recent">Жакынкылар</string>
+    <string name="sec_accessibility_recent">Акыркылар</string>
     <string name="accessibility_camera_button">Камера</string>
     <string name="accessibility_phone_button">Телефон</string>
     <string name="accessibility_voice_assist_button">Үн жардамчысы</string>
@@ -1364,6 +1366,7 @@ Wi-Fi чалуу сүрөтчөсү, төмөндө көрсөтүлгөндөй
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Numpad %1$s</string>
+    <string name="keyboard_popup_help">Мета баскычы: Windows, Command же башка операциялык системалардын символдук баскычы.</string>
     <string name="keyboard_shortcut_group_system">Системалык тез чакырмалар</string>
     <string name="keyboard_shortcut_group_system_home">Башкы бет</string>
     <string name="keyboard_shortcut_group_system_recents">Акыркылар</string>
@@ -1525,8 +1528,8 @@ Wi-Fi чалуу сүрөтчөсү, төмөндө көрсөтүлгөндөй
 
 Суудан келтирилген зыяндын алдын алуу үчүн, SIM/SD карта тактасынын бекем жабылганын текшериңиз."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Суудан келтирилген зыяндын алдын алуу үчүн, SIM/SD карта тактасынын бекем жабылганын текшериңиз.</string>
-    <string name="water_protection_notification_title">Розетканы текшерүү</string>
-    <string name="water_protection_notification_body">Нымдуулук табылды. Түзмөгүңүздү заряддоо үчүн, заряддагыч/USB уячасы кургак экендигин текшериңиз.</string>
+    <string name="water_protection_notification_title">Unplug charger</string>
+    <string name="water_protection_notification_body">Нымдуулук аныкталды. Заряддагычты ажыратып, заряддагыч менен USB уячасынын кургак болгонун ырастаңыз.</string>
     <string name="full_battery_title">Маалымат</string>
     <string name="full_battery_noti_text">Battery fully charged.</string>
     <string name="cooling_title">Түзмөк ысып кетти</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">Жай заряддоо</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Тезирээк заряддоо үчүн, түзмөк менен чогуу келген заряддагычты колдонуңуз жана анын тиешелүү түрдө туташылгандыгын ырастаңыз.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Заряддагыч тиешелүү түрдө туташылгандыгын ырастаңыз. Түзмөк менен чогуу келген заряддагычты колдонуңуз.</string>
     <string name="battery_charging_level_and_time_text">"Заряддоо: %1$d%%
 (Толук дүрмөттөлгөнгө чейин, болжол менен %2$s)"</string>
@@ -1633,14 +1637,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">Телефонуң. заряддаңыз.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Планшетиң. заряддаңыз.</string>
     <string name="button_close">Жабуу</string>
-    <string name="battery_health_interruption_title">Заряддоо мүмкүн эмес</string>
+    <string name="battery_health_interruption_title">Заряддоо токтотулду</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Заряддочуну ажыратыңыз</string>
     <string name="battery_health_interruption_by_terminal_open_text">Түзмөгүңүздү заряддоо мүмкүн эмес. Туура келген Samsung батареясын жана заряддагычын колдонуп жатканыңызды жана түзмөгүңүз заряддагычка жакшы туташканын текшериңиз.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Заряддоо тыныды. Батарейканын температурасы өтө бийик.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Заряддоо тыныды. Батарейканын температурасы өтө төмөн.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Түзмөк заряддоосунан кайтты. Батарейка температурасы эң эле жогору. Заряддагычты ажыратууда сак болуңуз. Ал өтө эле ысык болушу мүмкүн.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Телефонуңуздун температурасы өтө жогору. Заряддоо температура нормалдууга кайткандан кийин улантылат.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Планшетиңиздин температурасы өтө жогору. Заряддоо температура нормалдууга кайткандан кийин улантылат.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Телефонуңуздун температурасы өтө төмөн. Заряддоо температура нормалдууга кайткандан кийин улантылат.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Планшетиңиздин температурасы өтө төмөн. Заряддоо температура нормалдууга кайткандан кийин улантылат.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Заряддоо токтотулган. Телефонуңуздун температурасы өтө жогору. Заряддагычты ажыратууда этият болуңуз. Өтө ысык болушу мүмкүн.
 
-Заряддагычты ажыратып, кайра туташтыруусу заряддоонун ойдогудай кетүүгө жардам бериши мүмкүн. Эгерде ысып кетүүсү токтобосо, өрт чыгуунун же жаракат алуунун коркунучунан алыс болууга, кардар кызматтарына байланышыңыз."</string>
+Заряддагычты ажыратуу жана кайра туташтыруу заряддоонун нормалдуу улануусуна уруксат берет. Эгер өтө ысып кетүү болуп жатса, өрт чыгуу же жаракат алуу коркунчу бар болгондуктан Кардарлар Кызматы менен байланышыңыз."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Заряддоо токтотулган. Планшетиңиздин температурасы өтө жогору. Заряддагычты ажыратууда этият болуңуз. Өтө ысык болушу мүмкүн.
+
+Заряддагычты ажыратуу жана кайра туташтыруу заряддоонун нормалдуу улануусуна уруксат берет. Эгер өтө ысып кетүү болуп жатса, от чыгуу же жаракат алуу коркунчу бар болгондуктан Кардарлар Кызматы менен байланышыңыз."</string>
     <string name="incompatible_charger_title">Заряддалууда эмес</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">Ачуу үчүн, бармак изин колдонуңуз же экранды сүрүңүз</string>
     <string name="kg_face_or_swipe_unlock_instructions">Кулпуну ачуу үчүн, жүз таанууну колдонуңуз же экрандан жылдырыңыз</string>
     <string name="kg_face_or_swipe_active_instructions">Ачуу үчүн, жүз таанууну колдонуңуз же экрандан жылдырыңыз</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Кулпуну ачуу үчүн жүз таанууну колдонуңуз же ордуна каректи колдонууга экранды сүрүңүз</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Ачуу үчүн жүз таанууну колдонуңуз же ордуна каректерди колдонууга экранды сүрүңүз</string>
     <string name="kg_face_unlock_instructions">Жүз таануу менен кулпусун ачууга экранды сүрүңүз</string>
     <string name="kg_face_or_fingerprint_active_instructions">Ачуу үчүн, жүз таануунун ордуна бармак изин колдонуңуз же экранды сүрүңүз</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Кулпуну ачуу үчүн, жүз таануунун ордуна бармак изин колдонуңуз же экранды сүрүңүз</string>
@@ -1672,6 +1680,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">Экран кулпусун ачууга эки манжаңыз менен ала салыңыз.</string>
     <string name="kg_swipe_active_instructions">Ачуу үчүн экранды жылдырууу</string>
     <string name="kg_swipe_unlock_instructions">Кулпуну ачууга, экранды жылдырыңыз</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Кулпуну ачуу үчүн, биометрикаларыңызды колдонуңуз же эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Экранды ачуу үчүн, биометрикаларыңызды колдонуңуз же эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Экрандын кулпусун ачуу үчүн, жүз аныктоосун колдонуңуз же эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Экранды ачуу үчүн, жүз аныктоосун колдонуңуз же эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Жүздү аныктоо аркылуу экрандын кулпусун ачуу үчүн эки бармак менен жылдырыңыз.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Ачуу үчүн бармак изин колдонуңуз же жүз аныктоосун колдонуу үчүн экранда эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Кулпуну ачуу үчүн бармак изин колдонуңуз же жүз аныктоосун колдонуу үчүн экранда эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Ачуу үчүн бармак изин колдонуңуз же каректерди колдонуу үчүн экранда эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Кулпуну ачуу үчүн бармак изин колдонуңуз же каректерди колдонуу үчүн экранда эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Экранды ачуу үчүн, бармак издин колдонуңуз же эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Экрандын кулпусун ачуу, бармак издин колдонуңуз же эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Экрандын кулпусун ачууга каректерди колдонуу эки бармак менен жылдырыңыз.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Экрандын кулпусун ачуу үчүн, каректериңизди колдонуңуз же эки бармагыңыз менен жылдырыңыз.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Экранды ачуу үчүн, каректериңизди колдонуңуз же эки бармагыңыз менен жылдырыңыз.</string>
     <string name="kg_power_connect_charger">Заряддагыч туташтыруу</string>
     <string name="kg_power_fully_charged">Толук заряддалды</string>
     <string name="kg_power_fast_charging">Тез заряддоо: %d%%</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Жөнөтүү</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Телефондун кулпусун ачуу үчүн Кулпу баскычын эки эселенте басыңыз</string>
     <string name="s_view_cover_toast_pop_up_message">Тез орнотулган баскычтарын колдонуш үчүң мукабаны ачыңыз.</string>
     <string name="remote_input_toast_text_on_sview_cover">S view cover жабык болгон учурда Тез жооп функциясын колдонуу үчүн иштетиңиз.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Бөлүшүлгөн кубат өлчөмүн көзөмөлдөө үчүн колдонмону түшүрүп алышыңыз керек. Бул колдонмосуз Samsung-дун EP-SG900 Кубат Бөлүшүү Кабели менен түзмөгүңүздү башка түзмөккө туташтырсаңыз, батареянын бүткүл өлчөмү башка түзмөккө өтөт. 
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Кабыл алам</string>
-    <string name="force_immersive_guide_text">Бул сүрөтчөнү жашыруу навигация тилкесин жашырат. Сиз дагы эле навигация баскычтарын экрандын түбүнөн өйдө жылдыруу аркылуу колдоно аласыз. Навигация тилкеси көрүнүп турган учурда, аны ордунда кулпулоо үчүн кайра бул сүрөтчөнү баса аласыз. Башкы экран, навигация тилкеси сыяктуу экрандарда дайыма көрсөтүлөт.</string>
+    <string name="force_immersive_guide_text">Бул баскычты басуу навигация тилкесин жашырат. Сиз Навигация баскычтарын экрандын астынан өйдө сүрүп, колдоно аласыз. Навигация тилкеси көрсөтүлгөндө, сиз бул баскычты кайра басып, аны ошол жерден кулпулай аласыз. Башкы экран сыяктуу айрым экрандарда, навигацияя тилкеси ар дайым көрсөтүлөт. Навигация тилкеси жашырылган убакта эгер колдонмодо ката чыкса, навигация тилкесин кулпулап, колдонмону кайра баштаңыз.</string>
+    <string name="force_immersive_guide_dialog_title">Навигация тилкесин жашыруу:</string>
+    <string name="force_immersive_guide_dialog_message1">Бул баскычты басуу навигация тилкесин жашырат.</string>
+    <string name="force_immersive_guide_dialog_message2">Навигация тилкесин ачуу үчүн, экрандын төмөн жагынан жогору көздөй сүрүңүз.</string>
+    <string name="force_immersive_guide_dialog_message3">Бул баскычты кайра басып, аны ошол жерден кулпулаңыз.</string>
+    <string name="force_immersive_guide_dialog_message4">Башкы экран сыяктуу айрым экрандарда навигация тилкеси дайыма көрүнүп турат.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Бул баскычты жашыруу үчүн, Орнотууларга барыңыз > Дисплей > Навигация тилкеси.</string>
+    <string name="force_immersive_guide_dialog_setting">Орнотуулар</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Коопсуздук эрежелерин сактаңыз</string>
     <string name="car_lockscreen_disclaimer_text">"Унаа айдап бара жатканда жолдогу шарттар менен эрежелерге ар дайым көңүл буруңуз. Багыттар так же толук эмес берилип, кесип өтүү үчүн опурталдуу же ылайыксыз болгон административдик аймактар аркылуу өтүшү мүмкүн. Ишканалар тууралуу маалымат да так же толук эмес болушу мүмкүн. Дайындар тез-тез жаңыртылып турбагандыктан, жайгашкан жердин так аныкталгандыгына кепилдик жок. Андыктан унаа айдап бара жатканда, мобилдик түзмөгүңүздү же Android Auto'го арналбаган колдонмолорду пайдаланбаңыз."</string>
     <string name="pip_close">"PIP'ти жабуу"</string>
@@ -2230,6 +2261,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_face_retry_content_description">Жүз таанууну колдонуу үчүн эки жолу басыңыз.</string>
     <string name="kg_face_authentication_error_retry_text">Бир да жүз табылган жок. Жүз таанууну кайра аракет кылуу үчүн сүрөтчөнү басыңыз</string>
     <string name="kg_face_authentication_failed_retry_text">Дал келген жок. Жүз аныктоосун колдонуу үчүн сүрөтчөнү басуу</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Жүздү таануу менен көйгөй чыккан. Дагы аракеттенүүгө басыңыз</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Видео чалууларынын учурунда, жүздү таанууну колдонууга болбойт</string>
     <string name="kg_fingerprint_no_match">Окшошпойт</string>
     <string name="kg_finger_print_not_responding_error_message">Бармак из сенсору жооп бербей эле. Кийинчерээк кайталап көрүңүз.</string>
     <string name="kg_finger_print_database_error_message">Бармак изи маалыматтары бузулган. Бармак изин экрандын кулпу түрү катары кайра коюуңуз жана андан соң бармак изиңизди кайра кошуңуз, же экрандын кулпу түрүн өзгөртүңүз.</string>
@@ -2366,6 +2399,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="appicon_badge_new_item">1 жаңы элемент</string>
     <string name="banner_apps_for_dex_detail">DeX-оптимизацияланган колдонмолорду Galaxy Колдонмолордон ырахатын алыңыз.</string>
     <string name="toast_cannot_move_more_than_items">%d көп нерсени жылдырууга болбойт.</string>
+    <string name="view_more_in_galaxy_apps">"Galaxy Apps'тен дагы көрүү"</string>
+    <string name="view_more_in_play_store">"Play Store'дон дагы көрүү"</string>
     <string name="uninstall_title">Колдонмолорду өчүрүүбү?</string>
     <string name="uninstall_1_app_message">Бул колдонмону өчүрүүнү каалайсызбы?</string>
     <string name="uninstall_apps_message">Төмөнкү колдонмолор өчүрүлөт:</string>
@@ -2406,6 +2441,13 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="taskbar_context_menu_close_desk_notification_view">Эскертүүлөрдү жашыруу</string>
     <string name="volumepanel_notification">Эскертүүлөр</string>
     <string name="quick_settings_location_detail_device_only">Түзмөк гана</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Заряддоо тыныды. Батарейканын температурасы өтө бийик.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Заряддоо тыныды. Батарейканын температурасы өтө төмөн.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Түзмөк заряддоосунан кайтты. Батарейка температурасы эң эле жогору. Заряддагычты ажыратууда сак болуңуз. Ал өтө эле ысык болушу мүмкүн.
+
+Заряддагычты ажыратып, кайра туташтыруусу заряддоонун ойдогудай кетүүгө жардам бериши мүмкүн. Эгерде ысып кетүүсү токтобосо, өрт чыгуунун же жаракат алуунун коркунучунан алыс болууга, кардар кызматтарына байланышыңыз."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Кулпуну ачуу үчүн жүз таанууну колдонуңуз же ордуна каректи колдонууга экранды сүрүңүз</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Ачуу үчүн жүз таанууну колдонуңуз же ордуна каректерди колдонууга экранды сүрүңүз</string>
     <string name="kg_infinity_wallpaper_option_description">Кыймылдуу тушкагаз Башкы жана Кулпу экраныңызга бир убакта колдонулат. Жакшыраак тажрыйба үчүн төмөндөгү орнотууну күйгүзүңүз.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">"Always On Display'ди күйгүзүү"</string>
 </resources>

@@ -146,7 +146,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$DozeServiceHost;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap40(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap41(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
 
     :cond_0
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
@@ -185,7 +185,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$DozeServiceHost;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap40(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap41(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
 
     :cond_0
     return-void

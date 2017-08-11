@@ -70,7 +70,7 @@
     <string name="save">Պահել</string>
     <string name="ok">Ընդունել</string>
     <string name="battery_history_hours_no_seconds">%1$dժ %2$dր</string>
-    <string name="battery_history_minutes_no_seconds">%dր</string>
+    <string name="battery_history_minutes_no_seconds">%d րոպե</string>
     <string name="wifi_fail_to_scan">Հնարավոր չէ սկանավորել ցանցերը</string>
     <string name="wifi_failed_to_obtain_IP">IP հասցեի ստացումը ձախողվեց:</string>
     <string name="wifi_security_none">Ոչ մեկը</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Հնարավոր չէ կապակցվել %s-ին:</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Հնարավոր չէ կապակցվել %1$s-ին: Ստուգեք Ձեր դրվածքները %2$s-ում և նորից փորձեք:</string>
     <string name="bluetooth_pairing_rejected_error_message">Զուգտակումը մերժվել է %s-ի կողմից:</string>
+    <string name="bluetooth_getting_remote_device_name">Ստացվում է սարքի անունը…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Երբ այս սարքը կապակցվի, կհայտնվի սարքի անունը:</string>
     <string name="accessibility_wifi_off">Wi-Fi-ն անջատված է:</string>
     <string name="accessibility_no_wifi">Wi-Fi-ը կապակցված չէ:</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi-ի ուժգնությունը՝ մեկ գիծ:</string>
@@ -1364,6 +1366,7 @@ Wi-Fi կանչի պատկերակը կհայտնվի ծանուցումների 
     <string name="keyboard_key_insert">Տեղադրել</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Numpad %1$s</string>
+    <string name="keyboard_popup_help">Մետա ստեղն՝ Windows, Command կամ այլ գործութային համակարգի բազմագործառական սիմվոլի ստեղն:</string>
     <string name="keyboard_shortcut_group_system">Համակարգի դյուրանցումներ</string>
     <string name="keyboard_shortcut_group_system_home">Գլխավոր էջ</string>
     <string name="keyboard_shortcut_group_system_recents">Վերջինները</string>
@@ -1525,8 +1528,8 @@ Wi-Fi կանչի պատկերակը կհայտնվի ծանուցումների 
 
 Ջրի պատճառած վնասից պաշտպանվելու համար համոզվեք, որ SIM/SD քարտի դարակն ամուր փակված է:"</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Ջրի պատճառած վնասից պաշտպանվելու համար համոզվեք, որ SIM/SD քարտի դարակն ամուր փակված է:</string>
-    <string name="water_protection_notification_title">Ստուգեք պորտը</string>
-    <string name="water_protection_notification_body">Խոնավություն է հայտնաբերվել: Սարքը լիցքավորելու համար համոզվեք, որ լիցքավորիչը և USB պորտը չոր են:</string>
+    <string name="water_protection_notification_title">Վարդակից անջատել լիցքավորիչը</string>
+    <string name="water_protection_notification_body">Խոնավություն է հայտնաբերվել: Վարդակից անջատեք լիցքավորիչն ու համոզվեք, որ և՛ լիցքավորիչը, և՛ USB պորտը չոր են:</string>
     <string name="full_battery_title">Տեղեկատվություն</string>
     <string name="full_battery_noti_text">Մարտկոցը ամբողջովին լիցքավորված է:</string>
     <string name="cooling_title">Սարքը գերտաքանում է</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">Դանդաղ լիցքավորում</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Ավելի արագ լիցքավորման համար օգտագործեք սարքի հետ տրված լիցքավորիչը և համոզվեք, որ այն պատշաճ կերպով է միացված:</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Համոզվեք, որ լիցքավորիչը պատշաճ կերպով է միացված: Օգտագործեք սարքի հետ տրված լիցքավորիչը:</string>
     <string name="battery_charging_level_and_time_text">"Լիցքավորվում է՝ %1$d%%
 (մոտավորապես %2$s մինչև լրիվ լիցքավորումը)"</string>
@@ -1633,14 +1637,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">Լիցքավորեք հեռախոսը:</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Լիցքավորեք պլանշետը:</string>
     <string name="button_close">Փակել</string>
-    <string name="battery_health_interruption_title">Անհնար է լիցքավորել</string>
+    <string name="battery_health_interruption_title">Լիցքավորումը կանգնեցվեց</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Վարդակից անջատել լիցքավորիչը</string>
     <string name="battery_health_interruption_by_terminal_open_text">Անհնար է լիցքավորել Ձեր սարքը: Համոզվեք, որ օգտագործում եք Samsung-ի հետ համատեղելի մարտկոց ու լիցքավորիչ, և որ Ձեր սարքը ճիշտ է միացված լիցքավորիչին:</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Լիցքավորումն ընդհատվեց. մարտկոցի ջերմաստիճանը շատ բարձր է:</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Լիցքավորումն ընդհատվեց. մարտկոցի ջերմաստիճանը շատ ցածր է:</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Սարքն ավարտեց լիցքավորումը: Մարտկոցի ջերմաստիճանը չափազանց բարձր է: Զգույշ եղեք՝ լիցքավորիչն անջատելիս: Այն կարող է տաք լինել:
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Հեռախոսի ջերմաստիճանը չափազանց բարձր է: Լիցքավորումը կշարունակվի, երբ ջերմաստիճանը նորմալ դառնա:</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Պլանշետի ջերմաստիճանը չափազանց բարձր է: Լիցքավորումը կշարունակվի, երբ ջերմաստիճանը նորմալ դառնա:</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Հեռախոսի ջերմաստիճանը չափազանց ցածր է: Լիցքավորումը կշարունակվի, երբ ջերմաստիճանը նորմալ դառնա:</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Պլանշետի ջերմաստիճանը չափազանց ցածր է: Լիցքավորումը կշարունակվի, երբ ջերմաստիճանը նորմալ դառնա:</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Լիցքավորումը կանգնեցվել է: Հեռախոսի ջերմաստիճանը չափազանց բարձր է: Զգույշ եղեք լիցքավորիչն անջատելիս: Այն կարող է շատ տաք լինել:
 
-Լիցքավորիչի անջատումն ու միացումը կարող է կայունացնել աշխատանքը: Եթե տաքացումը շարունակվի, դիմեք սպասառուների աջակցման կենտրոն, քանի որ կարող է լինել կրակի կամ վնասվածքի վտանգ:"</string>
+Լիցքավորիչի անջատումն ու վերամիացումը կարող է հնարավոր դարձնել լիցքավորման նորմալ շարունակումը: Եթե գերտաքացումը շարունակվի, դիմեք Հաճախորդների սպասարկման ծառայությանը, քանի որ կարող է լինել հրդեհի կամ մարմնական վնասվածքի վտանգ:"</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Լիցքավորումը կանգնեցվել է: Պլանշետի ջերմաստիճանը չափազանց բարձր է: Զգույշ եղեք լիցքավորիչն անջատելիս: Այն կարող է շատ տաք լինել:
+
+Լիցքավորիչի անջատումն ու վերամիացումը կարող է հնարավոր դարձնել լիցքավորման նորմալ շարունակումը: Եթե գերտաքացումը շարունակվի, դիմեք Հաճախորդների սպասարկման ծառայությանը, քանի որ կարող է լինել հրդեհի կամ մարմնական վնասվածքի վտանգ:"</string>
     <string name="incompatible_charger_title">Չի լիցքավորվում:</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">Բացելու համար օգտագործեք կենսաչափական տվյալներ կամ մատով սահեցրեք էկրանը</string>
     <string name="kg_face_or_swipe_unlock_instructions">Արգելաբացելու համար օգտագործեք դեմքի ճանաչում կամ մատով սահեցրեք էկրանը</string>
     <string name="kg_face_or_swipe_active_instructions">Բացելու համար օգտագործեք դեմքի ճանաչում կամ մատով սահեցրեք էկրանը</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Արգելաբացելու համար օգտագործեք դեմքի ճանաչում կամ մատը սահեցրեք էկրանով՝ փոխարենը ծիածանաթաղանթներ օգտագործելու համար</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Բացելու համար օգտագործեք դեմքի ճանաչում կամ մատը սահեցրեք էկրանով՝ փոխարենը ծիածանաթաղանթներ օգտագործելու համար</string>
     <string name="kg_face_unlock_instructions">Մատը սահեցրեք էկրանով՝ դեմքի ճանաչմամբ արգելաբացելու համար</string>
     <string name="kg_face_or_fingerprint_active_instructions">Բացելու համար օգտագործեք մատնահետք կամ մատը սահեցրեք էկրանով՝ փոխարենը դեմքի ճանաչում օգտագործելու համար</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Արգելաբացելու համար օգտագործեք մատնահետք կամ մատը սահեցրեք էկրանով՝ փոխարենը դեմքի ճանաչում օգտագործելու համար</string>
@@ -1672,6 +1680,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">Էկրանն արգելաբացելու համար կատարել սահող շարժում երկու մատով:</string>
     <string name="kg_swipe_active_instructions">Մատը սահեցրեք էկրանով՝ բացելու համար</string>
     <string name="kg_swipe_unlock_instructions">Մատը սահեցրեք էկրանով՝ արգելաբացելու համար</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Արգելաբացելու համար օգտագործեք կենսաչափական տվյալներ կամ երկու մատով սահեցրեք էկրանը:</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Բացելու համար օգտագործեք կենսաչափական տվյալներ կամ երկու մատով սահեցրեք էկրանը:</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Արգելաբացելու համար օգտագործեք դեմքի ճանաչում կամ երկու մատով սահեցրեք էկրանը:</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Բացելու համար օգտագործեք դեմքի ճանաչում կամ երկու մատով սահեցրեք էկրանը:</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Դեմքի ճանաչմամբ արգելաբացելու համար երկու մատով սահեցրեք էկրանը:</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Մատնահետք օգտագործեք բացելու համար կամ երկու մատով սահեցրեք էկրանը՝ դեմքի ճանաչում օգտագործելու համար:</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Մատնահետք օգտագործեք արգելաբացելու համար կամ երկու մատով սահեցրեք էկրանը՝ դեմքի ճանաչում օգտագործելու համար:</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Մատնահետք օգտագործեք բացելու համար կամ երկու մատով սահեցրեք էկրանը՝ ծիածանաթաղանթներ օգտագործելու համար:</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Մատնահետք օգտագործեք արգելաբացելու համար կամ երկու մատով սահեցրեք էկրանը՝ ծիածանաթաղանթներ օգտագործելու համար:</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Բացելու համար օգտագործեք մատնահետք կամ երկու մատով սահեցրեք էկրանը:</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Արգելաբացելու համար օգտագործեք մատնահետք կամ երկու մատով սահեցրեք էկրանը:</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Որպեսզի ծիածանաթաղանթներ օգտագործեք արգելաբացելու համար, մատով սահեցրեք էկրանը:</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Արգելաբացելու համար օգտագործեք ծիածանաթաղանթներ կամ երկու մատով սահեցրեք էկրանը:</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Բացելու համար օգտագործեք ծիածանաթաղանթներ կամ երկու մատով սահեցրեք էկրանը:</string>
     <string name="kg_power_connect_charger">Միացնել լիցքավորիչը</string>
     <string name="kg_power_fully_charged">Լրիվ լիցքավորվել է</string>
     <string name="kg_power_fast_charging">Արագ լիցքավորում՝ %d%%</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Ուղարկել</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Կրկնակի թակեք Կողպման կոճակը՝ հեռախոսն արգելաբացելու համար</string>
     <string name="s_view_cover_toast_pop_up_message">Բացեք շապիկը՝ արագ դրվածքների կոճակն օգտագործելու համար:</string>
     <string name="remote_input_toast_text_on_sview_cover">Անհնար է օգտագործել Արագ պատասխանի գործառույթը, քանի դեռ S view շապիկը փակ է:</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Ես ընդունում եմ</string>
-    <string name="force_immersive_guide_text">Այս պատկերակը թակելիս նավարկման գոտին թաքցվում է: Դուք դեռ կարող եք օգտագործել նավարկման կոճակները՝ մատն էկրանի ներքևից վերև սահեցնելով: Նավարկման գոտու ցուցադրման ընթացքում կարող եք նորից թակել այս պատկերակը՝ այն իր տեղում գամելու համար: Որոշ էկրաններում, օրինակ՝ Հիմնական էկրանում, նավարկման գոտին միշտ կցուցադրվի:</string>
+    <string name="force_immersive_guide_text">Այս կոճակը թակելիս նավարկման գոտին թաքցվում է: Դուք դեռ կարող եք օգտագործել նավարկման կոճակները՝ մատն էկրանի ներքևից վերև սահեցնելով: Նավարկման գոտու ցուցադրման ընթացքում կարող եք նորից թակել այս կոճակը՝ այն իր տեղում գամելու համար: Որոշ էկրաններում, օրինակ՝ Հիմնական էկրանում, նավարկման գոտին միշտ կցուցադրվի: Եթե որևէ ծրագիր նորմալ վարք չի դրսևորում նավարկման գոտին թաքցված լինելու ժամանակ, նավարկման գոտին գամեք իր տեղում և վերագործարկեք ծրագիրը:</string>
+    <string name="force_immersive_guide_dialog_title">Թաքցրեք նավարկման գոտին՝</string>
+    <string name="force_immersive_guide_dialog_message1">Այս կոճակը թակելիս նավարկման գոտին թաքցվում է:</string>
+    <string name="force_immersive_guide_dialog_message2">Մատն էկրանի ներքևից վերև սահեցրեք՝ նավարկման գոտին ցույց տալու համար:</string>
+    <string name="force_immersive_guide_dialog_message3">Նորից թակեք այս կոճակը՝ այն իր տեղում գամելու համար:</string>
+    <string name="force_immersive_guide_dialog_message4">Որոշ էկրաններում, օրինակ՝ Հիմնական էկրանում, նավարկման գոտին միշտ կցուցադրվի:</string>
+    <string name="force_immersive_guide_dialog_guide_path">Այս կոճակը թաքցնելու համար գնացեք Դրվածքներ > Ցուցադրել > Նավարկման գոտի:</string>
+    <string name="force_immersive_guide_dialog_setting">Դրվածքներ</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Վարեք ապահով</string>
     <string name="car_lockscreen_disclaimer_text">Երթևեկության պայմաններին միշտ լավատեղյակ եղեք և կատարեք համապատասխան օրենքների պահանջները: Երթուղիները կարող են լինել սխալ, կիսատ, վտանգավոր, ոչ պատշաճ, արգելված կամ կարող են անցնել վարչական միավորների միջով: Բիզնես տվյալները նույնպես կարող են լինել սխալ կամ կիսատ: Տվյալներն իրական ժամանակում չեն թարմացվում, իսկ տեղադրության ճշգրտությունը չի կարող երաշխավորվել: Մեքենա վարելիս մի օգտագործեք ձեր շարժական սարքը, ինչպես նաև Android Auto-ի համար չնախատեսված հավելվածները:</string>
     <string name="pip_close">Փակել PIP-ն</string>
@@ -2230,6 +2261,8 @@ PIN-ը պետք է լինի 4-ից 8 նիշանի:"</string>
     <string name="kg_face_retry_content_description">Կրկնակի թակեք՝ դեմքի ճանաչումն օգտագործելու համար:</string>
     <string name="kg_face_authentication_error_retry_text">Որևէ դեմք չի հայտնաբերվել: Թակեք պատկերակը՝ դեմքի ճանաչումը նորից փորձելու համար</string>
     <string name="kg_face_authentication_failed_retry_text">Համընկնում չկա: Թակեք պատկերակը՝ դեմքի ճանաչումն օգտագործելու համար</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Դեմքի ճանաչման հետ կապված խնդիր էր առաջացել: Թակեք՝ նորից փորձելու համար</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Հնարավոր չէ տեսականչերի ընթացքում օգտագործել դեմքի ճանաչումը</string>
     <string name="kg_fingerprint_no_match">Համընկնում չկա</string>
     <string name="kg_finger_print_not_responding_error_message">Մատնահետքի տվիչը չի պատասխանում: Ավելի ուշ նորից փորձեք:</string>
     <string name="kg_finger_print_database_error_message">Մատնահետքի տվյալները վնասվել են: Վերադրեք Մատնահետքերը որպես էկրանի կողպման տեսակ, այնուհետև նորից ավելացրեք Ձեր մատնահետքերը կամ փոխեք էկրանի կողպման տեսակը:</string>
@@ -2366,6 +2399,8 @@ PIN-ը պետք է լինի 4-ից 8 նիշանի:"</string>
     <string name="appicon_badge_new_item">1 նոր տարր</string>
     <string name="banner_apps_for_dex_detail">Վայելեք DeX-ով լավարկված ծրագրեր Galaxy Apps-ից:</string>
     <string name="toast_cannot_move_more_than_items">Հնարավոր չէ տեղափոխել %d-ից ավելի տարրեր:</string>
+    <string name="view_more_in_galaxy_apps">Դիտել ավելին Galaxy Apps-ում</string>
+    <string name="view_more_in_play_store">Դիտել ավելին Play Store-ում</string>
     <string name="uninstall_title">Ապատեղադրե՞լ ծրագրերը:</string>
     <string name="uninstall_1_app_message">Ուզու՞մ եք ապատեղադրել այս ծրագիրը:</string>
     <string name="uninstall_apps_message">Հետևյալ ծրագրերը կապատեղադրվեն՝</string>
@@ -2406,6 +2441,13 @@ PIN-ը պետք է լինի 4-ից 8 նիշանի:"</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Թաքցնել ծանուցումները</string>
     <string name="volumepanel_notification">Ծանուցում</string>
     <string name="quick_settings_location_detail_device_only">Միայն սարք</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Լիցքավորումն ընդհատվեց. մարտկոցի ջերմաստիճանը շատ բարձր է:</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Լիցքավորումն ընդհատվեց. մարտկոցի ջերմաստիճանը շատ ցածր է:</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Սարքն ավարտեց լիցքավորումը: Մարտկոցի ջերմաստիճանը չափազանց բարձր է: Զգույշ եղեք՝ լիցքավորիչն անջատելիս: Այն կարող է տաք լինել:
+
+Լիցքավորիչի անջատումն ու միացումը կարող է կայունացնել աշխատանքը: Եթե տաքացումը շարունակվի, դիմեք սպասառուների աջակցման կենտրոն, քանի որ կարող է լինել կրակի կամ վնասվածքի վտանգ:"</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Արգելաբացելու համար օգտագործեք դեմքի ճանաչում կամ մատը սահեցրեք էկրանով՝ փոխարենը ծիածանաթաղանթներ օգտագործելու համար</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Բացելու համար օգտագործեք դեմքի ճանաչում կամ մատը սահեցրեք էկրանով՝ փոխարենը ծիածանաթաղանթներ օգտագործելու համար</string>
     <string name="kg_infinity_wallpaper_option_description">Անվերջության պաստառը միաժամանակ կկիրառվի Հիմնական և Կողպված էկրաններում: Լավագույն զգացողությունների համար միացրեք ներքևի դրվածքը:</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Միացնել Always On Display-ը</string>
 </resources>

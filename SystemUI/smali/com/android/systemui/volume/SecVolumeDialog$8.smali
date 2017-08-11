@@ -96,7 +96,7 @@
 
     if-eqz p4, :cond_8
 
-    const v0, 0x7f02079a
+    const v0, 0x7f0207aa
 
     :goto_1
     iget-object v3, p0, Lcom/android/systemui/volume/SecVolumeDialog$8;->this$0:Lcom/android/systemui/volume/SecVolumeDialog;
@@ -235,12 +235,12 @@
     :cond_8
     if-nez p3, :cond_9
 
-    const v0, 0x7f02079a
+    const v0, 0x7f0207aa
 
     goto/16 :goto_1
 
     :cond_9
-    const v0, 0x7f020798
+    const v0, 0x7f0207a8
 
     goto/16 :goto_1
 

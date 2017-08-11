@@ -31,7 +31,7 @@
 
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
-    const v0, 0x7f1300f9
+    const v0, 0x7f1300fd
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/car/CarNavigationButton;->findViewById(I)Landroid/view/View;
 
@@ -53,7 +53,7 @@
 
     invoke-virtual {v0, v3}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setAlpha(F)V
 
-    const v0, 0x7f1300fa
+    const v0, 0x7f1300fe
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/car/CarNavigationButton;->findViewById(I)Landroid/view/View;
 
@@ -83,7 +83,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020067
+    const v2, 0x7f02006c
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

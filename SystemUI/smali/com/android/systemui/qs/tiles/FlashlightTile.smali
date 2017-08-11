@@ -184,13 +184,13 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203da
+    const v2, 0x7f0203e2
 
-    const v3, 0x7f0203ea
+    const v3, 0x7f0203f2
 
-    const v4, 0x7f0b00ff
+    const v4, 0x7f0b0100
 
-    const v5, 0x7f0b00ff
+    const v5, 0x7f0b0100
 
     const v6, 0x7f0c0088
 
@@ -204,13 +204,13 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203ce
+    const v2, 0x7f0203d6
 
-    const v3, 0x7f0203d9
+    const v3, 0x7f0203e1
 
-    const v4, 0x7f0b00ff
+    const v4, 0x7f0b0100
 
-    const v5, 0x7f0b0100
+    const v5, 0x7f0b0101
 
     const v6, 0x7f0c0087
 
@@ -487,7 +487,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f044a
+    const v5, 0x7f0f04a7
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -499,7 +499,7 @@
 
     invoke-direct {v1, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0205dd
+    const v4, 0x7f0205e5
 
     invoke-virtual {v1, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -533,7 +533,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f044b
+    const v6, 0x7f0f04a8
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -589,7 +589,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0346
+    const v1, 0x7f0f03a3
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -600,7 +600,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0345
+    const v1, 0x7f0f03a2
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -638,7 +638,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03c3
+    const v1, 0x7f0f0420
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -696,7 +696,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f03c3
+    const v5, 0x7f0f0420
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -704,7 +704,7 @@
 
     aput-object v4, v3, v2
 
-    const v2, 0x7f0f0427
+    const v2, 0x7f0f0484
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -721,7 +721,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f044c
+    const v2, 0x7f0f04a9
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -851,7 +851,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f03c3
+    const v3, 0x7f0f0420
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -861,7 +861,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0f0427
+    const v2, 0x7f0f0484
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -887,7 +887,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f03c3
+    const v3, 0x7f0f0420
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -932,7 +932,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f0203d9
+    const v2, 0x7f0203e1
 
     invoke-static {v2}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

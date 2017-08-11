@@ -63,6 +63,20 @@
 
     move-result-object v3
 
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$7;->this$0:Lcom/android/systemui/recents/views/RecentsTransitionHelper;
+
+    invoke-static {v2}, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->-get4(Lcom/android/systemui/recents/views/RecentsTransitionHelper;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$7;->this$0:Lcom/android/systemui/recents/views/RecentsTransitionHelper;
+
+    invoke-static {v3}, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->-get0(Lcom/android/systemui/recents/views/RecentsTransitionHelper;)Ljava/lang/Runnable;
+
+    move-result-object v3
+
     const-wide/16 v4, 0x1388
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z

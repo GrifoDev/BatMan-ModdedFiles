@@ -170,9 +170,9 @@
 
     const v6, 0x7f0c0086
 
-    const v3, 0x7f020469
+    const v3, 0x7f020471
 
-    const v4, 0x7f0b00ff
+    const v4, 0x7f0b0100
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
 
@@ -190,7 +190,7 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020459
+    const v2, 0x7f020461
 
     const v7, 0x7f0c0087
 
@@ -204,9 +204,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020458
+    const v2, 0x7f020460
 
-    const v5, 0x7f0b0100
+    const v5, 0x7f0b0101
 
     const v7, 0x7f0c0088
 
@@ -353,7 +353,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0325
+    const v1, 0x7f0f0382
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -364,7 +364,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0324
+    const v1, 0x7f0f0381
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -438,7 +438,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03aa
+    const v1, 0x7f0f0407
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -663,7 +663,7 @@
 
     iput-boolean v1, p1, Lcom/android/systemui/qs/QSTile$SignalState;->dim:Z
 
-    const v8, 0x7f020457
+    const v8, 0x7f02045f
 
     invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -788,7 +788,7 @@
 
     if-eqz v8, :cond_9
 
-    const v8, 0x7f0f02ef
+    const v8, 0x7f0f034c
 
     :goto_4
     invoke-virtual {v9, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -861,7 +861,7 @@
     :goto_6
     iput-object v8, p1, Lcom/android/systemui/qs/QSTile$SignalState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 
-    const v8, 0x7f0f03aa
+    const v8, 0x7f0f0407
 
     invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -877,7 +877,7 @@
     goto :goto_6
 
     :cond_9
-    const v8, 0x7f0f02f0
+    const v8, 0x7f0f034d
 
     goto :goto_4
 

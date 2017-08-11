@@ -184,7 +184,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f0400da
+    const v8, 0x7f0400dc
 
     const/4 v9, 0x0
 
@@ -1116,7 +1116,9 @@
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 5
+    .locals 6
+
+    const/4 v5, 0x0
 
     const/4 v4, 0x0
 
@@ -1152,7 +1154,7 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/stackdivider/DividerPanel;->mSnapViewMode:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerPanel;->mContext:Landroid/content/Context;
 
@@ -1175,17 +1177,51 @@
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     :cond_0
+    :goto_0
     invoke-direct {p0}, Lcom/android/systemui/stackdivider/DividerPanel;->endSnapMode()V
 
     :cond_1
     invoke-direct {p0}, Lcom/android/systemui/stackdivider/DividerPanel;->removeSnapView()V
 
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/android/systemui/stackdivider/DividerPanel;->mSnapViewWindowManager:Lcom/android/systemui/stackdivider/DividerSnapViewWindowManager;
+    iput-object v5, p0, Lcom/android/systemui/stackdivider/DividerPanel;->mSnapViewWindowManager:Lcom/android/systemui/stackdivider/DividerSnapViewWindowManager;
 
     :cond_2
     return-void
+
+    :cond_3
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerPanel;->mSnapView:Lcom/android/systemui/stackdivider/DividerSnapView;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerPanel;->mSnapView:Lcom/android/systemui/stackdivider/DividerSnapView;
+
+    invoke-virtual {v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->getVisibility()I
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerPanel;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerPanel;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0f0004
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    goto :goto_0
 .end method
 
 .method public showSnapWindowGuideView(ILjava/lang/String;)V

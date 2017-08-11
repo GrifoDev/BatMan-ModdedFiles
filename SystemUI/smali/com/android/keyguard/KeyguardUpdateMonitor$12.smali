@@ -180,7 +180,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$12;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap48(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/CharSequence;)V
+    invoke-static {v0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap49(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/CharSequence;)V
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_GSIM_LOG:Z
 
@@ -264,7 +264,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$12;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap23(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap24(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_GSIM_LOG:Z
 
@@ -421,7 +421,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$12;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap24(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap25(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_GSIM_LOG:Z
 

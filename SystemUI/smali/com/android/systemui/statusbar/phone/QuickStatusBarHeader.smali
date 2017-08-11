@@ -12,8 +12,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$-void_updateEverything__LambdaImpl0;,
-        Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$1;
+        Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$-void_updateEverything__LambdaImpl0;
     }
 .end annotation
 
@@ -23,9 +22,24 @@
 
 .field private mActivityStarter:Lcom/android/systemui/statusbar/phone/ActivityStarter;
 
-.field private mBadge:Landroid/widget/TextView;
+.field private mBadgeAsyncTask:Landroid/os/AsyncTask;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/AsyncTask",
+            "<",
+            "Ljava/lang/Void;",
+            "Ljava/lang/Void;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private mBadgeCountObserver:Landroid/database/ContentObserver;
+.field private mBadgeBackground:Landroid/widget/LinearLayout;
+
+.field private mBadgeCountUpdateReceiver:Landroid/content/BroadcastReceiver;
+
+.field private mBadgeText:Landroid/widget/TextView;
 
 .field private mBrightnessMenu:Landroid/view/MenuItem;
 
@@ -91,6 +105,10 @@
 
 .field protected mSettingsAlpha:Lcom/android/systemui/qs/TouchAnimator;
 
+.field private mSettingsBadgeCount:I
+
+.field private mSettingsBadgeIntentfilter:Landroid/content/IntentFilter;
+
 .field private mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
 .field protected mSettingsContainer:Landroid/view/View;
@@ -101,7 +119,23 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/content/Context;
+.method static synthetic -get0(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/os/AsyncTask;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeAsyncTask:Landroid/os/AsyncTask;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/content/BroadcastReceiver;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountUpdateReceiver:Landroid/content/BroadcastReceiver;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mContext:Landroid/content/Context;
@@ -109,7 +143,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/view/ViewGroup;
+.method static synthetic -get3(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/view/ViewGroup;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mDateTimeGroup:Landroid/view/ViewGroup;
@@ -117,7 +151,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/phone/QSTileHost;
+.method static synthetic -get4(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/phone/QSTileHost;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
@@ -125,7 +159,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/widget/ImageButton;
+.method static synthetic -get5(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/widget/ImageButton;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mMoreButton:Landroid/widget/ImageButton;
@@ -133,7 +167,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Lcom/android/systemui/qs/QSPanel;
+.method static synthetic -get6(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Lcom/android/systemui/qs/QSPanel;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
@@ -141,10 +175,26 @@
     return-object v0
 .end method
 
+.method static synthetic -get7(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsBadgeCount:I
+
+    return v0
+.end method
+
 .method static synthetic -set0(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->isPopupShow:Z
+
+    return p1
+.end method
+
+.method static synthetic -set1(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsBadgeCount:I
 
     return p1
 .end method
@@ -160,6 +210,8 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
+    const/4 v1, 0x0
+
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     const/4 v0, 0x0
@@ -170,15 +222,9 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mIsSupportContactUs:I
 
-    new-instance v0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$1;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountUpdateReceiver:Landroid/content/BroadcastReceiver;
 
-    new-instance v1, Landroid/os/Handler;
-
-    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
-
-    invoke-direct {v0, p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$1;-><init>(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;Landroid/os/Handler;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountObserver:Landroid/database/ContentObserver;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeAsyncTask:Landroid/os/AsyncTask;
 
     return-void
 .end method
@@ -320,7 +366,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0242
+    const v3, 0x7f0d0243
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -334,7 +380,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d03f4
+    const v3, 0x7f0d03f5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -348,7 +394,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d023e
+    const v3, 0x7f0d023f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -362,7 +408,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d023f
+    const v3, 0x7f0d0240
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -376,7 +422,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0240
+    const v3, 0x7f0d0241
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -388,7 +434,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0241
+    const v3, 0x7f0d0242
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -412,6 +458,31 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->updateSettingsAnimator()V
 
+    return-void
+.end method
+
+.method private updateSettingsBadgeCount()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeAsyncTask:Landroid/os/AsyncTask;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$6;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$6;-><init>(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)V
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$6;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeAsyncTask:Landroid/os/AsyncTask;
+
+    :cond_0
     return-void
 .end method
 
@@ -462,7 +533,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0287
+    const v6, 0x7f0d0288
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -474,7 +545,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0288
+    const v6, 0x7f0d0289
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -504,7 +575,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d03fc
+    const v6, 0x7f0d03fd
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -649,7 +720,7 @@
 
     move-result v2
 
-    const v3, 0x7f1303c9
+    const v3, 0x7f1303d5
 
     if-ne v2, v3, :cond_0
 
@@ -684,7 +755,7 @@
 
     move-result v2
 
-    const v3, 0x7f13018a
+    const v3, 0x7f13018e
 
     if-eq v2, v3, :cond_4
 
@@ -696,7 +767,7 @@
 
     move-result v2
 
-    const v3, 0x7f1303db
+    const v3, 0x7f1303e7
 
     if-ne v2, v3, :cond_0
 
@@ -894,8 +965,10 @@
     return v5
 .end method
 
-.method public launchContactUsApp(Landroid/content/Context;)V
-    .locals 9
+.method public launchContactUsApp(Landroid/content/Context;)Z
+    .locals 10
+
+    const/4 v9, 0x1
 
     const-string/jumbo v0, "3l25p17305"
 
@@ -958,9 +1031,7 @@
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
-    :goto_0
-    return-void
+    return v9
 
     :catch_0
     move-exception v3
@@ -971,7 +1042,10 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    :cond_0
+    const/4 v7, 0x0
+
+    return v7
 .end method
 
 .method protected onAttachedToWindow()V
@@ -979,23 +1053,17 @@
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->onAttachedToWindow()V
 
-    const-string/jumbo v1, "content://com.sec.badge/apps"
+    new-instance v0, Landroid/os/Handler;
 
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    move-result-object v0
+    new-instance v1, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$2;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$2;-><init>(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)V
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    const-wide/16 v2, 0x7d0
 
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountObserver:Landroid/database/ContentObserver;
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v1, v0, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method
@@ -1117,50 +1185,34 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 3
+    .locals 1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->setListening(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->setListening(Z)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getUserInfoController()Lcom/android/systemui/statusbar/policy/UserInfoController;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Lcom/android/systemui/statusbar/policy/UserInfoController;->remListener(Lcom/android/systemui/statusbar/policy/UserInfoController$OnUserInfoChangedListener;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getNetworkController()Lcom/android/systemui/statusbar/policy/NetworkController;
-
-    move-result-object v1
-
-    invoke-interface {v1, p0}, Lcom/android/systemui/statusbar/policy/NetworkController;->removeEmergencyListener(Lcom/android/systemui/statusbar/policy/NetworkController$EmergencyListener;)V
-
-    :cond_0
-    invoke-super {p0}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->onDetachedFromWindow()V
-
-    const-string/jumbo v1, "content://com.sec.badge/apps"
-
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getUserInfoController()Lcom/android/systemui/statusbar/policy/UserInfoController;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/policy/UserInfoController;->remListener(Lcom/android/systemui/statusbar/policy/UserInfoController$OnUserInfoChangedListener;)V
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
 
-    move-result-object v1
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getNetworkController()Lcom/android/systemui/statusbar/policy/NetworkController;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountObserver:Landroid/database/ContentObserver;
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/NetworkController;->removeEmergencyListener(Lcom/android/systemui/statusbar/policy/NetworkController$EmergencyListener;)V
+
+    :cond_0
+    invoke-super {p0}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->onDetachedFromWindow()V
 
     return-void
 .end method
@@ -1176,15 +1228,17 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 5
+    .locals 6
 
-    const/16 v2, 0x8
+    const/16 v3, 0x8
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
+
+    const/4 v5, 0x0
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->onFinishInflate()V
 
-    const v1, 0x7f1303dc
+    const v1, 0x7f1303e8
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1200,15 +1254,15 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mDateTimeAlarmGroup:Landroid/view/ViewGroup;
 
-    const v3, 0x7f130488
+    const v4, 0x7f130492
 
-    invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
 
-    const v1, 0x7f1303dd
+    const v1, 0x7f1303e9
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1220,37 +1274,37 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mDateTimeGroup:Landroid/view/ViewGroup;
 
-    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->setPivotX(F)V
+    invoke-virtual {v1, v5}, Landroid/view/ViewGroup;->setPivotX(F)V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mDateTimeGroup:Landroid/view/ViewGroup;
 
-    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->setPivotY(F)V
+    invoke-virtual {v1, v5}, Landroid/view/ViewGroup;->setPivotY(F)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v3, 0x7f120023
+    const v4, 0x7f120023
 
-    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
-    const v1, 0x7f1303df
+    const v1, 0x7f1303eb
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v4
 
     if-eqz v0, :cond_3
 
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_0
-    invoke-virtual {v3, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v4, v1}, Landroid/view/View;->setVisibility(I)V
 
     :cond_0
-    const v1, 0x7f1303e0
+    const v1, 0x7f1303ec
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1260,7 +1314,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
 
-    const v1, 0x7f13018a
+    const v1, 0x7f13018e
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1270,7 +1324,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
-    const v1, 0x7f130189
+    const v1, 0x7f13018d
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1282,7 +1336,7 @@
 
     invoke-virtual {v1, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f1303db
+    const v1, 0x7f1303e7
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1301,7 +1355,7 @@
     invoke-virtual {v1, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_1
-    const v1, 0x7f130297
+    const v1, 0x7f13029f
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1317,9 +1371,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mMultiUserSwitch:Lcom/android/systemui/statusbar/phone/MultiUserSwitch;
 
-    const v2, 0x7f130298
+    const v3, 0x7f1302a0
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1336,11 +1390,11 @@
 
     check-cast v1, Landroid/graphics/drawable/RippleDrawable;
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/graphics/drawable/RippleDrawable;->setForceSoftware(Z)V
+    invoke-virtual {v1, v3}, Landroid/graphics/drawable/RippleDrawable;->setForceSoftware(Z)V
 
-    const v1, 0x7f1303de
+    const v1, 0x7f1303ea
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1348,7 +1402,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mDateTimeDivider:Landroid/view/View;
 
-    const v1, 0x7f130486
+    const v1, 0x7f130490
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1360,23 +1414,41 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsContainer:Landroid/view/View;
 
-    const v2, 0x7f13018b
+    const v3, 0x7f13018f
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/LinearLayout;
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeBackground:Landroid/widget/LinearLayout;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsContainer:Landroid/view/View;
+
+    const v3, 0x7f130190
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/TextView;
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadge:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeText:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+    iput v2, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsBadgeCount:I
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/DeviceState;->getSettingsBadgeCount(Landroid/content/Context;)I
+    new-instance v1, Landroid/content/IntentFilter;
 
-    move-result v1
+    invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->updateBadgeState(I)V
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsBadgeIntentfilter:Landroid/content/IntentFilter;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsBadgeIntentfilter:Landroid/content/IntentFilter;
+
+    const-string/jumbo v2, "com.sec.intent.action.BADGE_COUNT_UPDATE"
+
+    invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->updateResources()V
 
@@ -1385,7 +1457,7 @@
     return-void
 
     :cond_3
-    move v1, v2
+    move v1, v3
 
     goto/16 :goto_0
 .end method
@@ -1447,6 +1519,39 @@
     :cond_0
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->updateVisibilities()V
 
+    return-void
+.end method
+
+.method public registerBadgeCountUpdateReceiver()V
+    .locals 6
+
+    const/4 v4, 0x0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountUpdateReceiver:Landroid/content/BroadcastReceiver;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$5;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$5;-><init>(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountUpdateReceiver:Landroid/content/BroadcastReceiver;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountUpdateReceiver:Landroid/content/BroadcastReceiver;
+
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsBadgeIntentfilter:Landroid/content/IntentFilter;
+
+    move-object v5, v4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->updateSettingsBadgeCount()V
+
+    :cond_0
     return-void
 .end method
 
@@ -1747,7 +1852,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f130535
+    const v4, 0x7f13053f
 
     invoke-interface {v1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -1761,7 +1866,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f130536
+    const v4, 0x7f130540
 
     invoke-interface {v1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -1779,9 +1884,12 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mScreenGrid:Landroid/view/MenuItem;
 
+    goto :goto_0
+
     invoke-interface {v1, v3}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     :cond_0
+    :goto_0
     sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_TABLET:Z
 
     if-nez v1, :cond_1
@@ -1802,16 +1910,19 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mScreenGrid:Landroid/view/MenuItem;
 
+    goto :goto_1
+
     invoke-interface {v1, v3}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     :cond_1
+    :goto_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mPopup:Landroid/widget/PopupMenu;
 
     invoke-virtual {v1}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
 
     move-result-object v1
 
-    const v4, 0x7f130537
+    const v4, 0x7f130541
 
     invoke-interface {v1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -1837,7 +1948,7 @@
 
     move v1, v2
 
-    :goto_0
+    :goto_2
     invoke-interface {v4, v1}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBrightnessMenu:Landroid/view/MenuItem;
@@ -1850,7 +1961,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f130538
+    const v3, 0x7f130542
 
     invoke-interface {v1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -1896,46 +2007,180 @@
     :cond_3
     move v1, v3
 
-    goto :goto_0
+    goto :goto_2
 .end method
 
-.method public updateBadgeState(I)V
+.method public unregisterBadgeCountUpdateReceiver()V
     .locals 3
 
     const/4 v2, 0x0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadge:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountUpdateReceiver:Landroid/content/BroadcastReceiver;
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountUpdateReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    :cond_0
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountUpdateReceiver:Landroid/content/BroadcastReceiver;
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeAsyncTask:Landroid/os/AsyncTask;
+
+    return-void
+.end method
+
+.method public updateBadgeState()V
+    .locals 8
+
+    const/4 v7, 0x0
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeBackground:Landroid/widget/LinearLayout;
+
+    if-nez v3, :cond_0
 
     return-void
 
     :cond_0
-    if-lez p1, :cond_1
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsBadgeCount:I
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadge:Landroid/widget/TextView;
+    if-lez v3, :cond_3
 
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeBackground:Landroid/widget/LinearLayout;
 
-    move-result-object v1
+    invoke-virtual {v3, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeText:Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadge:Landroid/widget/TextView;
+    const-string/jumbo v4, "%d"
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    const/4 v5, 0x1
 
-    :goto_0
-    return-void
+    new-array v5, v5, [Ljava/lang/Object;
+
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mSettingsBadgeCount:I
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v5, v7
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0d048c
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/QSTileHost;->isDeskMode()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0d048d
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
 
     :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadge:Landroid/widget/TextView;
+    :goto_0
+    int-to-float v3, v1
 
-    const/16 v1, 0x8
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v4}, Landroid/widget/TextView;->length()I
+
+    move-result v4
+
+    add-int/lit8 v4, v4, -0x1
+
+    int-to-float v4, v4
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x7f0d048b
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v5
+
+    mul-float/2addr v4, v5
+
+    add-float/2addr v3, v4
+
+    float-to-int v0, v3
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeBackground:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v3}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/FrameLayout$LayoutParams;
+
+    iput v0, v2, Landroid/widget/FrameLayout$LayoutParams;->width:I
+
+    iput v1, v2, Landroid/widget/FrameLayout$LayoutParams;->height:I
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeBackground:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v3, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :goto_1
+    return-void
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/systemui/statusbar/DeviceState;->isOpenTheme(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0d048e
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
 
     goto :goto_0
+
+    :cond_3
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeBackground:Landroid/widget/LinearLayout;
+
+    const/16 v4, 0x8
+
+    invoke-virtual {v3, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto :goto_1
 .end method
 
 .method public updateEverything()V
@@ -1967,7 +2212,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f0d03ff
+    const v7, 0x7f0d0400
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1979,7 +2224,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f0d0400
+    const v7, 0x7f0d0401
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1995,7 +2240,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f0d03f3
+    const v7, 0x7f0d03f4
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2161,9 +2406,9 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mDateTimeGroup:Landroid/view/ViewGroup;
 
-    new-instance v5, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$2;
+    new-instance v5, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$1;
 
-    invoke-direct {v5, p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$2;-><init>(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)V
+    invoke-direct {v5, p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$1;-><init>(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)V
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
@@ -2213,7 +2458,7 @@
 .method protected updateVisibilities()V
     .locals 7
 
-    const v6, 0x7f1303da
+    const v6, 0x7f1303e6
 
     const/4 v5, 0x4
 

@@ -303,7 +303,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v4, 0x7f04005a
+    const v4, 0x7f04005b
 
     invoke-virtual {v0, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -313,7 +313,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
 
-    const v5, 0x7f1301c9
+    const v5, 0x7f1301cf
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -329,7 +329,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
 
-    const v5, 0x7f1301cb
+    const v5, 0x7f1301d1
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -342,7 +342,7 @@
     :goto_1
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
 
-    const v5, 0x7f1301cc
+    const v5, 0x7f1301d2
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -515,13 +515,13 @@
 
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mBackgroundView:Landroid/widget/ImageView;
 
-    const v5, 0x7f0b0125
+    const v5, 0x7f0b0126
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
 
-    const v5, 0x7f1301cb
+    const v5, 0x7f1301d1
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -542,7 +542,7 @@
     :cond_7
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
 
-    const v5, 0x7f1301ca
+    const v5, 0x7f1301d0
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -814,9 +814,9 @@
 .method static notifyScreenshotError(Landroid/content/Context;Landroid/app/NotificationManager;)V
     .locals 8
 
-    const v7, 0x7f0f0299
+    const v7, 0x7f0f02f6
 
-    const v5, 0x7f0f0298
+    const v5, 0x7f0f02f5
 
     const/4 v6, 0x1
 
@@ -852,7 +852,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0205e3
+    const v4, 0x7f0205eb
 
     invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -1358,7 +1358,7 @@
 
     const/4 v3, 0x0
 
-    const v9, 0x7f0d021f
+    const v9, 0x7f0d0220
 
     :try_start_0
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -1379,7 +1379,7 @@
     :cond_2
     move v5, v3
 
-    const v9, 0x7f0d0201
+    const v9, 0x7f0d0202
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1502,11 +1502,11 @@
 
     invoke-direct {v1, v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v2, 0x7f0f029b
+    const v2, 0x7f0f02f8
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0f029c
+    const v2, 0x7f0f02f9
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1920,7 +1920,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f02a0
+    const v4, 0x7f0f02fd
 
     invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -1965,7 +1965,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x104083e
+    const v4, 0x1040843
 
     invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -1984,7 +1984,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x104083d
+    const v4, 0x1040842
 
     invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -2254,7 +2254,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f02a0
+    const v4, 0x7f0f02fd
 
     invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -2284,7 +2284,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0298
+    const v4, 0x7f0f02f5
 
     invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 

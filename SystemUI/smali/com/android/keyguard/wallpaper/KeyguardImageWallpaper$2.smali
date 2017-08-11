@@ -71,18 +71,6 @@
 
     iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->this$0:Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;
 
-    const/4 v1, 0x0
-
-    iput-boolean v1, v0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mSettingsChangedWhileReloadingBitmap:Z
-
-    iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->this$0:Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;
-
-    const/4 v1, 0x1
-
-    iput-boolean v1, v0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mReloadingBitmap:Z
-
-    iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->this$0:Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;
-
     iget v1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->val$currentUser:I
 
     iget-object v2, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->val$selectedUser:Landroid/os/UserHandle;
@@ -193,7 +181,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->this$0:Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;
 
@@ -264,28 +252,6 @@
     :cond_3
     iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->this$0:Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;
 
-    const/4 v1, 0x0
-
-    iput-boolean v1, v0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mReloadingBitmap:Z
-
-    iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->this$0:Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;
-
-    iget-boolean v0, v0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mSettingsChangedWhileReloadingBitmap:Z
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->this$0:Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;
-
-    iget-object v1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->this$0:Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;
-
-    invoke-static {v1}, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->-get0(Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;)Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->-wrap1(Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;Landroid/graphics/Bitmap;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->this$0:Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;
-
     iget-object v1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$2;->this$0:Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;
 
     invoke-static {v1}, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->-get0(Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;)Landroid/graphics/Bitmap;
@@ -294,7 +260,6 @@
 
     invoke-static {v0, v1}, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->-wrap2(Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;Landroid/graphics/Bitmap;)V
 
-    :cond_4
     const-string/jumbo v0, "KeyguardImageWallpaper"
 
     const-string/jumbo v1, "updateWallpaper() DONE"
@@ -303,7 +268,7 @@
 
     return-void
 
-    :cond_5
+    :cond_4
     const-string/jumbo v0, "KeyguardImageWallpaper"
 
     const-string/jumbo v1, "switch to new wallpaper immediately, not in interactive mode"

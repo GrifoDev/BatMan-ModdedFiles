@@ -67,8 +67,8 @@
     <string name="servicebox_accessibility_missing_next_alarm">Дар 7 рӯзи оянда ягон бедоркунак нест</string>
     <string name="clear_cover_servicebox_music_unknown">Ношинос</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dс %2$dд</string>
-    <string name="battery_history_minutes_no_seconds">%dд</string>
+    <string name="battery_history_hours_no_seconds">%1$dс %2$dд боқӣ монд</string>
+    <string name="battery_history_minutes_no_seconds">%d м</string>
     <string name="wifi_failed_to_obtain_IP">Гирифтани суроғаи IP иҷро нашуд.</string>
     <string name="wifi_unknown_security_type">Навъи номаълуми амният.</string>
     <string name="wifi_disabled_no_internet">Интернет дастрас нест</string>
@@ -112,6 +112,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Пайваст ба %s ғайриимкон аст.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Пайваст ба %1$s ғайриимкон аст. Танзимоти худро дар %2$s тафтиш карда, кӯшишро такрор кунед.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s ҳамроҳкуниро рад кард.</string>
+    <string name="bluetooth_getting_remote_device_name">Номи дастгоҳ муайян карда мешавад…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Номи дастгоҳ ҳангоми пайваст шудани ин дастгоҳ нишон дода мешавад.</string>
     <string name="tether_settings_title_all">Нуқтаи гарми мобилӣ ва буриш</string>
     <string name="tts_settings_title">Матн-ба-нутқ</string>
     <string name="tts_default_rate_title">Суръати нутқ</string>
@@ -531,6 +533,7 @@ Wi-Fi ва Bluetooth низ хомӯш карда мешаванд, аммо о�
     <string name="wifi_ap_wifi_p2p_off_warn">Фаъол кардани Нуқтаи дастрасии мобилӣ ҳамаи дастгоҳҳои тавассути Wi-Fi Direct пайвастшударо пароканда мекунад.</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Фаъол кардани Нуқтаи дастраси сайёри WLAN, дастгоҳи ба WLAN Direct пайваст бударо қатъ мекунад.</string>
     <string name="dialog_battery_data_warning">Нуқтаи дастрасии мобилӣ фаъол карда мешавад. Ин масрафи қувваи батарея ва истифодаи иттилоотро зиёд мекунад.</string>
+    <string name="keyboard_popup_help">Мета-калид: Тугмаи дорои нишонаи Windows, Command ё системаи омили дигар.</string>
     <string name="keyboard_shortcut_group_system">Миёнбурҳои системавӣ</string>
     <string name="keyboard_shortcut_group_system_back">Қафо</string>
     <string name="keyboard_shortcut_group_system_all_apps">Ҳамаи барномаҳо</string>
@@ -612,8 +615,8 @@ Wi-Fi ва Bluetooth низ хомӯш карда мешаванд, аммо о�
 
 Барои дастгоҳро аз зарари об муҳофизат кардан, дорандаи SIM/SD-ро хуб бипӯшонед."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Барои дастгоҳ аз зарари об эмин доштан, мутмаин шавед, ки дорандаи SIM/SD хуб пӯшида шудааст.</string>
-    <string name="water_protection_notification_title">Тафтиши порт</string>
-    <string name="water_protection_notification_body">Намӣ муайян карда шуд. Барои дастгоҳи худро барқ додан, порти барқдиҳак/USB-ро хушк кунед.</string>
+    <string name="water_protection_notification_title">Барқдиҳакро ҷудо кунед</string>
+    <string name="water_protection_notification_body">Намӣ муайян карда шуд. Барқдиҳакро ҷудо карда, мутмаин шавед, ки барқдиҳак ва порти USB хушканд.</string>
     <string name="full_battery_title">Маълумот</string>
     <string name="full_battery_noti_text">Батарея бо барқ пур шуд.</string>
     <string name="cooling_title">Дастгоҳ хеле гарм мешавад</string>
@@ -707,6 +710,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">Барқдиҳии суст</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Барои дастгоҳро зудтар барқ додан, барқдиҳакеро истифода баред, ки ҳамроҳи дастгоҳатон харидаед, ва мутмаин шавед, ки онро дуруст пайваст кардаед.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Мутмаин шавед, ки онро дуруст пайваст кардаед. Барқдиҳаки ҳамроҳи дастгоҳатон харидаро истифода баред.</string>
     <string name="battery_charging_level_and_time_text">"Барқдиҳӣ: %1$d%%
 (Тақрибан %2$s то пурра барқ гирифтан)"</string>
@@ -720,14 +724,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">Телефонро барқ диҳед.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Планшетро барқ диҳед.</string>
     <string name="button_close">Пӯшидан</string>
-    <string name="battery_health_interruption_title">Қуввагирӣ ғайриимкон аст</string>
+    <string name="battery_health_interruption_title">Барқдиҳӣ қатъ шуд</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Барқдиҳакро аз васлак ҷудо кунед</string>
     <string name="battery_health_interruption_by_terminal_open_text">Додани қувва ба дастгоҳи шумо ғайриимкон аст. Мутмаин шавед, ки батарея ва қуввадиҳаки мувофиқи Samsung истифода мебаред. Инчунин дуруст пайваст будани дастгоҳро ба қуввадиҳак тафтиш кунед.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Барқгирӣ таваққуф карда шуд. Ҳарорати батарея бениҳоят баланд аст.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Барқгирӣ таваққуф карда шуд. Ҳарорати батарея бениҳоят паст аст.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Дастгоҳ қуввагириро қатъ намуд. Ҳарорати батарея беҳад баланд аст. Ҳангоми ҷудо кардани қуввадиҳак эҳтиёт бошед. Он метавонад хеле гарм бошад.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Ҳарорати телефон бениҳоят баланд аст. Барқдиҳӣ ҳангоми хунуктар шудани он идома меёбад.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Ҳарорати планшет бениҳоят баланд аст. Барқдиҳӣ ҳангоми гармтар шуданаш идома меёбад.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Ҳарорати телефон бениҳоят паст аст. Барқдиҳӣ ҳангоми гармтар шуданаш идома меёбад.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Ҳарорати планшет бениҳоят паст аст. Барқдиҳӣ ҳангоми гармтар шуданаш идома меёбад.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Барқдиҳӣ қатъ карда шуд. Ҳарорати телефон бениҳоят баланд аст. Ҳангоми барқдиҳакро ҷудо кардан эҳтиёткор бошед. Он метавонад хеле гарм бошад.
 
-Ҷудо кардан ва такроран пайваст кардани қуввадиҳак метавонад қуввадиҳиро идома диҳад. Агар батарея боз ҳам хеле гарм шавад, ба хадамоти дастгирии мизоҷон муроҷиат намоед, зеро хатари сӯхтор ё зарари ҷисмонӣ метавонад ба миён ояд."</string>
+Агар барқдиҳак ҷудо ва аз нав пайваст карда шавад, барқдиҳӣ метавонад ба таври одатӣ идома ёбад. Агар гармшавии сахт аз миён наравад, ба Маркази хизматрасонии муштариён муроҷиат кунед, зеро хатари сӯхтор ё ҷароҳат вуҷуд дорад."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Барқдиҳӣ қатъ карда шуд. Ҳарорати планшет бениҳоят баланд аст. Ҳангоми барқдиҳакро ҷудо кардан эҳтиёткор бошед. Он метавонад хеле гарм бошад.
+
+Агар барқдиҳак ҷудо ва аз нав пайваст карда шавад, барқдиҳӣ метавонад ба таври одатӣ идома ёбад. Агар гармшавии сахт аз миён наравад, ба Маркази хизматрасонии муштариён муроҷиат кунед, зеро хатари сӯхтор ё ҷароҳат вуҷуд дорад."</string>
     <string name="incompatible_charger_title">Барқ гирифта намешавад.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -743,8 +753,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">Барои кушодан, иттилооти биометрӣ истифода баред ё экранро бимолед</string>
     <string name="kg_face_or_swipe_unlock_instructions">Барои озод кардан, шинохтагирии чеҳраро истифода баред ё экранро бимолед</string>
     <string name="kg_face_or_swipe_active_instructions">Барои кушодан, шинохтагирии чеҳраро истифода баред ё экранро бимолед</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Барои озод кардан, шинохтагирии чеҳраро истифода баред, ё экранро молида, инабияҳоро истифода баред</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Барои кушодан, шинохтагирии чеҳраро истифода баред, ё экранро молида, инабияҳоро истифода баред</string>
     <string name="kg_face_unlock_instructions">Барои бо шинохтагирии чеҳра озод кардан, экранро бимолед</string>
     <string name="kg_face_or_fingerprint_active_instructions">Барои кушодан, изи ангушт истифода баред, ё экранро молида, шинохтагирии чеҳраро истифода баред</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Барои озод кардан, изи ангушт истифода баред, ё экранро молида, шинохтагирии чеҳраро истифода баред</string>
@@ -759,6 +767,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">Барои озод кардани экран, бо ду ангушт бимолед.</string>
     <string name="kg_swipe_active_instructions">Барои кушодан экранро молед</string>
     <string name="kg_swipe_unlock_instructions">Барои кушодани банд экранро молиш диҳед</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Барои озод кардан, иттилооти биометрӣ истифода баред ё экранро бо ду ангушт бимолед.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Барои кушодан, иттилооти биометрӣ истифода баред ё экранро бо ду ангушт бимолед.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Барои озод кардан, шинохтагирии чеҳраро истифода баред ё экранро бо ду ангушт бимолед.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Барои кушодан, шинохтагирии чеҳраро истифода баред ё экранро бо ду ангушт бимолед.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Барои бо шинохтагирии чеҳра озод кардан, экранро бо ду ангушт бимолед.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Барои кушодан, изи ангушт истифода баред ё экранро бо ду ангушт молида, шинохтагирии чеҳраро истифода баред.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Барои озод кардан, изи ангушт истифода баред ё экранро бо ду ангушт молида, шинохтагирии чеҳраро истифода баред.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Барои кушодан, изи ангушт истифода баред ё экранро бо ду ангушт молида, инабияҳоро истифода баред.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Барои озод кардан, изи ангушт истифода баред ё экранро бо ду ангушт молида, инабияҳоро истифода баред.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Барои кушодан, изи ангушт истифода баред ё экранро бо ду ангушт бимолед.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Барои озод кардан, изи ангушт истифода баред ё экранро бо ду ангушт бимолед.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Барои бо инабияҳои озод кардан, экранро бо ду ангушт бимолед.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Барои озод кардан, инабияҳоро истифода баред ё экранро бо ду ангушт бимолед.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Барои кушодан, инабияҳоро истифода баред ё экранро бо ду ангушт бимолед.</string>
     <string name="kg_power_connect_charger">Барқдиҳандаро пайваст кунед</string>
     <string name="kg_power_fully_charged">Қувва пур шуд</string>
     <string name="kg_power_fast_charging">Барқдиҳии зуд: %d%%</string>
@@ -842,6 +864,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Фиристодан</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Барои телефонро озод кардан, тугмаи Бастанро ду бор зарба занед</string>
     <string name="s_view_cover_toast_pop_up_message">Барои истифодаи тугмаи танзими зуд, сарпӯшро кушоед.</string>
     <string name="remote_input_toast_text_on_sview_cover">Ҳангоми пӯшида будани сарпӯши S view функсияи Посухи зудро истифода бурда наметавонад.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Барои идоракунии миқдори барқи тақсимшуда, шумо бояд барномаро боргирӣ кунед. Агар шумо дастгоҳи худро бо дастгоҳи дигар тавассути Сими тақсимкунии барқи Samsung EP-SG900 бе барнома пайваст кунед, тамоми барқи батарея ба дастгоҳи дигар интиқол дода мешавад. 
@@ -878,7 +901,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Ман қабул мекунам</string>
-    <string name="force_immersive_guide_text">Агар ин нишонаро зарба занед, навори паймоиш пинҳон карда мешавад. Шумо ба ҳар ҳол метавонед аз поёни экран ба боло молида, тугмаҳои паймоишро истифода баред. Ҳангоми нишон дода шудани навори паймоиш, метавонед ин нишонаро зарба зада, онро дар ҷояш баста монед. Дар баъзе экранҳо, ба мисли экрани Асосӣ, навори ҳаракат доимо нишон дода мешавад.</string>
+    <string name="force_immersive_guide_text">Агар ин тугмаро зарба занед, навори паймоиш пинҳон карда мешавад. Шумо ба ҳар ҳол метавонед аз поёни экран ба боло молида, тугмаҳои паймоишро истифода баред. Ҳангоми нишон дода шудани навори паймоиш, метавонед ин тугмаро зарба зада, онро дар ҷояш баста монед. Дар баъзе экранҳо, ба мисли экрани Асосӣ, навори ҳаракат доимо нишон дода мешавад. Агар ҳангоми пинҳон будани навори ҳаракат ягон барнома нодуруст кор кунад, навори ҳаракатро дар ҷояш баста, барномаро аз нав ба кор дароред.</string>
+    <string name="force_immersive_guide_dialog_title">Пинҳон кардани навори паймоиш:</string>
+    <string name="force_immersive_guide_dialog_message1">Агар ин тугмаро зарба занед, навори паймоиш пинҳон карда мешавад.</string>
+    <string name="force_immersive_guide_dialog_message2">Барои навори паймоишро нишон додан, аз поёни экран ба боло бимолед.</string>
+    <string name="force_immersive_guide_dialog_message3">Барои онро дар ҷояш бастан, ин тугмаро бори дигар зарба занед.</string>
+    <string name="force_immersive_guide_dialog_message4">Дар баъзе экранҳо, ба мисли экрани Асосӣ, навори ҳаракат доимо нишон дода мешавад.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Барои ин тугмаро пинҳон кардан, ба Танзимот > Дисплей > Навори паймоиш гузаред.</string>
+    <string name="force_immersive_guide_dialog_setting">Танзимот</string>
+    <string name="force_immersive_guide_dialog_ok">ОК</string>
     <string name="keyguard_password_enter_pin_code">Рамзи PIN­ро дохил кунед.</string>
     <string name="keyguard_password_wrong_pin_code">Рамзи PIN нодуруст аст.</string>
     <string name="keyguard_charged">Қувва пур шуд</string>
@@ -1250,6 +1281,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_face_retry_content_description">Барои шинохтагирии чеҳраро истифода бурдан, ду бор зарба занед.</string>
     <string name="kg_face_authentication_error_retry_text">Ягон чеҳра ошкор нашуд. Барои шинохтагирии чеҳраро такрор кардан, нишонаро зарба занед</string>
     <string name="kg_face_authentication_failed_retry_text">Ягон мувофиқат нест. Барои шинохтагирии чеҳраро истифода бурдан, нишонаро зарба занед</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Ҳангоми шинохтани чеҳраи шумо хатогие ба миён омад. Барои кӯшишро такрор к-н, зарба занед.</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Истифодаи шинохтагирии чеҳра дар рафти зангҳои видеоӣ ғайриимкон аст</string>
     <string name="kg_fingerprint_no_match">Ягон мувофиқат нест</string>
     <string name="kg_finger_print_not_responding_error_message">Сенсори нақши ангушт ҷавоб намедиҳад. Дертар кӯшиш кунед.</string>
     <string name="kg_finger_print_database_error_message">Иттилооти изи ангушт вайрон шудааст. Изи ангуштро ҳамчун навъи банди экран дубора танзим кунед ва пас изи ангуштони худро аз нав илова ё навъи банди экранро иваз кунед.</string>
@@ -1386,6 +1419,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="appicon_badge_new_item">1 объекти нав</string>
     <string name="banner_apps_for_dex_detail">Аз барномаҳои барои DeX мосшудаи Galaxy Apps баҳра бардоред.</string>
     <string name="toast_cannot_move_more_than_items">Интиқол додани зиёда аз %d ҷузъ ғайриимкон аст.</string>
+    <string name="view_more_in_galaxy_apps">Дар Galaxy Apps бештар бинед</string>
+    <string name="view_more_in_play_store">Дар Play Store бештар бинед</string>
     <string name="uninstall_title">Барномаҳоро нест кунем?</string>
     <string name="uninstall_1_app_message">Оё насби ин барномаҳоро қатъ кардан мехоҳед?</string>
     <string name="uninstall_apps_message">Барномаҳои зерин нест карда мешаванд:</string>
@@ -1426,6 +1461,13 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="taskbar_context_menu_close_desk_notification_view">Огоҳиҳоро пинҳон кардан</string>
     <string name="volumepanel_notification">Огоҳӣ</string>
     <string name="quick_settings_location_detail_device_only">Танҳо дастгоҳ</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Барқгирӣ таваққуф карда шуд. Ҳарорати батарея бениҳоят баланд аст.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Барқгирӣ таваққуф карда шуд. Ҳарорати батарея бениҳоят паст аст.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Дастгоҳ қуввагириро қатъ намуд. Ҳарорати батарея беҳад баланд аст. Ҳангоми ҷудо кардани қуввадиҳак эҳтиёт бошед. Он метавонад хеле гарм бошад.
+
+Ҷудо кардан ва такроран пайваст кардани қуввадиҳак метавонад қуввадиҳиро идома диҳад. Агар батарея боз ҳам хеле гарм шавад, ба хадамоти дастгирии мизоҷон муроҷиат намоед, зеро хатари сӯхтор ё зарари ҷисмонӣ метавонад ба миён ояд."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Барои озод кардан, шинохтагирии чеҳраро истифода баред, ё экранро молида, инабияҳоро истифода баред</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Барои кушодан, шинохтагирии чеҳраро истифода баред, ё экранро молида, инабияҳоро истифода баред</string>
     <string name="kg_infinity_wallpaper_option_description">Тасвири беинтиҳои замина якбора ба экранҳои Асосӣ ва Бандкунӣ татбиқ карда мешавад. Барои таҷрибаи беҳтарин, танзими зеринро фурӯзон кунед.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Фурӯзон кардани Always On Display</string>
 </resources>

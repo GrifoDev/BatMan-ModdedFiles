@@ -146,7 +146,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mTokenMap:Landroid/util/ArrayMap;
 
-    const/16 v1, 0x9
+    const/4 v1, 0x5
 
     iput v1, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
 
@@ -890,34 +890,93 @@
 .end method
 
 .method public recalculateBindAllowance()V
-    .locals 7
+    .locals 11
 
-    iget-object v6, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+    const/4 v10, 0x1
 
-    monitor-enter v6
+    iget-object v9, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+
+    monitor-enter v9
 
     :try_start_0
-    new-instance v4, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    iget-object v5, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+    iget-object v8, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
 
-    invoke-virtual {v5}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
+    invoke-virtual {v8}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
 
-    move-result-object v5
+    move-result-object v8
 
-    invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v7, v8}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v6
+    monitor-exit v9
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    iget v5, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
+    new-instance v6, Ljava/util/ArrayList;
 
-    if-le v0, v5, :cond_1
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-virtual {v8}, Lcom/android/systemui/qs/external/TileServiceManager;->getIsDefaultTile()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-virtual {v8, v10}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
+
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v8
+
+    monitor-exit v9
+
+    throw v8
+
+    :cond_0
+    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-virtual {v6, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+
+    move-result v5
+
+    iget v8, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
+
+    if-le v5, v8, :cond_3
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -925,76 +984,67 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/qs/external/TileServiceManager;
-
-    invoke-virtual {v5, v2, v3}, Lcom/android/systemui/qs/external/TileServiceManager;->calculateBindPriority(J)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v5
-
-    monitor-exit v6
-
-    throw v5
-
-    :cond_0
-    sget-object v5, Lcom/android/systemui/qs/external/TileServices;->SERVICE_SORT:Ljava/util/Comparator;
-
-    invoke-static {v4, v5}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    :cond_1
-    const/4 v1, 0x0
-
-    :goto_1
-    iget v5, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
-
+    :goto_2
     if-ge v1, v5, :cond_2
 
-    if-ge v1, v0, :cond_2
+    invoke-virtual {v6, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result-object v8
 
-    move-result-object v5
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
 
-    check-cast v5, Lcom/android/systemui/qs/external/TileServiceManager;
-
-    const/4 v6, 0x1
-
-    invoke-virtual {v5, v6}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    :cond_2
-    :goto_2
-    if-ge v1, v0, :cond_3
-
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/qs/external/TileServiceManager;
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v5, v6}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
+    invoke-virtual {v8, v2, v3}, Lcom/android/systemui/qs/external/TileServiceManager;->calculateBindPriority(J)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
+    :cond_2
+    sget-object v8, Lcom/android/systemui/qs/external/TileServices;->SERVICE_SORT:Ljava/util/Comparator;
+
+    invoke-static {v6, v8}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
     :cond_3
+    const/4 v4, 0x0
+
+    :goto_3
+    iget v8, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
+
+    if-ge v4, v8, :cond_4
+
+    if-ge v4, v5, :cond_4
+
+    invoke-virtual {v6, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-virtual {v8, v10}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_3
+
+    :cond_4
+    :goto_4
+    if-ge v4, v5, :cond_5
+
+    invoke-virtual {v6, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v8, v9}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_4
+
+    :cond_5
     return-void
 .end method
 

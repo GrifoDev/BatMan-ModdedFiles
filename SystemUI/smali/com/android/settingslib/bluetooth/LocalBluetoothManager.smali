@@ -12,6 +12,10 @@
 
 
 # static fields
+.field private static mForegroundCount:I
+
+.field private static mSystemUiInstance:Z
+
 .field private static sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
 
@@ -28,6 +32,20 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    sput v0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mForegroundCount:I
+
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mSystemUiInstance:Z
+
+    return-void
+.end method
+
 .method private constructor <init>(Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;Landroid/content/Context;)V
     .locals 4
 
@@ -86,7 +104,7 @@
     :try_start_0
     sget-object v2, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     const-string/jumbo v2, "LocalBluetoothManager"
 
@@ -136,7 +154,16 @@
 
     invoke-interface {p1, v1, v2}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager$BluetoothManagerCallback;->onBluetoothManagerInitialized(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)V
 
+    const/4 v2, 0x0
+
+    sput-boolean v2, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mSystemUiInstance:Z
+
     :cond_1
+    const/4 v2, 0x0
+
+    sput v2, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mForegroundCount:I
+
+    :cond_2
     sget-object v2, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -193,4 +220,12 @@
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     return-object v0
+.end method
+
+.method public instanceForSystemUI()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mSystemUiInstance:Z
+
+    return v0
 .end method

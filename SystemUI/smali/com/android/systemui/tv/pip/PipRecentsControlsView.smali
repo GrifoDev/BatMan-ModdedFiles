@@ -203,7 +203,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v1, 0x7f130503
+    const v1, 0x7f13050d
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/tv/pip/PipRecentsControlsView;->findViewById(I)Landroid/view/View;
 

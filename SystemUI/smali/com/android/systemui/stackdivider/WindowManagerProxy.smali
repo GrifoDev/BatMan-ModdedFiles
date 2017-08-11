@@ -58,6 +58,8 @@
 
 .field private final mMaximizeStackRunnable:Ljava/lang/Runnable;
 
+.field private mMoveToTop:Z
+
 .field private final mMultiWindowManager:Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
 
 .field private final mResizeDockedRectRunnable:Ljava/lang/Runnable;
@@ -65,8 +67,6 @@
 .field private final mResizeRunnable:Ljava/lang/Runnable;
 
 .field private final mSetTouchableRegionRunnable:Ljava/lang/Runnable;
-
-.field private mShouldRemove:Z
 
 .field private mSnapCaller:Ljava/lang/String;
 
@@ -254,20 +254,20 @@
     return v0
 .end method
 
-.method static synthetic -get6(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
+.method static synthetic -get6(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMoveToTop:Z
+
+    return v0
+.end method
+
+.method static synthetic -get7(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMultiWindowManager:Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
 
     return-object v0
-.end method
-
-.method static synthetic -get7(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mShouldRemove:Z
-
-    return v0
 .end method
 
 .method static synthetic -get8(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Ljava/lang/String;
@@ -634,7 +634,7 @@
 .method public maximizeFocusedStackByDivider(Z)V
     .locals 2
 
-    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mShouldRemove:Z
+    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMoveToTop:Z
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
 

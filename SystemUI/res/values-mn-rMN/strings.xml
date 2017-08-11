@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Үл таних</string>
     <string name="save">Хадгалах</string>
     <string name="ok">Батлах</string>
-    <string name="battery_history_hours_no_seconds">%1$dц %2$dм</string>
-    <string name="battery_history_minutes_no_seconds">%dм</string>
+    <string name="battery_history_hours_no_seconds">%1$dц %2$dмин</string>
+    <string name="battery_history_minutes_no_seconds">%d мин</string>
     <string name="wifi_fail_to_scan">Сүлжээнүүдийг скан хийх боломжгүй</string>
     <string name="wifi_failed_to_obtain_IP">Failed to obtain IP address.</string>
     <string name="wifi_security_none">Байхгүй</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s-д холбогдох боломжгүй.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s-д холбогдох боломжгүй. %2$s дээр тохиргоонуудаа шалгаад дахин оролдоно уу.</string>
     <string name="bluetooth_pairing_rejected_error_message">Хослуулалтыг %s няцаав</string>
+    <string name="bluetooth_getting_remote_device_name">Төхөөрөмжийн нэрийг авч байна…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Энэ төхөөрөмж холбогдох үед төхөөрөмжийн нэр харагдана.</string>
     <string name="accessibility_wifi_off">Wifi унтраалттай байна.</string>
     <string name="accessibility_no_wifi">Wifi холбогдоогүй байна.</string>
     <string name="accessibility_wifi_one_bar">Wifi сүлжээний дохио нэг баганатай байна.</string>
@@ -1363,6 +1365,7 @@ Wi-Fi болон Bluetooth мөн унтрах боловч тэднийг То�
     <string name="keyboard_key_insert">Оруулах</string>
     <string name="keyboard_key_num_lock">Тоо бичих горим</string>
     <string name="keyboard_key_numpad_template">Тоо бичих товчлуур %1$s</string>
+    <string name="keyboard_popup_help">Мета түлхүүр: Windows, Command, эсвэл бусад үйлдлийн системийн бэлэг тэмдэг товч.</string>
     <string name="keyboard_shortcut_group_system">Системийн холбоос</string>
     <string name="keyboard_shortcut_group_system_home">Нүүр хуудас</string>
     <string name="keyboard_shortcut_group_system_recents">Саяхны</string>
@@ -1524,8 +1527,8 @@ Wi-Fi болон Bluetooth мөн унтрах боловч тэднийг То�
 
 Усанд гэмтээхээс хамгаалахын тулд SIM/SD картын тавиурыг сайтар битүүмжилсэн эсэхээ нягтална уу."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Усанд гэмтээхээс хамгаалахын тулд SIM/SD картын тавиурыг сайтар битүүмжилсэн эсэхээ нягтална уу.</string>
-    <string name="water_protection_notification_title">Портыг шалга</string>
-    <string name="water_protection_notification_body">Чийг илэрлээ. Төхөөрөмжөө цэнэглэхдээ цэнэглэгч/USB порт хуурай эсэхийг нягтална уу.</string>
+    <string name="water_protection_notification_title">Цэнэглэгчийг салгах</string>
+    <string name="water_protection_notification_body">Чийг илэрлээ. Цэнэглэгчийг салгаад цэнэглэг, USB порт бүгд хуурай эсэхийг шалгана уу.</string>
     <string name="full_battery_title">Мэдээлэл</string>
     <string name="full_battery_noti_text">Battery fully charged.</string>
     <string name="cooling_title">Төхөөрөмж хэт халж байна</string>
@@ -1619,6 +1622,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">Удаан цэнэглэх</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Хурдан цэнэглэхийн тулд төхөөрөмжид дагалдаж ирсэн цэнэглэгчийг зохих зааврын дагуу залгана уу.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Цэнэглэгчийг зөв залгана уу. Төхөөрөмжид дагалдаж ирсэн цэнэглэгчийг залгана уу.</string>
     <string name="battery_charging_level_and_time_text">"Цэнэглэлт: %1$d%%
 (Ойролцоогоор %2$s хүртэл бүрэн цэнэглэгдэнэ)"</string>
@@ -1632,14 +1636,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">Утсаа цэнэглэ.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Таблетаа цэнэглэ.</string>
     <string name="button_close">Хаах</string>
-    <string name="battery_health_interruption_title">Цэнэглэх боломжгүй</string>
+    <string name="battery_health_interruption_title">Цэнэглэлт зогслоо</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Цэнэглэгчийг салгах</string>
     <string name="battery_health_interruption_by_terminal_open_text">Таны төхөөрөмжийг цэнэглэх боломжгүй. Та Samsung-ийн нийцтэй зай, цэнэглэгч хэрэглэж байгаа бөгөөд таны төхөөрөмж цэнэглэгчид зөв холбогдсон эсэхийг нягтал.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Цэнэглэхийг түр зогсоосон. Зайн температур хэт өндөр байна.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Цэнэглэхийг түр зогсоосон. Зайн температур хэт бага байна.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Төхөөрөмж цэнэглэхийг зогсоосон. Зайн температур хэт өндөр байна. Цэнэглэгчийг салгахдаа болгоомжтой бай. Энэ нь их халсан байж болно.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Таны утасны температур хэт өндөр байна. Температур хэвийн болмогц цэнэглэхийг үргэлжлүүлнэ.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Таны таблетын температур хэт өндөр байна. Температур хэвийн болмогц цэнэглэхийг үргэлжлүүлнэ.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Таны утасны температур хэт бага байна. Температур хэвийн болмогц цэнэглэхийг үргэлжлүүлнэ.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Таны таблетын температур хэт бага байна. Температур хэвийн болмогц цэнэглэхийг үргэлжлүүлнэ.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Цэнэглэлтийг зогсоосон. Таны утасны температур хэт өндөр байна. Цэнэглэгчийг салгахдаа болгоомжтой бай. Маш их халсан байж болзошгүй.
 
-Цэнэглэгчийг салгаж, дахин залгахад хэвийн үргэлжлүүлэн цэнэглэж болно. Хэрэв хэт халалтын асуудал арилахгүй бол, гал эсвэл осол гарч болзошгүй учраас үйлчилгээний албанд ханд."</string>
+Цэнэглэгчийг салгаж дахин холбох нь үргэлжлүүлэн хэвийн цэнэглэхийг зөвшөөрч болзошгүй. Хэрэв хэт халалтын асуудал арилахгүй бол, гал эсвэл осол гарч болзошгүй учраас Үйлчилгээний алба руу холбоо барина уу."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Цэнэглэлтийг зогсоосон. Таны таблетын температур хэт өндөр байна. Цэнэглэгчийг салгахдаа болгоомжтой бай. Маш их халсан байж болзошгүй.
+
+Цэнэглэгчийг салгаж дахин холбох нь үргэлжлүүлэн хэвийн цэнэглэхийг зөвшөөрч болзошгүй. Хэрэв хэт халалтын асуудал арилахгүй бол, гал эсвэл осол гарч болзошгүй учраас Үйлчилгээний алба руу холбоо барина уу."</string>
     <string name="incompatible_charger_title">Цэнэглээгүй байна</string>
     <string name="incompatible_charger_dialog_text">Холбосон цэнэглэгч нь энэ утастай нийцэхгүй байна. Таны утсанд гэмтэл учруулахаас сэргийлж, цэнэглэлтийг зогсоосон. Үргэлжлүүлэн цэнэглэхийн тулд, энэ утсыг дагалдан ирсэн оригинал цэнэглэгч болон кабель ашигла.</string>
     <string name="incompatible_charger_notification_text">Цэнэглэх боломжгүй. Оригинал цэнэглэгч ашигла.</string>
@@ -1655,8 +1665,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">Нээхийн тулд биометр ашигла эсвэл дэлгэцийг шудар</string>
     <string name="kg_face_or_swipe_unlock_instructions">Түгжээ тайлахын тулд нүүр таних функцийг ашигла эсвэл дэлгэцийг шудар</string>
     <string name="kg_face_or_swipe_active_instructions">Нээхийн тулд нүүр таних функцийг ашигла эсвэл дэлгэцийг шудар</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Түгжээ тайлахын тулд нүүр таних функцийг ашигла эсвэл оронд нь солонгон бүрхэвч ашиглахын тулд дэлгэцийг шудар</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Нээхийн тулд нүүр таних функцийг ашигла эсвэл оронд нь солонгон бүрхэвч ашиглахын тулд дэлгэцийг шудар</string>
     <string name="kg_face_unlock_instructions">Нүүр танилтаар дэлгэцийн түгжээ тайлахын тулд шудар</string>
     <string name="kg_face_or_fingerprint_active_instructions">Нээхийн тулд хурууны хээ ашигла эсвэл оронд нь нүүр танилт ашиглахын тулд дэлгэцийг шудар</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Түгжээ тайлахын тулд хурууны хээ ашигла эсвэл оронд нь нүүр танилт ашиглахын тулд дэлгэцийг шудар</string>
@@ -1671,6 +1679,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">Дэлгэцийг нээхдээ хоёр хуруугаараа шудар</string>
     <string name="kg_swipe_active_instructions">Дэлгэцийг шудраад нээ</string>
     <string name="kg_swipe_unlock_instructions">Түгжээг нээхдээ дэлгэцийг шударна</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Биометр ашиглах буюу дэлгэцийг хоёр хуруугаар шудраад түгжээг тайлна.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Биометр ашиглах буюу дэлгэцийг хоёр хуруугаар шудраад нээнэ.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Нүүр таних аргыг ашиглах буюу дэлгэцийг хоёр хуруугаар шудраад түгжээг тайлна.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Нүүр таних аргыг ашиглах буюу дэлгэцийг хоёр хуруугаар шудраад нээнэ.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Нүүр таних аргаар түгжээг тайлахын тулд дэлгэцийг хоёр хуруугаар шударна уу.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Хурууны хээ ашиглаад нээх буюу хоёр хуруугаар шудраад нүүр таних аргыг ашиглана.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Хурууны хээ ашиглаад түгжээг тайлах буюу хоёр хуруугаар шудраад нүүр таних аргыг ашиглана.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Хурууны хээ ашиглаад нээх буюу хоёр хуруугаар шудраад солонгон бүрхэвч ашиглана.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Хурууны хээ ашиглаад түгжээг тайлах буюу хоёр хуруугаар шудраад солонгон бүрхэвч ашиглана.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Хурууны хээ ашиглах буюу дэлгэцийг хоёр хуруугаар шудраад нээнэ.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Хурууны хээ ашиглах буюу дэлгэцийг хоёр хуруугаар шудраад түгжээг тайлна.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Солонгон бүрхэвчээр түгжээг тайлахын тулд дэлгэцийг хоёр хуруугаар шударна уу.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Солонгон бүрхэвч ашиглах буюу дэлгэцийг хоёр хуруугаар шудраад түгжээг тайлна.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Солонгон бүрхэвч ашиглах буюу дэлгэцийг хоёр хуруугаар шудраад нээнэ.</string>
     <string name="kg_power_connect_charger">Цэнэглэгчээ залгана уу</string>
     <string name="kg_power_fully_charged">Бүрэн цэнэглэсэн</string>
     <string name="kg_power_fast_charging">Хурдан цэнэглэх: %d%%</string>
@@ -1754,6 +1776,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Илгээх</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Утасны түгжээг тайлахын тулд Түгжих товчийг хоёр товш</string>
     <string name="s_view_cover_toast_pop_up_message">Хавтсаа нэгээд түргэн тохиргооны товчийг ашигла.</string>
     <string name="remote_input_toast_text_on_sview_cover">S view хавтсыг хаасан үед Түргэн хариу илгээх функцийг ашиглах боломжгүй.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Та хуваалцсан тэжээлийн хэмжээг хянахын тулд аппыг татаж авах ёстой. Хэрэв та төхөөрөмжөө аппгүй Samsung-ийн тэжээл хуваалцах кабель EP-SG900-ээр өөр төхөөрөмжтэй холбовол, зайн цэнэгийн нийт хэмжээ нөгөө төхөөрөмжид шилжинэ. 
@@ -1790,7 +1813,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Би зөвшөөрч байна</string>
-    <string name="force_immersive_guide_text">Энэ дүрсийг товшвол чиглүүлэх мөрийг нууна. Дэлгэцийн доод талаас дээш шудраад чиглүүлэх товчнуудыг ашиглаж болно. Чиглүүлэх мөр харагдаж байвал зүүн талын дүрсэн дээр давхар товшоод байгаа газар нь түгжиж болно. Эх дэлгэц гэх мэт зарим дэлгэцэн дээр чиглүүлэх мөр байнга харагдана.</string>
+    <string name="force_immersive_guide_text">Энэ товчийг товшсоноор чиглүүлэх мөрийг нууна. Та дэлгэцийн доод талаас дээш шудраад чиглүүлэх товчийг ашиглаж болно. Чиглүүлэх мөр харагдаж байвал та энэ товчийг дахин дараад байранд нь түгжиж болно. Эх дэлгэц зэрэг зарим дэлгэцэнд чиглүүлэх мөрийг байнга харуулна. Хэрвээ чиглүүлэх мөрийг нуусан үед хэрэглүүр хэвийн ажиллахгүй байвал чиглүүлэх мөрийг түгжээд хэрэглүүрийг дахин эхлүүлнэ үү.</string>
+    <string name="force_immersive_guide_dialog_title">Чиглүүлэх мөрийг нуух:</string>
+    <string name="force_immersive_guide_dialog_message1">Энэ товчийг товшсоноор чиглүүлэх мөрийг нууна.</string>
+    <string name="force_immersive_guide_dialog_message2">Дэлгэцийн доод хэсгээс дээшээгээ шударч чиглүүлэх мөрийг харна уу.</string>
+    <string name="force_immersive_guide_dialog_message3">Энэ товчыг дахин товшиж үүнийг байранд нь түгж.</string>
+    <string name="force_immersive_guide_dialog_message4">Эх дэлгэц зэрэг зарим дэлгэцэд чиглүүлэх мөрийг байнга харуулна.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Энэ товчлуурыг нуухын тулд Тохиргоо руу > Дэлгэц > Чиглүүлэх мөр.</string>
+    <string name="force_immersive_guide_dialog_setting">Тохиргоо</string>
+    <string name="force_immersive_guide_dialog_ok">ОК</string>
     <string name="car_lockscreen_disclaimer_title">Жолооны аюулгүй байдал</string>
     <string name="car_lockscreen_disclaimer_text">Жолоодох нөхцөлийн талаар бүрэн ойлгож, холбогдох дүрэм журмыг мөрдөөрэй. Чиглэл нь тодорхой бус, гүйцэт бус, аюултай, тохиромжгүй, хориглосон эсвэл тусгай хамгаалалттай газар нутагт нэвтэрсэн байж болзошгүй. Бизнесийн мэдээлэл мөн адил тохиромжгүй эсвэл гүйцэт бус байна. Өгөгдөл нь тухайн цаг хугацааных биш учир байршлыг зөв тодорхойлсон эсэхийг батлах боломжгүй. Жолоодож байхдаа гар утсаа болон Android Автод зориулаагүй апп-г бүү ашиглаарай.</string>
     <string name="pip_close">PIP-г хаах</string>
@@ -2229,6 +2260,8 @@ PIN 4-8 оронтой байх ёстой."</string>
     <string name="kg_face_retry_content_description">Нүүр танилт ашиглахын тулд хоёр товш.</string>
     <string name="kg_face_authentication_error_retry_text">Нүүр илэрсэнгүй. Нүүр танилт дахин оролдохын тулд дүрсийг товш</string>
     <string name="kg_face_authentication_failed_retry_text">Таарсан зүйл байхгүй. Дүрсийг товшоод нүүр танилт ашигла</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Нүүр танихад бэрхшээл гарлаа. Товшоод дахин оролдоно уу</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Видео дуудлагын үеэр нүүр таних аргыг ашиглах боломжгүй</string>
     <string name="kg_fingerprint_no_match">Таарсан зүйл байхгүй</string>
     <string name="kg_finger_print_not_responding_error_message">Хурууны хээ мэдрэгч хариу үйлдэл үзүүлэхгүй байна. Дараа дахин оролд.</string>
     <string name="kg_finger_print_database_error_message">Хурууны хээний дата эвдэрсэн. Хурууны хээгээ дэлгэцийн түгжээний төрлөөр дахин тохируулаад хурууны хээгээ дахин нэмэх буюу дэлгэцийн түгжээний төрлийг өөрчилж болно.</string>
@@ -2365,6 +2398,8 @@ PIN 4-8 оронтой байх ёстой."</string>
     <string name="appicon_badge_new_item">1 шинэ зүйл</string>
     <string name="banner_apps_for_dex_detail">Galaxy Apps дах DeX-д тохируулсан хэрэглүүрүүд.</string>
     <string name="toast_cannot_move_more_than_items">%d-с олон зүйл зөөх боломжгүй.</string>
+    <string name="view_more_in_galaxy_apps">Galaxy Apps-с харах</string>
+    <string name="view_more_in_play_store">Play Store-с харах</string>
     <string name="uninstall_title">Хэрэглүүрүүдийг устгах уу?</string>
     <string name="uninstall_1_app_message">Та энэ хэрэглүүрийг устгамаар байна уу?</string>
     <string name="uninstall_apps_message">Дараах хэрэглүүрүүдийг устгана:</string>
@@ -2405,6 +2440,13 @@ PIN 4-8 оронтой байх ёстой."</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Мэдэгдлүүдийг нуу</string>
     <string name="volumepanel_notification">Мэдэгдэл</string>
     <string name="quick_settings_location_detail_device_only">Зөвхөн төхөөрөмж</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Цэнэглэхийг түр зогсоосон. Зайн температур хэт өндөр байна.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Цэнэглэхийг түр зогсоосон. Зайн температур хэт бага байна.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Төхөөрөмж цэнэглэхийг зогсоосон. Зайн температур хэт өндөр байна. Цэнэглэгчийг салгахдаа болгоомжтой бай. Энэ нь их халсан байж болно.
+
+Цэнэглэгчийг салгаж, дахин залгахад хэвийн үргэлжлүүлэн цэнэглэж болно. Хэрэв хэт халалтын асуудал арилахгүй бол, гал эсвэл осол гарч болзошгүй учраас үйлчилгээний албанд ханд."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Түгжээ тайлахын тулд нүүр таних функцийг ашигла эсвэл оронд нь солонгон бүрхэвч ашиглахын тулд дэлгэцийг шудар</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Нээхийн тулд нүүр таних функцийг ашигла эсвэл оронд нь солонгон бүрхэвч ашиглахын тулд дэлгэцийг шудар</string>
     <string name="kg_infinity_wallpaper_option_description">Төгсгөлгүй дэлгэцийн зургийг Эх дэлгэц ба Түгжих дэлгэц дээр зэрэг хэрэглэнэ. Доорх тохиргоог идэвхжүүлээд аятайхан болгоорой.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Always On Display-г идэвхжүүлэх</string>
 </resources>

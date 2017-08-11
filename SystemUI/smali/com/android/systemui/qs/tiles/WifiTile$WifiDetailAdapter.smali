@@ -329,10 +329,10 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0f03b0
+    const v0, 0x7f0f040d
 
     :goto_3
-    const v2, 0x7f020218
+    const v2, 0x7f02021c
 
     invoke-virtual {v1, v2, v0}, Lcom/android/systemui/qs/QSDetailItems;->setEmptyState(II)V
 
@@ -370,7 +370,7 @@
     goto :goto_2
 
     :cond_4
-    const v0, 0x7f0f03b1
+    const v0, 0x7f0f040e
 
     goto :goto_3
 .end method
@@ -402,7 +402,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f03aa
+    const v1, 0x7f0f0407
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -824,17 +824,17 @@
 
     if-eqz p1, :cond_4
 
-    const v0, 0x7f0f03b0
+    const v0, 0x7f0f040d
 
     :goto_0
-    const v2, 0x7f020218
+    const v2, 0x7f02021c
 
     invoke-virtual {v1, v2, v0}, Lcom/android/systemui/qs/QSDetailItems;->setEmptyState(II)V
 
     return p1
 
     :cond_4
-    const v0, 0x7f0f03b1
+    const v0, 0x7f0f040e
 
     goto :goto_0
 .end method

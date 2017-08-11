@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showOverHeatPopUp()V
+    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showStartSaverConfirmation()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -41,26 +41,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set14(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
-
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$8;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get6(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$8;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-wrap7(Lcom/android/systemui/power/PowerNotificationWarnings;)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$8;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set5(Lcom/android/systemui/power/PowerNotificationWarnings;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set18(Lcom/android/systemui/power/PowerNotificationWarnings;Lcom/android/systemui/statusbar/phone/SystemUIDialog;)Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 
     return-void
 .end method

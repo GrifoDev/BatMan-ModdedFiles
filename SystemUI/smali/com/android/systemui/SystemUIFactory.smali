@@ -19,7 +19,7 @@
 .method public static createFromConfig(Landroid/content/Context;)V
     .locals 6
 
-    const v3, 0x7f0f0248
+    const v3, 0x7f0f02a5
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

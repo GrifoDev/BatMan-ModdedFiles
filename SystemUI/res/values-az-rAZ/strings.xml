@@ -70,7 +70,7 @@
     <string name="save">Saxlayın</string>
     <string name="ok">OK</string>
     <string name="battery_history_hours_no_seconds">%1$ds %2$dd</string>
-    <string name="battery_history_minutes_no_seconds">%dd</string>
+    <string name="battery_history_minutes_no_seconds">%d d</string>
     <string name="wifi_fail_to_scan">Şəbəkə axtarmaq olmur</string>
     <string name="wifi_failed_to_obtain_IP">IP ünvanın əldə edilməsi alınmadı.</string>
     <string name="wifi_security_none">Heç biri</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s-a qoşulmaq olmadı.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s-a qoşulmaq olmur. Parametrlərinizi %2$s-də yoxlayın və yenidən cəhd edin.</string>
     <string name="bluetooth_pairing_rejected_error_message">Qoşma %s tərəfindən rədd edildi.</string>
+    <string name="bluetooth_getting_remote_device_name">Cihazın adı əldə edilir…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Cihazın adı cihaz qoşulduqda görünəcək.</string>
     <string name="accessibility_wifi_off">Wifi sönülüdür.</string>
     <string name="accessibility_no_wifi">Wifi bağlantı kəsildi.</string>
     <string name="accessibility_wifi_one_bar">Wifi bir xətdir.</string>
@@ -1363,6 +1365,7 @@ Siz, həmçinin, %3$s tətbiqinə də qoşulsunuz və o, şəxsi şəbəkə fəa
     <string name="keyboard_key_insert">Daxil edin</string>
     <string name="keyboard_key_num_lock">Nömrələr</string>
     <string name="keyboard_key_numpad_template">Rəqəmli düymələr %1$s</string>
+    <string name="keyboard_popup_help">Meta açar: Windows, Əmr və digər əməliyyat sistemlərinin simvol açarı.</string>
     <string name="keyboard_shortcut_group_system">Sistem qısayolları</string>
     <string name="keyboard_shortcut_group_system_home">Əsas səhifə</string>
     <string name="keyboard_shortcut_group_system_recents">Sonuncular</string>
@@ -1524,8 +1527,8 @@ Siz, həmçinin, %3$s tətbiqinə də qoşulsunuz və o, şəxsi şəbəkə fəa
 
 Sudan zədələnmənin qarşısını almaq üçün SIM/SD kart yerinin yaxşı bağlandığından əmin olun."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Sudan zədələnmənin qarşısını almaq üçün SIM/SD kart yerinin yaxşı bağlandığından əmin olun.</string>
-    <string name="water_protection_notification_title">Portu yoxla</string>
-    <string name="water_protection_notification_body">Nəm aşkar edildi. Cihazı yükləmək üçün adapter/USB portun quru olmasından əmin olun.</string>
+    <string name="water_protection_notification_title">Adapteri rozetkadan çıxarın</string>
+    <string name="water_protection_notification_body">Nəm aşkar edildi. Adapteri ayırın və adapter və USB portunun quru olduğundan əmin olun.</string>
     <string name="full_battery_title">Məlumat</string>
     <string name="full_battery_noti_text">Batareya tam doludur.</string>
     <string name="cooling_title">Cihaz həddən artıq qızır</string>
@@ -1619,6 +1622,7 @@ Həddindən artıq qızmaya aşağıdakılar səbəb ola bilər:
     <string name="battery_not_fully_connected_charging_title">Asta yükləmə</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Daha tez yükləmək üçün cihazın qutusunda olan adapterdən istifadə edin və düzgün qoşulduğundan əmin olun.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Adapterin düzgün qoşulduğundan əmin olun. Cihazın qutusunda olan adapterdən istifadə edin.</string>
     <string name="battery_charging_level_and_time_text">"Yüklənir: %1$d%%
 (Tam dolanadək təqribən %2$s)"</string>
@@ -1632,14 +1636,20 @@ Həddindən artıq qızmaya aşağıdakılar səbəb ola bilər:
     <string name="battery_saver_recommend_notification_text_phone_psm">Telefonu yükləyin.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Tableti yükləyin.</string>
     <string name="button_close">Bağla</string>
-    <string name="battery_health_interruption_title">Enerji yükləmək mümkün deyil</string>
+    <string name="battery_health_interruption_title">Yüklənmə dayandı</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Adapteri çıxar</string>
     <string name="battery_health_interruption_by_terminal_open_text">Cihazınızı yükləmək mümkün olmadı. Uyğun Samsung batareyasından və adapterindən istifadə etdiyinizdən və cihazın adapterə düzgün qoşulduğundan əmin olun.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Doldurulmaya pauza verildi. Batareyanın temperaturu çox yüksəkdir.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Doldurulmaya pauza verildi. Batareyanın temperaturu çox aşağıdır.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Cihazın yüklənməsi dayanmışdır. Batareyanın temperaturu çox yüksəkdir. Adapteri çıxaran zaman ehtiyatlı olun. O, çox qaynar ola bilər.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Telefonun temperaturu çox yüksəkdir. Temperatur normala qayıtdıqda yükləmə davam edəcək.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Tabletin temperaturu çox yüksəkdir. Temperatur normala qayıtdıqda yükləmə davam edəcək.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Telefonun temperaturu çox aşağıdır. Temperatur normala qayıtdıqda yükləmə davam edəcək.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Tabletin temperaturu çox aşağıdır. Temperatur normala qayıtdıqda yükləmə davam edəcək.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Yükləmə dayandı. Telefonun temperaturu çox yüksəkdir. Adapteri çıxaran zaman ehtiyatlı olun. O, çox qaynar ola bilər.
 
-Adapterin çıxarılması və taxılması yükləmənin normal getməsinə imkan verə bilər. Həddindən artıq qızma qalarsa, müştəri xidmətləri ilə əlaqə saxlayın, çünki yanğın və ya xəsarət riski ola bilər."</string>
+Adapterin çıxarılması və taxılması yükləmənin normal getməsinə imkan verə bilər. Həddindən artıq qızma qalarsa, Müştəri Xidməti ilə əlaqə saxlayın, çünki yanğın və ya xəsarət riski ola bilər."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Yükləmə dayandı. Tabletin temperaturu çox yüksəkdir. Adapteri çıxaran zaman ehtiyatlı olun. O, çox qaynar ola bilər.
+
+Adapterin çıxarılması və taxılması yükləmənin normal getməsinə imkan verə bilər. Həddindən artıq qızma qalarsa, Müştəri Xidməti ilə əlaqə saxlayın, çünki yanğın və ya xəsarət riski ola bilər."</string>
     <string name="incompatible_charger_title">Doldurulmur.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1655,8 +1665,6 @@ Bu ani mesajın gələcəkdə çıxmasının qarşısını almaq üçün təxmin
     <string name="kg_biometrics_swipe_active_instructions">Açmaq üçün bioölçülərdən istifadə et və ya ekranda sürüşdür</string>
     <string name="kg_face_or_swipe_unlock_instructions">Kiliddən açmaq üçün üz tanınmasından istifadə et və ya ekranda sürüşdür</string>
     <string name="kg_face_or_swipe_active_instructions">Açmaq üçün üz tanınmasından istifadə et və ya ekranda sürüşdür</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Kiliddən açmaq üçün üz tanınmasından istifadə et və ya əvəzində diafraqmalardan istifadə etmək üçün ekranı sürüşdür</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Açmaq üçün üz tanınmasından istifadə et və ya əvəzində diafraqmalardan istifadə etmək üçün ekranı sürüşdür</string>
     <string name="kg_face_unlock_instructions">Üz tanınması ilə kiliddən açmaq üçün ekranı sürüşdürün</string>
     <string name="kg_face_or_fingerprint_active_instructions">Əvəzində üz tanınmasından istifadə etmək üçün barmaq izi ilə ekranı aç və ya sürüşdür</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Əvəzində üz tanınmasından istifadə etmək üçün barmaq izi ilə ekranı kiliddən aç və ya sürüşdür</string>
@@ -1671,6 +1679,20 @@ Bu ani mesajın gələcəkdə çıxmasının qarşısını almaq üçün təxmin
     <string name="kg_voice_assistant_unlock_instructions">Ekran kilidin açmaq üçün iki barmağınızla sürüşdürün.</string>
     <string name="kg_swipe_active_instructions">Açmaq üçün ekranı sürüşdür</string>
     <string name="kg_swipe_unlock_instructions">Kilidi açmaq üçün ekranı çək</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Kiliddən açmaq üçün bioölçüdən istifadə edin və ya ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Açmaq üçün bioölçüdən istifadə edin və ya ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Kiliddən açmaq üçün üz tanınmasından istifadə edin və ya ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Açmaq üçün üz tanınmasından istifadə edin və ya ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Üz tanınması ilə kiliddən açmaq üçün ekranı iki barmağınıza sürüşdürün.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Açmaq üçün barmaq izindən istifadə edin və ya üz tanınmasından istifadə üçün ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Kiliddən açmaq üçün barmaq izindən istifadə edin və ya üz tanınmasından istifadə üçün ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Açmaq üçün barmaq izindən istifadə edin və ya diafraqmalardan istifadə üçün ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Kiliddən açmaq üçün barmaq izindən istifadə edin və ya diafraqmalardan istifadə üçün ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Açmaq üçün barmaq izindən istifadə edin və ya ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Kiliddən açmaq üçün barmaq izindən istifadə edin və ya ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Diafraqmalarla kiliddən açmaq üçün ekranı sürüşdürün.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Kiliddən açmaq üçün diafraqmalardan istifadə edin və ya ekranı iki barmaqla sürüşdürün.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Açmaq üçün diafraqmalardan istifadə edin və ya ekranı iki barmaqla sürüşdürün.</string>
     <string name="kg_power_connect_charger">Adapteri qoş</string>
     <string name="kg_power_fully_charged">Tam yükləndi</string>
     <string name="kg_power_fast_charging">Sürətli yükləmə: %d%%</string>
@@ -1754,6 +1776,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Göndər</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Telefonu kiliddən açmaq üçün Kilid düyməsinə iki dəfə vurun</string>
     <string name="s_view_cover_toast_pop_up_message">Cəld parametr düymələrindən istifadə etmək üçün qapağı açın.</string>
     <string name="remote_input_toast_text_on_sview_cover">S görünüş qapağı bağlı olduqda Cəld cavab funksiyasından istifadə etmək olmur.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1790,7 +1813,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Qəbul edirəm</string>
-    <string name="force_immersive_guide_text">Bu nişana vurmaq naviqasiya panelini gizlədir. Siz yenə də ekranın aşağısından yuxarı sürüşdürməklə naviqasiya düymələrindən istifadə edə bilərsiniz. Naviqasiya paneli görünən zaman onu yerində kilidləmək üçün bu nişana yenidən vura bilərsiniz. Əsas ekran kimi bəzi ekranlarda naviqasiya paneli həmişə görünəcək.</string>
+    <string name="force_immersive_guide_text">Bu düyməyə vurmaq naviqasiya panelini gizlədir. Yenə də ekranın aşağısından yuxarı sürüşdürməklə naviqasiya düymələrindən istifadə edə bilərsiniz. Naviqasiya paneli görünən zaman yerində kilidləmək üçün bu düyməyə yenidən vura bilərsiniz. Əsas ekran kimi bəzi ekranlarda naviqasiya paneli həmişə görünəcək. Naviqasiya paneli gizli olan zaman proqram normal işləmədikdə naviqasiya panelini yerində kilidləyin və proqramı yenidən açın.</string>
+    <string name="force_immersive_guide_dialog_title">Naviqasiya panelini gizlət:</string>
+    <string name="force_immersive_guide_dialog_message1">Bu düyməyə vurmaq naviqasiya panelini gizlədir.</string>
+    <string name="force_immersive_guide_dialog_message2">Naviqasiya panelini göstərmək üçün ekranın aşağısından yuxarı sürüşdürün.</string>
+    <string name="force_immersive_guide_dialog_message3">Yerində kilidləmək üçün bu düyməyə yenidən vurun.</string>
+    <string name="force_immersive_guide_dialog_message4">Əsas ekran kimi bəzi ekranlarda naviqasiya paneli həmişə görünəcək.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Bu düyməni gizlətmək üçün Parametrlər > Ekran > Naviqasiya paneli seçin.</string>
+    <string name="force_immersive_guide_dialog_setting">Parametrlər</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Təhlükəsiz sürün</string>
     <string name="car_lockscreen_disclaimer_text">Yol şəraitindən tam xəbərdar olun və hər zaman tətbiq olunan qaydalara riayət edin. İstiqamətlər qeyri-dəqiq, natamam, təhlükəli, uyğun olmayan, qadağan edilmiş və ya inzibati sahələrə keçid ilə nəticələnə bilər. Biznes məlumatı da qeyri-dəqiq və ya natamam ola bilər. Data real vaxtda deyil və məkan dəqiqliyinə zəmanət verilmir. Avtomobil idarə edərkən mobil cihazınızı elinizə almayın və ya Android Avto üçün nəzərdə tutulmamış tətbiqlərdən istifadə etməyin.</string>
     <string name="pip_close">PIP bağlayın</string>
@@ -2229,6 +2260,8 @@ PUK-unuzu bilmirsinizsə, müştəri xidməti ilə əlaqə saxlayın."</string>
     <string name="kg_face_retry_content_description">Üz tanınmasından istifadə etmək üçün iki dəfə vur.</string>
     <string name="kg_face_authentication_error_retry_text">Üz aşkarlanmadı. Üz tanınmasını yenidən sınamaq üçün nişana vurun</string>
     <string name="kg_face_authentication_failed_retry_text">Uyğunluq yoxdur. Üz tanınmasından istifadə etmək üçün nişana vurun</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Üz tanınmasında xəta baş verdi. Yenidən cəhd etmək üçün vur</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Video zənglər zamanı üz tanınmasından istifadə etmək olmur</string>
     <string name="kg_fingerprint_no_match">Uyğun deyil</string>
     <string name="kg_finger_print_not_responding_error_message">Barmaq izi sensoru cavab vermir. Daha sonra yenidən cəhd edin.</string>
     <string name="kg_finger_print_database_error_message">Barmaq izi məlumatı silindi. Barmaq izini ekran kilid növü kimi yenidən qurun və barmaq izlərinizi bir daha əlavə edin və ya ekran kilid növünü dəyişin.</string>
@@ -2365,6 +2398,8 @@ PUK-unuzu bilmirsinizsə, müştəri xidməti ilə əlaqə saxlayın."</string>
     <string name="appicon_badge_new_item">1 yeni element</string>
     <string name="banner_apps_for_dex_detail">Galaxy Apps-da DeX-optimallaşdırılmış proqramlardan zövq alın.</string>
     <string name="toast_cannot_move_more_than_items">%d elementdən çox köçürmək olmur.</string>
+    <string name="view_more_in_galaxy_apps">Galaxy Apps-da daha çoxuna bax</string>
+    <string name="view_more_in_play_store">Play Store-da daha çoxuna bax</string>
     <string name="uninstall_title">Proqramlar pozulsun?</string>
     <string name="uninstall_1_app_message">Bu proqramı pozmaq istəyirsiniz?</string>
     <string name="uninstall_apps_message">Aşağıdakı proqramlar pozulacaq:</string>
@@ -2405,6 +2440,13 @@ PUK-unuzu bilmirsinizsə, müştəri xidməti ilə əlaqə saxlayın."</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Bildirişləri gizlət</string>
     <string name="volumepanel_notification">Bildiriş</string>
     <string name="quick_settings_location_detail_device_only">Yalnız cihaz</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Doldurulmaya pauza verildi. Batareyanın temperaturu çox yüksəkdir.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Doldurulmaya pauza verildi. Batareyanın temperaturu çox aşağıdır.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Cihazın yüklənməsi dayanmışdır. Batareyanın temperaturu çox yüksəkdir. Adapteri çıxaran zaman ehtiyatlı olun. O, çox qaynar ola bilər.
+
+Adapterin çıxarılması və taxılması yükləmənin normal getməsinə imkan verə bilər. Həddindən artıq qızma qalarsa, müştəri xidmətləri ilə əlaqə saxlayın, çünki yanğın və ya xəsarət riski ola bilər."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Kiliddən açmaq üçün üz tanınmasından istifadə et və ya əvəzində diafraqmalardan istifadə etmək üçün ekranı sürüşdür</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Açmaq üçün üz tanınmasından istifadə et və ya əvəzində diafraqmalardan istifadə etmək üçün ekranı sürüşdür</string>
     <string name="kg_infinity_wallpaper_option_description">Sonsuzluq divar kağızı Əsas ekran və Kilid ekranına eyni anda tətbiq ediləcək. Ən yaxşı təcrübə üçün aşağıdakı parametri yandırın.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Always On Display yandır</string>
 </resources>

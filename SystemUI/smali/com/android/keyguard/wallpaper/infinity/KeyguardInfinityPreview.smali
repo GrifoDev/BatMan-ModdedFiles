@@ -1207,128 +1207,165 @@
 .end method
 
 .method private initBackgroundView()V
-    .locals 7
+    .locals 11
 
-    const-string/jumbo v4, "KeyguardInfinityPreview"
+    const-string/jumbo v8, "KeyguardInfinityPreview"
 
-    const-string/jumbo v5, "initBackgroundView()"
+    const-string/jumbo v9, "initBackgroundView()"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v4, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mAodGradientView:Lcom/android/keyguard/wallpaper/infinity/GradientView;
+    iget-object v8, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mAodGradientView:Lcom/android/keyguard/wallpaper/infinity/GradientView;
 
-    iget-object v5, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mColorInfo:Ljava/lang/String;
+    iget-object v9, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mColorInfo:Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Lcom/android/keyguard/wallpaper/infinity/GradientView;->setGradientColor(Ljava/lang/String;)V
+    invoke-virtual {v8, v9}, Lcom/android/keyguard/wallpaper/infinity/GradientView;->setGradientColor(Ljava/lang/String;)V
 
-    const-string/jumbo v2, "keyguard_default_wallpaper"
+    const-string/jumbo v5, "keyguard_default_wallpaper"
 
-    const-string/jumbo v0, "default_wallpaper"
+    const-string/jumbo v3, "default_wallpaper"
 
-    const-string/jumbo v4, "black"
+    const-string/jumbo v8, "black"
 
-    iget-object v5, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mColorInfo:Ljava/lang/String;
+    iget-object v9, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mColorInfo:Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "_"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mColorInfo:Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "_"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mColorInfo:Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    :cond_0
+    iget-object v8, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "drawable"
+
+    iget-object v10, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v10}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v5, v9, v10}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    if-lez v6, :cond_1
+
+    iget-object v8, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mLockBackgroundView:Landroid/widget/ImageView;
+
+    invoke-virtual {v8, v6}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    :cond_1
+    :try_start_0
+    iget-object v8, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v9, "com.samsung.android.wallpaper.res"
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v8, v9, v10}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "drawable"
+
+    const-string/jumbo v10, "com.samsung.android.wallpaper.res"
+
+    invoke-virtual {v8, v3, v9, v10}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-lez v4, :cond_2
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v8
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "_"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mColorInfo:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "_"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mColorInfo:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v8, v4}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    :cond_0
-    iget-object v4, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mContext:Landroid/content/Context;
+    new-instance v1, Landroid/graphics/drawable/BitmapDrawable;
 
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v4
+    move-result-object v8
 
-    const-string/jumbo v5, "drawable"
+    invoke-direct {v1, v8, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    iget-object v6, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mHomeBackgroundView:Landroid/widget/ImageView;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v4, v2, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v3
-
-    if-lez v3, :cond_1
-
-    iget-object v4, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mLockBackgroundView:Landroid/widget/ImageView;
-
-    invoke-virtual {v4, v3}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    :cond_1
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "drawable"
-
-    const-string/jumbo v6, "android"
-
-    invoke-virtual {v4, v0, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v1
-
-    if-lez v1, :cond_2
-
-    iget-object v4, p0, Lcom/android/keyguard/wallpaper/infinity/KeyguardInfinityPreview;->mHomeBackgroundView:Landroid/widget/ImageView;
-
-    invoke-virtual {v4, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v8, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_2
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v2
+
+    invoke-virtual {v2}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+
+    goto :goto_0
 .end method
 
 .method private initCapturedView()V

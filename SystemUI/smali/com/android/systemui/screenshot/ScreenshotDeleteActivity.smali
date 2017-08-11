@@ -41,7 +41,7 @@
 .method private doFinish()V
     .locals 2
 
-    const v1, 0x7f0f02a2
+    const v1, 0x7f0f02ff
 
     invoke-static {p0, v1}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -269,7 +269,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f02a3
+    const v5, 0x7f0f0300
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -293,7 +293,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f02a4
+    const v5, 0x7f0f0301
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

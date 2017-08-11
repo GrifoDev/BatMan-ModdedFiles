@@ -627,7 +627,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/EbookTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03ee
+    const v1, 0x7f0f044b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -836,7 +836,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/EbookTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f03de
+    const v2, 0x7f0f043b
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -844,7 +844,7 @@
 
     iput-object v1, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
-    const v1, 0x7f0203c9
+    const v1, 0x7f0203d1
 
     invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -906,7 +906,7 @@
     :cond_4
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/EbookTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f03ee
+    const v2, 0x7f0f044b
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -914,7 +914,7 @@
 
     iput-object v1, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
-    const v1, 0x7f0203cd
+    const v1, 0x7f0203d5
 
     invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

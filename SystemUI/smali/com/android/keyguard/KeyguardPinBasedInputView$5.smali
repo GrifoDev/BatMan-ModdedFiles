@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardPinBasedInputView;->onFinishInflate()V
+    value = Lcom/android/keyguard/KeyguardPinBasedInputView;->initialize()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

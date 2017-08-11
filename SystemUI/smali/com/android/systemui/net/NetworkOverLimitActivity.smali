@@ -29,17 +29,17 @@
 
     packed-switch v0, :pswitch_data_0
 
-    const v0, 0x7f0f0357
+    const v0, 0x7f0f03b4
 
     return v0
 
     :pswitch_0
-    const v0, 0x7f0f0354
+    const v0, 0x7f0f03b1
 
     return v0
 
     :pswitch_1
-    const v0, 0x7f0f0355
+    const v0, 0x7f0f03b2
 
     return v0
 
@@ -48,13 +48,13 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0f06fd
+    const v0, 0x7f0f076c
 
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x7f0f06fc
+    const v0, 0x7f0f076b
 
     goto :goto_0
 
@@ -132,7 +132,7 @@
 
     if-eqz v7, :cond_0
 
-    const v0, 0x7f0f06ff
+    const v0, 0x7f0f076e
 
     :goto_0
     invoke-virtual {v1, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -143,7 +143,7 @@
 
     if-eqz v7, :cond_1
 
-    const v4, 0x7f0f0701
+    const v4, 0x7f0f0770
 
     :goto_1
     const v7, 0x104000a
@@ -205,12 +205,12 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0f06fe
+    const v0, 0x7f0f076d
 
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0f0700
+    const v4, 0x7f0f076f
 
     goto :goto_1
 .end method

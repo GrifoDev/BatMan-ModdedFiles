@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Không biết</string>
     <string name="save">Lưu</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d giờ %2$d phút</string>
+    <string name="battery_history_minutes_no_seconds">%d phút</string>
     <string name="wifi_fail_to_scan">Không thể dò tìm mạng</string>
     <string name="wifi_failed_to_obtain_IP">Không nhận được địa chỉ IP.</string>
     <string name="wifi_security_none">Không</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Không thể kết nối với %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Không thể kết nối với %1$s. Hãy kiểm tra cài đặt trong %2$s và thử lại.</string>
     <string name="bluetooth_pairing_rejected_error_message">Việc ghép đôi bị từ chối bởi %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Đang tải thông tin tên thiết bị…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Tên thiết bị sẽ xuất hiện khi thiết bị này được kết nối.</string>
     <string name="accessibility_wifi_off">Đã tắt Wi-Fi.</string>
     <string name="accessibility_no_wifi">Đã ngắt kết nối Wi-Fi.</string>
     <string name="accessibility_wifi_one_bar">Tín hiệu Wi-Fi một vạch.</string>
@@ -1023,7 +1025,7 @@ Wi-Fi và Bluetooth cũng sẽ tắt nhưng bạn có thể bật lại trong C�
     <string name="quick_settings_reading_mode_detail_title">Chế độ Đọc</string>
     <string name="quick_settings_reading_mode_summary">Màn hình này được tối ưu hóa cho việc đọc. Chế độ này chỉ hoạt động với các ứng dụng đã chọn.</string>
     <string name="quick_settings_volte_summary">Dùng VoLTE khi có thể</string>
-    <string name="quick_settings_blf_detail_title">Bộ lọc ánh sáng xanh</string>
+    <string name="quick_settings_blf_detail_title">Lọc ánh sáng xanh</string>
     <string name="quick_settings_blf_detail_summary">Giảm mỏi mắt bằng cách hạn chế lượng ánh sáng xanh phát ra từ màn hình.</string>
     <string name="quick_settings_blf_detail_seekbar">Độ mờ</string>
     <string name="quick_settings_wificalling_summary">"Sử dụng mạng Wi-Fi để gọi và nhận cuộc gọi ở bất kỳ đâu mà không cần kết nối mạng di động.
@@ -1363,6 +1365,7 @@ Bạn được kết nối với %2$s. Ứng dụng này có thể giám sát ho
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Bàn phím số %1$s</string>
+    <string name="keyboard_popup_help">Phím meta: Windows, Command hoặc phím biểu tượng hệ điều hành khác.</string>
     <string name="keyboard_shortcut_group_system">Phím tắt hệ thống</string>
     <string name="keyboard_shortcut_group_system_home">Màn hình chính</string>
     <string name="keyboard_shortcut_group_system_recents">Gần đây</string>
@@ -1524,8 +1527,8 @@ Bạn được kết nối với %2$s. Ứng dụng này có thể giám sát ho
 
 Để bảo vệ khỏi những hỏng hóc do nước, hãy đảm bảo khay thẻ SIM/SD được đóng kín."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Để tránh bị hỏng do nước, hãy đảm bảo khay thẻ SIM/SD được đóng kín.</string>
-    <string name="water_protection_notification_title">Kiểm tra cổng kết nối</string>
-    <string name="water_protection_notification_body">Đã phát hiện độ ẩm. Để sạc thiết bị, hãy đảm bảo cổng Sạc/USB khô ráo.</string>
+    <string name="water_protection_notification_title">Tháo bộ sạc</string>
+    <string name="water_protection_notification_body">Đã phát hiện độ ẩm. Hãy tháo bộ sạc và đảm bảo cả bộ sạc và cổng USB đều khô ráo.</string>
     <string name="full_battery_title">Thông tin</string>
     <string name="full_battery_noti_text">Pin đã đầy.</string>
     <string name="cooling_title">Thiết bị đang quá nóng</string>
@@ -1619,6 +1622,7 @@ Tình trạng quá nóng có thể do:
     <string name="battery_not_fully_connected_charging_title">Sạc chậm</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Kết nối không hoàn chỉnh</string>
     <string name="battery_not_fully_connected_charging_text">Để sạc nhanh hơn, hãy sử dụng bộ sạc đi kèm với thiết bị của bạn và đảm bảo kết nối đúng cách.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Hãy đảm bảo bộ sạc được kết nối đúng cách.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Hãy đảm bảo bộ sạc được kết nối đúng cách. Hãy sử dụng bộ sạc đi kèm với thiết bị.</string>
     <string name="battery_charging_level_and_time_text">"Đang sạc: %1$d%%
 (Khoảng %2$s nữa sẽ sạc đầy)"</string>
@@ -1632,14 +1636,20 @@ Tình trạng quá nóng có thể do:
     <string name="battery_saver_recommend_notification_text_phone_psm">Hãy sạc điện thoại.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Hãy sạc máy tính bảng.</string>
     <string name="button_close">Đóng</string>
-    <string name="battery_health_interruption_title">Không thể sạc</string>
+    <string name="battery_health_interruption_title">Đã dừng sạc</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Hãy tháo bộ sạc</string>
     <string name="battery_health_interruption_by_terminal_open_text">Không thể sạc thiết bị. Đảm bảo bạn đang sử dụng pin và bộ sạc tương thích của Samsung và thiết bị của bạn được kết nối đúng cách với bộ sạc.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Không thể sạc thiết bị của bạn. Hãy đảm bảo bạn đang sử dụng pin và bộ sạc tương thích với Galaxy và thiết bị của bạn được kết nối với bộ sạc đúng cách.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Việc sạc pin đã tạm dừng. Nhiệt độ pin quá cao.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Việc sạc pin đã tạm dừng. Nhiệt độ pin quá thấp.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Thiết bị đã ngừng sạc. Nhiệt độ pin quá cao. Hãy cẩn thận khi ngắt kết nối bộ sạc. Nó có thể rất nóng.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Nhiệt độ điện thoại của bạn quá cao. Quá trình sạc sẽ tiếp tục khi nhiệt độ trở lại bình thường.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Nhiệt độ máy tính bảng của bạn quá cao. Quá trình sạc sẽ tiếp tục khi nhiệt độ trở lại bình thường.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Nhiệt độ điện thoại của bạn quá thấp. Quá trình sạc sẽ tiếp tục khi nhiệt độ trở lại bình thường.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Nhiệt độ máy tính bảng của bạn quá thấp. Quá trình sạc sẽ tiếp tục khi nhiệt độ trở lại bình thường.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Đã dừng sạc. Nhiệt độ điện thoại của bạn quá cao. Hãy cẩn thận khi ngắt kết nối bộ sạc. Thiết bị có thể rất nóng.
 
-Ngắt kết nối và kết nối lại bộ sạc có thể cho phép tiếp tục sạc bình thường. Nếu vẫn quá nóng, hãy liên hệ với dịch vụ khách hàng vì có thể có nguy cơ hỏa hoạn hoặc bị thương."</string>
+Ngắt kết nối rồi kết nối lại bộ sạc có thể cho phép sạc tiếp tục bình thường. Nếu tình trạng quá nhiệt vẫn tiếp diễn, hãy liên hệ với Dịch vụ khách hàng vì có thể xảy ra cháy nổ hoặc gây thương tích."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Đã dừng sạc. Nhiệt độ máy tính bảng của bạn quá cao. Hãy cẩn thận khi ngắt kết nối bộ sạc. Thiết bị có thể rất nóng.
+
+Ngắt kết nối rồi kết nối lại bộ sạc có thể cho phép sạc tiếp tục bình thường. Nếu tình trạng quá nhiệt vẫn tiếp diễn, hãy liên hệ với Dịch vụ khách hàng vì có thể xảy ra cháy nổ hoặc gây thương tích."</string>
     <string name="incompatible_charger_title">Không sạc.</string>
     <string name="incompatible_charger_dialog_text">Bộ sạc được kết nối không tương thích với điện thoại này. Để tránh làm hỏng điện thoại, hãy dừng sạc. Để tiếp tục sạc, hãy dùng bộ sạc và dây cáp gốc được cung cấp kèm theo điện thoại này.</string>
     <string name="incompatible_charger_notification_text">Không thể sạc được. Hãy dùng bộ sạc gốc.</string>
@@ -1655,8 +1665,6 @@ Ngắt kết nối và kết nối lại bộ sạc có thể cho phép tiếp t
     <string name="kg_biometrics_swipe_active_instructions">Dùng dữ liệu sinh trắc học hoặc vuốt màn hình để mở</string>
     <string name="kg_face_or_swipe_unlock_instructions">Sử dụng nhận diện khuôn mặt hoặc vuốt màn hình để mở khóa</string>
     <string name="kg_face_or_swipe_active_instructions">Sử dụng nhận diện khuôn mặt hoặc vuốt màn hình để mở</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Sử dụng nhận diện khuôn mặt để mở khóa hoặc vuốt màn hình để sử dụng mống mắt thay thế</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Sử dụng nhận diện khuôn mặt để mở hoặc vuốt màn hình để sử dụng mống mắt thay thế</string>
     <string name="kg_face_unlock_instructions">Vuốt màn hình để mở khóa bằng tính năng nhận diện khuôn mặt</string>
     <string name="kg_face_or_fingerprint_active_instructions">Sử dụng vân tay để mở hoặc vuốt màn hình để sử dụng nhận diện khuôn mặt</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Sử dụng vân tay để mở khóa hoặc vuốt màn hình để sử dụng nhận diện khuôn mặt</string>
@@ -1671,6 +1679,20 @@ Ngắt kết nối và kết nối lại bộ sạc có thể cho phép tiếp t
     <string name="kg_voice_assistant_unlock_instructions">Vuốt bằng hai ngón tay để mở màn hình</string>
     <string name="kg_swipe_active_instructions">Vuốt màn hình để mở</string>
     <string name="kg_swipe_unlock_instructions">Vuốt màn hình để mở khóa</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Sử dụng dữ liệu sinh trắc học hoặc vuốt màn hình bằng hai ngón tay để mở khóa.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Sử dụng dữ liệu sinh trắc học hoặc vuốt màn hình bằng hai ngón tay để mở.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Sử dụng tính năng nhận diện khuôn mặt hoặc vuốt màn hình bằng hai ngón tay để mở khóa.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Sử dụng tính năng nhận diện khuôn mặt hoặc vuốt màn hình bằng hai ngón tay để mở.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Vuốt màn hình bằng hai ngón tay để mở khóa bằng cách nhận diện khuôn mặt.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Sử dụng vân tay để mở hoặc vuốt màn hình bằng hai ngón tay để sử dụng tính năng nhận diện khuôn mặt.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Sử dụng vân tay để mở khóa hoặc vuốt màn hình bằng hai ngón tay để sử dụng tính năng nhận diện khuôn mặt.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Sử dụng vân tay để mở hoặc vuốt màn hình bằng hai ngón tay để sử dụng mống mắt.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Sử dụng vân tay để mở khóa hoặc vuốt màn hình bằng hai ngón tay để sử dụng mống mắt.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Sử dụng vân tay hoặc vuốt màn hình bằng hai ngón tay để mở.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Sử dụng vân tay hoặc vuốt màn hình bằng hai ngón tay để mở khóa.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Vuốt màn hình bằng hai ngón tay để dùng mống mắt mở khóa.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Sử dụng mống mắt hoặc vuốt màn hình bằng hai ngón tay để mở khóa.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Sử dụng mống mắt hoặc vuốt màn hình bằng hai ngón tay để mở.</string>
     <string name="kg_power_connect_charger">Kết nối bộ sạc</string>
     <string name="kg_power_fully_charged">Đã sạc đầy</string>
     <string name="kg_power_fast_charging">Sạc nhanh: %d%%</string>
@@ -1754,6 +1776,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Gửi</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Chạm biểu tượng Khóa để sử dụng mống mắt mở khóa thiết bị</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Sử dụng vân tay để mở khóa thiết bị hoặc chạm biểu tượng Khóa để sử dụng mống mắt thay thế</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Chạm hai lần phím Khóa để mở khóa điện thoại</string>
     <string name="s_view_cover_toast_pop_up_message">Mở nắp để sử dụng phím cài đặt nhanh.</string>
     <string name="remote_input_toast_text_on_sview_cover">Không thể sử dụng chức năng Trả lời nhanh khi đóng vỏ S view.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1790,7 +1813,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Tôi chấp nhận</string>
-    <string name="force_immersive_guide_text">Chạm biểu tượng này sẽ ẩn thanh điều hướng. Bạn vẫn có thể sử dụng các phím điều hướng bằng cách vuốt lên từ dưới cùng màn hình. Khi thanh điều hướng đang hiển thị, bạn có thể chạm vào biểu tượng này lần nữa để khóa cố định nó. Ở một số màn hình, ví dụ như Màn hình chờ, thanh điều hướng sẽ luôn hiển thị.</string>
+    <string name="force_immersive_guide_text">Chạm phím này sẽ ẩn thanh điều hướng. Bạn vẫn có thể sử dụng các phím điều hướng bằng cách vuốt lên từ dưới cùng màn hình. Khi thanh điều hướng đang hiển thị, bạn có thể chạm phím này lần nữa để khóa cố định nó. Trên một số màn hình, ví dụ như Màn hình chờ, thanh điều hướng sẽ luôn hiển thị. Nếu một ứng dụng không hoạt động bình thường khi ẩn thanh điều hướng, hãy khóa cố định thanh điều hướng và khởi động lại ứng dụng.</string>
+    <string name="force_immersive_guide_dialog_title">Ẩn thanh điều hướng:</string>
+    <string name="force_immersive_guide_dialog_message1">Chạm phím này sẽ ẩn thanh điều hướng.</string>
+    <string name="force_immersive_guide_dialog_message2">Vuốt lên từ dưới cùng màn hình để hiển thị thanh điều hướng.</string>
+    <string name="force_immersive_guide_dialog_message3">Chạm phím này lần nữa để khóa cố định thanh này.</string>
+    <string name="force_immersive_guide_dialog_message4">Trên một số màn hình như màn hình Chờ, thanh điều hướng sẽ luôn hiển thị.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Để ẩn phím này, hãy đi đến Cài đặt > Hiển thị > Thanh điều hướng.</string>
+    <string name="force_immersive_guide_dialog_setting">Cài đặt</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Lái xe an toàn</string>
     <string name="car_lockscreen_disclaimer_text">Luôn biết rõ điều kiện lái xe và luôn tuân thủ luật pháp hiện hành. Chỉ đường có thể không chính xác, không hoàn chỉnh, nguy hiểm, không thích hợp, bị cấm hoặc bao gồm tuyến đường giao các khu vực hành chính. Thông tin doanh nghiệp cũng có thể không chính xác hoặc không hoàn chỉnh. Dữ liệu không ở thời gian thực và không thể đảm bảo độ chính xác của vị trí. Không sử dụng thiết bị di động của bạn hoặc sử dụng ứng dụng không dành cho Android Auto trong khi lái xe.</string>
     <string name="pip_close">Đóng PIP</string>
@@ -2229,6 +2260,8 @@ Nếu bạn không biết mã PUK, hãy đến trung tâm dịch vụ khách hà
     <string name="kg_face_retry_content_description">Chạm hai lần để dùng nhận dạng khuôn mặt.</string>
     <string name="kg_face_authentication_error_retry_text">Không nhận diện được khuôn mặt. Chạm biểu tượng để thử nhận diện lại khuôn mặt</string>
     <string name="kg_face_authentication_failed_retry_text">Không khớp. Chạm biểu tượng để sử dụng nhận diện khuôn mặt</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Đã có sự cố với nhận diện khuôn mặt. Hãy chạm để thử lại</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Không thể sử dụng nhận diện khuôn mặt trong cuộc gọi video</string>
     <string name="kg_fingerprint_no_match">Không khớp</string>
     <string name="kg_finger_print_not_responding_error_message">Bộ cảm biến dấu vân tay không phản hồi. Hãy thử lại sau.</string>
     <string name="kg_finger_print_database_error_message">Dữ liệu vân tay đã bị hỏng. Đặt lại Vân tay làm kiểu khóa màn hình rồi thêm lại vân tay của bạn hoặc thay đổi kiểu khóa màn hình.</string>
@@ -2365,6 +2398,8 @@ Hãy thử lại sau 1 giây"</string>
     <string name="appicon_badge_new_item">1 mục mới</string>
     <string name="banner_apps_for_dex_detail">Trải nghiệm các ứng dụng được tối ưu cho DeX từ Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Không thể di chuyển nhiều hơn %d mục.</string>
+    <string name="view_more_in_galaxy_apps">Xem thêm trong Galaxy Apps</string>
+    <string name="view_more_in_play_store">Xem thêm trong CH Play</string>
     <string name="uninstall_title">Gỡ cài đặt các ứng dụng?</string>
     <string name="uninstall_1_app_message">Bạn có muốn gỡ cài đặt ứng dụng này không?</string>
     <string name="uninstall_apps_message">Các ứng dụng sau sẽ bị gỡ cài đặt:</string>
@@ -2408,6 +2443,13 @@ Hãy thử lại sau 1 giây"</string>
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Thông báo</string>
     <string name="quick_settings_location_detail_device_only">Chỉ thiết bị</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Việc sạc pin đã tạm dừng. Nhiệt độ pin quá cao.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Việc sạc pin đã tạm dừng. Nhiệt độ pin quá thấp.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Thiết bị đã ngừng sạc. Nhiệt độ pin quá cao. Hãy cẩn thận khi ngắt kết nối bộ sạc. Nó có thể rất nóng.
+
+Ngắt kết nối và kết nối lại bộ sạc có thể cho phép tiếp tục sạc bình thường. Nếu vẫn quá nóng, hãy liên hệ với dịch vụ khách hàng vì có thể có nguy cơ hỏa hoạn hoặc bị thương."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Sử dụng nhận diện khuôn mặt để mở khóa hoặc vuốt màn hình để sử dụng mống mắt thay thế</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Sử dụng nhận diện khuôn mặt để mở hoặc vuốt màn hình để sử dụng mống mắt thay thế</string>
     <string name="kg_infinity_wallpaper_option_description">Hình nền vô cực sẽ được áp dụng cho Màn hình chờ và Màn hình khóa cùng lúc. Bật cài đặt bên dưới để có trải nghiệm tốt nhất.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Bật Always On Display</string>
 </resources>

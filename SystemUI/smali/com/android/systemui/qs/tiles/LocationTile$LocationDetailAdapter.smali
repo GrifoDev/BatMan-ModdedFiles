@@ -33,15 +33,15 @@
 .method private constructor <init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
     .locals 3
 
-    const v2, 0x7f0f046c
+    const v2, 0x7f0f04c9
 
-    const v1, 0x7f0f046a
+    const v1, 0x7f0f04c7
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/LocationTile$LocationDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const v0, 0x7f0f046e
+    const v0, 0x7f0f04cb
 
     filled-new-array {v1, v2, v0}, [I
 
@@ -49,7 +49,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$LocationDetailAdapter;->LOCATION_METHOD_TEXT:[I
 
-    const v0, 0x7f0f0473
+    const v0, 0x7f0f04d0
 
     filled-new-array {v1, v2, v0}, [I
 
@@ -57,11 +57,11 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$LocationDetailAdapter;->LOCATION_METHOD_TEXT_TABLET:[I
 
-    const v0, 0x7f0f046b
+    const v0, 0x7f0f04c8
 
-    const v1, 0x7f0f046d
+    const v1, 0x7f0f04ca
 
-    const v2, 0x7f0f046f
+    const v2, 0x7f0f04cc
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -111,7 +111,7 @@
 
     if-eqz v4, :cond_0
 
-    const v4, 0x7f0f0454
+    const v4, 0x7f0f04b1
 
     :goto_0
     invoke-virtual {v5, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -127,12 +127,12 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f0f0452
+    const v4, 0x7f0f04af
 
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0f0451
+    const v4, 0x7f0f04ae
 
     goto :goto_0
 
@@ -179,7 +179,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0471
+    const v5, 0x7f0f04ce
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -290,7 +290,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0472
+    const v5, 0x7f0f04cf
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -314,7 +314,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040126
+    const v1, 0x7f04012a
 
     const/4 v2, 0x0
 
@@ -322,7 +322,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f1302cc
+    const v0, 0x7f1302d4
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -376,7 +376,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f03e5
+    const v1, 0x7f0f0442
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -391,7 +391,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0470
+    const v1, 0x7f0f04cd
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

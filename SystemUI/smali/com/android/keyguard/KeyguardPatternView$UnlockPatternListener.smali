@@ -531,6 +531,27 @@
     :cond_1
     iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternView;
 
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardPatternView;->-get9(Lcom/android/keyguard/KeyguardPatternView;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isAuthenticatedWithBiometric(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    const-string/jumbo v1, "SecurityPatternView"
+
+    const-string/jumbo v2, "onPatternDetected/isAuthenticatedWithBiometric"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternView;
+
     iget-object v2, p0, Lcom/android/keyguard/KeyguardPatternView$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternView;
 
     invoke-static {v2}, Lcom/android/keyguard/KeyguardPatternView;->-get10(Lcom/android/keyguard/KeyguardPatternView;)Lcom/android/internal/widget/LockPatternUtils;
@@ -553,7 +574,7 @@
 
     const/4 v2, 0x2
 
-    if-le v1, v2, :cond_2
+    if-le v1, v2, :cond_3
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternView;
 
@@ -563,7 +584,7 @@
 
     invoke-interface {v1}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 

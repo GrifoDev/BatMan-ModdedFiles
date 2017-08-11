@@ -43,7 +43,21 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;Landroid/bluetooth/BluetoothDevice;)V
-    .locals 11
+    .locals 12
+
+    const/4 v0, 0x0
+
+    invoke-static {p1, v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getInstance(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager$BluetoothManagerCallback;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_1
+
+    invoke-virtual {v6}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->instanceForSystemUI()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     const-string/jumbo v0, "Bluetooth_Profiles_Connection_Time"
 
@@ -51,9 +65,9 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-interface {v8}, Landroid/content/SharedPreferences;->getAll()Ljava/util/Map;
+    invoke-interface {v7}, Landroid/content/SharedPreferences;->getAll()Ljava/util/Map;
 
     move-result-object v0
 
@@ -63,17 +77,17 @@
 
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v10
+    move-result-object v11
 
     :cond_0
     :goto_0
-    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -103,13 +117,13 @@
 
     const-wide/16 v0, 0x0
 
-    invoke-interface {v8, v3, v0, v1}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
+    invoke-interface {v7, v3, v0, v1}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
 
-    move-result-wide v6
+    move-result-wide v8
 
     const-wide/16 v0, 0x0
 
-    cmp-long v0, v6, v0
+    cmp-long v0, v8, v0
 
     if-eqz v0, :cond_0
 
@@ -117,7 +131,7 @@
 
     move-result-wide v0
 
-    sub-long v4, v0, v6
+    sub-long v4, v0, v8
 
     const-string/jumbo v1, "com.android.bluetooth"
 
@@ -137,11 +151,11 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-interface {v9, v3}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v10, v3}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    invoke-interface {v9}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {v10}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     goto :goto_0
 

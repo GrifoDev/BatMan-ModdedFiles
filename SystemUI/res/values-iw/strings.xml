@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">לא ידוע</string>
     <string name="save">שמור</string>
     <string name="ok">אישור</string>
-    <string name="battery_history_hours_no_seconds">%1$d ש %2$d ד</string>
-    <string name="battery_history_minutes_no_seconds">%dד</string>
+    <string name="battery_history_hours_no_seconds">"%1$d שע' %2$d דק'"</string>
+    <string name="battery_history_minutes_no_seconds">"%d דק'"</string>
     <string name="wifi_fail_to_scan">לא ניתן לסרוק לאיתור רשתות</string>
     <string name="wifi_failed_to_obtain_IP">השגת כתובת IP נכשלה.</string>
     <string name="wifi_security_none">ללא</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">לא ניתן להתחבר אל %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">לא ניתן להתחבר אל %1$s. בדוק את ההגדרות ב%2$s ונסה שוב.</string>
     <string name="bluetooth_pairing_rejected_error_message">ההתאמה נדחתה על-ידי %s.</string>
+    <string name="bluetooth_getting_remote_device_name">מקבל שם מכשיר…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">שם המכשיר יוצג כאשר מכשיר זה יחובר.</string>
     <string name="accessibility_wifi_off">‏Wi-Fi כבוי.</string>
     <string name="accessibility_no_wifi">‏Wi-Fi מנותק.</string>
     <string name="accessibility_wifi_one_bar">‏פס אחד של Wi-Fi.</string>
@@ -1363,6 +1365,7 @@ Turn on Airplane mode?"</string>
     <string name="keyboard_key_insert">הזן</string>
     <string name="keyboard_key_num_lock">‏מקש Num Lock</string>
     <string name="keyboard_key_numpad_template">מקלדת נומרית %1$s</string>
+    <string name="keyboard_popup_help">מטא-מקש: המקש עם סמל Windows, סמל של פקודה או סמל של מערכת הפעלה אחרת.</string>
     <string name="keyboard_shortcut_group_system">קיצורי דרך של המערכת</string>
     <string name="keyboard_shortcut_group_system_home">דף הבית</string>
     <string name="keyboard_shortcut_group_system_recents">אחרונים</string>
@@ -1524,8 +1527,8 @@ Turn on Airplane mode?"</string>
 
 כדי להגן על המכשיר מנזקי מים, ודא שמגש כרטיס ה-SIM סגור היטב ואטום."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">כדי להתגונן מנזקי מים, ודא שמגש כרטיס ה-SIM‏/SD סגור כהלכה ואטום.</string>
-    <string name="water_protection_notification_title">בדוק יציאה</string>
-    <string name="water_protection_notification_body">זוהתה לחות. כדי לטעון את המכשיר, ודא שיציאת המטען/ה-USB יבשים.</string>
+    <string name="water_protection_notification_title">נתק את המטען</string>
+    <string name="water_protection_notification_body">זוהתה לחות. נתק את המטען וּודא שהן המטען והן יציאת ה-USB יבשים.</string>
     <string name="full_battery_title">מידע</string>
     <string name="full_battery_noti_text">סוללה טעונה במלואה.</string>
     <string name="cooling_title">התחממות יתר במכשיר</string>
@@ -1619,6 +1622,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">טעינה איטית</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">לטעינה מהירה יותר, השתמש במטען שנמכר יחד עם המכשיר שברשותך ואל תשכח לוודא שהוא מחובר כיאות.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">ודא שהמטען מחובר כיאות. השתמש במטען שנמכר יחד עם המכשיר.</string>
     <string name="battery_charging_level_and_time_text">"טוען: %1$d%%‏
 (עוד %2$s בקירוב עד לטעינה מלאה)"</string>
@@ -1632,14 +1636,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">טען את הטלפון.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">טען את הטאבלט.</string>
     <string name="button_close">סגור</string>
-    <string name="battery_health_interruption_title">לא ניתן לטעון</string>
+    <string name="battery_health_interruption_title">הטעינה נפסקה</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">ניתוק המטען</string>
     <string name="battery_health_interruption_by_terminal_open_text">לא ניתן לטעון את המכשיר. ודא שאתה משתמש בסוללה ומטען המתאימים למכשירי Samsung וכי המכשיר שלך מחובר למטען באופן תקין.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">הטעינה מושהית. טמפרטורת הסוללה גבוהה מדי.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">הטעינה מושהית. טמפרטורת הסוללה נמוכה מדי.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"טעינת המכשיר נפסקה. טמפרטורת הסוללה גבוהה מדי. היזהר בעת ניתוק המטען. הוא עלול להיות לוהט.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">טמפרטורה גבוהה מדי בטלפון. הטעינה תימשך כאשר הטמפרטורה תחזור לרמה הרגילה.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">טמפרטורה גבוהה מדי בטאבלט. הטעינה תימשך כאשר הטמפרטורה תחזור לרמה הרגילה.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">טמפרטורה נמוכה מדי בטלפון. הטעינה תימשך כאשר הטמפרטורה תחזור לרמה הרגילה.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">טמפרטורה נמוכה מדי בטאבלט. הטעינה תימשך כאשר הטמפרטורה תחזור לרמה הרגילה.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"הטעינה הופסקה. טמפרטורה גבוהה מדי בטלפון. היזהר בעת ניתוק המטען. ייתכן שהמכשיר יהיה חם מאוד למגע.
 
-ייתכן שניתוק המטען וחיבורו מחדש יאפשרו את המשך הטעינה הרגילה. אם התחממות היתר נמשכת, פנה לשירות הלקוחות משום שייתכן שקיימת סכנת אש או פציעה."</string>
+ייתכן שניתוקו מהמטען וחיבורו מחדש יאפשרו המשך תקין של הטעינה. אם התחממות היתר נמשכת, פנה לשירות הלקוחות משום שייתכן שקיימת סכנת אש או פציעה."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"הטעינה הופסקה. טמפרטורה גבוהה מדי בטאבלט. היזהר בעת ניתוק המטען. ייתכן שהמכשיר יהיה חם מאוד למגע.
+
+ייתכן שניתוקו מהמטען וחיבורו מחדש יאפשרו המשך תקין של הטעינה. אם התחממות היתר נמשכת, פנה לשירות הלקוחות משום שייתכן שקיימת סכנת אש או פציעה."</string>
     <string name="incompatible_charger_title">לא בטעינה.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1655,8 +1665,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">לפתיחה, היעזר בנתונים ביומטריים או החלק על המסך</string>
     <string name="kg_face_or_swipe_unlock_instructions">לביטול נעילה, השתמש בזיהוי פנים או החלק על המסך</string>
     <string name="kg_face_or_swipe_active_instructions">לפתיחה, השתמש בזיהוי פנים או החלק על המסך</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">בטל נעילה בעזרת זיהוי פנים או החלק על המסך כדי להשתמש בזיהוי קשתיות</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">פתח בעזרת זיהוי פנים או החלק על המסך כדי להשתמש בזיהוי קשתיות</string>
     <string name="kg_face_unlock_instructions">החלק על המסך כדי לבטל נעילה בעזרת זיהוי פנים</string>
     <string name="kg_face_or_fingerprint_active_instructions">פתח בעזרת טביעת אצבע או החלק על המסך כדי להשתמש בזיהוי פנים</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">בטל נעילה בעזרת טביעת אצבע או החלק על המסך כדי להשתמש בזיהוי פנים</string>
@@ -1671,6 +1679,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">החלק בעזרת שתי אצבעות‬ כדי לבטל את נעילת המסך</string>
     <string name="kg_swipe_active_instructions">החלק את המסך כדי לפתוח</string>
     <string name="kg_swipe_unlock_instructions">החלק על המסך כדי לבטל נעילה</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">בטל נעילה בעזרת זיהוי ביומטרי או בהחלקה על המסך בשתי אצבעות.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">פתח בעזרת זיהוי ביומטרי או בהחלקה על המסך בשתי אצבעות.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">בטל נעילה בעזרת זיהוי פנים או בהחלקה על המסך בשתי אצבעות.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">פתח בעזרת זיהוי פנים או בהחלקה על המסך בשתי אצבעות.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">בטל נעילה בעזרת זיהוי פנים או בהחלקה על המסך בשתי אצבעות.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">פתח בעזרת טביעת אצבע או החלק על המסך בשתי אצבעות כדי להשתמש בזיהוי פנים.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">בטל נעילה בעזרת טביעת אצבע או החלק על המסך בשתי אצבעות כדי להשתמש בזיהוי פנים.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">פתח בעזרת טביעת אצבע או החלק על המסך בשתי אצבעות כדי להשתמש בזיהוי קשתיות.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">בטל נעילה בעזרת טביעת אצבע או החלק על המסך בשתי אצבעות כדי להשתמש בזיהוי קשתיות.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">פתח בעזרת טביעות אצבע או בהחלקה על המסך בשתי אצבעות.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">בטל נעילה בעזרת טביעות אצבע או בהחלקה על המסך בשתי אצבעות.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">בטל נעילה בעזרת זיהוי קשתיות או בהחלקה על המסך בשתי אצבעות.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">בטל נעילה בעזרת זיהוי קשתיות או בהחלקה על המסך בשתי אצבעות.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">פתח בעזרת זיהוי קשתיות או בהחלקה על המסך בשתי אצבעות.</string>
     <string name="kg_power_connect_charger">חבר מטען</string>
     <string name="kg_power_fully_charged">טעינה מלאה</string>
     <string name="kg_power_fast_charging">טעינה מהירה: %d%%</string>
@@ -1753,6 +1775,7 @@ upscaler"</string>
     <string name="remote_input_send_text">שלח</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">בטל את נעילת הטלפון בהקשה כפולה על לחצן הנעילה</string>
     <string name="s_view_cover_toast_pop_up_message">פתח את המכסה כדי להשתמש בלחצני הגדרות מהירות.</string>
     <string name="remote_input_toast_text_on_sview_cover">"לא ניתן להשתמש ביישום 'מענה מהיר' כאשר כיסוי S view סגור."</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1789,7 +1812,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">אני מקבל</string>
-    <string name="force_immersive_guide_text">הקשה על סמל זה תסתיר את סרגל הניווט. תוכל להמשיך להשתמש בלחצני הניווט על ידי החלקה מעלה מתחתית המסך. כאשר סרגל הניווט מוצג, ניתן להקיש שוב על הסמל כדי לנעול את הסרגל במקומו. במסכים מסוימים, כמו למשל מסך הבית, סרגל הניווט יוצג תמיד.</string>
+    <string name="force_immersive_guide_text">הקשה על סמל זה תסתיר את פס הניווט. תוכל להמשיך להשתמש בלחצני הניווט על ידי החלקה מעלה מתחתית המסך. כאשר פס הניווט מוצג, ניתן להקיש שוב על הסמל כדי לנעול את הפס במקומו. במסכים מסוימים, כמו למשל מסך הבית, פס הניווט יוצג תמיד. אם התפקוד של יישום, השתבש כאשר פס הניווט מוסתר, נעל את פס הניווט במקומו והפעל את היישום מחדש.</string>
+    <string name="force_immersive_guide_dialog_title">הסתר את פס הניווט:</string>
+    <string name="force_immersive_guide_dialog_message1">הקשה על לחצן זה תסתיר את פס הניווט.</string>
+    <string name="force_immersive_guide_dialog_message2">החלק מעלה מתחתית המסך כדי להציג את פס הניווט.</string>
+    <string name="force_immersive_guide_dialog_message3">הקש על לחצן זה שוב כדי לנעול אותו במקומו.</string>
+    <string name="force_immersive_guide_dialog_message4">במסכים מסוימים, כמו מסך הבית, פס הניווט מוצג תמיד.</string>
+    <string name="force_immersive_guide_dialog_guide_path">"כדי להסתיר לחצן זה, עבור אל 'הגדרות' > 'תצוגה' > 'פס הניווט'."</string>
+    <string name="force_immersive_guide_dialog_setting">הגדרות</string>
+    <string name="force_immersive_guide_dialog_ok">אישור</string>
     <string name="car_lockscreen_disclaimer_title">נסיעה בטוחה</string>
     <string name="car_lockscreen_disclaimer_text">‏שמור על עירנות לתנאי הנסיעה וציית תמיד לכללים והחוקים. ייתכן שהמסלול לא מדויק, לא שלם, מסוכן, לא מתאים, אסור למעבר או כרוך בחציית אזורים מנהליים. ייתכן גם שחלק מהמידע העסקי לא מדויק או לא שלם. הנתונים אינם מדווחים בזמן אמת ולא ניתן להבטיח דיוק במיקום. אל תתעסק במכשיר הנייד ואל תשתמש באפליקציות שאינן מיועדות ל-Android Auto בזמן הנהיגה.</string>
     <string name="pip_close">‏סגור PIP</string>
@@ -2228,6 +2259,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_face_retry_content_description">הקש הקשה כפולה כדי להשתמש בזיהוי פנים.</string>
     <string name="kg_face_authentication_error_retry_text">לא זוהו פנים. הקש על הסמל כדי לנסות זיהוי פנים שוב</string>
     <string name="kg_face_authentication_failed_retry_text">אין התאמה. הקש על הסמל כדי להשתמש בזיהוי פנים</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">אירעה בעיה בזיהוי פנים. הקש כדי לנסות שוב</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">לא ניתן להשתמש בזיהוי פנים תוך כדי שיחת וידאו</string>
     <string name="kg_fingerprint_no_match">אין התאמות</string>
     <string name="kg_finger_print_not_responding_error_message">חיישן טביעות האצבע אינו מגיב. נסה שוב מאוחר יותר.</string>
     <string name="kg_finger_print_database_error_message">"נתוני טביעות האצבע נפגמו. הגדר מחדש את 'טביעות אצבע' כשיטת נעילת המסך והוסף את טביעות האצבע שלך מחדש, או החלף סוג נעילת מסך."</string>
@@ -2364,6 +2397,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="appicon_badge_new_item">פריט חדש אחד</string>
     <string name="banner_apps_for_dex_detail">לרשותך יישומים עם התאמה מיטבית ל-DeX​, דרך Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">ניתן להעביר לכל היותר %d פריטים.</string>
+    <string name="view_more_in_galaxy_apps">הצג עוד ב-Galaxy Apps</string>
+    <string name="view_more_in_play_store">הצג עוד בחנות Play</string>
     <string name="uninstall_title">האם להסיר את היישומים?</string>
     <string name="uninstall_1_app_message">האם ברצונך להסיר יישום זה?</string>
     <string name="uninstall_apps_message">היישומים הבאים יוסרו:</string>
@@ -2407,6 +2442,13 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">התראות</string>
     <string name="quick_settings_location_detail_device_only">מכשיר בלבד</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">הטעינה מושהית. טמפרטורת הסוללה גבוהה מדי.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">הטעינה מושהית. טמפרטורת הסוללה נמוכה מדי.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"טעינת המכשיר נפסקה. טמפרטורת הסוללה גבוהה מדי. היזהר בעת ניתוק המטען. הוא עלול להיות לוהט.
+
+ייתכן שניתוק המטען וחיבורו מחדש יאפשרו את המשך הטעינה הרגילה. אם התחממות היתר נמשכת, פנה לשירות הלקוחות משום שייתכן שקיימת סכנת אש או פציעה."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">בטל נעילה בעזרת זיהוי פנים או החלק על המסך כדי להשתמש בזיהוי קשתיות</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">פתח בעזרת זיהוי פנים או החלק על המסך כדי להשתמש בזיהוי קשתיות</string>
     <string name="kg_infinity_wallpaper_option_description">"'טפט אינסוף' יוחל במקביל במסך הבית ובמסך הנעילה. הפעל את ההגדרה הבאה כדי ליהנות מחוויה מיטבית."</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">הפעל את Always On Display</string>
 </resources>

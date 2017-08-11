@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Tundmatu</string>
     <string name="save">Salvesta</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$dh %2$dmin</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Võrke ei saa kontrollida</string>
     <string name="wifi_failed_to_obtain_IP">IP-aadressi hankimine nurjus.</string>
     <string name="wifi_security_none">Puudub</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Ei saa luua ühendust seadmega %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Seadmega %1$s ei saa ühendust luua. Kontrollige seadeid seadmes %2$s ja proovige uuesti.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s keeldus sidumisest.</string>
+    <string name="bluetooth_getting_remote_device_name">Seadme nime hankimine…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Seadme nimi kuvatakse, kui see seade on ühendatud.</string>
     <string name="accessibility_wifi_off">WiFi on välja lülitatud.</string>
     <string name="accessibility_no_wifi">WiFi-ühendus on katkestatud.</string>
     <string name="accessibility_wifi_one_bar">WiFi: üks pulk.</string>
@@ -1363,6 +1365,7 @@ Lisateabe saamiseks võtke ühendust administraatoriga."</string>
     <string name="keyboard_key_insert">Sisesta</string>
     <string name="keyboard_key_num_lock">Numbrilukk</string>
     <string name="keyboard_key_numpad_template">Numbriklahvistik %1$s</string>
+    <string name="keyboard_popup_help">Üldklahv: Windowsi-klahv, käsuklahv või mõni muu operatsioonisüsteemi sümboliga klahv.</string>
     <string name="keyboard_shortcut_group_system">Süsteemi otseteed</string>
     <string name="keyboard_shortcut_group_system_home">Avaekraan</string>
     <string name="keyboard_shortcut_group_system_recents">Hiljutised</string>
@@ -1524,8 +1527,8 @@ Lisateabe saamiseks võtke ühendust administraatoriga."</string>
 
 Veekahjustuste vältimiseks veenduge, et SIM-/SD-kaardi hoidik oleks korralikult suletud."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Veekahjustuse vältimiseks veenduge, et SIM-/SD-kaardi hoidik oleks korralikult suletud.</string>
-    <string name="water_protection_notification_title">Pordi kontrollimine</string>
-    <string name="water_protection_notification_body">Tuvastati niiskus. Seadme laadimiseks veenduge, et laadija/USB-port oleks kuiv.</string>
+    <string name="water_protection_notification_title">Eraldage laadija</string>
+    <string name="water_protection_notification_body">Tuvastati niiskus. Lahutage laadija ja veenduge, et nii laadija kui ka USB-port oleksid kuivad.</string>
     <string name="full_battery_title">Teave</string>
     <string name="full_battery_noti_text">Aku on laetud.</string>
     <string name="cooling_title">Seade on ülekuumenemas</string>
@@ -1619,6 +1622,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">Aeglane laadimine</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Kasutage kiirema laadimise jaoks seadmega kaasapandud laadijat ja veenduge, et see oleks õigesti ühendatud.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Kontrollige, kas laadija on õigesti ühendatud. Kasutage seadmega kaasapandud laadijat.</string>
     <string name="battery_charging_level_and_time_text">"Laadimine: %1$d%%
 (Umbes %2$s jäänud kuni täieliku laadimiseni)"</string>
@@ -1632,12 +1636,18 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">Laadige oma telefoni.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Laadige tahvelarvutit.</string>
     <string name="button_close">Sulge</string>
-    <string name="battery_health_interruption_title">Ei saa laadida</string>
+    <string name="battery_health_interruption_title">Laadimine peatati</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Eraldage laadija</string>
     <string name="battery_health_interruption_by_terminal_open_text">Seadet ei saa laadida, Veenduge, et kasutate Samsungi ühilduvusega akut ja laadijat ning teie seade on laadijaga korralikult ühendatud.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Laadimine on peatatud. Aku temperatuur on liiga kõrge.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Laadimine on peatatud. Aku temperatuur on liiga madal.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Seade on lõpetanud laadimise. Aku temperatuur on liiga kõrge. Olge laadija eraldamisel ettevaatlik. See võib olla väga kuum.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Teie telefoni temperatuur on liiga kõrge. Laadimine jätkub, kui temperatuur on taas tavatasemel.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Teie tahvelseadme temperatuur on liiga kõrge. Laadimine jätkub, kui temperatuur on taas tavatasemel.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Teie telefoni temperatuur on liiga madal. Laadimine jätkub, kui temperatuur on taas tavatasemel.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Teie tahvelseadme temperatuur on liiga madal. Laadimine jätkub, kui temperatuur on taas tavatasemel.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Laadimine peatati. Teie telefoni temperatuur on liiga kõrge. Olge laadija eraldamisel ettevaatlik. See võib olla väga kuum.
+
+Laadija eraldamisel ja uuesti ühendamisel võib laadimine jätkuda tavapäraselt. Kui ülekuumenemine püsib, võtke ühendust klienditeenindusega, kuna võib tekkida tulekahju või vigastuste oht."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Laadimine peatati. Teie tahvelseadme temperatuur on liiga kõrge. Olge laadija eraldamisel ettevaatlik. See võib olla väga kuum.
 
 Laadija eraldamisel ja uuesti ühendamisel võib laadimine jätkuda tavapäraselt. Kui ülekuumenemine püsib, võtke ühendust klienditeenindusega, kuna võib tekkida tulekahju või vigastuste oht."</string>
     <string name="incompatible_charger_title">Ei lae.</string>
@@ -1655,8 +1665,6 @@ Edaspidi selle hüpiku avanemise vältimiseks jälgige, et lähedussensor poleks
     <string name="kg_biometrics_swipe_active_instructions">Kasutage avamiseks biomeetriat või libistage sõrme ekraanil</string>
     <string name="kg_face_or_swipe_unlock_instructions">Kasutage luku avamiseks näotuvastust või libistage sõrme ekraanil</string>
     <string name="kg_face_or_swipe_active_instructions">Kasutage avamiseks näotuvastust või libistage sõrme ekraanil</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Kasutage luku avamiseks näotuvastust või libistage sõrme ekraanil, et kasutada selle asemel iiriseid</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Kasutage avamiseks näotuvastust või libistage sõrme ekraanil, et kasutada selle asemel iiriseid</string>
     <string name="kg_face_unlock_instructions">Libistage sõrmega ekraanil, et avada näotuvastusega</string>
     <string name="kg_face_or_fingerprint_active_instructions">Kasutage avamiseks sõrmejälge või libistage sõrme üle ekraani, et kasutada selle asemel näotuvastust</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Kasutage luku avamiseks sõrmejälge või libistage sõrme üle ekraani, et kasutada selle asemel näotuvastust</string>
@@ -1671,6 +1679,20 @@ Edaspidi selle hüpiku avanemise vältimiseks jälgige, et lähedussensor poleks
     <string name="kg_voice_assistant_unlock_instructions">Ekraani avamiseks liigutage ekraanil kahte sorme.</string>
     <string name="kg_swipe_active_instructions">Avamiseks libistage sõrme üle ekraani</string>
     <string name="kg_swipe_unlock_instructions">Avamiseks libistage sõrme üle ekraani</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Kasutage luku avamiseks biomeetriat või libistage kahe sõrmega üle ekraani.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Kasutage avamiseks biomeetriat või libistage kahe sõrmega üle ekraani.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Kasutage luku avamiseks näotuvastust või libistage kahe sõrmega üle ekraani.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Kasutage avamiseks näotuvastust või libistage kahe sõrmega üle ekraani.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Libistage kaht sõrme ekraanil, et avada lukk näotuvastusega.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Kasutage avamiseks sõrmejälge või libistage kahe sõrmega üle ekraani, et kasutada näotuvastust.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Kasutage luku avamiseks sõrmejälge või libistage kahe sõrmega üle ekraani, et kasutada näotuvastust.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Kasutage avamiseks sõrmejälge või libistage kahe sõrmega üle ekraani, et kasutada iiriseid.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Kasutage luku avamiseks sõrmejälge või libistage kahe sõrmega üle ekraani, et kasutada iiriseid.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Kasutage avamiseks sõrmejälge või libistage kahe sõrmega üle ekraani.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Kasutage luku avamiseks sõrmejälge või libistage kahe sõrmega üle ekraani.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Libistage kaht sõrme ekraanil, et avada lukk iiristega.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Kasutage luku avamiseks iiriseid või libistage kahe sõrmega üle ekraani.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Kasutage avamiseks iiriseid või libistage kahe sõrmega üle ekraani.</string>
     <string name="kg_power_connect_charger">Ühendage laadija</string>
     <string name="kg_power_fully_charged">Laetud</string>
     <string name="kg_power_fast_charging">Kiirlaadimine: %d%%</string>
@@ -1754,6 +1776,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Saada</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Topelttoksake telefoni avamiseks luku nuppu</string>
     <string name="s_view_cover_toast_pop_up_message">Kiirseadistuse nuppude kasutamiseks avage kaas.</string>
     <string name="remote_input_toast_text_on_sview_cover">Kiirvastuse funktsiooni ei saa kasutada, kui S View kate on suletud.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Jagatava toite koguse kontrollimiseks tuleb rakendus alla laadida.Kui ühendate oma seadme teise seadmega Samsungi Power Sharing kaabliga EP-SG900 ilma rakendust kasutamata, kantakse kogu akutoide teise seadmesse üle.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Nõustun</string>
-    <string name="force_immersive_guide_text">Selle ikooni toksamine peidab navigatsiooniriba. Saate jätkuvalt kasutada navigatsiooninuppe, libistades üles ekraani alaosast. Navigatsiooniriba kuvamise ajal saate seda ikooni uuesti toksata, et lukustada see oma kohale. Mõnel ekraanil, nt avaekraanil, kuvatakse navigatsiooniriba alati.</string>
+    <string name="force_immersive_guide_text">Selle nupu toksamine peidab navigatsiooniriba. Saate jätkuvalt kasutada navigatsiooninuppe, libistades üles ekraani alaosast. Navigatsiooniriba kuvamise ajal saate seda nuppu uuesti toksata, et lukustada see oma kohale. Mõnel ekraanil, nt avaekraan, kuvatakse navigatsiooniriba alati. Kui rakendus ei tööta tavapäraselt, kui navigatsiooniriba on peidetud, siis lukustage navigatsiooniriba oma kohale ja taaskäivitage rakendus.</string>
+    <string name="force_immersive_guide_dialog_title">Navigatsiooniriba peitmine:</string>
+    <string name="force_immersive_guide_dialog_message1">Selle nupu toksamine peidab navigatsiooniriba.</string>
+    <string name="force_immersive_guide_dialog_message2">Libistage ekraani allosast üles, et kuvada navigatsiooniriba.</string>
+    <string name="force_immersive_guide_dialog_message3">Toksake seda nuppu uuesti, et lukustada see oma kohale.</string>
+    <string name="force_immersive_guide_dialog_message4">Mõnel ekraanil, nt avaekraan, kuvatakse navigatsiooniriba alati.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Selle nupu peitmiseks avage menüü Seaded > Ekraan > Navigatsiooniriba.</string>
+    <string name="force_immersive_guide_dialog_setting">Seaded</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Sõitke turvaliselt</string>
     <string name="car_lockscreen_disclaimer_text">Olge teadlik sõidutingimustest ja järgige alati kohaldatavaid seadusi. Juhised võivad olla ebatäpsed, mittetäielikud, ohtlikud, sobimatud, keelatud või hõlmata kattuvaid administratiivpiirkondi. Ka ettevõtteteave võib olla ebatäpne või mittetäielik. Andmed pole reaalajas ja asukoha täpsust ei saa garanteerida. Ärge kasutage auto juhtimisel mobiilseadet ega rakendusi, mis pole mõeldud teenuse Android Auto jaoks.</string>
     <string name="pip_close">Sule PIP</string>
@@ -2230,6 +2261,8 @@ Kui te ei tea oma PUK-koodi, külastage klienditeenindust."</string>
     <string name="kg_face_retry_content_description">Topelttoksake, et kasutada näotuvastust.</string>
     <string name="kg_face_authentication_error_retry_text">Nägusid ei tuvastatud. Toksake ikooni, et üritada uuesti nägu tuvastada</string>
     <string name="kg_face_authentication_failed_retry_text">Vasteid pole. Toksake ikooni, et kasutada näotuvastust</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Näotuvastusega tekkis probleem. Toksake, et proovida uuesti</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Videokõnede ajal ei saa kasutada näotuvastust</string>
     <string name="kg_fingerprint_no_match">Vasteid pole</string>
     <string name="kg_finger_print_not_responding_error_message">Sõrmejälje sensor ei vasta. Proovige hiljem uuesti.</string>
     <string name="kg_finger_print_database_error_message">Sõrmejälje andmed on rikutud. Määrake sõrmejälg uuesti ekraaniluku tüübiks ja lisage oma sõrmejäljed uuesti või muutke ekraaniluku tüüpi.</string>
@@ -2366,6 +2399,8 @@ Proovige uuesti 1 sekundi pärast"</string>
     <string name="appicon_badge_new_item">1 uus üksus</string>
     <string name="banner_apps_for_dex_detail">Nautige DeX-i jaoks optimeeritud rakendusi Galaxy Apps’ist.</string>
     <string name="toast_cannot_move_more_than_items">Ei saa teisaldada üle %d üksuse.</string>
+    <string name="view_more_in_galaxy_apps">Veel poes Galaxy Apps</string>
+    <string name="view_more_in_play_store">Veel poes Play Store</string>
     <string name="uninstall_title">Kas desinstallida rakendused?</string>
     <string name="uninstall_1_app_message">Kas soovite desinstallida selle rakenduse?</string>
     <string name="uninstall_apps_message">Järgmised rakendused desinstallitakse:</string>
@@ -2406,6 +2441,13 @@ Proovige uuesti 1 sekundi pärast"</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Peida teavitused</string>
     <string name="volumepanel_notification">Teavitus</string>
     <string name="quick_settings_location_detail_device_only">Ainult seade</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Laadimine on peatatud. Aku temperatuur on liiga kõrge.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Laadimine on peatatud. Aku temperatuur on liiga madal.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Seade on lõpetanud laadimise. Aku temperatuur on liiga kõrge. Olge laadija eraldamisel ettevaatlik. See võib olla väga kuum.
+
+Laadija eraldamisel ja uuesti ühendamisel võib laadimine jätkuda tavapäraselt. Kui ülekuumenemine püsib, võtke ühendust klienditeenindusega, kuna võib tekkida tulekahju või vigastuste oht."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Kasutage luku avamiseks näotuvastust või libistage sõrme ekraanil, et kasutada selle asemel iiriseid</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Kasutage avamiseks näotuvastust või libistage sõrme ekraanil, et kasutada selle asemel iiriseid</string>
     <string name="kg_infinity_wallpaper_option_description">Lõputu taustpilt rakendatakse samaaegselt teie ava- ja lukustusekraanidele. Parima kogemuse saamiseks lülitage allolev seadistus sisse.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Lülitage Always On Display sisse</string>
 </resources>

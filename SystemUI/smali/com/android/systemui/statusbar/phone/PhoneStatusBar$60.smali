@@ -90,7 +90,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$60;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap31(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap32(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
 
     return-void
 

@@ -640,46 +640,46 @@
 
     move-result v0
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_4
 
     and-int/lit8 v2, v0, 0x1
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_4
 
     move v2, v3
 
     :goto_0
     iput-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFingerprint:Z
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_5
 
     and-int/lit8 v2, v0, 0x10
 
     const/16 v5, 0x10
 
-    if-ne v2, v5, :cond_6
+    if-ne v2, v5, :cond_5
 
     move v2, v3
 
     :goto_1
     iput-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsIris:Z
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_6
 
     and-int/lit16 v2, v0, 0x100
 
     const/16 v5, 0x100
 
-    if-ne v2, v5, :cond_7
+    if-ne v2, v5, :cond_6
 
     :goto_2
     iput-boolean v3, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFace:Z
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1
 
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFingerprint:Z
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_7
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -690,43 +690,17 @@
     :goto_3
     iput-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFingerprint:Z
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDesktopMode()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
     iget-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     invoke-virtual {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isCameraDisabledByPolicy()Z
 
     move-result v2
 
-    if-eqz v2, :cond_a
-
-    :cond_0
-    iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsIris:Z
-
-    if-eqz v2, :cond_9
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockingWithBiometricAllowed()Z
-
-    move-result v2
-
-    :goto_4
-    iput-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsIris:Z
+    if-eqz v2, :cond_8
 
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFace:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -734,29 +708,29 @@
 
     move-result v4
 
-    :cond_1
+    :cond_0
     iput-boolean v4, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFace:Z
 
-    :cond_2
-    :goto_5
+    :cond_1
+    :goto_4
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFingerprint:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsIris:Z
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_3
 
-    :cond_3
+    :cond_2
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFace:Z
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_b
 
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFingerprint:Z
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_b
 
-    :cond_4
+    :cond_3
     sget-object v2, Lcom/android/keyguard/KeyguardTextBuilder$Biometric;->MultiBiometrics:Lcom/android/keyguard/KeyguardTextBuilder$Biometric;
 
     invoke-virtual {v2}, Lcom/android/keyguard/KeyguardTextBuilder$Biometric;->getType()Ljava/lang/String;
@@ -765,14 +739,14 @@
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mBiometricType:Ljava/lang/String;
 
-    :goto_6
+    :goto_5
     iget-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     invoke-virtual {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDismissActionExist()Z
 
     move-result v2
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_f
 
     invoke-static {}, Lcom/android/keyguard/KeyguardTextBuilder;->-getcom-android-keyguard-KeyguardConstants$KeyguardDismissActionTypeSwitchesValues()[I
 
@@ -800,38 +774,33 @@
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mDismissActionType:Ljava/lang/String;
 
-    :goto_7
+    :goto_6
     return-void
+
+    :cond_4
+    move v2, v4
+
+    goto :goto_0
 
     :cond_5
     move v2, v4
 
-    goto/16 :goto_0
+    goto :goto_1
 
     :cond_6
-    move v2, v4
-
-    goto/16 :goto_1
-
-    :cond_7
     move v3, v4
 
     goto :goto_2
 
-    :cond_8
+    :cond_7
     move v2, v4
 
     goto :goto_3
 
-    :cond_9
-    move v2, v4
-
-    goto :goto_4
-
-    :cond_a
+    :cond_8
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsIris:Z
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_a
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -839,12 +808,12 @@
 
     move-result v2
 
-    :goto_8
+    :goto_7
     iput-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsIris:Z
 
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFace:Z
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_9
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -852,20 +821,20 @@
 
     move-result v4
 
-    :cond_b
+    :cond_9
     iput-boolean v4, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFace:Z
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_c
+    :cond_a
     move v2, v4
 
-    goto :goto_8
+    goto :goto_7
 
-    :cond_d
+    :cond_b
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFingerprint:Z
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_c
 
     sget-object v2, Lcom/android/keyguard/KeyguardTextBuilder$Biometric;->Fingerprint:Lcom/android/keyguard/KeyguardTextBuilder$Biometric;
 
@@ -875,12 +844,12 @@
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mBiometricType:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_5
 
-    :cond_e
+    :cond_c
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsIris:Z
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_d
 
     sget-object v2, Lcom/android/keyguard/KeyguardTextBuilder$Biometric;->Iris:Lcom/android/keyguard/KeyguardTextBuilder$Biometric;
 
@@ -890,12 +859,12 @@
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mBiometricType:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_5
 
-    :cond_f
+    :cond_d
     iget-boolean v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mIsFace:Z
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_e
 
     sget-object v2, Lcom/android/keyguard/KeyguardTextBuilder$Biometric;->Face:Lcom/android/keyguard/KeyguardTextBuilder$Biometric;
 
@@ -905,14 +874,14 @@
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mBiometricType:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_5
 
-    :cond_10
+    :cond_e
     const-string/jumbo v2, "none"
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mBiometricType:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_5
 
     :pswitch_0
     sget-object v2, Lcom/android/keyguard/KeyguardTextBuilder$DismissActionType;->ShutDown:Lcom/android/keyguard/KeyguardTextBuilder$DismissActionType;
@@ -923,14 +892,14 @@
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mDismissActionType:Ljava/lang/String;
 
-    goto :goto_7
+    goto :goto_6
 
-    :cond_11
+    :cond_f
     const-string/jumbo v2, "none"
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mDismissActionType:Ljava/lang/String;
 
-    goto :goto_7
+    goto :goto_6
 
     nop
 
@@ -1048,7 +1017,7 @@
 
     iget-object v3, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mContext:Landroid/content/Context;
 
-    const v4, 0x10409fd
+    const v4, 0x1040a06
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1435,7 +1404,7 @@
 
     iget-object v4, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mContext:Landroid/content/Context;
 
-    const v5, 0x10409fd
+    const v5, 0x1040a06
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

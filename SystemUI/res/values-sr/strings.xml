@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Nepoznato</string>
     <string name="save">Сачувај</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d č %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d minuta</string>
     <string name="wifi_fail_to_scan">Није могуће скенирати мреже</string>
     <string name="wifi_failed_to_obtain_IP">Neuspešno dobijanje IP adrese.</string>
     <string name="wifi_security_none">Нема</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Nije moguće povezivanje sa uređajem %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Ne može da se uspostavi veza sa kompletom %1$s. Proverite podešavanja u kompletu %2$s i pokušajte ponovo.</string>
     <string name="bluetooth_pairing_rejected_error_message">Uparivanje odbacio %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Nabavlja se naziv uređaja…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Naziv uređaja će se pojaviti kada ovaj uređaj bude povezan.</string>
     <string name="accessibility_wifi_off">Wi-Fi је искључен.</string>
     <string name="accessibility_no_wifi">Wi-Fi веза је прекинута.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi сигнал има једну црту.</string>
@@ -1364,6 +1366,7 @@ Ikona za Wi-Fi pozivanje će se pojavljivati na panelu sa obaveštenjima kao št
     <string name="keyboard_key_insert">Тастер за уметање</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Тастер %1$s на нумеричкој тастатури</string>
+    <string name="keyboard_popup_help">Meta taster: taster sa simbolom Windows, Command ili drugog operacionog sistema.</string>
     <string name="keyboard_shortcut_group_system">Sistemske prečice</string>
     <string name="keyboard_shortcut_group_system_home">Почетни</string>
     <string name="keyboard_shortcut_group_system_recents">Недавни садржај</string>
@@ -1525,8 +1528,8 @@ Ikona za Wi-Fi pozivanje će se pojavljivati na panelu sa obaveštenjima kao št
 
 Radi zaštite od oštećenja uzrokovanih vodom, proverite da li ste čvrsto zatvorili ležište SIM/SD kartice."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Radi zaštite od oštećenja uzrokovanih vodom, proverite da li ste čvrsto zatvorili ležište SIM/SD kartice.</string>
-    <string name="water_protection_notification_title">Proverite port</string>
-    <string name="water_protection_notification_body">Detektovana je vlaga. Da biste napunili svoj uređaj, uverite se da je punjač/USB port suv.</string>
+    <string name="water_protection_notification_title">Otkači punjač</string>
+    <string name="water_protection_notification_body">Detektovana je vlaga. Otkačite punjač i uverite se da su i punjač i USB port suvi.</string>
     <string name="full_battery_title">Info</string>
     <string name="full_battery_noti_text">Baterija skroz napunjena.</string>
     <string name="cooling_title">Uređaj se pregreva</string>
@@ -1620,6 +1623,7 @@ Pregrevanje može da nastane usled:
     <string name="battery_not_fully_connected_charging_title">Sporo punjenje</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Za brže punjenje, koristite punjač koji ste dobili uz uređaj i uverite se da je on pravilno priključen.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Uverite se da je punjač pravilno priključen. Koristite punjač koji ste dobili uz uređaj.</string>
     <string name="battery_charging_level_and_time_text">"Punjenje: %1$d%%
 (približno %2$s do trenutka kada će se u potpunosti napuniti)"</string>
@@ -1633,14 +1637,20 @@ Pregrevanje može da nastane usled:
     <string name="battery_saver_recommend_notification_text_phone_psm">Napunite telefon.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Napunite tab. računar.</string>
     <string name="button_close">Zatvori</string>
-    <string name="battery_health_interruption_title">Punjenje nije moguće</string>
+    <string name="battery_health_interruption_title">Punjenje je prekinuto</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Otkačite punjač</string>
     <string name="battery_health_interruption_by_terminal_open_text">Uređaj ne može da se puni. Uveri se da koristiš Samsung kompatibilnu bateriju i punjač, kao i da je uređaj pravilno priključen na punjač.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Punjenje je pauzirano. Temperatura baterije je previsoka.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Punjenje je pauzirano. Temperatura baterije je preniska.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Uređaj je prestao da se puni. Temperatura baterije je previsoka. Budi pažljiv/a prilikom isključivanja punjača. On može biti izuzetno vruć.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Temperatura telefona je previsoka. Punjenje će se nastaviti kada se temperatura vrati u normalu.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Temperatura tablet računara je previsoka. Punjenje će se nastaviti kada se temperatura vrati u normalu.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Temperatura telefona je preniska. Punjenje će se nastaviti kada se temperatura vrati u normalu.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Temperatura tablet računara je preniska. Punjenje će se nastaviti kada se temperatura vrati u normalu.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Punjenje je prekinuto. Temperatura telefona je previsoka. Budite pažljivi prilikom isključivanja punjača. On može biti izuzetno vruć.
 
-Isključivanjem i ponovnim priključivanjem punjača može se omogućiti normalan nastavak punjenja. Ako i dalje bude dolazilo do pregrevanja, kontaktiraj korisničku službu jer postoji opasnost od požara ili povrede."</string>
+Isključivajem i ponovnim priključivanjem punjača može se omogućiti normalan nastavak punjenja. Ako i dalje bude dolazilo do pregrevanja, kontaktirajte Korisničku službu jer postoji opasnost od požara ili povrede."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Punjenje je prekinuto. Temperatura tablet računara je previsoka. Budite pažljivi prilikom isključivanja punjača. On može biti izuzetno vruć.
+
+Isključivajem i ponovnim priključivanjem punjača može se omogućiti normalan nastavak punjenja. Ako i dalje bude dolazilo do pregrevanja, kontaktirajte Korisničku službu jer postoji opasnost od požara ili povrede."</string>
     <string name="incompatible_charger_title">Ne vrši se punjenje.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Da biste sprečili pojavljivanje ovog iskačućeg prozora u budućnosti, uverite
     <string name="kg_biometrics_swipe_active_instructions">Koristite biometriju ili prevucite ekran da biste otvorili</string>
     <string name="kg_face_or_swipe_unlock_instructions">Koristite prepoznavanje lica ili prevucite ekran da biste otključali</string>
     <string name="kg_face_or_swipe_active_instructions">Koristite prepoznavanje lica ili prevucite ekran da biste otvorili</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Koristite prepoznavanje lica za otključavanje ili prevucite ekran i koristite dužice da biste umesto toga koristili dužice</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Koristite prepoznavanje lica za otvaranje ili prevucite ekran da biste umesto toga koristili dužice</string>
     <string name="kg_face_unlock_instructions">Prevucite prstom preko ekrana da biste otključali pomoću prepoznavanja lica</string>
     <string name="kg_face_or_fingerprint_active_instructions">Koristite otisak prsta za otvaranje ili prevucite prstom preko ekrana da biste umesto toga koristili prepoznavanje lica</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Koristite otisak prsta za otključavanje ili prevucite prstom preko ekrana da biste umesto toga koristili prepoznavanje lica</string>
@@ -1672,6 +1680,20 @@ Da biste sprečili pojavljivanje ovog iskačućeg prozora u budućnosti, uverite
     <string name="kg_voice_assistant_unlock_instructions">Prevuci dva prsta preko ekrana za njegovo otključavanje.</string>
     <string name="kg_swipe_active_instructions">Prevuci prstom po ekranu radi otvaranja</string>
     <string name="kg_swipe_unlock_instructions">Prevuci prstom po ekranu radi otključavanja</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Koristite biometriju ili prevucite dva prsta po ekrana radi otključavanja.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Koristite biometriju ili prevucite dva prsta po ekranu radi otvaranja.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Koristite prepoznavanje lica ili prevucite dva prsta po ekranu radi otključavanja.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Koristite prepoznavanje lica ili prevucite dva prsta po ekranu radi otvaranja.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Prevucite dva prsta po ekranu radi otključavanja pomoću funkcije prepoznavanja lica.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Koristite otisak prsta radi otvaranja ili prevucite dva prsta po ekranu da biste koristili prepoznavanje lica.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Koristite otisak prsta radi otključavanja ili prevucite dva prsta po ekranu da biste koristili prepoznavanje lica.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Koristite otisak prsta radi otvaranja ili prevucite dva prsta po ekranu da biste koristili dužice.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Koristite otisak prsta radi otključavanja ili prevucite dva prsta po ekranu da biste koristili dužice.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Koristite otisak prsta ili prevucite dva prsta po ekranu radi otvaranja.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Koristite otisak prsta ili prevucite dva prsta po ekranu radi otključavanja.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Prevucite dva prsta po ekranu da biste koristili dužice za otključavanje.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Koristite dužice ili prevucite dva prsta po ekranu radi otključavanja.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Koristite dužice ili prevucite dva prsta po ekranu radi otvaranja.</string>
     <string name="kg_power_connect_charger">Priključite punjač</string>
     <string name="kg_power_fully_charged">Potpuno napunjena</string>
     <string name="kg_power_fast_charging">Brzo punjenje: %d%%</string>
@@ -1755,6 +1777,7 @@ naviše"</string>
     <string name="remote_input_send_text">Pošalji</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Dvaput kucnite na dugme Zaključaj kako biste otključali telefon</string>
     <string name="s_view_cover_toast_pop_up_message">Otvori poklopac da bi koristio/la dugmad za brza podešavanja.</string>
     <string name="remote_input_toast_text_on_sview_cover">Nije moguće koristiti funkciju Brzi odgovor dok je zatvoren S poklopac za ekran.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Morate da preuzmete aplikaciju da biste kontrolisali količinu napajanja koja se deli. Ako povežete dva uređaja pomoću kabla Power Sharing EP-SG900 kompanije Samsung bez aplikacije, kompletno napajanje baterije će biti preneto na drugi uređaj.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Prihvatam</string>
-    <string name="force_immersive_guide_text">Ukoliko kucnete na ovu ikonu, sakrićete traku za navigaciju. I dalje možete da koristite dugmad za navigaciju tako što ćete prevući prstom nagore od dna ekrana. Dok se traka za navigaciju prikazuje, možete ponovo da kucnete na ovu ikonu da biste je fiksirali. Na nekim ekranima, kao što je Početni ekran, traka za navigaciju će se uvek prikazivati.</string>
+    <string name="force_immersive_guide_text">Ukoliko kucnete na ovo dugme, sakrićete traku za navigaciju. I dalje možete da koristite dugmad za navigaciju tako što ćete prevući prstom nagore od dna ekrana. Dok se traka za navigaciju prikazuje, možete ponovo da kucnete na ovo dugme da biste je fiksirali. Na nekim ekranima, kao što je Početni ekran, traka za navigaciju će se uvek prikazivati. Ukoliko se aplikacija ne ponaša normalno dok je traka za navigaciju skrivena, fiksirajte traku za navigaciju i restartujte aplikaciju.</string>
+    <string name="force_immersive_guide_dialog_title">Sakrijte traku za navigaciju:</string>
+    <string name="force_immersive_guide_dialog_message1">Ako kucnete na ovo dugme, sakrićete traku za navigaciju.</string>
+    <string name="force_immersive_guide_dialog_message2">Prevucite prstom nagore od donje ivice ekrana da biste prikazali traku za navigaciju.</string>
+    <string name="force_immersive_guide_dialog_message3">Ponovo kucnite na ovo dugme da biste ga fiksirali.</string>
+    <string name="force_immersive_guide_dialog_message4">Na nekim ekranima, kao što je Početni ekran, traka za navigaciju će se uvek prikazivati.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Da biste sakrili ovo dugme, idite na Podešavanja > Prikaz > Traka za navigaciju.</string>
+    <string name="force_immersive_guide_dialog_setting">Podešavanja</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Возите безбедно</string>
     <string name="car_lockscreen_disclaimer_text">Увек водите рачуна о условима вожње и увек поштујте примењиве законе. Упутства могу да буду нетачна, непотпуна, опасна, неприкладна или забрањена, односно да подразумевају прелазак између административних области. И подаци о предузећу могу да буду нетачни или непотпуни. Подаци не настају у реалном времену и не можемо да гарантујемо прецизност локације. Немојте да употребљавате мобилни уређај нити да користите апликације које нису намењене за Android Auto током вожње.</string>
     <string name="pip_close">Затвори PIP</string>
@@ -2230,6 +2261,8 @@ Ako ne znate svoj PUK kod, posetite centar za korisničku službu."</string>
     <string name="kg_face_retry_content_description">Dvaput kucnite da biste koristili funkciju prepoznavanja lica.</string>
     <string name="kg_face_authentication_error_retry_text">Nijedno lice nije detektovano. Kucnite na ikonu i ponovo isprobajte prepoznavanje lica</string>
     <string name="kg_face_authentication_failed_retry_text">Nema podudaranja. Kucnite na ikonu da biste koristili prepoznavanje lica</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Došlo je do problema sa prepoznavanjem lica. Kucnite da biste pokušali ponovo</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Ne može da se koristi prepoznavanje lica tokom video poziva</string>
     <string name="kg_fingerprint_no_match">Nema pogodaka</string>
     <string name="kg_finger_print_not_responding_error_message">Senzor za otisak prsta ne reaguje. Pokušaj ponovo kasnije.</string>
     <string name="kg_finger_print_database_error_message">Podaci o otiscima prstiju su oštećeni. Resetuj podešavanja za opciju Otisak prsta kao tip zaključavanja ekrana, a zatim ponovo dodaj svoje otiske prstiju ili promeni tip zaključavanja ekrana.</string>
@@ -2366,6 +2399,8 @@ Pokušajte ponovo za 1 sekundu"</string>
     <string name="appicon_badge_new_item">1 nova stavka</string>
     <string name="banner_apps_for_dex_detail">Uživajte u aplikacijama optimizovanim za DeX na Galaxy Apps servisu.</string>
     <string name="toast_cannot_move_more_than_items">Nije moguće premestiti više od sledećeg broja stavki: %d.</string>
+    <string name="view_more_in_galaxy_apps">Prikaži više u Galaxy Apps-u</string>
+    <string name="view_more_in_play_store">Prikaži više u Prodavnici Play</string>
     <string name="uninstall_title">Deinstalirati aplikacije?</string>
     <string name="uninstall_1_app_message">Želite li da deinstalirate ovu aplikaciju?</string>
     <string name="uninstall_apps_message">Sledeće aplikacije će biti deinstalirane:</string>
@@ -2409,6 +2444,13 @@ Pokušajte ponovo za 1 sekundu"</string>
     <string name="clear_cover_day_month_no_year">d. MMM.</string>
     <string name="volumepanel_notification">Obaveštenja</string>
     <string name="quick_settings_location_detail_device_only">Samo uređaj</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Punjenje je pauzirano. Temperatura baterije je previsoka.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Punjenje je pauzirano. Temperatura baterije je preniska.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Uređaj je prestao da se puni. Temperatura baterije je previsoka. Budi pažljiv/a prilikom isključivanja punjača. On može biti izuzetno vruć.
+
+Isključivanjem i ponovnim priključivanjem punjača može se omogućiti normalan nastavak punjenja. Ako i dalje bude dolazilo do pregrevanja, kontaktiraj korisničku službu jer postoji opasnost od požara ili povrede."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Koristite prepoznavanje lica za otključavanje ili prevucite ekran i koristite dužice da biste umesto toga koristili dužice</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Koristite prepoznavanje lica za otvaranje ili prevucite ekran da biste umesto toga koristili dužice</string>
     <string name="kg_infinity_wallpaper_option_description">Beskonačni tapet će se istovremeno primeniti na Početni ekran i Zaključan ekran. Uključite podešavanje u nastavku za najbolje iskustvo.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Uključi funkciju Always On Display</string>
 </resources>

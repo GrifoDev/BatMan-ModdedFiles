@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Tuntematon</string>
     <string name="save">Tallenna</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">Verkkoja ei voi etsiä.</string>
     <string name="wifi_failed_to_obtain_IP">IP-osoitteen haku epäonnistui.</string>
     <string name="wifi_security_none">Ei mitään</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Laitteeseen %s ei saada yhteyttä.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Autosarjaan %1$s ei voi muodostaa yhteyttä. Tarkista autosarjan %2$s asetukset ja yritä uudelleen.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s on hylännyt yhdistämispyynnön.</string>
+    <string name="bluetooth_getting_remote_device_name">Haetaan laitteen nimeä…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Laitteen nimi tulee näyttöön, kun tämä laite liitetään.</string>
     <string name="accessibility_wifi_off">Wi-Fi pois käytöstä</string>
     <string name="accessibility_no_wifi">Ei Wi-Fi-yhteyttä</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi-signaali – yksi palkki</string>
@@ -1366,6 +1368,7 @@ Lisätietoja saat järjestelmänvalvojaltasi."</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Numeronäppäimistö %1$s</string>
+    <string name="keyboard_popup_help">Metanäppäin: Windows-näppäin, komentonäppäin tai muu käyttöjärjestelmän symbolinäppäin.</string>
     <string name="keyboard_shortcut_group_system">Järjestelmän pikavalinnat</string>
     <string name="keyboard_shortcut_group_system_home">Aloitusnäyttö</string>
     <string name="keyboard_shortcut_group_system_recents">Viimeaikaiset</string>
@@ -1527,8 +1530,8 @@ Lisätietoja saat järjestelmänvalvojaltasi."</string>
 
 Suojaa laite vesivahingoilta varmistamalla, että SIM-/SD-korttikelkka on kunnolla suljettu."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Suojaa laite vesivahingoilta varmistamalla, että SIM-/SD-korttikelkka on kunnolla suljettu.</string>
-    <string name="water_protection_notification_title">Tarkista portti</string>
-    <string name="water_protection_notification_body">Havaittu kosteutta. Jos haluat ladata laitteen, varmista, että laturin/USB-laitteen liitäntä on kuiva.</string>
+    <string name="water_protection_notification_title">Irrota laturi</string>
+    <string name="water_protection_notification_body">Havaittu kosteutta. Irrota laturi ja varmista, että laturi ja USB-liitäntä ovat kuivia.</string>
     <string name="full_battery_title">Tiedot</string>
     <string name="full_battery_noti_text">Akku on täysin ladattu.</string>
     <string name="cooling_title">Laite ylikuumenee</string>
@@ -1622,6 +1625,7 @@ Ylikuumenemisen syynä voi olla
     <string name="battery_not_fully_connected_charging_title">Hidas lataus</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Käytä lataamisen nopeuttamiseksi laitteen mukana toimitettua laturia ja varmista, että se on kytketty oikein.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Varmista, että laturi on kytketty oikein. Käytä laitteen mukana toimitettua laturia.</string>
     <string name="battery_charging_level_and_time_text">"Ladataan: %1$d %%
 (Noin %2$s jäljellä ennen latautumista täyteen)"</string>
@@ -1635,12 +1639,18 @@ Ylikuumenemisen syynä voi olla
     <string name="battery_saver_recommend_notification_text_phone_psm">Lataa puhelin.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Lataa tablet-laite.</string>
     <string name="button_close">Sulje</string>
-    <string name="battery_health_interruption_title">Ei voi ladata</string>
+    <string name="battery_health_interruption_title">Lataus pysäytetty</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Irrota laturi</string>
     <string name="battery_health_interruption_by_terminal_open_text">Laitetta ei voi ladata. Varmista, että käytät Samsungin laitteiden kanssa yhteensopivaa akkua ja laturia ja että laite on yhdistetty laturiin oikein.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Lataus keskeytetty. Akun lämpötila on liian korkea.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Lataus keskeytetty. Akun lämpötila on liian matala.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Laite on lopettanut lataamisen. Akun lämpötila on liian korkea. Ole varovainen, kun irrotat laturin. Se voi olla hyvin kuuma.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Puhelimesi lämpötila on liian korkea. Lataamista jatketaan, kun lämpötila palaa normaaliksi.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Tablet-laitteesi lämpötila on liian korkea. Lataamista jatketaan, kun lämpötila palaa normaaliksi.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Puhelimesi lämpötila on liian matala. Lataamista jatketaan, kun lämpötila palaa normaaliksi.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Tablet-laitteesi lämpötila on liian matala. Lataamista jatketaan, kun lämpötila palaa normaaliksi.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Lataus on pysäytetty. Puhelimen lämpötila on liian korkea. Ole varovainen, kun irrotat laturin. Se voi olla hyvin kuuma.
+
+Jos laturi irrotetaan ja kytketään uudelleen verkkoon, lataamista voi ehkä jatkaa normaalisti. Jos laite ylikuumenee, ota yhteyttä asiakaspalveluun, sillä tämä voi aiheuttaa tulipalon tai loukkaantumisen vaaran."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Lataus on pysäytetty. Tablet-laitteen lämpötila on liian korkea. Ole varovainen, kun irrotat laturin. Se voi olla hyvin kuuma.
 
 Jos laturi irrotetaan ja kytketään uudelleen verkkoon, lataamista voi ehkä jatkaa normaalisti. Jos laite ylikuumenee, ota yhteyttä asiakaspalveluun, sillä tämä voi aiheuttaa tulipalon tai loukkaantumisen vaaran."</string>
     <string name="incompatible_charger_title">Ei lataudu.</string>
@@ -1658,8 +1668,6 @@ Varmista, ettei lähestymisanturin tiellä ole mitään, jotta tämä ponnahdusi
     <string name="kg_biometrics_swipe_active_instructions">Avaa käyttämällä biometrisiä tietoja tai pyyhkäisemällä näyttöä</string>
     <string name="kg_face_or_swipe_unlock_instructions">Poista lukitus käyttämällä kasvontunnistusta tai pyyhkäisemällä näyttöä</string>
     <string name="kg_face_or_swipe_active_instructions">Avaa käyttämällä kasvontunnistusta tai pyyhkäisemällä näyttöä</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Poista lukitus käyttämällä kasvontunnistusta tai pyyhkäise näyttöä ja käytä iiriksiä</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Avaa käyttämällä kasvontunnistusta tai pyyhkäise näyttöä ja käytä iiriksiä</string>
     <string name="kg_face_unlock_instructions">Pyyhkäise näyttöä, jos haluat poistaa lukituksen kasvontunnistuksella</string>
     <string name="kg_face_or_fingerprint_active_instructions">Avaa käyttämällä sormenjälkeä tai pyyhkäise näyttöä ja käytä kasvontunnistusta</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Poista lukitus käyttämällä sormenjälkeä tai pyyhkäise näyttöä ja käytä kasvontunnistusta</string>
@@ -1674,6 +1682,20 @@ Varmista, ettei lähestymisanturin tiellä ole mitään, jotta tämä ponnahdusi
     <string name="kg_voice_assistant_unlock_instructions">Poista näytön lukitus pyyhkäisemällä kahdella sormella.</string>
     <string name="kg_swipe_active_instructions">Avaa pyyhkäisemällä näyttöä</string>
     <string name="kg_swipe_unlock_instructions">Poista lukitus pyyhkäisemällä näyttöä</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Poista lukitus käyttämällä biometrisiä tietoja tai pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Avaa käyttämällä biometrisiä tietoja tai pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Poista lukitus käyttämällä kasvontunnistusta tai pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Avaa käyttämällä kasvontunnistusta tai pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Voit poistaa lukituksen kasvontunnistuksella pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Avaa käyttämällä sormenjälkeä tai käytä kasvontunnistusta pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Poista lukitus käyttämällä sormenjälkeä tai käytä kasvontunnistusta pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Avaa käyttämällä sormenjälkeä tai käytä iiriksiä pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Poista lukitus käyttämällä sormenjälkeä tai käytä iiriksiä pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Avaa käyttämällä sormenjälkeä tai pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Poista lukitus käyttämällä sormenjälkeä tai pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Voit poistaa lukituksen iiriksillä pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Poista lukitus käyttämällä iiriksiä tai pyyhkäisemällä näyttöä kahdella sormella.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Avaa käyttämällä iiriksiä tai pyyhkäisemällä näyttöä kahdella sormella.</string>
     <string name="kg_power_connect_charger">Kytke laturi</string>
     <string name="kg_power_fully_charged">Täysin ladattu</string>
     <string name="kg_power_fast_charging">Pikalataus: %d %%</string>
@@ -1757,6 +1779,7 @@ skaalaus"</string>
     <string name="remote_input_send_text">Lähetä</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Poista puhelimen lukitus kaksoisnapauttamalla lukituspainiketta</string>
     <string name="s_view_cover_toast_pop_up_message">Avaa kansi pika-asetuspainikkeiden käyttöä varten.</string>
     <string name="remote_input_toast_text_on_sview_cover">Pikavastaus-toimintoa ei voi käyttää, kun S View -kansi on suljettu.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Virran jakamisen säätelemiseksi on ladattava sovellus. Jos laite liitetään toiseen laitteeseen Samsungin Power Sharing -kaapelilla EP-SG900 mutta sovellusta ei ole ladattu, akun koko varaus siirtyy toiseen laitteeseen.
@@ -1793,7 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Hyväksyn</string>
-    <string name="force_immersive_guide_text">Voit piilottaa siirtymispalkin napauttamalla tätä kuvaketta. Voit edelleen käyttää siirtymispainikkeita pyyhkäisemällä näytön alareunasta ylöspäin. Kun siirtymispalkki on näytössä, voit lukita sen paikalleen napauttamalla tätä kuvaketta uudelleen. Joissakin näytöissä, kuten alkunäytössä, siirtymispalkki on aina näkyvissä.</string>
+    <string name="force_immersive_guide_text">Voit piilottaa siirtymispalkin napauttamalla tätä painiketta. Voit edelleen käyttää siirtymispainikkeita pyyhkäisemällä näytön alareunasta ylöspäin. Kun siirtymispalkki on näkyvissä, voit lukita sen paikalleen napauttamalla tätä painiketta uudelleen. Joissakin näytöissä, kuten alkunäytössä, siirtymispalkki on aina näkyvissä. Jos sovellus ei toimi normaalisti, kun siirtymispalkki on piilotettu, lukitse siirtymispalkki paikalleen ja käynnistä sovellus uudelleen.</string>
+    <string name="force_immersive_guide_dialog_title">Piilota siirtymispalkki:</string>
+    <string name="force_immersive_guide_dialog_message1">Kun napautat tätä painiketta, siirtymispalkki piilotetaan.</string>
+    <string name="force_immersive_guide_dialog_message2">Voit näyttää siirtymispalkin pyyhkäisemällä näytön alareunasta ylöspäin.</string>
+    <string name="force_immersive_guide_dialog_message3">Lukitse se paikalleen napauttamalla tätä painiketta uudelleen.</string>
+    <string name="force_immersive_guide_dialog_message4">Joissakin näytöissä, kuten alkunäytössä, siirtymispalkki näkyy aina.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Voit piilottaa tämän painikkeen valitsemalla Asetukset > Näyttö > Siirtymispalkki.</string>
+    <string name="force_immersive_guide_dialog_setting">Asetukset</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Aja varovasti</string>
     <string name="car_lockscreen_disclaimer_text">Tarkkaile huolellisesti ajo-olosuhteita ja noudata aina voimassa olevia lakeja. Reittiohjeet saattavat olla epätarkkoja, epätäydellisiä, vaarallisia, epäsopivia, kiellettyjä tai kulkea hallintoalueiden läpi. Myös yritystiedot voivat olla epätarkkoja tai epätäydellisiä. Tietoja ei päivitetä reaaliajassa eikä sijaintien tarkkuutta taata. Älä käytä ajon aikana mobiililaitettasi tai sovelluksia, joita ei ole suunniteltu Android Autolle.</string>
     <string name="pip_close">Sulje PIP</string>
@@ -2232,6 +2263,8 @@ Jos et tiedä PUK-koodia, käy asiakaspalvelukeskuksessa."</string>
     <string name="kg_face_retry_content_description">Käytä kasvontunnistusta kaksoisnapauttamalla.</string>
     <string name="kg_face_authentication_error_retry_text">Kasvoja ei havaittu. Yritä kasvontunnistusta uudelleen napauttamalla kuvaketta</string>
     <string name="kg_face_authentication_failed_retry_text">Vastaavuuksia ei ole. Käytä kasvontunnistusta napauttamalla kuvaketta</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Kasvontunnistuksessa ilmeni ongelma. Napauta ja yritä uudelleen</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Kasvontunnistusta ei voi käyttää videopuheluiden aikana</string>
     <string name="kg_fingerprint_no_match">Ei vastaavuuksia</string>
     <string name="kg_finger_print_not_responding_error_message">Sormenjälkitunnistin ei vastaa. Yritä myöhemmin uudelleen.</string>
     <string name="kg_finger_print_database_error_message">Sormenjälkitiedot ovat vioittuneet. Palauta näytön lukitustavaksi Sormenjälki ja lisää sitten sormenjäljet uudelleen tai muuta näytön lukitustapaa.</string>
@@ -2369,6 +2402,8 @@ Yritä 1 sekunnin kuluttua uudelleen"</string>
     <string name="appicon_badge_new_item">1 uusi kohde</string>
     <string name="banner_apps_for_dex_detail">Nauti Galaxy Appsin DeX:lle optimoiduista sovelluksista.</string>
     <string name="toast_cannot_move_more_than_items">Yli %d kohdetta ei voi siirtää.</string>
+    <string name="view_more_in_galaxy_apps">Näytä lisää Galaxy Appsissa</string>
+    <string name="view_more_in_play_store">Näytä lisää Play-kaupassa</string>
     <string name="uninstall_title">Poistetaanko sovellusten asennus?</string>
     <string name="uninstall_1_app_message">Haluatko poistaa tämän sovelluksen asennuksen?</string>
     <string name="uninstall_apps_message">Seuraavien sovellusten asennus poistetaan:</string>
@@ -2412,6 +2447,13 @@ Yritä 1 sekunnin kuluttua uudelleen"</string>
     <string name="clear_cover_day_month_no_year">d. MMM</string>
     <string name="volumepanel_notification">Ilmoitus</string>
     <string name="quick_settings_location_detail_device_only">Vain laite</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Lataus keskeytetty. Akun lämpötila on liian korkea.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Lataus keskeytetty. Akun lämpötila on liian matala.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Laite on lopettanut lataamisen. Akun lämpötila on liian korkea. Ole varovainen, kun irrotat laturin. Se voi olla hyvin kuuma.
+
+Jos laturi irrotetaan ja kytketään uudelleen verkkoon, lataamista voi ehkä jatkaa normaalisti. Jos laite ylikuumenee, ota yhteyttä asiakaspalveluun, sillä tämä voi aiheuttaa tulipalon tai loukkaantumisen vaaran."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Poista lukitus käyttämällä kasvontunnistusta tai pyyhkäise näyttöä ja käytä iiriksiä</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Avaa käyttämällä kasvontunnistusta tai pyyhkäise näyttöä ja käytä iiriksiä</string>
     <string name="kg_infinity_wallpaper_option_description">Rajaton taustakuva otetaan käyttöön alkunäytössä ja lukitusnäytössä samaan aikaan. Ota tämä asetus alla käyttöön parhaan mahdollisen käyttöelämyksen varmistamiseksi.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Ota Always On Display käyttöön</string>
     <string name="sview_cover_wday_month_day_no_year">E, MMMM d</string>

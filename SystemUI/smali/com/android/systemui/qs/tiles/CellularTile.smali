@@ -206,7 +206,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/CellularTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03c4
+    const v1, 0x7f0f0421
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -254,7 +254,7 @@
 .method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$SignalState;Ljava/lang/Object;)V
     .locals 11
 
-    const v5, 0x7f0201f4
+    const v5, 0x7f0201f8
 
     const/4 v10, 0x3
 
@@ -404,7 +404,7 @@
 
     aput-object v8, v6, v7
 
-    const v8, 0x7f0f061c
+    const v8, 0x7f0f067a
 
     invoke-virtual {v3, v8, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -459,7 +459,7 @@
     if-eqz v6, :cond_4
 
     :cond_3
-    const v2, 0x7f020204
+    const v2, 0x7f020208
 
     goto/16 :goto_0
 
@@ -473,7 +473,7 @@
     goto/16 :goto_0
 
     :cond_5
-    const v2, 0x7f02020f
+    const v2, 0x7f020213
 
     goto/16 :goto_0
 
@@ -503,7 +503,7 @@
     goto/16 :goto_5
 
     :cond_b
-    const v5, 0x7f0f03a4
+    const v5, 0x7f0f0401
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -512,7 +512,7 @@
     goto/16 :goto_6
 
     :cond_c
-    const v5, 0x7f0f02e8
+    const v5, 0x7f0f0345
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -525,7 +525,7 @@
 
     if-eqz v5, :cond_e
 
-    const v5, 0x7f0f0301
+    const v5, 0x7f0f035e
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -542,7 +542,7 @@
 
     aput-object v6, v5, v9
 
-    const v6, 0x7f0f0326
+    const v6, 0x7f0f0383
 
     invoke-virtual {v3, v6, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -552,7 +552,7 @@
 
     new-array v5, v10, [Ljava/lang/Object;
 
-    const v6, 0x7f0f0300
+    const v6, 0x7f0f035d
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -566,7 +566,7 @@
 
     aput-object v6, v5, v9
 
-    const v6, 0x7f0f0326
+    const v6, 0x7f0f0383
 
     invoke-virtual {v3, v6, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -577,7 +577,7 @@
     goto/16 :goto_8
 
     :cond_e
-    const v5, 0x7f0f0302
+    const v5, 0x7f0f035f
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

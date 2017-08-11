@@ -279,7 +279,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0f072e
+    const v20, 0x7f0f079e
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -697,7 +697,7 @@
 
     move-result v5
 
-    const v6, 0x1020436
+    const v6, 0x102043f
 
     if-ne v5, v6, :cond_1
 

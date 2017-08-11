@@ -112,17 +112,17 @@
     throw v0
 
     :pswitch_0
-    const v0, 0x7f0201be
+    const v0, 0x7f0201c2
 
     return v0
 
     :pswitch_1
-    const v0, 0x7f02024e
+    const v0, 0x7f020252
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f020236
+    const v0, 0x7f02023a
 
     return v0
 
@@ -240,7 +240,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0f02c3
+    const v9, 0x7f0f0320
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

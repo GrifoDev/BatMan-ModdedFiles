@@ -53,6 +53,14 @@
     return-object v0
 .end method
 
+.method static synthetic -get1(Lcom/android/systemui/AutoReinflateContainer;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/AutoReinflateContainer;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
 .method static synthetic -wrap0(Lcom/android/systemui/AutoReinflateContainer;)V
     .locals 0
 
@@ -277,7 +285,7 @@
 
     invoke-virtual {v2, v3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const v2, 0x7f130186
+    const v2, 0x7f13018a
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/AutoReinflateContainer;->findViewById(I)Landroid/view/View;
 

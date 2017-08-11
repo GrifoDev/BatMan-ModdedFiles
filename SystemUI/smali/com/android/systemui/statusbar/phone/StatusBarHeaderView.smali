@@ -981,7 +981,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0218
+    const v1, 0x7f0d0219
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -993,7 +993,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0219
+    const v1, 0x7f0d021a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1005,7 +1005,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02e6
+    const v1, 0x7f0d02e7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1017,7 +1017,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02e7
+    const v1, 0x7f0d02e8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1029,7 +1029,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02ee
+    const v1, 0x7f0d02ef
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1043,7 +1043,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02f1
+    const v1, 0x7f0d02f2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1055,7 +1055,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02f2
+    const v1, 0x7f0d02f3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1067,7 +1067,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02f4
+    const v1, 0x7f0d02f5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1093,7 +1093,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02f7
+    const v1, 0x7f0d02f8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1105,7 +1105,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02f8
+    const v1, 0x7f0d02f9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1384,13 +1384,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d02ef
+    const v4, 0x7f0d02f0
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    const v4, 0x7f0d02f0
+    const v4, 0x7f0d02f1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1849,7 +1849,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mSettingsContainer:Landroid/view/View;
 
-    const v3, 0x7f1303da
+    const v3, 0x7f1303e6
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1990,7 +1990,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f055d
+    const v2, 0x7f0f05ba
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2040,25 +2040,25 @@
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 6
 
-    const v5, 0x7f0d02f8
+    const v5, 0x7f0d02f9
 
-    const v4, 0x7f0d02f7
+    const v4, 0x7f0d02f8
 
-    const v3, 0x7f0d025b
+    const v3, 0x7f0d025c
 
-    const v2, 0x7f0d02fa
+    const v2, 0x7f0d02fb
 
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mBatteryLevel:Landroid/widget/TextView;
 
-    const v1, 0x7f0d0310
+    const v1, 0x7f0d0311
 
     invoke-static {v0, v1}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mEmergencyCallsOnly:Landroid/widget/TextView;
 
-    const v1, 0x7f0d02f9
+    const v1, 0x7f0d02fa
 
     invoke-static {v0, v1}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 
@@ -2086,7 +2086,7 @@
 
     invoke-static {v0, v4}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 
-    const v0, 0x7f130488
+    const v0, 0x7f130492
 
     invoke-static {p0, v0, v5}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/view/View;II)V
 
@@ -2148,7 +2148,7 @@
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->onFinishInflate()V
 
-    const v0, 0x7f13029a
+    const v0, 0x7f1302a2
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2156,7 +2156,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mSystemIconsSuperContainer:Landroid/view/View;
 
-    const v0, 0x7f13029b
+    const v0, 0x7f1302a3
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2170,7 +2170,7 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f1304a2
+    const v0, 0x7f1304ac
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2178,7 +2178,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mDateGroup:Landroid/view/View;
 
-    const v0, 0x7f130262
+    const v0, 0x7f13026a
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2186,7 +2186,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mClock:Landroid/view/View;
 
-    const v0, 0x7f130486
+    const v0, 0x7f130490
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2196,7 +2196,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mTime:Landroid/widget/TextView;
 
-    const v0, 0x7f130487
+    const v0, 0x7f130491
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2206,7 +2206,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mAmPm:Landroid/widget/TextView;
 
-    const v0, 0x7f130297
+    const v0, 0x7f13029f
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2216,7 +2216,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mMultiUserSwitch:Lcom/android/systemui/statusbar/phone/MultiUserSwitch;
 
-    const v0, 0x7f130298
+    const v0, 0x7f1302a0
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2226,7 +2226,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mMultiUserAvatar:Landroid/widget/ImageView;
 
-    const v0, 0x7f1304a3
+    const v0, 0x7f1304ad
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2236,7 +2236,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mDateCollapsed:Landroid/widget/TextView;
 
-    const v0, 0x7f1304a4
+    const v0, 0x7f1304ae
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2246,7 +2246,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mDateExpanded:Landroid/widget/TextView;
 
-    const v0, 0x7f13018a
+    const v0, 0x7f13018e
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2256,7 +2256,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mSettingsButton:Lcom/android/systemui/statusbar/phone/SettingsButton;
 
-    const v0, 0x7f130189
+    const v0, 0x7f13018d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2268,7 +2268,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/SettingsButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f130380
+    const v0, 0x7f13038c
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2306,7 +2306,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mQsDetailHeaderSwitch:Landroid/widget/Switch;
 
-    const v0, 0x7f13044f
+    const v0, 0x7f13045b
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2316,7 +2316,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mQsDetailHeaderProgress:Landroid/widget/ImageView;
 
-    const v0, 0x7f1304a1
+    const v0, 0x7f1304ab
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2326,7 +2326,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mEmergencyCallsOnly:Landroid/widget/TextView;
 
-    const v0, 0x7f13029c
+    const v0, 0x7f1302a4
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2336,7 +2336,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mBatteryLevel:Landroid/widget/TextView;
 
-    const v0, 0x7f130295
+    const v0, 0x7f13029d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2350,7 +2350,7 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f1301b2
+    const v0, 0x7f1301b7
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -2358,7 +2358,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->mSignalCluster:Landroid/view/View;
 
-    const v0, 0x7f1301af
+    const v0, 0x7f1301b4
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarHeaderView;->findViewById(I)Landroid/view/View;
 

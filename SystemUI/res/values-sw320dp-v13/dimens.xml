@@ -28,8 +28,8 @@
     <dimen name="clear_cover_home_widget_margin">27.0dip</dimen>
     <dimen name="clear_cover_charging_bottom_padding">94.0dip</dimen>
     <dimen name="clear_cover_charging_text_font_size">10.5dip</dimen>
-    <dimen name="clear_cover_notifications_icon_size">12.5dip</dimen>
-    <dimen name="clear_cover_notifications_border_size">26.0dip</dimen>
+    <dimen name="clear_cover_notifications_icon_size">15.0dip</dimen>
+    <dimen name="clear_cover_notifications_border_size">31.0dip</dimen>
     <dimen name="clear_cover_notifications_divider_half_size">9.0dip</dimen>
     <dimen name="clear_cover_notifications_top_padding">11.0dip</dimen>
     <dimen name="clear_cover_notifications_text_font_size">12.0dip</dimen>
@@ -61,7 +61,7 @@
     <dimen name="clear_cover_missed_events_icon_text_padding">9.0dip</dimen>
     <dimen name="clear_cover_missed_events_text_height">19.0dip</dimen>
     <dimen name="clear_cover_missed_events_divider_size">39.0dip</dimen>
-    <dimen name="clear_cover_popup_bottom_margin">57.0dip</dimen>
+    <dimen name="clear_cover_popup_bottom_margin">94.0dip</dimen>
     <dimen name="clear_cover_popup_margin">32.0dip</dimen>
     <dimen name="clear_cover_popup_toast_start_end_padding">14.0dip</dimen>
     <dimen name="clear_cover_popup_toast_top_bottom_padding">9.0dip</dimen>
@@ -73,7 +73,7 @@
     <dimen name="clear_cover_servicebox_touch_area_height">470.0dip</dimen>
     <dimen name="clear_cover_servicebox_arrow_padding">26.0dip</dimen>
     <dimen name="clear_cover_servicebox_arrow_size">32.0dip</dimen>
-    <dimen name="clear_cover_servicebox_owner_text_container_height">28.0dip</dimen>
+    <dimen name="clear_cover_servicebox_owner_text_container_height">32.0dip</dimen>
     <dimen name="clear_cover_servicebox_owner_text_height">18.0dip</dimen>
     <dimen name="clear_cover_servicebox_owner_text_size">12.0dip</dimen>
     <dimen name="clear_cover_servicebox_today_clock_day_size">47.0dip</dimen>
@@ -159,6 +159,12 @@
     <dimen name="kg_fmm_message_margin_bottom">6.0dip</dimen>
     <dimen name="kg_fmm_locked_area_width">249.0dip</dimen>
     <dimen name="kg_fmm_locked_owner_info_width">249.0dip</dimen>
+    <dimen name="kg_carrier_lock_info_margin_top">89.0dip</dimen>
+    <dimen name="kg_carrier_lock_info_margin_side">40.0dip</dimen>
+    <dimen name="kg_carrier_lock_text_font_size">14.0dip</dimen>
+    <dimen name="kg_carrier_lock_button_area_margin_bottom">52.0dip</dimen>
+    <dimen name="kg_carrier_lock_button_width">128.0dip</dimen>
+    <dimen name="kg_carrier_lock_button_margin_top">10.0dip</dimen>
     <dimen name="kg_face_preview_height">133.0dip</dimen>
     <dimen name="kg_face_recognition_icon_bottom_margin">16.0dip</dimen>
     <dimen name="direction_lock_bouncer_mode_text_size">14.0dip</dimen>

@@ -65,7 +65,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0254
+    const v2, 0x7f0d0255
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -79,7 +79,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0248
+    const v3, 0x7f0d0249
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -139,13 +139,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d024e
+    const v4, 0x7f0d024f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    const v4, 0x7f0d0251
+    const v4, 0x7f0d0252
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -213,7 +213,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d024f
+    const v6, 0x7f0d0250
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -229,7 +229,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0250
+    const v6, 0x7f0d0251
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -253,7 +253,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040137
+    const v2, 0x7f04013b
 
     const/4 v3, 0x0
 
@@ -261,7 +261,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1303cd
+    const v1, 0x7f1303d9
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -286,7 +286,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d024f
+    const v3, 0x7f0d0250
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -312,7 +312,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040138
+    const v2, 0x7f04013c
 
     const/4 v3, 0x0
 
@@ -320,7 +320,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1303ce
+    const v1, 0x7f1303da
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -345,7 +345,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setFocusable(Z)V
 
-    const v1, 0x7f1303cf
+    const v1, 0x7f1303db
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -365,7 +365,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0250
+    const v3, 0x7f0d0251
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -629,7 +629,7 @@
 
     aput-object v1, v7, v5
 
-    const v8, 0x7f0f0492
+    const v8, 0x7f0f04ef
 
     invoke-virtual {v6, v8, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -696,7 +696,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSTileView;->mLabel:Landroid/widget/TextView;
 
-    const v1, 0x7f0d0248
+    const v1, 0x7f0d0249
 
     invoke-static {v0, v1}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 
@@ -769,7 +769,7 @@
 
     if-eqz v0, :cond_1
 
-    const v1, 0x7f0205cc
+    const v1, 0x7f0205d4
 
     :goto_1
     invoke-virtual {v3, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -786,7 +786,7 @@
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f0205c9
+    const v1, 0x7f0205d1
 
     goto :goto_1
 .end method

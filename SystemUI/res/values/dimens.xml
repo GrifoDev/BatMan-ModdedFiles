@@ -62,6 +62,7 @@
     <dimen name="multiwindow_snapview_divider_handle_touch_width">4.0dip</dimen>
     <dimen name="multiwindow_snapview_divider_handle_touch_height">4.0dip</dimen>
     <dimen name="multiwindow_divider_guideview_height">5.0dip</dimen>
+    <dimen name="dock_minimized_notification_content_margin_end">65.0dip</dimen>
     <dimen name="statusbar_height">25.0dip</dimen>
     <dimen name="sview_cover_height">286.0dip</dimen>
     <dimen name="sview_cover_popup_height">256.0dip</dimen>
@@ -113,8 +114,8 @@
     <dimen name="clear_cover_home_widget_margin">30.0dip</dimen>
     <dimen name="clear_cover_charging_bottom_padding">106.0dip</dimen>
     <dimen name="clear_cover_charging_text_font_size">12.0dip</dimen>
-    <dimen name="clear_cover_notifications_icon_size">14.0dip</dimen>
-    <dimen name="clear_cover_notifications_border_size">29.0dip</dimen>
+    <dimen name="clear_cover_notifications_icon_size">17.0dip</dimen>
+    <dimen name="clear_cover_notifications_border_size">35.0dip</dimen>
     <dimen name="clear_cover_notifications_divider_half_size">10.0dip</dimen>
     <dimen name="clear_cover_notifications_top_padding">12.0dip</dimen>
     <dimen name="clear_cover_notifications_text_font_size">14.0dip</dimen>
@@ -146,7 +147,7 @@
     <dimen name="clear_cover_missed_events_icon_text_padding">10.0dip</dimen>
     <dimen name="clear_cover_missed_events_text_height">21.0dip</dimen>
     <dimen name="clear_cover_missed_events_divider_size">44.0dip</dimen>
-    <dimen name="clear_cover_popup_bottom_margin">64.0dip</dimen>
+    <dimen name="clear_cover_popup_bottom_margin">106.0dip</dimen>
     <dimen name="clear_cover_popup_margin">36.0dip</dimen>
     <dimen name="clear_cover_popup_toast_start_end_padding">16.0dip</dimen>
     <dimen name="clear_cover_popup_toast_top_bottom_padding">10.0dip</dimen>
@@ -159,7 +160,7 @@
     <dimen name="toast_bottom_margin">63.0dip</dimen>
     <dimen name="clear_cover_servicebox_arrow_padding">29.0dip</dimen>
     <dimen name="clear_cover_servicebox_arrow_size">32.0dip</dimen>
-    <dimen name="clear_cover_servicebox_owner_text_container_height">32.0dip</dimen>
+    <dimen name="clear_cover_servicebox_owner_text_container_height">37.0dip</dimen>
     <dimen name="clear_cover_servicebox_owner_text_height">20.0dip</dimen>
     <dimen name="clear_cover_servicebox_owner_text_size">13.0dip</dimen>
     <dimen name="clear_cover_servicebox_today_clock_day_size">53.0dip</dimen>
@@ -1150,8 +1151,19 @@
     <item type="dimen" name="status_bar_battery_dark_mode_alpha">0.68</item>
     <item type="dimen" name="battery_meter_text_size_ratio">0.666</item>
     <dimen name="navigation_force_immersive_touch_window_breadth">7.0dip</dimen>
+    <dimen name="navigation_force_immersive_help_dialog_text_size">15.0dip</dimen>
+    <dimen name="navigation_force_immersive_help_dialog_margin_top">24.0dip</dimen>
+    <dimen name="navigation_force_immersive_help_dialog_margin_bottom">24.0dip</dimen>
+    <dimen name="navigation_force_immersive_help_dialog_margin_start">24.0dip</dimen>
+    <dimen name="navigation_force_immersive_help_dialog_margin_end">24.0dip</dimen>
+    <dimen name="navigation_force_immersive_help_dialog_message_margin_start">8.0dip</dimen>
+    <dimen name="navigation_force_immersive_help_dialog_message_margin_bottom">9.0dip</dimen>
+    <dimen name="badge_notification_background_rectangle_radius_on_desktop_mode">7.0dip</dimen>
+    <dimen name="badge_notification_background_rectangle_radius">8.0dip</dimen>
+    <dimen name="badge_notification_background_additional_width_size">3.0dip</dimen>
     <dimen name="badge_notification_background_size">16.0dip</dimen>
     <dimen name="badge_notification_background_size_on_desktop_mode">14.0dip</dimen>
+    <dimen name="badge_notification_background_size_on_opentheme">18.0dip</dimen>
     <dimen name="badge_notification_margin_top">4.0dip</dimen>
     <dimen name="badge_notification_text_size">11.0dip</dimen>
     <dimen name="badge_notification_text_size_on_desktop_mode">9.0dip</dimen>
@@ -1257,6 +1269,7 @@
     <dimen name="keyguard_dual_clock_view_top_margin_default">77.0dip</dimen>
     <dimen name="keyguard_dual_clock_view_top_margin_cover">27.0dip</dimen>
     <dimen name="keyguard_dual_clock_view_top_margin_mkeyboard">34.0dip</dimen>
+    <dimen name="keyguard_dual_clock_view_bottom_padding">11.0dip</dimen>
     <dimen name="keyguard_dual_container_min_width">156.0dip</dimen>
     <dimen name="keyguard_dual_locale_view_min_height">22.0dip</dimen>
     <dimen name="keyguard_dual_locale_view_text_size">16.0dip</dimen>
@@ -1397,6 +1410,12 @@
     <dimen name="kg_fmm_locked_area_width">280.0dip</dimen>
     <dimen name="kg_fmm_locked_owner_info_width">280.0dip</dimen>
     <dimen name="kg_fmm_contact_area_side_margin">0.0dip</dimen>
+    <dimen name="kg_carrier_lock_info_margin_top">100.0dip</dimen>
+    <dimen name="kg_carrier_lock_info_margin_side">45.0dip</dimen>
+    <dimen name="kg_carrier_lock_text_font_size">16.0dip</dimen>
+    <dimen name="kg_carrier_lock_button_area_margin_bottom">58.0dip</dimen>
+    <dimen name="kg_carrier_lock_button_width">144.0dip</dimen>
+    <dimen name="kg_carrier_lock_button_margin_top">11.0dip</dimen>
     <dimen name="kg_dex_button_margin_bottom">20.0dip</dimen>
     <dimen name="kg_dex_message_area_padding_side">650.0dip</dimen>
     <dimen name="kg_dex_security_input_box_side_margin">818.0dip</dimen>
@@ -1552,6 +1571,7 @@
     <dimen name="allapps_search_result_margin_left">26.0dip</dimen>
     <dimen name="allapps_search_result_margin_right">26.0dip</dimen>
     <dimen name="allapps_search_result_margin_bottom">20.0dip</dimen>
+    <dimen name="allapps_search_result_margin_top">14.0dip</dimen>
     <dimen name="allapps_search_result_line_margin">10.0dip</dimen>
     <dimen name="allapps_edit_mode_title_padding_top">10.0dip</dimen>
     <dimen name="allapps_edit_mode_title_padding_left">17.0dip</dimen>
@@ -1612,7 +1632,7 @@
     <dimen name="desk_panel_bg_radius">5.0px</dimen>
     <dimen name="desk_panel_view_notification_bg_radius">6.0px</dimen>
     <dimen name="desk_panal_view_bottom_margin">12.0dip</dimen>
-    <dimen name="desk_network_speed_width">70.0dip</dimen>
+    <dimen name="desk_network_speed_width">71.0dip</dimen>
     <dimen name="killer_meminfo_txt_size">16.0sp</dimen>
     <dimen name="net_traffic_single_text_size">12.0dip</dimen>
     <dimen name="net_traffic_multi_text_size">9.0dip</dimen>

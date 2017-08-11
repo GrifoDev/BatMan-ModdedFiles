@@ -52,9 +52,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v1, 0x7f020235
+    const v1, 0x7f020239
 
-    const v2, 0x7f020232
+    const v2, 0x7f020236
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -62,9 +62,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v1, 0x7f020233
+    const v1, 0x7f020237
 
-    const v2, 0x7f020234
+    const v2, 0x7f020238
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -94,7 +94,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f034f
+    const v1, 0x7f0f03ac
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -105,7 +105,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f034e
+    const v1, 0x7f0f03ab
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -139,7 +139,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03cb
+    const v1, 0x7f0f0428
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -218,7 +218,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03cb
+    const v1, 0x7f0f0428
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -236,7 +236,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f034d
+    const v1, 0x7f0f03aa
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -275,7 +275,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f034c
+    const v1, 0x7f0f03a9
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

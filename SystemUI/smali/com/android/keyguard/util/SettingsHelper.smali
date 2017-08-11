@@ -1734,6 +1734,20 @@
     return-void
 .end method
 
+.method public forceBroadcastWhiteKeyguardWallpaper()V
+    .locals 1
+
+    const-string/jumbo v0, "white_lockscreen_wallpaper"
+
+    invoke-static {v0}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/util/SettingsHelper;->broadcastChange(Landroid/net/Uri;)V
+
+    return-void
+.end method
+
 .method public getActiveThemePackage()Ljava/lang/String;
     .locals 2
 
@@ -2744,6 +2758,35 @@
     move v0, v1
 
     goto :goto_0
+.end method
+
+.method public isOpenThemeLook()Z
+    .locals 4
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0}, Lcom/android/keyguard/util/SettingsHelper;->getActiveThemePackage()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/android/keyguard/util/SettingsHelper;->getLockscreenWallpaperTransparent()I
+
+    move-result v1
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const/4 v3, 0x2
+
+    if-ne v1, v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    return v2
 .end method
 
 .method public isPowerSavingMode()Z

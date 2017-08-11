@@ -316,7 +316,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f040149
+    const v2, 0x7f04014d
 
     invoke-virtual {v0, v2, p0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -334,7 +334,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0393
+    const v3, 0x7f0d0394
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -346,7 +346,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0394
+    const v3, 0x7f0d0395
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -358,7 +358,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0111
+    const v3, 0x7f0b0112
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -727,7 +727,7 @@
     return-void
 
     :cond_4
-    const v2, 0x7f0f0626
+    const v2, 0x7f0f0684
 
     invoke-interface {v1, v2}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
@@ -738,21 +738,21 @@
     goto :goto_0
 
     :cond_5
-    const v2, 0x7f0f0627
+    const v2, 0x7f0f0685
 
     invoke-interface {v1, v2}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
     goto :goto_1
 
     :cond_6
-    const v2, 0x7f0f0628
+    const v2, 0x7f0f0686
 
     invoke-interface {v1, v2}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
     goto :goto_2
 
     :cond_7
-    const v2, 0x7f0f0629
+    const v2, 0x7f0f0687
 
     invoke-interface {v1, v2}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
@@ -775,9 +775,9 @@
 .method private updateRecentsButtonsColor()V
     .locals 5
 
-    const v4, 0x7f0b0110
+    const v4, 0x7f0b0111
 
-    const v3, 0x7f0b010f
+    const v3, 0x7f0b0110
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
@@ -799,7 +799,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllButton:Landroid/widget/Button;
 
-    const v2, 0x7f02047e
+    const v2, 0x7f020486
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -814,7 +814,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllButton:Landroid/widget/Button;
 
-    const v2, 0x7f02047d
+    const v2, 0x7f020485
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -1793,8 +1793,21 @@
 
     invoke-virtual {v1, v0, v4, v5}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->overridePendingAppTransitionMultiThumbFuture(Landroid/view/IAppTransitionAnimationSpecsFuture;Landroid/os/IRemoteCallback;Z)V
 
-    :cond_1
+    :goto_0
     return-void
+
+    :cond_1
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v4
+
+    new-instance v5, Lcom/android/systemui/recents/events/activity/DockedTopTaskFailedEvent;
+
+    invoke-direct {v5}, Lcom/android/systemui/recents/events/activity/DockedTopTaskFailedEvent;-><init>()V
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
+    goto :goto_0
 .end method
 
 .method public final onBusEvent(Lcom/android/systemui/recents/events/activity/LaunchTaskEvent;)V
@@ -1998,7 +2011,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v5, 0x7f1303eb
+    const v5, 0x7f1303f7
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -2006,7 +2019,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v5, 0x7f1303ee
+    const v5, 0x7f1303fa
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -2093,7 +2106,7 @@
     :cond_3
     iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v5, 0x7f1303ee
+    const v5, 0x7f1303fa
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -2101,7 +2114,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v5, 0x7f1303eb
+    const v5, 0x7f1303f7
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3207,6 +3220,16 @@
 
     invoke-virtual {v4, v5}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v4
+
+    new-instance v5, Lcom/android/systemui/recents/events/activity/DockedTopTaskFailedEvent;
+
+    invoke-direct {v5}, Lcom/android/systemui/recents/events/activity/DockedTopTaskFailedEvent;-><init>()V
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
     goto :goto_0
 
     :cond_3
@@ -3280,7 +3303,7 @@
 
     invoke-virtual {v11, v4}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_4
     const/4 v9, 0x0
@@ -3959,7 +3982,7 @@
 
     const/4 v0, 0x1
 
-    const v5, 0x7f02047b
+    const v5, 0x7f020483
 
     iput-object p2, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllContainer:Landroid/view/ViewGroup;
 
@@ -3973,7 +3996,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f1303e9
+    const v2, 0x7f1303f5
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -4033,7 +4056,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f1303f0
+    const v2, 0x7f1303fc
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -4087,7 +4110,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f1303ed
+    const v2, 0x7f1303f9
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -4107,7 +4130,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f1303ec
+    const v2, 0x7f1303f8
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -4136,7 +4159,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f1303ef
+    const v2, 0x7f1303fb
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -4259,7 +4282,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b010f
+    const v3, 0x7f0b0110
 
     invoke-virtual {v2, v3, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -4287,7 +4310,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0110
+    const v3, 0x7f0b0111
 
     invoke-virtual {v2, v3, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -4368,7 +4391,7 @@
 
     move-result-object v2
 
-    iget-boolean v2, v2, Lcom/android/systemui/recents/RecentsConfiguration;->isSplitScreenLayout:Z
+    iget-boolean v2, v2, Lcom/android/systemui/recents/RecentsConfiguration;->isInMultiWindowMode:Z
 
     if-eqz v2, :cond_2
 
@@ -4439,7 +4462,7 @@
 
     iget v2, v2, Landroid/graphics/Rect;->bottom:I
 
-    if-nez v2, :cond_4
+    if-gtz v2, :cond_4
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
@@ -4456,7 +4479,7 @@
 
     move-result-object v2
 
-    iget-boolean v2, v2, Lcom/android/systemui/recents/RecentsConfiguration;->isSplitScreenLayout:Z
+    iget-boolean v2, v2, Lcom/android/systemui/recents/RecentsConfiguration;->isInMultiWindowMode:Z
 
     if-eqz v2, :cond_5
 
@@ -4506,7 +4529,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0f04a1
+    const v0, 0x7f0f04fe
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsView;->showEmptyView(I)V
 

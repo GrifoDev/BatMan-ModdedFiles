@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "RecentsPackageInfo"
 .end annotation
 
@@ -19,16 +19,12 @@
 
 .field intent:Landroid/content/Intent;
 
-.field final synthetic this$0:Lcom/android/systemui/recents/model/RecentsPackageMonitor;
-
 .field versionCode:I
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/recents/model/RecentsPackageMonitor;)V
+.method private constructor <init>()V
     .locals 1
-
-    iput-object p1, p0, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->this$0:Lcom/android/systemui/recents/model/RecentsPackageMonitor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,10 +43,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/recents/model/RecentsPackageMonitor;Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;)V
+.method synthetic constructor <init>(Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;-><init>(Lcom/android/systemui/recents/model/RecentsPackageMonitor;)V
+    invoke-direct {p0}, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;-><init>()V
 
     return-void
 .end method

@@ -48,7 +48,7 @@
 
     invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    const v2, 0x7f0b0095
+    const v2, 0x7f0b0096
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -110,7 +110,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0266
+    const v1, 0x7f0d0267
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

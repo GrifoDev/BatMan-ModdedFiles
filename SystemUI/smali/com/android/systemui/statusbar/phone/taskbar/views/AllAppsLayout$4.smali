@@ -35,9 +35,11 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 6
+    .locals 7
 
-    const/16 v5, 0x8
+    const/16 v6, 0x8
+
+    const/4 v5, 0x1
 
     const/4 v4, 0x0
 
@@ -61,7 +63,7 @@
 
     iget-object v2, v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnSearchMoreMenu:Landroid/widget/ImageButton;
 
-    invoke-virtual {v2, v5}, Landroid/widget/ImageButton;->setVisibility(I)V
+    invoke-virtual {v2, v6}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
@@ -93,34 +95,21 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x7f0f098e
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setSearchTextView(Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
-
-    const/4 v3, 0x1
-
-    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-wrap9(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Z)V
+    invoke-static {v2, v5, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-wrap9(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;ZZ)V
 
     :cond_0
     :goto_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
+
+    invoke-static {v2, v5, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-wrap11(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;ZZ)V
+
+    :goto_1
     return-void
 
     :cond_1
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
-    invoke-static {v2, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-wrap9(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Z)V
+    invoke-static {v2, v4, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-wrap9(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;ZZ)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
@@ -139,13 +128,17 @@
 
     iget-object v2, v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnSearchCancel:Landroid/widget/ImageButton;
 
-    invoke-virtual {v2, v5}, Landroid/widget/ImageButton;->setVisibility(I)V
+    invoke-virtual {v2, v6}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
     invoke-static {v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-wrap8(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
 
-    goto :goto_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
+
+    invoke-static {v2, v4, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-wrap11(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;ZZ)V
+
+    goto :goto_1
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V

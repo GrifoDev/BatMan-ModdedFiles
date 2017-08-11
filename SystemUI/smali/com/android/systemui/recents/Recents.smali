@@ -901,7 +901,7 @@
     :cond_c
     iget-object v2, p0, Lcom/android/systemui/recents/Recents;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f04a9
+    const v3, 0x7f0f0506
 
     const/4 v4, 0x0
 
@@ -1671,7 +1671,7 @@
 .end method
 
 .method public showRecents(ZZ)V
-    .locals 9
+    .locals 10
 
     const/4 v3, 0x1
 
@@ -1698,26 +1698,20 @@
 
     invoke-static {v1, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v1, "com.android.systemui.recents.ACTION_SHOW"
-
-    invoke-direct {p0, v1}, Lcom/android/systemui/recents/Recents;->proxyToOverridePackage(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    return-void
-
-    :cond_1
     const-class v1, Lcom/android/systemui/stackdivider/Divider;
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/Recents;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v8
 
-    check-cast v1, Lcom/android/systemui/stackdivider/Divider;
+    check-cast v8, Lcom/android/systemui/stackdivider/Divider;
 
-    invoke-virtual {v1}, Lcom/android/systemui/stackdivider/Divider;->getView()Lcom/android/systemui/stackdivider/DividerView;
+    if-nez v8, :cond_1
+
+    return-void
+
+    :cond_1
+    invoke-virtual {v8}, Lcom/android/systemui/stackdivider/Divider;->getView()Lcom/android/systemui/stackdivider/DividerView;
 
     move-result-object v1
 
@@ -1784,13 +1778,13 @@
     goto :goto_0
 
     :catch_0
-    move-exception v8
+    move-exception v9
 
     const-string/jumbo v1, "Recents"
 
     const-string/jumbo v2, "Callback failed"
 
-    invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
@@ -2054,131 +2048,136 @@
 .end method
 
 .method public toggleRecents(Landroid/view/Display;)V
-    .locals 7
+    .locals 8
 
     invoke-direct {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_0
+    if-nez v5, :cond_0
 
-    const-string/jumbo v4, "Recents"
+    const-string/jumbo v5, "Recents"
 
-    const-string/jumbo v5, "Device is not initialized"
+    const-string/jumbo v6, "Device is not initialized"
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    const-string/jumbo v4, "Recents"
+    const-string/jumbo v5, "Recents"
 
-    const-string/jumbo v5, "toggleRecents"
+    const-string/jumbo v6, "toggleRecents"
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v4, "com.android.systemui.recents.ACTION_TOGGLE"
+    const-class v5, Lcom/android/systemui/stackdivider/Divider;
 
-    invoke-direct {p0, v4}, Lcom/android/systemui/recents/Recents;->proxyToOverridePackage(Ljava/lang/String;)Z
+    invoke-virtual {p0, v5}, Lcom/android/systemui/recents/Recents;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result v4
+    move-result-object v2
 
-    if-eqz v4, :cond_1
+    check-cast v2, Lcom/android/systemui/stackdivider/Divider;
+
+    if-nez v2, :cond_1
 
     return-void
 
     :cond_1
-    const-class v4, Lcom/android/systemui/stackdivider/Divider;
+    const-string/jumbo v5, "com.android.systemui.recents.ACTION_TOGGLE"
 
-    invoke-virtual {p0, v4}, Lcom/android/systemui/recents/Recents;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-direct {p0, v5}, Lcom/android/systemui/recents/Recents;->proxyToOverridePackage(Ljava/lang/String;)Z
 
-    move-result-object v4
+    move-result v5
 
-    check-cast v4, Lcom/android/systemui/stackdivider/Divider;
+    if-eqz v5, :cond_2
 
-    invoke-virtual {v4}, Lcom/android/systemui/stackdivider/Divider;->getView()Lcom/android/systemui/stackdivider/DividerView;
+    return-void
 
-    move-result-object v4
+    :cond_2
+    invoke-virtual {v2}, Lcom/android/systemui/stackdivider/Divider;->getView()Lcom/android/systemui/stackdivider/DividerView;
 
-    invoke-virtual {v4}, Lcom/android/systemui/stackdivider/DividerView;->growsRecents()I
+    move-result-object v5
 
-    move-result v3
-
-    sget-object v4, Lcom/android/systemui/recents/Recents;->sSystemServicesProxy:Lcom/android/systemui/recents/misc/SystemServicesProxy;
-
-    invoke-virtual {v4}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getCurrentUser()I
-
-    move-result v1
-
-    sget-object v4, Lcom/android/systemui/recents/Recents;->sSystemServicesProxy:Lcom/android/systemui/recents/misc/SystemServicesProxy;
-
-    invoke-virtual {v4, v1}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isSystemUser(I)Z
+    invoke-virtual {v5}, Lcom/android/systemui/stackdivider/DividerView;->growsRecents()I
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    sget-object v5, Lcom/android/systemui/recents/Recents;->sSystemServicesProxy:Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
-    iget-object v4, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImpl;
+    invoke-virtual {v5}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getCurrentUser()I
 
-    invoke-virtual {v4, v3}, Lcom/android/systemui/recents/RecentsImpl;->toggleRecents(I)V
+    move-result v1
 
-    :cond_2
+    sget-object v5, Lcom/android/systemui/recents/Recents;->sSystemServicesProxy:Lcom/android/systemui/recents/misc/SystemServicesProxy;
+
+    invoke-virtual {v5, v1}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isSystemUser(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    iget-object v5, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImpl;
+
+    invoke-virtual {v5, v4}, Lcom/android/systemui/recents/RecentsImpl;->toggleRecents(I)V
+
+    :cond_3
     :goto_0
     return-void
 
-    :cond_3
-    iget-object v4, p0, Lcom/android/systemui/recents/Recents;->mSystemToUserCallbacks:Lcom/android/systemui/recents/RecentsSystemUser;
+    :cond_4
+    iget-object v5, p0, Lcom/android/systemui/recents/Recents;->mSystemToUserCallbacks:Lcom/android/systemui/recents/RecentsSystemUser;
 
-    if-eqz v4, :cond_2
+    if-eqz v5, :cond_3
 
-    iget-object v4, p0, Lcom/android/systemui/recents/Recents;->mSystemToUserCallbacks:Lcom/android/systemui/recents/RecentsSystemUser;
+    iget-object v5, p0, Lcom/android/systemui/recents/Recents;->mSystemToUserCallbacks:Lcom/android/systemui/recents/RecentsSystemUser;
 
-    invoke-virtual {v4, v1}, Lcom/android/systemui/recents/RecentsSystemUser;->getNonSystemUserRecentsForUser(I)Lcom/android/systemui/recents/IRecentsNonSystemUserCallbacks;
+    invoke-virtual {v5, v1}, Lcom/android/systemui/recents/RecentsSystemUser;->getNonSystemUserRecentsForUser(I)Lcom/android/systemui/recents/IRecentsNonSystemUserCallbacks;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     :try_start_0
-    invoke-interface {v0, v3}, Lcom/android/systemui/recents/IRecentsNonSystemUserCallbacks;->toggleRecents(I)V
+    invoke-interface {v0, v4}, Lcom/android/systemui/recents/IRecentsNonSystemUserCallbacks;->toggleRecents(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception v3
 
-    const-string/jumbo v4, "Recents"
+    const-string/jumbo v5, "Recents"
 
-    const-string/jumbo v5, "Callback failed"
+    const-string/jumbo v6, "Callback failed"
 
-    invoke-static {v4, v5, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v5, v6, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    :cond_4
-    const-string/jumbo v4, "Recents"
+    :cond_5
+    const-string/jumbo v5, "Recents"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "No SystemUI callbacks found for user: "
+    const-string/jumbo v7, "No SystemUI callbacks found for user: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

@@ -63,7 +63,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1300f5
+    const v4, 0x7f1300f9
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -90,7 +90,7 @@
     invoke-virtual {p2, v4}, Landroid/view/View;->setActivated(Z)V
 
     :goto_0
-    const v4, 0x7f1300f4
+    const v4, 0x7f1300f8
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

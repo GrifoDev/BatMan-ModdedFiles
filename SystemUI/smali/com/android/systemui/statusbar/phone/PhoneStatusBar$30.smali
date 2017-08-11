@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$30;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap35(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap36(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
 
     return-void
 .end method

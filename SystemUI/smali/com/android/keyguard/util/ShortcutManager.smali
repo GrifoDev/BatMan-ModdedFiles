@@ -424,8 +424,25 @@
 
     invoke-virtual/range {v5 .. v10}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
+    iget-object v0, p0, Lcom/android/keyguard/util/ShortcutManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/os/UserManager;->isUserUnlocked(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
     invoke-virtual {p0}, Lcom/android/keyguard/util/ShortcutManager;->updateShortcuts()V
 
+    :cond_1
     return-void
 .end method
 

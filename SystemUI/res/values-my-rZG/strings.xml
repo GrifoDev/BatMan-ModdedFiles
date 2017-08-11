@@ -67,8 +67,8 @@
     <string name="servicebox_accessibility_missing_next_alarm">ေနာက္ ၇ ရက္အၾကာထိ ႏႈိးစက္မ်ား ေပးမထားပါ</string>
     <string name="clear_cover_servicebox_music_unknown">မသိေသာ</string>
     <string name="ok">အုိေက</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d နာရီ %2$d မိနစ္</string>
+    <string name="battery_history_minutes_no_seconds">%d မိနစ္</string>
     <string name="wifi_failed_to_obtain_IP">IP လိပ္စာ ရယူရန္ မေအာင္ျမင္ပါ။</string>
     <string name="wifi_unknown_security_type">အမည္မသိ လံုျခံဳမႈ အမ်ိဳးအား</string>
     <string name="wifi_disabled_no_internet">အင္တာနက္ မရရွိႏိုင္ပါ</string>
@@ -112,6 +112,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s သုိ႔ခ်ိတ္ဆက္၍ မရပါ။</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s ႏွင့္ ခ်ိတ္ဆက္၍ မရပါ။ %2$s ထဲရွိ သင့္ သတ္မွတ္ခ်က္မ်ားကုိ စစ္ေဆးၿပီး ထပ္ႀကိဳးစားပါ။</string>
     <string name="bluetooth_pairing_rejected_error_message">ယွဥ္တြဲသုံးစြဲျခင္းကုိ %sမွ ပယ္ခ်ထားပါသည္။</string>
+    <string name="bluetooth_getting_remote_device_name">ကိရိယာအမည္ကုိ ရယူေနသည္…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">ဤကိရိယာကုိ ခ်ိတ္ဆက္သည့္အခါ ကိရိယာအမည္ ေပၚလာပါမည္။</string>
     <string name="tether_settings_title_all">မိုဘိုင္း ေဟာ့စေပါ့ႏွင့္ မွ်ေဝအသံုးျပဳျခင္း</string>
     <string name="tts_settings_title">စာသား-မွ-စကား</string>
     <string name="tts_default_rate_title">စကားႏႈန္း</string>
@@ -215,7 +217,7 @@ For example, your ringtone will not sound, you will not be able to answer phone 
 
 %s"</string>
     <string name="cant_open_ps">%s ကုိ ဖြင့္၍ မရပါ။</string>
-    <string name="sec_accessibility_recent">မၾကာေသးမီကမ်ား</string>
+    <string name="sec_accessibility_recent">လတ္တေလာမ်ား</string>
     <string name="accessibility_recents_item_will_be_dismissed">%s ကို ပိတ္ပါ</string>
     <string name="accessibility_recents_item_will_be_lock">%s ကုိေသာ့ခတ္ပါ</string>
     <string name="accessibility_recents_item_will_be_unlock">%s ကုိ ေသာ့ဖြင့္ပါ</string>
@@ -529,6 +531,7 @@ Wi-Fi ႏွင့္ဘလူးတုသ္ကို ပိတ္လုိက�
     <string name="wifi_ap_wifi_p2p_off_warn">မိုဘိုင္း ေဟာ့စေပါ့ကို ဖြင့္ျခင္းသည္ Wi-Fi Direct မွ တဆင့္ လက္ရွိ ခ်ိတ္ဆက္ ထားေသာ ကိရိယာတိုင္းကို ခ်ိတ္ဆက္ထားျခင္းမွ ျဖတ္ပါလိမ့္မည္။</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">အိတ္ေဆာင္ WLAN ေဟာ့စေပါ့ကို ဖြင့္ျခင္းသည္ WLAN Direct မွတဆင့္ ဆက္သြယ္ထားသည့္ကိရိယာကို ျဖဳတ္ပစ္မည္။</string>
     <string name="dialog_battery_data_warning">မုိဘုိင္းလ္ေဟာ့စေပါ့ကုိ ဖြင့္လိမ့္မည္။ ထုိသုိ႔ေဆာင္ရြက္ျခင္းသည္ ဘတၳရီသံုးစြဲမႈႏွင့္အခ်က္အလက္သံုးစြဲမႈကုိ တုိးျမွင့္ေစလိမ့္မည္။</string>
+    <string name="keyboard_popup_help">Meta ကီး : Windows၊ ညႊန္ၾကားခ်က္ သုိ႔မဟုတ္ အျခားလုပ္ေဆာင္ခ်က္ စနစ္ သေကၤတ ခလုတ္။</string>
     <string name="keyboard_shortcut_group_system">စနစ္ေရွာ့ကတ္မ်ား</string>
     <string name="keyboard_shortcut_group_system_back">ေနာက္သုိ႔</string>
     <string name="keyboard_shortcut_group_system_all_apps">အက္ပ္ အားလံုး</string>
@@ -610,8 +613,8 @@ Wi-Fi ႏွင့္ဘလူးတုသ္ကို ပိတ္လုိက�
 
 ေရေၾကာင့္ပ်က္စီးမႈမွ ကာကြယ္ရန္၊ SIM/SD ကဒ္ထည့္သည့္ေနရာကို တိက်စြာပိတ္ထားေၾကာင္း ေသခ်ာေစပါ။"</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">ေရေၾကာင့္ပ်က္စီးမႈမွ ကာကြယ္ရန္၊ SIM/SD ကဒ္ထည့္သြင္းသည့္ေနရာကို တိက်စြာ ပိတ္ထားေၾကာင္း ေသခ်ာေစပါ။</string>
-    <string name="water_protection_notification_title">ေပါ့တ္ကို စစ္ေဆးပါ</string>
-    <string name="water_protection_notification_body">အစိုဓာတ္ကို ရွာသိထားသည္။ သင္၏ကိရိယာကို အားသြင္းရန္၊ သင္၏ အားသြင္းကိရိယာ/USB ေပါ့တ္ကိုေျခာက္ေသြ႕ေစရန္ ေသခ်ာေစပါ။</string>
+    <string name="water_protection_notification_title">အားသြင္းစရာ ပလက္ျဖဳတ္ပါ</string>
+    <string name="water_protection_notification_body">ေရေငြ႕ရွိေၾကာင္း ႐ွာေတြ႕ထားသည္။ အားသြင္းကိရိယာကုိ ပလပ္ျဖဳတ္ၿပီး အားသြင္းကိရိယာႏွင့္ USB အေပါက္တုိ႔ ေျခာက္ေသြ႕ေၾကာင္း ေသခ်ာေအာင္ လုပ္ေဆာင္ပါ။</string>
     <string name="full_battery_title">သတင္းအခ်က္အလက္</string>
     <string name="full_battery_noti_text">ဘက္ထရီ အားျပည့္ေနၿပီ။</string>
     <string name="cooling_title">ကိရိယာ ပူလြန္းသည္</string>
@@ -705,6 +708,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">အေႏွးအားသြင္းျခင္း</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">ပို၍ျမန္စြာ အားသြင္းရန္၊ ကိရိယာႏွင့္အတူပါလာေသာ ခ်ာဂ်ာကို အသုံးျပဳၿပီး ၎ကို ေကာင္းစြာ ခ်ိတ္ဆက္ထားေၾကာင္း ေသခ်ာေအာင္လုပ္ပါ။</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">ခ်ာဂ်ာကို ေကာင္းစြာ ခ်ိတ္ဆက္ထားေၾကာင္း ေသခ်ာေအာင္လုပ္ပါ။ ကိရိယာႏွင့္အတူပါလာေသာ ခ်ာဂ်ာကို အသုံးျပဳပါ။</string>
     <string name="battery_charging_level_and_time_text">"အားသြင္းေနသည္ : %1$d%%
 (အားျပည့္သည္အထိ ခန္႔မွန္းေျခ %2$s)"</string>
@@ -718,14 +722,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">သင့္ဖုန္းကုိ အားသြင္းပါ။</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">သင့္တက္ဘလက္ကုိ အားသြင္းပါ။</string>
     <string name="button_close">ပိတ္ပါ</string>
-    <string name="battery_health_interruption_title">အားသြင္း၍ မရပါ</string>
+    <string name="battery_health_interruption_title">အားသြင္းမႈ ရပ္တန္႔သြားသည္</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">အားသြင္းကိရိယာကုိ ပလပ္ျဖဳတ္ပါ</string>
     <string name="battery_health_interruption_by_terminal_open_text">သင့္ကိရိယာ အားသြင္း၍ မရပါ။ ဆမ္ေဆာင္း ကိုက္ညီေသာ ဘက္ထရီတစ္ခုႏွင့္ အားသြင္းစရာ သံုးေနၿပီး သင့္ကိရိယာက အားသြင္းစရာသို႔ ေသခ်ာ ခ်ိတ္ဆက္ထားေၾကာင္း ေသခ်ာေစပါ။</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">အားသြင္းမႈ ရပ္တန္႔သြား။ ဘက္ထရီ အပူခ်ိန္ မ်ားလြန္။</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">အားသြင္းမႈ ရပ္တန္႔သြား။ ဘက္ထရီ အပူခ်ိန္ နည္းလြန္။</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"စက္ကုိ အားသြင္းျခင္း ရပ္ဆုိင္းသြားပါၿပီ။ ဘတၳရီအပူခ်ိန္ ပူလြန္းေနသည္။ အားသြင္းသည့္အရာကုိ ျဖဳတ္စဥ္ သတိထားပါ။ ၄င္းသည္ အလြန္ပူလြန္းေနသည္။
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">သင့္ဖုန္း၏ အပူခ်ိန္သည္ ျမင့္လြန္းေနပါသည္။ အပူခ်ိန္ ပံုမွန္အတုိင္း ျပန္ျဖစ္သည့္အခါ အားသြင္းျခင္း ဆက္လုပ္မည္။</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">သင့္တက္ဘလက္၏ အပူခ်ိန္သည္ ျမင့္လြန္းေနပါသည္။ အပူခ်ိန္ ပံုမွန္အတုိင္း ျပန္ျဖစ္သည့္အခါ အားသြင္းျခင္း ဆက္လုပ္မည္။</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">သင့္ဖုန္း၏ အပူခ်ိန္သည္ နိမ့္လြန္းေနပါသည္။ အပူခ်ိန္ ပံုမွန္အတုိင္း ျပန္ျဖစ္သည့္အခါ အားသြင္းျခင္း ဆက္လုပ္မည္။</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">သင့္တက္ဘလက္၏ အပူခ်ိန္သည္ နိမ့္လြန္းေနပါသည္။ အပူခ်ိန္ ပံုမွန္အတုိင္း ျပန္ျဖစ္သည့္အခါ အားသြင္းျခင္း ဆက္လုပ္မည္။</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"အားသြင္းမႈကို ရပ္ထားသည္။ သင့္ဖုန္း၏ အပူခ်ိန္သည္ ျမင့္လြန္းေနပါသည္။ အားသြင္းကိရိယာကုိ ျဖဳတ္စဥ္ သတိထားပါ။ ၎သည္ အလြန္ပူေနႏုိင္သည္။
 
-အားသြင္းသည့္အရာကုိ ျဖဳတ္ၿပီး ျပန္တပ္ျခင္းျဖင့္ ပံုမွန္အတုိင္းဆက္လက္အားသြင္းႏုိင္သည္။ အပူခ်ိန္လြန္ကဲေနပါက မီးေလာင္ကြ်မ္းျခင္း သုိ႔မဟုတ္ ထိခုိက္ဒဏ္ရာရျခင္းတုိ႔ ျဖစ္ေစႏုိင္သည့္အတြက္ အသံုးျပဳသူကုိ ဝန္ေဆာင္မႈေပးသည့္ေနရာသုိ႔ ဆက္သြယ္ပါ။"</string>
+အားသြင္းကိရိယာကုိ ျဖဳတ္ၿပီး ျပန္တပ္ျခင္းျဖင့္ ပံုမွန္အတုိင္းဆက္လက္အားသြင္းႏုိင္သည္။ အပူခ်ိန္လြန္ကဲေနပါက မီးေလာင္ကြ်မ္းျခင္း သုိ႔မဟုတ္ ထိခုိက္ဒဏ္ရာရျခင္းတုိ႔ ျဖစ္ေစႏုိင္သည့္အတြက္ ေဖာက္သည္ဝန္ေဆာင္မႈဌာနသုိ႔ ဆက္သြယ္ပါ။"</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"အားသြင္းမႈကို ရပ္ထားသည္။ သင့္တက္ဘလက္၏ အပူခ်ိန္သည္ ျမင့္လြန္းေနပါသည္။ အားသြင္းကိရိယာကုိ ျဖဳတ္စဥ္ သတိထားပါ။ ၎သည္ အလြန္ပူေနႏုိင္သည္။
+
+အားသြင္းကိရိယာကုိ ျဖဳတ္ၿပီး ျပန္တပ္ျခင္းျဖင့္ ပံုမွန္အတုိင္းဆက္လက္အားသြင္းႏုိင္သည္။ အပူခ်ိန္လြန္ကဲေနပါက မီးေလာင္ကြ်မ္းျခင္း သုိ႔မဟုတ္ ထိခုိက္ဒဏ္ရာရျခင္းတုိ႔ ျဖစ္ေစႏုိင္သည့္အတြက္ ေဖာက္သည္ဝန္ေဆာင္မႈဌာနသုိ႔ ဆက္သြယ္ပါ။"</string>
     <string name="incompatible_charger_title">အားသြင္း မေနပါ</string>
     <string name="incompatible_charger_dialog_text">ဆက္ထားသည့္ အားသြင္းခ်ာဂ်ာသည္ ဤဖုုန္းႏွင့္ မကိုုက္ညီပါ။ သင့္ဖုုန္း ပ်က္စီးမႈကိုု ကာကြယ္ရန္ အားသြင္းမႈအား ရပ္တန္႔မည္။ ဆက္လက္ အားသြင္းရန္အတြက္ ဤဖုုန္းႏွင့္တြဲပါလာေသာ နဂိုုမူလ အားသြင္းခ်ာဂ်ာႏွင့္ ၾကိဳးကိုု အသံုုးျပဳပါ္။</string>
     <string name="incompatible_charger_notification_text">အားသြင္း၍မရနိုုင္ပါ။ နဂိုုမူလအားသြင္းတံုုးကိုု အသံုုးျပဳပါ္။</string>
@@ -741,8 +751,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">ဇီဝ႐ုပ္လကၡဏာမ်ားကုိ အသုံးျပဳပါ (သို႔) ဖြင့္ရန္ ဖန္သားျပင္ကုိ ပြတ္ဆြဲပါ</string>
     <string name="kg_face_or_swipe_unlock_instructions">မ်က္ႏွာမွတ္သားျခင္းကုိ အသုံးျပဳပါ (သို႔) ေသာ့ဖြင့္ရန္ ဖန္သားျပင္ကုိ ပြတ္ဆြဲပါ</string>
     <string name="kg_face_or_swipe_active_instructions">မ်က္ႏွာမွတ္သားျခင္းကုိ အသုံးျပဳပါ (သို႔) ဖြင့္ရန္ ဖန္သားျပင္ကုိ ပြတ္ဆြဲပါ</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">ေသာ့ဖြင့္ရန္ မ်က္ႏွာမွတ္သားျခင္းကုိ သုံးပါ (သို႔) ၎အစား မ်က္ဝန္းမ်ားသုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">ဖြင့္ရန္ မ်က္ႏွာမွတ္သားျခင္းကုိ သုံးပါ (သို႔) ၎အစား မ်က္ဝန္းမ်ားသုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
     <string name="kg_face_unlock_instructions">မ်က္ႏွာမွတ္သားနည္းကုိသံုး၍ ဖြင့္ရန္အတြက္ မ်က္ႏွာျပင္ကို ပြတ္ဆြဲပါ</string>
     <string name="kg_face_or_fingerprint_active_instructions">ဖြင့္ရန္ လက္ေဗြရာသုံးပါ (သို႔) ၎အစား မ်က္ႏွာ မွတ္သားျခင္းကုိ သုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">ေသာ့ဖြင့္ရန္ လက္ေဗြရာကုိ သုံးပါ (သို႔) ၎အစား မ်က္ႏွာ မွတ္သားျခင္းကုိ သုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
@@ -757,6 +765,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">ဖန္သားျပင္ ေသာ့ဖြင့္ရန္ လက္ႏွစ္ေခ်ာင္းျဖင့္ ဆြဲပါ။</string>
     <string name="kg_swipe_active_instructions">ဖြင့္ရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
     <string name="kg_swipe_unlock_instructions">ေသာ့ဖြင့္ရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">ေသာ့ဖြင့္ရန္ ဇီဝ႐ုပ္လကၡဏာမ်ားကုိ အသုံးျပဳပါ (သို႔) ဖန္သားျပင္ကုိ လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">ဖြင့္ရန္ ဇီဝ႐ုပ္လကၡဏာမ်ားကုိ အသုံးျပဳပါ (သို႔) ဖန္သားျပင္ကုိ လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">ေသာ့ဖြင့္ရန္ မ်က္ႏွာမွတ္သားနည္းကုိ အသုံးျပဳပါ (သို႔) ဖန္သားျပင္ကုိ လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">ဖြင့္ရန္ မ်က္ႏွာမွတ္သားနည္းကုိ အသုံးျပဳပါ (သို႔) ဖန္သားျပင္ကုိ လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">မ်က္ႏွာမွတ္သားနည္းကုိသံုး၍ ေသာ့ဖြင့္ရန္အတြက္ မ်က္ႏွာျပင္ကို လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">ဖြင့္ရန္ လက္ေဗြရာသုံးပါ (သို႔) မ်က္ႏွာ မွတ္သားျခင္းကုိ သုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ။</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">ေသာ့ဖြင့္ရန္ လက္ေဗြရာကုိ သုံးပါ (သို႔) မ်က္ႏွာ မွတ္သားျခင္းကုိ သုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ။</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">ဖြင့္ရန္ လက္ေဗြကုိ သုံးပါ (သို႔) မ်က္ဝန္းမ်ားကုိ သုံးရန္ ဖန္သားျပင္ကို လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">ေသာ့ဖြင့္ရန္ လက္ေဗြကုိ သုံးပါ (သို႔) မ်က္ဝန္းမ်ားကုိ သုံးရန္ ဖန္သားျပင္ကို လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">ဖြင့္ရန္ လက္ေဗြကုိ အသုံးျပဳပါ (သို႔) ဖန္သားျပင္ကုိ လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">ေသာ့ဖြင့္ရန္ လက္ေဗြကုိ အသုံးျပဳပါ (သို႔) ဖန္သားျပင္ကုိ လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">မ်က္ဝန္းမ်ားကုိသံုး၍ ေသာ့ဖြင့္ရန္အတြက္ မ်က္ႏွာျပင္ကို လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">ေသာ့ဖြင့္ရန္ မ်က္ဝန္းမ်ားကုိ အသုံးျပဳပါ (သို႔) ဖန္သားျပင္ကုိ လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">ဖြင့္ရန္ မ်က္ဝန္းမ်ားကုိ အသုံးျပဳပါ (သို႔) ဖန္သားျပင္ကုိ လက္ႏွစ္ေခ်ာင္းျဖင့္ ပြတ္ဆြဲပါ။</string>
     <string name="kg_power_connect_charger">အားသြင္းကိရိယာ ခ်ိတ္ဆက္ပါ</string>
     <string name="kg_power_fully_charged">အျပည့္ အားသြင္းၿပီးပါၿပီ</string>
     <string name="kg_power_fast_charging">အျမန္အားသြင္းမႈ : %d%%</string>
@@ -840,6 +862,7 @@ upscaler"</string>
     <string name="remote_input_send_text">ပုိ႔ပါ</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">ဖုန္းကုိ ေသာ့ဖြင့္ရန္ ေသာ့ခတ္ ခလုတ္ကုိ ႏွစ္ခ်က္ႏွိပ္ပါ</string>
     <string name="s_view_cover_toast_pop_up_message">အျမန္ သတ္မွတ္ခ်က္ ခလုတ္မ်ားသုံးရန္ အဖုံး ဖြင့္ပါ။</string>
     <string name="remote_input_toast_text_on_sview_cover">S view ကာဗာ ပိတ္ထားစဥ္အတြင္း အျမန္တုံ႔ျပန္မႈလုပ္ေဆာင္ခ်က္ကို သုံး၍မရႏိုင္ပါ။</string>
     <string name="powerui_power_sharing_alert_dialog_body">"ပါဝါ မၽွေဝမႈ ပမာဏကို ထိန္းခ်ဳပ္ရန္ အက္ပ္ကို သင္ ေဒါင္းလုတ္လုပ္ရမည္။ သင့္ကိရိယာကို အက္ပ္မရွိဘဲ ဆမ္ေဆာင္း၏ ပါဝါ မၽွေဝေရး ေကဘယ္လ္ႀကိဳး EP-SG900 ႏွင့္ အျခားကိရိယာသို႔ ခ်ိတ္ဆက္လၽွင္ အျခားကိရိယာသို႔ ဘက္ထရီအား ပမာဏအားလုံး လႊဲေျပာင္းသြားမည္ျဖစ္သည္။ 
@@ -876,7 +899,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">ကၽြႏု္ပ္လက္ခံသည္</string>
-    <string name="force_immersive_guide_text">ဤအိုင္ကြန္ႏွိပ္ထားလွ်င္ လမ္းညႊန္ဘားကို ဝွက္လိုက္ပါမည္။ လမ္းညႊန္ခလုတ္မ်ားကို ဖန္သားျပင္ေအာက္ေျခမွ အထက္သို႔ ပြတ္ဆြဲျခင္းျဖင့္ အသုံးျပဳႏိုင္ဆဲျဖစ္သည္။ လမ္းညႊန္ဘား ျပသေနစဥ္၊ ၎အား သူ႔ေနရာႏွင့္သူ ေသာ့ခတ္ရန္ ဤအိုင္ကြန္ ျပန္ႏွိပ္ႏိုင္သည္။ ပင္မဖန္သားျပင္ကဲ့သို႔ ဖန္သားျပင္အခ်ိဳ႕တြင္၊ လမ္းညႊန္ဘားကို အၿမဲတမ္း ျပသထားသည္။</string>
+    <string name="force_immersive_guide_text">ဤခလုတ္ကုိ ႏွိပ္ထားလွ်င္ လမ္းညႊန္ဘားကို ဝွက္လိုက္ပါမည္။ ဖန္သားျပင္ေအာက္ေျခမွ အထက္သို႔ ပြတ္ဆြဲျခင္းျဖင့္ လမ္းညႊန္ခလုတ္မ်ားကို အသုံးျပဳႏိုင္ဆဲျဖစ္သည္။ လမ္းညႊန္ဘားကုိ ျပသေနစဥ္ ၎အား သူ႔ေနရာႏွင့္သူ ေသာ့ခတ္ရန္ ဤအိုင္ကြန္ကုိ ထပ္ႏွိပ္ႏိုင္သည္။ ပင္မ ဖန္သားျပင္ကဲ့သို႔ ဖန္သားျပင္အခ်ိဳ႕တြင္၊ လမ္းညႊန္ဘားကို အၿမဲတမ္း ျပသထားသည္။ လမ္းညႊန္ဘားကုိ ေဖ်ာက္ထားစဥ္ အက္ပ္က ပံုမွန္အတုိင္း အလုပ္မလုပ္ပါက လမ္းညႊန္ဘားကုိ ေနရာတြင္ ေသာ့ခတ္ထားၿပီး အက္ပ္ကုိ ပိတ္ၿပီး ျပန္ဖြင့္ပါ။</string>
+    <string name="force_immersive_guide_dialog_title">လမ္းညႊန္ဘားကို ဝွက္ထားရန္ :</string>
+    <string name="force_immersive_guide_dialog_message1">ဤခလုတ္ကုိ ႏွိပ္ထားလွ်င္ လမ္းညႊန္ဘားကို ဝွက္လိုက္ပါမည္။</string>
+    <string name="force_immersive_guide_dialog_message2">လမ္းညႊန္ဘားကုိ ျပရန္ ဖန္သားျပင္ ေအာက္ေျခမွ အထက္သို႔ ပြတ္ဆြဲပါ။</string>
+    <string name="force_immersive_guide_dialog_message3">ဤခလုတ္ကုိ ေနရာတြင္ ေသာ့ခတ္ထားရန္ ႏွိပ္ပါ။</string>
+    <string name="force_immersive_guide_dialog_message4">ပင္မ ဖန္သားျပင္ကဲ့သို႔ ဖန္သားျပင္အခ်ိဳ႕တြင္ လမ္းညႊန္ဘားကို အၿမဲတမ္း ျပသထားသည္။</string>
+    <string name="force_immersive_guide_dialog_guide_path">ဤခလုတ္ကုိ ေဖ်ာက္ရန္ သတ္မွတ္ခ်က္မ်ား > ျပသခ်က္ > လမ္းညႊန္ဘားသုိ႔ သြားပါ။</string>
+    <string name="force_immersive_guide_dialog_setting">သတ္မွတ္ခ်က္မ်ား</string>
+    <string name="force_immersive_guide_dialog_ok">အိုေက</string>
     <string name="keyguard_password_enter_pin_code">PIN ကုဒ္ကို ႐ိုက္ပါ</string>
     <string name="keyguard_password_wrong_pin_code">PIN ကုဒ္ မွားေနသည္။</string>
     <string name="keyguard_charged">အျပည့္ အားသြင္းၿပီးပါၿပီ</string>
@@ -1248,6 +1279,8 @@ PIN သည္ ဂဏန္း ၄ လုံးမွ ၈ လုံးထိရ�
     <string name="kg_face_retry_content_description">မ်က္ႏွာမွတ္သားမႈကို သုံးရန္ ႏွစ္ခ်က္ႏွိပ္ပါ။</string>
     <string name="kg_face_authentication_error_retry_text">မ်က္ႏွာ ရွာမေတြ႕ပါ။ မ်က္ႏွာမွတ္သားျခင္းကုိ ထပ္မံ အသံုးျပဳရန္ အုိင္ကြန္ကုိ တုိ႔ပါ</string>
     <string name="kg_face_authentication_failed_retry_text">ကိုက္ညီမႈ မရွိပါ။ မ်က္ႏွာမွတ္သားမႈကို သုံးရန္ အုိင္ကြန္ကုိ ႏွိပ္ပါ</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">မ်က္ႏွာမွတ္သားမႈတြင္ ျပႆနာတစ္ခု ရွိခ့ဲပါသည္။ ျပန္ၾကိဳးစားရန္ ႏွိပ္ပါ</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">ဗီဒီယို ဖုန္းေျပာဆိုေနစဥ္ မ်က္ႏွာ မွတ္သားျခင္းကို အသုံးျပဳ၍မရႏိုင္ပါ</string>
     <string name="kg_fingerprint_no_match">ကိုက္ညီမႈ မရွိပါ</string>
     <string name="kg_finger_print_not_responding_error_message">လက္ေဗြ အာရံုခံ တုန္႔ျပန္မႈမရွိပါ။ ေနာက္မွ ျပန္ၾကိဳးစားပါ။</string>
     <string name="kg_finger_print_database_error_message">လက္ေဗြရာ အခ်က္အလက္မ်ား ခ်ိဳ႕ယြင္းထားသည္။ လက္ေဗြရာကို ဖန္သားျပင္ေသာ့ ပုံစံအျဖစ္ ျပန္လည္သတ္မွတ္ပါ၊ ၄င္းေနာက္ သင့္လက္ေဗြရာမ်ား ထပ္မံ ထည့္ပါ (သို႔) ဖန္သားျပင္ေသာ့ ပုံစံ ေျပာင္းပါ။</string>
@@ -1384,6 +1417,8 @@ PIN သည္ ဂဏန္း ၄ လုံးမွ ၈ လုံးထိရ�
     <string name="appicon_badge_new_item">အေၾကာင္းအရာ အသစ္ ၁ ခု</string>
     <string name="banner_apps_for_dex_detail">Galaxy Apps မွ DeX-သင့္တင့္ဆုံးပုံစံျပဳအက္ပ္မ်ားကို ေပ်ာ္သလိုသုံးပါ။</string>
     <string name="toast_cannot_move_more_than_items">အုိင္တမ္ %d ခုထက္ပိုၿပီး ေရႊ႕၍မရႏိုင္ပါ။</string>
+    <string name="view_more_in_galaxy_apps">Galaxy Apps ထဲတြင္ ေနာက္ထပ္ၾကည့္ပါ</string>
+    <string name="view_more_in_play_store">Play Store ထဲတြင္ ေနာက္ထပ္ၾကည့္ပါ</string>
     <string name="uninstall_title">အက္ပ္မ်ားကုိ ျဖဳတ္မလား?</string>
     <string name="uninstall_1_app_message">ဤအက္ပ္ကို ထည့္သြင္းမႈျဖဳတ္လိုပါသလား?</string>
     <string name="uninstall_apps_message">ေအာက္ပါအက္ပ္မ်ားကို ျဖဳတ္ပါမည္ :</string>
@@ -1424,6 +1459,13 @@ PIN သည္ ဂဏန္း ၄ လုံးမွ ၈ လုံးထိရ�
     <string name="taskbar_context_menu_close_desk_notification_view">အသိေပးခ်က္မ်ားကုိ ဝွက္ပါ</string>
     <string name="volumepanel_notification">သတိေပးခ်က္</string>
     <string name="quick_settings_location_detail_device_only">ကိရိယာသီးသန္႔</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">အားသြင္းမႈ ရပ္တန္႔သြား။ ဘက္ထရီ အပူခ်ိန္ မ်ားလြန္။</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">အားသြင္းမႈ ရပ္တန္႔သြား။ ဘက္ထရီ အပူခ်ိန္ နည္းလြန္။</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"စက္ကုိ အားသြင္းျခင္း ရပ္ဆုိင္းသြားပါၿပီ။ ဘတၳရီအပူခ်ိန္ ပူလြန္းေနသည္။ အားသြင္းသည့္အရာကုိ ျဖဳတ္စဥ္ သတိထားပါ။ ၄င္းသည္ အလြန္ပူလြန္းေနသည္။
+
+အားသြင္းသည့္အရာကုိ ျဖဳတ္ၿပီး ျပန္တပ္ျခင္းျဖင့္ ပံုမွန္အတုိင္းဆက္လက္အားသြင္းႏုိင္သည္။ အပူခ်ိန္လြန္ကဲေနပါက မီးေလာင္ကြ်မ္းျခင္း သုိ႔မဟုတ္ ထိခုိက္ဒဏ္ရာရျခင္းတုိ႔ ျဖစ္ေစႏုိင္သည့္အတြက္ အသံုးျပဳသူကုိ ဝန္ေဆာင္မႈေပးသည့္ေနရာသုိ႔ ဆက္သြယ္ပါ။"</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">ေသာ့ဖြင့္ရန္ မ်က္ႏွာမွတ္သားျခင္းကုိ သုံးပါ (သို႔) ၎အစား မ်က္ဝန္းမ်ားသုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">ဖြင့္ရန္ မ်က္ႏွာမွတ္သားျခင္းကုိ သုံးပါ (သို႔) ၎အစား မ်က္ဝန္းမ်ားသုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
     <string name="kg_infinity_wallpaper_option_description">မေရတြက္ႏုိင္ေသာ ေနာက္ခံပုံမ်ားကို ပင္မဖန္သားျပင္ႏွင့္ ေသာ့ပိတ္ ဖန္သားျပင္တို႔တြင္ တစ္ၿပိဳင္တည္း အသုံးခ်ထားသည္။ အေကာင္းဆုံး အေတြ႔အႀကံဳအတြက္ ေအာက္က သတ္မွတ္ခ်က္ကို ဖြင့္ပါ။</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Always On Display ဖြင့္ပါ</string>
 </resources>

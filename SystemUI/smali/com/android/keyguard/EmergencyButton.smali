@@ -1773,6 +1773,47 @@
 
     const/4 v2, 0x0
 
+    sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_DISABLE_EMERGENCY_CALL_WHEN_OFFLINE:Z
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/keyguard/EmergencyButton;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isOutOfService()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const/4 v2, 0x0
+
+    :cond_0
+    :goto_0
+    if-eqz v2, :cond_8
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p0, v3}, Lcom/android/keyguard/EmergencyButton;->setVisibility(I)V
+
+    invoke-direct {p0}, Lcom/android/keyguard/EmergencyButton;->isInCall()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_7
+
+    const v1, 0x10402a1
+
+    :goto_1
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/EmergencyButton;->setText(I)V
+
+    :goto_2
+    return-void
+
+    :cond_1
     iget-object v3, p0, Lcom/android/keyguard/EmergencyButton;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
@@ -1783,34 +1824,34 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     iget-boolean v3, p0, Lcom/android/keyguard/EmergencyButton;->mIsVoiceCapable:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     invoke-direct {p0}, Lcom/android/keyguard/EmergencyButton;->isInCall()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     const/4 v2, 0x1
 
-    :cond_0
-    :goto_0
+    :cond_2
+    :goto_3
     sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SOFT_PHONE_DEVICE:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3
 
     iget-boolean v3, p0, Lcom/android/keyguard/EmergencyButton;->mSoftphoneEnabled:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     const/4 v2, 0x1
 
-    :cond_1
-    :goto_1
+    :cond_3
+    :goto_4
     iget-object v3, p0, Lcom/android/keyguard/EmergencyButton;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
@@ -1821,32 +1862,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x0
 
-    :cond_2
-    if-eqz v2, :cond_7
+    goto :goto_0
 
-    const/4 v3, 0x0
-
-    invoke-virtual {p0, v3}, Lcom/android/keyguard/EmergencyButton;->setVisibility(I)V
-
-    invoke-direct {p0}, Lcom/android/keyguard/EmergencyButton;->isInCall()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_6
-
-    const v1, 0x10402a1
-
-    :goto_2
-    invoke-virtual {p0, v1}, Lcom/android/keyguard/EmergencyButton;->setText(I)V
-
-    :goto_3
-    return-void
-
-    :cond_3
+    :cond_4
     iget-object v3, p0, Lcom/android/keyguard/EmergencyButton;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
@@ -1857,37 +1879,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_4
+    :cond_5
     sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_EMERGENCY_CALL_BUTTON:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     invoke-direct {p0}, Lcom/android/keyguard/EmergencyButton;->isVisibleKorEmergencyCallButton()Z
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_5
+    :cond_6
     const/4 v2, 0x0
+
+    goto :goto_4
+
+    :cond_7
+    sget v1, Lcom/android/keyguard/R$string;->kg_lockscreen_emergency_call_button_text:I
 
     goto :goto_1
 
-    :cond_6
-    sget v1, Lcom/android/keyguard/R$string;->kg_lockscreen_emergency_call_button_text:I
-
-    goto :goto_2
-
-    :cond_7
+    :cond_8
     const/16 v3, 0x8
 
     invoke-virtual {p0, v3}, Lcom/android/keyguard/EmergencyButton;->setVisibility(I)V
 
-    goto :goto_3
+    goto :goto_2
 .end method

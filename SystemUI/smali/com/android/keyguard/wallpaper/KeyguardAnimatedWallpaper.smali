@@ -19,6 +19,8 @@
 
 .field private mContext:Landroid/content/Context;
 
+.field private mCroppedScale:F
+
 .field private mDeviceDensity:F
 
 .field private mDeviceHeight:F
@@ -31,7 +33,7 @@
 
 .field protected mDisplayMetrics:Landroid/util/DisplayMetrics;
 
-.field private mHeightRatio:F
+.field private mIsMobileKeyboardCovered:I
 
 .field private mIsPlayingAnimation:Z
 
@@ -49,6 +51,10 @@
 
 .field private mPackageWidth:F
 
+.field private mScaleDx:F
+
+.field private mScaleDy:F
+
 .field private mScreenOn:Z
 
 .field private mUpdateCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
@@ -57,16 +63,46 @@
 
 .field private mViewWidth:I
 
-.field private mWidthRatio:F
-
 
 # direct methods
-.method static synthetic -set0(Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;Z)Z
+.method static synthetic -get0(Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mIsMobileKeyboardCovered:I
+
+    return v0
+.end method
+
+.method static synthetic -set0(Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mIsMobileKeyboardCovered:I
+
+    return p1
+.end method
+
+.method static synthetic -set1(Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mScreenOn:Z
 
     return p1
+.end method
+
+.method static synthetic -wrap0(Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->init(Ljava/lang/String;)V
+
+    return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
@@ -100,7 +136,7 @@
 
     const/high16 v0, 0x40800000    # 4.0f
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/4 v1, 0x0
 
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
@@ -126,9 +162,13 @@
 
     iput-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
 
-    iput v1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mWidthRatio:F
+    const/high16 v0, 0x3f800000    # 1.0f
 
-    iput v1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mHeightRatio:F
+    iput v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mCroppedScale:F
+
+    iput v1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mScaleDx:F
+
+    iput v1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mScaleDy:F
 
     new-instance v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper$1;
 
@@ -168,24 +208,44 @@
     return-object v0
 .end method
 
+.method private getCoordinateX(F)F
+    .locals 2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mScaleDx:F
+
+    add-float/2addr v0, v1
+
+    return v0
+.end method
+
+.method private getCoordinateY(F)F
+    .locals 2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mScaleDy:F
+
+    add-float/2addr v0, v1
+
+    return v0
+.end method
+
 .method private getDevicePixelX(F)F
     .locals 2
 
-    iget v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mWidthRatio:F
+    iget v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mCroppedScale:F
 
     mul-float/2addr p1, v0
 
-    iget v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceWidth:F
-
-    iget v1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageWidth:F
-
-    div-float/2addr v0, v1
+    iget v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceDensity:F
 
     mul-float/2addr v0, p1
-
-    iget v1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceDensity:F
-
-    mul-float/2addr v0, v1
 
     const/high16 v1, 0x3f000000    # 0.5f
 
@@ -203,21 +263,13 @@
 .method private getDevicePixelY(F)F
     .locals 2
 
-    iget v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mHeightRatio:F
+    iget v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mCroppedScale:F
 
     mul-float/2addr p1, v0
 
-    iget v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceHeight:F
-
-    iget v1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageHeight:F
-
-    div-float/2addr v0, v1
+    iget v0, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceDensity:F
 
     mul-float/2addr v0, p1
-
-    iget v1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceDensity:F
-
-    mul-float/2addr v0, v1
 
     const/high16 v1, 0x3f000000    # 0.5f
 
@@ -233,7 +285,7 @@
 .end method
 
 .method private init(Ljava/lang/String;)V
-    .locals 13
+    .locals 14
 
     iput-object p1, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageName:Ljava/lang/String;
 
@@ -279,7 +331,7 @@
 
     iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_2
 
     iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
@@ -293,7 +345,7 @@
 
     iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDisplay:Landroid/view/Display;
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_2
 
     iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDisplay:Landroid/view/Display;
 
@@ -373,6 +425,17 @@
     iput v10, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mMetricsHeight:I
 
     :cond_1
+    iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mContext:Landroid/content/Context;
+
+    iget v11, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mIsMobileKeyboardCovered:I
+
+    iget v12, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mMetricsWidth:I
+
+    iget v13, p0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mMetricsHeight:I
+
+    invoke-static {v10, v11, v12, v13}, Lcom/android/keyguard/wallpaper/theme/DensityUtil;->setRealMetrics(Landroid/content/Context;III)V
+
+    :cond_2
     const-string/jumbo v10, "KeyguardAnimatedWallpaper"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -661,7 +724,7 @@
 .end method
 
 .method public parseAnimation(Landroid/content/Context;Landroid/content/Context;)Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
-    .locals 35
+    .locals 40
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -669,15 +732,15 @@
         }
     .end annotation
 
-    const/16 v31, 0x0
+    const/16 v34, 0x0
 
     const/4 v13, 0x0
 
-    const/16 v26, 0x0
+    const/16 v29, 0x0
 
-    const/16 v34, 0x0
+    const/16 v39, 0x0
 
-    const/16 v33, -0x2
+    const/16 v37, -0x2
 
     const/16 v21, -0x2
 
@@ -776,7 +839,7 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v26
+    move-result-object v29
 
     const-string/jumbo v5, "animation"
 
@@ -786,19 +849,19 @@
 
     iget-object v7, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageName:Ljava/lang/String;
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v29
 
     invoke-virtual {v0, v5, v6, v7}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v5
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v29
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
-    move-result-object v34
+    move-result-object v39
 
-    if-nez v34, :cond_3
+    if-nez v39, :cond_1
 
     const/4 v5, 0x0
 
@@ -839,149 +902,9 @@
 
     iput v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceHeight:F
 
-    move-object/from16 v0, p0
-
-    iget v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceWidth:F
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceDensity:F
-
-    mul-float v16, v5, v6
-
-    move-object/from16 v0, p0
-
-    iget v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceHeight:F
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceDensity:F
-
-    mul-float v15, v5, v6
-
-    move-object/from16 v0, p0
-
-    iget v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mMetricsWidth:I
-
-    int-to-float v5, v5
-
-    cmpl-float v5, v16, v5
-
-    if-eqz v5, :cond_1
-
-    move-object/from16 v0, p0
-
-    iget v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mMetricsWidth:I
-
-    int-to-float v5, v5
-
-    div-float v5, v5, v16
-
-    move-object/from16 v0, p0
-
-    iput v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mWidthRatio:F
+    goto :goto_0
 
     :cond_1
-    move-object/from16 v0, p0
-
-    iget v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mMetricsHeight:I
-
-    int-to-float v5, v5
-
-    cmpl-float v5, v15, v5
-
-    if-eqz v5, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mMetricsHeight:I
-
-    int-to-float v5, v5
-
-    div-float/2addr v5, v15
-
-    move-object/from16 v0, p0
-
-    iput v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mHeightRatio:F
-
-    :cond_2
-    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "deviceWidthPixel="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    move/from16 v0, v16
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, ", mWidthRatio="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    move-object/from16 v0, p0
-
-    iget v7, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mWidthRatio:F
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "deviceHeightPixel="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v15}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, ", mHeightRatio="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    move-object/from16 v0, p0
-
-    iget v7, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mHeightRatio:F
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :cond_3
     new-instance v5, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
 
     invoke-direct {v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;-><init>()V
@@ -990,84 +913,69 @@
 
     iput-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
 
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v19
 
-    const/16 v32, 0x0
+    const/16 v25, 0x0
+
+    const/16 v24, 0x0
 
     :goto_1
     const/4 v5, 0x1
 
     move/from16 v0, v19
 
-    if-eq v0, v5, :cond_e3
+    if-eq v0, v5, :cond_eb
 
-    if-nez v19, :cond_5
+    if-nez v19, :cond_3
 
-    :cond_4
+    :cond_2
     :goto_2
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v19
 
     goto :goto_1
 
-    :cond_5
+    :cond_3
     const/4 v5, 0x2
 
     move/from16 v0, v19
 
-    if-ne v0, v5, :cond_d3
+    if-ne v0, v5, :cond_db
 
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v31
+
+    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "startName: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v5, "screen"
 
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_9
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_3
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "width"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v31
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -1075,7 +983,48 @@
 
     if-eqz v5, :cond_7
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_3
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "width"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -1109,24 +1058,24 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_4
     :goto_4
-    add-int/lit8 v22, v22, 0x1
+    add-int/lit8 v23, v23, 0x1
 
     goto :goto_3
 
-    :cond_7
+    :cond_5
     const-string/jumbo v5, "height"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_6
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -1162,18 +1111,18 @@
 
     goto :goto_4
 
-    :cond_8
+    :cond_6
     const-string/jumbo v5, "density"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_4
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -1209,47 +1158,122 @@
 
     goto :goto_4
 
-    :cond_9
+    :cond_7
     const-string/jumbo v5, "view"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v31
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_19
 
-    new-instance v31, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;
+    new-instance v34, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v34
 
     move-object/from16 v1, p2
 
     invoke-direct {v0, v1}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;-><init>(Landroid/content/Context;)V
 
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
     move-result v14
 
-    const/16 v22, 0x0
+    const/4 v5, 0x3
+
+    move-object/from16 v0, v39
+
+    invoke-interface {v0, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v38
+
+    const/4 v5, 0x4
+
+    move-object/from16 v0, v39
+
+    invoke-interface {v0, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-static/range {v38 .. v38}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageWidth:F
+
+    cmpl-float v5, v5, v6
+
+    if-nez v5, :cond_a
+
+    invoke-static/range {v22 .. v22}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageHeight:F
+
+    cmpl-float v5, v5, v6
+
+    if-nez v5, :cond_a
+
+    const/16 v25, 0x1
 
     :goto_5
-    move/from16 v0, v22
+    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
 
-    if-ge v0, v14, :cond_4
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v34
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v1, v22
+    const-string/jumbo v7, "isWallpaperView="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, v25
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v23, 0x0
+
+    :goto_6
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
 
     invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v27
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v39
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
 
@@ -1257,108 +1281,53 @@
 
     invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v33
+
+    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, ""
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "=\""
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "\" "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v5, "img"
 
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_c
-
-    const-string/jumbo v5, "drawable"
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageName:Ljava/lang/String;
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v30
-
-    invoke-virtual {v0, v1, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v5
-
-    move-object/from16 v0, v26
-
-    invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v17
-
-    if-nez v32, :cond_b
-
-    sget-object v5, Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
-
-    check-cast v17, Landroid/graphics/drawable/BitmapDrawable;
-
-    move-object/from16 v0, p0
-
-    iget v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mMetricsWidth:I
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mMetricsHeight:I
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1, v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setScaledImageBitmap(Landroid/graphics/drawable/BitmapDrawable;II)V
-
-    :cond_a
-    :goto_6
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_5
-
-    :cond_b
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_6
-
-    :cond_c
-    const-string/jumbo v5, "x"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_d
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
-
-    move-result v5
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setX(F)V
-
-    goto :goto_6
-
-    :cond_d
-    const-string/jumbo v5, "y"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -1366,26 +1335,368 @@
 
     if-eqz v5, :cond_e
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
+    const-string/jumbo v5, "drawable"
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
+    iget-object v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageName:Ljava/lang/String;
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v0, v1, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v5
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v29
 
-    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setY(F)V
+    invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    goto :goto_6
+    move-result-object v15
+
+    invoke-virtual {v15}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v17
+
+    invoke-virtual {v15}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v16
+
+    if-eqz v25, :cond_8
+
+    if-eqz v24, :cond_b
+
+    :cond_8
+    :goto_7
+    if-eqz v25, :cond_d
+
+    sget-object v5, Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+
+    :goto_8
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v15}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_9
+    :goto_9
+    add-int/lit8 v23, v23, 0x1
+
+    goto/16 :goto_6
+
+    :cond_a
+    const/16 v25, 0x0
+
+    goto/16 :goto_5
+
+    :cond_b
+    const/16 v24, 0x1
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceWidth:F
+
+    move-object/from16 v0, p0
+
+    iget v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceDensity:F
+
+    mul-float v36, v5, v6
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceHeight:F
+
+    move-object/from16 v0, p0
+
+    iget v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mDeviceDensity:F
+
+    mul-float v35, v5, v6
+
+    move/from16 v0, v17
+
+    int-to-float v5, v0
+
+    mul-float v5, v5, v35
+
+    move/from16 v0, v16
+
+    int-to-float v6, v0
+
+    mul-float v6, v6, v36
+
+    cmpl-float v5, v5, v6
+
+    if-lez v5, :cond_c
+
+    move/from16 v0, v16
+
+    int-to-float v5, v0
+
+    div-float v5, v35, v5
+
+    move-object/from16 v0, p0
+
+    iput v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mCroppedScale:F
+
+    :goto_a
+    move/from16 v0, v17
+
+    int-to-float v5, v0
+
+    move-object/from16 v0, p0
+
+    iget v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mCroppedScale:F
+
+    mul-float/2addr v5, v6
+
+    sub-float v5, v36, v5
+
+    const/high16 v6, 0x3f000000    # 0.5f
+
+    mul-float/2addr v5, v6
+
+    invoke-static {v5}, Ljava/lang/Math;->round(F)I
+
+    move-result v5
+
+    int-to-float v5, v5
+
+    move-object/from16 v0, p0
+
+    iput v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mScaleDx:F
+
+    move/from16 v0, v16
+
+    int-to-float v5, v0
+
+    move-object/from16 v0, p0
+
+    iget v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mCroppedScale:F
+
+    mul-float/2addr v5, v6
+
+    sub-float v5, v35, v5
+
+    const/high16 v6, 0x3f000000    # 0.5f
+
+    mul-float/2addr v5, v6
+
+    invoke-static {v5}, Ljava/lang/Math;->round(F)I
+
+    move-result v5
+
+    int-to-float v5, v5
+
+    move-object/from16 v0, p0
+
+    iput v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mScaleDy:F
+
+    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "drawableWidth = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, v17
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "drawableHeight = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, v16
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "viewWidth = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, v36
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "viewHeight = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, v35
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "mCroppedScale = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    iget v7, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mCroppedScale:F
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "mScaleDx = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    iget v7, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mScaleDx:F
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v5, "KeyguardAnimatedWallpaper"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "mScaleDy = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    iget v7, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mScaleDy:F
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_7
+
+    :cond_c
+    move/from16 v0, v17
+
+    int-to-float v5, v0
+
+    div-float v5, v36, v5
+
+    move-object/from16 v0, p0
+
+    iput v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mCroppedScale:F
+
+    goto/16 :goto_a
+
+    :cond_d
+    sget-object v5, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+
+    goto/16 :goto_8
 
     :cond_e
-    const-string/jumbo v5, "width"
+    const-string/jumbo v5, "x"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -1393,7 +1704,61 @@
 
     if-eqz v5, :cond_f
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getCoordinateX(F)F
+
+    move-result v5
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setX(F)V
+
+    goto/16 :goto_9
+
+    :cond_f
+    const-string/jumbo v5, "y"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_10
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getCoordinateY(F)F
+
+    move-result v5
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setY(F)V
+
+    goto/16 :goto_9
+
+    :cond_10
+    const-string/jumbo v5, "width"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_11
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -1405,22 +1770,22 @@
 
     float-to-int v0, v5
 
-    move/from16 v33, v0
+    move/from16 v37, v0
 
-    goto :goto_6
+    goto/16 :goto_9
 
-    :cond_f
+    :cond_11
     const-string/jumbo v5, "height"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_12
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -1434,87 +1799,12 @@
 
     move/from16 v21, v0
 
-    goto :goto_6
-
-    :cond_10
-    const-string/jumbo v5, "pivotX"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_11
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
-
-    move-result v5
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setPivotX(F)V
-
-    goto/16 :goto_6
-
-    :cond_11
-    const-string/jumbo v5, "pivotY"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_12
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
-
-    move-result v5
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setPivotY(F)V
-
-    goto/16 :goto_6
+    goto/16 :goto_9
 
     :cond_12
-    const-string/jumbo v5, "alpha"
+    const-string/jumbo v5, "pivotX"
 
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_13
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setAlpha(F)V
-
-    goto/16 :goto_6
-
-    :cond_13
-    const-string/jumbo v5, "scaleX"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -1522,7 +1812,27 @@
 
     if-eqz v5, :cond_14
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    if-eqz v25, :cond_13
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getCoordinateX(F)F
+
+    move-result v5
+
+    :goto_b
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setPivotX(F)V
+
+    goto/16 :goto_9
+
+    :cond_13
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -1532,24 +1842,40 @@
 
     move-result v5
 
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setScaleX(F)V
-
-    goto/16 :goto_6
+    goto :goto_b
 
     :cond_14
-    const-string/jumbo v5, "scaleY"
+    const-string/jumbo v5, "pivotY"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_16
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    if-eqz v25, :cond_15
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getCoordinateY(F)F
+
+    move-result v5
+
+    :goto_c
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setPivotY(F)V
+
+    goto/16 :goto_9
+
+    :cond_15
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -1559,16 +1885,124 @@
 
     move-result v5
 
-    move-object/from16 v0, v31
+    goto :goto_c
+
+    :cond_16
+    const-string/jumbo v5, "alpha"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_17
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setAlpha(F)V
+
+    goto/16 :goto_9
+
+    :cond_17
+    const-string/jumbo v5, "scaleX"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_18
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
+
+    move-result v5
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setScaleX(F)V
+
+    goto/16 :goto_9
+
+    :cond_18
+    const-string/jumbo v5, "scaleY"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_9
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
+
+    move-result v5
+
+    move-object/from16 v0, v34
 
     invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setScaleY(F)V
 
-    goto/16 :goto_6
+    goto/16 :goto_9
 
-    :cond_15
+    :cond_19
     const-string/jumbo v5, "scene"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v31
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1e
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_d
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "type"
+
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -1576,56 +2010,19 @@
 
     if-eqz v5, :cond_1a
 
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_7
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "type"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_16
-
     const-string/jumbo v5, "snow"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_1b
 
-    new-instance v27, Lcom/android/keyguard/wallpaper/theme/xmlparser/SnowView;
+    new-instance v30, Lcom/android/keyguard/wallpaper/theme/xmlparser/SnowView;
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v30
 
     move-object/from16 v1, p2
 
@@ -1635,7 +2032,7 @@
 
     iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v30
 
     invoke-virtual {v5, v0}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addScene(Lcom/android/keyguard/wallpaper/theme/LockscreenCallback;)V
 
@@ -1645,30 +2042,30 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v30
 
     invoke-virtual {v0, v1, v5, v6}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->addView(Landroid/view/View;II)V
 
-    :cond_16
-    :goto_8
-    add-int/lit8 v22, v22, 0x1
+    :cond_1a
+    :goto_e
+    add-int/lit8 v23, v23, 0x1
 
-    goto :goto_7
+    goto :goto_d
 
-    :cond_17
+    :cond_1b
     const-string/jumbo v5, "rain"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_18
+    if-eqz v5, :cond_1c
 
-    new-instance v25, Lcom/android/keyguard/wallpaper/theme/xmlparser/RainView;
+    new-instance v28, Lcom/android/keyguard/wallpaper/theme/xmlparser/RainView;
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v28
 
     move-object/from16 v1, p2
 
@@ -1678,7 +2075,7 @@
 
     iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v28
 
     invoke-virtual {v5, v0}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addScene(Lcom/android/keyguard/wallpaper/theme/LockscreenCallback;)V
 
@@ -1688,26 +2085,26 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v28
 
     invoke-virtual {v0, v1, v5, v6}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->addView(Landroid/view/View;II)V
 
-    goto :goto_8
+    goto :goto_e
 
-    :cond_18
+    :cond_1c
     const-string/jumbo v5, "leaf"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_19
+    if-eqz v5, :cond_1d
 
-    new-instance v23, Lcom/android/keyguard/wallpaper/theme/xmlparser/LeafView;
+    new-instance v26, Lcom/android/keyguard/wallpaper/theme/xmlparser/LeafView;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p2
 
@@ -1717,7 +2114,7 @@
 
     iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     invoke-virtual {v5, v0}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addScene(Lcom/android/keyguard/wallpaper/theme/LockscreenCallback;)V
 
@@ -1727,22 +2124,22 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v26
 
     invoke-virtual {v0, v1, v5, v6}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->addView(Landroid/view/View;II)V
 
-    goto :goto_8
+    goto :goto_e
 
-    :cond_19
+    :cond_1d
     const-string/jumbo v5, "flower"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_16
+    if-eqz v5, :cond_1a
 
     new-instance v20, Lcom/android/keyguard/wallpaper/theme/xmlparser/FlowerView;
 
@@ -1770,384 +2167,12 @@
 
     invoke-virtual {v0, v1, v5, v6}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->addView(Landroid/view/View;II)V
 
-    goto :goto_8
-
-    :cond_1a
-    const-string/jumbo v5, "rotate"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_27
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_9
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "fromDegrees"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1c
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
-
-    :cond_1b
-    :goto_a
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_9
-
-    :cond_1c
-    const-string/jumbo v5, "toDegrees"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1d
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
-
-    goto :goto_a
-
-    :cond_1d
-    const-string/jumbo v5, "duration"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1e
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
-
-    goto :goto_a
+    goto :goto_e
 
     :cond_1e
-    const-string/jumbo v5, "repeatCount"
+    const-string/jumbo v5, "rotate"
 
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1f
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
-
-    goto :goto_a
-
-    :cond_1f
-    const-string/jumbo v5, "repeatMode"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_20
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
-
-    goto :goto_a
-
-    :cond_20
-    const-string/jumbo v5, "delay"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_21
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
-
-    goto :goto_a
-
-    :cond_21
-    const-string/jumbo v5, "accelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_23
-
-    const-string/jumbo v5, "default"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_22
-
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto :goto_a
-
-    :cond_22
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v6
-
-    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_a
-
-    :cond_23
-    const-string/jumbo v5, "decelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_25
-
-    const-string/jumbo v5, "default"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_24
-
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_a
-
-    :cond_24
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v6
-
-    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_a
-
-    :cond_25
-    const-string/jumbo v5, "accelerateDecelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_26
-
-    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_a
-
-    :cond_26
-    const-string/jumbo v5, "normalSpeed"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1b
-
-    const/4 v5, 0x0
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_a
-
-    :cond_27
-    const-string/jumbo v5, "parabola"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_37
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_b
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "key"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_29
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->key:F
-
-    :cond_28
-    :goto_c
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_b
-
-    :cond_29
-    const-string/jumbo v5, "xFrom"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2a
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
-
-    goto :goto_c
-
-    :cond_2a
-    const-string/jumbo v5, "xTo"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v31
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -2155,166 +2180,176 @@
 
     if-eqz v5, :cond_2b
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    const/4 v13, 0x0
+
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
+
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_f
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "fromDegrees"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    move-object/from16 v0, p0
+    if-eqz v5, :cond_20
 
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
+
+    :cond_1f
+    :goto_10
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_f
+
+    :cond_20
+    const-string/jumbo v5, "toDegrees"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_21
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
 
-    goto :goto_c
+    goto :goto_10
 
-    :cond_2b
-    const-string/jumbo v5, "xOffSet"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2c
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->xOffSet:F
-
-    goto :goto_c
-
-    :cond_2c
-    const-string/jumbo v5, "yOffSet"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2d
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->yOffSet:F
-
-    goto :goto_c
-
-    :cond_2d
+    :cond_21
     const-string/jumbo v5, "duration"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2e
+    if-eqz v5, :cond_22
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
 
-    goto :goto_c
+    goto :goto_10
 
-    :cond_2e
+    :cond_22
     const-string/jumbo v5, "repeatCount"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2f
+    if-eqz v5, :cond_23
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
 
-    goto/16 :goto_c
+    goto :goto_10
 
-    :cond_2f
+    :cond_23
     const-string/jumbo v5, "repeatMode"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_30
+    if-eqz v5, :cond_24
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
 
-    goto/16 :goto_c
+    goto :goto_10
 
-    :cond_30
+    :cond_24
     const-string/jumbo v5, "delay"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_31
+    if-eqz v5, :cond_25
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
 
-    goto/16 :goto_c
+    goto :goto_10
 
-    :cond_31
+    :cond_25
     const-string/jumbo v5, "accelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_33
+    if-eqz v5, :cond_27
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_32
+    if-eqz v5, :cond_26
 
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
@@ -2322,12 +2357,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_c
+    goto :goto_10
 
-    :cond_32
+    :cond_26
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -2335,28 +2370,28 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_c
+    goto/16 :goto_10
 
-    :cond_33
+    :cond_27
     const-string/jumbo v5, "decelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_35
+    if-eqz v5, :cond_29
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_34
+    if-eqz v5, :cond_28
 
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
@@ -2364,12 +2399,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_c
+    goto/16 :goto_10
 
-    :cond_34
+    :cond_28
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -2377,18 +2412,18 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_c
+    goto/16 :goto_10
 
-    :cond_35
+    :cond_29
     const-string/jumbo v5, "accelerateDecelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_36
+    if-eqz v5, :cond_2a
 
     new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
@@ -2396,114 +2431,29 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_c
+    goto/16 :goto_10
 
-    :cond_36
+    :cond_2a
     const-string/jumbo v5, "normalSpeed"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_28
+    if-eqz v5, :cond_1f
 
     const/4 v5, 0x0
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_c
+    goto/16 :goto_10
 
-    :cond_37
-    const-string/jumbo v5, "sinX"
+    :cond_2b
+    const-string/jumbo v5, "parabola"
 
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_48
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_d
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "key"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_39
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->key:F
-
-    :cond_38
-    :goto_e
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_d
-
-    :cond_39
-    const-string/jumbo v5, "adjust"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3a
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->adjust:F
-
-    goto :goto_e
-
-    :cond_3a
-    const-string/jumbo v5, "xFrom"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v31
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -2511,7 +2461,73 @@
 
     if-eqz v5, :cond_3b
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    const/4 v13, 0x0
+
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
+
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_11
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "key"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2d
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->key:F
+
+    :cond_2c
+    :goto_12
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_11
+
+    :cond_2d
+    const-string/jumbo v5, "xFrom"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2e
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -2523,20 +2539,20 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
 
-    goto :goto_e
+    goto :goto_12
 
-    :cond_3b
+    :cond_2e
     const-string/jumbo v5, "xTo"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3c
+    if-eqz v5, :cond_2f
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -2548,20 +2564,20 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
 
-    goto :goto_e
+    goto :goto_12
 
-    :cond_3c
+    :cond_2f
     const-string/jumbo v5, "xOffSet"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3d
+    if-eqz v5, :cond_30
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -2573,20 +2589,20 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->xOffSet:F
 
-    goto :goto_e
+    goto :goto_12
 
-    :cond_3d
+    :cond_30
     const-string/jumbo v5, "yOffSet"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3e
+    if-eqz v5, :cond_31
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -2598,104 +2614,104 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->yOffSet:F
 
-    goto :goto_e
+    goto :goto_12
 
-    :cond_3e
+    :cond_31
     const-string/jumbo v5, "duration"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3f
+    if-eqz v5, :cond_32
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
 
-    goto/16 :goto_e
+    goto :goto_12
 
-    :cond_3f
+    :cond_32
     const-string/jumbo v5, "repeatCount"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_40
+    if-eqz v5, :cond_33
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
 
-    goto/16 :goto_e
+    goto/16 :goto_12
 
-    :cond_40
+    :cond_33
     const-string/jumbo v5, "repeatMode"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_41
+    if-eqz v5, :cond_34
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
 
-    goto/16 :goto_e
+    goto/16 :goto_12
 
-    :cond_41
+    :cond_34
     const-string/jumbo v5, "delay"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_42
+    if-eqz v5, :cond_35
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
 
-    goto/16 :goto_e
+    goto/16 :goto_12
 
-    :cond_42
+    :cond_35
     const-string/jumbo v5, "accelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_44
+    if-eqz v5, :cond_37
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_43
+    if-eqz v5, :cond_36
 
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
@@ -2703,12 +2719,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_e
+    goto/16 :goto_12
 
-    :cond_43
+    :cond_36
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -2716,28 +2732,28 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_e
+    goto/16 :goto_12
 
-    :cond_44
+    :cond_37
     const-string/jumbo v5, "decelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_46
+    if-eqz v5, :cond_39
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_45
+    if-eqz v5, :cond_38
 
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
@@ -2745,12 +2761,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_e
+    goto/16 :goto_12
 
-    :cond_45
+    :cond_38
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -2758,18 +2774,18 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_e
+    goto/16 :goto_12
 
-    :cond_46
+    :cond_39
     const-string/jumbo v5, "accelerateDecelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_47
+    if-eqz v5, :cond_3a
 
     new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
@@ -2777,114 +2793,29 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_e
+    goto/16 :goto_12
 
-    :cond_47
+    :cond_3a
     const-string/jumbo v5, "normalSpeed"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_38
+    if-eqz v5, :cond_2c
 
     const/4 v5, 0x0
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_e
+    goto/16 :goto_12
 
-    :cond_48
-    const-string/jumbo v5, "sinY"
+    :cond_3b
+    const-string/jumbo v5, "sinX"
 
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_59
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_f
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "key"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4a
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->key:F
-
-    :cond_49
-    :goto_10
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_f
-
-    :cond_4a
-    const-string/jumbo v5, "adjust"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4b
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->adjust:F
-
-    goto :goto_10
-
-    :cond_4b
-    const-string/jumbo v5, "yFrom"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v31
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -2892,82 +2823,142 @@
 
     if-eqz v5, :cond_4c
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    const/4 v13, 0x0
+
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
+
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_13
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "key"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3d
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->key:F
+
+    :cond_3c
+    :goto_14
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_13
+
+    :cond_3d
+    const-string/jumbo v5, "adjust"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3e
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->adjust:F
+
+    goto :goto_14
+
+    :cond_3e
+    const-string/jumbo v5, "xFrom"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3f
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
 
-    goto :goto_10
+    goto :goto_14
 
-    :cond_4c
-    const-string/jumbo v5, "yTo"
+    :cond_3f
+    const-string/jumbo v5, "xTo"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4d
+    if-eqz v5, :cond_40
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
 
-    goto :goto_10
+    goto :goto_14
 
-    :cond_4d
-    const-string/jumbo v5, "yOffSet"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4e
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->yOffSet:F
-
-    goto :goto_10
-
-    :cond_4e
+    :cond_40
     const-string/jumbo v5, "xOffSet"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4f
+    if-eqz v5, :cond_41
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -2979,104 +2970,129 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->xOffSet:F
 
-    goto :goto_10
+    goto :goto_14
 
-    :cond_4f
-    const-string/jumbo v5, "duration"
+    :cond_41
+    const-string/jumbo v5, "yOffSet"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_50
+    if-eqz v5, :cond_42
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->yOffSet:F
+
+    goto :goto_14
+
+    :cond_42
+    const-string/jumbo v5, "duration"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_43
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
 
-    goto/16 :goto_10
+    goto/16 :goto_14
 
-    :cond_50
+    :cond_43
     const-string/jumbo v5, "repeatCount"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_51
+    if-eqz v5, :cond_44
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
 
-    goto/16 :goto_10
+    goto/16 :goto_14
 
-    :cond_51
+    :cond_44
     const-string/jumbo v5, "repeatMode"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_52
+    if-eqz v5, :cond_45
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
 
-    goto/16 :goto_10
+    goto/16 :goto_14
 
-    :cond_52
+    :cond_45
     const-string/jumbo v5, "delay"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_53
+    if-eqz v5, :cond_46
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
 
-    goto/16 :goto_10
+    goto/16 :goto_14
 
-    :cond_53
+    :cond_46
     const-string/jumbo v5, "accelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_55
+    if-eqz v5, :cond_48
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_54
+    if-eqz v5, :cond_47
 
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
@@ -3084,12 +3100,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_10
+    goto/16 :goto_14
 
-    :cond_54
+    :cond_47
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -3097,28 +3113,28 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_10
+    goto/16 :goto_14
 
-    :cond_55
+    :cond_48
     const-string/jumbo v5, "decelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_57
+    if-eqz v5, :cond_4a
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_56
+    if-eqz v5, :cond_49
 
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
@@ -3126,12 +3142,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_10
+    goto/16 :goto_14
 
-    :cond_56
+    :cond_49
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -3139,18 +3155,18 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_10
+    goto/16 :goto_14
 
-    :cond_57
+    :cond_4a
     const-string/jumbo v5, "accelerateDecelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_58
+    if-eqz v5, :cond_4b
 
     new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
@@ -3158,35 +3174,35 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_10
+    goto/16 :goto_14
 
-    :cond_58
+    :cond_4b
     const-string/jumbo v5, "normalSpeed"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_49
+    if-eqz v5, :cond_3c
 
     const/4 v5, 0x0
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_10
+    goto/16 :goto_14
 
-    :cond_59
-    const-string/jumbo v5, "round"
+    :cond_4c
+    const-string/jumbo v5, "sinY"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v31
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_69
+    if-eqz v5, :cond_5d
 
     const/4 v13, 0x0
 
@@ -3194,36 +3210,296 @@
 
     invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
 
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
     move-result v14
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    :goto_11
-    move/from16 v0, v22
+    :goto_15
+    move/from16 v0, v23
 
-    if-ge v0, v14, :cond_4
+    if-ge v0, v14, :cond_2
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v39
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v27
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v39
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v33
 
-    const-string/jumbo v5, "r"
+    const-string/jumbo v5, "key"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4e
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->key:F
+
+    :cond_4d
+    :goto_16
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_15
+
+    :cond_4e
+    const-string/jumbo v5, "adjust"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4f
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->adjust:F
+
+    goto :goto_16
+
+    :cond_4f
+    const-string/jumbo v5, "yFrom"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_50
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
+
+    goto :goto_16
+
+    :cond_50
+    const-string/jumbo v5, "yTo"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_51
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
+
+    goto :goto_16
+
+    :cond_51
+    const-string/jumbo v5, "yOffSet"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_52
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->yOffSet:F
+
+    goto :goto_16
+
+    :cond_52
+    const-string/jumbo v5, "xOffSet"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_53
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->xOffSet:F
+
+    goto :goto_16
+
+    :cond_53
+    const-string/jumbo v5, "duration"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_54
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
+
+    goto/16 :goto_16
+
+    :cond_54
+    const-string/jumbo v5, "repeatCount"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_55
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
+
+    goto/16 :goto_16
+
+    :cond_55
+    const-string/jumbo v5, "repeatMode"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_56
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
+
+    goto/16 :goto_16
+
+    :cond_56
+    const-string/jumbo v5, "delay"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_57
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
+
+    goto/16 :goto_16
+
+    :cond_57
+    const-string/jumbo v5, "accelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_59
+
+    const-string/jumbo v5, "default"
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_58
+
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_16
+
+    :cond_58
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v6
+
+    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_16
+
+    :cond_59
+    const-string/jumbo v5, "decelerateInterpolator"
+
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3231,7 +3507,128 @@
 
     if-eqz v5, :cond_5b
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    const-string/jumbo v5, "default"
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5a
+
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_16
+
+    :cond_5a
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v6
+
+    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_16
+
+    :cond_5b
+    const-string/jumbo v5, "accelerateDecelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5c
+
+    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_16
+
+    :cond_5c
+    const-string/jumbo v5, "normalSpeed"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4d
+
+    const/4 v5, 0x0
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_16
+
+    :cond_5d
+    const-string/jumbo v5, "round"
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6d
+
+    const/4 v13, 0x0
+
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
+
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_17
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "r"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5f
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -3247,24 +3644,24 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->r:F
 
-    :cond_5a
-    :goto_12
-    add-int/lit8 v22, v22, 0x1
+    :cond_5e
+    :goto_18
+    add-int/lit8 v23, v23, 0x1
 
-    goto :goto_11
+    goto :goto_17
 
-    :cond_5b
+    :cond_5f
     const-string/jumbo v5, "a"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_5c
+    if-eqz v5, :cond_60
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -3280,20 +3677,20 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->a:F
 
-    goto :goto_12
+    goto :goto_18
 
-    :cond_5c
+    :cond_60
     const-string/jumbo v5, "b"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_5d
+    if-eqz v5, :cond_61
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -3309,88 +3706,12 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->b:F
 
-    goto :goto_12
-
-    :cond_5d
-    const-string/jumbo v5, "fromDegrees"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5e
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
-
-    goto :goto_12
-
-    :cond_5e
-    const-string/jumbo v5, "toDegrees"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5f
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
-
-    goto :goto_12
-
-    :cond_5f
-    const-string/jumbo v5, "duration"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_60
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
-
-    goto :goto_12
-
-    :cond_60
-    const-string/jumbo v5, "repeatCount"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_61
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
-
-    goto :goto_12
+    goto :goto_18
 
     :cond_61
-    const-string/jumbo v5, "repeatMode"
+    const-string/jumbo v5, "fromDegrees"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3398,18 +3719,18 @@
 
     if-eqz v5, :cond_62
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
 
-    goto/16 :goto_12
+    goto :goto_18
 
     :cond_62
-    const-string/jumbo v5, "delay"
+    const-string/jumbo v5, "toDegrees"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3417,18 +3738,37 @@
 
     if-eqz v5, :cond_63
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
+
+    goto :goto_18
+
+    :cond_63
+    const-string/jumbo v5, "duration"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_64
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
 
-    goto/16 :goto_12
+    goto :goto_18
 
-    :cond_63
-    const-string/jumbo v5, "accelerateInterpolator"
+    :cond_64
+    const-string/jumbo v5, "repeatCount"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3436,41 +3776,37 @@
 
     if-eqz v5, :cond_65
 
-    const-string/jumbo v5, "default"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
-    if-eqz v5, :cond_64
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
 
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_12
-
-    :cond_64
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v6
-
-    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_12
+    goto :goto_18
 
     :cond_65
-    const-string/jumbo v5, "decelerateInterpolator"
+    const-string/jumbo v5, "repeatMode"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_66
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
+
+    goto/16 :goto_18
+
+    :cond_66
+    const-string/jumbo v5, "delay"
+
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3478,120 +3814,60 @@
 
     if-eqz v5, :cond_67
 
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
+
+    goto/16 :goto_18
+
+    :cond_67
+    const-string/jumbo v5, "accelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_69
+
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_66
+    if-eqz v5, :cond_68
 
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_12
+    goto/16 :goto_18
 
-    :cond_66
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+    :cond_68
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
-    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
+    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_12
-
-    :cond_67
-    const-string/jumbo v5, "accelerateDecelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_68
-
-    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_12
-
-    :cond_68
-    const-string/jumbo v5, "normalSpeed"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5a
-
-    const/4 v5, 0x0
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_12
+    goto/16 :goto_18
 
     :cond_69
-    const-string/jumbo v5, "ellipse"
+    const-string/jumbo v5, "decelerateInterpolator"
 
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_7a
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_13
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "ra"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3599,7 +3875,128 @@
 
     if-eqz v5, :cond_6b
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    const-string/jumbo v5, "default"
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6a
+
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_18
+
+    :cond_6a
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v6
+
+    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_18
+
+    :cond_6b
+    const-string/jumbo v5, "accelerateDecelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6c
+
+    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_18
+
+    :cond_6c
+    const-string/jumbo v5, "normalSpeed"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5e
+
+    const/4 v5, 0x0
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_18
+
+    :cond_6d
+    const-string/jumbo v5, "ellipse"
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7e
+
+    const/4 v13, 0x0
+
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
+
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_19
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "ra"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6f
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -3615,24 +4012,24 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->ra:F
 
-    :cond_6a
-    :goto_14
-    add-int/lit8 v22, v22, 0x1
+    :cond_6e
+    :goto_1a
+    add-int/lit8 v23, v23, 0x1
 
-    goto :goto_13
+    goto :goto_19
 
-    :cond_6b
+    :cond_6f
     const-string/jumbo v5, "rb"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_6c
+    if-eqz v5, :cond_70
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -3648,20 +4045,20 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->rb:F
 
-    goto :goto_14
+    goto :goto_1a
 
-    :cond_6c
+    :cond_70
     const-string/jumbo v5, "a"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_6d
+    if-eqz v5, :cond_71
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -3677,20 +4074,20 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->a:F
 
-    goto :goto_14
+    goto :goto_1a
 
-    :cond_6d
+    :cond_71
     const-string/jumbo v5, "b"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_6e
+    if-eqz v5, :cond_72
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
@@ -3706,88 +4103,12 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->b:F
 
-    goto :goto_14
-
-    :cond_6e
-    const-string/jumbo v5, "fromDegrees"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_6f
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
-
-    goto :goto_14
-
-    :cond_6f
-    const-string/jumbo v5, "toDegrees"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_70
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
-
-    goto :goto_14
-
-    :cond_70
-    const-string/jumbo v5, "duration"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_71
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
-
-    goto/16 :goto_14
-
-    :cond_71
-    const-string/jumbo v5, "repeatCount"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_72
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
-
-    goto/16 :goto_14
+    goto :goto_1a
 
     :cond_72
-    const-string/jumbo v5, "repeatMode"
+    const-string/jumbo v5, "fromDegrees"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3795,18 +4116,18 @@
 
     if-eqz v5, :cond_73
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
 
-    goto/16 :goto_14
+    goto :goto_1a
 
     :cond_73
-    const-string/jumbo v5, "delay"
+    const-string/jumbo v5, "toDegrees"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3814,18 +4135,37 @@
 
     if-eqz v5, :cond_74
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
+
+    goto :goto_1a
+
+    :cond_74
+    const-string/jumbo v5, "duration"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_75
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
 
-    goto/16 :goto_14
+    goto/16 :goto_1a
 
-    :cond_74
-    const-string/jumbo v5, "accelerateInterpolator"
+    :cond_75
+    const-string/jumbo v5, "repeatCount"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3833,41 +4173,37 @@
 
     if-eqz v5, :cond_76
 
-    const-string/jumbo v5, "default"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
-    if-eqz v5, :cond_75
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
 
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_14
-
-    :cond_75
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v6
-
-    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_14
+    goto/16 :goto_1a
 
     :cond_76
-    const-string/jumbo v5, "decelerateInterpolator"
+    const-string/jumbo v5, "repeatMode"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_77
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
+
+    goto/16 :goto_1a
+
+    :cond_77
+    const-string/jumbo v5, "delay"
+
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3875,120 +4211,60 @@
 
     if-eqz v5, :cond_78
 
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
+
+    goto/16 :goto_1a
+
+    :cond_78
+    const-string/jumbo v5, "accelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7a
+
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_77
+    if-eqz v5, :cond_79
 
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_14
+    goto/16 :goto_1a
 
-    :cond_77
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+    :cond_79
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
-    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
+    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_14
-
-    :cond_78
-    const-string/jumbo v5, "accelerateDecelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_79
-
-    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_14
-
-    :cond_79
-    const-string/jumbo v5, "normalSpeed"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_6a
-
-    const/4 v5, 0x0
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_14
+    goto/16 :goto_1a
 
     :cond_7a
-    const-string/jumbo v5, "alpha"
+    const-string/jumbo v5, "decelerateInterpolator"
 
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_87
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_15
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "fromAlpha"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -3996,22 +4272,41 @@
 
     if-eqz v5, :cond_7c
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    const-string/jumbo v5, "default"
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
+    if-eqz v5, :cond_7b
+
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_1a
 
     :cond_7b
-    :goto_16
-    add-int/lit8 v22, v22, 0x1
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
-    goto :goto_15
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v6
+
+    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_1a
 
     :cond_7c
-    const-string/jumbo v5, "toAlpha"
+    const-string/jumbo v5, "accelerateDecelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -4019,311 +4314,35 @@
 
     if-eqz v5, :cond_7d
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
-
-    goto :goto_16
-
-    :cond_7d
-    const-string/jumbo v5, "duration"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_7e
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
-
-    goto :goto_16
-
-    :cond_7e
-    const-string/jumbo v5, "repeatCount"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_7f
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
-
-    goto :goto_16
-
-    :cond_7f
-    const-string/jumbo v5, "repeatMode"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_80
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
-
-    goto :goto_16
-
-    :cond_80
-    const-string/jumbo v5, "delay"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_81
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
-
-    goto :goto_16
-
-    :cond_81
-    const-string/jumbo v5, "accelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_83
-
-    const-string/jumbo v5, "default"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_82
-
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto :goto_16
-
-    :cond_82
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v6
-
-    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_16
-
-    :cond_83
-    const-string/jumbo v5, "decelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_85
-
-    const-string/jumbo v5, "default"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_84
-
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_16
-
-    :cond_84
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v6
-
-    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_16
-
-    :cond_85
-    const-string/jumbo v5, "accelerateDecelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_86
-
     new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
     invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_16
+    goto/16 :goto_1a
 
-    :cond_86
+    :cond_7d
     const-string/jumbo v5, "normalSpeed"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_7b
+    if-eqz v5, :cond_6e
 
     const/4 v5, 0x0
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_16
+    goto/16 :goto_1a
 
-    :cond_87
-    const-string/jumbo v5, "translateX"
+    :cond_7e
+    const-string/jumbo v5, "alpha"
 
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_94
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_17
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "fromXDelta"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_89
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
-
-    :cond_88
-    :goto_18
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_17
-
-    :cond_89
-    const-string/jumbo v5, "toXDelta"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_8a
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
-
-    goto :goto_18
-
-    :cond_8a
-    const-string/jumbo v5, "duration"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v31
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -4331,91 +4350,176 @@
 
     if-eqz v5, :cond_8b
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    const/4 v13, 0x0
+
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
+
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_1b
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "fromAlpha"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_80
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
+
+    :cond_7f
+    :goto_1c
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_1b
+
+    :cond_80
+    const-string/jumbo v5, "toAlpha"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_81
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
+
+    goto :goto_1c
+
+    :cond_81
+    const-string/jumbo v5, "duration"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_82
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
 
-    goto :goto_18
+    goto :goto_1c
 
-    :cond_8b
+    :cond_82
     const-string/jumbo v5, "repeatCount"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8c
+    if-eqz v5, :cond_83
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
 
-    goto :goto_18
+    goto :goto_1c
 
-    :cond_8c
+    :cond_83
     const-string/jumbo v5, "repeatMode"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8d
+    if-eqz v5, :cond_84
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
 
-    goto :goto_18
+    goto :goto_1c
 
-    :cond_8d
+    :cond_84
     const-string/jumbo v5, "delay"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8e
+    if-eqz v5, :cond_85
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
 
-    goto :goto_18
+    goto :goto_1c
 
-    :cond_8e
+    :cond_85
     const-string/jumbo v5, "accelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_90
+    if-eqz v5, :cond_87
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8f
+    if-eqz v5, :cond_86
 
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
@@ -4423,12 +4527,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto :goto_18
+    goto :goto_1c
 
-    :cond_8f
+    :cond_86
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -4436,28 +4540,28 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_18
+    goto/16 :goto_1c
 
-    :cond_90
+    :cond_87
     const-string/jumbo v5, "decelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_92
+    if-eqz v5, :cond_89
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_91
+    if-eqz v5, :cond_88
 
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
@@ -4465,12 +4569,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_18
+    goto/16 :goto_1c
 
-    :cond_91
+    :cond_88
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -4478,18 +4582,18 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_18
+    goto/16 :goto_1c
 
-    :cond_92
+    :cond_89
     const-string/jumbo v5, "accelerateDecelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_93
+    if-eqz v5, :cond_8a
 
     new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
@@ -4497,164 +4601,29 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_18
+    goto/16 :goto_1c
 
-    :cond_93
+    :cond_8a
     const-string/jumbo v5, "normalSpeed"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_88
+    if-eqz v5, :cond_7f
 
     const/4 v5, 0x0
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_18
+    goto/16 :goto_1c
 
-    :cond_94
-    const-string/jumbo v5, "translateY"
+    :cond_8b
+    const-string/jumbo v5, "translateX"
 
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a1
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_19
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "fromYDelta"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_96
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
-
-    :cond_95
-    :goto_1a
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_19
-
-    :cond_96
-    const-string/jumbo v5, "toYDelta"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_97
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
-
-    goto :goto_1a
-
-    :cond_97
-    const-string/jumbo v5, "duration"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_98
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
-
-    goto :goto_1a
-
-    :cond_98
-    const-string/jumbo v5, "repeatCount"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_99
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
-
-    goto :goto_1a
-
-    :cond_99
-    const-string/jumbo v5, "repeatMode"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v31
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -4662,37 +4631,367 @@
 
     if-eqz v5, :cond_9a
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    const/4 v13, 0x0
 
-    move-result v5
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
 
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
 
-    goto :goto_1a
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
-    :cond_9a
-    const-string/jumbo v5, "delay"
+    move-result v14
 
-    move-object/from16 v0, v24
+    const/16 v23, 0x0
+
+    :goto_1d
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "fromXDelta"
+
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_9b
+    if-eqz v5, :cond_8e
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    if-eqz v25, :cond_8d
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
+
+    move-result v5
+
+    :goto_1e
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
+
+    :cond_8c
+    :goto_1f
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_1d
+
+    :cond_8d
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getCoordinateX(F)F
+
+    move-result v5
+
+    goto :goto_1e
+
+    :cond_8e
+    const-string/jumbo v5, "toXDelta"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_90
+
+    if-eqz v25, :cond_8f
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelX(F)F
+
+    move-result v5
+
+    :goto_20
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
+
+    goto :goto_1f
+
+    :cond_8f
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getCoordinateX(F)F
+
+    move-result v5
+
+    goto :goto_20
+
+    :cond_90
+    const-string/jumbo v5, "duration"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_91
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
+
+    goto :goto_1f
+
+    :cond_91
+    const-string/jumbo v5, "repeatCount"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_92
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
+
+    goto :goto_1f
+
+    :cond_92
+    const-string/jumbo v5, "repeatMode"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_93
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
+
+    goto :goto_1f
+
+    :cond_93
+    const-string/jumbo v5, "delay"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_94
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
 
-    goto :goto_1a
+    goto :goto_1f
 
-    :cond_9b
+    :cond_94
     const-string/jumbo v5, "accelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_96
+
+    const-string/jumbo v5, "default"
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_95
+
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_1f
+
+    :cond_95
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v6
+
+    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_1f
+
+    :cond_96
+    const-string/jumbo v5, "decelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_98
+
+    const-string/jumbo v5, "default"
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_97
+
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_1f
+
+    :cond_97
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v6
+
+    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_1f
+
+    :cond_98
+    const-string/jumbo v5, "accelerateDecelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_99
+
+    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_1f
+
+    :cond_99
+    const-string/jumbo v5, "normalSpeed"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_8c
+
+    const/4 v5, 0x0
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_1f
+
+    :cond_9a
+    const-string/jumbo v5, "translateY"
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_a9
+
+    const/4 v13, 0x0
+
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
+
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_21
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "fromYDelta"
+
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -4700,41 +4999,44 @@
 
     if-eqz v5, :cond_9d
 
-    const-string/jumbo v5, "default"
+    if-eqz v25, :cond_9c
 
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
-    if-eqz v5, :cond_9c
+    move-object/from16 v0, p0
 
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
 
-    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
+    move-result v5
 
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+    :goto_22
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
 
-    goto :goto_1a
+    :cond_9b
+    :goto_23
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_21
 
     :cond_9c
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    move-result v5
 
-    move-result v6
+    move-object/from16 v0, p0
 
-    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getCoordinateY(F)F
 
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+    move-result v5
 
-    goto/16 :goto_1a
+    goto :goto_22
 
     :cond_9d
-    const-string/jumbo v5, "decelerateInterpolator"
+    const-string/jumbo v5, "toYDelta"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -4742,41 +5044,40 @@
 
     if-eqz v5, :cond_9f
 
-    const-string/jumbo v5, "default"
+    if-eqz v25, :cond_9e
 
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v5
 
-    if-eqz v5, :cond_9e
+    move-object/from16 v0, p0
 
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getDevicePixelY(F)F
 
-    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+    move-result v5
 
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+    :goto_24
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
 
-    goto/16 :goto_1a
+    goto :goto_23
 
     :cond_9e
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    move-result v5
 
-    move-result v6
+    move-object/from16 v0, p0
 
-    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
+    invoke-direct {v0, v5}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->getCoordinateY(F)F
 
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+    move-result v5
 
-    goto/16 :goto_1a
+    goto :goto_24
 
     :cond_9f
-    const-string/jumbo v5, "accelerateDecelerateInterpolator"
+    const-string/jumbo v5, "duration"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -4784,299 +5085,37 @@
 
     if-eqz v5, :cond_a0
 
-    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_1a
-
-    :cond_a0
-    const-string/jumbo v5, "normalSpeed"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_95
-
-    const/4 v5, 0x0
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_1a
-
-    :cond_a1
-    const-string/jumbo v5, "scaleX"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_ae
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_1b
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "fromXScale"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a3
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
-
-    :cond_a2
-    :goto_1c
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_1b
-
-    :cond_a3
-    const-string/jumbo v5, "toXScale"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a4
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
-
-    goto :goto_1c
-
-    :cond_a4
-    const-string/jumbo v5, "duration"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a5
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
 
-    goto :goto_1c
+    goto :goto_23
 
-    :cond_a5
+    :cond_a0
     const-string/jumbo v5, "repeatCount"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_a6
+    if-eqz v5, :cond_a1
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
 
-    goto :goto_1c
+    goto :goto_23
 
-    :cond_a6
+    :cond_a1
     const-string/jumbo v5, "repeatMode"
 
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a7
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
-
-    goto :goto_1c
-
-    :cond_a7
-    const-string/jumbo v5, "delay"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a8
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
-
-    goto :goto_1c
-
-    :cond_a8
-    const-string/jumbo v5, "accelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_aa
-
-    const-string/jumbo v5, "default"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a9
-
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto :goto_1c
-
-    :cond_a9
-    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v6
-
-    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_1c
-
-    :cond_aa
-    const-string/jumbo v5, "decelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_ac
-
-    const-string/jumbo v5, "default"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_ab
-
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_1c
-
-    :cond_ab
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v6
-
-    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_1c
-
-    :cond_ac
-    const-string/jumbo v5, "accelerateDecelerateInterpolator"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_ad
-
-    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
-
-    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_1c
-
-    :cond_ad
-    const-string/jumbo v5, "normalSpeed"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -5084,193 +5123,53 @@
 
     if-eqz v5, :cond_a2
 
-    const/4 v5, 0x0
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_1c
-
-    :cond_ae
-    const-string/jumbo v5, "scaleY"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_bb
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_1d
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "fromYScale"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_b0
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
-
-    :cond_af
-    :goto_1e
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_1d
-
-    :cond_b0
-    const-string/jumbo v5, "toYScale"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_b1
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
-
-    goto :goto_1e
-
-    :cond_b1
-    const-string/jumbo v5, "duration"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_b2
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
-
-    goto :goto_1e
-
-    :cond_b2
-    const-string/jumbo v5, "repeatCount"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_b3
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
-
-    goto :goto_1e
-
-    :cond_b3
-    const-string/jumbo v5, "repeatMode"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_b4
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
 
-    goto :goto_1e
+    goto :goto_23
 
-    :cond_b4
+    :cond_a2
     const-string/jumbo v5, "delay"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_b5
+    if-eqz v5, :cond_a3
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
 
-    goto :goto_1e
+    goto :goto_23
 
-    :cond_b5
+    :cond_a3
     const-string/jumbo v5, "accelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_b7
+    if-eqz v5, :cond_a5
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_b6
+    if-eqz v5, :cond_a4
 
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
@@ -5278,12 +5177,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto :goto_1e
+    goto/16 :goto_23
 
-    :cond_b6
+    :cond_a4
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -5291,28 +5190,28 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_1e
+    goto/16 :goto_23
 
-    :cond_b7
+    :cond_a5
     const-string/jumbo v5, "decelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_b9
+    if-eqz v5, :cond_a7
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_b8
+    if-eqz v5, :cond_a6
 
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
@@ -5320,12 +5219,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_1e
+    goto/16 :goto_23
 
-    :cond_b8
+    :cond_a6
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -5333,18 +5232,18 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_1e
+    goto/16 :goto_23
 
-    :cond_b9
+    :cond_a7
     const-string/jumbo v5, "accelerateDecelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_ba
+    if-eqz v5, :cond_a8
 
     new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
@@ -5352,12 +5251,152 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_1e
+    goto/16 :goto_23
 
-    :cond_ba
+    :cond_a8
     const-string/jumbo v5, "normalSpeed"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_9b
+
+    const/4 v5, 0x0
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_23
+
+    :cond_a9
+    const-string/jumbo v5, "scaleX"
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_b6
+
+    const/4 v13, 0x0
+
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
+
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_25
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "fromXScale"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_ab
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
+
+    :cond_aa
+    :goto_26
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_25
+
+    :cond_ab
+    const-string/jumbo v5, "toXScale"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_ac
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
+
+    goto :goto_26
+
+    :cond_ac
+    const-string/jumbo v5, "duration"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_ad
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
+
+    goto :goto_26
+
+    :cond_ad
+    const-string/jumbo v5, "repeatCount"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_ae
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
+
+    goto :goto_26
+
+    :cond_ae
+    const-string/jumbo v5, "repeatMode"
+
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -5365,203 +5404,53 @@
 
     if-eqz v5, :cond_af
 
-    const/4 v5, 0x0
-
-    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
-
-    goto/16 :goto_1e
-
-    :cond_bb
-    const-string/jumbo v5, "ImageResource"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_c8
-
-    const/4 v13, 0x0
-
-    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
-
-    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
-
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
-
-    move-result v14
-
-    const/16 v22, 0x0
-
-    :goto_1f
-    move/from16 v0, v22
-
-    if-ge v0, v14, :cond_4
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
-
-    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v5, "length"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_bd
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->length:I
-
-    :cond_bc
-    :goto_20
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_1f
-
-    :cond_bd
-    const-string/jumbo v5, "image"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_be
-
-    const-string/jumbo v5, "drawable"
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageName:Ljava/lang/String;
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v30
-
-    invoke-virtual {v0, v1, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->imageViewId:I
-
-    goto :goto_20
-
-    :cond_be
-    const-string/jumbo v5, "duration"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_bf
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
-
-    goto :goto_20
-
-    :cond_bf
-    const-string/jumbo v5, "repeatCount"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_c0
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
-
-    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
-
-    goto :goto_20
-
-    :cond_c0
-    const-string/jumbo v5, "repeatMode"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_c1
-
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
 
-    goto :goto_20
+    goto :goto_26
 
-    :cond_c1
+    :cond_af
     const-string/jumbo v5, "delay"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_c2
+    if-eqz v5, :cond_b0
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
     iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
 
-    goto :goto_20
+    goto :goto_26
 
-    :cond_c2
+    :cond_b0
     const-string/jumbo v5, "accelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_c4
+    if-eqz v5, :cond_b2
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_c3
+    if-eqz v5, :cond_b1
 
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
@@ -5569,12 +5458,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_20
+    goto :goto_26
 
-    :cond_c3
+    :cond_b1
     new-instance v5, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -5582,28 +5471,28 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_20
+    goto/16 :goto_26
 
-    :cond_c4
+    :cond_b2
     const-string/jumbo v5, "decelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_c6
+    if-eqz v5, :cond_b4
 
     const-string/jumbo v5, "default"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_c5
+    if-eqz v5, :cond_b3
 
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
@@ -5611,12 +5500,12 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_20
+    goto/16 :goto_26
 
-    :cond_c5
+    :cond_b3
     new-instance v5, Landroid/view/animation/DecelerateInterpolator;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -5624,18 +5513,18 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_20
+    goto/16 :goto_26
 
-    :cond_c6
+    :cond_b4
     const-string/jumbo v5, "accelerateDecelerateInterpolator"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_c7
+    if-eqz v5, :cond_b5
 
     new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
@@ -5643,35 +5532,35 @@
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_20
+    goto/16 :goto_26
 
-    :cond_c7
+    :cond_b5
     const-string/jumbo v5, "normalSpeed"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_bc
+    if-eqz v5, :cond_aa
 
     const/4 v5, 0x0
 
     iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
 
-    goto/16 :goto_20
+    goto/16 :goto_26
 
-    :cond_c8
-    const-string/jumbo v5, "frame"
+    :cond_b6
+    const-string/jumbo v5, "scaleY"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v31
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_cb
+    if-eqz v5, :cond_c3
 
     const/4 v13, 0x0
 
@@ -5679,61 +5568,407 @@
 
     invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
 
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
     move-result v14
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    :goto_21
-    move/from16 v0, v22
+    :goto_27
+    move/from16 v0, v23
 
-    if-ge v0, v14, :cond_4
+    if-ge v0, v14, :cond_2
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v39
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v27
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v39
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v33
 
-    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    const-string/jumbo v5, "fromYScale"
 
-    move-result v29
-
-    const-string/jumbo v5, "top"
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_ca
+    if-eqz v5, :cond_b8
 
-    move/from16 v0, v29
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    iput v0, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->top:I
+    move-result v5
 
-    :cond_c9
-    :goto_22
-    add-int/lit8 v22, v22, 0x1
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->from:F
 
-    goto :goto_21
+    :cond_b7
+    :goto_28
+    add-int/lit8 v23, v23, 0x1
 
-    :cond_ca
-    const-string/jumbo v5, "minInterval"
+    goto :goto_27
 
-    move-object/from16 v0, v24
+    :cond_b8
+    const-string/jumbo v5, "toYScale"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_b9
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->to:F
+
+    goto :goto_28
+
+    :cond_b9
+    const-string/jumbo v5, "duration"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_ba
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
+
+    goto :goto_28
+
+    :cond_ba
+    const-string/jumbo v5, "repeatCount"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_bb
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
+
+    goto :goto_28
+
+    :cond_bb
+    const-string/jumbo v5, "repeatMode"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_bc
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
+
+    goto :goto_28
+
+    :cond_bc
+    const-string/jumbo v5, "delay"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_bd
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
+
+    goto :goto_28
+
+    :cond_bd
+    const-string/jumbo v5, "accelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_bf
+
+    const-string/jumbo v5, "default"
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_be
+
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto :goto_28
+
+    :cond_be
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v6
+
+    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_28
+
+    :cond_bf
+    const-string/jumbo v5, "decelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c1
+
+    const-string/jumbo v5, "default"
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c0
+
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_28
+
+    :cond_c0
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v6
+
+    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_28
+
+    :cond_c1
+    const-string/jumbo v5, "accelerateDecelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c2
+
+    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_28
+
+    :cond_c2
+    const-string/jumbo v5, "normalSpeed"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_b7
+
+    const/4 v5, 0x0
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_28
+
+    :cond_c3
+    const-string/jumbo v5, "ImageResource"
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_d0
+
+    const/4 v13, 0x0
+
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
+
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    const/16 v23, 0x0
+
+    :goto_29
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
+
+    const-string/jumbo v5, "length"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c5
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->length:I
+
+    :cond_c4
+    :goto_2a
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_29
+
+    :cond_c5
+    const-string/jumbo v5, "image"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c6
+
+    const-string/jumbo v5, "drawable"
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageName:Ljava/lang/String;
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v0, v1, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->imageViewId:I
+
+    goto :goto_2a
+
+    :cond_c6
+    const-string/jumbo v5, "duration"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c7
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->duration:J
+
+    goto :goto_2a
+
+    :cond_c7
+    const-string/jumbo v5, "repeatCount"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c8
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatCount:I
+
+    goto :goto_2a
+
+    :cond_c8
+    const-string/jumbo v5, "repeatMode"
+
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -5741,51 +5976,277 @@
 
     if-eqz v5, :cond_c9
 
-    move/from16 v0, v29
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    iput v0, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->minInterval:I
+    move-result v5
 
-    goto :goto_22
+    iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->repeatMode:I
 
-    :cond_cb
-    const-string/jumbo v5, "item"
+    goto :goto_2a
 
-    move-object/from16 v0, v28
+    :cond_c9
+    const-string/jumbo v5, "delay"
+
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_ca
 
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    iput-wide v6, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->delay:J
+
+    goto :goto_2a
+
+    :cond_ca
+    const-string/jumbo v5, "accelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_cc
+
+    const-string/jumbo v5, "default"
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_cb
+
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_2a
+
+    :cond_cb
+    new-instance v5, Landroid/view/animation/AccelerateInterpolator;
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v6
+
+    invoke-direct {v5, v6}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_2a
+
+    :cond_cc
+    const-string/jumbo v5, "decelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_ce
+
+    const-string/jumbo v5, "default"
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_cd
+
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_2a
+
+    :cond_cd
+    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v6
+
+    invoke-direct {v5, v6}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_2a
+
+    :cond_ce
+    const-string/jumbo v5, "accelerateDecelerateInterpolator"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_cf
+
+    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_2a
+
+    :cond_cf
+    const-string/jumbo v5, "normalSpeed"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c4
+
+    const/4 v5, 0x0
+
+    iput-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->interpolator:Landroid/animation/TimeInterpolator;
+
+    goto/16 :goto_2a
+
+    :cond_d0
+    const-string/jumbo v5, "frame"
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_d3
+
+    const/4 v13, 0x0
+
+    new-instance v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;
+
+    invoke-direct {v13}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;-><init>()V
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
     move-result v14
 
-    if-eqz v13, :cond_4
+    const/16 v23, 0x0
 
-    const/16 v22, 0x0
+    :goto_2b
+    move/from16 v0, v23
 
-    :goto_23
-    move/from16 v0, v22
+    if-ge v0, v14, :cond_2
 
-    if-ge v0, v14, :cond_4
+    move-object/from16 v0, v39
 
-    move-object/from16 v0, v34
-
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v27
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v39
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v5
+
+    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v32
+
+    const-string/jumbo v5, "top"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_d2
+
+    move/from16 v0, v32
+
+    iput v0, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->top:I
+
+    :cond_d1
+    :goto_2c
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_2b
+
+    :cond_d2
+    const-string/jumbo v5, "minInterval"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_d1
+
+    move/from16 v0, v32
+
+    iput v0, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->minInterval:I
+
+    goto :goto_2c
+
+    :cond_d3
+    const-string/jumbo v5, "item"
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+
+    move-result v14
+
+    if-eqz v13, :cond_2
+
+    const/16 v23, 0x0
+
+    :goto_2d
+    move/from16 v0, v23
+
+    if-ge v0, v14, :cond_2
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, v23
+
+    invoke-interface {v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v33
 
     const-string/jumbo v5, "KeyguardAnimatedWallpaper"
 
@@ -5799,7 +6260,7 @@
 
     move-result-object v6
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5811,7 +6272,7 @@
 
     move-result-object v6
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v33
 
     invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5835,17 +6296,17 @@
 
     const-string/jumbo v5, "frameSize"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_cd
+    if-eqz v5, :cond_d5
 
     iget-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->frameSize:Ljava/util/ArrayList;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v6
 
@@ -5855,22 +6316,22 @@
 
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_cc
-    :goto_24
-    add-int/lit8 v22, v22, 0x1
+    :cond_d4
+    :goto_2e
+    add-int/lit8 v23, v23, 0x1
 
-    goto :goto_23
+    goto :goto_2d
 
-    :cond_cd
+    :cond_d5
     const-string/jumbo v5, "image"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_ce
+    if-eqz v5, :cond_d6
 
     iget-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->imageViewSetId:Ljava/util/ArrayList;
 
@@ -5880,9 +6341,9 @@
 
     iget-object v7, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageName:Ljava/lang/String;
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v29
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v33
 
     invoke-virtual {v0, v1, v6, v7}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5894,18 +6355,18 @@
 
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_24
+    goto :goto_2e
 
-    :cond_ce
+    :cond_d6
     const-string/jumbo v5, "background"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_cf
+    if-eqz v5, :cond_d7
 
     const-string/jumbo v5, "drawable"
 
@@ -5913,9 +6374,9 @@
 
     iget-object v6, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mPackageName:Ljava/lang/String;
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v29
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v33
 
     invoke-virtual {v0, v1, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5923,22 +6384,22 @@
 
     iput v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->backgroundId:I
 
-    goto :goto_24
+    goto :goto_2e
 
-    :cond_cf
+    :cond_d7
     const-string/jumbo v5, "x"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_d0
+    if-eqz v5, :cond_d8
 
     iget-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->x:Ljava/util/ArrayList;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -5948,22 +6409,22 @@
 
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_24
+    goto :goto_2e
 
-    :cond_d0
+    :cond_d8
     const-string/jumbo v5, "y"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_d1
+    if-eqz v5, :cond_d9
 
     iget-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->y:Ljava/util/ArrayList;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -5973,22 +6434,22 @@
 
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_24
+    goto :goto_2e
 
-    :cond_d1
+    :cond_d9
     const-string/jumbo v5, "scale"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_d2
+    if-eqz v5, :cond_da
 
     iget-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->scale:Ljava/util/ArrayList;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static/range {v33 .. v33}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v6
 
@@ -5998,22 +6459,22 @@
 
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_24
+    goto/16 :goto_2e
 
-    :cond_d2
+    :cond_da
     const-string/jumbo v5, "startIndex"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_cc
+    if-eqz v5, :cond_d4
 
     iget-object v5, v13, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->startIndex:Ljava/util/ArrayList;
 
-    invoke-static/range {v30 .. v30}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v6
 
@@ -6023,16 +6484,16 @@
 
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_24
+    goto/16 :goto_2e
 
-    :cond_d3
+    :cond_db
     const/4 v5, 0x3
 
     move/from16 v0, v19
 
-    if-ne v0, v5, :cond_4
+    if-ne v0, v5, :cond_2
 
-    invoke-interface/range {v34 .. v34}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+    invoke-interface/range {v39 .. v39}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v18
 
@@ -6044,279 +6505,47 @@
 
     move-result v5
 
-    if-eqz v5, :cond_d5
+    if-eqz v5, :cond_dd
 
-    if-nez v32, :cond_d4
+    if-eqz v25, :cond_dc
 
     const/4 v5, 0x0
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v34
 
     invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setX(F)V
 
     const/4 v5, 0x0
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v34
 
     invoke-virtual {v0, v5}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setY(F)V
 
-    const/16 v33, -0x1
+    const/16 v37, -0x1
 
     const/16 v21, -0x1
 
-    :cond_d4
+    const/16 v25, 0x0
+
+    :cond_dc
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v31
+    move-object/from16 v1, v34
 
-    move/from16 v2, v33
+    move/from16 v2, v37
 
     move/from16 v3, v21
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->addView(Landroid/view/View;II)V
 
-    add-int/lit8 v32, v32, 0x1
-
-    const/16 v33, -0x2
+    const/16 v37, -0x2
 
     const/16 v21, -0x2
 
     goto/16 :goto_2
 
-    :cond_d5
-    const-string/jumbo v5, "rotate"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_d6
-
-    if-eqz v13, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
-
-    const-string/jumbo v6, "rotation"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
-
-    goto/16 :goto_2
-
-    :cond_d6
-    const-string/jumbo v5, "parabola"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_d7
-
-    if-eqz v13, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
-
-    const-string/jumbo v6, "parabola"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
-
-    goto/16 :goto_2
-
-    :cond_d7
-    const-string/jumbo v5, "sinX"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_d8
-
-    if-eqz v13, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
-
-    const-string/jumbo v6, "sinX"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
-
-    goto/16 :goto_2
-
-    :cond_d8
-    const-string/jumbo v5, "sinY"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_d9
-
-    if-eqz v13, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
-
-    const-string/jumbo v6, "sinY"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
-
-    goto/16 :goto_2
-
-    :cond_d9
-    const-string/jumbo v5, "round"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_da
-
-    if-eqz v13, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
-
-    const-string/jumbo v6, "round"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
-
-    goto/16 :goto_2
-
-    :cond_da
-    const-string/jumbo v5, "ellipse"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_db
-
-    if-eqz v13, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
-
-    const-string/jumbo v6, "ellipse"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
-
-    goto/16 :goto_2
-
-    :cond_db
-    const-string/jumbo v5, "alpha"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_dc
-
-    if-eqz v13, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
-
-    const-string/jumbo v6, "alpha"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
-
-    goto/16 :goto_2
-
-    :cond_dc
-    const-string/jumbo v5, "translateX"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_dd
-
-    if-eqz v13, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
-
-    const-string/jumbo v6, "x"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
-
-    goto/16 :goto_2
-
     :cond_dd
-    const-string/jumbo v5, "translateY"
+    const-string/jumbo v5, "rotate"
 
     move-object/from16 v0, v18
 
@@ -6326,15 +6555,15 @@
 
     if-eqz v5, :cond_de
 
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
 
-    const-string/jumbo v6, "y"
+    const-string/jumbo v6, "rotation"
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v34
 
     invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
 
@@ -6345,7 +6574,7 @@
     goto/16 :goto_2
 
     :cond_de
-    const-string/jumbo v5, "scaleX"
+    const-string/jumbo v5, "parabola"
 
     move-object/from16 v0, v18
 
@@ -6355,15 +6584,15 @@
 
     if-eqz v5, :cond_df
 
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
 
-    const-string/jumbo v6, "scaleX"
+    const-string/jumbo v6, "parabola"
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v34
 
     invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
 
@@ -6374,7 +6603,7 @@
     goto/16 :goto_2
 
     :cond_df
-    const-string/jumbo v5, "scaleY"
+    const-string/jumbo v5, "sinX"
 
     move-object/from16 v0, v18
 
@@ -6384,15 +6613,15 @@
 
     if-eqz v5, :cond_e0
 
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
 
-    const-string/jumbo v6, "scaleY"
+    const-string/jumbo v6, "sinX"
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v34
 
     invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
 
@@ -6403,7 +6632,36 @@
     goto/16 :goto_2
 
     :cond_e0
-    const-string/jumbo v5, "ImageResource"
+    const-string/jumbo v5, "sinY"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_e1
+
+    if-eqz v13, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
+
+    const-string/jumbo v6, "sinY"
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
+
+    goto/16 :goto_2
+
+    :cond_e1
+    const-string/jumbo v5, "round"
 
     move-object/from16 v0, v18
 
@@ -6413,24 +6671,15 @@
 
     if-eqz v5, :cond_e2
 
-    if-eqz v31, :cond_e1
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setApkContext(Landroid/content/Context;)V
-
-    :cond_e1
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
 
-    const-string/jumbo v6, "ImageResource"
+    const-string/jumbo v6, "round"
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v34
 
     invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
 
@@ -6441,6 +6690,218 @@
     goto/16 :goto_2
 
     :cond_e2
+    const-string/jumbo v5, "ellipse"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_e3
+
+    if-eqz v13, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
+
+    const-string/jumbo v6, "ellipse"
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
+
+    goto/16 :goto_2
+
+    :cond_e3
+    const-string/jumbo v5, "alpha"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_e4
+
+    if-eqz v13, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
+
+    const-string/jumbo v6, "alpha"
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
+
+    goto/16 :goto_2
+
+    :cond_e4
+    const-string/jumbo v5, "translateX"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_e5
+
+    if-eqz v13, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
+
+    const-string/jumbo v6, "x"
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
+
+    goto/16 :goto_2
+
+    :cond_e5
+    const-string/jumbo v5, "translateY"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_e6
+
+    if-eqz v13, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
+
+    const-string/jumbo v6, "y"
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
+
+    goto/16 :goto_2
+
+    :cond_e6
+    const-string/jumbo v5, "scaleX"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_e7
+
+    if-eqz v13, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
+
+    const-string/jumbo v6, "scaleX"
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
+
+    goto/16 :goto_2
+
+    :cond_e7
+    const-string/jumbo v5, "scaleY"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_e8
+
+    if-eqz v13, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
+
+    const-string/jumbo v6, "scaleY"
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
+
+    goto/16 :goto_2
+
+    :cond_e8
+    const-string/jumbo v5, "ImageResource"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_ea
+
+    if-eqz v34, :cond_e9
+
+    move-object/from16 v0, v34
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;->setApkContext(Landroid/content/Context;)V
+
+    :cond_e9
+    if-eqz v13, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;
+
+    const-string/jumbo v6, "ImageResource"
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v13, v0, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/Animation;->buildAnimation(Lcom/android/keyguard/wallpaper/theme/xmlparser/FrameImageView;Ljava/lang/String;)Landroid/animation/ValueAnimator;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;->addAnimation(Landroid/animation/ValueAnimator;)V
+
+    goto/16 :goto_2
+
+    :cond_ea
     const-string/jumbo v5, "frame"
 
     move-object/from16 v0, v18
@@ -6449,11 +6910,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_2
 
     const/4 v4, 0x0
 
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_2
 
     new-instance v4, Lcom/android/keyguard/wallpaper/theme/xmlparser/Frame;
 
@@ -6499,7 +6960,7 @@
 
     goto/16 :goto_2
 
-    :cond_e3
+    :cond_eb
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/keyguard/wallpaper/KeyguardAnimatedWallpaper;->mComplexAnimation:Lcom/android/keyguard/wallpaper/theme/xmlparser/ComplexAnimation;

@@ -136,11 +136,11 @@
 
     move-result-object v2
 
-    const v3, 0x7f040110
+    const v3, 0x7f040114
 
     invoke-virtual {v2, v3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const v2, 0x102048a
+    const v2, 0x1020493
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/qs/customize/QSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -152,7 +152,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/QSCustomizer;->mToolbar:Landroid/widget/Toolbar;
 
-    const v3, 0x7f0f05f3
+    const v3, 0x7f0f0651
 
     invoke-virtual {v2, v3}, Landroid/widget/Toolbar;->setTitle(I)V
 
@@ -266,7 +266,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/customize/QSCustomizer;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0241
+    const v4, 0x7f0f029e
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -372,7 +372,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f031d
+    const v1, 0x7f0f037a
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -403,7 +403,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    const v3, 0x7f13037a
+    const v3, 0x7f130386
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/qs/customize/QSCustomizer;->findViewById(I)Landroid/view/View;
 

@@ -66,6 +66,8 @@
 
 .field private mBindTaskBarLoaded:Z
 
+.field private mClearDataReceiver:Landroid/content/BroadcastReceiver;
+
 .field private mContext:Landroid/content/Context;
 
 .field private mCurrentUserId:I
@@ -277,6 +279,8 @@
 
     iput-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mIconBackgroundChangeReceiver:Landroid/content/BroadcastReceiver;
 
+    iput-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mClearDataReceiver:Landroid/content/BroadcastReceiver;
+
     iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mBindAppsLoaded:Z
 
     iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mBindTaskBarLoaded:Z
@@ -417,7 +421,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d05c3
+    const v4, 0x7f0d05d6
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -433,7 +437,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d05c2
+    const v4, 0x7f0d05d5
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
     :try_end_0
@@ -530,9 +534,7 @@
 .end method
 
 .method private registerPackageReceiverAsUser(I)V
-    .locals 11
-
-    const/4 v4, 0x0
+    .locals 14
 
     new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar$PackageChangedReceiver;
 
@@ -562,35 +564,65 @@
 
     invoke-direct {v2, p1}, Landroid/os/UserHandle;-><init>(I)V
 
-    move-object v5, v4
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    new-instance v8, Landroid/content/IntentFilter;
+    new-instance v7, Landroid/content/IntentFilter;
 
-    invoke-direct {v8}, Landroid/content/IntentFilter;-><init>()V
+    const-string/jumbo v0, "android.intent.action.PACKAGE_REPLACED"
+
+    invoke-direct {v7, v0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "android.intent.action.PACKAGE_DATA_CLEARED"
+
+    invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "package"
+
+    invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mContext:Landroid/content/Context;
+
+    new-instance v6, Landroid/os/UserHandle;
+
+    invoke-direct {v6, p1}, Landroid/os/UserHandle;-><init>(I)V
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    move-object v5, v1
+
+    invoke-virtual/range {v4 .. v9}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
+    new-instance v11, Landroid/content/IntentFilter;
+
+    invoke-direct {v11}, Landroid/content/IntentFilter;-><init>()V
 
     const-string/jumbo v0, "android.intent.action.PACKAGES_SUSPENDED"
 
-    invoke-virtual {v8, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v11, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     const-string/jumbo v0, "android.intent.action.PACKAGES_UNSUSPENDED"
 
-    invoke-virtual {v8, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v11, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mContext:Landroid/content/Context;
 
-    new-instance v7, Landroid/os/UserHandle;
+    new-instance v10, Landroid/os/UserHandle;
 
-    invoke-direct {v7, p1}, Landroid/os/UserHandle;-><init>(I)V
+    invoke-direct {v10, p1}, Landroid/os/UserHandle;-><init>(I)V
 
-    move-object v6, v1
+    const/4 v12, 0x0
 
-    move-object v9, v4
+    const/4 v13, 0x0
 
-    move-object v10, v4
+    move-object v9, v1
 
-    invoke-virtual/range {v5 .. v10}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    invoke-virtual/range {v8 .. v13}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mPackageReceiverMap:Ljava/util/HashMap;
 
@@ -1768,7 +1800,7 @@
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    const v3, 0x7f040096
+    const v3, 0x7f040098
 
     const/4 v4, 0x0
 
@@ -1782,7 +1814,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mKeyguardStatusBarView:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
 
-    const v2, 0x7f1301b2
+    const v2, 0x7f1301b7
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -1812,7 +1844,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    const v1, 0x7f1301ab
+    const v1, 0x7f1301b0
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->findViewById(I)Landroid/view/View;
 
@@ -1835,7 +1867,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    const v1, 0x7f1301ae
+    const v1, 0x7f1301b3
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->findViewById(I)Landroid/view/View;
 
@@ -1858,7 +1890,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    const v1, 0x7f1304ce
+    const v1, 0x7f1304d8
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->findViewById(I)Landroid/view/View;
 
@@ -1908,7 +1940,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mDeskStatusBarView:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskStatusBarView;
 
-    const v2, 0x7f1301b2
+    const v2, 0x7f1301b7
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -2684,7 +2716,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04019d
+    const v1, 0x7f0401a1
 
     const/4 v2, 0x0
 

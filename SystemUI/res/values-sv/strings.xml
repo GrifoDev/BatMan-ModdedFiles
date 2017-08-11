@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Okänd</string>
     <string name="save">Spara</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">Det går inte att söka efter nätverk</string>
     <string name="wifi_failed_to_obtain_IP">Det gick inte att hämta IP-adress.</string>
     <string name="wifi_security_none">Ingen</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Det går inte att ansluta till %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Det går inte att ansluta till %1$s. Kontrollera inställningarna i %2$s och försök igen.</string>
     <string name="bluetooth_pairing_rejected_error_message">Sammankoppling avvisades av %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Hämtar enhetsnamnet …</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Enhetsnamnet visas när denna enhet är ansluten.</string>
     <string name="accessibility_wifi_off">Wi-Fi är inaktiverat.</string>
     <string name="accessibility_no_wifi">Ingen Wi-Fi-anslutning.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi: en stapel.</string>
@@ -1364,6 +1366,7 @@ Kontakta administratören för mer information."</string>
     <string name="keyboard_key_insert">Infoga</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Numeriskt tangentbord %1$s</string>
+    <string name="keyboard_popup_help">Meta-tangenten: Windows-tangenten, kommandotangenten eller någon annan symboltangent i operativsystemet.</string>
     <string name="keyboard_shortcut_group_system">Systemgenvägar</string>
     <string name="keyboard_shortcut_group_system_home">Startsida</string>
     <string name="keyboard_shortcut_group_system_recents">Senaste</string>
@@ -1525,8 +1528,8 @@ Kontakta administratören för mer information."</string>
 
 Skydda mot vattenskador genom att stänga SIM-/SD-kortsfacket ordentligt före användning."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Skydda mot vattenskador genom att se till att SIM-/SD-kortsfacket är ordentligt stängt.</string>
-    <string name="water_protection_notification_title">Kontrollera kontakt</string>
-    <string name="water_protection_notification_body">Fukt har identifierats. Se till att laddaren/USB-porten är torr om du vill ladda enheten.</string>
+    <string name="water_protection_notification_title">Ta ut laddaren</string>
+    <string name="water_protection_notification_body">Fukt har identifierats. Koppla ur laddaren och se till att både laddaren och USB-porten är torr.</string>
     <string name="full_battery_title">Info</string>
     <string name="full_battery_noti_text">Batteriet fulladdat.</string>
     <string name="cooling_title">Enheten överhettas</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">Långsam laddning</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Laddningen går snabbare om du använder laddaren som levererades med enheten och ser till att den är ordentligt ansluten.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Se till att laddaren är ordentligt ansluten. Använd laddaren som levererades med enheten.</string>
     <string name="battery_charging_level_and_time_text">"Laddning: %1$d %%
 (Ungefär %2$s tills fulladdat)"</string>
@@ -1633,14 +1637,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">Ladda telefonen.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Ladda surfplattan.</string>
     <string name="button_close">Stäng</string>
-    <string name="battery_health_interruption_title">Det går inte att ladda</string>
+    <string name="battery_health_interruption_title">Laddningen stoppades</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Ta ur laddaren</string>
     <string name="battery_health_interruption_by_terminal_open_text">Det går inte att ladda din enhet. Se till att du använder Samsung-kompatibelt batteri och laddare och att din enhet är ordentligt ansluten till laddaren.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Laddning pausad. Batteritemperaturen är för hög.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Laddning pausad. Batteritemperaturen är för låg.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Enheten har slutat att ladda. Batteritemperaturen är för hög. Var försiktig när du kopplar bort laddaren. Den kan vara väldigt varm.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Telefonen är för varm. Laddningen återupptas när temperaturen har återgått till den normala.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Surfplattan är för varm. Laddningen återupptas när temperaturen har återgått till den normala.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Telefonen är för kall. Laddningen återupptas när temperaturen har återgått till den normala.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Surfplattan är för kall. Laddningen återupptas när temperaturen har återgått till den normala.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Laddningen har stoppats. Telefonens temperatur är för hög. Var försiktig när du kopplar bort laddaren. Den kan vara väldigt varm.
 
-Att koppla bort och ansluta laddaren igen kan eventuellt göra så att du kan fortsätta att ladda normalt. Om överhettningen fortsätter ska du kontakta kundtjänst eftersom det kan finnas risk för eldsvåda eller skada."</string>
+Att koppla bort och ansluta laddaren igen kan eventuellt göra så att du kan fortsätta att ladda normalt. Om överhettningen fortsätter ska du kontakta kundtjänsten, eftersom det kan finnas risk för eldsvåda eller skada."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Laddningen har stoppats. Surfplattans temperatur är för hög. Var försiktig när du kopplar bort laddaren. Den kan vara väldigt varm.
+
+Att koppla bort och ansluta laddaren igen kan eventuellt göra så att du kan fortsätta att ladda normalt. Om överhettningen fortsätter ska du kontakta kundtjänsten, eftersom det kan finnas risk för eldsvåda eller skada."</string>
     <string name="incompatible_charger_title">Laddar inte.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Om du inte vill att det här popup-meddelandet ska visas i framtiden kontrollera
     <string name="kg_biometrics_swipe_active_instructions">Använd biometrik eller svep på skärmen när du vill öppna</string>
     <string name="kg_face_or_swipe_unlock_instructions">Använd ansiktsigenkänning eller svep på skärmen när du vill lås upp</string>
     <string name="kg_face_or_swipe_active_instructions">Använd ansiktsigenkänning eller svep på skärmen när du vill öppna</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Använd ansiktsigenkänning när du vill låsa upp eller svep på skärmen om du i stället vill använda irisar</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Använd ansiktsigenkänning när du vill öppna eller svep på skärmen om du i stället vill använda irisar</string>
     <string name="kg_face_unlock_instructions">Svep skärmen om du vill låsa upp med ansiktsigenkänning</string>
     <string name="kg_face_or_fingerprint_active_instructions">Använd fingeravtryck när du vill öppna eller svep på skärmen om du i stället vill använda ansiktsigenkänning</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Använd fingeravtryck när du vill låsa upp eller svep på skärmen om du i stället vill använda ansiktsigenkänning</string>
@@ -1672,6 +1680,20 @@ Om du inte vill att det här popup-meddelandet ska visas i framtiden kontrollera
     <string name="kg_voice_assistant_unlock_instructions">Dra med två fingrar för att låsa upp skärmen.</string>
     <string name="kg_swipe_active_instructions">Öppna genom att svepa över skärmen</string>
     <string name="kg_swipe_unlock_instructions">Svep med fingret över skärmen för att låsa upp</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Använd biometrik eller svep med två fingrar på skärmen för att låsa upp.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Använd biometrik eller svep med två fingrar på skärmen för att öppna.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Använd ansiktsigenkänning eller svep med två fingrar på skärmen för att låsa upp.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Använd ansiktsigenkänning eller svep med två fingrar på skärmen för att öppna.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Svep åt vänster med två fingrar på skärmen om du vill låsa upp med ansiktsigenkänning.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Använd fingeravtryck för att öppna eller svep på skärmen med två fingrar om du vill använda ansiktsigenkänning.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Använd fingeravtryck för att låsa upp eller svep på skärmen med två fingrar om du vill använda ansiktsigenkänning.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Använd fingeravtryck för att öppna eller svep på skärmen med två fingrar om du vill använda irisar.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Använd fingeravtryck för att låsa upp eller svep på skärmen med två fingrar om du vill använda irisar.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Använd fingeravtryck eller svep med två fingrar på skärmen för att öppna.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Använd fingeravtryck eller svep med två fingrar på skärmen för att låsa upp.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Svep med två fingrar på skärmen om du vill låsa upp med irisar.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Använd irisar eller svep med två fingrar på skärmen om du vill låsa upp.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Använd irisar eller svep med två fingrar på skärmen för att öppna.</string>
     <string name="kg_power_connect_charger">Anslut laddaren</string>
     <string name="kg_power_fully_charged">Fulladdat</string>
     <string name="kg_power_fast_charging">Snabbladdning: %d %%</string>
@@ -1755,6 +1777,7 @@ uppskaln."</string>
     <string name="remote_input_send_text">Skicka</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Dubbeltryck på låsknappen för att låsa upp telefonen</string>
     <string name="s_view_cover_toast_pop_up_message">Öppna fodralet om du vill använda snabbinställningsknapparna.</string>
     <string name="remote_input_toast_text_on_sview_cover">Det går inte att använda funktionen Snabbsvar när S View-fodralet är stängt.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Du måste hämta programmet för att kunna styra mängden ström som delas. Om du ansluter enheten till en annan enhet med Samsungs Power Sharing-kabel EP-SG900 utan programmet, överförs hela batteriet till den andra enheten.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Jag accepterar</string>
-    <string name="force_immersive_guide_text">Om du trycker på den här ikonen döljs navigeringsfältet. Du kan fortfarande använda navigeringsknapparna genom att svepa uppåt från skärmens nedre kant. När navigeringsfältet visas kan du låsa fast det på plats genom att trycka på den här ikonen igen. Navigeringsfältet visas alltid på vissa skärmar, exempelvis hemskärmen.</string>
+    <string name="force_immersive_guide_text">Om du trycker på den här knappen döljs navigeringsfältet. Du kan fortfarande använda navigeringsknapparna genom att svepa uppåt från skärmens nedre kant. När navigeringsfältet visas kan du låsa fast det på plats genom att trycka på knappen igen. Navigeringsfältet visas alltid på vissa skärmar, exempelvis hemskärmen. Om en app inte fungerar normalt när navigeringsfältet är dolt låser du fast navigeringsfältet på plats och startar om appen.</string>
+    <string name="force_immersive_guide_dialog_title">Dölj navigationsfält:</string>
+    <string name="force_immersive_guide_dialog_message1">Om du trycker på den här knappen döljs navigeringsfältet.</string>
+    <string name="force_immersive_guide_dialog_message2">Svep uppåt från skärmens nederkant för att visa navigeringsfältet.</string>
+    <string name="force_immersive_guide_dialog_message3">Tryck på den här knappen igen när du vill låsa det på plats.</string>
+    <string name="force_immersive_guide_dialog_message4">På vissa skärmar, som hemskärmen, visas navigeringsfältet alltid.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Om du vill dölja knappen öppnar du Inställningar > Visning > Navigeringsfält.</string>
+    <string name="force_immersive_guide_dialog_setting">Inställningar</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Kör försiktigt</string>
     <string name="car_lockscreen_disclaimer_text">Håll koll på trafik- och körförhållanden och följ gällande lagar. Det kan hända att vägbeskrivningen inte stämmer, att den är ofullständig, farlig, olämplig, förbjuden eller att den innebär att du måste korsa en administrativ enhet. Det kan även hända att företagsuppgifter är felaktiga eller ofullständiga. Uppgifter visas inte i realtid och det går inte att garantera att platsen är korrekt. Hantera inte din mobila enhet och använd inte appar som inte är ämnade för Android Auto medan du kör.</string>
     <string name="pip_close">Stäng PIP</string>
@@ -2230,6 +2261,8 @@ Besök en kundtjänst om du inte känner till PUK-koden."</string>
     <string name="kg_face_retry_content_description">Dubbeltryck om du vill använda ansiktsigenkänning.</string>
     <string name="kg_face_authentication_error_retry_text">Inget ansikte identifierades. Tryck på ikonen om du vill testa igen</string>
     <string name="kg_face_authentication_failed_retry_text">Ingen träff. Tryck på ikonen om du vill använda ansiktsigenkänning</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Det var problem med ansiktsigenkänningen. Tryck för att försöka igen</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Det går inte att använda ansiktsigenkänning under videosamtal</string>
     <string name="kg_fingerprint_no_match">Ingen matchning</string>
     <string name="kg_finger_print_not_responding_error_message">Fingeravtryckssensorn svarar inte. Försök igen senare.</string>
     <string name="kg_finger_print_database_error_message">Fingeravtrycksdata har skadats. Återställ Fingeravtryck som skärmlåstyp och lägg sedan till dina fingeravtryck igen. Du kan även ändra skärmlåstypen.</string>
@@ -2366,6 +2399,8 @@ Försök igen om 1 sekund"</string>
     <string name="appicon_badge_new_item">1 nytt objekt</string>
     <string name="banner_apps_for_dex_detail">Använd de DeX-optimerade programmen från Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Det går inte att flytta fler än %d objekt.</string>
+    <string name="view_more_in_galaxy_apps">Visa mer i Galaxy Apps</string>
+    <string name="view_more_in_play_store">Visa mer i Play Butik</string>
     <string name="uninstall_title">Avinstallera program?</string>
     <string name="uninstall_1_app_message">Vill du avinstallera programmet?</string>
     <string name="uninstall_apps_message">Följande program avinstalleras:</string>
@@ -2409,6 +2444,13 @@ Försök igen om 1 sekund"</string>
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Avisering</string>
     <string name="quick_settings_location_detail_device_only">Endast enhet</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Laddning pausad. Batteritemperaturen är för hög.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Laddning pausad. Batteritemperaturen är för låg.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Enheten har slutat att ladda. Batteritemperaturen är för hög. Var försiktig när du kopplar bort laddaren. Den kan vara väldigt varm.
+
+Att koppla bort och ansluta laddaren igen kan eventuellt göra så att du kan fortsätta att ladda normalt. Om överhettningen fortsätter ska du kontakta kundtjänst eftersom det kan finnas risk för eldsvåda eller skada."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Använd ansiktsigenkänning när du vill låsa upp eller svep på skärmen om du i stället vill använda irisar</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Använd ansiktsigenkänning när du vill öppna eller svep på skärmen om du i stället vill använda irisar</string>
     <string name="kg_infinity_wallpaper_option_description">Oändlig bakgrund har använts på hemskärmen och låsskärmen samtidigt. Slå på inställningen nedan för bästa upplevelse.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Slå på Always On Display</string>
 </resources>

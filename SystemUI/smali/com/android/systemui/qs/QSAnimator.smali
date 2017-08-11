@@ -176,7 +176,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSAnimator;->mPagedLayout:Lcom/android/systemui/qs/PagedTileLayout;
 
-    const v2, 0x7f1302fd
+    const v2, 0x7f130305
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/qs/PagedTileLayout;->findViewById(I)Landroid/view/View;
 

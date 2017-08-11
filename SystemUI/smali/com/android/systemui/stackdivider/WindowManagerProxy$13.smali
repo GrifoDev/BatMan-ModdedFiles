@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$13;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v0}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get6(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
+    invoke-static {v0}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get7(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
 
     move-result-object v0
 

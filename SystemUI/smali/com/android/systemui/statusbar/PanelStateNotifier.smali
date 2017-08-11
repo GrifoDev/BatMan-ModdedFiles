@@ -42,6 +42,14 @@
     return-void
 .end method
 
+.method public static getPanelExpandState()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/systemui/statusbar/PanelStateNotifier;->mPanelExpandState:Z
+
+    return v0
+.end method
+
 .method private static isKeyguardState(I)Z
     .locals 2
 

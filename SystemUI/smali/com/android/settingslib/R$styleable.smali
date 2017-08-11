@@ -158,6 +158,8 @@
 
 .field public static final UsageView:[I
 
+.field public static final UsageView_android_colorAccent:I = 0x1
+
 .field public static final UsageView_android_gravity:I = 0x0
 
 .field public static final UsageView_bottomLabels:I = 0x3

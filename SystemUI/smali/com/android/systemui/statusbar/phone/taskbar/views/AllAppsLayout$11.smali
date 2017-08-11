@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showDisableConfirmation(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
+    value = Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showUnintallConfirmation(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -43,15 +43,27 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+    .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$11;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-get1(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$11;->val$pkgName:Ljava/lang/String;
 
     iget v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$11;->val$userId:I
 
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-wrap3(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/lang/String;I)V
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v1, v3, v4, v2}, Landroid/content/pm/PackageManager;->deletePackageAsUser(Ljava/lang/String;Landroid/content/pm/IPackageDeleteObserver;II)V
 
     return-void
 .end method

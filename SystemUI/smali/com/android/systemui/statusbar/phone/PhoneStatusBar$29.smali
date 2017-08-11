@@ -58,7 +58,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set19(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set18(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$29;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
@@ -89,7 +89,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$29;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set19(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set18(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$29;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 

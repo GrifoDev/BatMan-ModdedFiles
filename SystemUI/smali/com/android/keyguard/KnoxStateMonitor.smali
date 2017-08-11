@@ -2583,6 +2583,18 @@
     return v0
 .end method
 
+.method public isLockscreenAllDisabled()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/KnoxStateMonitor;->mCustomSdkMonitor:Lcom/android/keyguard/KnoxStateMonitor$CustomSdkMonitor;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KnoxStateMonitor$CustomSdkMonitor;->isLockscreenAllDisabled()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public isLockscreenBatteryInfoEnabled()Z
     .locals 1
 

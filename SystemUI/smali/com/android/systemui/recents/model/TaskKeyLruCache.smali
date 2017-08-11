@@ -45,6 +45,8 @@
     .end annotation
 .end field
 
+.field private final mLock:Ljava/lang/Object;
+
 
 # direct methods
 .method static synthetic -get0(Lcom/android/systemui/recents/model/TaskKeyLruCache;)Lcom/android/systemui/recents/model/TaskKeyLruCache$EvictionCallback;
@@ -83,6 +85,12 @@
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mKeys:Landroid/util/SparseArray;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mLock:Ljava/lang/Object;
 
     iput-object p2, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mEvictionCallback:Lcom/android/systemui/recents/model/TaskKeyLruCache$EvictionCallback;
 
@@ -174,8 +182,13 @@
 .end method
 
 .method final evictAll()V
-    .locals 1
+    .locals 2
 
+    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mCache:Landroid/util/LruCache;
 
     invoke-virtual {v0}, Landroid/util/LruCache;->evictAll()V
@@ -183,12 +196,23 @@
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mKeys:Landroid/util/SparseArray;
 
     invoke-virtual {v0}, Landroid/util/SparseArray;->clear()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method final get(Lcom/android/systemui/recents/model/Task$TaskKey;)Ljava/lang/Object;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -197,38 +221,59 @@
         }
     .end annotation
 
+    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mCache:Landroid/util/LruCache;
-
-    iget v1, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/util/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method final getAndInvalidateIfModified(Lcom/android/systemui/recents/model/Task$TaskKey;)Ljava/lang/Object;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/recents/model/Task$TaskKey;",
-            ")TV;"
-        }
-    .end annotation
-
-    const/4 v6, 0x0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mKeys:Landroid/util/SparseArray;
 
     iget v2, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
 
-    invoke-virtual {v1, v2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Landroid/util/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    monitor-exit v1
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method final getAndInvalidateIfModified(Lcom/android/systemui/recents/model/Task$TaskKey;)Ljava/lang/Object;
+    .locals 9
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/recents/model/Task$TaskKey;",
+            ")TV;"
+        }
+    .end annotation
+
+    const/4 v8, 0x0
+
+    iget-object v2, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mKeys:Landroid/util/SparseArray;
+
+    iget v3, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
+
+    invoke-virtual {v1, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -238,37 +283,53 @@
 
     iget v1, v0, Lcom/android/systemui/recents/model/Task$TaskKey;->stackId:I
 
-    iget v2, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->stackId:I
+    iget v3, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->stackId:I
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v3, :cond_0
 
-    iget-wide v2, v0, Lcom/android/systemui/recents/model/Task$TaskKey;->lastActiveTime:J
+    iget-wide v4, v0, Lcom/android/systemui/recents/model/Task$TaskKey;->lastActiveTime:J
 
-    iget-wide v4, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->lastActiveTime:J
+    iget-wide v6, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->lastActiveTime:J
 
-    cmp-long v1, v2, v4
+    cmp-long v1, v4, v6
 
     if-eqz v1, :cond_1
 
     :cond_0
     invoke-virtual {p0, p1}, Lcom/android/systemui/recents/model/TaskKeyLruCache;->remove(Lcom/android/systemui/recents/model/Task$TaskKey;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return-object v6
+    monitor-exit v2
+
+    return-object v8
 
     :cond_1
+    :try_start_1
     iget-object v1, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mCache:Landroid/util/LruCache;
 
-    iget v2, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
+    iget v3, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Landroid/util/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3}, Landroid/util/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v1
 
+    monitor-exit v2
+
     return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method final put(Lcom/android/systemui/recents/model/Task$TaskKey;Ljava/lang/Object;)V
@@ -321,53 +382,101 @@
     return-void
 
     :cond_1
+    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mKeys:Landroid/util/SparseArray;
 
-    iget v1, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
+    iget v2, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
 
-    invoke-virtual {v0, v1, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v2, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mCache:Landroid/util/LruCache;
 
-    iget v1, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
+    iget v2, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1, p2}, Landroid/util/LruCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, p2}, Landroid/util/LruCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method final remove(Lcom/android/systemui/recents/model/Task$TaskKey;)V
-    .locals 2
+    .locals 3
 
+    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mCache:Landroid/util/LruCache;
 
-    iget v1, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
+    iget v2, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/util/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Landroid/util/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mKeys:Landroid/util/SparseArray;
 
-    iget v1, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
+    iget v2, p1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
 
-    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->remove(I)V
+    invoke-virtual {v0, v2}, Landroid/util/SparseArray;->remove(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method final trimToSize(I)V
-    .locals 1
+    .locals 2
 
+    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mCache:Landroid/util/LruCache;
 
     invoke-virtual {v0, p1}, Landroid/util/LruCache;->trimToSize(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method

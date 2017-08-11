@@ -176,7 +176,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02eb
+    const v1, 0x7f0d02ec
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -328,7 +328,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d045b
+    const v4, 0x7f0d045c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -342,7 +342,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d045c
+    const v4, 0x7f0d045d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -720,7 +720,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d02f5
+    const v2, 0x7f0d02f6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -746,7 +746,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d02f3
+    const v2, 0x7f0d02f4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -758,7 +758,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d02e8
+    const v2, 0x7f0d02e9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -782,7 +782,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0218
+    const v2, 0x7f0d0219
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -794,7 +794,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d021c
+    const v2, 0x7f0d021d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -824,7 +824,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0302
+    const v5, 0x7f0d0303
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -850,7 +850,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d04b4
+    const v2, 0x7f0d04c0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -874,7 +874,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0301
+    const v2, 0x7f0d0302
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -904,7 +904,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d02fb
+    const v5, 0x7f0d02fc
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -930,7 +930,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d02ff
+    const v2, 0x7f0d0300
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -952,7 +952,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d021a
+    const v2, 0x7f0d021b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -980,7 +980,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d021b
+    const v2, 0x7f0d021c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -993,7 +993,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mCarrierLabel:Landroid/widget/TextView;
 
-    const v2, 0x7f0d0401
+    const v2, 0x7f0d0402
 
     invoke-static {v1, v2}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 
@@ -1006,7 +1006,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d021a
+    const v2, 0x7f0d021b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1050,7 +1050,7 @@
 
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
-    const v6, 0x7f13029a
+    const v6, 0x7f1302a2
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -1058,7 +1058,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mSystemIconsSuperContainer:Landroid/view/View;
 
-    const v6, 0x7f13029b
+    const v6, 0x7f1302a3
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -1066,7 +1066,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mSystemIconsContainer:Landroid/view/View;
 
-    const v6, 0x7f130297
+    const v6, 0x7f13029f
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -1076,7 +1076,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mMultiUserSwitch:Lcom/android/systemui/statusbar/phone/MultiUserSwitch;
 
-    const v6, 0x7f130298
+    const v6, 0x7f1302a0
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -1086,7 +1086,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mMultiUserAvatar:Landroid/widget/ImageView;
 
-    const v6, 0x7f13029c
+    const v6, 0x7f1302a4
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -1096,7 +1096,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mBatteryLevel:Landroid/widget/TextView;
 
-    const v6, 0x7f13029e
+    const v6, 0x7f1302a6
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -1106,7 +1106,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mCarrierLabel:Landroid/widget/TextView;
 
-    const v6, 0x7f130299
+    const v6, 0x7f1302a1
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -1141,7 +1141,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0459
+    const v7, 0x7f0d045a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1155,7 +1155,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d045a
+    const v7, 0x7f0d045b
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1189,7 +1189,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d021b
+    const v7, 0x7f0d021c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1270,7 +1270,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f0205e9
+    const v7, 0x7f0205f1
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1282,7 +1282,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d02ff
+    const v8, 0x7f0d0300
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1290,7 +1290,7 @@
 
     invoke-virtual {v6, v7, v9, v9, v9}, Landroid/widget/ImageView;->setPaddingRelative(IIII)V
 
-    const v6, 0x7f13029d
+    const v6, 0x7f1302a5
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -1327,7 +1327,7 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v6, 0x7f1301af
+    const v6, 0x7f1301b4
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -1380,7 +1380,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f0205e7
+    const v7, 0x7f0205ef
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1399,7 +1399,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f0205e8
+    const v7, 0x7f0205f0
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1418,7 +1418,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f0205eb
+    const v7, 0x7f0205f3
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1450,7 +1450,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
-    const v0, 0x7f1301b5
+    const v0, 0x7f1301ba
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->findViewById(I)Landroid/view/View;
 

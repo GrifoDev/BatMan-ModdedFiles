@@ -284,7 +284,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0f028e
+    const v4, 0x7f0f02eb
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -433,7 +433,7 @@
 
     aput-object p2, v13, v14
 
-    const v14, 0x7f0f028c
+    const v14, 0x7f0f02e9
 
     invoke-virtual {v12, v14, v13}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -442,7 +442,7 @@
     :goto_0
     iget-object v12, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->mContext:Landroid/content/Context;
 
-    const v13, 0x7f0f0284
+    const v13, 0x7f0f02e1
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -454,7 +454,7 @@
 
     iget-object v12, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->mContext:Landroid/content/Context;
 
-    const v13, 0x7f0f0286
+    const v13, 0x7f0f02e3
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -510,7 +510,7 @@
 
     iget-object v12, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->mContext:Landroid/content/Context;
 
-    const v13, 0x7f0f028b
+    const v13, 0x7f0f02e8
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -529,7 +529,7 @@
 
     if-eqz v9, :cond_7
 
-    const v12, 0x7f0f028d
+    const v12, 0x7f0f02ea
 
     invoke-virtual {v3, v12}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -601,7 +601,7 @@
     :cond_0
     iget-object v12, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->mContext:Landroid/content/Context;
 
-    const v13, 0x7f0f0283
+    const v13, 0x7f0f02e0
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -622,7 +622,7 @@
 
     iget-object v12, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->mContext:Landroid/content/Context;
 
-    const v13, 0x7f0f0287
+    const v13, 0x7f0f02e4
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -633,7 +633,7 @@
     :cond_2
     iget-object v12, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->mContext:Landroid/content/Context;
 
-    const v13, 0x7f0f0285
+    const v13, 0x7f0f02e2
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -655,7 +655,7 @@
     :cond_4
     iget-object v12, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->mContext:Landroid/content/Context;
 
-    const v13, 0x7f0f0289
+    const v13, 0x7f0f02e6
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -668,7 +668,7 @@
 
     iget-object v12, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->mContext:Landroid/content/Context;
 
-    const v13, 0x7f0f028a
+    const v13, 0x7f0f02e7
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -679,7 +679,7 @@
     :cond_6
     iget-object v12, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->mContext:Landroid/content/Context;
 
-    const v13, 0x7f0f0288
+    const v13, 0x7f0f02e5
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -722,11 +722,11 @@
 
     invoke-virtual {v3, v12}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v12, 0x7f0f028f
+    const v12, 0x7f0f02ec
 
     invoke-virtual {v3, v12, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v12, 0x7f0f0290
+    const v12, 0x7f0f02ed
 
     invoke-virtual {v3, v12, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

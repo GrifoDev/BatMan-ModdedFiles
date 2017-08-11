@@ -553,7 +553,7 @@
     :pswitch_0
     if-eqz v1, :cond_0
 
-    const v5, 0x7f0d0233
+    const v5, 0x7f0d0234
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -575,7 +575,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f0d0227
+    const v7, 0x7f0d0228
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -649,25 +649,6 @@
     goto :goto_1
 
     :pswitch_1
-    const v5, 0x7f0d0229
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v5
-
-    iput v5, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
-
-    const v5, 0x7f0d022e
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v5
-
-    iput v5, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
-
-    goto :goto_2
-
-    :pswitch_2
     const v5, 0x7f0d022a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -686,7 +667,7 @@
 
     goto :goto_2
 
-    :pswitch_3
+    :pswitch_2
     const v5, 0x7f0d022b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -703,9 +684,9 @@
 
     iput v5, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
 
-    goto/16 :goto_2
+    goto :goto_2
 
-    :pswitch_4
+    :pswitch_3
     const v5, 0x7f0d022c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -724,7 +705,7 @@
 
     goto/16 :goto_2
 
-    :pswitch_5
+    :pswitch_4
     const v5, 0x7f0d022d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -743,6 +724,25 @@
 
     goto/16 :goto_2
 
+    :pswitch_5
+    const v5, 0x7f0d022e
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    iput v5, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
+
+    const v5, 0x7f0d0233
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    iput v5, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
+
+    goto/16 :goto_2
+
     :cond_5
     iget-object v5, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
 
@@ -750,7 +750,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f0d0239
+    const v7, 0x7f0d023a
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -759,7 +759,7 @@
     goto/16 :goto_3
 
     :cond_6
-    const v5, 0x7f0d023a
+    const v5, 0x7f0d023b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

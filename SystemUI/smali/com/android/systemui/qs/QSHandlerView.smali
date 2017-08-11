@@ -81,7 +81,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04012d
+    const v1, 0x7f040131
 
     const/4 v2, 0x1
 
@@ -91,7 +91,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSHandlerView;->QSBarItemView:Landroid/view/View;
 
-    const v0, 0x7f1303b7
+    const v0, 0x7f1303c3
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSHandlerView;->findViewById(I)Landroid/view/View;
 
@@ -101,7 +101,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSHandlerView;->mHandlerView:Landroid/widget/ImageView;
 
-    const v0, 0x7f1303b8
+    const v0, 0x7f1303c4
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSHandlerView;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSHandlerView;->mCueLayout:Landroid/widget/FrameLayout;
 
-    const v0, 0x7f1303b9
+    const v0, 0x7f1303c5
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSHandlerView;->findViewById(I)Landroid/view/View;
 
@@ -121,7 +121,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSHandlerView;->mTopCueImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f1303ba
+    const v0, 0x7f1303c6
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSHandlerView;->findViewById(I)Landroid/view/View;
 
@@ -211,7 +211,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d03f0
+    const v1, 0x7f0d03f1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

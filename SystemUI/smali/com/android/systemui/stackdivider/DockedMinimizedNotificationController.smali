@@ -162,35 +162,13 @@
     move-result-object v10
 
     :goto_0
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/stackdivider/DockedMinimizedNotificationController;->mContext:Landroid/content/Context;
-
-    const v3, 0x7f020377
-
-    invoke-static {v2, v3}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
-
-    move-result-object v14
-
-    const v2, 0x7f0b000c
-
-    invoke-virtual {v12, v2}, Landroid/content/Context;->getColor(I)I
-
-    move-result v2
-
-    invoke-virtual {v14, v2}, Landroid/graphics/drawable/Icon;->setTint(I)Landroid/graphics/drawable/Icon;
-
     new-instance v11, Landroid/app/Notification$Builder;
 
     invoke-direct {v11, v12}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f020378
+    const v2, 0x7f020380
 
     invoke-virtual {v11, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v14}, Landroid/app/Notification$Builder;->setLargeIcon(Landroid/graphics/drawable/Icon;)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
@@ -274,7 +252,7 @@
 
     invoke-virtual {v11}, Landroid/app/Notification$Builder;->createContentView()Landroid/widget/RemoteViews;
 
-    move-result-object v15
+    move-result-object v14
 
     const v2, 0x7f0f000f
 
@@ -282,19 +260,39 @@
 
     move-result-object v2
 
-    const v3, 0x1020440
+    const v3, 0x1020449
 
-    invoke-virtual {v15, v3, v2}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
+    invoke-virtual {v14, v3, v2}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
+
+    new-instance v15, Landroid/widget/RemoteViews;
+
+    invoke-virtual {v12}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const v3, 0x7f040055
+
+    invoke-direct {v15, v2, v3}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
+
+    const v2, 0x1020450
+
+    invoke-virtual {v14, v2, v15}, Landroid/widget/RemoteViews;->addView(ILandroid/widget/RemoteViews;)V
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/stackdivider/DockedMinimizedNotificationController;->mDockedStackDismissPendingIntent:Landroid/app/PendingIntent;
 
-    const v3, 0x1020044
+    const v3, 0x7f1301c9
 
-    invoke-virtual {v15, v3, v2}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
+    invoke-virtual {v14, v3, v2}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    invoke-virtual {v11, v15}, Landroid/app/Notification$Builder;->setCustomContentView(Landroid/widget/RemoteViews;)Landroid/app/Notification$Builder;
+    const v2, 0x1020451
+
+    const v3, 0x7f0d003e
+
+    invoke-virtual {v14, v2, v3}, Landroid/widget/RemoteViews;->setViewLayoutMarginEndDimen(II)V
+
+    invoke-virtual {v11, v14}, Landroid/app/Notification$Builder;->setCustomContentView(Landroid/widget/RemoteViews;)Landroid/app/Notification$Builder;
 
     invoke-virtual {v11}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
 

@@ -34,7 +34,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "_0.1.5"
+    const-string/jumbo v1, "_0.2.0"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -50,7 +50,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 3
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -61,28 +61,6 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    sget-object v0, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "CommandHandlerRunnable : JSON"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -121,6 +99,28 @@
     invoke-virtual {v6, v12}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
+
+    sget-object v12, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->TAG:Ljava/lang/String;
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "Command from EM: "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v12, "emes_request_context"
 
@@ -279,13 +279,17 @@
 
     move-result-object v8
 
+    iget-object v12, p0, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    invoke-virtual {v12, v8}, Lcom/samsung/android/sdk/bixby/BixbyApi;->handleLandingKeyboardOffMode(Ljava/lang/String;)V
+
     invoke-static {v8}, Lcom/samsung/android/sdk/bixby/PathRuleInfoReader;->read(Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;
 
     move-result-object v10
 
     iget-object v12, p0, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    invoke-virtual {v12, v10}, Lcom/samsung/android/sdk/bixby/BixbyApi;->updatePathRuleInfo(Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;)V
+    invoke-virtual {v12, v10}, Lcom/samsung/android/sdk/bixby/BixbyApi;->handlePathRuleInfo(Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;)V
 
     goto :goto_0
 
@@ -338,5 +342,5 @@
     :try_end_1
     .catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method

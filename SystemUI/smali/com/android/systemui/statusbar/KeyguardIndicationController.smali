@@ -748,7 +748,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b00a2
+    const v2, 0x7f0b00a3
 
     const/4 v3, 0x0
 
@@ -918,7 +918,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f06d2
+    const v3, 0x7f0f0741
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -974,7 +974,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f06d3
+    const v6, 0x7f0f0742
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1033,7 +1033,7 @@
 
     aput-object v1, v7, v8
 
-    const v8, 0x7f0f06d8
+    const v8, 0x7f0f0747
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1066,7 +1066,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0f06d4
+    const v7, 0x7f0f0743
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1087,7 +1087,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0f06d5
+    const v7, 0x7f0f0744
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1108,7 +1108,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0f06d6
+    const v7, 0x7f0f0745
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1129,7 +1129,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0f06d7
+    const v7, 0x7f0f0746
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1251,7 +1251,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f06d9
+    const v8, 0x7f0f0748
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1277,7 +1277,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f06da
+    const v8, 0x7f0f0749
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1330,7 +1330,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f06db
+    const v8, 0x7f0f074a
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1376,7 +1376,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f06db
+    const v8, 0x7f0f074a
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1936,439 +1936,613 @@
 
 # virtual methods
 .method public getHelpText(I)Ljava/lang/String;
-    .locals 14
+    .locals 16
 
-    const/4 v11, 0x0
+    const/4 v13, 0x0
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    move-result v3
+    move-result v4
 
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v3}, Lcom/android/internal/widget/LockPatternUtils;->getBiometricType(I)I
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    move-result v1
-
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v12, v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFingerprintDisabled(I)Z
-
-    move-result v5
-
-    if-nez v5, :cond_4
-
-    and-int/lit8 v12, v1, 0x1
-
-    const/4 v13, 0x1
-
-    if-ne v12, v13, :cond_4
-
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v12}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockingWithFingerprintAllowed()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_4
-
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v12}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFingerprintDetectionRunning()Z
-
-    move-result v8
-
-    :goto_0
-    if-nez v5, :cond_5
-
-    and-int/lit8 v12, v1, 0x10
-
-    const/16 v13, 0x10
-
-    if-ne v12, v13, :cond_5
-
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v12}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockingWithBiometricAllowed()Z
-
-    move-result v9
-
-    :goto_1
-    if-nez v5, :cond_7
-
-    and-int/lit16 v12, v1, 0x100
-
-    const/16 v13, 0x100
-
-    if-ne v12, v13, :cond_7
-
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v12}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockingWithBiometricAllowed()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_7
-
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v12}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isCameraDisabledByPolicy()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_6
-
-    const/4 v6, 0x0
-
-    :goto_2
-    const/4 v10, 0x0
-
-    const/4 v7, 0x0
-
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
-
-    invoke-static {v12}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Lcom/android/keyguard/util/SettingsHelper;->isEnabledIrisOnFirstScreen()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_0
-
-    if-eqz v9, :cond_8
-
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v12}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isIrisRunning()Z
-
-    move-result v9
-
-    :goto_3
-    move v10, v9
-
-    :cond_0
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
-
-    invoke-static {v12}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Lcom/android/keyguard/util/SettingsHelper;->isEnabledFaceRecognitionFirstScreen()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_1
-
-    if-eqz v6, :cond_9
-
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v12}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFaceRecognitionRunning()Z
-
-    move-result v6
-
-    :goto_4
-    move v7, v6
-
-    :cond_1
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v12, v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserCanSkipBouncer(I)Z
+    invoke-virtual {v14, v4}, Lcom/android/internal/widget/LockPatternUtils;->getBiometricType(I)I
 
     move-result v2
 
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v13, "accessibility"
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v12, v13}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v14, v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFingerprintDisabled(I)Z
 
-    move-result-object v0
+    move-result v6
 
-    check-cast v0, Landroid/view/accessibility/AccessibilityManager;
+    if-nez v6, :cond_4
 
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+    and-int/lit8 v14, v2, 0x1
 
-    invoke-static {v12}, Lcom/android/keyguard/KeyguardRune;->isDcmLauncher(Landroid/content/Context;)Z
+    const/4 v15, 0x1
 
-    move-result v4
+    if-ne v14, v15, :cond_4
 
-    if-nez v8, :cond_2
+    move-object/from16 v0, p0
 
-    if-nez v9, :cond_2
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    if-eqz v6, :cond_3
+    invoke-virtual {v14}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockingWithFingerprintAllowed()Z
 
-    :cond_2
-    if-eqz v2, :cond_a
+    move-result v14
 
-    :cond_3
-    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
+    if-eqz v14, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v14}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFingerprintDetectionRunning()Z
+
+    move-result v9
+
+    :goto_0
+    if-nez v6, :cond_5
+
+    and-int/lit8 v14, v2, 0x10
+
+    const/16 v15, 0x10
+
+    if-ne v14, v15, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v14}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockingWithBiometricAllowed()Z
+
+    move-result v10
+
+    :goto_1
+    if-nez v6, :cond_7
+
+    and-int/lit16 v14, v2, 0x100
+
+    const/16 v15, 0x100
+
+    if-ne v14, v15, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v14}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockingWithBiometricAllowed()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v14}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isCameraDisabledByPolicy()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_6
+
+    const/4 v7, 0x0
+
+    :goto_2
+    const/4 v11, 0x0
+
+    const/4 v8, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+
+    invoke-static {v14}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Lcom/android/keyguard/util/SettingsHelper;->isEnabledIrisOnFirstScreen()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_0
+
+    if-eqz v10, :cond_8
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v14}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isIrisRunning()Z
+
+    move-result v10
+
+    :goto_3
+    move v11, v10
+
+    :cond_0
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+
+    invoke-static {v14}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Lcom/android/keyguard/util/SettingsHelper;->isEnabledFaceRecognitionFirstScreen()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_1
+
+    if-eqz v7, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v14}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFaceRecognitionRunning()Z
+
+    move-result v7
+
+    :goto_4
+    move v8, v7
+
+    :cond_1
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v14, v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserCanSkipBouncer(I)Z
+
+    move-result v3
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v15, "accessibility"
+
+    invoke-virtual {v14, v15}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
 
     move-result v12
 
-    if-eqz v12, :cond_25
+    move-object/from16 v0, p0
 
-    const/4 v12, 0x2
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
 
-    if-ne p1, v12, :cond_24
+    invoke-static {v14}, Lcom/android/keyguard/KeyguardRune;->isDcmLauncher(Landroid/content/Context;)Z
 
-    const v11, 0x7f0f06ce
+    move-result v5
+
+    if-nez v9, :cond_2
+
+    if-nez v10, :cond_2
+
+    if-eqz v7, :cond_3
+
+    :cond_2
+    if-eqz v3, :cond_a
+
+    :cond_3
+    if-eqz v12, :cond_37
+
+    const/4 v14, 0x2
+
+    move/from16 v0, p1
+
+    if-ne v0, v14, :cond_35
+
+    if-eqz v5, :cond_34
+
+    const v13, 0x7f0f079a
 
     :goto_5
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
 
-    move-result-object v12
+    invoke-virtual {v14, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    return-object v12
+    move-result-object v14
+
+    return-object v14
 
     :cond_4
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
     goto/16 :goto_0
 
     :cond_5
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_6
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
     goto :goto_2
 
     :cond_7
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     goto :goto_2
 
     :cond_8
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     goto :goto_3
 
     :cond_9
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     goto :goto_4
 
     :cond_a
-    if-eqz v8, :cond_b
+    if-eqz v9, :cond_b
 
-    if-nez v9, :cond_c
+    if-nez v10, :cond_c
 
     :cond_b
-    if-eqz v8, :cond_18
+    if-eqz v9, :cond_1e
 
-    if-eqz v6, :cond_18
+    if-eqz v7, :cond_1e
 
     :cond_c
-    if-eqz v8, :cond_d
-
     if-eqz v9, :cond_d
 
-    if-eqz v10, :cond_12
+    if-eqz v10, :cond_d
+
+    if-eqz v11, :cond_12
 
     :cond_d
-    if-eqz v8, :cond_e
+    if-eqz v9, :cond_e
 
-    if-eqz v6, :cond_e
+    if-eqz v7, :cond_e
 
-    if-eqz v7, :cond_15
+    if-eqz v8, :cond_17
 
     :cond_e
-    if-eqz v8, :cond_f
+    if-eqz v9, :cond_f
 
-    if-nez v7, :cond_10
+    if-nez v8, :cond_10
 
     :cond_f
-    if-eqz v8, :cond_11
+    if-eqz v9, :cond_11
 
-    if-eqz v10, :cond_11
+    if-eqz v11, :cond_11
 
     :cond_10
-    const/4 v12, 0x2
+    const/4 v14, 0x2
 
-    if-ne p1, v12, :cond_17
+    move/from16 v0, p1
 
-    const v11, 0x7f0f06bf
+    if-ne v0, v14, :cond_1c
+
+    if-eqz v12, :cond_1b
+
+    const v13, 0x7f0f0734
 
     :cond_11
     :goto_6
-    if-eqz v11, :cond_3
+    if-eqz v13, :cond_3
 
-    iget-object v12, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    iget-object v14, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
 
-    move-result-object v12
+    invoke-virtual {v14, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    return-object v12
+    move-result-object v14
+
+    return-object v14
 
     :cond_12
-    const/4 v12, 0x2
+    const/4 v14, 0x2
 
-    if-ne p1, v12, :cond_13
+    move/from16 v0, p1
 
-    const v11, 0x7f0f06c7
+    if-ne v0, v14, :cond_14
+
+    if-eqz v12, :cond_13
+
+    const v13, 0x7f0f073a
 
     goto :goto_6
 
     :cond_13
-    if-eqz v4, :cond_14
-
-    const v11, 0x7f0f072a
+    const v13, 0x7f0f0728
 
     goto :goto_6
 
     :cond_14
-    const v11, 0x7f0f06c8
+    if-eqz v5, :cond_15
+
+    const v13, 0x7f0f0799
 
     goto :goto_6
 
     :cond_15
-    const/4 v12, 0x2
+    if-eqz v12, :cond_16
 
-    if-ne p1, v12, :cond_16
-
-    const v11, 0x7f0f06c5
+    const v13, 0x7f0f073b
 
     goto :goto_6
 
     :cond_16
-    const v11, 0x7f0f06c6
+    const v13, 0x7f0f0729
 
     goto :goto_6
 
     :cond_17
-    const v11, 0x7f0f06be
+    const/4 v14, 0x2
+
+    move/from16 v0, p1
+
+    if-ne v0, v14, :cond_19
+
+    if-eqz v12, :cond_18
+
+    const v13, 0x7f0f0738
 
     goto :goto_6
 
     :cond_18
-    if-eqz v8, :cond_1b
-
-    const/4 v12, 0x2
-
-    if-ne p1, v12, :cond_19
-
-    const v11, 0x7f0f06c9
+    const v13, 0x7f0f0726
 
     goto :goto_6
 
     :cond_19
-    if-eqz v4, :cond_1a
+    if-eqz v12, :cond_1a
 
-    const v11, 0x7f0f0728
+    const v13, 0x7f0f0739
 
     goto :goto_6
 
     :cond_1a
-    const v11, 0x7f0f06ca
+    const v13, 0x7f0f0727
 
     goto :goto_6
 
     :cond_1b
-    if-eqz v9, :cond_20
-
-    const/4 v12, 0x2
-
-    if-ne p1, v12, :cond_1d
-
-    if-eqz v10, :cond_1c
-
-    const v11, 0x7f0f06cd
+    const v13, 0x7f0f0722
 
     goto :goto_6
 
     :cond_1c
-    const v11, 0x7f0f06d0
+    if-eqz v12, :cond_1d
+
+    const v13, 0x7f0f0733
 
     goto :goto_6
 
     :cond_1d
-    if-eqz v4, :cond_1e
-
-    const v11, 0x7f0f0729
+    const v13, 0x7f0f0721
 
     goto :goto_6
 
     :cond_1e
-    if-eqz v10, :cond_1f
+    if-eqz v9, :cond_23
 
-    const v11, 0x7f0f06cc
+    const/4 v14, 0x2
+
+    move/from16 v0, p1
+
+    if-ne v0, v14, :cond_20
+
+    if-eqz v12, :cond_1f
+
+    const v13, 0x7f0f073c
 
     goto :goto_6
 
     :cond_1f
-    const v11, 0x7f0f06cb
+    const v13, 0x7f0f072a
 
     goto :goto_6
 
     :cond_20
-    if-eqz v6, :cond_11
+    if-eqz v5, :cond_21
 
-    const/4 v12, 0x2
-
-    if-ne p1, v12, :cond_22
-
-    if-eqz v7, :cond_21
-
-    const v11, 0x7f0f06c1
+    const v13, 0x7f0f0797
 
     goto :goto_6
 
     :cond_21
-    const v11, 0x7f0f06d0
+    if-eqz v12, :cond_22
+
+    const v13, 0x7f0f073d
 
     goto :goto_6
 
     :cond_22
-    if-eqz v7, :cond_23
-
-    const v11, 0x7f0f06c0
+    const v13, 0x7f0f072b
 
     goto :goto_6
 
     :cond_23
-    const v11, 0x7f0f06c4
+    if-eqz v10, :cond_2c
+
+    const/4 v14, 0x2
+
+    move/from16 v0, p1
+
+    if-ne v0, v14, :cond_27
+
+    if-eqz v11, :cond_25
+
+    if-eqz v12, :cond_24
+
+    const v13, 0x7f0f0740
 
     goto :goto_6
 
     :cond_24
-    const v11, 0x7f0f06cf
+    const v13, 0x7f0f072e
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :cond_25
-    const/4 v12, 0x2
+    if-eqz v12, :cond_26
 
-    if-ne p1, v12, :cond_27
+    const v13, 0x7f0f072f
 
-    if-eqz v4, :cond_26
-
-    const v11, 0x7f0f072b
-
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :cond_26
-    const v11, 0x7f0f06d0
+    const v13, 0x7f0f0731
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :cond_27
-    if-eqz v4, :cond_28
+    if-eqz v5, :cond_28
 
-    const v11, 0x7f0f0727
+    const v13, 0x7f0f0798
+
+    goto/16 :goto_6
+
+    :cond_28
+    if-eqz v11, :cond_2a
+
+    if-eqz v12, :cond_29
+
+    const v13, 0x7f0f073f
+
+    goto/16 :goto_6
+
+    :cond_29
+    const v13, 0x7f0f072d
+
+    goto/16 :goto_6
+
+    :cond_2a
+    if-eqz v12, :cond_2b
+
+    const v13, 0x7f0f073e
+
+    goto/16 :goto_6
+
+    :cond_2b
+    const v13, 0x7f0f072c
+
+    goto/16 :goto_6
+
+    :cond_2c
+    if-eqz v7, :cond_11
+
+    const/4 v14, 0x2
+
+    move/from16 v0, p1
+
+    if-ne v0, v14, :cond_30
+
+    if-eqz v8, :cond_2e
+
+    if-eqz v12, :cond_2d
+
+    const v13, 0x7f0f0736
+
+    goto/16 :goto_6
+
+    :cond_2d
+    const v13, 0x7f0f0724
+
+    goto/16 :goto_6
+
+    :cond_2e
+    if-eqz v12, :cond_2f
+
+    const v13, 0x7f0f072f
+
+    goto/16 :goto_6
+
+    :cond_2f
+    const v13, 0x7f0f0731
+
+    goto/16 :goto_6
+
+    :cond_30
+    if-eqz v8, :cond_32
+
+    if-eqz v12, :cond_31
+
+    const v13, 0x7f0f0735
+
+    goto/16 :goto_6
+
+    :cond_31
+    const v13, 0x7f0f0723
+
+    goto/16 :goto_6
+
+    :cond_32
+    if-eqz v12, :cond_33
+
+    const v13, 0x7f0f0737
+
+    goto/16 :goto_6
+
+    :cond_33
+    const v13, 0x7f0f0725
+
+    goto/16 :goto_6
+
+    :cond_34
+    const v13, 0x7f0f072f
 
     goto/16 :goto_5
 
-    :cond_28
-    const v11, 0x7f0f06d1
+    :cond_35
+    if-eqz v5, :cond_36
+
+    const v13, 0x7f0f079a
+
+    goto/16 :goto_5
+
+    :cond_36
+    const v13, 0x7f0f0730
+
+    goto/16 :goto_5
+
+    :cond_37
+    const/4 v14, 0x2
+
+    move/from16 v0, p1
+
+    if-ne v0, v14, :cond_39
+
+    if-eqz v5, :cond_38
+
+    const v13, 0x7f0f079b
+
+    goto/16 :goto_5
+
+    :cond_38
+    const v13, 0x7f0f0731
+
+    goto/16 :goto_5
+
+    :cond_39
+    if-eqz v5, :cond_3a
+
+    const v13, 0x7f0f0796
+
+    goto/16 :goto_5
+
+    :cond_3a
+    const v13, 0x7f0f0732
 
     goto/16 :goto_5
 .end method

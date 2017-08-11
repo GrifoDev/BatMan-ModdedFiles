@@ -115,7 +115,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap49(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+    invoke-static {v0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap50(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
 
     return-void
 .end method

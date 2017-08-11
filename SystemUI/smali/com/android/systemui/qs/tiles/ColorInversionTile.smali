@@ -58,9 +58,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v1, 0x7f0201b0
+    const v1, 0x7f0201b4
 
-    const v2, 0x7f0201ad
+    const v2, 0x7f0201b1
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -68,9 +68,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v1, 0x7f0201ae
+    const v1, 0x7f0201b2
 
-    const v2, 0x7f0201af
+    const v2, 0x7f0201b3
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -106,7 +106,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0348
+    const v1, 0x7f0f03a5
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -117,7 +117,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0347
+    const v1, 0x7f0f03a4
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -151,7 +151,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03ba
+    const v1, 0x7f0f0417
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -251,7 +251,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f03ba
+    const v3, 0x7f0f0417
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

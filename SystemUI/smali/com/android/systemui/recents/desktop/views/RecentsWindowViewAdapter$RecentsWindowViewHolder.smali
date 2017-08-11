@@ -278,7 +278,7 @@
 
     aput-object v7, v4, v5
 
-    const v7, 0x7f0f062f
+    const v7, 0x7f0f068d
 
     invoke-virtual {v6, v7, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -497,7 +497,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->focusView:Landroid/view/View;
 
-    const v1, 0x7f0204ae
+    const v1, 0x7f0204b6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 

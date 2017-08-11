@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/keyguard/KeyguardViewMediator$11;
-.super Ljava/lang/Object;
+.super Ljava/lang/Thread;
 .source "KeyguardViewMediator.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/keyguard/KeyguardViewMediator;->notifyScreenOnOffToNotes(Ljava/lang/String;)V
+    value = Lcom/android/systemui/keyguard/KeyguardViewMediator;->startSetBendedPendingIntent(Landroid/app/PendingIntent;Landroid/content/Intent;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,18 +17,26 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-.field final synthetic val$action:Ljava/lang/String;
+.field final synthetic val$fIntent:Landroid/content/Intent;
+
+.field final synthetic val$notificationKey:Ljava/lang/String;
+
+.field final synthetic val$pIntent:Landroid/app/PendingIntent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/app/PendingIntent;Ljava/lang/String;Landroid/content/Intent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    iput-object p2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$action:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$pIntent:Landroid/app/PendingIntent;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p3, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$notificationKey:Ljava/lang/String;
+
+    iput-object p4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$fIntent:Landroid/content/Intent;
+
+    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
     return-void
 .end method
@@ -39,49 +44,186 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 9
 
-    const-string/jumbo v0, "KeyguardViewMediator"
+    :try_start_0
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$pIntent:Landroid/app/PendingIntent;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    if-eqz v4, :cond_1
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$pIntent:Landroid/app/PendingIntent;
 
-    const-string/jumbo v2, "notifyScreenOnOffToNotes("
+    invoke-virtual {v4}, Landroid/app/PendingIntent;->isActivity()Z
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v4
 
-    move-result-object v1
+    if-eqz v4, :cond_0
 
-    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$action:Ljava/lang/String;
+    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v1
+    invoke-interface {v4}, Landroid/app/IActivityManager;->keyguardWaitingForActivityDrawn()V
 
-    const-string/jumbo v2, ")"
+    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v1
+    invoke-interface {v4}, Landroid/app/IActivityManager;->resumeAppSwitches()V
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_0
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$notificationKey:Ljava/lang/String;
 
-    move-result-object v1
+    if-nez v4, :cond_3
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$pIntent:Landroid/app/PendingIntent;
 
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
+    iget-object v5, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    iget-object v0, v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mContext:Landroid/content/Context;
+    iget-object v5, v5, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mContext:Landroid/content/Context;
 
-    new-instance v1, Landroid/content/Intent;
+    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$fIntent:Landroid/content/Intent;
 
-    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$action:Ljava/lang/String;
+    const/4 v7, 0x0
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v4, v5, v7, v6}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;)V
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    :goto_0
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$pIntent:Landroid/app/PendingIntent;
 
+    invoke-virtual {v4}, Landroid/app/PendingIntent;->isActivity()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
+
+    invoke-static {v4}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->-get16(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Landroid/view/IWindowManager;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-interface {v4, v5, v6, v7, v8}, Landroid/view/IWindowManager;->overridePendingAppTransition(Ljava/lang/String;IILandroid/os/IRemoteCallback;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    :cond_1
+    :goto_1
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$notificationKey:Ljava/lang/String;
+
+    if-eqz v4, :cond_2
+
+    const-string/jumbo v4, "KeyguardViewMediator"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "notificationKey="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$notificationKey:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v4, "statusbar"
+
+    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/internal/statusbar/IStatusBarService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/statusbar/IStatusBarService;
+
+    move-result-object v0
+
+    :try_start_1
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$notificationKey:Ljava/lang/String;
+
+    invoke-interface {v0, v4}, Lcom/android/internal/statusbar/IStatusBarService;->onNotificationClick(Ljava/lang/String;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
+
+    :cond_2
+    :goto_2
     return-void
+
+    :cond_3
+    :try_start_2
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$11;->val$pIntent:Landroid/app/PendingIntent;
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v4, v5, v6, v7}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;)V
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v4, "KeyguardViewMediator"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Error onDismiss(): "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v2
+
+    const-string/jumbo v4, "KeyguardViewMediator"
+
+    const-string/jumbo v5, "Cannot send pending intent due to : "
+
+    invoke-static {v4, v5, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_1
+
+    :catch_2
+    move-exception v3
+
+    goto :goto_2
 .end method

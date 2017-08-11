@@ -229,7 +229,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f057f
+    const v5, 0x7f0f05dc
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -241,7 +241,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f0578
+    const v5, 0x7f0f05d5
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -282,7 +282,7 @@
 .method private bindSlider(Landroid/view/View;Z)V
     .locals 3
 
-    const v1, 0x7f0b00d8
+    const v1, 0x7f0b00d9
 
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/NotificationGuts;->loadColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -290,7 +290,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mActiveSliderTint:Landroid/content/res/ColorStateList;
 
-    const v1, 0x7f0b00d9
+    const v1, 0x7f0b00da
 
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/NotificationGuts;->loadColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -298,7 +298,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mInactiveSliderTint:Landroid/content/res/ColorStateList;
 
-    const v1, 0x7f13035d
+    const v1, 0x7f130369
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -318,7 +318,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mImportanceTitle:Landroid/widget/TextView;
 
-    const v1, 0x7f130346
+    const v1, 0x7f13034e
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -353,7 +353,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    const v1, 0x7f13035e
+    const v1, 0x7f13036a
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -412,7 +412,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
 
-    const v0, 0x7f13035a
+    const v0, 0x7f130366
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -422,7 +422,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mBlock:Landroid/widget/RadioButton;
 
-    const v0, 0x7f130359
+    const v0, 0x7f130365
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -432,7 +432,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mSilent:Landroid/widget/RadioButton;
 
-    const v0, 0x7f13035b
+    const v0, 0x7f130367
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -454,7 +454,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0572
+    const v2, 0x7f0f05cf
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -467,7 +467,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0571
+    const v2, 0x7f0f05ce
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -479,7 +479,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0570
+    const v2, 0x7f0f05cd
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -503,7 +503,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0573
+    const v2, 0x7f0f05d0
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -660,7 +660,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0580
+    const v2, 0x7f0f05dd
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -672,7 +672,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0579
+    const v2, 0x7f0f05d6
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -687,7 +687,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0581
+    const v2, 0x7f0f05de
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -699,7 +699,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f057a
+    const v2, 0x7f0f05d7
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -714,7 +714,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0582
+    const v2, 0x7f0f05df
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -726,7 +726,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f057b
+    const v2, 0x7f0f05d8
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -741,7 +741,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0583
+    const v2, 0x7f0f05e0
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -753,7 +753,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f057c
+    const v2, 0x7f0f05d9
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -768,7 +768,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0584
+    const v2, 0x7f0f05e1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -780,7 +780,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f057d
+    const v2, 0x7f0f05da
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -795,7 +795,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0585
+    const v2, 0x7f0f05e2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -807,7 +807,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f057e
+    const v2, 0x7f0f05db
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -903,13 +903,13 @@
     move-result v5
 
     :goto_1
-    const v6, 0x7f13035c
+    const v6, 0x7f130368
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/NotificationGuts;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    const v6, 0x7f130358
+    const v6, 0x7f130364
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/NotificationGuts;->findViewById(I)Landroid/view/View;
 
@@ -1207,7 +1207,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f02037d
+    const v1, 0x7f020385
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

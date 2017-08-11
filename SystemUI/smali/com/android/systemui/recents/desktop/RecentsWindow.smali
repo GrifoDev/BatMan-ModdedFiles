@@ -52,7 +52,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0204aa
+    const v1, 0x7f0204b2
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setBackgroundDrawableResource(I)V
 
@@ -747,7 +747,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f13041f
+    .packed-switch 0x7f13042b
         :pswitch_2
         :pswitch_3
         :pswitch_0
@@ -766,11 +766,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f040159
+    const v1, 0x7f04015d
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->setContentView(I)V
 
-    const v1, 0x7f130249
+    const v1, 0x7f130251
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -788,7 +788,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    const v1, 0x7f13041d
+    const v1, 0x7f130429
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -808,7 +808,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/recents/desktop/views/RecentsWindowView;->bindViews(Landroid/view/ViewGroup;)V
 
-    const v1, 0x7f130422
+    const v1, 0x7f13042e
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -822,7 +822,7 @@
 
     invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f13041e
+    const v1, 0x7f13042a
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -832,7 +832,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/desktop/RecentsWindow;->mScrollButtonContainer:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f13041f
+    const v1, 0x7f13042b
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -844,7 +844,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f130420
+    const v1, 0x7f13042c
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -856,7 +856,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f130421
+    const v1, 0x7f13042d
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 

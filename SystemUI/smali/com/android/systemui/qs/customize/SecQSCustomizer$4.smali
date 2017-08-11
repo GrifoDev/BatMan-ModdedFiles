@@ -116,7 +116,7 @@
 
     move-result v4
 
-    const v5, 0x7f13044e
+    const v5, 0x7f13045a
 
     if-ne v4, v5, :cond_1
 
@@ -171,7 +171,7 @@
 
     move-result v4
 
-    const v5, 0x7f13044a
+    const v5, 0x7f130456
 
     if-ne v4, v5, :cond_2
 
@@ -226,7 +226,7 @@
 
     move-result v4
 
-    const v5, 0x7f13044b
+    const v5, 0x7f130457
 
     if-ne v4, v5, :cond_3
 
@@ -243,7 +243,7 @@
 
     move-result v4
 
-    const v5, 0x7f130449
+    const v5, 0x7f130455
 
     if-ne v4, v5, :cond_4
 

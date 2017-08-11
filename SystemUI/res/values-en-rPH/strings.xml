@@ -67,8 +67,8 @@
     <string name="servicebox_accessibility_missing_next_alarm">No alarms in next 7 days</string>
     <string name="clear_cover_servicebox_music_unknown">Unknown</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_failed_to_obtain_IP">Failed to obtain IP address.</string>
     <string name="wifi_unknown_security_type">Unknown security type.</string>
     <string name="wifi_disabled_no_internet">Internet not available</string>
@@ -112,6 +112,8 @@
     <string name="bluetooth_pairing_device_down_error_message">"Can't connect to %s."</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">"Can't connect to %1$s. Check your settings in %2$s and try again."</string>
     <string name="bluetooth_pairing_rejected_error_message">Pairing rejected by %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Getting device name…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Device name will appear when this device is connected.</string>
     <string name="tether_settings_title_all">Mobile hotspot and tethering</string>
     <string name="tts_settings_title">Text-to-speech</string>
     <string name="tts_default_rate_title">Speech rate</string>
@@ -530,6 +532,7 @@ The Wi-Fi calling icon will appear in the notification panel as shown below whil
     <string name="wifi_ap_wifi_p2p_off_warn">Enabling Mobile hotspot will disconnect any devices currently connected via Wi-Fi Direct.</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
     <string name="dialog_battery_data_warning">Mobile hotspot will be enabled. This will increase battery consumption and data usage.</string>
+    <string name="keyboard_popup_help">Meta key: The Windows, Command or other operating system symbol key.</string>
     <string name="keyboard_shortcut_group_system">System shortcuts</string>
     <string name="keyboard_shortcut_group_system_back">Back</string>
     <string name="keyboard_shortcut_group_system_all_apps">All apps</string>
@@ -611,8 +614,8 @@ The Wi-Fi calling icon will appear in the notification panel as shown below whil
 
 To protect against water damage, make sure the SIM/SD card tray is firmly sealed."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">To protect against water damage, make sure the SIM/SD card tray is firmly sealed.</string>
-    <string name="water_protection_notification_title">Check port</string>
-    <string name="water_protection_notification_body">Moisture has been detected. To charge your device, make sure your charger/USB port is dry.</string>
+    <string name="water_protection_notification_title">Unplug charger</string>
+    <string name="water_protection_notification_body">Moisture has been detected. Unplug the charger and make sure both the charger and USB port are dry.</string>
     <string name="full_battery_title">Info</string>
     <string name="full_battery_noti_text">Battery fully charged.</string>
     <string name="cooling_title">Device overheating</string>
@@ -706,6 +709,7 @@ Overheating can be caused by:
     <string name="battery_not_fully_connected_charging_title">Slow charging</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">For faster charging, use the charger that came with your device and make sure it is properly connected.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Make sure charger is properly connected. Use charger that came with device.</string>
     <string name="battery_charging_level_and_time_text">"Charging: %1$d%%
 (Approximately %2$s until fully charged)"</string>
@@ -719,14 +723,20 @@ Overheating can be caused by:
     <string name="battery_saver_recommend_notification_text_phone_psm">Charge your phone.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Charge your tablet.</string>
     <string name="button_close">Close</string>
-    <string name="battery_health_interruption_title">Unable to charge</string>
+    <string name="battery_health_interruption_title">Charging stopped</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Unplug charger</string>
     <string name="battery_health_interruption_by_terminal_open_text">Unable to charge your device. Make sure you are using a Samsung compatible battery and charger and that your device is properly connected to the charger.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Charging paused. Battery temperature too high</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Charging paused. Battery temperature too low</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"The device has stopped charging. The battery temperature is too high. Be careful when disconnecting the charger. It may be very hot.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">"Your phone's temperature is too high. Charging will continue when the temperature returns to normal."</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">"Your tablet's temperature is too high. Charging will continue when the temperature returns to normal."</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">"Your phone's temperature is too low. Charging will continue when the temperature returns to normal."</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">"Your tablet's temperature is too low. Charging will continue when the temperature returns to normal."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Charging has been stopped. Your phone's temperature is too high. Be careful when disconnecting the charger. It may be very hot.
 
-Disconnecting and reconnecting the charger may allow charging to continue normally. If overheating persists, contact customer services as there may be a risk of fire or injury."</string>
+Disconnecting and reconnecting the charger may allow charging to continue normally. If overheating persists, contact Customer Service as there may be a risk of fire or injury."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Charging has been stopped. Your tablet's temperature is too high. Be careful when disconnecting the charger. It may be very hot.
+
+Disconnecting and reconnecting the charger may allow charging to continue normally. If overheating persists, contact Customer Service as there may be a risk of fire or injury."</string>
     <string name="incompatible_charger_title">Not charging.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -742,8 +752,6 @@ To prevent this pop-up from appearing in the future, make sure the proximity sen
     <string name="kg_biometrics_swipe_active_instructions">Use biometrics or swipe screen to open</string>
     <string name="kg_face_or_swipe_unlock_instructions">Use face recognition or swipe screen to unlock</string>
     <string name="kg_face_or_swipe_active_instructions">Use face recognition or swipe screen to open</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Use face recognition to unlock or swipe screen to use irises instead</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Use face recognition to open or swipe screen to use irises instead</string>
     <string name="kg_face_unlock_instructions">Swipe screen to unlock with face recognition</string>
     <string name="kg_face_or_fingerprint_active_instructions">Use fingerprint to open or swipe screen to use face recognition instead</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Use fingerprint to unlock or swipe screen to use face recognition instead</string>
@@ -758,6 +766,20 @@ To prevent this pop-up from appearing in the future, make sure the proximity sen
     <string name="kg_voice_assistant_unlock_instructions">Swipe with two fingers to unlock the screen.</string>
     <string name="kg_swipe_active_instructions">Swipe screen to open</string>
     <string name="kg_swipe_unlock_instructions">Swipe screen to unlock</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Use biometrics or swipe screen with two fingers to unlock.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Use biometrics or swipe screen with two fingers to open.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Use face recognition or swipe screen with two fingers to unlock.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Use face recognition or swipe screen with two fingers to open.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Swipe screen with two fingers to unlock with face recognition.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Use fingerprint to open or swipe screen with two fingers to use face recognition.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Use fingerprint to unlock or swipe screen with two fingers to use face recognition.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Use fingerprint to open or swipe screen with two fingers to use irises.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Use fingerprint to unlock or swipe screen with two fingers to use irises.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Use fingerprint or swipe screen with two fingers to open.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Use fingerprint or swipe screen with two fingers to unlock.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Swipe screen with two fingers to use irises to unlock.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Use irises or swipe screen with two fingers to unlock.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Use irises or swipe screen with two fingers to open.</string>
     <string name="kg_power_connect_charger">Connect charger</string>
     <string name="kg_power_fully_charged">Fully charged</string>
     <string name="kg_power_fast_charging">Fast charging: %d%%</string>
@@ -841,6 +863,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Send</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Double tap Lock button to unlock phone</string>
     <string name="s_view_cover_toast_pop_up_message">Open cover to use quick setting buttons.</string>
     <string name="remote_input_toast_text_on_sview_cover">Unable to use Quick reply function while S view cover closed.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -877,7 +900,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">I accept</string>
-    <string name="force_immersive_guide_text">Tapping this icon hides the navigation bar. You can still use the navigation buttons by swiping up from the bottom of the screen. While the navigation bar is shown, you can tap this icon again to lock it in place. On some screens, such as the Home screen, the navigation bar will always be shown.</string>
+    <string name="force_immersive_guide_text">"Tapping this button hides the navigation bar. You can still use the navigation buttons by swiping up from the bottom of the screen. While the navigation bar is shown, you can tap this button again to lock it in place. On some screens, such as the Home screen, the navigation bar will always be shown. If an app doesn't behave normally while the navigation bar is hidden, lock the navigation bar in place and restart the app."</string>
+    <string name="force_immersive_guide_dialog_title">Hide navigation bar:</string>
+    <string name="force_immersive_guide_dialog_message1">Tapping this button hides the navigation bar.</string>
+    <string name="force_immersive_guide_dialog_message2">Swipe up from the bottom of the screen to show the navigation bar.</string>
+    <string name="force_immersive_guide_dialog_message3">Tap this button again to lock it in place.</string>
+    <string name="force_immersive_guide_dialog_message4">On some screens, such as the Home screen, the navigation bar will always be shown.</string>
+    <string name="force_immersive_guide_dialog_guide_path">To hide this button, go to Settings > Display > Navigation bar.</string>
+    <string name="force_immersive_guide_dialog_setting">Settings</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="keyguard_password_enter_pin_code">Type PIN code.</string>
     <string name="keyguard_password_wrong_pin_code">Incorrect PIN code.</string>
     <string name="keyguard_charged">Fully charged</string>
@@ -1249,6 +1280,8 @@ If you do not know your PUK, visit a customer service centre."</string>
     <string name="kg_face_retry_content_description">Double tap to use face recognition.</string>
     <string name="kg_face_authentication_error_retry_text">No face detected. Tap icon to try face recognition again</string>
     <string name="kg_face_authentication_failed_retry_text">No match. Tap icon to use face recognition</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">There was a problem with face recognition. Tap to try again</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">"Can't use face recognition during video calls"</string>
     <string name="kg_fingerprint_no_match">No match</string>
     <string name="kg_finger_print_not_responding_error_message">The fingerprint sensor is not responding. Try again later.</string>
     <string name="kg_finger_print_database_error_message">The fingerprint data has been corrupted. Reset Fingerprint as the screen lock type and then add your fingerprints again or change the screen lock type.</string>
@@ -1385,6 +1418,8 @@ Try again in 1 second"</string>
     <string name="appicon_badge_new_item">1 new item</string>
     <string name="banner_apps_for_dex_detail">Enjoy DeX-optimized apps from Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">"Can't move more than %d items."</string>
+    <string name="view_more_in_galaxy_apps">View more in Galaxy Apps</string>
+    <string name="view_more_in_play_store">View more in Play Store</string>
     <string name="uninstall_title">Uninstall apps?</string>
     <string name="uninstall_1_app_message">Do you want to uninstall this app?</string>
     <string name="uninstall_apps_message">The following apps will be uninstalled:</string>
@@ -1428,6 +1463,13 @@ Try again in 1 second"</string>
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Notification</string>
     <string name="quick_settings_location_detail_device_only">Device only</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Charging paused. Battery temperature too high</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Charging paused. Battery temperature too low</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"The device has stopped charging. The battery temperature is too high. Be careful when disconnecting the charger. It may be very hot.
+
+Disconnecting and reconnecting the charger may allow charging to continue normally. If overheating persists, contact customer services as there may be a risk of fire or injury."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Use face recognition to unlock or swipe screen to use irises instead</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Use face recognition to open or swipe screen to use irises instead</string>
     <string name="kg_infinity_wallpaper_option_description">Infinity wallpaper will be applied to your Home and Lock screens at the same time. Turn on the setting below for the best experience.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Turn on Always On Display</string>
 </resources>

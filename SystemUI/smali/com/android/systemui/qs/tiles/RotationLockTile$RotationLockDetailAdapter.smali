@@ -47,7 +47,7 @@
 
     const/4 v3, 0x1
 
-    const v2, 0x7f1303ab
+    const v2, 0x7f1303b7
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -91,7 +91,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0480
+    const v6, 0x7f0f04dd
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -113,7 +113,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f0f039d
+    const v2, 0x7f0f03fa
 
     :goto_0
     invoke-virtual {v6, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -138,7 +138,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f040122
+    const v8, 0x7f040126
 
     const v9, 0x1020016
 
@@ -176,7 +176,7 @@
     return-void
 
     :cond_0
-    const v2, 0x7f0f039e
+    const v2, 0x7f0f03fb
 
     goto :goto_0
 
@@ -201,7 +201,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040123
+    const v1, 0x7f040127
 
     const/4 v2, 0x0
 
@@ -239,7 +239,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0481
+    const v1, 0x7f0f04de
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

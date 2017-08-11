@@ -125,11 +125,11 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/SoundModeTile;->SOUNDMODE_DETAIL_SETTINGS:Landroid/content/Intent;
 
-    const v0, 0x7f0f03ce
+    const v0, 0x7f0f042b
 
-    const v1, 0x7f0f03cd
+    const v1, 0x7f0f042a
 
-    const v2, 0x7f0f03cc
+    const v2, 0x7f0f0429
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -137,11 +137,11 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/SoundModeTile;->SOUND_MODE_TEXT:[I
 
-    const v0, 0x7f020446
+    const v0, 0x7f02044e
 
-    const v1, 0x7f020447
+    const v1, 0x7f02044f
 
-    const v2, 0x7f020445
+    const v2, 0x7f02044d
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -544,6 +544,10 @@
 
     sget-boolean v3, Lcom/android/systemui/SystemUIRune;->IS_TMB_ICON:Z
 
+    if-nez v3, :cond_0
+
+    sget-boolean v3, Lcom/android/systemui/SystemUIRune;->IS_MTR_POPUP:Z
+
     if-eqz v3, :cond_3
 
     :cond_0
@@ -595,7 +599,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/SoundModeTile;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f02ef
+    const v3, 0x7f0f034c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Tidak diketahui</string>
     <string name="save">Simpan</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dj %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d j %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Tidak boleh mengimbas untuk rangkaian</string>
     <string name="wifi_failed_to_obtain_IP">Gagal utk mendptkan alamat IP.</string>
     <string name="wifi_security_none">Tiada</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Tidak dapat menyambung ke %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Tidak dapat menyambung ke %1$s. Semak aturan anda dalam %2$s dan cuba lagi.</string>
     <string name="bluetooth_pairing_rejected_error_message">Perpasangan ditolak oleh %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Mendapatkan nama peranti…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Nama peranti akan muncul apabila peranti ini disambungkan.</string>
     <string name="accessibility_wifi_off">Wi-Fi dimatikan.</string>
     <string name="accessibility_no_wifi">Wi-Fi diputuskan sambungannya.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi satu bar.</string>
@@ -1364,6 +1366,7 @@ Untuk mendapatkan maklumat lanjut, hubungi pentadbir anda."</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Pad nombor %1$s</string>
+    <string name="keyboard_popup_help">Kekunci meta: Kekunci Windows, Command atau simbol sistem pengendalian lain.</string>
     <string name="keyboard_shortcut_group_system">Pintasan sistem</string>
     <string name="keyboard_shortcut_group_system_home">Skrin Utama</string>
     <string name="keyboard_shortcut_group_system_recents">Terbaharu</string>
@@ -1525,8 +1528,8 @@ Untuk mendapatkan maklumat lanjut, hubungi pentadbir anda."</string>
 
 Untuk melindungi daripada kerosakan air, pastikan bekas kad SIM/SD dikedapkan."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Untuk melindungi daripada kerosakan air, pastikan bekas kad SIM/SD dikedapkan.</string>
-    <string name="water_protection_notification_title">Semak port</string>
-    <string name="water_protection_notification_body">Kelembapan telah dikesan. Untuk mengecas peranti anda, pastikan pengecas/port USB anda kering.</string>
+    <string name="water_protection_notification_title">Cabut palam pengecas</string>
+    <string name="water_protection_notification_body">Kelembapan telah dikesan. Cabut palam pengecas dan pastikan kedua-dua pengecas dan port USB adalah kering.</string>
     <string name="full_battery_title">Maklumat</string>
     <string name="full_battery_noti_text">Bateri telah dicas penuh.</string>
     <string name="cooling_title">Peranti terlampau panas</string>
@@ -1620,6 +1623,7 @@ Kepanasan yang terlampau boleh disebabkan oleh:
     <string name="battery_not_fully_connected_charging_title">Pengecasan lambat</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Untuk pengecasan yang lebih cepat, gunakan pengecas yang didatangkan bersama peranti anda dan pastikannya bersambung dengan betul.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Pastikan pengecas bersambung dengan betul. Gunakan pengecas yang didatangkan bersama peranti.</string>
     <string name="battery_charging_level_and_time_text">"Mengecas: %1$d%%
 (Kira-kira %2$s sehingga dicas sepenuhnya)"</string>
@@ -1633,14 +1637,20 @@ Kepanasan yang terlampau boleh disebabkan oleh:
     <string name="battery_saver_recommend_notification_text_phone_psm">Cas telefon anda.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Cas tablet anda.</string>
     <string name="button_close">Tutup</string>
-    <string name="battery_health_interruption_title">Tidak dapat mengecas</string>
+    <string name="battery_health_interruption_title">Pengecasan berhenti</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Cabut palam pengecas</string>
     <string name="battery_health_interruption_by_terminal_open_text">Tidak dapat mengecas peranti anda. Pastikan anda menggunakan bateri dan pengecas serasi Samsung dan peranti anda disambungkan ke pengecas dengan betul.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Pengecasan jeda. Suhu bateri terlalu tinggi.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Pengecasan jeda. Suhu bateri terlalu rendah.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Peranti telah berhenti mengecas. Suhu bateri terlalu tinggi. Berhati-hati semasa menanggalkan pengecas. Ia mungkin sangat panas.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Suhu telefon anda terlalu tinggi. Pengecasan akan diteruskan apabila suhu kembali kepada normal.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Suhu tablet anda terlalu tinggi. Pengecasan akan diteruskan apabila suhu kembali kepada normal.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Suhu telefon anda terlalu rendah. Pengecasan akan diteruskan apabila suhu kembali kepada normal.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Suhu tablet anda terlalu rendah. Pengecasan akan diteruskan apabila suhu kembali kepada normal.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Pengecasan telah dihentikan. Suhu telefon anda terlalu tinggi. Berhati-hati semasa menanggalkan pengecas. Ia mungkin sangat panas.
 
-Menanggal dan memasang semula pengecas boleh meneruskan pengecasan seperti biasa. Jika panas melampau ini berterusan, hubungi perkhidmatan pelanggan kerana risiko kebakaran atau kecederaan mungkin wujud."</string>
+Menanggal dan memasang semula pengecas mungkin membenarkan pengecasan diteruskan seperti biasa. Jika panas melampau ini berterusan, hubungi Perkhidmatan Pelanggan kerana risiko kebakaran atau kecederaan mungkin wujud."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Pengecasan telah dihentikan. Suhu tablet anda terlalu tinggi. Berhati-hati semasa menanggalkan pengecas. Ia mungkin sangat panas.
+
+Menanggal dan memasang semula pengecas mungkin membenarkan pengecasan diteruskan seperti biasa. Jika panas melampau ini berterusan, hubungi Perkhidmatan Pelanggan kerana risiko kebakaran atau kecederaan mungkin wujud."</string>
     <string name="incompatible_charger_title">Tidak mengecas.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Untuk menghalang pop timbul ini muncul lagi, pastikan penderia hampir jarak tida
     <string name="kg_biometrics_swipe_active_instructions">Guna biometrik atau leret skrin untuk buka</string>
     <string name="kg_face_or_swipe_unlock_instructions">Guna pengecaman muka atau leret skrin untuk buka kunci</string>
     <string name="kg_face_or_swipe_active_instructions">Guna pengecaman muka atau leret skrin untuk buka</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Guna pengecaman muka untuk buka kunci atau leret skrin untuk guna iris</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Guna pengecaman muka untuk membuka atau leret skrin untuk menggunakan iris</string>
     <string name="kg_face_unlock_instructions">Sapu skrin untuk membuka kunci dengan pengecaman muka</string>
     <string name="kg_face_or_fingerprint_active_instructions">Guna cap jari untuk buka atau sapu skrin untuk menggunakan pengecaman muka</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Guna cap jari untuk buka kunci atau sapu skrin untuk menggunakan pengecaman muka</string>
@@ -1672,6 +1680,20 @@ Untuk menghalang pop timbul ini muncul lagi, pastikan penderia hampir jarak tida
     <string name="kg_voice_assistant_unlock_instructions">Leret dengan dua jari untuk membuka kunci skrin.</string>
     <string name="kg_swipe_active_instructions">Leret skrin untuk membuka</string>
     <string name="kg_swipe_unlock_instructions">Leret skrin untuk membuka kunci</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Guna biometrik atau sapu skrin dengan dua jari untuk membuka kunci.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Guna biometrik atau sapu skrin dengan dua jari untuk buka.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Guna pengecaman muka atau leret skrin dengan dua jari untuk buka kunci.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Guna pengecaman muka atau sapu skrin dengan dua jari untuk buka.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Sapu skrin dengan dua jari untuk membuka kunci dengan pengecaman muka.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Guna cap jari untuk membuka atau menyapu skrin dengan dua jari untuk menggunakan pengecaman muka.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Guna cap jari untuk membuka kunci atau menyapu skrin dengan dua jari untuk menggunakan pengecaman muka.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Guna cap jari untuk membuka atau menyapu skrin dengan dua jari untuk menggunakan iris.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Guna cap jari untuk membuka kunci atau menyapu skrin dengan dua jari untuk menggunakan iris.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Guna cap jari atau sapu skrin dengan dua jari untuk buka.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Guna cap jari atau sapu skrin dengan dua jari untuk membuka kunci.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Sapu skrin dengan dua jari untuk menggunakan iris bagi membuka kunci.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Guna iris atau sapu skrin dengan dua jari untuk membuka kunci.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Guna iris atau sapu skrin dengan dua jari untuk buka.</string>
     <string name="kg_power_connect_charger">Sambungkan pengecas</string>
     <string name="kg_power_fully_charged">Dicas sepenuhnya</string>
     <string name="kg_power_fast_charging">Pengecasan pantas: %d%%</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Hantar</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Dwiketik butang Kunci untuk membuka kunci telefon</string>
     <string name="s_view_cover_toast_pop_up_message">Buka muka depan untuk menggunakan butang aturan cepat.</string>
     <string name="remote_input_toast_text_on_sview_cover">Tidak dapat menggunakan fungsi Balasan cepat semasa S view cover ditutup.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Saya terima</string>
-    <string name="force_immersive_guide_text">Mengetik ikon ini menyembunyikan bar pemanduan arah. Anda masih boleh menggunakan butang pemanduan arah dengan menyapu ke atas dari bawah skrin. Semasa bar pemanduan arah ditunjukkan, anda boleh mengetik ikon ini untuk mengunci ikon pada tempatnya. Pada sesetengah skrin seperti Skrin utama, bar pemanduan arah akan sentiasa ditunjukkan.</string>
+    <string name="force_immersive_guide_text">Mengetik butang ini menyembunyikan bar pemanduan arah. Anda masih boleh menggunakan butang pemanduan arah dengan menyapu ke atas dari bawah skrin. Semasa bar pemanduan arah ditunjukkan, anda boleh mengetik butang ini untuk mengunci butang pada tempatnya. Pada sesetengah skrin seperti Skrin utama, bar pemanduan arah akan sentiasa ditunjukkan. Jika aplikasi tidak berfungsi seperti biasa semasa bar pemanduan arah disembunyikan, kunci bar pemanduan arah di tempatnya dan mulakan semula aplikasi.</string>
+    <string name="force_immersive_guide_dialog_title">Sembunyikan bar pemanduan arah:</string>
+    <string name="force_immersive_guide_dialog_message1">Mengetik butang ini menyembunyikan bar pemanduan arah.</string>
+    <string name="force_immersive_guide_dialog_message2">Sapu ke atas dari bahagian bawah skrin untuk menunjukkan bar pemanduan arah.</string>
+    <string name="force_immersive_guide_dialog_message3">Ketik butang ini sekali lagi untuk menguncinya pada tempat.</string>
+    <string name="force_immersive_guide_dialog_message4">Pada sesetengah skrin seperti Skrin utama, bar pemanduan arah akan sentiasa ditunjukkan.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Untuk menyembunyikan butang ini, pergi ke Aturan > Paparan > Bar pemanduan arah.</string>
+    <string name="force_immersive_guide_dialog_setting">Aturan</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Pandu dengan selamat</string>
     <string name="car_lockscreen_disclaimer_text">Pastikan anda sentiasa sedar sepenuhnya akan keadaan pemanduan dan mematuhi undang-undang yang dikenakan pada sepanjang masa. Arah mungkin tidak tepat, tidak lengkap, berbahaya, tidak sesuai, dilarang atau melibatkan lintasan kawasan pentadbiran. Maklumat perniagaan juga mungkin tidak tepat atau tidak lengkap. Data bukan masa sebenar dan ketepatan lokasi tidak dapat dijamin. Jangan kendalikan peranti mudah alih anda atau gunakan apl yang bukan untuk Android Auto semasa memandu.</string>
     <string name="pip_close">Tutup PIP</string>
@@ -2230,6 +2261,8 @@ Jika anda tidak tahu PUK anda, sila lawat pusat perkhidmatan pelanggan."</string
     <string name="kg_face_retry_content_description">Dwiketik untuk menggunakan pengecaman muka.</string>
     <string name="kg_face_authentication_error_retry_text">Tiada muka dikesan. Ketik ikon untuk mencuba pengecaman muka sekali lagi</string>
     <string name="kg_face_authentication_failed_retry_text">Tiada padanan. Ketik ikon untuk menggunakan pengecaman muka</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Terdapat masalah dengan pengecaman muka. Ketik untuk cuba lagi</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Tidak dapat menggunakan pengecaman muka semasa panggilan video</string>
     <string name="kg_fingerprint_no_match">Tiada padanan</string>
     <string name="kg_finger_print_not_responding_error_message">Penderia cap jari tidak memberi sambutan. Cuba lagi kemudian.</string>
     <string name="kg_finger_print_database_error_message">Data cap jari telah rosak. Tetap semula Cap jari sebagai jenis kunci skrin kemudian tambah cap jari anda lagi atau tukar jenis kunci skrin.</string>
@@ -2366,6 +2399,8 @@ Cuba lagi selepas 1 saat"</string>
     <string name="appicon_badge_new_item">1 item baru</string>
     <string name="banner_apps_for_dex_detail">Nikmati aplikasi dioptimumkan DeX daripada Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Tidak boleh mengalihkan lebih daripada %d item.</string>
+    <string name="view_more_in_galaxy_apps">Lihat lagi dalam Galaxy Apps</string>
+    <string name="view_more_in_play_store">Lihat lagi dalam Play Store</string>
     <string name="uninstall_title">Nyahpasang aplikasi?</string>
     <string name="uninstall_1_app_message">Adakah anda ingin menyahpasang aplikasi ini?</string>
     <string name="uninstall_apps_message">Aplikasi berikut akan dinyahpasang:</string>
@@ -2406,6 +2441,13 @@ Cuba lagi selepas 1 saat"</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Sembunyikan pemberitahuan</string>
     <string name="volumepanel_notification">Pemberitahuan</string>
     <string name="quick_settings_location_detail_device_only">Peranti sahaja</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Pengecasan jeda. Suhu bateri terlalu tinggi.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Pengecasan jeda. Suhu bateri terlalu rendah.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Peranti telah berhenti mengecas. Suhu bateri terlalu tinggi. Berhati-hati semasa menanggalkan pengecas. Ia mungkin sangat panas.
+
+Menanggal dan memasang semula pengecas boleh meneruskan pengecasan seperti biasa. Jika panas melampau ini berterusan, hubungi perkhidmatan pelanggan kerana risiko kebakaran atau kecederaan mungkin wujud."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Guna pengecaman muka untuk buka kunci atau leret skrin untuk guna iris</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Guna pengecaman muka untuk membuka atau leret skrin untuk menggunakan iris</string>
     <string name="kg_infinity_wallpaper_option_description">Hiasan latar infiniti akan digunakan pada Skrin utama dan Skrin kunci anda pada masa yang sama. Hidupkan aturan berikut untuk pengalaman terbaik.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Hidupkan Always On Display</string>
 </resources>

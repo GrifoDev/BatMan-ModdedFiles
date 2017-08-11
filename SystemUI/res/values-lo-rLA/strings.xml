@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">ບໍ່ຮູ້ຈັກ</string>
     <string name="save">ບັນທຶກ</string>
     <string name="ok">ຕົກລົງ</string>
-    <string name="battery_history_hours_no_seconds">%1$dຊມ %2$dນທ</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d ຊມ %2$d ນ​ທ</string>
+    <string name="battery_history_minutes_no_seconds">%d ນ​ທ</string>
     <string name="wifi_fail_to_scan">ບໍ່ສາມາດກວດຫາເຄືອຂ່າຍໄດ້</string>
     <string name="wifi_failed_to_obtain_IP">ຮັບເອົາທີ່ຢູ່ IP ບໍ່ສໍາເລັດ.</string>
     <string name="wifi_security_none">ບໍ່ໃຊ້</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ %s ໄດ້.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ %1$s ໄດ້. ກວດເບິ່ງການຕັ້ງຄ່າຂອງທ່ານໃນ %2$s ແລະລອງໃໝ່ອີກ.</string>
     <string name="bluetooth_pairing_rejected_error_message">ການຈັບຄູ່ຖືກປະຕິເສດໂດຍ %s.</string>
+    <string name="bluetooth_getting_remote_device_name">ກຳລັງຮັບເອົາຊື່ອຸປະກອນ…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">ຊື່ອຸປະກອນຈະປະກົດຂຶ້ນ ເມື່ອອຸປະກອນນີ້ຖືກເຊື່ອມຕໍ່.</string>
     <string name="accessibility_wifi_off">WiFi ປິດຢູ່.</string>
     <string name="accessibility_no_wifi">ຕັດການເຊື່ອມຕໍ່ Wi-Fi ແລ້ວ.</string>
     <string name="accessibility_wifi_one_bar">ສັນຍານ Wi-Fi ນຶ່ງຂີດ.</string>
@@ -1364,6 +1366,7 @@ Turn on Airplane mode?"</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Numpad %1$s</string>
+    <string name="keyboard_popup_help">ປຸ່ມ Meta: ປຸ່ມ Windows, ​​ປຸ່ມຄຳ​ສັ່ງ, ຫຼື ປຸ່ມ​ສັນ​ຍາ​ລັກ​ລະ​ບົບ​ປະ​ຕິ​ບັດ​ການ​ອື່ນໆ.</string>
     <string name="keyboard_shortcut_group_system">ທາງລັດຂອງລະບົບ</string>
     <string name="keyboard_shortcut_group_system_home">​ໜ້າຫຼັກ</string>
     <string name="keyboard_shortcut_group_system_recents">ຫາ​ກໍ​ໃຊ້</string>
@@ -1525,8 +1528,8 @@ Turn on Airplane mode?"</string>
 
 ເພື່ອປ້ອງກັນຄວາມເສຍຫາຍຈາກນ້ຳ, ໃຫ້ແນ່ໃຈວ່າຖາດແຜ່ນ SIM/SD ຖືກປິດຢ່າງແໜ້ນໜາ."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">ເພື່ອປ້ອງກັນຄວາມເສຍຫາຍຈາກນ້ຳ, ໃຫ້ແນ່ໃຈວ່າຖາດແຜ່ນ SIM/SD ຖືກປິດຢ່າງແໜ້ນໜາ.</string>
-    <string name="water_protection_notification_title">ກວດເບິ່ງພອດ</string>
-    <string name="water_protection_notification_body">ກວດພົບຄວາມຊຸ່ມແລ້ວ. ເພື່ອສາກອຸປະກອນຂອງທ່ານ, ໃຫ້ແນ່ໃຈວ່າເຄື່ອງສາກ/ພອດ USB ຂອງທ່ານແຫ້ງ.</string>
+    <string name="water_protection_notification_title">ຖອດເຄື່ອງສາກ</string>
+    <string name="water_protection_notification_body">ກວດພົບຄວາມຊຸ່ມແລ້ວ. ຖອດເຄື່ອງສາກອອກ ແລະເບິ່ງໃຫ້ແນ່ໃຈວ່າທັງເຄື່ອງສາກແລະພອດ USB ແຫ້ງດີ.</string>
     <string name="full_battery_title">ຂໍ້ມູນ</string>
     <string name="full_battery_noti_text">Battery fully charged.</string>
     <string name="cooling_title">ອຸປະກອນຮ້ອນເກີນໄປ</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">ການສາກຊ້າ</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">ສຳລັບການສາກໃຫ້ໄວ້ຂຶ້ນ, ໃຊ້ເຄື່ອງສາກທີ່ມາກັບອຸປະກອນຂອງທ່ານແລະເບິ່ງໃຫ້ແນ່ໃຈວ່າມັນຖືກເຊື່ອມຕໍ່ຢ່າງຖືກຕ້ອງ.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">ເບິ່ງໃຫ້ແນ່ໃຈວ່າເຄື່ອງສາກຖືກເຊື່ອມຕໍ່ຢ່າງຖືກຕ້ອງ. ໃຊ້ເຄື່ອງສາກທີ່ມາກັບອຸປະກອນ.</string>
     <string name="battery_charging_level_and_time_text">"ກໍາລັງສາກ: %1$d%%
 (ປະ​ມານ %2$s ຈົນ​ກ່​ວາ​ຈະ​ສາກ​ເຕັມ)"</string>
@@ -1633,14 +1637,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">ສາກໂທລະສັບຂອງທ່ານ.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">ສາກແທັບເລັດຂອງທ່ານ.</string>
     <string name="button_close">ປິດ</string>
-    <string name="battery_health_interruption_title">ບໍ່ສາມາດສາກໄດ້</string>
+    <string name="battery_health_interruption_title">ການສາກຢຸດແລ້ວ</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">ຖອດເຄື່ອງສາກ</string>
     <string name="battery_health_interruption_by_terminal_open_text">ບໍ່ສາມາດສາກເຄື່ອງຂອງທ່ານໄດ້. ໃຫ້ແນ່ໃຈວ່າ ທ່ານກໍາລັງໃຊ້ແບັດເຕີຣີ ແລະເຄື່ອງສາກທີ່ເຂົ້າກັບຊໍາຊຸງ ແລະເຄື່ອງຂອງທ່ານໄດ້ເຊື່ອມຕໍ່ກັບເຄື່ອງສາກຢ່າງຖືກຕ້ອງ.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">ການສາກຢຸດຊົ່ວຄາວ. ອຸນຫະພູມແບັດເຕີຣີສູງໂພດ.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">ການສາກຢຸດຊົ່ວຄາວ. ອຸນຫະພູມແບັດເຕີຣີຕໍ່າໂພດ.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"ເຄື່ອງຢຸດສາກແລ້ວ. ອຸນນະພູມແບັດເຕີຣີສູງເກີນໄປ. ໃຫ້ລະວັງ ເມື່ອຖອດເຄື່ອງສາກ. ມັນອາດຈະຮ້ອນ.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">ອຸນຫະພູມໃນໂທລະສັບຂອງທ່ານສູງເກີນໄປ. ການສາກຈະສືບຕໍ່ເມື່ອອຸນຫະພູມກັບສູ່ປົກກະຕິ.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">ອຸນຫະພູມໃນແທັບເລັດຂອງທ່ານສູງເກີນໄປ. ການສາກຈະສືບຕໍ່ເມື່ອອຸນຫະພູມກັບສູ່ປົກກະຕິ.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">ອຸນຫະພູມໃນໂທລະສັບຂອງທ່ານຕ່ຳເກີນໄປ. ການສາກຈະສືບຕໍ່ເມື່ອອຸນຫະພູມກັບສູ່ປົກກະຕິ.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">ອຸນຫະພູມໃນແທັບເລັດຂອງທ່ານຕ່ຳເກີນໄປ. ການສາກຈະສືບຕໍ່ເມື່ອອຸນຫະພູມກັບສູ່ປົກກະຕິ.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"ການສາກຢຸດແລ້ວ. ອຸນຫະພູມໃນໂທລະສັບຂອງທ່ານສູງເກີນໄປ. ໃຫ້ລະວັງ ເມື່ອຖອດເຄື່ອງສາກ. ມັນອາດຈະຮ້ອນຫຼາຍ.
 
-ການຖອດ ແລະການຕໍ່ເຄື່ອງສາກຄືນອາດຈະເຮັດໃຫ້ການສາກສືບຕໍ່ສາກໄດ້ປົກກະຕິ. ຖ້າຍັງມີຄວາມຮ້ອນຢູ່ເກີນໄປ, ໃຫ້ຕິດຕໍ່ຫາຝ່າຍບໍລິການລູກຄ້າ ເນື່ອງຈາກອາດຈະມີຄວາມສ່ຽງຂອງໄຟໄໝ້ ຫຼືມີການບາດເຈັບ."</string>
+ການຖອດເຄື່ອງສາກແລະການເຊື່ອມຕໍ່ຄືນໃໝ່ອາດຈະຊ່ວຍໃຫ້ການສາກສືບຕໍ່ຢ່າງເປັນປົກກະຕິ. ຖ້າຍັງມີຄວາມຮ້ອນຢູ່ເກີນໄປ, ຕິດຕໍ່ຫາຝ່າຍບໍລິການລູກຄ້າ ເພາະວ່າອາດຈະມີຄວາມສ່ຽງຂອງໄຟໄໝ້ ຫຼືມີການບາດເຈັບ."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"ການສາກໄດ້ຢຸດແລ້ວ. ອຸນຫະພູມໃນແທັບເລັດຂອງທ່ານຮ້ອນເກີນໄປ. ໃຫ້ລະວັງ ເມື່ອຖອດເຄື່ອງສາກ. ມັນອາດຈະຮ້ອນຫຼາຍ.
+
+ການຖອດເຄື່ອງສາກແລະການເຊື່ອມຕໍ່ຄືນໃໝ່ອາດຈະຊ່ວຍໃຫ້ການສາກສືບຕໍ່ຢ່າງເປັນປົກກະຕິ. ຖ້າຍັງມີຄວາມຮ້ອນຢູ່ເກີນໄປ, ຕິດຕໍ່ຫາຝ່າຍບໍລິການລູກຄ້າ ເພາະວ່າອາດຈະມີຄວາມສ່ຽງຂອງໄຟໄໝ້ ຫຼືມີການບາດເຈັບ."</string>
     <string name="incompatible_charger_title">ບໍ່ສາກ</string>
     <string name="incompatible_charger_dialog_text">ເຄື່ອງສາກທີ່ເຊື່ອມຕໍ່ບໍ່ເຂົ້າກັນໄດ້ກັບໂທລະສັບໜ່ວຍນີ້. ເພື່ອປ້ອງກັນບໍ່ໃຫ້ໂທລະສັບຂອງທ່ານເພ, ໃຫ້ເຊົາໃຊ້ເຄື່ອງສາກ. ເພື່ອສືບຕໍ່ສາກນັ້ນ, ໃຫ້ໃຊ້ເຄື່ອງສາກແທ້ ແລະສາຍຕໍ່ທີ່ເອົາໃຫ້ມາກັບໂທລະສັບນີ້.</string>
     <string name="incompatible_charger_notification_text">ສາກບໍ່ໄດ້. ໃຊ້ເຄື່ອງສາກແທ້.</string>
@@ -1656,8 +1666,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">ໃຊ້ໄບໂອແມັດທຣິກ ຫຼື ຮູດໜ້າຈໍເພື່ອເປີດ</string>
     <string name="kg_face_or_swipe_unlock_instructions">ໃຊ້ການຈົດຈຳໃບໜ້າ ຫຼື ຮູດໜ້າຈໍເພື່ອປົດລັອກ</string>
     <string name="kg_face_or_swipe_active_instructions">ໃຊ້ການຈົດຈຳໃບໜ້າ ຫຼື ຮູດໜ້າຈໍເພື່ອເປີດ</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">ໃຊ້ການຈົດຈຳໃບໜ້າເພື່ອປົດລັອກ ຫຼື ຮູດໜ້າຈໍເພື່ອໃຊ້ມ່ານຕາແທນ</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">ໃຊ້ການຈົດຈຳໃບໜ້າເພື່ອເປີດ ຫຼື ຮູດໜ້າຈໍເພື່ອໃຊ້ມ່ານຕາແທນ</string>
     <string name="kg_face_unlock_instructions">ຮູດໜ້າຈໍເພື່ອປົດລັອກດ້ວຍການຈົດຈຳໃບໜ້າ</string>
     <string name="kg_face_or_fingerprint_active_instructions">ໃຊ້ລາຍນິ້ວມືເພື່ອເປີດ ຫຼື ຮູດໜ້າຈໍເພື່ອໃຊ້ການຈົດຈຳໃບໜ້າແທນ</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">ໃຊ້ລາຍນິ້ວມືເພື່ອປົດລັອກ ຫຼື ຮູດໜ້າຈໍເພື່ອໃຊ້ການຈົດຈຳໃບໜ້າແທນ</string>
@@ -1672,6 +1680,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">ເລື່ອນດ້ວຍນີ້ວມືສອງນີ້ວ ເພື່ອປົດລັອກໜ້າຈໍ.</string>
     <string name="kg_swipe_active_instructions">ຮູດໜ້າຈໍເພື່ອເປີດ</string>
     <string name="kg_swipe_unlock_instructions">ເລື່ອນໜ້າຈໍເພື່ອປົດລັອກ</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">ໃຊ້ໄບໂອແມັດທຣິກ ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອປົດລັອກ.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">ໃຊ້ໄບໂອແມັດທຣິກ ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອເປີດ.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">ໃຊ້ການຈົດຈຳໃບໜ້າ ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອປົດລັອກ.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">ໃຊ້ການຈົດຈຳໃບໜ້າ ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອເປີດ.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອປົດລັອກດ້ວຍການຈົດຈຳໃບໜ້າ.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">ໃຊ້ລາຍນິ້ວມືເພື່ອເປີດ ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອໃຊ້ການຈົດຈຳໃບໜ້າ.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">ໃຊ້ລາຍນິ້ວມືເພື່ອປົດລັອກ ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອໃຊ້ການຈົດຈຳໃບໜ້າ.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">ໃຊ້ລາຍນິ້ວມືເພື່ອເປີດ ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອໃຊ້ມ່ານຕາ.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">ໃຊ້ລາຍນິ້ວມືເພື່ອປົດລັອກ ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອໃຊ້ມ່ານຕາ.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">ໃຊ້ລາຍນິ້ວມື ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອເປີດ.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">ໃຊ້ລາຍນິ້ວມື ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອປົດລັອກ.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອໃຊ້ມ່ານຕາໃນການປົດລັອກ.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">ໃຊ້ມ່ານຕາ ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອປົດລັອກ.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">ໃຊ້ມ່ານຕາ ຫຼື ຮູດໜ້າຈໍດ້ວຍມືສອງນິ້ວເພື່ອເປີດ.</string>
     <string name="kg_power_connect_charger">ເຊື່ອມຕໍ່ເຄື່ອງສາກ</string>
     <string name="kg_power_fully_charged">ສາກເຕັມແລ້ວ</string>
     <string name="kg_power_fast_charging">ກຳລັງສາກໄວ: %d%%</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">ສົ່ງ</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">ແຕະປຸ່ມລັອກສອງຄັ້ງ ເພື່ອປົດລັອກໂທລະສັບ</string>
     <string name="s_view_cover_toast_pop_up_message">ເປີດໜ້າ​ປົກເພື່ອໃຊ້ປຸ່ມ​ການ​ຕັ້ງ​ຄ່າ​ດ່ວນ.</string>
     <string name="remote_input_toast_text_on_sview_cover">ບໍ່​ສາ​ມາດ​ໃຊ້​ຟັງ​ຄ໌​ຊັນ​ຕອບ​ຄືນ​ດ່ວນ​ໃນ​ຂະ​ນະ​ທີ່​ຝາ​ປິດ​​ S view ​ປິດ​ຢູ່.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">ຂ້ອຍຍອມຮັບ</string>
-    <string name="force_immersive_guide_text">ການ​ແຕະ​ໄອ​ຄອນ​ນີ້​ຈະ​ເຊື່ອງ​ແຖ​ບ​ການ​ກຳ​ນົດ​ທິດ​ທາງ. ທ່ານ​ຍັງ​ສາ​ມາດ​ໃຊ້​ປຸ່ມ​ການ​ກຳ​ນົດ​ທິດ​ທາງ​ໄດ້​ໂດຍ​ການ​ຮູດ​ຂຶ້ນ​ເທິງ​ຈາກ​ເບື້ອງ​ລຸ່ມ​ສຸດ​ຂອງ​ໜ້າ​ຈໍ. ໃນ​ຂະ​ນະ​ທີ່​ແຖບການ​ກຳ​ນົດ​ທິດ​ທາງ​ສະ​ແດງ​ຂຶ້ນ, ທ່ານ​ສາ​ມາດ​ແຕະ​ໄອ​ຄອນ​ນີ້​ອີກ​ຄັ້ງ​ເພື່ອ​ລັອກ​ມັນ​ໄວ້ໃນ​ຕຳ​ແໜ່ງ. ໃນ​ບາງ​ໜ້າ​ຈໍ, ເຊັ່ນ ໜ້າ​ຈໍຫຼັກ, ແຖບ​ການ​ກຳ​ນົດ​ທິດ​ທາງ​ຈະ​ສະ​ແດງ​ຂຶ້ນ​ຢູ່​ສະ​ເໝີ.</string>
+    <string name="force_immersive_guide_text">ການ​ແຕະ​ປຸ່ມ​ນີ້​ຈະ​ເຊື່ອງ​ແຖ​ບ​ການ​ກຳ​ນົດ​ທິດ​ທາງ. ທ່ານ​ຍັງ​ສາ​ມາດ​ໃຊ້​ປຸ່ມ​ການ​ກຳ​ນົດ​ທິດ​ທາງ​ໄດ້​ໂດຍ​ການ​ຮູດ​ຂຶ້ນ​ເທິງ​ຈາກ​ເບື້ອງ​ລຸ່ມ​ສຸດ​ຂອງ​ໜ້າ​ຈໍ. ໃນ​ຂະ​ນະ​ທີ່​ແຖບການ​ກຳ​ນົດ​ທິດ​ທາງ​ສະ​ແດງ​ຂຶ້ນ, ທ່ານ​ສາ​ມາດ​ແຕະ​ປຸ່ມ​ນີ້​ອີກ​ຄັ້ງ​ເພື່ອ​ລັອກ​ມັນ​ໄວ້ໃນ​ຕຳ​ແໜ່ງ. ໃນ​ບາງ​ໜ້າ​ຈໍ, ເຊັ່ນ ໜ້າ​ຈໍຫຼັກ, ແຖບ​ການ​ກຳ​ນົດ​ທິດ​ທາງ​ຈະ​ສະ​ແດງ​ຂຶ້ນ​ຢູ່​ສະ​ເໝີ. ຖ້າແອັບບໍ່ເຮັດວຽກຕາມປົກກະຕິໃນຂະນະທີ່ແຖບກຳນົດທິດທາງຖືກເຊື່ອງ, ລັອກແຖບການກຳນົດທິດທາງໄວ້ໃນຕຳແໜ່ງ ແລະປິດເປີດແອັບຄືນໃໝ່.</string>
+    <string name="force_immersive_guide_dialog_title">ເຊື່ອງແຖບການ​ກຳ​ນົດ​ທິດ​ທາງ:</string>
+    <string name="force_immersive_guide_dialog_message1">ການ​ແຕະ​ປຸ່ມ​ນີ້​ຈະ​ເຊື່ອງ​ແຖ​ບ​ການ​ກຳ​ນົດ​ທິດ​ທາງ.</string>
+    <string name="force_immersive_guide_dialog_message2">ຮູດຂຶ້ນເທິງຈາກດ້ານລຸ່ມສຸດຂອງໜ້າຈໍ ເພື່ອສະແດງແຖບການກໍານົດທິດທາງ.</string>
+    <string name="force_immersive_guide_dialog_message3">ແຕະປຸ່ມນີ້ອີກຄັ້ງເພື່ອລັອກມັນໄວ້ໃນສະຖານທີ່ນັ້ນ.</string>
+    <string name="force_immersive_guide_dialog_message4">ໃນ​ບາງ​ໜ້າ​ຈໍ, ເຊັ່ນ ໜ້າ​ຈໍຫຼັກ, ແຖບ​ການ​ກຳ​ນົດ​ທິດ​ທາງ​ຈະ​ສະ​ແດງ​ຂຶ້ນ​ຢູ່​ສະ​ເໝີ.</string>
+    <string name="force_immersive_guide_dialog_guide_path">ເພື່ອເຊື່ອງປຸ່ມນີ້, ໄປທີ່ການຕັ້ງຄ່າ > ສະແດງ > ແຖບການກຳນົດທິດທາງ.</string>
+    <string name="force_immersive_guide_dialog_setting">ການຕັ້ງຄ່າ</string>
+    <string name="force_immersive_guide_dialog_ok">ຕົກລົງ</string>
     <string name="car_lockscreen_disclaimer_title">ຂັບຂີ່ຢ່າງປອດໄພ</string>
     <string name="car_lockscreen_disclaimer_text">ຮູ້ຈັກສະພາບການຂັບຂີ່ຢ່າງຄົບຖ້ວນ ແລະ ປະຕິບັດຕາມກົດໝາຍທີ່ນຳໃຊ້ສະເໝີ. ຄຳແນະນຳເສັ້ນທາງອາດຈະບໍ່ຖືກຕ້ອງ, ບໍ່ຄົບຖ້ວນ, ອັນຕະລາຍ, ບໍ່ເໝາະສົມ, ຖືກຫ້າມ ຫຼື ກ່ຽວຂ້ອງກັບການຂ້າມເຂດປົກຄອງ. ຂໍ້ມູນທຸລະກິດອາດຈະບໍ່ຖືກຕ້ອງ ຫຼື ບໍ່ຄົບຖ້ວນ. ຂໍ້ມູນບໍ່ແມ່ນຂໍ້ມູນສົດ ແລະ ບໍ່ສາມາດຮັບປະກັນຄວາມຖືກຕ້ອງຂອງສະຖານທີ່ໄດ້. ຢ່າໃຊ້ອຸປະກອນມືຖືຂອງທ່ານ ຫຼື ໃຊ້ແອັບທີ່ບໍ່ມີໄວ້ສຳລັບ Android Auto ໃນຂະນະທີ່ຂັບຂີ່.</string>
     <string name="pip_close">ປິດ PIP</string>
@@ -2230,6 +2261,8 @@ PIN ຈະຕ້ອງມີຄວາມຍາວ 4 ຫາ 8 ຕົວເລກ.
     <string name="kg_face_retry_content_description">ແຕະສອງຄັ້ງເພື່ອໃຊ້ການຈົດຈຳໃບໜ້າ.</string>
     <string name="kg_face_authentication_error_retry_text">ກວດບໍ່ພົບໃບໜ້າ. ແຕະໄອຄອນເພື່ອລອງການຈົດຈຳໃບໜ້າອີກຄັ້ງ</string>
     <string name="kg_face_authentication_failed_retry_text">ບໍ່ເຂົ້າກັນ. ແຕະໄອຄອນ ເພື່ອໃຊ້ການຈົດຈຳໃບໜ້າ</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">ມີບັນຫາກັບການຈົດຈຳໃບໜ້າ. ແຕະເພື່ອລອງໃໝ່ອີກ</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">ບໍ່ສາມາດໃຊ້ການຈົດຈຳໃບໜ້າ ໃນລະຫວ່າງໂທວິດີໂອ</string>
     <string name="kg_fingerprint_no_match">ບໍ່ຖືກຄູ່ກັນ</string>
     <string name="kg_finger_print_not_responding_error_message">ຕົວເຊັນເຊີລາຍນີ້ວມືບໍ່ຕອບສະໜອງ. ລອງອີກພາຍຫຼັງ.</string>
     <string name="kg_finger_print_database_error_message">ຂໍ້​ມູນລາຍນີ້ວມືເສຍ​ຫາຍ. ຕັ້ງ​ຄ່າ​ລາຍ​ນີ້ວ​ມື​ໃໝ່​ເປັນ​ປະ​ເພດ​ລັອກ​ໜ້າ​ຈໍ ແລະ​ຈາກນັ້ນ​ເພີ່ມ​ລາຍ​ນີ້ວ​ມື​ຂອງ​ທ່ານ​ອີກ, ຫຼື​ປ່ຽນ​ແປງ​ປະ​ເພດ​ລັອກ​ໜ້າ​ຈໍ.</string>
@@ -2366,6 +2399,8 @@ PIN ຈະຕ້ອງມີຄວາມຍາວ 4 ຫາ 8 ຕົວເລກ.
     <string name="appicon_badge_new_item">1 ລາຍການໃໝ່</string>
     <string name="banner_apps_for_dex_detail">ມ່ວນ​ຊື່ນ​ກັບ​ແອັບ​ທີ່​ເພີ່ມ​ປະ​ສິດ​ທິ​ພາບ​ດ້ວຍ DeX ຈາກ Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">ບໍ່ສາມາດຍ້າຍໄດ້ຫຼາຍກວ່າ %d ລາຍການ.</string>
+    <string name="view_more_in_galaxy_apps">ສະແດງເພີ່ມເຕີມໃນ Galaxy Apps</string>
+    <string name="view_more_in_play_store">ສະແດງເພີ່ມເຕີມໃນ Play Store</string>
     <string name="uninstall_title">ຖອນຕິດຕັ້ງແອັບບໍ?</string>
     <string name="uninstall_1_app_message">ທ່ານຕ້ອງການຖອນຕິດຕັ້ງແອັບນີ້ບໍ?</string>
     <string name="uninstall_apps_message">ແອັບຕໍ່ໄປນີ້ຈະຖືກຖອນຕິດຕັ້ງ:</string>
@@ -2406,6 +2441,13 @@ PIN ຈະຕ້ອງມີຄວາມຍາວ 4 ຫາ 8 ຕົວເລກ.
     <string name="taskbar_context_menu_close_desk_notification_view">ເຊື່ອງການແຈ້ງເຕືອນ</string>
     <string name="volumepanel_notification">ແຈ້ງເຕືອນ</string>
     <string name="quick_settings_location_detail_device_only">ອຸປະກອນເທົ່ານັ້ນ</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">ການສາກຢຸດຊົ່ວຄາວ. ອຸນຫະພູມແບັດເຕີຣີສູງໂພດ.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">ການສາກຢຸດຊົ່ວຄາວ. ອຸນຫະພູມແບັດເຕີຣີຕໍ່າໂພດ.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"ເຄື່ອງຢຸດສາກແລ້ວ. ອຸນນະພູມແບັດເຕີຣີສູງເກີນໄປ. ໃຫ້ລະວັງ ເມື່ອຖອດເຄື່ອງສາກ. ມັນອາດຈະຮ້ອນ.
+
+ການຖອດ ແລະການຕໍ່ເຄື່ອງສາກຄືນອາດຈະເຮັດໃຫ້ການສາກສືບຕໍ່ສາກໄດ້ປົກກະຕິ. ຖ້າຍັງມີຄວາມຮ້ອນຢູ່ເກີນໄປ, ໃຫ້ຕິດຕໍ່ຫາຝ່າຍບໍລິການລູກຄ້າ ເນື່ອງຈາກອາດຈະມີຄວາມສ່ຽງຂອງໄຟໄໝ້ ຫຼືມີການບາດເຈັບ."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">ໃຊ້ການຈົດຈຳໃບໜ້າເພື່ອປົດລັອກ ຫຼື ຮູດໜ້າຈໍເພື່ອໃຊ້ມ່ານຕາແທນ</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">ໃຊ້ການຈົດຈຳໃບໜ້າເພື່ອເປີດ ຫຼື ຮູດໜ້າຈໍເພື່ອໃຊ້ມ່ານຕາແທນ</string>
     <string name="kg_infinity_wallpaper_option_description">ວອລເປເປີແບບບໍ່ມີຂີດຈຳກັດຈະຖືກນຳໃຊ້ກັບໜ້າຈໍຫຼັກ, ແລະໜ້າຈໍລັອກໃນເວລາດຽວກັນ. ເປີດການຕັ້ງຄ່າລຸ່ມນີ້ສຳລັບປະສົບການໃຊ້ທີ່ດີທີ່ສຸດ.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">ເປີດ Always On Display</string>
 </resources>

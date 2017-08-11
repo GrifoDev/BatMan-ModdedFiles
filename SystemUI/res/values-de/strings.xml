@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Unbekannt</string>
     <string name="save">Speichern</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h, %2$d min</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Netzwerkscan nicht möglich</string>
     <string name="wifi_failed_to_obtain_IP">IP-Adresse konnte nicht abgerufen werden</string>
     <string name="wifi_security_none">Keine</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Verbindung zu %s kann nicht hergestellt werden.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Es kann keine Verbindung mit %1$s hergestellt werden. Überprüfen Sie die Einstellungen in „%2$s“ und versuchen Sie es erneut.</string>
     <string name="bluetooth_pairing_rejected_error_message">Kopplung von %s abgelehnt</string>
+    <string name="bluetooth_getting_remote_device_name">Gerätename wird abgerufen…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Gerätename wird angezeigt, wenn dieses Gerät verbunden ist.</string>
     <string name="accessibility_wifi_off">WLAN: aus</string>
     <string name="accessibility_no_wifi">WLAN getrennt</string>
     <string name="accessibility_wifi_one_bar">WLAN: ein Balken</string>
@@ -556,7 +558,7 @@ For example, your ringtone will not sound, you will not be able to answer phone 
     <string name="accessibility_back">Zurück</string>
     <string name="accessibility_home">Startbildschirm</string>
     <string name="accessibility_menu">Menü</string>
-    <string name="sec_accessibility_recent">Kürzlich verw.</string>
+    <string name="sec_accessibility_recent">Letzte</string>
     <string name="accessibility_camera_button">Kamera</string>
     <string name="accessibility_phone_button">Telefonnummer</string>
     <string name="accessibility_voice_assist_button">Sprachassistent</string>
@@ -1364,6 +1366,7 @@ Weitere Informationen erhältst du bei deinem Administrator."</string>
     <string name="keyboard_key_insert">Einfg</string>
     <string name="keyboard_key_num_lock">Num</string>
     <string name="keyboard_key_numpad_template">Ziffernblock %1$s</string>
+    <string name="keyboard_popup_help">Metataste: Die Windows-, Befehls- oder andere Taste mit Betriebssystemsymbol.</string>
     <string name="keyboard_shortcut_group_system">System-Shortcuts</string>
     <string name="keyboard_shortcut_group_system_home">Startseite</string>
     <string name="keyboard_shortcut_group_system_recents">Letzte</string>
@@ -1525,8 +1528,8 @@ Weitere Informationen erhältst du bei deinem Administrator."</string>
 
 Um das Eindringen von Wasser zu verhindern, schließen Sie das SIM-/SD-Kartenfach sorgfältig."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Um das Eindringen von Wasser zu verhindern, schließen Sie das SIM-/SD-Kartenfach sorgfältig.</string>
-    <string name="water_protection_notification_title">Überprüfen des Ports</string>
-    <string name="water_protection_notification_body">Feuchtigkeit erkannt. Stellen Sie zum Laden Ihres Geräts sicher, dass Ihr Ladegerät/USB-Anschluss trocken ist.</string>
+    <string name="water_protection_notification_title">Ladegerät entfernen</string>
+    <string name="water_protection_notification_body">Feuchtigkeit wurde erkannt. Trennen Sie das Ladegerät und stellen Sie sicher, dass Ladegerät und USB-Anschluss trocken sind.</string>
     <string name="full_battery_title">Info</string>
     <string name="full_battery_noti_text">Akku vollständig geladen</string>
     <string name="cooling_title">Geräteüberhitzung</string>
@@ -1620,6 +1623,7 @@ Eine Überhitzung kann folgende Ursachen haben:
     <string name="battery_not_fully_connected_charging_title">Langsames Aufladen</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Fehlerhafter Anschluss</string>
     <string name="battery_not_fully_connected_charging_text">Zum schnelleren Aufladen das Ihrem Gerät beiliegende Ladegerät nutzen und sicherstellen, dass es richtig angeschlossen ist.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Stellen Sie sicher, dass das Ladegerät richtig angeschlossen ist.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Stellen Sie sicher, dass das Ladegerät richtig angeschlossen ist. Verwenden Sie das dem Gerät beiliegende Ladegerät.</string>
     <string name="battery_charging_level_and_time_text">"Aufladen: %1$d %%
 (ca. %2$s bis vollständig geladen)"</string>
@@ -1633,14 +1637,20 @@ Eine Überhitzung kann folgende Ursachen haben:
     <string name="battery_saver_recommend_notification_text_phone_psm">Ihr Telefon aufladen.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Ihr Tablet aufladen.</string>
     <string name="button_close">Schließen</string>
-    <string name="battery_health_interruption_title">Aufladen nicht möglich</string>
+    <string name="battery_health_interruption_title">Aufladen angehalten</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Entfernen des Ladegeräts</string>
     <string name="battery_health_interruption_by_terminal_open_text">Ihr Gerät kann nicht aufgeladen werden. Überprüfen Sie ob Sie einen mit Samsung kompatiblen Akku und ein entsprechendes Ladegerät verwenden sowie ob Ihr Gerät ordnungsgemäß mit dem Ladegerät verbunden ist.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Ladevorgang unterbrochen. Akkutemperatur zu hoch.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Ladevorgang unterbrochen. Akkutemperatur zu niedrig.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Der Ladevorgang des Geräts wurde angehalten. Die Akkutemperatur ist zu hoch. Gehen Sie beim Trennen des Ladegeräts vorsichtig vor. Unter Umständen ist es sehr heiß.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Die Telefontemperatur ist zu hoch. Das Aufladen wird fortgesetzt, wenn die Temperatur wieder einen normalen Wert erreicht.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Die Tablet-Temperatur ist zu hoch. Das Aufladen wird fortgesetzt, wenn die Temperatur wieder einen normalen Wert erreicht.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Die Telefontemperatur ist zu niedrig. Das Aufladen wird fortgesetzt, wenn die Temperatur wieder einen normalen Wert erreicht.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Die Tablet-Temperatur ist zu niedrig. Das Aufladen wird fortgesetzt, wenn die Temperatur wieder einen normalen Wert erreicht.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Der Ladevorgang wurde angehalten. Die Temperatur Ihres Telefons ist zu hoch. Gehen Sie beim Trennen des Ladegeräts vorsichtig vor. Unter Umständen ist es sehr heiß.
 
-Wenn Sie das Ladegerät trennen und wieder anschließen, kann der Ladevorgang eventuell normal fortgesetzt werden. Falls das Gerät weiterhin überhitzt ist, wenden Sie sich an den Kundendienst, denn es besteht die Gefahr von Bränden oder Verletzungen."</string>
+Wenn Sie das Ladegerät trennen und wieder anschließen, kann der Ladevorgang eventuell normal fortgesetzt werden. Falls das Gerät weiterhin überhitzt, wenden Sie sich an den Kundendienst, denn es besteht die Gefahr von Bränden oder Verletzungen."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Der Ladevorgang wurde angehalten. Die Temperatur Ihres Tablets ist zu hoch. Gehen Sie beim Trennen des Ladegeräts vorsichtig vor. Unter Umständen ist es sehr heiß.
+
+Wenn Sie das Ladegerät trennen und wieder anschließen, kann der Ladevorgang eventuell normal fortgesetzt werden. Falls das Gerät weiterhin überhitzt, wenden Sie sich an den Kundendienst, denn es besteht die Gefahr von Bränden oder Verletzungen."</string>
     <string name="incompatible_charger_title">Kein Ladevorgang</string>
     <string name="incompatible_charger_dialog_text">Das verbundene Ladegerät ist nicht mit dem Telefon kompatibel. Um Schäden am Telefon zu verhindern, wurde der Ladevorgang unterbrochen. Verwenden Sie das im Lieferumfang des Telefons enthaltene Originalladegerät und Kabel, um den Ladevorgang fortzusetzen.</string>
     <string name="incompatible_charger_notification_text">Laden nicht möglich. Verwenden Sie das Originalladegerät.</string>
@@ -1656,8 +1666,6 @@ Damit dieses Pop-up künftig nicht mehr angezeigt wird, stellen Sie sicher, dass
     <string name="kg_biometrics_swipe_active_instructions">Zum Öffnen Biometrie verwenden oder über Bildschirm streichen.</string>
     <string name="kg_face_or_swipe_unlock_instructions">Zum Entsperren Gesichtserkennung verwenden oder über Bildschirm streichen.</string>
     <string name="kg_face_or_swipe_active_instructions">Zum Öffnen Gesichtserkennung verwenden oder über Bildschirm streichen.</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Zum Entsperren Gesichtserkennung verwenden oder über den Bildschirm streichen und stattdessen die Iris verwenden.</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Zum Öffnen Gesichtserkennung verwenden oder über den Bildschirm streichen und stattdessen die Iris verwenden.</string>
     <string name="kg_face_unlock_instructions">Streichen Sie zum Entsperren mit der Gesichtserkennung über den Bildschirm.</string>
     <string name="kg_face_or_fingerprint_active_instructions">Mit Fingerabdruck öffnen oder über Bildschirm streichen, um stattdessen die Gesichtserkennung zu verwenden.</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Mit Fingerabdruck entsperren oder über Bildschirm streichen, um stattdessen die Gesichtserkennung zu verwenden.</string>
@@ -1672,6 +1680,20 @@ Damit dieses Pop-up künftig nicht mehr angezeigt wird, stellen Sie sicher, dass
     <string name="kg_voice_assistant_unlock_instructions">Mit zwei Fingern streichen, um den Bildschirm zu entsperren.</string>
     <string name="kg_swipe_active_instructions">Streichen Sie zum Öffnen über den Bildschirm.</string>
     <string name="kg_swipe_unlock_instructions">Streichen Sie zum Entsperren über den Bildschirm.</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Zum Entsperren Biometrie verwenden oder mit zwei Fingern über den Bildschirm streichen.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Zum Öffnen Biometrie verwenden oder mit zwei Fingern über den Bildschirm streichen.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Zum Entsperren Gesichtserkennung verwenden oder mit zwei Fingern über den Bildschirm streichen.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Zum Öffnen Gesichtserkennung verwenden oder mit zwei Fingern über den Bildschirm streichen.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Streichen Sie mit zwei Fingern über den Bildschirm, um mit der Gesichtserkennung zu entsperren.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Mit Fingerabdruck öffnen oder mit zwei Fingern über Bildschirm streichen, um die Gesichtserkennung zu verwenden.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Mit Fingerabdruck entsperren oder mit zwei Fingern über Bildschirm streichen, um die Gesichtserkennung zu verwenden.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Mit Fingerabdruck öffnen oder mit zwei Fingern über Bildschirm streichen, um die Iris zu verwenden.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Mit Fingerabdruck entsperren oder mit zwei Fingern über Bildschirm streichen, um die Iris zu verwenden.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Zum Öffnen Fingerabdruck verwenden oder mit zwei Fingern über den Bildschirm streichen.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Zum Entsperren Fingerabdruck verwenden oder mit zwei Fingern über den Bildschirm streichen.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Streichen Sie mit zwei Fingern über den Bildschirm, um die Iris zum Entsperren zu verwenden.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Zum Entsperren die Iris verwenden oder mit zwei Fingern über den Bildschirm streichen.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Zum Öffnen die Iris verwenden oder mit zwei Fingern über den Bildschirm streichen.</string>
     <string name="kg_power_connect_charger">Schließen Sie ein Ladegerät an.</string>
     <string name="kg_power_fully_charged">Vollständig geladen</string>
     <string name="kg_power_fast_charging">Schnellladen: %d %%</string>
@@ -1755,6 +1777,7 @@ Optimierung"</string>
     <string name="remote_input_send_text">Senden</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Zum Entsperren des Telefons Sperren-Schaltfläche zweimal tippen</string>
     <string name="s_view_cover_toast_pop_up_message">Öffnen Sie das Cover, um die Schnelleinstellungstasten zu verwenden.</string>
     <string name="remote_input_toast_text_on_sview_cover">Schnellantwortfunktion kann nicht verwendet werden, wenn S View Cover geschlossen ist.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Um die Menge der geteilten Leistung zu kontrollieren, müssen Sie die Anwendung herunterladen. Wenn Sie Ihr Gerät mit dem Stromkabel Samsung Power Sharing Cable EP-SG900 ohne die Anwendung mit einem anderen Gerät verbinden, wird die vollständige Akkuleistung auf das andere Gerät übertragen.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Ich stimme zu</string>
-    <string name="force_immersive_guide_text">Durch Tippen auf dieses Symbol, wird die Navigationsleiste ausgeblendet. Sie können die Navigationsschaltflächen weiterhin verwenden, indem Sie vom unteren Bildschirmrand nach oben streichen. Wird die Navigationsleiste angezeigt, können Sie erneut auf dieses Symbol tippen, um sie zu fixieren. Auf einigen Bildschirmen, wie dem Startbildschirm, wird die Navigationsleiste immer angezeigt.</string>
+    <string name="force_immersive_guide_text">Die Navigationsleiste wird ausgeblendet, wenn Sie auf diese Schaltfläche tippen. Sie können die Navigationsschaltflächen weiterhin verwenden, indem Sie vom unteren Bildschirmrand nach oben streichen. Wird die Navigationsleiste angezeigt, können Sie erneut auf diese Schaltfläche tippen, um sie zu fixieren. Auf einigen Bildschirmen, wie dem Startbildschirm, wird die Navigationsleiste immer angezeigt. Wenn eine App sich nicht normal verhält, während die Navigationsleiste ausgeblendet ist, fixieren Sie die Navigationsleiste und starten Sie die App neu.</string>
+    <string name="force_immersive_guide_dialog_title">Navigationsleiste ausblenden:</string>
+    <string name="force_immersive_guide_dialog_message1">Durch Tippen auf diese Schaltfläche wird die Navigationsleiste ausgeblendet.</string>
+    <string name="force_immersive_guide_dialog_message2">Streichen Sie von der Unterkante des Bildschirms nach oben, um die Navigationsleiste anzuzeigen.</string>
+    <string name="force_immersive_guide_dialog_message3">Tippen Sie erneut auf diese Schaltfläche, um sie zu fixieren.</string>
+    <string name="force_immersive_guide_dialog_message4">Auf manchen Bildschirmen, wie z. B auf dem Startbildschirm, wird die Navigationsleiste immer angezeigt.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Wechseln Sie zum Ausblenden dieser Schaltfläche zu „Einstellungen > Anzeige > Navigationsleiste“.</string>
+    <string name="force_immersive_guide_dialog_setting">Einstellungen</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Sicher fahren</string>
     <string name="car_lockscreen_disclaimer_text">Achte stets auf die Straßenverhältnisse und halte dich an die geltenden Gesetze. Routen können unter Umständen fehlerhaft, unvollständig, gefährlich, ungeeignet oder verboten sein oder das Überqueren von Verwaltungsgrenzen erfordern. Informationen zum Unternehmen können ebenfalls fehlerhaft oder unvollständig sein. Die Datenübertragung erfolgt nicht in Echtzeit und die Genauigkeit der Standortangaben kann nicht gewährleistet werden. Bediene während der Fahrt nicht dein Mobilgerät und verwende keine Apps, die du nicht über Android Auto steuern kannst.</string>
     <string name="pip_close">PIP schließen</string>
@@ -2230,6 +2261,8 @@ Falls Sie Ihre PUK nicht wissen, suchen Sie ein Kundendienstzentrum auf."</strin
     <string name="kg_face_retry_content_description">Zur Verwendung der Gesichtserkennung zweimal tippen.</string>
     <string name="kg_face_authentication_error_retry_text">Kein Gesicht erkannt. Für erneute Gesichtserkennung auf Symbol tippen.</string>
     <string name="kg_face_authentication_failed_retry_text">Kein Treffer. Auf das Symbol tippen, um Gesichtserkennung zu verwenden</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Es gab ein Problem mit der Gesichtserkennung. Tippen, um es erneut zu versuchen.</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Die Gesichtserkennung kann während eines Videoanrufs nicht verwendet werden.</string>
     <string name="kg_fingerprint_no_match">Keine Übereinstimmung</string>
     <string name="kg_finger_print_not_responding_error_message">Der Fingerabdrucksensor reagiert nicht. Versuchen Sie es später erneut.</string>
     <string name="kg_finger_print_database_error_message">Die Fingerabdruckdaten sind beschädigt. Legen Sie erneut „Fingerabdruck“ als Sperrbildschirmtyp fest und fügen Sie Ihre Fingerabdrücke neu hinzu, oder ändern Sie den Sperrbildschirmtyp.</string>
@@ -2366,6 +2399,8 @@ Erneuter Versuch in 1 Sekunde"</string>
     <string name="appicon_badge_new_item">1 neues Element</string>
     <string name="banner_apps_for_dex_detail">Erleben Sie DeX-optimierte Apps von Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Es können höchstens %d Elemente verschoben werden.</string>
+    <string name="view_more_in_galaxy_apps">Mehr in Galaxy Apps anzeigen</string>
+    <string name="view_more_in_play_store">Mehr im Play Store anzeigen</string>
     <string name="uninstall_title">Apps deinstallieren?</string>
     <string name="uninstall_1_app_message">Möchten Sie diese App deinstallieren?</string>
     <string name="uninstall_apps_message">Nachfolgende Apps werden deinstalliert:</string>
@@ -2409,6 +2444,13 @@ Erneuter Versuch in 1 Sekunde"</string>
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Benachrichtigung</string>
     <string name="quick_settings_location_detail_device_only">Nur Gerät</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Ladevorgang unterbrochen. Akkutemperatur zu hoch.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Ladevorgang unterbrochen. Akkutemperatur zu niedrig.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Der Ladevorgang des Geräts wurde angehalten. Die Akkutemperatur ist zu hoch. Gehen Sie beim Trennen des Ladegeräts vorsichtig vor. Unter Umständen ist es sehr heiß.
+
+Wenn Sie das Ladegerät trennen und wieder anschließen, kann der Ladevorgang eventuell normal fortgesetzt werden. Falls das Gerät weiterhin überhitzt ist, wenden Sie sich an den Kundendienst, denn es besteht die Gefahr von Bränden oder Verletzungen."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Zum Entsperren Gesichtserkennung verwenden oder über den Bildschirm streichen und stattdessen die Iris verwenden.</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Zum Öffnen Gesichtserkennung verwenden oder über den Bildschirm streichen und stattdessen die Iris verwenden.</string>
     <string name="kg_infinity_wallpaper_option_description">Endloshintergrund wird gleichzeitig auf Startbildschirm und Sperrbildschirm angewendet. Aktivieren Sie die Einstellung unten, um optimale Ergebnisse zu erzielen.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Always On Display aktivieren</string>
     <string name="sview_cover_wday_month_day_no_year">E, MMMM d.</string>

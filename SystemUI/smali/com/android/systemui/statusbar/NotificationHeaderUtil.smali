@@ -171,7 +171,7 @@
 
     sget-object v5, Lcom/android/systemui/statusbar/NotificationHeaderUtil;->mGreyApplicator:Lcom/android/systemui/statusbar/NotificationHeaderUtil$ResultApplicator;
 
-    const v2, 0x102043f
+    const v2, 0x1020448
 
     invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/NotificationHeaderUtil$HeaderProcessor;-><init>(Lcom/android/systemui/statusbar/ExpandableNotificationRow;ILcom/android/systemui/statusbar/NotificationHeaderUtil$DataExtractor;Lcom/android/systemui/statusbar/NotificationHeaderUtil$ViewComparator;Lcom/android/systemui/statusbar/NotificationHeaderUtil$ResultApplicator;)V
 
@@ -189,7 +189,7 @@
 
     sget-object v5, Lcom/android/systemui/statusbar/NotificationHeaderUtil;->sVisibilityApplicator:Lcom/android/systemui/statusbar/NotificationHeaderUtil$VisibilityApplicator;
 
-    const v2, 0x1020446
+    const v2, 0x102044f
 
     const/4 v3, 0x0
 
@@ -201,7 +201,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationHeaderUtil;->mRow:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    const v2, 0x1020440
+    const v2, 0x1020449
 
     invoke-static {v1, v2}, Lcom/android/systemui/statusbar/NotificationHeaderUtil$HeaderProcessor;->forTextView(Lcom/android/systemui/statusbar/ExpandableNotificationRow;I)Lcom/android/systemui/statusbar/NotificationHeaderUtil$HeaderProcessor;
 
@@ -213,7 +213,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationHeaderUtil;->mRow:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    const v2, 0x1020442
+    const v2, 0x102044b
 
     invoke-static {v1, v2}, Lcom/android/systemui/statusbar/NotificationHeaderUtil$HeaderProcessor;->forTextView(Lcom/android/systemui/statusbar/ExpandableNotificationRow;I)Lcom/android/systemui/statusbar/NotificationHeaderUtil$HeaderProcessor;
 
@@ -223,7 +223,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationHeaderUtil;->mDividers:Ljava/util/HashSet;
 
-    const v1, 0x1020441
+    const v1, 0x102044a
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -233,7 +233,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationHeaderUtil;->mDividers:Ljava/util/HashSet;
 
-    const v1, 0x1020443
+    const v1, 0x102044c
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -249,7 +249,7 @@
 
     if-eqz p1, :cond_0
 
-    const v1, 0x102043f
+    const v1, 0x1020448
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -489,7 +489,7 @@
 
     move-result-object v12
 
-    const v13, 0x10503aa
+    const v13, 0x10503ba
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

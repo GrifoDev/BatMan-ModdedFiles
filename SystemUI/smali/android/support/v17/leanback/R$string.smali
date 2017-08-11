@@ -4,17 +4,17 @@
 
 
 # static fields
-.field public static final lb_date_separator:I = 0x7f0f021a
+.field public static final lb_date_separator:I = 0x7f0f0277
 
-.field public static final lb_search_bar_hint:I = 0x7f0f01fb
+.field public static final lb_search_bar_hint:I = 0x7f0f0258
 
-.field public static final lb_search_bar_hint_speech:I = 0x7f0f01fc
+.field public static final lb_search_bar_hint_speech:I = 0x7f0f0259
 
-.field public static final lb_search_bar_hint_with_title:I = 0x7f0f01fd
+.field public static final lb_search_bar_hint_with_title:I = 0x7f0f025a
 
-.field public static final lb_search_bar_hint_with_title_speech:I = 0x7f0f01fe
+.field public static final lb_search_bar_hint_with_title_speech:I = 0x7f0f025b
 
-.field public static final lb_time_separator:I = 0x7f0f021b
+.field public static final lb_time_separator:I = 0x7f0f0278
 
 
 # direct methods

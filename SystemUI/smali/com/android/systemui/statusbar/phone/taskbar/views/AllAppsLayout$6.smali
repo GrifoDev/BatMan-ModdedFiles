@@ -3,12 +3,12 @@
 .source "AllAppsLayout.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/view/View$OnScrollChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showUnintallConfirmationForList(Ljava/lang/String;Ljava/util/ArrayList;)V
+    value = Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->makeAllAppsView()Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,14 +34,29 @@
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+.method public onScrollChange(Landroid/view/View;IIII)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$6;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
-    const/4 v1, 0x0
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-get5(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-set1(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Lcom/android/systemui/statusbar/phone/SystemUIDialog;)Lcom/android/systemui/statusbar/phone/SystemUIDialog;
+    move-result-object v0
 
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->isAppsLayoutVisible()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$6;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-get5(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeContextMenu()V
+
+    :cond_0
     return-void
 .end method

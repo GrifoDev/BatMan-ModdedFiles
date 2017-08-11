@@ -86,7 +86,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v1}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
+    invoke-static {v1}, Lcom/android/systemui/swipe/SwipeAnimator;->-get8(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
 
     move-result-object v1
 

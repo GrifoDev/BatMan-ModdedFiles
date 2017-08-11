@@ -944,7 +944,7 @@
 
     iget-object v3, p0, Lcom/android/keyguard/KeyguardFMMView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10409fd
+    const v4, 0x1040a06
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

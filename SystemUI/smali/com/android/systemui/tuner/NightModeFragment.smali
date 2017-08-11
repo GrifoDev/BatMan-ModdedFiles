@@ -279,7 +279,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0400e8
+    const v2, 0x7f0400ec
 
     const/4 v3, 0x0
 
@@ -578,7 +578,7 @@
 
     invoke-super {p0, p1, p2}, Landroid/support/v14/preference/PreferenceFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v1, 0x7f1304c6
+    const v1, 0x7f1304d0
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

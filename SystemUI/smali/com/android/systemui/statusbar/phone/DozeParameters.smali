@@ -397,12 +397,6 @@
 
     move-result v0
 
-    const-string v1, "doze_pulse_duration_in_pickup"
-
-    invoke-static {v1, v0}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
     :goto_0
     return v0
 
@@ -412,12 +406,6 @@
     const v1, 0x7f0c0067
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
-    const-string v1, "doze_pulse_duration_in"
-
-    invoke-static {v1, v0}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
     move-result v0
 
@@ -449,12 +437,6 @@
 
     move-result v0
 
-    const-string v1, "doze_pulse_pickup"
-
-    invoke-static {v1, v0}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
     return v0
 .end method
 
@@ -483,12 +465,6 @@
 
     move-result v0
 
-    const-string v1, "doze_pulse_duration_out"
-
-    invoke-static {v1, v0}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
     return v0
 .end method
 
@@ -497,7 +473,7 @@
 
     const-string/jumbo v1, "doze.pulse.schedule"
 
-    const v2, 0x7f0f0247
+    const v2, 0x7f0f02a4
 
     invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getString(Ljava/lang/String;I)Ljava/lang/String;
 
@@ -559,21 +535,17 @@
 
     move-result v0
 
-    const-string v1, "doze_pulse_duration_visible"
-
-    invoke-static {v1, v0}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
     return v0
 .end method
 
 .method public getVibrateOnPickup()Z
     .locals 2
 
-    const-string/jumbo v0, "doze_vibrate_pickup"
+    const-string/jumbo v0, "doze.vibrate.pickup"
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 

@@ -67,8 +67,8 @@
     <string name="servicebox_accessibility_missing_next_alarm">Níl aon aláraim ann do na 7 lá amach anseo</string>
     <string name="clear_cover_servicebox_music_unknown">Anaithnid</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$du %2$dn</string>
-    <string name="battery_history_minutes_no_seconds">%dn</string>
+    <string name="battery_history_hours_no_seconds">%1$d uair %2$d nóim</string>
+    <string name="battery_history_minutes_no_seconds">%d nóim</string>
     <string name="wifi_failed_to_obtain_IP">Theip ar fháil sheoladh IP.</string>
     <string name="wifi_unknown_security_type">Cineál slándála anaithnid.</string>
     <string name="wifi_disabled_no_internet">Níl an tIdirlíon ar fáil</string>
@@ -112,6 +112,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Nascadh le %s dodhéanta.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Nascadh le %1$s dodhéanta. Seiceáil do shocruithe in %2$s agus triail arís.</string>
     <string name="bluetooth_pairing_rejected_error_message">Dhiúltaigh %s don phéireáil.</string>
+    <string name="bluetooth_getting_remote_device_name">Ainm an ghléis á fháil…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Taispeánfar ainm an ghléis nuair a bhíonn an gléas seo nasctha.</string>
     <string name="tether_settings_title_all">Ball te móibíleach agus nascaireacht</string>
     <string name="tts_settings_title">Téacs-go-teanga</string>
     <string name="tts_default_rate_title">Ráta labhartha</string>
@@ -530,6 +532,7 @@ Taispeánfar an t-íocón Glaoch Wi-Fi sa phainéal fógraí de réir mar a thai
     <string name="wifi_ap_wifi_p2p_off_warn">Dínascfar aon ghléas atá nasctha faoi láthair le Wi-Fi Direct má chumasaítear Ball te móibíleach.</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Dínascfar an gléas atá nasctha trí WLAN Direct má chumasaítear Ball te inaistrithe WLAN.</string>
     <string name="dialog_battery_data_warning">Cumasófar Ball Te Móibíleach. Cuirfidh sé sin méadú ar ídiú an cheallra agus ar úsáid sonraí.</string>
+    <string name="keyboard_popup_help">Meiteochair: An eochair Windows, an eochair Ordaithe, nó eochair shiombaile eile den chóras oibriúcháin.</string>
     <string name="keyboard_shortcut_group_system">Aicearraí córais</string>
     <string name="keyboard_shortcut_group_system_back">Siar</string>
     <string name="keyboard_shortcut_group_system_all_apps">Gach feidhmchlár</string>
@@ -611,8 +614,8 @@ Taispeánfar an t-íocón Glaoch Wi-Fi sa phainéal fógraí de réir mar a thai
 
 Le cosaint in aghaidh damáiste uisce, cinntigh go bhfuil tráidire an chárta SIM/SD séalaithe go daingean."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Le cosaint in aghaidh damáiste uisce, cinntigh go bhfuil tráidire an chárta SIM/SD séalaithe go daingean.</string>
-    <string name="water_protection_notification_title">Seiceáil an port</string>
-    <string name="water_protection_notification_body">Tá taise braite. Le do ghléas a luchtú, cinntigh go bhfuil do phort luchtaire/USB tirim.</string>
+    <string name="water_protection_notification_title">Díphlugáil an luchtaire</string>
+    <string name="water_protection_notification_body">Tá taise braite. Díphlugáil an luchtaire agus cinntigh go bhfuil idir an luchtaire agus an port USB tirim.</string>
     <string name="full_battery_title">Faisnéis</string>
     <string name="full_battery_noti_text">Ceallra lánluchtaithe.</string>
     <string name="cooling_title">Tá an gléas róthe</string>
@@ -706,6 +709,7 @@ Is féidir go n-éiríonn sé róthe ar na cúiseanna seo a leanas:
     <string name="battery_not_fully_connected_charging_title">Luchtú mall</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Le luchtú níos tapa, úsáid an luchtaire arna sholáthar le do ghléas agus cinntigh go bhfuil sé ceangailte i gceart.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Cinntigh go bhfuil an luchtaire ceangailte i gceart. Úsáid an luchtaire arna sholáthar leis an ngléas.</string>
     <string name="battery_charging_level_and_time_text">"Luchtú: %1$d%%
 (Thart ar %2$s go dtí go mbeidh sé lánluchtaithe)"</string>
@@ -719,14 +723,20 @@ Is féidir go n-éiríonn sé róthe ar na cúiseanna seo a leanas:
     <string name="battery_saver_recommend_notification_text_phone_psm">"Luchtaigh d'fhón."</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Luchtaigh do tháibléad.</string>
     <string name="button_close">Dún</string>
-    <string name="battery_health_interruption_title">Luchtú dodhéanta</string>
+    <string name="battery_health_interruption_title">Luchtú stoptha</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Díphlugáil an luchtaire</string>
     <string name="battery_health_interruption_by_terminal_open_text">Ní féidir do ghléas a athrú. Cinntigh go bhfuil ceallra agus luchtaire a oireann le Samsung in úsáid agat agus go bhfuil do ghléas nasctha i gceart leis an luchtaire.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Luchtú ar sos. Teocht an cheallra ró-ard.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Luchtú ar sos. Teocht an cheallra ró-íseal.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Luchtú an ghléis scortha. Tá teocht an cheallra ró-ard. Bí cúramach agus an ceallra á dhícheangal. D'fhéadfadh sé a bheith an-te.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">"Tá teocht d'fhóin ró-ard. Leanfar leis an luchtú nuair a bheidh d'fhón ag a ghnáth-theocht arís."</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Tá teocht do tháibléid ró-ard. Leanfar leis an luchtú nuair a bheidh do tháibléad ag a ghnáth-theocht arís.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">"Tá teocht d'fhóin ró-íseal. Leanfar leis an luchtú nuair a bheidh d'fhón ag a ghnáth-theocht arís."</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Tá teocht do tháibléid ró-íseal. Leanfar leis an luchtú nuair a bheidh do tháibléad ag a ghnáth-theocht arís.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Tá luchtú stoptha. Tá teocht d'fhóin ró-ard. Bí cúramach agus tú ag dínascadh an luchtaire. Is féidir go mbeidh sé an-te.
 
-Má dhéantar an luchtaire a dhícheangal agus a athcheangal is féidir leanúint le luchtú mar is gnách. Má bhíonn sé fós ró-the, glaoigh ar sheirbhísí do chustaiméirí toisc baol dóiteáin nó díobhála."</string>
+Is féidir go mbeifear in ann leanúint leis an luchtú mar is gnách má dhéantar an luchtaire a dhícheangal agus athcheangal. Má leanann leis an róthéamh, déan teagmháil le Seirbhís do chustaiméirí mar d'fhéadfadh baol dóiteáin nó gortaithe a bheith ann."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Tá luchtú stoptha. Tá teocht do tháibléid ró-ard. Bí cúramach agus tú ag dínascadh an luchtaire. Is féidir go mbeidh sé an-te.
+
+Is féidir go mbeifear in ann leanúint leis an luchtú mar is gnách má dhéantar an luchtaire a dhícheangal agus athcheangal. Má leanann leis an róthéamh, déan teagmháil le Seirbhís do chustaiméirí mar d'fhéadfadh baol dóiteáin nó gortaithe a bheith ann."</string>
     <string name="incompatible_charger_title">Níl sé ag luchtú.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -742,8 +752,6 @@ Le nach dtaispeánfar an mhír aníos seo amach anseo, cinntigh nach bhfuil an b
     <string name="kg_biometrics_swipe_active_instructions">Úsáid bithmhéadracht nó svaidhpeáil an scáileán le hoscailt</string>
     <string name="kg_face_or_swipe_unlock_instructions">Úsáid aithint aghaidhe nó svaidhpeáil an scáileán le díghlasáil</string>
     <string name="kg_face_or_swipe_active_instructions">Úsáid aithint aghaidhe nó svaidhpeáil an scáileán le hoscailt</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Úsáid aithint aghaidhe le díghlasáil nó svaidhpeáil an scáileán le hinteacháin a úsáid ina ionad sin</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Úsáid aithint aghaidhe le hoscailt nó svaidhpeáil an scáileán le hinteacháin a úsáid ina ionad sin</string>
     <string name="kg_face_unlock_instructions">Svaidhpeáil an scáileán le díghlasáil le haithint aghaidhe</string>
     <string name="kg_face_or_fingerprint_active_instructions">Úsáid méarloirg le hoscailt nó svaidhpeáil an scáileán le haithint aghaidhe a úsáid ina ionad sin</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Úsáid méarlorg le díghlasáil nó svaidhpeáil an scáileán le haithint aghaidhe a úsáid ina ionad sin</string>
@@ -758,6 +766,20 @@ Le nach dtaispeánfar an mhír aníos seo amach anseo, cinntigh nach bhfuil an b
     <string name="kg_voice_assistant_unlock_instructions">Svaidhpeáil le dhá mhéar leis an scáileán a dhíghlasáil</string>
     <string name="kg_swipe_active_instructions">Svaidhpeáil an scáileán le hoscailt</string>
     <string name="kg_swipe_unlock_instructions">Svaidhpeáil an scáileán le díghlasáil</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Úsáid bithmhéadracht nó svaidhpeáil an scáileán le dhá mhéar le díghlasáil.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Úsáid bithmhéadracht nó svaidhpeáil an scáileán le dhá mhéar le hoscailt.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Úsáid aithint aghaidhe nó svaidhpeáil an scáileán le dhá mhéar le díghlasáil.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Úsáid aithint aghaidhe nó svaidhpeáil an scáileán le dhá mhéar le hoscailt.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Svaidhpeáil an scáileán le dhá mhéar le díghlasáil le haithint aghaidhe.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Úsáid méarlorg le hoscailt nó svaidhpeáil an scáileán le dhá mhéar le haithint aghaidhe a úsáid.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Úsáid méarlorg le díghlasáil nó svaidhpeáil an scáileán le dhá mhéar le haithint aghaidhe a úsáid.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Úsáid méarlorg le hoscailt nó svaidhpeáil an scáileán le dhá mhéar le hinteacháin a úsáid.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Úsáid méarlorg le díghlasáil nó svaidhpeáil an scáileán le dhá mhéar le hinteacháin a úsáid.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Úsáid méarlorg nó svaidhpeáil an scáileán le dhá mhéar le hoscailt.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Úsáid méarlorg nó svaidhpeáil an scáileán le dhá mhéar le díghlasáil.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Svaidhpeáil an scáileán le dhá mhéar le hinteacháin a úsáid le díghlasáil.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Úsáid inteacháin nó svaidhpeáil an scáileán le dhá mhéar le díghlasáil.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Úsáid inteacháin nó svaidhpeáil an scáileán le dhá mhéar le hoscailt.</string>
     <string name="kg_power_connect_charger">Ceangail luchtaire</string>
     <string name="kg_power_fully_charged">Lánluchtaithe</string>
     <string name="kg_power_fast_charging">Mearluchtú: %d%%</string>
@@ -841,6 +863,7 @@ suas UHQ"</string>
     <string name="remote_input_send_text">Seol</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Déthapáil an cnaipe Glasáil leis an bhfón a dhíghlasáil</string>
     <string name="s_view_cover_toast_pop_up_message">Oscail clúdach le cnaipí mearshocruithe a úsáid.</string>
     <string name="remote_input_toast_text_on_sview_cover">Ní féidir an fheidhm Mearfhreagairt a úsáid agus an S View Cover dúnta.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -877,7 +900,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Glacaim leis</string>
-    <string name="force_immersive_guide_text">Folaítear an barra nascleanúna ar thapáil an íocóin seo. Is féidir leat na cnaipí nascleanúna a úsáid go fóill trí svaidhpeáil aníos ó bhun an scáileáin. Agus an barra nascleanúna ar taispeáint, is féidir leat an t-íocón seo a thapáil arís lena ghlasáil ina áit. Ar roinnt scáileán, amhail an Scáileán baile, taispeánfar an barra nascleanúna i gcónaí.</string>
+    <string name="force_immersive_guide_text">Folaítear an barra nascleanúna ar thapáil an chnaipe seo. Is féidir leat na cnaipí nascleanúna a úsáid go fóill trí svaidhpeáil aníos ó bhun an scáileáin. Agus an barra nascleanúna ar taispeáint, is féidir leat an cnaipe seo a thapáil arís lena ghlasáil ina áit. Ar roinnt scáileán, amhail an Scáileán baile, taispeánfar an barra nascleanúna i gcónaí. Mura n-oibríonn feidhmchlár i gceart agus an barra nascleanúna folaithe, glasáil an barra nascleanúna ina áit agus atosaigh an feidhmchlár.</string>
+    <string name="force_immersive_guide_dialog_title">Folaigh an barra nascleanúna:</string>
+    <string name="force_immersive_guide_dialog_message1">Folaítear an barra nascleanúna tríd an gcnaipe seo a thapáil.</string>
+    <string name="force_immersive_guide_dialog_message2">Svaidhpeáil aníos ó bhun an scáileáin leis an mbarra nascleanúna a thaispeáint.</string>
+    <string name="force_immersive_guide_dialog_message3">Tapáil an cnaipe seo arís lena ghlasáil ina áit.</string>
+    <string name="force_immersive_guide_dialog_message4">Ar roinnt scáileán, amhail an Scáileán baile, taispeánfar an barra nascleanúna i gcónaí.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Leis an gcnaipe seo a fholú, gabh chuig Socruithe > Taispeáint > Barra nascleanúna.</string>
+    <string name="force_immersive_guide_dialog_setting">Socruithe</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="keyguard_password_enter_pin_code">Scríobh cód PIN</string>
     <string name="keyguard_password_wrong_pin_code">Cód PIN mícheart.</string>
     <string name="keyguard_charged">Lánluchtaithe</string>
@@ -1249,6 +1280,8 @@ Murab eol duit do PUK, gabh chuig ionad seirbhíse do chustaiméirí."</string>
     <string name="kg_face_retry_content_description">Déthapáil le haithint aghaidhe a úsáid.</string>
     <string name="kg_face_authentication_error_retry_text">Níor braitheadh aon aghaidh. Tapáil an t-íocón le haithint aghaidhe a thriail arís</string>
     <string name="kg_face_authentication_failed_retry_text">Gan mheaitseáil. Tapáil an t-íocón le haithint aghaidhe a úsáid</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Bhí fadhb ann le haithint aghaidhe. Tapáil le triail arís</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Ní féidir aithint aghaidhe a úsáid le linn glaonna físe</string>
     <string name="kg_fingerprint_no_match">Níl meaits ann</string>
     <string name="kg_finger_print_not_responding_error_message">Níl an braiteoir méarloirg ag freagairt. Triail arís ar ball.</string>
     <string name="kg_finger_print_database_error_message">Truaillíodh na sonraí méarloirg. Athshocraigh Méarlorg mar an gcineál glais scáileáin agus cuir do mhéarloirg leis arís, nó athraigh an cineál glais scáileáin.</string>
@@ -1385,6 +1418,8 @@ Triail arís i gceann 1 soicind"</string>
     <string name="appicon_badge_new_item">1 mhír nua</string>
     <string name="banner_apps_for_dex_detail">Bain sult as feidhmchlár ó Galaxy Apps atá optamaithe do DeX.</string>
     <string name="toast_cannot_move_more_than_items">Ní féidir níos mó ná %d mír a bhogadh.</string>
+    <string name="view_more_in_galaxy_apps">Féach tuilleadh in Galaxy Apps</string>
+    <string name="view_more_in_play_store">Féach tuilleadh in Play Store</string>
     <string name="uninstall_title">Díshuiteáil feidhmchláir?</string>
     <string name="uninstall_1_app_message">An mian leat an feidhmchlár seo a dhíshuiteáil?</string>
     <string name="uninstall_apps_message">Díshuiteálfar na feidhmchláir seo a leanas:</string>
@@ -1428,6 +1463,13 @@ Triail arís i gceann 1 soicind"</string>
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Fógra</string>
     <string name="quick_settings_location_detail_device_only">Gléas amháin</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Luchtú ar sos. Teocht an cheallra ró-ard.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Luchtú ar sos. Teocht an cheallra ró-íseal.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Luchtú an ghléis scortha. Tá teocht an cheallra ró-ard. Bí cúramach agus an ceallra á dhícheangal. D'fhéadfadh sé a bheith an-te.
+
+Má dhéantar an luchtaire a dhícheangal agus a athcheangal is féidir leanúint le luchtú mar is gnách. Má bhíonn sé fós ró-the, glaoigh ar sheirbhísí do chustaiméirí toisc baol dóiteáin nó díobhála."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Úsáid aithint aghaidhe le díghlasáil nó svaidhpeáil an scáileán le hinteacháin a úsáid ina ionad sin</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Úsáid aithint aghaidhe le hoscailt nó svaidhpeáil an scáileán le hinteacháin a úsáid ina ionad sin</string>
     <string name="kg_infinity_wallpaper_option_description">Cuirfear an cúlbhrat éigríche i bhfeidhm ar do Scáileán baile agus ar do Scáileán glasála ag an am céanna. Cas air an socrú thíos leis an úsáid is fearr a fháil.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Cas air Always On Display</string>
 </resources>

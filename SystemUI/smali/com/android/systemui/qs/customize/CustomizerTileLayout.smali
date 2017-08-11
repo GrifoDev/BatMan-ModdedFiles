@@ -179,7 +179,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mParent:Landroid/view/ViewGroup;
 
-    const v2, 0x7f040116
+    const v2, 0x7f04011a
 
     const/4 v3, 0x0
 
@@ -326,7 +326,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04010c
+    const v5, 0x7f040110
 
     invoke-virtual {v4, v5, p0, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -359,7 +359,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04010d
+    const v5, 0x7f040111
 
     invoke-virtual {v4, v5, p0, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -396,7 +396,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f040111
+    const v5, 0x7f040115
 
     invoke-virtual {v4, v5, p0, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -2692,7 +2692,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d024e
+    const v8, 0x7f0d024f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2700,7 +2700,7 @@
 
     iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mDividerHeight:I
 
-    const v7, 0x7f0d0298
+    const v7, 0x7f0d0299
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2708,7 +2708,7 @@
 
     iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mTopPadding:I
 
-    const v7, 0x7f0d0299
+    const v7, 0x7f0d029a
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2726,7 +2726,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d0239
+    const v8, 0x7f0d023a
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2740,7 +2740,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d0227
+    const v8, 0x7f0d0228
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2748,7 +2748,7 @@
 
     iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
 
-    const v7, 0x7f0d023a
+    const v7, 0x7f0d023b
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2756,7 +2756,7 @@
 
     iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
 
-    const v7, 0x7f0d0247
+    const v7, 0x7f0d0248
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2764,7 +2764,7 @@
 
     iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mTileIconSize:I
 
-    const v7, 0x7f0d029f
+    const v7, 0x7f0d02a0
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2860,25 +2860,6 @@
     goto/16 :goto_1
 
     :pswitch_1
-    const v7, 0x7f0d0229
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v7
-
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
-
-    const v7, 0x7f0d0234
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v7
-
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
-
-    goto/16 :goto_2
-
-    :pswitch_2
     const v7, 0x7f0d022a
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -2897,7 +2878,7 @@
 
     goto/16 :goto_2
 
-    :pswitch_3
+    :pswitch_2
     const v7, 0x7f0d022b
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -2916,7 +2897,7 @@
 
     goto/16 :goto_2
 
-    :pswitch_4
+    :pswitch_3
     const v7, 0x7f0d022c
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -2935,7 +2916,7 @@
 
     goto/16 :goto_2
 
-    :pswitch_5
+    :pswitch_4
     const v7, 0x7f0d022d
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -2945,6 +2926,25 @@
     iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
     const v7, 0x7f0d0238
+
+    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v7
+
+    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
+
+    goto/16 :goto_2
+
+    :pswitch_5
+    const v7, 0x7f0d022e
+
+    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v7
+
+    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
+
+    const v7, 0x7f0d0239
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -160,7 +160,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0424
+    const v1, 0x7f0d0425
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -242,7 +242,7 @@
 .method public bindViews(Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f1303f7
+    const v0, 0x7f130403
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -339,7 +339,7 @@
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    const v1, 0x7f1301e9
+    const v1, 0x7f1301f2
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -355,7 +355,7 @@
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    const v1, 0x7f1301e8
+    const v1, 0x7f1301f1
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

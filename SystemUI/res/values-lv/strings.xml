@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Nezināms</string>
     <string name="save">Saglabāt</string>
     <string name="ok">Labi</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$dh %2$dmin</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Nevar skenēt tīklus</string>
     <string name="wifi_failed_to_obtain_IP">Neizdevās iegūt IP adresi.</string>
     <string name="wifi_security_none">Nav</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Nevar izveidot savienojumu ar %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Nevar izveidot savienojumu ar %1$s. Pārbaudiet savus %2$s iestatījumus un mēģiniet vēlreiz.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s noraidīja savienošanu pārī.</string>
+    <string name="bluetooth_getting_remote_device_name">Iegūst ierīces nosaukumu…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Kad ierīce būs savienota, tiks parādīts ierīces nosaukums.</string>
     <string name="accessibility_wifi_off">Wi-Fi savienojums izslēgts</string>
     <string name="accessibility_no_wifi">Wi-Fi savienojums pārtraukts</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi: viena josla</string>
@@ -556,7 +558,7 @@ For example, your ringtone will not sound, you will not be able to answer phone 
     <string name="accessibility_back">Atpakaļ</string>
     <string name="accessibility_home">Sākums</string>
     <string name="accessibility_menu">Izvēlne</string>
-    <string name="sec_accessibility_recent">Pēd. lietot.</string>
+    <string name="sec_accessibility_recent">Pēdējie</string>
     <string name="accessibility_camera_button">Kamera</string>
     <string name="accessibility_phone_button">Tālruņa numurs</string>
     <string name="accessibility_voice_assist_button">Balss palīgs</string>
@@ -1364,6 +1366,7 @@ Lai iegūtu plašāku informāciju, sazinieties ar administratoru."</string>
     <string name="keyboard_key_insert">Ievietošanas taustiņš</string>
     <string name="keyboard_key_num_lock">Ciparslēga taustiņš</string>
     <string name="keyboard_key_numpad_template">Cipartastatūra %1$s</string>
+    <string name="keyboard_popup_help">Meta taustiņš: Windows, Command vai cits operētājsistēmas simbola taustiņš.</string>
     <string name="keyboard_shortcut_group_system">Sistēmas īsceļi</string>
     <string name="keyboard_shortcut_group_system_home">Sākums</string>
     <string name="keyboard_shortcut_group_system_recents">Pēdējie</string>
@@ -1525,8 +1528,8 @@ Lai iegūtu plašāku informāciju, sazinieties ar administratoru."</string>
 
 Lai pasargātu ierīci no ūdens radītiem bojājumiem, pārliecinieties, vai SIM/SD kartes turētājs ir cieši aizvērts."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Lai izvairītos no ūdens radītiem bojājumiem, pārliecinieties, vai SIM/SD kartes turētājs ir stingri aizvērts.</string>
-    <string name="water_protection_notification_title">Pārbaudiet portu</string>
-    <string name="water_protection_notification_body">Noteikts mitrums. Lai uzlādētu ierīci, pārliecinieties, vai lādētāja/USB ports ir sauss.</string>
+    <string name="water_protection_notification_title">Atvienojiet lādētāju</string>
+    <string name="water_protection_notification_body">Noteikts mitrums. Atvienojiet lādētāju un pārliecinieties, vai lādētājs un USB ports ir sausi.</string>
     <string name="full_battery_title">Informācija</string>
     <string name="full_battery_noti_text">Akumulators uzlādēts.</string>
     <string name="cooling_title">Ierīce sāk pārkarst</string>
@@ -1620,6 +1623,7 @@ Pārkaršanu var izraisīt:
     <string name="battery_not_fully_connected_charging_title">Lēna uzlāde</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Lai nodrošinātu ātrāku uzlādi, izmantojiet ierīces komplektācijā iekļauto lādētāju un pārliecinieties, vai tas ir pareizi pievienots.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Pārliecinieties, vai lādētājs ir pareizi pievienots. Izmantojiet ierīces komplektācijā iekļauto lādētāju.</string>
     <string name="battery_charging_level_and_time_text">"Notiek uzlāde: %1$d%%
 (līdz pilnai uzlādei atlikuši aptuveni %2$s)"</string>
@@ -1633,12 +1637,18 @@ Pārkaršanu var izraisīt:
     <string name="battery_saver_recommend_notification_text_phone_psm">Uzlādējiet tālruni.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Uzlādējiet planšetdat.</string>
     <string name="button_close">Aizvērt</string>
-    <string name="battery_health_interruption_title">Nevar uzlādēt</string>
+    <string name="battery_health_interruption_title">Uzlāde pārtraukta</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Atvienojiet lādētāju</string>
     <string name="battery_health_interruption_by_terminal_open_text">Nevar uzlādēt jūsu ierīci. Pārliecinieties, ka jūs lietojat ar Samsung savietojamu akumulatoru un lādētāju un ka jūsu ierīce ir pareizi savienota ar lādētāju.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Uzlāde apturēta. Akumulatora temperatūra ir par augstu.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Uzlāde apturēta. Akumulatora temperatūra ir par zemu.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Ierīces uzlāde ir apturēta. Akumulatora temperatūra ir pārāk augsta. Esiet uzmanīgs, atvienojot lādētāju. Tas var būt ļoti karsts.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Tālruņa temperatūra ir pārāk augsta. Uzlāde tiks turpināta, kad temperatūra atgriezīsies normālā līmenī.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Planšetdatora temperatūra ir pārāk augsta. Uzlāde tiks turpināta, kad temperatūra atgriezīsies normālā līmenī.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Tālruņa temperatūra ir pārāk zema. Uzlāde tiks turpināta, kad temperatūra atgriezīsies normālā līmenī.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Planšetdatora temperatūra ir pārāk zema. Uzlāde tiks turpināta, kad temperatūra atgriezīsies normālā līmenī.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Uzlāde ir pārtraukta. Tālruņa temperatūra ir pārāk augsta. Esiet uzmanīgs, atvienojot lādētāju. Tas var būt ļoti karsts.
+
+Atvienojot un vēlreiz pievienojot lādētāju, uzlāde var tikt turpināta kā parasti. Ja pārkaršana turpinās, sazinieties ar klientu apkalpošanas centru, jo pastāv aizdegšanās vai savainošanās risks."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Uzlāde ir pārtraukta. Planšetdatora temperatūra ir pārāk augsta. Esiet uzmanīgs, atvienojot lādētāju. Tas var būt ļoti karsts.
 
 Atvienojot un vēlreiz pievienojot lādētāju, uzlāde var tikt turpināta kā parasti. Ja pārkaršana turpinās, sazinieties ar klientu apkalpošanas centru, jo pastāv aizdegšanās vai savainošanās risks."</string>
     <string name="incompatible_charger_title">Netiek uzlādēts.</string>
@@ -1656,8 +1666,6 @@ Lai novērstu atkārtotu šī uznirstošā paziņojuma parādīšanu, pārliecin
     <string name="kg_biometrics_swipe_active_instructions">Lai atvērtu, izmantojiet biometriju vai pavelciet ekrānu</string>
     <string name="kg_face_or_swipe_unlock_instructions">Lai atbloķētu, izmantojiet sejas atpazīšanu vai pavelciet ekrānu</string>
     <string name="kg_face_or_swipe_active_instructions">Lai atvērtu, izmantojiet sejas atpazīšanu vai pavelciet ekrānu</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Lietojiet sejas atpazīšanu, lai atbloķētu, vai pavelciet ekrānu, lai izmantotu varavīksnenes</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Lietojiet sejas atpazīšanu, lai atvērtu, vai pavelciet ekrānu, lai izmantotu varavīksnenes</string>
     <string name="kg_face_unlock_instructions">Pavelciet ekrānu, lai atbloķētu ar sejas atpazīšanu</string>
     <string name="kg_face_or_fingerprint_active_instructions">Izmantojiet pirksta nospiedumu, lai atvērtu, vai pavelciet ekrānu, lai tā vietā izmantotu sejas atpazīšanu</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Izmantojiet pirksta nospiedumu, lai atbloķētu, vai pavelciet ekrānu, lai tā vietā izmantotu sejas atpazīšanu</string>
@@ -1672,6 +1680,20 @@ Lai novērstu atkārtotu šī uznirstošā paziņojuma parādīšanu, pārliecin
     <string name="kg_voice_assistant_unlock_instructions">Lai atbloķētu ekrānu, velciet ar diviem pirkstiem.</string>
     <string name="kg_swipe_active_instructions">Pavelciet pār ekrānu, lai atvērtu</string>
     <string name="kg_swipe_unlock_instructions">Velciet pār ekrānu, lai atbloķētu</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Lai atbloķētu, izmantojiet biometrijas datus vai pavelciet ekrānu ar diviem pirkstiem.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Lai atvērtu, izmantojiet biometrijas datus vai pavelciet ekrānu ar diviem pirkstiem.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Lai atbloķētu, izmantojiet sejas atpazīšanu vai pavelciet ekrānu ar diviem pirkstiem.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Lai atvērtu, izmantojiet sejas atpazīšanu vai pavelciet ekrānu ar diviem pirkstiem.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Pavelciet ekrānu ar diviem pirkstiem, lai atbloķētu, izmantojot sejas atpazīšanu.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Izmantojiet pirksta nospiedumu, lai atvērtu, vai pavelciet ekrānu ar diviem pirkstiem, lai izmantotu sejas atpazīšanu.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Izmantojiet pirksta nospiedumu, lai atbloķētu, vai pavelciet ekrānu ar diviem pirkstiem, lai izmantotu sejas atpazīšanu.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Izmantojiet pirksta nospiedumu, lai atvērtu, vai pavelciet ekrānu ar diviem pirkstiem, lai izmantotu varavīksnenes.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Izmantojiet pirksta nospiedumu, lai atbloķētu, vai pavelciet ekrānu ar diviem pirkstiem, lai izmantotu varavīksnenes.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Lai atvērtu, izmantojiet pirksta nospiedumu vai pavelciet ekrānu ar diviem pirkstiem.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Lai atbloķētu, izmantojiet pirksta nospiedumu vai pavelciet ekrānu ar diviem pirkstiem.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Pavelciet ekrānu ar diviem pirkstiem, lai atbloķēšanai izmantotu varavīksnenes.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Lai atbloķētu, izmantojiet varavīksnenes vai pavelciet ekrānu ar diviem pirkstiem.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Lai atvērtu, izmantojiet varavīksnenes vai pavelciet ekrānu ar diviem pirkstiem.</string>
     <string name="kg_power_connect_charger">Pievienojiet lādētāju</string>
     <string name="kg_power_fully_charged">Pilnībā uzlādēts</string>
     <string name="kg_power_fast_charging">Ātrā uzlāde: %d%%</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Sūtīt</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Lai atbloķētu tālruni, veiciet dubultskārienu pie bloķēšanas pogas</string>
     <string name="s_view_cover_toast_pop_up_message">Atveriet pārsegu, lai izmantotu ātro iestatījumu pogas.</string>
     <string name="remote_input_toast_text_on_sview_cover">Ātrās atbildes funkciju nevar izmantot, ja S View vāks ir aizvērts.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Lai kontrolētu koplietoto jaudu, ir jālejupielādē lietotne. Ja ierīci savieno ar citu ierīci, izmantojot Samsung kabeli Power Sharing EP-SG900 bez šīs lietotnes, uz otru ierīci tiks pārsūtīta visa akumulatora jauda.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Piekrītu</string>
-    <string name="force_immersive_guide_text">Pieskaroties šai ikonai, navigācijas josla tiek paslēpta. Jūs joprojām varat izmantot navigācijas pogas, pavelkot uz augšu no ekrāna apakšdaļas. Kad navigācijas josla ir redzama, varat pieskarties šai ikonai vēlreiz, lai fiksētu to vietā. Dažos ekrānos, piemēram, sākuma ekrānā, navigācijas josla ir redzama vienmēr.</string>
+    <string name="force_immersive_guide_text">Pieskaroties šai pogai, navigācijas josla tiek paslēpta. Jūs joprojām varat izmantot navigācijas pogas, pavelkot uz augšu no ekrāna apakšdaļas. Kad navigācijas josla ir redzama, varat pieskarties šai pogai vēlreiz, lai fiksētu to vietā. Dažos ekrānos, piemēram, sākuma ekrānā, navigācijas josla ir redzama vienmēr. Ja kāda no programmām nedarbojas pareizi, kad navigācijas josla ir paslēpta, fiksējiet navigācijas joslu vietā un restartējiet programmu.</string>
+    <string name="force_immersive_guide_dialog_title">Slēpt navigācijas joslu:</string>
+    <string name="force_immersive_guide_dialog_message1">Pieskaroties šai pogai, navigācijas josla tiek paslēpta.</string>
+    <string name="force_immersive_guide_dialog_message2">Lai parādītu navigācijas joslu, pavelciet augšup no ekrāna apakšdaļas.</string>
+    <string name="force_immersive_guide_dialog_message3">Vēlreiz pieskarieties šai pogai, lai to fiksētu vietā.</string>
+    <string name="force_immersive_guide_dialog_message4">Dažos ekrānos, piemēram, sākuma ekrānā, navigācijas josla ir redzama vienmēr.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Lai paslēptu šo pogu, izvēlieties Iestatījumi > Displejs > Navigācijas josla.</string>
+    <string name="force_immersive_guide_dialog_setting">Iestatījumi</string>
+    <string name="force_immersive_guide_dialog_ok">Labi</string>
     <string name="car_lockscreen_disclaimer_title">Droša braukšana</string>
     <string name="car_lockscreen_disclaimer_text">Pievērsiet visu uzmanību braukšanas apstākļiem un vienmēr ievērojiet piemērojamos tiesību aktus. Norādes var būt neprecīzas, nepilnīgas, bīstamas, nepiemērotas, aizliegtas vai var ietvert administratīvo teritoriju šķērsošanu. Arī uzņēmumu informācija var būt neprecīza vai nepilnīga. Dati netiek nodrošināti reāllaikā, un netiek garantēta atrašanās vietu precizitāte. Vadot transportlīdzekli, nelietojiet mobilo ierīci rokās un neizmantojiet lietotnes, kas nav paredzētas pakalpojumam Android Auto.</string>
     <string name="pip_close">Aizvērt PIP</string>
@@ -2230,6 +2261,8 @@ Ja nezināt savu PUK kodu, apmeklējiet klientu apkalpošanas centru."</string>
     <string name="kg_face_retry_content_description">Veiciet dubultskārienu, lai izmantotu sejas atpazīšanu.</string>
     <string name="kg_face_authentication_error_retry_text">Nav noteikta neviena seja. Pieskarieties ikonai, lai vēlreiz veiktu sejas atpazīšanu</string>
     <string name="kg_face_authentication_failed_retry_text">Nesakrīt. Pieskarieties ikonai, lai izmantotu sejas atpazīšanu</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Radās problēma ar sejas atpazīšanu. Pieskarieties, lai mēģinātu vēlreiz</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Videozvanu laikā nevar izmantot sejas atpazīšanu</string>
     <string name="kg_fingerprint_no_match">Nesakrīt</string>
     <string name="kg_finger_print_not_responding_error_message">Pirkstu nospiedumu sensors nereaģē. Mēģiniet vēlāk vēlreiz.</string>
     <string name="kg_finger_print_database_error_message">Pirkstu nospiedumu dati ir bojāti. Atiestatiet pirkstu nospiedumu kā ekrāna bloķēšanas veidu un pēc tam vēlreiz pievienojiet savu pirksta nospiedumu vai nomainiet ekrāna bloķēšanas veidu.</string>
@@ -2366,6 +2399,8 @@ Mēģiniet vēlreiz pēc 1 sekundes"</string>
     <string name="appicon_badge_new_item">1 jauns objekts</string>
     <string name="banner_apps_for_dex_detail">Izbaudiet DeX optimizētās programmas no Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Var pārvietot ne vairāk kā %d objektus.</string>
+    <string name="view_more_in_galaxy_apps">Sk. vēl veikalā Galaxy Apps</string>
+    <string name="view_more_in_play_store">Skatīt vēl Play veikalā</string>
     <string name="uninstall_title">Vai atinstalēt programmas?</string>
     <string name="uninstall_1_app_message">Vai vēlaties atinstalēt šo programmu?</string>
     <string name="uninstall_apps_message">Tiks atinstalētas šādas programmas:</string>
@@ -2409,6 +2444,13 @@ Mēģiniet vēlreiz pēc 1 sekundes"</string>
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Paziņojums</string>
     <string name="quick_settings_location_detail_device_only">Tikai ierīce</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Uzlāde apturēta. Akumulatora temperatūra ir par augstu.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Uzlāde apturēta. Akumulatora temperatūra ir par zemu.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Ierīces uzlāde ir apturēta. Akumulatora temperatūra ir pārāk augsta. Esiet uzmanīgs, atvienojot lādētāju. Tas var būt ļoti karsts.
+
+Atvienojot un vēlreiz pievienojot lādētāju, uzlāde var tikt turpināta kā parasti. Ja pārkaršana turpinās, sazinieties ar klientu apkalpošanas centru, jo pastāv aizdegšanās vai savainošanās risks."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Lietojiet sejas atpazīšanu, lai atbloķētu, vai pavelciet ekrānu, lai izmantotu varavīksnenes</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Lietojiet sejas atpazīšanu, lai atvērtu, vai pavelciet ekrānu, lai izmantotu varavīksnenes</string>
     <string name="kg_infinity_wallpaper_option_description">Bezgalības fona attēls tiks lietots vienlaikus sākuma un bloķēšanas ekrānā. Lai iegūtu labākos rezultātus, ieslēdziet tālāk redzamo iestatījumu.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Ieslēgt Always On Display</string>
 </resources>

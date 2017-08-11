@@ -12,7 +12,8 @@
     <color name="multiwindow_snapview_buttons_ripple_color">#29000000</color>
     <color name="multiwindow_snapview_button_text_color">#ff959595</color>
     <color name="multiwindow_snapview_guide_text_color">#fffafafa</color>
-    <color name="dock_minimized_notification_icon_background_color">#ff18a5e0</color>
+    <color name="dock_minimized_notification_icon_background_color">#ff0096d5</color>
+    <color name="dock_minimized_notification_close_icon_color">#ff515151</color>
     <color name="focused_stack_background">#9900c0ff</color>
     <color name="multiwindow_divider_guideview_guide_color">#9900c0ff</color>
     <color name="multiwindow_divider_guideview_rect_start_color">#1a3bbfeb</color>
@@ -378,6 +379,8 @@
     <color name="navigation_bar_icon_color_high_bound">#ff454545</color>
     <color name="navigation_bar_icon_color_mid_bound">#fffafafa</color>
     <color name="navigation_bar_icon_color_low_bound">#ffa6a6a6</color>
+    <color name="navigation_bar_force_immersive_help_header">#ff505050</color>
+    <color name="navigation_bar_force_immersive_help_description">#ff6b6f72</color>
     <color name="popup_dialog_body_text_color">#ff252525</color>
     <color name="hybrid_text_color">#ff757575</color>
     <color name="notification_stack_scroller_background_on_keyguard">#80e8e8e8</color>
@@ -431,6 +434,14 @@
     <color name="theme_clock_date_color">#fffafafa</color>
     <color name="theme_weather_text_color">#fffafafa</color>
     <color name="theme_pin_klondike_text_black_color">#cc444444</color>
+    <color name="backup_default_theme_textclock_color">#fffafafa</color>
+    <color name="backup_default_theme_clock_date_color">#fffafafa</color>
+    <color name="backup_default_theme_keyguard_message_area_text_color">#fffafafa</color>
+    <color name="backup_default_theme_pin_digit_text_color">#fffafafa</color>
+    <color name="backup_default_theme_pin_text_color">#fffafafa</color>
+    <color name="backup_default_theme_pin_klondike_text_color">#ccfafafa</color>
+    <color name="backup_default_theme_ripple_effect_transparent_button_outer_color">#4dfafafa</color>
+    <color name="backup_default_theme_ripple_drawable_color">#33000000</color>
     <color name="theme_music_app_name_text_color">#fffafafa</color>
     <color name="theme_music_title_text_color">#fffafafa</color>
     <color name="theme_music_lyrics_text_bg_color">#33fafafa</color>
@@ -454,8 +465,10 @@
     <color name="theme_no_alarm_text_color_white">#b3444444</color>
     <color name="theme_ripple_color">#33fafafa</color>
     <color name="theme_ripple_color_dark">#28444444</color>
+    <color name="servicebox_big_view_bg_color_dark">#99000000</color>
+    <color name="servicebox_big_view_bg_color_dark_no_blur">#bf000000</color>
     <color name="servicebox_big_view_bg_color_white">#19000000</color>
-    <color name="servicebox_big_view_bg_color_dark">#33000000</color>
+    <color name="servicebox_big_view_bg_color_white_no_blur">#bf989898</color>
     <color name="theme_todays_ripple_color">#29fafafa</color>
     <color name="theme_todays_ripple_color_dark">#1f000000</color>
     <color name="theme_todays_ripple_no_event_color">#33fafafa</color>
@@ -472,6 +485,7 @@
     <color name="dot_color">#80ffffff</color>
     <color name="dot_out_stroke_color">#ff8b8b8b</color>
     <color name="theme_keyguard_dex_emergency_text_color">#ccfafafa</color>
+    <color name="backup_default_theme_keyguard_dex_emergency_text_color">#ccfafafa</color>
     <color name="kg_set_as_wallpaper_text_color">#fffafafa</color>
     <color name="kg_set_as_wallpaper_text_shadow_color">#b3000000</color>
     <color name="more_cue_tint_color_for_whitebackground">#ff444444</color>

@@ -197,11 +197,6 @@
 
     :array_0
     .array-data 4
-        0x7f020068
-        0x7f020069
-        0x7f02006a
-        0x7f02006b
-        0x7f02006c
         0x7f02006d
         0x7f02006e
         0x7f02006f
@@ -276,15 +271,15 @@
         0x7f0200b4
         0x7f0200b5
         0x7f0200b6
-    .end array-data
-
-    :array_1
-    .array-data 4
         0x7f0200b7
         0x7f0200b8
         0x7f0200b9
         0x7f0200ba
         0x7f0200bb
+    .end array-data
+
+    :array_1
+    .array-data 4
         0x7f0200bc
         0x7f0200bd
         0x7f0200be
@@ -359,6 +354,11 @@
         0x7f020103
         0x7f020104
         0x7f020105
+        0x7f020106
+        0x7f020107
+        0x7f020108
+        0x7f020109
+        0x7f02010a
     .end array-data
 .end method
 
@@ -997,7 +997,7 @@
 
     iput v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDisplayDensity:F
 
-    const v0, 0x7f1300dc
+    const v0, 0x7f1300e0
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->findViewById(I)Landroid/view/View;
 
@@ -1007,7 +1007,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mChargerAnimationView:Landroid/widget/ImageView;
 
-    const v0, 0x7f1300db
+    const v0, 0x7f1300df
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->findViewById(I)Landroid/view/View;
 
@@ -1031,7 +1031,7 @@
 
     invoke-direct {p0}, Lcom/android/systemui/power/ChargerAnimationView;->setBackGroundAnimation()V
 
-    const v0, 0x7f1300dd
+    const v0, 0x7f1300e1
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->findViewById(I)Landroid/view/View;
 

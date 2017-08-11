@@ -328,13 +328,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0f073a
+    const v1, 0x7f0f07aa
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0f073b
+    const v1, 0x7f0f07ab
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -410,7 +410,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/PowerPlanningTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0730
+    const v1, 0x7f0f07a0
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -549,7 +549,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/qs/tiles/PowerPlanningTile;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0f073d
+    const v8, 0x7f0f07ad
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -671,7 +671,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/qs/tiles/PowerPlanningTile;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0f073c
+    const v8, 0x7f0f07ac
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -859,7 +859,7 @@
 
     iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
-    const v0, 0x7f0203f1
+    const v0, 0x7f0203f9
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

@@ -12,7 +12,11 @@
 
 
 # static fields
+.field private static final DEBUG:Z
+
 .field private static final TAG:Ljava/lang/String;
+
+.field private static mActorThreadHandler:Landroid/os/HandlerThread;
 
 .field private static mBixbAgentSignature:Landroid/content/pm/Signature;
 
@@ -28,6 +32,8 @@
 
 .field private mHandler:Landroid/os/Handler;
 
+.field private mIsKnoxId:Z
+
 .field mResponseFromMediator:Lcom/samsung/android/sdk/bixby/BixbyApi$OnResponseCallback;
 
 
@@ -35,23 +41,25 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    const/4 v1, 0x0
+
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-class v1, Lcom/samsung/android/sdk/bixby/BixbyAppService;
+    const-class v2, Lcom/samsung/android/sdk/bixby/BixbyAppService;
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    const-string/jumbo v1, "_0.1.5"
+    const-string/jumbo v2, "_0.2.0"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -63,21 +71,28 @@
 
     const-string/jumbo v0, "user"
 
-    sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
+    sget-object v2, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     sput-boolean v0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mIsUserBuild:Z
 
+    sget-boolean v0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mIsUserBuild:Z
+
+    if-eqz v0, :cond_0
+
+    move v0, v1
+
+    :goto_0
+    sput-boolean v0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->DEBUG:Z
+
     new-instance v0, Landroid/content/pm/Signature;
 
-    const-string/jumbo v1, "MIIE1DCCA7ygAwIBAgIJANIJlaecDarWMA0GCSqGSIb3DQEBBQUAMIGiMQswCQYDVQQGEwJLUjEUMBIGA1UECBMLU291dGggS29yZWExEzARBgNVBAcTClN1d29uIENpdHkxHDAaBgNVBAoTE1NhbXN1bmcgQ29ycG9yYXRpb24xDDAKBgNVBAsTA0RNQzEVMBMGA1UEAxMMU2Ftc3VuZyBDZXJ0MSUwIwYJKoZIhvcNAQkBFhZhbmRyb2lkLm9zQHNhbXN1bmcuY29tMB4XDTExMDYyMjEyMjUxMloXDTM4MTEwNzEyMjUxMlowgaIxCzAJBgNVBAYTAktSMRQwEgYDVQQIEwtTb3V0aCBLb3JlYTETMBEGA1UEBxMKU3V3b24gQ2l0eTEcMBoGA1UEChMTU2Ftc3VuZyBDb3Jwb3JhdGlvbjEMMAoGA1UECxMDRE1DMRUwEwYDVQQDEwxTYW1zdW5nIENlcnQxJTAjBgkqhkiG9w0BCQEWFmFuZHJvaWQub3NAc2Ftc3VuZy5jb20wggEgMA0GCSqGSIb3DQEBAQUAA4IBDQAwggEIAoIBAQDJhjhKPh8vsgZnDnjvIyIVwNJvRaInKNuZpE2hHDWsM6cf4HHEotaCWptMiLMz7ZbzxebGZtYPPulMSQiFq8+NxmD3B6q8d+rT4tDYrugQjBXNJg8uhQQsKNLyktqjxtoMe/I5HbeEGq3o/fDJ0N7893Ek5tLeCp4NLadGw2cOT/zchbcBu0dEhhuW/3MR2jYDxaEDNuVf+jS0NT7tyF9RAV4VGMZ+MJ45+HY5/xeBB/EJzRhBGmB38mlktuY/inC5YZ2wQwajI8Gh0jr4Z+GfFPVw/+Vz0OOgwrMGMqrsMXM4CZS+HjQeOpC9LkthVIH0bbOeqDgWRI7DX+sXNcHzAgEDo4IBCzCCAQcwHQYDVR0OBBYEFJMsOvcLYnoMdhC1oOdCfWz66j8eMIHXBgNVHSMEgc8wgcyAFJMsOvcLYnoMdhC1oOdCfWz66j8eoYGopIGlMIGiMQswCQYDVQQGEwJLUjEUMBIGA1UECBMLU291dGggS29yZWExEzARBgNVBAcTClN1d29uIENpdHkxHDAaBgNVBAoTE1NhbXN1bmcgQ29ycG9yYXRpb24xDDAKBgNVBAsTA0RNQzEVMBMGA1UEAxMMU2Ftc3VuZyBDZXJ0MSUwIwYJKoZIhvcNAQkBFhZhbmRyb2lkLm9zQHNhbXN1bmcuY29tggkA0gmVp5wNqtYwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAMpYB/kDgNqSobMXUndjBtUFZmOcmN1OLDUMDaaxRUw9jqs6MAZoaZmFqLxuyxfq9bzEyYfOA40cWI/BT2ePFP1/W0ZZdewAOTcJEwbJ+L+mjI/8Hf1LEZ16GJHqoARhxN+MMm78BxWekKZ20vwslt9cQenuB7hAvcv9HlQFk4mdS4RTEL4udKkLnMIiX7GQOoZJO0Tq76dEgkSti9JJkk6htuUwLRvRMYWHVjC9kgWSJDFEt+yjULIVb9HDb7i2raWDK0E6B9xUl3tRs3Q81n5nEYNufAH2WzoO0shisLYLEjxJgjUaXM/BaM3VZRmnMv4pJVUTWxXAek2nAjIEBWA=="
+    const-string/jumbo v2, "MIIE1DCCA7ygAwIBAgIJANIJlaecDarWMA0GCSqGSIb3DQEBBQUAMIGiMQswCQYDVQQGEwJLUjEUMBIGA1UECBMLU291dGggS29yZWExEzARBgNVBAcTClN1d29uIENpdHkxHDAaBgNVBAoTE1NhbXN1bmcgQ29ycG9yYXRpb24xDDAKBgNVBAsTA0RNQzEVMBMGA1UEAxMMU2Ftc3VuZyBDZXJ0MSUwIwYJKoZIhvcNAQkBFhZhbmRyb2lkLm9zQHNhbXN1bmcuY29tMB4XDTExMDYyMjEyMjUxMloXDTM4MTEwNzEyMjUxMlowgaIxCzAJBgNVBAYTAktSMRQwEgYDVQQIEwtTb3V0aCBLb3JlYTETMBEGA1UEBxMKU3V3b24gQ2l0eTEcMBoGA1UEChMTU2Ftc3VuZyBDb3Jwb3JhdGlvbjEMMAoGA1UECxMDRE1DMRUwEwYDVQQDEwxTYW1zdW5nIENlcnQxJTAjBgkqhkiG9w0BCQEWFmFuZHJvaWQub3NAc2Ftc3VuZy5jb20wggEgMA0GCSqGSIb3DQEBAQUAA4IBDQAwggEIAoIBAQDJhjhKPh8vsgZnDnjvIyIVwNJvRaInKNuZpE2hHDWsM6cf4HHEotaCWptMiLMz7ZbzxebGZtYPPulMSQiFq8+NxmD3B6q8d+rT4tDYrugQjBXNJg8uhQQsKNLyktqjxtoMe/I5HbeEGq3o/fDJ0N7893Ek5tLeCp4NLadGw2cOT/zchbcBu0dEhhuW/3MR2jYDxaEDNuVf+jS0NT7tyF9RAV4VGMZ+MJ45+HY5/xeBB/EJzRhBGmB38mlktuY/inC5YZ2wQwajI8Gh0jr4Z+GfFPVw/+Vz0OOgwrMGMqrsMXM4CZS+HjQeOpC9LkthVIH0bbOeqDgWRI7DX+sXNcHzAgEDo4IBCzCCAQcwHQYDVR0OBBYEFJMsOvcLYnoMdhC1oOdCfWz66j8eMIHXBgNVHSMEgc8wgcyAFJMsOvcLYnoMdhC1oOdCfWz66j8eoYGopIGlMIGiMQswCQYDVQQGEwJLUjEUMBIGA1UECBMLU291dGggS29yZWExEzARBgNVBAcTClN1d29uIENpdHkxHDAaBgNVBAoTE1NhbXN1bmcgQ29ycG9yYXRpb24xDDAKBgNVBAsTA0RNQzEVMBMGA1UEAxMMU2Ftc3VuZyBDZXJ0MSUwIwYJKoZIhvcNAQkBFhZhbmRyb2lkLm9zQHNhbXN1bmcuY29tggkA0gmVp5wNqtYwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAMpYB/kDgNqSobMXUndjBtUFZmOcmN1OLDUMDaaxRUw9jqs6MAZoaZmFqLxuyxfq9bzEyYfOA40cWI/BT2ePFP1/W0ZZdewAOTcJEwbJ+L+mjI/8Hf1LEZ16GJHqoARhxN+MMm78BxWekKZ20vwslt9cQenuB7hAvcv9HlQFk4mdS4RTEL4udKkLnMIiX7GQOoZJO0Tq76dEgkSti9JJkk6htuUwLRvRMYWHVjC9kgWSJDFEt+yjULIVb9HDb7i2raWDK0E6B9xUl3tRs3Q81n5nEYNufAH2WzoO0shisLYLEjxJgjUaXM/BaM3VZRmnMv4pJVUTWxXAek2nAjIEBWA=="
 
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+    invoke-static {v2, v1}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
 
     move-result-object v1
 
@@ -86,12 +101,21 @@
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbAgentSignature:Landroid/content/pm/Signature;
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mIsKnoxId:Z
 
     new-instance v0, Landroid/os/Handler;
 
@@ -114,7 +138,15 @@
     return-void
 .end method
 
-.method static synthetic access$000()Ljava/lang/String;
+.method static synthetic access$000()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->DEBUG:Z
+
+    return v0
+.end method
+
+.method static synthetic access$100()Ljava/lang/String;
     .locals 1
 
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
@@ -122,7 +154,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$100(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
+.method static synthetic access$200(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mCallbackToBa:Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
@@ -130,7 +162,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$102(Lcom/samsung/android/sdk/bixby/BixbyAppService;Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
+.method static synthetic access$202(Lcom/samsung/android/sdk/bixby/BixbyAppService;Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mCallbackToBa:Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
@@ -138,7 +170,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$200(Lcom/samsung/android/sdk/bixby/BixbyAppService;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$300(Lcom/samsung/android/sdk/bixby/BixbyAppService;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->handleResponseCommand(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -148,7 +180,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$300(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Z
+.method static synthetic access$400(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Z
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -163,7 +195,7 @@
     return v0
 .end method
 
-.method static synthetic access$400(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Landroid/os/Handler;
+.method static synthetic access$500(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mHandler:Landroid/os/Handler;
@@ -185,7 +217,15 @@
 
     sget-boolean v6, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mIsUserBuild:Z
 
-    if-eqz v6, :cond_0
+    if-nez v6, :cond_1
+
+    :cond_0
+    return v11
+
+    :cond_1
+    iget-boolean v6, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mIsKnoxId:Z
+
+    if-nez v6, :cond_0
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
@@ -199,7 +239,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     const/4 v4, 0x0
 
@@ -208,17 +248,14 @@
     move v6, v7
 
     :goto_0
-    if-lt v6, v8, :cond_2
+    if-lt v6, v8, :cond_3
 
-    return v7
-
-    :cond_0
-    return v11
-
-    :cond_1
     return v7
 
     :cond_2
+    return v7
+
+    :cond_3
     aget-object v1, v2, v6
 
     const-string/jumbo v9, "com.samsung.android.bixby.agent"
@@ -227,15 +264,15 @@
 
     move-result v9
 
-    if-nez v9, :cond_4
+    if-nez v9, :cond_5
 
-    :cond_3
+    :cond_4
     :goto_1
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     const/16 v9, 0x40
 
     :try_start_0
@@ -245,11 +282,11 @@
 
     iget-object v4, v9, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     array-length v9, v4
 
-    if-lez v9, :cond_3
+    if-lez v9, :cond_4
 
     sget-object v9, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbAgentSignature:Landroid/content/pm/Signature;
 
@@ -263,7 +300,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_4
 
     return v11
 
@@ -288,7 +325,7 @@
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "esem_context_result"
+    const-string/jumbo v1, "esem_request_tts"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -296,7 +333,7 @@
 
     if-nez v1, :cond_1
 
-    const-string/jumbo v1, "esem_param_filling_result"
+    const-string/jumbo v1, "esem_context_result"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -304,7 +341,7 @@
 
     if-nez v1, :cond_2
 
-    const-string/jumbo v1, "esem_state_log"
+    const-string/jumbo v1, "esem_param_filling_result"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -312,7 +349,7 @@
 
     if-nez v1, :cond_3
 
-    const-string/jumbo v1, "esem_client_control"
+    const-string/jumbo v1, "esem_state_log"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -320,7 +357,7 @@
 
     if-nez v1, :cond_4
 
-    const-string/jumbo v1, "state_command_result"
+    const-string/jumbo v1, "esem_client_control"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -328,7 +365,7 @@
 
     if-nez v1, :cond_5
 
-    const-string/jumbo v1, "esem_chatty_mode_result"
+    const-string/jumbo v1, "state_command_result"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -336,7 +373,7 @@
 
     if-nez v1, :cond_6
 
-    const-string/jumbo v1, "esem_cancel_chatty_mode"
+    const-string/jumbo v1, "esem_chatty_mode_result"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -344,7 +381,7 @@
 
     if-nez v1, :cond_7
 
-    const-string/jumbo v1, "esem_split_state_result"
+    const-string/jumbo v1, "esem_cancel_chatty_mode"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -352,13 +389,21 @@
 
     if-nez v1, :cond_8
 
+    const-string/jumbo v1, "esem_split_state_result"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "Unsupported Command:"
+    const-string/jumbo v3, "handleResponseCommand: Unsupported Command:"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -392,6 +437,13 @@
     goto :goto_0
 
     :cond_2
+    invoke-direct {p0, p1, p2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->wrapCommand(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_3
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -417,13 +469,6 @@
     move-result-object v1
 
     invoke-direct {p0, p1, v1}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->wrapCommand(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_3
-    invoke-direct {p0, p1, p2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->wrapCommand(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -437,13 +482,20 @@
     goto :goto_0
 
     :cond_5
-    invoke-direct {p0, p2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->makeStateResultCommand(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, p1, p2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->wrapCommand(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
     :cond_6
+    invoke-direct {p0, p2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->makeStateResultCommand(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_7
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -474,14 +526,14 @@
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->wrapCommand(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
-    :cond_8
+    :cond_9
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -510,7 +562,190 @@
 
     move-result-object v0
 
+    goto/16 :goto_0
+.end method
+
+.method private isKnoxId()Z
+    .locals 11
+
+    const/4 v10, 0x0
+
+    :try_start_0
+    const-string/jumbo v6, "android.os.UserHandle"
+
+    invoke-static {v6}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    move-result-object v4
+
+    const-string/jumbo v6, "semGetMyUserId"
+
+    const/4 v7, 0x0
+
+    new-array v7, v7, [Ljava/lang/Class;
+
+    invoke-virtual {v4, v6, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v2
+
+    const/4 v6, 0x0
+
+    new-array v6, v6, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v2, v7, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/Integer;
+
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    sget-boolean v6, Lcom/samsung/android/sdk/bixby/BixbyAppService;->DEBUG:Z
+
+    if-nez v6, :cond_0
+
+    :goto_0
+    const-string/jumbo v6, "com.samsung.android.knox.SemPersonaManager"
+
+    invoke-static {v6}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    move-result-object v3
+
+    const-string/jumbo v6, "isKnoxId"
+
+    const/4 v7, 0x1
+
+    new-array v7, v7, [Ljava/lang/Class;
+
+    const/4 v8, 0x0
+
+    sget-object v9, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    aput-object v9, v7, v8
+
+    invoke-virtual {v3, v6, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v2
+
+    const/4 v6, 0x1
+
+    new-array v6, v6, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    aput-object v8, v6, v7
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v2, v7, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/Boolean;
+
+    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    sget-boolean v6, Lcom/samsung/android/sdk/bixby/BixbyAppService;->DEBUG:Z
+
+    if-nez v6, :cond_1
+
+    :goto_1
+    return v0
+
+    :cond_0
+    sget-object v6, Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "userId = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
     goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    sget-object v6, Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v7, "isKnoxId: Can\'t read information on KNOX."
+
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v6, Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v10
+
+    :cond_1
+    :try_start_1
+    sget-object v6, Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "bRet = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
 .end method
 
 .method private makeStateResultCommand(Ljava/lang/String;)Ljava/lang/String;
@@ -599,7 +834,7 @@
     :cond_0
     sget-object v6, Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v7, "Can\'t make a state result command. Ignored."
+    const-string/jumbo v7, "makeStateResultCommand: Can\'t make a state result command. Ignored."
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -692,101 +927,131 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    invoke-virtual {v0, p1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->onServiceBound(Landroid/content/Intent;)V
+
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBinder:Lcom/samsung/android/bixby/agent/IBixbyAgentAppService$Stub;
 
     return-object v0
 .end method
 
 .method public onCreate()V
-    .locals 5
+    .locals 3
+
+    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "BixbyAppService onCreate package:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->getApplication()Landroid/app/Application;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
-    sget-object v2, Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
+    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->isKnoxId()Z
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result v0
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "BixbyAppService onCreate package:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->getApplication()Landroid/app/Application;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iput-boolean v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mIsKnoxId:Z
 
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    iput-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    iget-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    iget-object v3, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mResponseFromMediator:Lcom/samsung/android/sdk/bixby/BixbyApi$OnResponseCallback;
+    iget-object v1, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mResponseFromMediator:Lcom/samsung/android/sdk/bixby/BixbyApi$OnResponseCallback;
 
-    invoke-virtual {v2, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setResponseCallback(Lcom/samsung/android/sdk/bixby/BixbyApi$OnResponseCallback;)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setResponseCallback(Lcom/samsung/android/sdk/bixby/BixbyApi$OnResponseCallback;)V
 
-    const-string/jumbo v2, "com.samsung.android.bixby.agent"
+    const-string/jumbo v0, "com.samsung.android.bixby.agent"
 
     invoke-virtual {p0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->getApplication()Landroid/app/Application;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
     :goto_0
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->onServiceCreated()V
+
     return-void
 
     :cond_0
-    new-instance v1, Landroid/os/HandlerThread;
+    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mActorThreadHandler:Landroid/os/HandlerThread;
 
-    const-string/jumbo v2, "ExtCmdHandler"
+    if-eqz v0, :cond_1
 
-    invoke-direct {v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Landroid/os/HandlerThread;->start()V
-
+    :goto_1
     new-instance v0, Lcom/samsung/android/sdk/bixby/BixbyAppService$CommandHandler;
+
+    sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mActorThreadHandler:Landroid/os/HandlerThread;
 
     invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v0, p0, v2}, Lcom/samsung/android/sdk/bixby/BixbyAppService$CommandHandler;-><init>(Lcom/samsung/android/sdk/bixby/BixbyAppService;Landroid/os/Looper;)V
+    invoke-direct {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyAppService$CommandHandler;-><init>(Landroid/os/Looper;)V
 
     iput-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mHandler:Landroid/os/Handler;
 
-    iget-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    iput-object v0, v2, Lcom/samsung/android/sdk/bixby/BixbyApi;->mHandler:Landroid/os/Handler;
+    iget-object v1, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mHandler:Landroid/os/Handler;
+
+    iput-object v1, v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mHandler:Landroid/os/Handler;
 
     goto :goto_0
+
+    :cond_1
+    new-instance v0, Landroid/os/HandlerThread;
+
+    const-string/jumbo v1, "ExtCmdHandler"
+
+    invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mActorThreadHandler:Landroid/os/HandlerThread;
+
+    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mActorThreadHandler:Landroid/os/HandlerThread;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+
+    goto :goto_1
 .end method
 
 .method public onDestroy()V
@@ -842,39 +1107,29 @@
 
     invoke-virtual {v0, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setPartiallyLanded(Z)V
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mHandler:Landroid/os/Handler;
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    instance-of v0, v0, Lcom/samsung/android/sdk/bixby/BixbyAppService$CommandHandler;
-
-    if-nez v0, :cond_0
-
-    :goto_0
-    invoke-super {p0}, Landroid/app/Service;->onDestroy()V
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Looper;->quit()V
-
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mHandler:Landroid/os/Handler;
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->onServiceDestroyed()V
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    new-instance v1, Landroid/os/Handler;
+    invoke-virtual {v0, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setLandingKeyboardOffMode(Z)V
 
-    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+    invoke-super {p0}, Landroid/app/Service;->onDestroy()V
 
-    iput-object v1, v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mHandler:Landroid/os/Handler;
+    return-void
+.end method
 
-    goto :goto_0
+.method public onUnbind(Landroid/content/Intent;)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    invoke-virtual {v0, p1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->onServiceUnbound(Landroid/content/Intent;)V
+
+    invoke-super {p0, p1}, Landroid/app/Service;->onUnbind(Landroid/content/Intent;)Z
+
+    move-result v0
+
+    return v0
 .end method

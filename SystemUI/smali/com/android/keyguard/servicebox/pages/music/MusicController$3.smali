@@ -396,11 +396,11 @@
 
     invoke-static {v2, v3, v5, v4}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
+    :cond_1
     iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController$3;->this$0:Lcom/android/keyguard/servicebox/pages/music/MusicController;
 
     invoke-static {v2, v5}, Lcom/android/keyguard/servicebox/pages/music/MusicController;->-set2(Lcom/android/keyguard/servicebox/pages/music/MusicController;Z)Z
 
-    :cond_1
     iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController$3;->this$0:Lcom/android/keyguard/servicebox/pages/music/MusicController;
 
     invoke-static {v2, v5}, Lcom/android/keyguard/servicebox/pages/music/MusicController;->-set1(Lcom/android/keyguard/servicebox/pages/music/MusicController;Z)Z

@@ -1224,7 +1224,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d05fc
+    const v5, 0x7f0d060f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1234,7 +1234,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d05fd
+    const v5, 0x7f0d0610
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2587,7 +2587,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f04005c
+    const v2, 0x7f04005d
 
     const/4 v3, 0x0
 

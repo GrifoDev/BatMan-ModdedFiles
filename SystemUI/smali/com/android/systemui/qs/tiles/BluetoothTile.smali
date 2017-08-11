@@ -245,7 +245,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0339
+    const v1, 0x7f0f0396
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -256,7 +256,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0338
+    const v1, 0x7f0f0395
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -324,7 +324,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f038b
+    const v1, 0x7f0f03e8
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -626,7 +626,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f0333
+    const v9, 0x7f0f0390
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -642,7 +642,7 @@
 
     if-eqz v3, :cond_7
 
-    const v8, 0x7f0201de
+    const v8, 0x7f0201e2
 
     invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -670,7 +670,7 @@
 
     aput-object v10, v9, v11
 
-    const v10, 0x7f0f02df
+    const v10, 0x7f0f033c
 
     invoke-virtual {v8, v10, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -717,7 +717,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f038b
+    const v9, 0x7f0f03e8
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -727,7 +727,7 @@
 
     :cond_3
     :goto_3
-    const v8, 0x7f0203ca
+    const v8, 0x7f0203d2
 
     invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -751,7 +751,7 @@
 
     aput-object v10, v9, v11
 
-    const v10, 0x7f0f02df
+    const v10, 0x7f0f033c
 
     invoke-virtual {v8, v10, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -766,7 +766,7 @@
 
     if-eqz v8, :cond_a
 
-    const v8, 0x7f0f02ef
+    const v8, 0x7f0f034c
 
     :goto_4
     invoke-virtual {v9, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -775,7 +775,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f038b
+    const v9, 0x7f0f03e8
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -841,7 +841,7 @@
     :cond_7
     if-eqz v4, :cond_8
 
-    const v8, 0x7f0201df
+    const v8, 0x7f0201e3
 
     invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -851,7 +851,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f0336
+    const v9, 0x7f0f0393
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -861,7 +861,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f038b
+    const v9, 0x7f0f03e8
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -900,7 +900,7 @@
     goto/16 :goto_2
 
     :cond_8
-    const v8, 0x7f0201e2
+    const v8, 0x7f0201e6
 
     invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -914,7 +914,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0f0335
+    const v10, 0x7f0f0392
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -932,7 +932,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0f02e9
+    const v10, 0x7f0f0346
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -966,7 +966,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0f02e9
+    const v10, 0x7f0f0346
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -985,7 +985,7 @@
     goto/16 :goto_2
 
     :cond_9
-    const v8, 0x7f0201e1
+    const v8, 0x7f0201e5
 
     invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -995,7 +995,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f038b
+    const v9, 0x7f0f03e8
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1005,7 +1005,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f0334
+    const v9, 0x7f0f0391
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1016,7 +1016,7 @@
     goto/16 :goto_3
 
     :cond_a
-    const v8, 0x7f0f02f0
+    const v8, 0x7f0f034d
 
     goto/16 :goto_4
 

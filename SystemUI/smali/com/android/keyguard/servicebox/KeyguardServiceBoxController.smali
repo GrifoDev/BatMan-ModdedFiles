@@ -58,6 +58,9 @@
 .method public abstract setCurrentPage(Ljava/lang/String;)V
 .end method
 
+.method public abstract setDualClockShowing(Z)V
+.end method
+
 .method public abstract showServiceBox(Ljava/lang/String;)V
 .end method
 

@@ -31,21 +31,9 @@
 
 .field private final UPDATE_VIEW:I
 
-.field private mAfterRxspd:D
-
-.field private mAfterTxspd:D
-
-.field private mBeforeRxspd:D
-
-.field private mBeforeTxspd:D
-
 .field private mContext:Landroid/content/Context;
 
 .field private mHandler:Landroid/os/Handler;
-
-.field private mRxspd:D
-
-.field private mTxspd:D
 
 .field private observers:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -60,108 +48,12 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mAfterRxspd:D
-
-    return-wide v0
-.end method
-
-.method static synthetic -get1(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mAfterTxspd:D
-
-    return-wide v0
-.end method
-
-.method static synthetic -get2(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mBeforeRxspd:D
-
-    return-wide v0
-.end method
-
-.method static synthetic -get3(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mBeforeTxspd:D
-
-    return-wide v0
-.end method
-
-.method static synthetic -get4(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mRxspd:D
-
-    return-wide v0
-.end method
-
-.method static synthetic -get5(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mTxspd:D
-
-    return-wide v0
-.end method
-
-.method static synthetic -get6(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)Ljava/util/ArrayList;
+.method static synthetic -get0(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->observers:Ljava/util/ArrayList;
 
     return-object v0
-.end method
-
-.method static synthetic -set0(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;D)D
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mAfterRxspd:D
-
-    return-wide p1
-.end method
-
-.method static synthetic -set1(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;D)D
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mAfterTxspd:D
-
-    return-wide p1
-.end method
-
-.method static synthetic -set2(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;D)D
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mBeforeRxspd:D
-
-    return-wide p1
-.end method
-
-.method static synthetic -set3(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;D)D
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mBeforeTxspd:D
-
-    return-wide p1
-.end method
-
-.method static synthetic -set4(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;D)D
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mRxspd:D
-
-    return-wide p1
-.end method
-
-.method static synthetic -set5(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;D)D
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mTxspd:D
-
-    return-wide p1
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V

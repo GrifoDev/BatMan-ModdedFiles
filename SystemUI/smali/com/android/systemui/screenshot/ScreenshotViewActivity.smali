@@ -37,7 +37,7 @@
 .method private doFinish()V
     .locals 2
 
-    const v1, 0x7f0f02a2
+    const v1, 0x7f0f02ff
 
     invoke-static {p0, v1}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -318,7 +318,7 @@
 
     if-eqz v8, :cond_3
 
-    const v8, 0x7f0f02b1
+    const v8, 0x7f0f030e
 
     invoke-static {p0, v8}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
     :try_end_1
@@ -330,7 +330,7 @@
     goto :goto_0
 
     :cond_3
-    const v8, 0x7f0f02b0
+    const v8, 0x7f0f030d
 
     :try_start_2
     invoke-static {p0, v8}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
@@ -347,9 +347,9 @@
     throw v8
 
     :cond_4
-    const v8, 0x7f0f02b5
+    const v8, 0x7f0f0312
 
-    const v9, 0x7f0f02b2
+    const v9, 0x7f0f030f
 
     :try_start_3
     invoke-static {p0, v8, v9}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;II)V

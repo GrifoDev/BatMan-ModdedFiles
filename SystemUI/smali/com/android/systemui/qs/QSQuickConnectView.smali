@@ -129,7 +129,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSQuickConnectView;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040134
+    const v1, 0x7f040138
 
     invoke-static {v0, v1, p0}, Lcom/android/systemui/qs/QSQuickConnectView;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -137,7 +137,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSQuickConnectView;->QSBarItemView:Landroid/view/View;
 
-    const v0, 0x7f1303cc
+    const v0, 0x7f1303d8
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSQuickConnectView;->findViewById(I)Landroid/view/View;
 

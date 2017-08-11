@@ -52,7 +52,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set17(Lcom/android/systemui/power/PowerUI;I)I
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set18(Lcom/android/systemui/power/PowerUI;I)I
 
     return-void
 .end method

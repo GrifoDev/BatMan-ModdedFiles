@@ -57,7 +57,7 @@
     move v1, v3
 
     :goto_0
-    invoke-static {v4, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set25(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
+    invoke-static {v4, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set24(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$3;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 

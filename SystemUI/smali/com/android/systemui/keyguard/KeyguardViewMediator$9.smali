@@ -3,12 +3,12 @@
 .source "KeyguardViewMediator.java"
 
 # interfaces
-.implements Lcom/android/keyguard/KeyguardHostView$OnDismissAction;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/keyguard/KeyguardViewMediator;->handleSetBendedPendingIntent(Landroid/os/Bundle;)V
+    value = Lcom/android/systemui/keyguard/KeyguardViewMediator;->onSystemReady()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-.field final synthetic val$fIntent:Landroid/content/Intent;
-
-.field final synthetic val$pIntent:Landroid/app/PendingIntent;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/app/PendingIntent;Landroid/content/Intent;)V
+.method constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$9;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    iput-object p2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$9;->val$pIntent:Landroid/app/PendingIntent;
-
-    iput-object p3, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$9;->val$fIntent:Landroid/content/Intent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,18 +34,35 @@
 
 
 # virtual methods
-.method public onDismiss()Z
+.method public run()V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$9;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$9;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$9;->val$pIntent:Landroid/app/PendingIntent;
+    invoke-static {v1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->-wrap2(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/internal/widget/ILockSettings;
 
-    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$9;->val$fIntent:Landroid/content/Intent;
+    move-result-object v1
 
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->-wrap1(Lcom/android/systemui/keyguard/KeyguardViewMediator;Landroid/app/PendingIntent;Landroid/content/Intent;)Z
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    move-result v0
+    move-result v2
 
-    return v0
+    invoke-interface {v1, v2}, Lcom/android/internal/widget/ILockSettings;->requestRemoteLockInfo(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "KeyguardViewMediator"
+
+    const-string/jumbo v2, "requestRemoteLockInfo Failed!"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method

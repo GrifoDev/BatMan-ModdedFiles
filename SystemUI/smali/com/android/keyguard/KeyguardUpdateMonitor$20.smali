@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardUpdateMonitor;->getSemBioFaceManager(Landroid/content/Context;)Lcom/samsung/android/bio/face/SemBioFaceManager;
+    value = Lcom/android/keyguard/KeyguardUpdateMonitor;->getSemIrisManager(Landroid/content/Context;)Lcom/samsung/android/camera/iris/SemIrisManager;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -39,11 +39,11 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$20;->val$context:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/samsung/android/bio/face/SemBioFaceManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/bio/face/SemBioFaceManager;
+    invoke-static {v0}, Lcom/samsung/android/camera/iris/SemIrisManager;->getSemIrisManager(Landroid/content/Context;)Lcom/samsung/android/camera/iris/SemIrisManager;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set10(Lcom/samsung/android/bio/face/SemBioFaceManager;)Lcom/samsung/android/bio/face/SemBioFaceManager;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set11(Lcom/samsung/android/camera/iris/SemIrisManager;)Lcom/samsung/android/camera/iris/SemIrisManager;
 
     return-void
 .end method

@@ -210,7 +210,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d040b
+    const v5, 0x7f0d040c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -222,7 +222,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0208
+    const v5, 0x7f0d0209
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -244,7 +244,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0205df
+    const v5, 0x7f0205e7
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -182,7 +182,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04013e
+    const v1, 0x7f040142
 
     const/4 v2, 0x0
 
@@ -198,7 +198,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f1303d8
+    const v1, 0x7f1303e4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -210,7 +210,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f1303d9
+    const v1, 0x7f1303e5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -220,7 +220,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mFooterIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f020212
+    const v0, 0x7f020216
 
     iput v0, p0, Lcom/android/systemui/qs/QSFooter;->mFooterIconId:I
 
@@ -362,7 +362,7 @@
 .method private getMessage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Ljava/lang/String;
     .locals 6
 
-    const v5, 0x7f0f04ff
+    const v5, 0x7f0f055c
 
     const/4 v4, 0x2
 
@@ -384,7 +384,7 @@
 
     aput-object p3, v1, v3
 
-    const v2, 0x7f0f0509
+    const v2, 0x7f0f0566
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -422,7 +422,7 @@
 
     aput-object p3, v1, v4
 
-    const v2, 0x7f0f0508
+    const v2, 0x7f0f0565
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -435,7 +435,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0506
+    const v1, 0x7f0f0563
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -450,7 +450,7 @@
 
     aput-object p3, v1, v2
 
-    const v2, 0x7f0f0505
+    const v2, 0x7f0f0562
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -469,7 +469,7 @@
 
     aput-object p4, v1, v3
 
-    const v2, 0x7f0f0507
+    const v2, 0x7f0f0564
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -515,7 +515,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f0f03bd
+    const v0, 0x7f0f041a
 
     goto :goto_0
 .end method
@@ -525,7 +525,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0266
+    const v1, 0x7f0f02c3
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -539,12 +539,12 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0f04fa
+    const v0, 0x7f0f0557
 
     return v0
 
     :cond_0
-    const v0, 0x7f0f04fc
+    const v0, 0x7f0f0559
 
     return v0
 .end method
@@ -580,7 +580,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f0f04f6
+    const v2, 0x7f0f0553
 
     iput v2, p0, Lcom/android/systemui/qs/QSFooter;->mFooterTextId:I
 
@@ -606,14 +606,14 @@
 
     if-eqz v1, :cond_2
 
-    const v2, 0x7f0f04f9
+    const v2, 0x7f0f0556
 
     :goto_1
     iput v2, p0, Lcom/android/systemui/qs/QSFooter;->mFooterTextId:I
 
     if-eqz v1, :cond_3
 
-    const v0, 0x7f0201e3
+    const v0, 0x7f0201e7
 
     :goto_2
     iget v2, p0, Lcom/android/systemui/qs/QSFooter;->mFooterIconId:I
@@ -636,12 +636,12 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0f04f8
+    const v2, 0x7f0f0555
 
     goto :goto_1
 
     :cond_3
-    const v0, 0x7f020212
+    const v0, 0x7f020216
 
     goto :goto_2
 .end method
@@ -686,7 +686,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mFooterText:Landroid/widget/TextView;
 
-    const v1, 0x7f0d0248
+    const v1, 0x7f0d0249
 
     invoke-static {v0, v1}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 

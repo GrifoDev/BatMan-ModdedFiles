@@ -38,8 +38,8 @@
     <string name="clear_cover_servicebox_music_unknown">Unknown</string>
     <string name="save">Захаваць</string>
     <string name="ok">ОК</string>
-    <string name="battery_history_hours_no_seconds">%1$dг %2$dх</string>
-    <string name="battery_history_minutes_no_seconds">%dх</string>
+    <string name="battery_history_hours_no_seconds">%1$dг %2$dхв</string>
+    <string name="battery_history_minutes_no_seconds">%d хв.</string>
     <string name="wifi_fail_to_scan">Не атрымлiваецца выканаць сканаванне для сетак</string>
     <string name="wifi_failed_to_obtain_IP">Не ўдалося атрымаць IP-адрас.</string>
     <string name="wifi_security_none">Няма</string>
@@ -118,6 +118,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Немагчыма падлучыцца да %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Немагчыма падлучыцца да %1$s. Праверце свае налады ў %2$s і паўтарыце спробу.</string>
     <string name="bluetooth_pairing_rejected_error_message">Карыстальнік %s адхіліў спалучэнне.</string>
+    <string name="bluetooth_getting_remote_device_name">Атрыманне імя прылады…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Пры падлучэнні гэтай прылады з’явіцца назва прылады.</string>
     <string name="accessibility_wifi_off">Wi-Fi выключаны.</string>
     <string name="accessibility_no_wifi">Wi-Fi адлучаны.</string>
     <string name="accessibility_wifi_one_bar">Адзiн слупок Wi-Fi.</string>
@@ -1333,6 +1335,7 @@ Wi-Fi і Bluetooth таксама будуць выключаны, але іх �
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Лічбавая клавіятура: %1$s</string>
+    <string name="keyboard_popup_help">Мета-ключ: Windows, камандная клавіша або іншая клавіша сімвалаў аперацыйнай сістэмы.</string>
     <string name="keyboard_shortcut_group_system">Сістэмныя ярлыкі</string>
     <string name="keyboard_shortcut_group_system_home">Галоўная</string>
     <string name="keyboard_shortcut_group_system_recents">Апошнія</string>
@@ -1494,8 +1497,8 @@ Wi-Fi і Bluetooth таксама будуць выключаны, але іх �
 
 Каб абараніць прыладу ад вады, упэўніцеся, што латок SIM- або SD-карты шчыльна закрыты."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Каб абараніць прыладу ад вады, упэўніцеся, што латок SIM- або SD-карты шчыльна закрыты.</string>
-    <string name="water_protection_notification_title">Праверце порт</string>
-    <string name="water_protection_notification_body">Выяўлена вільгаць. Каб зарадзіць прыладу, упэўніцеся, што порт зарадная прылада (USB) сухі.</string>
+    <string name="water_protection_notification_title">Unplug charger</string>
+    <string name="water_protection_notification_body">Выяўлена вільгаць. Адключыце зарадную прыладу і ўпэўніцеся ў тым, што яна і порт USB сухія.</string>
     <string name="full_battery_title">Звесткі</string>
     <string name="full_battery_noti_text">Акумулятар цалкам зараджаны.</string>
     <string name="cooling_title">Перагрэў прылады</string>
@@ -1589,6 +1592,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">Павольная зарадка</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Для хутчэйшай зарадкі карыстайцеся зараднай прыладай, якая ўваходзіла ў камплект пастаўкі вашай прылады, і упэўніцеся, што яна падлучана належным чынам.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Упэўніцеся, што зарадная прылада падлучана належным чынам. Карыстайцеся зараднай прыладай, якая ўваходзіла ў камплект пастаўкі вашай прылады.</string>
     <string name="battery_charging_level_and_time_text">"Зарадка: %1$d%%
 (прыкладна %2$s засталося да поўнай зарадкі)"</string>
@@ -1602,14 +1606,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">Зарадзіце тэлефон.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Зарадзіце планшэт.</string>
     <string name="button_close">Закрыць</string>
-    <string name="battery_health_interruption_title">Немагчыма зарадзіць</string>
+    <string name="battery_health_interruption_title">Зарадка спынена</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Адключыце зарадную прыладу</string>
     <string name="battery_health_interruption_by_terminal_open_text">Немагчыма зарадзіць вашу прыладу. Пераканайцеся, што карыстаецеся акумулятарам і зарадным прыстасаваннем, сумяшчальнымі з прыладай Samsung, а таксама што ваша прылада належным чынам падлучана да зараднага прыстасавання.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Зарадка прыпынена. Тэмпература акумулятара завысокая.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Зарадка прыпынена. Тэмпература акумулятара занізкая.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Прылада спыніла працэс зарадкі. Занадта высокая тэмпература акумулятара. Будзьце асцярожны, адлучаючы зараднае прыстасаванне. Магчыма, вельмі горача.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Тэмпература вашага тэлефона занадта высокая. Калі тэмпература вернецца да звычайнай, зарадка працягнецца.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Тэмпература вашага планшэта занадта высокая. Калі тэмпература вернецца да звычайнай, зарадка працягнецца.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Тэмпература вашага тэлефона занадта нізкая. Калі тэмпература вернецца да звычайнай, зарадка працягнецца.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Тэмпература вашага планшэта занадта нізкая. Калі тэмпература вернецца да звычайнай, зарадка працягнецца.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Зарадка была спынена. Тэмпература вашага тэлефона занадта высокая. Будзьце асцярожныя пры адлучэнні зараднай прылады. Яна можа быць вельмі гарачай.
 
-Адлучэнне і паўторнае падлучэнне зараднага прыстасавання можа даць магчымасць нармальнай зарадкі. Калі перагрэў не знікае, звярніцеся ў службу падтрымкі кліентаў, бо існуе небяспека пажару ці траўмы."</string>
+Адлучэнне і паўторнае падлучэнне зараднай прылады можа даць магчымасць нармальнай зарадкі. Калі перагрэў не знікае, звярніцеся ў службу падтрымкі кліентаў, бо існуе небяспека пажару ці траўмы."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Зарадка была спынена. Тэмпература вашага планшэта занадта высокая. Будзьце асцярожныя пры адлучэнні зараднай прылады. Яна можа быць вельмі гарачай.
+
+Адлучэнне і паўторнае падлучэнне зараднай прылады можа даць магчымасць нармальнай зарадкі. Калі перагрэў не знікае, звярніцеся ў службу падтрымкі кліентаў, бо існуе небяспека пажару ці траўмы."</string>
     <string name="incompatible_charger_title">Не зараджаецца.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1625,8 +1635,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">Каб адкрыць, выкарыстайце біяметрычную інфармацыю або правядзіце па экране</string>
     <string name="kg_face_or_swipe_unlock_instructions">Каб разблакіраваць, выкарыстайце распазнаванне твару або правядзіце па экране</string>
     <string name="kg_face_or_swipe_active_instructions">Каб адкрыць, выкарыстайце распазнаванне твару або правядзіце па экране</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Выкарыстайце распазнаванне твару, каб разблакіраваць, або правядзіце па экране, каб выкарыстаць замест гэтага вясёлкавыя абалонкі</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Выкарыстайце распазнаванне твару, каб адкрыць, або правядзіце па экране, каб выкарыстаць замест гэтага вясёлкавыя абалонкі</string>
     <string name="kg_face_unlock_instructions">Правядзіце па экране, каб разблакіраваць з распазнаваннем твару</string>
     <string name="kg_face_or_fingerprint_active_instructions">Выкарыстайце адбітак пальца, каб адкрыць, або правядзіце па экране, каб выкарыстаць замест гэтага распазнаванне твару</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Выкарыстайце адбітак пальца, каб разблакіраваць, або правядзіце па экране, каб выкарыстаць замест гэтага распазнаванне твару</string>
@@ -1641,6 +1649,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">Правядзіце двума пальцамі, каб разблакіраваць экран.</string>
     <string name="kg_swipe_active_instructions">Правядзіце па экране, каб адкрыць</string>
     <string name="kg_swipe_unlock_instructions">Правядзіце па экране, каб разблакіраваць</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Каб разблакіраваць, выкарыстайце біяметрычныя даныя або правядзіце па экране двума пальцамі.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Каб адкрыць, выкарыстайце біяметрычныя даныя або правядзіце па экране двума пальцамі.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Каб разблакіраваць, выкарыстайце распазнаванне твару або правядзіце па экране двума пальцамі.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Каб адкрыць, выкарыстайце распазнаванне твару або правядзіце па экране двума пальцамі.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Каб разблакіраваць з распазнаваннем твару, правядзіце па экране двума пальцамі.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Выкарыстайце адбітак пальца, каб адкрыць, або правядзіце па экране двума пальцамі, каб выкарыстаць распазнаванне твару.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Выкарыстайце адбітак пальца, каб разблакіраваць, або правядзіце па экране двума пальцамі, каб выкарыстаць распазнаванне твару.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Выкарыстайце адбітак пальца, каб адкрыць, або правядзіце па экране двума пальцамі, каб выкарыстаць распазнаванне вясёлкавыя абалонкі.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Выкарыстайце адбітак пальца, каб разблакіраваць, або правядзіце па экране двума пальцамі, каб выкарыстаць вясёлкавыя абалонкі.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Каб адкрыць, выкарыстайце адбітак пальца або правядзіце па экране двума пальцамі.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Каб разблакіраваць, выкарыстайце адбітак пальца або правядзіце па экране двума пальцамі.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Каб разблакіраваць з выкарыстаннем вясёлкавых абалонак, правядзіце па экране двума пальцамі.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Каб разблакіраваць, выкарыстайце вясёлкавыя абалонкі або правядзіце па экране двума пальцамі.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Каб адкрыць, выкарыстайце вясёлкавыя абалонкі або правядзіце па экране двума пальцамі.</string>
     <string name="kg_power_connect_charger">Падлучыце зарадную прыладу</string>
     <string name="kg_power_fully_charged">Поўнасцю зараджаны</string>
     <string name="kg_power_fast_charging">Хуткая зарадка: %d%%</string>
@@ -1724,6 +1746,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Адправіць</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Каб разблакіраваць тэлефон, двойчы націсніце кнопку блакіроўкі</string>
     <string name="s_view_cover_toast_pop_up_message">Адкрыйце вокладку, каб карыстацца кнопкамі хуткіх налад.</string>
     <string name="remote_input_toast_text_on_sview_cover">Немагчыма выкарыстаць функцыю хуткага адказу пры закрытым вечку S View.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Каб кантраляваць аб’ём абмену зарадам, спампуйце праграму. Калі з дапамогай кабелю для абмену зарадамі EP-SG900 ад Samsung падлучыць сваю прыладу да іншай прылады, не ўсталяваўшы праграму, на іншую прыладу будзе перададзены ўвесь зарад акумулятара. 
@@ -1760,7 +1783,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Я прымаю</string>
-    <string name="force_immersive_guide_text">Пры націску на гэты значок будзе схавана панэль навігацыі. Вы па-ранейшаму можаце карыстацца кнопкамі навігацыі, праводзячы пальцам уверх з нізу экрана. Калі паказана панэль навігацыі, вы можаце націснуць гэты значок яшчэ раз, каб заблакіраваць яе на месцы. На некаторых экранах, такіх як Галоўны экран, панэль навігацыі будзе паказвацца заўсёды.</string>
+    <string name="force_immersive_guide_text">Пры націсканні гэтай кнопкі хаваецца панэль навігацыі. Вы па-ранейшаму можаце карыстацца кнопкамі навігацыі, праводзячы пальцам уверх з нізу экрана. Калі панэль навігацыі паказана, вы можаце зноў націснуць гэту кнопку, каб заблакіраваць яе на месцы. На некаторых экранах, напрыклад, на галоўным, панэль навігацыі будзе паказана заўсёды. Калі праграма паводзіць сябе незвычайным чынам пры схаванай панэлі навігацыі, заблакіруйце панэль навігацыі на месцы і перазапусціце праграму.</string>
+    <string name="force_immersive_guide_dialog_title">Схаваць панэль навігацыі:</string>
+    <string name="force_immersive_guide_dialog_message1">Пры націсканні гэтай кнопкі хаваецца панэль навігацыі.</string>
+    <string name="force_immersive_guide_dialog_message2">Правядзіце ўверх з ніжняй часткі экрана, каб паказаць панэль навігацыі.</string>
+    <string name="force_immersive_guide_dialog_message3">Націсніце гэту кнопку яшчэ раз, каб заблакіраваць яе на месцы.</string>
+    <string name="force_immersive_guide_dialog_message4">На некаторых экранах, такіх як Галоўны экран, панэль навігацыі будзе паказвацца заўсёды.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Каб схаваць гэту кнопку, перайдзіце ў «Налады > Дысплэй > Панэль навігацыі».</string>
+    <string name="force_immersive_guide_dialog_setting">Налады</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Кіруйце аўтамабілем бяспечна</string>
     <string name="car_lockscreen_disclaimer_text">Будзьце заўсёды ў курсе дарожных умоў і заўсёды прытрымлівайцеся дзеючага заканадаўства. Указанні могуць быць недакладнымі, няпоўнымі, небяспечнымі, непадыходзячымі, забароненымі ці прадугледжваць уезд на адміністрацыйныя тэрыторыі. Інфармацыя пра кампаніі таксама можа быць недакладнай ці няпоўнай. Даныя не прадстаўляюцца ў рэжыме рэальнага часу, і дакладнасць вызначэння месцазнаходжання не можа быць гарантавана. Не выкарыстоўвайце сваю мабільную прыладу або праграмы, не прызначаныя для Android Auto, падчас кіравання.</string>
     <string name="pip_close">Закрыць PIP</string>
@@ -2199,6 +2230,8 @@ PIN-код павінен утрымліваць ад 4 да 8 лічбаў."</s
     <string name="kg_face_retry_content_description">Націсніце двойчы, каб выкарыстаць распазнаванне твару.</string>
     <string name="kg_face_authentication_error_retry_text">Твар не выяўлены. Націсніце значок, каб зноў паспрабаваць распазнаць твар</string>
     <string name="kg_face_authentication_failed_retry_text">Супадзенняў няма. Націсніце значок, каб выкарыстаць распазнаванне твару</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Узнікла праблема распазнавання твару. Націсніце, каб паўтарыць спробу</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Немагчыма выкарыстоўваць распазнаванне твару падчас відэавыклікаў</string>
     <string name="kg_fingerprint_no_match">Супадзення няма</string>
     <string name="kg_finger_print_not_responding_error_message">Датчык адбіткаў пальцаў не адказвае. Паўтарыце спробу пазней.</string>
     <string name="kg_finger_print_database_error_message">Даныя адбіткаў пальцаў былі пашкоджаны. Скіньце «Адбітак пальца» ў якасці тыпу блакіроўкі экрана і затым дадайце вашы адбіткі пальцаў ці змяніце тып блакіроўкі экрана.</string>
@@ -2335,6 +2368,8 @@ PIN-код павінен утрымліваць ад 4 да 8 лічбаў."</s
     <string name="appicon_badge_new_item">1 новы элемент</string>
     <string name="banner_apps_for_dex_detail">Карыстайцеся праграмамі, аптымізаванымі для DeX, ад Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Нельга перамясціць больш за наступ. колькасць элементаў: %d.</string>
+    <string name="view_more_in_galaxy_apps">Праглядз іншае ў Galaxy Apps</string>
+    <string name="view_more_in_play_store">Праглядзець іншае ў Play Store</string>
     <string name="uninstall_title">Выдаліць праграмы?</string>
     <string name="uninstall_1_app_message">Вы хочаце выдаліць гэту праграму?</string>
     <string name="uninstall_apps_message">Наступныя праграмы будуць выдалены:</string>
@@ -2374,6 +2409,13 @@ PIN-код павінен утрымліваць ад 4 да 8 лічбаў."</s
     <string name="taskbar_context_menu_open_desk_notification_view">Паказаць апавяшчэнні</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Схаваць апавяшчэнні</string>
     <string name="quick_settings_location_detail_device_only">Толькі прылада</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Зарадка прыпынена. Тэмпература акумулятара завысокая.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Зарадка прыпынена. Тэмпература акумулятара занізкая.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Прылада спыніла працэс зарадкі. Занадта высокая тэмпература акумулятара. Будзьце асцярожны, адлучаючы зараднае прыстасаванне. Магчыма, вельмі горача.
+
+Адлучэнне і паўторнае падлучэнне зараднага прыстасавання можа даць магчымасць нармальнай зарадкі. Калі перагрэў не знікае, звярніцеся ў службу падтрымкі кліентаў, бо існуе небяспека пажару ці траўмы."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Выкарыстайце распазнаванне твару, каб разблакіраваць, або правядзіце па экране, каб выкарыстаць замест гэтага вясёлкавыя абалонкі</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Выкарыстайце распазнаванне твару, каб адкрыць, або правядзіце па экране, каб выкарыстаць замест гэтага вясёлкавыя абалонкі</string>
     <string name="kg_infinity_wallpaper_option_description">Шпалеры «Бясконцасць» будуць адначасова прыменены да галоўнага экрана і экрана блакіроўкі. Уключыце наладу ніжэй для найлепшага рэзультата.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Уключыць Always On Display</string>
 </resources>

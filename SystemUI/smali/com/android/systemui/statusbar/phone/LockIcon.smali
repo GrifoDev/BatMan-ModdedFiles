@@ -392,9 +392,9 @@
 
     move-result-object v0
 
-    const v1, 0x7f020326
+    const v1, 0x7f02032c
 
-    const v2, 0x7f020329
+    const v2, 0x7f02032f
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/keyguard/util/ViewStyleUtils;->updateImageStyle(III)Landroid/graphics/drawable/Drawable;
 
@@ -417,9 +417,9 @@
 
     move-result-object v0
 
-    const v1, 0x7f020327
+    const v1, 0x7f02032d
 
-    const v2, 0x7f020328
+    const v2, 0x7f02032e
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/keyguard/util/ViewStyleUtils;->updateImageStyle(III)Landroid/graphics/drawable/Drawable;
 
@@ -440,9 +440,9 @@
 
     move-result-object v0
 
-    const v1, 0x7f02019c
+    const v1, 0x7f0201a0
 
-    const v2, 0x7f02019d
+    const v2, 0x7f0201a1
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/keyguard/util/ViewStyleUtils;->updateImageStyle(III)Landroid/graphics/drawable/Drawable;
 
@@ -463,9 +463,9 @@
 
     move-result-object v0
 
-    const v1, 0x7f02019b
+    const v1, 0x7f02019f
 
-    const v2, 0x7f02019e
+    const v2, 0x7f0201a2
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/keyguard/util/ViewStyleUtils;->updateImageStyle(III)Landroid/graphics/drawable/Drawable;
 
@@ -964,7 +964,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f06dd
+    const v2, 0x7f0f074c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1021,7 +1021,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f08f1
+    const v2, 0x7f0f0970
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

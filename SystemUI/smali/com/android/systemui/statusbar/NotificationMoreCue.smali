@@ -102,7 +102,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationMoreCue;->mSecondArrowAnimator:Landroid/view/animation/Animation;
 
-    const v0, 0x7f130364
+    const v0, 0x7f130370
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationMoreCue;->findViewById(I)Landroid/view/View;
 
@@ -110,7 +110,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationMoreCue;->mFirstArrow:Landroid/view/View;
 
-    const v0, 0x7f130365
+    const v0, 0x7f130371
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationMoreCue;->findViewById(I)Landroid/view/View;
 
@@ -240,7 +240,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b01da
+    const v2, 0x7f0b01e8
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/NotificationMoreCue;->mIsWhiteWallpaper:Z
 

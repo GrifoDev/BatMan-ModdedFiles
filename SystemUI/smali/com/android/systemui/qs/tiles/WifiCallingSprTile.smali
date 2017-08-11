@@ -820,7 +820,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03e1
+    const v1, 0x7f0f043e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -958,7 +958,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03e1
+    const v1, 0x7f0f043e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -970,7 +970,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f020448
+    const v0, 0x7f020450
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -986,7 +986,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f020452
+    const v0, 0x7f02045a
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

@@ -1025,7 +1025,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0b0126
+    const v5, 0x7f0b0127
 
     invoke-virtual {v3, v5, v7}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -1104,7 +1104,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f020332
+    const v5, 0x7f020338
 
     invoke-virtual {v3, v5, v7}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -1124,7 +1124,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0d030b
+    const v5, 0x7f0d030c
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1176,7 +1176,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0d03d6
+    const v5, 0x7f0d03d7
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1310,7 +1310,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0b0017
+    const v5, 0x7f0b0018
 
     invoke-virtual {v3, v5, v7}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -3673,7 +3673,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTouchHandler:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$TouchHandlePolicy;
 
-    const v1, 0x7f1301e7
+    const v1, 0x7f1301f0
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3785,9 +3785,9 @@
 .method public onDensityOrFontScaleChanged()V
     .locals 9
 
-    const v8, 0x7f0d030a
+    const v8, 0x7f0d030b
 
-    const v7, 0x7f0d030b
+    const v7, 0x7f0d030c
 
     new-instance v1, Landroid/graphics/RectF;
 
@@ -3873,7 +3873,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d03d6
+    const v2, 0x7f0d03d7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3983,9 +3983,9 @@
 .method protected onLayout(ZIIII)V
     .locals 8
 
-    const v6, 0x7f0d030b
+    const v6, 0x7f0d030c
 
-    const v7, 0x7f0d030a
+    const v7, 0x7f0d030b
 
     invoke-super/range {p0 .. p5}, Landroid/widget/ImageView;->onLayout(ZIIII)V
 

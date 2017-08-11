@@ -54,7 +54,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set14(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;I)I
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set13(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;I)I
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$1;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 

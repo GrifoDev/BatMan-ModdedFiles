@@ -54,7 +54,7 @@
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 3
 
-    const v2, 0x7f0b0091
+    const v2, 0x7f0b0092
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
@@ -86,7 +86,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mSemiTransparent:I
 
-    const v1, 0x7f0b0092
+    const v1, 0x7f0b0093
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 

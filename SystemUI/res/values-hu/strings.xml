@@ -70,7 +70,7 @@
     <string name="save">Mentés</string>
     <string name="ok">OK</string>
     <string name="battery_history_hours_no_seconds">%1$d ó %2$d p</string>
-    <string name="battery_history_minutes_no_seconds">%d p</string>
+    <string name="battery_history_minutes_no_seconds">%d perc</string>
     <string name="wifi_fail_to_scan">Nem lehet beolvasni a hálózatokat</string>
     <string name="wifi_failed_to_obtain_IP">Nem lehet lekérni az IP-címet.</string>
     <string name="wifi_security_none">Nincs</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Nem lehet kapcsolódni a(z) %s eszközhöz.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Nem sikerült kapcsolódni a(z) %1$s rendszerhez. Ellenőrizze a(z) %2$s beállításait, és próbálja újra.</string>
     <string name="bluetooth_pairing_rejected_error_message">A(z) %s elutasította a párosítást.</string>
+    <string name="bluetooth_getting_remote_device_name">Eszköznév lekérése…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Az eszköz neve az eszköz kapcsolódásakor jelenik meg.</string>
     <string name="accessibility_wifi_off">Wi-Fi kikapcsolva.</string>
     <string name="accessibility_no_wifi">Nincs Wi-Fi-kapcsolat.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi-jel: egy sáv.</string>
@@ -1364,6 +1366,7 @@ További információért forduljon a rendszergazdához."</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Numerikus: %1$s</string>
+    <string name="keyboard_popup_help">Metabillentyű: a Windows, a Command vagy más, az operációs rendszer szimbólumával ellátott billentyű.</string>
     <string name="keyboard_shortcut_group_system">A rendszer billentyűkódjai</string>
     <string name="keyboard_shortcut_group_system_home">Otthon</string>
     <string name="keyboard_shortcut_group_system_recents">Legutóbbiak</string>
@@ -1525,8 +1528,8 @@ További információért forduljon a rendszergazdához."</string>
 
 A víz okozta károsodások elkerülése érdekében ügyeljen rá, hogy a SIM-/SD-kártya tartója megfelelően illeszkedjen a helyére."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">A víz okozta károsodások elkerülése érdekében ügyeljen rá, hogy a SIM-/SD-kártya tartója megfelelően illeszkedjen a helyére.</string>
-    <string name="water_protection_notification_title">Ellenőrizze a csatlakozót</string>
-    <string name="water_protection_notification_body">Az eszköz nedvességet észlelt. A töltés előtt győződjön meg róla, hogy a töltő-/USB-csatlakozó száraz.</string>
+    <string name="water_protection_notification_title">Húzza ki a töltőt</string>
+    <string name="water_protection_notification_body">Az eszköz nedvességet észlelt. Válassza le a töltőt, és szárítsa meg mind a töltőt, mind az USB-csatlakozót.</string>
     <string name="full_battery_title">Infó</string>
     <string name="full_battery_noti_text">Az akkumulátor feltöltve.</string>
     <string name="cooling_title">Az eszköz túlmelegedett</string>
@@ -1620,6 +1623,7 @@ A túlmelegedés lehetséges okai:
     <string name="battery_not_fully_connected_charging_title">Lassú töltés</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">A gyorsabb töltés érdekében az eszközhöz kapott töltőt használja, és győződjön meg róla, hogy megfelelően csatlakoztatta-e a töltőt.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Győződjön meg róla, hogy a töltő megfelelően van-e csatlakoztatva. Az eszközhöz kapott töltőt használja.</string>
     <string name="battery_charging_level_and_time_text">"Töltés: %1$d%%
 (Körülbelül %2$s van hátra a teljes feltöltésig)"</string>
@@ -1633,14 +1637,20 @@ A túlmelegedés lehetséges okai:
     <string name="battery_saver_recommend_notification_text_phone_psm">Töltse fel a telefont.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Tölt. fel a táblagépet.</string>
     <string name="button_close">Bezárás</string>
-    <string name="battery_health_interruption_title">Nem lehet tölteni</string>
+    <string name="battery_health_interruption_title">A töltés leállt</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Húzza ki a töltőt</string>
     <string name="battery_health_interruption_by_terminal_open_text">Nem lehet tölteni az eszközt. Ellenőrizze, hogy Samsung-kompatibilis akkumulátort és töltőt használ-e, és hogy megfelelően csatlakozik-e az eszköz a töltőhöz.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">A töltés megszakítva. Az akkumulátor hőmérséklete túl magas.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">A töltés megszakítva. Az akkumulátor hőmérséklete túl alacsony.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Az eszköz leállította a töltést. Túl magas az akkumulátor hőmérséklete. Legyen óvatos a töltő leválasztásakor, mert nagyon forró lehet.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">A telefon hőmérséklete túl magas. A töltés a normál hőmérséklet elérésekor folytatódik.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">A táblagép hőmérséklete túl magas. A töltés a normál hőmérséklet elérésekor folytatódik.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">A telefon hőmérséklete túl alacsony. A töltés a normál hőmérséklet elérésekor folytatódik.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">A táblagép hőmérséklete túl alacsony. A töltés a normál hőmérséklet elérésekor folytatódik.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"A töltés leállt. Túl magas a telefon hőmérséklete. Legyen óvatos a töltő leválasztásakor, mert nagyon forró lehet.
 
-A töltő leválasztása, majd újbóli csatlakoztatása után a töltés normál módon folytatódhat. Ha azonban a túlmelegedés nem szűnik meg, forduljon ügyfélszolgálatunkhoz, mert tűz vagy sérülés kockázata állhat fenn."</string>
+A töltő leválasztása, majd újbóli csatlakoztatása után a töltés normál módon folytatódhat. Ha azonban a túlmelegedés nem szűnik meg, forduljon ügyfélszolgálatunkhoz, mert ez tüzet vagy sérülést okozhat."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"A töltés leállt. Túl magas a táblagép hőmérséklete. Legyen óvatos a töltő leválasztásakor, mert nagyon forró lehet.
+
+A töltő leválasztása, majd újbóli csatlakoztatása után a töltés normál módon folytatódhat. Ha azonban a túlmelegedés nem szűnik meg, forduljon ügyfélszolgálatunkhoz, mert ez tüzet vagy sérülést okozhat."</string>
     <string name="incompatible_charger_title">Nem töltődik.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Ha nem szeretné, hogy ez az előugró ablak a jövőben megjelenjen, ügyeljen 
     <string name="kg_biometrics_swipe_active_instructions">A megnyitáshoz használja biometrikus adatait, vagy húzza el a képernyőt</string>
     <string name="kg_face_or_swipe_unlock_instructions">A feloldáshoz használja az arcfelismerést, vagy húzza el a képernyőt</string>
     <string name="kg_face_or_swipe_active_instructions">A megnyitáshoz használja az arcfelismerést, vagy húzza el a képernyőt</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Oldja fel arcfelismeréssel, vagy húzza el a képernyőt az írisze használatához</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Nyissa meg arcfelismeréssel, vagy húzza el a képernyőt az írisze használatához</string>
     <string name="kg_face_unlock_instructions">Az arcfelismeréssel való feloldáshoz húzza el a képernyőt</string>
     <string name="kg_face_or_fingerprint_active_instructions">A megnyitáshoz használja ujjlenyomatát, vagy húzza el a képernyőt az arcfelismerés használatához</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">A feloldáshoz használja ujjlenyomatát, vagy húzza el a képernyőt az arcfelismerés használatához</string>
@@ -1672,6 +1680,20 @@ Ha nem szeretné, hogy ez az előugró ablak a jövőben megjelenjen, ügyeljen 
     <string name="kg_voice_assistant_unlock_instructions">A képernyő feloldásához simítsa végig azt két ujjával.</string>
     <string name="kg_swipe_active_instructions">A megnyitáshoz húzza el a képernyőt</string>
     <string name="kg_swipe_unlock_instructions">A feloldáshoz húzza el a képernyőt</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">A feloldáshoz használja biometrikus adatait, vagy húzza el a képernyőt két ujjal.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">A megnyitáshoz használja biometrikus adatait, vagy húzza el a képernyőt két ujjal.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">A feloldáshoz használja az arcfelismerést, vagy húzza el a képernyőt két ujjal.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">A megnyitáshoz használja az arcfelismerést, vagy húzza el a képernyőt két ujjal.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Az arcfelismeréssel végzett feloldáshoz húzza el két ujjal a képernyőt.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">A megnyitáshoz használja ujjlenyomatát, vagy húzza el a képernyőt két ujjal az arcfelismerés használatához.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">A feloldáshoz használja ujjlenyomatát, vagy húzza el a képernyőt két ujjal az arcfelismerés használatához.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">A megnyitáshoz használja ujjlenyomatát, vagy húzza el a képernyőt két ujjal az íriszei használatához.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">A feloldáshoz használja ujjlenyomatát, vagy húzza el a képernyőt két ujjal az íriszei használatához.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">A megnyitáshoz használja ujjlenyomatait, vagy húzza el a képernyőt két ujjal.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">A feloldáshoz használja ujjlenyomatait, vagy húzza el a képernyőt két ujjal.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Az íriszeivel végzett feloldáshoz húzza el két ujjal a képernyőt.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">A feloldáshoz használja íriszeit, vagy húzza el két ujjal a képernyőt.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">A megnyitáshoz használja íriszeit, vagy húzza el a képernyőt két ujjal.</string>
     <string name="kg_power_connect_charger">Csatlakoztassa a töltőt</string>
     <string name="kg_power_fully_charged">Teljesen feltöltve</string>
     <string name="kg_power_fast_charging">Gyorstöltés: %d%%</string>
@@ -1755,6 +1777,7 @@ bont.növ."</string>
     <string name="remote_input_send_text">Küldés</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">A telefon feloldásához érintse meg kétszer a Zárolás gombot</string>
     <string name="s_view_cover_toast_pop_up_message">A gyorsbeállító gombok használatához nyissa ki a fedelet.</string>
     <string name="remote_input_toast_text_on_sview_cover">Csukott S View Cover mellett nem használható a Gyors válasz funkció.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Ahhoz, hogy szabályozni tudja, hogy az akkumulátor feszültségének hány százaléka kerüljön megosztásra, le kell töltenie az alkalmazást. Ha a készülékét egy másik készülékhez a Samsung EP-SG900 Power Sharing kábelével az alkalmazás nélkül csatlakoztatja, az akkumulátor teljes feszültségét megkapja a másik készülék.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Elfogadom</string>
-    <string name="force_immersive_guide_text">Ezt az ikont megérintve elrejtheti a navigációs sávot. A navigációs gombokat továbbra is használhatja úgy, hogy felhúzza a képernyő alját. Amikor a navigációs sáv látható, ezt az ikont újból megérintve rögzítheti a sáv megjelenítését. Egyes képernyőkön – például a kezdőképernyőn – a navigációs sáv mindig látható.</string>
+    <string name="force_immersive_guide_text">Ezt a gombot megérintve elrejtheti a navigációs sávot. A navigációs gombokat továbbra is használhatja úgy, hogy felhúzza a képernyő alját. Amikor a navigációs sáv látható, ezt a gombot újból megérintve rögzítheti a sáv megjelenítését. Egyes képernyőkön – például a kezdőképernyőn – a navigációs sáv mindig látható. Ha egy alkalmazás nem működik megfelelően a navigációs sáv elrejtésekor, akkor rögzítse a navigációs sáv megjelenítését, és indítsa újra az alkalmazást.</string>
+    <string name="force_immersive_guide_dialog_title">Navigációs sáv elrejtése:</string>
+    <string name="force_immersive_guide_dialog_message1">Ezt a gombot megérintve elrejtheti a navigációs sávot.</string>
+    <string name="force_immersive_guide_dialog_message2">A navigációs sáv megjelenítéséhez húzza felfelé az ujját a képernyő aljáról.</string>
+    <string name="force_immersive_guide_dialog_message3">A rögzítéséhez érintse meg ezt a gombot ismét.</string>
+    <string name="force_immersive_guide_dialog_message4">Egyes képernyőkön – például a kezdőképernyőn – a navigációs sáv mindig látható.</string>
+    <string name="force_immersive_guide_dialog_guide_path">A gomb elrejtéséhez nyissa meg a Beállítások > Kijelző > Navigációs sáv menüpontot.</string>
+    <string name="force_immersive_guide_dialog_setting">Beállítások</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Vezessen óvatosan</string>
     <string name="car_lockscreen_disclaimer_text">Mindig legyen teljes mértékben tisztában a vezetési körülményekkel, és a vonatkozó törvényeket tartsa be! Az útvonaltervek pontatlanok, hiányosak, veszélyesek, nem megfelelők vagy tiltottak lehetnek, illetve a közforgalom számára nem használható utakat érinthetnek. Az üzleti információk is pontatlanok vagy hiányosak lehetnek. Az adatok nem valós idejűek, ezért nem garantálhatjuk a helyadatok pontosságát. Vezetés közben ne kezelje mobileszközét, illetve ne használjon olyan alkalmazásokat az Android Auto rendszerrel, amelyeket nem ahhoz terveztek.</string>
     <string name="pip_close">PIP bezárása</string>
@@ -2230,6 +2261,8 @@ Ha nem ismeri a PUK-kódot, keressen fel egy ügyfélszolgálati központot."</s
     <string name="kg_face_retry_content_description">Érintse meg kétszer az arcfelismerés használatához.</string>
     <string name="kg_face_authentication_error_retry_text">Nem ismerhető fel az arca. Az újrapróbálkozáshoz érintse meg az ikont</string>
     <string name="kg_face_authentication_failed_retry_text">Nincs találat. Az arcfelismerés használatához érintse meg az ikont</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Hiba történt az arcfelismerés közben. Érintse meg az újrapróbálkozáshoz</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Videohívás közben nem használható az arcfelismerés</string>
     <string name="kg_fingerprint_no_match">Nincs találat</string>
     <string name="kg_finger_print_not_responding_error_message">Az ujjlenyomat-érzékelő nem válaszol. Próbálja meg később.</string>
     <string name="kg_finger_print_database_error_message">Megsérültek az ujjlenyomatadatok. Állítsa vissza az Ujjlenyomatok képernyőzártípust, majd adja hozzá újból az ujjlenyomatait, vagy váltson más képernyőzártípusra.</string>
@@ -2366,6 +2399,8 @@ Próbálja újra 1 másodperc múlva"</string>
     <string name="appicon_badge_new_item">1 új tétel</string>
     <string name="banner_apps_for_dex_detail">Töltsön le a DeX-re optimalizált alkalmazásokat a Galaxy Apps kínálatából.</string>
     <string name="toast_cannot_move_more_than_items">Legfeljebb %d elemet helyezhet át.</string>
+    <string name="view_more_in_galaxy_apps">Továbbiak a Galaxy Appsban</string>
+    <string name="view_more_in_play_store">Továbbiak a Play Áruházban</string>
     <string name="uninstall_title">Eltávolítja az alkalmazásokat?</string>
     <string name="uninstall_1_app_message">El szeretné távolítani az alkalmazást?</string>
     <string name="uninstall_apps_message">El fogja távolítani a következő alkalmazásokat:</string>
@@ -2411,6 +2446,13 @@ Próbálja újra 1 másodperc múlva"</string>
     <string name="clear_cover_day_month_no_year">d MMM.</string>
     <string name="volumepanel_notification">Értesítés</string>
     <string name="quick_settings_location_detail_device_only">Csak eszköz</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">A töltés megszakítva. Az akkumulátor hőmérséklete túl magas.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">A töltés megszakítva. Az akkumulátor hőmérséklete túl alacsony.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Az eszköz leállította a töltést. Túl magas az akkumulátor hőmérséklete. Legyen óvatos a töltő leválasztásakor, mert nagyon forró lehet.
+
+A töltő leválasztása, majd újbóli csatlakoztatása után a töltés normál módon folytatódhat. Ha azonban a túlmelegedés nem szűnik meg, forduljon ügyfélszolgálatunkhoz, mert tűz vagy sérülés kockázata állhat fenn."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Oldja fel arcfelismeréssel, vagy húzza el a képernyőt az írisze használatához</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Nyissa meg arcfelismeréssel, vagy húzza el a képernyőt az írisze használatához</string>
     <string name="kg_infinity_wallpaper_option_description">A kezdőképernyőn és a zárolt képernyőn egyaránt Infinity háttérképet kapcsol be. A legjobb élmény érdekében kapcsolja be az alábbi beállítást.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Az Always On Display bekapcsolása</string>
 </resources>

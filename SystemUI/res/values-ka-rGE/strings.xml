@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">უცნობი</string>
     <string name="save">შენახვა</string>
     <string name="ok">კი</string>
-    <string name="battery_history_hours_no_seconds">%1$d:%2$d</string>
-    <string name="battery_history_minutes_no_seconds">%dწ</string>
+    <string name="battery_history_hours_no_seconds">%1$dსთ და %2$dწთ</string>
+    <string name="battery_history_minutes_no_seconds">%d წთ</string>
     <string name="wifi_fail_to_scan">ქსელების სკანირება არა არის შესაძლებელი</string>
     <string name="wifi_failed_to_obtain_IP">IP მისამართის მიღება ვერ მოხდა.</string>
     <string name="wifi_security_none">არცერთი</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s-თან დაკავშირება შეუძლებელია.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s-თან დაკავშირება შეუძლებელია. შეამოწმეთ პარამეტრები „%2$s“-ში და ისევ სცადეთ.</string>
     <string name="bluetooth_pairing_rejected_error_message">დაწყვილება უარყო: %s.</string>
+    <string name="bluetooth_getting_remote_device_name">მიმდინარეობს მოწყობილობის სახელის მიღება…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">მოწყობილობის სახელი გამოჩნდება, როდესაც ეს მოწყობილობა დაკავშირდება.</string>
     <string name="accessibility_wifi_off">WiFi გამორთულია.</string>
     <string name="accessibility_no_wifi">WiFi არ არის დაკავშირებული.</string>
     <string name="accessibility_wifi_one_bar">WiFi სიგნალი ერთ ზოლზეა.</string>
@@ -554,7 +556,7 @@ For example, your ringtone will not sound, you will not be able to answer phone 
     <string name="accessibility_back">უკან</string>
     <string name="accessibility_home">საწყისი</string>
     <string name="accessibility_menu">მენიუ</string>
-    <string name="sec_accessibility_recent">ბოლოდროის</string>
+    <string name="sec_accessibility_recent">ბოლოდროინდელები</string>
     <string name="accessibility_camera_button">კამერა</string>
     <string name="accessibility_phone_button">ტელეფონი</string>
     <string name="accessibility_voice_assist_button">ხმოვანი დახმარება</string>
@@ -1362,6 +1364,7 @@ Wi-Fi და Bluetooth ასევე გამოირთვება, მა
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">რიცხვთა პანელი %1$s</string>
+    <string name="keyboard_popup_help">მეტა კოდი: Windows, Command, ან სხვა ოპერაციული სისტემის სიმბოლოს კოდი.</string>
     <string name="keyboard_shortcut_group_system">სისტემის ღილაკები</string>
     <string name="keyboard_shortcut_group_system_home">მთავარი</string>
     <string name="keyboard_shortcut_group_system_recents">ბოლოს გამოყენებული</string>
@@ -1523,8 +1526,8 @@ Wi-Fi და Bluetooth ასევე გამოირთვება, მა
 
 წყლისგან დაზიანების ასარიდებლად, დარწმუნდით, რომ SIM/SD ბარათის ლანგარი ჰერმეტულადაა დახურული."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">წყლისგან დაზიანების ასარიდებლად, დარწმუნდით, რომ SIM/SD ბარათის ლანგარი კარგადაა დახურული.</string>
-    <string name="water_protection_notification_title">შეამოწმეთ პორტი</string>
-    <string name="water_protection_notification_body">ამოცნობილია სინესტე. მოწყობილობის დასამუხტად დარწმუნდით, რომ დამტენი/USB პორტი სუფთა და მშრალია.</string>
+    <string name="water_protection_notification_title">გამორთეთ დამტენი</string>
+    <string name="water_protection_notification_body">ამოცნობილია სინესტე. გამოაძრეთ დამტენი და დარწმუნდით, რომ დამტენიცა და USB პორტიც მშრალია.</string>
     <string name="full_battery_title">ინფო</string>
     <string name="full_battery_noti_text">კვების ელემენტი დაიტენა.</string>
     <string name="cooling_title">მოწყობილობა გადახურდება</string>
@@ -1618,6 +1621,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">ნელა იმუხტება</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">უფრო სწრაფად რომ დამუხტოთ, გამოიყენეთ ის დამტენი, რომელიც მოჰყვა მოწყობილობას და დარწმუნდით, რომ ის სწორადაა შეერთებული.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">დარწმუნდით, რომ დამტენი სწორადაა შეერთებული. გამოიყენეთ ის დამტენი, რომელიც მოჰყვა მოწყობილობას.</string>
     <string name="battery_charging_level_and_time_text">"იმუხტება: %1$d%%
 (სრულ შევსებამდე დარჩა დაახლოებით %2$s)"</string>
@@ -1631,12 +1635,18 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">დამუხტეთ ტელეფონი.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">დამუხტეთ პლანშეტი.</string>
     <string name="button_close">დახურვა</string>
-    <string name="battery_health_interruption_title">დამუხტვა შეუძლებელია</string>
+    <string name="battery_health_interruption_title">დამუხტვა შეწყდა</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">გამორთეთ დამტენი</string>
     <string name="battery_health_interruption_by_terminal_open_text">თქვენი მოწყობილობის დამუხტვა შეუძლებელია. დარწმუნდით, რომ იყენებთ Samsung-თან თავსებად კვების ელემენტსა და დამტენს და აპარატზე სწორადაა მიერთებული დამტენი.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">დამუხტვა შეჩერდა. კვების ელემენტის ტემპერატურა ძალიან მაღალია.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">დამუხტვა შეჩერდა. კვების ელემენტის ტემპერატურა ძალიან დაბალია.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"მოწყობილობამ შეწყვიტა დამუხტვა. კვების ელემენტის ტემპერატურა ძალიან მაღალია. სიფრთხილე გმართებთ დამტენის გამოძრობის დროს. ის შეიძლება ძალიან ცხელი იყოს.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">ტელეფონის ტემპერატურა ძალიან მაღალია. დამუხტვა გაგრძელდება, როდესაც ტემპერატურა დაუბრუნდება ნორმალურ მნიშვნელობას.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">პლანშეტის ტემპერატურა ძალიან მაღალია. დამუხტვა გაგრძელდება, როდესაც ტემპერატურა დაუბრუნდება ნორმალურ მნიშვნელობას.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">ტელეფონის ტემპერატურა ძალიან დაბალია. დამუხტვა გაგრძელდება, როდესაც ტემპერატურა დაუბრუნდება ნორმალურ მნიშვნელობას.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">პლანშეტის ტემპერატურა ძალიან დაბალია. დამუხტვა გაგრძელდება, როდესაც ტემპერატურა დაუბრუნდება ნორმალურ მნიშვნელობას.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"დამუხტვა გაჩერდა. ტელეფონის ტემპერატურა ძალიან მაღალია. სიფრთხილე გმართებთ დამტენის გამოძრობის დროს. ის შეიძლება ძალიან ცხელი იყოს.
+
+დამტენის გამოძრობითა და მიერთებით, შესაძლოა, დამუხტვა გაგრძელდეს ნორმალურად. თუ გადახურების პრობლემა კვლავ არის, მიმართეთ მომხმარებელთა დახმარების სამსახურს, რადგან შეიძლება იყოს ხანძრის ან დაზიანების რისკი."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"დამუხტვა გაჩერდა. პლანშეტის ტემპერატურა ძალიან მაღალია. სიფრთხილე გმართებთ დამტენის გამოძრობის დროს. ის შეიძლება ძალიან ცხელი იყოს.
 
 დამტენის გამოძრობითა და მიერთებით, შესაძლოა, დამუხტვა გაგრძელდეს ნორმალურად. თუ გადახურების პრობლემა კვლავ არის, მიმართეთ მომხმარებელთა დახმარების სამსახურს, რადგან შეიძლება იყოს ხანძრის ან დაზიანების რისკი."</string>
     <string name="incompatible_charger_title">არ იმუხტება.</string>
@@ -1654,8 +1664,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">გასახსნელად გამოიყენეთ ბიომეტრული მონაცემები, ან თითი გადაუსვით ეკრანს</string>
     <string name="kg_face_or_swipe_unlock_instructions">განსაბლოკად გამოიყენეთ სახის ამოცნობა, ან თითი გადაუსვით ეკრანს</string>
     <string name="kg_face_or_swipe_active_instructions">გასახსნელად გამოიყენეთ სახის ამოცნობა, ან თითი გადაუსვით ეკრანს</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">განბლოკეთ სახის ამოცნობით, ან გადაუსვით თითი ეკრანს, რომ სანაცვლოდ გამოიყენოთ თვალის ირისები</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">გახსენით სახის ამოცნობით, ან გადაუსვით თითი ეკრანს, რომ სანაცვლოდ გამოიყენოთ თვალის ირისები</string>
     <string name="kg_face_unlock_instructions">გადაუსვით თითი ეკრანს, რომ განბლოკოთ სახის ამოცნობით</string>
     <string name="kg_face_or_fingerprint_active_instructions">გახსენით თითის ანაბეჭდით, ან გადაუსვით თითი ეკრანს, რომ სანაცვლოდ გამოიყენოთ სახის ამოცნობა</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">განბლოკეთ თითის ანაბეჭდით, ან გადაუსვით თითი ეკრანს, რომ სანაცვლოდ გამოიყენოთ სახის ამოცნობა</string>
@@ -1670,6 +1678,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">ეკრანის განსაბლოკად გადაუსვით ორი თითით.</string>
     <string name="kg_swipe_active_instructions">გადაუსვით თითი ეკრანზე და გაიხსნება</string>
     <string name="kg_swipe_unlock_instructions">გადაუსვით ხელი ეკრანზე და განიბლოკება</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">განსაბლოკად გამოიყენეთ ბიომეტრული მონაცემები, ან ორი თითი გადაუსვით ეკრანს.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">გასახსნელად გამოიყენეთ ბიომეტრული მონაცემები, ან ორი თითი გადაუსვით ეკრანს.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">განსაბლოკად გამოიყენეთ სახის ამოცნობა, ან ორი თითი გადაუსვით ეკრანს.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">გასახსნელად გამოიყენეთ სახის ამოცნობა, ან ორი თითი გადაუსვით ეკრანს.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">სახის ამოცნობით განსაბლოკად, გადაუსვით ეკრანს ორი თითი.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">გახსენით თითის ანაბეჭდით, ან გადაუსვით ორი თითი ეკრანს, რომ გამოიყენოთ სახის ამოცნობა.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">განბლოკეთ თითის ანაბეჭდით, ან გადაუსვით ორი თითი ეკრანს, რომ გამოიყენოთ სახის ამოცნობა.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">გახსენით თითის ანაბეჭდით, ან გადაუსვით ორი თითი ეკრანს, რომ გამოიყენოთ თვალის ირისები.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">განბლოკეთ თითის ანაბეჭდით, ან გადაუსვით ორი თითი ეკრანს, რომ გამოიყენოთ თვალის ირისები.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">გასახსნელად გამოიყენეთ თითის ანაბეჭდი, ან ორი თითი გადაუსვით ეკრანს.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">განსაბლოკად გამოიყენეთ თითის ანაბეჭდი, ან ორი თითი გადაუსვით ეკრანს.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">თვალის ირისებით განსაბლოკად, გადაუსვით ეკრანს ორი თითი.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">განსაბლოკად გამოიყენეთ თვალის ირისები, ან ორი თითი გადაუსვით ეკრანს.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">გასახსნელად გამოიყენეთ თვალის ირისები, ან ორი თითი გადაუსვით ეკრანს.</string>
     <string name="kg_power_connect_charger">მიუერთეთ დამტენი</string>
     <string name="kg_power_fully_charged">სრულადაა დამუხტული</string>
     <string name="kg_power_fast_charging">სწრაფი დამუხტვა: %d%%</string>
@@ -1753,6 +1775,7 @@ upscaler"</string>
     <string name="remote_input_send_text">გაგზავნა</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">ტელეფონის განსაბლოკად ორჯერ შეეხეთ დაბლოკვის ღილაკს</string>
     <string name="s_view_cover_toast_pop_up_message">გადახსენით საფარი და გამოიყენეთ სწრაფი პარამეტრების ღილაკები.</string>
     <string name="remote_input_toast_text_on_sview_cover">„სწრაფი პასუხის“ ფუნქციის გამოყენება შეუძლებელია, როდესაც „S View-ს ყდა“ დახურულია.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1789,7 +1812,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">ვეთანხმები</string>
-    <string name="force_immersive_guide_text">ამ ღილაკზე შეხებით დაიხურება ნავიგაციის ზოლი. ნავიგაციის ღილაკების გამოყენება ისევ რომ შეძლოთ, ქვემოდან ზემოთ აუსვით თითი ეკრანს. სანამ ნავიგაციის ზოლი ჩანს, ადგილზე მის ჩაკეტვას შეძლებთ ისევ იმავე ღილაკზე შეხებით. ნავიგაციის ზოლი ყოველთვის ჩანს ზოგიერთ ეკრანზე, მაგალითად, „საწყის ეკრანზე“.</string>
+    <string name="force_immersive_guide_text">ამ ღილაკზე შეხებით დაიხურება ნავიგაციის ზოლი. ნავიგაციის ღილაკების გამოყენება ისევ რომ შეძლოთ, ქვემოდან ზემოთ აუსვით თითი ეკრანს. სანამ ნავიგაციის ზოლი ჩანს, ადგილზე მის ჩაკეტვას შეძლებთ ისევ იმავე ღილაკზე შეხებით. ნავიგაციის ზოლი ყოველთვის ჩანს ზოგიერთ ეკრანზე, მაგალითად, „საწყის ეკრანზე“. თუ აპლიკაცია არ იქცევა ნორმალურად, როდესაც ნავიგაციის ზოლი დამალულია, ჩაამაგრეთ ნავიგაციის ზოლი ადგილზე და თავიდან ჩართეთ აპლიკაცია.</string>
+    <string name="force_immersive_guide_dialog_title">დამალეთ ნავიგაციის ზოლი:</string>
+    <string name="force_immersive_guide_dialog_message1">ამ ღილაკზე შეხებით დაიხურება ნავიგაციის ზოლი.</string>
+    <string name="force_immersive_guide_dialog_message2">თითი აისვით ეკრანს ქვემოდან ზემოთ, რომ გამოჩნდეს ნავიგაციის ზოლი.</string>
+    <string name="force_immersive_guide_dialog_message3">ისევ შეეხეთ ღილაკს, რომ ადგილზე ჩაკეტოთ იგი.</string>
+    <string name="force_immersive_guide_dialog_message4">ნავიგაციის ზოლი ყოველთვის ჩანს ზოგიერთ ეკრანზე, მაგალითად, „საწყის ეკრანზე“.</string>
+    <string name="force_immersive_guide_dialog_guide_path">ეს ღილაკი რომ დამალოთ, გახსენით „პარამეტრები“ > „ჩვენება“ > „ნავიგაციის ზოლი“.</string>
+    <string name="force_immersive_guide_dialog_setting">პარამეტრები</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">უსაფრთხოდ მართვის წესები</string>
     <string name="car_lockscreen_disclaimer_text">ყოველთვის გულდასმით გაეცანით მდგომარეობას გზებზე და დაიცავით მოქმედი კანონები. შეთავაზებული მიმართულებები შეიძლება იყოს უზუსტო, არასრული, სახიფათო, შეუფერებელი, აკრძალული, ან ადმინისტრაციული ერთეულების გადაკვეთას გულისხმობდეს. ბიზნეს-ინფორმაცია შეიძლება ასევე იყოს უზუსტო ან არასრული. მონაცემების განახლება რეალური დროის რეჟიმში არ ხდება და შესაბამისად, მდებარეობის სიზუსტე გარანტირებული ვერ იქნება. ავტომობილის მართვისას ნუ შეეცდებით თქვენი მობილური მოწყობილობით მანიპულირებას, ან ისეთი აპების გამოყენებას, რომლებიც Android Auto-სთვის შექმნილი არ არის.</string>
     <string name="pip_close">PIP-ის დახურვა</string>
@@ -2228,6 +2259,8 @@ PIN უნდა შეიცავდეს 4-8 ციფრს."</string>
     <string name="kg_face_retry_content_description">სახის ამოცნობის გამოსაყენებლად, შეეხეთ ორჯერ.</string>
     <string name="kg_face_authentication_error_retry_text">სახე არ არის ამოცნობილი. შეეხეთ ღილაკს, რომ ისევ სცადოთ სახის ამოცნობა</string>
     <string name="kg_face_authentication_failed_retry_text">შესაბამისი არ არის. სახის ამოსაცნობად, შეეხეთ ნიშანს</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">პრობლემაა სახის ამოცნობასთან დაკავშირებით. შეეხეთ და ისევ ცადეთ</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">სახის ამოცნობის გამოყენება შეუძლებელია ვიდეოზარების დროს</string>
     <string name="kg_fingerprint_no_match">შესაბამისი არ არის</string>
     <string name="kg_finger_print_not_responding_error_message">თითის ანაბეჭდის სენსორი არ რეაგირებს. მოგვიანებით მოსინჯეთ.</string>
     <string name="kg_finger_print_database_error_message">თითის ანაბეჭდის მონაცემები დაზიანებულია. თითის ანაბეჭდი დააყენეთ ეკრანის დაბლოკვის ტიპად, შემდეგ კი თავიდან დაამატეთ თითის ანაბეჭდი, ან შეცვალეთ ეკრანის დაბლოკვის ტიპი.</string>
@@ -2364,6 +2397,8 @@ PIN უნდა შეიცავდეს 4-8 ციფრს."</string>
     <string name="appicon_badge_new_item">1 ახალი ელემენტი</string>
     <string name="banner_apps_for_dex_detail">გამოიყენეთ DeX-თი ოპტიმიზირებული აპლიკაციები Galaxy Apps-დან.</string>
     <string name="toast_cannot_move_more_than_items">%d-ზე მეტი ელემენტის გადატანა შეუძლებელია.</string>
+    <string name="view_more_in_galaxy_apps">იხილეთ მეტი Galaxy Apps-ში</string>
+    <string name="view_more_in_play_store">იხილეთ მეტი Play Store-ში</string>
     <string name="uninstall_title">გაუქმდეს აპლიკაციების ინსტალაცია?</string>
     <string name="uninstall_1_app_message">ამ აპლიკაციის ინსტალაციის გაუქმება გსურთ?</string>
     <string name="uninstall_apps_message">გაუქმდება შემდეგი აპლიკაციების ინსტალაცია:</string>
@@ -2404,6 +2439,13 @@ PIN უნდა შეიცავდეს 4-8 ციფრს."</string>
     <string name="taskbar_context_menu_close_desk_notification_view">შეტყობინებების დამალვა</string>
     <string name="volumepanel_notification">შეტყობინება</string>
     <string name="quick_settings_location_detail_device_only">მხოლოდ მოწყობილობა</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">დამუხტვა შეჩერდა. კვების ელემენტის ტემპერატურა ძალიან მაღალია.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">დამუხტვა შეჩერდა. კვების ელემენტის ტემპერატურა ძალიან დაბალია.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"მოწყობილობამ შეწყვიტა დამუხტვა. კვების ელემენტის ტემპერატურა ძალიან მაღალია. სიფრთხილე გმართებთ დამტენის გამოძრობის დროს. ის შეიძლება ძალიან ცხელი იყოს.
+
+დამტენის გამოძრობითა და მიერთებით, შესაძლოა, დამუხტვა გაგრძელდეს ნორმალურად. თუ გადახურების პრობლემა კვლავ არის, მიმართეთ მომხმარებელთა დახმარების სამსახურს, რადგან შეიძლება იყოს ხანძრის ან დაზიანების რისკი."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">განბლოკეთ სახის ამოცნობით, ან გადაუსვით თითი ეკრანს, რომ სანაცვლოდ გამოიყენოთ თვალის ირისები</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">გახსენით სახის ამოცნობით, ან გადაუსვით თითი ეკრანს, რომ სანაცვლოდ გამოიყენოთ თვალის ირისები</string>
     <string name="kg_infinity_wallpaper_option_description">„უსასრულო ფონი“ ერთდროულად იქნება გამოყენებული საწყის და დაბლოკილ ეკრანებზე. ჩართეთ ქვემოთ მოცემული პარამეტრი, საუკეთესო გამოცდილებისთვის.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Always On Display-ს ჩართვა</string>
 </resources>

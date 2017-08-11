@@ -42,7 +42,7 @@
 .method public constructor <init>(Lcom/android/systemui/statusbar/phone/NavigationBarView;)V
     .locals 3
 
-    const v2, 0x7f020371
+    const v2, 0x7f020379
 
     invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/phone/BarTransitions;-><init>(Landroid/view/View;I)V
 
@@ -116,7 +116,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1300f7
+    const v4, 0x7f1300fb
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

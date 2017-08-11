@@ -54,20 +54,24 @@
     .end annotation
 .end field
 
+.field visible:Z
+
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-boolean v1, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->visible:Z
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->isPendingStopEasing:Z
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->needKeepUpdate:Z
+    iput-boolean v1, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->needKeepUpdate:Z
 
     return-void
 .end method
@@ -430,6 +434,56 @@
     iget-object v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->valueAnimatorList:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    goto :goto_0
+.end method
+
+.method public setVisible(Z)V
+    .locals 1
+
+    iput-boolean p1, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->visible:Z
+
+    if-nez p1, :cond_1
+
+    iget-object v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->anim:Landroid/animation/ValueAnimator;
+
+    if-nez v0, :cond_2
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->anim:Landroid/animation/ValueAnimator;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->anim:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isPaused()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->anim:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->resume()V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->anim:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->anim:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->pause()V
 
     goto :goto_0
 .end method

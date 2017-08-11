@@ -44,7 +44,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f040131
+    const v2, 0x7f040135
 
     invoke-virtual {v0, v2, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -52,7 +52,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSSFinderView;->QSBarItemView:Landroid/view/View;
 
-    const v0, 0x7f1303c8
+    const v0, 0x7f1303d4
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSSFinderView;->findViewById(I)Landroid/view/View;
 
@@ -66,7 +66,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0d03ee
+    const v2, 0x7f0d03ef
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -74,7 +74,7 @@
 
     iput v0, p0, Lcom/android/systemui/qs/QSSFinderView;->mSFinederTranslation:F
 
-    const v0, 0x7f1303c9
+    const v0, 0x7f1303d5
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSSFinderView;->findViewById(I)Landroid/view/View;
 
@@ -84,7 +84,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSSFinderView;->mSFinderEditLayout:Landroid/widget/RelativeLayout;
 
-    const v0, 0x7f1303cb
+    const v0, 0x7f1303d7
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSSFinderView;->findViewById(I)Landroid/view/View;
 
@@ -103,7 +103,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :cond_0
-    const v0, 0x7f1303ca
+    const v0, 0x7f1303d6
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSSFinderView;->findViewById(I)Landroid/view/View;
 
@@ -119,7 +119,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSSFinderView;->mSFinderEditText:Landroid/widget/TextView;
 
-    const v2, 0x7f0f06e3
+    const v2, 0x7f0f0752
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -321,7 +321,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d03ef
+    const v1, 0x7f0d03f0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

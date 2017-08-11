@@ -76,7 +76,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$6;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap26(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;I)V
+    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap27(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;I)V
 
     :cond_1
     return-void

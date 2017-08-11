@@ -70,6 +70,8 @@
 
 .field private mIsChargerAnimationPlaying:Z
 
+.field private mIsDayDreamConnected:Z
+
 .field private mIsDeviceMoving:Z
 
 .field private mIsPowerSupplyingActivated:Z
@@ -139,7 +141,7 @@
 .method static synthetic -get10(Lcom/android/systemui/power/PowerUI;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/power/PowerUI;->mIsPowerSupplyingActivated:Z
+    iget-boolean v0, p0, Lcom/android/systemui/power/PowerUI;->mIsDayDreamConnected:Z
 
     return v0
 .end method
@@ -147,7 +149,7 @@
 .method static synthetic -get11(Lcom/android/systemui/power/PowerUI;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/power/PowerUI;->mIsSContextListenerRigstered:Z
+    iget-boolean v0, p0, Lcom/android/systemui/power/PowerUI;->mIsPowerSupplyingActivated:Z
 
     return v0
 .end method
@@ -155,12 +157,20 @@
 .method static synthetic -get12(Lcom/android/systemui/power/PowerUI;)Z
     .locals 1
 
+    iget-boolean v0, p0, Lcom/android/systemui/power/PowerUI;->mIsSContextListenerRigstered:Z
+
+    return v0
+.end method
+
+.method static synthetic -get13(Lcom/android/systemui/power/PowerUI;)Z
+    .locals 1
+
     iget-boolean v0, p0, Lcom/android/systemui/power/PowerUI;->mIsShutdownTaskDelayed:Z
 
     return v0
 .end method
 
-.method static synthetic -get13(Lcom/android/systemui/power/PowerUI;)I
+.method static synthetic -get14(Lcom/android/systemui/power/PowerUI;)I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/power/PowerUI;->mLowBatteryAlertCloseLevel:I
@@ -168,7 +178,7 @@
     return v0
 .end method
 
-.method static synthetic -get14(Lcom/android/systemui/power/PowerUI;)[I
+.method static synthetic -get15(Lcom/android/systemui/power/PowerUI;)[I
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI;->mLowBatteryReminderLevels:[I
@@ -176,7 +186,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Lcom/android/systemui/power/PowerUI;)I
+.method static synthetic -get16(Lcom/android/systemui/power/PowerUI;)I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/power/PowerUI;->mPlugType:I
@@ -184,7 +194,7 @@
     return v0
 .end method
 
-.method static synthetic -get16(Lcom/android/systemui/power/PowerUI;)Landroid/os/PowerManager;
+.method static synthetic -get17(Lcom/android/systemui/power/PowerUI;)Landroid/os/PowerManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI;->mPowerManager:Landroid/os/PowerManager;
@@ -192,7 +202,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/android/systemui/power/PowerUI;)Landroid/hardware/scontext/SContextListener;
+.method static synthetic -get18(Lcom/android/systemui/power/PowerUI;)Landroid/hardware/scontext/SContextListener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI;->mSContextListener:Landroid/hardware/scontext/SContextListener;
@@ -200,20 +210,12 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Lcom/android/systemui/power/PowerUI;)Landroid/hardware/scontext/SContextManager;
+.method static synthetic -get19(Lcom/android/systemui/power/PowerUI;)Landroid/hardware/scontext/SContextManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI;->mSContextManager:Landroid/hardware/scontext/SContextManager;
 
     return-object v0
-.end method
-
-.method static synthetic -get19(Lcom/android/systemui/power/PowerUI;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/power/PowerUI;->mSIOPLevel:I
-
-    return v0
 .end method
 
 .method static synthetic -get2(Lcom/android/systemui/power/PowerUI;)I
@@ -224,7 +226,15 @@
     return v0
 .end method
 
-.method static synthetic -get20(Lcom/android/systemui/power/PowerUI;)J
+.method static synthetic -get20(Lcom/android/systemui/power/PowerUI;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/power/PowerUI;->mSIOPLevel:I
+
+    return v0
+.end method
+
+.method static synthetic -get21(Lcom/android/systemui/power/PowerUI;)J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/systemui/power/PowerUI;->mScreenOffTime:J
@@ -232,7 +242,7 @@
     return-wide v0
 .end method
 
-.method static synthetic -get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+.method static synthetic -get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
@@ -315,7 +325,7 @@
 .method static synthetic -set10(Lcom/android/systemui/power/PowerUI;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsDeviceMoving:Z
+    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsDayDreamConnected:Z
 
     return p1
 .end method
@@ -323,7 +333,7 @@
 .method static synthetic -set11(Lcom/android/systemui/power/PowerUI;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsPowerSupplyingActivated:Z
+    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsDeviceMoving:Z
 
     return p1
 .end method
@@ -331,7 +341,7 @@
 .method static synthetic -set12(Lcom/android/systemui/power/PowerUI;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsRunningOverheatWarningTask:Z
+    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsPowerSupplyingActivated:Z
 
     return p1
 .end method
@@ -339,7 +349,7 @@
 .method static synthetic -set13(Lcom/android/systemui/power/PowerUI;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsSContextListenerRigstered:Z
+    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsRunningOverheatWarningTask:Z
 
     return p1
 .end method
@@ -347,7 +357,7 @@
 .method static synthetic -set14(Lcom/android/systemui/power/PowerUI;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsScreenOn:Z
+    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsSContextListenerRigstered:Z
 
     return p1
 .end method
@@ -355,15 +365,15 @@
 .method static synthetic -set15(Lcom/android/systemui/power/PowerUI;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsShutdownTaskDelayed:Z
+    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsScreenOn:Z
 
     return p1
 .end method
 
-.method static synthetic -set16(Lcom/android/systemui/power/PowerUI;I)I
+.method static synthetic -set16(Lcom/android/systemui/power/PowerUI;Z)Z
     .locals 0
 
-    iput p1, p0, Lcom/android/systemui/power/PowerUI;->mPlugType:I
+    iput-boolean p1, p0, Lcom/android/systemui/power/PowerUI;->mIsShutdownTaskDelayed:Z
 
     return p1
 .end method
@@ -371,12 +381,20 @@
 .method static synthetic -set17(Lcom/android/systemui/power/PowerUI;I)I
     .locals 0
 
+    iput p1, p0, Lcom/android/systemui/power/PowerUI;->mPlugType:I
+
+    return p1
+.end method
+
+.method static synthetic -set18(Lcom/android/systemui/power/PowerUI;I)I
+    .locals 0
+
     iput p1, p0, Lcom/android/systemui/power/PowerUI;->mPowerSavingRecommendNotiTrigger:I
 
     return p1
 .end method
 
-.method static synthetic -set18(Lcom/android/systemui/power/PowerUI;J)J
+.method static synthetic -set19(Lcom/android/systemui/power/PowerUI;J)J
     .locals 1
 
     iput-wide p1, p0, Lcom/android/systemui/power/PowerUI;->mScreenOffTime:J
@@ -635,6 +653,8 @@
 
     iput-boolean v2, p0, Lcom/android/systemui/power/PowerUI;->mBootCompleted:Z
 
+    iput-boolean v2, p0, Lcom/android/systemui/power/PowerUI;->mIsDayDreamConnected:Z
+
     new-instance v0, Lcom/android/systemui/power/PowerUI$1;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/power/PowerUI$1;-><init>(Lcom/android/systemui/power/PowerUI;)V
@@ -677,338 +697,360 @@
 .end method
 
 .method private checkBatteryHealthInterruptionStatus(II)V
-    .locals 11
+    .locals 12
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
-    const-wide/32 v8, 0xea60
+    const-wide/32 v10, 0xea60
 
-    const/4 v7, 0x4
+    const/4 v8, 0x4
 
-    const/4 v6, 0x3
+    const/4 v7, 0x3
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryStatus:I
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryStatus:I
 
-    if-ne v7, v3, :cond_5
+    if-ne v8, v4, :cond_6
 
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
 
-    if-eq v6, v3, :cond_0
+    if-eq v7, v4, :cond_0
 
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
 
-    const/4 v4, 0x7
+    const/4 v5, 0x7
 
-    if-ne v4, v3, :cond_4
+    if-ne v5, v4, :cond_5
 
     :cond_0
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    if-nez v3, :cond_8
+    if-nez v4, :cond_9
 
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v4, "power"
+    const-string/jumbo v5, "power"
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/os/PowerManager;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_7
 
-    const-string/jumbo v3, "PowerUI"
+    const-string/jumbo v4, "PowerUI"
 
-    const-string/jumbo v4, "onReceive : fail to get PowerManager reference"
+    const-string/jumbo v5, "onReceive : fail to get PowerManager reference"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     :goto_0
-    iget-boolean v3, p0, Lcom/android/systemui/power/PowerUI;->mDismissBatteryHealthInterruptionWarning:Z
+    iget-boolean v4, p0, Lcom/android/systemui/power/PowerUI;->mDismissBatteryHealthInterruptionWarning:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryStatus:I
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryStatus:I
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    if-ne v4, v3, :cond_2
+    if-ne v5, v4, :cond_2
 
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
 
-    invoke-interface {v3}, Lcom/android/systemui/power/PowerUI$WarningsUI;->dismissBatteryHealthInterruptionWarning()V
+    invoke-interface {v4}, Lcom/android/systemui/power/PowerUI$WarningsUI;->dismissBatteryHealthInterruptionWarning()V
 
-    iput-boolean v10, p0, Lcom/android/systemui/power/PowerUI;->mDismissBatteryHealthInterruptionWarning:Z
+    iput-boolean v9, p0, Lcom/android/systemui/power/PowerUI;->mDismissBatteryHealthInterruptionWarning:Z
 
     :cond_2
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
 
-    if-eq p2, v3, :cond_11
-
-    const/4 v3, 0x5
-
-    if-eq v3, p2, :cond_3
-
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
+    if-eq p2, v4, :cond_12
 
     const/4 v4, 0x5
 
-    if-ne v4, v3, :cond_10
+    if-eq v4, p2, :cond_3
+
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
+
+    const/4 v5, 0x5
+
+    if-ne v5, v4, :cond_11
 
     :cond_3
-    const-string/jumbo v3, "PowerUI"
-
-    const-string/jumbo v4, "Overvoltage/Undervoltage status is changed so turn on the screen."
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "power"
-
-    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {}, Landroid/app/enterprise/knoxcustom/SettingsManager;->getInstance()Landroid/app/enterprise/knoxcustom/SettingsManager;
 
     move-result-object v3
 
-    invoke-static {v3}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
+    if-eqz v3, :cond_4
 
-    move-result-object v1
+    invoke-virtual {v3}, Landroid/app/enterprise/knoxcustom/SettingsManager;->getScreenWakeupOnPowerState()Z
 
-    if-nez v1, :cond_12
+    move-result v4
 
-    const-string/jumbo v3, "PowerUI"
-
-    const-string/jumbo v4, "turnOnScreen : fail to get PowerManager reference"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
+    if-eqz v4, :cond_13
 
     :cond_4
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
+    const-string/jumbo v4, "PowerUI"
 
-    const/4 v4, 0x6
+    const-string/jumbo v5, "Overvoltage/Undervoltage status is changed so turn on the screen."
 
-    if-eq v4, v3, :cond_0
-
-    :cond_5
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryStatus:I
-
-    if-ne v7, v3, :cond_d
-
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
-
-    const/16 v4, 0x8
-
-    if-ne v4, v3, :cond_d
-
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    if-nez v3, :cond_b
-
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mContext:Landroid/content/Context;
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v4, "power"
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
+
+    move-result-object v1
+
+    if-nez v1, :cond_14
+
+    const-string/jumbo v4, "PowerUI"
+
+    const-string/jumbo v5, "turnOnScreen : fail to get PowerManager reference"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_5
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
+
+    const/4 v5, 0x6
+
+    if-eq v5, v4, :cond_0
+
+    :cond_6
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryStatus:I
+
+    if-ne v8, v4, :cond_e
+
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
+
+    const/16 v5, 0x8
+
+    if-ne v5, v4, :cond_e
+
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    if-nez v4, :cond_c
+
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v5, "power"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/os/PowerManager;
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_a
 
-    const-string/jumbo v3, "PowerUI"
+    const-string/jumbo v4, "PowerUI"
 
-    const-string/jumbo v4, "onReceive : fail to get PowerManager reference"
+    const-string/jumbo v5, "onReceive : fail to get PowerManager reference"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    :cond_6
-    const-string/jumbo v3, "PowerUI"
+    :cond_7
+    const-string/jumbo v4, "PowerUI"
 
-    const v4, 0x10000006
+    const v5, 0x10000006
 
-    invoke-virtual {v2, v4, v3}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {v2, v5, v4}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
-    move-result-object v3
+    move-result-object v4
 
-    iput-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+    iput-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    sget-boolean v3, Lcom/android/systemui/SystemUIRune;->SUPPORT_KEEP_DIMMING_AT_BATTERY_HEALTH_INTERRUPTION:Z
+    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_KEEP_DIMMING_AT_BATTERY_HEALTH_INTERRUPTION:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v4, :cond_8
 
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    invoke-virtual {v4}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
     :goto_1
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionPartialWakeLock:Landroid/os/PowerManager$WakeLock;
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionPartialWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    invoke-virtual {v4}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
 
-    invoke-interface {v3}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showBatteryHealthInterruptionWarning()V
+    invoke-interface {v4}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showBatteryHealthInterruptionWarning()V
 
     goto/16 :goto_0
 
-    :cond_7
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+    :cond_8
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual {v3, v8, v9}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
+    invoke-virtual {v4, v10, v11}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     goto :goto_1
 
-    :cond_8
-    const/16 v3, 0x8
-
-    if-ne v3, p2, :cond_1
-
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
-
-    invoke-interface {v3}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showBatteryHealthInterruptionWarning()V
-
-    goto/16 :goto_0
-
     :cond_9
-    const-string/jumbo v3, "PowerUI"
+    const/16 v4, 0x8
 
-    const v4, 0x10000006
+    if-ne v4, p2, :cond_1
 
-    invoke-virtual {v2, v4, v3}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
 
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    sget-boolean v3, Lcom/android/systemui/SystemUIRune;->SUPPORT_KEEP_DIMMING_AT_BATTERY_HEALTH_INTERRUPTION:Z
-
-    if-eqz v3, :cond_a
-
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->acquire()V
-
-    :goto_2
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionPartialWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->acquire()V
-
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
-
-    invoke-interface {v3}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showBatteryHealthInterruptionWarning()V
+    invoke-interface {v4}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showBatteryHealthInterruptionWarning()V
 
     goto/16 :goto_0
 
     :cond_a
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+    const-string/jumbo v4, "PowerUI"
 
-    invoke-virtual {v3, v8, v9}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
+    const v5, 0x10000006
+
+    invoke-virtual {v2, v5, v4}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+
+    move-result-object v4
+
+    iput-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_KEEP_DIMMING_AT_BATTERY_HEALTH_INTERRUPTION:Z
+
+    if-eqz v4, :cond_b
+
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v4}, Landroid/os/PowerManager$WakeLock;->acquire()V
+
+    :goto_2
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionPartialWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v4}, Landroid/os/PowerManager$WakeLock;->acquire()V
+
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
+
+    invoke-interface {v4}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showBatteryHealthInterruptionWarning()V
+
+    goto/16 :goto_0
+
+    :cond_b
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v4, v10, v11}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     goto :goto_2
 
-    :cond_b
-    if-ne v6, p2, :cond_1
-
-    sget-boolean v3, Lcom/android/systemui/SystemUIRune;->SUPPORT_KEEP_DIMMING_AT_BATTERY_HEALTH_INTERRUPTION:Z
-
-    if-nez v3, :cond_c
-
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v3, v8, v9}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
-
     :cond_c
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
+    if-ne v7, p2, :cond_1
 
-    invoke-interface {v3}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showBatteryHealthInterruptionWarning()V
+    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_KEEP_DIMMING_AT_BATTERY_HEALTH_INTERRUPTION:Z
 
-    goto/16 :goto_0
+    if-nez v4, :cond_d
+
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v4, v10, v11}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     :cond_d
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
 
-    if-eqz v3, :cond_1
-
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mPlugType:I
-
-    if-ne v7, v3, :cond_f
-
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryStatus:I
-
-    if-ne v6, v3, :cond_f
-
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
-
-    if-ne v6, v3, :cond_f
-
-    const/4 v3, 0x1
-
-    iput-boolean v3, p0, Lcom/android/systemui/power/PowerUI;->mDismissBatteryHealthInterruptionWarning:Z
-
-    :goto_3
-    sget-boolean v3, Lcom/android/systemui/SystemUIRune;->SUPPORT_KEEP_DIMMING_AT_BATTERY_HEALTH_INTERRUPTION:Z
-
-    if-eqz v3, :cond_e
-
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    :cond_e
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionPartialWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    iput-object v5, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+    invoke-interface {v4}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showBatteryHealthInterruptionWarning()V
 
     goto/16 :goto_0
 
+    :cond_e
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    if-eqz v4, :cond_1
+
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mPlugType:I
+
+    if-ne v8, v4, :cond_10
+
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryStatus:I
+
+    if-ne v7, v4, :cond_10
+
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
+
+    if-ne v7, v4, :cond_10
+
+    const/4 v4, 0x1
+
+    iput-boolean v4, p0, Lcom/android/systemui/power/PowerUI;->mDismissBatteryHealthInterruptionWarning:Z
+
+    :goto_3
+    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_KEEP_DIMMING_AT_BATTERY_HEALTH_INTERRUPTION:Z
+
+    if-eqz v4, :cond_f
+
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v4}, Landroid/os/PowerManager$WakeLock;->release()V
+
     :cond_f
-    iget-object v3, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionPartialWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-interface {v3}, Lcom/android/systemui/power/PowerUI$WarningsUI;->dismissBatteryHealthInterruptionWarning()V
+    invoke-virtual {v4}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    iput-boolean v10, p0, Lcom/android/systemui/power/PowerUI;->mDismissBatteryHealthInterruptionWarning:Z
+    iput-object v6, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealthInterruptionScreenDimWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    goto/16 :goto_0
+
+    :cond_10
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
+
+    invoke-interface {v4}, Lcom/android/systemui/power/PowerUI$WarningsUI;->dismissBatteryHealthInterruptionWarning()V
+
+    iput-boolean v9, p0, Lcom/android/systemui/power/PowerUI;->mDismissBatteryHealthInterruptionWarning:Z
 
     goto :goto_3
 
-    :cond_10
-    const/16 v3, 0x9
-
-    if-eq v3, p2, :cond_3
-
-    iget v3, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
-
+    :cond_11
     const/16 v4, 0x9
 
-    if-eq v4, v3, :cond_3
+    if-eq v4, p2, :cond_3
 
-    :cond_11
+    iget v4, p0, Lcom/android/systemui/power/PowerUI;->mBatteryHealth:I
+
+    const/16 v5, 0x9
+
+    if-eq v5, v4, :cond_3
+
+    :cond_12
     :goto_4
     return-void
 
-    :cond_12
+    :cond_13
+    const-string/jumbo v4, "PowerUI"
+
+    const-string/jumbo v5, "Knox Customization: shouldWakeUp: not waking when battery health is changed"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_14
     :try_start_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
-    const-string/jumbo v3, "BatteryStateChanged"
+    const-string/jumbo v6, "BatteryStateChanged"
 
-    iget-object v6, p0, Lcom/android/systemui/power/PowerUI;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/android/systemui/power/PowerUI;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+    invoke-virtual {v7}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-interface {v1, v4, v5, v3, v6}, Landroid/os/IPowerManager;->wakeUp(JLjava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v1, v4, v5, v6, v7}, Landroid/os/IPowerManager;->wakeUp(JLjava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1017,27 +1059,27 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v3, "PowerUI"
+    const-string/jumbo v4, "PowerUI"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "turnOnScreen : Exception = "
+    const-string/jumbo v6, "turnOnScreen : Exception = "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_4
 .end method
@@ -1646,11 +1688,20 @@
     if-eq p1, v0, :cond_1
 
     :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/power/PowerUI;->mIsDayDreamConnected:Z
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
     iget v0, p0, Lcom/android/systemui/power/PowerUI;->mPlugType:I
 
     const/4 v1, 0x4
 
-    if-ne v1, v0, :cond_2
+    if-ne v1, v0, :cond_3
 
     const-string/jumbo v0, "PowerUI"
 
@@ -1664,12 +1715,10 @@
 
     iput-boolean v2, p0, Lcom/android/systemui/power/PowerUI;->mIsChargerAnimationPlaying:Z
 
-    :cond_1
-    :goto_0
-    return-void
+    goto :goto_0
 
-    :cond_2
-    if-eqz p1, :cond_3
+    :cond_3
+    if-eqz p1, :cond_4
 
     if-eq v2, p2, :cond_1
 
@@ -1677,7 +1726,7 @@
 
     if-eq v0, p2, :cond_1
 
-    :cond_3
+    :cond_4
     const-string/jumbo v0, "PowerUI"
 
     const-string/jumbo v1, "Cable charger connected"
@@ -2632,7 +2681,7 @@
 
     move-result-object v5
 
-    const v6, 0x10e0053
+    const v6, 0x10e0054
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 

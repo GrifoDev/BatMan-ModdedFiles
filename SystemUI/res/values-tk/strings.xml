@@ -67,8 +67,8 @@
     <string name="servicebox_accessibility_missing_next_alarm">Indiki 7 günde oýaryjy ýok</string>
     <string name="clear_cover_servicebox_music_unknown">Näbelli</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$ds %2$dm</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_failed_to_obtain_IP">IP salgysyny alyp bolmady.</string>
     <string name="wifi_unknown_security_type">Tanalmaýan howpsuzlyk görnüşi</string>
     <string name="wifi_disabled_no_internet">Internet elýeterli däl</string>
@@ -112,6 +112,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s birigip bolmaýar.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s birigip bolmaýar. %2$s sazlamalaryny barlap synanyşyň.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s tarapyndan yzyna gaýtarylan jübütlenýär</string>
+    <string name="bluetooth_getting_remote_device_name">Enjam ady alynýar…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Bu enjam birigende, enjam ady görner.</string>
     <string name="tether_settings_title_all">Mobil giriş nokady we modem</string>
     <string name="tts_settings_title">Tekstden-söze</string>
     <string name="tts_default_rate_title">Gepleýiş tizligi</string>
@@ -530,6 +532,7 @@ Hyzmat elýeterli wagty, aşakda görkezilişi ýaly, Wi-Fi jaň şekiljigi haba
     <string name="wifi_ap_wifi_p2p_off_warn">Mobil geçiş nokadyny açmak Göni Wi-Fi üsti bilen açyk bolan ähli enjamlaryň baglanyşygyny kesýär.</string>
     <string name="wifi_ap_wifi_p2p_off_warn_china">Göçme WLAN ýaýlym nokadyny işletseňiz, WLAN Direct arkaly birigen enjam aýrylar.</string>
     <string name="dialog_battery_data_warning">Mobil giriş nokady işlediler. Bu batareýanyň harç edilişini we maglumatyň ulanylyşyny artdyrar.</string>
+    <string name="keyboard_popup_help">Meta-düwme: Windows, Buýruk ýa-da beýleki operasion ulgam simwol düwmesi.</string>
     <string name="keyboard_shortcut_group_system">Ulgam çykgytlary</string>
     <string name="keyboard_shortcut_group_system_back">Yza</string>
     <string name="keyboard_shortcut_group_system_all_apps">Ähli goýmalar</string>
@@ -611,8 +614,8 @@ Hyzmat elýeterli wagty, aşakda görkezilişi ýaly, Wi-Fi jaň şekiljigi haba
 
 Suwuň zeperinden goramak üçin, SIM/SD kart lotogyny berk ýapyň."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Suwuň zeperinden goramak üçin, SIM/SD kart lotogyny berk ýapyň.</string>
-    <string name="water_protection_notification_title">Porty barla</string>
-    <string name="water_protection_notification_body">Çyglylyk tapyldy. Enjamyňyza zarýad bermek üçin, zarýadnik/USB porty gury bolmaly.</string>
+    <string name="water_protection_notification_title">Zarýadnigi aýyr</string>
+    <string name="water_protection_notification_body">Çyglylyk tapyldy. Zarýadnigi aýryň we zarýadnik bilen USB portuň ikisinem guradyň.</string>
     <string name="full_battery_title">Maglumat</string>
     <string name="full_battery_noti_text">Batareýa doly zarýadly.</string>
     <string name="cooling_title">Enjam gyzýar</string>
@@ -706,6 +709,7 @@ Gaty gyzmagyň sebäbi şular bolup biler:
     <string name="battery_not_fully_connected_charging_title">Haýal zarýad</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Has çalt zarýad bermek üçin, enjamyň ýany bilen berilýän zarýadnigi ulanyň we ony göwnejaý dakyň.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Zarýadnigi göwnejaý dakyň. Enjamyň ýany bilen berilýän zarýadnigi ulanyň.</string>
     <string name="battery_charging_level_and_time_text">"Zarýad: %1$d%%
 (dolýança takmynan %2$s)"</string>
@@ -719,14 +723,20 @@ Gaty gyzmagyň sebäbi şular bolup biler:
     <string name="battery_saver_recommend_notification_text_phone_psm">Telefona zarýad beriň.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Planşete zarýad beriň.</string>
     <string name="button_close">Ýap</string>
-    <string name="battery_health_interruption_title">Güýç berip bolanok</string>
+    <string name="battery_health_interruption_title">Zarýad duruzyldy</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Zarýadnigi aýyr</string>
     <string name="battery_health_interruption_by_terminal_open_text">Enjamyňyzy zarýadlap bolmaýar. Samsung bilen ylalaşykly batareýany we zarýadnigi ulanýandygyňya hem-de enjamyňyzyň zarýad berijä dogry dakylandygyna göz ýetiriň.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Zarýadka togtadyldy. Batareýanyň temperaturasy örän ýokary.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Batareýanyň temperaturasy örän pes.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Enjam zarýadlanmagyny duruzdy. Batareýanyň temperaturasy örän ýokary. Zarýadlandyryjyny soguranyňyzda seresap boluň. Onuň örän gyzgyn bolmagy mümkin.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Telefonyň temperaturasy gaty ýokary. Temperatura kadalaşanda zarýad bermek dowam eder.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Planşetiň temperaturasy gaty ýokary. Temperatura kadalaşanda zarýad bermek dowam eder.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Telefonyň temperaturasy gaty pes. Temperatura kadalaşanda zarýad bermek dowam eder.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Planşetiň temperaturasy gaty pes. Temperatura kadalaşanda zarýad bermek dowam eder.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Zarýad bermek duruzyldy. Telefonyň temperaturasy gaty ýokary. Zarýadnigi aýranyňyzda seresap boluň. Ol gaty gyzgyn bolup biler.
 
-Zarýadlandyryjyny sogrup gaýtadan çatmak kadaly ýagdaýda zarýadlanmagy dowam etdirip biler. Eger aşa gyzma dowam etse, müşderilere hyzmat ediş gulluklaryna ýüz tutuň, çünki ýangyn döreme ýa-da zeper ýetirme howpy bar."</string>
+Zarýadnigi aýryp dakmak zarýad bermegiň kadaly dowam etmegine mümkinçilik berip biler. Eger gaty gyzmak dowam etse, Müşderi hyzmatyna ýüz tutuň, sebäbi ýangyn ýa-da şikes howpy abanyp biler."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Zarýad bermek duruzyldy. Planşetiň temperaturasy gaty ýokary. Zarýadnigi aýranyňyzda seresap boluň. Ol gaty gyzgyn bolup biler.
+
+Zarýadnigi aýryp dakmak zarýad bermegiň kadaly dowam etmegine mümkinçilik berip biler. Eger gaty gyzmak dowam etse, Müşderi hyzmatyna ýüz tutuň, sebäbi ýangyn ýa-da şikes howpy abanyp biler."</string>
     <string name="incompatible_charger_title">Zarýadlanmaýar</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -742,8 +752,6 @@ Bu açylýan penjire indi görünmez ýaly, ýakynlyk sensoryny beklemeden aýry
     <string name="kg_biometrics_swipe_active_instructions">Açmak üçin, biometrika ulan ýa-da ekrany syr</string>
     <string name="kg_face_or_swipe_unlock_instructions">Gulpuny açmak üçin, ýüz tanamagy ulan ýa-da ekrany syr</string>
     <string name="kg_face_or_swipe_active_instructions">Açmak üçin, ýüz tanamagy ulan ýa-da ekrany syr</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Gulpuny açmak üçin, ýüz tanamagy ulan ýa-da gözleri ulanar ýaly ekrany syr</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Açmak üçin, ýüz tanamagy ulan ýa-da gözleri ulanar ýaly ekrany syr</string>
     <string name="kg_face_unlock_instructions">Ýüz tanamak bilen gulp açmak üçin, ekrany syr</string>
     <string name="kg_face_or_fingerprint_active_instructions">Açmak üçin barmak yzy ulan ýa-da ýüz tanamagy ulanar ýaly ekrany syr</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Gulp açmak üçin barmak yzy ulan ýa-da ýüz tanamagy ulanar ýaly ekrany syr</string>
@@ -758,6 +766,20 @@ Bu açylýan penjire indi görünmez ýaly, ýakynlyk sensoryny beklemeden aýry
     <string name="kg_voice_assistant_unlock_instructions">Ekrany açmak üçin iki barmagyňyz bilen syýryň</string>
     <string name="kg_swipe_active_instructions">Açmak üçin, ekrany syr</string>
     <string name="kg_swipe_unlock_instructions">Gulpy açmak üçin ekrany syr</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Gulp açmak üçin, biometrika ulanyň ýa-da iki barmak bilen ekrany syryň.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Açmak üçin, biometrika ulanyň ýa-da iki barmak bilen ekrany syryň.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Gulp açmak üçin, ýüz tanamak ulanyň ýa-da iki barmak bilen ekrany syryň.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Açmak üçin, ýüz tanamak ulanyň ýa-da iki barmak bilen ekrany syryň.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Ýüz tanamak bilen gulp açmak üçin, ekrany iki barmak bilen syryň.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Açmak üçin barmak yzy ulanyň ýa-da ýüz tanamagy ulanar ýaly iki barmak ekrany syryň.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Gulp açmak üçin barmak yzy ulanyň ýa-da ýüz tanamagy ulanar ýaly iki barmak ekrany syryň.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Açmak üçin barmak yzy ulan ýa-da gözleri ulanar ýaly iki barmak ekrany syryň.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Gulp açmak üçin barmak yzy ulan ýa-da gözleri ulanar ýaly iki barmak ekrany syryň.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Açmak üçin, barmak yzy ulanyň ýa-da iki barmak bilen ekrany syryň.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Gulp açmak üçin, barmak yzy ulanyň ýa-da iki barmak bilen ekrany syryň.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Gözleri ulanyp gulp açmak üçin, ekrany iki barmak bilen syryň.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Gulp açmak üçin, gözleri ulanyň ýa-da iki barmak bilen ekrany syryň.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Açmak üçin, gözleri ulanyň ýa-da iki barmak bilen ekrany syryň.</string>
     <string name="kg_power_connect_charger">Zarýadnigi birikdir</string>
     <string name="kg_power_fully_charged">Doly zarýadlandy</string>
     <string name="kg_power_fast_charging">Çalt zarýad: %d%%</string>
@@ -841,6 +863,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Iber</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Telefonyň gulpuny açmak üçin, Gulp düwmesine iki gezek bas</string>
     <string name="s_view_cover_toast_pop_up_message">Çalt sazlama düwmelerini ulanmak üçin, gapagyň açyň.</string>
     <string name="remote_input_toast_text_on_sview_cover">S View gapagy ýapyk wagty, Çalt jogap funksiýasyny ulanyp bolmaýar.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Paýlaşylýan güýç möçberini dolandyrmak üçin, siz goýmany göçürip almaly. Eger siz öz enjamyňyzy goýma bolmazdan Samsung-yň EP-SG900 güýç paýlaýjy kabeli bilen başga bir enjama birikdirseňiz, ähli zarýad möçberi beýleki enjama geçiriler. 
@@ -877,7 +900,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Kabul edýärin</string>
-    <string name="force_immersive_guide_text">Bu şekiljigi basmak nawigasiýa panelini gizleýär. Ekranyň aşagyndan ýokaryk syryp hem, nawigasiýa düwmelerini ulanyp bilersiňiz. Nawigasiýa paneli görkezilýärkä, ony ýerinde gulplamak üçin, şu şekiljigi gaýtadan basyp bilersiňiz. Öý ekran ýaly käbir ekranlarda nawigasiýa paneli hemişe görkezilýär.</string>
+    <string name="force_immersive_guide_text">Bu düwmäni basmak nawigasiýa panelini gizleýär. Ekranyň aşagyndan ýokaryk syryp hem, nawigasiýa düwmelerini ulanyp bilersiňiz. Nawigasiýa paneli görkezilýärkä, ony ýerinde gulplamak üçin, şu düwmäni gaýtadan basyp bilersiňiz. Öý ekran ýaly käbir ekranlarda nawigasiýa paneli hemişe görkezilýär. Nawigasiýa paneli gizlenen wagty, goýma kadasyz işläp başlasa, nawigasiýa panelini ýerine gulplap, goýmany açyp ýapyň.</string>
+    <string name="force_immersive_guide_dialog_title">Nawigasiýa panelini gizle:</string>
+    <string name="force_immersive_guide_dialog_message1">Bu düwmäni basmak nawigasiýa panelini gizleýär.</string>
+    <string name="force_immersive_guide_dialog_message2">Nawigasiýa panelini görkezmek üçin, ekranyň aşagynda ýokaryk syryň.</string>
+    <string name="force_immersive_guide_dialog_message3">Ony ýerinde gulplamak üçin, şu düwmä ýene basyň.</string>
+    <string name="force_immersive_guide_dialog_message4">Öý ekran ýaly käbir ekranlarda nawigasiýa paneli hemişe görkezilýär.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Bu düwmäni gizlemek üçin, Sazlamalar > Displeý > Nawigasiýa peneli-ne baryň.</string>
+    <string name="force_immersive_guide_dialog_setting">Sazlamalar</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="keyguard_password_enter_pin_code">PIN kody ýaz</string>
     <string name="keyguard_password_wrong_pin_code">Nädogry PIN kod.</string>
     <string name="keyguard_charged">Doly zarýadlandy</string>
@@ -1249,6 +1280,8 @@ PUK koduňyzy bilmeýän bolsaňyz, müşderi hyzmaty merkezine baryň."</string
     <string name="kg_face_retry_content_description">Ýüz tanamagy ulanmak üçin, iki gezek basyň.</string>
     <string name="kg_face_authentication_error_retry_text">Ýüz tapylmady. Ýüz tanamaga ýene synanyşmak üçin, şekiljige bas</string>
     <string name="kg_face_authentication_failed_retry_text">Deň gelýän zat ýok. Ýüz tanamagy ulanmak üçin, şu şekiljige bas</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Ýüz tanamakda, problema ýüze çykdy. Ýene synanmak üçin bas</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Wideo jaň wagty, ýüz tanamagy ulanyp bolmaýar</string>
     <string name="kg_fingerprint_no_match">Gabat gelenler ýok</string>
     <string name="kg_finger_print_not_responding_error_message">Barmak yzyň sensory jogap bermeýär. Soňra täzeden synanyşyň.</string>
     <string name="kg_finger_print_database_error_message">Barmak yzy maglumaty zeperlendi. Ekran gulpy hökmünde Barmak yzyny nol ediň we barmak yzlaryňyzy täzeden goşuň ýa-da ekran gulpuny üýtgediň.</string>
@@ -1385,6 +1418,8 @@ PUK koduňyzy bilmeýän bolsaňyz, müşderi hyzmaty merkezine baryň."</string
     <string name="appicon_badge_new_item">1 täze madda</string>
     <string name="banner_apps_for_dex_detail">Galaxy Apps-dan DeX-optimizlenen goýmalary ulanyň.</string>
     <string name="toast_cannot_move_more_than_items">%d zatdan köp geçirip bolmaýar.</string>
+    <string name="view_more_in_galaxy_apps">Galaxy Apps-da has köp gör</string>
+    <string name="view_more_in_play_store">Play Store-da has köp gör</string>
     <string name="uninstall_title">Goýmalary gurnawdan aýyrmalymy?</string>
     <string name="uninstall_1_app_message">Bu goýmany gurnawdan aýyrmak isleýäňizmi?</string>
     <string name="uninstall_apps_message">Aşakdaky goýmalar gurnawdan aýrylar:</string>
@@ -1425,6 +1460,13 @@ PUK koduňyzy bilmeýän bolsaňyz, müşderi hyzmaty merkezine baryň."</string
     <string name="taskbar_context_menu_close_desk_notification_view">Habarnamalary gizle</string>
     <string name="volumepanel_notification">Duýduryş sesi</string>
     <string name="quick_settings_location_detail_device_only">Diňe enjam</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Zarýadka togtadyldy. Batareýanyň temperaturasy örän ýokary.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Batareýanyň temperaturasy örän pes.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Enjam zarýadlanmagyny duruzdy. Batareýanyň temperaturasy örän ýokary. Zarýadlandyryjyny soguranyňyzda seresap boluň. Onuň örän gyzgyn bolmagy mümkin.
+
+Zarýadlandyryjyny sogrup gaýtadan çatmak kadaly ýagdaýda zarýadlanmagy dowam etdirip biler. Eger aşa gyzma dowam etse, müşderilere hyzmat ediş gulluklaryna ýüz tutuň, çünki ýangyn döreme ýa-da zeper ýetirme howpy bar."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Gulpuny açmak üçin, ýüz tanamagy ulan ýa-da gözleri ulanar ýaly ekrany syr</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Açmak üçin, ýüz tanamagy ulan ýa-da gözleri ulanar ýaly ekrany syr</string>
     <string name="kg_infinity_wallpaper_option_description">Tükeniksizlik diwar kagyzy Öý we Gulply ekranlarda birlikde ulanylar. Iň ajaýyp tejribe üçin, aşakdaky sazlamany açyň.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Always On Display-i aç</string>
 </resources>

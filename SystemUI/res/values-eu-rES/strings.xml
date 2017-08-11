@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Ezezaguna</string>
     <string name="save">Gorde</string>
     <string name="ok">Ados</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Ezin dira sareak bilatu</string>
     <string name="wifi_failed_to_obtain_IP">Ezin izan da IP helbidea lortu</string>
     <string name="wifi_security_none">Bat ere ez</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Ezin da konektatu %s gailura.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Ezin izan da konektatu %1$s aplikaziora. Egiaztatu %2$s aplikazioko ezarpenak eta saiatu berriz.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s-k parekatzea ukatu du</string>
+    <string name="bluetooth_getting_remote_device_name">Gailuaren izena lortzen…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Gailuaren izena gailu hau konektatzean agertuko da.</string>
     <string name="accessibility_wifi_off">Desaktibatuta dago Wi-Fi konexioa.</string>
     <string name="accessibility_no_wifi">Deskonektatu egin da Wi-Fi konexioa.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi sarearen barra bat.</string>
@@ -1364,6 +1366,7 @@ Informazio gehiago lortzeko, jarri administratzailearekin harremanetan."</string
     <string name="keyboard_key_insert">Txertatu</string>
     <string name="keyboard_key_num_lock">Blok Zenb</string>
     <string name="keyboard_key_numpad_template">Zenbaki-teklatuko %1$s</string>
+    <string name="keyboard_popup_help">Meta gakoa: Windows tekla, cmd tekla, edo sistema eragileari dagokion sinboloaren tekla bat.</string>
     <string name="keyboard_shortcut_group_system">Sistemaren lasterbideak</string>
     <string name="keyboard_shortcut_group_system_home">Hasierako pantaila</string>
     <string name="keyboard_shortcut_group_system_recents">Azkenak</string>
@@ -1525,8 +1528,8 @@ Informazio gehiago lortzeko, jarri administratzailearekin harremanetan."</string
 
 Uraren kalteengandik babesteko, ziurtatu SIM/SD txartelaren erretilua hermetikoki itxita dagoela."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Uraren kalteak ekiditeko, ziurtatu SIM/SD txartelaren erretilua hermetikoki itxita dagoela.</string>
-    <string name="water_protection_notification_title">Egiaztatu ataka</string>
-    <string name="water_protection_notification_body">Hezetasuna hauteman da. Gailua kargatzeko, ziurtatu kargagailua/USB ataka lehor dagoela.</string>
+    <string name="water_protection_notification_title">Desentxufatu kargadorea</string>
+    <string name="water_protection_notification_body">Hezetasuna hauteman da. Deskonektatu kargagailua, eta ziurtatu kargagailua eta USB ataka lehor daudela.</string>
     <string name="full_battery_title">Informazioa</string>
     <string name="full_battery_noti_text">Bateria guztiz kargatuta</string>
     <string name="cooling_title">Gailua gainberotua</string>
@@ -1620,6 +1623,7 @@ Gehiegi berotzearen arrazoiak:
     <string name="battery_not_fully_connected_charging_title">Motel kargatzen</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Azkarrago kargatzeko, erabili gailuarekin batera eman zitzaizun kargagailua, eta ziurtatu ongi konektatu duzula.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Ziurtatu kargagailua ongi konektatu duzula. Erabili gailuarekin batera eman zitzaizun kargagailua.</string>
     <string name="battery_charging_level_and_time_text">"Kargatzen: %%%1$d
 (%2$s inguru geratzen dira bateria erabat kargatu arte)"</string>
@@ -1633,14 +1637,20 @@ Gehiegi berotzearen arrazoiak:
     <string name="battery_saver_recommend_notification_text_phone_psm">Kargatu telefonoa.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Kargatu tableta.</string>
     <string name="button_close">Itxi</string>
-    <string name="battery_health_interruption_title">Ezin da kargatu</string>
+    <string name="battery_health_interruption_title">Utzi zaio kargatzeari</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Desentxufatu kargagailua</string>
     <string name="battery_health_interruption_by_terminal_open_text">Ezin da zure gailua kargatu. Ziurtatu Samsung-ekin bateragarria den bateria eta kargadorea erabiltzen ari zarela, eta zure gailuak behar bezala konektatuta dagoela kargadorera.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Kargatzea etenda. Bateriaren tenperatura altuegia da.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Kargatzea etenda. Bateriaren tenperatura baxuegia da.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Gailuak kargatzeari utzi dio. Bateriaren tenperatura altuegia da. Kontuz kargadorea deskonektatzean. Baliteke oso bero egotea.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Telefonoaren tenperatura altuegia da. Tenperatura ohiko mailara jaisten denean berrekingo zaio kargatze prozesuari.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Tabletaren tenperatura altuegia da. Tenperatura ohiko mailara jaisten denean berrekingo zaio kargatze prozesuari.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Telefonoaren tenperatura baxuegia da. Tenperatura ohiko mailara igotzen denean berrekingo zaio kargatze prozesuari.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Tabletaren tenperatura baxuegia da. Tenperatura ohiko mailara jaisten denean berrekingo zaio kargatze prozesuari.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Kargatzeari utzi zaio. Telefonoaren tenperatura altuegia da. Kontuz kargagailua deskonektatzean. Baliteke oso bero egotea.
 
-Kargadorea deskonektatzen eta berriz konektatzen baduzu, baliteke kargak behar bezala jarraitzea. Gehiegi berotzen jarraitzen badu, jarri harremanetan bezero zerbitzuarekin, balitekeelako sute edo kalte arriskua egotea."</string>
+Kargagailua deskonektatzen eta berriz konektatzen baduzu, baliteke kargak behar bezala jarraitzea. Gehiegi berotzen jarraitzen badu, jarri harremanetan Bezero zerbitzuarekin, balitekeelako sute edo kalte arriskua egotea."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Kargatzeari utzi zaio. Tabletaren tenperatura altuegia da. Kontuz kargagailua deskonektatzean. Baliteke oso bero egotea.
+
+Kargagailua deskonektatzen eta berriz konektatzen baduzu, baliteke kargak behar bezala jarraitzea. Gehiegi berotzen jarraitzen badu, jarri harremanetan Bezero zerbitzuarekin, balitekeelako sute edo kalte arriskua egotea."</string>
     <string name="incompatible_charger_title">Ez dabil kargatzen</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Leiho gainerakor hau berriz agertu ez dadin, ziurtatu hurbiltasun sentsorea ez d
     <string name="kg_biometrics_swipe_active_instructions">Irekitzeko, erabili datu biometrikoak edo irristatu pantailan zehar</string>
     <string name="kg_face_or_swipe_unlock_instructions">Desblokeatzeko, erabili aurpegi bidezko hautematea edo irristatu pantailan zehar</string>
     <string name="kg_face_or_swipe_active_instructions">Irekitzeko, erabili aurpegi bidezko hautematea edo irristatu pantailan zehar</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Desblokeatzeko, erabili aurpegi bidezko hautematea, edo irristatu pantailan zehar irisak erabiltzeko</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Irekitzeko, erabili aurpegi bidezko hautematea, edo irristatu pantailan zehar irisak erabiltzeko</string>
     <string name="kg_face_unlock_instructions">Aurpegi bidezko hautematearekin desblokeatzeko, irristatu pantaila</string>
     <string name="kg_face_or_fingerprint_active_instructions">Irekitzeko, erabili hatz aztarnak; aurpegi bidezko hautematea erabiltzeko, berriz, irristatu pantailan zehar</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Desblokeatzeko, erabili hatz aztarna; aurpegi bidezko hautematea erabiltzeko, berriz, irristatu pantailan zehar</string>
@@ -1672,6 +1680,20 @@ Leiho gainerakor hau berriz agertu ez dadin, ziurtatu hurbiltasun sentsorea ez d
     <string name="kg_voice_assistant_unlock_instructions">Irristatu bi hatz, pantailan desblokeatzeko</string>
     <string name="kg_swipe_active_instructions">Irekitzeko, irristatu pantaila</string>
     <string name="kg_swipe_unlock_instructions">Irristatu pantaila desblokeatzeko</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Desblokeatzeko, erabili datu biometrikoak edo irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Irekitzeko, erabili datu biometrikoak edo irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Desblokeatzeko, erabili aurpegi bidezko hautematea edo irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Irekitzeko, erabili aurpegi bidezko hautematea edo irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Aurpegi bidezko hautematearekin desblokeatzeko, irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Irekitzeko, erabili hatz aztarna; aurpegi bidezko hautematea erabiltzeko, berriz, irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Desblokeatzeko, erabili hatz aztarna; aurpegi bidezko hautematea erabiltzeko, berriz, irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Irekitzeko, erabili hatz aztarna; irisak erabiltzeko, berriz, irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Desblokeatzeko, erabili hatz aztarna; irisak erabiltzeko, berriz, irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Irekitzeko, erabili hatz aztarna edo irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Desblokeatzeko, erabili hatz aztarna edo irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Irisekin desblokeatzeko, irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Desblokeatzeko, erabili irisak edo irristatu pantailan zehar bi hatzez.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Irekitzeko, erabili irisak edo irristatu pantailan zehar bi hatzez.</string>
     <string name="kg_power_connect_charger">Konektatu kargagailua</string>
     <string name="kg_power_fully_charged">Osorik kargatuta</string>
     <string name="kg_power_fast_charging">Azkar kargatzea: %%%d</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Bidali</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Telefonoa desblokeatzeko, ukitu bi aldiz Blokeatu botoia</string>
     <string name="s_view_cover_toast_pop_up_message">Ireki azala, ezarpen azkarren botoiak erabiltzeko.</string>
     <string name="remote_input_toast_text_on_sview_cover">Ezin da erabili Erantzun azkarra funtzioa S View Cover itxita badago.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Onartzen dut</string>
-    <string name="force_immersive_guide_text">Ikono hau ukituz gero, nabigazio barra ezkutatuko da. Dena dela, nabigazio botoiak erabiltzen jarraitu ahal izango duzu, pantailaren behealdetik gora irristatuta. Nabigazio barra ikusgai dagoenean, ukitu ikono hau berriz toki batean ezartzeko. Pantaila batzuetan, hala nola Pantaila nagusian, nabigazio barra beti izango da ikusgai.</string>
+    <string name="force_immersive_guide_text">Botoi hau ukituz gero, nabigazio barra ezkutatuko da. Dena dela, nabigazio botoiak erabiltzen jarraitu ahal izango duzu, pantailaren behealdetik gora pasatuta. Nabigazio barra ikusgai dagoenean, ukitu botoi hau berriz toki batean ezartzeko. Pantaila batzuetan, hala nola Pantaila nagusian, nabigazio barra beti izango da ikusgai. Aplikazioak ez badu behar bezala funtzionatzen nabigazio barra ezkutatuta dagoenean, blokeatu nabigazio barra toki batean eta berrabiarazi aplikazioa.</string>
+    <string name="force_immersive_guide_dialog_title">Ezkutatu nabigazio barra:</string>
+    <string name="force_immersive_guide_dialog_message1">Botoi hau ukituz gero, nabigazio barra ezkutatuko da.</string>
+    <string name="force_immersive_guide_dialog_message2">Nabigazio barra erakusteko, irristatu pantailaren beheko aldetik gorantz.</string>
+    <string name="force_immersive_guide_dialog_message3">Ukitu botoi hau berriz toki batean finkatzeko.</string>
+    <string name="force_immersive_guide_dialog_message4">Pantaila batzuetan, hala nola Pantaila nagusian, nabigazio barra beti egongo da ikusgai.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Botoi hau ezkutatzeko, joan Ezarpenak > Bistaratzea > Nabigazio barra aukerara.</string>
+    <string name="force_immersive_guide_dialog_setting">Ezarpenak</string>
+    <string name="force_immersive_guide_dialog_ok">ADOS</string>
     <string name="car_lockscreen_disclaimer_title">Gidatu zentzuz</string>
     <string name="car_lockscreen_disclaimer_text">Egon erne errepidera begira eta gorde lege aplikagarri oro. Agian jarraibideak ez dira guztiz zehatzak, osatuak edo egokiak izango; arriskutsuak izan daitezke edo debekatuta dagoen zerbait egitea edo mugak zeharkatzea proposa diezazukete. Baliteke enpresei buruzko informazioa ere guztiz zehatza edo osatua ez izatea. Datuak ez dira une-unekoak eta ezin da bermatu kokapenaren zehaztasuna. Gidatu bitartean, ez erabili gailu mugikorrik edo Android Auto zerbitzuarekin erabiltzeko egina ez dagoen aplikaziorik.</string>
     <string name="pip_close">Itxi PIPa</string>
@@ -2230,6 +2261,8 @@ PUK kodea ez badakizu, zoaz bezeroen arretarako zerbitzura."</string>
     <string name="kg_face_retry_content_description">Aurpegi hautematea erabiltzeko, ukitu bi aldiz.</string>
     <string name="kg_face_authentication_error_retry_text">Ez da aurpegirik hauteman. Ukitu ikonoa aurpegia berriz hautematen saiatzeko</string>
     <string name="kg_face_authentication_failed_retry_text">Ez dago bat etortzerik. Ukitu ikonoa aurpegi bidezko hautematea erabiltzeko</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Arazo bat izan da aurpegi hautematearekin. Ukitu berriz saiatzeko</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Ezin da erabili aurpegi hautematea bideo deietan</string>
     <string name="kg_fingerprint_no_match">Emaitzarik ez</string>
     <string name="kg_finger_print_not_responding_error_message">Hatz aztarnen sentsoreak ez du erantzuten. Saiatu berriz geroago.</string>
     <string name="kg_finger_print_database_error_message">Hatz aztarnen datuak hondatuta daude. Berrezarri Hatz aztarna pantaila blokeatzeko metodo gisa eta, ondoren, gehitu zure hatz aztarnak berriz, edo aldatu pantaila blokeatzeko metodoa.</string>
@@ -2366,6 +2399,8 @@ Saiatu berriz 1 segundo barru"</string>
     <string name="appicon_badge_new_item">Elementu berri 1</string>
     <string name="banner_apps_for_dex_detail">Gozatu Galaxy Apps-en aurkituko dituzun DeX-erako optimizatutako aplikazioez.</string>
     <string name="toast_cannot_move_more_than_items">Gehienez ere %d elementu mugi daitezke.</string>
+    <string name="view_more_in_galaxy_apps">Ikusi gehiago Galaxy Apps-en</string>
+    <string name="view_more_in_play_store">Ikusi gehiago Play Store-n</string>
     <string name="uninstall_title">Aplikazioak desinstalatu?</string>
     <string name="uninstall_1_app_message">Aplikazioa desinstalatu nahi duzu?</string>
     <string name="uninstall_apps_message">Hurrengo aplikazioak desinstalatuko dira:</string>
@@ -2406,6 +2441,13 @@ Saiatu berriz 1 segundo barru"</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Ezkutatu jakinarazpenak</string>
     <string name="volumepanel_notification">Jakinarazpena</string>
     <string name="quick_settings_location_detail_device_only">Gailua soilik</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Kargatzea etenda. Bateriaren tenperatura altuegia da.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Kargatzea etenda. Bateriaren tenperatura baxuegia da.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Gailuak kargatzeari utzi dio. Bateriaren tenperatura altuegia da. Kontuz kargadorea deskonektatzean. Baliteke oso bero egotea.
+
+Kargadorea deskonektatzen eta berriz konektatzen baduzu, baliteke kargak behar bezala jarraitzea. Gehiegi berotzen jarraitzen badu, jarri harremanetan bezero zerbitzuarekin, balitekeelako sute edo kalte arriskua egotea."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Desblokeatzeko, erabili aurpegi bidezko hautematea, edo irristatu pantailan zehar irisak erabiltzeko</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Irekitzeko, erabili aurpegi bidezko hautematea, edo irristatu pantailan zehar irisak erabiltzeko</string>
     <string name="kg_infinity_wallpaper_option_description">Horma paper amaigabeak Pantaila nagusian eta Blokeo pantailan aplikatuko da aldi berean. Esperientzia onena izateko, aktibatu beheko ezarpena.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Aktibatu Always On Display</string>
 </resources>

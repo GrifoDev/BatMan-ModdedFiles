@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Неизвестно</string>
     <string name="save">Запазване</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dч %2$dм</string>
-    <string name="battery_history_minutes_no_seconds">%dм</string>
+    <string name="battery_history_hours_no_seconds">%1$d ч и %2$d м</string>
+    <string name="battery_history_minutes_no_seconds">%d м</string>
     <string name="wifi_fail_to_scan">Не може да се сканира за мрежи</string>
     <string name="wifi_failed_to_obtain_IP">Неуспешно получаване на IP адрес.</string>
     <string name="wifi_security_none">Няма</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Неуспешно свързване към %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Неуспешно свързване към %1$s. Проверете настройките в %2$s и опитайте отново.</string>
     <string name="bluetooth_pairing_rejected_error_message">Сдвояването отхвърлено от %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Извличане на името на устройството…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Името на устройството ще се покаже, когато това устройство бъде свързано.</string>
     <string name="accessibility_wifi_off">Wi-Fi е изключен.</string>
     <string name="accessibility_no_wifi">Няма връзка с Wi-Fi.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi е с една чертичка.</string>
@@ -1364,6 +1366,7 @@ Wi-Fi и Bluetooth също ще бъдат изключени, но може д
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Цифрова клавиатура – %1$s</string>
+    <string name="keyboard_popup_help">Мета клавиш: Windows, команден или други клавиши със символи на операционната система.</string>
     <string name="keyboard_shortcut_group_system">Системни преки пътища</string>
     <string name="keyboard_shortcut_group_system_home">Начало</string>
     <string name="keyboard_shortcut_group_system_recents">Скорошни</string>
@@ -1525,8 +1528,8 @@ Wi-Fi и Bluetooth също ще бъдат изключени, но може д
 
 За защита срещу щети от вода се уверете, че поставката за SIM/SD картата е плътно затворена."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">За защита срещу щети от вода се уверете, че поставката за SIM/SD картата е плътно затворена.</string>
-    <string name="water_protection_notification_title">Проверка на порт</string>
-    <string name="water_protection_notification_body">Открита е влага. За да заредите устройството, се уверете, че зарядното устройство/USB портът е сух.</string>
+    <string name="water_protection_notification_title">Изключете зарядното устройство</string>
+    <string name="water_protection_notification_body">Открита е влага. Изключете зарядното и се уверете, че зарядното и USB портът са сухи.</string>
     <string name="full_battery_title">Инфо</string>
     <string name="full_battery_noti_text">Батерията e напълно заредена</string>
     <string name="cooling_title">Устройството прегрява</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">Бавно зареждане</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">За по-бързо зареждане използвайте зарядното устройство, предоставено с устройството, и се уверете, че е свързано правилно.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Уверете се, че зарядното устройство е свързано правилно. Използвайте зарядното устройство, предоставено с устройството.</string>
     <string name="battery_charging_level_and_time_text">"Зареждане: %1$d%%
 (Приблизително %2$s до пълно зареждане)"</string>
@@ -1633,14 +1637,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">Заредете телефона.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Заредете таблета.</string>
     <string name="button_close">Затвори</string>
-    <string name="battery_health_interruption_title">Не може да се зареди</string>
+    <string name="battery_health_interruption_title">Зареждането е спряно</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Изключване на зарядното</string>
     <string name="battery_health_interruption_by_terminal_open_text">Устройството ви не може да се зареди. Уверете се, че използвате съвместима със Samsung батерия и зарядно и че устройството ви е правилно свързано към зарядното.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Зареждането е в пауза. Температурата на батерията е твърде висока.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Зареждането е в пауза. Температурата на батерията е твърде ниска.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Устройството спря да се зарежда. Температурата на батерията е твърде висока. Бъдете внимателни, когато изключвате зарядното устройство. Може да е много горещо.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Температурата на телефона е твърде висока. Зареждането ще продължи, когато температурата се върне към нормалната.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Температурата на таблета е твърде висока. Зареждането ще продължи, когато температурата се върне към нормалната.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Температурата на телефона е твърде ниска. Зареждането ще продължи, когато температурата се върне към нормалната.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Температурата на таблета е твърде ниска. Зареждането ще продължи, когато температурата се върне към нормалната.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Зареждането е спряно. Температурата на телефона е твърде висока. Бъдете внимателни, когато изключвате зарядното устройство. Може да е много горещо.
 
-Изключването и повторното включване на зарядното устройство може да позволи зареждането да продължи нормално. Ако прегряването продължава, се обърнете към обслужване на клиенти, тъй като може да има риск от пожар или нараняване."</string>
+Изключването и повторното включване на зарядното устройство може да позволи зареждането да продължи нормално. Ако прегряването продължава, се свържете с услугите за клиенти, тъй като може да има риск от пожар или нараняване."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Зареждането е спряно. Температурата на таблета е твърде висока. Бъдете внимателни, когато изключвате зарядното устройство. Може да е много горещо.
+
+Изключването и повторното включване на зарядното устройство може да позволи зареждането да продължи нормално. Ако прегряването продължава, се свържете с услугите за клиенти, тъй като може да има риск от пожар или нараняване."</string>
     <string name="incompatible_charger_title">Не зарежда.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">Използвайте биометрични данни или плъзнете екрана за отваряне</string>
     <string name="kg_face_or_swipe_unlock_instructions">Използвайте разпознаване на лице или плъзнете екрана за отключване</string>
     <string name="kg_face_or_swipe_active_instructions">Използвайте разпознаване на лице или плъзнете екрана за отваряне</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Използвайте разпознаване на лице за отключване или плъзнете екрана, за да използвате ириси</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Използвайте разпознаване на лице за отваряне или плъзнете екрана за използване на ириси</string>
     <string name="kg_face_unlock_instructions">Плъзнете екрана, за да отключите с разпознаване на лице</string>
     <string name="kg_face_or_fingerprint_active_instructions">Използвайте пръстов отпечатък за отваряне или вместо това плъзнете екрана за използване на разпознаване на лице</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Използвайте пръстов отпечатък за отключване или вместо това плъзнете екрана, за да използвате разпознаване на лице</string>
@@ -1672,6 +1680,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">Плъзнете с два пръста, за да отключите екрана.</string>
     <string name="kg_swipe_active_instructions">Плъзнете екрана, за да отворите</string>
     <string name="kg_swipe_unlock_instructions">Плъзнете екрана, за да отключите</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Използвайте биометрични данни или плъзнете екрана с два пръста за отключване.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Използвайте биометрични данни или плъзнете екрана с два пръста за отваряне.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Използвайте разпознаване на лице или плъзнете екрана с два пръста за отключване.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Използвайте разпознаване на лице или плъзнете екрана с два пръста за отваряне.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Плъзнете екрана с два пръста, за да отключите с разпознаване на лице.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Използвайте пръстов отпечатък за отваряне или плъзнете екрана с два пръста за използване на разпознаване на лице.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Използвайте пръстов отпечатък за отключване или плъзнете екрана с два пръста за използване на разпознаване на лице.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Използвайте пръстов отпечатък за отваряне или плъзнете екрана с два пръста за използване на ириси.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Използвайте пръстов отпечатък за отключване или плъзнете екрана с два пръста за използване на ириси.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Използвайте пръстов отпечатък или плъзнете екрана с два пръста за отваряне.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Използвайте пръстов отпечатък или плъзнете екрана с два пръста за отключване.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Плъзнете екрана с два пръста, за да използвате ириси за отключване.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Използвайте ириси или плъзнете екрана с два пръста за отключване.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Използвайте ириси или плъзнете екрана с два пръста за отваряне.</string>
     <string name="kg_power_connect_charger">Свържете зарядно устройство</string>
     <string name="kg_power_fully_charged">Напълно заредено</string>
     <string name="kg_power_fast_charging">Бързо зареждане: %d%%</string>
@@ -1755,6 +1777,7 @@ If you turn mobile data back on, you may be charged for data usage by your carri
     <string name="remote_input_send_text">Изпращане</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Докоснете двукратно бутона за заключване, за да отключите телефона</string>
     <string name="s_view_cover_toast_pop_up_message">Отворете капака, за да използвате бутоните за бърза настройка.</string>
     <string name="remote_input_toast_text_on_sview_cover">Не може да се използва функцията за бърз отговор, докато S View Cover е затворено.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Първо трябва да изтеглите приложението, за да контролирате количеството на споделената енергия. Ако използвате кабела Power Sharing EP-SG900 на Samsung, за да свържете вашите устройства, без да използвате приложението, тогава ще бъде прехвърлено цялото количество на оставащата енергия от батерията.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Приемам</string>
-    <string name="force_immersive_guide_text">При докосване на тази икона се скрива лентата за навигация. Може да използвате бутоните за навигация, като плъзнете нагоре от долната част на екрана. Докато лентата за навигация се показва, може да докоснете тази икона отново, за да я заключите на място. На някои екрани, като например началния екран, лентата за навигация винаги ще се показва.</string>
+    <string name="force_immersive_guide_text">При докосване на този бутон се скрива лентата за навигация. Може да използвате бутоните за навигация, като плъзнете нагоре от долната част на екрана. Докато лентата за навигация се показва, може да докоснете този бутон отново, за да я заключите на място. На някои екрани, като например началния екран, лентата за навигация винаги ще се показва. Ако дадено приложение не работи нормално, докато лентата за навигация е скрита, заключете лентата за навигация на място и рестартирайте приложението.</string>
+    <string name="force_immersive_guide_dialog_title">Скриване лентата за навигация:</string>
+    <string name="force_immersive_guide_dialog_message1">Докосването на този бутон скрива лентата за навигация.</string>
+    <string name="force_immersive_guide_dialog_message2">Плъзнете нагоре от долната част на екрана, за да покажете лентата за навигация.</string>
+    <string name="force_immersive_guide_dialog_message3">Докоснете този бутон отново, за да го заключите на място.</string>
+    <string name="force_immersive_guide_dialog_message4">На някои екрани, като например началния екран, лентата за навигация винаги ще се показва.</string>
+    <string name="force_immersive_guide_dialog_guide_path">За да скриете този бутон, отидете в Настройки > Дисплей > Лента за навигация.</string>
+    <string name="force_immersive_guide_dialog_setting">Настройки</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Карайте внимателно</string>
     <string name="car_lockscreen_disclaimer_text">Бъдете осведомени за условията при шофиране и винаги спазвайте приложимите закони. Упътванията може да са неточни, непълни, опасни, неподходящи, забранени или да включват преминаване през административни райони. Бизнес информацията може също да е неточна или непълна. Данните не са в реално време и точността на местоположението не може да се гарантира. Не работете с мобилното си устройство, нито използвайте приложения, които не са предназначени за Android Auto, докато шофирате.</string>
     <string name="pip_close">Затваряне на PIP</string>
@@ -2230,6 +2261,8 @@ PIN кодът трябва да бъде дълъг между 4 и 8 цифр�
     <string name="kg_face_retry_content_description">Докоснете двукратно, за да използвате разпознаване на лице.</string>
     <string name="kg_face_authentication_error_retry_text">Не е открито лице. Докоснете иконата, за да опитате разпознаването на лице отново</string>
     <string name="kg_face_authentication_failed_retry_text">Няма съвпадение. Докоснете иконата, за да използвате разпознаване на лице</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Възникна проблем с разпознаването на лице. Докоснете, за да опитате отново</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Не може да се използва разпознаване на лице по време на видеоповиквания</string>
     <string name="kg_fingerprint_no_match">Няма съвпадения</string>
     <string name="kg_finger_print_not_responding_error_message">Сензорът за пръстови отпечатъци не отговаря. Опитайте отново по-късно.</string>
     <string name="kg_finger_print_database_error_message">Данните за пръстов отпечатък са повредени. Нулирайте „Пръстов отпечатък“ като тип заключване на екрана, след което добавете отново пръстовите си отпечатъци или променете типа заключване на екрана.</string>
@@ -2366,6 +2399,8 @@ PIN кодът трябва да бъде дълъг между 4 и 8 цифр�
     <string name="appicon_badge_new_item">1 нов елемент</string>
     <string name="banner_apps_for_dex_detail">Забавлявайте се с оптимизирани за DeX приложения от Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Не може да се преместят повече от %d елемента.</string>
+    <string name="view_more_in_galaxy_apps">Преглед на още в Galaxy Apps</string>
+    <string name="view_more_in_play_store">Преглед на още в Play Store</string>
     <string name="uninstall_title">Деинсталиране на приложения?</string>
     <string name="uninstall_1_app_message">Искате ли да инсталирате това приложение?</string>
     <string name="uninstall_apps_message">Следните приложения ще бъдат инсталирани:</string>
@@ -2411,6 +2446,13 @@ PIN кодът трябва да бъде дълъг между 4 и 8 цифр�
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Уведомяване</string>
     <string name="quick_settings_location_detail_device_only">Само устройство</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Зареждането е в пауза. Температурата на батерията е твърде висока.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Зареждането е в пауза. Температурата на батерията е твърде ниска.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Устройството спря да се зарежда. Температурата на батерията е твърде висока. Бъдете внимателни, когато изключвате зарядното устройство. Може да е много горещо.
+
+Изключването и повторното включване на зарядното устройство може да позволи зареждането да продължи нормално. Ако прегряването продължава, се обърнете към обслужване на клиенти, тъй като може да има риск от пожар или нараняване."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Използвайте разпознаване на лице за отключване или плъзнете екрана, за да използвате ириси</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Използвайте разпознаване на лице за отваряне или плъзнете екрана за използване на ириси</string>
     <string name="kg_infinity_wallpaper_option_description">Тапетът на безкрайност ще бъде приложен към началния и заключения екрани едновременно. Включете настройката по-долу за най-добро изживяване.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Включване на Always On Display</string>
 </resources>

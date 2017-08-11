@@ -55,7 +55,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$MdmCameraDisableTask;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap2(Lcom/android/keyguard/KeyguardUpdateMonitor;)Z
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap3(Lcom/android/keyguard/KeyguardUpdateMonitor;)Z
 
     move-result v0
 

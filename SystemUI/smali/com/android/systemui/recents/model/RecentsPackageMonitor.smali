@@ -57,7 +57,7 @@
 
     new-instance v0, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;-><init>(Lcom/android/systemui/recents/model/RecentsPackageMonitor;Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;)V
+    invoke-direct {v0, v1}, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;-><init>(Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;)V
 
     iput p3, v0, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->versionCode:I
 
@@ -110,7 +110,7 @@
 .end method
 
 .method private updateInstalledState(Ljava/lang/String;)V
-    .locals 8
+    .locals 7
 
     const/4 v4, 0x1
 
@@ -160,55 +160,52 @@
 
     if-eqz v3, :cond_2
 
-    iget-boolean v6, v1, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->installed:Z
+    iget-boolean v3, v1, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->installed:Z
+
+    if-eqz v3, :cond_5
 
     iget-object v3, v1, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->intent:Landroid/content/Intent;
 
-    iget-object v7, p0, Lcom/android/systemui/recents/model/RecentsPackageMonitor;->mPm:Landroid/content/pm/PackageManager;
+    iget-object v6, p0, Lcom/android/systemui/recents/model/RecentsPackageMonitor;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v3, v7}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
+    invoke-virtual {v3, v6}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
 
     move-result-object v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     move v3, v4
 
     :goto_1
-    and-int/2addr v3, v6
-
     iput-boolean v3, v1, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->installed:Z
 
     :cond_2
     iget v3, v1, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->versionCode:I
 
-    if-ltz v3, :cond_3
+    if-ltz v3, :cond_4
 
     iget-boolean v3, v1, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->installed:Z
 
-    iget v6, v2, Landroid/content/pm/PackageInfo;->versionCode:I
+    if-eqz v3, :cond_3
 
-    iget v7, v1, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->versionCode:I
+    iget v3, v2, Landroid/content/pm/PackageInfo;->versionCode:I
 
-    if-lt v6, v7, :cond_5
+    iget v6, v1, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->versionCode:I
 
-    :goto_2
-    and-int/2addr v3, v4
+    if-lt v3, v6, :cond_3
 
-    iput-boolean v3, v1, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->installed:Z
+    move v5, v4
 
     :cond_3
-    return-void
+    iput-boolean v5, v1, Lcom/android/systemui/recents/model/RecentsPackageMonitor$RecentsPackageInfo;->installed:Z
 
     :cond_4
+    return-void
+
+    :cond_5
     move v3, v5
 
     goto :goto_1
-
-    :cond_5
-    move v4, v5
-
-    goto :goto_2
 
     :catch_0
     move-exception v0

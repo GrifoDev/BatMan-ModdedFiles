@@ -54,13 +54,13 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$3;->this$0:Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get4(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Lcom/android/systemui/qs/QSPanel;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get6(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Lcom/android/systemui/qs/QSPanel;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$3;->this$0:Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get3(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/widget/ImageButton;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get5(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/widget/ImageButton;
 
     move-result-object v1
 
@@ -72,7 +72,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$3;->this$0:Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get0(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get2(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -87,7 +87,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$3;->this$0:Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get2(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/phone/QSTileHost;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get4(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/phone/QSTileHost;
 
     move-result-object v0
 
@@ -107,11 +107,11 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$3;->this$0:Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get0(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get2(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->launchContactUsApp(Landroid/content/Context;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->launchContactUsApp(Landroid/content/Context;)Z
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
 
@@ -119,7 +119,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$3;->this$0:Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get0(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get2(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -132,7 +132,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f130535
+    .packed-switch 0x7f13053f
         :pswitch_0
         :pswitch_1
         :pswitch_2

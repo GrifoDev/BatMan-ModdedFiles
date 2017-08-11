@@ -297,7 +297,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/settings/ToggleSlider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040174
+    const v3, 0x7f040178
 
     invoke-static {p1, v3, p0}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -311,7 +311,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f130456
+    const v3, 0x7f130462
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -327,7 +327,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    const v3, 0x7f130453
+    const v3, 0x7f13045f
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -367,7 +367,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b015c
+    const v5, 0x7f0b015d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -375,7 +375,7 @@
 
     invoke-virtual {v3, v4}, Lcom/android/systemui/settings/ToggleSeekBar;->setFluidColor(I)V
 
-    const v3, 0x7f1302bd
+    const v3, 0x7f1302c5
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -393,7 +393,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f130454
+    const v3, 0x7f130460
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -477,7 +477,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f03b9
+    const v2, 0x7f0f0416
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -570,21 +570,36 @@
 
 # virtual methods
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     iget-boolean v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mTouchEnabled:Z
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mMirror:Lcom/android/systemui/settings/ToggleSlider;
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mMirror:Lcom/android/systemui/settings/ToggleSlider;
+
+    invoke-virtual {v1}, Lcom/android/systemui/settings/ToggleSlider;->getVisibility()I
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mMirror:Lcom/android/systemui/settings/ToggleSlider;
 
     if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mMirror:Lcom/android/systemui/settings/ToggleSlider;
 
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mMirror:Lcom/android/systemui/settings/ToggleSlider;
-
     iget-object v1, v1, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->copy()Landroid/view/MotionEvent;
 
@@ -598,17 +613,15 @@
 
     invoke-virtual {v0}, Landroid/view/MotionEvent;->recycle()V
 
-    :cond_0
+    :cond_1
     invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v1
 
     return v1
 
-    :cond_1
-    const/4 v1, 0x0
-
-    return v1
+    :cond_2
+    return v2
 .end method
 
 .method public initSlider(Lcom/android/systemui/settings/ToggleSlider;)V
@@ -672,7 +685,7 @@
 
     iput v2, p0, Lcom/android/systemui/settings/ToggleSlider;->mStrainPopupThreshold:I
 
-    const v2, 0x7f0b0159
+    const v2, 0x7f0b015a
 
     invoke-virtual {v1, v2, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -693,7 +706,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/settings/ToggleSlider;->defatultThumbColor:Landroid/content/res/ColorStateList;
 
-    const v2, 0x7f0b015c
+    const v2, 0x7f0b015d
 
     invoke-virtual {v1, v2, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -712,7 +725,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/settings/ToggleSlider;->defaultProgressbarColor:Landroid/content/res/ColorStateList;
 
-    const v2, 0x7f0b015e
+    const v2, 0x7f0b015f
 
     invoke-virtual {v1, v2, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -750,13 +763,13 @@
 
     iget-object v2, p1, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
 
-    const v3, 0x7f0b014c
+    const v3, 0x7f0b014d
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v3
 
-    const v4, 0x7f0b014d
+    const v4, 0x7f0b014e
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -961,7 +974,7 @@
 .method public setMirror(Lcom/android/systemui/settings/ToggleSlider;)V
     .locals 6
 
-    const v5, 0x7f0b015c
+    const v5, 0x7f0b015d
 
     const/4 v4, 0x1
 
@@ -987,7 +1000,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
 
-    const v2, 0x7f0207a7
+    const v2, 0x7f0207b7
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -999,7 +1012,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
 
-    const v2, 0x7f0205bd
+    const v2, 0x7f0205c5
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 

@@ -44,7 +44,7 @@
 
 .field protected mServiceBoxController:Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;
 
-.field private mShowAnimationListener:Landroid/animation/Animator$AnimatorListener;
+.field protected mShowAnimationListener:Landroid/animation/Animator$AnimatorListener;
 
 .field protected mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
 
@@ -52,14 +52,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;)Landroid/animation/Animator$AnimatorListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mShowAnimationListener:Landroid/animation/Animator$AnimatorListener;
-
-    return-object v0
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 

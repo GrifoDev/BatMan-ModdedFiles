@@ -109,7 +109,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0095
+    const v4, 0x7f0b0096
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getColor(I)I
 
@@ -189,7 +189,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/BatteryTile$BatteryDetail;->mCurrentView:Landroid/view/View;
 
-    const v2, 0x7f1300de
+    const v2, 0x7f1300e2
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -201,7 +201,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/BatteryTile$BatteryDetail;->mCurrentView:Landroid/view/View;
 
-    const v2, 0x7f1300df
+    const v2, 0x7f1300e3
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -232,7 +232,7 @@
 
     const v13, 0x1020017
 
-    const v12, 0x7f1300e0
+    const v12, 0x7f1300e4
 
     const/4 v4, 0x1
 
@@ -353,7 +353,7 @@
 
     invoke-virtual {v10, v14, v0}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    const v0, 0x7f0f059c
+    const v0, 0x7f0f05f9
 
     invoke-virtual {v10, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -393,11 +393,11 @@
 
     invoke-virtual {v10, v14, v0}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    const v0, 0x7f0f059d
+    const v0, 0x7f0f05fa
 
     invoke-virtual {v10, v0}, Landroid/widget/TextView;->setText(I)V
 
-    const v0, 0x7f0f059e
+    const v0, 0x7f0f05fb
 
     invoke-virtual {v9, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -533,7 +533,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0f059b
+    const v2, 0x7f0f05f8
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

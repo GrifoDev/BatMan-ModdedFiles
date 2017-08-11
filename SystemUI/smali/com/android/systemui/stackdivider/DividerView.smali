@@ -173,6 +173,8 @@
 
 .field mSnapModeRunning:Z
 
+.field private mSnapWindowDismissToast:Landroid/widget/Toast;
+
 .field private final mStableInsets:Landroid/graphics/Rect;
 
 .field private mStartPosition:I
@@ -1673,45 +1675,56 @@
 .end method
 
 .method private closeTask()V
-    .locals 5
-
-    const/4 v2, 0x0
+    .locals 6
 
     const/4 v3, 0x1
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/DividerView;->setIgnoreAutoResize(Z)V
 
-    invoke-direct {p0}, Lcom/android/systemui/stackdivider/DividerView;->getDividerButtonsTarget()I
+    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    move-result v1
+    move-result-object v2
 
-    const/4 v4, -0x1
+    :try_start_0
+    invoke-interface {v2}, Landroid/app/IActivityManager;->getFocusedStackId()I
 
-    if-eq v1, v4, :cond_1
+    move-result v3
 
-    if-nez v1, :cond_0
+    const/4 v4, 0x3
 
-    move v2, v3
+    if-eq v3, v4, :cond_0
 
-    :cond_0
-    invoke-direct {p0, v2}, Lcom/android/systemui/stackdivider/DividerView;->adjustFocusForClose(Z)I
+    const/4 v0, 0x1
 
-    move-result v0
+    :goto_0
+    iget-object v3, p0, Lcom/android/systemui/stackdivider/DividerView;->mWindowManagerProxy:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView;->mWindowManagerProxy:Lcom/android/systemui/stackdivider/WindowManagerProxy;
+    invoke-virtual {v3, v0}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->maximizeFocusedStackByDivider(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {v2, v3}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->maximizeFocusedStackByDivider(Z)V
+    :goto_1
+    iget-object v3, p0, Lcom/android/systemui/stackdivider/DividerView;->mContext:Landroid/content/Context;
 
-    :cond_1
-    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView;->mContext:Landroid/content/Context;
+    const-string/jumbo v4, "SPAC"
 
-    const-string/jumbo v3, "SPAC"
+    const-string/jumbo v5, "Close"
 
-    const-string/jumbo v4, "Close"
-
-    invoke-static {v2, v3, v4}, Lcom/samsung/android/multiwindow/MultiWindowLogger;->logGSIM(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v3, v4, v5}, Lcom/samsung/android/multiwindow/MultiWindowLogger;->logGSIM(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_1
 .end method
 
 .method private commitSnapFlags(Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;)V
@@ -2823,8 +2836,40 @@
 
     and-int/lit8 v2, v2, 0x3
 
-    if-nez v2, :cond_2
+    if-eqz v2, :cond_2
 
+    const/4 v2, 0x1
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/stackdivider/DividerView;->setIgnoreAutoResize(Z)V
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/stackdivider/DividerView;->commitSnapFlags(Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;)V
+
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView;->mWindowManagerProxy:Lcom/android/systemui/stackdivider/WindowManagerProxy;
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->setResizing(Z)V
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/systemui/stackdivider/events/StoppedDragingEvent;
+
+    invoke-direct {v3}, Lcom/android/systemui/stackdivider/events/StoppedDragingEvent;-><init>()V
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v3, "DOOF"
+
+    const-string/jumbo v4, "DividerDragging"
+
+    invoke-static {v2, v3, v4}, Lcom/samsung/android/multiwindow/MultiWindowLogger;->logGSIM(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_0
+    return-void
+
+    :cond_2
     iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView;->mSnapAlgorithm:Lcom/android/internal/policy/DividerSnapAlgorithm;
 
     invoke-virtual {v2}, Lcom/android/internal/policy/DividerSnapAlgorithm;->getFirstSplitTarget()Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
@@ -2833,9 +2878,19 @@
 
     iget v2, v2, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;->position:I
 
-    if-le v2, p1, :cond_4
+    if-gt v2, p1, :cond_3
 
-    :cond_2
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView;->mSnapAlgorithm:Lcom/android/internal/policy/DividerSnapAlgorithm;
+
+    invoke-virtual {v2}, Lcom/android/internal/policy/DividerSnapAlgorithm;->getLastSplitTarget()Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+
+    move-result-object v2
+
+    iget v2, v2, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;->position:I
+
+    if-ge v2, p1, :cond_4
+
+    :cond_3
     const-wide/16 v2, 0x0
 
     invoke-direct {p0, p1, v1, v2, v3}, Lcom/android/systemui/stackdivider/DividerView;->getFlingAnimator(ILcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;J)Landroid/animation/ValueAnimator;
@@ -2854,35 +2909,9 @@
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
-    iget v2, v1, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;->flag:I
-
-    and-int/lit8 v2, v2, 0x3
-
-    if-eqz v2, :cond_3
-
-    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v3, "DOOF"
-
-    const-string/jumbo v4, "DividerDragging"
-
-    invoke-static {v2, v3, v4}, Lcom/samsung/android/multiwindow/MultiWindowLogger;->logGSIM(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_3
-    :goto_0
-    return-void
+    goto :goto_0
 
     :cond_4
-    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView;->mSnapAlgorithm:Lcom/android/internal/policy/DividerSnapAlgorithm;
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/DividerSnapAlgorithm;->getLastSplitTarget()Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
-
-    move-result-object v2
-
-    iget v2, v2, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;->position:I
-
-    if-lt v2, p1, :cond_2
-
     new-instance v2, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
 
     invoke-direct {v2, p1, p1, v3}, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;-><init>(III)V
@@ -3385,7 +3414,7 @@
 
     move-result-object v9
 
-    const v10, 0x10804d1
+    const v10, 0x10804bb
 
     const/4 v11, 0x0
 
@@ -3411,7 +3440,7 @@
 
     move-result-object v9
 
-    const v10, 0x10803fc
+    const v10, 0x10803e6
 
     invoke-virtual {v9, v10, v12}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -6328,7 +6357,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0012
+    const v2, 0x7f0b0013
 
     invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -6355,7 +6384,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b00f4
+    const v2, 0x7f0b00f5
 
     invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -6414,7 +6443,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b00f4
+    const v2, 0x7f0b00f5
 
     invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -6568,7 +6597,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v3, 0x7f1301c7
+    const v3, 0x7f1301cd
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/DividerView;->findViewById(I)Landroid/view/View;
 
@@ -6578,7 +6607,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/stackdivider/DividerView;->mHandle:Lcom/android/systemui/stackdivider/DividerHandleView;
 
-    const v3, 0x7f1301c4
+    const v3, 0x7f1301ca
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/DividerView;->findViewById(I)Landroid/view/View;
 
@@ -6586,7 +6615,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/stackdivider/DividerView;->mBackground:Landroid/view/View;
 
-    const v3, 0x7f1301c5
+    const v3, 0x7f1301cb
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/DividerView;->findViewById(I)Landroid/view/View;
 
@@ -6638,7 +6667,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0345
+    const v4, 0x7f0d0346
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6752,6 +6781,28 @@
 
     iput v3, p0, Lcom/android/systemui/stackdivider/DividerView;->mGuideHeight:I
 
+    iget-object v3, p0, Lcom/android/systemui/stackdivider/DividerView;->mContext:Landroid/content/Context;
+
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/DividerView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f0f0005
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-static {v3, v4, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/systemui/stackdivider/DividerView;->mSnapWindowDismissToast:Landroid/widget/Toast;
+
     invoke-virtual {p0}, Lcom/android/systemui/stackdivider/DividerView;->isHorizontalDivision()Z
 
     move-result v3
@@ -6839,7 +6890,7 @@
 
     invoke-virtual {v3, v5, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    const v3, 0x7f1301c6
+    const v3, 0x7f1301cc
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/DividerView;->findViewById(I)Landroid/view/View;
 
@@ -10401,6 +10452,52 @@
     const-string/jumbo v0, "finish"
 
     goto :goto_0
+.end method
+
+.method showSnapWindowDismissToast(Ljava/lang/String;)V
+    .locals 6
+
+    const-string/jumbo v5, "remove task"
+
+    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    const-string/jumbo v5, "swap tasks"
+
+    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    const-string/jumbo v5, "resize docked size null"
+
+    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    const-string/jumbo v5, "config-orientation"
+
+    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    const-string/jumbo v5, "snap task to back"
+
+    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v3, :cond_0
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    iget-object v5, p0, Lcom/android/systemui/stackdivider/DividerView;->mSnapWindowDismissToast:Landroid/widget/Toast;
+
+    invoke-virtual {v5}, Landroid/widget/Toast;->show()V
+
+    :cond_1
+    return-void
 .end method
 
 .method public startDragging(ZZ)Z

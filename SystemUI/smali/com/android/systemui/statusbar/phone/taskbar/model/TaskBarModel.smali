@@ -656,7 +656,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d05c2
+    const v4, 0x7f0d05d5
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1835,7 +1835,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_16
 
     const-string/jumbo v7, "android.intent.extra.USER"
 
@@ -1854,6 +1854,68 @@
     invoke-direct {v7, p0, v9, v8, v5}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;I[Ljava/lang/String;Landroid/os/UserHandle;)V
 
     invoke-direct {p0, v7}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->enqueuePackageUpdated(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask;)V
+
+    goto/16 :goto_1
+
+    :cond_16
+    const-string/jumbo v7, "com.sec.android.app.desktoplauncher"
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/net/Uri;->getEncodedSchemeSpecificPart()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_17
+
+    const-string/jumbo v7, "android.intent.action.PACKAGE_REPLACED"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_17
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->forceResetAndReload()V
+
+    goto/16 :goto_1
+
+    :cond_17
+    const-string/jumbo v7, "com.sec.android.app.desktoplauncher"
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/net/Uri;->getEncodedSchemeSpecificPart()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    const-string/jumbo v7, "android.intent.action.PACKAGE_DATA_CLEARED"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->forceResetAndReload()V
 
     goto/16 :goto_1
 .end method

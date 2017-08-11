@@ -75,6 +75,97 @@
     <string name="clear_cover_servicebox_music_unknown">Unknown</string>
     <string name="save">Save</string>
     <string name="ok">@android:string/ok</string>
+    <string name="screen_connection_setting">BT_001</string>
+    <string name="screen_bluetooth_setting">BT_100</string>
+    <string name="screen_dual_audio_setting">BT_130</string>
+    <string name="screen_media_volume_sync_setting">BT_140</string>
+    <string name="screen_control_history">BT_150</string>
+    <string name="screen_request_dialog">BT_1200</string>
+    <string name="screen_device_profiles_setting">BT_300</string>
+    <string name="screen_device_picker">BT_400</string>
+    <string name="screen_bluetooth_scan_dialog">BT_510</string>
+    <string name="screen_bluetooth_request_permission">BT_510</string>
+    <string name="screen_bluetooth_global">BT_100</string>
+    <string name="event_connection_setting_on_off_switch">0020</string>
+    <string name="event_bluetooth_setting_navigate_button">0101</string>
+    <string name="event_bluetooth_setting_scan_button">0102</string>
+    <string name="event_bluetooth_setting_on_off_switch">0103</string>
+    <string name="event_bluetooth_setting_more_button">1100</string>
+    <string name="event_bluetooth_setting_more_received_files">1110</string>
+    <string name="event_bluetooth_setting_more_rename_phone">1120</string>
+    <string name="event_bluetooth_setting_more_dual_audio">1130</string>
+    <string name="event_bluetooth_setting_more_media_volume_sync">1140</string>
+    <string name="event_bluetooth_setting_more_bluetooth_control_app">1150</string>
+    <string name="event_bluetooth_setting_more_help">1160</string>
+    <string name="event_bluetooth_setting_device_list_paired">1200</string>
+    <string name="event_bluetooth_setting_profile_setting_button">1300</string>
+    <string name="event_bluetooth_setting_device_list_available">1310</string>
+    <string name="event_bluetooth_setting_scanning_setting">1320</string>
+    <string name="event_bluetooth_bdcc">1181</string>
+    <string name="event_bluetooth_bcpt">1182</string>
+    <string name="event_bluetooth_setting_connected_device_count">1183</string>
+    <string name="event_bluetooth_setting_paired_device_count">1184</string>
+    <string name="event_bluetooth_setting_bsdc">1185</string>
+    <string name="event_bluetooth_setting_parse_available_device_name">1190</string>
+    <string name="event_dual_audio_setting_navigate_button">1131</string>
+    <string name="event_dual_audio_setting_on_off_switch">1132</string>
+    <string name="event_dual_audio_setting_dialog_negative">1133</string>
+    <string name="event_dual_audio_setting_dialog_positive">1134</string>
+    <string name="event_media_volume_sync_setting_navigate_button">1141</string>
+    <string name="event_media_volume_sync_setting_on_off_switch">1142</string>
+    <string name="event_media_volume_sync_setting_dialog_negative">1143</string>
+    <string name="event_media_volume_sync_setting_dialog_positive">1144</string>
+    <string name="event_control_history_navigate_button">1151</string>
+    <string name="event_control_history_app_list">1152</string>
+    <string name="event_request_dialog_map">1251</string>
+    <string name="event_request_dialog_pbap">1252</string>
+    <string name="event_request_dialog_sap">1253</string>
+    <string name="event_request_dialog_pairing_pin">1254</string>
+    <string name="event_request_dialog_pairing_pin_checkbox">1255</string>
+    <string name="event_request_dialog_pairing_passkey">1256</string>
+    <string name="event_request_dialog_pairing_consent">1257</string>
+    <string name="event_request_dialog_pairing_display">1258</string>
+    <string name="event_device_profiles_setting_navigate_button">3001</string>
+    <string name="event_device_profiles_setting_rename_tab">3002</string>
+    <string name="event_device_profiles_setting_cancel_button">3004</string>
+    <string name="event_device_profiles_setting_rename_button">3005</string>
+    <string name="event_device_profiles_setting_unpair_tab">3010</string>
+    <string name="event_device_profiles_setting_on_off_profile_switch">3020</string>
+    <string name="event_device_picker_navigate_button">4001</string>
+    <string name="event_device_picker_scan_button">4002</string>
+    <string name="event_device_picker_device_list">4003</string>
+    <string name="event_bluetooth_scan_dialog_device_list_paired">5101</string>
+    <string name="event_bluetooth_scan_dialog_scan_button">5102</string>
+    <string name="event_bluetooth_scan_dialog_done_button">5103</string>
+    <string name="event_bluetooth_scan_dialog_device_list_available">5104</string>
+    <string name="event_bluetooth_request_permission_enable_discoverable">5111</string>
+    <string name="event_bluetooth_request_permission_enable">5112</string>
+    <string name="event_bluetooth_request_permission_discoverable">5113</string>
+    <string name="detail_bluetooth_on">1</string>
+    <string name="detail_bluetooth_off">0</string>
+    <string name="detail_bluetooth_scan_stop">1</string>
+    <string name="detail_bluetooth_scan_start">0</string>
+    <string name="detail_bluetooth_bdcc_picker">1</string>
+    <string name="detail_bluetooth_bdcc_setting">2</string>
+    <string name="detail_bluetooth_bdcc_dialog">5</string>
+    <string name="detail_bluetooth_bcpt_unknown">0</string>
+    <string name="detail_bluetooth_bcpt_hid">1</string>
+    <string name="detail_bluetooth_bcpt_ble_audio">2</string>
+    <string name="detail_bluetooth_bcpt_map">3</string>
+    <string name="detail_bluetooth_bcpt_pbap">4</string>
+    <string name="detail_bluetooth_bcpt_sap">5</string>
+    <string name="detail_bluetooth_bcpt_a2dp">6</string>
+    <string name="detail_bluetooth_bcpt_pan_nap">7</string>
+    <string name="detail_bluetooth_bcpt_pan_user">8</string>
+    <string name="detail_bluetooth_bcpt_hfp">9</string>
+    <string name="detail_switch_on">1</string>
+    <string name="detail_switch_off">0</string>
+    <string name="detail_checkbox_checked">1</string>
+    <string name="detail_checkbox_not_checked">0</string>
+    <string name="detail_deny">0</string>
+    <string name="detail_allow">1</string>
+    <string name="detail_cancel">0</string>
+    <string name="detail_ok">1</string>
     <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
     <string name="battery_history_minutes_no_seconds">%1$dm</string>
     <string name="wifi_fail_to_scan">"Can't scan for networks"</string>
@@ -184,6 +275,8 @@
     <string name="bluetooth_pairing_device_down_error_message">"Can't connect to %1$s."</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">"Can't connect to %1$s. Check your settings in %2$s and try again."</string>
     <string name="bluetooth_pairing_rejected_error_message">Pairing rejected by %1$s.</string>
+    <string name="bluetooth_getting_remote_device_name">Getting device name...</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Device name will appear when this device is connected.</string>
     <string name="accessibility_wifi_off">Wifi off.</string>
     <string name="accessibility_no_wifi">Wifi disconnected.</string>
     <string name="accessibility_wifi_one_bar">Wifi one bar.</string>
@@ -529,9 +622,9 @@
     <string name="v7_preference_on">ON</string>
     <string name="v7_preference_off">OFF</string>
     <string name="config_statusBarComponent">com.android.systemui.statusbar.phone.PhoneStatusBar</string>
-    <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,ScreenCapture,ScreenRecorder,TouchSensitivity,UHQ,AirplaneMode,PowerSaving,MobileData,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode,PowerPlanning,EdgeLighting</string>
+    <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,ScreenCapture,ScreenRecorder,TouchSensitivity,UHQ,VoLte,WifiCalling,AirplaneMode,PowerSaving,MobileData,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode,PowerPlanning,EdgeLighting</string>
     <string name="quick_settings_tiles_upsm">Wifi,Bluetooth,AirplaneMode,custom(com.sec.android.emergencymode.service/.PowerSavingTile),MobileData,Location</string>
-    <string name="quick_settings_custom_tile_component_names">Performance:com.samsung.android.lool/com.samsung.android.sm.ui.booster.PerformanceTile,PerformanceCHN:com.samsung.android.sm_cn/com.samsung.android.sm.ui.booster.PerformanceTile,PowerSaving:com.android.settings/com.samsung.android.settings.qstile.PowerSavingTile,Aod:com.samsung.android.app.aodservice/.settings.AODTileService,DeviceVisibility:com.samsung.android.oneconnect/.external.DeviceVisibilityTile,PowerSavingUPSM:com.sec.android.emergencymode.service/.PowerSavingTile,Sync:com.android.settings/com.samsung.android.settings.qstile.SecAccountTiles,PersonalMode:com.android.settings/com.samsung.android.settings.qstile.PersonalModeTile,AllShareCast:com.samsung.android.smartmirroring/.tile.SmartMirroringTile,AllShareCastOld:com.sec.android.app.wfdbroker/.AllShareCastTile,Nfc:com.android.nfc/com.samsung.android.nfc.quicktile.NfcTile,SecureFolder:com.samsung.knox.securefolder/.switcher.SecureFolderTile,EdgeLighting:com.samsung.android.app.cocktailbarservice/com.samsung.android.app.edgelighting.tile.EdgeLightingTile,UDS:com.samsung.android.lool/com.samsung.android.sm.ui.uds.UDSTile</string>
+    <string name="quick_settings_custom_tile_component_names">Performance:com.samsung.android.lool/com.samsung.android.sm.ui.booster.PerformanceTile,PerformanceCHN:com.samsung.android.sm_cn/com.samsung.android.sm.ui.booster.PerformanceTile,PowerSaving:com.android.settings/com.samsung.android.settings.qstile.PowerSavingTile,Aod:com.samsung.android.app.aodservice/.settings.AODTileService,DeviceVisibility:com.samsung.android.oneconnect/.external.DeviceVisibilityTile,PowerSavingUPSM:com.sec.android.emergencymode.service/.PowerSavingTile,Sync:com.android.settings/com.samsung.android.settings.qstile.SecAccountTiles,PersonalMode:com.android.settings/com.samsung.android.settings.qstile.PersonalModeTile,AllShareCast:com.samsung.android.smartmirroring/.tile.SmartMirroringTile,AllShareCastOld:com.sec.android.app.wfdbroker/.AllShareCastTile,Nfc:com.android.nfc/com.samsung.android.nfc.quicktile.NfcTile,SecureFolder:com.samsung.knox.securefolder/.switcher.SecureFolderTile,EdgeLighting:com.samsung.android.app.cocktailbarservice/com.samsung.android.app.edgelighting.tile.EdgeLightingTile,UDS:com.samsung.android.lool/com.samsung.android.sm.ui.uds.UDSTile,VoiceWakeup:com.samsung.android.bixby.wakeup/com.samsung.android.voicewakeup.setting.VoiceWakeupTileService</string>
     <string name="quick_settings_tiles_dex">Wifi,WifiCalling,SoundMode,Bluetooth,Flashlight,AirplaneMode,MobileData,Hotspot,custom(com.samsung.knox.securefolder/.switcher.SecureFolderTile),Location,custom(com.android.nfc/com.samsung.android.nfc.quicktile.NfcTile),custom(com.samsung.android.oneconnect/.external.DeviceVisibilityTile),Dnd,custom(com.android.settings/com.samsung.android.settings.qstile.SecAccountTiles)</string>
     <string name="quick_settings_tiles">default</string>
     <string name="velocity_tracker_impl">platform</string>
@@ -970,7 +1063,7 @@ data"</string>
     <string name="quick_settings_volte_label">VoLTE</string>
     <string name="quick_settings_wificalling_label">"Wifi
 Calling"</string>
-    <string name="quick_settings_wificalling_label_non_translatable">"Wifi
+    <string name="quick_settings_wificalling_label_non_translatable">"WiFi
 Calling"</string>
     <string name="quick_settings_personal_mode_label">"Private
 mode"</string>
@@ -1533,6 +1626,7 @@ For more information, contact your administrator."</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Numpad %1$s</string>
+    <string name="keyboard_popup_help"><b>Meta key:</b> The Windows, Command, or other operating system symbol key.</string>
     <string name="keyboard_shortcut_group_system">System shortcuts</string>
     <string name="keyboard_shortcut_group_system_home">Home</string>
     <string name="keyboard_shortcut_group_system_recents">Recents</string>
@@ -1709,8 +1803,8 @@ For more information, contact your administrator."</string>
 
 To protect against water damage, make sure the SIM/SD card tray is firmly sealed."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">To protect against water damage, make sure the SIM/SD card tray is firmly sealed.</string>
-    <string name="water_protection_notification_title">Check port</string>
-    <string name="water_protection_notification_body">Moisture has been detected. To charge your device, make sure your charger/USB port is dry.</string>
+    <string name="water_protection_notification_title">Unplug charger</string>
+    <string name="water_protection_notification_body">Moisture has been detected. Unplug the charger and make sure both the charger and USB port are dry.</string>
     <string name="status_bar_settings_battery_meter_format">%d%%</string>
     <string name="full_battery_title">Info</string>
     <string name="full_battery_noti_text">Battery fully charged.</string>
@@ -1805,6 +1899,7 @@ Overheating can be caused by:
     <string name="battery_not_fully_connected_charging_title">Slow charging</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">For faster charging, use the charger that came with your device and make sure it is properly connected.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Make sure charger is properly connected. Use charger that came with device.</string>
     <string name="battery_charging_level_and_time_text">"Charging: %1$d%%
 (Approximately %2$s until fully charged)"</string>
@@ -1818,14 +1913,20 @@ Overheating can be caused by:
     <string name="battery_saver_recommend_notification_text_phone_psm">Charge your phone.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Charge your tablet.</string>
     <string name="button_close">Close</string>
-    <string name="battery_health_interruption_title">Unable to charge</string>
+    <string name="battery_health_interruption_title">Charging stopped</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Unplug charger</string>
     <string name="battery_health_interruption_by_terminal_open_text">Unable to charge your device. Make sure you are using a Samsung compatible battery and charger and that your device is properly connected to the charger.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Charging paused. Battery temperature too high.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Charging paused. Battery temperature too low.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"The device has stopped charging. The battery temperature is too high. Be careful when disconnecting the charger. It may be very hot.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">"Your phone's temperature is too high. Charging will continue when the temperature returns to normal."</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">"Your tablet's temperature is too high. Charging will continue when the temperature returns to normal."</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">"Your phone's temperature is too low. Charging will continue when the temperature returns to normal."</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">"Your tablet's temperature is too low. Charging will continue when the temperature returns to normal."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Charging has been stopped. Your phone's temperature is too high. Be careful when disconnecting the charger. It may be very hot.
 
-Disconnecting and reconnecting the charger may allow charging to continue normally. If overheating persists, contact customer services as there may be a risk of fire or injury."</string>
+Disconnecting and reconnecting the charger may allow charging to continue normally. If overheating persists, contact Customer Service as there may be a risk of fire or injury."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Charging has been stopped. Your tablet's temperature is too high. Be careful when disconnecting the charger. It may be very hot.
+
+Disconnecting and reconnecting the charger may allow charging to continue normally. If overheating persists, contact Customer Service as there may be a risk of fire or injury."</string>
     <string name="incompatible_charger_title">Not charging</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_dialog_text_for_tablet">"The connected charger won't work with this tablet. To prevent damage to your tablet, charging has been stopped. To continue charging, use the charger and cable that were provided with this tablet."</string>
@@ -1842,8 +1943,6 @@ To prevent this pop-up from appearing in the future, make sure the proximity sen
     <string name="kg_biometrics_swipe_active_instructions">Use biometrics or swipe screen to open</string>
     <string name="kg_face_or_swipe_unlock_instructions">Use face recognition or swipe screen to unlock</string>
     <string name="kg_face_or_swipe_active_instructions">Use face recognition or swipe screen to open</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Use face recognition to unlock or swipe screen to use irises instead</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Use face recognition to open or swipe screen to use irises instead</string>
     <string name="kg_face_unlock_instructions">Swipe screen to unlock with face recognition</string>
     <string name="kg_face_or_fingerprint_active_instructions">Use fingerprint to open or swipe screen to use face recognition instead</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Use fingerprint to unlock or swipe screen to use face recognition instead</string>
@@ -1858,6 +1957,20 @@ To prevent this pop-up from appearing in the future, make sure the proximity sen
     <string name="kg_voice_assistant_unlock_instructions">Swipe with two fingers to unlock the screen.</string>
     <string name="kg_swipe_active_instructions" />
     <string name="kg_swipe_unlock_instructions">Swipe screen to unlock</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Use biometrics or swipe screen with two fingers to unlock.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Use biometrics or swipe screen with two fingers to open.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Use face recognition or swipe screen with two fingers to unlock.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Use face recognition or swipe screen with two fingers to open.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Swipe screen with two fingers to unlock with face recognition.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Use fingerprint to open or swipe screen with two fingers to use face recognition.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Use fingerprint to unlock or swipe screen with two fingers to use face recognition.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Use fingerprint to open or swipe screen with two fingers to use irises.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Use fingerprint to unlock or swipe screen with two fingers to use irises.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Use fingerprint or swipe screen with two fingers to open.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Use fingerprint or swipe screen with two fingers to unlock.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Swipe screen with two fingers to use irises to unlock.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Use irises or swipe screen with two fingers to unlock.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Use irises or swipe screen with two fingers to open.</string>
     <string name="kg_power_connect_charger">Connect charger</string>
     <string name="kg_power_fully_charged">Fully charged</string>
     <string name="kg_power_fast_charging">Fast charging: %d%%</string>
@@ -1956,6 +2069,7 @@ upscaler"</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints">Use fingerprint or tap the unlock icon</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Double tap Lock button to unlock phone</string>
     <string name="dcm_lockscreen_bouncer_instructions">Touch again to open</string>
     <string name="dcm_lockscreen_bouncer_instructions_fingerprints">Use fingerprint or Touch again to open</string>
     <string name="s_view_cover_toast_pop_up_message">Open cover to use quick setting buttons.</string>
@@ -1994,9 +2108,19 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we ?? as your personal data controller ?? will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination ?? for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">I ACCEPT</string>
-    <string name="force_immersive_guide_text">Tapping this icon hides the navigation bar. You can still use the navigation buttons by swiping up from the bottom of the screen. While the navigation bar is shown, you can tap this icon again to lock it in place. On some screens, such as the Home screen, the navigation bar will always be shown.</string>
-    <item type="string" name="APKTOOL_DUMMY_749">false</item>
-    <item type="string" name="APKTOOL_DUMMY_74a">false</item>
+    <string name="force_immersive_guide_text">"Tapping this button hides the navigation bar. You can still use the navigation buttons by swiping up from the bottom of the screen. While the navigation bar is shown, you can tap this button again to lock it in place. On some screens, such as the Home screen, the navigation bar will always be shown. If an app doesn't behave normally while the navigation bar is hidden, lock the navigation bar in place and restart the app."</string>
+    <string name="force_immersive_guide_dialog_title">Hide navigation bar:</string>
+    <string name="force_immersive_guide_dialog_message1">Tapping this button hides the navigation bar.</string>
+    <string name="force_immersive_guide_dialog_message2">Swipe up from the bottom of the screen to show the navigation bar.</string>
+    <string name="force_immersive_guide_dialog_message3">Tap this button again to lock it in place.</string>
+    <string name="force_immersive_guide_dialog_message4">On some screens, such as the Home screen, the navigation bar will always be shown.</string>
+    <string name="force_immersive_guide_dialog_guide_path">To hide this button, go to Settings > Display > Navigation bar.</string>
+    <string name="force_immersive_guide_dialog_setting">Settings</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="all_noti_readout" formatted="false">%s %s notification</string>
+    <string name="all_noti_readout2" formatted="false">%s %s notifications</string>
+    <item type="string" name="APKTOOL_DUMMY_7c8">false</item>
+    <item type="string" name="APKTOOL_DUMMY_7c9">false</item>
     <string name="car_lockscreen_disclaimer_title">Drive safely</string>
     <string name="car_lockscreen_disclaimer_text">Stay fully aware of driving conditions and always obey applicable laws. Directions may be inaccurate, incomplete, dangerous, not suitable, prohibited, or involve crossing administrative areas. Business information may also be inaccurate or incomplete. Data is not real-time, and location accuracy cannot be guaranteed. Do not handle your mobile device or use apps not intended for Android Auto while driving.</string>
     <string name="pip_close">Close PIP</string>
@@ -2475,6 +2599,8 @@ If you do not know your PUK, visit a customer service centre."</string>
     <string name="kg_face_retry_content_description">Double tap to use face recognition.</string>
     <string name="kg_face_authentication_error_retry_text">No face detected. Tap icon to try face recognition again</string>
     <string name="kg_face_authentication_failed_retry_text">No match. Tap icon to use face recognition</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">There was a problem with face recognition. Tap to try again</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">"Can't use face recognition during video calls"</string>
     <string name="kg_fingerprint_no_match">No match</string>
     <string name="kg_finger_print_sensor_error_message">An error has occurred with the fingerprint sensor. If this message appears repeatedly, restart your device.</string>
     <string name="kg_finger_print_not_responding_error_message">The fingerprint sensor is not responding. Try again later.</string>
@@ -2652,9 +2778,11 @@ Try again in 1 second"</string>
     <string name="edit_mode_cancel">CANCEL</string>
     <string name="appicon_badge_new_items">%d new items</string>
     <string name="appicon_badge_new_item">1 new item</string>
-    <string name="banner_apps_for_dex">Apps for DeX</string>
+    <string name="banner_apps_for_dex">Apps for Samsung DeX</string>
     <string name="banner_apps_for_dex_detail">Enjoy DeX optimized applications from Galaxy Apps</string>
     <string name="toast_cannot_move_more_than_items">"Can't move more than %d items."</string>
+    <string name="view_more_in_galaxy_apps">View more in Galaxy Apps</string>
+    <string name="view_more_in_play_store">View more in Play Store</string>
     <string name="uninstall_title">Uninstall apps?</string>
     <string name="uninstall_1_app_message">Do you want to uninstall this app?</string>
     <string name="uninstall_apps_message">The following apps will be uninstalled:</string>

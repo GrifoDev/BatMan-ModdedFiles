@@ -310,7 +310,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f040055
+    const v8, 0x7f040056
 
     const/4 v9, 0x0
 

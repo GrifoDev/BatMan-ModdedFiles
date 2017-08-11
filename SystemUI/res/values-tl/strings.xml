@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Hindi kilala</string>
     <string name="save">I-save</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">Hindi makapag-scan ng mga network</string>
     <string name="wifi_failed_to_obtain_IP">Nabigong kunin ang IP address.</string>
     <string name="wifi_security_none">Wala</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Hindi makakonekta sa %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Hindi makakonekta sa %1$s. Tingnan ang mga setting mo sa %2$s at subukang muli.</string>
     <string name="bluetooth_pairing_rejected_error_message">Tinanggihan ni %s ang pagpe-pair.</string>
+    <string name="bluetooth_getting_remote_device_name">Kinukuha ang pangalan ng device…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Lilitaw ang pangalan ng device kapag nakakonekta ang device na ito.</string>
     <string name="accessibility_wifi_off">Naka-off ang Wifi.</string>
     <string name="accessibility_no_wifi">Nakadiskonekta ang Wifi.</string>
     <string name="accessibility_wifi_one_bar">May isang bar ang Wifi.</string>
@@ -556,7 +558,7 @@ For example, your ringtone will not sound, you will not be able to answer phone 
     <string name="accessibility_back">Bumalik</string>
     <string name="accessibility_home">Home</string>
     <string name="accessibility_menu">Menu</string>
-    <string name="sec_accessibility_recent">Recents</string>
+    <string name="sec_accessibility_recent">Mga kamakailan</string>
     <string name="accessibility_camera_button">Camera</string>
     <string name="accessibility_phone_button">Telepono</string>
     <string name="accessibility_voice_assist_button">Voice Assist</string>
@@ -1364,6 +1366,7 @@ Para sa higit pang impormasyon, makipag-ugnayan sa iyong administrator."</string
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Numpad %1$s</string>
+    <string name="keyboard_popup_help">Meta key: Windows, Command o iba pang symbol key ng operating system.</string>
     <string name="keyboard_shortcut_group_system">Mga shortcut ng system</string>
     <string name="keyboard_shortcut_group_system_home">Home</string>
     <string name="keyboard_shortcut_group_system_recents">Mga Kamakailang Ginamit</string>
@@ -1525,8 +1528,8 @@ Para sa higit pang impormasyon, makipag-ugnayan sa iyong administrator."</string
 
 Para maprotektahan laban sa pagkabasa, tiyakin na mahigpit ang pagkasara ng SIM/SD card tray."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Para maprotektahan laban sa pagkasira sa tubig, tiyakin na mahigpit ang pagkakaselyo sa tray ng SIM/SD card.</string>
-    <string name="water_protection_notification_title">Suriin ang port</string>
-    <string name="water_protection_notification_body">May nadetektang halumigmmig. Para i-charge ang device mo, tiyakin na tuyo ang charger/USB port mo.</string>
+    <string name="water_protection_notification_title">I-unplug ang charger</string>
+    <string name="water_protection_notification_body">May nadetektang basa. Hugutin ang charger at tiyakin na tuyo ang kapwa charger at USB port.</string>
     <string name="full_battery_title">Info</string>
     <string name="full_battery_noti_text">Ganap na naka-charge ang baterya</string>
     <string name="cooling_title">Nag-o-overheat ng device</string>
@@ -1620,6 +1623,7 @@ Ang pag-overheat ay maaaring dulot ng:
     <string name="battery_not_fully_connected_charging_title">Mabagal na pag-charge</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Para sa mas mabilis na pag-charge, gamitin ang charger na kasama ng device mo at tiyakin na nakakonekta ito nang mamayos.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Tiyakin na nakakonekta nang maayos ang charger. Gamitin ang charger na kasama ng device.</string>
     <string name="battery_charging_level_and_time_text">"Nagcha-charge: %1$d%%
 (Humigit-kumulang %2$s bago maging fully charged)"</string>
@@ -1633,14 +1637,20 @@ Ang pag-overheat ay maaaring dulot ng:
     <string name="battery_saver_recommend_notification_text_phone_psm">I-charge ang telepono mo.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">I-charge ang tablet mo.</string>
     <string name="button_close">Isara</string>
-    <string name="battery_health_interruption_title">Hindi makapag-charge</string>
+    <string name="battery_health_interruption_title">Inihinto ang pag-charge</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">I-unplug ang charger</string>
     <string name="battery_health_interruption_by_terminal_open_text">Hindi ma-charge ang iyong device. Siguraduhing gumagamit ka ng baterya at charger na akma sa Samsung at nakakonekta nang ayos sa charger ang iyong device.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Na-pause ang pagcha-charge. Masyadong mataas ang temperatura ng baterya.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Na-pause ang pagcha-charge. Masyadong mababa ang temperatura ng baterya.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Huminto na sa pag-charge ang device. Masyadong mataas ang temperatura ng baterya. Mag-ingat kapag idinidiskonekta ang charger. Maaaring napakainit nito.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Napakataas ng temperatura ng telepono mo. Magpapatuloy ang pag-charge kapag bumalik na sa normal ang temperatura.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Napakataas ng temperatura ng tablet mo. Magpapatuloy ang pag-charge kapag bumalik na sa normal ang temperatura.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Napakababa ng temperatura ng telepono mo. Magpapatuloy ang pag-charge kapag bumalik na sa normal ang temperatura.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Napakababa ng temperatura ng tablet mo. Magpapatuloy ang pag-charge kapag bumalik na sa normal ang temperatura.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Inihinto ang pag-charge. Napakataas ng temperatura ng telepono mo. Mag-ingat sa pagdiskonekta ng charger. Maaaring napakainit nito.
 
-Ang pagdiskonekta at pagkonekta ulit sa charger ay maaaring payagan sa patuloy na pag-charge nang normal ng device. Kung magpapatuloy ang sobrang pag-init, makipag-ugnayan sa mga serbisyo sa customer dahil maaaring magkaroon ng sunog o pinsala."</string>
+Maaaring maituloy nang normal ang pag-charge kung idiskonekta at muling ikonekta ang charger. Kung patuloy ang pag-overheat, makipag-ugnayan sa Customer Service dahil may peligro ng sunog o pinsala."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Inihinto ang pag-charge. Napakataas ng temperatura ng tablet mo. Mag-ingat sa pagdiskonekta ng charger. Maaaring napakainit nito.
+
+Maaaring maituloy nang normal ang pag-charge kung idiskonekta at muling ikonekta ang charger. Kung patuloy ang pag-overheat, makipag-ugnayan sa Customer Service dahil may peligro ng sunog o pinsala."</string>
     <string name="incompatible_charger_title">Hindi nagcha-charge.</string>
     <string name="incompatible_charger_dialog_text">Hindi akma sa teleponong ito ang nakakonektang charger. Para mapigilan ang pinsala sa telepono mo, ihininto ang pag-charge. Para magpatuloy sa pag-charge, gamitin ang orihinal na charger at cable na ibinigay kasama ng teleponong ito.</string>
     <string name="incompatible_charger_notification_text">Hindi ma-charge. Gamitin ang orihinal na charger.</string>
@@ -1656,8 +1666,6 @@ Para pigilan ang pop-up na ito na lumitaw sa hinaharap, tiyakin na hindi nahahar
     <string name="kg_biometrics_swipe_active_instructions">Gamitin ang biometrics o i-swipe ang screen para buksan</string>
     <string name="kg_face_or_swipe_unlock_instructions">Gamitin ang face recognition o i-swipe ang screen para i-unlock</string>
     <string name="kg_face_or_swipe_active_instructions">Gamitin ang face recognition o i-swipe ang screen para buksan</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Gamitin ang face recognition para i-unlock o sa halip ay i-swipe ang screen para gamitin ang mga iris</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Gamitin ang face recognition para buksan o sa halip ay i-swipe ang screen para gamitin ang mga iris</string>
     <string name="kg_face_unlock_instructions">I-swipe ang screen para i-unlock gamit ang face recognition</string>
     <string name="kg_face_or_fingerprint_active_instructions">Gamitin ang fingerprint para buksan o sa halip ay i-swipe ang screen para gamitin ang face recognition</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Gamitin ang fingerprint para i-unlock o sa halip ay i-swipe ang screen para gamitin ang face recognition</string>
@@ -1672,6 +1680,20 @@ Para pigilan ang pop-up na ito na lumitaw sa hinaharap, tiyakin na hindi nahahar
     <string name="kg_voice_assistant_unlock_instructions">Mag-swipe gamit ang dalawang daliri upang i-unlock ang screen.</string>
     <string name="kg_swipe_active_instructions">I-swipe ang screen para buksan</string>
     <string name="kg_swipe_unlock_instructions">I-swipe ang screen upang i-unlock</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Gamitin ang biometrics o i-swipe ang screen gamit ang dalawang daliri para i-unlock.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Gamitin ang biometrics o i-swipe ang screen gamit ang dalawang daliri para buksan.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Gamitin ang face recognition o i-swipe ang screen gamit ang dalawang daliri para i-unlock.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Gamitin ang face recognition o i-swipe ang screen gamit ang dalawang daliri para buksan.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">I-swipe ang screen gamit ang dalawang daliri para i-unlock gamit ang face recognition.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Gamitin ang fingerprint para buksan o i-swipe ang screen gamit ang dalawang daliri para gamitin ang face recognition.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Gamitin ang fingerprint para i-unlock o i-swipe ang screen gamit ang dalawang daliri para gamitin ang face recognition.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Gamitin ang fingerprint para buksan o i-swipe ang screen gamit ang dalawang daliri para gamitin ang mga iris.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Gamitin ang fingerprint para i-unlock o i-swipe ang screen gamit ang dalawang daliri para gamitin ang mga iris.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Gamitin ang fingerprint o i-swipe ang screen gamit ang dalawang daliri para buksan.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Gamitin ang fingerprint o i-swipe ang screen gamit ang dalawang daliri para i-unlock.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">I-swipe ang screen gamit ang dalawang daliri para gamitin ang mga iris para i-unlock.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Gamitin ang mga iris o i-swipe ang screen gamit ang dalawang daliri para i-unlock.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Gamitin ang mga iris o i-swipe ang screen gamit ang dalawang daliri para buksan.</string>
     <string name="kg_power_connect_charger">Ikonekta ang charger</string>
     <string name="kg_power_fully_charged">Na-charge na</string>
     <string name="kg_power_fast_charging">Nagfa-fast charge: %d%%</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Ipadala</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">I-double tap ang Lock button para i-unlock ang telepono</string>
     <string name="s_view_cover_toast_pop_up_message">Buksan ang cover para gamitin ang mga button ng quick setting.</string>
     <string name="remote_input_toast_text_on_sview_cover">Hindi magamit ang Quick reply function habang nakasara ang S view cover.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Tinatanggap ko</string>
-    <string name="force_immersive_guide_text">Itatago ng pag-tap sa icon na ito ang navigation bar. Magagamit mo pa rin ang mga navigation button sa pamamagitan ng pag-swipe pataas mula sa ibaba ng screen. Habang nakikita ang navigation bar, maaari kang mag-tap muli sa icon na ito para i-lock ito sa puwesto. Sa ilang screen, gaya ng Home screen, laging ipapakita ang navigation bar.</string>
+    <string name="force_immersive_guide_text">Itatago ng pag-tap sa button na ito ang navigation bar. Magagamit mo pa rin ang mga navigation button sa pamamagitan ng pag-swipe pataas mula sa ibaba ng screen. Habang ipinapakita ang navigation bar, maaari kang mag-tap muli sa button na ito para i-lock ito sa puwesto. Sa ilang screen, gaya ng Home screen, laging ipapakita ang navigation bar. Kung hindi kumikilos nang maayos ang isang app habang nakatago ang navigation bar, i-lock ang navigation bar sa puwesto at i-restart ang app.</string>
+    <string name="force_immersive_guide_dialog_title">Itago ang navigation bar:</string>
+    <string name="force_immersive_guide_dialog_message1">Itatago ng pag-tap sa button na ito ang navigation bar.</string>
+    <string name="force_immersive_guide_dialog_message2">Mag-swipe pataas mula sa ibaba ng screen para ipakita ang navigation bar.</string>
+    <string name="force_immersive_guide_dialog_message3">I-tap muli ang button na ito para i-lock ito sa puwesto.</string>
+    <string name="force_immersive_guide_dialog_message4">Sa ilang screen, gaya ng Home screen, laging ipapakita ang navigation bar.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Para itago ang button na ito, pumunta sa Settings > Display > Navigation bar.</string>
+    <string name="force_immersive_guide_dialog_setting">Mga setting</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Magmaneho nang ligtas</string>
     <string name="car_lockscreen_disclaimer_text">Manatiling lubos na nakakaalam sa mga kondisyon sa pagmamaneho at palaging sumunod sa mga naaangkop na batas. Ang mga direksyon ay maaaring hindi tumpak, hindi kumpleto, mapanganib, hindi naaangkop, ipinagbabawal o kinasasangkutan ng pagtawid sa mga administratibong lugar. Maaari ding hindi tumpak o hindi kumpleto ang impormasyon ng negosyo. Hindi real-time ang data at hindi magagarantiya ang katumpakan ng lokasyon. Huwag gamitin ang iyong mobile device o gumamit ng mga app na hindi ginawa para sa Android Auto habang nagmamaneho.</string>
     <string name="pip_close">Isara ang PIP</string>
@@ -2230,6 +2261,8 @@ Kung hindi mo alam ang PUK mo, bumisita sa isang customer service center."</stri
     <string name="kg_face_retry_content_description">I-double tap para gamitin ang face recognition.</string>
     <string name="kg_face_authentication_error_retry_text">Walang nadetektang mukha. I-tap ang icon para subukan muli ang face recognition</string>
     <string name="kg_face_authentication_failed_retry_text">Walang katugma. I-tap ang icon para gamitin ang face recognition</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Nagkaroon ng problema sa face recognition. Mag-tap para subukang muli</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Hindi magagamit ang face recognition habang may video call</string>
     <string name="kg_fingerprint_no_match">Walang tumugma</string>
     <string name="kg_finger_print_not_responding_error_message">Hindi tumutugon ang sensor ng fingerprint. Subukang muli sa ibang pagkakataon.</string>
     <string name="kg_finger_print_database_error_message">Nasira ang data ng fingerprint. I-reset ang Fingerprint bilang uri ng screen lock at pagkatapos ay muling idagdag ang mga fingerprint mo o baguhin ang uri ng screen lock.</string>
@@ -2366,6 +2399,8 @@ Subukang muli pagkalipas ng 1 segundo"</string>
     <string name="appicon_badge_new_item">1 bagong item</string>
     <string name="banner_apps_for_dex_detail">I-enjoy ang mga app na na-optimize ng DeX mula sa Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Hindi makalipat nang higit sa %d item.</string>
+    <string name="view_more_in_galaxy_apps">Tumingin pa sa Galaxy Apps</string>
+    <string name="view_more_in_play_store">Tumingin pa sa Play Store</string>
     <string name="uninstall_title">I-uninstall ang mga app?</string>
     <string name="uninstall_1_app_message">Nais mo bang i-uninstall ang app na ito?</string>
     <string name="uninstall_apps_message">Ia-uninstall ang mga sumusunod na app:</string>
@@ -2406,6 +2441,13 @@ Subukang muli pagkalipas ng 1 segundo"</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Itago ang mga notification</string>
     <string name="volumepanel_notification">Abiso</string>
     <string name="quick_settings_location_detail_device_only">Device lang</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Na-pause ang pagcha-charge. Masyadong mataas ang temperatura ng baterya.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Na-pause ang pagcha-charge. Masyadong mababa ang temperatura ng baterya.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Huminto na sa pag-charge ang device. Masyadong mataas ang temperatura ng baterya. Mag-ingat kapag idinidiskonekta ang charger. Maaaring napakainit nito.
+
+Ang pagdiskonekta at pagkonekta ulit sa charger ay maaaring payagan sa patuloy na pag-charge nang normal ng device. Kung magpapatuloy ang sobrang pag-init, makipag-ugnayan sa mga serbisyo sa customer dahil maaaring magkaroon ng sunog o pinsala."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Gamitin ang face recognition para i-unlock o sa halip ay i-swipe ang screen para gamitin ang mga iris</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Gamitin ang face recognition para buksan o sa halip ay i-swipe ang screen para gamitin ang mga iris</string>
     <string name="kg_infinity_wallpaper_option_description">Ilalapat ang Infinity wallpaper sa Home at Lock screen mo nang magkasabay. I-on ang setting sa ibaba para sa pinakamagandang karanasan.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Naka-on ang Always On Display</string>
 </resources>

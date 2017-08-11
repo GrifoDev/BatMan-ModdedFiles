@@ -739,9 +739,11 @@
 .end method
 
 .method private refreshUsers(I)V
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
 
     const/16 v6, -0x2710
 
@@ -749,7 +751,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mForcePictureLoadForUserId:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v6, p1, v8}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    invoke-virtual {v6, p1, v9}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
     :cond_0
     iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mPauseRefreshUsers:Z
@@ -786,7 +788,7 @@
     const/4 v4, 0x0
 
     :goto_0
-    if-ge v4, v0, :cond_4
+    if-ge v4, v0, :cond_5
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUsers:Ljava/util/ArrayList;
 
@@ -827,6 +829,17 @@
 
     if-nez v6, :cond_2
 
+    sget-boolean v6, Lcom/android/systemui/SystemUIRune;->SUPPORT_TWO_PHONE:Z
+
+    if-eqz v6, :cond_4
+
+    iget-object v6, v5, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
+
+    iget v6, v6, Landroid/content/pm/UserInfo;->id:I
+
+    if-eqz v6, :cond_2
+
+    :cond_4
     iget-object v6, v5, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
 
     iget v6, v6, Landroid/content/pm/UserInfo;->id:I
@@ -837,7 +850,7 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     iget-object v6, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mForcePictureLoadForUserId:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v6}, Landroid/util/SparseBooleanArray;->clear()V
@@ -848,9 +861,7 @@
 
     invoke-direct {v6, p0, v1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;-><init>(Lcom/android/systemui/statusbar/policy/UserSwitcherController;Z)V
 
-    new-array v7, v8, [Landroid/util/SparseArray;
-
-    const/4 v8, 0x0
+    new-array v7, v9, [Landroid/util/SparseArray;
 
     aput-object v2, v7, v8
 
@@ -976,7 +987,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0201d1
+    const v4, 0x7f0201d5
 
     invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -984,7 +995,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f04e0
+    const v5, 0x7f0f053d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -996,7 +1007,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f04e1
+    const v5, 0x7f0f053e
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1016,13 +1027,13 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f04e2
+    const v5, 0x7f0f053f
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v5, 0x7f020185
+    const v5, 0x7f020189
 
     invoke-virtual {v3, v5, v4, v2}, Landroid/app/Notification$Builder;->addAction(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
@@ -1218,7 +1229,7 @@
 
     if-eqz v1, :cond_3
 
-    const v1, 0x7f0f04d3
+    const v1, 0x7f0f0530
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1419,7 +1430,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f04d3
+    const v5, 0x7f0f0530
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1442,7 +1453,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f04d9
+    const v4, 0x7f0f0536
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1478,7 +1489,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f04da
+    const v4, 0x7f0f0537
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1505,7 +1516,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f04db
+    const v4, 0x7f0f0538
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

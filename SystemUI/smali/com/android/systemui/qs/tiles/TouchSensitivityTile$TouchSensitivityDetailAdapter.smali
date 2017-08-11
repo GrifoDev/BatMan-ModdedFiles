@@ -57,7 +57,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040126
+    const v1, 0x7f04012a
 
     const/4 v2, 0x0
 
@@ -65,7 +65,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f1302cc
+    const v0, 0x7f1302d4
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -77,7 +77,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/TouchSensitivityTile$TouchSensitivityDetailAdapter;->mSummary:Landroid/widget/TextView;
 
-    const v1, 0x7f0f0489
+    const v1, 0x7f0f04e6
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -109,7 +109,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0488
+    const v1, 0x7f0f04e5
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

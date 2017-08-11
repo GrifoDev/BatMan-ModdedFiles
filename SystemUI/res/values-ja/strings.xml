@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%sに接続できません。</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$sに接続できません。%2$sで設定を確認し、再度実行してください。</string>
     <string name="bluetooth_pairing_rejected_error_message">%sにペアリングを拒否されました。</string>
+    <string name="bluetooth_getting_remote_device_name">デバイス名称を取得中…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">このデバイスが接続されると、デバイス名称が表示されます。</string>
     <string name="accessibility_wifi_off">Wi-FiはOFFです。</string>
     <string name="accessibility_no_wifi">Wi-Fiが切断されました。</string>
     <string name="accessibility_wifi_one_bar">Wi-Fiはレベル1です。</string>
@@ -557,7 +559,7 @@
     <string name="accessibility_back">戻る</string>
     <string name="accessibility_home">ホーム</string>
     <string name="accessibility_menu">メニュー</string>
-    <string name="sec_accessibility_recent">履歴キー</string>
+    <string name="sec_accessibility_recent">履歴</string>
     <string name="accessibility_camera_button">カメラ</string>
     <string name="accessibility_phone_button">電話</string>
     <string name="accessibility_voice_assist_button">音声アシスト</string>
@@ -1361,6 +1363,7 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">NumLock</string>
     <string name="keyboard_key_numpad_template">テンキーの %1$s</string>
+    <string name="keyboard_popup_help">メタキー: Windowsキー、Commandキー、またはその他のオペレーティングシステムの記号キー</string>
     <string name="keyboard_shortcut_group_system">システムのショートカット</string>
     <string name="keyboard_shortcut_group_system_home">ホーム</string>
     <string name="keyboard_shortcut_group_system_recents">最近</string>
@@ -1522,8 +1525,8 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
 
 浸水による損傷を防ぐため、SIM/外部SDカードトレイがしっかりと閉められていることを確認してください。"</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">浸水による損傷を防ぐため、SIM/外部SDカードトレイがしっかりと閉められていることを確認してください。</string>
-    <string name="water_protection_notification_title">ポートを確認</string>
-    <string name="water_protection_notification_body">水分が検出されました。端末を充電するには、充電器/USBポートに水濡れがないことを確認してください。</string>
+    <string name="water_protection_notification_title">充電器を取り外してください。</string>
+    <string name="water_protection_notification_body">水分が検出されました。充電器を取り外して、充電器とUSBポートに水濡れがないことを確認してください。</string>
     <string name="full_battery_title">お知らせ</string>
     <string name="full_battery_noti_text">バッテリー充電完了</string>
     <string name="cooling_title">端末の過熱</string>
@@ -1617,6 +1620,7 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="battery_not_fully_connected_charging_title">低速充電</string>
     <string name="battery_not_fully_connected_charging_title_vzw">接続が不完全</string>
     <string name="battery_not_fully_connected_charging_text">より速く充電するには、端末に付属している充電器を使用し、充電器が正しく接続されていることを確認してください。</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">充電器が正しく接続されていることを確認してください。</string>
     <string name="battery_not_fully_connected_charging_popup_text">充電器が正しく接続されていることを確認してください。端末に付属している充電器を使用してください。</string>
     <string name="battery_charging_level_and_time_text">"充電中: %1$d%%
 (充電完了まで約%2$s)"</string>
@@ -1630,14 +1634,20 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="battery_saver_recommend_notification_text_phone_psm">充電してください。</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">充電してください。</string>
     <string name="button_close">閉じる</string>
-    <string name="battery_health_interruption_title">充電不可</string>
+    <string name="battery_health_interruption_title">充電停止</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">充電器の取り外し</string>
     <string name="battery_health_interruption_by_terminal_open_text">端末を充電することができません。Samsung対応のバッテリーや充電器を使用していることと、端末が正しく充電器に接続していることを確認してください。</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">端末を充電することができません。Galaxy対応のバッテリーや充電器を使用していることと、端末が正しく充電器に接続していることを確認してください。</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">充電が停止しました。バッテリーの温度が高すぎます。</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">充電が停止しました。バッテリーの温度が低すぎます。</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"バッテリーが高温になっているため、充電を停止しました。非常に熱くなっている可能性があるため、充電器を取り外す際にはご注意ください。
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">端末の温度が高すぎます。正常な温度に戻ると、充電を続行します。</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">タブレットの温度が高すぎます。正常な温度に戻ると、充電を続行します。</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">端末の温度が低すぎます。正常な温度に戻ると、充電を続行します。</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">タブレットの温度が低すぎます。正常な温度に戻ると、充電を続行します。</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"端末の温度が高すぎるため、充電を停止しました。端末が非常に熱くなっている可能性があるため、充電器を取り外す際にはご注意ください。
 
 充電器を取り外し、再び接続することで、充電を正常に継続できる可能性があります。端末の過熱が続く場合、火事や怪我の恐れがあるため、カスタマーサービスにお問合せください。"</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"タブレットの温度が高すぎるため、充電を停止しました。タブレットが非常に熱くなっている可能性があるため、充電器を取り外す際にはご注意ください。
+
+充電器を取り外し、再び接続することで、充電を正常に継続できる可能性があります。タブレットの過熱が続く場合、火事や怪我の恐れがあるため、カスタマーサービスにお問合せください。"</string>
     <string name="incompatible_charger_title">充電していません</string>
     <string name="incompatible_charger_dialog_text">この端末と互換性のない充電器が接続されました。端末の損傷を防ぐため、充電を停止しました。充電を継続するには、この端末に付属している純正の充電器および充電ケーブルを使用してください。</string>
     <string name="incompatible_charger_notification_text">充電できません。純正の充電器を使用してください。</string>
@@ -1653,8 +1663,6 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="kg_biometrics_swipe_active_instructions">起動するには、生体認証を使用するか、画面をスワイプしてください</string>
     <string name="kg_face_or_swipe_unlock_instructions">ロックを解除するには、顔認証を使用するか、画面をスワイプしてください</string>
     <string name="kg_face_or_swipe_active_instructions">起動するには、顔認証を使用するか、画面をスワイプしてください</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">顔認証でロックを解除するか、画面をスワイプして虹彩認証を使用してください</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">顔認証で起動するか、画面をスワイプして虹彩認証を使用してください</string>
     <string name="kg_face_unlock_instructions">画面をスワイプして顔認証でロック解除</string>
     <string name="kg_face_or_fingerprint_active_instructions">指紋認証で起動するか、画面をスワイプして顔認証を使用してください</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">指紋認証でロックを解除するか、画面をスワイプして顔認証を使用してください</string>
@@ -1669,6 +1677,20 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="kg_voice_assistant_unlock_instructions">ロックを解除するには、2本の指でスワイプしてください。</string>
     <string name="kg_swipe_active_instructions">起動するには、画面をスワイプしてください</string>
     <string name="kg_swipe_unlock_instructions">ロックを解除するには、スワイプしてください</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">ロックを解除するには、生体認証を使用するか、2本の指で画面をスワイプしてください。</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">起動するには、生体認証を使用するか、2本の指で画面をスワイプしてください。</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">ロックを解除するには、顔認証を使用するか、2本の指で画面をスワイプしてください。</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">起動するには、顔認証を使用するか、2本の指で画面をスワイプしてください。</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">顔認証でロックを解除するには、2本の指で画面をスワイプしてください。</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">指紋認証で起動するか、2本の指で画面をスワイプして顔認証を使用してください。</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">指紋認証でロックを解除するか、2本の指で画面をスワイプして顔認証を使用してください。</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">指紋認証で起動するか、2本の指で画面をスワイプして虹彩認証を使用してください。</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">指紋認証でロックを解除するか、2本の指で画面をスワイプして虹彩認証を使用してください。</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">起動するには、指紋認証を使用するか、2本の指で画面をスワイプしてください。</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">ロックを解除するには、指紋認証を使用するか、2本の指で画面をスワイプしてください。</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">虹彩認証を使用してロックを解除するには、2本の指で画面をスワイプしてください。</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">ロックを解除するには、虹彩認証を使用するか、2本の指で画面をスワイプしてください。</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">起動するには、虹彩認証を使用するか、2本の指で画面をスワイプしてください。</string>
     <string name="kg_power_connect_charger">充電器に接続してください</string>
     <string name="kg_power_fully_charged">充電完了</string>
     <string name="kg_power_fast_charging">急速充電中: %d%%</string>
@@ -1761,6 +1783,7 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="dcm_lockscreen_unlock_help_text_fingerprints">開くには指紋認証を使用するかロック解除アイコンをタップしてください</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">虹彩認証を使用してロックを解除するには、ロック解除アイコンをタップしてください</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">指紋認証で端末のロックを解除するか、ロックアイコンをタップして虹彩認証を使用してください</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">開くにはロック解除アイコンをダブルタップしてください</string>
     <string name="dcm_lockscreen_bouncer_instructions">開くにはもう一度タップしてください</string>
     <string name="dcm_lockscreen_bouncer_instructions_fingerprints">開くには指紋認証を使用するかもう一度タップしてください</string>
     <string name="s_view_cover_toast_pop_up_message">クイック設定ボタンを使用するには、カバーを開いてください。</string>
@@ -1799,7 +1822,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">同意</string>
-    <string name="force_immersive_guide_text">このアイコンをタップすると、ナビゲーションバーが非表示になります。画面下部から上にスワイプすると、ナビゲーションボタンを使用できます。ナビゲーションバーが表示されているときに、再度このアイコンをタップすると、その場所に固定することができます。ホーム画面などの一部の画面では、ナビゲーションバーは常に表示されます。</string>
+    <string name="force_immersive_guide_text">このボタンをタップすると、ナビゲーションバーが非表示になります。画面下部から上にスワイプすると、ナビゲーションボタンを使用できます。ナビゲーションバーが表示されているときに、再度このボタンをタップすると、ナビゲーションバーを固定することができます。ホーム画面などの一部の画面では、ナビゲーションバーは常に表示されます。ナビゲーションバーが非表示のときにアプリが正しく動作しない場合は、ナビゲーションバーを固定してアプリを再起動してください。</string>
+    <string name="force_immersive_guide_dialog_title">ナビゲーションバーを非表示</string>
+    <string name="force_immersive_guide_dialog_message1">このボタンをタップすると、ナビゲーションバーが非表示になります。</string>
+    <string name="force_immersive_guide_dialog_message2">ナビゲーションバーを表示するには、画面を下から上にスワイプします。</string>
+    <string name="force_immersive_guide_dialog_message3">このボタンを再度タップすると、ナビゲーションバーが固定されます。</string>
+    <string name="force_immersive_guide_dialog_message4">ホーム画面などの一部の画面では、ナビゲーションバーは常に表示されます。</string>
+    <string name="force_immersive_guide_dialog_guide_path">このボタンを非表示にするには、[設定] > [ディスプレイ] > [ナビゲーションバー]に移動してください。</string>
+    <string name="force_immersive_guide_dialog_setting">設定</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">安全運転を心がけましょう</string>
     <string name="car_lockscreen_disclaimer_text">道路状況に十分気を配り、適用される法律を遵守してください。経路は、不正確、不完全、危険、不適切である場合や、通行が禁止されている、管理区域を通行する必要があるなどの場合があります。ビジネス情報も不正確または不完全である可能性があります。データはリアルタイムではなく、場所の正確性は保証されません。運転中はモバイル端末を手に持って操作したり、Android Auto とは無関係のアプリを使用したりしないでください。</string>
     <string name="pip_close">PIP を閉じる</string>
@@ -2238,6 +2269,8 @@ PUKが不明な場合は、カスタマーサービスセンターにお問い�
     <string name="kg_face_retry_content_description">顔認証を使用するには、ダブルタップしてください。</string>
     <string name="kg_face_authentication_error_retry_text">顔を検出できません、顔認証を再試行するには、アイコンをタップしてください</string>
     <string name="kg_face_authentication_failed_retry_text">一致するものがありません。顔認証を使用するには、アイコンをタップしてください。</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">顔認証で問題が発生しました。再度実行するには、タップしてください</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">ビデオコール中は、顔認証を使用できません</string>
     <string name="kg_fingerprint_no_match">一致するものがありません</string>
     <string name="kg_finger_print_not_responding_error_message">指紋センサーが反応していません。後ほどお試しください。</string>
     <string name="kg_finger_print_database_error_message">指紋データが破損しています。画面ロックの[指紋]に登録されている指紋をリセットしてから再度指紋を追加するか、画面ロックの種類を変更してください。</string>
@@ -2375,6 +2408,8 @@ PUKが不明な場合は、カスタマーサービスセンターにお問い�
     <string name="appicon_badge_new_item">1件の最新アイテムです。</string>
     <string name="banner_apps_for_dex_detail">DeXに最適化されたアプリを、Galaxy Appsでお楽しみください。</string>
     <string name="toast_cannot_move_more_than_items">%d件を超えるアイテムを移動することはできません。</string>
+    <string name="view_more_in_galaxy_apps">Galaxy Appsでさらに検索</string>
+    <string name="view_more_in_play_store">Playストアでさらに検索</string>
     <string name="uninstall_title">アプリをアンインストールしますか？</string>
     <string name="uninstall_1_app_message">このアプリをアンインストールしますか？</string>
     <string name="uninstall_apps_message">以下のアプリをアンインストールします。</string>
@@ -2403,7 +2438,7 @@ PUKが不明な場合は、カスタマーサービスセンターにお問い�
     <string name="taskbar_context_menu_unpin">ﾀｽｸﾊﾞｰからｼｮｰﾄｶｯﾄの固定を解除</string>
     <string name="taskbar_context_menu_open">起動</string>
     <string name="taskbar_context_menu_close">終了</string>
-    <string name="taskbar_context_menu_uninstall">アンインストール</string>
+    <string name="taskbar_context_menu_uninstall">ｱﾝｲﾝｽﾄｰﾙ</string>
     <string name="taskbar_context_menu_disable">無効</string>
     <string name="taskbar_context_menu_secure_add">ｾｷｭﾘﾃｨﾌｫﾙﾀﾞに追加</string>
     <string name="taskbar_context_menu_capture_fullscreen">全画面キャプチャ</string>
@@ -2420,6 +2455,13 @@ PUKが不明な場合は、カスタマーサービスセンターにお問い�
     <string name="clear_cover_day_month_no_year">MMMd日</string>
     <string name="volumepanel_notification">通知</string>
     <string name="quick_settings_location_detail_device_only">端末のみ</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">充電が停止しました。バッテリーの温度が高すぎます。</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">充電が停止しました。バッテリーの温度が低すぎます。</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"バッテリーが高温になっているため、充電を停止しました。非常に熱くなっている可能性があるため、充電器を取り外す際にはご注意ください。
+
+充電器を取り外し、再び接続することで、充電を正常に継続できる可能性があります。端末の過熱が続く場合、火事や怪我の恐れがあるため、カスタマーサービスにお問合せください。"</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">顔認証でロックを解除するか、画面をスワイプして虹彩認証を使用してください</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">顔認証で起動するか、画面をスワイプして虹彩認証を使用してください</string>
     <string name="kg_infinity_wallpaper_option_description">[インフィニティ壁紙]は、ホーム画面とロック画面に同時に適用されます。以下の設定をONにすると、最大の効果をお楽しみいただけます。</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Always On DisplayをON</string>
     <string name="sview_cover_wday_month_day_no_year">MMMMd日(E)</string>

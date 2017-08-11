@@ -128,6 +128,15 @@
 
     invoke-virtual {v6, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_TWO_PHONE:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "android.intent.action.USER_ADDED"
+
+    invoke-virtual {v6, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserInfoController;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/UserInfoController;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -240,13 +249,13 @@
 
     move-result-object v10
 
-    const v0, 0x7f0d02f6
+    const v0, 0x7f0d02f7
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    const v1, 0x7f0d02f5
+    const v1, 0x7f0d02f6
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

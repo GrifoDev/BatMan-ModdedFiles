@@ -17,6 +17,7 @@
         Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;,
         Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AppItemData;,
         Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AppViewHolder;,
+        Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;,
         Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
     }
 .end annotation
@@ -55,6 +56,10 @@
 
 .field private mBtnBannerCancel:Landroid/widget/ImageButton;
 
+.field mBtnViewMoreGalaxyApps:Landroid/widget/Button;
+
+.field mBtnViewMorePlayStore:Landroid/widget/Button;
+
 .field mCheckAll:Landroid/widget/CheckBox;
 
 .field mCheckCount:Landroid/widget/TextView;
@@ -71,9 +76,13 @@
 
 .field private mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
 
-.field mGridView:Landroid/widget/GridView;
+.field mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
 .field private mHoverPopupPreShowListener:Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
+
+.field mIsGalaxyAppsAvailable:Z
+
+.field mIsPlayStoreAvailable:Z
 
 .field mLatestSelectedItemIdx:I
 
@@ -85,9 +94,13 @@
 
 .field private mOnContextClickListener:Landroid/view/View$OnContextClickListener;
 
+.field mScrollView:Landroid/widget/ScrollView;
+
 .field mSearchResultCount:Landroid/widget/TextView;
 
-.field mSearchTextView:Landroid/widget/TextView;
+.field mSearchTextViewNoHistory:Landroid/widget/TextView;
+
+.field mSearchTextViewNoResult:Landroid/widget/TextView;
 
 .field mSearchTitleLayout:Landroid/widget/LinearLayout;
 
@@ -306,6 +319,14 @@
     return-void
 .end method
 
+.method static synthetic -wrap11(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;ZZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->updateViewMoreButtons(ZZ)V
+
+    return-void
+.end method
+
 .method static synthetic -wrap2(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Z)V
     .locals 0
 
@@ -362,10 +383,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap9(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Z)V
+.method static synthetic -wrap9(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;ZZ)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextView(Z)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextView(ZZ)V
 
     return-void
 .end method
@@ -605,27 +626,9 @@
 .end method
 
 .method private getBannerVisibilityPreference()Z
-    .locals 3
+    .locals 1
 
-    const-string/jumbo v0, "com.sec.android.app.launcher.prefs"
-
-    const/4 v1, 0x0
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->prefs:Landroid/content/SharedPreferences;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->prefs:Landroid/content/SharedPreferences;
-
-    const-string/jumbo v1, "dex.allapps.banner.visibility"
-
-    const/4 v2, 0x1
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
+    const/4 v0, 0x1
 
     return v0
 .end method
@@ -658,6 +661,171 @@
     invoke-virtual {v0, p1, p2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
     return-void
+.end method
+
+.method private isMatchedItem(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;)Z
+    .locals 8
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    return v5
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v6, p2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    const/4 v2, 0x1
+
+    :goto_0
+    iget-object v4, p2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;->className:Ljava/lang/String;
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;->className:Ljava/lang/String;
+
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    if-nez v4, :cond_4
+
+    :cond_1
+    const/4 v1, 0x1
+
+    :goto_1
+    iget v4, p2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;->user:I
+
+    iget-object v6, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v6}, Landroid/os/UserHandle;->semGetIdentifier()I
+
+    move-result v6
+
+    if-ne v4, v6, :cond_5
+
+    const/4 v3, 0x1
+
+    :goto_2
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    const-string/jumbo v6, "[DS]AllAppsLayout"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "isMatchedItem :: isMatched="
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    if-eqz v2, :cond_6
+
+    if-eqz v1, :cond_6
+
+    move v4, v3
+
+    :goto_3
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v7, "  title="
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v7, "   package="
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v6, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    if-eqz v2, :cond_7
+
+    if-eqz v1, :cond_7
+
+    :goto_4
+    return v3
+
+    :cond_3
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v6, p2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;->className:Ljava/lang/String;
+
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    const/4 v1, 0x0
+
+    goto :goto_1
+
+    :cond_5
+    const/4 v3, 0x0
+
+    goto :goto_2
+
+    :cond_6
+    move v4, v5
+
+    goto :goto_3
+
+    :cond_7
+    move v3, v5
+
+    goto :goto_4
 .end method
 
 .method private launchMenuApp(Landroid/view/View;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
@@ -778,6 +946,407 @@
     goto :goto_0
 .end method
 
+.method private querySearchKeyword(Ljava/lang/String;)Ljava/util/ArrayList;
+    .locals 17
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v12, Ljava/util/ArrayList;
+
+    invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "content://com.samsung.android.app.galaxyfinder.applications/search/"
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static/range {p1 .. p1}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    const/4 v15, 0x0
+
+    const/4 v8, 0x0
+
+    :try_start_0
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    invoke-virtual/range {v1 .. v7}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
+
+    move-result-object v8
+
+    if-nez v8, :cond_2
+
+    const-string/jumbo v1, "[DS]AllAppsLayout"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "can not find finder cursor for keyword = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_4
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+
+    const/4 v1, 0x0
+
+    if-eqz v8, :cond_0
+
+    :try_start_1
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_1 .. :try_end_1} :catch_2
+
+    :cond_0
+    :goto_0
+    if-eqz v15, :cond_1
+
+    :try_start_2
+    throw v15
+    :try_end_2
+    .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_2 .. :try_end_2} :catch_2
+
+    :catch_0
+    move-exception v11
+
+    const-string/jumbo v1, "[DS]AllAppsLayout"
+
+    const-string/jumbo v3, "SecurityException in querySearchKeyword"
+
+    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    return-object v1
+
+    :catch_1
+    move-exception v15
+
+    goto :goto_0
+
+    :cond_1
+    return-object v1
+
+    :cond_2
+    :try_start_3
+    invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
+
+    move-result v1
+
+    if-gtz v1, :cond_5
+
+    const-string/jumbo v1, "[DS]AllAppsLayout"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "can not find application for keyword = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_4
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    if-eqz v8, :cond_3
+
+    :try_start_4
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    :try_end_4
+    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_3
+    .catch Ljava/lang/SecurityException; {:try_start_4 .. :try_end_4} :catch_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_4 .. :try_end_4} :catch_2
+
+    :cond_3
+    :goto_1
+    if-eqz v15, :cond_4
+
+    :try_start_5
+    throw v15
+    :try_end_5
+    .catch Ljava/lang/SecurityException; {:try_start_5 .. :try_end_5} :catch_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_5 .. :try_end_5} :catch_2
+
+    :catch_2
+    move-exception v10
+
+    const-string/jumbo v1, "[DS]AllAppsLayout"
+
+    const-string/jumbo v3, "SQLiteException in querySearchKeyword"
+
+    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    return-object v1
+
+    :catch_3
+    move-exception v15
+
+    goto :goto_1
+
+    :cond_4
+    return-object v12
+
+    :cond_5
+    :goto_2
+    :try_start_6
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    const-string/jumbo v1, "packageName"
+
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v13
+
+    const-string/jumbo v1, "componentName"
+
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v1, "user"
+
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v14
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;
+
+    invoke-static {v14}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v1, v0, v13, v9, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/lang/String;Ljava/lang/String;I)V
+
+    invoke-virtual {v12, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    const-string/jumbo v1, "[DS]AllAppsLayout"
+
+    const-string/jumbo v3, "querySearchKeyword = %s  %s  %s"
+
+    const/4 v4, 0x3
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    aput-object v13, v4, v5
+
+    const/4 v5, 0x1
+
+    aput-object v9, v4, v5
+
+    const/4 v5, 0x2
+
+    aput-object v14, v4, v5
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_6
+    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_4
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+
+    goto :goto_2
+
+    :catch_4
+    move-exception v1
+
+    :try_start_7
+    throw v1
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    :catchall_0
+    move-exception v3
+
+    move-object/from16 v16, v3
+
+    move-object v3, v1
+
+    move-object/from16 v1, v16
+
+    :goto_3
+    if-eqz v8, :cond_6
+
+    :try_start_8
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    :try_end_8
+    .catch Ljava/lang/Throwable; {:try_start_8 .. :try_end_8} :catch_6
+    .catch Ljava/lang/SecurityException; {:try_start_8 .. :try_end_8} :catch_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_8 .. :try_end_8} :catch_2
+
+    :cond_6
+    :goto_4
+    if-eqz v3, :cond_a
+
+    :try_start_9
+    throw v3
+    :try_end_9
+    .catch Ljava/lang/SecurityException; {:try_start_9 .. :try_end_9} :catch_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_9 .. :try_end_9} :catch_2
+
+    :cond_7
+    if-eqz v8, :cond_8
+
+    :try_start_a
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    :try_end_a
+    .catch Ljava/lang/Throwable; {:try_start_a .. :try_end_a} :catch_5
+    .catch Ljava/lang/SecurityException; {:try_start_a .. :try_end_a} :catch_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_a .. :try_end_a} :catch_2
+
+    :cond_8
+    :goto_5
+    if-eqz v15, :cond_b
+
+    :try_start_b
+    throw v15
+
+    :catch_5
+    move-exception v15
+
+    goto :goto_5
+
+    :catch_6
+    move-exception v4
+
+    if-nez v3, :cond_9
+
+    move-object v3, v4
+
+    goto :goto_4
+
+    :cond_9
+    if-eq v3, v4, :cond_6
+
+    invoke-virtual {v3, v4}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    goto :goto_4
+
+    :cond_a
+    throw v1
+    :try_end_b
+    .catch Ljava/lang/SecurityException; {:try_start_b .. :try_end_b} :catch_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_b .. :try_end_b} :catch_2
+
+    :cond_b
+    return-object v12
+
+    :catchall_1
+    move-exception v1
+
+    move-object v3, v15
+
+    goto :goto_3
+.end method
+
 .method private refreshAllAppsHeaderLayout()V
     .locals 3
 
@@ -801,21 +1370,21 @@
     return-void
 
     :pswitch_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/GridView;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/GridView;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1189,7 +1758,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0989
+    const v2, 0x7f0f0a0a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1217,7 +1786,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f098a
+    const v2, 0x7f0f0a0b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1237,7 +1806,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f098c
+    const v2, 0x7f0f0a0d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1266,7 +1835,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f098b
+    const v2, 0x7f0f0a0c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1540,7 +2109,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x7f0f099e
+    const v5, 0x7f0f0a21
 
     invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1548,23 +2117,23 @@
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f0f09a0
+    const v3, 0x7f0f0a23
 
     invoke-virtual {v0, v3, v7}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$11;
+    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$13;
 
-    invoke-direct {v3, p0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$11;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/lang/String;I)V
+    invoke-direct {v3, p0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$13;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/lang/String;I)V
 
-    const v4, 0x7f0f099f
+    const v4, 0x7f0f0a22
 
     invoke-virtual {v0, v4, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
     invoke-virtual {v0, v8}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Z)V
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$12;
+    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$14;
 
-    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$12;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$14;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
@@ -1624,7 +2193,7 @@
 
     aput-object v1, v3, v6
 
-    const v4, 0x7f0f099e
+    const v4, 0x7f0f0a21
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1632,23 +2201,23 @@
 
     invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    const v2, 0x7f0f09a0
+    const v2, 0x7f0f0a23
 
     invoke-virtual {v0, v2, v5}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
-    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$7;
+    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;
 
-    invoke-direct {v2, p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$7;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/util/ArrayList;)V
+    invoke-direct {v2, p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/util/ArrayList;)V
 
-    const v3, 0x7f0f099f
+    const v3, 0x7f0f0a22
 
     invoke-virtual {v0, v3, v2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
     invoke-virtual {v0, v6}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Z)V
 
-    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$8;
+    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$10;
 
-    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$8;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$10;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
 
     invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
@@ -1746,7 +2315,7 @@
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;->notifyDataSetChanged()V
 
-    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextView(Z)V
+    invoke-direct {p0, v3, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextView(ZZ)V
 
     const/4 v1, -0x1
 
@@ -1756,57 +2325,91 @@
     return-void
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0f098d
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setSearchTextView(Ljava/lang/String;)V
-
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextView(Z)V
+    invoke-direct {p0, v4, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextView(ZZ)V
 
     goto :goto_0
 .end method
 
-.method private showSearchTextView(Z)V
-    .locals 3
+.method private showSearchTextNoHistory(Z)V
+    .locals 2
 
-    const/4 v2, 0x0
-
-    const/16 v1, 0x8
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTitleLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTextViewNoHistory:Landroid/widget/TextView;
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
-
-    invoke-virtual {v0, v1}, Landroid/widget/GridView;->setVisibility(I)V
+    const/4 v0, 0x0
 
     :goto_0
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/GridView;->setVisibility(I)V
+    const/16 v0, 0x8
 
     goto :goto_0
+.end method
+
+.method private showSearchTextNoResult(Z)V
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTextViewNoResult:Landroid/widget/TextView;
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    return-void
+
+    :cond_0
+    const/16 v0, 0x8
+
+    goto :goto_0
+.end method
+
+.method private showSearchTextView(ZZ)V
+    .locals 3
+
+    const/16 v2, 0x8
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTitleLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    if-eqz p1, :cond_1
+
+    if-eqz p2, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextNoResult(Z)V
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->setVisibility(I)V
+
+    :goto_1
+    return-void
+
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextNoHistory(Z)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextNoResult(Z)V
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextNoHistory(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->setVisibility(I)V
+
+    goto :goto_1
 .end method
 
 .method private showUnintallConfirmation(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
@@ -1843,7 +2446,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f099a
+    const v4, 0x7f0f0a1d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1851,15 +2454,15 @@
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f0f099d
+    const v3, 0x7f0f0a20
 
     invoke-virtual {v0, v3, v5}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;
+    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$11;
 
-    invoke-direct {v3, p0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/lang/String;I)V
+    invoke-direct {v3, p0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$11;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/lang/String;I)V
 
-    const v4, 0x7f0f099c
+    const v4, 0x7f0f0a1f
 
     invoke-virtual {v0, v4, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -1867,9 +2470,9 @@
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Z)V
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$10;
+    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$12;
 
-    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$10;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$12;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
@@ -1915,7 +2518,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0f0999
+    const v1, 0x7f0f0a1c
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setTitle(I)V
 
@@ -1927,7 +2530,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f099b
+    const v3, 0x7f0f0a1e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1953,15 +2556,15 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f0f099d
+    const v1, 0x7f0f0a20
 
     invoke-virtual {v0, v1, v4}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$5;
+    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$7;
 
-    invoke-direct {v1, p0, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$5;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/util/ArrayList;)V
+    invoke-direct {v1, p0, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$7;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/util/ArrayList;)V
 
-    const v2, 0x7f0f099c
+    const v2, 0x7f0f0a1f
 
     invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -1969,9 +2572,9 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Z)V
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$6;
+    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$8;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$6;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$8;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
@@ -2062,7 +2665,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0f0998
+    const v15, 0x7f0f0a19
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2479,109 +3082,251 @@
     goto :goto_1
 .end method
 
+.method private updateBannerVisibility()V
+    .locals 4
+
+    const-string/jumbo v1, "true"
+
+    const-string/jumbo v2, "persist.service.dex.banner_show"
+
+    const-string/jumbo v3, "true"
+
+    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setKnoxDesktopAppsBannerVisibility(Z)V
+
+    return-void
+.end method
+
 .method private updateSearchList(Ljava/lang/String;)I
-    .locals 6
+    .locals 9
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v6, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
 
-    if-eqz v4, :cond_1
+    if-eqz v7, :cond_1
 
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v4
+    move-result v7
 
-    if-eqz v4, :cond_2
+    if-eqz v7, :cond_2
 
     :cond_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchHistoryItems()V
 
     :cond_1
     :goto_0
-    invoke-interface {v3}, Ljava/util/List;->size()I
+    invoke-interface {v6}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v7
 
-    return v4
+    return v7
 
     :cond_2
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
-
-    invoke-virtual {v4, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;->setSearchText(Ljava/lang/String;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getAllAppsItems()Ljava/util/List;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_4
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :cond_3
-    :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->querySearchKeyword(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+    if-nez v0, :cond_4
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getTitle()Ljava/lang/String;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
 
-    move-result-object v4
+    invoke-virtual {v7, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;->setSearchText(Ljava/lang/String;)V
 
-    if-eqz v4, :cond_3
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getAllAppsItems()Ljava/util/List;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getItemType()Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
+    move-result-object v5
 
-    move-result-object v4
+    if-eqz v5, :cond_7
 
-    sget-object v5, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;->MENU_APP:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
-
-    if-ne v4, v5, :cond_3
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getTitle()Ljava/lang/String;
+    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+    :cond_3
+    :goto_1
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-object v4
+    move-result v7
 
-    invoke-virtual {v4, p1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    if-eqz v7, :cond_7
 
-    move-result v4
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    const/4 v5, -0x1
+    move-result-object v3
 
-    if-eq v4, v5, :cond_3
+    check-cast v3, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
 
-    invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getTitle()Ljava/lang/String;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_3
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getItemType()Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
+
+    move-result-object v7
+
+    sget-object v8, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;->MENU_APP:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
+
+    if-ne v7, v8, :cond_3
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getTitle()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v7
+
+    const/4 v8, -0x1
+
+    if-eq v7, v8, :cond_3
+
+    invoke-interface {v6, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_4
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getAllAppsItems()Ljava/util/List;
 
-    invoke-virtual {v4, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;->setItems(Ljava/util/List;)V
+    move-result-object v5
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
+    if-eqz v5, :cond_7
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;->notifyDataSetChanged()V
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_5
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_7
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;
+
+    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_6
+    :goto_2
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getItemType()Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
+
+    move-result-object v7
+
+    sget-object v8, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;->MENU_APP:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
+
+    if-ne v7, v8, :cond_6
+
+    invoke-direct {p0, v3, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->isMatchedItem(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$FinderItemInfo;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_6
+
+    invoke-interface {v6, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_2
+
+    :cond_7
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
+
+    invoke-virtual {v7, v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;->setItems(Ljava/util/List;)V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
+
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;->notifyDataSetChanged()V
+
+    goto/16 :goto_0
+.end method
+
+.method private updateViewMoreButtons(ZZ)V
+    .locals 3
+
+    const/16 v2, 0x8
+
+    const/4 v1, 0x0
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mIsGalaxyAppsAvailable:Z
+
+    if-eqz v0, :cond_0
+
+    if-eqz p1, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMoreGalaxyApps:Landroid/widget/Button;
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMoreGalaxyApps:Landroid/widget/Button;
+
+    invoke-virtual {v0, p2}, Landroid/widget/Button;->setEnabled(Z)V
+
+    :goto_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mIsPlayStoreAvailable:Z
+
+    if-eqz v0, :cond_1
+
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMorePlayStore:Landroid/widget/Button;
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMorePlayStore:Landroid/widget/Button;
+
+    invoke-virtual {v0, p2}, Landroid/widget/Button;->setEnabled(Z)V
+
+    :goto_1
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMoreGalaxyApps:Landroid/widget/Button;
+
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
 
     goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMorePlayStore:Landroid/widget/Button;
+
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
+
+    goto :goto_1
 .end method
 
 
@@ -2759,9 +3504,9 @@
 .method protected changeState(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;)V
     .locals 6
 
-    const/4 v5, 0x1
+    const/4 v2, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mState:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
 
@@ -2779,37 +3524,37 @@
 
     const-string/jumbo v1, "[DS]AllAppsLayout"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "changeState :: old = "
+    const-string/jumbo v5, "changeState :: old = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mState:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mState:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string/jumbo v3, "   new ="
+    const-string/jumbo v5, "   new ="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mState:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
@@ -2824,9 +3569,9 @@
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->ordinal()I
 
-    move-result v2
+    move-result v4
 
-    aget v1, v1, v2
+    aget v1, v1, v4
 
     packed-switch v1, :pswitch_data_0
 
@@ -2837,11 +3582,11 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnBacktoNormalMode:Landroid/widget/ImageButton;
 
-    const/16 v2, 0x8
+    const/16 v4, 0x8
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setVisibility(I)V
+    invoke-virtual {v1, v4}, Landroid/widget/ImageButton;->setVisibility(I)V
 
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setKnoxDesktopAppsBannerVisibility(Z)V
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setKnoxDesktopAppsBannerVisibility(Z)V
 
     sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->EDIT:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
 
@@ -2852,17 +3597,19 @@
     if-ne v0, v1, :cond_3
 
     :cond_2
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setEditMode(Z)V
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setEditMode(Z)V
 
     :cond_3
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextView(Z)V
+    invoke-direct {p0, v3, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showSearchTextView(ZZ)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->refreshAppsWindow()V
+
+    invoke-direct {p0, v3, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->updateViewMoreButtons(ZZ)V
 
     goto :goto_0
 
     :pswitch_1
-    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setKnoxDesktopAppsBannerVisibility(Z)V
+    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setKnoxDesktopAppsBannerVisibility(Z)V
 
     sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->EDIT:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
 
@@ -2873,12 +3620,34 @@
     if-ne v0, v1, :cond_5
 
     :cond_4
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setEditMode(Z)V
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setEditMode(Z)V
 
     :goto_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnBacktoNormalMode:Landroid/widget/ImageButton;
 
-    invoke-virtual {v1, v4}, Landroid/widget/ImageButton;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Landroid/widget/ImageButton;->setVisibility(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
+
+    invoke-virtual {v1}, Landroid/widget/EditText;->length()I
+
+    move-result v1
+
+    if-lez v1, :cond_6
+
+    move v1, v2
+
+    :goto_2
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
+
+    invoke-virtual {v4}, Landroid/widget/EditText;->length()I
+
+    move-result v4
+
+    if-lez v4, :cond_7
+
+    :goto_3
+    invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->updateViewMoreButtons(ZZ)V
 
     goto :goto_0
 
@@ -2887,19 +3656,31 @@
 
     goto :goto_1
 
-    :pswitch_2
-    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setKnoxDesktopAppsBannerVisibility(Z)V
+    :cond_6
+    move v1, v3
 
-    invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setEditMode(Z)V
+    goto :goto_2
+
+    :cond_7
+    move v2, v3
+
+    goto :goto_3
+
+    :pswitch_2
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setKnoxDesktopAppsBannerVisibility(Z)V
+
+    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setEditMode(Z)V
 
     goto :goto_0
 
     :pswitch_3
-    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setKnoxDesktopAppsBannerVisibility(Z)V
+    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setKnoxDesktopAppsBannerVisibility(Z)V
 
-    invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setEditMode(Z)V
+    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setEditMode(Z)V
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -3300,452 +4081,570 @@
 .end method
 
 .method public makeAllAppsView()Landroid/view/View;
-    .locals 11
+    .locals 13
 
-    const/4 v10, 0x1
+    const/4 v12, 0x1
+
+    const/4 v11, 0x0
 
     const/4 v9, 0x0
 
-    const/4 v7, 0x0
-
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE()Z
 
-    move-result v5
+    move-result v7
 
-    if-eqz v5, :cond_0
+    if-eqz v7, :cond_0
 
-    const-string/jumbo v5, "[DS]AllAppsLayout"
+    const-string/jumbo v7, "[DS]AllAppsLayout"
 
-    const-string/jumbo v6, "makeAllAppsView()"
+    const-string/jumbo v8, "makeAllAppsView()"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->inflater:Landroid/view/LayoutInflater;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->inflater:Landroid/view/LayoutInflater;
 
-    if-nez v5, :cond_1
+    if-nez v7, :cond_1
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
 
-    invoke-static {v5}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    invoke-static {v7}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object v5
+    move-result-object v7
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->inflater:Landroid/view/LayoutInflater;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->inflater:Landroid/view/LayoutInflater;
 
     :cond_1
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    if-nez v5, :cond_2
+    if-nez v7, :cond_2
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->inflater:Landroid/view/LayoutInflater;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->inflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x7f04001b
+    const v8, 0x7f04001b
 
-    invoke-virtual {v5, v6, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v7, v8, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/view/ViewGroup;
+    check-cast v7, Landroid/view/ViewGroup;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
     :cond_2
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300bf
+    const v8, 0x7f1300bf
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/LinearLayout;
+    check-cast v7, Landroid/widget/LinearLayout;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mNormalTitleLayout:Landroid/widget/LinearLayout;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mNormalTitleLayout:Landroid/widget/LinearLayout;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300c0
+    const v8, 0x7f1300c0
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/ImageButton;
+    check-cast v7, Landroid/widget/ImageButton;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnBacktoNormalMode:Landroid/widget/ImageButton;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnBacktoNormalMode:Landroid/widget/ImageButton;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnBacktoNormalMode:Landroid/widget/ImageButton;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnBacktoNormalMode:Landroid/widget/ImageButton;
 
-    invoke-virtual {v5, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v7, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300c3
+    const v8, 0x7f1300c3
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/ImageButton;
+    check-cast v7, Landroid/widget/ImageButton;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnSearchMoreMenu:Landroid/widget/ImageButton;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnSearchMoreMenu:Landroid/widget/ImageButton;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnSearchMoreMenu:Landroid/widget/ImageButton;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnSearchMoreMenu:Landroid/widget/ImageButton;
 
-    invoke-virtual {v5, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v7, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300c4
+    const v8, 0x7f1300c4
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/ImageButton;
+    check-cast v7, Landroid/widget/ImageButton;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnSearchCancel:Landroid/widget/ImageButton;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnSearchCancel:Landroid/widget/ImageButton;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnSearchCancel:Landroid/widget/ImageButton;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->btnSearchCancel:Landroid/widget/ImageButton;
 
-    invoke-virtual {v5, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v7, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300c2
+    const v8, 0x7f1300c2
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/EditText;
+    check-cast v7, Landroid/widget/EditText;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
 
-    invoke-virtual {v5, p0}, Landroid/widget/EditText;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v7, p0}, Landroid/widget/EditText;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
 
-    new-instance v6, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;
+    new-instance v8, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;
 
-    invoke-direct {v6, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
+    invoke-direct {v8, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$4;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
 
-    invoke-virtual {v5, v6}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v7, v8}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300c5
+    const v8, 0x7f1300ca
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/LinearLayout;
+    check-cast v7, Landroid/widget/LinearLayout;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTitleLayout:Landroid/widget/LinearLayout;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTitleLayout:Landroid/widget/LinearLayout;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300c6
+    const v8, 0x7f1300cb
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v7, Landroid/widget/TextView;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTitleText:Landroid/widget/TextView;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTitleText:Landroid/widget/TextView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300c7
+    const v8, 0x7f1300cc
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v7, Landroid/widget/TextView;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchResultCount:Landroid/widget/TextView;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchResultCount:Landroid/widget/TextView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300d2
+    const v8, 0x7f1300d3
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v7, Landroid/widget/TextView;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTextView:Landroid/widget/TextView;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTextViewNoResult:Landroid/widget/TextView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300c8
+    const v8, 0x7f1300d4
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/RelativeLayout;
+    check-cast v7, Landroid/widget/TextView;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mEditTitleLayout:Landroid/widget/RelativeLayout;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTextViewNoHistory:Landroid/widget/TextView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300c9
+    const v8, 0x7f1300c5
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/LinearLayout;
+    check-cast v7, Landroid/widget/RelativeLayout;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mLayoutCheckAll:Landroid/widget/LinearLayout;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mEditTitleLayout:Landroid/widget/RelativeLayout;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mLayoutCheckAll:Landroid/widget/LinearLayout;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    invoke-virtual {v5, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    const v8, 0x7f1300c6
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    const v6, 0x7f1300ca
+    move-result-object v7
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    check-cast v7, Landroid/widget/LinearLayout;
 
-    move-result-object v5
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mLayoutCheckAll:Landroid/widget/LinearLayout;
 
-    check-cast v5, Landroid/widget/CheckBox;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mLayoutCheckAll:Landroid/widget/LinearLayout;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mCheckAll:Landroid/widget/CheckBox;
+    invoke-virtual {v7, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300cb
+    const v8, 0x7f1300c7
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v7, Landroid/widget/CheckBox;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mCheckCount:Landroid/widget/TextView;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mCheckAll:Landroid/widget/CheckBox;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mCheckCount:Landroid/widget/TextView;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const-string/jumbo v6, "%d"
+    const v8, 0x7f1300c8
 
-    new-array v7, v10, [Ljava/lang/Object;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/TextView;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mCheckCount:Landroid/widget/TextView;
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mCheckCount:Landroid/widget/TextView;
+
+    const-string/jumbo v8, "%d"
+
+    new-array v9, v12, [Ljava/lang/Object;
+
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    aput-object v10, v9, v11
+
+    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v8
 
-    aput-object v8, v7, v9
+    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    move-result-object v6
+    const v8, 0x7f1300c9
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    move-result-object v7
 
-    const v6, 0x7f1300cc
+    check-cast v7, Landroid/widget/TextView;
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mEditCacnelBtn:Landroid/widget/TextView;
 
-    move-result-object v5
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
 
-    check-cast v5, Landroid/widget/TextView;
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mEditCacnelBtn:Landroid/widget/TextView;
+    move-result-object v7
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+    const v8, 0x7f0f0a14
 
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    const v6, 0x7f0f0993
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mEditCacnelBtn:Landroid/widget/TextView;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mEditCacnelBtn:Landroid/widget/TextView;
 
     invoke-virtual {v2}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mEditCacnelBtn:Landroid/widget/TextView;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mEditCacnelBtn:Landroid/widget/TextView;
 
-    invoke-virtual {v5, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v7, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f1300d1
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v7
 
-    move-result-object v5
+    const v8, 0x7f0d05d5
 
-    check-cast v5, Landroid/widget/GridView;
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
+    move-result v5
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    invoke-virtual {v5, p0}, Landroid/widget/GridView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+    const v8, 0x7f1300d2
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    move-result-object v7
 
-    move-result-object v5
+    check-cast v7, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    const v6, 0x7f0d05c2
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    move-result v3
+    invoke-virtual {v7, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    mul-int/lit8 v6, v3, 0x2
+    invoke-virtual {v7, v12}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->setExpanded(Z)V
 
-    invoke-virtual {v5, v6}, Landroid/widget/GridView;->setTouchSlop(I)V
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
+    const/4 v8, 0x3
 
-    const/4 v6, 0x3
+    invoke-virtual {v7, v8}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->setChoiceMode(I)V
 
-    invoke-virtual {v5, v6}, Landroid/widget/GridView;->setChoiceMode(I)V
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    mul-int/lit8 v8, v5, 0x2
 
-    const v6, 0x7f1300cd
+    invoke-virtual {v7, v8}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->setTouchSlop(I)V
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    move-result-object v5
+    new-instance v8, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$5;
 
-    check-cast v5, Landroid/widget/FrameLayout;
+    invoke-direct {v8, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$5;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerViewContainer:Landroid/widget/FrameLayout;
+    invoke-virtual {v7, v8}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f1300ce
+    const v8, 0x7f1300cd
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    check-cast v5, Landroid/widget/FrameLayout;
+    check-cast v7, Landroid/widget/ScrollView;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerViewDefault:Landroid/widget/FrameLayout;
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mScrollView:Landroid/widget/ScrollView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerViewDefault:Landroid/widget/FrameLayout;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mScrollView:Landroid/widget/ScrollView;
 
-    invoke-virtual {v5, p0}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    mul-int/lit8 v8, v5, 0x2
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/widget/ScrollView;->setTouchSlop(I)V
 
-    const v6, 0x7f1300d0
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mScrollView:Landroid/widget/ScrollView;
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    new-instance v8, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$6;
 
-    move-result-object v5
+    invoke-direct {v8, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$6;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
 
-    check-cast v5, Landroid/widget/TextView;
+    invoke-virtual {v7, v8}, Landroid/widget/ScrollView;->setOnScrollChangeListener(Landroid/view/View$OnScrollChangeListener;)V
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerViewDefaultTitle:Landroid/widget/TextView;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerViewDefaultTitle:Landroid/widget/TextView;
+    const v8, 0x7f1300ce
 
-    const/4 v6, 0x5
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setTextDirection(I)V
+    move-result-object v7
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    check-cast v7, Landroid/widget/FrameLayout;
 
-    const v6, 0x7f1300cf
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerViewContainer:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    move-result-object v5
+    const v8, 0x7f1300cf
 
-    check-cast v5, Landroid/widget/ImageButton;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnBannerCancel:Landroid/widget/ImageButton;
+    move-result-object v7
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnBannerCancel:Landroid/widget/ImageButton;
+    check-cast v7, Landroid/widget/FrameLayout;
 
-    invoke-virtual {v5, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerViewDefault:Landroid/widget/FrameLayout;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerViewDefault:Landroid/widget/FrameLayout;
 
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setBannerView(Landroid/view/View;)V
+    invoke-virtual {v7, p0}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {p0, v10}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setKnoxDesktopAppsBannerVisibility(Z)V
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+    const v8, 0x7f1300d1
 
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v7
 
-    const v6, 0x7f0d0609
+    check-cast v7, Landroid/widget/TextView;
 
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerViewDefaultTitle:Landroid/widget/TextView;
 
-    move-result v4
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerViewDefaultTitle:Landroid/widget/TextView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+    const/4 v8, 0x5
 
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setTextDirection(I)V
 
-    move-result-object v5
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    const v6, 0x7f0d060a
+    const v8, 0x7f1300d0
 
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/ImageButton;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnBannerCancel:Landroid/widget/ImageButton;
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnBannerCancel:Landroid/widget/ImageButton;
+
+    invoke-virtual {v7, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBannerView:Landroid/view/View;
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setBannerView(Landroid/view/View;)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->updateBannerVisibility()V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+
+    const v8, 0x7f1300d5
+
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/Button;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMoreGalaxyApps:Landroid/widget/Button;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f0f0a1a
+
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMoreGalaxyApps:Landroid/widget/Button;
+
+    invoke-virtual {v3}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMoreGalaxyApps:Landroid/widget/Button;
+
+    invoke-virtual {v7, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+
+    const v8, 0x7f1300d6
+
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/Button;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMorePlayStore:Landroid/widget/Button;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f0f0a1b
+
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMorePlayStore:Landroid/widget/Button;
+
+    invoke-virtual {v4}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mBtnViewMorePlayStore:Landroid/widget/Button;
+
+    invoke-virtual {v7, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f0d061c
+
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v6
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f0d061d
+
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
     new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-direct {v1, v4, v0}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v1, v6, v0}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    invoke-virtual {v5, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->addView(Landroid/view/View;)V
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->setHoverPopup()V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mAppsView:Landroid/view/View;
 
-    return-object v5
+    return-object v7
 .end method
 
 .method public onClick(Landroid/view/View;)V
     .locals 4
 
-    const/4 v3, 0x0
-
     const/4 v2, 0x0
+
+    const/4 v3, 0x1
 
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -3761,7 +4660,9 @@
     :pswitch_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
 
-    invoke-virtual {v1, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    const-string/jumbo v2, ""
+
+    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mState:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
 
@@ -3841,21 +4742,65 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    const v1, 0x14000020
+    const/high16 v1, 0x10200000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    invoke-virtual {v1, p1, v0, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->startActivitySafely(Landroid/view/View;Landroid/content/Intent;Ljava/lang/Object;)Z
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, p1, v0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->startActivitySafely(Landroid/view/View;Landroid/content/Intent;Ljava/lang/Object;)Z
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeAppsView(Z)V
+    invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeAppsView(Z)V
 
     goto :goto_0
+
+    :pswitch_9
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
+
+    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v2
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->launchGalaxyAppsWithQuery(Landroid/content/Context;Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeAppsView(Z)V
+
+    goto :goto_0
+
+    :pswitch_a
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
+
+    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v2
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->launchPlayStoreWithQuery(Landroid/content/Context;Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeAppsView(Z)V
+
+    goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x7f1300c0
@@ -3865,16 +4810,23 @@
         :pswitch_3
         :pswitch_1
         :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
         :pswitch_5
         :pswitch_0
         :pswitch_0
         :pswitch_6
         :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
         :pswitch_8
         :pswitch_7
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_9
+        :pswitch_a
     .end packed-switch
 .end method
 
@@ -3897,7 +4849,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0621
+    const v2, 0x7f0d0635
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3913,7 +4865,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0620
+    const v2, 0x7f0d0634
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4096,13 +5048,14 @@
     goto/16 :goto_0
 
     :sswitch_2
-    instance-of v6, p1, Landroid/widget/GridView;
-
-    if-eqz v6, :cond_0
-
     invoke-virtual {p3}, Landroid/view/KeyEvent;->isCtrlPressed()Z
 
     move-result v6
+
+    if-eqz v6, :cond_0
+
+    :sswitch_3
+    instance-of v6, p1, Landroid/widget/GridView;
 
     if-eqz v6, :cond_0
 
@@ -4170,7 +5123,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_3
+    :sswitch_4
     instance-of v6, p1, Landroid/widget/GridView;
 
     if-eqz v6, :cond_0
@@ -4302,7 +5255,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_4
+    :sswitch_5
     instance-of v6, p1, Landroid/widget/GridView;
 
     if-eqz v6, :cond_0
@@ -4380,7 +5333,7 @@
 
     goto :goto_2
 
-    :sswitch_5
+    :sswitch_6
     instance-of v6, p1, Landroid/widget/GridView;
 
     if-eqz v6, :cond_0
@@ -4421,18 +5374,18 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x13 -> :sswitch_3
-        0x14 -> :sswitch_3
-        0x15 -> :sswitch_3
-        0x16 -> :sswitch_3
-        0x1d -> :sswitch_4
+        0x13 -> :sswitch_4
+        0x14 -> :sswitch_4
+        0x15 -> :sswitch_4
+        0x16 -> :sswitch_4
+        0x1d -> :sswitch_5
         0x20 -> :sswitch_2
         0x3b -> :sswitch_1
         0x3c -> :sswitch_1
         0x3e -> :sswitch_0
         0x42 -> :sswitch_0
-        0x70 -> :sswitch_2
-        0x8c -> :sswitch_5
+        0x70 -> :sswitch_3
+        0x8c -> :sswitch_6
         0xa0 -> :sswitch_0
     .end sparse-switch
 .end method
@@ -4465,25 +5418,61 @@
 .end method
 
 .method public refreshAppsWindow()V
-    .locals 4
+    .locals 6
+
+    const/4 v2, 0x1
+
+    const/4 v5, 0x0
 
     const/4 v3, 0x0
 
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    iget-object v4, v4, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getCurrentUserId()I
+
+    move-result v4
+
+    invoke-static {v1, v4}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->isInstalledGalaxyApps(Landroid/content/Context;I)Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mIsGalaxyAppsAvailable:Z
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mContext:Landroid/content/Context;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    iget-object v4, v4, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getCurrentUserId()I
+
+    move-result v4
+
+    invoke-static {v1, v4}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->isInstalledGooglePlay(Landroid/content/Context;I)Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mIsPlayStoreAvailable:Z
+
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mState:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
 
-    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->NORMAL:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
+    sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->NORMAL:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v4, :cond_0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mState:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
 
-    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->EDIT:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
+    sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->EDIT:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v4, :cond_2
 
     :cond_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getAllAppsItems()Ljava/util/List;
@@ -4496,7 +5485,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
 
-    invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;->setSearchText(Ljava/lang/String;)V
+    invoke-virtual {v1, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;->setSearchText(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
 
@@ -4513,9 +5502,41 @@
 
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->updateSearchList(Ljava/lang/String;)I
 
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
+
+    invoke-virtual {v1}, Landroid/widget/EditText;->length()I
+
+    move-result v1
+
+    if-lez v1, :cond_3
+
+    move v1, v2
+
+    :goto_1
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->editSearch:Landroid/widget/EditText;
+
+    invoke-virtual {v4}, Landroid/widget/EditText;->length()I
+
+    move-result v4
+
+    if-lez v4, :cond_4
+
+    :goto_2
+    invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->updateViewMoreButtons(ZZ)V
+
     goto :goto_0
 
     :cond_3
+    move v1, v3
+
+    goto :goto_1
+
+    :cond_4
+    move v2, v3
+
+    goto :goto_2
+
+    :cond_5
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getAllAppsItems()Ljava/util/List;
 
     move-result-object v0
@@ -4536,19 +5557,11 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridAdapter:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AllAppsGridAdapter;
 
-    invoke-virtual {v1, v2}, Landroid/widget/GridView;->setAdapter(Landroid/widget/ListAdapter;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
-
-    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$13;
-
-    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$13;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/GridView;->setOnScrollChangeListener(Landroid/view/View$OnScrollChangeListener;)V
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     goto :goto_0
 .end method
@@ -4681,16 +5694,6 @@
     goto :goto_0
 .end method
 
-.method public setSearchTextView(Ljava/lang/String;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mSearchTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
 .method public setTaskBarView(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)V
     .locals 0
 
@@ -4704,22 +5707,35 @@
 
     const/4 v1, 0x0
 
-    const/16 v0, 0x8
+    if-nez p1, :cond_1
 
-    if-ne p1, v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
-
-    invoke-virtual {v0, v1, v1}, Landroid/widget/GridView;->setSelectionFromTop(II)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->updateBannerVisibility()V
 
     :cond_0
+    :goto_0
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
     return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mScrollView:Landroid/widget/ScrollView;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mScrollView:Landroid/widget/ScrollView;
+
+    invoke-virtual {v0, v1, v1}, Landroid/widget/ScrollView;->scrollTo(II)V
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
+
+    invoke-virtual {v0, v1, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->setSelectionFromTop(II)V
+
+    goto :goto_0
 .end method
 
 .method public shouldDisablePopupRepeat()Z

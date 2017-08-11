@@ -15,6 +15,8 @@
 # instance fields
 .field public final MANUFACTURER_DEVICE_ID_GEAR:I
 
+.field public final MANUFACTURER_DEVICE_ID_GEAR_VR_CONTROLLER:I
+
 .field public final MANUFACTURER_DEVICE_ID_WEARABLE_MAX:I
 
 .field public final MANUFACTURER_DEVICE_ID_WEARABLE_MIN:I
@@ -155,6 +157,10 @@
     const/16 v0, 0x90
 
     iput v0, p0, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->MANUFACTURER_DEVICE_ID_WEARABLE_MIN:I
+
+    const/16 v0, 0xfb
+
+    iput v0, p0, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->MANUFACTURER_DEVICE_ID_GEAR_VR_CONTROLLER:I
 
     const/16 v0, 0xff
 
@@ -1414,39 +1420,64 @@
 .end method
 
 .method public getDeviceIcon()I
-    .locals 3
+    .locals 5
 
-    iget v0, p0, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->mManufacturerType:I
+    const/4 v3, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    iget v2, p0, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->mManufacturerType:I
 
-    const/4 v0, 0x0
+    packed-switch v2, :pswitch_data_0
 
-    return v0
+    :cond_0
+    return v3
 
     :pswitch_0
-    iget-object v0, p0, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->mSSdevice:Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$SSdevice;
+    iget-object v2, p0, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->mSSdevice:Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$SSdevice;
 
-    iget-object v1, p0, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->mData:Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$Data;
+    iget-object v3, p0, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->mData:Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$Data;
 
-    invoke-virtual {v1}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$Data;->getDeviceCategory()B
+    invoke-virtual {v3}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$Data;->getDeviceCategory()B
 
-    move-result v1
+    move-result v3
 
-    iget-object v2, p0, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->mData:Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$Data;
+    iget-object v4, p0, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->mData:Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$Data;
 
-    invoke-virtual {v2}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$Data;->getDeviceIconIndex()B
+    invoke-virtual {v4}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$Data;->getDeviceIconIndex()B
+
+    move-result v4
+
+    invoke-virtual {v2, v3, v4}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$SSdevice;->getDeviceIcon(BB)I
 
     move-result v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData$SSdevice;->getDeviceIcon(BB)I
+    return v2
 
-    move-result v0
+    :pswitch_1
+    invoke-virtual {p0}, Lcom/samsung/android/settingslib/bluetooth/ManufacturerData;->getDeviceId()[B
 
-    return v0
+    move-result-object v0
+
+    aget-byte v2, v0, v3
+
+    if-nez v2, :cond_0
+
+    const/4 v2, 0x1
+
+    aget-byte v2, v0, v2
+
+    and-int/lit16 v1, v2, 0xff
+
+    const/16 v2, 0xfb
+
+    if-ne v1, v2, :cond_0
+
+    sget v2, Lcom/android/settingslib/R$drawable;->list_ic_vr_controller:I
+
+    return v2
 
     :pswitch_data_0
-    .packed-switch 0x2
+    .packed-switch 0x1
+        :pswitch_1
         :pswitch_0
         :pswitch_0
     .end packed-switch

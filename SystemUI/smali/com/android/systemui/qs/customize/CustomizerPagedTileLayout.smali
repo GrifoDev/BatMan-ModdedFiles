@@ -181,7 +181,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040116
+    const v3, 0x7f04011a
 
     const/4 v4, 0x0
 
@@ -252,7 +252,7 @@
 .method private distributeTiles()V
     .locals 13
 
-    const v9, 0x7f040116
+    const v9, 0x7f04011a
 
     const/4 v12, 0x0
 
@@ -1405,7 +1405,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d02a4
+    const v3, 0x7f0d02a5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1436,7 +1436,7 @@
 
     invoke-super {p0}, Landroid/support/v4/view/ViewPager;->onFinishInflate()V
 
-    const v0, 0x7f1302fd
+    const v0, 0x7f130305
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->findViewById(I)Landroid/view/View;
 
@@ -1446,7 +1446,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->mPageIndicator:Lcom/android/systemui/qs/PageIndicator;
 
-    const v0, 0x7f1303b4
+    const v0, 0x7f1303c0
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->findViewById(I)Landroid/view/View;
 
@@ -1833,7 +1833,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0239
+    const v6, 0x7f0d023a
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1847,7 +1847,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0227
+    const v6, 0x7f0d0228
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1855,7 +1855,7 @@
 
     iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->mCellHeight:I
 
-    const v5, 0x7f0d0228
+    const v5, 0x7f0d0229
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1863,7 +1863,7 @@
 
     iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->mCellMargin:I
 
-    const v5, 0x7f0d023a
+    const v5, 0x7f0d023b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1877,7 +1877,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d024e
+    const v6, 0x7f0d024f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

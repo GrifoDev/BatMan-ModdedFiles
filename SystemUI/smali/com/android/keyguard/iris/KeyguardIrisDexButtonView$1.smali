@@ -313,6 +313,29 @@
     return-void
 .end method
 
+.method public onStrongAuthStateChanged(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisDexButtonView$1;->this$0:Lcom/android/keyguard/iris/KeyguardIrisDexButtonView;
+
+    invoke-static {v0}, Lcom/android/keyguard/iris/KeyguardIrisDexButtonView;->-get3(Lcom/android/keyguard/iris/KeyguardIrisDexButtonView;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockingWithBiometricAllowed()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisDexButtonView$1;->this$0:Lcom/android/keyguard/iris/KeyguardIrisDexButtonView;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/iris/KeyguardIrisDexButtonView;->updateButtonVisiblity()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public onSystemDialogsShowing()V
     .locals 2
 

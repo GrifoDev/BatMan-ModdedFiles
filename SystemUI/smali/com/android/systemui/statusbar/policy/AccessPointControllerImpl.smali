@@ -82,9 +82,9 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f020269
+    const v1, 0x7f02026d
 
-    const v2, 0x7f02026e
+    const v2, 0x7f020272
 
     filled-new-array {v1, v2}, [I
 
@@ -92,9 +92,9 @@
 
     aput-object v1, v0, v4
 
-    const v1, 0x7f02026a
+    const v1, 0x7f02026e
 
-    const v2, 0x7f02026f
+    const v2, 0x7f020273
 
     filled-new-array {v1, v2}, [I
 
@@ -102,9 +102,9 @@
 
     aput-object v1, v0, v5
 
-    const v1, 0x7f02026b
+    const v1, 0x7f02026f
 
-    const v2, 0x7f020270
+    const v2, 0x7f020274
 
     filled-new-array {v1, v2}, [I
 
@@ -112,9 +112,9 @@
 
     aput-object v1, v0, v6
 
-    const v1, 0x7f02026c
+    const v1, 0x7f020270
 
-    const v2, 0x7f020271
+    const v2, 0x7f020275
 
     filled-new-array {v1, v2}, [I
 
@@ -122,9 +122,9 @@
 
     aput-object v1, v0, v3
 
-    const v1, 0x7f02026d
+    const v1, 0x7f020271
 
-    const v2, 0x7f020272
+    const v2, 0x7f020276
 
     filled-new-array {v1, v2}, [I
 
@@ -138,9 +138,9 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f020279
+    const v1, 0x7f02027d
 
-    const v2, 0x7f020273
+    const v2, 0x7f020277
 
     filled-new-array {v1, v2}, [I
 
@@ -148,9 +148,9 @@
 
     aput-object v1, v0, v4
 
-    const v1, 0x7f02027a
+    const v1, 0x7f02027e
 
-    const v2, 0x7f020274
+    const v2, 0x7f020278
 
     filled-new-array {v1, v2}, [I
 
@@ -158,9 +158,9 @@
 
     aput-object v1, v0, v5
 
-    const v1, 0x7f02027b
+    const v1, 0x7f02027f
 
-    const v2, 0x7f020275
+    const v2, 0x7f020279
 
     filled-new-array {v1, v2}, [I
 
@@ -168,9 +168,9 @@
 
     aput-object v1, v0, v6
 
-    const v1, 0x7f02027c
+    const v1, 0x7f020280
 
-    const v2, 0x7f020276
+    const v2, 0x7f02027a
 
     filled-new-array {v1, v2}, [I
 
@@ -178,9 +178,9 @@
 
     aput-object v1, v0, v3
 
-    const v1, 0x7f02027d
+    const v1, 0x7f020281
 
-    const v2, 0x7f020277
+    const v2, 0x7f02027b
 
     filled-new-array {v1, v2}, [I
 
@@ -190,15 +190,15 @@
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->ICONS_GIGA:[[I
 
-    const v0, 0x7f02027e
+    const v0, 0x7f020282
 
-    const v1, 0x7f02027f
+    const v1, 0x7f020283
 
-    const v2, 0x7f020280
+    const v2, 0x7f020284
 
-    const v3, 0x7f020281
+    const v3, 0x7f020285
 
-    const v4, 0x7f020282
+    const v4, 0x7f020286
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 

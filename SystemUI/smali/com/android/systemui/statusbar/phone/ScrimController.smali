@@ -173,9 +173,7 @@
 .end method
 
 .method public constructor <init>(Lcom/android/systemui/statusbar/ScrimView;Lcom/android/systemui/statusbar/ScrimView;Landroid/view/View;)V
-    .locals 5
-
-    const v4, 0x3e4ccccd    # 0.2f
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -187,7 +185,9 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlphaKeyguard:F
 
-    iput v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlphaUnlocking:F
+    const v1, 0x3e4ccccd    # 0.2f
+
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlphaUnlocking:F
 
     const-wide/16 v2, -0x1
 
@@ -235,7 +235,9 @@
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mIsSecure:Z
 
-    iput v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimAlphaForKeyguard:F
+    const v1, 0x3f19999a    # 0.6f
+
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimAlphaForKeyguard:F
 
     const/4 v1, 0x0
 
@@ -1216,7 +1218,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d02da
+    const v2, 0x7f0d02db
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1506,13 +1508,15 @@
 
     const v0, 0x3dcccccd    # 0.1f
 
-    :goto_0
     iput v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimAlphaForKeyguard:F
 
+    :goto_0
     return-void
 
     :cond_0
-    const v0, 0x3e4ccccd    # 0.2f
+    const v0, 0x3f19999a    # 0.6f
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimAlphaForKeyguard:F
 
     goto :goto_0
 .end method

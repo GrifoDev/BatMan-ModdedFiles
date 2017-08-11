@@ -219,7 +219,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v0, 0x7f130520
+    const v0, 0x7f13052a
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/volume/ZenFooter;->findViewById(I)Landroid/view/View;
 
@@ -229,7 +229,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/volume/ZenFooter;->mIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f130521
+    const v0, 0x7f13052b
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/volume/ZenFooter;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/volume/ZenFooter;->mSummaryLine1:Landroid/widget/TextView;
 
-    const v0, 0x7f130522
+    const v0, 0x7f13052c
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/volume/ZenFooter;->findViewById(I)Landroid/view/View;
 
@@ -249,7 +249,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/volume/ZenFooter;->mSummaryLine2:Landroid/widget/TextView;
 
-    const v0, 0x7f130523
+    const v0, 0x7f13052d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/volume/ZenFooter;->findViewById(I)Landroid/view/View;
 
@@ -295,7 +295,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f02018a
+    const v3, 0x7f02018e
 
     :goto_0
     invoke-virtual {v6, v3}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -308,7 +308,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/volume/ZenFooter;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0f04c5
+    const v6, 0x7f0f0522
 
     invoke-virtual {v3, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -347,7 +347,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/volume/ZenFooter;->mContext:Landroid/content/Context;
 
-    const v4, 0x10405dd
+    const v4, 0x10405e1
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -361,7 +361,7 @@
     return-void
 
     :cond_0
-    const v3, 0x7f020187
+    const v3, 0x7f02018b
 
     goto :goto_0
 
@@ -374,7 +374,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/volume/ZenFooter;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0f04c6
+    const v6, 0x7f0f0523
 
     invoke-virtual {v3, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -391,7 +391,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/volume/ZenFooter;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0f04c4
+    const v6, 0x7f0f0521
 
     invoke-virtual {v3, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

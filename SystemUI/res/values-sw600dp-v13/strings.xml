@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,AirplaneMode,PowerSaving,MobileData,Performance,BlueLightFilter,WifiHotspot,SecureFolder,PersonalMode,Location,Nfc,AllShareCast,DeviceVisibility,Dnd,Ebook,Sync,UltraPowerSaving</string>
-    <string name="config_navBarLayout">space,recent;home;back,menu_ime</string>
+    <string name="config_navBarLayout">pin,recent;home;back,menu_ime</string>
 </resources>

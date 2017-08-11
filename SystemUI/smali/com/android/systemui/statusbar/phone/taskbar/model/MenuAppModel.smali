@@ -1803,8 +1803,6 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->destroy()V
-
     goto :goto_0
 
     :cond_5
@@ -2127,7 +2125,7 @@
 
     move/from16 v0, v22
 
-    if-ge v10, v0, :cond_6
+    if-ge v10, v0, :cond_7
 
     move-object/from16 v0, v19
 
@@ -2448,10 +2446,14 @@
     move-object/from16 v3, v24
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->loadBitmap(Landroid/content/res/Resources;ILjava/lang/String;)Landroid/graphics/Bitmap;
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v15
 
-    if-nez v15, :cond_5
+    :cond_5
+    :goto_4
+    if-nez v15, :cond_6
 
     invoke-virtual/range {v20 .. v20}, Landroid/content/pm/PackageManager;->getDefaultActivityIcon()Landroid/graphics/drawable/Drawable;
 
@@ -2468,13 +2470,10 @@
     move-result-object v23
 
     invoke-static/range {v22 .. v23}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/content/Context;)Landroid/graphics/Bitmap;
-    :try_end_1
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v15
 
-    :cond_5
-    :goto_4
+    :cond_6
     iput-object v15, v14, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v11}, Ljava/lang/Long;->longValue()J
@@ -2521,7 +2520,7 @@
 
     goto/16 :goto_3
 
-    :cond_6
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppModel;->mAppDisabledItems:Ljava/util/Map;

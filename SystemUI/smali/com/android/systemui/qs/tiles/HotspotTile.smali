@@ -174,7 +174,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
 
-    const v1, 0x7f0201a8
+    const v1, 0x7f0201ac
 
     invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -182,7 +182,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mDisableNoAnimation:Lcom/android/systemui/qs/QSTile$Icon;
 
-    const v1, 0x7f0201aa
+    const v1, 0x7f0201ae
 
     invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -334,7 +334,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f040f
+    const v1, 0x7f0f046c
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -549,14 +549,14 @@
 
     if-eqz v2, :cond_1
 
-    const v1, 0x7f0f0403
+    const v1, 0x7f0f0460
 
     :goto_0
     sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_CTC_POPUP:Z
 
     if-eqz v2, :cond_4
 
-    const v0, 0x7f0f0408
+    const v0, 0x7f0f0465
 
     :goto_1
     new-instance v2, Landroid/app/AlertDialog$Builder;
@@ -616,7 +616,7 @@
 
     if-eqz v2, :cond_2
 
-    const v1, 0x7f0f0404
+    const v1, 0x7f0f0461
 
     goto :goto_0
 
@@ -625,12 +625,12 @@
 
     if-eqz v2, :cond_3
 
-    const v1, 0x7f0f0405
+    const v1, 0x7f0f0462
 
     goto :goto_0
 
     :cond_3
-    const v1, 0x7f0f0402
+    const v1, 0x7f0f045f
 
     goto :goto_0
 
@@ -639,7 +639,7 @@
 
     if-eqz v2, :cond_5
 
-    const v0, 0x7f0f0407
+    const v0, 0x7f0f0464
 
     goto :goto_1
 
@@ -648,12 +648,12 @@
 
     if-eqz v2, :cond_6
 
-    const v0, 0x7f0f0406
+    const v0, 0x7f0f0463
 
     goto :goto_1
 
     :cond_6
-    const v0, 0x7f0f0401
+    const v0, 0x7f0f045e
 
     goto :goto_1
 .end method
@@ -720,7 +720,7 @@
 
     if-eqz v1, :cond_2
 
-    const v0, 0x7f0f054a
+    const v0, 0x7f0f05a7
 
     :goto_0
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -741,7 +741,7 @@
 
     if-eqz v1, :cond_5
 
-    const v0, 0x7f0f054f
+    const v0, 0x7f0f05ac
 
     :cond_1
     :goto_1
@@ -816,7 +816,7 @@
 
     if-eqz v1, :cond_3
 
-    const v0, 0x7f0f054b
+    const v0, 0x7f0f05a8
 
     goto :goto_0
 
@@ -825,17 +825,17 @@
 
     if-eqz v1, :cond_4
 
-    const v0, 0x7f0f0549
+    const v0, 0x7f0f05a6
 
     goto :goto_0
 
     :cond_4
-    const v0, 0x7f0f0548
+    const v0, 0x7f0f05a5
 
     goto :goto_0
 
     :cond_5
-    const v0, 0x7f0f054e
+    const v0, 0x7f0f05ab
 
     goto :goto_1
 
@@ -862,7 +862,7 @@
 
     if-eqz v1, :cond_7
 
-    const v0, 0x7f0f040c
+    const v0, 0x7f0f0469
 
     goto :goto_1
 
@@ -871,7 +871,7 @@
 
     if-eqz v1, :cond_8
 
-    const v0, 0x7f0f040a
+    const v0, 0x7f0f0467
 
     goto/16 :goto_1
 
@@ -880,7 +880,7 @@
 
     if-eqz v1, :cond_9
 
-    const v0, 0x7f0f040b
+    const v0, 0x7f0f0468
 
     goto/16 :goto_1
 
@@ -889,7 +889,7 @@
 
     if-eqz v1, :cond_a
 
-    const v0, 0x7f0f040d
+    const v0, 0x7f0f046a
 
     goto/16 :goto_1
 
@@ -898,12 +898,12 @@
 
     if-eqz v1, :cond_b
 
-    const v0, 0x7f0f040e
+    const v0, 0x7f0f046b
 
     goto/16 :goto_1
 
     :cond_b
-    const v0, 0x7f0f0409
+    const v0, 0x7f0f0466
 
     goto/16 :goto_1
 .end method
@@ -923,7 +923,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f034a
+    const v1, 0x7f0f03a7
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -934,7 +934,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0349
+    const v1, 0x7f0f03a6
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -973,7 +973,7 @@
     if-eqz v0, :cond_1
 
     :cond_0
-    const v0, 0x7f0f0410
+    const v0, 0x7f0f046d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast(I)V
 
@@ -1004,7 +1004,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0f03d9
+    const v1, 0x7f0f0436
 
     :goto_0
     invoke-virtual {v2, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
@@ -1045,7 +1045,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0f03da
+    const v1, 0x7f0f0437
 
     goto :goto_0
 
@@ -1054,12 +1054,12 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0f03dc
+    const v1, 0x7f0f0439
 
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0f03d8
+    const v1, 0x7f0f0435
 
     goto :goto_0
 
@@ -1113,14 +1113,6 @@
 
     const/4 v2, 0x1
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;
-
-    iget-boolean v1, v1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->value:Z
-
-    if-nez v1, :cond_0
-
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
 
     invoke-interface {v1, p0}, Lcom/android/systemui/qs/QSTile$Host;->onClickQSTileOnKeyguard(Lcom/android/systemui/qs/QSTile;)Z
@@ -1151,7 +1143,7 @@
     if-eqz v1, :cond_2
 
     :cond_1
-    const v1, 0x7f0f0410
+    const v1, 0x7f0f046d
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast(I)V
 
@@ -1306,14 +1298,6 @@
 .method public handleSecondaryClick()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->value:Z
-
-    if-nez v0, :cond_0
-
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
 
     invoke-interface {v0, p0}, Lcom/android/systemui/qs/QSTile$Host;->onClickQSTileOnKeyguard(Lcom/android/systemui/qs/QSTile;)Z
@@ -1344,7 +1328,7 @@
     if-eqz v0, :cond_2
 
     :cond_1
-    const v0, 0x7f0f0410
+    const v0, 0x7f0f046d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast(I)V
 
@@ -1395,7 +1379,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f020450
+    const v0, 0x7f020458
 
     :goto_0
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
@@ -1458,7 +1442,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f02046a
+    const v0, 0x7f020472
 
     goto :goto_0
 

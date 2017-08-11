@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showDisableConfirmationForList(Ljava/util/ArrayList;)V
+    value = Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showUnintallConfirmationForList(Ljava/lang/String;Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

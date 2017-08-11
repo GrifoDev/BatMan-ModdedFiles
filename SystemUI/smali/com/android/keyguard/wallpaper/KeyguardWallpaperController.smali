@@ -30,7 +30,11 @@
 
 .field private mOccluded:Z
 
+.field private mOldTransparentType:I
+
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
+
+.field private mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
 
 .field private mShowing:Z
 
@@ -63,6 +67,14 @@
     return v0
 .end method
 
+.method static synthetic -get2(Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mOldTransparentType:I
+
+    return v0
+.end method
+
 .method static synthetic -set0(Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;I)I
     .locals 0
 
@@ -79,8 +91,16 @@
     return p1
 .end method
 
+.method static synthetic -set2(Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mOldTransparentType:I
+
+    return p1
+.end method
+
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .locals 6
 
     const/4 v2, 0x0
 
@@ -114,7 +134,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mService:Landroid/app/IWallpaperManager;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     :try_start_0
     const-string/jumbo v1, "KeyguardWallpaperController"
@@ -142,10 +162,49 @@
     move-result v1
 
     iput-boolean v1, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mIsEnabledDCMLauncher:Z
+
+    :cond_0
+    new-instance v1, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$2;
+
+    invoke-direct {v1, p0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$2;-><init>(Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;)V
+
+    iput-object v1, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+
+    invoke-static {p1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Landroid/net/Uri;
+
+    const-string/jumbo v4, "lockscreen_wallpaper_transparent"
+
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/keyguard/util/SettingsHelper;->registerCallback(Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;[Landroid/net/Uri;)V
+
+    invoke-static {p1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->getLockscreenWallpaperTransparent()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mOldTransparentType:I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
+    :cond_1
     :goto_0
     return-void
 
@@ -866,9 +925,9 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v1, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$3;
+    new-instance v1, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$4;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$3;-><init>(Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;Ljava/lang/String;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$4;-><init>(Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;Ljava/lang/String;)V
 
     sget-object v2, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
@@ -876,7 +935,7 @@
 
     new-array v3, v3, [Ljava/lang/Void;
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$3;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v1, v2, v3}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$4;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     :cond_0
     return-void
@@ -1124,9 +1183,9 @@
 
     iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mRootView:Landroid/view/ViewGroup;
 
-    new-instance v1, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$2;
+    new-instance v1, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$3;
 
-    invoke-direct {v1, p0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$2;-><init>(Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;)V
+    invoke-direct {v1, p0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController$3;-><init>(Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;)V
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 

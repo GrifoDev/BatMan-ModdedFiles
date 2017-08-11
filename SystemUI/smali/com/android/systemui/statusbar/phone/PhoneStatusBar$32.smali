@@ -104,7 +104,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap34(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)V
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap35(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)V
 
     return-void
 
@@ -123,7 +123,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$32;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap42(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap43(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
 
     return-void
 .end method

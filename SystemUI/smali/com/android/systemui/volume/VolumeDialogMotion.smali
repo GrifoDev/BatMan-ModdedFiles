@@ -255,7 +255,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/volume/VolumeDialogMotion;->mResources:Landroid/content/res/Resources;
 
-    const v6, 0x7f0d03d3
+    const v6, 0x7f0d03d4
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -347,7 +347,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/volume/VolumeDialogMotion;->mResources:Landroid/content/res/Resources;
 
-    const v6, 0x7f0d03d3
+    const v6, 0x7f0d03d4
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

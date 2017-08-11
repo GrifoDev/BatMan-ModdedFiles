@@ -125,9 +125,9 @@
 
     sput-object v0, Lcom/android/systemui/DessertCaseView;->TAG:Ljava/lang/String;
 
-    const v0, 0x7f020139
+    const v0, 0x7f02013e
 
-    const v1, 0x7f02012b
+    const v1, 0x7f020130
 
     filled-new-array {v0, v1}, [I
 
@@ -143,13 +143,13 @@
 
     sput-object v0, Lcom/android/systemui/DessertCaseView;->RARE_PASTRIES:[I
 
-    const v0, 0x7f02013a
+    const v0, 0x7f02013f
 
-    const v1, 0x7f02012f
+    const v1, 0x7f020134
 
-    const v2, 0x7f020131
+    const v2, 0x7f020136
 
-    const v3, 0x7f020138
+    const v3, 0x7f02013d
 
     filled-new-array {v0, v1, v2, v3}, [I
 
@@ -157,11 +157,11 @@
 
     sput-object v0, Lcom/android/systemui/DessertCaseView;->XRARE_PASTRIES:[I
 
-    const v0, 0x7f02013b
+    const v0, 0x7f020140
 
-    const v1, 0x7f02012d
+    const v1, 0x7f020132
 
-    const v2, 0x7f020136
+    const v2, 0x7f02013b
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -217,14 +217,14 @@
 
     :array_0
     .array-data 4
-        0x7f02012c
-        0x7f02012e
-        0x7f020130
-        0x7f020132
+        0x7f020131
         0x7f020133
-        0x7f020134
         0x7f020135
         0x7f020137
+        0x7f020138
+        0x7f020139
+        0x7f02013a
+        0x7f02013c
     .end array-data
 
     :array_1
@@ -373,7 +373,7 @@
 
     iput-boolean v6, p0, Lcom/android/systemui/DessertCaseView;->mStarted:Z
 
-    const v6, 0x7f0d02ad
+    const v6, 0x7f0d02ae
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

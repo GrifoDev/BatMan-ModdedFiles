@@ -686,8 +686,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mReceivers:Ljava/util/ArrayList;
+
+    iget-object v2, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    const-string/jumbo v0, "BluetoothEventManager"
+
+    const-string/jumbo v2, "registerAdapterIntentReceiver :: mBroadcastReceiver was registered already. Receiver will refresh."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
@@ -708,22 +727,9 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
     monitor-exit v1
 
     return-void
-
-    :cond_0
-    :try_start_1
-    const-string/jumbo v0, "BluetoothEventManager"
-
-    const-string/jumbo v2, "registerAdapterIntentReceiver :: mBroadcastReceiver was registered already."
-
-    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
 
     :catchall_0
     move-exception v0
@@ -775,8 +781,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mProfileConnectionReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mReceivers:Ljava/util/ArrayList;
+
+    iget-object v2, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mProfileConnectionReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    const-string/jumbo v0, "BluetoothEventManager"
+
+    const-string/jumbo v2, "registerProfileIntentReceiver :: mProfileConnectionReceiver was registered already. Receiver will refresh."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mProfileConnectionReceiver:Landroid/content/BroadcastReceiver;
@@ -797,22 +822,9 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
     monitor-exit v1
 
     return-void
-
-    :cond_0
-    :try_start_1
-    const-string/jumbo v0, "BluetoothEventManager"
-
-    const-string/jumbo v2, "registerProfileIntentReceiver :: mProfileConnectionReceiver was registered already."
-
-    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
 
     :catchall_0
     move-exception v0
@@ -922,61 +934,4 @@
     monitor-exit v2
 
     throw v1
-.end method
-
-.method unregisterProfileIntentReceiver()V
-    .locals 3
-
-    iget-object v1, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mReceivers:Ljava/util/ArrayList;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mReceivers:Ljava/util/ArrayList;
-
-    iget-object v2, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mProfileConnectionReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mProfileConnectionReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {v0, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
-
-    iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mReceivers:Ljava/util/ArrayList;
-
-    iget-object v2, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mProfileConnectionReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :goto_0
-    monitor-exit v1
-
-    return-void
-
-    :cond_0
-    :try_start_1
-    const-string/jumbo v0, "BluetoothEventManager"
-
-    const-string/jumbo v2, "unregisterProfileIntentReceiver :: mProfileConnectionReceiver was not registered."
-
-    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method

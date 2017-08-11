@@ -37,7 +37,7 @@
 .method private doFinish()V
     .locals 2
 
-    const v1, 0x7f0f02a2
+    const v1, 0x7f0f02ff
 
     invoke-static {p0, v1}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 

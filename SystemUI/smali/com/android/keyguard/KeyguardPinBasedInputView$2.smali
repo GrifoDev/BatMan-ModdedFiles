@@ -3,7 +3,7 @@
 .source "KeyguardPinBasedInputView.java"
 
 # interfaces
-.implements Lcom/android/keyguard/PasswordTextView$UserActivityListener;
+.implements Landroid/view/View$OnTouchListener;
 
 
 # annotations
@@ -34,18 +34,24 @@
 
 
 # virtual methods
-.method public onUserActivity()V
-    .locals 2
+.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView$2;->this$0:Lcom/android/keyguard/KeyguardPinBasedInputView;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->onUserInput()V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->-wrap0(Lcom/android/keyguard/KeyguardPinBasedInputView;)Z
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView$2;->this$0:Lcom/android/keyguard/KeyguardPinBasedInputView;
+    move-result v0
 
-    const/4 v1, 0x1
+    if-eqz v0, :cond_0
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardPinBasedInputView;->-wrap1(Lcom/android/keyguard/KeyguardPinBasedInputView;Z)V
+    const/4 v0, 0x0
 
-    return-void
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method

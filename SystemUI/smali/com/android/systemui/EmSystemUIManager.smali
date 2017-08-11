@@ -12,16 +12,10 @@
 .end annotation
 
 
-# static fields
-.field public static final EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-.field public static final EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-
 # instance fields
 .field private mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-.field private mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
+.field public mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
 
 .field private mContext:Landroid/content/Context;
 
@@ -61,58 +55,81 @@
     return-void
 .end method
 
-.method static constructor <clinit>()V
-    .locals 1
-
-    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    sput-object v0, Lcom/android/systemui/EmSystemUIManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    sput-object v0, Lcom/android/systemui/EmSystemUIManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;)V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/android/systemui/EmSystemUIManager$1;
+    new-instance v1, Lcom/android/systemui/EmSystemUIManager$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/EmSystemUIManager$1;-><init>(Lcom/android/systemui/EmSystemUIManager;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/EmSystemUIManager$1;-><init>(Lcom/android/systemui/EmSystemUIManager;)V
 
-    iput-object v0, p0, Lcom/android/systemui/EmSystemUIManager;->mStartStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;
+    iput-object v1, p0, Lcom/android/systemui/EmSystemUIManager;->mStartStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;
 
     iput-object p1, p0, Lcom/android/systemui/EmSystemUIManager;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
 
-    iget-object v0, p0, Lcom/android/systemui/EmSystemUIManager;->mContext:Landroid/content/Context;
+    :try_start_0
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    const-string/jumbo v1, "Notification"
+    move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->createInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/BixbyApi;
+    iput-object v1, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    iput-object v0, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    iget-object v2, p0, Lcom/android/systemui/EmSystemUIManager;->mStartStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;
 
-    iget-object v0, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    invoke-virtual {v1, v2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setStartStateListener(Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;)V
 
-    iget-object v1, p0, Lcom/android/systemui/EmSystemUIManager;->mStartStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;
+    const-string/jumbo v1, "EmSystemUIManager"
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setStartStateListener(Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;)V
+    const-string/jumbo v2, " EmSystemUIManager setStartStateListener"
 
-    const-string/jumbo v0, "EmSystemUIManager"
-
-    const-string/jumbo v1, " EmSystemUIManager setStartStateListener"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "EmSystemUIManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "IllegalStateException: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/systemui/EmSystemUIManager;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v2, "Notification"
+
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->createInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    goto :goto_0
 .end method
 
 .method private processEMMultiWindow(Lcom/samsung/android/sdk/bixby/data/State;)V
@@ -172,173 +189,155 @@
 .end method
 
 .method private processEMSystemUI(Lcom/samsung/android/sdk/bixby/data/State;)V
-    .locals 6
+    .locals 5
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->getStateId()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->getRuleId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string/jumbo v3, "NotificationPanel"
+    const-string/jumbo v2, "NotificationPanel"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_3
 
-    const-string/jumbo v3, "SystemUI_2010"
+    const-string/jumbo v2, "SystemUI_2010"
 
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
+    iget-object v2, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
 
-    invoke-interface {v3}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callOpenNotificationPanel()V
+    invoke-interface {v2}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callOpenNotificationPanel()V
 
     :cond_0
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
+    iget-object v2, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
 
-    invoke-interface {v3}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callNotificationManager()V
+    invoke-interface {v2}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callNotificationManager()V
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->isLastState()Ljava/lang/Boolean;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    new-instance v0, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    iget-object v2, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
 
-    const-string/jumbo v3, "NotificationPanel"
+    invoke-interface {v2}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callCheckNotificationExist()Z
 
-    invoke-direct {v0, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+    move-result v2
 
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
+    if-eqz v2, :cond_7
 
-    invoke-interface {v3}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callCheckNotificationExist()Z
+    const-string/jumbo v2, "Notification"
 
-    move-result v3
+    const-string/jumbo v3, "Exist"
 
-    if-eqz v3, :cond_7
+    const-string/jumbo v4, "yes"
 
-    const-string/jumbo v3, "Notification"
-
-    const-string/jumbo v4, "Exist"
-
-    const-string/jumbo v5, "yes"
-
-    invoke-virtual {v0, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    :goto_0
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    invoke-virtual {v3, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;)V
+    invoke-static {v1, v2, v3, v4}, Lcom/android/systemui/statusbar/phone/bixby/data/NotificationNlgInfo;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    :goto_0
+    iget-object v2, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     :cond_2
     :goto_1
     return-void
 
     :cond_3
-    const-string/jumbo v3, "QuickPanel"
+    const-string/jumbo v2, "QuickPanel"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_6
+    if-eqz v2, :cond_6
 
-    const-string/jumbo v3, "SystemUI_2009"
+    const-string/jumbo v2, "SystemUI_2009"
 
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_4
+    if-nez v2, :cond_4
 
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
+    iget-object v2, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
 
-    invoke-interface {v3}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callOpenQuickSettingPanel()V
+    invoke-interface {v2}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callOpenQuickSettingPanel()V
 
     :cond_4
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
+    iget-object v2, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
 
-    invoke-interface {v3}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callNotificationManager()V
+    invoke-interface {v2}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callNotificationManager()V
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->isLastState()Ljava/lang/Boolean;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_5
+    if-eqz v2, :cond_5
 
-    new-instance v0, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    const-string/jumbo v3, "QuickPanel"
-
-    invoke-direct {v0, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
-
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    invoke-virtual {v3, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;)V
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/bixby/data/NotificationNlgInfo;->requestNLG(Ljava/lang/String;)V
 
     :cond_5
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    iget-object v2, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto :goto_1
 
     :cond_6
-    const-string/jumbo v3, "Lockscreen"
+    const-string/jumbo v2, "Lockscreen"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
+    iget-object v2, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
 
-    invoke-interface {v3}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callKeyguardManager()V
+    invoke-interface {v2}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callKeyguardManager()V
 
-    iget-object v3, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    iget-object v2, p0, Lcom/android/systemui/EmSystemUIManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto :goto_1
 
     :cond_7
-    const-string/jumbo v3, "Notification"
+    const-string/jumbo v2, "Notification"
 
-    const-string/jumbo v4, "Exist"
+    const-string/jumbo v3, "Exist"
 
-    const-string/jumbo v5, "no"
+    const-string/jumbo v4, "no"
 
-    invoke-virtual {v0, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    invoke-static {v1, v2, v3, v4}, Lcom/android/systemui/statusbar/phone/bixby/data/NotificationNlgInfo;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 .end method

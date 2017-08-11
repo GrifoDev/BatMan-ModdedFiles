@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Bilinmeyen</string>
     <string name="save">Kaydet</string>
     <string name="ok">Tamam</string>
-    <string name="battery_history_hours_no_seconds">%1$dsa %2$ddk</string>
-    <string name="battery_history_minutes_no_seconds">%ddk</string>
+    <string name="battery_history_hours_no_seconds">%1$d sa %2$d dk</string>
+    <string name="battery_history_minutes_no_seconds">%d dk</string>
     <string name="wifi_fail_to_scan">Ağlar taranamıyor</string>
     <string name="wifi_failed_to_obtain_IP">IP adresi alınamadı.</string>
     <string name="wifi_security_none">Yok</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s öğesine bağlanılamıyor.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s öğesine bağlanılamıyor. %2$s bölümünde ayarlarınızı kontrol edip tekrar deneyin.</string>
     <string name="bluetooth_pairing_rejected_error_message">Eşleştirme %s tarafından reddedildi.</string>
+    <string name="bluetooth_getting_remote_device_name">Cihaz ismi alınıyor…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Bu cihaz bağlandığında cihazın ismi gösterilecek.</string>
     <string name="accessibility_wifi_off">Kablosuz kapalı.</string>
     <string name="accessibility_no_wifi">Kablosuz bağlantı kesildi.</string>
     <string name="accessibility_wifi_one_bar">Kablosuz sinyal gücü tek çubuk.</string>
@@ -556,7 +558,7 @@ For example, your ringtone will not sound, you will not be able to answer phone 
     <string name="accessibility_back">Geri</string>
     <string name="accessibility_home">Ana sayfa</string>
     <string name="accessibility_menu">Menü</string>
-    <string name="sec_accessibility_recent">Son Kullanln</string>
+    <string name="sec_accessibility_recent">Donanım</string>
     <string name="accessibility_camera_button">Kamera</string>
     <string name="accessibility_phone_button">Telefon</string>
     <string name="accessibility_voice_assist_button">Sesli Yardım</string>
@@ -1364,6 +1366,7 @@ Daha fazla bilgi edinmek için yöneticinizle iletişim kurun."</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">%1$s (Sayısal Tuş Takımında)</string>
+    <string name="keyboard_popup_help">Meta tuş: Windows, Command veya diğer işletim sistemi sembolü tuşu.</string>
     <string name="keyboard_shortcut_group_system">Sistem kısayolları</string>
     <string name="keyboard_shortcut_group_system_home">Ana ekran</string>
     <string name="keyboard_shortcut_group_system_recents">Son çağrılar</string>
@@ -1525,8 +1528,9 @@ Daha fazla bilgi edinmek için yöneticinizle iletişim kurun."</string>
 
 Su hasarına karşı korumak için SIM/SD kart tepsisinin sıkıca kapatıldığından emin olun."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Su hasarına karşı korumak için SIM/SD kart tepsisinin sıkıca kapatıldığından emin olun.</string>
-    <string name="water_protection_notification_title">Bağlantı noktasını kontrol et</string>
-    <string name="water_protection_notification_body">Nem algılandı. Cihazınızı şarj etmek için şarj cihazınızın/USB bağlantı noktasının kuru olduğundan emin olun.</string>
+    <string name="water_protection_notification_title">Şarjı fişten çekin</string>
+    <string name="water_protection_notification_body">Nem algılandı. Şarj cihazını çıkarın ve hem şarj cihazının hem de USB bağlantı noktasının kuru olduğundan emin olun.</string>
+    <string name="status_bar_settings_battery_meter_format">%%%d</string>
     <string name="full_battery_title">Bilgi</string>
     <string name="full_battery_noti_text">Pil tümüyle şarj oldu.</string>
     <string name="cooling_title">Cihaz aşırı ısınıyor</string>
@@ -1620,6 +1624,7 @@ Aşırı ısınma şunlardan kaynaklanabilir:
     <string name="battery_not_fully_connected_charging_title">Yavaş şarj</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Daha hızlı şarj için cihazınızla birlikte gelen şarj cihazını kullanın ve düzgün şekilde bağlandığından emin olun.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Şarj cihazının düzgün şekilde bağlandığından emin olun. Cihazla birlikte gelen şarj cihazını kullanın.</string>
     <string name="battery_charging_level_and_time_text">"Şarj oluyor: %%%1$d
 (Şarjın tamamlanmasına yaklaşık %2$s kaldı)"</string>
@@ -1633,14 +1638,20 @@ Aşırı ısınma şunlardan kaynaklanabilir:
     <string name="battery_saver_recommend_notification_text_phone_psm">Telefonunuzu şarj edn.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Tabletinizi şarj edin.</string>
     <string name="button_close">Kapat</string>
-    <string name="battery_health_interruption_title">Şarj edilemiyor</string>
+    <string name="battery_health_interruption_title">Şarj işlemi durdu</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Şarj cihazını çıkarın</string>
     <string name="battery_health_interruption_by_terminal_open_text">Cihazınız şarj edilemiyor. Samsung uyumlu bir pil ve şarj cihazı kullandığınızdan ve cihazınızın şarj cihazına düzgün şekilde bağlandığından emin olun.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Şarj duraklatıldı. Pil sıcaklığı çok yüksek.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Şarj duraklatıldı. Pil sıcaklığı çok düşük.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Cihaz şarj olmayı durdurdu. Pil sıcaklığı çok yüksek. Şarj cihazını çıkarırken dikkatli olun. Çok sıcak olabilir.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Telefonunuzun sıcaklığı çok yüksek. Sıcaklık normale döndüğünde şarj işlemi devam eder.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Tabletinizin sıcaklığı çok yüksek. Sıcaklık normale döndüğünde şarj işlemi devam eder.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Telefonunuzun sıcaklığı çok düşük. Sıcaklık normale döndüğünde şarj işlemi devam eder.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Tabletinizin sıcaklığı çok düşük. Sıcaklık normale döndüğünde şarj işlemi devam eder.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Şarj işlemi durduruldu. Telefonunuzun sıcaklığı çok yüksek. Şarj cihazını çıkarırken dikkatli olun. Çok sıcak olabilir.
 
-Şarj cihazının çıkarılıp yeniden takılması, şarj işleminin normal şekilde devam etmesini sağlayabilir. Aşırı ısınma devam ederse yangın veya yaralanma riski olabileceğinden müşteri hizmetleri merkeziyle iletişime geçin."</string>
+Şarj cihazının bağlantısını kesmek ve yeniden bağlamak, şarj işleminin normal şekilde devam etmesini sağlayabilir. Aşırı ısınma devam ederse yangın veya yaralanma riski olabileceğinden Müşteri Hizmetleri ile iletişim kurun."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Şarj işlemi durduruldu. Tabletinizin sıcaklığı çok yüksek. Şarj cihazını çıkarırken dikkatli olun. Çok sıcak olabilir.
+
+Şarj cihazının bağlantısını kesmek ve yeniden bağlamak, şarj işleminin normal şekilde devam etmesini sağlayabilir. Aşırı ısınma devam ederse yangın veya yaralanma riski olabileceğinden Müşteri Hizmetleri ile iletişim kurun."</string>
     <string name="incompatible_charger_title">Şarj olmuyor.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1667,6 @@ Gelecekte bu açılır pencerenin görünmesini engellemek için yakınlık sens
     <string name="kg_biometrics_swipe_active_instructions">Açmak için biyometrik verileri kullanın veya ekranı kaydırın</string>
     <string name="kg_face_or_swipe_unlock_instructions">Kilidi açmak için yüz tanımayı kullanın veya ekranı kaydırın</string>
     <string name="kg_face_or_swipe_active_instructions">Açmak için yüz tanımayı kullanın veya ekranı kaydırın</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Kilidi açmak için yüz tanımayı kullanın veya bunun yerine irisleri kullanmak için ekranı kaydırın</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Açmak için yüz tanımayı kullanın veya bunun yerine irisleri kullanmak için ekranı kaydırın</string>
     <string name="kg_face_unlock_instructions">Yüz tanımayla kilit açmak için ekranı kaydırın</string>
     <string name="kg_face_or_fingerprint_active_instructions">Açmak için parmak izi kullanın veya bunun yerine yüz tanımayı kullanmak için ekranı kaydırın</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Kilidi açmak için parmak izi kullanın veya bunun yerine yüz tanımayı kullanmak için ekranı kaydırın</string>
@@ -1672,6 +1681,20 @@ Gelecekte bu açılır pencerenin görünmesini engellemek için yakınlık sens
     <string name="kg_voice_assistant_unlock_instructions">Ekranı açmak için iki parmağınızı kaydırın</string>
     <string name="kg_swipe_active_instructions">Açmak için ekranı kaydırın</string>
     <string name="kg_swipe_unlock_instructions">Kilidi açmak için ekranı kaydırın</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Kilidi açmak için biyometrik verileri kullanın veya iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Açmak için biyometrik verileri kullanın veya iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Kilidi açmak için yüz tanımayı kullanın veya iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Açmak için yüz tanımayı kullanın veya iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Yüz tanımayla kilit açmak için ekranı iki parmağınızla kaydırın.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Açmak için parmak izi kullanın veya yüz tanımayı kullanmak için iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Kilidi açmak için parmak izi kullanın veya yüz tanımayı kullanmak için iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Açmak için parmak izi kullanın veya irisleri kullanmak için iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Kilidi açmak için parmak izi kullanın veya irisleri kullanmak için iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Açmak için parmak izi kullanın veya iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Kilidi açmak için parmak izi kullanın veya iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Kilidi açmak için irisleri kullanmak üzere ekranı iki parmağınızla kaydırın.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Kilidi açmak için irisleri kullanın veya iki parmağınızla ekranı kaydırın.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Açmak için irisleri kullanın veya iki parmağınızla ekranı kaydırın.</string>
     <string name="kg_power_connect_charger">Şarj cihazını takın</string>
     <string name="kg_power_fully_charged">Tamamen şarj oldu</string>
     <string name="kg_power_fast_charging">Hızlı şarj: %%%d</string>
@@ -1755,6 +1778,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Gönder</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Telefonun kilidini açmak için Kilit tuşuna çift dokunun</string>
     <string name="s_view_cover_toast_pop_up_message">Hızlı ayar tuşlarını kullanmak için kapağı açın.</string>
     <string name="remote_input_toast_text_on_sview_cover">S view kapağı kapalıyken Hızlı yanıt işlevi kullanılamaz.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Paylaşılan gücün miktarını kontrol etmek için uygulamayı indirmelisiniz. Uygulamayı indirmeden cihazınızı başka bir cihaza Samsung'un EP-SG900 Power Sharing Kablosu yoluyla bağlarsanız pil miktarının tamamı diğer cihaza aktarılır.
@@ -1791,7 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Kabul ediyorum</string>
-    <string name="force_immersive_guide_text">Bu simgeye dokunulduğunda navigasyon çubuğu gizlenir. Ekranın altından yukarı sürükleyerek navigasyon tuşlarını hala kullanabilirsiniz. Navigasyon çubuğu gösterilirken yerine sabitlemek için bu simgeye tekrar dokunabilirsiniz. Navigasyon çubuğu, Ana ekran gibi bazı ekranlarda her zaman gösterilir.</string>
+    <string name="force_immersive_guide_text">Bu tuşa dokunulduğunda navigasyon çubuğu gizlenir. Ekranın altından yukarı sürükleyerek navigasyon tuşlarını hala kullanabilirsiniz. Navigasyon çubuğu gösterilirken bu tuşa tekrar dokunarak yerine sabitleyebilirsiniz. Ana ekran gibi bazı ekranlarda navigasyon çubuğu her zaman gösterilir. Bir uygulama navigasyon çubuğu gizliyken normal davranmıyorsa navigasyon çubuğunu yerine sabitleyip uygulamayı yeniden başlatın.</string>
+    <string name="force_immersive_guide_dialog_title">Navigasyon çubuğunu gizle:</string>
+    <string name="force_immersive_guide_dialog_message1">Bu tuşa dokunulduğunda navigasyon çubuğu gizlenir.</string>
+    <string name="force_immersive_guide_dialog_message2">Navigasyon çubuğunu göstermek için ekranın alt tarafından yukarı doğru kaydırın.</string>
+    <string name="force_immersive_guide_dialog_message3">Sabitlemek için bu tuşa tekrar dokunun.</string>
+    <string name="force_immersive_guide_dialog_message4">Ana ekran gibi bazı ekranlarda navigasyon çubuğu her zaman gösterilir.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Bu tuşu gizlemek için Ayarlar > Ekran > Navigasyon çubuğu bölümüne gidin.</string>
+    <string name="force_immersive_guide_dialog_setting">Ayarlar</string>
+    <string name="force_immersive_guide_dialog_ok">Tamam</string>
     <string name="car_lockscreen_disclaimer_title">Güvenli bir şekilde sürün</string>
     <string name="car_lockscreen_disclaimer_text">Sürüş koşullarına karşı dikkatli olun ve geçerli yasalara her zaman uyun. Yol tarifi yanlış, eksik, tehlikeli, uygunsuz, yasak olabilir veya idari bölgelerden geçişleri içerebilir. İşletme bilgileri de yanlış veya eksik olabilir. Veriler gerçek zamanlı değildir ve konum doğruluğu garanti edilemez. Sürüş sırasında mobil cihazınızı veya Android Auto için geliştirilmemiş uygulamaları kullanmayın.</string>
     <string name="pip_close">"PIP'yi kapat"</string>
@@ -2230,6 +2262,8 @@ PUK'unuzu bilmiyorsanız bir müşteri hizmetleri merkezini ziyaret edin."</stri
     <string name="kg_face_retry_content_description">Yüz tanımayı kullanmak için çift dokunun.</string>
     <string name="kg_face_authentication_error_retry_text">Yüz algılanmadı. Yüz tanımayı tekrar denemek için simgeye dokunun</string>
     <string name="kg_face_authentication_failed_retry_text">Eşleşme yok. Yüz tanımayı kullanmak için simgeye dokunun</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Yüz tanımayla ilgili bir sorun oluştu. Tekrar denemek için dokunun</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Görüntülü aramalar sırasında yüz tanıma kullanılamaz</string>
     <string name="kg_fingerprint_no_match">Eşleşme yok</string>
     <string name="kg_finger_print_not_responding_error_message">Parmak izi sensörü yanıt vermiyor. Daha sonra tekrar deneyin.</string>
     <string name="kg_finger_print_database_error_message">Parmak izi verileri bozulmuş. Parmak izini ekran kilidi türü olarak sıfırlayın, ardından parmak izlerinizi tekrar ekleyin veya ekran kilidi türünü değiştirin.</string>
@@ -2366,6 +2400,8 @@ PUK'unuzu bilmiyorsanız bir müşteri hizmetleri merkezini ziyaret edin."</stri
     <string name="appicon_badge_new_item">1 yeni öğe</string>
     <string name="banner_apps_for_dex_detail">"Galaxy Apps'teki DeX için optimize edilen uygulamaların keyfini çıkarın."</string>
     <string name="toast_cannot_move_more_than_items">En fazla %d öğe taşınabilir.</string>
+    <string name="view_more_in_galaxy_apps">"Galaxy Apps'te daha fazla gör"</string>
+    <string name="view_more_in_play_store">"Play Store'da daha fazla gör"</string>
     <string name="uninstall_title">Uygulamalar kaldırılsın mı?</string>
     <string name="uninstall_1_app_message">Bu uygulamayı kaldırmak istiyor musunuz?</string>
     <string name="uninstall_apps_message">Aşağıdaki uygulamalar kaldırılacak:</string>
@@ -2411,6 +2447,13 @@ PUK'unuzu bilmiyorsanız bir müşteri hizmetleri merkezini ziyaret edin."</stri
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Bildirim</string>
     <string name="quick_settings_location_detail_device_only">Sadece cihaz</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Şarj duraklatıldı. Pil sıcaklığı çok yüksek.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Şarj duraklatıldı. Pil sıcaklığı çok düşük.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Cihaz şarj olmayı durdurdu. Pil sıcaklığı çok yüksek. Şarj cihazını çıkarırken dikkatli olun. Çok sıcak olabilir.
+
+Şarj cihazının çıkarılıp yeniden takılması, şarj işleminin normal şekilde devam etmesini sağlayabilir. Aşırı ısınma devam ederse yangın veya yaralanma riski olabileceğinden müşteri hizmetleri merkeziyle iletişime geçin."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Kilidi açmak için yüz tanımayı kullanın veya bunun yerine irisleri kullanmak için ekranı kaydırın</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Açmak için yüz tanımayı kullanın veya bunun yerine irisleri kullanmak için ekranı kaydırın</string>
     <string name="kg_infinity_wallpaper_option_description">Infinity duvar kağıdı, Ana ekranınıza ve Kilit ekranınıza aynı anda uygulanacak. En iyi deneyim için aşağıdaki ayarı açın.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">"Always On Display'i aç"</string>
 </resources>

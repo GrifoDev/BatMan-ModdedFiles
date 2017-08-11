@@ -47,7 +47,7 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$35$1;->val$enabled:Z
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap39(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)V
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap40(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)V
 
     return-void
 .end method

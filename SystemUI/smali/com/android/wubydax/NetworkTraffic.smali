@@ -279,7 +279,7 @@
 
     iput v2, p0, Lcom/android/wubydax/NetworkTraffic;->txtSizeMulti:I
 
-    const v2, 0x7f0b00e8
+    const v2, 0x7f0b00e9
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -287,7 +287,7 @@
 
     iput v2, p0, Lcom/android/wubydax/NetworkTraffic;->mDarkModeIconColorSingleTone:I
 
-    const v2, 0x7f0b00eb
+    const v2, 0x7f0b00ec
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getColor(I)I
 

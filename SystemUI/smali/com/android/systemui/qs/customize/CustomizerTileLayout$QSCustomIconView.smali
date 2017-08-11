@@ -50,7 +50,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0247
+    const v6, 0x7f0d0248
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -72,7 +72,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0471
+    const v7, 0x7f0d0472
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -158,7 +158,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0100
+    const v2, 0x7f0b0101
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getColor(I)I
 

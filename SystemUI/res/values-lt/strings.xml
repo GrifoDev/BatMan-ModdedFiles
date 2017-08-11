@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Nežinomas</string>
     <string name="save">Išsaugoti</string>
     <string name="ok">Gerai</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$dval. %2$dmin.</string>
+    <string name="battery_history_minutes_no_seconds">%d m.</string>
     <string name="wifi_fail_to_scan">Nepavyksta nuskaityti tinklų</string>
     <string name="wifi_failed_to_obtain_IP">Nepavyko gauti IP adreso.</string>
     <string name="wifi_security_none">Nėra</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Negalima prisijungti prie %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Negalima prisijungti prie %1$s. Patikrinkite nustatymus %2$s ir bandykite dar kartą.</string>
     <string name="bluetooth_pairing_rejected_error_message">%s atmetė susiejimą.</string>
+    <string name="bluetooth_getting_remote_device_name">Gaunamas įrenginio pavadinimas…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Prijungus šį įrenginį bus rodomas įrenginio pavadiniams.</string>
     <string name="accessibility_wifi_off">„Wi-Fi“ išjungtas.</string>
     <string name="accessibility_no_wifi">„Wi-Fi“ atjungtas.</string>
     <string name="accessibility_wifi_one_bar">Viena „Wi-Fi“ signalo juosta.</string>
@@ -1364,6 +1366,7 @@ Daugiau informacijos galite gauti susisiekę su administratoriumi."</string>
     <string name="keyboard_key_insert">Įterpti</string>
     <string name="keyboard_key_num_lock">Skaičių režimas</string>
     <string name="keyboard_key_numpad_template">Klaviatūros skaitmenų sritis %1$s</string>
+    <string name="keyboard_popup_help">Meta mygtukas: „Windows“, komandos ar kitos operacinės sistemos simbolio mygtukas.</string>
     <string name="keyboard_shortcut_group_system">Sistemos trumpiniai</string>
     <string name="keyboard_shortcut_group_system_home">Pagrindinis ekranas</string>
     <string name="keyboard_shortcut_group_system_recents">Naujausios veiklos ekranas</string>
@@ -1525,8 +1528,8 @@ Daugiau informacijos galite gauti susisiekę su administratoriumi."</string>
 
 Kad apsisaugotumėte nuo vandens, pasirūpinkite, kad SIM/SD kortelės dėklas būtų gerai uždarytas."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Kad apsisaugotumėte nuo vandens, pasirūpinkite, kad SIM/SD kortelės dėklas būtų gerai uždarytas.</string>
-    <string name="water_protection_notification_title">Patikrinkite prievadą</string>
-    <string name="water_protection_notification_body">Aptikta drėgmė. Jei norite įkrauti įrenginį, patikrinkite, ar kroviklis / USB lizdas sausas.</string>
+    <string name="water_protection_notification_title">Atjunkite kroviklį</string>
+    <string name="water_protection_notification_body">Aptikta drėgmė. Atjunkite kroviklį ir įsitikinkite, kad kroviklis ir USB prievadas yra sausi.</string>
     <string name="full_battery_title">Informacija</string>
     <string name="full_battery_noti_text">Baterija visiškai įkrauta.</string>
     <string name="cooling_title">Įrenginys kaista</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">Lėtas įkrovimas</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Kad įkrautumėte greičiau, naudokite su įrenginiu gautą kroviklį ir įsitikinkite, jog jis tinkamai prijungtas.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Įsitikinkite, kad kroviklis prijungtas tinkamai. Naudokite su įrenginiu gautą kroviklį.</string>
     <string name="battery_charging_level_and_time_text">"Įkraunama: %1$d%%
 (apie %2$s iki visiško įkrovimo)"</string>
@@ -1633,12 +1637,18 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">Įkraukite telefoną.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Įkraukite planšetę.</string>
     <string name="button_close">Uždaryti</string>
-    <string name="battery_health_interruption_title">Neįmanoma krauti</string>
+    <string name="battery_health_interruption_title">Krovimas sustabdytas</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Atjunkite kroviklį</string>
     <string name="battery_health_interruption_by_terminal_open_text">Neina įkrauti prietaiso. Įsitikinkite, kad naudojate su „Samsung“ suderinamą akumuliatorių ir įkroviklį ir kad prietaisas tinkamai prijungtas prie įkroviklio.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Krovimas pristabdytas. Per aukšta akumuliatoriaus temperatūra.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Krovimas pristabdytas. Per žema akumuliatoriaus temperatūra.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Įrenginys sustabdė krovimą. Akumuliatoriaus temperatūra per didelė. Būkite atsargūs atjungdami kroviklį. Jis gali būti karštas.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Jūsų telefono temperatūra per aukšta. Krovimas bus tęsiamas, kai temperatūra vėl bus įprastinė.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Jūsų planšetinio kompiuterio temperatūra per aukšta. Krovimas bus tęsiamas, kai temperatūra vėl bus įprastinė.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Jūsų telefono temperatūra per žema. Krovimas bus tęsiamas, kai temperatūra vėl bus įprastinė.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Jūsų planšetinio kompiuterio temperatūra per žema. Krovimas bus tęsiamas, kai temperatūra vėl bus įprastinė.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Krovimas sustabdytas. Jūsų telefono temperatūra per aukšta. Būkite atsargūs atjungdami kroviklį. Jis gali būti karštas.
+
+Atjungus ir vėl prijungus kroviklį, toliau galima krauti įprastai. Perkaitus reikia kreiptis į klientų aptarnavimo centrą, nes kyla pavojus sukelti gaisrą ar susižeisti."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Krovimas sustabdytas. Jūsų planšetinio kompiuterio temperatūra per aukšta. Būkite atsargūs atjungdami kroviklį. Jis gali būti karštas.
 
 Atjungus ir vėl prijungus kroviklį, toliau galima krauti įprastai. Perkaitus reikia kreiptis į klientų aptarnavimo centrą, nes kyla pavojus sukelti gaisrą ar susižeisti."</string>
     <string name="incompatible_charger_title">Nekrauna.</string>
@@ -1656,8 +1666,6 @@ Jei nenorite, kad ateityje būtų rodomas šis iškylantis pranešimas, patikrin
     <string name="kg_biometrics_swipe_active_instructions">Atidarant naudoti biometrinius duomenis ar braukti per ekraną</string>
     <string name="kg_face_or_swipe_unlock_instructions">Atrakinant naudoti veido atpažinimą arba braukti per ekraną</string>
     <string name="kg_face_or_swipe_active_instructions">Atidarant naudoti veido atpažinimą arba braukti per ekraną</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Atrakinant naudoti veido atpažinimą arba braukti per ekraną ir vietoje jo naudoti raineles</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Atidarant naudoti veido atpažinimą arba braukti per ekraną ir vietoje jo naudoti raineles</string>
     <string name="kg_face_unlock_instructions">Braukite per ekraną ir atrakinkite naudodami veido atpažinimą</string>
     <string name="kg_face_or_fingerprint_active_instructions">Norėdami atidaryti, naudokite pirštų atspaudus arba braukite per ekraną, jei norite naudotis veido atpažinimo funkcija</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Norėdami atrakinti, naudokite pirštų atspaudus arba braukite per ekraną, jei norite naudotis veido atpažinimo funkcija</string>
@@ -1672,6 +1680,20 @@ Jei nenorite, kad ateityje būtų rodomas šis iškylantis pranešimas, patikrin
     <string name="kg_voice_assistant_unlock_instructions">Norėdami atrakinti ekraną braukite dviem pirštais.</string>
     <string name="kg_swipe_active_instructions">Jei norite atidaryti, braukite per ekraną</string>
     <string name="kg_swipe_unlock_instructions">Perbraukite per ekraną ir atrakinkite</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Atrakinant naudoti biometrinius duomenis arba braukti per ekraną dviem pirštais.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Atidarant naudoti biometrinius duomenis arba braukti per ekraną dviem pirštais.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Atrakinant naudoti veido atpažinimą arba braukti per ekraną dviem pirštais.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Atidarant naudoti veido atpažinimą arba braukti per ekraną dviem pirštais.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Braukite per ekraną dviem pirštais ir atrakinkite jį veido atpažinimu.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Atidarant naudoti piršto atspaudą arba braukti per ekraną dviem pirštais, jei norite naudoti veido atpažinimą.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Atrakinant naudoti piršto atspaudą arba braukti per ekraną dviem pirštais, jei norite naudoti veido atpažinimą.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Atidarant naudoti piršto atspaudą arba braukti per ekraną dviem pirštais, jei norite naudoti raineles.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Atrakinant naudoti piršto atspaudą arba braukti per ekraną dviem pirštais, jei norite naudoti raineles.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Atidarant naudoti piršto atspaudą arba braukti per ekraną dviem pirštais.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Atrakinant naudoti piršto atspaudą arba braukti per ekraną dviem pirštais.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Braukite per ekraną dviem pirštais ir atrakinkite jį naudodami raineles.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Atrakinant naudoti raineles arba braukti per ekraną dviem pirštais.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Atidarant naudoti raineles arba braukti per ekraną dviem pirštais.</string>
     <string name="kg_power_connect_charger">Prijunkite kroviklį</string>
     <string name="kg_power_fully_charged">Visiškai įkrauta</string>
     <string name="kg_power_fast_charging">Spartus įkrovimas: %d%%</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Siųsti</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Dukart bakstelėkite mygtuką „Užrakinti“ ir atrakinkite telefoną</string>
     <string name="s_view_cover_toast_pop_up_message">Norėdami naudoti sparčiųjų nustatymų mygtukus atidarykite dangtelį.</string>
     <string name="remote_input_toast_text_on_sview_cover">Neįmanoma naudoti Greito atsakymo funkcijos, jei „S View“ viršelis uždarytas.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Turite atsisiųsti programėlę, kad galėtumėte kontroliuoti energijos, kuria dalinatės, kiekį. Jei prijungiate savo įrenginį prie kito įrenginio naudodami Samsung Power Sharing laidą EP-SG900 neturėdami programėlės, tuomet visas baterijos energijos kiekis bus perduotas kitam įrenginiui.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Sutinku</string>
-    <string name="force_immersive_guide_text">Bakstelėjus šią piktogramą paslepiama naršymo juosta. Naršymo mygtukais vis tiek galite pasinaudoti braukdami aukštyn nuo ekrano apačios. Kol naršymo juosta rodoma, galite bakstelėti šią piktogramą dar kartą ir ją užfiksuoti. Kai kuriuose ekranuose, pvz., Pradžios ekrane, naršymo juosta rodoma visada.</string>
+    <string name="force_immersive_guide_text">Bakstelėjus šį mygtuką paslepiama naršymo juosta. Naršymo mygtukais vis tiek galite pasinaudoti braukdami aukštyn nuo ekrano apačios. Kol naršymo juosta rodoma, galite bakstelėti šį mygtuką dar kartą ir ją užfiksuoti. Kai kuriuose ekranuose, pvz., Pradžios ekrane, naršymo juosta rodoma visada. Jei paslėpus naršymo juostą programa veikia netinkamai, užfiksuokite naršymo juostą ir paleiskite programą iš naujo.</string>
+    <string name="force_immersive_guide_dialog_title">Slėpti naršymo juostą:</string>
+    <string name="force_immersive_guide_dialog_message1">Bakstelėjus šį mygtuką paslepiama naršymo juosta.</string>
+    <string name="force_immersive_guide_dialog_message2">Braukite aukštyn nuo ekrano apačios, kad būtų parodyta naršymo juosta.</string>
+    <string name="force_immersive_guide_dialog_message3">Bakstelėkite šį mygtuką dar kartą ir užfiksuokite jį vietoje.</string>
+    <string name="force_immersive_guide_dialog_message4">Kai kuriuose ekranuose, pvz., Pradžios ekrane, naršymo juosta rodoma visada.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Jei norite paslėpti šį mygtuką, eikite į Nustatymai > Ekranas > Naršymo juosta.</string>
+    <string name="force_immersive_guide_dialog_setting">Nustatymai</string>
+    <string name="force_immersive_guide_dialog_ok">Gerai</string>
     <string name="car_lockscreen_disclaimer_title">Vairuokite saugiai</string>
     <string name="car_lockscreen_disclaimer_text">Visada atsižvelkite į vairavimo sąlygas ir laikykitės galiojančių įstatymų. Nuorodos gali būti netikslios, neužbaigtos, pavojingos, netinkamos, draudžiamos ar nukreipiančios per administracines sritis. Įmonių informacija taip pat gali būti netiksli ar neužbaigta. Duomenys nėra teikiami realiuoju laiku ir vietovių tikslumo negalima garantuoti. Vairuodami nenaudokite mobiliojo įrenginio ar programų, kurios nėra skirtos „Android Auto“.</string>
     <string name="pip_close">Uždaryti PIP</string>
@@ -2230,6 +2261,8 @@ Jei nežinote PUK, kreipkitės į klientų aptarnavimo centrą."</string>
     <string name="kg_face_retry_content_description">Bakstelėkite dukart ir naudokite veido atpažinimą.</string>
     <string name="kg_face_authentication_error_retry_text">Veidas neaptiktas. Bakstelėkite piktogramą ir išbandykite veido atpažinimą dar kartą</string>
     <string name="kg_face_authentication_failed_retry_text">Atitikmenų nėra. Bakstelėkite piktogramą ir naudokite veido atpažinimą</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Atpažįstant veidą kilo problema. Bakstelėkite ir bandykite dar kartą</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Vaizdo skambučių metu negalima naudoti veido atpažinimo</string>
     <string name="kg_fingerprint_no_match">Atitikmenų nėra</string>
     <string name="kg_finger_print_not_responding_error_message">Pirštų atspaudų jutiklis neveikia. Bandykite dar kartą vėliau.</string>
     <string name="kg_finger_print_database_error_message">Pirštų atspaudų duomenys sugadinti. Nustatykite iš naujo pirštų atspaudus kaip ekrano užrakto tipą, tada vėl pridėkite savo pirštų atspaudus.</string>
@@ -2366,6 +2399,8 @@ Bandykite dar kartą po 1 sek."</string>
     <string name="appicon_badge_new_item">1 naujas elementas</string>
     <string name="banner_apps_for_dex_detail">Mėgaukitės „DeX“ pritaikytomis programomis iš „Galaxy Apps“.</string>
     <string name="toast_cannot_move_more_than_items">Negalima perkelti daugiau nei %d elementų.</string>
+    <string name="view_more_in_galaxy_apps">Žiūrėti daugiau „Galaxy Apps“</string>
+    <string name="view_more_in_play_store">Žiūrėti daugiau „Play Store“</string>
     <string name="uninstall_title">Šalinti programas?</string>
     <string name="uninstall_1_app_message">Ar norite išdiegti šią programą?</string>
     <string name="uninstall_apps_message">Toliau pateikiamos programos bus pašalintos:</string>
@@ -2411,6 +2446,13 @@ Bandykite dar kartą po 1 sek."</string>
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Pranešimas</string>
     <string name="quick_settings_location_detail_device_only">Tik įrenginys</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Krovimas pristabdytas. Per aukšta akumuliatoriaus temperatūra.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Krovimas pristabdytas. Per žema akumuliatoriaus temperatūra.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Įrenginys sustabdė krovimą. Akumuliatoriaus temperatūra per didelė. Būkite atsargūs atjungdami kroviklį. Jis gali būti karštas.
+
+Atjungus ir vėl prijungus kroviklį, toliau galima krauti įprastai. Perkaitus reikia kreiptis į klientų aptarnavimo centrą, nes kyla pavojus sukelti gaisrą ar susižeisti."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Atrakinant naudoti veido atpažinimą arba braukti per ekraną ir vietoje jo naudoti raineles</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Atidarant naudoti veido atpažinimą arba braukti per ekraną ir vietoje jo naudoti raineles</string>
     <string name="kg_infinity_wallpaper_option_description">Beribis ekrano fonas tuo pat metu bus pritaikytas jūsų pradžios ir užrakinimo ekranuose. Geriausių rezultatų pasieksite įjungę toliau nurodytą nustatymą.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Įjungti „Always On Display“</string>
 </resources>

@@ -131,7 +131,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mNumberPain:Landroid/graphics/Paint;
 
-    const v1, 0x7f0207ec
+    const v1, 0x7f0207fc
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -217,7 +217,7 @@
 
     aput-object v3, v7, v8
 
-    const v8, 0x7f0f0611
+    const v8, 0x7f0f066f
 
     invoke-virtual {p0, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -309,7 +309,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d01fd
+    const v5, 0x7f0d01fe
 
     const/4 v6, 0x1
 
@@ -481,13 +481,13 @@
 
     move-result-object v2
 
-    const v4, 0x7f0d040b
+    const v4, 0x7f0d040c
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v4, 0x7f0d0208
+    const v4, 0x7f0d0209
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1196,7 +1196,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0201ca
+    const v6, 0x7f0201ce
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

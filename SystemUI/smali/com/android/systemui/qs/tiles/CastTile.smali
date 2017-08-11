@@ -157,7 +157,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03b4
+    const v1, 0x7f0f0411
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -181,7 +181,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f034b
+    const v1, 0x7f0f03a8
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -228,7 +228,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03b2
+    const v1, 0x7f0f040f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -292,7 +292,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/qs/tiles/CastTile;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f03b2
+    const v5, 0x7f0f040f
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -372,7 +372,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0f02e0
+    const v7, 0x7f0f033d
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -408,7 +408,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/qs/tiles/CastTile;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f03bf
+    const v5, 0x7f0f041c
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -421,7 +421,7 @@
 
     if-eqz v4, :cond_4
 
-    const v4, 0x7f0201eb
+    const v4, 0x7f0201ef
 
     :goto_1
     invoke-static {v4}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
@@ -462,7 +462,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/CastTile;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0f061b
+    const v6, 0x7f0f0679
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -481,7 +481,7 @@
     return-void
 
     :cond_4
-    const v4, 0x7f0201ea
+    const v4, 0x7f0201ee
 
     goto :goto_1
 .end method

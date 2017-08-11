@@ -610,7 +610,7 @@
 
     aput-object v10, v9, v11
 
-    const v10, 0x7f0f0556
+    const v10, 0x7f0f05b3
 
     invoke-virtual {v8, v10, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -941,7 +941,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/QSDetail;->mContext:Landroid/content/Context;
 
-    const v3, 0x10409fe
+    const v3, 0x1040a07
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -965,13 +965,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSDetail;->mDetailDoneButton:Landroid/widget/TextView;
 
-    const v1, 0x7f0f03bd
+    const v1, 0x7f0f041a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSDetail;->mDetailSettingsButton:Landroid/widget/TextView;
 
-    const v1, 0x7f0f03bc
+    const v1, 0x7f0f0419
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1011,7 +1011,7 @@
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 6
 
-    const v5, 0x7f0d025c
+    const v5, 0x7f0d025d
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
@@ -1025,7 +1025,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/qs/QSDetail;->mQsDetailHeaderTitle:Landroid/widget/TextView;
 
-    const v5, 0x7f0d025b
+    const v5, 0x7f0d025c
 
     invoke-static {v4, v5}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 
@@ -1091,7 +1091,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0259
+    const v5, 0x7f0d025a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1118,7 +1118,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0257
+    const v5, 0x7f0d0258
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1136,7 +1136,7 @@
 
     invoke-virtual {v4, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v4, 0x7f130381
+    const v4, 0x7f13038d
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/QSDetail;->findViewById(I)Landroid/view/View;
 
@@ -1146,7 +1146,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0258
+    const v5, 0x7f0d0259
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1199,7 +1199,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSDetail;->mDetailDoneButton:Landroid/widget/TextView;
 
-    const v0, 0x7f130380
+    const v0, 0x7f13038c
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSDetail;->findViewById(I)Landroid/view/View;
 
@@ -1231,7 +1231,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSDetail;->mQsDetailHeaderSwitch:Landroid/widget/Switch;
 
-    const v0, 0x7f13044f
+    const v0, 0x7f13045b
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSDetail;->findViewById(I)Landroid/view/View;
 
@@ -1323,9 +1323,9 @@
 .method public updateShowButtonBackground()V
     .locals 6
 
-    const v2, 0x7f0205ca
+    const v2, 0x7f0205d2
 
-    const v3, 0x7f0205c8
+    const v3, 0x7f0205d0
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSDetail;->mContext:Landroid/content/Context;
 

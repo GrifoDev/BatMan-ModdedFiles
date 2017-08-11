@@ -81,7 +81,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040149
+    const v1, 0x7f04014d
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -226,7 +226,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f130408
+    const v0, 0x7f130414
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/desktop/views/RecentsDesktopView;->findViewById(I)Landroid/view/View;
 
@@ -234,7 +234,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsDesktopView;->mDismissPlaceholder:Landroid/view/View;
 
-    const v0, 0x7f130406
+    const v0, 0x7f130412
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/desktop/views/RecentsDesktopView;->findViewById(I)Landroid/view/View;
 

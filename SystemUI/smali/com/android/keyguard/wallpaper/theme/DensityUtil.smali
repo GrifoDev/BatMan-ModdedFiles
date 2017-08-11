@@ -3,6 +3,12 @@
 .source "DensityUtil.java"
 
 
+# static fields
+.field private static sMetricsHeight:I
+
+.field private static sMetricsWidth:I
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 0
@@ -37,129 +43,139 @@
 .end method
 
 .method public static getScreenHeight(Landroid/content/Context;)I
-    .locals 4
+    .locals 1
+
+    sget v0, Lcom/android/keyguard/wallpaper/theme/DensityUtil;->sMetricsHeight:I
+
+    return v0
+.end method
+
+.method public static getScreenWidth(Landroid/content/Context;)I
+    .locals 1
+
+    sget v0, Lcom/android/keyguard/wallpaper/theme/DensityUtil;->sMetricsWidth:I
+
+    return v0
+.end method
+
+.method public static setRealMetrics(Landroid/content/Context;III)V
+    .locals 5
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget v1, v2, Landroid/util/DisplayMetrics;->density:F
+    iget v1, v3, Landroid/util/DisplayMetrics;->density:F
+
+    const/4 v3, 0x1
+
+    if-ne p1, v3, :cond_1
+
+    const/4 v2, 0x0
 
     const/4 v0, 0x0
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget v2, v2, Landroid/content/res/Configuration;->orientation:I
+    iget v3, v3, Landroid/content/res/Configuration;->orientation:I
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    if-ne v2, v3, :cond_0
+    if-ne v3, v4, :cond_0
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget v2, v2, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget v3, v3, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    int-to-float v0, v2
+    int-to-float v2, v3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v3
+
+    iget v3, v3, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    int-to-float v0, v3
 
     :goto_0
-    div-float v2, v0, v1
+    div-float v3, v2, v1
 
-    float-to-int v2, v2
+    float-to-int v3, v3
 
-    return v2
+    sput v3, Lcom/android/keyguard/wallpaper/theme/DensityUtil;->sMetricsWidth:I
+
+    div-float v3, v0, v1
+
+    float-to-int v3, v3
+
+    sput v3, Lcom/android/keyguard/wallpaper/theme/DensityUtil;->sMetricsHeight:I
+
+    :goto_1
+    return-void
 
     :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget v2, v2, Landroid/util/DisplayMetrics;->heightPixels:I
+    iget v3, v3, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    int-to-float v0, v2
+    int-to-float v2, v3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v3
+
+    iget v3, v3, Landroid/util/DisplayMetrics;->heightPixels:I
+
+    int-to-float v0, v3
 
     goto :goto_0
-.end method
 
-.method public static getScreenWidth(Landroid/content/Context;)I
-    .locals 4
+    :cond_1
+    int-to-float v3, p2
 
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    div-float/2addr v3, v1
 
-    move-result-object v2
+    float-to-int v3, v3
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    sput v3, Lcom/android/keyguard/wallpaper/theme/DensityUtil;->sMetricsWidth:I
 
-    move-result-object v2
+    int-to-float v3, p3
 
-    iget v0, v2, Landroid/util/DisplayMetrics;->density:F
+    div-float/2addr v3, v1
 
-    const/4 v1, 0x0
+    float-to-int v3, v3
 
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    sput v3, Lcom/android/keyguard/wallpaper/theme/DensityUtil;->sMetricsHeight:I
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v2
-
-    iget v2, v2, Landroid/content/res/Configuration;->orientation:I
-
-    const/4 v3, 0x2
-
-    if-ne v2, v3, :cond_0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v2
-
-    iget v2, v2, Landroid/util/DisplayMetrics;->heightPixels:I
-
-    int-to-float v1, v2
-
-    :goto_0
-    div-float v2, v1, v0
-
-    float-to-int v2, v2
-
-    return v2
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v2
-
-    iget v2, v2, Landroid/util/DisplayMetrics;->widthPixels:I
-
-    int-to-float v1, v2
-
-    goto :goto_0
+    goto :goto_1
 .end method

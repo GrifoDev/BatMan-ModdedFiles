@@ -45,6 +45,8 @@
     .end annotation
 .end field
 
+.field private mAwaitingInitializeAlgorithm:Z
+
 .field private mAwaitingPrepareAnimation:I
 
 .field private mBlockRelayoutTaskViews:Z
@@ -451,6 +453,8 @@
 
     iput-boolean v4, p0, Lcom/android/systemui/recents/views/TaskStackView;->mBlockRelayoutTaskViews:Z
 
+    iput-boolean v4, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingInitializeAlgorithm:Z
+
     new-instance v3, Lcom/android/systemui/recents/views/TaskStackView$1;
 
     invoke-direct {v3, p0}, Lcom/android/systemui/recents/views/TaskStackView$1;-><init>(Lcom/android/systemui/recents/views/TaskStackView;)V
@@ -531,7 +535,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0d037f
+    const v3, 0x7f0d0380
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -588,7 +592,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020485
+    const v4, 0x7f02048d
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -614,7 +618,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b00cb
+    const v5, 0x7f0b00cc
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 
@@ -626,7 +630,7 @@
     return-void
 
     :cond_1
-    const v3, 0x7f0d037d
+    const v3, 0x7f0d037e
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1562,11 +1566,11 @@
 .end method
 
 .method private syncTaskLockState(Lcom/android/systemui/recents/model/Task;)V
-    .locals 7
+    .locals 8
 
-    sget-boolean v6, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTaskLock:Z
+    sget-boolean v7, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTaskLock:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v7, :cond_0
 
     if-nez p1, :cond_1
 
@@ -1574,72 +1578,72 @@
     return-void
 
     :cond_1
-    iget-object v6, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+    iget-object v7, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
 
-    iget-object v6, v6, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+    iget-object v7, v7, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
 
-    if-eqz v6, :cond_0
+    if-eqz v7, :cond_0
 
-    iget-object v6, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+    iget-object v7, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
 
-    iget-object v6, v6, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+    iget-object v7, v7, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
 
-    invoke-virtual {v6}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual {v7}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v0
 
     invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskStackView;->getTaskViews()Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v5}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v4
 
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v3, :cond_3
+    if-ge v1, v4, :cond_3
 
-    invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v5, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Lcom/android/systemui/recents/views/TaskView;
+    check-cast v6, Lcom/android/systemui/recents/views/TaskView;
 
-    invoke-virtual {v5}, Lcom/android/systemui/recents/views/TaskView;->getTask()Lcom/android/systemui/recents/model/Task;
+    invoke-virtual {v6}, Lcom/android/systemui/recents/views/TaskView;->getTask()Lcom/android/systemui/recents/model/Task;
 
     move-result-object v2
 
-    iget-object v6, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+    iget-object v7, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
 
-    iget-object v6, v6, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+    iget-object v7, v7, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
 
-    if-eqz v6, :cond_2
+    if-eqz v7, :cond_2
 
-    iget-object v6, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+    iget-object v7, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
 
-    iget-object v6, v6, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+    iget-object v7, v7, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
 
-    invoke-virtual {v6}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual {v7}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v0, v6}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v7}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_2
+    if-eqz v7, :cond_2
 
-    iget-boolean v6, p1, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
+    iget-boolean v7, p1, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
 
-    iput-boolean v6, v2, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
+    iput-boolean v7, v2, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
 
-    invoke-virtual {v5}, Lcom/android/systemui/recents/views/TaskView;->getHeaderView()Lcom/android/systemui/recents/views/TaskViewHeader;
+    invoke-virtual {v6}, Lcom/android/systemui/recents/views/TaskView;->getHeaderView()Lcom/android/systemui/recents/views/TaskViewHeader;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Lcom/android/systemui/recents/views/TaskViewHeader;->setNoUserInteractionLockState()V
+    invoke-virtual {v7}, Lcom/android/systemui/recents/views/TaskViewHeader;->setNoUserInteractionLockState()V
 
     :cond_2
     add-int/lit8 v1, v1, 0x1
@@ -1647,6 +1651,59 @@
     goto :goto_0
 
     :cond_3
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskStackView;->getStack()Lcom/android/systemui/recents/model/TaskStack;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/android/systemui/recents/model/TaskStack;->getStackTasks()Ljava/util/ArrayList;
+
+    move-result-object v7
+
+    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_4
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/recents/model/Task;
+
+    iget-object v7, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget-object v7, v7, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+
+    if-eqz v7, :cond_4
+
+    iget-object v7, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget-object v7, v7, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+
+    invoke-virtual {v7}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v7
+
+    invoke-virtual {v0, v7}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    iget-boolean v7, p1, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
+
+    iput-boolean v7, v2, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
+
+    goto :goto_1
+
+    :cond_5
     return-void
 .end method
 
@@ -2480,7 +2537,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040151
+    const v1, 0x7f040155
 
     const/4 v2, 0x0
 
@@ -3508,6 +3565,16 @@
     invoke-direct {v1, v0, v2}, Lcom/android/systemui/recents/views/AnimationProps;-><init>(ILandroid/view/animation/Interpolator;)V
 
     invoke-direct {p0, v4, v1}, Lcom/android/systemui/recents/views/TaskStackView;->animateFreeformWorkspaceBackgroundAlpha(ILcom/android/systemui/recents/views/AnimationProps;)V
+
+    return-void
+.end method
+
+.method public final onBusEvent(Lcom/android/systemui/recents/events/activity/DockedTopTaskFailedEvent;)V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingInitializeAlgorithm:Z
 
     return-void
 .end method
@@ -4577,7 +4644,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0f0314
+    const v2, 0x7f0f0371
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -5974,6 +6041,21 @@
     invoke-virtual {v0, v11, v11, v10, v6}, Landroid/graphics/Rect;->set(IIII)V
 
     :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingFirstLayout:Z
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingInitializeAlgorithm:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mLayoutAlgorithm:Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->resetInitializeInterpolator()V
+
+    iput-boolean v11, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingInitializeAlgorithm:Z
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mStableLayoutAlgorithm:Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskStackView;->mDisplayRect:Landroid/graphics/Rect;
@@ -6010,47 +6092,47 @@
 
     iget v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mLastWidth:I
 
-    if-ne v10, v0, :cond_1
+    if-ne v10, v0, :cond_2
 
     iget v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mLastHeight:I
 
-    if-eq v6, v0, :cond_6
+    if-eq v6, v0, :cond_7
 
-    :cond_1
+    :cond_2
     iget-boolean v8, p0, Lcom/android/systemui/recents/views/TaskStackView;->mResetToInitialStateWhenResized:Z
 
     :goto_0
     iget-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingFirstLayout:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     iget v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mInitialState:I
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    :cond_2
+    :cond_3
     :goto_1
     iget v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mInitialState:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_4
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_5
 
-    :cond_3
+    :cond_4
     invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskStackView;->updateToInitialState()V
 
     iput-boolean v11, p0, Lcom/android/systemui/recents/views/TaskStackView;->mResetToInitialStateWhenResized:Z
 
-    :cond_4
+    :cond_5
     iget-boolean v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mAwaitingFirstLayout:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_6
 
     iput v11, p0, Lcom/android/systemui/recents/views/TaskStackView;->mInitialState:I
 
-    :cond_5
+    :cond_6
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mStackScroller:Lcom/android/systemui/recents/views/TaskStackViewScroller;
 
     invoke-virtual {v0}, Lcom/android/systemui/recents/views/TaskStackViewScroller;->getStackScroll()F
@@ -6090,7 +6172,7 @@
     const/4 v7, 0x0
 
     :goto_2
-    if-ge v7, v9, :cond_8
+    if-ge v7, v9, :cond_9
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mTmpTaskViews:Ljava/util/List;
 
@@ -6106,17 +6188,17 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_7
     const/4 v8, 0x0
 
     goto :goto_0
 
-    :cond_7
-    if-eqz v8, :cond_5
+    :cond_8
+    if-eqz v8, :cond_6
 
     goto :goto_1
 
-    :cond_8
+    :cond_9
     invoke-virtual {p0, v10, v6}, Lcom/android/systemui/recents/views/TaskStackView;->setMeasuredDimension(II)V
 
     iput v10, p0, Lcom/android/systemui/recents/views/TaskStackView;->mLastWidth:I
@@ -6796,7 +6878,7 @@
 
     if-eqz p5, :cond_9
 
-    const v4, 0x7f0f04a1
+    const v4, 0x7f0f04fe
 
     :goto_0
     if-eqz p6, :cond_7
@@ -6813,7 +6895,7 @@
     return-void
 
     :cond_9
-    const v4, 0x7f0f04a2
+    const v4, 0x7f0f04ff
 
     goto :goto_0
 
@@ -6880,7 +6962,7 @@
 
     new-instance v3, Lcom/android/systemui/recents/events/ui/AllTaskViewsDismissedEvent;
 
-    const v4, 0x7f0f04a2
+    const v4, 0x7f0f04ff
 
     const/4 v5, 0x1
 

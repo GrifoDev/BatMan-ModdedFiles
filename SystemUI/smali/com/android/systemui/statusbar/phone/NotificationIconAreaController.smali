@@ -30,6 +30,8 @@
 
 .field private mStatusBarCarrierLabel:Landroid/widget/TextView;
 
+.field private mStatusBarCarrierLabelTextSize:I
+
 .field private final mTintArea:Landroid/graphics/Rect;
 
 
@@ -48,6 +50,10 @@
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mTintArea:Landroid/graphics/Rect;
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mStatusBarCarrierLabelTextSize:I
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
@@ -297,7 +303,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d040b
+    const v2, 0x7f0d040c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -343,7 +349,7 @@
 .method protected inflateIconArea(Landroid/view/LayoutInflater;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f0400ec
+    const v0, 0x7f0400f0
 
     const/4 v1, 0x0
 
@@ -371,7 +377,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconArea:Landroid/view/View;
 
-    const v2, 0x7f130172
+    const v2, 0x7f130176
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -383,7 +389,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconArea:Landroid/view/View;
 
-    const v2, 0x7f130173
+    const v2, 0x7f130177
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -418,7 +424,7 @@
 .end method
 
 .method public onDensityOrFontScaleChanged(Landroid/content/Context;)V
-    .locals 6
+    .locals 7
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->reloadDimens(Landroid/content/Context;)V
 
@@ -466,6 +472,25 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->applyNotificationIconsTint()V
 
+    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_INDICATOR_PLMN:Z
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mStatusBarCarrierLabel:Landroid/widget/TextView;
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mStatusBarCarrierLabel:Landroid/widget/TextView;
+
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mStatusBarCarrierLabelTextSize:I
+
+    int-to-float v5, v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v6, v5}, Landroid/widget/TextView;->setTextSize(IF)V
+
+    :cond_1
     return-void
 .end method
 
@@ -484,7 +509,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconSize:I
 
-    const v1, 0x7f0d020a
+    const v1, 0x7f0d020b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -492,6 +517,23 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconHPadding:I
 
+    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_INDICATOR_PLMN:Z
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mStatusBarCarrierLabel:Landroid/widget/TextView;
+
+    if-eqz v1, :cond_0
+
+    const v1, 0x7f0d045e
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mStatusBarCarrierLabelTextSize:I
+
+    :cond_0
     return-void
 .end method
 

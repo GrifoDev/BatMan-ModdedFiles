@@ -47,7 +47,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f031b
+    const v1, 0x7f0f0378
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -108,9 +108,17 @@
 
     move-result v3
 
+    sub-float/2addr v2, v3
+
+    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
+
+    move-result v2
+
+    const v3, 0x38d1b717    # 1.0E-4f
+
     cmpl-float v2, v2, v3
 
-    if-eqz v2, :cond_4
+    if-lez v2, :cond_4
 
     if-eqz v1, :cond_4
 

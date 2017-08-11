@@ -110,7 +110,7 @@
 
     move-result v3
 
-    const v4, 0x7f13033d
+    const v4, 0x7f130345
 
     if-ne v3, v4, :cond_0
 
@@ -754,7 +754,7 @@
 .method protected onFinishInflate()V
     .locals 11
 
-    const v8, 0x7f13033d
+    const v8, 0x7f130345
 
     const/16 v10, 0x8
 
@@ -798,7 +798,7 @@
     :goto_0
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->mButtons:Landroid/util/ArrayMap;
 
-    const v8, 0x7f13033e
+    const v8, 0x7f130346
 
     invoke-virtual {p0, v8}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -816,7 +816,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->mButtons:Landroid/util/ArrayMap;
 
-    const v8, 0x7f13033f
+    const v8, 0x7f130347
 
     invoke-virtual {p0, v8}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -827,7 +827,7 @@
     :goto_1
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->mButtons:Landroid/util/ArrayMap;
 
-    const v8, 0x7f130340
+    const v8, 0x7f130348
 
     invoke-virtual {p0, v8}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -835,7 +835,7 @@
 
     invoke-virtual {v6, v8, v9}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const v6, 0x7f13033c
+    const v6, 0x7f130344
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -843,7 +843,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->mButtonsWrapper:Landroid/view/View;
 
-    const v6, 0x7f13033b
+    const v6, 0x7f130343
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -918,7 +918,7 @@
 
     move-result v6
 
-    const v8, 0x7f130340
+    const v8, 0x7f130348
 
     if-eq v6, v8, :cond_1
 
@@ -989,7 +989,7 @@
     goto/16 :goto_0
 
     :cond_3
-    const v6, 0x7f13033f
+    const v6, 0x7f130347
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
@@ -1035,7 +1035,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f13033d
+    .packed-switch 0x7f130345
         :pswitch_0
         :pswitch_1
         :pswitch_2

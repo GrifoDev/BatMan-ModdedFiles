@@ -29,7 +29,7 @@
 .method protected onFinishInflate()V
     .locals 1
 
-    const v0, 0x7f130170
+    const v0, 0x7f130174
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationHeaderView;->findViewById(I)Landroid/view/View;
 

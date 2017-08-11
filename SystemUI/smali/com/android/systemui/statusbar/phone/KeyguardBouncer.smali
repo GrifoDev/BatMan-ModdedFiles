@@ -309,11 +309,11 @@
 .end method
 
 .method protected inflateView()V
-    .locals 5
+    .locals 4
 
-    const v4, 0x7f04007d
+    const v3, 0x7f04007f
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->removeView()V
 
@@ -323,9 +323,9 @@
 
     move-result-object v0
 
-    const v1, 0x7f04006c
+    const v1, 0x7f04006e
 
-    invoke-virtual {v0, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
@@ -339,13 +339,7 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v1
-
-    const/16 v2, 0x10
-
-    invoke-virtual {v0, v2, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isBiometricLockEnabled(II)Z
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isIrisOptionEnabled()Z
 
     move-result v0
 
@@ -357,7 +351,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v4, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v0, v3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
@@ -368,7 +362,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
 
-    const v1, 0x7f130240
+    const v1, 0x7f130248
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -467,7 +461,7 @@
 
     if-eqz v0, :cond_2
 
-    iput-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIrisPreview:Landroid/view/ViewGroup;
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIrisPreview:Landroid/view/ViewGroup;
 
     goto :goto_0
 
@@ -478,7 +472,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v4, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v0, v3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 

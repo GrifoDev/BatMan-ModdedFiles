@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Άγνωστο</string>
     <string name="save">Αποθήκευση</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dω %2$dλ</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d ωρ %2$d λεπ</string>
+    <string name="battery_history_minutes_no_seconds">%d λεπτό</string>
     <string name="wifi_fail_to_scan">Δεν είναι δυνατή η σάρωση για δίκτυα</string>
     <string name="wifi_failed_to_obtain_IP">Αποτυχία λήψης διεύθυνσης IP.</string>
     <string name="wifi_security_none">Καμία</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Δεν είναι δυνατή η σύνδεση στη συσκευή %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Αδυναμία σύνδεσης στο %1$s. Ελέγξτε τις ρυθμίσεις σας στο %2$s και δοκιμάστε ξανά.</string>
     <string name="bluetooth_pairing_rejected_error_message">Απόρριψη δημιουργίας ζεύγους από %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Λήψη ονόματος συσκευής…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Το όνομα της συσκευής θα εμφανιστεί όταν η συσκευή συνδεθεί.</string>
     <string name="accessibility_wifi_off">Wi-Fi ανενεργό.</string>
     <string name="accessibility_no_wifi">Το Wi-Fi έχει αποσυνδεθεί.</string>
     <string name="accessibility_wifi_one_bar">Μία γραμμή Wi-Fi.</string>
@@ -1364,6 +1366,7 @@ Turn on Airplane mode?"</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Αριθμητικό πληκτρολόγιο %1$s</string>
+    <string name="keyboard_popup_help">Πλήκτρο μεταδεδομένων: Το πλήκτρο Windows, Command ή άλλου συμβόλου του λειτουργικού συστήματος.</string>
     <string name="keyboard_shortcut_group_system">Συντομεύσεις συστήματος</string>
     <string name="keyboard_shortcut_group_system_home">Αρχική οθόνη</string>
     <string name="keyboard_shortcut_group_system_recents">Πρόσφατα</string>
@@ -1525,8 +1528,8 @@ Turn on Airplane mode?"</string>
 
 Για να αποφύγετε ζημιές από νερό, βεβαιωθείτε ότι η θήκη της κάρτας SIM/SD είναι καλά κλεισμένη."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Για να αποφύγετε ζημιές από νερό, βεβαιωθείτε ότι η θήκη της κάρτας SIM/SD είναι καλά κλεισμένη.</string>
-    <string name="water_protection_notification_title">Ελέγξτε τη θύρα</string>
-    <string name="water_protection_notification_body">Εντοπίστηκε υγρασία. Για να φορτίσετε τη συσκευή σας, βεβαιωθείτε ότι η θύρα φορτιστή/USB είναι στεγνή.</string>
+    <string name="water_protection_notification_title">Αποσύνδεση φορτιστή</string>
+    <string name="water_protection_notification_body">Εντοπίστηκε υγρασία. Αποσυνδέστε το φορτιστή και βεβαιωθείτε ότι η θύρα του φορτιστή και η θύρα USB είναι στεγνές.</string>
     <string name="full_battery_title">Πληροφορίες</string>
     <string name="full_battery_noti_text">Μπαταρία πλήρως φορτισμένη.</string>
     <string name="cooling_title">Υπερθέρμανση συσκευής</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">Αργή φόρτιση</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Για ταχύτερη φόρτιση, χρησιμοποιήστε το φορτιστή που συνόδευε τη συσκευή σας και βεβαιωθείτε ότι τον έχετε συνδέσει σωστά.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Βεβαιωθείτε ότι έχετε συνδέσει σωστά το φορτιστή. Χρησιμοποιήστε το φορτιστή που συνόδευε τη συσκευή.</string>
     <string name="battery_charging_level_and_time_text">"Γίνεται φόρτιση: %1$d%%
 (Περίπου %2$s μέχρι την πλήρη φόρτιση)"</string>
@@ -1633,14 +1637,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">Φορτίστε το τηλ. σας.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Φορτ. το tablet σας.</string>
     <string name="button_close">Κλείσιμο</string>
-    <string name="battery_health_interruption_title">Δεν είναι δυνατή η φόρτιση</string>
+    <string name="battery_health_interruption_title">Η φόρτιση διακόπηκε</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Αποσύνδεση φορτιστή</string>
     <string name="battery_health_interruption_by_terminal_open_text">Αδύνατη η φόρτιση της συσκευής σας. Βεβαιωθείτε ότι χρησιμοποιείτε μπαταρία και φορτιστή που είναι συμβατά με συσκευές Samsung και ότι η συσκευή σας είναι συνδεδεμένη σωστά με το φορτιστή.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Η φόρτιση διακόπηκε. Η θερμοκρασία της μπαταρίας είναι πολύ υψηλή.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Η φόρτιση διακόπηκε. Η θερμοκρασία της μπαταρίας είναι πολύ χαμηλή.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Η φόρτιση της συσκευής διακόπηκε. Η θερμοκρασία της μπαταρίας είναι πολύ υψηλή. Να είστε προσεκτικοί κατά την αποσύνδεση του φορτιστή. Μπορεί να είναι πολύ ζεστός.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Η θερμοκρασία του τηλεφώνου σας είναι υπερβολικά υψηλή. Η φόρτιση θα συνεχιστεί όταν η θερμοκρασία επιστρέψει σε κανονικά επίπεδα.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Η θερμοκρασία του tablet σας είναι υπερβολικά υψηλή. Η φόρτιση θα συνεχιστεί όταν η θερμοκρασία επιστρέψει σε κανονικά επίπεδα.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Η θερμοκρασία του τηλεφώνου σας είναι υπερβολικά χαμηλή. Η φόρτιση θα συνεχιστεί όταν η θερμοκρασία επιστρέψει σε κανονικά επίπεδα.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Η θερμοκρασία του tablet σας είναι υπερβολικά χαμηλή. Η φόρτιση θα συνεχιστεί όταν η θερμοκρασία επιστρέψει σε κανονικά επίπεδα.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Η φόρτιση διακόπηκε. Η θερμοκρασία του τηλεφώνου είναι πολύ υψηλή. Να είστε προσεκτικοί κατά την αποσύνδεση του φορτιστή. Μπορεί να είναι πολύ ζεστός.
 
-Η αποσύνδεση και επανασύνδεση του φορτιστή μπορεί να επιτρέψει τη συνέχιση τη φόρτισης. Αν η υπερθέρμανση εξακολουθεί να εμφανίζεται, επικοινωνήστε με τις υπηρεσίες εξυπηρέτησης πελατών, καθώς υπάρχει κίνδυνος πυρκαγιάς ή τραυματισμού."</string>
+Η αποσύνδεση και επανασύνδεση του φορτιστή μπορεί να επιτρέψει τη συνέχιση τη φόρτισης. Αν η υπερθέρμανση εξακολουθεί να εμφανίζεται, επικοινωνήστε με την Υπηρεσία εξυπηρέτησης πελατών, καθώς υπάρχει κίνδυνος πυρκαγιάς ή τραυματισμού."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Η φόρτιση διακόπηκε. Η θερμοκρασία του tablet είναι πολύ υψηλή. Να είστε προσεκτικοί κατά την αποσύνδεση του φορτιστή. Μπορεί να είναι πολύ ζεστός.
+
+Η αποσύνδεση και επανασύνδεση του φορτιστή μπορεί να επιτρέψει τη συνέχιση τη φόρτισης. Αν η υπερθέρμανση εξακολουθεί να εμφανίζεται, επικοινωνήστε με την Υπηρεσία εξυπηρέτησης πελατών, καθώς υπάρχει κίνδυνος πυρκαγιάς ή τραυματισμού."</string>
     <string name="incompatible_charger_title">Δεν φορτίζει.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">Χρήση βιομετρικών δεδομένων ή σάρωση της οθόνης για άνοιγμα</string>
     <string name="kg_face_or_swipe_unlock_instructions">Χρήση αναγνώρισης προσώπου ή σάρωση της οθόνης για ξεκλείδωμα</string>
     <string name="kg_face_or_swipe_active_instructions">Χρήση αναγνώρισης προσώπου ή σάρωση της οθόνης για άνοιγμα</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Χρήση αναγνώρισης προσώπου για ξεκλείδωμα ή σάρωση οθόνης για χρήση ιρίδων</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Χρήση αναγνώρισης προσώπου για άνοιγμα ή σάρωση οθόνης για χρήση ιρίδων</string>
     <string name="kg_face_unlock_instructions">Σάρωση της οθόνης για ξεκλείδωμα με αναγνώριση προσώπου</string>
     <string name="kg_face_or_fingerprint_active_instructions">Χρήση δαχτυλικού αποτυπώματος για άνοιγμα ή σάρωση οθόνης για τη χρήση της αναγνώρισης προσώπου</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Χρήση δαχτυλικού αποτυπώματος για ξεκλείδωμα ή σάρωση οθόνης για τη χρήση της αναγνώρισης προσώπου</string>
@@ -1672,6 +1680,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">Χτυπήστε με δύο δάχτυλα για ξεκλείδωμα της οθόνης.</string>
     <string name="kg_swipe_active_instructions">Σαρώστε την οθόνη για άνοιγμα</string>
     <string name="kg_swipe_unlock_instructions">Περάστε το δάχτυλό σας από την οθόνη για ξεκλείδωμα</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Χρησιμοποιήστε βιομετρικά δεδομένα ή σαρώστε την οθόνη με δύο δάχτυλα για να την ξεκλειδώσετε.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Χρησιμοποιήστε βιομετρικά δεδομένα ή σαρώστε την οθόνη με δύο δάχτυλα για να την ανοίξετε.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Χρησιμοποιήστε την αναγνώριση προσώπου ή σαρώστε την οθόνη με δύο δάχτυλα για να την ξεκλειδώσετε.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Χρησιμοποιήστε την αναγνώριση προσώπου ή σαρώστε την οθόνη με δύο δάχτυλα για να την ανοίξετε.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Σαρώστε την οθόνη με δύο δάχτυλα για να την ξεκλειδώσετε με την αναγνώριση προσώπου.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Χρησιμοποιήστε το δαχτυλικό αποτύπωμα για άνοιγμα ή σαρώστε την οθόνη με δύο δάχτυλα για να χρησιμοποιήσετε την αναγνώριση προσώπου.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Χρησιμοποιήστε το δαχτυλικό αποτύπωμα για ξεκλείδωμα ή σαρώστε την οθόνη με δύο δάχτυλα για να χρησιμοποιήσετε την αναγνώριση προσώπου.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Χρησιμοποιήστε το δαχτυλικό αποτύπωμα για άνοιγμα ή σαρώστε την οθόνη με δύο δάχτυλα για να χρησιμοποιήσετε τις ίριδες.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Χρησιμοποιήστε το δαχτυλικό αποτύπωμα για ξεκλείδωμα ή σαρώστε την οθόνη με δύο δάχτυλα για να χρησιμοποιήσετε τις ίριδες.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Χρησιμοποιήστε το δαχτυλικό αποτύπωμα ή σαρώστε την οθόνη με δύο δάχτυλα για να την ανοίξετε.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Χρησιμοποιήστε το δαχτυλικό αποτύπωμα ή σαρώστε την οθόνη με δύο δάχτυλα για να την ξεκλειδώσετε.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Σαρώστε την οθόνη με δύο δάχτυλα για να την ξεκλειδώσετε, χρησιμοποιώντας τις ίριδες.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Χρησιμοποιήστε τις ίριδες ή σαρώστε την οθόνη με δύο δάχτυλα για να την ξεκλειδώσετε.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Χρησιμοποιήστε τις ίριδες ή σαρώστε την οθόνη με δύο δάχτυλα για να την ανοίξετε.</string>
     <string name="kg_power_connect_charger">Σύνδεση φορτιστή</string>
     <string name="kg_power_fully_charged">Πλήρως φορτισμένο</string>
     <string name="kg_power_fast_charging">Γρήγορη φόρτιση: %d%%</string>
@@ -1755,6 +1777,7 @@ If you turn mobile data back on, you may be charged for data usage by your carri
     <string name="remote_input_send_text">Αποστολή</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Πατήστε δύο φορές το κουμπί κλειδώματος για να ξεκλειδώσετε το τηλέφωνο</string>
     <string name="s_view_cover_toast_pop_up_message">Ανοίξτε το κάλυμμα για να χρησιμοποιήσετε τα κουμπιά γρήγορης ρύθμισης.</string>
     <string name="remote_input_toast_text_on_sview_cover">Δεν είναι δυνατή η χρήση της λειτουργίας «Γρήγορη απάντηση» όταν το κάλυμμα S View είναι κλειστό.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Για να ελέγξετε την ποσότητα της ισχύος που θα μοιραστείτε, πρέπει να κάνετε λήψη της εφαρμογής. Αν συνδέσετε τη συσκευή σας με άλλη συσκευή μέσω του καλωδίου Power Sharing EP-SG900 της Samsung, χωρίς να χρησιμοποιήσετε την εφαρμογή, θα μεταφερθεί το σύνολο της ισχύος της μπαταρίας στην άλλη συσκευή.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Αποδέχομαι</string>
-    <string name="force_immersive_guide_text">Με το πάτημα αυτού του εικονιδίου αποκρύπτεται η γραμμή πλοήγησης. Μπορείτε ακόμη να χρησιμοποιείτε τα κουμπιά πλοήγησης, σαρώνοντας προς τα επάνω από το κάτω μέρος της οθόνης. Όσο η γραμμή πλοήγησης είναι ορατή, μπορείτε να πατήσετε ξανά αυτό το εικονίδιο για να την κλειδώσετε στο σημείο αυτό. Σε ορισμένες οθόνες, όπως στην Αρχική οθόνη, η γραμμή πλοήγησης θα είναι πάντα ορατή.</string>
+    <string name="force_immersive_guide_text">Πατώντας αυτό το κουμπί, γίνεται απόκρυψη της γραμμής πλοήγησης. Μπορείτε ακόμη να χρησιμοποιείτε τα κουμπιά πλοήγησης, σαρώνοντας προς τα επάνω από το κάτω μέρος της οθόνης. Όσο η γραμμή πλοήγησης είναι ορατή, μπορείτε να πατήσετε αυτό το κουμπί ξανά για να την κλειδώσετε στο σημείο αυτό. Σε ορισμένες οθόνες, όπως στην Αρχική οθόνη, η γραμμή πλοήγησης θα είναι πάντα ορατή. Αν μια εφαρμογή δεν συμπεριφέρεται κανονικά όταν δεν είναι ορατή η γραμμή πλοήγησης, κλειδώστε τη γραμμή στη θέση της και επανεκκινήστε την εφαρμογή.</string>
+    <string name="force_immersive_guide_dialog_title">Απόκρυψη γραμμής πλοήγησης:</string>
+    <string name="force_immersive_guide_dialog_message1">Αν πατήσετε αυτό το κουμπί, θα αποκρύψετε τη γραμμή πλοήγησης.</string>
+    <string name="force_immersive_guide_dialog_message2">Σαρώστε προς τα επάνω από το κάτω μέρος της οθόνης για την εμφάνιση της γραμμής πλοήγησης.</string>
+    <string name="force_immersive_guide_dialog_message3">Πατήστε ξανά αυτό το κουμπί για να κλειδώσετε τη θέση του.</string>
+    <string name="force_immersive_guide_dialog_message4">Σε ορισμένες οθόνες, όπως την Αρχική οθόνη, η γραμμή πλοήγησης εμφανίζεται πάντα.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Για την απόκρυψη αυτού του κουμπιού, μεταβείτε στο μενού Ρυθμίσεις > Οθόνη > Γραμμή πλοήγησης.</string>
+    <string name="force_immersive_guide_dialog_setting">Ρυθμίσεις</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Οδηγείτε προσεκτικά</string>
     <string name="car_lockscreen_disclaimer_text">Μείνετε πλήρως ενημερωμένοι για τις προϋποθέσεις οδήγησης και υπακούτε πάντα τους ισχύοντες νόμους. Οι οδηγίες μπορεί να είναι ανακριβείς, ελλιπείς, επικίνδυνες, ακατάλληλες, απαγορευμένες ή να ανήκουν σε άλλες διοικητικές περιοχές. Οι πληροφορίες επιχειρήσεων μπορεί επίσης να είναι ανακριβείς ή ελλιπείς. Τα δεδομένα δεν είναι σε πραγματικό χρόνο και η ακρίβεια των τοποθεσιών δεν είναι εγγυημένη. Μη χειρίζεστε την κινητή συσκευή σας και μη χρησιμοποιείτε εφαρμογές που δεν προορίζονται για το Android Auto ενώ οδηγείτε.</string>
     <string name="pip_close">Κλείσιμο PIP</string>
@@ -2230,6 +2261,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_face_retry_content_description">Πατήστε δύο φορές για να χρησιμοποιήσετε την αναγνώριση προσώπου.</string>
     <string name="kg_face_authentication_error_retry_text">Δεν εντοπίστηκε πρόσωπο. Πατήστε το εικονίδιο για να επαναλάβετε την αναγνώριση προσώπου</string>
     <string name="kg_face_authentication_failed_retry_text">Καμία συμφωνία. Πατήστε το εικονίδιο για χρήση της αναγνώρισης προσώπου</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Παρουσιάστηκε πρόβλημα με την αναγνώριση προσώπου. Πατήστε για να δοκιμάσετε ξανά</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Δεν είναι δυνατή η χρήση της αναγνώρισης προσώπου κατά τη διάρκεια κλήσεων βίντεο</string>
     <string name="kg_fingerprint_no_match">Κανένα αποτέλεσμα</string>
     <string name="kg_finger_print_not_responding_error_message">Ο αισθητήρας δαχτυλικών αποτυπωμάτων δεν ανταποκρίνεται. Δοκιμάστε ξανά αργότερα.</string>
     <string name="kg_finger_print_database_error_message">Τα δεδομένα δαχτυλικών αποτυπωμάτων είναι κατεστραμμένα. Επαναφέρετε το Δαχτυλικό αποτύπωμα ως τον τύπο κλειδώματος οθόνης και, στη συνέχεια, προσθέστε ξανά τα δαχτυλικά αποτυπώματά σας ή αλλάξτε τον τύπο κλειδώματος οθόνης.</string>
@@ -2366,6 +2399,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="appicon_badge_new_item">1 νέο στοιχείο</string>
     <string name="banner_apps_for_dex_detail">Απολαύστε εφαρμογές βελτιστοποιημένες για DeX από το Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Δεν είναι δυνατή η μεταφορά περισσότερων από %d στοιχείων.</string>
+    <string name="view_more_in_galaxy_apps">Προβολή άλλων στο Galaxy Apps</string>
+    <string name="view_more_in_play_store">Προβολή άλλων στο Play Store</string>
     <string name="uninstall_title">Απεγκατάσταση εφαρμογών;</string>
     <string name="uninstall_1_app_message">Θέλετε να καταργήσετε την εγκατάσταση αυτής της εφαρμογής;</string>
     <string name="uninstall_apps_message">Θα καταργηθεί η εγκατάσταση των ακόλουθων εφαρμογών:</string>
@@ -2409,6 +2444,13 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Ειδοποίηση</string>
     <string name="quick_settings_location_detail_device_only">Συσκευή μόνο</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Η φόρτιση διακόπηκε. Η θερμοκρασία της μπαταρίας είναι πολύ υψηλή.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Η φόρτιση διακόπηκε. Η θερμοκρασία της μπαταρίας είναι πολύ χαμηλή.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Η φόρτιση της συσκευής διακόπηκε. Η θερμοκρασία της μπαταρίας είναι πολύ υψηλή. Να είστε προσεκτικοί κατά την αποσύνδεση του φορτιστή. Μπορεί να είναι πολύ ζεστός.
+
+Η αποσύνδεση και επανασύνδεση του φορτιστή μπορεί να επιτρέψει τη συνέχιση τη φόρτισης. Αν η υπερθέρμανση εξακολουθεί να εμφανίζεται, επικοινωνήστε με τις υπηρεσίες εξυπηρέτησης πελατών, καθώς υπάρχει κίνδυνος πυρκαγιάς ή τραυματισμού."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Χρήση αναγνώρισης προσώπου για ξεκλείδωμα ή σάρωση οθόνης για χρήση ιρίδων</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Χρήση αναγνώρισης προσώπου για άνοιγμα ή σάρωση οθόνης για χρήση ιρίδων</string>
     <string name="kg_infinity_wallpaper_option_description">Το φόντο Infinity θα εφαρμοστεί ταυτόχρονα στην Αρχική οθόνη και στην οθόνη κλειδώματος. Ενεργοποιήστε την παρακάτω ρύθμιση για την καλύτερη δυνατή εμπειρία.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Ενεργοποίηση οθόνης Always On Display</string>
 </resources>

@@ -423,7 +423,7 @@
     iput-object v5, p0, Lcom/android/systemui/recents/misc/SystemServicesProxy;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
     :cond_0
-    const v5, 0x7f0d03ad
+    const v5, 0x7f0d03ae
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -505,7 +505,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0172
+    const v6, 0x7f0b0173
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -529,7 +529,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/recents/misc/SystemServicesProxy;->mAppLockBmpOpts:Landroid/graphics/BitmapFactory$Options;
 
-    const v7, 0x7f02024d
+    const v7, 0x7f020251
 
     invoke-static {v5, v7, v6}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
@@ -541,7 +541,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0713
+    const v6, 0x7f0f0782
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -553,7 +553,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d046c
+    const v6, 0x7f0d046d
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -567,7 +567,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d046d
+    const v6, 0x7f0d046e
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -579,7 +579,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0173
+    const v6, 0x7f0b0174
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1427,26 +1427,31 @@
 .end method
 
 .method public getAppName(I)Ljava/lang/String;
-    .locals 4
+    .locals 5
 
     const-string/jumbo v2, ""
 
-    iget-object v3, p0, Lcom/android/systemui/recents/misc/SystemServicesProxy;->mAm:Landroid/app/ActivityManager;
+    iget-object v4, p0, Lcom/android/systemui/recents/misc/SystemServicesProxy;->mAm:Landroid/app/ActivityManager;
 
-    invoke-virtual {v3}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
+    invoke-virtual {v4}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
 
     move-result-object v3
 
+    if-nez v3, :cond_0
+
+    return-object v2
+
+    :cond_0
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_0
+    :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1454,13 +1459,13 @@
 
     check-cast v0, Landroid/app/ActivityManager$RunningAppProcessInfo;
 
-    iget v3, v0, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+    iget v4, v0, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
 
-    if-ne v3, p1, :cond_0
+    if-ne v4, p1, :cond_1
 
     iget-object v2, v0, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
 
-    :cond_1
+    :cond_2
     return-object v2
 .end method
 
@@ -1735,7 +1740,7 @@
 
     aput-object v0, v3, v4
 
-    const v4, 0x7f0f031a
+    const v4, 0x7f0f0377
 
     invoke-virtual {p3, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2514,17 +2519,13 @@
     return-object v1
 .end method
 
-.method public getScreenRatioState(Ljava/lang/String;Landroid/content/pm/ActivityInfo;)I
-    .locals 3
+.method public getScreenRatioState(Landroid/content/ComponentName;I)I
+    .locals 2
 
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/recents/misc/SystemServicesProxy;->mIWM:Landroid/view/IWindowManager;
 
-    iget-object v2, p2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v2, v2, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    invoke-interface {v1, p1, v2}, Landroid/view/IWindowManager;->isMaxAspectPackageEx(Ljava/lang/String;I)I
+    invoke-interface {v1, p1, p2}, Landroid/view/IWindowManager;->isMaxAspectComponentEx(Landroid/content/ComponentName;I)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4085,7 +4086,7 @@
 
     aput-object p3, v4, v7
 
-    const v5, 0x7f0f04a6
+    const v5, 0x7f0f0503
 
     invoke-virtual {p1, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4097,7 +4098,7 @@
 
     aput-object p3, v3, v7
 
-    const v4, 0x7f0f064c
+    const v4, 0x7f0f06aa
 
     invoke-virtual {p1, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4237,7 +4238,7 @@
 
     aput-object p4, v2, v5
 
-    const v3, 0x7f0f064c
+    const v3, 0x7f0f06aa
 
     invoke-virtual {p3, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

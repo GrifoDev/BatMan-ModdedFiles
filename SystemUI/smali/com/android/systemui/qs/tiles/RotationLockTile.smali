@@ -184,15 +184,15 @@
 
     const v6, 0x7f0c0087
 
-    const v4, 0x7f0b00ff
+    const v4, 0x7f0b0100
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020432
+    const v2, 0x7f02043a
 
-    const v3, 0x7f020442
+    const v3, 0x7f02044a
 
     move-object v1, p0
 
@@ -206,9 +206,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020410
+    const v2, 0x7f020418
 
-    const v3, 0x7f020420
+    const v3, 0x7f020428
 
     move-object v1, p0
 
@@ -222,9 +222,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020421
+    const v2, 0x7f020429
 
-    const v3, 0x7f020431
+    const v3, 0x7f020439
 
     move-object v1, p0
 
@@ -238,9 +238,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203ff
+    const v2, 0x7f020407
 
-    const v3, 0x7f02040f
+    const v3, 0x7f020417
 
     move-object v1, p0
 
@@ -278,7 +278,7 @@
 .method private getAccessibilityString(Z)Ljava/lang/String;
     .locals 5
 
-    const v2, 0x7f0f039a
+    const v2, 0x7f0f03f7
 
     if-eqz p1, :cond_1
 
@@ -320,7 +320,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f039d
+    const v4, 0x7f0f03fa
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -331,7 +331,7 @@
 
     aput-object v0, v3, v4
 
-    const v0, 0x7f0f039b
+    const v0, 0x7f0f03f8
 
     invoke-virtual {v2, v0, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -350,7 +350,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f039e
+    const v4, 0x7f0f03fb
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -512,7 +512,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f0f0468
+    const v5, 0x7f0f04c5
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -530,7 +530,7 @@
 
     aput-object v1, v6, v3
 
-    const v7, 0x7f0f0469
+    const v7, 0x7f0f04c6
 
     invoke-virtual {v5, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -600,7 +600,7 @@
 .method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
     .locals 8
 
-    const v4, 0x7f020442
+    const v4, 0x7f02044a
 
     const/4 v7, 0x1
 
@@ -649,7 +649,7 @@
 
     if-eqz v1, :cond_4
 
-    const v0, 0x7f0f039d
+    const v0, 0x7f0f03fa
 
     :goto_1
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RotationLockTile;->mContext:Landroid/content/Context;
@@ -668,7 +668,7 @@
 
     if-eqz v3, :cond_5
 
-    const v3, 0x7f020420
+    const v3, 0x7f020428
 
     invoke-static {v3}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -702,7 +702,7 @@
 
     if-eqz v1, :cond_3
 
-    const v3, 0x7f0f039d
+    const v3, 0x7f0f03fa
 
     :goto_3
     invoke-virtual {v6, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -718,12 +718,12 @@
     goto :goto_0
 
     :cond_3
-    const v3, 0x7f0f039e
+    const v3, 0x7f0f03fb
 
     goto :goto_3
 
     :cond_4
-    const v0, 0x7f0f039e
+    const v0, 0x7f0f03fb
 
     goto :goto_1
 
@@ -745,7 +745,7 @@
     :cond_7
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RotationLockTile;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f0399
+    const v5, 0x7f0f03f6
 
     invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -803,7 +803,7 @@
     goto :goto_2
 
     :cond_b
-    const v3, 0x7f020431
+    const v3, 0x7f020439
 
     goto :goto_6
 .end method

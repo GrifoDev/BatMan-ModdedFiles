@@ -40,7 +40,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$41;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap21(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap22(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 

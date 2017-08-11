@@ -185,7 +185,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/RecentsImpl;->mDummyStackView:Lcom/android/systemui/recents/views/TaskStackView;
 
-    const v3, 0x7f040152
+    const v3, 0x7f040156
 
     const/4 v4, 0x0
 
@@ -1394,7 +1394,7 @@
 .method private reloadResources()V
     .locals 8
 
-    const v4, 0x7f0d0370
+    const v4, 0x7f0d0371
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
 
@@ -1430,7 +1430,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0d0375
+    const v1, 0x7f0d0376
 
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
@@ -1452,7 +1452,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0d036f
+    const v1, 0x7f0d0370
 
     goto :goto_0
 .end method
@@ -1658,7 +1658,7 @@
 
     move-result-object v9
 
-    invoke-interface {v9}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v9}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     return-void
 .end method
@@ -2001,6 +2001,16 @@
     move-result-object v1
 
     invoke-virtual {v1, p1, p2}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/systemui/recents/model/TaskLockPreference;->getInstance(Landroid/content/Context;)Lcom/android/systemui/recents/model/TaskLockPreference;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1, v2, p1, p2}, Lcom/android/systemui/recents/model/TaskLockPreference;->dump(Landroid/content/Context;Ljava/lang/String;Ljava/io/PrintWriter;)V
 
     return-void
 .end method

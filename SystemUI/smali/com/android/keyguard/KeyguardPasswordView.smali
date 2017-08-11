@@ -203,125 +203,156 @@
 .end method
 
 .method private hasMultipleEnabledIMEsOrSubtypes(Landroid/view/inputmethod/InputMethodManager;Z)Z
-    .locals 12
+    .locals 14
 
-    const/4 v10, 0x0
+    const-string/jumbo v0, "com.sec.android.inputmethod/.SamsungKeypad"
 
-    const/4 v9, 0x1
+    const-string/jumbo v1, "com.sec.android.inputmethod.beta/com.sec.android.inputmethod.SamsungKeypad"
 
     invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodManager;->getEnabledInputMethodList()Ljava/util/List;
 
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :cond_0
-    :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_6
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v3
 
-    check-cast v3, Landroid/view/inputmethod/InputMethodInfo;
+    const/4 v4, 0x0
 
-    if-le v2, v9, :cond_1
-
-    return v9
-
-    :cond_1
-    invoke-virtual {p1, v3, v9}, Landroid/view/inputmethod/InputMethodManager;->getEnabledInputMethodSubtypeList(Landroid/view/inputmethod/InputMethodInfo;Z)Ljava/util/List;
-
-    move-result-object v8
-
-    invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_2
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v0, 0x0
-
-    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v7
-
-    :cond_3
-    :goto_1
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_4
-
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
-    check-cast v6, Landroid/view/inputmethod/InputMethodSubtype;
+    :cond_0
+    :goto_0
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v6}, Landroid/view/inputmethod/InputMethodSubtype;->isAuxiliary()Z
+    move-result v12
 
-    move-result v11
+    if-eqz v12, :cond_8
 
-    if-eqz v11, :cond_3
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    add-int/lit8 v0, v0, 0x1
+    move-result-object v5
 
-    goto :goto_1
+    check-cast v5, Landroid/view/inputmethod/InputMethodInfo;
 
-    :cond_4
-    invoke-interface {v8}, Ljava/util/List;->size()I
+    const/4 v12, 0x1
 
-    move-result v11
+    if-le v4, v12, :cond_1
 
-    sub-int v5, v11, v0
+    const/4 v12, 0x1
 
-    if-gtz v5, :cond_5
+    return v12
 
-    if-eqz p2, :cond_0
+    :cond_1
+    const/4 v12, 0x1
 
-    if-le v0, v9, :cond_0
-
-    :cond_5
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_6
-    if-gt v2, v9, :cond_7
-
-    const/4 v11, 0x0
-
-    invoke-virtual {p1, v11, v10}, Landroid/view/inputmethod/InputMethodManager;->getEnabledInputMethodSubtypeList(Landroid/view/inputmethod/InputMethodInfo;Z)Ljava/util/List;
+    invoke-virtual {p1, v5, v12}, Landroid/view/inputmethod/InputMethodManager;->getEnabledInputMethodSubtypeList(Landroid/view/inputmethod/InputMethodInfo;Z)Ljava/util/List;
 
     move-result-object v11
 
     invoke-interface {v11}, Ljava/util/List;->size()I
 
-    move-result v11
+    move-result v10
 
-    if-le v11, v9, :cond_8
+    const-string/jumbo v12, "com.sec.android.inputmethod/.SamsungKeypad"
+
+    invoke-virtual {v5}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_2
+
+    const-string/jumbo v12, "com.sec.android.inputmethod.beta/com.sec.android.inputmethod.SamsungKeypad"
+
+    invoke-virtual {v5}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_3
+
+    :cond_2
+    const/4 v12, 0x1
+
+    if-le v10, v12, :cond_3
+
+    const/4 v10, 0x1
+
+    :cond_3
+    invoke-interface {v11}, Ljava/util/List;->isEmpty()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_4
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    const/4 v2, 0x0
+
+    invoke-interface {v11}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v9
+
+    :cond_5
+    :goto_1
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_6
+
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/view/inputmethod/InputMethodSubtype;
+
+    invoke-virtual {v8}, Landroid/view/inputmethod/InputMethodSubtype;->isAuxiliary()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_5
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_6
+    sub-int v7, v10, v2
+
+    if-gtz v7, :cond_7
+
+    if-eqz p2, :cond_0
+
+    const/4 v12, 0x1
+
+    if-le v2, v12, :cond_0
 
     :cond_7
-    :goto_2
-    return v9
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
 
     :cond_8
-    move v9, v10
+    const/4 v12, 0x1
+
+    if-le v4, v12, :cond_9
+
+    const/4 v12, 0x1
+
+    :goto_2
+    return v12
+
+    :cond_9
+    const/4 v12, 0x0
 
     goto :goto_2
 .end method

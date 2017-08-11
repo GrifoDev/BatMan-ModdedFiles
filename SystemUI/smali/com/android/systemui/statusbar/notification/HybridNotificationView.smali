@@ -166,7 +166,7 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->setNotifTextColor()V
 
-    const v0, 0x7f1301cd
+    const v0, 0x7f1301d3
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->findViewById(I)Landroid/view/View;
 
@@ -176,7 +176,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTitleView:Landroid/widget/TextView;
 
-    const v0, 0x7f1301ce
+    const v0, 0x7f1301d4
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->findViewById(I)Landroid/view/View;
 

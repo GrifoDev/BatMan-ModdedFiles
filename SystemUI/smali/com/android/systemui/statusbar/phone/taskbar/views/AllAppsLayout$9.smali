@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showUnintallConfirmation(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
+    value = Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->showDisableConfirmationForList(Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
-.field final synthetic val$pkgName:Ljava/lang/String;
-
-.field final synthetic val$userId:I
+.field final synthetic val$itemList:Ljava/util/ArrayList;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/lang/String;I)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/util/ArrayList;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->val$pkgName:Ljava/lang/String;
-
-    iput p3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->val$userId:I
+    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->val$itemList:Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -45,25 +41,78 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 5
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->val$itemList:Ljava/util/ArrayList;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-get1(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)Landroid/content/Context;
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
 
-    move-result-object v0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->val$pkgName:Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
 
-    iget v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->val$userId:I
+    move-result-object v3
 
-    const/4 v3, 0x0
+    iget-object v4, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
 
-    const/4 v4, 0x0
+    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
 
-    invoke-virtual {v0, v1, v3, v4, v2}, Landroid/content/pm/PackageManager;->deletePackageAsUser(Ljava/lang/String;Landroid/content/pm/IPackageDeleteObserver;II)V
+    move-result v4
 
+    invoke-static {v2, v3, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->-wrap3(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/lang/String;I)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getState()Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->SEARCH_EDIT:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
+
+    if-ne v2, v3, :cond_2
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
+
+    sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->SEARCH:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->changeState(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;)V
+
+    :cond_1
+    :goto_1
     return-void
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->getState()Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->EDIT:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
+
+    if-ne v2, v3, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
+
+    sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;->NORMAL:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->changeState(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$State;)V
+
+    goto :goto_1
 .end method

@@ -3,12 +3,12 @@
 .source "PowerNotificationWarnings.java"
 
 # interfaces
-.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/power/PowerNotificationWarnings;->updatePowerSharingCableAlertDialog(Z)V
+    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showWaterProtectionAlertDialog(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-.field final synthetic val$disableAlertCheckBox:Landroid/widget/CheckBox;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/widget/CheckBox;)V
+.method constructor <init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    iput-object p2, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->val$disableAlertCheckBox:Landroid/widget/CheckBox;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,14 +34,73 @@
 
 
 # virtual methods
-.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+.method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->val$disableAlertCheckBox:Landroid/widget/CheckBox;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->playSoundEffect(I)V
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set22(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get14(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    iget-object v1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-static {v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get16(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->showWaterProtectionAlertDialog(Z)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set11(Lcom/android/systemui/power/PowerNotificationWarnings;Z)Z
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get17(Lcom/android/systemui/power/PowerNotificationWarnings;)Lcom/android/systemui/media/NotificationPlayer;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get17(Lcom/android/systemui/power/PowerNotificationWarnings;)Lcom/android/systemui/media/NotificationPlayer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/media/NotificationPlayer;->stop()V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get19(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/os/Vibrator;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$26;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get19(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/os/Vibrator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Vibrator;->cancel()V
+
+    :cond_2
     return-void
 .end method

@@ -79,7 +79,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b0095
+    const v2, 0x7f0b0096
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -205,7 +205,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0710
+    const v1, 0x7f0f077f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -223,7 +223,7 @@
 
     if-eqz p3, :cond_1
 
-    const v0, 0x7f0f0308
+    const v0, 0x7f0f0365
 
     :goto_1
     const/4 v2, 0x1

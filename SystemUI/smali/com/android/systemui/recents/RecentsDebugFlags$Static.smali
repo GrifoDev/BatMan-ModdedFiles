@@ -15,6 +15,8 @@
 
 
 # static fields
+.field public static EnableAllListShown:Z
+
 .field public static EnableAppList:Z
 
 .field public static EnableBixby:Z
@@ -73,6 +75,8 @@
     sput-boolean v2, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSpreadAnimation:Z
 
     sput-boolean v2, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableFreeformInTaskStack:Z
+
+    sput-boolean v2, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableAllListShown:Z
 
     sput-boolean v1, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableDozeTrigger:Z
 

@@ -71,7 +71,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$2;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set26(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
+    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set25(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$2;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 

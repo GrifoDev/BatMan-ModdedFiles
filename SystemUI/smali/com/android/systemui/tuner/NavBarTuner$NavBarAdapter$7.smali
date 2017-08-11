@@ -57,7 +57,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/tuner/NavBarTuner$NavBarAdapter$7;->val$dialog:Landroid/app/AlertDialog;
 
-    const v4, 0x7f130346
+    const v4, 0x7f13034e
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 

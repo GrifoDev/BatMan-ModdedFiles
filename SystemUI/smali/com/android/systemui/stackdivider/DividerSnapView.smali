@@ -1141,7 +1141,7 @@
     goto/16 :goto_1
 
     :pswitch_data_0
-    .packed-switch 0x7f1301bc
+    .packed-switch 0x7f1301c1
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -1527,7 +1527,7 @@
 
     iput v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView;->mMinimalSnapSize:I
 
-    const v1, 0x7f1301bd
+    const v1, 0x7f1301c2
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->findViewById(I)Landroid/view/View;
 
@@ -1537,7 +1537,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView;->mTopHandle:Lcom/android/systemui/stackdivider/DividerSnapHandleView;
 
-    const v1, 0x7f1301be
+    const v1, 0x7f1301c3
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->findViewById(I)Landroid/view/View;
 
@@ -1547,7 +1547,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView;->mBottomHandle:Lcom/android/systemui/stackdivider/DividerSnapHandleView;
 
-    const v1, 0x7f1301bc
+    const v1, 0x7f1301c1
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->findViewById(I)Landroid/view/View;
 
@@ -1561,7 +1561,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerSnapView;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f020143
+    const v3, 0x7f020148
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1569,7 +1569,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/stackdivider/DividerSnapHandleView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v1, 0x7f1301ba
+    const v1, 0x7f1301bf
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->findViewById(I)Landroid/view/View;
 
@@ -1579,7 +1579,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView;->mTopDimlayer:Lcom/android/systemui/stackdivider/DividerSnapHandleView;
 
-    const v1, 0x7f1301bb
+    const v1, 0x7f1301c0
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->findViewById(I)Landroid/view/View;
 
@@ -1643,7 +1643,7 @@
 
     iput v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView;->mStrokeWidth:I
 
-    const v1, 0x7f1301bf
+    const v1, 0x7f1301c4
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->findViewById(I)Landroid/view/View;
 
@@ -1669,7 +1669,7 @@
 
     iput v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView;->mSnapViewButtonsMargin:I
 
-    const v1, 0x7f1301c0
+    const v1, 0x7f1301c5
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->findViewById(I)Landroid/view/View;
 
@@ -1695,7 +1695,7 @@
 
     iput v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView;->mSnapViewButtonsDividerWidth:I
 
-    const v1, 0x7f1301c1
+    const v1, 0x7f1301c6
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->findViewById(I)Landroid/view/View;
 
@@ -1705,7 +1705,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView;->mSnapViewCancel:Landroid/widget/TextView;
 
-    const v1, 0x7f1301c2
+    const v1, 0x7f1301c7
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->findViewById(I)Landroid/view/View;
 
@@ -1763,7 +1763,7 @@
 
     iput v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView;->mSnapViewButtonHeight:I
 
-    const v1, 0x7f1301c3
+    const v1, 0x7f1301c8
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->findViewById(I)Landroid/view/View;
 

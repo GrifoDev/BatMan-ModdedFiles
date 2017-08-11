@@ -47,7 +47,7 @@
 
     const/4 v3, 0x1
 
-    const v1, 0x7f0f0475
+    const v1, 0x7f0f04d2
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$AirplaneModeDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
@@ -61,7 +61,7 @@
 
     if-nez v0, :cond_2
 
-    const v1, 0x7f0f0461
+    const v1, 0x7f0f04be
 
     :cond_0
     :goto_0
@@ -105,7 +105,7 @@
 
     if-ne v2, v3, :cond_4
 
-    const v1, 0x7f0f0477
+    const v1, 0x7f0f04d4
 
     :cond_1
     :goto_1
@@ -126,7 +126,7 @@
 
     if-eqz v2, :cond_3
 
-    const v1, 0x7f0f0462
+    const v1, 0x7f0f04bf
 
     goto :goto_0
 
@@ -135,12 +135,12 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x7f0f045e
+    const v1, 0x7f0f04bb
 
     goto :goto_0
 
     :cond_4
-    const v1, 0x7f0f0476
+    const v1, 0x7f0f04d3
 
     goto :goto_1
 
@@ -157,12 +157,12 @@
 
     if-ne v2, v3, :cond_6
 
-    const v1, 0x7f0f0479
+    const v1, 0x7f0f04d6
 
     goto :goto_1
 
     :cond_6
-    const v1, 0x7f0f0478
+    const v1, 0x7f0f04d5
 
     goto :goto_1
 .end method
@@ -182,7 +182,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040126
+    const v1, 0x7f04012a
 
     const/4 v2, 0x0
 
@@ -190,7 +190,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f1302cc
+    const v0, 0x7f1302d4
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -240,7 +240,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0474
+    const v1, 0x7f0f04d1
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -325,7 +325,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0465
+    const v1, 0x7f0f04c2
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -387,7 +387,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0466
+    const v1, 0x7f0f04c3
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -467,7 +467,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0467
+    const v1, 0x7f0f04c4
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

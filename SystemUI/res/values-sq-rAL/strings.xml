@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">E panjoh.</string>
     <string name="save">Ruaj</string>
     <string name="ok">Ok</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">Nuk mund të skanojë për rrjete</string>
     <string name="wifi_failed_to_obtain_IP">Nuk e nxora dot adresën IP.</string>
     <string name="wifi_security_none">Asnjë</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">S’mund të lidhem me %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">S’mund të lidhem me %1$s. Kontrollo cilësimet në %2$s dhe provo sërish.</string>
     <string name="bluetooth_pairing_rejected_error_message">Çiftimi u refuzua nga %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Duke nxjerrë emrin e pajisjes…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Emri i pajisjes do të shfaqet kur të lidhet pajisja.</string>
     <string name="accessibility_wifi_off">Wi-Fi është çaktivizuar.</string>
     <string name="accessibility_no_wifi">Wi-Fi është i shkëputur.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi ka një vijë.</string>
@@ -1362,6 +1364,7 @@ Për më shumë informacion, kontakto me administratorin tënd."</string>
     <string name="keyboard_key_insert">Fut</string>
     <string name="keyboard_key_num_lock">Kyçja e numrave</string>
     <string name="keyboard_key_numpad_template">Tastiera numerike %1$s</string>
+    <string name="keyboard_popup_help">Tasti meta: Tasti Windows, Komandë ose simbol i ndonjë sistemi tjetër operativ.</string>
     <string name="keyboard_shortcut_group_system">Shkurtoret e sistemit</string>
     <string name="keyboard_shortcut_group_system_home">Kreu</string>
     <string name="keyboard_shortcut_group_system_recents">Të fundit</string>
@@ -1523,8 +1526,8 @@ Për më shumë informacion, kontakto me administratorin tënd."</string>
 
 Për të mbrojtur ndaj dëmtimit nga uji, sigurohu që sirtari i kartës SIM/SD ka zënë vend mirë."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Për të mbrojtur ndaj dëmtimit prej ujit, sigurohu që sirtari i kartës SIM/SD ka zënë vend mirë.</string>
-    <string name="water_protection_notification_title">Kontrollo portën</string>
-    <string name="water_protection_notification_body">U pikas lagështi. Për të karikuar pajisjen, sigurohu që karikuesi/porta USB është e thatë.</string>
+    <string name="water_protection_notification_title">Shkëpute ngarkuesin</string>
+    <string name="water_protection_notification_body">U pikas lagështi. Shkëpute karikuesin dhe sigurohu që edhe karikuesi edhe porta USB janë të thata.</string>
     <string name="full_battery_title">Info</string>
     <string name="full_battery_noti_text">Bateria plotësisht e ngarkuar.</string>
     <string name="cooling_title">Pajisja po mbinxehet</string>
@@ -1618,6 +1621,7 @@ Mbinxehja mund të shkaktohet nga:
     <string name="battery_not_fully_connected_charging_title">Karikim i ngadalshëm</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Për karikim më të shpejtë, përdor karikuesin që të ka ardhur me pajisjen dhe sigurohu që është lidhur si duhet.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Sigurohu që karikuesi është lidhur si duhet. Përdor karikuesin që të ka ardhur me pajisjen.</string>
     <string name="battery_charging_level_and_time_text">"Duke karikuar: %1$d%%
 (Afërsisht %2$s derisa të karikohet krejt)"</string>
@@ -1631,14 +1635,20 @@ Mbinxehja mund të shkaktohet nga:
     <string name="battery_saver_recommend_notification_text_phone_psm">Karikoje telefonin.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Karikoje tabletën.</string>
     <string name="button_close">Mbyll</string>
-    <string name="battery_health_interruption_title">Nuk mund të ngarkoj</string>
+    <string name="battery_health_interruption_title">Karikimi u ndal</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Shkëpute karikuesin</string>
     <string name="battery_health_interruption_by_terminal_open_text">Nuk mund ta ngarkoj pajisjen. Sigurohu që je duke përdorur një bateri dhe një ngarkues të pajtueshëm me Samsung-un dhe se pajisja jote është lidhur mirë me ngarkuesin.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Ngarkimi pushoi. Temperatura e baterisë shumë e lartë.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Ngarkimi pushoi. Temperatura e baterisë shumë e ulët.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Pajisja ka ndalur së ngarkuari. Temperatura e baterisë është tepër e lartë. Bëj kujdes kur të shkëputësh ngarkuesin. Mund të jetë shumë i nxehtë.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Temperatura e telefonit tënd është tejet e lartë. Karikimi do të vazhdojë kur temperatura të kthehet në normale.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Temperatura e tabletës sate është tejet e lartë. Karikimi do të vazhdojë kur temperatura të kthehet në normale.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Temperatura e telefonit tënd është tejet e ulët. Karikimi do të vazhdojë kur temperatura të kthehet në normale.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Temperatura e tabletës sate është tejet e ulët. Karikimi do të vazhdojë kur temperatura të kthehet në normale.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Karikimi u ndal. Temperatura e telefonit është tepër e lartë. Bëj kujdes kur të shkëputësh karikuesin. Mund të jetë shumë i nxehtë.
 
-Duke shkëputur dhe rilidhur ngarkuesin mund të bësh që ngarkimi të vazhdojë normalisht. Në qoftë se mbinxehja vazhdon, lidhu me shërbimet e klientit, meqë mund të ketë rrezik zjarri ose lëndimesh."</string>
+Duke shkëputur dhe rilidhur karikuesin mund të bësh që ngarkimi të vazhdojë normalisht. Në qoftë se mbinxehja vazhdon, lidhu me Shërbimin e klientit, meqë mund të ketë rrezik zjarri ose lëndimesh."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Karikimi u ndal. Temperatura e tabletës është tepër e lartë. Bëj kujdes kur të shkëputësh karikuesin. Mund të jetë shumë i nxehtë.
+
+Duke shkëputur dhe rilidhur karikuesin mund të bësh që ngarkimi të vazhdojë normalisht. Në qoftë se mbinxehja vazhdon, lidhu me Shërbimin e klientit, meqë mund të ketë rrezik zjarri ose lëndimesh."</string>
     <string name="incompatible_charger_title">Nuk karikohet.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1654,8 +1664,6 @@ Për të mos lejuar që ky njoftim kërcyes të shfaqet në të ardhmen, siguroh
     <string name="kg_biometrics_swipe_active_instructions">Përdor biometrikën ose rrëshqit ekranin për ta hapur</string>
     <string name="kg_face_or_swipe_unlock_instructions">Përdor njohjen me fytyrë ose rrëshqit ekranin për ta zhbllokuar</string>
     <string name="kg_face_or_swipe_active_instructions">Përdor njohjen me fytyrë ose rrëshqit ekranin për ta hapur</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Përdor njohjen me fytyrë për të zhbllokuar, ose rrëshqit ekranin për të përdorur iriset</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Përdor njohjen me fytyrë për të hapur, ose rrëshqit ekranin për të përdorur iriset</string>
     <string name="kg_face_unlock_instructions">Rrëshqit ekranin për të zhbllokuar me njohje me fytyrë</string>
     <string name="kg_face_or_fingerprint_active_instructions">Përdor shenjën e gishtit për të hapur, ose rrëshqit ekranin për të përdorur njohjen me fytyrë</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Përdor shenjën e gishtit për të zhbllokuar, ose rrëshqit ekranin për të përdorur njohjen me fytyrë</string>
@@ -1670,6 +1678,20 @@ Për të mos lejuar që ky njoftim kërcyes të shfaqet në të ardhmen, siguroh
     <string name="kg_voice_assistant_unlock_instructions">Rrëshqit me dy gishta për ta zhbllokuar ekranin.</string>
     <string name="kg_swipe_active_instructions">Rrëshqit ekranin për ta hapur</string>
     <string name="kg_swipe_unlock_instructions">Rrëshqit ekranin për të zhbllokuar</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Përdor biometrikën ose rrëshqit ekranin me dy gishta për të zhbllokuar.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Përdor biometrikën ose rrëshqit ekranin me dy gishta për të hapur.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Përdor njohjen me fytyrë ose rrëshqit ekranin me dy gishta për të zhbllokuar.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Përdor njohjen me fytyrë ose rrëshqit ekranin me dy gishta për të hapur.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Rrëshqit ekranin me dy gishta për të zhbllokuar me njohje të fytyrës.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Përdor shenjën e gishtit për të hapur, ose rrëshqit ekranin me dy gishta për të përdorur njohjen me fytyrë.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Përdor shenjën e gishtit për të zhbllokuar, ose rrëshqit ekranin me dy gishta për të përdorur njohjen me fytyrë.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Përdor shenjën e gishtit për të hapur, ose rrëshqit ekranin me dy gishta për të përdorur iriset.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Përdor shenjën e gishtit për të zhbllokuar, ose rrëshqit ekranin me dy gishta për të përdorur iriset.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Përdor shenjën e gishtit ose rrëshqit ekranin me dy gishta për të hapur.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Përdor shenjën e gishtit ose rrëshqit ekranin me dy gishta për të zhbllokuar.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Rrëshqit ekranin me dy gishta për të zhbllokuar me irise.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Përdor iriset ose rrëshqit ekranin me dy gishta për të zhbllokuar.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Përdor iriset ose rrëshqit ekranin me dy gishta për të hapur.</string>
     <string name="kg_power_connect_charger">Lidh karikuesin</string>
     <string name="kg_power_fully_charged">Karikuar krejt</string>
     <string name="kg_power_fast_charging">Karikimi i shpejtë: %d%%</string>
@@ -1753,6 +1775,7 @@ UHQ"</string>
     <string name="remote_input_send_text">Dërgo</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Dy-trokit butonin Bllokim për të zhbllokuar telefonin</string>
     <string name="s_view_cover_toast_pop_up_message">Hap mbulesën për të përdorur butonat e cilësimit të shpejtë.</string>
     <string name="remote_input_toast_text_on_sview_cover">Nuk mund ta përdor regjimin e Përgjigjes së shpejtë kur është mbyllur mbulesa S View.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1789,7 +1812,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Pranoj</string>
-    <string name="force_immersive_guide_text">Po të trokasësh mbi këtë ikonë, do ta fshehësh shiritin e navigimit. Gjithnjë mund t’i përdorësh butonat e navigimit duke rrëshqitur lart që nga fundi i ekranit. Kur të tregohet shiriti i navigimit, mund të trokasësh mbi këtë ikonë sërish, për ta bllokuar në pozicion. Në disa ekrane, si në Ekranin bazë, shiriti i navigimit do të tregohet gjithnjë.</string>
+    <string name="force_immersive_guide_text">Po të trokasësh mbi këtë buton, do ta fshehësh shiritin e navigimit. Gjithnjë mund t’i përdorësh butonat e navigimit duke rrëshqitur lart që nga fundi i ekranit. Kur të tregohet shiriti i navigimit, mund të trokasësh mbi këtë buton sërish, për ta bllokuar në pozicion. Në disa ekrane, si në Ekranin bazë, shiriti i navigimit do të tregohet gjithnjë. Në qoftë se një app nuk sillet normalisht, kur shiriti i navigimit është fshehur, bllokoje shiritin e navigimit në pozicion dhe rinise app-in.</string>
+    <string name="force_immersive_guide_dialog_title">Fshihe shiritin e navigimit:</string>
+    <string name="force_immersive_guide_dialog_message1">Duke trokitur mbi këtë buton, do ta fshehësh shiritin e navigimit.</string>
+    <string name="force_immersive_guide_dialog_message2">Rrëshqit lart nga pjesa e poshtme e ekranit, për të treguar shiritin e navigimit.</string>
+    <string name="force_immersive_guide_dialog_message3">Trokit sërish mbi këtë buton për ta kyçur në pozicion.</string>
+    <string name="force_immersive_guide_dialog_message4">Në disa ekrane, si në Ekranin bazë, shiriti i navigimit gjithnjë do të tregohet.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Për ta fshehur këtë buton, shko te Cilësimet > Afishimi > Shiriti i navigimit.</string>
+    <string name="force_immersive_guide_dialog_setting">Cilësimet</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Drejtoje makinën në mënyrë të sigurt</string>
     <string name="car_lockscreen_disclaimer_text">Ji plotësisht i vetëdijshëm për kushtet e lëvizjes me makinë dhe respekto gjithmonë ligjet përkatëse. Udhëzimet mund të jenë të pasakta, jo të plota, të rrezikshme, të papërshtatshme, të ndaluara ose mund të përfshijnë kalimin në zona administrative. Informacionet e biznesit mund të jenë po ashtu të pasakta ose jo të plota. Të dhënat nuk janë në kohë reale dhe saktësia e vendndodhjes nuk mund të garantohet. Gjatë drejtimit të makinës mos e përdor pajisjen celulare ose mos përdor aplikacionet që nuk janë të planifikuara për Android Auto.</string>
     <string name="pip_close">Mbyll PIP</string>
@@ -2228,6 +2259,8 @@ Në qoftë se nuk e di PUK-un, shko te një qendër e shërbimit të klientit."<
     <string name="kg_face_retry_content_description">Dy-trokit këtu për të përdorur njohjen me fytyrë.</string>
     <string name="kg_face_authentication_error_retry_text">Nuk u pikas ndonjë fytyrë. Trokit mbi ikonë për ta provuar njohjen me fytyrë sërish</string>
     <string name="kg_face_authentication_failed_retry_text">Nuk përkon. Trokit mbi ikonën, për të përdorur njohjen me fytyrë</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Pati një problem gjatë njohjes me fytyrë. Trokit për të provuar sërish</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">S’mund të përdorësh njohjen me fytyrë gjatë thirrjeve video</string>
     <string name="kg_fingerprint_no_match">Nuk gjeta përkime</string>
     <string name="kg_finger_print_not_responding_error_message">Sensori i shenjave të gishtave nuk po përgjigjet. Provo sërish më vonë.</string>
     <string name="kg_finger_print_database_error_message">Të dhënat e shenjave të gishtave janë dëmtuar. Reseto Shenjat e gishtave si lloj bllokimi të ekranit dhe pastaj shtoji shenjat e gishtit sërish ose ndrysho llojin e bllokimit të ekranit.</string>
@@ -2364,6 +2397,8 @@ Provo sërish pas 1 sekonde"</string>
     <string name="appicon_badge_new_item">1 artikull i ri</string>
     <string name="banner_apps_for_dex_detail">Shijo app-e të optimizuar për DeX nga Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">S’mund të zhvendosësh më shumë se %d artikuj.</string>
+    <string name="view_more_in_galaxy_apps">Trego më shumë në Galaxy Apps</string>
+    <string name="view_more_in_play_store">Trego më shumë në Dyqanin Play</string>
     <string name="uninstall_title">T’i çinstaloj app-et?</string>
     <string name="uninstall_1_app_message">Dëshiron ta çinstalosh këtë app?</string>
     <string name="uninstall_apps_message">App-et e mëposhtme do të çinstalohen:</string>
@@ -2404,6 +2439,13 @@ Provo sërish pas 1 sekonde"</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Fshihi njoftimet</string>
     <string name="volumepanel_notification">Njoftim</string>
     <string name="quick_settings_location_detail_device_only">Vetëm pajisje</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Ngarkimi pushoi. Temperatura e baterisë shumë e lartë.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Ngarkimi pushoi. Temperatura e baterisë shumë e ulët.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Pajisja ka ndalur së ngarkuari. Temperatura e baterisë është tepër e lartë. Bëj kujdes kur të shkëputësh ngarkuesin. Mund të jetë shumë i nxehtë.
+
+Duke shkëputur dhe rilidhur ngarkuesin mund të bësh që ngarkimi të vazhdojë normalisht. Në qoftë se mbinxehja vazhdon, lidhu me shërbimet e klientit, meqë mund të ketë rrezik zjarri ose lëndimesh."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Përdor njohjen me fytyrë për të zhbllokuar, ose rrëshqit ekranin për të përdorur iriset</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Përdor njohjen me fytyrë për të hapur, ose rrëshqit ekranin për të përdorur iriset</string>
     <string name="kg_infinity_wallpaper_option_description">Letra e murit Infinity do të zbatohet tek Ekrani bazë dhe Ekrani i bllokimit njëkohësisht. Ndize cilësimin më poshtë, për eksperiencë optimale.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Ndiz Always On Display</string>
 </resources>

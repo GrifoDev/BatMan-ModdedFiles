@@ -37,7 +37,7 @@
 .method public onConfigurationChanged()V
     .locals 15
 
-    const v14, 0x7f0d03af
+    const v14, 0x7f0d03b0
 
     const/4 v13, 0x1
 
@@ -45,7 +45,7 @@
 
     const/4 v9, 0x0
 
-    const v11, 0x7f0d03b3
+    const v11, 0x7f0d03b4
 
     iget-object v8, p0, Lcom/android/systemui/volume/SecVolumeDialog$2;->this$0:Lcom/android/systemui/volume/SecVolumeDialog;
 
@@ -235,7 +235,7 @@
     iput v8, v2, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     :goto_0
-    const v8, 0x7f0d03b8
+    const v8, 0x7f0d03b9
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -243,7 +243,7 @@
 
     iput v8, v2, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    const v8, 0x7f0d03b9
+    const v8, 0x7f0d03ba
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -410,7 +410,7 @@
 
     iput v8, v2, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    const v8, 0x7f0d0339
+    const v8, 0x7f0d033a
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

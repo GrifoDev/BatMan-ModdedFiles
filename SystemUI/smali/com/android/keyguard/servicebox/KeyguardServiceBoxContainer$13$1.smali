@@ -40,7 +40,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-set2(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Z)Z
+    invoke-static {v0, v1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-set1(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Z)Z
 
     return-void
 .end method

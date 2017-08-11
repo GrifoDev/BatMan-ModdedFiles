@@ -70,6 +70,10 @@
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    const-string/jumbo v2, "com.samsung.intent.action.DAYDREAM_CONNECTED"
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
     const-string/jumbo v2, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -184,7 +188,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get15(Lcom/android/systemui/power/PowerUI;)I
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get16(Lcom/android/systemui/power/PowerUI;)I
 
     move-result v24
 
@@ -202,7 +206,7 @@
 
     move-result v6
 
-    invoke-static {v5, v6}, Lcom/android/systemui/power/PowerUI;->-set16(Lcom/android/systemui/power/PowerUI;I)I
+    invoke-static {v5, v6}, Lcom/android/systemui/power/PowerUI;->-set17(Lcom/android/systemui/power/PowerUI;I)I
 
     move-object/from16 v0, p0
 
@@ -232,7 +236,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get15(Lcom/android/systemui/power/PowerUI;)I
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get16(Lcom/android/systemui/power/PowerUI;)I
 
     move-result v5
 
@@ -415,7 +419,7 @@
 
     iget-object v8, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get13(Lcom/android/systemui/power/PowerUI;)I
+    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get14(Lcom/android/systemui/power/PowerUI;)I
 
     move-result v8
 
@@ -433,7 +437,7 @@
 
     iget-object v8, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get14(Lcom/android/systemui/power/PowerUI;)[I
+    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get15(Lcom/android/systemui/power/PowerUI;)[I
 
     move-result-object v8
 
@@ -455,7 +459,7 @@
 
     iget-object v8, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get14(Lcom/android/systemui/power/PowerUI;)[I
+    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get15(Lcom/android/systemui/power/PowerUI;)[I
 
     move-result-object v8
 
@@ -585,7 +589,7 @@
 
     iget-object v8, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get15(Lcom/android/systemui/power/PowerUI;)I
+    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get16(Lcom/android/systemui/power/PowerUI;)I
 
     move-result v8
 
@@ -716,7 +720,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -732,7 +736,7 @@
 
     iget-object v8, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get20(Lcom/android/systemui/power/PowerUI;)J
+    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)J
 
     move-result-wide v8
 
@@ -776,7 +780,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -821,7 +825,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -832,7 +836,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get16(Lcom/android/systemui/power/PowerUI;)Landroid/os/PowerManager;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get17(Lcom/android/systemui/power/PowerUI;)Landroid/os/PowerManager;
 
     move-result-object v5
 
@@ -874,7 +878,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -956,7 +960,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1054,7 +1058,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1085,7 +1089,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1098,7 +1102,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1124,7 +1128,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1154,7 +1158,7 @@
 
     move-result-wide v8
 
-    invoke-static {v5, v8, v9}, Lcom/android/systemui/power/PowerUI;->-set18(Lcom/android/systemui/power/PowerUI;J)J
+    invoke-static {v5, v8, v9}, Lcom/android/systemui/power/PowerUI;->-set19(Lcom/android/systemui/power/PowerUI;J)J
 
     goto :goto_7
 
@@ -1173,7 +1177,7 @@
 
     const-wide/16 v8, -0x1
 
-    invoke-static {v5, v8, v9}, Lcom/android/systemui/power/PowerUI;->-set18(Lcom/android/systemui/power/PowerUI;J)J
+    invoke-static {v5, v8, v9}, Lcom/android/systemui/power/PowerUI;->-set19(Lcom/android/systemui/power/PowerUI;J)J
 
     goto :goto_7
 
@@ -1190,7 +1194,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1308,7 +1312,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1332,7 +1336,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get10(Lcom/android/systemui/power/PowerUI;)Z
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get11(Lcom/android/systemui/power/PowerUI;)Z
 
     move-result v26
 
@@ -1359,7 +1363,7 @@
     const/4 v5, 0x1
 
     :goto_a
-    invoke-static {v6, v5}, Lcom/android/systemui/power/PowerUI;->-set11(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v6, v5}, Lcom/android/systemui/power/PowerUI;->-set12(Lcom/android/systemui/power/PowerUI;Z)Z
 
     const-string/jumbo v5, "PowerUI"
 
@@ -1389,7 +1393,7 @@
 
     iget-object v8, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get10(Lcom/android/systemui/power/PowerUI;)Z
+    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get11(Lcom/android/systemui/power/PowerUI;)Z
 
     move-result v8
 
@@ -1407,7 +1411,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get10(Lcom/android/systemui/power/PowerUI;)Z
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get11(Lcom/android/systemui/power/PowerUI;)Z
 
     move-result v5
 
@@ -1419,7 +1423,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get10(Lcom/android/systemui/power/PowerUI;)Z
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get11(Lcom/android/systemui/power/PowerUI;)Z
 
     move-result v5
 
@@ -1437,7 +1441,7 @@
 
     iget-object v6, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v6}, Lcom/android/systemui/power/PowerUI;->-get14(Lcom/android/systemui/power/PowerUI;)[I
+    invoke-static {v6}, Lcom/android/systemui/power/PowerUI;->-get15(Lcom/android/systemui/power/PowerUI;)[I
 
     move-result-object v6
 
@@ -1451,7 +1455,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1477,7 +1481,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1503,7 +1507,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1606,7 +1610,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1634,7 +1638,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1688,7 +1692,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v5}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v5
 
@@ -1697,6 +1701,63 @@
     goto/16 :goto_7
 
     :cond_24
+    const-string/jumbo v5, "com.samsung.intent.action.DAYDREAM_CONNECTED"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_25
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    const-string/jumbo v6, "STATUS"
+
+    const/4 v8, 0x0
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v6
+
+    invoke-static {v5, v6}, Lcom/android/systemui/power/PowerUI;->-set10(Lcom/android/systemui/power/PowerUI;Z)Z
+
+    const-string/jumbo v5, "PowerUI"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "ACTION_CONNECT_DAY_DREAM received - "
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    invoke-static {v8}, Lcom/android/systemui/power/PowerUI;->-get10(Lcom/android/systemui/power/PowerUI;)Z
+
+    move-result v8
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_7
+
+    :cond_25
     const-string/jumbo v5, "PowerUI"
 
     new-instance v6, Ljava/lang/StringBuilder;

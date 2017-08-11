@@ -314,7 +314,7 @@ Resuming may lead to charges from your operator."</string>
     <string name="quick_settings_user_label">Me</string>
     <string name="quick_settings_user_title">User</string>
     <string name="quick_settings_user_new_user">New user</string>
-    <string name="quick_settings_wifi_label">Wi-Fi</string>
+    <string name="quick_settings_wifi_label"><cst>Wi-Fi</cst></string>
     <string name="quick_settings_wifi_not_connected">Not Connected</string>
     <string name="quick_settings_wifi_no_network">No Network</string>
     <string name="quick_settings_wifi_off_label">Wi-Fi Off</string>

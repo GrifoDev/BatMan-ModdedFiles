@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Desconhecido</string>
     <string name="save">Salvar</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d min</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Não é possível verificar a existência de redes</string>
     <string name="wifi_failed_to_obtain_IP">Falha ao obter endereço IP.</string>
     <string name="wifi_security_none">Nenhuma</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Não é possível conectar-se a %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Não é possível conectar-se ao %1$s. Verifique suas configurações em %2$s e tente novamente.</string>
     <string name="bluetooth_pairing_rejected_error_message">Pareamento rejeitado por %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Obtendo o nome do aparelho…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">O nome do aparelho será exibido quando este aparelho estiver conectado.</string>
     <string name="accessibility_wifi_off">Wi-Fi desligado.</string>
     <string name="accessibility_no_wifi">Wi-Fi desconectado</string>
     <string name="accessibility_wifi_one_bar">Uma barra de Wi-Fi.</string>
@@ -1363,6 +1365,7 @@ Para ver mais informações, entre em contato com seu administrador."</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Numpad %1$s</string>
+    <string name="keyboard_popup_help">Tecla Meta: O Windows, Command ou outra tecla símbolo do sistema operacional.</string>
     <string name="keyboard_shortcut_group_system">Atalhos do sistema</string>
     <string name="keyboard_shortcut_group_system_home">Início</string>
     <string name="keyboard_shortcut_group_system_recents">Recentes</string>
@@ -1524,8 +1527,8 @@ Para ver mais informações, entre em contato com seu administrador."</string>
 
 Para proteger contra danos por água, certifique-se de que a bandeja do chip/cartão de memória esteja vedada com firmeza."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Para proteger contra danos por água, certifique-se de vedar com firmeza a bandeja do chip/cartão de memória.</string>
-    <string name="water_protection_notification_title">Verificar porta</string>
-    <string name="water_protection_notification_body">Foi detectada umidade. Para carregar o aparelho, certifique-se de que a porta do carregador/USB esteja seca.</string>
+    <string name="water_protection_notification_title">Desconectar carregador</string>
+    <string name="water_protection_notification_body">Foi detectada umidade. Desconecte o carregador e certifique-se de que o carregador e a porta USB estejam secos.</string>
     <string name="full_battery_title">Info</string>
     <string name="full_battery_noti_text">Bateria completamente carregada.</string>
     <string name="cooling_title">Aquecimento do aparelho</string>
@@ -1619,6 +1622,7 @@ O aquecimento pode ter sido causado por:
     <string name="battery_not_fully_connected_charging_title">Carregamento lento</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Conexão incompleta</string>
     <string name="battery_not_fully_connected_charging_text">Para um carregamento mais rápido, use o carregador fornecido com o seu aparelho e certifique-se de que ele esteja conectado corretamente.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Verifique se o carregador está conectado corretamente.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Certifique-se de que o carregador esteja conectado corretamente. Use o carregador fornecido com o aparelho.</string>
     <string name="battery_charging_level_and_time_text">"Carregamento: %1$d%%
 (Aproximadamente %2$s até o carregamento total)"</string>
@@ -1632,14 +1636,20 @@ O aquecimento pode ter sido causado por:
     <string name="battery_saver_recommend_notification_text_phone_psm">Carregue seu telefone.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Carregue seu tablet.</string>
     <string name="button_close">Fechar</string>
-    <string name="battery_health_interruption_title">Não é possível carregar</string>
+    <string name="battery_health_interruption_title">Carregamento interrompido</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Desconectar o carregador</string>
     <string name="battery_health_interruption_by_terminal_open_text">Não é possível carregar seu dispositivo. Certifique-se que está usando uma bateria e carregador Samsung compatíveis com o seu dispositivo e que seu dispositivo esteja conectado corretamente no carregador.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Não é possível carregar seu aparelho. Verifique se está usando uma bateria e um carregador compatíveis com Galaxy e se o seu aparelho está conectado corretamente ao carregador.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Carregamento em pausa. Temperatura da bateria muito alta.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Carregamento em pausa. Temperatura da bateria muito baixa.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"O dispositivo interrompeu o carregamento. A temperatura da bateria está muito alta. Tenha cuidado ao desconectar o carregador. Ele pode estar muito quente.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">A temperatura do seu telefone está muito alta. O carregamento continuará quando a temperatura voltar ao normal.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">A temperatura do seu tablet está muito alta. O carregamento continuará quando a temperatura voltar ao normal.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">A temperatura do seu telefone está muito baixa. O carregamento continuará quando a temperatura voltar ao normal.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">A temperatura do seu tablet está muito baixa. O carregamento continuará quando a temperatura voltar ao normal.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"O carregamento foi interrompido. A temperatura do telefone está muito alta. Tenha cuidado ao desconectar o carregador. Ele pode estar muito quente.
 
-A desconexão e reconexão do carregador pode permitir a continuação do carregamento normalmente. Se o superaquecimento persistir, entre em contato com os serviços de atendimento ao cliente pois pode haver um risco de incêndio ou ferimento."</string>
+A desconexão e a reconexão do carregador pode permitir que o carregamento continue normalmente. Se o superaquecimento persistir, contate o Serviço de atendimento ao cliente, pois poderá haver risco de incêndio ou de ferimento."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"O carregamento foi interrompido. A temperatura do tablet está muito alta. Tenha cuidado ao desconectar o carregador. Ele pode estar muito quente.
+
+A desconexão e a reconexão do carregador pode permitir que o carregamento continue normalmente. Se o superaquecimento persistir, contate o Serviço de atendimento ao cliente, pois poderá haver risco de incêndio ou de ferimento."</string>
     <string name="incompatible_charger_title">Não está carregando.</string>
     <string name="incompatible_charger_dialog_text">O carregador conectado é incompatível com este telefone. O carregamento foi interrompido para evitar danos ao telefone. Para continuar carregando, use o carregador e o cabo originais que foram fornecidos com o telefone.</string>
     <string name="incompatible_charger_notification_text">Não foi possível carregar. Use o carregador original.</string>
@@ -1655,8 +1665,6 @@ Para impedir a exibição deste pop-up no futuro, certifique-se de que o sensor 
     <string name="kg_biometrics_swipe_active_instructions">Usar biometria ou deslizar a tela para abrir</string>
     <string name="kg_face_or_swipe_unlock_instructions">Usar reconhecimento facial ou deslizar a tela para desbloquear</string>
     <string name="kg_face_or_swipe_active_instructions">Usar reconhecimento facial ou deslizar a tela para abrir</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Usar reconhecimento facial para desbloquear ou deslizar a tela para usar as íris</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Usar reconhecimento facial para abrir ou deslizar a tela para usar as íris</string>
     <string name="kg_face_unlock_instructions">Deslizar a tela para desbloquear com o reconhecimento facial</string>
     <string name="kg_face_or_fingerprint_active_instructions">Usar impressão digital para abrir ou deslizar a tela para usar o reconhecimento facial</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Usar impressão digital para desbloquear ou deslizar a tela para usar o reconhecimento facial</string>
@@ -1671,6 +1679,20 @@ Para impedir a exibição deste pop-up no futuro, certifique-se de que o sensor 
     <string name="kg_voice_assistant_unlock_instructions">Deslize com dois dedos para desbloquear a tela.</string>
     <string name="kg_swipe_active_instructions">Deslize a tela para abrir</string>
     <string name="kg_swipe_unlock_instructions">Deslize a tela para desbloquear</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Use a biometria ou deslize a tela com dois dedos para desbloquear.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Use a biometria ou deslize a tela com dois dedos para abrir.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Use o reconhecimento facial ou deslize a tela com dois dedos para desbloquear.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Use o reconhecimento facial ou deslize a tela com dois dedos para abrir.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Deslize a tela com dois dedos para desbloquear com o reconhecimento facial.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Use a impressão digital para abrir ou deslize a tela com dois dedos para usar o reconhecimento facial.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Use a impressão digital para desbloquear ou deslize a tela com dois dedos para usar o reconhecimento facial.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Use a impressão digital para abrir ou deslize a tela com dois dedos para usar as íris.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Use a impressão digital para desbloquear ou deslize a tela com dois dedos para usar as íris.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Use a impressão digital ou deslize a tela com dois dedos para abrir.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Use a impressão digital ou deslize a tela com dois dedos para desbloquear.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Deslize a tela com dois dedos para usar as íris para desbloquear.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Use as íris ou deslize a tela com dois dedos para desbloquear.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Use as íris ou deslize a tela com dois dedos para abrir.</string>
     <string name="kg_power_connect_charger">Conectar carregador</string>
     <string name="kg_power_fully_charged">Carga completa</string>
     <string name="kg_power_fast_charging">Carregamento rápido: %d%%</string>
@@ -1754,6 +1776,7 @@ UHQ"</string>
     <string name="remote_input_send_text">Enviar</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Toque no ícone Bloquear para usar as íris para desbloquear o aparelho</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use a impressão digital para desbloquear o aparelho ou toque no ícone Bloquear para usar as íris</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Tocar duas vezes no botão Bloquear para desbloquear o telefone</string>
     <string name="s_view_cover_toast_pop_up_message">Abra a capa para usar os botões de configuração rápida.</string>
     <string name="remote_input_toast_text_on_sview_cover">Não será possível usar a função Resposta rápida quando a S View Cover estiver fechada.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"É necessário fazer o download do aplicativo para controlar a quantidade de carga compartilhada. Caso conecte seu dispositivo a outro dispositivo que tenha o Cabo Power Sharing EP-SG900 da Samsung sem utilizar o aplicativo, toda a carga disponível da bateria será transferida para o outro dispositivo.
@@ -1790,7 +1813,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Aceito</string>
-    <string name="force_immersive_guide_text">Tocar neste ícone oculta a barra de navegação. Você ainda poderá usar os botões de navegação, deslizando da parte inferior da tela para cima. Enquanto a barra de navegação estiver exibida, você poderá tocar neste ícone novamente para fixá-la. Em algumas telas, como a Tela inicial, a barra de navegação será sempre exibida.</string>
+    <string name="force_immersive_guide_text">Tocar neste botão ocultará a barra de navegação. Você ainda poderá usar os botões de navegação, deslizando da parte inferior da tela para cima. Enquanto a barra de navegação for exibida, você poderá tocar neste botão novamente para fixá-la. Em algumas telas, como a Tela inicial, a barra de navegação será sempre exibida. Se um aplicativo não se comportar normalmente enquanto a barra de navegação estiver oculta, fixe a barra de navegação e reinicie o aplicativo.</string>
+    <string name="force_immersive_guide_dialog_title">Ocultar a barra de navegação:</string>
+    <string name="force_immersive_guide_dialog_message1">Tocar neste botão oculta a barra de navegação.</string>
+    <string name="force_immersive_guide_dialog_message2">Deslize da parte inferior da tela para cima para exibir a barra de navegação.</string>
+    <string name="force_immersive_guide_dialog_message3">Toque neste botão novamente para fixá-lo no lugar.</string>
+    <string name="force_immersive_guide_dialog_message4">Em algumas telas, como a Tela inicial, a barra de navegação será sempre exibida.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Para ocultar este botão, vá para Configurações > Visor > Barra de navegação.</string>
+    <string name="force_immersive_guide_dialog_setting">Configurações</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Dirija com segurança</string>
     <string name="car_lockscreen_disclaimer_text">"Mantenha-se atento às condições da estrada  e sempre obedeça às leis aplicáveis. As instruções podem ser imprecisas, incompletas, perigosas, inadequadas, proibidas ou envolver o cruzamento de áreas administrativas. As informações comerciais também podem ser imprecisas ou incompletas. Os dados não são exibidos em tempo real, e a precisão da localização não pode ser garantida. Enquanto dirige, não manuseie seu dispositivo móvel nem use apps que não tenham sido criados para o Android Auto."</string>
     <string name="pip_close">Fechar PIP</string>
@@ -2229,6 +2260,8 @@ Se não souber o seu PUK, visite uma central de atendimento ao cliente."</string
     <string name="kg_face_retry_content_description">Toque duas vezes para usar o reconhecimento facial.</string>
     <string name="kg_face_authentication_error_retry_text">Nenhum rosto foi detectado. Toque no ícone para tentar novamente o reconhecimento facial</string>
     <string name="kg_face_authentication_failed_retry_text">Nenhuma correspondência. Toque no ícone para usar o reconhecimento facial</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Ocorreu um problema com o reconhecimento facial. Toque para tentar novamente</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Não é possível usar o reconhecimento facial durante videochamadas</string>
     <string name="kg_fingerprint_no_match">Sem correspondência</string>
     <string name="kg_finger_print_not_responding_error_message">O sensor de impressão digital não está respondendo. Tente novamente mais tarde.</string>
     <string name="kg_finger_print_database_error_message">Os dados da impressão digital foram corrompidos. Redefina a Impressão digital como o tipo de bloqueio de tela e, em seguida, adicione suas impressões digitais novamente ou altere o tipo de bloqueio de tela.</string>
@@ -2364,7 +2397,9 @@ Tente novamente em 1 segundo"</string>
     <string name="appicon_badge_new_items">%d itens novos</string>
     <string name="appicon_badge_new_item">1 novo item</string>
     <string name="banner_apps_for_dex_detail">Aproveite os aplicativos otimizados para DeX da Galaxy Apps.</string>
-    <string name="toast_cannot_move_more_than_items">Não é possível mover mais do que %d itens.</string>
+    <string name="toast_cannot_move_more_than_items">Não é possível mover mais de %d itens.</string>
+    <string name="view_more_in_galaxy_apps">Ver mais na Galaxy Apps</string>
+    <string name="view_more_in_play_store">Ver mais na Play Store</string>
     <string name="uninstall_title">Desinstalar os aplicativos?</string>
     <string name="uninstall_1_app_message">Deseja desinstalar este aplicativo?</string>
     <string name="uninstall_apps_message">Os seguintes aplicativos serão desinstalados:</string>
@@ -2388,7 +2423,7 @@ Tente novamente em 1 segundo"</string>
     <string name="tooltip_close">Fechar aplicativo</string>
     <string name="taskbar_shortcut_pinned_toast">O atalho foi fixado na barra de tarefas.</string>
     <string name="taskbar_shortcut_unpinned_toast">O atalho foi desafixado da barra de tarefas.</string>
-    <string name="str_not_support_multi_drop">Não é possível adicionar vários itens à barra de tarefas. Arraste e solte 1 item por vez.</string>
+    <string name="str_not_support_multi_drop">Não é possível adicionar vários itens à barra de tarefas. Arraste e solte 1 item de cada vez.</string>
     <string name="taskbar_context_menu_pin">Fixar atalho na barra de tarefas</string>
     <string name="taskbar_context_menu_unpin">Desafixar atalho da barra de tarefas</string>
     <string name="taskbar_context_menu_open">Abrir</string>
@@ -2408,6 +2443,13 @@ Tente novamente em 1 segundo"</string>
     <string name="clear_cover_day_month_no_year">"d 'de' MMM"</string>
     <string name="volumepanel_notification">Notificação</string>
     <string name="quick_settings_location_detail_device_only">Somente o aparelho</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Carregamento em pausa. Temperatura da bateria muito alta.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Carregamento em pausa. Temperatura da bateria muito baixa.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"O dispositivo interrompeu o carregamento. A temperatura da bateria está muito alta. Tenha cuidado ao desconectar o carregador. Ele pode estar muito quente.
+
+A desconexão e reconexão do carregador pode permitir a continuação do carregamento normalmente. Se o superaquecimento persistir, entre em contato com os serviços de atendimento ao cliente pois pode haver um risco de incêndio ou ferimento."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Usar reconhecimento facial para desbloquear ou deslizar a tela para usar as íris</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Usar reconhecimento facial para abrir ou deslizar a tela para usar as íris</string>
     <string name="kg_infinity_wallpaper_option_description">O papel de parede de infinidade será aplicado à sua Tela inicial e à Tela de bloqueio ao mesmo tempo. Ative a configuração abaixo para obter a melhor experiência.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Ativar o Always On Display</string>
 </resources>

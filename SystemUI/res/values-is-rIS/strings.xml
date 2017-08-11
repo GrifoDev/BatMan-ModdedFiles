@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Óþekkt</string>
     <string name="save">Vista</string>
     <string name="ok">Í lagi</string>
-    <string name="battery_history_hours_no_seconds">%1$dk %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d klst. og %2$d mín.</string>
+    <string name="battery_history_minutes_no_seconds">%d mín.</string>
     <string name="wifi_fail_to_scan">Ekki er hægt að leita að netum</string>
     <string name="wifi_failed_to_obtain_IP">Mistókst að sækja IP-tölu.</string>
     <string name="wifi_security_none">Ekkert</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Ekki er hægt að tengjast „%s“.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Ekki er hægt að tengjast %1$s. Athugaðu stillingar í %2$s og reyndu aftur.</string>
     <string name="bluetooth_pairing_rejected_error_message">Pörun hafnað af %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Sækir heiti tækis …</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Heiti tækisins birtist þegar þetta tæki er tengt.</string>
     <string name="accessibility_wifi_off">Slökkt á Wi-Fi.</string>
     <string name="accessibility_no_wifi">Wi-Fi ótengt.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi: Eitt strik.</string>
@@ -1376,6 +1378,7 @@ Hafðu samband við kerfisstjórann til að fá frekari upplýsingar."</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Tölulykill %1$s</string>
+    <string name="keyboard_popup_help">Meta-hnappur: Windows-, skipunar- eða annar táknatakki stýrikerfis.</string>
     <string name="keyboard_shortcut_group_system">Flýtileiðir kerfis</string>
     <string name="keyboard_shortcut_group_system_home">Heim</string>
     <string name="keyboard_shortcut_group_system_recents">Nýlegt</string>
@@ -1537,8 +1540,8 @@ Hafðu samband við kerfisstjórann til að fá frekari upplýsingar."</string>
 
 Gakktu úr skugga um að SIM-/SD-kortabakkinn sé vandlega lokaður til að vernda tækið gegn vatnsskemmdum."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Gakktu úr skugga um að SIM-/SD-kortabakkinn sé vandlega lokaður til að vernda tækið gegn vatnsskemmdum.</string>
-    <string name="water_protection_notification_title">Athugaðu tengið</string>
-    <string name="water_protection_notification_body">Raki greindist. Gakktu úr skugga um að hleðslutækið/USB-tengið sé þurrt ef þú ætlar að hlaða tækið.</string>
+    <string name="water_protection_notification_title">Aftengdu hleðslutæki</string>
+    <string name="water_protection_notification_body">Raki greindist. Taktu hleðslutækið úr sambandi og gakktu úr skugga um að hleðslutækið og USB-tengið séu þurr.</string>
     <string name="full_battery_title">Upplýsingar</string>
     <string name="full_battery_noti_text">Rafhlaða fullhlaðin.</string>
     <string name="cooling_title">Tækið er að ofhitna</string>
@@ -1632,6 +1635,7 @@ Ofhitnun kann að orsakast af:
     <string name="battery_not_fully_connected_charging_title">Hæg hleðsla</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Til að stytta hleðslutímann skaltu nota hleðslutækið sem fylgdi með tækinu og tryggja að það sé rétt tengt.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Gakktu úr skugga um að hleðslutækið sé rétt tengt. Notaðu hleðslutækið sem fylgdi með tækinu.</string>
     <string name="battery_charging_level_and_time_text">"Í hleðslu: %1$d%%
 (Fullhlaðið eftir um %2$s)"</string>
@@ -1645,14 +1649,20 @@ Ofhitnun kann að orsakast af:
     <string name="battery_saver_recommend_notification_text_phone_psm">Hlaða símann.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Hlaða spjaldtölvuna.</string>
     <string name="button_close">Loka</string>
-    <string name="battery_health_interruption_title">Ekki er hægt að hlaða</string>
+    <string name="battery_health_interruption_title">Hleðslan var stöðvuð</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Taka hleðslutæki úr sambandi</string>
     <string name="battery_health_interruption_by_terminal_open_text">Ekki er hægt að hlaða tækið. Gakktu úr skugga um að þú sért að nota samhæfa Samsung-rafhlöðu og hleðslutæki og að tækið sé rétt tengt við hleðslutækið.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Hlé var gert á hleðslu. Rafhlaðan er of heit.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Hlé var gert á hleðslu. Rafhlaðan er of köld.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Tækið hleður sig ekki lengur. Rafhlaðan er of heit. Gættu þín þegar þú aftengir hleðslutækið þar sem það kann að vera mjög heitt.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Hitastig símans er of hátt. Hleðsla heldur áfram þegar hitastigið er aftur orðið eðlilegt.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Hitastig spjaldtölvunnar er of hátt. Hleðsla heldur áfram þegar hitastigið er aftur orðið eðlilegt.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Hitastig símans er of lágt. Hleðsla heldur áfram þegar hitastigið er aftur orðið eðlilegt.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Hitastig spjaldtölvunnar er of lágt. Hleðsla heldur áfram þegar hitastigið er aftur orðið eðlilegt.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Hleðslan var stöðvuð. Síminn er of heitur. Gættu þín þegar þú aftengir hleðslutækið þar sem það kann að vera mjög heitt.
 
-Ef hleðslutækið er aftengt og tengt á ný kann hleðsla að halda áfram á eðlilegan hátt. Ef ofhitnunin er viðvarandi skaltu hafa samband við þjónustuver þar sem hætta á eldsvoða eða líkamstjóni gæti komið upp."</string>
+Ef hleðslutækið er aftengt og tengt á ný kann hleðsla að halda áfram á eðlilegan hátt. Ef ofhitnunin er viðvarandi skaltu hafa samband við þjónustuver þar sem hætta er á eldsvoða eða líkamstjóni."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Hleðslan var stöðvuð. Spjaldtölvan er of heit. Gættu þín þegar þú aftengir hleðslutækið þar sem það kann að vera mjög heitt.
+
+Ef hleðslutækið er aftengt og tengt á ný kann hleðsla að halda áfram á eðlilegan hátt. Ef ofhitnunin er viðvarandi skaltu hafa samband við þjónustuver þar sem hætta er á eldsvoða eða líkamstjóni."</string>
     <string name="incompatible_charger_title">Hleður ekki.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1668,8 +1678,6 @@ Til að koma í veg fyrir að þessi sprettigluggi birtist aftur skaltu ganga ú
     <string name="kg_biometrics_swipe_active_instructions">Notaðu lífkenni eða strjúktu skjáinn til að opna</string>
     <string name="kg_face_or_swipe_unlock_instructions">Notaðu andlitsgreiningu eða strjúktu skjáinn til að taka hann úr lás</string>
     <string name="kg_face_or_swipe_active_instructions">Notaðu andlitsgreiningu eða strjúktu skjáinn til að opna</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Notaðu andlitsgreiningu til að taka úr lás eða strjúktu skjáinn til að nota lithimnur í staðinn</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Notaðu andlitsgreiningu til að opna eða strjúktu skjáinn til að nota lithimnur í staðinn</string>
     <string name="kg_face_unlock_instructions">Strjúktu skjáinn til að nota andlitsgreiningu til að taka skjáinn úr lás</string>
     <string name="kg_face_or_fingerprint_active_instructions">Notaðu fingrafar til að opna eða strjúktu yfir skjáinn til að nota andlitsgreiningu í staðinn</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Notaðu fingrafar til að taka skjáinn úr lás eða strjúktu yfir skjáinn til að nota andlitsgreiningu í staðinn</string>
@@ -1684,6 +1692,20 @@ Til að koma í veg fyrir að þessi sprettigluggi birtist aftur skaltu ganga ú
     <string name="kg_voice_assistant_unlock_instructions">Strjúktu með tveimur fingrum til að opna skjáinn.</string>
     <string name="kg_swipe_active_instructions">Strjúktu skjáinn til að opna</string>
     <string name="kg_swipe_unlock_instructions">Strjúktu skjáinn til að taka úr lás</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Notaðu lífkenni eða strjúktu skjáinn með tveimur fingrum til að taka hann úr lás.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Notaðu lífkenni eða strjúktu skjáinn með tveimur fingrum til að opna hann.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Notaðu andlitsgreiningu eða strjúktu skjáinn með tveimur fingrum til að taka hann úr lás.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Notaðu andlitsgreiningu eða strjúktu skjáinn með tveimur fingrum til að opna hann.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Strjúktu skjáinn með tveimur fingrum til að nota andlitsgreiningu til að taka hann úr lás.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Notaðu fingrafar til að opna skjáinn eða strjúktu skjáinn með tveimur fingrum til að nota andlitsgreiningu.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Notaðu fingrafar til að taka skjáinn úr lás eða strjúktu skjáinn með tveimur fingrum til að nota andlitsgreiningu.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Notaðu fingrafar til að opna skjáinn eða strjúktu skjáinn með tveimur fingrum til að nota augnskanna.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Notaðu fingrafar til að taka skjáinn úr lás eða strjúktu skjáinn með tveimur fingrum til að nota augnskanna.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Notaðu fingrafar eða strjúktu skjáinn með tveimur fingrum til að opna hann.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Notaðu fingrafar eða strjúktu skjáinn með tveimur fingrum til að taka hann úr lás.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Strjúktu skjáinn með tveimur fingrum til að nota augnskanna til að taka hann úr lás.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Notaðu augnskanna eða strjúktu skjáinn með tveimur fingrum til að taka hann úr lás.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Notaðu augnskanna eða strjúktu skjáinn með tveimur fingrum til að opna hann.</string>
     <string name="kg_power_connect_charger">Tengdu hleðslutæki</string>
     <string name="kg_power_fully_charged">Fullhlaðin</string>
     <string name="kg_power_fast_charging">Hraðhleðsla: %d%%</string>
@@ -1767,6 +1789,7 @@ umbreytir"</string>
     <string name="remote_input_send_text">Senda</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Pikkaðu tvisvar á láshnappinn til að taka símann úr lás</string>
     <string name="s_view_cover_toast_pop_up_message">Opnaðu hulstrið til að nota flýtistillingahnappa.</string>
     <string name="remote_input_toast_text_on_sview_cover">Ekki er hægt að nota eiginleika snarsvars þegar S View hulstrið er lokað.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1803,7 +1826,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Ég samþykki</string>
-    <string name="force_immersive_guide_text">Ef pikkað er á þennan hnapp er yfirlitsstikan falin. Enn er hægt að nota flettihnappana með því að strjúka upp frá neðri hluta skjásins. Hægt er að festa yfirlitsstikuna með því að pikka aftur á þetta tákn þegar hún er sýnd. Yfirlitsstikan er alltaf sýnd á sumum skjáum, t.d. heimaskjánum.</string>
+    <string name="force_immersive_guide_text">Ef pikkað er á þennan hnapp er yfirlitsstikan falin. Enn er hægt að nota flettihnappana með því að strjúka upp frá neðri hluta skjásins. Hægt er að festa yfirlitsstikuna með því að pikka aftur á þennan hnapp þegar hún er sýnileg. Yfirlitsstikan er alltaf sýnd á sumum skjáum, t.d. heimaskjánum. Ef forrit hegðar sér ekki eðlilega á meðan yfirlitsstikan er falin skal festa yfirlitsstikuna og endurræsa forritið.</string>
+    <string name="force_immersive_guide_dialog_title">Fela yfirlitsstiku:</string>
+    <string name="force_immersive_guide_dialog_message1">Hægt er að fela yfirlitsstikuna með því að pikka á þennan hnapp.</string>
+    <string name="force_immersive_guide_dialog_message2">Strjúktu upp frá neðsta hluta skjásins til að birta leiðsagnarstikuna.</string>
+    <string name="force_immersive_guide_dialog_message3">Pikkaðu aftur á þennan hnapp til að festa hana.</string>
+    <string name="force_immersive_guide_dialog_message4">Á sumum skjáum, t.d. heimaskjánum, er yfirlitsstikan alltaf sýnd.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Opnaðu „Stillingar > Skjár > Yfirlitsstika“ til að fela þennan hnapp.</string>
+    <string name="force_immersive_guide_dialog_setting">Stillingar</string>
+    <string name="force_immersive_guide_dialog_ok">Í LAGI</string>
     <string name="car_lockscreen_disclaimer_title">Aktu varlega</string>
     <string name="car_lockscreen_disclaimer_text">Vertu vakandi fyrir akstursskilyrðum hverju sinni og farðu ævinlega eftir gildandi lögum. Leiðarlýsing kann að vera ónákvæm, ófullkomin, ekki við hæfi, bönnuð eða fela í sér ferðir um opinber svæði. Upplýsingar um fyrirtæki kunna einnig að vera ónákvæmar eða ófullkomnar. Gögn eru ekki í rauntíma og ekki er hægt að tryggja nákvæmni staðsetningarupplýsinga. Ekki handleika fartækið þitt meðan á akstri stendur eða nota forrit sem ekki eru hugsuð fyrir Android Auto.</string>
     <string name="pip_close">Loka mynd í mynd</string>
@@ -2242,6 +2273,8 @@ Ef þú veist ekki hvert PUK-númerið er skaltu hafa samband við þjónustuver
     <string name="kg_face_retry_content_description">Pikkaðu tvisvar til að nota andlitsgreiningu.</string>
     <string name="kg_face_authentication_error_retry_text">Ekkert andlit var greint. Pikkaðu á táknið til að prófa andlitsgreiningu aftur</string>
     <string name="kg_face_authentication_failed_retry_text">Ekkert fannst. Pikkaðu á táknið til að nota andlitsgreiningu</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Vandamál kom upp í tengslum við andlitsgreiningu. Pikkaðu til að reyna aftur</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Ekki er hægt að nota andlitsgreiningu þegar myndsímtal stendur yfir</string>
     <string name="kg_fingerprint_no_match">Ekkert fannst</string>
     <string name="kg_finger_print_not_responding_error_message">Fingrafaraskynjarinn svarar ekki. Reyndu aftur síðar.</string>
     <string name="kg_finger_print_database_error_message">Fingrafaragögnin hafa skemmst. Endurstilltu fingraför sem tegund skjáláss og bættu fingraförunum þínum við aftur eða skiptu um tegund skjáláss.</string>
@@ -2379,6 +2412,8 @@ Reyndu aftur eftir 1 sekúndu"</string>
     <string name="appicon_badge_new_item">Eitt nýtt atriði</string>
     <string name="banner_apps_for_dex_detail">Njóttu forrita úr Galaxy Apps sem fínstillt eru fyrir DeX.</string>
     <string name="toast_cannot_move_more_than_items">Ekki er hægt að færa fleiri en %d atriði.</string>
+    <string name="view_more_in_galaxy_apps">Skoða meira í Galaxy Apps</string>
+    <string name="view_more_in_play_store">Skoða meira í Play Store</string>
     <string name="uninstall_title">Viltu fjarlægja forrit?</string>
     <string name="uninstall_1_app_message">Viltu fjarlægja þetta forrit?</string>
     <string name="uninstall_apps_message">Eftirfarandi forrit verða fjarlægð:</string>
@@ -2419,6 +2454,13 @@ Reyndu aftur eftir 1 sekúndu"</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Fela tilkynningar</string>
     <string name="volumepanel_notification">Tilkynning</string>
     <string name="quick_settings_location_detail_device_only">Aðeins tæki</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Hlé var gert á hleðslu. Rafhlaðan er of heit.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Hlé var gert á hleðslu. Rafhlaðan er of köld.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Tækið hleður sig ekki lengur. Rafhlaðan er of heit. Gættu þín þegar þú aftengir hleðslutækið þar sem það kann að vera mjög heitt.
+
+Ef hleðslutækið er aftengt og tengt á ný kann hleðsla að halda áfram á eðlilegan hátt. Ef ofhitnunin er viðvarandi skaltu hafa samband við þjónustuver þar sem hætta á eldsvoða eða líkamstjóni gæti komið upp."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Notaðu andlitsgreiningu til að taka úr lás eða strjúktu skjáinn til að nota lithimnur í staðinn</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Notaðu andlitsgreiningu til að opna eða strjúktu skjáinn til að nota lithimnur í staðinn</string>
     <string name="kg_infinity_wallpaper_option_description">Óendanleikaveggfóður verður notað á heimaskjáinn og lásskjáinn á sama tíma. Kveiktu á stillingunni hér að neðan til að fá sem bestan árangur.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Kveiktu á Always On Display</string>
 </resources>

@@ -43,7 +43,7 @@
 .method private bindView(Landroid/view/View;I)V
     .locals 3
 
-    const v1, 0x1020468
+    const v1, 0x1020471
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1300f1
+    const v1, 0x7f1300f5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -249,7 +249,7 @@
 
     invoke-direct {p0, v1, v2}, Lcom/android/systemui/tuner/ColorAndAppearanceFragment$CalibrateDialog;->bindView(Landroid/view/View;I)V
 
-    const v1, 0x7f1300f2
+    const v1, 0x7f1300f6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -259,7 +259,7 @@
 
     invoke-direct {p0, v1, v2}, Lcom/android/systemui/tuner/ColorAndAppearanceFragment$CalibrateDialog;->bindView(Landroid/view/View;I)V
 
-    const v1, 0x7f1300f3
+    const v1, 0x7f1300f7
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -285,7 +285,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0f058b
+    const v2, 0x7f0f05e8
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -295,7 +295,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0595
+    const v2, 0x7f0f05f2
 
     invoke-virtual {v1, v2, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

@@ -219,7 +219,7 @@
 .method private getDeskQuickSettingViewCollapseTo()F
     .locals 3
 
-    const v2, 0x7f0d0643
+    const v2, 0x7f0d0657
 
     const/4 v1, 0x0
 
@@ -291,7 +291,7 @@
 .method private getDeskQuickSettingViewExpandFrom()F
     .locals 3
 
-    const v2, 0x7f0d0643
+    const v2, 0x7f0d0657
 
     const/4 v1, 0x0
 
@@ -848,7 +848,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f130184
+    const v0, 0x7f130188
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewQuickSetting;->findViewById(I)Landroid/view/View;
 
@@ -864,7 +864,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020128
+    const v2, 0x7f02012d
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

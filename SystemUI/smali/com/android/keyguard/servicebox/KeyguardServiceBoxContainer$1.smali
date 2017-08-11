@@ -123,7 +123,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$1;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-wrap4(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)V
+    invoke-static {v1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-wrap3(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)V
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$1;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 

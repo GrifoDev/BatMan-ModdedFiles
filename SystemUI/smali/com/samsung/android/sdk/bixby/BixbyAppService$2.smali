@@ -39,7 +39,45 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "BixbyAppService Command From EM"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$2;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
+
+    invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$400(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$2;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
+
+    invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$500(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;
+
+    invoke-direct {v1, p1}, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+
+    :cond_0
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
 
     move-result-object v0
 
@@ -47,7 +85,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "BixbyAppService sendCommand: "
+    const-string/jumbo v2, "BixbyAppService Command From EM: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -63,34 +101,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$2;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
+    goto :goto_0
 
-    invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$300(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$2;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
-
-    invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$400(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Landroid/os/Handler;
+    :cond_1
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v1, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;
-
-    invoke-direct {v1, p1}, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "Unauthorized access detected!"
+    const-string/jumbo v1, "sendCommand: Unauthorized access detected!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -105,7 +123,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
 
     move-result-object v0
 
@@ -115,7 +133,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$2;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
 
-    invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$300(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Z
+    invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$400(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Z
 
     move-result v0
 
@@ -123,16 +141,16 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$2;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
 
-    invoke-static {v0, p1}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$102(Lcom/samsung/android/sdk/bixby/BixbyAppService;Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
+    invoke-static {v0, p1}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$202(Lcom/samsung/android/sdk/bixby/BixbyAppService;Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
 
     return-void
 
     :cond_0
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "Unauthorized access detected!"
+    const-string/jumbo v1, "setCallback: Unauthorized access detected!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 

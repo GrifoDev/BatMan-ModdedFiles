@@ -284,7 +284,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d040b
+    const v1, 0x7f0d040c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -292,7 +292,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/IconMerger;->mIconSize:I
 
-    const v1, 0x7f0d020a
+    const v1, 0x7f0d020b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

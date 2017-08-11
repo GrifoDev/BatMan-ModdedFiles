@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Neznámý</string>
     <string name="save">Uložit</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Nelze hledat sítě</string>
     <string name="wifi_failed_to_obtain_IP">Nepodařilo se získat IP adresu.</string>
     <string name="wifi_security_none">Žádné</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">K %s se nelze připojit.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Připojení k %1$s se nezdařilo. Zkontrolujte nastavení v %2$s a opakujte akci.</string>
     <string name="bluetooth_pairing_rejected_error_message">Párování odmítnuto %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Zjišťování názvu zařízení…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Název zařízení se zobrazí po připojení zařízení.</string>
     <string name="accessibility_wifi_off">Síť Wi-Fi je vypnuta.</string>
     <string name="accessibility_no_wifi">Síť Wi-Fi je odpojena.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi – jedna čárka.</string>
@@ -1362,6 +1364,7 @@ O další informace požádejte svého administrátora."</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">%1$s na numerické klávesnici</string>
+    <string name="keyboard_popup_help">Meta klávesa: The Windows, Command nebo jiná klávesa se symbolem operačního systému.</string>
     <string name="keyboard_shortcut_group_system">Systémoví zástupci</string>
     <string name="keyboard_shortcut_group_system_home">Plocha</string>
     <string name="keyboard_shortcut_group_system_recents">Poslední</string>
@@ -1523,8 +1526,8 @@ O další informace požádejte svého administrátora."</string>
 
 Abyste chránili zařízení proti poškození vodou, zkontrolujte, zda je řádně utěsněný slot SIM karty/SD karty."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Abyste chránili zařízení proti poškození vodou, zkontrolujte, zda je pevně utěsněný slot SIM karty/SD karty.</string>
-    <string name="water_protection_notification_title">Zkontrolujte port</string>
-    <string name="water_protection_notification_body">Byla zjištěna vlhkost. Pokud chcete nabít zařízení, zkontrolujte, zda je port nabíječky/USB suchý.</string>
+    <string name="water_protection_notification_title">Odpojte nabíječku</string>
+    <string name="water_protection_notification_body">Byla zjištěna vlhkost. Odpojte nabíječku a zkontrolujte, zda je suchá nabíječka i port USB.</string>
     <string name="full_battery_title">Informace</string>
     <string name="full_battery_noti_text">Baterie je plně nabitá.</string>
     <string name="cooling_title">Přehřívání zařízení</string>
@@ -1618,6 +1621,7 @@ Přehřátí může být způsobeno:
     <string name="battery_not_fully_connected_charging_title">Pomalé nabíjení</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Abyste zajistili rychlejší nabíjení, použijte nabíječku dodanou se zařízením a ujistěte se, zda je správně připojená.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Ujistěte se, zda je nabíječka správně připojená. Použijte nabíječku dodanou se zařízením.</string>
     <string name="battery_charging_level_and_time_text">"Nabíjení: %1$d %%
 (Přibližně %2$s než bude baterie úplně nabitá)"</string>
@@ -1631,14 +1635,20 @@ Přehřátí může být způsobeno:
     <string name="battery_saver_recommend_notification_text_phone_psm">Nabijte telefon.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Nabijte tablet.</string>
     <string name="button_close">Zavřít</string>
-    <string name="battery_health_interruption_title">Nelze nabíjet</string>
+    <string name="battery_health_interruption_title">Nabíjení zastaveno</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Odpojte nabíječku</string>
     <string name="battery_health_interruption_by_terminal_open_text">Zařízení nelze nabít. Zkontrolujte, zda používáte kompatibilní baterii a nabíječku Samsung a že zařízení je správně připojeno k nabíječce.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Nabíjení bylo pozastaveno. Teplota baterie je příliš vysoká.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Nabíjení bylo pozastaveno. Teplota baterie je příliš nízká.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Zařízení zastavilo nabíjení. Teplota baterie je příliš vysoká. Při odpojování nabíječky postupujte opatrně. Může být velmi horká.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Teplota telefonu je příliš vysoká. Nabíjení bude pokračovat, až se teplota vrátí na normální úroveň.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Teplota tabletu je příliš vysoká. Nabíjení bude pokračovat, až se teplota vrátí na normální úroveň.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Teplota telefonu je příliš nízká. Nabíjení bude pokračovat, až se teplota vrátí na normální úroveň.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Teplota tabletu je příliš nízká. Nabíjení bude pokračovat, až se teplota vrátí na normální úroveň.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Nabíjení bylo zastaveno. Teplota telefonu je příliš vysoká. Při odpojování nabíječky postupujte opatrně. Může být velmi horká.
 
-Po odpojení a opětovném připojení nabíječky může nabíjení pokračovat normálním způsobem. Pokud přehřívání přetrvává, obraťte se na zákaznické služby, protože může hrozit nebezpečí požáru nebo úrazu."</string>
+Po odpojení a opětovném připojení nabíječky může nabíjení pokračovat normálním způsobem. Pokud přehřívání přetrvává, obraťte se na Zákaznické služby, protože může hrozit nebezpečí požáru nebo úrazu."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Nabíjení bylo zastaveno. Teplota tabletu je příliš vysoká. Při odpojování nabíječky postupujte opatrně. Může být velmi horká.
+
+Po odpojení a opětovném připojení nabíječky může nabíjení pokračovat normálním způsobem. Pokud přehřívání přetrvává, obraťte se na Zákaznické služby, protože může hrozit nebezpečí požáru nebo úrazu."</string>
     <string name="incompatible_charger_title">Nenabíjí se.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1654,8 +1664,6 @@ Chcete-li zabránit zobrazování této zprávy v budoucnu, zajistěte, aby neby
     <string name="kg_biometrics_swipe_active_instructions">Použijte k otevření biometriku nebo potažení obrazovky</string>
     <string name="kg_face_or_swipe_unlock_instructions">Použijte k odemknutí rozpoznávání obličeje nebo potažení obrazovky</string>
     <string name="kg_face_or_swipe_active_instructions">Použijte k otevření rozpoznávání obličeje nebo potažení obrazovky</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Použijte k odemknutí rozpoznávání obličeje nebo potáhněte obrazovku a použijte duhovky</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Použijte k otevření rozpoznávání obličeje nebo potáhněte obrazovku a použijte duhovky</string>
     <string name="kg_face_unlock_instructions">Pro odemknutí pomocí rozpoznávání obličeje potáhněte po obrazovce</string>
     <string name="kg_face_or_fingerprint_active_instructions">Použijte k otevření otisky prstů nebo potáhněte obrazovku a použijte rozpoznávání obličeje</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Použijte k odemknutí otisky prstů nebo potáhněte obrazovku a použijte rozpoznávání obličeje</string>
@@ -1670,6 +1678,20 @@ Chcete-li zabránit zobrazování této zprávy v budoucnu, zajistěte, aby neby
     <string name="kg_voice_assistant_unlock_instructions">Chcete-li odemknout obrazovku, přejeďte ji dvěma prsty.</string>
     <string name="kg_swipe_active_instructions">Pro otevření přejeďte po displeji</string>
     <string name="kg_swipe_unlock_instructions">Pro odemknutí přejeďte po displeji</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">K odemknutí použijte biometriku nebo přejeďte po obrazovce dvěma prsty.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">K otevření použijte biometriku nebo přejeďte po obrazovce dvěma prsty.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">K odemknutí použijte rozpoznání obličeje nebo přejeďte po obrazovce dvěma prsty.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">K otevření použijte rozpoznání obličeje nebo přejeďte po obrazovce dvěma prsty.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Přejeďte po obrazovce dvěma prsty, abyste provedli odemknutí s rozpoznáním obličeje.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Použijte k otevření otisk prstu nebo přejeďte po obrazovce dvěma prsty pro použití rozpoznávání obličeje.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Použijte k odemknutí otisk prstu nebo přejeďte po obrazovce dvěma prsty pro použití rozpoznávání obličeje.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Použijte k otevření otisk prstu nebo přejeďte po obrazovce dvěma prsty pro použití duhovek.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Použijte k odemknutí otisk prstu nebo přejeďte po obrazovce dvěma prsty pro použití duhovek.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">K otevření použijte otisk prstu nebo přejeďte po obrazovce dvěma prsty.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">K odemknutí použijte otisk prstu nebo přejeďte po obrazovce dvěma prsty.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Přejeďte po obrazovce dvěma prsty, abyste k odemknutí použili duhovky.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">K odemknutí použijte duhovky nebo přejeďte po obrazovce dvěma prsty.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">K otevření použijte duhovky nebo přejeďte po obrazovce dvěma prsty.</string>
     <string name="kg_power_connect_charger">Připojte nabíječku</string>
     <string name="kg_power_fully_charged">Plně nabitá</string>
     <string name="kg_power_fast_charging">Rychlé nabíjení: %d %%</string>
@@ -1753,6 +1775,7 @@ rozs. UHQ"</string>
     <string name="remote_input_send_text">Odeslat</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Poklepáním na tlačítko Zamknout odemknete telefon</string>
     <string name="s_view_cover_toast_pop_up_message">Abyste mohli použít tlačítka rychlého nastavení, otevřete kryt.</string>
     <string name="remote_input_toast_text_on_sview_cover">Když je zavřené pouzdro S View Cover, nelze použít funkci Rychlá odpověď.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Pro ovládání sdíleného napájení je potřeba stáhnout aplikaci Power Sharing. Pokud své zařízení propojíte s jiným zařízením pomocí kabelu Samsung Power Sharing EP-G900 a nepoužijete tuto ovládací aplikaci, může být veškerý výkon baterie neřízeně přenesen do připojeného zařízení.
@@ -1789,7 +1812,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Souhlasím</string>
-    <string name="force_immersive_guide_text">Klepnutím na tuto ikonu skryjete navigační panel. Navigační tlačítka můžete dále používat, když potáhnete nahoru od dolního okraje obrazovky. Když je navigační panel zobrazený, dalším klepnutím na tuto ikonu ho zajistíte na místě. Na některých obrazovkách, například na Domovské obrazovce, bude navigační panel zobrazen vždy.</string>
+    <string name="force_immersive_guide_text">Klepnutím na toto tlačítko skryjete navigační panel. Navigační tlačítka můžete dále používat, když potáhnete nahoru od dolního okraje obrazovky. Když je navigační panel zobrazený, dalším klepnutím na toto tlačítko ho zajistíte na místě. Na některých obrazovkách, například na Domovské obrazovce, bude navigační panel zobrazen vždy. Pokud se aplikace při skrytém navigačním panelu nechová normálně, zajistěte navigační panel na místě a restartujte aplikaci.</string>
+    <string name="force_immersive_guide_dialog_title">Skrýt navigační panel:</string>
+    <string name="force_immersive_guide_dialog_message1">Klepnutím na toto tlačítko skryjete navigační panel.</string>
+    <string name="force_immersive_guide_dialog_message2">Potažením směrem nahoru od dolního okraje obrazovky zobrazíte navigační panel.</string>
+    <string name="force_immersive_guide_dialog_message3">Dalším klepnutím na tlačítko ho zajistíte na místě.</string>
+    <string name="force_immersive_guide_dialog_message4">Na některých obrazovkách, například na Domovské obrazovce, bude navigační panel zobrazen vždy.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Chcete-li tlačítko skrýt, přejděte na Nastavení > Displej > Navigační panel.</string>
+    <string name="force_immersive_guide_dialog_setting">Nastavení</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Řiďte bezpečně</string>
     <string name="car_lockscreen_disclaimer_text">Věnujte plnou pozornost řízení a dodržujte platné předpisy. Trasy mohou být nepřesné, neúplné, nebezpečné, nevhodné, zakázané nebo mohou zahrnovat překročení hranic. Informace o firmách mohou být také nepřesné nebo neúplné. Data se neaktualizují v reálném čase a přesnost polohy nelze zaručit. Mobilní zařízení ani aplikace určené pro Android Auto nepoužívejte za jízdy.</string>
     <string name="pip_close">Ukončit PIP</string>
@@ -2228,6 +2259,8 @@ Pokud PUK kód neznáte, navštivte oddělení služeb zákazníkům."</string>
     <string name="kg_face_retry_content_description">Poklepáním použijete rozpoznávání obličeje.</string>
     <string name="kg_face_authentication_error_retry_text">Nebyl rozpoznán žádný obličej. Klepněte na ikonu, pokud chcete rozpoznávání zkusit znovu</string>
     <string name="kg_face_authentication_failed_retry_text">Žádná shoda. Klepněte na ikonu, abyste použili rozpoznávání obličeje</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Při rozpoznávání obličeje došlo k potížím. Klepnutím opakujte akci</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Během videohovorů nelze použít rozpoznávání obličeje</string>
     <string name="kg_fingerprint_no_match">Žádná shoda</string>
     <string name="kg_finger_print_not_responding_error_message">Čidlo otisku prstu nereaguje. Opakujte akci později.</string>
     <string name="kg_finger_print_database_error_message">Data otisků prstů jsou poškozená. Obnovte Otisk prstu jako typ zamykací obrazovky a potom přidejte otisky prstů znovu, nebo změňte typ zamykací obrazovky.</string>
@@ -2364,6 +2397,8 @@ Opakujte akci za 1 sekundu"</string>
     <string name="appicon_badge_new_item">1 nová položka</string>
     <string name="banner_apps_for_dex_detail">Užijte si aplikace optimalizované pro režim DeX z Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Přesunout lze maximálně %d položek.</string>
+    <string name="view_more_in_galaxy_apps">Zobrazit další v Galaxy Apps</string>
+    <string name="view_more_in_play_store">Zobrazit další v Play Store</string>
     <string name="uninstall_title">Odinstalovat aplikace?</string>
     <string name="uninstall_1_app_message">Chcete aplikaci odinstalovat?</string>
     <string name="uninstall_apps_message">Následující aplikace budou odinstalovány:</string>
@@ -2407,6 +2442,13 @@ Opakujte akci za 1 sekundu"</string>
     <string name="clear_cover_day_month_no_year">d. MMM</string>
     <string name="volumepanel_notification">Oznámení</string>
     <string name="quick_settings_location_detail_device_only">Pouze zařízení</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Nabíjení bylo pozastaveno. Teplota baterie je příliš vysoká.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Nabíjení bylo pozastaveno. Teplota baterie je příliš nízká.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Zařízení zastavilo nabíjení. Teplota baterie je příliš vysoká. Při odpojování nabíječky postupujte opatrně. Může být velmi horká.
+
+Po odpojení a opětovném připojení nabíječky může nabíjení pokračovat normálním způsobem. Pokud přehřívání přetrvává, obraťte se na zákaznické služby, protože může hrozit nebezpečí požáru nebo úrazu."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Použijte k odemknutí rozpoznávání obličeje nebo potáhněte obrazovku a použijte duhovky</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Použijte k otevření rozpoznávání obličeje nebo potáhněte obrazovku a použijte duhovky</string>
     <string name="kg_infinity_wallpaper_option_description">Nekonečné pozadí bude současně použito na Domovské a Zamykací obrazovce. Pro dosažení co nejlepšího zážitku zapněte následující nastavení.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Zapnout Always On Display</string>
 </resources>

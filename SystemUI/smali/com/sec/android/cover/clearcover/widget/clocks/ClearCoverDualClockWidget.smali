@@ -1328,13 +1328,13 @@
     :goto_1
     iget-object v3, p0, Lcom/sec/android/cover/clearcover/widget/clocks/ClearCoverDualClockWidget;->mRoamingRegionText:Landroid/widget/TextView;
 
-    sget v4, Lcom/sec/android/sviewcover/R$string;->s_view_screen_roaming:I
+    sget v4, Lcom/sec/android/sviewcover/R$string;->clock_roaming:I
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v3, p0, Lcom/sec/android/cover/clearcover/widget/clocks/ClearCoverDualClockWidget;->mHomeRegionText:Landroid/widget/TextView;
 
-    sget v4, Lcom/sec/android/sviewcover/R$string;->s_view_screen_home:I
+    sget v4, Lcom/sec/android/sviewcover/R$string;->clock_home:I
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 

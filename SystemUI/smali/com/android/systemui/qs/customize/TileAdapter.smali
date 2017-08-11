@@ -400,7 +400,7 @@
 
     aput-object v1, v3, v6
 
-    const v4, 0x7f0f060e
+    const v4, 0x7f0f066c
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -472,7 +472,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0f060d
+    const v4, 0x7f0f066b
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -533,7 +533,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0f060f
+    const v4, 0x7f0f066d
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -806,7 +806,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x7f0f060b
+    const v5, 0x7f0f0669
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -824,7 +824,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x7f0f060c
+    const v5, 0x7f0f066a
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1090,7 +1090,7 @@
 .method public onBindViewHolder(Lcom/android/systemui/qs/customize/TileAdapter$Holder;I)V
     .locals 10
 
-    const v9, 0x7f0f060a
+    const v9, 0x7f0f0668
 
     const/4 v7, 0x2
 
@@ -1151,7 +1151,7 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f0f05f1
+    const v3, 0x7f0f064f
 
     :goto_1
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
@@ -1159,7 +1159,7 @@
     return-void
 
     :cond_2
-    const v3, 0x7f0f05f0
+    const v3, 0x7f0f064e
 
     goto :goto_1
 
@@ -1282,7 +1282,7 @@
 
     aput-object v8, v7, v2
 
-    const v8, 0x7f0f0609
+    const v8, 0x7f0f0667
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1432,7 +1432,7 @@
 
     aput-object v8, v7, v4
 
-    const v8, 0x7f0f0608
+    const v8, 0x7f0f0666
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1516,7 +1516,7 @@
 
     new-instance v3, Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
-    const v4, 0x7f040114
+    const v4, 0x7f040118
 
     invoke-virtual {v2, v4, p1, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1533,7 +1533,7 @@
 
     new-instance v3, Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
-    const v4, 0x7f04010e
+    const v4, 0x7f040112
 
     invoke-virtual {v2, v4, p1, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1544,7 +1544,7 @@
     return-object v3
 
     :cond_1
-    const v3, 0x7f040115
+    const v3, 0x7f040119
 
     invoke-virtual {v2, v3, p1, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

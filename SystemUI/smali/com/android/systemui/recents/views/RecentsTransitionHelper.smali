@@ -1601,7 +1601,7 @@
 .end method
 
 .method public getAppTransitionFuture(Lcom/android/systemui/recents/views/RecentsTransitionHelper$AnimationSpecComposer;)Landroid/view/IAppTransitionAnimationSpecsFuture;
-    .locals 1
+    .locals 4
 
     monitor-enter p0
 
@@ -1613,6 +1613,14 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->SPECS_COMPOSING_TIMEOUT:Ljava/lang/Runnable;
+
+    const-wide/16 v2, 0x1388
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     new-instance v0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$7;
 

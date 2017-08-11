@@ -112,21 +112,3 @@
 
     goto :goto_0
 .end method
-
-.method public setScaledImageBitmap(Landroid/graphics/drawable/BitmapDrawable;II)V
-    .locals 3
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-static {v1, p2, p3, v2}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    invoke-super {p0, v0}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
-
-    return-void
-.end method

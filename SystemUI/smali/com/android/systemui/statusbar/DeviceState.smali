@@ -845,6 +845,22 @@
     return v2
 .end method
 
+.method public static isOpenTheme(Landroid/content/Context;)Ljava/lang/String;
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "current_sec_active_themepackage"
+
+    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static isQuickConnectSupported(Landroid/content/Context;)Z
     .locals 6
 

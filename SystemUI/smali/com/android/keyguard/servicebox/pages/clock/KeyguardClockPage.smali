@@ -468,49 +468,49 @@
 .method private considerChangeClockView(Z)V
     .locals 11
 
-    const/4 v10, 0x0
+    const/4 v7, 0x0
 
-    const-string/jumbo v7, "KeyguardClockPage"
+    const-string/jumbo v8, "KeyguardClockPage"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "considerChangeClockView() >> START >> forceReplace: "
+    const-string/jumbo v10, "considerChangeClockView() >> START >> forceReplace: "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->needToShowDualClock()Z
 
-    move-result v7
+    move-result v8
 
-    iput-boolean v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShouldShowDualClock:Z
+    iput-boolean v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShouldShowDualClock:Z
 
     invoke-direct {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->needToShowImageClock()Z
 
-    move-result v7
+    move-result v8
 
-    iput-boolean v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShouldShowImageClock:Z
+    iput-boolean v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShouldShowImageClock:Z
 
-    iget-boolean v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShouldShowImageClock:Z
+    iget-boolean v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShouldShowImageClock:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v8, :cond_3
 
-    iget-boolean v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShouldShowDualClock:Z
+    iget-boolean v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShouldShowDualClock:Z
 
-    if-eqz v7, :cond_1
+    if-eqz v8, :cond_2
 
     sget-object v6, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;->ImageDual2016:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
 
@@ -521,71 +521,88 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, " hometime:"
+    const-string/jumbo v8, " hometime:"
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+
+    invoke-static {v9}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Lcom/android/keyguard/util/SettingsHelper;->getHomeTimeZone()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v8, " locale:"
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mLocale:Ljava/util/Locale;
+
+    invoke-virtual {v9}, Ljava/util/Locale;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v8, " hasBG?"
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+
+    invoke-static {v9}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Lcom/android/keyguard/util/SettingsHelper;->isOpenThemeLook()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_0
+
+    iget-object v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v7
-
-    iget-object v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
-
-    invoke-static {v8}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Lcom/android/keyguard/util/SettingsHelper;->getHomeTimeZone()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v7, " locale:"
-
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mLocale:Ljava/util/Locale;
-
-    invoke-virtual {v8}, Ljava/util/Locale;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v7, " hasBG?"
-
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
 
     sget v9, Lcom/android/keyguard/R$bool;->theme_use_clock_background_image:I
 
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result v8
+    move-result v7
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    :cond_0
+    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_a
 
     iput-object v6, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mType:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
 
     iput-object v4, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockKey:Ljava/lang/String;
 
-    invoke-virtual {p0, v10}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->attachContentsView(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-direct {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->updateDualClockShowing()V
 
-    :cond_0
+    iget-object v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShowAnimationListener:Landroid/animation/Animator$AnimatorListener;
+
+    invoke-virtual {p0, v7}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->attachContentsView(Landroid/animation/Animator$AnimatorListener;)V
+
+    :cond_1
     :goto_1
     const-string/jumbo v7, "KeyguardClockPage"
 
@@ -595,93 +612,93 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     sget-object v6, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;->ImageSingle2016:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
 
     goto :goto_0
 
-    :cond_2
-    iget-boolean v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShouldShowDualClock:Z
+    :cond_3
+    iget-boolean v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShouldShowDualClock:Z
 
-    if-eqz v7, :cond_3
+    if-eqz v8, :cond_4
 
     sget-object v6, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;->DefaultDual2016:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
 
     goto :goto_0
 
-    :cond_3
-    sget-boolean v7, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
+    :cond_4
+    sget-boolean v8, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
 
-    if-eqz v7, :cond_6
+    if-eqz v8, :cond_7
 
-    iget v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mPageType:I
+    iget v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mPageType:I
 
-    if-eqz v7, :cond_6
+    if-eqz v8, :cond_7
 
     const/4 v2, 0x1
 
     :goto_2
-    iget-object v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
 
-    invoke-static {v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDesktopMode()Z
+    invoke-virtual {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDesktopMode()Z
 
     move-result v0
 
-    iget-object v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
 
-    invoke-static {v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFMMLock()Z
+    invoke-virtual {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFMMLock()Z
 
     move-result v1
 
-    iget-object v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
 
-    invoke-static {v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isRMMEnabled()Z
+    invoke-virtual {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isRMMEnabled()Z
 
     move-result v3
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
-    if-nez v2, :cond_8
-
-    :cond_4
-    if-eqz v0, :cond_5
-
-    if-eqz v1, :cond_7
+    if-nez v2, :cond_9
 
     :cond_5
+    if-eqz v0, :cond_6
+
+    if-eqz v1, :cond_8
+
+    :cond_6
     sget-object v6, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;->DefaultSingle2016:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_7
     const/4 v2, 0x0
 
     goto :goto_2
 
-    :cond_7
-    if-nez v3, :cond_5
-
     :cond_8
+    if-nez v3, :cond_6
+
+    :cond_9
     sget-object v6, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;->ExpandSingle:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     iget-object v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_1
 
     const-string/jumbo v7, "KeyguardClockPage"
 
@@ -731,13 +748,17 @@
 
     move-result v7
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_1
 
     iput-object v6, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mType:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
 
     iput-object v4, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockKey:Ljava/lang/String;
 
-    invoke-virtual {p0, v10}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->attachContentsView(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-direct {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->updateDualClockShowing()V
+
+    iget-object v7, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mShowAnimationListener:Landroid/animation/Animator$AnimatorListener;
+
+    invoke-virtual {p0, v7}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->attachContentsView(Landroid/animation/Animator$AnimatorListener;)V
 
     goto/16 :goto_1
 .end method
@@ -972,6 +993,18 @@
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
 
+    invoke-static {v1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->isOpenThemeLook()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -1145,6 +1178,46 @@
     invoke-virtual {v5}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
     move-result-object v2
+
+    goto :goto_0
+.end method
+
+.method private updateDualClockShowing()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mServiceBoxController:Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mType:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
+
+    sget-object v1, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;->DefaultDual2016:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mType:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
+
+    sget-object v1, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;->ImageDual2016:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
+
+    if-ne v0, v1, :cond_2
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mServiceBoxController:Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;
+
+    const/4 v1, 0x1
+
+    invoke-interface {v0, v1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;->setDualClockShowing(Z)V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mServiceBoxController:Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;->setDualClockShowing(Z)V
 
     goto :goto_0
 .end method
@@ -1366,6 +1439,18 @@
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockKey:Ljava/lang/String;
 
     invoke-interface {v0, v1}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;->setClockCacheKey(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/util/SettingsHelper;->isOpenThemeLook()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
 

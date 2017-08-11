@@ -225,7 +225,7 @@
 .end method
 
 .method public setBitmap(Landroid/content/Context;Landroid/graphics/Bitmap;IF)V
-    .locals 1
+    .locals 2
 
     iput p3, p0, Lcom/android/keyguard/wallpaper/theme/Sprite;->frameSize:I
 
@@ -239,9 +239,11 @@
 
     move-result v0
 
-    div-int/2addr v0, p3
-
     int-to-float v0, v0
+
+    int-to-float v1, p3
+
+    div-float/2addr v0, v1
 
     iput v0, p0, Lcom/android/keyguard/wallpaper/theme/Sprite;->width:F
 

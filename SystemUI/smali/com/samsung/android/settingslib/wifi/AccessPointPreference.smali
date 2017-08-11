@@ -13,6 +13,8 @@
 
 
 # static fields
+.field public static final CONFIG_OP_BRANDING:Ljava/lang/String;
+
 .field public static final ENABLE_WECHAT_WIFI:Z
 
 .field private static final STATE_GIGA_NONE:[I
@@ -113,6 +115,18 @@
     aput v1, v0, v3
 
     sput-object v0, Lcom/samsung/android/settingslib/wifi/AccessPointPreference;->wifi_signal_attributes:[I
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "CscFeature_Wifi_ConfigOpBranding"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/samsung/android/settingslib/wifi/AccessPointPreference;->CONFIG_OP_BRANDING:Ljava/lang/String;
 
     const-string/jumbo v0, "WeChatWiFi"
 

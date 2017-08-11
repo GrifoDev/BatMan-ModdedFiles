@@ -168,7 +168,7 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/DndTile;->DND_SETTINGS:Landroid/content/Intent;
 
-    const v0, 0x7f0201f0
+    const v0, 0x7f0201f4
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -182,13 +182,13 @@
 .method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
     .locals 4
 
-    const v2, 0x7f0201ee
+    const v2, 0x7f0201f2
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v1, 0x7f020189
+    const v1, 0x7f02018d
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -196,7 +196,7 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v1, 0x7f02018c
+    const v1, 0x7f020190
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -391,7 +391,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0332
+    const v1, 0x7f0f038f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -402,7 +402,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0331
+    const v1, 0x7f0f038e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -459,7 +459,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03d7
+    const v1, 0x7f0f0434
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -600,7 +600,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/DndTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f03d7
+    const v4, 0x7f0f0434
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -612,7 +612,7 @@
 
     if-eqz v3, :cond_4
 
-    const v3, 0x7f02044f
+    const v3, 0x7f020457
 
     :goto_3
     invoke-static {v3}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
@@ -660,7 +660,7 @@
     goto :goto_2
 
     :cond_4
-    const v3, 0x7f0203cc
+    const v3, 0x7f0203d4
 
     goto :goto_3
 .end method

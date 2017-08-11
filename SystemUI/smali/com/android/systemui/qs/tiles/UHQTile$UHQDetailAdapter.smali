@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get2(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get1(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -55,7 +55,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040126
+    const v1, 0x7f04012a
 
     const/4 v2, 0x0
 
@@ -65,7 +65,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    const v0, 0x7f1302cc
+    const v0, 0x7f1302d4
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -73,17 +73,17 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    invoke-static {v1, v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-set2(Lcom/android/systemui/qs/tiles/UHQTile;Landroid/widget/TextView;)Landroid/widget/TextView;
+    invoke-static {v1, v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-set1(Lcom/android/systemui/qs/tiles/UHQTile;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get4(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get3(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/widget/TextView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap4(Lcom/android/systemui/qs/tiles/UHQTile;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap5(Lcom/android/systemui/qs/tiles/UHQTile;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -117,11 +117,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get2(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get1(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/content/Context;
 
     move-result-object v0
 
-    const v1, 0x7f0f0717
+    const v1, 0x7f0f0786
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -135,7 +135,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get3(Lcom/android/systemui/qs/tiles/UHQTile;)Lcom/android/systemui/qs/QSTile$State;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get2(Lcom/android/systemui/qs/tiles/UHQTile;)Lcom/android/systemui/qs/QSTile$State;
 
     move-result-object v0
 
@@ -171,7 +171,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get1(Lcom/android/systemui/qs/tiles/UHQTile;)Z
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get0(Lcom/android/systemui/qs/tiles/UHQTile;)Z
 
     move-result v0
 
@@ -192,7 +192,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get1(Lcom/android/systemui/qs/tiles/UHQTile;)Z
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get0(Lcom/android/systemui/qs/tiles/UHQTile;)Z
 
     move-result v0
 
@@ -200,7 +200,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get0(Lcom/android/systemui/qs/tiles/UHQTile;)Z
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap2(Lcom/android/systemui/qs/tiles/UHQTile;)Z
 
     move-result v0
 
@@ -248,7 +248,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap3(Lcom/android/systemui/qs/tiles/UHQTile;)Z
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap4(Lcom/android/systemui/qs/tiles/UHQTile;)Z
 
     move-result v0
 
@@ -276,7 +276,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap2(Lcom/android/systemui/qs/tiles/UHQTile;)Z
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap3(Lcom/android/systemui/qs/tiles/UHQTile;)Z
 
     move-result v1
 
@@ -284,17 +284,17 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-get2(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-get1(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/content/Context;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/UHQTile;->-get2(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/UHQTile;->-get1(Lcom/android/systemui/qs/tiles/UHQTile;)Landroid/content/Context;
 
     move-result-object v2
 
-    const v3, 0x7f0f0715
+    const v3, 0x7f0f0784
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -321,7 +321,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v1, v4}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap5(Lcom/android/systemui/qs/tiles/UHQTile;Z)V
+    invoke-static {v1, v4}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap6(Lcom/android/systemui/qs/tiles/UHQTile;Z)V
 
     :goto_0
     return p1
@@ -331,7 +331,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap5(Lcom/android/systemui/qs/tiles/UHQTile;Z)V
+    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap6(Lcom/android/systemui/qs/tiles/UHQTile;Z)V
 
     goto :goto_0
 .end method

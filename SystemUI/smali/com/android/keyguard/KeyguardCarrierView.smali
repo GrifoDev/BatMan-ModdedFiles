@@ -893,110 +893,145 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .locals 5
+
+    const/4 v4, 0x0
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const-string/jumbo v0, "KeyguardCarrierView"
+    const-string/jumbo v2, "KeyguardCarrierView"
 
-    const-string/jumbo v1, "onFinishInflate()"
+    const-string/jumbo v3, "onFinishInflate()"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->setCarrierLockPlusInfo()V
 
-    sget v0, Lcom/android/keyguard/R$id;->carrier_owner_info:I
+    sget v2, Lcom/android/keyguard/R$id;->carrier_owner_info:I
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/TextView;
+
+    iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerInfo:Landroid/widget/TextView;
+
+    sget v2, Lcom/android/keyguard/R$id;->carrier_owner_call_button:I
+
+    invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/Button;
+
+    iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
+
+    sget v2, Lcom/android/keyguard/R$id;->carrier_unlock_button:I
+
+    invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/Button;
+
+    iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mUnlockButton:Landroid/widget/Button;
+
+    sget v2, Lcom/android/keyguard/R$id;->carrier_emergency_button:I
+
+    invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/keyguard/EmergencyButton;
+
+    iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
+
+    invoke-virtual {v2, p0}, Lcom/android/keyguard/EmergencyButton;->setCallback(Lcom/android/keyguard/EmergencyButton$EmergencyButtonCallback;)V
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerInfo:Landroid/widget/TextView;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerMessage:Ljava/lang/String;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerInfo:Landroid/widget/TextView;
+
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerMessage:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
+
+    new-instance v3, Lcom/android/keyguard/KeyguardCarrierView$4;
+
+    invoke-direct {v3, p0}, Lcom/android/keyguard/KeyguardCarrierView$4;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->setVisibleOwnerCallButton()V
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mUnlockButton:Landroid/widget/Button;
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mUnlockButton:Landroid/widget/Button;
+
+    new-instance v3, Lcom/android/keyguard/KeyguardCarrierView$5;
+
+    invoke-direct {v3, p0}, Lcom/android/keyguard/KeyguardCarrierView$5;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    :cond_3
+    sget v2, Lcom/android/keyguard/R$id;->carrier_text:I
+
+    invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerInfo:Landroid/widget/TextView;
+    if-eqz v0, :cond_4
 
-    sget v0, Lcom/android/keyguard/R$id;->carrier_owner_call_button:I
+    sget v2, Lcom/android/keyguard/KeyguardRune;->CONFIG_STATUSBAR_SIDE_PADDING:I
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
+    int-to-float v2, v2
 
-    move-result-object v0
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardCarrierView;->mContext:Landroid/content/Context;
 
-    check-cast v0, Landroid/widget/Button;
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
+    move-result-object v3
 
-    sget v0, Lcom/android/keyguard/R$id;->carrier_unlock_button:I
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
+    move-result-object v3
 
-    move-result-object v0
+    iget v3, v3, Landroid/util/DisplayMetrics;->density:F
 
-    check-cast v0, Landroid/widget/Button;
+    mul-float/2addr v2, v3
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mUnlockButton:Landroid/widget/Button;
+    float-to-int v1, v2
 
-    sget v0, Lcom/android/keyguard/R$id;->carrier_emergency_button:I
+    invoke-virtual {v0, v1, v4, v1, v4}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/keyguard/EmergencyButton;
-
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-virtual {v0, p0}, Lcom/android/keyguard/EmergencyButton;->setCallback(Lcom/android/keyguard/EmergencyButton$EmergencyButtonCallback;)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerInfo:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerMessage:Ljava/lang/String;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerInfo:Landroid/widget/TextView;
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerMessage:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
-
-    new-instance v1, Lcom/android/keyguard/KeyguardCarrierView$4;
-
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardCarrierView$4;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->setVisibleOwnerCallButton()V
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mUnlockButton:Landroid/widget/Button;
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mUnlockButton:Landroid/widget/Button;
-
-    new-instance v1, Lcom/android/keyguard/KeyguardCarrierView$5;
-
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardCarrierView$5;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    :cond_3
+    :cond_4
     return-void
 .end method
 

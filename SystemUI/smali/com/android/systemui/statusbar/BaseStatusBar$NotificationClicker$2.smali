@@ -69,11 +69,9 @@
 .method public onDismiss()Z
     .locals 14
 
-    const/4 v13, 0x2
+    const/4 v13, 0x1
 
-    const/4 v12, 0x1
-
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->val$isLockedForKnoxContainer:Z
 
@@ -89,15 +87,19 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v9
 
-    check-cast v8, Lcom/samsung/android/knox/SemPersonaManager;
+    check-cast v9, Lcom/samsung/android/knox/SemPersonaManager;
 
-    const/4 v7, 0x2
+    const/4 v8, 0x2
+
+    const/4 v7, 0x4
 
     iget v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->val$userId:I
 
-    invoke-virtual {v8, v0, v13}, Lcom/samsung/android/knox/SemPersonaManager;->showKeyguard(II)V
+    const/4 v1, 0x6
+
+    invoke-virtual {v9, v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->showKeyguard(II)V
 
     iget v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->val$userId:I
 
@@ -113,9 +115,9 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->val$notificationKey:Ljava/lang/String;
 
-    invoke-virtual {v8, v0, v1, v2, v3}, Lcom/samsung/android/knox/SemPersonaManager;->handleNotificationWhenUnlock(ILandroid/app/PendingIntent;Landroid/os/Bundle;Ljava/lang/String;)V
+    invoke-virtual {v9, v0, v1, v2, v3}, Lcom/samsung/android/knox/SemPersonaManager;->handleNotificationWhenUnlock(ILandroid/app/PendingIntent;Landroid/os/Bundle;Ljava/lang/String;)V
 
-    return v11
+    return v12
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->val$sbn:Landroid/service/notification/StatusBarNotification;
@@ -160,7 +162,7 @@
 
     :cond_1
     :goto_0
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->val$sbn:Landroid/service/notification/StatusBarNotification;
 
@@ -216,21 +218,21 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getStatusBarNotification()Landroid/service/notification/StatusBarNotification;
 
-    move-result-object v10
+    move-result-object v11
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->this$1:Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;
 
-    invoke-static {v0, v10}, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->-wrap0(Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;Landroid/service/notification/StatusBarNotification;)Z
+    invoke-static {v0, v11}, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->-wrap0(Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;Landroid/service/notification/StatusBarNotification;)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    move-object v9, v10
+    move-object v10, v11
 
     :cond_2
     :goto_1
-    move-object v6, v9
+    move-object v6, v10
 
     new-instance v0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;
 
@@ -252,13 +254,15 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
-    invoke-virtual {v0, v13, v12, v12}, Lcom/android/systemui/statusbar/BaseStatusBar;->animateCollapsePanels(IZZ)V
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1, v13, v13}, Lcom/android/systemui/statusbar/BaseStatusBar;->animateCollapsePanels(IZZ)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->this$1:Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
-    invoke-virtual {v0, v11}, Lcom/android/systemui/statusbar/BaseStatusBar;->visibilityChanged(Z)V
+    invoke-virtual {v0, v12}, Lcom/android/systemui/statusbar/BaseStatusBar;->visibilityChanged(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->val$intent:Landroid/app/PendingIntent;
 
@@ -308,7 +312,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->val$row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v0, v12}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->setIsClickedNotification(Landroid/view/View;Z)V
+    invoke-static {v0, v13}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->setIsClickedNotification(Landroid/view/View;Z)V
 
     :cond_4
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->this$1:Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;
@@ -362,22 +366,22 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getStatusBarNotification()Landroid/service/notification/StatusBarNotification;
 
-    move-result-object v10
+    move-result-object v11
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->this$1:Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;
 
-    invoke-static {v0, v10}, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->-wrap0(Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;Landroid/service/notification/StatusBarNotification;)Z
+    invoke-static {v0, v11}, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->-wrap0(Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;Landroid/service/notification/StatusBarNotification;)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    move-object v9, v10
+    move-object v10, v11
 
     goto/16 :goto_1
 
     :cond_6
-    move v0, v11
+    move v0, v12
 
     goto :goto_2
 .end method

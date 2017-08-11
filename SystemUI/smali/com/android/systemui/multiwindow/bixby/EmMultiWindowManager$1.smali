@@ -213,7 +213,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9
 
     move-object/from16 v0, p0
 
@@ -318,9 +318,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_c
 
-    if-eqz v17, :cond_a
+    if-eqz v17, :cond_b
 
     invoke-virtual/range {v17 .. v17}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
 
@@ -358,7 +358,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_a
 
     move-object/from16 v0, p0
 
@@ -425,9 +425,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_f
 
-    if-eqz v16, :cond_d
+    if-eqz v16, :cond_e
 
     invoke-virtual/range {v16 .. v16}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
 
@@ -463,7 +463,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_d
 
     move-object/from16 v0, p0
 
@@ -538,7 +538,7 @@
 
     move-result-object v28
 
-    if-eqz v28, :cond_f
+    if-eqz v28, :cond_10
 
     move-object/from16 v0, v28
 
@@ -654,7 +654,7 @@
     :cond_4
     sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_11
 
     move-object/from16 v0, v18
 
@@ -662,7 +662,7 @@
 
     const/4 v3, 0x2
 
-    if-ne v1, v3, :cond_11
+    if-ne v1, v3, :cond_12
 
     move-object/from16 v0, p0
 
@@ -707,7 +707,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8
 
     invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/sdk/bixby/data/State;->getParamMap()Ljava/util/Map;
 
@@ -835,7 +835,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_1e
 
     if-eqz v25, :cond_6
 
@@ -845,7 +845,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_1a
 
     :cond_6
     if-eqz v24, :cond_7
@@ -856,7 +856,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_1c
 
     :cond_7
     move-object/from16 v0, p0
@@ -888,6 +888,71 @@
     goto/16 :goto_0
 
     :cond_8
+    const-string/jumbo v1, "MultiWindow_4"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "EmMultiWindowManager"
+
+    const-string/jumbo v3, "[InterimStateListener] ---MultiWindow_4--- "
+
+    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
+
+    invoke-static {v1}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->-get1(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Lcom/samsung/android/multiwindow/MultiWindowManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/samsung/android/multiwindow/MultiWindowManager;->removeFocusedTask()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_22
+
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
+
+    const-string/jumbo v8, "OtherApp"
+
+    const-string/jumbo v9, "App"
+
+    const-string/jumbo v10, "Opened"
+
+    const-string/jumbo v11, "yes"
+
+    const/4 v13, 0x1
+
+    move-object v12, v6
+
+    invoke-static/range {v7 .. v13}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->-wrap4(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
+
+    invoke-static {v3}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->-wrap3(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->setScreenState(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_9
     const-string/jumbo v1, "EmMultiWindowManager"
 
     const-string/jumbo v3, "[InterimStateListener] not ExpandedDockedStack"
@@ -922,35 +987,6 @@
 
     goto/16 :goto_0
 
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
-
-    const-string/jumbo v8, "Split"
-
-    const-string/jumbo v9, "CloseApp"
-
-    const-string/jumbo v10, "Match"
-
-    const-string/jumbo v11, "no"
-
-    const/4 v13, 0x0
-
-    move-object v12, v6
-
-    invoke-static/range {v7 .. v13}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->-wrap4(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
-
-    const-string/jumbo v3, "Split"
-
-    invoke-virtual {v1, v3}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->setScreenState(Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
     :cond_a
     move-object/from16 v0, p0
 
@@ -960,7 +996,7 @@
 
     const-string/jumbo v9, "CloseApp"
 
-    const-string/jumbo v10, "Exist"
+    const-string/jumbo v10, "Match"
 
     const-string/jumbo v11, "no"
 
@@ -985,6 +1021,35 @@
 
     iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
 
+    const-string/jumbo v8, "Split"
+
+    const-string/jumbo v9, "CloseApp"
+
+    const-string/jumbo v10, "Exist"
+
+    const-string/jumbo v11, "no"
+
+    const/4 v13, 0x0
+
+    move-object v12, v6
+
+    invoke-static/range {v7 .. v13}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->-wrap4(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
+
+    const-string/jumbo v3, "Split"
+
+    invoke-virtual {v1, v3}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->setScreenState(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_c
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
+
     const-string/jumbo v8, "Root"
 
     const-string/jumbo v9, "MultiWindow"
@@ -1009,7 +1074,7 @@
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_d
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
@@ -1038,7 +1103,7 @@
 
     goto/16 :goto_0
 
-    :cond_d
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
@@ -1067,7 +1132,7 @@
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
@@ -1096,7 +1161,7 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_10
     const/16 v23, 0x0
 
     goto/16 :goto_1
@@ -1130,7 +1195,7 @@
 
     goto/16 :goto_2
 
-    :cond_10
+    :cond_11
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
@@ -1159,14 +1224,14 @@
 
     goto/16 :goto_0
 
-    :cond_11
-    if-eqz v19, :cond_12
+    :cond_12
+    if-eqz v19, :cond_13
 
     invoke-virtual/range {v19 .. v19}, Lcom/android/systemui/stackdivider/DividerPanel;->isSnapViewActivated()Z
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_13
 
     move-object/from16 v0, p0
 
@@ -1202,7 +1267,7 @@
 
     goto/16 :goto_0
 
-    :cond_12
+    :cond_13
     move-object/from16 v0, v22
 
     iget-object v1, v0, Landroid/app/ActivityManager$StackInfo;->topActivity:Landroid/content/ComponentName;
@@ -1217,13 +1282,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_14
 
     move-object/from16 v0, v22
 
     iget-boolean v1, v0, Landroid/app/ActivityManager$StackInfo;->visible:Z
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_14
 
     move-object/from16 v0, p0
 
@@ -1259,8 +1324,8 @@
 
     goto/16 :goto_0
 
-    :cond_13
-    if-eqz v23, :cond_14
+    :cond_14
+    if-eqz v23, :cond_15
 
     move-object/from16 v0, p0
 
@@ -1296,16 +1361,16 @@
 
     goto/16 :goto_0
 
-    :cond_14
-    if-eqz v19, :cond_15
+    :cond_15
+    if-eqz v19, :cond_16
 
     invoke-virtual/range {v19 .. v19}, Lcom/android/systemui/stackdivider/DividerPanel;->canStartSnapView()Z
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_18
 
-    :cond_15
+    :cond_16
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
@@ -1318,7 +1383,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_19
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
@@ -1332,7 +1397,7 @@
 
     invoke-virtual {v1, v3}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
-    :cond_16
+    :cond_17
     :goto_3
     move-object/from16 v0, p0
 
@@ -1368,7 +1433,7 @@
 
     goto/16 :goto_0
 
-    :cond_17
+    :cond_18
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
@@ -1403,8 +1468,8 @@
 
     goto/16 :goto_0
 
-    :cond_18
-    if-eqz v19, :cond_16
+    :cond_19
+    if-eqz v19, :cond_17
 
     const-string/jumbo v1, "fromFullApp"
 
@@ -1416,7 +1481,7 @@
 
     goto :goto_3
 
-    :cond_19
+    :cond_1a
     invoke-virtual/range {v25 .. v25}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
 
     move-result-object v32
@@ -1433,7 +1498,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_1b
 
     move-object/from16 v0, p0
 
@@ -1509,7 +1574,7 @@
 
     goto/16 :goto_0
 
-    :cond_1a
+    :cond_1b
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
@@ -1538,7 +1603,7 @@
 
     goto/16 :goto_0
 
-    :cond_1b
+    :cond_1c
     invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
 
     move-result-object v32
@@ -1553,7 +1618,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_1d
 
     move-object/from16 v0, p0
 
@@ -1629,7 +1694,7 @@
 
     goto/16 :goto_0
 
-    :cond_1c
+    :cond_1d
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
@@ -1658,18 +1723,18 @@
 
     goto/16 :goto_0
 
-    :cond_1d
-    if-eqz v25, :cond_1e
+    :cond_1e
+    if-eqz v25, :cond_1f
 
-    if-eqz v31, :cond_1e
+    if-eqz v31, :cond_1f
 
     invoke-virtual/range {v31 .. v31}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_20
 
-    :cond_1e
+    :cond_1f
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
@@ -1698,7 +1763,7 @@
 
     goto/16 :goto_0
 
-    :cond_1f
+    :cond_20
     invoke-virtual/range {v25 .. v25}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
 
     move-result-object v32
@@ -1715,7 +1780,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_21
 
     move-object/from16 v0, p0
 
@@ -1791,7 +1856,7 @@
 
     goto/16 :goto_0
 
-    :cond_20
+    :cond_21
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
@@ -1815,6 +1880,41 @@
     iget-object v1, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
 
     const-string/jumbo v3, "OtherApp"
+
+    invoke-virtual {v1, v3}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->setScreenState(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_22
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
+
+    const-string/jumbo v8, "Root"
+
+    const-string/jumbo v9, "App"
+
+    const-string/jumbo v10, "Opened"
+
+    const-string/jumbo v11, "no"
+
+    const/4 v13, 0x1
+
+    move-object v12, v6
+
+    invoke-static/range {v7 .. v13}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->-wrap4(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager$1;->this$0:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
+
+    invoke-static {v3}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->-wrap3(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-virtual {v1, v3}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->setScreenState(Ljava/lang/String;)V
 

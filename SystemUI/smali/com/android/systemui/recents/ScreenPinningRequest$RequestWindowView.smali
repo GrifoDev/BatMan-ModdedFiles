@@ -125,7 +125,7 @@
 .method private inflateView(Z)V
     .locals 7
 
-    const v6, 0x7f130446
+    const v6, 0x7f130452
 
     const/4 v5, 0x3
 
@@ -135,7 +135,7 @@
 
     if-eqz p1, :cond_0
 
-    const v2, 0x7f04016c
+    const v2, 0x7f040170
 
     :goto_0
     const/4 v4, 0x0
@@ -162,7 +162,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f130442
+    const v3, 0x7f13044e
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -172,7 +172,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f13043c
+    const v3, 0x7f130448
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -195,7 +195,7 @@
     :goto_1
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f130445
+    const v3, 0x7f130451
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -226,7 +226,7 @@
     :goto_2
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f130444
+    const v3, 0x7f130450
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -234,7 +234,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f0f0514
+    const v3, 0x7f0f0571
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -255,7 +255,7 @@
     :goto_3
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f13043f
+    const v3, 0x7f13044b
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -265,7 +265,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f13043e
+    const v3, 0x7f13044a
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -286,7 +286,7 @@
     return-void
 
     :cond_0
-    const v2, 0x7f040169
+    const v2, 0x7f04016d
 
     goto/16 :goto_0
 
@@ -471,7 +471,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b00e4
+    const v6, 0x7f0b00e5
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 

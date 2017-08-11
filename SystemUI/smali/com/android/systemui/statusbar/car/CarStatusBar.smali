@@ -192,7 +192,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/car/CarStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
-    const v3, 0x7f1304c2
+    const v3, 0x7f1304cc
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1301b5
+    const v1, 0x7f1301ba
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->findViewById(I)Landroid/view/View;
 

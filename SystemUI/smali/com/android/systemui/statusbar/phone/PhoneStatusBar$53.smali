@@ -43,13 +43,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$53;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v0, v3, v2, v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap33(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;III)V
+    invoke-static {v0, v3, v2, v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap34(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;III)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$53;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v3, v1, v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap33(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;III)V
+    invoke-static {v0, v3, v1, v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap34(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;III)V
 
     return-void
 .end method

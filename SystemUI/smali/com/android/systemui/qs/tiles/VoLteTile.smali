@@ -284,13 +284,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0f041f
+    const v1, 0x7f0f047c
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0f0420
+    const v1, 0x7f0f047d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -336,39 +336,12 @@
 .end method
 
 .method private supportVolteDBChange()Z
-    .locals 3
+    .locals 2
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->getOperatorNumeric()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->isVolteSupportedOpeartor()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v1, "46605"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "supportVolteDBChange false in GT(APT) sim"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x0
-
-    return v1
-
-    :cond_0
     const/4 v1, 0x1
 
     return v1
@@ -405,7 +378,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03e0
+    const v1, 0x7f0f043d
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -478,7 +451,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0422
+    const v2, 0x7f0f047f
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -502,7 +475,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0424
+    const v2, 0x7f0f0481
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -548,7 +521,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0423
+    const v2, 0x7f0f0480
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -573,7 +546,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0425
+    const v2, 0x7f0f0482
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -615,7 +588,7 @@
     :cond_7
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f0426
+    const v3, 0x7f0f0483
 
     invoke-static {v0, v3, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -691,7 +664,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03e0
+    const v1, 0x7f0f043d
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -699,7 +672,7 @@
 
     iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
-    const v0, 0x7f02044e
+    const v0, 0x7f020456
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

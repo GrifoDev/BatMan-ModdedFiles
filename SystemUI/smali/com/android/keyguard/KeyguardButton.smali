@@ -138,7 +138,7 @@
 .end method
 
 .method protected setButtonTextColorOnTheme()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardButton;->mContext:Landroid/content/Context;
 
@@ -148,19 +148,15 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardButton;->getResources()Landroid/content/res/Resources;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardButton;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
 
     move-result-object v0
 
-    sget v1, Lcom/android/keyguard/R$color;->theme_keyguard_message_area_text_color:I
+    const/4 v1, 0x2
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardButton;->setTextColor(I)V
+    invoke-virtual {v0, p0, v1}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
 
     :cond_0
     return-void

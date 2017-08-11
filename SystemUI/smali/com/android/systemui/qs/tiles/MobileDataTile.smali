@@ -609,7 +609,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0447
+    const v1, 0x7f0f04a4
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -617,7 +617,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0448
+    const v2, 0x7f0f04a5
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -704,7 +704,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f044f
+    const v2, 0x7f0f04ac
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -897,7 +897,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03df
+    const v1, 0x7f0f043c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -911,7 +911,7 @@
 
     const v3, 0x104000a
 
-    const v6, 0x7f0f0439
+    const v6, 0x7f0f0496
 
     const/high16 v8, 0x1040000
 
@@ -965,7 +965,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0449
+    const v1, 0x7f0f04a6
 
     invoke-static {v0, v1, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -986,7 +986,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0421
+    const v1, 0x7f0f047e
 
     invoke-static {v0, v1, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1062,7 +1062,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f041f
+    const v1, 0x7f0f047c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1070,7 +1070,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0420
+    const v2, 0x7f0f047d
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1129,7 +1129,7 @@
 
     if-eqz v0, :cond_8
 
-    const v7, 0x7f0f0441
+    const v7, 0x7f0f049e
 
     :goto_2
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
@@ -1152,7 +1152,7 @@
 
     invoke-direct {v6, p0}, Lcom/android/systemui/qs/tiles/MobileDataTile$9;-><init>(Lcom/android/systemui/qs/tiles/MobileDataTile;)V
 
-    const v3, 0x7f0f03fd
+    const v3, 0x7f0f045a
 
     move-object v0, p0
 
@@ -1167,12 +1167,12 @@
 
     if-eqz v0, :cond_9
 
-    const v7, 0x7f0f043f
+    const v7, 0x7f0f049c
 
     goto :goto_2
 
     :cond_9
-    const v7, 0x7f0f0440
+    const v7, 0x7f0f049d
 
     goto :goto_2
 
@@ -1181,7 +1181,7 @@
 
     if-eqz v0, :cond_b
 
-    const v7, 0x7f0f0446
+    const v7, 0x7f0f04a3
 
     :goto_3
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
@@ -1217,12 +1217,12 @@
 
     if-eqz v0, :cond_c
 
-    const v7, 0x7f0f0444
+    const v7, 0x7f0f04a1
 
     goto :goto_3
 
     :cond_c
-    const v7, 0x7f0f0445
+    const v7, 0x7f0f04a2
 
     goto :goto_3
 
@@ -1255,7 +1255,7 @@
 
     if-eqz v0, :cond_e
 
-    const v7, 0x7f0f043d
+    const v7, 0x7f0f049a
 
     :goto_4
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
@@ -1278,7 +1278,7 @@
 
     invoke-direct {v6, p0}, Lcom/android/systemui/qs/tiles/MobileDataTile$13;-><init>(Lcom/android/systemui/qs/tiles/MobileDataTile;)V
 
-    const v3, 0x7f0f03fd
+    const v3, 0x7f0f045a
 
     move-object v0, p0
 
@@ -1289,12 +1289,12 @@
     goto/16 :goto_0
 
     :cond_e
-    const v7, 0x7f0f043c
+    const v7, 0x7f0f0499
 
     goto :goto_4
 
     :cond_f
-    const v7, 0x7f0f043b
+    const v7, 0x7f0f0498
 
     goto :goto_4
 
@@ -1303,7 +1303,7 @@
 
     if-eqz v0, :cond_11
 
-    const v7, 0x7f0f044e
+    const v7, 0x7f0f04ab
 
     goto :goto_4
 
@@ -1312,12 +1312,12 @@
 
     if-eqz v0, :cond_12
 
-    const v7, 0x7f0f0442
+    const v7, 0x7f0f049f
 
     goto :goto_4
 
     :cond_12
-    const v7, 0x7f0f043a
+    const v7, 0x7f0f0497
 
     goto :goto_4
 
@@ -1510,7 +1510,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0421
+    const v1, 0x7f0f047e
 
     invoke-static {v0, v1, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1531,7 +1531,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f041f
+    const v1, 0x7f0f047c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1539,7 +1539,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0420
+    const v2, 0x7f0f047d
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1578,7 +1578,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0203cb
+    const v3, 0x7f0203d3
 
     invoke-static {v3}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1592,7 +1592,7 @@
 
     if-eqz v3, :cond_1
 
-    const v1, 0x7f0f03e4
+    const v1, 0x7f0f0441
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1619,7 +1619,7 @@
     return-void
 
     :cond_1
-    const v3, 0x7f0f03df
+    const v3, 0x7f0f043c
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

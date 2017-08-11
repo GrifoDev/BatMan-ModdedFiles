@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">មិន​ស្គាល់</string>
     <string name="save">រក្សាទុក</string>
     <string name="ok">ព្រម</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">មិន​អាច​វិភាគ​រក​បណ្ដាញ</string>
     <string name="wifi_failed_to_obtain_IP">បាន​បរាជ័យ​ក្នុង​ការ​ទទួល​អាសយដ្ឋាន IP។</string>
     <string name="wifi_security_none">គ្មាន</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">មិន​អាច​ភ្ជាប់​ទៅ %s។</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">មិន​អាច​ភ្ជាប់​ទៅ %1$s។ ពិនិត្យ​ការកំណត់​របស់​អ្នក​ក្នុង %2$s ហើយ​សាកល្បង​ម្ដងទៀត។</string>
     <string name="bluetooth_pairing_rejected_error_message">ការផ្គូ​បាន​ច្រានចោល​ដោយ %s។</string>
+    <string name="bluetooth_getting_remote_device_name">កំពុង​ទទួល​ឈ្មោះ​ឧបករណ៍…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">ឈ្មោះ​ឧបករណ៍​នឹង​លេចឡើង នៅពេល​ឧបករណ៍​នេះ​ត្រូវ​បាន​ភ្ជាប់។</string>
     <string name="accessibility_wifi_off">បានបិទ Wifi</string>
     <string name="accessibility_no_wifi">បានផ្តាច់ Wifi</string>
     <string name="accessibility_wifi_one_bar">Wifi មួយកាំ</string>
@@ -1364,6 +1366,7 @@ Wi-Fi និង Bluetooth ក៏​នឹង​ត្រូវ​បាន​ប
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Numpad %1$s</string>
+    <string name="keyboard_popup_help">គ្រាប់ចុច​មេតា៖ គ្រាប់ចុច Windows, Command ឬ​និមិត្តសញ្ញា​ប្រព័ន្ធ​ប្រតិបត្តិការ​ផ្សេងទៀត។</string>
     <string name="keyboard_shortcut_group_system">ផ្លូវកាត់​ប្រព័ន្ធ</string>
     <string name="keyboard_shortcut_group_system_home">ដើម</string>
     <string name="keyboard_shortcut_group_system_recents">ថ្មីៗ</string>
@@ -1525,8 +1528,8 @@ Wi-Fi និង Bluetooth ក៏​នឹង​ត្រូវ​បាន​ប
 
 ដើម្បី​ការពារ​ប្រឆាំង​នឹង​ការខូច​ដោយ​ទឹក សូម​ប្រាកដ​ថា ស្ពក​កាត SIM/SD បិទ​ជិត​ល្អ។"</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">ដើម្បី​ការពារ​ប្រឆាំង​នឹង​ការខូច​ដោយ​ជ្រាប​ទឹក សូម​ប្រាកដ​ថា ស្ពក​កាត SIM/SD ត្រូវ​បាន​បិទ​ជិត។</string>
-    <string name="water_protection_notification_title">ពិនិត្យ​ច្រក</string>
-    <string name="water_protection_notification_body">ចាប់​បាន​សំណើម។ ដើម្បី​សាក​ឧបករណ៍​របស់​អ្នក ត្រូវ​ប្រាកដ​ថា គ្រឿងសាក/​រន្ធ USB របស់​អ្នក ស្ងួត។</string>
+    <string name="water_protection_notification_title">ដក​ឆ្នាំង​សាក​ចេញ</string>
+    <string name="water_protection_notification_body">ចាប់បាន​សំណើម។ ដកឆ្នុក​គ្រឿងសាក ហើយ​ត្រូវ​ប្រាកដ​ថា គ្រឿងសាក និង ច្រក USB ស្ងួត​ល្អ។</string>
     <string name="full_battery_title">ព័ត៌មាន</string>
     <string name="full_battery_noti_text">បាន​សាក​ថ្ម​ពេញ។</string>
     <string name="cooling_title">ឧបករណ៍​កំពុង​ឡើង​កម្ដៅ​ជ្រុល</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">កំពុង​សាក​យឺត</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">ដើម្បី​ឲ្យ​សាក​កាន់​តែ​លឿន សូម​ប្រើ​គ្រឿងសាក​ដែល​អម​មក​ជាមួយ​ឧបករណ៍​របស់​អ្នក ហើយ​ត្រូវ​ប្រាកដ​ថា​វា​ត្រូវ​បាន​ភ្ជាប់​ត្រឹមត្រូវ។</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">ត្រូវ​ប្រាកដ​ថា​គ្រឿងសាក​នោះ​ត្រូវ​បាន​ភ្ជាប់​ត្រឹមត្រូវ។ ប្រើ​គ្រឿងសាក​ដែល​អម​មក​ជាមួយ​ឧបករណ៍​នេះ។</string>
     <string name="battery_charging_level_and_time_text">"កំពុង​សាក៖ %1$d%%
 (ប្រហែល %2$s ទៀត ទើប​សាក​ពេញ)"</string>
@@ -1633,14 +1637,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">សាក​ទូរសព្ទ​របស់​អ្នក។</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">សាក​ថេប្លិត​របស់​អ្នក។</string>
     <string name="button_close">បិទ</string>
-    <string name="battery_health_interruption_title">មិន​អាច​សាក</string>
+    <string name="battery_health_interruption_title">បាន​បញ្ឈប់​ការសាក</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">ដកឆ្នុក​គ្រឿងសាក</string>
     <string name="battery_health_interruption_by_terminal_open_text">មិន​អាច​សាក​ឧបករណ៍​របស់​អ្នក។ ត្រូវ​ប្រាកដ​ថា​អ្នក​កំពុង​ប្រើ​ថ្ម និង ឆ្នាំងសាក​ដែល​ត្រូវគ្នា​របស់ Samsung ហើយ​ឧបករណ៍​របស់​អ្នក​បាន​ភ្ជាប់​ត្រឹមត្រូវ​ទៅ​ឆ្នាំងសាក។</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">បាន​ផ្អាក​ការសាក។ សីតុណ្ហភាព​ថ្ម​ខ្ពស់​ពេក។</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">បាន​ផ្អាក​ការសាក។ សីតុណ្ហភាព​ថ្ម​ទាប​ពេក។</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"ឧបករណ៍​បាន​បញ្ឈប់​ការសាក។ សីតុណ្ហភាព​ថ្ម​ខ្ពស់​ពេក។ ត្រូវ​ប្រយ័ត្ន នៅពេល​ផ្ដាច់​ឆ្នាំងសាក។ វា​អាច​ក្ដៅ​ខ្លាំង។
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">សីតុណ្ហភាព​ទូរសព្ទ​របស់​អ្នក​ខ្ពស់​ពេក។ ការសាក​នឹង​បន្ត នៅពេល​សីតុណ្ហភាព​ត្រឡប់​ទៅ​ធម្មតា។</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">សីតុណ្ហភាព​ថេប្លិត​របស់​អ្នក​ខ្ពស់​ពេក។ ការសាក​នឹង​បន្ត នៅពេល​សីតុណ្ហភាព​ត្រឡប់​ទៅ​ធម្មតា។</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">សីតុណ្ហភាព​ទូរសព្ទ​របស់​អ្នក​ទាប​ពេក។ ការសាក​នឹង​បន្ត នៅពេល​សីតុណ្ហភាព​ត្រឡប់​ទៅ​ធម្មតា។</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">សីតុណ្ហភាព​ថេប្លិត​របស់​អ្នក​ទាប​ពេក។ ការសាក​នឹង​បន្ត នៅពេល​សីតុណ្ហភាព​ត្រឡប់​ទៅ​ធម្មតា។</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"ការសាក​ត្រូវ​បាន​បញ្ឈប់។ សីតុណ្ហភាព​ទូរសព្ទ​របស់​អ្នក​ខ្ពស់​ពេក។ ត្រូវ​ប្រយ័ត្ន នៅពេល​ផ្ដាច់​គ្រឿងសាក។ វា​អាច​ក្ដៅ​ខ្លាំង។
 
-ការផ្ដាច់ និង ការភ្ជាប់​ឆ្នាំងសាក​ឡើងវិញ អាច​អនុញ្ញាត​ឲ្យ​បន្ត​ការសាក​ធម្មតា។ បើ​ការឡើង​កម្ដៅ​ជ្រុល​នៅតែ​មាន សូម​ទាក់ទង​សេវា​អតិថិជន ព្រោះ​វា​អាច​មាន​ហានិភ័យ​នៃ​ការឆេះ ឬ របួស។"</string>
+ការផ្ដាច់​និង​ការភ្ជាប់​គ្រឿងសាក​ឡើងវិញ អាច​អនុញ្ញាត​ឲ្យ​បន្ត​ការសាក​ធម្មតា។ បើ​ការឡើង​កម្ដៅ​ជ្រុល​នៅតែ​មាន សូម​ទាក់ទង​សេវា​អតិថិជន ព្រោះ​វា​អាច​មាន​ហានិភ័យ​នៃ​ការឆេះ​ឬ​របួស។"</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"ការសាក​ត្រូវ​បាន​បញ្ឈប់។ សីតុណ្ហភាព​ថេប្លិត​របស់​អ្នក​ខ្ពស់​ពេក។ ត្រូវ​ប្រយ័ត្ន នៅពេល​ផ្ដាច់​គ្រឿងសាក។ វា​អាច​ក្ដៅ​ខ្លាំង។
+
+ការផ្ដាច់​និង​ការភ្ជាប់​គ្រឿងសាក​ឡើងវិញ អាច​អនុញ្ញាត​ឲ្យ​បន្ត​ការសាក​ធម្មតា។ បើ​ការឡើង​កម្ដៅ​ជ្រុល​នៅតែ​មាន សូម​ទាក់ទង​សេវា​អតិថិជន ព្រោះ​វា​អាច​មាន​ហានិភ័យ​នៃ​ការឆេះ​ឬ​របួស។"</string>
     <string name="incompatible_charger_title">មិន​សាក។</string>
     <string name="incompatible_charger_dialog_text">ឆ្នាំងសាក​ដែល​បាន​ភ្ជាប់​មិន​ត្រូវ​គ្នា​ជាមួយ​ទូរសព្ទ​នេះ។ ដើម្បី​បង្ការ​ការខូច​ចំពោះ​ទូរសព្ទ​របស់​អ្នក ការសាក​នឹង​ត្រូវ​បាន​បញ្ឈប់។ ដើម្បី​បន្ត​ការសាក សូម​ប្រើ​ឆ្នាំងសាក​ដើម និង ខ្សែ​ដែល​ផ្តល់​មក​ជាមួយ​ទូរសព្ទ​នេះ។</string>
     <string name="incompatible_charger_notification_text">មិន​អាច​សាក។ ប្រើ​ឆ្នាំងសាក​ដើម។</string>
@@ -1656,8 +1666,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">ប្រើ​ជីវមាត្រ ឬ អូស​អេក្រង់ ដើម្បី​បើក</string>
     <string name="kg_face_or_swipe_unlock_instructions">ប្រើ​ការស្គាល់​ផ្ទៃមុខ ឬ អូស​អេក្រង់ ដើម្បី​ដោះសោ</string>
     <string name="kg_face_or_swipe_active_instructions">ប្រើ​ការស្គាល់​ផ្ទៃមុខ ឬ អូស​អេក្រង់ ដើម្បី​បើក</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">ប្រើ​ការស្គាល់​ផ្ទៃមុខ​ដើម្បី​ដោះសោ ឬ​ក៏​អូស​អេក្រង់​ដើម្បី​ប្រើ​ប្រស្រីភ្នែក​ជំនួស</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">ប្រើ​ការស្គាល់​ផ្ទៃមុខ​ដើម្បី​បើក ឬ​ក៏​អូស​អេក្រង់​ដើម្បី​ប្រើ​ប្រស្រីភ្នែក​ជំនួស</string>
     <string name="kg_face_unlock_instructions">អូស​អេក្រង់ ដើម្បី​ដោះសោ​ជាមួយ​ការស្គាល់​ផ្ទៃមុខ</string>
     <string name="kg_face_or_fingerprint_active_instructions">ប្រើ​ខ្ចៅដៃ​ដើម្បី​បើក ឬ​ក៏​អូស​អេក្រង់​ដើម្បី​ប្រើ​ការស្គាល់​ផ្ទៃមុខ​ជំនួស</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">ប្រើ​ខ្ចៅដៃ​ដើម្បី​ដោះសោ ឬ​ក៏​អូស​អេក្រង់​ដើម្បី​ប្រើ​ការស្គាល់​ផ្ទៃមុខ​ជំនួស</string>
@@ -1672,6 +1680,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">ប្រើ​ម្រាមដៃ​ពីរ​អូស ដើម្បី​ដោះសោ​អេក្រង់។</string>
     <string name="kg_swipe_active_instructions">អូស​អេក្រង់ ដើម្បី​បើក</string>
     <string name="kg_swipe_unlock_instructions">អូស​អេក្រង់​ដើម្បី​ដោះសោ</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">ប្រើ​ជីវមាត្រ ឬ ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់ ដើម្បី​ដោះសោ។</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">ប្រើ​ជីវមាត្រ ឬ ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់ ដើម្បី​បើក។</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">ប្រើ​ការស្គាល់​ផ្ទៃមុខ ឬ ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់ ដើម្បី​ដោះសោ។</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">ប្រើ​ការស្គាល់​ផ្ទៃមុខ ឬ ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់ ដើម្បី​បើក។</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់ ដើម្បី​ដោះសោ​ជាមួយ​ការស្គាល់​ផ្ទៃមុខ។</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">ប្រើ​ខ្ចៅដៃ​ដើម្បី​បើក ឬ​ក៏​ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់​ដើម្បី​ប្រើ​ការស្គាល់​ផ្ទៃមុខ។</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">ប្រើ​ខ្ចៅដៃ​ដើម្បី​ដោះសោ ឬ​ក៏​ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់​ដើម្បី​ប្រើ​ការស្គាល់​ផ្ទៃមុខ។</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">ប្រើ​ខ្ចៅដៃ​ដើម្បី​បើក ឬ​ក៏​ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់​ដើម្បី​ប្រើ​ប្រស្រីភ្នែក។</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">ប្រើ​ខ្ចៅដៃ​ដើម្បី​ដោះសោ ឬ​ក៏​ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់​ដើម្បី​ប្រើ​ប្រស្រីភ្នែក។</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">ប្រើ​ខ្ចៅដៃ ឬ ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់ ដើម្បី​បើក។</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">ប្រើ​ខ្ចៅដៃ ឬ ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់ ដើម្បី​ដោះសោ។</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់ ដើម្បី​ប្រើ​ប្រស្រីភ្នែក​ដោះសោ។</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">ប្រើ​ប្រស្រីភ្នែក ឬ ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់ ដើម្បី​ដោះសោ។</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">ប្រើ​ប្រស្រីភ្នែក ឬ ប្រើ​ម្រាមដៃ​ពីរ​អូស​អេក្រង់ ដើម្បី​បើក។</string>
     <string name="kg_power_connect_charger">ភ្ជាប់​គ្រឿងសាក</string>
     <string name="kg_power_fully_charged">បាន​សាក​ពេញ</string>
     <string name="kg_power_fast_charging">សាក​លឿន៖ %d%%</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">ផ្ញើ</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">ប៉ះ​ពីរដង​លើ​ប៊ូតុង​សោ ដើម្បី​ដោះសោ​ទូរសព្ទ</string>
     <string name="s_view_cover_toast_pop_up_message">បើក​គម្រប ដើម្បី​ប្រើ​ប៊ូតុង​ការកំណត់​រហ័ស។</string>
     <string name="remote_input_toast_text_on_sview_cover">មិន​អាច​ប្រើ​មុខងារ​ឆ្លើយតប​រហ័ស ខណៈពេល​បាន​បិទ S View Cover។</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">ខ្ញុំ​ព្រមទទួល</string>
-    <string name="force_immersive_guide_text">ការប៉ះ​អាយខុន​នេះ​នឹង​លាក់​របារ​រុករក។ អ្នក​នៅតែ​អាច​ប្រើ​ប៊ូតុង​រុករក​ដដែល ដោយ​អូស​ឡើងលើ​ពី​ផ្នែក​ខាងក្រោម​នៃ​អេក្រង់។ ខណៈពេល​បង្ហាញ​របារ​រុករក អ្នក​អាច​ប៉ះ​អាយខុន​នេះ​ម្ដងទៀត ដើម្បី​ចាក់សោ​វា​នៅ​នឹង​កន្លែង។ លើ​អេក្រង់​ខ្លះ ដូចជា​គេហអេក្រង់ របារ​រុករក​នឹង​តែងតែ​បង្ហាញ​ជានិច្ច។</string>
+    <string name="force_immersive_guide_text">ការប៉ះ​ប៊ូតុង​នេះ​លាក់​របារ​រុករក។ អ្នក​នៅតែ​អាច​ប្រើ​ប៊ូតុង​រុករក​ដដែល ដោយ​អូស​ឡើងលើ​ពី​ផ្នែក​ខាងក្រោម​នៃ​អេក្រង់។ ខណៈពេល​បង្ហាញ​របារ​រុករក អ្នក​អាច​ប៉ះ​ប៊ូតុង​នេះ​ម្ដងទៀត ដើម្បី​ចាក់សោ​វា​នៅ​នឹង​កន្លែង។ លើ​អេក្រង់​ខ្លះ ដូចជា​គេហអេក្រង់ របារ​រុករក​នឹង​តែងតែ​បង្ហាញ​ជានិច្ច។ បើ​កម្មវិធី​មួយ​ធ្វើ​អំពើ​ខុស​ប្រក្រតី ខណៈពេល​បាន​លាក់​របារ​រុករក សូម​ចាក់សោ​របារ​រុករក​នៅ​នឹង​កន្លែង ហើយ​ចាប់ផ្ដើម​កម្មវិធី​នោះ​ឡើងវិញ។</string>
+    <string name="force_immersive_guide_dialog_title">លាក់​របារ​រុករក៖</string>
+    <string name="force_immersive_guide_dialog_message1">ការប៉ះ​ប៊ូតុង​នេះ​លាក់​របារ​រុករក។</string>
+    <string name="force_immersive_guide_dialog_message2">អូស​អេក្រង់​ពី​ក្រោម​ឡើងលើ ដើម្បី​បង្ហាញ​របារ​រុករក។</string>
+    <string name="force_immersive_guide_dialog_message3">ប៉ះ​ប៊ូតុង​នេះ​ម្ដងទៀត ដើម្បី​ចាក់សោ​វា​ជាប់នឹង​កន្លែង។</string>
+    <string name="force_immersive_guide_dialog_message4">លើ​អេក្រង់​ខ្លះ ដូចជា​គេហអេក្រង់ របារ​រុករក​នឹង​តែងតែ​បង្ហាញ​ជានិច្ច។</string>
+    <string name="force_immersive_guide_dialog_guide_path">ដើម្បី​លាក់​ប៊ូតុង​នេះ សូម​ចូលទៅ ការកំណត់ > អេក្រង់ > របារ​រុករក។</string>
+    <string name="force_immersive_guide_dialog_setting">ការកំណត់</string>
+    <string name="force_immersive_guide_dialog_ok">ព្រម</string>
     <string name="car_lockscreen_disclaimer_title">បើកបរដោយសុវត្ថិភាព</string>
     <string name="car_lockscreen_disclaimer_text">ត្រូវមានការគ្រប់គ្រងពេញលេញលើស្ថានភាពបើកបរ និងគោរពច្បាប់ដែលត្រូវអនុវត្តជានិច្ច។ ទិសដៅអាចនឹងមិនមានភាពសុក្រិត មិនពេញលេញ គ្រោះថ្នាក់ មិនសមស្រប ឬពាក់ព័ន្ធនឹងការឆ្លងកាត់តំបន់រដ្ឋបាល។ ព័ត៌មានផ្នែកអាជីវកម្មក៏អាចនឹងមិនមានភាពសុក្រិត ឬមិនពេញលេញផងដែរ។ ទិន្នន័យគឺមិនមែនបញ្ជូនបន្តផ្ទាល់នោះទេ ហើយភាពសុក្រិតនៃទីតាំងក៏មិនអាចធានាបានផងដែរ។ កុំកាន់ឧបករណ៍ចល័តរបស់អ្នក ឬប្រើកម្មវិធីដែលមិនមែនសម្រាប់ Android Auto ខណៈពេលកំពុងបើកបរ។</string>
     <string name="pip_close">បិទ PIP</string>
@@ -2230,6 +2261,8 @@ PIN ត្រូវតែ​មាន​ប្រវែង 4 ទៅ 8 ខ្ទ�
     <string name="kg_face_retry_content_description">ប៉ះ​ពីរដង ដើម្បី​ប្រើ​ការស្គាល់​ផ្ទៃមុខ។</string>
     <string name="kg_face_authentication_error_retry_text">មិន​បាន​ស្គាល់​ផ្ទៃមុខ​ណា​មួយ។ ប៉ះ​អាយខុន ដើម្បី​សាកល្បង​ការស្គាល់​ផ្ទៃមុខ​ម្ដងទៀត</string>
     <string name="kg_face_authentication_failed_retry_text">មិន​ផ្គូគ្នា។ ប៉ះ​អាយខុន ដើម្បី​ប្រើ​ការស្គាល់​ផ្ទៃមុខ</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">មាន​បញ្ហា​មួយ​ជាមួយ​ការស្គាល់​ផ្ទៃមុខ។ ប៉ះ ដើម្បី​សាកល្បង​ម្ដងទៀត</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">មិន​អាច​ប្រើ​ការស្គាល់​ផ្ទៃមុខ ក្នុង​អំឡុងពេល​ហៅ​វីដេអូ</string>
     <string name="kg_fingerprint_no_match">គ្មាន​ការផ្គូគ្នា</string>
     <string name="kg_finger_print_not_responding_error_message">សិនសឺ​ខ្ចៅដៃ​មិន​ឆ្លើយតប។ សាកល្បង​ម្ដងទៀត​ពេលក្រោយ។</string>
     <string name="kg_finger_print_database_error_message">ទិន្នន័យ​ខ្ចៅដៃ​បាន​ខូច។ កំណត់​ខ្ចៅដៃ​ឡើងវិញ​ជា​ប្រភេទ​សោ​អេក្រង់ រួច​ហើយ​ថែម​ខ្ចៅដៃ​របស់​អ្នក​ម្ដងទៀត ឬ ប្ដូរ​ប្រភេទ​សោ​អេក្រង់។</string>
@@ -2366,6 +2399,8 @@ PIN ត្រូវតែ​មាន​ប្រវែង 4 ទៅ 8 ខ្ទ�
     <string name="appicon_badge_new_item">ធាតុ​ថ្មី 1</string>
     <string name="banner_apps_for_dex_detail">រីករាយ​នឹង​កម្មវិធី​ដែល​បាន​ធ្វើ​ឲ្យ​ល្អប្រសើរ​សម្រាប់ DeX ពី Galaxy Apps។</string>
     <string name="toast_cannot_move_more_than_items">មិន​អាច​ផ្លាស់ទី​ធាតុ​លើសពី %d។</string>
+    <string name="view_more_in_galaxy_apps">បង្ហាញ​ច្រើនទៀត​ក្នុង Galaxy Apps</string>
+    <string name="view_more_in_play_store">បង្ហាញ​ច្រើនទៀត​ក្នុង Play Store</string>
     <string name="uninstall_title">លុប​កម្មវិធី?</string>
     <string name="uninstall_1_app_message">តើ​អ្នក​ចង់​លុប​កម្មវិធី​នេះ?</string>
     <string name="uninstall_apps_message">នឹង​លុប​កម្មវិធី​ខាងក្រោម៖</string>
@@ -2406,6 +2441,13 @@ PIN ត្រូវតែ​មាន​ប្រវែង 4 ទៅ 8 ខ្ទ�
     <string name="taskbar_context_menu_close_desk_notification_view">លាក់​ការជូនដំណឹង</string>
     <string name="volumepanel_notification">ការជូន​ដំណឹង</string>
     <string name="quick_settings_location_detail_device_only">ឧបករណ៍​ប៉ុណ្ណោះ</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">បាន​ផ្អាក​ការសាក។ សីតុណ្ហភាព​ថ្ម​ខ្ពស់​ពេក។</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">បាន​ផ្អាក​ការសាក។ សីតុណ្ហភាព​ថ្ម​ទាប​ពេក។</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"ឧបករណ៍​បាន​បញ្ឈប់​ការសាក។ សីតុណ្ហភាព​ថ្ម​ខ្ពស់​ពេក។ ត្រូវ​ប្រយ័ត្ន នៅពេល​ផ្ដាច់​ឆ្នាំងសាក។ វា​អាច​ក្ដៅ​ខ្លាំង។
+
+ការផ្ដាច់ និង ការភ្ជាប់​ឆ្នាំងសាក​ឡើងវិញ អាច​អនុញ្ញាត​ឲ្យ​បន្ត​ការសាក​ធម្មតា។ បើ​ការឡើង​កម្ដៅ​ជ្រុល​នៅតែ​មាន សូម​ទាក់ទង​សេវា​អតិថិជន ព្រោះ​វា​អាច​មាន​ហានិភ័យ​នៃ​ការឆេះ ឬ របួស។"</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">ប្រើ​ការស្គាល់​ផ្ទៃមុខ​ដើម្បី​ដោះសោ ឬ​ក៏​អូស​អេក្រង់​ដើម្បី​ប្រើ​ប្រស្រីភ្នែក​ជំនួស</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">ប្រើ​ការស្គាល់​ផ្ទៃមុខ​ដើម្បី​បើក ឬ​ក៏​អូស​អេក្រង់​ដើម្បី​ប្រើ​ប្រស្រីភ្នែក​ជំនួស</string>
     <string name="kg_infinity_wallpaper_option_description">នឹង​ប្រើ​រូបផ្ទៃអេក្រង់​អនន្ត​ចំពោះ​គេហអេក្រង់​និង​អេក្រង់​ជាប់សោ​របស់​អ្នក ក្នុង​ពេល​តែមួយ។ បើក​ការកំណត់​ខាងក្រោម ដើម្បី​ទទួល​បទពិសោធន៍​ល្អបំផុត។</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">បើក Always On Display</string>
 </resources>

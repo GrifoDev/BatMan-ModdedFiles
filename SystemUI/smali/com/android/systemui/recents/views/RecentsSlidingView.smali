@@ -79,7 +79,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040146
+    const v1, 0x7f04014a
 
     invoke-static {v0, v1, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -89,7 +89,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
 
-    const v1, 0x7f1303f1
+    const v1, 0x7f1303fd
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -193,7 +193,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f04a0
+    const v1, 0x7f0f04fd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -201,7 +201,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mStrRecents:Ljava/lang/String;
 
-    const v1, 0x7f0f0649
+    const v1, 0x7f0f06a7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -209,7 +209,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mStrMoreApps:Ljava/lang/String;
 
-    const v1, 0x7f0d042e
+    const v1, 0x7f0d042f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -374,7 +374,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mDecorView:Landroid/view/View;
 
-    const v0, 0x7f1303e9
+    const v0, 0x7f1303f5
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -384,7 +384,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mCloseAllButton:Landroid/widget/Button;
 
-    const v0, 0x7f1303ef
+    const v0, 0x7f1303fb
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -551,7 +551,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f130405
+    const v0, 0x7f130411
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->findViewById(I)Landroid/view/View;
 

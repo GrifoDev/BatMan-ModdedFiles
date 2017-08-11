@@ -21,8 +21,6 @@
 
 .field private mFromTintColorResId:I
 
-.field private mQsOn:Z
-
 .field private mToAlphaResId:I
 
 .field private mToTintColorResId:I
@@ -42,15 +40,11 @@
 
     iput p2, p0, Lcom/android/systemui/qs/QSTile$AnimationIcon;->mAnimatedResId:I
 
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/QSTile$AnimationIcon;->mQsOn:Z
-
     return-void
 .end method
 
 .method public constructor <init>(Lcom/android/systemui/qs/QSTile;IIIIII)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -58,25 +52,11 @@
 
     iput p5, p0, Lcom/android/systemui/qs/QSTile$AnimationIcon;->mToTintColorResId:I
 
-    if-eq p4, p5, :cond_0
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/QSTile$AnimationIcon;->mQsOn:Z
-
-    :goto_0
     iput p6, p0, Lcom/android/systemui/qs/QSTile$AnimationIcon;->mFromAlphaResId:I
 
     iput p7, p0, Lcom/android/systemui/qs/QSTile$AnimationIcon;->mToAlphaResId:I
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/QSTile$AnimationIcon;->mQsOn:Z
-
-    goto :goto_0
 .end method
 
 
@@ -140,7 +120,7 @@
 
     move/from16 v23, v0
 
-    if-eqz v23, :cond_5
+    if-eqz v23, :cond_3
 
     move-object/from16 v0, p0
 
@@ -170,26 +150,6 @@
 
     move-result v22
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mAllowQsColorChange:Z
-
-    if-eqz v0, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;->mQsOn:Z
-
-    sget v9, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOffColor:I
-
-    if-eqz v0, :cond_2
-
-    sget v9, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOnColor:I
-
-    :cond_2
-    move/from16 v22, v9
-
-    sget v9, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOnColor:I
-
-    :cond_3
     shr-int/lit8 v23, v9, 0x18
 
     move/from16 v0, v23
@@ -375,7 +335,7 @@
     const/4 v10, 0x0
 
     :goto_0
-    if-ge v10, v11, :cond_4
+    if-ge v10, v11, :cond_2
 
     invoke-virtual {v2, v10}, Landroid/graphics/drawable/AnimationDrawable;->getFrame(I)Landroid/graphics/drawable/Drawable;
 
@@ -463,12 +423,12 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_2
     const/16 v23, 0x1
 
     return v23
 
-    :cond_5
+    :cond_3
     invoke-super/range {p0 .. p3}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->setColor(Landroid/content/Context;Lcom/android/systemui/qs/QSTile$State;Landroid/graphics/drawable/Drawable;)Z
 
     move-result v23

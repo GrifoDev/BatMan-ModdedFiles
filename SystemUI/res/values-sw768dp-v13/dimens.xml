@@ -84,11 +84,18 @@
     <dimen name="kg_pin_klondike_font_size">11.0dip</dimen>
     <dimen name="kg_pin_ok_button_font_size">30.0dip</dimen>
     <dimen name="kg_pin_text_size">27.5dip</dimen>
+    <dimen name="keyguard_bottom_area_emergency_button_area_min_height">31.0dip</dimen>
     <dimen name="kg_fmm_title_font_size">30.0dip</dimen>
     <dimen name="kg_fmm_message_font_size">15.0dip</dimen>
     <dimen name="kg_fmm_info_margin_top">148.0dip</dimen>
     <dimen name="kg_fmm_locked_area_width">450.0dip</dimen>
     <dimen name="kg_fmm_locked_owner_info_width">450.0dip</dimen>
     <dimen name="kg_fmm_contact_area_side_margin">0.0dip</dimen>
+    <dimen name="kg_carrier_lock_info_margin_top">180.0dip</dimen>
+    <dimen name="kg_carrier_lock_info_margin_side">100.0dip</dimen>
+    <dimen name="kg_carrier_lock_text_font_size">17.0dip</dimen>
+    <dimen name="kg_carrier_lock_button_area_margin_bottom">36.0dip</dimen>
+    <dimen name="kg_carrier_lock_button_width">155.0dip</dimen>
+    <dimen name="kg_carrier_lock_button_margin_top">13.0dip</dimen>
     <dimen name="recents_app_list_item_content_width_land">115.0dip</dimen>
 </resources>

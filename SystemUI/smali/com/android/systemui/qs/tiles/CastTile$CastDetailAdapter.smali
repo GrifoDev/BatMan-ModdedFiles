@@ -143,7 +143,7 @@
 
     invoke-direct {v6}, Lcom/android/systemui/qs/QSDetailItems$Item;-><init>()V
 
-    const v8, 0x7f0201eb
+    const v8, 0x7f0201ef
 
     iput v8, v6, Lcom/android/systemui/qs/QSDetailItems$Item;->icon:I
 
@@ -161,7 +161,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0f03be
+    const v9, 0x7f0f041b
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -258,7 +258,7 @@
 
     invoke-direct {v6}, Lcom/android/systemui/qs/QSDetailItems$Item;-><init>()V
 
-    const v8, 0x7f0201ea
+    const v8, 0x7f0201ee
 
     iput v8, v6, Lcom/android/systemui/qs/QSDetailItems$Item;->icon:I
 
@@ -280,7 +280,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0f03bf
+    const v9, 0x7f0f041c
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -347,9 +347,9 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile$CastDetailAdapter;->mItems:Lcom/android/systemui/qs/QSDetailItems;
 
-    const v1, 0x7f0201e9
+    const v1, 0x7f0201ed
 
-    const v2, 0x7f0f03b6
+    const v2, 0x7f0f0413
 
     invoke-virtual {v0, v1, v2}, Lcom/android/systemui/qs/QSDetailItems;->setEmptyState(II)V
 
@@ -411,7 +411,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f03b2
+    const v1, 0x7f0f040f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

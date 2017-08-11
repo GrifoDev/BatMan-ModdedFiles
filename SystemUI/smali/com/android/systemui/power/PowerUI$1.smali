@@ -41,17 +41,17 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set12(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set13(Lcom/android/systemui/power/PowerUI;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$1;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/power/PowerUI$1;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v1}, Lcom/android/systemui/power/PowerUI;->-get19(Lcom/android/systemui/power/PowerUI;)I
+    invoke-static {v1}, Lcom/android/systemui/power/PowerUI;->-get20(Lcom/android/systemui/power/PowerUI;)I
 
     move-result v1
 

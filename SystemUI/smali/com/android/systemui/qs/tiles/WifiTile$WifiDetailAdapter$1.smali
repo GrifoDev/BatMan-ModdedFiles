@@ -51,17 +51,17 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0f03b0
+    const v0, 0x7f0f040d
 
     :goto_0
-    const v2, 0x7f020218
+    const v2, 0x7f02021c
 
     invoke-virtual {v1, v2, v0}, Lcom/android/systemui/qs/QSDetailItems;->setEmptyState(II)V
 
     return-void
 
     :cond_0
-    const v0, 0x7f0f03b1
+    const v0, 0x7f0f040e
 
     goto :goto_0
 .end method

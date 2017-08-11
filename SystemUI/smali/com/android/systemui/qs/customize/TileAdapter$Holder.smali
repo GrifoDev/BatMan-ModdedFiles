@@ -75,7 +75,7 @@
 .method public clearDrag()V
     .locals 2
 
-    const v1, 0x7f1303ce
+    const v1, 0x7f1303da
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->itemView:Landroid/view/View;
 
@@ -147,7 +147,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->mTileView:Lcom/android/systemui/qs/customize/CustomizeTileView;
 
-    const v1, 0x7f1303ce
+    const v1, 0x7f1303da
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/CustomizeTileView;->findViewById(I)Landroid/view/View;
 
@@ -207,7 +207,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->mTileView:Lcom/android/systemui/qs/customize/CustomizeTileView;
 
-    const v1, 0x7f1303ce
+    const v1, 0x7f1303da
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/CustomizeTileView;->findViewById(I)Landroid/view/View;
 

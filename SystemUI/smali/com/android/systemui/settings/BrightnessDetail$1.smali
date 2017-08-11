@@ -91,7 +91,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f04013c
+    const v7, 0x7f040140
 
     const/4 v8, 0x0
 
@@ -99,7 +99,7 @@
 
     move-result-object p2
 
-    const v6, 0x7f1303d6
+    const v6, 0x7f1303e2
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -107,7 +107,7 @@
 
     check-cast v4, Landroid/widget/ImageView;
 
-    const v6, 0x7f130450
+    const v6, 0x7f13045c
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -115,7 +115,7 @@
 
     check-cast v3, Lcom/android/systemui/settings/BrightnessDetail;
 
-    const v6, 0x7f1303d1
+    const v6, 0x7f1303dd
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +123,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v6, 0x7f1303d7
+    const v6, 0x7f1303e3
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -131,7 +131,7 @@
 
     check-cast v5, Lcom/android/systemui/settings/ToggleSlider;
 
-    const v6, 0x7f130451
+    const v6, 0x7f13045d
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v6, 0x7f1303d2
+    const v6, 0x7f1303de
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -147,7 +147,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v6, 0x7f1303d0
+    const v6, 0x7f1303dc
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -155,7 +155,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoContainer:Landroid/view/View;
 
-    const v6, 0x7f1303d3
+    const v6, 0x7f1303df
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -206,7 +206,7 @@
 
     new-instance v7, Lcom/android/systemui/settings/BrightnessDetail$1$1;
 
-    invoke-direct {v7, p0, v5}, Lcom/android/systemui/settings/BrightnessDetail$1$1;-><init>(Lcom/android/systemui/settings/BrightnessDetail$1;Lcom/android/systemui/settings/ToggleSlider;)V
+    invoke-direct {v7, p0}, Lcom/android/systemui/settings/BrightnessDetail$1$1;-><init>(Lcom/android/systemui/settings/BrightnessDetail$1;)V
 
     invoke-virtual {v6, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -222,11 +222,11 @@
 
     new-instance v7, Lcom/android/systemui/settings/BrightnessDetail$1$2;
 
-    invoke-direct {v7, p0, v5}, Lcom/android/systemui/settings/BrightnessDetail$1$2;-><init>(Lcom/android/systemui/settings/BrightnessDetail$1;Lcom/android/systemui/settings/ToggleSlider;)V
+    invoke-direct {v7, p0}, Lcom/android/systemui/settings/BrightnessDetail$1$2;-><init>(Lcom/android/systemui/settings/BrightnessDetail$1;)V
 
     invoke-virtual {v6, v7}, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v6, 0x7f1303d4
+    const v6, 0x7f1303e0
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -234,7 +234,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mQuickAccessContainer:Landroid/view/View;
 
-    const v6, 0x7f1303d5
+    const v6, 0x7f1303e1
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -348,7 +348,7 @@
 
     if-eqz v6, :cond_5
 
-    const v6, 0x7f0f0498
+    const v6, 0x7f0f04f5
 
     invoke-virtual {v2, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -358,7 +358,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f0499
+    const v7, 0x7f0f04f6
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -455,7 +455,7 @@
 
     if-nez v6, :cond_9
 
-    const v6, 0x7f0f049d
+    const v6, 0x7f0f04fa
 
     invoke-virtual {v2, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -469,7 +469,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f049f
+    const v7, 0x7f0f04fc
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -575,7 +575,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f049e
+    const v8, 0x7f0f04fb
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -635,7 +635,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0398
+    const v1, 0x7f0f03f5
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

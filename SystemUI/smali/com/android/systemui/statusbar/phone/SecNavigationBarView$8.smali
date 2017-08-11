@@ -3,7 +3,7 @@
 .source "SecNavigationBarView.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnKeyListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
@@ -34,17 +34,55 @@
 
 
 # virtual methods
-.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
-    .locals 1
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 5
 
-    const/4 v0, 0x4
+    new-instance v1, Landroid/content/Intent;
 
-    if-ne p2, v0, :cond_0
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+    const-string/jumbo v2, "com.samsung.settings.NAVIGATION_BAR_SETTING"
 
-    :cond_0
-    const/4 v0, 0x0
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    return v0
+    :try_start_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$8;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get4(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "SecNavigationBarView"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "ActivityNotFoundException intent : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

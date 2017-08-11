@@ -32,19 +32,119 @@
 
 # virtual methods
 .method public onOpenThemeChanged()V
-    .locals 2
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/AutoReinflateContainer$1;->this$0:Lcom/android/systemui/AutoReinflateContainer;
+
+    invoke-static {v1}, Lcom/android/systemui/AutoReinflateContainer;->-get1(Lcom/android/systemui/AutoReinflateContainer;)Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0b013f
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+
+    move-result v0
 
     invoke-static {}, Lcom/android/systemui/AutoReinflateContainer;->-get0()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "QS onOpenThemeChanged"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v0, p0, Lcom/android/systemui/AutoReinflateContainer$1;->this$0:Lcom/android/systemui/AutoReinflateContainer;
+    const-string/jumbo v3, "onOpenThemeChanged() - "
 
-    invoke-static {v0}, Lcom/android/systemui/AutoReinflateContainer;->-wrap0(Lcom/android/systemui/AutoReinflateContainer;)V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/AutoReinflateContainer$1;->this$0:Lcom/android/systemui/AutoReinflateContainer;
+
+    invoke-static {v3}, Lcom/android/systemui/AutoReinflateContainer;->-get1(Lcom/android/systemui/AutoReinflateContainer;)Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/systemui/statusbar/DeviceState;->isOpenTheme(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " // QUICKPANEL BG COLOR : alpha "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {v0}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", R "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {v0}, Landroid/graphics/Color;->red(I)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", G "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {v0}, Landroid/graphics/Color;->green(I)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", B "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {v0}, Landroid/graphics/Color;->blue(I)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/systemui/AutoReinflateContainer$1;->this$0:Lcom/android/systemui/AutoReinflateContainer;
+
+    invoke-static {v1}, Lcom/android/systemui/AutoReinflateContainer;->-wrap0(Lcom/android/systemui/AutoReinflateContainer;)V
 
     return-void
 .end method

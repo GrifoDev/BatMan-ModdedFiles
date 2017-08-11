@@ -40,17 +40,17 @@
 
     move-result-wide v2
 
-    invoke-static {v0, v2, v3}, Lcom/android/systemui/power/PowerUI;->-set18(Lcom/android/systemui/power/PowerUI;J)J
+    invoke-static {v0, v2, v3}, Lcom/android/systemui/power/PowerUI;->-set19(Lcom/android/systemui/power/PowerUI;J)J
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set14(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set15(Lcom/android/systemui/power/PowerUI;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v0
 
@@ -66,13 +66,13 @@
 
     const-wide/16 v2, -0x1
 
-    invoke-static {v0, v2, v3}, Lcom/android/systemui/power/PowerUI;->-set18(Lcom/android/systemui/power/PowerUI;J)J
+    invoke-static {v0, v2, v3}, Lcom/android/systemui/power/PowerUI;->-set19(Lcom/android/systemui/power/PowerUI;J)J
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set14(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set15(Lcom/android/systemui/power/PowerUI;Z)Z
 
     return-void
 .end method
@@ -84,13 +84,13 @@
 
     const-wide/16 v2, -0x1
 
-    invoke-static {v0, v2, v3}, Lcom/android/systemui/power/PowerUI;->-set18(Lcom/android/systemui/power/PowerUI;J)J
+    invoke-static {v0, v2, v3}, Lcom/android/systemui/power/PowerUI;->-set19(Lcom/android/systemui/power/PowerUI;J)J
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set14(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set15(Lcom/android/systemui/power/PowerUI;Z)Z
 
     return-void
 .end method

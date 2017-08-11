@@ -69,7 +69,7 @@
     <string name="clear_cover_servicebox_music_unknown">未知</string>
     <string name="save">儲存</string>
     <string name="ok">確定</string>
-    <string name="battery_history_hours_no_seconds">%1$d小時 %2$d分鐘</string>
+    <string name="battery_history_hours_no_seconds">%1$d 小時 %2$d 分鐘</string>
     <string name="battery_history_minutes_no_seconds">%d 分鐘</string>
     <string name="wifi_fail_to_scan">無法掃瞄網絡</string>
     <string name="wifi_failed_to_obtain_IP">獲取 IP 地址失敗</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">無法連接至 %s。</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">無法連接至 %1$s。請在 %2$s 中檢查您的設定並重試。</string>
     <string name="bluetooth_pairing_rejected_error_message">%s拒絕配對。</string>
+    <string name="bluetooth_getting_remote_device_name">正在取得裝置名稱…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">當已連接此裝置時，將顯示裝置名稱。</string>
     <string name="accessibility_wifi_off">Wi-Fi 已關閉。</string>
     <string name="accessibility_no_wifi">Wi-Fi 連線已中斷。</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi 訊號一格。</string>
@@ -1358,6 +1360,7 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
     <string name="keyboard_key_insert">插入</string>
     <string name="keyboard_key_num_lock">數字鎖定</string>
     <string name="keyboard_key_numpad_template">數字鍵盤 %1$s</string>
+    <string name="keyboard_popup_help">Meta 按鍵：Windows、Command 或其他作業系統符號按鍵。</string>
     <string name="keyboard_shortcut_group_system">系統捷徑</string>
     <string name="keyboard_shortcut_group_system_home">主畫面</string>
     <string name="keyboard_shortcut_group_system_recents">最近的活動</string>
@@ -1519,8 +1522,8 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
 
 若要防止水分滲入損害，請確保密封 SIM/SD 卡匣。"</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">為防止被水損壞，請確保 SIM/SD 卡匣已密封。</string>
-    <string name="water_protection_notification_title">檢查端口</string>
-    <string name="water_protection_notification_body">已偵測到水分。若要為裝置充電，請確保充電器/USB 端口乾燥。</string>
+    <string name="water_protection_notification_title">拔除充電器</string>
+    <string name="water_protection_notification_body">已偵測到水分。請拔除充電器並同時確保充電器與 USB 端口乾燥。</string>
     <string name="full_battery_title">資訊</string>
     <string name="full_battery_noti_text">電池已完全充電</string>
     <string name="cooling_title">裝置過熱</string>
@@ -1612,6 +1615,7 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
     <string name="battery_not_fully_connected_charging_title">慢速充電</string>
     <string name="battery_not_fully_connected_charging_title_vzw">未完成的連線</string>
     <string name="battery_not_fully_connected_charging_text">如需更快地充電，請使用裝置隨附的充電器並確保連接正確。</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">請確保充電器已正確連接。</string>
     <string name="battery_not_fully_connected_charging_popup_text">確保充電器連接正確。請使用裝置隨附的充電器。</string>
     <string name="battery_charging_level_and_time_text">"正在充電：%1$d%%
 (離充滿電還有約 %2$s)"</string>
@@ -1625,14 +1629,20 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
     <string name="battery_saver_recommend_notification_text_phone_psm">為您的手機充電。</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">為您的平板電腦充電。</string>
     <string name="button_close">關閉</string>
-    <string name="battery_health_interruption_title">無法充電</string>
+    <string name="battery_health_interruption_title">已停止充電</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">拔除充電器</string>
     <string name="battery_health_interruption_by_terminal_open_text">無法為您的裝置充電。確認您正在使用三星相容電池與充電器，並且裝置已正確連接至充電器。</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">無法為您的裝置充電。確認您正在使用 Galaxy 相容電池與充電器，並且裝置已正確連接至充電器。</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">充電已暫停。電池溫度太高。</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">充電已暫停。電池溫度太低。</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"裝置已停止充電。電池溫度過高。中斷充電器連接時請務必小心。充電器可能會非常熱。
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">您的手機溫度過高。當溫度恢復正常時，充電將繼續。</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">您的平板電腦溫度過高。當溫度恢復正常時，充電將繼續。</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">您的手機溫度過低。當溫度恢復正常時，充電將繼續。</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">您的平板電腦溫度過低。當溫度恢復正常時，充電將繼續。</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"已停止充電。您的手機溫度過高。中斷充電器連接時請務必小心。充電器可能會非常熱。
 
-拔下並重新連接充電器即可繼續正常充電。若仍然過熱，請聯絡客戶服務，否則可能會有火災或受傷的危險。"</string>
+拔下並重新連接充電器即可繼續正常充電。若仍然過熱，請聯絡客戶服務，否則可能會有起火或受傷的危險。"</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"已停止充電。您的平板電腦溫度過高。中斷充電器連接時請務必小心。充電器可能會非常熱。
+
+拔下並重新連接充電器即可繼續正常充電。若仍然過熱，請聯絡客戶服務，否則可能會有起火或受傷的危險。"</string>
     <string name="incompatible_charger_title">未充電。</string>
     <string name="incompatible_charger_dialog_text">連接的充電器與此手機不兼容。為防止損壞您的手機，已停止充電。若要繼續充電，請使用此手機隨附的原廠充電器與傳輸線。</string>
     <string name="incompatible_charger_notification_text">無法充電。請使用原廠充電器。</string>
@@ -1648,8 +1658,6 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
     <string name="kg_biometrics_swipe_active_instructions">使用生物特徵或滑動螢幕以開啟</string>
     <string name="kg_face_or_swipe_unlock_instructions">使用臉部識別或滑動螢幕以解鎖</string>
     <string name="kg_face_or_swipe_active_instructions">使用臉部識別或滑動螢幕以開啟</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">使用臉部識別解鎖或改為滑動螢幕以使用虹膜</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">使用臉部識別開啟或改為滑動螢幕以使用虹膜</string>
     <string name="kg_face_unlock_instructions">滑動螢幕以透過臉部識別解鎖</string>
     <string name="kg_face_or_fingerprint_active_instructions">使用指紋開啟或改為滑動螢幕以使用臉部識別</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">使用指紋解鎖或改為滑動螢幕以使用臉部識別</string>
@@ -1664,6 +1672,20 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
     <string name="kg_voice_assistant_unlock_instructions">以兩指滑動來解鎖螢幕。</string>
     <string name="kg_swipe_active_instructions">滑動螢幕以開啟</string>
     <string name="kg_swipe_unlock_instructions">滑動螢幕以解鎖</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">使用生物特徵或以兩指滑動螢幕來解鎖。</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">使用生物特徵或以兩指滑動螢幕來開啟。</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">使用臉部識別或以兩指滑動螢幕來解鎖。</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">使用臉部識別或以兩指滑動螢幕來開啟。</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">以兩指滑動螢幕來透過臉部識別解鎖。</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">使用指紋開啟或以兩指滑動螢幕來使用臉部識別。</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">使用指紋解鎖或以兩指滑動螢幕來使用臉部識別。</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">使用指紋開啟或以兩指滑動螢幕來使用虹膜。</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">使用指紋解鎖或以兩指滑動螢幕來使用虹膜。</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">使用指紋或以兩指滑動螢幕來開啟。</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">使用指紋或以兩指滑動螢幕來解鎖。</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">以兩指滑動螢幕來使用虹膜解鎖。</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">使用虹膜或以兩指滑動螢幕來解鎖。</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">使用虹膜或以兩指滑動螢幕來開啟。</string>
     <string name="kg_power_connect_charger">連接充電器</string>
     <string name="kg_power_fully_charged">充電已完成</string>
     <string name="kg_power_fast_charging">正在快速充電：%d%%</string>
@@ -1744,6 +1766,7 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
     <string name="remote_input_send_text">發送</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">輕觸鎖定圖示以使用虹膜解鎖裝置</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">使用指紋解鎖裝置或改為輕觸鎖定圖示以使用虹膜</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">輕觸兩下鎖定按鍵以解鎖手機</string>
     <string name="s_view_cover_toast_pop_up_message">打開保護套以使用快速設定按鍵。</string>
     <string name="remote_input_toast_text_on_sview_cover">S view 保護套已關閉時無法使用快速回覆功能。</string>
     <string name="powerui_power_sharing_alert_dialog_body">"您必須下載應用程式以控制共享的電量。如您透過三星的 Power Sharing 連接線 EP-SG900 將您的裝置連接至另一裝置而不使用該應用程式，所有電池電量將會被傳輸至另一裝置。
@@ -1780,7 +1803,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">我接受</string>
-    <string name="force_immersive_guide_text">輕觸此圖示將隱藏導覽列。您仍可透過從螢幕底部向上滑動來使用導覽按鍵。已顯示導覽列時，您可再次輕觸此圖示以將其鎖定到位。在部分螢幕上，比如主螢幕，導覽列將始終顯示。</string>
+    <string name="force_immersive_guide_text">輕觸此按鈕將隱藏導覽列。您仍可透過從螢幕底部向上滑動來使用導覽按鈕。導覽列顯示時，您可再次輕觸此圖示以將其鎖定到位。在部分螢幕上，比如主螢幕，將一律顯示導覽列。若導覽列隱藏時，應用程式無法正常運作，則請將導覽列鎖定到位並重新啟動該應用程式。</string>
+    <string name="force_immersive_guide_dialog_title">隱藏導覽列：</string>
+    <string name="force_immersive_guide_dialog_message1">輕觸此按鍵將隱藏導覽列。</string>
+    <string name="force_immersive_guide_dialog_message2">從螢幕底部向上滑動以顯示導覽列。</string>
+    <string name="force_immersive_guide_dialog_message3">再次輕觸此按鍵以將其鎖定到位。</string>
+    <string name="force_immersive_guide_dialog_message4">在部分螢幕上，例如主螢幕，導覽列將總是顯示。</string>
+    <string name="force_immersive_guide_dialog_guide_path">若要隱藏此按鍵，請前往 [設定] > [顯示] > [導覽列]。</string>
+    <string name="force_immersive_guide_dialog_setting">設定</string>
+    <string name="force_immersive_guide_dialog_ok">確定</string>
     <string name="car_lockscreen_disclaimer_title">請安全駕駛</string>
     <string name="car_lockscreen_disclaimer_text">請隨時留意路面情況，並遵守適用的交通規則。系統提供的路線可能不準確、不完整、存在危險、不適合、禁止通行，或涉及跨越行政區域的路段。此外，商家資訊也可能不準確或不完整。路況資料並非即時更新，也無法保證定位資訊的準確性。駕駛時請勿操作流動裝置，或使用不適用於 Android Auto 的應用程式。</string>
     <string name="pip_close">關閉 PIP</string>
@@ -1916,7 +1947,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_flight_mode">飛行模式</string>
     <string name="kg_tts_shortcut_app">輕觸兩下並拖曳以開啟%s。</string>
     <string name="kg_lockscreen_emergency_call_button_text">緊急電話</string>
-    <string name="keyguard_dualclock_locale_view_home">本地</string>
+    <string name="keyguard_dualclock_locale_view_home">居住地</string>
     <string name="keyguard_dualclock_locale_view_roaming">漫遊</string>
     <string name="keyguard_dualclock_locale_view_local">本地</string>
     <string name="keyguard_dualclock_locale_view_seoul">首爾</string>
@@ -2219,6 +2250,8 @@ PIN 碼必須為 4 至 8 位數。"</string>
     <string name="kg_face_retry_content_description">輕觸兩下以使用臉部識別。</string>
     <string name="kg_face_authentication_error_retry_text">未偵測到臉部。請輕觸圖示以重新嘗試臉部識別</string>
     <string name="kg_face_authentication_failed_retry_text">無匹配。請輕觸圖示以使用臉部識別</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">臉部識別發生問題。請輕觸以重試</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">視像通話期間無法使用臉部識別</string>
     <string name="kg_fingerprint_no_match">無相符項</string>
     <string name="kg_finger_print_not_responding_error_message">指紋感應器未回應。請稍後再試。</string>
     <string name="kg_finger_print_database_error_message">指紋數據已損壞。請將指紋重設為螢幕鎖定類型，然後再次加入您的指紋，或變更螢幕鎖定類型。</string>
@@ -2355,6 +2388,8 @@ PIN 碼必須為 4 至 8 位數。"</string>
     <string name="appicon_badge_new_item">1 個新項目</string>
     <string name="banner_apps_for_dex_detail">從 Galaxy Apps 獲取專為DeX 而設之優化應用程式。</string>
     <string name="toast_cannot_move_more_than_items">無法移動超過 %d 個項目。</string>
+    <string name="view_more_in_galaxy_apps">檢視更多 Galaxy Apps 的內容</string>
+    <string name="view_more_in_play_store">檢視更多 Play Store 的內容</string>
     <string name="uninstall_title">解除安裝應用程式嗎？</string>
     <string name="uninstall_1_app_message">要解除安裝此應用程式嗎？</string>
     <string name="uninstall_apps_message">將解除安裝以下應用程式：</string>
@@ -2398,6 +2433,13 @@ PIN 碼必須為 4 至 8 位數。"</string>
     <string name="clear_cover_day_month_no_year">d日 MMM</string>
     <string name="volumepanel_notification">通知</string>
     <string name="quick_settings_location_detail_device_only">僅限裝置</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">充電已暫停。電池溫度太高。</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">充電已暫停。電池溫度太低。</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"裝置已停止充電。電池溫度過高。中斷充電器連接時請務必小心。充電器可能會非常熱。
+
+拔下並重新連接充電器即可繼續正常充電。若仍然過熱，請聯絡客戶服務，否則可能會有火災或受傷的危險。"</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">使用臉部識別解鎖或改為滑動螢幕以使用虹膜</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">使用臉部識別開啟或改為滑動螢幕以使用虹膜</string>
     <string name="kg_infinity_wallpaper_option_description">無限螢幕牆紙將同時應用至您的主螢幕與鎖定螢幕。請開啟下方的設定以獲得最佳體驗。</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">開啟 Always On Display</string>
     <string name="sview_cover_wday_month_day_no_year">MMMM d日, E</string>

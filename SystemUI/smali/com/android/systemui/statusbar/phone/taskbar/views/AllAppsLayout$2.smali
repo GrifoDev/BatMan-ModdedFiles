@@ -344,9 +344,9 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$2;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
-    iget-object v2, v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
+    iget-object v2, v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    invoke-virtual {v2, p1}, Landroid/widget/GridView;->getPositionForView(Landroid/view/View;)I
+    invoke-virtual {v2, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->getPositionForView(Landroid/view/View;)I
 
     move-result v1
 
@@ -434,9 +434,9 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$2;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;
 
-    iget-object v2, v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Landroid/widget/GridView;
+    iget-object v2, v2, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;->mGridView:Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;
 
-    invoke-virtual {v2, p1}, Landroid/widget/GridView;->getPositionForView(Landroid/view/View;)I
+    invoke-virtual {v2, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/ExpandableHeightGridView;->getPositionForView(Landroid/view/View;)I
 
     move-result v1
 

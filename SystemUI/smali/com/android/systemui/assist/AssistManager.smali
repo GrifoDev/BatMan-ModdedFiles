@@ -705,7 +705,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f020221
+    const v8, 0x7f020225
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -715,7 +715,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0f071a
+    const v8, 0x7f0f0789
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -828,7 +828,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0308
+    const v2, 0x7f0d0309
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1136,7 +1136,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0f0719
+    const v10, 0x7f0f0788
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

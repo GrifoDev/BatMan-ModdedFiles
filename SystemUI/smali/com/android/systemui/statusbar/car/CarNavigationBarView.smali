@@ -43,7 +43,7 @@
 .method public onFinishInflate()V
     .locals 1
 
-    const v0, 0x7f1300f7
+    const v0, 0x7f1300fb
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/car/CarNavigationBarView;->findViewById(I)Landroid/view/View;
 
@@ -53,7 +53,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/car/CarNavigationBarView;->mNavButtons:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f1300f8
+    const v0, 0x7f1300fc
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/car/CarNavigationBarView;->findViewById(I)Landroid/view/View;
 

@@ -152,7 +152,7 @@
 
     iget-object v11, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mContext:Landroid/content/Context;
 
-    const v12, 0x7f0f0241
+    const v12, 0x7f0f029e
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -351,7 +351,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0247
+    const v5, 0x7f0d0248
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -391,7 +391,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0471
+    const v6, 0x7f0d0472
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getFloat(I)F
 

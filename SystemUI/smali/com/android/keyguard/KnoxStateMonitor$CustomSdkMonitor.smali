@@ -545,6 +545,27 @@
     return v1
 .end method
 
+.method public isLockscreenAllDisabled()Z
+    .locals 2
+
+    iget v0, p0, Lcom/android/keyguard/KnoxStateMonitor$CustomSdkMonitor;->mKnoxCustomLockScreenHiddenItems:I
+
+    and-int/lit16 v0, v0, 0x3ff
+
+    const/16 v1, 0x3ff
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public isLockscreenBatteryInfoEnabled()Z
     .locals 2
 

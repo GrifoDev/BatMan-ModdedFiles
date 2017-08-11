@@ -783,7 +783,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f130186
+    .packed-switch 0x7f13018a
         :pswitch_2
         :pswitch_0
         :pswitch_1
@@ -854,17 +854,17 @@
 .method protected onFinishInflate()V
     .locals 11
 
-    const v4, 0x7f0d03f6
+    const v4, 0x7f0d03f7
 
-    const v5, 0x7f0d03f5
+    const v5, 0x7f0d03f6
 
-    const v10, 0x7f0d0218
+    const v10, 0x7f0d0219
 
     const/high16 v9, 0x3f800000    # 1.0f
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v3, 0x7f130186
+    const v3, 0x7f13018a
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 
@@ -874,7 +874,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/qs/QSContainer;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
 
-    const v3, 0x7f130187
+    const v3, 0x7f13018b
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 
@@ -884,7 +884,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/qs/QSContainer;->mQSDetail:Lcom/android/systemui/qs/QSDetail;
 
-    const v3, 0x7f130188
+    const v3, 0x7f13018c
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 
@@ -902,7 +902,7 @@
 
     invoke-virtual {v3, v6, v7}, Lcom/android/systemui/qs/QSDetail;->setQsPanel(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;)V
 
-    const v3, 0x7f1303b6
+    const v3, 0x7f1303c2
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 
@@ -1022,7 +1022,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/QSContainer;->mHeader:Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;
 
-    const v5, 0x7f1303e0
+    const v5, 0x7f1303ec
 
     invoke-virtual {v3, v5}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -1053,7 +1053,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/QSContainer;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b012e
+    const v6, 0x7f0b012f
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -1075,7 +1075,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/QSContainer;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0131
+    const v6, 0x7f0b0132
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 

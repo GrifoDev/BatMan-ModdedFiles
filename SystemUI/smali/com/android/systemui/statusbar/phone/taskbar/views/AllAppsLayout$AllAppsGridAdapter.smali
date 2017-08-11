@@ -126,7 +126,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b01db
+    const v7, 0x7f0b01e9
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -366,7 +366,7 @@
 
     invoke-direct {v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$AppViewHolder;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;)V
 
-    const v2, 0x7f1300d3
+    const v2, 0x7f1300d7
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -513,7 +513,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b01df
+    const v4, 0x7f0b01ed
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 

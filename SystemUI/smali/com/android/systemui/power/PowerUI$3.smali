@@ -60,7 +60,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/power/PowerUI$3;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v2}, Lcom/android/systemui/power/PowerUI;->-get12(Lcom/android/systemui/power/PowerUI;)Z
+    invoke-static {v2}, Lcom/android/systemui/power/PowerUI;->-get13(Lcom/android/systemui/power/PowerUI;)Z
 
     move-result v2
 
@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$3;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get12(Lcom/android/systemui/power/PowerUI;)Z
+    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get13(Lcom/android/systemui/power/PowerUI;)Z
 
     move-result v0
 
@@ -86,7 +86,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$3;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v0, v3}, Lcom/android/systemui/power/PowerUI;->-set15(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v0, v3}, Lcom/android/systemui/power/PowerUI;->-set16(Lcom/android/systemui/power/PowerUI;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$3;->this$0:Lcom/android/systemui/power/PowerUI;
 
@@ -100,7 +100,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$3;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v0
 
@@ -110,7 +110,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$3;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v0
 

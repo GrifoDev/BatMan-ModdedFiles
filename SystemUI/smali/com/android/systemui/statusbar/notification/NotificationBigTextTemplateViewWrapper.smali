@@ -21,7 +21,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationBigTextTemplateViewWrapper;->mView:Landroid/view/View;
 
-    const v1, 0x102044c
+    const v1, 0x1020455
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

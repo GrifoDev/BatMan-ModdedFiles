@@ -128,7 +128,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0351
+    const v1, 0x7f0f03ae
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -139,7 +139,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0350
+    const v1, 0x7f0f03ad
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -169,7 +169,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f05d8
+    const v1, 0x7f0f0636
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -215,11 +215,11 @@
 
     invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x10405d8
+    const v1, 0x10405dc
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setTitle(I)V
 
-    const v1, 0x10405d7
+    const v1, 0x10405db
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(I)V
 
@@ -227,7 +227,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/DataSaverTile$1;-><init>(Lcom/android/systemui/qs/tiles/DataSaverTile;)V
 
-    const v2, 0x10405d9
+    const v2, 0x10405dd
 
     invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -268,7 +268,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f05d8
+    const v1, 0x7f0f0636
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -284,7 +284,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f020183
+    const v0, 0x7f020187
 
     :goto_1
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
@@ -315,7 +315,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f020184
+    const v0, 0x7f020188
 
     goto :goto_1
 .end method

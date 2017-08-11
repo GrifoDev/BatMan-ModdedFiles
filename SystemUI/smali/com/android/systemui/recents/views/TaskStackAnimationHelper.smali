@@ -303,7 +303,7 @@
 
     move-result v17
 
-    const v29, 0x7f0d038d
+    const v29, 0x7f0d038e
 
     move-object/from16 v0, v19
 
@@ -313,7 +313,7 @@
 
     move-result v25
 
-    const v29, 0x7f0d038e
+    const v29, 0x7f0d038f
 
     move-object/from16 v0, v19
 
@@ -2521,27 +2521,27 @@
 .end method
 
 .method public startLaunchTaskAnimation(Lcom/android/systemui/recents/views/TaskView;ZLcom/android/systemui/recents/misc/ReferenceCountedTrigger;Z)V
-    .locals 16
+    .locals 18
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mStackView:Lcom/android/systemui/recents/views/TaskStackView;
+    iget-object v15, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mStackView:Lcom/android/systemui/recents/views/TaskStackView;
 
-    invoke-virtual {v13}, Lcom/android/systemui/recents/views/TaskStackView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v15}, Lcom/android/systemui/recents/views/TaskStackView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v13, 0x7f0c003d
+    const v15, 0x7f0c003d
 
-    invoke-virtual {v5, v13}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v5, v15}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v12
+
+    const v15, 0x7f0d038e
+
+    invoke-virtual {v5, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v10
-
-    const v13, 0x7f0d038d
-
-    invoke-virtual {v5, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v8
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/recents/views/TaskView;->getTask()Lcom/android/systemui/recents/model/Task;
 
@@ -2549,100 +2549,110 @@
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mStackView:Lcom/android/systemui/recents/views/TaskStackView;
+    iget-object v15, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mStackView:Lcom/android/systemui/recents/views/TaskStackView;
 
-    invoke-virtual {v13}, Lcom/android/systemui/recents/views/TaskStackView;->getTaskViews()Ljava/util/List;
+    invoke-virtual {v15}, Lcom/android/systemui/recents/views/TaskStackView;->getTaskViews()Ljava/util/List;
 
-    move-result-object v11
+    move-result-object v13
 
-    invoke-interface {v11}, Ljava/util/List;->size()I
+    invoke-interface {v13}, Ljava/util/List;->size()I
 
-    move-result v9
+    move-result v11
 
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v9, :cond_4
+    if-ge v3, v11, :cond_4
 
-    invoke-interface {v11, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v13, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v14
 
-    check-cast v12, Lcom/android/systemui/recents/views/TaskView;
+    check-cast v14, Lcom/android/systemui/recents/views/TaskView;
 
-    invoke-virtual {v12}, Lcom/android/systemui/recents/views/TaskView;->getTask()Lcom/android/systemui/recents/model/Task;
+    invoke-virtual {v14}, Lcom/android/systemui/recents/views/TaskView;->getTask()Lcom/android/systemui/recents/model/Task;
 
-    move-result-object v6
+    move-result-object v8
 
     if-eqz v4, :cond_2
 
-    iget-object v13, v4, Lcom/android/systemui/recents/model/Task;->group:Lcom/android/systemui/recents/model/TaskGrouping;
+    iget-object v15, v4, Lcom/android/systemui/recents/model/Task;->group:Lcom/android/systemui/recents/model/TaskGrouping;
 
-    if-eqz v13, :cond_2
+    if-eqz v15, :cond_2
 
-    iget-object v13, v4, Lcom/android/systemui/recents/model/Task;->group:Lcom/android/systemui/recents/model/TaskGrouping;
+    iget-object v15, v4, Lcom/android/systemui/recents/model/Task;->group:Lcom/android/systemui/recents/model/TaskGrouping;
 
-    invoke-virtual {v13, v6, v4}, Lcom/android/systemui/recents/model/TaskGrouping;->isTaskAboveTask(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/model/Task;)Z
+    invoke-virtual {v15, v8, v4}, Lcom/android/systemui/recents/model/TaskGrouping;->isTaskAboveTask(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/model/Task;)Z
 
     move-result v2
 
     :goto_1
     move-object/from16 v0, p1
 
-    if-ne v12, v0, :cond_0
+    if-ne v14, v0, :cond_0
 
     if-eqz p4, :cond_3
 
     :cond_0
     if-eqz v2, :cond_1
 
-    new-instance v7, Lcom/android/systemui/recents/views/AnimationProps;
+    new-instance v9, Lcom/android/systemui/recents/views/AnimationProps;
 
-    sget-object v13, Lcom/android/systemui/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
+    sget-object v15, Lcom/android/systemui/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
 
     invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/recents/misc/ReferenceCountedTrigger;->decrementOnAnimationEnd()Landroid/animation/Animator$AnimatorListener;
 
-    move-result-object v14
+    move-result-object v16
 
-    invoke-direct {v7, v10, v13, v14}, Lcom/android/systemui/recents/views/AnimationProps;-><init>(ILandroid/view/animation/Interpolator;Landroid/animation/Animator$AnimatorListener;)V
+    move-object/from16 v0, v16
+
+    invoke-direct {v9, v12, v15, v0}, Lcom/android/systemui/recents/views/AnimationProps;-><init>(ILandroid/view/animation/Interpolator;Landroid/animation/Animator$AnimatorListener;)V
 
     invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/recents/misc/ReferenceCountedTrigger;->increment()V
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mTmpTransform:Lcom/android/systemui/recents/views/TaskViewTransform;
+    iget-object v15, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mTmpTransform:Lcom/android/systemui/recents/views/TaskViewTransform;
 
-    invoke-virtual {v13, v12}, Lcom/android/systemui/recents/views/TaskViewTransform;->fillIn(Lcom/android/systemui/recents/views/TaskView;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mTmpTransform:Lcom/android/systemui/recents/views/TaskViewTransform;
-
-    const/4 v14, 0x0
-
-    iput v14, v13, Lcom/android/systemui/recents/views/TaskViewTransform;->alpha:F
+    invoke-virtual {v15, v14}, Lcom/android/systemui/recents/views/TaskViewTransform;->fillIn(Lcom/android/systemui/recents/views/TaskView;)V
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mTmpTransform:Lcom/android/systemui/recents/views/TaskViewTransform;
+    iget-object v15, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mTmpTransform:Lcom/android/systemui/recents/views/TaskViewTransform;
 
-    iget-object v13, v13, Lcom/android/systemui/recents/views/TaskViewTransform;->rect:Landroid/graphics/RectF;
+    const/16 v16, 0x0
 
-    const/4 v14, 0x0
+    move/from16 v0, v16
 
-    int-to-float v15, v8
-
-    invoke-virtual {v13, v14, v15}, Landroid/graphics/RectF;->offset(FF)V
+    iput v0, v15, Lcom/android/systemui/recents/views/TaskViewTransform;->alpha:F
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mStackView:Lcom/android/systemui/recents/views/TaskStackView;
+    iget-object v15, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mTmpTransform:Lcom/android/systemui/recents/views/TaskViewTransform;
+
+    iget-object v15, v15, Lcom/android/systemui/recents/views/TaskViewTransform;->rect:Landroid/graphics/RectF;
+
+    const/16 v16, 0x0
+
+    int-to-float v0, v10
+
+    move/from16 v17, v0
+
+    invoke-virtual/range {v15 .. v17}, Landroid/graphics/RectF;->offset(FF)V
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mTmpTransform:Lcom/android/systemui/recents/views/TaskViewTransform;
+    iget-object v15, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mStackView:Lcom/android/systemui/recents/views/TaskStackView;
 
-    invoke-virtual {v13, v12, v14, v7}, Lcom/android/systemui/recents/views/TaskStackView;->updateTaskViewToTransform(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/views/TaskViewTransform;Lcom/android/systemui/recents/views/AnimationProps;)V
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mTmpTransform:Lcom/android/systemui/recents/views/TaskViewTransform;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v15, v14, v0, v9}, Lcom/android/systemui/recents/views/TaskStackView;->updateTaskViewToTransform(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/views/TaskViewTransform;Lcom/android/systemui/recents/views/AnimationProps;)V
 
     :cond_1
     :goto_2
@@ -2656,29 +2666,62 @@
     goto :goto_1
 
     :cond_3
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    invoke-virtual {v12, v13}, Lcom/android/systemui/recents/views/TaskView;->setClipViewInStack(Z)V
+    invoke-virtual {v14, v15}, Lcom/android/systemui/recents/views/TaskView;->setClipViewInStack(Z)V
 
-    new-instance v13, Lcom/android/systemui/recents/views/TaskStackAnimationHelper$5;
+    new-instance v15, Lcom/android/systemui/recents/views/TaskStackAnimationHelper$5;
 
     move-object/from16 v0, p0
 
-    invoke-direct {v13, v0, v12}, Lcom/android/systemui/recents/views/TaskStackAnimationHelper$5;-><init>(Lcom/android/systemui/recents/views/TaskStackAnimationHelper;Lcom/android/systemui/recents/views/TaskView;)V
+    invoke-direct {v15, v0, v14}, Lcom/android/systemui/recents/views/TaskStackAnimationHelper$5;-><init>(Lcom/android/systemui/recents/views/TaskStackAnimationHelper;Lcom/android/systemui/recents/views/TaskView;)V
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v13}, Lcom/android/systemui/recents/misc/ReferenceCountedTrigger;->addLastDecrementRunnable(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v15}, Lcom/android/systemui/recents/misc/ReferenceCountedTrigger;->addLastDecrementRunnable(Ljava/lang/Runnable;)V
 
     move/from16 v0, p2
 
     move-object/from16 v1, p3
 
-    invoke-virtual {v12, v10, v0, v1}, Lcom/android/systemui/recents/views/TaskView;->onStartLaunchTargetLaunchAnimation(IZLcom/android/systemui/recents/misc/ReferenceCountedTrigger;)V
+    invoke-virtual {v14, v12, v0, v1}, Lcom/android/systemui/recents/views/TaskView;->onStartLaunchTargetLaunchAnimation(IZLcom/android/systemui/recents/misc/ReferenceCountedTrigger;)V
 
     goto :goto_2
 
     :cond_4
+    iget-boolean v15, v4, Lcom/android/systemui/recents/model/Task;->isFullscreen:Z
+
+    if-nez v15, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mStackView:Lcom/android/systemui/recents/views/TaskStackView;
+
+    invoke-virtual {v15}, Lcom/android/systemui/recents/views/TaskStackView;->getScroller()Lcom/android/systemui/recents/views/TaskStackViewScroller;
+
+    move-result-object v7
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->mStackView:Lcom/android/systemui/recents/views/TaskStackView;
+
+    invoke-virtual {v15}, Lcom/android/systemui/recents/views/TaskStackView;->getStackAlgorithm()Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;
+
+    move-result-object v6
+
+    iget v15, v6, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mMaxScrollP:F
+
+    const/16 v16, 0x12c
+
+    const/16 v17, 0x0
+
+    move/from16 v0, v16
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v7, v15, v0, v1}, Lcom/android/systemui/recents/views/TaskStackViewScroller;->animateScroll(FILjava/lang/Runnable;)V
+
+    :cond_5
     return-void
 .end method
 

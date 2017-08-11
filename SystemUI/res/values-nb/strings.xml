@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Ukjent</string>
     <string name="save">Lagre</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dt %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d t %2$d min</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">Kan ikke søke etter nettverk</string>
     <string name="wifi_failed_to_obtain_IP">Kunne ikke hente IP-adresse.</string>
     <string name="wifi_security_none">Ingen</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Kan ikke koble til %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Kan ikke koble til %1$s. Sjekk innstillingene i %2$s, og prøv igjen.</string>
     <string name="bluetooth_pairing_rejected_error_message">Sammenkobling avvist av %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Henter enhetsnavn …</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Enhetsnavnet vises når denne enheten er koblet til.</string>
     <string name="accessibility_wifi_off">Wi-Fi er av.</string>
     <string name="accessibility_no_wifi">Wi-Fi er frakoblet.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi-signal med én stolpe.</string>
@@ -1364,6 +1366,7 @@ For mer informasjon, ta kontakt med administratoren."</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">%1$s på talltastaturet</string>
+    <string name="keyboard_popup_help">Metatast: Windows- eller Command-tasten eller andre symboltaster for operativsystemer.</string>
     <string name="keyboard_shortcut_group_system">Systemsnarveier</string>
     <string name="keyboard_shortcut_group_system_home">Startside</string>
     <string name="keyboard_shortcut_group_system_recents">Nylige</string>
@@ -1525,8 +1528,8 @@ For mer informasjon, ta kontakt med administratoren."</string>
 
 For å beskytte mot vannskade må du passe på at SIM-/SD-kortskuffen er lukket skikkelig."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">For å beskytte mot vannskade må du passe på at SIM-/SD-kortskuffen er lukket skikkelig.</string>
-    <string name="water_protection_notification_title">Kontroller port</string>
-    <string name="water_protection_notification_body">Det er oppdaget fuktighet. For å lade enheten må du passe på at laderen/USB-porten er tørr.</string>
+    <string name="water_protection_notification_title">Ta ut laderen</string>
+    <string name="water_protection_notification_body">Det er oppdaget fuktighet. Koble fra laderen, og pass på at både laderen og USB-porten er tørre.</string>
     <string name="full_battery_title">Info</string>
     <string name="full_battery_noti_text">Batteri fulladet.</string>
     <string name="cooling_title">Enheten er overopphetet</string>
@@ -1620,6 +1623,7 @@ Overoppheting kan være forårsaket av:
     <string name="battery_not_fully_connected_charging_title">Treg lading</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">For raskere lading bruker du laderen som fulgte med enheten, og sørger for at den er skikkelig tilkoblet.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Sørg for at laderen er skikkelig tilkoblet. Bruk laderen som fulgte med enheten.</string>
     <string name="battery_charging_level_and_time_text">"Lader: %1$d %%
 (Ca. %2$s frem til fulladet)"</string>
@@ -1633,14 +1637,20 @@ Overoppheting kan være forårsaket av:
     <string name="battery_saver_recommend_notification_text_phone_psm">Lad telefonen.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Lad nettbrettet.</string>
     <string name="button_close">Lukk</string>
-    <string name="battery_health_interruption_title">Kan ikke lade</string>
+    <string name="battery_health_interruption_title">Ladingen ble stoppet</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Ta ut laderen</string>
     <string name="battery_health_interruption_by_terminal_open_text">Kan ikke lade enheten. Sørg for at du bruker et batteri og en lader som er kompatible med Samsung, og at enheten er skikkelig koblet til laderen.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Lading stanset midlertidig. Batteritemperatur for høy.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Lading stanset midlertidig. Batteritemperatur for lav.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Enheten har sluttet å lade. Batteritemperaturen er for høy. Vær forsiktig når du kobler fra laderen. Den kan være veldig varm.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Telefonens temperatur er for høy. Ladingen fortsetter når temperaturen går tilbake til det normale.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Nettbrettets temperatur er for høy. Ladingen fortsetter når temperaturen går tilbake til det normale.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Telefonens temperatur er for lav. Ladingen fortsetter når temperaturen går tilbake til det normale.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Nettbrettets temperatur er for lav. Ladingen fortsetter når temperaturen går tilbake til det normale.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Ladingen ble stoppet. Telefonens temperatur er for høy. Vær forsiktig når du kobler fra laderen. Den kan være veldig varm.
 
-Hvis du kobler fra laderen og kobler den til igjen, kan det hende ladingen fortsetter som normalt. Hvis overopphetingen fortsetter, må du kontakte kundeservice fordi det kan være fare for brann eller skade."</string>
+Hvis du kobler fra laderen og kobler den til igjen, kan det hende at ladingen fortsetter som normalt. Hvis overopphetingen fortsetter, må du kontakte kundeservice, da det kan være fare for brann eller personskade."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Ladingen ble stoppet. Nettbrettets temperatur er for høy. Vær forsiktig når du kobler fra laderen. Den kan være veldig varm.
+
+Hvis du kobler fra laderen og kobler den til igjen, kan det hende at ladingen fortsetter som normalt. Hvis overopphetingen fortsetter, må du kontakte kundeservice, da det kan være fare for brann eller personskade."</string>
     <string name="incompatible_charger_title">Lader ikke.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ For å hindre at denne sprettoppmeldingen vises i fremtiden, må du påse at næ
     <string name="kg_biometrics_swipe_active_instructions">Bruk biometri eller stryk på skjermen for å åpne</string>
     <string name="kg_face_or_swipe_unlock_instructions">Bruk ansiktsgjenkjenning eller stryk på skjermen for å låse opp</string>
     <string name="kg_face_or_swipe_active_instructions">Bruk ansiktsgjenkjenning eller stryk på skjermen for å åpne</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Bruk ansiktsgjenkjenning til å låse opp, eller stryk på skjermen for å bruke iriser i stedet</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Bruk ansiktsgjenkjenning til å åpne, eller stryk på skjermen for å bruke iriser i stedet</string>
     <string name="kg_face_unlock_instructions">Stryk skjermen for å låse opp med ansiktsgjenkjenning</string>
     <string name="kg_face_or_fingerprint_active_instructions">Bruk fingeravtrykk til å åpne, eller stryk på skjermen for å bruke ansiktsgjenkjenning i stedet</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Bruk fingeravtrykk til å låse opp, eller stryk på skjermen for å bruke ansiktsgjenkjenning i stedet</string>
@@ -1672,6 +1680,20 @@ For å hindre at denne sprettoppmeldingen vises i fremtiden, må du påse at næ
     <string name="kg_voice_assistant_unlock_instructions">Stryk med to fingre for å låse opp skjermen.</string>
     <string name="kg_swipe_active_instructions">Stryk over skjermen for å åpne</string>
     <string name="kg_swipe_unlock_instructions">Stryk over skjermen for å låse opp</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Bruk biometri eller stryk over skjermen med to fingre for å låse opp.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Bruk biometri eller stryk over skjermen med to fingre for å åpne.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Bruk ansiktsgjenkjenning eller stryk over skjermen med to fingre for å låse opp.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Bruk ansiktsgjenkjenning eller stryk over skjermen med to fingre for å åpne.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Stryk over skjermen med to fingre for å låse opp med ansiktsgjenkjenning.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Bruk fingeravtrykk til å åpne, eller stryk over skjermen med to fingre for å bruke ansiktsgjenkjenning.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Bruk fingeravtrykk til å låse opp, eller stryk over skjermen med to fingre for å bruke ansiktsgjenkjenning.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Bruk fingeravtrykk til å åpne, eller stryk over skjermen med to fingre for å bruke iriser.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Bruk fingeravtrykk til å låse opp, eller stryk over skjermen med to fingre for å bruke iriser.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Bruk fingeravtrykk eller stryk over skjermen med to fingre for å åpne.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Bruk fingeravtrykk eller stryk over skjermen med to fingre for å låse opp.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Stryk over skjermen med to fingre for å bruke iriser til å låse opp.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Bruk iriser eller stryk over skjermen med to fingre for å låse opp.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Bruk iriser eller stryk over skjermen med to fingre for å åpne.</string>
     <string name="kg_power_connect_charger">Koble til lader</string>
     <string name="kg_power_fully_charged">Fulladet</string>
     <string name="kg_power_fast_charging">Hurtiglading: %d %%</string>
@@ -1755,6 +1777,7 @@ oppskaler"</string>
     <string name="remote_input_send_text">Send</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Trykk raskt to ganger på låseknappen for å låse opp telefonen</string>
     <string name="s_view_cover_toast_pop_up_message">Åpne dekselet for å bruke hurtigvalgknapper.</string>
     <string name="remote_input_toast_text_on_sview_cover">Kan ikke bruke Hurtigsvar-funksjonen mens S View-dekslet er lukket.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Du må laste ned appen for å kontrollere mengden strøm som deles. Hvis du kobler enheten til en annen enhet med Samsungs Power Sharing-kabel EP-SG900 uten appen, blir hele batteristrømmen overført til den andre enheten.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Jeg godtar</string>
-    <string name="force_immersive_guide_text">Hvis du trykker på dette ikonet, skjules navigeringslinjen. Du kan fortsatt bruke navigeringsknappene ved å stryke opp fra bunnen av skjermen. Når navigeringslinjen vises, kan du trykke på dette ikonet igjen for å låse den på plass. På enkelte skjermbilder, for eksempel startskjermbildet, vises alltid navigeringslinjen.</string>
+    <string name="force_immersive_guide_text">Hvis du trykker på denne knappen, skjules navigeringslinjen. Du kan fortsatt bruke navigeringsknappene ved å stryke opp fra bunnen av skjermen. Når navigeringslinjen vises, kan du trykke på denne knappen igjen for å låse den på plass. På enkelte skjermbilder, for eksempel startskjermbildet, vises alltid navigeringslinjen. Hvis en app ikke fungerer normalt mens navigeringslinjen er skjult, låser du navigeringslinjen på plass og starter appen på nytt.</string>
+    <string name="force_immersive_guide_dialog_title">Skjul navigeringslinje:</string>
+    <string name="force_immersive_guide_dialog_message1">Hvis du trykker på denne knappen, skjules navigeringslinjen.</string>
+    <string name="force_immersive_guide_dialog_message2">Stryk opp fra nederst på skjermen for å vise navigeringslinjen.</string>
+    <string name="force_immersive_guide_dialog_message3">Trykk på denne knappen igjen for å låse den på plass.</string>
+    <string name="force_immersive_guide_dialog_message4">På enkelte skjermbilder, som startskjermbildet, blir navigeringslinjen alltid vist.</string>
+    <string name="force_immersive_guide_dialog_guide_path">For å skjule denne knappen går du til Innstillinger > Skjerm > Navigeringslinje.</string>
+    <string name="force_immersive_guide_dialog_setting">Innstillinger</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Kjør forsiktig</string>
     <string name="car_lockscreen_disclaimer_text">Ha full oversikt over kjøreforhold, og følg alltid gjeldende lov og rett. Veibeskrivelser kan være unøyaktige, ufullstendige, farlige, upassende, forbudte eller de kan involvere kjøring på administrative områder. Bedriftsinformasjon kan også være unøyaktig eller ufullstendig. Data er ikke i sanntid, og posisjonsnøyaktighet kan ikke garanteres. Ikke bruk mobilenheten din eller apper som ikke er ment for Android Auto, mens du kjører.</string>
     <string name="pip_close">Lukk PIP</string>
@@ -2230,6 +2261,8 @@ Hvis du ikke vet PUK-koden din, kontakter du et kundeservicesenter."</string>
     <string name="kg_face_retry_content_description">Trykk raskt to ganger for å bruke ansiktsgjenkjenning.</string>
     <string name="kg_face_authentication_error_retry_text">Registrerte ikke noe ansikt. Trykk på ikonet for å prøve ansiktsgjenkjenning igjen</string>
     <string name="kg_face_authentication_failed_retry_text">Ingen treff. Trykk på ikonet for å bruke ansiktsgjenkjenning</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Det oppstod et problem med ansiktsgjenkjenning. Trykk for å prøve igjen</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Kan ikke bruke ansiktsgjenkjenning under videosamtaler</string>
     <string name="kg_fingerprint_no_match">Ingen treff</string>
     <string name="kg_finger_print_not_responding_error_message">Fingeravtrykkssensoren svarer ikke. Prøv igjen senere.</string>
     <string name="kg_finger_print_database_error_message">Fingeravtrykksdataene har blitt skadet. Tilbakestill Fingeravtrykk som skjermlåstypen, og legg deretter til fingeravtrykkene igjen, eller endre skjermlåstypen.</string>
@@ -2367,6 +2400,8 @@ Prøv igjen om 1 sekund"</string>
     <string name="appicon_badge_new_item">1 nytt element</string>
     <string name="banner_apps_for_dex_detail">Kos deg med DeX-optimaliserte apper fra Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">Kan ikke flytte mer enn %d elementer.</string>
+    <string name="view_more_in_galaxy_apps">Vis flere i Galaxy Apps</string>
+    <string name="view_more_in_play_store">Vis flere i Play Butikk</string>
     <string name="uninstall_title">Vil du avinstallere appene?</string>
     <string name="uninstall_1_app_message">Vil du avinstallere denne appen?</string>
     <string name="uninstall_apps_message">Følgende apper blir avinstallert:</string>
@@ -2410,6 +2445,13 @@ Prøv igjen om 1 sekund"</string>
     <string name="clear_cover_day_month_no_year">d. MMM</string>
     <string name="volumepanel_notification">Varsel</string>
     <string name="quick_settings_location_detail_device_only">Bare enhet</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Lading stanset midlertidig. Batteritemperatur for høy.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Lading stanset midlertidig. Batteritemperatur for lav.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Enheten har sluttet å lade. Batteritemperaturen er for høy. Vær forsiktig når du kobler fra laderen. Den kan være veldig varm.
+
+Hvis du kobler fra laderen og kobler den til igjen, kan det hende ladingen fortsetter som normalt. Hvis overopphetingen fortsetter, må du kontakte kundeservice fordi det kan være fare for brann eller skade."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Bruk ansiktsgjenkjenning til å låse opp, eller stryk på skjermen for å bruke iriser i stedet</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Bruk ansiktsgjenkjenning til å åpne, eller stryk på skjermen for å bruke iriser i stedet</string>
     <string name="kg_infinity_wallpaper_option_description">Uendelig bakgrunn blir tatt i bruk på startskjermbildet og låseskjermen samtidig. Slå på innstillingen nedenfor for den beste opplevelsen.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Slå på Always On Display</string>
 </resources>

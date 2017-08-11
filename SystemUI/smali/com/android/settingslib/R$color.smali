@@ -4,11 +4,11 @@
 
 
 # static fields
-.field public static final bt_device_icon_background_tint_color:I = 0x7f0b0024
+.field public static final bt_device_icon_background_tint_color:I = 0x7f0b0025
 
-.field public static final usage_graph_dots:I = 0x7f0b0022
+.field public static final usage_graph_dots:I = 0x7f0b0023
 
-.field public static final wifi_connected_toast:I = 0x7f0b0023
+.field public static final wifi_connected_toast:I = 0x7f0b0024
 
 
 # direct methods

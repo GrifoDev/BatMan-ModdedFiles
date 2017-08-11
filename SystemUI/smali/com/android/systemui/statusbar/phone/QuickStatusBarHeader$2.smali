@@ -3,12 +3,12 @@
 .source "QuickStatusBarHeader.java"
 
 # interfaces
-.implements Landroid/view/View$OnLayoutChangeListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->updateSettingsAnimator()V
+    value = Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->onAttachedToWindow()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,32 +34,26 @@
 
 
 # virtual methods
-.method public onLayoutChange(Landroid/view/View;IIIIIIII)V
+.method public run()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$2;->this$0:Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get1(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/view/ViewGroup;
-
-    move-result-object v0
-
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$2;->this$0:Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->getWidth()I
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get2(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/DeviceState;->getSettingsBadgeCount(Landroid/content/Context;)I
 
     move-result v1
 
-    int-to-float v1, v1
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setPivotX(F)V
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-set1(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;I)I
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader$2;->this$0:Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->-get1(Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;)Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->removeOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->updateBadgeState()V
 
     return-void
 .end method

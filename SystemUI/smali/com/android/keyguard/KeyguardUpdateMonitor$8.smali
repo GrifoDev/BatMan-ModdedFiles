@@ -60,11 +60,11 @@
 
     const/16 v1, 0x5dc
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap3(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap4(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$8;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap16(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+    invoke-static {v0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap17(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
 
     return-void
 .end method
@@ -84,7 +84,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, p1, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap19(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
+    invoke-static {v0, p1, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap20(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
 
     return-void
 .end method
@@ -100,7 +100,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$8;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap17(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap18(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     return-void
 .end method
@@ -152,7 +152,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, p1, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap20(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
+    invoke-static {v0, p1, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap21(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
 
     return-void
 .end method
@@ -176,7 +176,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap18(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap19(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
 
     invoke-static {}, Landroid/os/Trace;->endSection()V
 

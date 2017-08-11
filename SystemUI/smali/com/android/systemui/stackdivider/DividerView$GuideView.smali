@@ -144,7 +144,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerView$GuideView;->mContainer:Landroid/widget/FrameLayout;
 
-    const v1, 0x7f1301b9
+    const v1, 0x7f1301be
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -156,7 +156,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerView$GuideView;->mContainer:Landroid/widget/FrameLayout;
 
-    const v1, 0x7f1301b8
+    const v1, 0x7f1301bd
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -168,7 +168,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerView$GuideView;->mContainer:Landroid/widget/FrameLayout;
 
-    const v1, 0x7f1301b7
+    const v1, 0x7f1301bc
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -192,7 +192,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b000f
+    const v4, 0x7f0b0010
 
     invoke-virtual {v3, v4, v5}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -206,7 +206,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0010
+    const v4, 0x7f0b0011
 
     invoke-virtual {v3, v4, v5}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -226,7 +226,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b00f4
+    const v1, 0x7f0b00f5
 
     invoke-virtual {v0, v1, v5}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -240,7 +240,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0012
+    const v1, 0x7f0b0013
 
     invoke-virtual {v0, v1, v5}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 

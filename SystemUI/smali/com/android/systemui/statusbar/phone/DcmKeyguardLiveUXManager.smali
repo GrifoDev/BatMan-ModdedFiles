@@ -414,15 +414,15 @@
 .end method
 
 .method private switchBottomView(Z)V
-    .locals 7
+    .locals 8
 
     const/4 v1, 0x4
 
     const/4 v4, -0x1
 
-    const/16 v6, 0x8
+    const/16 v7, 0x8
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     if-eqz p1, :cond_5
 
@@ -432,7 +432,7 @@
 
     const v3, 0x7f040046
 
-    invoke-static {v2, v3, v5}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-static {v2, v3, v6}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
@@ -440,7 +440,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mNPViewRoot:Landroid/widget/FrameLayout;
 
-    const v2, 0x7f13014d
+    const v2, 0x7f130151
 
     invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -453,6 +453,32 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mDcmKBAView:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
 
     if-eqz v0, :cond_1
+
+    new-instance v2, Lcom/android/systemui/statusbar/KeyguardIndicationController;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mContext:Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mDcmKBAView:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->getIndicationView()Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
+
+    new-instance v4, Lcom/android/systemui/statusbar/phone/DcmLockIconDummy;
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mContext:Landroid/content/Context;
+
+    invoke-direct {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/DcmLockIconDummy;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    invoke-direct {v2, v3, v0, v4}, Lcom/android/systemui/statusbar/KeyguardIndicationController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;Lcom/android/systemui/statusbar/phone/LockIcon;)V
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mKeyguardIndicationController:Lcom/android/systemui/statusbar/KeyguardIndicationController;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+
+    if-eqz v0, :cond_0
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mDcmKBAView:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
 
@@ -470,32 +496,6 @@
 
     :goto_0
     invoke-virtual {v2, v0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->setVisibility(I)V
-
-    new-instance v1, Lcom/android/systemui/statusbar/KeyguardIndicationController;
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mContext:Landroid/content/Context;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mDcmKBAView:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->getIndicationView()Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
-
-    new-instance v3, Lcom/android/systemui/statusbar/phone/DcmLockIconDummy;
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mContext:Landroid/content/Context;
-
-    invoke-direct {v3, v4, v5}, Lcom/android/systemui/statusbar/phone/DcmLockIconDummy;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    invoke-direct {v1, v2, v0, v3}, Lcom/android/systemui/statusbar/KeyguardIndicationController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;Lcom/android/systemui/statusbar/phone/LockIcon;)V
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mKeyguardIndicationController:Lcom/android/systemui/statusbar/KeyguardIndicationController;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
@@ -527,7 +527,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v6}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v7}, Landroid/view/View;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
 
@@ -535,11 +535,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v6}, Lcom/android/systemui/statusbar/phone/LockIcon;->setVisibility(I)V
+    invoke-virtual {v0, v7}, Lcom/android/systemui/statusbar/phone/LockIcon;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
 
-    invoke-virtual {v0, v6}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->setVisibility(I)V
+    invoke-virtual {v0, v7}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mNPViewRoot:Landroid/widget/FrameLayout;
 
@@ -547,12 +547,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
+    iput-object v6, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
 
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mNPView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    invoke-virtual {v0, v5}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setKeyguardBottomArea(Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;)V
+    invoke-virtual {v0, v6}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setKeyguardBottomArea(Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;)V
 
     :cond_3
     :goto_1
@@ -572,9 +572,9 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f04006b
+    const v3, 0x7f04006d
 
-    invoke-static {v2, v3, v5}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-static {v2, v3, v6}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
@@ -582,7 +582,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mNPViewRoot:Landroid/widget/FrameLayout;
 
-    const v2, 0x7f1301e3
+    const v2, 0x7f1301ec
 
     invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -598,7 +598,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-virtual {v0, v5}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setKeyguardBottomAreaValues(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+    invoke-virtual {v0, v6}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setKeyguardBottomAreaValues(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
 
     :cond_6
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mDcmKBAView:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
@@ -611,7 +611,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v6}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v7}, Landroid/view/View;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mDcmKBAView:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
 
@@ -619,11 +619,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v6}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v7}, Landroid/view/View;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mDcmKBAView:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
 
-    invoke-virtual {v0, v6}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->setVisibility(I)V
+    invoke-virtual {v0, v7}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mNPViewRoot:Landroid/widget/FrameLayout;
 
@@ -631,7 +631,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
 
-    iput-object v5, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mDcmKBAView:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
+    iput-object v6, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mDcmKBAView:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
 
     :cond_7
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
@@ -806,7 +806,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->mNPView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    const v1, 0x7f130492
+    const v1, 0x7f13049c
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
 

@@ -61,7 +61,7 @@
 .method public constructor <init>(Landroid/content/res/Resources;Lcom/android/systemui/recents/RecentsConfiguration;)V
     .locals 3
 
-    const v1, 0x7f0d0328
+    const v1, 0x7f0d0329
 
     const/4 v2, 0x1
 
@@ -75,7 +75,7 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/recents/views/FakeShadowDrawable;->mPrintedShadowClipWarning:Z
 
-    const v0, 0x7f0b00e0
+    const v0, 0x7f0b00e1
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -83,7 +83,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/FakeShadowDrawable;->mShadowStartColor:I
 
-    const v0, 0x7f0b00e1
+    const v0, 0x7f0b00e2
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -91,7 +91,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/FakeShadowDrawable;->mShadowEndColor:I
 
-    const v0, 0x7f0d0327
+    const v0, 0x7f0d0328
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -131,7 +131,7 @@
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setDither(Z)V
 
-    const v0, 0x7f0d037d
+    const v0, 0x7f0d037e
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

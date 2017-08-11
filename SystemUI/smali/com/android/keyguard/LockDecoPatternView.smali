@@ -81,7 +81,7 @@
 .end method
 
 .method private drawCircle(Landroid/graphics/Canvas;IIZII)V
-    .locals 10
+    .locals 11
 
     if-eqz p4, :cond_0
 
@@ -169,15 +169,19 @@
 
     iget v8, p0, Lcom/android/keyguard/LockDecoPatternView;->mBitmapWidth:I
 
-    div-int/lit8 v8, v8, 0x2
-
     int-to-float v8, v8
+
+    const/high16 v9, 0x40000000    # 2.0f
+
+    div-float/2addr v8, v9
 
     iget v9, p0, Lcom/android/keyguard/LockDecoPatternView;->mBitmapHeight:I
 
-    div-int/lit8 v9, v9, 0x2
-
     int-to-float v9, v9
+
+    const/high16 v10, 0x40000000    # 2.0f
+
+    div-float/2addr v9, v10
 
     invoke-virtual {v7, v8, v9}, Landroid/graphics/Matrix;->preTranslate(FF)Z
 
@@ -195,17 +199,21 @@
 
     neg-int v8, v8
 
-    div-int/lit8 v8, v8, 0x2
-
     int-to-float v8, v8
+
+    const/high16 v9, 0x40000000    # 2.0f
+
+    div-float/2addr v8, v9
 
     iget v9, p0, Lcom/android/keyguard/LockDecoPatternView;->mBitmapHeight:I
 
     neg-int v9, v9
 
-    div-int/lit8 v9, v9, 0x2
-
     int-to-float v9, v9
+
+    const/high16 v10, 0x40000000    # 2.0f
+
+    div-float/2addr v9, v10
 
     invoke-virtual {v7, v8, v9}, Landroid/graphics/Matrix;->preTranslate(FF)Z
 
@@ -238,7 +246,7 @@
 
     iget-object v3, p0, Lcom/android/keyguard/LockDecoPatternView;->mBitmapError:Landroid/graphics/Bitmap;
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_4
     iget-object v7, p0, Lcom/android/keyguard/LockDecoPatternView;->mPatternDisplayMode:Lcom/android/internal/widget/LockPatternView$DisplayMode;
@@ -1571,17 +1579,15 @@
 .end method
 
 .method public updateChildViewsLook()V
-    .locals 7
+    .locals 6
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Lcom/android/keyguard/LockDecoPatternView;->mContext:Landroid/content/Context;
 
-    iget-object v4, p0, Lcom/android/keyguard/LockDecoPatternView;->mContext:Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
 
-    invoke-static {v4}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
+    move-result-object v3
 
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/keyguard/util/ViewStyleUtils;->getCurrentLookType()I
+    invoke-virtual {v3}, Lcom/android/keyguard/util/ViewStyleUtils;->getCurrentLookType()I
 
     move-result v0
 
@@ -1589,47 +1595,60 @@
 
     const/4 v1, 0x0
 
-    const-string/jumbo v4, "LockDecoPatternView"
+    const-string/jumbo v3, "LockDecoPatternView"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "updateChildViewsLook() reason="
+    const-string/jumbo v5, "updateChildViewsLook() reason="
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     packed-switch v0, :pswitch_data_0
 
     :goto_0
     :pswitch_0
+    iget-object v3, p0, Lcom/android/keyguard/LockDecoPatternView;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/keyguard/util/SettingsHelper;->isOpenThemeLook()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
     invoke-direct {p0}, Lcom/android/keyguard/LockDecoPatternView;->loadDecoPatternResources()Z
 
-    move-result v4
+    move-result v3
 
-    iput-boolean v4, p0, Lcom/android/keyguard/LockDecoPatternView;->mDecoPatternEnabled:Z
+    iput-boolean v3, p0, Lcom/android/keyguard/LockDecoPatternView;->mDecoPatternEnabled:Z
 
-    iget-boolean v4, p0, Lcom/android/keyguard/LockDecoPatternView;->mDecoPatternEnabled:Z
+    :goto_1
+    iget-boolean v3, p0, Lcom/android/keyguard/LockDecoPatternView;->mDecoPatternEnabled:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_1
 
     iput-boolean v2, p0, Lcom/android/keyguard/LockDecoPatternView;->mIsWhiteWp:Z
 
     invoke-virtual {p0}, Lcom/android/keyguard/LockDecoPatternView;->invalidate()V
 
-    :goto_1
+    :goto_2
     return-void
 
     :pswitch_1
@@ -1654,22 +1673,16 @@
     goto :goto_0
 
     :cond_0
-    if-eqz v2, :cond_1
+    const/4 v3, 0x0
 
-    if-eqz v1, :cond_2
-
-    :cond_1
-    :goto_2
-    invoke-super {p0, v3}, Lcom/android/internal/widget/LockPatternView;->updateChildViewsLook(Z)V
+    iput-boolean v3, p0, Lcom/android/keyguard/LockDecoPatternView;->mDecoPatternEnabled:Z
 
     goto :goto_1
 
-    :cond_2
-    const/4 v3, 0x1
+    :cond_1
+    invoke-super {p0, v2}, Lcom/android/internal/widget/LockPatternView;->updateChildViewsLook(Z)V
 
     goto :goto_2
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

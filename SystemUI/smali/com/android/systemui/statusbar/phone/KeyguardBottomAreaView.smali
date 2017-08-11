@@ -407,7 +407,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mIndicationController:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    const v1, 0x7f0f050a
+    const v1, 0x7f0f0567
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(I)V
 
@@ -946,7 +946,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d03d7
+    const v3, 0x7f0d03d8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -958,7 +958,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d03db
+    const v3, 0x7f0d03dc
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1686,7 +1686,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v3, 0x7f1301df
+    const v3, 0x7f1301e8
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1708,7 +1708,7 @@
 
     iget v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->SHORTCUT_RIGHT:I
 
-    const v3, 0x7f1301e0
+    const v3, 0x7f1301e9
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1730,7 +1730,7 @@
 
     iget v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->SHORTCUT_LEFT:I
 
-    const v3, 0x7f1301e1
+    const v3, 0x7f1301ea
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1748,7 +1748,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mLeftAffordanceView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    const v3, 0x7f1301e2
+    const v3, 0x7f1301eb
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1758,7 +1758,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mLockIcon:Lcom/android/systemui/statusbar/phone/LockIcon;
 
-    const v3, 0x7f1301de
+    const v3, 0x7f1301e7
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1850,7 +1850,7 @@
     :cond_1
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->initAccessibility()V
 
-    const v3, 0x7f1301e4
+    const v3, 0x7f1301ed
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1860,7 +1860,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mIndicationArea:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f1301e5
+    const v3, 0x7f1301ee
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1870,7 +1870,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mLockSecureIcon:Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;
 
-    const v3, 0x7f1301eb
+    const v3, 0x7f1301f4
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1880,7 +1880,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mUsimTextArea:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f1301ec
+    const v3, 0x7f1301f5
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1920,7 +1920,7 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f1301ed
+    const v3, 0x7f1301f6
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1932,7 +1932,7 @@
 
     invoke-virtual {v2}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v3, 0x7f1302a8
+    const v3, 0x7f1302b0
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1971,7 +1971,7 @@
 
     if-eqz v3, :cond_3
 
-    const v3, 0x7f1301ee
+    const v3, 0x7f1301f7
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -1983,7 +1983,7 @@
 
     invoke-virtual {v2}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v3, 0x7f1301ef
+    const v3, 0x7f1301f8
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->findViewById(I)Landroid/view/View;
 
@@ -2635,9 +2635,9 @@
 
     if-eqz v4, :cond_1
 
-    const v2, 0x7f0201c7
+    const v2, 0x7f0201cb
 
-    const v0, 0x7f0f02c2
+    const v0, 0x7f0f031f
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mContext:Landroid/content/Context;
 
@@ -2694,9 +2694,9 @@
 
     and-int/2addr v3, v4
 
-    const v2, 0x7f0201d3
+    const v2, 0x7f0201d7
 
-    const v0, 0x7f0f0630
+    const v0, 0x7f0f068e
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mAffordanceViews:[Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 

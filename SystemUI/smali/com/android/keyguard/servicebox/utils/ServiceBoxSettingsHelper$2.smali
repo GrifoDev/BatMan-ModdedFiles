@@ -86,6 +86,14 @@
 
     move-result-object v0
 
+    invoke-interface {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;->reissueAllPages()V
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/ServiceBoxSettingsHelper$2;->this$0:Lcom/android/keyguard/servicebox/utils/ServiceBoxSettingsHelper;
+
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/utils/ServiceBoxSettingsHelper;->-get5(Lcom/android/keyguard/servicebox/utils/ServiceBoxSettingsHelper;)Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;
+
+    move-result-object v0
+
     invoke-interface {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;->updateChildViewsLook()V
 
     :cond_1

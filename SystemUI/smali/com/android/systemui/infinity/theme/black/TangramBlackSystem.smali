@@ -684,7 +684,7 @@
 
     invoke-direct {v0}, Lcom/android/systemui/infinity/tangram/TangramMapData;-><init>()V
 
-    const v3, 0x7f020291
+    const v3, 0x7f020295
 
     iput v3, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->mapId:I
 

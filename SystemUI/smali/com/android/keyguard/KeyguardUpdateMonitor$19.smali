@@ -1,49 +1,30 @@
-.class final Lcom/android/keyguard/KeyguardUpdateMonitor$19;
-.super Ljava/lang/Object;
+.class Lcom/android/keyguard/KeyguardUpdateMonitor$19;
+.super Lcom/samsung/android/bio/face/SemBioFaceManager$RemovalCallback;
 .source "KeyguardUpdateMonitor.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardUpdateMonitor;->getSemIrisManager(Landroid/content/Context;)Lcom/samsung/android/camera/iris/SemIrisManager;
+    value = Lcom/android/keyguard/KeyguardUpdateMonitor;->clearBiometrics(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$context:Landroid/content/Context;
+.field final synthetic this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method constructor <init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$19;->val$context:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$19;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public run()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$19;->val$context:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/samsung/android/camera/iris/SemIrisManager;->getSemIrisManager(Landroid/content/Context;)Lcom/samsung/android/camera/iris/SemIrisManager;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set11(Lcom/samsung/android/camera/iris/SemIrisManager;)Lcom/samsung/android/camera/iris/SemIrisManager;
+    invoke-direct {p0}, Lcom/samsung/android/bio/face/SemBioFaceManager$RemovalCallback;-><init>()V
 
     return-void
 .end method

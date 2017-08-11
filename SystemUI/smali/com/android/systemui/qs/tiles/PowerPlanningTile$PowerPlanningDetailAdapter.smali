@@ -91,13 +91,13 @@
 
     move-result-object v0
 
-    const v3, 0x7f040121
+    const v3, 0x7f040125
 
     invoke-virtual {v0, v3, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p2
 
-    const v0, 0x7f13039d
+    const v0, 0x7f1303a9
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -107,7 +107,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/PowerPlanningTile$PowerPlanningDetailAdapter;->mPowerPlanningHeader:Landroid/widget/TextView;
 
-    const v0, 0x7f1303a2
+    const v0, 0x7f1303ae
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/PowerPlanningTile$PowerPlanningDetailAdapter;->mReserveBatterySwitch:Landroid/widget/Switch;
 
-    const v0, 0x7f1303a6
+    const v0, 0x7f1303b2
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -127,7 +127,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/PowerPlanningTile$PowerPlanningDetailAdapter;->mExtendBattreySwitch:Landroid/widget/Switch;
 
-    const v0, 0x7f1303aa
+    const v0, 0x7f1303b6
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0732
+    const v5, 0x7f0f07a2
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -165,7 +165,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0733
+    const v5, 0x7f0f07a3
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -314,7 +314,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0731
+    const v1, 0x7f0f07a1
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

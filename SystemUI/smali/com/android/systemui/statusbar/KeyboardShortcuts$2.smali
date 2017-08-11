@@ -3,7 +3,7 @@
 .source "KeyboardShortcuts.java"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -14,16 +14,6 @@
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x0
     name = null
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ljava/util/Comparator",
-        "<",
-        "Landroid/view/KeyboardShortcutInfo;",
-        ">;"
-    }
 .end annotation
 
 
@@ -44,113 +34,142 @@
 
 
 # virtual methods
-.method public compare(Landroid/view/KeyboardShortcutInfo;Landroid/view/KeyboardShortcutInfo;)I
-    .locals 4
+.method public onClick(Landroid/view/View;)V
+    .locals 10
 
-    invoke-virtual {p1}, Landroid/view/KeyboardShortcutInfo;->getLabel()Ljava/lang/CharSequence;
+    const/4 v9, 0x1
 
-    move-result-object v2
+    const/high16 v8, 0x41200000    # 10.0f
 
-    if-eqz v2, :cond_0
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$2;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
-    invoke-virtual {p1}, Landroid/view/KeyboardShortcutInfo;->getLabel()Ljava/lang/CharSequence;
+    invoke-static {v5}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-get0(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    const-string/jumbo v6, "layout_inflater"
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v0
-
-    :goto_0
-    invoke-virtual {p2}, Landroid/view/KeyboardShortcutInfo;->getLabel()Ljava/lang/CharSequence;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    check-cast v2, Landroid/view/LayoutInflater;
 
-    invoke-virtual {p2}, Landroid/view/KeyboardShortcutInfo;->getLabel()Ljava/lang/CharSequence;
+    const v5, 0x7f040067
 
-    move-result-object v2
+    const/4 v6, 0x0
 
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+    new-instance v4, Landroid/widget/PopupWindow;
 
-    move-result v1
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$2;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
-    :goto_1
-    if-eqz v0, :cond_2
+    invoke-static {v5}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-get0(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/content/Context;
 
-    if-eqz v1, :cond_2
+    move-result-object v5
 
-    const/4 v2, 0x0
+    invoke-direct {v4, v5}, Landroid/widget/PopupWindow;-><init>(Landroid/content/Context;)V
 
-    return v2
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$2;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
-    :cond_0
-    const/4 v0, 0x1
+    invoke-static {v5}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-get1(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/app/Dialog;
 
-    goto :goto_0
+    move-result-object v5
 
-    :cond_1
-    const/4 v1, 0x1
+    invoke-virtual {v5}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
-    goto :goto_1
+    move-result-object v5
 
-    :cond_2
-    if-eqz v0, :cond_3
+    invoke-virtual {v5}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
-    const/4 v2, 0x1
+    move-result-object v5
 
-    return v2
+    const v6, 0x1020002
 
-    :cond_3
-    if-eqz v1, :cond_4
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    const/4 v2, -0x1
+    move-result-object v0
 
-    return v2
+    invoke-virtual {v0}, Landroid/view/View;->getWidth()I
 
-    :cond_4
-    invoke-virtual {p1}, Landroid/view/KeyboardShortcutInfo;->getLabel()Ljava/lang/CharSequence;
+    move-result v5
 
-    move-result-object v2
+    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$2;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    const/high16 v7, 0x42400000    # 48.0f
 
-    move-result-object v2
+    invoke-static {v6, v7}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-wrap2(Lcom/android/systemui/statusbar/KeyboardShortcuts;F)I
 
-    invoke-virtual {p2}, Landroid/view/KeyboardShortcutInfo;->getLabel()Ljava/lang/CharSequence;
+    move-result v6
 
-    move-result-object v3
+    sub-int/2addr v5, v6
 
-    invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v5}, Landroid/widget/PopupWindow;->setWidth(I)V
 
-    move-result-object v3
+    const/4 v5, -0x2
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
+    invoke-virtual {v4, v5}, Landroid/widget/PopupWindow;->setHeight(I)V
 
-    move-result v2
+    invoke-virtual {v4, v9}, Landroid/widget/PopupWindow;->setFocusable(Z)V
 
-    return v2
-.end method
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$2;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    invoke-static {v5}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-get0(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/content/Context;
 
-    check-cast p1, Landroid/view/KeyboardShortcutInfo;
+    move-result-object v5
 
-    check-cast p2, Landroid/view/KeyboardShortcutInfo;
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/KeyboardShortcuts$2;->compare(Landroid/view/KeyboardShortcutInfo;Landroid/view/KeyboardShortcutInfo;)I
+    move-result-object v5
 
-    move-result v0
+    const v6, 0x7f02029d
 
-    return v0
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/PopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {v4, v8}, Landroid/widget/PopupWindow;->setElevation(F)V
+
+    invoke-virtual {v4, v1}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
+
+    const/4 v5, 0x2
+
+    new-array v3, v5, [I
+
+    invoke-virtual {p1, v3}, Landroid/view/View;->getLocationOnScreen([I)V
+
+    const/4 v5, 0x0
+
+    aget v5, v3, v5
+
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+
+    move-result v6
+
+    div-int/lit8 v6, v6, 0x2
+
+    sub-int/2addr v5, v6
+
+    aget v6, v3, v9
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$2;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
+
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-wrap2(Lcom/android/systemui/statusbar/KeyboardShortcuts;F)I
+
+    move-result v7
+
+    sub-int/2addr v6, v7
+
+    add-int/lit16 v6, v6, -0x140
+
+    const v7, 0x800033
+
+    invoke-virtual {v4, p1, v7, v5, v6}, Landroid/widget/PopupWindow;->showAtLocation(Landroid/view/View;III)V
+
+    return-void
 .end method

@@ -105,6 +105,8 @@
 
 .field private mLastSpn:Ljava/lang/String;
 
+.field private mLteCaStatus:Z
+
 .field private mMobileDataObserver:Landroid/database/ContentObserver;
 
 .field private mMobileDataRoamingObserver:Landroid/database/ContentObserver;
@@ -133,6 +135,8 @@
 .field final mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
 .field private mPreSvcSate:I
+
+.field private mRealDataStateInVowifi:Z
 
 .field private mRssiTypeIconId:I
 
@@ -306,7 +310,15 @@
     return-object p1
 .end method
 
-.method static synthetic -set5(Lcom/android/systemui/statusbar/policy/MobileSignalController;Landroid/telephony/ServiceState;)Landroid/telephony/ServiceState;
+.method static synthetic -set5(Lcom/android/systemui/statusbar/policy/MobileSignalController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mRealDataStateInVowifi:Z
+
+    return p1
+.end method
+
+.method static synthetic -set6(Lcom/android/systemui/statusbar/policy/MobileSignalController;Landroid/telephony/ServiceState;)Landroid/telephony/ServiceState;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mServiceState:Landroid/telephony/ServiceState;
@@ -314,7 +326,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set6(Lcom/android/systemui/statusbar/policy/MobileSignalController;Landroid/telephony/SignalStrength;)Landroid/telephony/SignalStrength;
+.method static synthetic -set7(Lcom/android/systemui/statusbar/policy/MobileSignalController;Landroid/telephony/SignalStrength;)Landroid/telephony/SignalStrength;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mSignalStrength:Landroid/telephony/SignalStrength;
@@ -524,6 +536,14 @@
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mIsVoWifiInfo:Z
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mLteCaStatus:Z
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mRealDataStateInVowifi:Z
 
     new-instance v1, Lcom/android/systemui/statusbar/policy/MobileSignalController$1;
 
@@ -771,7 +791,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
-    const v1, 0x7f0f026e
+    const v1, 0x7f0f02cb
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->getStringIfExists(I)Ljava/lang/String;
 
@@ -819,7 +839,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_10
 
     :cond_6
     const/4 v1, 0x0
@@ -831,7 +851,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_11
 
     invoke-virtual/range {p7 .. p7}, Landroid/telephony/SubscriptionInfo;->getCarrierName()Ljava/lang/CharSequence;
 
@@ -876,7 +896,7 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mShouldBlockPLMNInfoUpdate:Z
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_12
 
     :cond_9
     :goto_2
@@ -908,7 +928,7 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mShouldBlockPLMNInfoUpdate:Z
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_13
 
     :cond_a
     :goto_3
@@ -986,7 +1006,50 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->updateVoiceSim()V
 
     :cond_c
+    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_LTE_WIDE_BAND:Z
+
+    if-eqz v1, :cond_d
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
+
+    check-cast v1, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;
+
+    const-string/jumbo v2, "ril.lteCaStatus"
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    iput-boolean v2, v1, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;->isCAIndicator:Z
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
+
+    check-cast v1, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;
+
+    iget-boolean v1, v1, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;->isCAIndicator:Z
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mLteCaStatus:Z
+
+    :cond_d
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->updateDataSim()V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
+
+    check-cast v1, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mContext:Landroid/content/Context;
+
+    invoke-static {v2}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/keyguard/util/SettingsHelper;->isEmergencyMode()Z
+
+    move-result v2
+
+    iput-boolean v2, v1, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;->emergencyModeActivated:Z
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1012,7 +1075,7 @@
 
     sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SHOW_DISABLED_DATA_ICON:Z
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_f
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1044,7 +1107,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_e
 
     const-string/jumbo v1, "ZTM"
 
@@ -1054,9 +1117,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_f
 
-    :cond_d
+    :cond_e
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -1079,20 +1142,20 @@
 
     invoke-virtual {v1, v2}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    :cond_e
+    :cond_f
     return-void
 
-    :cond_f
+    :cond_10
     const/4 v1, 0x1
 
     goto/16 :goto_0
 
-    :cond_10
+    :cond_11
     iget-object v7, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mNetworkNameDefault:Ljava/lang/String;
 
     goto/16 :goto_1
 
-    :cond_11
+    :cond_12
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mNetworkController:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     iget-object v1, v1, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->multiSimCarrierText:[Ljava/lang/String;
@@ -1109,12 +1172,12 @@
 
     goto/16 :goto_2
 
-    :cond_12
+    :cond_13
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mNetworkController:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     iget-boolean v1, v1, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->isMultiSim:Z
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_14
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mNetworkController:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -1124,7 +1187,7 @@
 
     goto/16 :goto_3
 
-    :cond_13
+    :cond_14
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mNetworkController:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     invoke-virtual {v1, v7}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->updateCarrierText(Ljava/lang/String;)V
@@ -1583,13 +1646,13 @@
 .method private final getCdmaEriIcon()I
     .locals 10
 
-    const v9, 0x7f0205ff
+    const v9, 0x7f020607
 
-    const v8, 0x7f0205fe
+    const v8, 0x7f020606
 
     const/4 v7, 0x1
 
-    const v6, 0x7f0205fc
+    const v6, 0x7f020604
 
     const/4 v5, 0x0
 
@@ -1689,7 +1752,7 @@
     :cond_3
     if-ne v1, v7, :cond_2
 
-    const v2, 0x7f020601
+    const v2, 0x7f020609
 
     return v2
 
@@ -1711,12 +1774,12 @@
     return v5
 
     :pswitch_5
-    const v2, 0x7f020604
+    const v2, 0x7f02060c
 
     return v2
 
     :pswitch_6
-    const v2, 0x7f020606
+    const v2, 0x7f02060e
 
     return v2
 
@@ -2329,23 +2392,23 @@
     packed-switch v1, :pswitch_data_0
 
     :pswitch_0
-    const v0, 0x7f0205fa
+    const v0, 0x7f020602
 
     :goto_0
     return v0
 
     :pswitch_1
-    const v0, 0x7f0205fa
+    const v0, 0x7f020602
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f020603
+    const v0, 0x7f02060b
 
     goto :goto_0
 
     :pswitch_3
-    const v0, 0x7f020602
+    const v0, 0x7f02060a
 
     goto :goto_0
 
@@ -2431,7 +2494,7 @@
     if-eqz v1, :cond_8
 
     :cond_2
-    const v0, 0x7f0205fc
+    const v0, 0x7f020604
 
     :cond_3
     :goto_0
@@ -2487,6 +2550,18 @@
 
     move-result v0
 
+    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_CDMA_ROAMING_ICON_AT_LTE:Z
+
+    if-eqz v1, :cond_3
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDataNetType:I
+
+    const/16 v2, 0xd
+
+    if-ne v1, v2, :cond_3
+
+    const v0, 0x7f020604
+
     goto :goto_0
 
     :cond_7
@@ -2514,12 +2589,12 @@
 
     if-eqz v1, :cond_a
 
-    const v0, 0x7f02060c
+    const v0, 0x7f020614
 
     goto :goto_0
 
     :cond_a
-    const v0, 0x7f020604
+    const v0, 0x7f02060c
 
     goto :goto_0
 
@@ -2546,12 +2621,12 @@
 
     if-eqz v1, :cond_c
 
-    const v0, 0x7f02060d
+    const v0, 0x7f020615
 
     goto :goto_0
 
     :cond_c
-    const v0, 0x7f020607
+    const v0, 0x7f02060f
 
     goto :goto_0
 
@@ -2575,39 +2650,39 @@
 
     if-eqz v1, :cond_f
 
-    const v0, 0x7f02060b
+    const v0, 0x7f020613
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_f
-    const v0, 0x7f020639
+    const v0, 0x7f020641
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_10
-    const v1, 0x7f0205fc
+    const v1, 0x7f020604
 
     if-ne v0, v1, :cond_11
 
-    const v0, 0x7f020608
+    const v0, 0x7f020610
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_11
-    const v1, 0x7f0205fe
+    const v1, 0x7f020606
 
     if-ne v0, v1, :cond_12
 
-    const v0, 0x7f02060a
+    const v0, 0x7f020612
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_12
-    const v1, 0x7f020639
+    const v1, 0x7f020641
 
     if-ne v0, v1, :cond_4
 
-    const v0, 0x7f020608
+    const v0, 0x7f020610
 
     goto/16 :goto_1
 .end method
@@ -4767,9 +4842,9 @@
 .method private isRoaming()Z
     .locals 4
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_FEMTO_CELL:Z
 
@@ -4783,18 +4858,25 @@
 
     if-eqz v1, :cond_0
 
-    return v2
+    return v3
 
     :cond_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->isCdma()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-nez v1, :cond_1
 
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->isCdmaLTE()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    :cond_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mServiceState:Landroid/telephony/ServiceState;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mServiceState:Landroid/telephony/ServiceState;
 
@@ -4808,48 +4890,63 @@
 
     move-result v1
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v3, :cond_3
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    if-ne v0, v2, :cond_2
-
-    move v1, v2
-
-    :goto_0
-    return v1
-
-    :cond_1
-    move v1, v2
-
-    goto :goto_0
+    if-ne v0, v3, :cond_3
 
     :cond_2
-    move v1, v3
-
-    goto :goto_0
-
-    :cond_3
-    move v1, v3
-
-    goto :goto_0
-
-    :cond_4
     return v3
 
-    :cond_5
+    :cond_3
+    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_CDMA_ROAMING_ICON_AT_LTE:Z
+
+    if-eqz v1, :cond_5
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDataNetType:I
+
+    const/16 v3, 0xd
+
+    if-ne v1, v3, :cond_5
+
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mServiceState:Landroid/telephony/ServiceState;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_4
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mServiceState:Landroid/telephony/ServiceState;
 
     invoke-virtual {v1}, Landroid/telephony/ServiceState;->getRoaming()Z
 
-    move-result v3
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_4
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_5
+    return v2
 
     :cond_6
-    return v3
+    return v2
+
+    :cond_7
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mServiceState:Landroid/telephony/ServiceState;
+
+    if-eqz v1, :cond_8
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mServiceState:Landroid/telephony/ServiceState;
+
+    invoke-virtual {v1}, Landroid/telephony/ServiceState;->getRoaming()Z
+
+    move-result v2
+
+    :cond_8
+    return v2
 .end method
 
 .method private isZVVMccMnc(Ljava/lang/String;)Z
@@ -6008,11 +6105,11 @@
 .method private updateCTCRssiTypeIcon()V
     .locals 6
 
-    const v5, 0x7f020732
+    const v5, 0x7f020741
 
-    const v4, 0x7f020730
+    const v4, 0x7f02073f
 
-    const v3, 0x7f02072f
+    const v3, 0x7f02073e
 
     const/4 v2, 0x0
 
@@ -6204,7 +6301,7 @@
 
     if-lez v0, :cond_b
 
-    const v0, 0x7f020731
+    const v0, 0x7f020740
 
     iput v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mRssiTypeIconId:I
 
@@ -6216,7 +6313,7 @@
     goto/16 :goto_0
 
     :cond_c
-    const v0, 0x7f020733
+    const v0, 0x7f020742
 
     iput v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mRssiTypeIconId:I
 
@@ -10429,9 +10526,9 @@
 .method private updateVZWMobileIconGroup()Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;
     .locals 11
 
-    const v7, 0x7f020614
+    const v7, 0x7f02061c
 
-    const v6, 0x7f020610
+    const v6, 0x7f020618
 
     const/4 v10, 0x0
 
@@ -10537,7 +10634,7 @@
 
     if-eqz v5, :cond_f
 
-    const v5, 0x7f02061c
+    const v5, 0x7f020624
 
     :goto_3
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10753,7 +10850,7 @@
 
     if-eqz v5, :cond_8
 
-    const v5, 0x7f02061a
+    const v5, 0x7f020622
 
     :goto_5
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10761,7 +10858,7 @@
     goto/16 :goto_4
 
     :cond_8
-    const v5, 0x7f020616
+    const v5, 0x7f02061e
 
     goto :goto_5
 
@@ -10799,7 +10896,7 @@
 
     if-eqz v5, :cond_a
 
-    const v5, 0x7f02061d
+    const v5, 0x7f020625
 
     :goto_7
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10807,7 +10904,7 @@
     goto/16 :goto_4
 
     :cond_a
-    const v5, 0x7f020618
+    const v5, 0x7f020620
 
     goto :goto_7
 
@@ -10822,7 +10919,7 @@
 
     if-eqz v5, :cond_b
 
-    const v5, 0x7f02061e
+    const v5, 0x7f020626
 
     :goto_8
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10830,7 +10927,7 @@
     goto/16 :goto_4
 
     :cond_b
-    const v5, 0x7f020619
+    const v5, 0x7f020621
 
     goto :goto_8
 
@@ -10845,7 +10942,7 @@
 
     if-eqz v5, :cond_c
 
-    const v5, 0x7f02060f
+    const v5, 0x7f020617
 
     :goto_9
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10853,7 +10950,7 @@
     goto/16 :goto_4
 
     :cond_c
-    const v5, 0x7f020613
+    const v5, 0x7f02061b
 
     goto :goto_9
 
@@ -10889,7 +10986,7 @@
 
     if-eqz v5, :cond_e
 
-    const v5, 0x7f020612
+    const v5, 0x7f02061a
 
     :goto_b
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10897,12 +10994,12 @@
     goto/16 :goto_4
 
     :cond_e
-    const v5, 0x7f020615
+    const v5, 0x7f02061d
 
     goto :goto_b
 
     :cond_f
-    const v5, 0x7f020617
+    const v5, 0x7f02061f
 
     goto/16 :goto_3
 
@@ -10984,7 +11081,7 @@
 .method private updateZVVMobileIconGroup()Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;
     .locals 5
 
-    const v4, 0x7f020610
+    const v4, 0x7f020618
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mTag:Ljava/lang/String;
 
@@ -11028,7 +11125,7 @@
     packed-switch v1, :pswitch_data_0
 
     :pswitch_0
-    const v1, 0x7f02061c
+    const v1, 0x7f020624
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
 
@@ -11048,7 +11145,7 @@
     goto :goto_1
 
     :pswitch_2
-    const v1, 0x7f02061a
+    const v1, 0x7f020622
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
 
@@ -11060,14 +11157,14 @@
     goto :goto_1
 
     :pswitch_4
-    const v1, 0x7f02061d
+    const v1, 0x7f020625
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
 
     goto :goto_1
 
     :pswitch_5
-    const v1, 0x7f02061e
+    const v1, 0x7f020626
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
 
@@ -11079,7 +11176,7 @@
     goto :goto_1
 
     :pswitch_7
-    const v1, 0x7f020611
+    const v1, 0x7f020619
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
 
@@ -11469,6 +11566,39 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_LTE_WIDE_BAND:Z
+
+    if-eqz v0, :cond_2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "  mLteCaStatus="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mLteCaStatus:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ","
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    :cond_2
     return-void
 .end method
 
@@ -11633,7 +11763,7 @@
     goto :goto_0
 
     :cond_9
-    const v0, 0x7f02061b
+    const v0, 0x7f020623
 
     goto :goto_1
 
@@ -12155,6 +12285,14 @@
     sget-object v1, Lcom/android/systemui/statusbar/policy/MobileSignalController$IndianOperators;->OTHERS:Lcom/android/systemui/statusbar/policy/MobileSignalController$IndianOperators;
 
     return-object v1
+.end method
+
+.method public getRealDataStateInVowifi()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mRealDataStateInVowifi:Z
+
+    return v0
 .end method
 
 .method protected getResourceName(I)Ljava/lang/String;
@@ -13834,7 +13972,7 @@
 
     move-result v2
 
-    const v9, 0x7f0206fb
+    const v9, 0x7f02070a
 
     move-object/from16 v0, p1
 
@@ -14020,6 +14158,30 @@
     goto :goto_b
 .end method
 
+.method public onEmergencyModeChanged()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->isEmergencyMode()Z
+
+    move-result v1
+
+    iput-boolean v1, v0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;->emergencyModeActivated:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->notifyListenersIfNecessary()V
+
+    return-void
+.end method
+
 .method public refreshNwBoosterIndicator(Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;)V
     .locals 7
 
@@ -14037,7 +14199,7 @@
 
     aget v4, v0, v6
 
-    const v5, 0x7f020658
+    const v5, 0x7f020667
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->getIcons()Lcom/android/systemui/statusbar/policy/SignalController$IconGroup;
 
@@ -14051,7 +14213,7 @@
 
     if-eqz v0, :cond_0
 
-    const v5, 0x7f020659
+    const v5, 0x7f020668
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
@@ -14060,15 +14222,34 @@
 
     iget-boolean v0, v0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;->nwBoosterSettingEnabled:Z
 
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;
+
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;->emergencyModeActivated:Z
+
     if-eqz v0, :cond_2
 
+    :cond_1
+    move-object v0, p1
+
+    move v1, v2
+
+    invoke-interface/range {v0 .. v5}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setNWBoosterIndicators(ZZIII)V
+
+    :goto_0
+    return-void
+
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
 
     check-cast v0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;
 
     iget-boolean v0, v0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;->nwBoosterRilEnabled:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     move-object v0, p1
 
@@ -14076,20 +14257,10 @@
 
     invoke-interface/range {v0 .. v5}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setNWBoosterIndicators(ZZIII)V
 
-    :goto_0
-    return-void
-
-    :cond_1
-    move-object v0, p1
-
-    invoke-interface/range {v0 .. v5}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setNWBoosterIndicators(ZZIII)V
-
     goto :goto_0
 
-    :cond_2
+    :cond_3
     move-object v0, p1
-
-    move v1, v2
 
     invoke-interface/range {v0 .. v5}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setNWBoosterIndicators(ZZIII)V
 
@@ -15205,7 +15376,7 @@
 
     check-cast v2, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;
 
-    const v3, 0x7f0f06fb
+    const v3, 0x7f0f076a
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->getStringIfExists(I)Ljava/lang/String;
 

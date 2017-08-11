@@ -800,7 +800,7 @@
 
     move-result v17
 
-    const v25, 0x7f0d0638
+    const v25, 0x7f0d064c
 
     move-object/from16 v0, v21
 
@@ -810,7 +810,7 @@
 
     move-result v18
 
-    const v25, 0x7f0d063a
+    const v25, 0x7f0d064e
 
     move-object/from16 v0, v21
 
@@ -820,7 +820,7 @@
 
     move-result v19
 
-    const v25, 0x7f0d0639
+    const v25, 0x7f0d064d
 
     move-object/from16 v0, v21
 
@@ -997,7 +997,7 @@
 
     move-result v12
 
-    const v25, 0x7f0d05c8
+    const v25, 0x7f0d05db
 
     move-object/from16 v0, v21
 
@@ -1013,7 +1013,7 @@
 
     if-ge v12, v0, :cond_8
 
-    const v25, 0x7f0d05c8
+    const v25, 0x7f0d05db
 
     move-object/from16 v0, v21
 
@@ -1030,7 +1030,7 @@
 
     if-ge v12, v0, :cond_9
 
-    const v25, 0x7f0d05cf
+    const v25, 0x7f0d05e2
 
     move-object/from16 v0, v21
 
@@ -1041,7 +1041,7 @@
     move-result v5
 
     :goto_2
-    const v25, 0x7f0d05d1
+    const v25, 0x7f0d05e4
 
     move-object/from16 v0, v21
 
@@ -1061,7 +1061,7 @@
 
     invoke-virtual {v8, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    const v25, 0x7f0d05cb
+    const v25, 0x7f0d05de
 
     move-object/from16 v0, v21
 
@@ -1109,7 +1109,7 @@
 
     invoke-virtual {v8, v0}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
-    const v25, 0x7f02015c
+    const v25, 0x7f020161
 
     move-object/from16 v0, v21
 
@@ -1193,7 +1193,7 @@
 
     add-int v29, v29, v6
 
-    const v30, 0x7f0d05cc
+    const v30, 0x7f0d05df
 
     move-object/from16 v0, v21
 
@@ -1239,7 +1239,7 @@
     return-object v9
 
     :cond_8
-    const v25, 0x7f0d05c9
+    const v25, 0x7f0d05dc
 
     :try_start_3
     move-object/from16 v0, v21
@@ -1253,7 +1253,7 @@
     goto/16 :goto_1
 
     :cond_9
-    const v25, 0x7f0d05d0
+    const v25, 0x7f0d05e3
 
     move-object/from16 v0, v21
 
@@ -2059,7 +2059,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d05c2
+    const v1, 0x7f0d05d5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2237,6 +2237,84 @@
 
     :cond_0
     return v7
+.end method
+
+.method public static isInstalledGalaxyApps(Landroid/content/Context;I)Z
+    .locals 6
+
+    const/4 v5, 0x0
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "com.sec.android.app.samsungapps"
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4, p1}, Landroid/content/pm/PackageManager;->getApplicationInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v2, v0, Landroid/content/pm/ApplicationInfo;->enabled:Z
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return v2
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v2, "[DS]TaskBarUtilities"
+
+    const-string/jumbo v3, "isInstalledGalaxyApps failed"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return v5
+.end method
+
+.method public static isInstalledGooglePlay(Landroid/content/Context;I)Z
+    .locals 6
+
+    const/4 v5, 0x0
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "com.android.vending"
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4, p1}, Landroid/content/pm/PackageManager;->getApplicationInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v2, v0, Landroid/content/pm/ApplicationInfo;->enabled:Z
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return v2
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v2, "[DS]TaskBarUtilities"
+
+    const-string/jumbo v3, "isInstalledGalaxyApps failed"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return v5
 .end method
 
 .method public static isKnoxShortcut(Landroid/content/ComponentName;)Z
@@ -2430,6 +2508,102 @@
 
     :cond_1
     return v5
+.end method
+
+.method public static launchGalaxyAppsWithQuery(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v1, "samsungapps://SearchResult/"
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "sKeyword"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const/high16 v1, 0x10200000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_0
+.end method
+
+.method public static launchPlayStoreWithQuery(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 3
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    new-instance v0, Landroid/content/Intent;
+
+    const-string/jumbo v1, "android.intent.action.VIEW"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "market://search?q="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    const/high16 v1, 0x10200000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_0
 .end method
 
 .method public static makeActionDownAnimation()Landroid/view/animation/Animation;

@@ -71,7 +71,7 @@
 
     iget-object v2, v0, Lcom/android/systemui/qs/QSScreenGridDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0f05f7
+    const v6, 0x7f0f0655
 
     invoke-virtual {v2, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -87,7 +87,7 @@
 
     invoke-virtual {v0, v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->setCanceledOnTouchOutside(Z)V
 
-    const v2, 0x7f040135
+    const v2, 0x7f040139
 
     const/4 v6, 0x0
 
@@ -107,7 +107,7 @@
 
     move-result-object v2
 
-    const v6, 0x7f0d03f9
+    const v6, 0x7f0d03fa
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -121,7 +121,7 @@
 
     move-result-object v2
 
-    const v6, 0x7f0d03fa
+    const v6, 0x7f0d03fb
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -331,7 +331,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f0203af
+    const v2, 0x7f0203b7
 
     :goto_3
     invoke-virtual {v8, v2}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -370,12 +370,12 @@
 
     if-eqz v2, :cond_4
 
-    const v2, 0x7f0203b1
+    const v2, 0x7f0203b9
 
     goto :goto_3
 
     :cond_4
-    const v2, 0x7f0203b3
+    const v2, 0x7f0203bb
 
     goto :goto_3
 
@@ -507,7 +507,7 @@
 
     invoke-direct {v2, v0}, Lcom/android/systemui/qs/QSScreenGridDialog$2;-><init>(Lcom/android/systemui/qs/QSScreenGridDialog;)V
 
-    const v6, 0x7f0f05f9
+    const v6, 0x7f0f0657
 
     move-object/from16 v0, p0
 

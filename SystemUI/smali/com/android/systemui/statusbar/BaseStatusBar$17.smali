@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$17;->val$guts:Lcom/android/systemui/statusbar/BlockNotificationGuts;
 
-    const v1, 0x7f1300ea
+    const v1, 0x7f1300ee
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/BlockNotificationGuts;->findViewById(I)Landroid/view/View;
 

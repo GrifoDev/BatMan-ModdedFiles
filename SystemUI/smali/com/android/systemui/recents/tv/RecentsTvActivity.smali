@@ -682,11 +682,11 @@
 
     invoke-virtual {v4, p0}, Lcom/android/systemui/recents/model/RecentsPackageMonitor;->register(Landroid/content/Context;)V
 
-    const v4, 0x7f04014d
+    const v4, 0x7f040151
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/recents/tv/RecentsTvActivity;->setContentView(I)V
 
-    const v4, 0x7f130405
+    const v4, 0x7f130411
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/recents/tv/RecentsTvActivity;->findViewById(I)Landroid/view/View;
 
@@ -702,7 +702,7 @@
 
     invoke-virtual {v4, v5}, Lcom/android/systemui/recents/tv/views/RecentsTvView;->setSystemUiVisibility(I)V
 
-    const v4, 0x7f130407
+    const v4, 0x7f130413
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/recents/tv/RecentsTvActivity;->findViewById(I)Landroid/view/View;
 
@@ -983,7 +983,7 @@
 
     const/16 v10, 0x8
 
-    const v9, 0x7f130408
+    const v9, 0x7f130414
 
     const/4 v5, 0x1
 
@@ -1087,7 +1087,7 @@
 
     if-eqz v7, :cond_2
 
-    const v7, 0x7f130406
+    const v7, 0x7f130412
 
     invoke-virtual {v1, v7}, Landroid/view/View;->setAccessibilityTraversalBefore(I)V
 
@@ -1099,7 +1099,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/recents/tv/RecentsTvActivity;->mTaskStackHorizontalGridView:Lcom/android/systemui/recents/tv/views/TaskStackHorizontalGridView;
 
-    const v8, 0x7f130407
+    const v8, 0x7f130413
 
     invoke-virtual {v7, v8}, Lcom/android/systemui/recents/tv/views/TaskStackHorizontalGridView;->setAccessibilityTraversalBefore(I)V
 

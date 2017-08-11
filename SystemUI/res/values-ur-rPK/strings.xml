@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">نامعلوم</string>
     <string name="save">محفوظ کریں</string>
     <string name="ok">ٹھیک ہے</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d گھنٹہ %2$d منٹ</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">نیٹ ورکس کیلئے اسکین نہيں کر سکتے ہیں</string>
     <string name="wifi_failed_to_obtain_IP">‏IP پتہ حاصل کرنا ناکام۔</string>
     <string name="wifi_security_none">کوئی نہیں</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s سے نہیں جوڑ سکتے۔</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s سے جوڑ نہیں سکتے۔ اپنی سیٹنگز %2$s میں چیک کریں اور دوبارہ کوشش کریں۔</string>
     <string name="bluetooth_pairing_rejected_error_message">%s سے جوڑی بنانا مسترد ہوگیا۔</string>
+    <string name="bluetooth_getting_remote_device_name">آلہ کا نام حاصل ہورہا ہے…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">یہ آلہ مربوط ہونے پر آلہ کا نام ظاہر ہوگا۔</string>
     <string name="accessibility_wifi_off">‏Wifi آف ہے۔</string>
     <string name="accessibility_no_wifi">‏Wifi غیر منسلک ہو گیا۔</string>
     <string name="accessibility_wifi_one_bar">‏Wifi ایک بار۔</string>
@@ -1364,6 +1366,7 @@ Wi-Fiکالنگ شبیہ نوٹیفکیشن پینل میں خدمت کے دست
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">نمبر پیڈ %1$s</string>
+    <string name="keyboard_popup_help">میٹا کلید: ونڈوز، کمانڈ، یا دیگر آپریٹنگ سسٹم کے علامتی کلید۔</string>
     <string name="keyboard_shortcut_group_system">سسٹم شارٹ کٹس</string>
     <string name="keyboard_shortcut_group_system_home">ہوم</string>
     <string name="keyboard_shortcut_group_system_recents">حالیہ</string>
@@ -1525,8 +1528,8 @@ Wi-Fiکالنگ شبیہ نوٹیفکیشن پینل میں خدمت کے دست
 
 پانی کے نقصان سے تحفظ کے لیے، اس بات کو یقینی بنائیں SIM/SD کارڈ ٹرے مضبوطی سے سربمہر ہے۔"</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">پانی کے نقصان سے تحفظ کیلئے، SIM/SD کارڈ کو یقینی بنائیں جو ٹرے مضبوطی سے سربمہر ہے۔</string>
-    <string name="water_protection_notification_title">پورٹ چیک کریں</string>
-    <string name="water_protection_notification_body">نمی کا سراغ لگایا جا چکا ہے۔ اپنے آلہ کو چارج کرنے کے لیے، یقینی بنائیں کہ آپ کا چارجر/USB پورٹ سوکھی ہے۔</string>
+    <string name="water_protection_notification_title">چارجر ان پلگ کریں</string>
+    <string name="water_protection_notification_body">نمی کا پتہ لگ چکا ہے۔ چارجر پلگ سے نکالیں اور یقینی بنائیں کہ چارجر اور USB پورٹ دونوں خشک ہیں۔</string>
     <string name="full_battery_title">معلومات</string>
     <string name="full_battery_noti_text">بیٹری مکمل چارج۔</string>
     <string name="cooling_title">آلہ حد سے زیادہ گرم ہو رہا ہے</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">سلو چارجنگ</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">تیزی سے چارجنگ کے لیے، اپنے آلہ کے ساتھ آیاہوا چارجر استعمال کریں اور یقین دلائیں کہ یہ صحیح طورپر مربوط ہے۔</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">یقین دلائیں کہ چارجر صحیح طورپر مربوط ہے۔ آلہ کے ساتھ آیاہوا چارجر استعمال کریں۔</string>
     <string name="battery_charging_level_and_time_text">"چارجنگ: %1$d%%
 (تقريباً %2$s تک پوری چارج ہو جاتی ہے)"</string>
@@ -1633,14 +1637,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">اپنا فون چارج کريں۔</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">اپنے ٹیبلیٹ کو چارج کریں۔</string>
     <string name="button_close">بند کریں</string>
-    <string name="battery_health_interruption_title">چارج کرنے سے قاصر</string>
+    <string name="battery_health_interruption_title">چارجنگ رک گیا</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">چارجر نکال دیں</string>
     <string name="battery_health_interruption_by_terminal_open_text">آپ کا آلہ چارج کرنے سے قاصر۔ اس بات کو یقینی بنائیں کہ آپ سیمسنگ کیلئے موزوں بیٹری اور چارجر استعمال کر رہے ہیں اور یہ کہ آپ کا آلہ چارجر سے ٹھیک سے جڑا ہوا ہے۔</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">چارج کرنے میں وقفہ۔ بیٹری کا درجہ حرارت بہت زیادہ ہے۔</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">چارج کرنے میں وقفہ۔ بیٹری کا درجہ حرارت بہت کم ہے۔</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"آلہ نے چارج کرنا بند کر دیا ہے۔ بیٹری کا درجۂ حرارت کافی زیادہ ہے۔ چارجر غیر مربوط کرتے وقت احتیاط برتیں۔ یہ کافی گرم ہو سکتا ہے۔
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">آپ کے فون کا درجہ حرارت بہت زیادہ ہے۔ درجہ حرارت واپس عام ہوجانے پر چارجنگ جاری رہے گا۔</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">آپ کے ٹیبلیٹ کا درجہ حرارت بہت زیادہ ہے۔ درجہ حرارت واپس عام ہوجانے پر چارجنگ جاری رہے گا۔</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">آپ کے فون کی بیٹری بہت ہی کم ہے۔ درجہ حرارت واپس عام ہوجانے پر چارجنگ جاری رہے گا۔</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">آپ کے ٹیبلیٹ کا درجہ حرارت بہت کم ہے۔ درجہ حرارت واپس عام ہوجانے پر چارجنگ جاری رہے گا۔</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"چارجنگ رک گئی ہے۔ آپ کے فون کی درجہ حرارت بہت زیادہ ہے۔ چارجر غیر مربوط کرتے وقت محتاط رہیں۔ ہوسکتا ہے یہ بہت گرم ہو۔
 
-چارجر کو غیر مربوط کرکے دوبارہ مربوط کرنے سے ہو سکتا ہے چارجر عام طریقے سے چارج کرنے لگے۔ اگر زیادہ گرم ہونا باقی رہتا ہے تو کسٹمر سروسز سے رابطہ کریں کیونکہ آگ لگنے یا زخمی ہونے کا خطرہ ہو سکتا ہے۔"</string>
+چارجر منقطع کرکے اور دوبارہ مربوط کرنے سے معمول کے مطابق چارجنگ جاری رکھنے کی اجازت دے سکتا ہے۔ اگر زیادہ گرم ہونا برقرار رہتا ہے، تو کسٹمر خدمت سے رابطہ کریں کیونکہ آگ لگنے یا زخمی ہونے کا خطرہ ہو سکتا ہے۔"</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"چارجنگ رک گئی ہے۔ آپ کے ٹیبلیٹ کی درجہ حرارت بہت زیادہ ہے۔ چارجر غیر مربوط کرتے وقت محتاط رہیں۔ ہوسکتا ہے یہ بہت گرم ہو۔
+
+چارجر منقطع کرکے اور دوبارہ مربوط کرنے سے معمول کے مطابق چارجنگ جاری رکھنے کی اجازت دے سکتا ہے۔ اگر زیادہ گرم ہونا برقرار رہتا ہے تو کسٹمر خدمت سے رابطہ کریں کیونکہ آگ لگنے یا زخمی ہونے کا خطرہ ہو سکتا ہے۔"</string>
     <string name="incompatible_charger_title">چارج نہیں کررہا۔</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">بایومیٹرکس کا استعمال کریں یا کھولنے کے لیے اسکرین سوائپ کریں</string>
     <string name="kg_face_or_swipe_unlock_instructions">چہرہ کی شناخت استعمال کریں یا انلاک کرنے کے لیے اسکرین سوائپ کریں</string>
     <string name="kg_face_or_swipe_active_instructions">چہرہ کی شناخت استعمال کریں یا کھولنے کے لیے اسکرین سوائپ کریں</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">انلاک کرنے کے لیے چہرہ کی شناخت استعمال کریں یا اس کے بجائے آئریسز استعمال کرنے کے لیے اسکرین سوائپ کریں</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">کھولنے کے لیے چہرہ کی شناخت استعمال کریں یا اس کے بجائے آئریسز استعمال کرنے کے لیے اسکرین سوائپ کریں</string>
     <string name="kg_face_unlock_instructions">چہرہ کی پہچان کے ذریعہ انلاک کرنے کے لیے اسکرین سوائپ کریں</string>
     <string name="kg_face_or_fingerprint_active_instructions">کھولنے کے لیے فنگرپرنٹ استعمال کریں یا اس کے بجائے چہرہ کی پہچان استعمال کرنے کے لیے اسکرین پر سوائپ کریں</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">برائے انلاک فنگرپرنٹ استعمال کریں یا اس کے بجائے چہرہ کی پہچان استعمال کرنے کے لیے اسکرین پر سوائپ کریں</string>
@@ -1672,6 +1680,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">اسکرین ان لاک کرنے کے لئے دو انگلیوں سے ہلکی ضرب لگائیں</string>
     <string name="kg_swipe_active_instructions">کھولنے کے لیے اسکرین سوائپ کریں</string>
     <string name="kg_swipe_unlock_instructions">انلاک کرنے کے لیے اسکرین پر سوائپ کریں</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">انلاک کرنے کے لیے بایومیٹرکس کا استعمال کریں یا اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">کھولنے کے لیے بایومیٹرکس کا استعمال کریں یا اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">انلاک کرنے کے لیے چہرہ کی پہچان استعمال کریں یا اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">کھولنے کے لیے چہرہ کی پہچان استعمال کریں یا اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">چہرہ کی پہچان کے ذریعے انلاک کرنے کے لیے دو انگلیوں سے اسکرین سوائپ کریں۔</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">کھولنے کے لیے فنگرپرنٹ کا استعمال کریں یا چہرہ کی پہچان استعمال کرنے کے لیے اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">انلاک کرنے کے لیے فنگرپرنٹ کا استعمال کریں یا چہرہ کی پہچان استعمال کرنے کے لیے اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">کھولنے کے لیے فنگرپرنٹ کا استعمال کریں یا آئریسس استعمال کرنے کے لیے اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">انلاک کرنے کے لیے فنگرپرنٹ کا استعمال کریں یا آئریسس استعمال کرنے کے لیے اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">کھولنے کے لیے فنگرپرنٹ کا استعمال کریں یا اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">انلاک کرنے کے لیے فنگرپرنٹ کا استعمال کریں یا اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">انلاک کرنے کے واسطے آئریسس استعمال کرنے کے لیے دو انگلیوں سے اسکرین سوائپ کریں۔</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">انلاک کرنے کے لیے آئریسس کا استعمال کریں یا اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">کھولنے کے لیے آئریسس کا استعمال کریں یا اسکرین کو دو انگلیوں سے سوائپ کریں۔</string>
     <string name="kg_power_connect_charger">چارجر جوڑیں</string>
     <string name="kg_power_fully_charged">پوری طرح چارج</string>
     <string name="kg_power_fast_charging">تیز چارجنگ: %d%%</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">بھیجیں</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">فون انلاک کرنے کے لیے لاک بٹن پر دوہری تھپکی دیں</string>
     <string name="s_view_cover_toast_pop_up_message">فوری سیٹنگ بٹنز استعمال کرنے کے لیے سرورق کھولیں۔</string>
     <string name="remote_input_toast_text_on_sview_cover">‏S view سرورق بند ہوجانے پر فوری جواب فنکشن استعمال کرنے سے قاصر۔</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">میں قبول کرتا ہوں</string>
-    <string name="force_immersive_guide_text">اس آئیکن کو تھپتھپانے سے نیویگیشن بار چھپ جاتا ہے۔ اسکرین کے نیچے سے اوپر سوائپ کر کے بھی آپ نیویگیشن بٹنز کا استعمال کرسکتے ہیں۔ نیویگیشن بار دکھائے جاتے وقت، آئیکن کو اپنی جگہ ہی لاک کرنے کے لیے آپ اس آئیکن کو دوبارہ تھپتھپا سکتے ہیں۔ کچھ اسکرینز، مثلاً ہوم اسکرین، پر نیویگیشن بار کو ہمیشہ دکھایا جائے گا۔</string>
+    <string name="force_immersive_guide_text">یہ بٹن تھپکی دینے سے نیویگیشن بار چھپ جاتا ہے۔ اسکرین کے نیچلے حصہ سے اوپر کی طرف سوائپ کرکے آپ ابھی بھی نیویگیشن بٹنز کا استعمال کرسکتے ہیں۔ نیویگیشن بار دکھائی دینے کے وقت، آپ اسے اسی جگہ میں لاک کرنے کے لیے اس بٹن کو دوبارہ تھپکی دے سکتے ہیں۔ ہوم اسکرین جیسے کچھ اسکرین پر، نیویگیشن بار ہمیشہ دکھایا جائے گا۔ نیویگیشن بار پوشیدہ ہونے کے وقت اگر کوئی ایپلیکیشن عموما اچھا سے برتاؤ نہیں کرتا ہے، تو نیویگیشن بار کو اسی جگہ لاک کریں اور ایپلیکیشن کو پھر سے چالو کریں۔</string>
+    <string name="force_immersive_guide_dialog_title">نیویگیشن بار چھپائیں:</string>
+    <string name="force_immersive_guide_dialog_message1">یہ بٹن تھپکی دینے سے نیویگیشن بار چھپ جاتا ہے۔</string>
+    <string name="force_immersive_guide_dialog_message2">نیویگیشن بار دکھانے کے لیے اسکرین کے نیچلے حصہ سے اوپر سوائپ کریں۔</string>
+    <string name="force_immersive_guide_dialog_message3">اسی جگہ لاک کرنے کے لیے اس بٹن کو دوبارہ تھپکی دیں۔</string>
+    <string name="force_immersive_guide_dialog_message4">اسی اسکرینز پر، ہوم اسکرین جیسے اسکرین پر، نیویگیشن بار ہمیشہ دکھایا جائے گا۔</string>
+    <string name="force_immersive_guide_dialog_guide_path">اس بٹن کو چھپانے کے لیے، سیٹنگز > ڈسپلے > نیویگیشن بار پر جائیں۔</string>
+    <string name="force_immersive_guide_dialog_setting">سیٹنگز</string>
+    <string name="force_immersive_guide_dialog_ok">ٹھیک ہے</string>
     <string name="car_lockscreen_disclaimer_title">احتیاط سے گاڑی چلائیں</string>
     <string name="car_lockscreen_disclaimer_text">‏گاڑی چلاتے وقت اپنے گردونواح سے مکمل طور پر باخبر رہیں اور ہمیشہ قابل اطلاق قوانین کی پابندی کریں۔ ہدایات غلط، نامکمل، خطرناک، موزوں نہیں، ممنوع یا انتظامی علاقوں میں سے گزرنے کے متعلق ہو سکتی ہیں۔ کاروباری معلومات بھی غلط یا نامکمل ہو سکتی ہے۔ گاڑی چلاتے وقت اپنا موبائل آلہ یا وہ ایپس استعمال نہ کریں جو Android Auto کیلئے نہیں ہیں۔</string>
     <string name="pip_close">‏PIP بند کریں</string>
@@ -2230,6 +2261,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_face_retry_content_description">چہرہ کی شناخت استعمال کرنے کے لیے دوہری تھپکی دیں۔</string>
     <string name="kg_face_authentication_error_retry_text">کوئی چہرہ نہیں ملا۔ دوبارہ چہرہ کی پہچان کی کوشش کرنے کے لیے شبیہ پر تھپکی دیں</string>
     <string name="kg_face_authentication_failed_retry_text">کوئی مماثل نہيں۔ چہرہ کی شناخت استعمال کرنے کے لیے شبیہ پر تھپکی دیں</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">چہرہ کی پہچان میں کوئی مسئلہ ہوا۔ دوبارہ کوشش کرنے کے لیے تھپکی دیں</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">ویڈیو کالز کے دوران چہرہ کی پہچان استعمال نہیں کیا جاسکتا</string>
     <string name="kg_fingerprint_no_match">کوئی مماثل نہيں ہے</string>
     <string name="kg_finger_print_not_responding_error_message">فنگر پرنٹ سینسر ردعمل نہیں کررہا۔ بعد میں دوبارہ کوشش کریں۔</string>
     <string name="kg_finger_print_database_error_message">فنگر پرنٹ ڈیٹاخراب ہوگیا ہے۔ فنگرپرنٹ کو اسکرین لاک کی قسم کے بطور دوبارہ ترتیب دیں اور پھر اپنے فنگر پرنٹس دوبارہ شامل کریں، یا اسکرین لاک کی قسم کو تبدیل کریں۔</string>
@@ -2366,6 +2399,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="appicon_badge_new_item">1نئی شے</string>
     <string name="banner_apps_for_dex_detail">‏Galaxy Apps سے DeX- آپٹیمائزڈ ایپس کا لطف لیں۔</string>
     <string name="toast_cannot_move_more_than_items">%d اشیاء سے زائد نہیں ہٹا سکتے۔</string>
+    <string name="view_more_in_galaxy_apps">‏Galaxy Apps میں مزید دیکھیں</string>
+    <string name="view_more_in_play_store">‏Play Store میں مزید دیکھیں</string>
     <string name="uninstall_title">ایپلیکیشنز ناتنصیب کریں؟</string>
     <string name="uninstall_1_app_message">کیا آپ اس ایپلیکیشن کو نا تنصیب کرنا چاہتے ہیں؟</string>
     <string name="uninstall_apps_message">درج ذیل ایپلیکیشنز کی نا تنصیب ہو جائے گی:</string>
@@ -2406,6 +2441,13 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="taskbar_context_menu_close_desk_notification_view">نوٹیفکیشنز چھپائیں</string>
     <string name="volumepanel_notification">اطلاع</string>
     <string name="quick_settings_location_detail_device_only">صرف آلہ</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">چارج کرنے میں وقفہ۔ بیٹری کا درجہ حرارت بہت زیادہ ہے۔</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">چارج کرنے میں وقفہ۔ بیٹری کا درجہ حرارت بہت کم ہے۔</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"آلہ نے چارج کرنا بند کر دیا ہے۔ بیٹری کا درجۂ حرارت کافی زیادہ ہے۔ چارجر غیر مربوط کرتے وقت احتیاط برتیں۔ یہ کافی گرم ہو سکتا ہے۔
+
+چارجر کو غیر مربوط کرکے دوبارہ مربوط کرنے سے ہو سکتا ہے چارجر عام طریقے سے چارج کرنے لگے۔ اگر زیادہ گرم ہونا باقی رہتا ہے تو کسٹمر سروسز سے رابطہ کریں کیونکہ آگ لگنے یا زخمی ہونے کا خطرہ ہو سکتا ہے۔"</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">انلاک کرنے کے لیے چہرہ کی شناخت استعمال کریں یا اس کے بجائے آئریسز استعمال کرنے کے لیے اسکرین سوائپ کریں</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">کھولنے کے لیے چہرہ کی شناخت استعمال کریں یا اس کے بجائے آئریسز استعمال کرنے کے لیے اسکرین سوائپ کریں</string>
     <string name="kg_infinity_wallpaper_option_description">انفینٹی وال پیپر کا ایک ہی وقت میں آپ کے ہوم اسکرین اور لاک اسکرین پر اطلاق کردیا جائے گا۔ بہتر تجربہ کے لیے ذیل کی سیٹنگ کو آن کریں۔</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">‏Always On Display آن کریں</string>
 </resources>

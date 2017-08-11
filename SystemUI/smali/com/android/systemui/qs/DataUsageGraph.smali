@@ -49,7 +49,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b00af
+    const v1, 0x7f0b00b0
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -57,7 +57,7 @@
 
     iput v1, p0, Lcom/android/systemui/qs/DataUsageGraph;->mTrackColor:I
 
-    const v1, 0x7f0b00a1
+    const v1, 0x7f0b00a2
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -65,7 +65,7 @@
 
     iput v1, p0, Lcom/android/systemui/qs/DataUsageGraph;->mUsageColor:I
 
-    const v1, 0x7f0b00a2
+    const v1, 0x7f0b00a3
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -73,7 +73,7 @@
 
     iput v1, p0, Lcom/android/systemui/qs/DataUsageGraph;->mOverlimitColor:I
 
-    const v1, 0x7f0b00b0
+    const v1, 0x7f0b00b1
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -81,7 +81,7 @@
 
     iput v1, p0, Lcom/android/systemui/qs/DataUsageGraph;->mWarningColor:I
 
-    const v1, 0x7f0d02ed
+    const v1, 0x7f0d02ee
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

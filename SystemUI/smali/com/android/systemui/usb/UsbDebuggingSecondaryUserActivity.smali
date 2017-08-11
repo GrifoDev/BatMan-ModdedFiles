@@ -61,7 +61,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/usb/UsbDebuggingSecondaryUserActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0f027e
+    const v1, 0x7f0f02db
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/usb/UsbDebuggingSecondaryUserActivity;->getString(I)Ljava/lang/String;
 
@@ -69,7 +69,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    const v1, 0x7f0f027f
+    const v1, 0x7f0f02dc
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/usb/UsbDebuggingSecondaryUserActivity;->getString(I)Ljava/lang/String;
 

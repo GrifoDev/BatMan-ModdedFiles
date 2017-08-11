@@ -105,9 +105,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v1, 0x7f020231
+    const v1, 0x7f020235
 
-    const v2, 0x7f02022e
+    const v2, 0x7f020232
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -115,9 +115,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v1, 0x7f02022f
+    const v1, 0x7f020233
 
-    const v2, 0x7f020230
+    const v2, 0x7f020234
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
 
@@ -242,7 +242,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f033d
+    const v1, 0x7f0f039a
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -253,7 +253,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f033c
+    const v1, 0x7f0f0399
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -299,7 +299,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03e5
+    const v1, 0x7f0f0442
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -310,7 +310,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03a0
+    const v1, 0x7f0f03fd
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -425,14 +425,14 @@
 
     if-eqz v0, :cond_6
 
-    const v8, 0x7f0f0453
+    const v8, 0x7f0f04b0
 
     :goto_3
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_DCM_POPUP:Z
 
     if-eqz v0, :cond_7
 
-    const v7, 0x7f0f0454
+    const v7, 0x7f0f04b1
 
     :goto_4
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
@@ -455,9 +455,9 @@
 
     invoke-direct {v6, p0}, Lcom/android/systemui/qs/tiles/LocationTile$2;-><init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
 
-    const v3, 0x7f0f03fe
+    const v3, 0x7f0f045b
 
-    const v5, 0x7f0f03ff
+    const v5, 0x7f0f045c
 
     move-object v0, p0
 
@@ -466,7 +466,7 @@
     goto :goto_2
 
     :cond_6
-    const v8, 0x7f0f0450
+    const v8, 0x7f0f04ad
 
     goto :goto_3
 
@@ -477,12 +477,12 @@
 
     if-eqz v0, :cond_8
 
-    const v7, 0x7f0f0452
+    const v7, 0x7f0f04af
 
     goto :goto_4
 
     :cond_8
-    const v7, 0x7f0f0451
+    const v7, 0x7f0f04ae
 
     goto :goto_4
 
@@ -550,7 +550,7 @@
 
     invoke-virtual {p0, p1, v1}, Lcom/android/systemui/qs/tiles/LocationTile;->checkIfRestrictionEnforcedByAdminOnly(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/String;)V
 
-    const v1, 0x7f0203ec
+    const v1, 0x7f0203f4
 
     invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -648,7 +648,7 @@
     :goto_0
     aput-object v1, v4, v5
 
-    const v1, 0x7f0f0400
+    const v1, 0x7f0f045d
 
     invoke-virtual {v3, v1, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -22,6 +22,10 @@
 
 .field public static final clear_cover_servicebox_music_unknown:I = 0x7f0f0053
 
+.field public static final clock_home:I = 0x7f0f002a
+
+.field public static final clock_roaming:I = 0x7f0f0029
+
 .field public static final date_format_for_display:I = 0x7f0f0014
 
 .field public static final date_format_for_tts:I = 0x7f0f0015
@@ -41,10 +45,6 @@
 .field public static final s_view_cover_open_cover_popup_view_notification_details:I = 0x7f0f0036
 
 .field public static final s_view_cover_open_popup_favorite:I = 0x7f0f003b
-
-.field public static final s_view_screen_home:I = 0x7f0f0028
-
-.field public static final s_view_screen_roaming:I = 0x7f0f0027
 
 .field public static final servicebox_accessibility_next_alarm:I = 0x7f0f0051
 

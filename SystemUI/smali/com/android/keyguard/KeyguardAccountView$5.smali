@@ -45,7 +45,7 @@
 
     iget-object v6, p0, Lcom/android/keyguard/KeyguardAccountView$5;->this$0:Lcom/android/keyguard/KeyguardAccountView;
 
-    invoke-static {v6}, Lcom/android/keyguard/KeyguardAccountView;->-get5(Lcom/android/keyguard/KeyguardAccountView;)Landroid/widget/EditText;
+    invoke-static {v6}, Lcom/android/keyguard/KeyguardAccountView;->-get7(Lcom/android/keyguard/KeyguardAccountView;)Landroid/widget/EditText;
 
     move-result-object v6
 
@@ -88,7 +88,7 @@
 
     iget-object v11, p0, Lcom/android/keyguard/KeyguardAccountView$5;->this$0:Lcom/android/keyguard/KeyguardAccountView;
 
-    invoke-static {v11}, Lcom/android/keyguard/KeyguardAccountView;->-get8(Lcom/android/keyguard/KeyguardAccountView;)Lcom/android/keyguard/KeyguardAccountView$SACallback;
+    invoke-static {v11}, Lcom/android/keyguard/KeyguardAccountView;->-get10(Lcom/android/keyguard/KeyguardAccountView;)Lcom/android/keyguard/KeyguardAccountView$SACallback;
 
     move-result-object v11
 
@@ -114,13 +114,13 @@
 
     iget-object v7, p0, Lcom/android/keyguard/KeyguardAccountView$5;->this$0:Lcom/android/keyguard/KeyguardAccountView;
 
-    invoke-static {v7}, Lcom/android/keyguard/KeyguardAccountView;->-get7(Lcom/android/keyguard/KeyguardAccountView;)I
+    invoke-static {v7}, Lcom/android/keyguard/KeyguardAccountView;->-get9(Lcom/android/keyguard/KeyguardAccountView;)I
 
     move-result v7
 
     iget-object v8, p0, Lcom/android/keyguard/KeyguardAccountView$5;->this$0:Lcom/android/keyguard/KeyguardAccountView;
 
-    invoke-static {v8}, Lcom/android/keyguard/KeyguardAccountView;->-get6(Lcom/android/keyguard/KeyguardAccountView;)Ljava/lang/String;
+    invoke-static {v8}, Lcom/android/keyguard/KeyguardAccountView;->-get8(Lcom/android/keyguard/KeyguardAccountView;)Ljava/lang/String;
 
     move-result-object v8
 

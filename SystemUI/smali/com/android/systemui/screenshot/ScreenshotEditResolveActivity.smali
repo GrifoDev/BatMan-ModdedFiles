@@ -243,7 +243,7 @@
 .method private doFinish()V
     .locals 1
 
-    const v0, 0x7f0f02a2
+    const v0, 0x7f0f02ff
 
     invoke-static {p0, v0}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -941,9 +941,9 @@
 
     if-eqz v21, :cond_8
 
-    const v21, 0x7f0f02af
+    const v21, 0x7f0f030c
 
-    const v22, 0x7f0f02b3
+    const v22, 0x7f0f0310
 
     move-object/from16 v0, p0
 
@@ -992,9 +992,9 @@
     .catch Landroid/content/ActivityNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
 
     :cond_8
-    const v21, 0x7f0f02ad
+    const v21, 0x7f0f030a
 
-    const v22, 0x7f0f02b3
+    const v22, 0x7f0f0310
 
     move-object/from16 v0, p0
 
@@ -1007,9 +1007,9 @@
     goto/16 :goto_2
 
     :cond_9
-    const v21, 0x7f0f02b5
+    const v21, 0x7f0f0312
 
-    const v22, 0x7f0f02b3
+    const v22, 0x7f0f0310
 
     move-object/from16 v0, p0
 

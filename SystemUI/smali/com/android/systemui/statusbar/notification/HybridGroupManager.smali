@@ -39,7 +39,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/notification/HybridGroupManager;->mParent:Landroid/view/ViewGroup;
 
-    const v3, 0x7f04005e
+    const v3, 0x7f04005f
 
     const/4 v4, 0x0
 
@@ -73,7 +73,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/HybridGroupManager;->mParent:Landroid/view/ViewGroup;
 
-    const v5, 0x7f04005f
+    const v5, 0x7f040060
 
     invoke-virtual {v2, v5, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -107,7 +107,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d047b
+    const v5, 0x7f0d047c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -253,7 +253,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0f071e
+    const v5, 0x7f0f078d
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

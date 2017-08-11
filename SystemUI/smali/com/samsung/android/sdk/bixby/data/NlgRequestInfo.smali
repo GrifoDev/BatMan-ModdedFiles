@@ -212,7 +212,7 @@
 
     new-instance v1, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo$Attribute;
 
-    invoke-direct {v1, p0, p2, p3, v2}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo$Attribute;-><init>(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo$1;)V
+    invoke-direct {v1, p2, p3, v2}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo$Attribute;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo$1;)V
 
     invoke-virtual {v0, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

@@ -479,18 +479,6 @@
 
     iput-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mLastPackageName:Ljava/lang/String;
 
-    const-string/jumbo v3, ""
-
-    iput-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mLastMusicLyrics:Ljava/lang/String;
-
-    iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mLastPackageName:Ljava/lang/String;
-
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
     iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -509,6 +497,18 @@
 
     :goto_0
     iput-boolean v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mIsOOBETextNeed:Z
+
+    const-string/jumbo v3, ""
+
+    iput-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mLastMusicLyrics:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mLastPackageName:Ljava/lang/String;
+
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
 
     iget-boolean v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mIsOOBETextNeed:Z
 

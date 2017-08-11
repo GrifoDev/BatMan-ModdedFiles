@@ -70,7 +70,7 @@
     <string name="save">حفظ</string>
     <string name="ok">موافق</string>
     <string name="battery_history_hours_no_seconds">%1$dس %2$dد</string>
-    <string name="battery_history_minutes_no_seconds">%dد</string>
+    <string name="battery_history_minutes_no_seconds">%d د</string>
     <string name="wifi_fail_to_scan">لا يمكن فحص الشبكات</string>
     <string name="wifi_failed_to_obtain_IP">فشل في الحصول على عنوان IP.</string>
     <string name="wifi_security_none">لا شيء</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">يتعذر الاتصال بـ %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">يتعذر الاتصال بـ %1$s. تحقق من الضبط لديك في %2$s وحاول مرة أخرى.</string>
     <string name="bluetooth_pairing_rejected_error_message">تم رفض الإقتران بواسطة %s.</string>
+    <string name="bluetooth_getting_remote_device_name">جارٍ الحصول على اسم الجهاز…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">سيظهر اسم الجهاز عند توصيل هذا الجهاز.</string>
     <string name="accessibility_wifi_off">‏تم إيقاف Wi-Fi.</string>
     <string name="accessibility_no_wifi">‏تم قطع اتصال Wi-Fi.</string>
     <string name="accessibility_wifi_one_bar">‏إشارة Wi-Fi تتكون من شريط واحد.</string>
@@ -556,7 +558,7 @@ For example, your ringtone will not sound, you will not be able to answer phone 
     <string name="accessibility_back">رجوع</string>
     <string name="accessibility_home">الرئيسية</string>
     <string name="accessibility_menu">القائمة</string>
-    <string name="sec_accessibility_recent">الأخيرة</string>
+    <string name="sec_accessibility_recent">التطبيقات الأخيرة</string>
     <string name="accessibility_camera_button">الكاميرا</string>
     <string name="accessibility_phone_button">الهاتف</string>
     <string name="accessibility_voice_assist_button">المساعد الصوتي</string>
@@ -1362,6 +1364,7 @@ Turn on Airplane mode?"</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">لوحة الأرقام %1$s</string>
+    <string name="keyboard_popup_help">مفتاح ميتا: مفتاح Windows أو مفتاح الأمر أو مفتاح رمز نظام تشغيل آخر.</string>
     <string name="keyboard_shortcut_group_system">اختصارات النظام</string>
     <string name="keyboard_shortcut_group_system_home">الشاشة الرئيسية</string>
     <string name="keyboard_shortcut_group_system_recents">الأحدث</string>
@@ -1523,8 +1526,8 @@ Turn on Airplane mode?"</string>
 
 للحماية من التلف بسبب المياه، تأكد من أن منفذ بطاقة SIM/SD مقفل بإحكام."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">للحماية من التلف بسبب المياه، تأكد من منفذ بطاقة SIM/SD مقفل بإحكام.</string>
-    <string name="water_protection_notification_title">تحقق من المنفذ</string>
-    <string name="water_protection_notification_body">تم اكتشاف رطوبة. لشحن جهازك، تأكد من أن الشاحن/منفذ USB جاف.</string>
+    <string name="water_protection_notification_title">فصل الشاحن</string>
+    <string name="water_protection_notification_body">تم اكتشاف رطوبة. افصل الشاحن وتأكد من أن كلاً من الشاحن ومنفذ USB جافان.</string>
     <string name="full_battery_title">معلومات</string>
     <string name="full_battery_noti_text">تم شحن البطارية كاملا.</string>
     <string name="cooling_title">تجاوزت درجة حرارة جهازك المستوى المسموح به</string>
@@ -1618,6 +1621,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">الشحن البطيء</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">للشحن بسرعة أكبر، استخدم الشاحن المُرفق بجهازك واحرص على توصيله بشكلٍ صحيح.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">تأكد من أن الشاحن موصول بشكلٍ صحيح. استخدم الشاحن المُرفق بالجهاز.</string>
     <string name="battery_charging_level_and_time_text">"جارٍ الشحن: %1$d%%‏
 (تبقى حوالي %2$s حتى يتم شحن البطارية بالكامل)"</string>
@@ -1631,14 +1635,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">اشحن هاتفك.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">اشحن جهازك اللوحي.</string>
     <string name="button_close">اغلاق</string>
-    <string name="battery_health_interruption_title">يتعذر الشحن</string>
+    <string name="battery_health_interruption_title">تم إيقاف الشحن</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">فصل الشاحن</string>
     <string name="battery_health_interruption_by_terminal_open_text">يتعذر شحن جهازك. تأكد من أنك تستخدم بطارية وشاحن متوافقين مع Samsung وأن جهازك متصل بطريقة صحيحة بالشاحن.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">تم إيقاف الشحن مؤقتاً. درجة حرارة البطارية عالية للغاية.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">تم إيقاف الشحن مؤقتاً. درجة حرارة البطارية منخفضة للغاية.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"توقّف الجهاز عن الشحن. درجة حرارة البطارية مرتفعة للغاية. انتبه عند فصل الشاحن. قد تكون درجة حرارته مرتفعة للغاية.‎
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">إن درجة حرارة الهاتف مرتفعة للغاية. سيُتابع الشحن عندما تعود الحرارة إلى الدرجة العادية.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">إن درجة حرارة الجهاز اللوحي مرتفعة للغاية. سيُتابع الشحن عندما تعود الحرارة إلى الدرجة العادية.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">إن درجة حرارة الهاتف منخفضة للغاية. سيُتابع الشحن عندما تعود الحرارة إلى الدرجة العادية.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">إن درجة حرارة الجهاز اللوحي منخفضة للغاية. سيُتابع الشحن عندما تعود الحرارة إلى الدرجة العادية.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"تم إيقاف الشحن. إن درجة حرارة الهاتف مرتفعة للغاية. انتبه عند فصل الشاحن. قد يكون ساخناً جداً.
 
-قد يؤدي فصل الشاحن وإعادة توصيله إلى متابعة الشحن بطريقة طبيعية. إذا استمرّ ارتفاع درجة الحرارة، اتصل بخدمات العملاء إذ قد يكون هناك خطر نشوب حريق أو إصابة."</string>
+قد يتيح فصل الشاحن وإعادة توصيله متابعة عملية الشحن بشكلٍ عادي. إذا استمرّ ارتفاع درجة الحرارة، فاتصل بقسم خدمات العملاء إذ قد يكون هناك خطر نشوب حريق أو إصابة."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"تم إيقاف الشحن. إن درجة حرارة الجهاز اللوحي مرتفعة للغاية. انتبه عند فصل الشاحن. قد يكون ساخناً جداً.
+
+قد يتيح فصل الشاحن وإعادة توصيله متابعة عملية الشحن بشكلٍ عادي. إذا استمرّ ارتفاع درجة الحرارة، فاتصل بقسم خدمات العملاء إذ قد يكون هناك خطر نشوب حريق أو إصابة."</string>
     <string name="incompatible_charger_title">لا يتم الشحن.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1654,8 +1664,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">استخدام المقاييس الحيوية أو سحب الشاشة للفتح</string>
     <string name="kg_face_or_swipe_unlock_instructions">استخدام التعرف على الوجه أو سحب الشاشة لإلغاء القفل</string>
     <string name="kg_face_or_swipe_active_instructions">استخدام التعرف على الوجه أو سحب الشاشة للفتح</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">استخدام التعرف على الوجه لإلغاء القفل أو سحب الشاشة لاستخدام بصمة العينين بدلاً من ذلك</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">استخدام التعرف على الوجه للفتح أو سحب الشاشة لاستخدام بصمة العينين بدلاً من ذلك</string>
     <string name="kg_face_unlock_instructions">اسحب الشاشة لإلغاء القفل بواسطة التعرّف على الوجه</string>
     <string name="kg_face_or_fingerprint_active_instructions">استخدم بصمات الأصابع لفتح الشاشة أو سحبها لاستخدام التعرف على الوجه بدلاً من ذلك</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">استخدام بصمات الأصابع لإلغاء قفل الشاشة أو سحبها لاستخدام التعرف على الوجه بدلاً من ذلك</string>
@@ -1670,6 +1678,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">اسحب بإصبعين لفتح الشاشة</string>
     <string name="kg_swipe_active_instructions">سحب الشاشة لفتحها</string>
     <string name="kg_swipe_unlock_instructions">اسحب بإصبعك على الشاشة لإلغاء قفلها</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">استخدم المقاييس الحيوية أو اسحب الشاشة بإصبعين لإلغاء القفل.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">استخدم المقاييس الحيوية أو اسحب الشاشة بإصبعين للفتح.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">استخدم ميزة التعرف على الوجه أو اسحب الشاشة بإصبعين لإلغاء القفل.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">استخدم ميزة التعرف على الوجه أو اسحب الشاشة بإصبعين للفتح.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">اسحب الشاشة بإصبعين لإلغاء القفل عن طريق التعرف على الوجه.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">استخدم بصمة الإصبع لفتح الشاشة أو سحبها بإصبعين لاستخدام ميزة التعرف على الوجه.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">استخدم بصمة الإصبع لإلغاء قفل الشاشة أو سحبها بإصبعين لاستخدام ميزة التعرف على الوجه.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">استخدم بصمة الإصبع لفتح الشاشة أو سحبها بإصبعين لاستخدام بصمة العينين.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">استخدم بصمة الإصبع لإلغاء قفل الشاشة أو سحبها بإصبعين لاستخدام بصمة العينين.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">استخدم بصمة الإصبع أو اسحب الشاشة بإصبعين للفتح.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">استخدم بصمة الإصبع أو اسحب الشاشة بإصبعين لإلغاء القفل.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">اسحب الشاشة بإصبعين لاستخدام بصمة العينين لإلغاء القفل.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">استخدم بصمة العينين أو اسحب الشاشة بإصبعين لإلغاء الفتح.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">استخدم بصمة العينين أو اسحب الشاشة بإصبعين للفتح.</string>
     <string name="kg_power_connect_charger">قم بتوصيل الشحن</string>
     <string name="kg_power_fully_charged">تم الشحن بالكامل</string>
     <string name="kg_power_fast_charging">الشحن السريع: %d%%</string>
@@ -1753,6 +1775,7 @@ upscaler"</string>
     <string name="remote_input_send_text">إرسال</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">انقر نقراً مزدوجاً فوق زر الإقفال لإلغاء قفل الهاتف</string>
     <string name="s_view_cover_toast_pop_up_message">افتح الغلاف لاستخدام أزرار الضبط السريع.</string>
     <string name="remote_input_toast_text_on_sview_cover">يتعذر استخدام وظيفة الرد السريع عندما يكون غلاف S الشفاف مغلقاً.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"يتوجب عليك تنزيل التطبيق بهدف التحكم في كمية الطاقة المشاركة. إذا قمت بتوصيل جهازك بجهازٍ آخر عبر كابل Power Sharing EP-SG900 من Samsung من دون التطبيق، سيتم نقل طاقة البطارية بالكامل إلى الجهاز الآخر.
@@ -1789,7 +1812,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">أنا أوافق</string>
-    <string name="force_immersive_guide_text">سيؤدي النقر فوق هذا الرمز إلى إخفاء شريط التنقل. لا يزال بإمكانك استخدام أزرار التنقل عبر سحب الشاشة نحو الأعلى من أسفلها. عندما يكون شريط التنقل ظاهراً، يمكنك النقر فوق هذا الرمز مجدداً لتثبيته في مكانه. على بعض الشاشات، مثل الشاشة الرئيسية، سيكون شريط التنقل ظاهراً دائماً.</string>
+    <string name="force_immersive_guide_text">يؤدي النقر فوق هذا الزر إلى إخفاء شريط التنقل. لا يزال بإمكانك استخدام أزرار التنقل عبر سحب الشاشة نحو الأعلى من أسفلها. عندما يكون شريط التنقل ظاهراً، يمكنك النقر فوق هذا الزر مجدداً لتثبيته في مكانه. على بعض الشاشات، مثل الشاشة الرئيسية، سيكون شريط التنقل ظاهراً دائماً. إذا لم يتم تشغيل تطبيق بشكلٍ صحيح عندما يكون شريط التنقل مخفياً، فثبت شريط التنقل في مكانه وأعد تشغيل التطبيق.</string>
+    <string name="force_immersive_guide_dialog_title">إخفاء شريط التنقل:</string>
+    <string name="force_immersive_guide_dialog_message1">يؤدي النقر فوق هذا الزر إلى إخفاء شريط التنقل.</string>
+    <string name="force_immersive_guide_dialog_message2">اسحب الشاشة لأعلى من الأسفل لإظهار شريط التنقل.</string>
+    <string name="force_immersive_guide_dialog_message3">انقر فوق هذا الزر مرة أخرى لتثبيته في مكانه.</string>
+    <string name="force_immersive_guide_dialog_message4">على بعض الشاشات، مثل الشاشة الرئيسية، سيكون شريط التنقل ظاهراً دائماً.</string>
+    <string name="force_immersive_guide_dialog_guide_path">لإخفاء هذا الزر، انتقل إلى الضبط > شاشة العرض > شريط التنقل.</string>
+    <string name="force_immersive_guide_dialog_setting">الضبط</string>
+    <string name="force_immersive_guide_dialog_ok">موافق</string>
     <string name="car_lockscreen_disclaimer_title">القيادة بأمان</string>
     <string name="car_lockscreen_disclaimer_text">‏عليك التعرف بشكل تام على ظروف القيادة والالتزام بالقوانين السارية. ويمكن أن تكون الاتجاهات غير دقيقة أو غير مكتملة أو خطيرة أو غير مناسبة أو محظورة أو تتضمن عبور مناطق إدارية. ويمكن أن تكون معلومات الأنشطة التجارية أيضًا غير دقيقة أو غير مكتملة. ولا يتم نشر البيانات في الوقت الفعلي، كما لا يمكن ضمان دقة المواقع. ولا تتعامل مع جهازك الجوّال أو تستخدم تطبيقات ليست متوافقة مع Android Auto أثناء القيادة.</string>
     <string name="pip_close">‏إغلاق PIP</string>
@@ -2228,6 +2259,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_face_retry_content_description">انقر نقراً مزدوجاً لاستخدام التعرف على الوجه.</string>
     <string name="kg_face_authentication_error_retry_text">لم يتم اكتشاف أي وجه. النقر فوق الرمز لمحاولة التعرف على الوجه مرة أخرى</string>
     <string name="kg_face_authentication_failed_retry_text">لا يوجد تطابق. انقر على الأيقونة لاستخدام ميزة التعرف على الوجه</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">حدثت مشكلة في ميزة التعرف على الوجه. انقر للمحاولة مرة أخرى</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">تعذّر استخدام ميزة التعرف على الوجه أثناء مكالمات الفيديو</string>
     <string name="kg_fingerprint_no_match">لا يوجد تطابق</string>
     <string name="kg_finger_print_not_responding_error_message">مستشعر بصمات الأصابع لا يستجيب. حاول مرة أخرى لاحقًا.</string>
     <string name="kg_finger_print_database_error_message">تم إتلاف بيانات بصمات الأصابع. أعد ضبط بصمة الإصبع كنوع قفل الشاشة، ثم أضف بصمات أصابعك مجدداً أو قم بتغيير نوع قفل الشاشة.</string>
@@ -2364,6 +2397,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="appicon_badge_new_item">عنصر واحد جديد</string>
     <string name="banner_apps_for_dex_detail">استمتع بتطبيقات تم تحسينها لـ DeX من Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">يتعذر نقل أكثر من %d من العناصر.</string>
+    <string name="view_more_in_galaxy_apps">عرض المزيد في Galaxy Apps</string>
+    <string name="view_more_in_play_store">عرض المزيد في متجر Play</string>
     <string name="uninstall_title">هل تريد إلغاء تثبيت التطبيقات؟</string>
     <string name="uninstall_1_app_message">هل تريد إلغاء تثبيت هذا التطبيق؟</string>
     <string name="uninstall_apps_message">سيتم إلغاء تثبيت التطبيقات التالية:</string>
@@ -2407,6 +2442,13 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">الإشعار</string>
     <string name="quick_settings_location_detail_device_only">الجهاز فقط</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">تم إيقاف الشحن مؤقتاً. درجة حرارة البطارية عالية للغاية.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">تم إيقاف الشحن مؤقتاً. درجة حرارة البطارية منخفضة للغاية.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"توقّف الجهاز عن الشحن. درجة حرارة البطارية مرتفعة للغاية. انتبه عند فصل الشاحن. قد تكون درجة حرارته مرتفعة للغاية.‎
+
+قد يؤدي فصل الشاحن وإعادة توصيله إلى متابعة الشحن بطريقة طبيعية. إذا استمرّ ارتفاع درجة الحرارة، اتصل بخدمات العملاء إذ قد يكون هناك خطر نشوب حريق أو إصابة."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">استخدام التعرف على الوجه لإلغاء القفل أو سحب الشاشة لاستخدام بصمة العينين بدلاً من ذلك</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">استخدام التعرف على الوجه للفتح أو سحب الشاشة لاستخدام بصمة العينين بدلاً من ذلك</string>
     <string name="kg_infinity_wallpaper_option_description">سيتم تطبيق الخلفيات اللامتناهية على الشاشة الرئيسية وشاشات القفل في الوقت نفسه. قم بتشغيل الضبط أدناه للحصول على أفضل تجربة.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">تشغيل Always On Display</string>
     <string name="sview_cover_wday_month_day_no_year">E، d MMMM</string>

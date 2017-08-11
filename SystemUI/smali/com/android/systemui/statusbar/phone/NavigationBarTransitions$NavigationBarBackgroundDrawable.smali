@@ -20,7 +20,7 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;-><init>(Landroid/content/Context;I)V
 
-    const v0, 0x7f0b0167
+    const v0, 0x7f0b0168
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 

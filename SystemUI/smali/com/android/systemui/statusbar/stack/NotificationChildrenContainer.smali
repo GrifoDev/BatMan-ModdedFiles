@@ -573,7 +573,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400ea
+    const v1, 0x7f0400ee
 
     const/4 v2, 0x0
 
@@ -593,7 +593,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02e4
+    const v1, 0x7f0d02e5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -605,7 +605,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02cf
+    const v1, 0x7f0d02d0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -623,7 +623,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02d0
+    const v1, 0x7f0d02d1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -635,7 +635,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0201
+    const v1, 0x7f0d0202
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -659,7 +659,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02e5
+    const v1, 0x7f0d02e6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -695,7 +695,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0452
+    const v1, 0x7f0d0453
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -707,7 +707,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0451
+    const v1, 0x7f0d0452
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -741,7 +741,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0453
+    const v1, 0x7f0d0454
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2956,7 +2956,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;->mNotificationHeader:Landroid/view/NotificationHeaderView;
 
-    const v4, 0x1020445
+    const v4, 0x102044e
 
     invoke-virtual {v3, v4}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 

@@ -38,9 +38,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage$3;->this$0:Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;
 
-    invoke-static {v1}, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->-get0(Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;)Landroid/animation/Animator$AnimatorListener;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mShowAnimationListener:Landroid/animation/Animator$AnimatorListener;
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->attachContentsView(Landroid/animation/Animator$AnimatorListener;)V
 

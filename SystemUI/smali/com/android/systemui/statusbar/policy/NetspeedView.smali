@@ -19,6 +19,8 @@
 
 .field private static mNetspeedSwitch:Z
 
+.field private static mVpnConnected:Z
+
 
 # instance fields
 .field private final TAG:Ljava/lang/String;
@@ -49,6 +51,14 @@
     return-object v0
 .end method
 
+.method static synthetic -get1()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mVpnConnected:Z
+
+    return v0
+.end method
+
 .method static synthetic -set0(Z)Z
     .locals 0
 
@@ -63,6 +73,14 @@
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mScreenOn:Z
 
     return p1
+.end method
+
+.method static synthetic -set2(Z)Z
+    .locals 0
+
+    sput-boolean p0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mVpnConnected:Z
+
+    return p0
 .end method
 
 .method static synthetic -wrap0(Lcom/android/systemui/statusbar/policy/NetspeedView;Landroid/content/Context;)V
@@ -85,6 +103,8 @@
     .locals 1
 
     const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mVpnConnected:Z
 
     sput-boolean v0, Lcom/android/systemui/statusbar/policy/NetspeedView;->mNetspeedSwitch:Z
 

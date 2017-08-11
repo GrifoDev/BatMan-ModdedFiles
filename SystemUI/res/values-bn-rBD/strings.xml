@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Unknown</string>
     <string name="save">সংরক্ষণ করুন</string>
     <string name="ok">ওকে</string>
-    <string name="battery_history_hours_no_seconds">%1$dঘ %2$dমি</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d ঘ. %2$d মি.</string>
+    <string name="battery_history_minutes_no_seconds">%d মি</string>
     <string name="wifi_fail_to_scan">নেটওয়ার্কগুলির জন্য স্ক্যান করা যাবে না</string>
     <string name="wifi_failed_to_obtain_IP">IP ঠিকানা পেতে ব্যর্থ হয়েছে।</string>
     <string name="wifi_security_none">কোনো কিছুই নয়</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s-এর সাথে সংযোগ করা যাবে না৷</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s-এর সাথে সংযোগ করা যাবে না। %2$s-এ আপনার সেটিংস পরীক্ষা করে আবার চেষ্টা করুন।</string>
     <string name="bluetooth_pairing_rejected_error_message">%s জোড়বাঁধা প্রত্যাখ্যান করেছে।</string>
+    <string name="bluetooth_getting_remote_device_name">ডিভাইসের নাম পাওয়া…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">এই ডিভাইসটি সংযুক্ত হলে ডিভাইসের নাম দেখা যাবে৷</string>
     <string name="accessibility_wifi_off">Wifi বন্ধ৷</string>
     <string name="accessibility_no_wifi">Wifi এর সংযোগ বিচ্ছিন্ন হয়েছে৷</string>
     <string name="accessibility_wifi_one_bar">Wifi এ একটি দণ্ড৷</string>
@@ -1364,6 +1366,7 @@ Turn on Airplane mode?"</string>
     <string name="keyboard_key_insert">ঢোকান</string>
     <string name="keyboard_key_num_lock">সংখ্যা লক</string>
     <string name="keyboard_key_numpad_template">সংখ্যাপ্যাড %1$s</string>
+    <string name="keyboard_popup_help">মেটা কী: Windows, Command, বা অপারেটিং সিস্টেমের অন্যান্য প্রতীকের কী৷</string>
     <string name="keyboard_shortcut_group_system">সিস্টেম শর্টকাট</string>
     <string name="keyboard_shortcut_group_system_home">হোম</string>
     <string name="keyboard_shortcut_group_system_recents">সাম্প্রতিকগুলি</string>
@@ -1525,8 +1528,8 @@ Turn on Airplane mode?"</string>
 
 পানি দ্বারা ক্ষতি হওয়ার বিরুদ্ধে সুরক্ষিত রাখতে, নিশ্চিত করুন যে সিম/SD কার্ডের ট্রে ভালোভাবে বন্ধ আছে৷"</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">পানির ক্ষতি থেকে সুরক্ষিত রাখতে, SIM/SD কার্ডের ট্রে ভালোভাবে বন্ধ আছে তা নিশ্চিত করুন৷</string>
-    <string name="water_protection_notification_title">পোর্ট পরীক্ষা করুন</string>
-    <string name="water_protection_notification_body">আর্দ্রতা শনাক্ত হয়েছে৷ আপনার ডিভাইস চার্জ করতে, নিশ্চিত করুন যে আপনার চার্জার/USB পোর্ট শুষ্ক আছে৷</string>
+    <string name="water_protection_notification_title">Unplug charger</string>
+    <string name="water_protection_notification_body">আর্দ্রতা শনাক্ত হয়েছে। চার্জার আনপ্লাগ করুন এবং চার্জার ও USB পোর্ট উভয়ই শুষ্ক আছে তা নিশ্চিত করুন।</string>
     <string name="full_battery_title">তথ্য</string>
     <string name="full_battery_noti_text">ব্যাটারি পুরোপুরি চার্জ হয়েছে।</string>
     <string name="cooling_title">ডিভাইসটি বেশি গরম হচ্ছে</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">ধীরে চার্জ হচ্ছে</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">আরো দ্রুত চার্জের জন্য, আপনার ডিভাইসের সাথে আসা চার্জার ব্যবহার করুন এবং এটি যথাযথভাবে সংযুক্ত আছে তা নিশ্চিত করুন৷</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">চার্জার যথাযথভাবে সংযুক্ত আছে তা নিশ্চিত করুন৷ ডিভাইসের সাথে আসা চার্জারটি ব্যবহার করুন৷</string>
     <string name="battery_charging_level_and_time_text">"চার্জ হচ্ছে: %1$d%%
 (সম্পূর্ণ চার্জ না হওয়া অবধি প্রায় %2$s)"</string>
@@ -1633,14 +1637,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">আপনার ফোনে চার্জ দিন।</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">আপনার ট্যাবলেটে চার্জ দিন৷</string>
     <string name="button_close">বন্ধ</string>
-    <string name="battery_health_interruption_title">চার্জ করা সম্ভব নয়</string>
+    <string name="battery_health_interruption_title">চার্জিং বন্ধ হয়েছে</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">চার্জারের প্লাগ খুলুন</string>
     <string name="battery_health_interruption_by_terminal_open_text">আপনার ডিভাইস চার্জ করা সম্ভব নয়। আপনি Samsung-এর সাথে সংগতিপূর্ণ ব্যাটারি ও চার্জার ব্যবহার করছেন এবং আপনার ডিভাইসটি যথাযথভাবে চার্জারের সাথে সংযুক্ত রয়েছে তা নিশ্চিত করুন।</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">চার্জিং স্থগিত। ব্যাটারির তাপমাত্রা অত্যন্ত বেশি।</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">চার্জিং স্থগিত। ব্যাটারির তাপমাত্রা অত্যন্ত কম।</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"ডিভাইসটি চার্জ হওয়া বন্ধ করেছে। ব্যাটারির তাপমাত্রা অত্যন্ত বেশি। চার্জারটি সংযোগ বিচ্ছিন্ন করার সময় সতর্ক হন। এটি অত্যন্ত উত্তপ্ত হতে পারে।
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">আপনার ফোনের তাপমাত্রা অত্যন্ত বেশি। তাপমাত্রা স্বাভাবিক অবস্থায় ফেরত আসলে চার্জ হওয়া অব্যাহত থাকবে।</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">আপনার ট্যাবলেটের তাপমাত্রা অত্যন্ত বেশি। তাপমাত্রা স্বাভাবিক অবস্থায় ফেরত আসলে চার্জ হওয়া অব্যাহত থাকবে।</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">আপনার ফোনের তাপমাত্রা অত্যন্ত কম। তাপমাত্রা স্বাভাবিক অবস্থায় ফেরত আসলে চার্জ হওয়া অব্যাহত থাকবে।</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">আপনার ট্যাবলেটের তাপমাত্রা অত্যন্ত কম। তাপমাত্রা স্বাভাবিক অবস্থায় ফেরত আসলে চার্জ হওয়া অব্যাহত থাকবে।</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"চার্জিং বন্ধ হয়েছে। আপনার ফোনের তাপমাত্রা অত্যন্ত বেশি। চার্জারের সংযোগ খোলার সময় সতর্ক থাকুন৷ এটা অত্যন্ত গরম হতে পারে।
 
-চার্জারটি সংযোগ বিচ্ছিন্ন করে পুনরায় সংযোগ করা স্বাভাবিকভাবে চার্জিং চালিয়ে যেতে সহায়তা করতে পারে। যদি অতিরিক্ত উত্তপ্ত হওয়া চলতে থাকে তবে অগ্নিকাণ্ড বা আঘাতের ঝুঁকির সম্ভাবনা থাকার কারণে গ্রাহক পরিষেবার সাথে যোগাযোগ করুন।"</string>
+চার্জার খুলে আবার লাগালে স্বাভাবিক চার্জিং অব্যাহত থাকতে পারে। অতিরিক্ত গরম হওয়া অব্যাহত থাকলে, আগুন ধরে যাওয়ার বা আহত হওয়ার ঝুঁকি থাকার কারণে গ্রাহক সেবায় যোগাযোগ করুন৷"</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"চার্জিং বন্ধ হয়েছে। আপনার ট্যাবলেটের তাপমাত্রা অত্যন্ত বেশি। চার্জারের সংযোগ খোলার সময় সতর্ক থাকুন৷ এটা অত্যন্ত গরম হতে পারে।
+
+চার্জার খুলে আবার লাগালে স্বাভাবিক চার্জিং অব্যাহত থাকতে পারে। অতিরিক্ত গরম হওয়া অব্যাহত থাকলে, আগুন ধরে যাওয়ার বা আহত হওয়ার ঝুঁকি থাকার কারণে গ্রাহক সেবায় যোগাযোগ করুন৷"</string>
     <string name="incompatible_charger_title">চার্জ হচ্ছে না।</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">খোলার জন্য বায়োমেট্রিক্স ব্যবহার করুন বা স্ক্রিনে সোয়াইপ করুন</string>
     <string name="kg_face_or_swipe_unlock_instructions">আনলক করতে মুখ শনাক্তকরণ ব্যবহার করুন বা স্ক্রিনে সোয়াইপ করুন</string>
     <string name="kg_face_or_swipe_active_instructions">খোলার জন্য মুখ শনাক্তকরণ ব্যবহার করুন বা স্ক্রিনে সোয়াইপ করুন</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">আনলক করতে মুখ শনাক্তকরণ ব্যবহার করুন বা এর বদলে চোখের মণি ব্যবহার করতে স্ক্রিনে সোয়াইপ করুন</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">খোলার জন্য মুখ শনাক্তকরণ ব্যবহার করুন বা এর বদলে চোখের মণি ব্যবহার করতে স্ক্রিনে সোয়াইপ করুন</string>
     <string name="kg_face_unlock_instructions">মুখ শনাক্তকরণের মাধ্যমে আনলক করতে স্ক্রিনে সোয়াইপ করুন</string>
     <string name="kg_face_or_fingerprint_active_instructions">খোলার জন্য আঙুলের ছাপ ব্যবহার করুন বা এর বদলে মুখ শনাক্তকরণ ব্যবহার করতে স্ক্রিনে সোয়াইপ করুন</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">আনলক করতে আঙুলের ছাপ ব্যবহার করুন বা এর বদলে মুখ শনাক্তকরণ ব্যবহার করতে স্ক্রিনে সোয়াইপ করুন</string>
@@ -1672,6 +1680,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">স্ক্রিনটি আনলক করতে দুটি আঙুল ব্যবহার করে সোয়াইপ করুন।</string>
     <string name="kg_swipe_active_instructions">খোলার জন্য স্ক্রিনে সোয়াইপ করুন</string>
     <string name="kg_swipe_unlock_instructions">আনলক করার জন্য স্ক্রিনে সোয়াইপ করুন</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">আনলক করতে বায়োমেট্রিক্স ব্যবহার করুন বা দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">খোলার জন্য বায়োমেট্রিক্স ব্যবহার করুন বা দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">আনলক করতে মুখ শনাক্তকরণ ব্যবহার করুন বা দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">খোলার জন্য মুখ শনাক্তকরণ ব্যবহার করুন বা দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">মুখ শনাক্তকরণের মাধ্যমে আনলক করতে দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">খোলার জন্য আঙুলের ছাপ ব্যবহার করুন অথবা মুখ শনাক্তকরণ ব্যবহার করতে দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">আনলক করতে আঙুলের ছাপ ব্যবহার করুন অথবা মুখ শনাক্তকরণ ব্যবহার করতে দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">খোলার জন্য আঙুলের ছাপ ব্যবহার করুন অথবা চোখের মণি ব্যবহার করতে দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">আনলক করতে আঙুলের ছাপ ব্যবহার করুন অথবা চোখের মণি ব্যবহার করতে দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">খোলার জন্য আঙুলের ছাপ ব্যবহার করুন বা দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">আনলক করতে আঙুলের ছাপ ব্যবহার করুন বা দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">আনলক করার জন্য চোখের মণি ব্যবহার করতে দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">আনলক করতে চোখের মণি ব্যবহার করুন অথবা দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">খোলার জন্য চোখের মণি ব্যবহার করুন অথবা দুই আঙুল দিয়ে স্ক্রিনে সোয়াইপ করুন৷</string>
     <string name="kg_power_connect_charger">চার্জার সংযোগ করুন</string>
     <string name="kg_power_fully_charged">সম্পূর্ণ চার্জ হয়েছে</string>
     <string name="kg_power_fast_charging">দ্রুত চার্জ হচ্ছে: %d%%</string>
@@ -1755,6 +1777,7 @@ If you turn mobile data back on, you may be charged for data usage by your carri
     <string name="remote_input_send_text">পাঠান</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">ফোন আনলক করতে লক বাটনে দু’বার ট্যাপ করুন</string>
     <string name="s_view_cover_toast_pop_up_message">দ্রুত সেটিং বাটন ব্যবহার করতে কভারটি খুলুন৷</string>
     <string name="remote_input_toast_text_on_sview_cover">S View Cover বন্ধ থাকা অবস্থায় দ্রুত জবাব পাঠানোর ফাংশনগুলো ব্যবহার করতে অক্ষম৷</string>
     <string name="powerui_power_sharing_alert_dialog_body">"শেয়ারকৃত পাওয়ারের পরিমাণ নিয়ন্ত্রণ করতে আপনাকে অবশ্যই অ্যাপটি ডাউনলোড করতে হবে৷ যদি আপনি অ্যাপ ছাড়া Samsung-এর Power Sharing Cable EP-SG900 দিয়ে আরেকটি ডিভাইসের সাথে আপনার ডিভাইসটি সংযুক্ত করেন, তাহলে ব্যাটারির সম্পূর্ণ চার্জ অন্য ডিভাইসটিতে চলে যাবে৷
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">আমি সম্মতি দিচ্ছি</string>
-    <string name="force_immersive_guide_text">এই আইকনে ট্যাপ করলে নেভিগেশন বার লুকাবে৷ আপনি এখনও স্ক্রিনের নিচ থেকে উপরের দিকে সোয়াইপ করার মাধ্যমে নেভিগেশন বাটনগুলো ব্যবহার করতে পারেন। নেভিগেশন বার দেখানো অবস্থায়, আপনি এই আইকনটিকে সেখানে লক করতে এটি আবার ট্যাপ করতে পারেন৷ কিছু স্ক্রিনে, যেমন হোম স্ক্রিনে, নেভিগেশন বার সবসময় দেখানো হবে৷</string>
+    <string name="force_immersive_guide_text">এই বাটনে ট্যাপ করলে নেভিগেশন বার লুকাবে৷ আপনি তখনও স্ক্রিনের নিচ থেকে উপরের দিকে সোয়াইপ করার মাধ্যমে নেভিগেশন বাটনগুলো ব্যবহার করতে পারবেন। নেভিগেশন বার দেখানো অবস্থায়, আপনি সেটিকে সেখানে লক করতে এই বাটনটি আবার ট্যাপ করতে পারেন৷ কিছু স্ক্রিনে, যেমন হোম স্ক্রিনে, নেভিগেশন বার সবসময় দেখানো হবে৷ নেভিগেশন বার লুকানো অবস্থায় কোনো অ্যাপ স্বাভাবিকভাবে কাজ না করলে, নেভিগেশন বারকে এর জায়গায় লক করে অ্যাপটি আবার চালু করুন৷</string>
+    <string name="force_immersive_guide_dialog_title">নেভিগেশন বার লুকান:</string>
+    <string name="force_immersive_guide_dialog_message1">এই বাটনে ট্যাপ করলে নেভিগেশন বার লুকাবে৷</string>
+    <string name="force_immersive_guide_dialog_message2">নেভিগেশন বার দেখাতে স্ক্রিনের নিচ থেকে উপরের দিকে সোয়াইপ করুন।</string>
+    <string name="force_immersive_guide_dialog_message3">এটিকে জায়গামত লক করতে এই বাটনটি ট্যাপ করুন৷</string>
+    <string name="force_immersive_guide_dialog_message4">কিছু স্ক্রিনে, যেমন হোম স্ক্রিনে, নেভিগেশন বার সবসময় দেখানো হবে৷</string>
+    <string name="force_immersive_guide_dialog_guide_path">এই বাটনটি লুকাতে, ‘সেটিংস > ডিসপ্লে > নেভিগেশন বার’ অপশনে যান।</string>
+    <string name="force_immersive_guide_dialog_setting">সেটিংস</string>
+    <string name="force_immersive_guide_dialog_ok">ঠিক আছে</string>
     <string name="car_lockscreen_disclaimer_title">সাবধানে চালান</string>
     <string name="car_lockscreen_disclaimer_text">গাড়ি চালানোর সময় সর্বদা সতর্ক থাকুন এবং প্রযোজ্য আইন মেনে চলুন৷ দিকনির্দেশ ভুল, অসম্পূর্ণ, বিপজ্জনক, অনুপযুক্ত, নিষিদ্ধ হতে পারে বা প্রশাসনিক এলাকাগুলি অতিক্রম করতে হতে পারে৷ বাণিজ্যিক তথ্য ভুল বা অসম্পূর্ণ হতে পারে৷ ডেটা প্রকৃত সময়ের নয় এবং অবস্থানের নির্ভুলতা নিশ্চিত করাও সম্ভব নয়৷ গাড়ি চালানোর সময় আপনার মোবাইল ডিভাইসটিকে বা Android Auto এর জন্য উপযুক্ত নয় এমন অ্যাপগুলিকে ব্যবহার করবেন না৷</string>
     <string name="pip_close">PIP বন্ধ করুন</string>
@@ -2230,6 +2261,8 @@ PIN অবশ্যই 4 থেকে 8 সংখ্যাবিশিষ্ট 
     <string name="kg_face_retry_content_description">মুখ শনাক্তকরণ ব্যবহার করতে দু’বার ট্যাপ করুন</string>
     <string name="kg_face_authentication_error_retry_text">কোনো মুখ শনাক্ত হয়নি৷ আবার মুখ শনাক্তকরণের চেষ্টা করতে আইকনে ট্যাপ করুন</string>
     <string name="kg_face_authentication_failed_retry_text">কোনোটি মিলছে না৷ মুখ শনাক্তকরণ ব্যবহার করতে আইকনে ট্যাপ করুন</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">মুখ শনাক্তকরণে একটি সমস্যা হয়েছে৷ আবার চেষ্টা করতে ট্যাপ করুন</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">ভিডিও কল চলাকালীন মুখ শনাক্তকরণ ব্যবহার করা যাবে না</string>
     <string name="kg_fingerprint_no_match">কিছু মেলে না</string>
     <string name="kg_finger_print_not_responding_error_message">আঙুলের ছাপ সেন্সরটি প্রতিক্রিয়া জানাচ্ছে না। পরে আবার চেষ্টা করুন।</string>
     <string name="kg_finger_print_database_error_message">আঙুলের ছাপের তথ্য নষ্ট হয়ে গেছে। আঙুলের ছাপকে স্ক্রিন লকের ধরন হিসেবে পুনরায় সেট করুন, অতঃপর আপনার আঙুলের ছাপগুলি আবার যোগ করুন বা স্ক্রিন লকের ধরনটি পরিবর্তন করুন।</string>
@@ -2366,6 +2399,8 @@ PIN অবশ্যই 4 থেকে 8 সংখ্যাবিশিষ্ট 
     <string name="appicon_badge_new_item">1টি নতুন আইটেম</string>
     <string name="banner_apps_for_dex_detail">Galaxy Apps থেকে DeX-অপটিমাইজড অ্যাপ উপভোগ করুন৷</string>
     <string name="toast_cannot_move_more_than_items">%dটির বেশি আইটেম সরানো যাবে না৷</string>
+    <string name="view_more_in_galaxy_apps">Galaxy Apps-এ আরো দেখুন</string>
+    <string name="view_more_in_play_store">Play Store-এ আরো দেখুন</string>
     <string name="uninstall_title">অ্যাপ আনইনস্টল করবেন?</string>
     <string name="uninstall_1_app_message">আপনি কি এই অ্যাপটি আনইনস্টল করতে চান?</string>
     <string name="uninstall_apps_message">নিম্নলিখিত অ্যাপগুলো আনইনস্টল হবে:</string>
@@ -2406,6 +2441,13 @@ PIN অবশ্যই 4 থেকে 8 সংখ্যাবিশিষ্ট 
     <string name="taskbar_context_menu_close_desk_notification_view">বিজ্ঞপ্তি লুকান</string>
     <string name="volumepanel_notification">নোটিফিকেশন</string>
     <string name="quick_settings_location_detail_device_only">শুধু ডিভাইস</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">চার্জিং স্থগিত। ব্যাটারির তাপমাত্রা অত্যন্ত বেশি।</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">চার্জিং স্থগিত। ব্যাটারির তাপমাত্রা অত্যন্ত কম।</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"ডিভাইসটি চার্জ হওয়া বন্ধ করেছে। ব্যাটারির তাপমাত্রা অত্যন্ত বেশি। চার্জারটি সংযোগ বিচ্ছিন্ন করার সময় সতর্ক হন। এটি অত্যন্ত উত্তপ্ত হতে পারে।
+
+চার্জারটি সংযোগ বিচ্ছিন্ন করে পুনরায় সংযোগ করা স্বাভাবিকভাবে চার্জিং চালিয়ে যেতে সহায়তা করতে পারে। যদি অতিরিক্ত উত্তপ্ত হওয়া চলতে থাকে তবে অগ্নিকাণ্ড বা আঘাতের ঝুঁকির সম্ভাবনা থাকার কারণে গ্রাহক পরিষেবার সাথে যোগাযোগ করুন।"</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">আনলক করতে মুখ শনাক্তকরণ ব্যবহার করুন বা এর বদলে চোখের মণি ব্যবহার করতে স্ক্রিনে সোয়াইপ করুন</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">খোলার জন্য মুখ শনাক্তকরণ ব্যবহার করুন বা এর বদলে চোখের মণি ব্যবহার করতে স্ক্রিনে সোয়াইপ করুন</string>
     <string name="kg_infinity_wallpaper_option_description">একই সময়ে আপনার হোম ও লক স্ক্রিনে ইনফিনিটি ওয়ালপেপার প্রয়োগ করা হবে৷ সেরা অভিজ্ঞতার জন্য নিচের সেটিংস চালু করুন৷</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Always On Display চালু করুন</string>
 </resources>

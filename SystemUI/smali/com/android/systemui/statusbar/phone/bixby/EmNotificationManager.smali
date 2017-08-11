@@ -12,17 +12,17 @@
 
 
 # instance fields
-.field mBarService:Lcom/android/internal/statusbar/IStatusBarService;
-
 .field private mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+.field private mBixbyNotificationController:Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
 
 .field private mContext:Landroid/content/Context;
 
 .field private mInterimStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
 
-.field private mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+.field private mNotificationData:Lcom/android/systemui/statusbar/NotificationData;
 
-.field private mScreenState:Ljava/lang/String;
+.field private mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
 
 # direct methods
@@ -34,7 +34,23 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;)Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyNotificationController:Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;)Lcom/android/systemui/statusbar/NotificationData;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mNotificationData:Lcom/android/systemui/statusbar/NotificationData;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
@@ -42,99 +58,150 @@
     return-object v0
 .end method
 
-.method static synthetic -set0(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic -set0(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Lcom/android/systemui/statusbar/NotificationData;)Lcom/android/systemui/statusbar/NotificationData;
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mScreenState:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mNotificationData:Lcom/android/systemui/statusbar/NotificationData;
 
     return-object p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Ljava/lang/String;)I
+.method static synthetic -wrap0(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Ljava/lang/String;)Z
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->getGridOption(Ljava/lang/String;)I
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->getGridOption(Ljava/lang/String;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
+.method static synthetic -wrap1(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Ljava/util/List;)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->getPackageName(Ljava/util/List;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap2(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Ljava/lang/StringBuffer;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->readOutTts(Ljava/lang/StringBuffer;)V
 
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
+.method static synthetic -wrap3(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/data/ParamFilling;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->selectNotification(Ljava/lang/String;Lcom/samsung/android/sdk/bixby/data/ParamFilling;)V
 
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
+.method static synthetic -wrap4(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Ljava/lang/String;Ljava/util/Map;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap4(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;Lcom/android/systemui/statusbar/NotificationData;Ljava/util/Map;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->selectNotification(Lcom/android/systemui/statusbar/NotificationData;Ljava/util/Map;Ljava/lang/String;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->selectNotification(Ljava/lang/String;Ljava/util/Map;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
-    .locals 4
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager$1;
+    new-instance v0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager$1;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager$1;-><init>(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager$1;-><init>(Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;)V
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mInterimStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mInterimStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->checkActiveAppName()V
+
+    new-instance v0, Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+
+    invoke-direct {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyNotificationController:Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
+
+    return-void
+.end method
+
+.method private checkActiveAppName()V
+    .locals 4
+
     :try_start_0
-    const-string/jumbo v1, "EmNotificationManager"
-
-    const-string/jumbo v2, "BixbyApi.getInstance"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    invoke-virtual {v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getActiveApp()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "Notification"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "EmNotificationManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "activeAppName is not Notification:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getActiveApp()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    const-string/jumbo v2, "Notification"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setActiveApp(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :cond_0
     :goto_0
-    const-string/jumbo v1, "statusbar"
-
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/internal/statusbar/IStatusBarService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/statusbar/IStatusBarService;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
-
     return-void
 
     :catch_0
@@ -175,1309 +242,306 @@
     goto :goto_0
 .end method
 
-.method private clearAllNotification()V
-    .locals 3
+.method private getGridOption(Ljava/lang/String;)Z
+    .locals 11
 
-    const-string/jumbo v1, "EmNotificationManager"
+    const/4 v8, 0x0
 
-    const-string/jumbo v2, "clearAllNotification"
+    const/4 v10, 0x0
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v0, "EmNotificationManager"
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getUserId()I
+    const-string/jumbo v2, "getGridOption : "
 
-    move-result v2
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface {v1, v2}, Lcom/android/internal/statusbar/IStatusBarService;->onClearAllNotifications(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v1
 
-    :goto_0
-    return-void
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :catch_0
-    move-exception v0
+    move-result-object v1
 
-    goto :goto_0
-.end method
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-.method private clearNotification(Landroid/service/notification/StatusBarNotification;)V
-    .locals 6
+    move-result-object v1
 
-    const-string/jumbo v1, "EmNotificationManager"
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const/4 v0, 0x0
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
 
-    const-string/jumbo v3, "clearNotification : "
+    move-result v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v0}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getTag()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getId()I
-
-    move-result v4
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUserId()I
-
-    move-result v5
-
-    invoke-interface {v1, v2, v3, v4, v5}, Lcom/android/internal/statusbar/IStatusBarService;->onNotificationClear(Ljava/lang/String;Ljava/lang/String;II)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
-.end method
-
-.method private getGridOption(Ljava/lang/String;)I
-    .locals 6
-
-    const/4 v1, 0x0
-
-    const-string/jumbo v3, "EmNotificationManager"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "getGridOption : "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v3, 0x0
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
-
-    move-result-object v0
+    move-result-object v7
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v0
 
-    add-int/lit8 v2, v3, -0x1
+    add-int/lit8 v9, v0, -0x1
 
-    const-string/jumbo v3, "3"
+    const-string/jumbo v0, "3"
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v3, "4"
+    const-string/jumbo v0, "4"
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v3, "5"
+    const-string/jumbo v0, "5"
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    :cond_0
-    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "3"
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    :cond_1
-    return v1
-.end method
-
-.method private requestNLG(Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-    .locals 4
-
-    const-string/jumbo v1, "EmNotificationManager"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "requestNLG -"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v0, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    invoke-direct {v0, p1}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    invoke-virtual {v1, v0, p2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    return-void
-.end method
-
-.method private requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-    .locals 4
-
-    const-string/jumbo v1, "EmNotificationManager"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "requestNLG -"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v0, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    invoke-direct {v0, p1}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p2, p3, p4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    invoke-virtual {v1, v0, p5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    return-void
-.end method
-
-.method private requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-    .locals 4
-
-    const-string/jumbo v1, "EmNotificationManager"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "requestNLG -"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "-"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v0, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    invoke-direct {v0, p1}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p2, p3, p4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    invoke-virtual {v0, p5, p6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addResultParam(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    invoke-virtual {v1, v0, p7}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    return-void
-.end method
-
-.method private requestNlgNoParameter(Ljava/lang/String;)V
-    .locals 6
-
-    const-string/jumbo v0, "ClearSelectedNotifications"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    const-string/jumbo v1, "NotificationPanel"
-
-    const-string/jumbo v2, "DeleteItem"
-
-    const-string/jumbo v3, "Exist"
-
-    const-string/jumbo v4, "no"
-
-    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object v0, p0
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
     :cond_0
-    :goto_0
-    return-void
+    invoke-virtual {p1, v9}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "3"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v8
 
     :cond_1
-    const-string/jumbo v0, "OpenSelectedNotifications"
+    const/4 v0, 0x3
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-lt v8, v0, :cond_2
 
-    move-result v0
+    const/4 v0, 0x5
 
-    if-eqz v0, :cond_2
-
-    const-string/jumbo v1, "NotificationPanel"
-
-    const-string/jumbo v2, "OpenItem"
-
-    const-string/jumbo v3, "Exist"
-
-    const-string/jumbo v4, "no"
-
-    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object v0, p0
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto :goto_0
+    if-le v8, v0, :cond_3
 
     :cond_2
-    const-string/jumbo v0, "ExpandSelectedNotifications"
+    const-string/jumbo v0, "QuickPanelGridView"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v1, "GridOption"
 
-    move-result v0
+    const-string/jumbo v2, "Match"
 
-    if-eqz v0, :cond_0
+    const-string/jumbo v3, "no"
 
-    const-string/jumbo v1, "NotificationPanel"
+    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
 
-    const-string/jumbo v2, "ExpandItem"
+    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/systemui/statusbar/phone/bixby/data/NotificationNlgInfo;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
 
-    const-string/jumbo v3, "Exist"
+    const/4 v10, 0x0
 
-    const-string/jumbo v4, "no"
+    :goto_0
+    return v10
 
-    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
+    :cond_3
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    move-object v0, p0
+    invoke-virtual {v0, v8}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQSPanelGrid(I)Z
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
+    const-string/jumbo v0, "QuickPanel"
+
+    const-string/jumbo v1, "GridOption"
+
+    const-string/jumbo v2, "Match"
+
+    const-string/jumbo v3, "yes"
+
+    const-string/jumbo v4, "GridOption"
+
+    sget-object v6, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
+
+    move-object v5, p1
+
+    invoke-static/range {v0 .. v6}, Lcom/android/systemui/statusbar/phone/bixby/data/NotificationNlgInfo;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
+
+    const/4 v10, 0x1
 
     goto :goto_0
 .end method
 
-.method private selectNotification(Lcom/android/systemui/statusbar/NotificationData;Ljava/util/Map;Ljava/lang/String;)V
-    .locals 32
+.method private getPackageName(Ljava/util/List;)Ljava/lang/String;
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/systemui/statusbar/NotificationData;",
-            "Ljava/util/Map",
+            "Ljava/util/List",
             "<",
-            "Ljava/lang/String;",
-            "Lcom/samsung/android/sdk/bixby/data/Parameter;",
-            ">;",
-            "Ljava/lang/String;",
-            ")V"
+            "Lcom/samsung/android/sdk/bixby/data/CHObject;",
+            ">;)",
+            "Ljava/lang/String;"
         }
     .end annotation
 
-    invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/statusbar/NotificationData;->getActiveNotifications()Ljava/util/ArrayList;
+    const/4 v2, 0x0
 
-    move-result-object v11
+    const/4 v4, 0x0
 
-    invoke-virtual {v11}, Ljava/util/ArrayList;->size()I
+    if-eqz p1, :cond_1
 
-    move-result v10
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getUserId()I
-
-    move-result v17
-
-    new-instance v27, Ljava/util/ArrayList;
-
-    invoke-direct/range {v27 .. v27}, Ljava/util/ArrayList;-><init>()V
-
-    const/16 v22, 0x0
-
-    const/16 v23, 0x0
-
-    const-string/jumbo v8, ""
-
-    if-nez p2, :cond_0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p3
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNlgNoParameter(Ljava/lang/String;)V
-
-    return-void
+    move-result-object v1
 
     :cond_0
-    const-string/jumbo v2, "ordinalNumber"
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-object/from16 v0, p2
+    move-result v5
 
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    if-eqz v5, :cond_1
 
-    move-result-object v2
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    if-eqz v2, :cond_9
+    move-result-object v0
 
-    const-string/jumbo v2, "ordinalNumber"
+    check-cast v0, Lcom/samsung/android/sdk/bixby/data/CHObject;
 
-    move-object/from16 v0, p2
+    const-string/jumbo v5, "packageName"
 
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHType()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v6
 
-    check-cast v2, Lcom/samsung/android/sdk/bixby/data/Parameter;
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+    move-result v5
 
-    move-result-object v2
+    if-eqz v5, :cond_0
 
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    if-lez v2, :cond_9
-
-    const-string/jumbo v2, "ordinalNumber"
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHValue()Ljava/lang/String;
 
     move-result-object v2
 
-    check-cast v2, Lcom/samsung/android/sdk/bixby/data/Parameter;
+    const-string/jumbo v5, "EmNotificationManager"
 
-    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    :try_start_0
-    invoke-static/range {v28 .. v28}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+    const-string/jumbo v7, "pkgName - chObjects:"
 
-    move-result-object v2
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v6
 
-    move-result v25
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "ClearSelectedNotifications"
+    move-result-object v6
 
-    move-object/from16 v0, p3
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    const/16 v18, 0x1
-
-    :goto_0
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    move/from16 v0, v25
-
-    move/from16 v1, v18
-
-    invoke-virtual {v2, v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getNotificationView(IZ)Landroid/view/View;
-
-    move-result-object v16
-
-    if-eqz v16, :cond_8
-
-    const-string/jumbo v2, "ClearSelectedNotifications"
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    const v2, 0x7f1304b3
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v31
-
-    if-eqz v31, :cond_3
-
-    invoke-virtual/range {v31 .. v31}, Landroid/view/View;->getVisibility()I
-
-    move-result v2
-
-    const/16 v3, 0x8
-
-    if-eq v2, v3, :cond_3
-
-    const-string/jumbo v2, "EmNotificationManager"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "veto.performClick()"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual/range {v16 .. v16}, Landroid/view/View;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual/range {v31 .. v31}, Landroid/view/View;->performClick()Z
-
-    const-string/jumbo v3, "Root"
-
-    const-string/jumbo v4, "Ongoing noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "no"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    :goto_1
-    return-void
+    if-eqz v2, :cond_2
 
-    :catch_0
-    move-exception v19
+    const-string/jumbo v5, "no.package"
 
-    const-string/jumbo v2, "EmNotificationManager"
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v3, "NumberFormatException"
+    move-result v5
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p3
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNlgNoParameter(Ljava/lang/String;)V
-
-    return-void
+    if-eqz v5, :cond_3
 
     :cond_2
-    const/16 v18, 0x0
-
-    goto :goto_0
+    :goto_0
+    return-object v4
 
     :cond_3
-    const-string/jumbo v3, "Root"
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    const-string/jumbo v4, "Ongoing noti"
+    move-result v5
 
-    const-string/jumbo v5, "Exist"
+    if-lez v5, :cond_2
 
-    const-string/jumbo v6, "yes"
+    const-string/jumbo v5, "_"
 
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
+    invoke-virtual {v2, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-object/from16 v2, p0
+    move-result-object v3
 
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
+    array-length v5, v3
 
-    goto :goto_1
+    const/4 v6, 0x2
+
+    if-eq v5, v6, :cond_4
+
+    return-object v4
 
     :cond_4
-    const-string/jumbo v2, "OpenSelectedNotifications"
+    const/4 v5, 0x1
 
-    move-object/from16 v0, p3
+    aget-object v4, v3, v5
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    goto :goto_0
+.end method
 
-    move-result v2
+.method private readOutTts(Ljava/lang/StringBuffer;)V
+    .locals 4
 
-    if-eqz v2, :cond_5
+    const/16 v1, 0x12c
 
-    const-string/jumbo v2, "EmNotificationManager"
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->length()I
 
-    const-string/jumbo v3, "childView.performClick()"
+    move-result v0
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz p1, :cond_1
 
-    invoke-virtual/range {v16 .. v16}, Landroid/view/View;->performClick()Z
+    if-lez v0, :cond_1
 
-    const-string/jumbo v3, "Root"
+    if-le v0, v1, :cond_0
 
-    const-string/jumbo v4, "ordinalNumber"
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->setLength(I)V
 
-    const-string/jumbo v5, "Match"
-
-    const-string/jumbo v6, "yes"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto :goto_1
-
-    :cond_5
-    const-string/jumbo v2, "ExpandSelectedNotifications"
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    move-object/from16 v15, v16
-
-    check-cast v15, Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-virtual {v15}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isExpandable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    invoke-virtual {v15}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isExpanded()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_7
-
-    :cond_6
-    const-string/jumbo v3, "Root"
-
-    const-string/jumbo v4, "Expanded Noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "yes"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto/16 :goto_1
-
-    :cond_7
-    const-string/jumbo v2, "EmNotificationManager"
-
-    const-string/jumbo v3, "childRow.setUserExpanded()"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v15}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->setUserExpanded(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Z
-
-    const-string/jumbo v3, "NotificationPanel"
-
-    const-string/jumbo v4, "Expanded Noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "no"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto/16 :goto_1
-
-    :cond_8
-    const-string/jumbo v3, "NotificationPanel"
-
-    const-string/jumbo v4, "ordinalNumber"
-
-    const-string/jumbo v5, "Match"
-
-    const-string/jumbo v6, "no"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto/16 :goto_1
-
-    :cond_9
-    const-string/jumbo v2, "AllNoti"
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_13
-
-    const-string/jumbo v2, "AllNoti"
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/samsung/android/sdk/bixby/data/Parameter;
-
-    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "TRUE"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_13
-
-    const-string/jumbo v2, "ClearSelectedNotifications"
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_e
-
-    const/16 v24, 0x0
-
-    :goto_2
-    move/from16 v0, v24
-
-    if-ge v0, v10, :cond_a
-
-    move/from16 v0, v24
-
-    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v20
-
-    check-cast v20, Lcom/android/systemui/statusbar/NotificationData$Entry;
-
-    move-object/from16 v0, v20
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {v2}, Landroid/service/notification/StatusBarNotification;->isClearable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_c
-
-    const/16 v22, 0x1
-
-    :cond_a
-    if-eqz v22, :cond_d
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->clearAllNotification()V
-
-    const-string/jumbo v3, "Root"
-
-    const-string/jumbo v4, "All Ongoing noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "yes"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    :cond_b
-    :goto_3
-    return-void
-
-    :cond_c
-    add-int/lit8 v24, v24, 0x1
-
-    goto :goto_2
-
-    :cond_d
-    const-string/jumbo v3, "Root"
-
-    const-string/jumbo v4, "All Ongoing noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "no"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto :goto_3
-
-    :cond_e
-    const-string/jumbo v2, "ExpandSelectedNotifications"
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    const/16 v24, 0x0
-
-    :goto_4
-    move/from16 v0, v24
-
-    if-ge v0, v10, :cond_11
-
-    move/from16 v0, v24
-
-    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v20
-
-    check-cast v20, Lcom/android/systemui/statusbar/NotificationData$Entry;
-
-    move-object/from16 v0, v20
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isExpandable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_f
-
-    move-object/from16 v0, v20
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isExpanded()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_10
-
-    :cond_f
-    :goto_5
-    add-int/lit8 v24, v24, 0x1
-
-    goto :goto_4
-
-    :cond_10
-    const/16 v22, 0x1
-
-    move-object/from16 v0, v20
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v2}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->setUserExpanded(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Z
-
-    goto :goto_5
-
-    :cond_11
-    if-eqz v22, :cond_12
-
-    const-string/jumbo v3, "NotificationPanel"
-
-    const-string/jumbo v4, "All expanded Noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "no"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto :goto_3
-
-    :cond_12
-    const-string/jumbo v3, "NotificationPanel"
-
-    const-string/jumbo v4, "All expanded Noti "
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "yes"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto :goto_3
-
-    :cond_13
-    const-string/jumbo v2, "AppName"
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_18
-
-    const-string/jumbo v2, "AppName"
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/samsung/android/sdk/bixby/data/Parameter;
-
-    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v2, "AppName"
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/samsung/android/sdk/bixby/data/Parameter;
-
-    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getCHObjects()Ljava/util/List;
-
-    move-result-object v14
-
-    if-eqz v14, :cond_17
-
-    const-string/jumbo v2, "EmNotificationManager"
-
-    const-string/jumbo v3, "chObjects != null:"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v13
-
-    :cond_14
-    :goto_6
-    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_17
-
-    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/samsung/android/sdk/bixby/data/CHObject;
-
-    const-string/jumbo v2, "packageName"
-
-    invoke-virtual {v12}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHType()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_15
-
-    const-string/jumbo v2, "PackageName"
-
-    invoke-virtual {v12}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHType()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_16
-
-    :cond_15
-    invoke-virtual {v12}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHValue()Ljava/lang/String;
-
-    move-result-object v30
-
-    const-string/jumbo v2, "EmNotificationManager"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "slotValue - chObjects:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_16
-    const-string/jumbo v2, "AppName"
-
-    invoke-virtual {v12}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHType()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_14
-
-    invoke-virtual {v12}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHValue()Ljava/lang/String;
-
-    move-result-object v8
-
-    const-string/jumbo v2, "EmNotificationManager"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "appName - chObjects:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_6
-
-    :cond_17
-    const-string/jumbo v2, "no.package"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_18
-
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    if-lez v2, :cond_18
-
-    const-string/jumbo v2, "_"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v26
-
-    const/16 v24, 0x0
-
-    :goto_7
-    move-object/from16 v0, v26
-
-    array-length v2, v0
-
-    move/from16 v0, v24
-
-    if-ge v0, v2, :cond_18
-
-    aget-object v2, v26, v24
-
-    move-object/from16 v0, v27
-
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v3, "EmNotificationManager"
+    :cond_0
+    const-string/jumbo v1, "EmNotificationManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "getSlotValue:"
+    const-string/jumbo v3, "tts length:"
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    move-object/from16 v0, v27
-
-    move/from16 v1, v24
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    check-cast v2, Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->length()I
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -1485,560 +549,265 @@
 
     move-result-object v2
 
-    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    add-int/lit8 v24, v24, 0x1
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    goto :goto_7
-
-    :cond_18
-    invoke-interface/range {v27 .. v27}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    if-nez v2, :cond_19
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p3
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNlgNoParameter(Ljava/lang/String;)V
-
-    return-void
-
-    :cond_19
-    const/16 v22, 0x0
-
-    const/16 v21, 0x0
-
-    :goto_8
-    move/from16 v0, v21
-
-    if-ge v0, v10, :cond_1f
-
-    move/from16 v0, v21
-
-    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v20
-
-    check-cast v20, Lcom/android/systemui/statusbar/NotificationData$Entry;
-
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
-
-    move-object/from16 v29, v0
-
-    const/16 v24, 0x0
-
-    :goto_9
-    invoke-interface/range {v27 .. v27}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    move/from16 v0, v24
-
-    if-ge v0, v2, :cond_1e
-
-    invoke-virtual/range {v29 .. v29}, Landroid/service/notification/StatusBarNotification;->getUserId()I
-
-    move-result v2
-
-    move/from16 v0, v17
-
-    if-ne v2, v0, :cond_1b
-
-    invoke-virtual/range {v29 .. v29}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    move-object/from16 v0, v27
+    sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;->WAIT:Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;
 
-    move/from16 v1, v24
+    invoke-virtual {v1, v2, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestTts(Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;)V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1b
-
-    const-string/jumbo v2, "ClearSelectedNotifications"
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1c
-
-    invoke-virtual/range {v29 .. v29}, Landroid/service/notification/StatusBarNotification;->isClearable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1a
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v29
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->clearNotification(Landroid/service/notification/StatusBarNotification;)V
-
-    const/16 v22, 0x1
-
-    :cond_1a
-    :goto_a
-    const/16 v23, 0x1
-
-    :cond_1b
-    add-int/lit8 v24, v24, 0x1
-
-    goto :goto_9
-
-    :cond_1c
-    const-string/jumbo v2, "OpenSelectedNotifications"
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1d
-
-    move-object/from16 v0, v20
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->performClick()Z
-
-    goto :goto_a
-
-    :cond_1d
-    const-string/jumbo v2, "ExpandSelectedNotifications"
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1a
-
-    move-object/from16 v0, v20
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isExpandable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1a
-
-    move-object/from16 v0, v20
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isExpanded()Z
-
-    move-result v2
-
-    if-nez v2, :cond_1a
-
-    move-object/from16 v0, v20
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v2}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->setUserExpanded(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Z
-
-    const/16 v22, 0x1
-
-    goto :goto_a
-
-    :cond_1e
-    add-int/lit8 v21, v21, 0x1
-
-    goto/16 :goto_8
-
-    :cond_1f
-    if-eqz v23, :cond_2a
-
-    const-string/jumbo v2, "ClearSelectedNotifications"
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_24
-
-    if-eqz v22, :cond_22
-
-    if-eqz v8, :cond_21
-
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    if-lez v2, :cond_21
-
-    const-string/jumbo v3, "Root"
-
-    const-string/jumbo v4, "Ongoing noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "no"
-
-    const-string/jumbo v7, "AppName"
-
-    sget-object v9, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    :cond_20
-    :goto_b
+    :cond_1
     return-void
-
-    :cond_21
-    const-string/jumbo v3, "Root"
-
-    const-string/jumbo v4, "Ongoing noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "no"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto :goto_b
-
-    :cond_22
-    if-eqz v8, :cond_23
-
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    if-lez v2, :cond_23
-
-    const-string/jumbo v3, "Root"
-
-    const-string/jumbo v4, "Ongoing noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "yes"
-
-    const-string/jumbo v7, "AppName"
-
-    sget-object v9, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto :goto_b
-
-    :cond_23
-    const-string/jumbo v3, "Root"
-
-    const-string/jumbo v4, "Ongoing noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "yes"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto :goto_b
-
-    :cond_24
-    const-string/jumbo v2, "OpenSelectedNotifications"
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_26
-
-    if-eqz v8, :cond_25
-
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    if-lez v2, :cond_25
-
-    const-string/jumbo v3, "Root"
-
-    const-string/jumbo v4, "AppName"
-
-    const-string/jumbo v5, "Match"
-
-    const-string/jumbo v6, "yes"
-
-    const-string/jumbo v7, "AppName"
-
-    sget-object v9, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto :goto_b
-
-    :cond_25
-    const-string/jumbo v3, "Root"
-
-    const-string/jumbo v4, "AppName"
-
-    const-string/jumbo v5, "Match"
-
-    const-string/jumbo v6, "yes"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto/16 :goto_b
-
-    :cond_26
-    const-string/jumbo v2, "ExpandSelectedNotifications"
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_20
-
-    if-eqz v22, :cond_28
-
-    if-eqz v8, :cond_27
-
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    if-lez v2, :cond_27
-
-    const-string/jumbo v3, "NotificationPanel"
-
-    const-string/jumbo v4, "Expanded Noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "no"
-
-    const-string/jumbo v7, "AppName"
-
-    sget-object v9, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto/16 :goto_b
-
-    :cond_27
-    const-string/jumbo v3, "NotificationPanel"
-
-    const-string/jumbo v4, "Expanded Noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "no"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto/16 :goto_b
-
-    :cond_28
-    if-eqz v8, :cond_29
-
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    if-lez v2, :cond_29
-
-    const-string/jumbo v3, "NotificationPanel"
-
-    const-string/jumbo v4, "Expanded Noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "yes"
-
-    const-string/jumbo v7, "AppName"
-
-    sget-object v9, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto/16 :goto_b
-
-    :cond_29
-    const-string/jumbo v3, "NotificationPanel"
-
-    const-string/jumbo v4, "Expanded Noti"
-
-    const-string/jumbo v5, "Exist"
-
-    const-string/jumbo v6, "yes"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto/16 :goto_b
-
-    :cond_2a
-    if-eqz v8, :cond_2b
-
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    if-lez v2, :cond_2b
-
-    const-string/jumbo v2, "EmNotificationManager"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, " AppName:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "NotificationPanel"
-
-    const-string/jumbo v4, "AppName"
-
-    const-string/jumbo v5, "Match"
-
-    const-string/jumbo v6, "no"
-
-    const-string/jumbo v7, "AppName"
-
-    sget-object v9, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto/16 :goto_b
-
-    :cond_2b
-    const-string/jumbo v3, "NotificationPanel"
-
-    const-string/jumbo v4, "AppName"
-
-    const-string/jumbo v5, "Match"
-
-    const-string/jumbo v6, "no"
-
-    sget-object v7, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->requestNLG(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-
-    goto/16 :goto_b
 .end method
 
-.method private setUserExpanded(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Z
-    .locals 5
+.method private selectNotification(Ljava/lang/String;Lcom/samsung/android/sdk/bixby/data/ParamFilling;)V
+    .locals 7
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isSummaryWithChildren()Z
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/bixby/data/ParamFilling;->getScreenParamMap()Ljava/util/Map;
 
-    move-result v4
+    move-result-object v5
 
-    if-eqz v4, :cond_0
+    const-string/jumbo v6, "AllNoti"
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getChildrenContainer()Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;
+    invoke-interface {v5, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;->getHeaderView()Landroid/view/NotificationHeaderView;
+    check-cast v0, Lcom/samsung/android/sdk/bixby/data/ScreenParameter;
+
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/bixby/data/ParamFilling;->getScreenParamMap()Ljava/util/Map;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "ordinalNumber"
+
+    invoke-interface {v5, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    :goto_0
-    if-eqz v3, :cond_1
+    check-cast v3, Lcom/samsung/android/sdk/bixby/data/ScreenParameter;
 
-    invoke-virtual {v3}, Landroid/view/NotificationHeaderView;->getExpandButton()Landroid/widget/ImageView;
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/bixby/data/ParamFilling;->getScreenParamMap()Ljava/util/Map;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "AppName"
+
+    invoke-interface {v5, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    check-cast v2, Lcom/samsung/android/sdk/bixby/data/ScreenParameter;
 
-    invoke-virtual {v2}, Landroid/widget/ImageView;->performClick()Z
+    if-eqz v0, :cond_0
 
-    const/4 v4, 0x1
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/ScreenParameter;->getSlotValue()Ljava/lang/String;
 
-    return v4
+    move-result-object v5
+
+    const-string/jumbo v6, "TRUE"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyNotificationController:Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/ScreenParameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6, p1}, Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;->selectAllNotification(Ljava/lang/String;Ljava/lang/String;)Z
+
+    :goto_0
+    return-void
 
     :cond_0
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getShowingLayout()Lcom/android/systemui/statusbar/NotificationContentView;
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/ScreenParameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-lez v5, :cond_1
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/ScreenParameter;->getCHObjects()Ljava/util/List;
+
+    move-result-object v5
+
+    invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->getPackageName(Ljava/util/List;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/ScreenParameter;->getSlotValue()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/NotificationContentView;->getVisibleNotificationHeader()Landroid/view/NotificationHeaderView;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyNotificationController:Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
 
-    move-result-object v3
+    invoke-virtual {v5, v1, v4, p1}, Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;->selectAppNameNotification(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     goto :goto_0
 
     :cond_1
-    const/4 v4, 0x0
+    if-eqz v3, :cond_2
 
-    return v4
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/bixby/data/ScreenParameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-lez v5, :cond_2
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyNotificationController:Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
+
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/bixby/data/ScreenParameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6, p1}, Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;->selectOrdinalNotification(Ljava/lang/String;Ljava/lang/String;)Z
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/bixby/data/NotificationNlgInfo;->requestNlgNoParameter(Ljava/lang/String;)V
+
+    goto :goto_0
+.end method
+
+.method private selectNotification(Ljava/lang/String;Ljava/util/Map;)V
+    .locals 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Lcom/samsung/android/sdk/bixby/data/Parameter;",
+            ">;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v5, "AllNoti"
+
+    invoke-interface {p2, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/sdk/bixby/data/Parameter;
+
+    const-string/jumbo v5, "ordinalNumber"
+
+    invoke-interface {p2, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/samsung/android/sdk/bixby/data/Parameter;
+
+    const-string/jumbo v5, "AppName"
+
+    invoke-interface {p2, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/samsung/android/sdk/bixby/data/Parameter;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-lez v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyNotificationController:Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6, p1}, Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;->selectAllNotification(Ljava/lang/String;Ljava/lang/String;)Z
+
+    :goto_0
+    return-void
+
+    :cond_0
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-lez v5, :cond_1
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getCHObjects()Ljava/util/List;
+
+    move-result-object v5
+
+    invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->getPackageName(Ljava/util/List;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyNotificationController:Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
+
+    invoke-virtual {v5, v1, v4, p1}, Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;->selectAppNameNotification(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz v3, :cond_2
+
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-lez v5, :cond_2
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyNotificationController:Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;
+
+    invoke-virtual {v3}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6, p1}, Lcom/android/systemui/statusbar/phone/bixby/policy/BixbyNotificationController;->selectOrdinalNotification(Ljava/lang/String;Ljava/lang/String;)Z
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/bixby/data/NotificationNlgInfo;->requestNlgNoParameter(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 
@@ -2052,19 +821,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v0, "NotificationPanel"
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mScreenState:Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v1, "Notification"
-
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->createInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->checkActiveAppName()V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/bixby/EmNotificationManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 

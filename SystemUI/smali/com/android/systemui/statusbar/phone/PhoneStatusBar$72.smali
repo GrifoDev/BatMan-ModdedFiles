@@ -28,8 +28,6 @@
 
 .field final synthetic val$clock:Landroid/view/View;
 
-.field final synthetic val$iconSlot:Landroid/view/View;
-
 .field final synthetic val$keyguardBackground:Landroid/view/View;
 
 .field final synthetic val$keyguardHeader:Landroid/view/View;
@@ -40,7 +38,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/view/View;Landroid/view/View;Landroid/view/View;Landroid/view/View;Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/view/View;Landroid/view/View;Landroid/view/View;Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
     .locals 1
 
     const/high16 v0, 0x3f800000    # 1.0f
@@ -57,9 +55,7 @@
 
     iput-object p6, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$keyguardBackground:Landroid/view/View;
 
-    iput-object p7, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$iconSlot:Landroid/view/View;
-
-    iput-object p8, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$moreCue:Landroid/view/View;
+    iput-object p7, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$moreCue:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -103,15 +99,15 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$noti:Landroid/view/View;
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->setAlpha(F)V
+    const/4 v2, 0x0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$noti:Landroid/view/View;
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->setScaleX(F)V
+    const-string/jumbo v1, "PhoneStatusBar"
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$noti:Landroid/view/View;
+    const-string/jumbo v2, "nssl is visible again by unlock animation end..."
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->setScaleY(F)V
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$keyguardHeader:Landroid/view/View;
 
@@ -176,26 +172,9 @@
     invoke-virtual {v1, v3}, Landroid/view/View;->setScaleY(F)V
 
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$iconSlot:Landroid/view/View;
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$iconSlot:Landroid/view/View;
-
-    invoke-virtual {v1}, Landroid/view/View;->getVisibility()I
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$iconSlot:Landroid/view/View;
-
-    invoke-virtual {v1, v3}, Landroid/view/View;->setAlpha(F)V
-
-    :cond_3
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$moreCue:Landroid/view/View;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$moreCue:Landroid/view/View;
 
@@ -209,14 +188,14 @@
 
     invoke-virtual {v1, v3}, Landroid/view/View;->setScaleY(F)V
 
-    :cond_4
+    :cond_3
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap28(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-wrap29(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    invoke-static {v1, v4}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set24(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
+    invoke-static {v1, v4}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set23(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     const-string/jumbo v1, "PhoneStatusBar"
 
@@ -234,7 +213,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$clock:Landroid/view/View;
 
@@ -251,6 +230,18 @@
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->clockOriginalScaleY:F
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$72;->val$noti:Landroid/view/View;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    const-string/jumbo v0, "PhoneStatusBar"
+
+    const-string/jumbo v1, "nssl is gone by unlock animation start..."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

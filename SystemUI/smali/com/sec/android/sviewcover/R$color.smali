@@ -4,23 +4,23 @@
 
 
 # static fields
-.field public static final clear_cover_font_color:I = 0x7f0b0016
+.field public static final clear_cover_font_color:I = 0x7f0b0017
 
-.field public static final clear_cover_wallpapaer_color_black:I = 0x7f0b0019
+.field public static final clear_cover_wallpapaer_color_black:I = 0x7f0b001a
 
-.field public static final clear_cover_wallpapaer_color_blue:I = 0x7f0b001a
+.field public static final clear_cover_wallpapaer_color_blue:I = 0x7f0b001b
 
-.field public static final clear_cover_wallpapaer_color_gold:I = 0x7f0b001c
+.field public static final clear_cover_wallpapaer_color_gold:I = 0x7f0b001d
 
-.field public static final clear_cover_wallpapaer_color_green:I = 0x7f0b001b
+.field public static final clear_cover_wallpapaer_color_green:I = 0x7f0b001c
 
-.field public static final clear_cover_wallpapaer_color_silver:I = 0x7f0b0018
+.field public static final clear_cover_wallpapaer_color_silver:I = 0x7f0b0019
 
-.field public static final clear_cover_wallpapaer_hero_color_black:I = 0x7f0b001d
+.field public static final clear_cover_wallpapaer_hero_color_black:I = 0x7f0b001e
 
-.field public static final shortcut_affordance_bg:I = 0x7f0b0017
+.field public static final shortcut_affordance_bg:I = 0x7f0b0018
 
-.field public static final sview_cover_theme_charging_text_font_color:I = 0x7f0b0015
+.field public static final sview_cover_theme_charging_text_font_color:I = 0x7f0b0016
 
 
 # direct methods

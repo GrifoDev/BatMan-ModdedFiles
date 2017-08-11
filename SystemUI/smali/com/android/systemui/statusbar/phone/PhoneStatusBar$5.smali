@@ -58,7 +58,7 @@
 
     move-result v1
 
-    const v2, 0x7f020738
+    const v2, 0x7f020747
 
     if-eqz v1, :cond_e
 
@@ -87,7 +87,7 @@
     move v3, v4
 
     :goto_0
-    invoke-static {v6, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set20(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
+    invoke-static {v6, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set19(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$5;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
@@ -110,7 +110,7 @@
     move v3, v4
 
     :goto_1
-    invoke-static {v6, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set21(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
+    invoke-static {v6, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set20(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$5;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
@@ -133,7 +133,7 @@
     move v3, v4
 
     :goto_2
-    invoke-static {v6, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set23(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
+    invoke-static {v6, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set22(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$5;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
@@ -156,7 +156,7 @@
     move v3, v4
 
     :goto_3
-    invoke-static {v6, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set22(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
+    invoke-static {v6, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->-set21(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Z)Z
 
     const-string/jumbo v3, "PhoneStatusBar"
 
@@ -363,7 +363,7 @@
 
     if-eqz v3, :cond_b
 
-    const v2, 0x7f020736
+    const v2, 0x7f020745
 
     :goto_5
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$5;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
@@ -398,7 +398,7 @@
     goto :goto_4
 
     :cond_b
-    const v2, 0x7f020737
+    const v2, 0x7f020746
 
     goto :goto_5
 

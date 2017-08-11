@@ -368,7 +368,7 @@
 
     new-instance v2, Lcom/android/systemui/recents/views/AnimateableViewBounds;
 
-    const v3, 0x7f0d0380
+    const v3, 0x7f0d0381
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -403,7 +403,7 @@
     :cond_1
     new-instance v2, Lcom/android/systemui/recents/views/AnimateableViewBounds;
 
-    const v3, 0x7f0d037e
+    const v3, 0x7f0d037f
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -896,7 +896,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0f04a7
+    const v6, 0x7f0f0504
 
     invoke-virtual {v12, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1127,7 +1127,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/recents/views/TaskView;->mScreenRatioButtonView:Landroid/view/View;
 
-    const v6, 0x7f13040c
+    const v6, 0x7f130418
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1177,11 +1177,11 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v22
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v19
 
-    invoke-direct {v5, v0, v1, v14, v2}, Lcom/android/systemui/recents/views/TaskView$6;-><init>(Lcom/android/systemui/recents/views/TaskView;Ljava/lang/String;Landroid/content/pm/ActivityInfo;Landroid/widget/ProgressBar;)V
+    invoke-direct {v5, v0, v1, v2, v14}, Lcom/android/systemui/recents/views/TaskView$6;-><init>(Lcom/android/systemui/recents/views/TaskView;Landroid/widget/ProgressBar;Ljava/lang/String;Landroid/content/pm/ActivityInfo;)V
 
     invoke-virtual {v11, v5}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -1452,7 +1452,7 @@
 .method protected onFinishInflate()V
     .locals 2
 
-    const v0, 0x7f130411
+    const v0, 0x7f13041d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskView;->findViewById(I)Landroid/view/View;
 
@@ -1462,7 +1462,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/TaskView;->mHeaderView:Lcom/android/systemui/recents/views/TaskViewHeader;
 
-    const v0, 0x7f13040a
+    const v0, 0x7f130416
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskView;->findViewById(I)Landroid/view/View;
 
@@ -1478,7 +1478,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->updateClipToTaskBar(Landroid/view/View;)V
 
-    const v0, 0x7f13040e
+    const v0, 0x7f13041a
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskView;->findViewById(I)Landroid/view/View;
 
@@ -1494,7 +1494,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskView;->mActionButtonTranslationZ:F
 
-    const v0, 0x7f13040b
+    const v0, 0x7f130417
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskView;->findViewById(I)Landroid/view/View;
 
@@ -2172,7 +2172,7 @@
 
     if-nez v2, :cond_3
 
-    const v2, 0x7f13040f
+    const v2, 0x7f13041b
 
     invoke-static {p0, v2}, Lcom/android/systemui/recents/misc/Utilities;->findViewStubById(Landroid/view/View;I)Landroid/view/ViewStub;
 
@@ -2192,7 +2192,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v2, 0x7f0f04a9
+    const v2, 0x7f0f0506
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -2704,18 +2704,14 @@
 
     invoke-virtual {v3, v4, v5}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->getAndUpdateActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
 
-    move-result-object v0
+    move-result-object v1
 
     iget-object v3, p0, Lcom/android/systemui/recents/views/TaskView;->mTask:Lcom/android/systemui/recents/model/Task;
 
-    iget-object v3, v3, Lcom/android/systemui/recents/model/Task;->topActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
+    iget-object v0, v3, Lcom/android/systemui/recents/model/Task;->topActivity:Landroid/content/ComponentName;
 
     :goto_0
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
     return-void
 
@@ -2730,7 +2726,7 @@
 
     invoke-virtual {v3, v4}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->getAndUpdateActivityInfo(Lcom/android/systemui/recents/model/Task$TaskKey;)Landroid/content/pm/ActivityInfo;
 
-    move-result-object v0
+    move-result-object v1
 
     iget-object v3, p0, Lcom/android/systemui/recents/views/TaskView;->mTask:Lcom/android/systemui/recents/model/Task;
 
@@ -2740,11 +2736,7 @@
 
     invoke-virtual {v3}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
+    move-result-object v0
 
     goto :goto_0
 
@@ -2757,7 +2749,11 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v2, v0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getScreenRatioState(Ljava/lang/String;Landroid/content/pm/ActivityInfo;)I
+    iget-object v4, v1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v4, v4, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-virtual {v3, v0, v4}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getScreenRatioState(Landroid/content/ComponentName;I)I
 
     move-result v3
 
@@ -2783,21 +2779,21 @@
 
     iget-object v3, p0, Lcom/android/systemui/recents/views/TaskView;->mScreenRatioButtonView:Landroid/view/View;
 
-    const v4, 0x7f13040d
+    const v4, 0x7f130419
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/widget/ImageView;
+    check-cast v2, Landroid/widget/ImageView;
 
     iget v3, p0, Lcom/android/systemui/recents/views/TaskView;->mScreenRatioMode:I
 
     if-nez v3, :cond_8
 
-    const v3, 0x7f020786
+    const v3, 0x7f020796
 
-    invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
     :goto_1
     if-eqz p1, :cond_9
@@ -2848,9 +2844,9 @@
     return-void
 
     :cond_8
-    const v3, 0x7f020785
+    const v3, 0x7f020795
 
-    invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_1
 

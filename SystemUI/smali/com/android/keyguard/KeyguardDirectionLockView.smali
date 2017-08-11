@@ -1003,7 +1003,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView;->mContext:Landroid/content/Context;
 
-    const v2, 0x10409fd
+    const v2, 0x1040a06
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2143,6 +2143,16 @@
     invoke-virtual {v5, v7}, Lcom/android/keyguard/KeyguardMessageArea;->setVisibility(I)V
 
     :cond_2
+    sget v5, Lcom/android/keyguard/R$id;->biometric_timeout_message:I
+
+    invoke-virtual {p0, v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/keyguard/KeyguardMessageArea;
+
+    iput-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView;->mBIOMETRICLockoutMessage:Lcom/android/keyguard/KeyguardMessageArea;
+
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardDirectionLockView;->isDeviceDisabledForMaxFailedAttempt()Z
 
     move-result v5
@@ -2360,16 +2370,6 @@
 
     invoke-virtual {v5, v6}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    sget v5, Lcom/android/keyguard/R$id;->biometric_timeout_message:I
-
-    invoke-virtual {p0, v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/keyguard/KeyguardMessageArea;
-
-    iput-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView;->mBIOMETRICLockoutMessage:Lcom/android/keyguard/KeyguardMessageArea;
-
     sget-boolean v5, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SAMSUNG_ACCOUNT_RECOVERY:Z
 
     if-eqz v5, :cond_4
@@ -2391,19 +2391,9 @@
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardDirectionLockView;->updateLayout()V
 
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v5
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v6
-
-    const/16 v7, 0x100
-
-    invoke-virtual {v5, v7, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isBiometricLockEnabled(II)Z
+    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFaceOptionEnabled()Z
 
     move-result v5
 

@@ -440,7 +440,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040170
+    const v1, 0x7f040174
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -452,70 +452,94 @@
 .end method
 
 .method private addActivieTile()V
-    .locals 5
+    .locals 6
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getTiles()Ljava/util/Collection;
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getTiles()Ljava/util/Collection;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v3
 
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_1
+    if-eqz v5, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Lcom/android/systemui/qs/QSTile;
+    check-cast v2, Lcom/android/systemui/qs/QSTile;
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QSTile;->isAvailable()Z
+    invoke-virtual {v2}, Lcom/android/systemui/qs/QSTile;->getState()Lcom/android/systemui/qs/QSTile$State;
 
-    move-result v4
+    move-result-object v5
 
-    if-eqz v4, :cond_0
+    iget-boolean v5, v5, Lcom/android/systemui/qs/QSTile$State;->isCustomTile:Z
+
+    if-eqz v5, :cond_1
+
+    invoke-virtual {v2}, Lcom/android/systemui/qs/QSTile;->getTileSpec()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/android/systemui/qs/external/CustomTile;->getComponentFromSpec(Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v5
+
+    invoke-direct {p0, v5}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->isComponentAvailable(Landroid/content/ComponentName;)Z
+
+    move-result v1
+
+    :goto_1
+    if-eqz v1, :cond_0
 
     new-instance v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
 
     invoke-direct {v0}, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;-><init>()V
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QSTile;->getTileSpec()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/android/systemui/qs/QSTile;->getTileSpec()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    iput-object v4, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->spec:Ljava/lang/String;
+    iput-object v5, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->spec:Ljava/lang/String;
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QSTile;->getState()Lcom/android/systemui/qs/QSTile$State;
+    invoke-virtual {v2}, Lcom/android/systemui/qs/QSTile;->getState()Lcom/android/systemui/qs/QSTile$State;
 
-    move-result-object v4
+    move-result-object v5
 
-    iput-object v4, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/qs/QSTile$State;
+    iput-object v5, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/qs/QSTile$State;
 
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mLongClickListener:Landroid/view/View$OnLongClickListener;
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mLongClickListener:Landroid/view/View$OnLongClickListener;
 
-    iput-object v4, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->longClickListener:Landroid/view/View$OnLongClickListener;
+    iput-object v5, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->longClickListener:Landroid/view/View$OnLongClickListener;
 
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_1
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mActiveTileLayout:Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;
+    invoke-virtual {v2}, Lcom/android/systemui/qs/QSTile;->isAvailable()Z
 
-    invoke-interface {v4, v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;->addTiles(Ljava/util/ArrayList;)V
+    move-result v1
+
+    goto :goto_1
+
+    :cond_2
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mActiveTileLayout:Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;
+
+    invoke-interface {v5, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;->addTiles(Ljava/util/ArrayList;)V
 
     return-void
 .end method
@@ -859,6 +883,66 @@
     const/4 v1, 0x0
 
     return-object v1
+.end method
+
+.method private isComponentAvailable(Landroid/content/ComponentName;)Z
+    .locals 6
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
+
+    move-result-object v3
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v4
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, p1, v5, v4}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ServiceInfo;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v3, "SecQSCustomizer"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Can\'t find component "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    if-eqz v1, :cond_1
+
+    const/4 v2, 0x1
+
+    :cond_1
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    return v2
 .end method
 
 .method private moveToArea(Lcom/android/systemui/qs/customize/SecQSCustomizer$MessageObjectAnim;)V
@@ -1346,7 +1430,7 @@
 
     sub-int v1, v4, v5
 
-    const v4, 0x7f130448
+    const v4, 0x7f130454
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1354,7 +1438,7 @@
 
     check-cast v0, Landroid/widget/FrameLayout;
 
-    const v4, 0x7f130449
+    const v4, 0x7f130455
 
     invoke-virtual {v0, v4}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1402,7 +1486,7 @@
 
     invoke-virtual {v4}, Landroid/widget/FrameLayout;->bringToFront()V
 
-    const v4, 0x7f13044b
+    const v4, 0x7f130457
 
     invoke-virtual {v0, v4}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1456,7 +1540,7 @@
 .method private setupPager()V
     .locals 8
 
-    const v7, 0x7f0b009e
+    const v7, 0x7f0b009f
 
     const/high16 v6, 0x3f800000    # 1.0f
 
@@ -1480,7 +1564,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b009e
+    const v5, 0x7f0b009f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1492,7 +1576,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    const v4, 0x7f13044a
+    const v4, 0x7f130456
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1502,7 +1586,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mActiveTileLayout:Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;
 
-    const v4, 0x7f13044e
+    const v4, 0x7f13045a
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1524,7 +1608,7 @@
 
     check-cast v4, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
 
-    const v5, 0x7f0203a1
+    const v5, 0x7f0203a9
 
     invoke-virtual {v4, v5}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->setBackgroundResource(I)V
 
@@ -1562,7 +1646,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0140
+    const v5, 0x7f0b0141
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1572,7 +1656,7 @@
 
     invoke-virtual {v1, v4, v5}, Landroid/graphics/drawable/ColorDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    const v4, 0x7f13044c
+    const v4, 0x7f130458
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1582,7 +1666,7 @@
 
     invoke-virtual {v3, v6}, Landroid/view/View;->setElevation(F)V
 
-    const v4, 0x7f13044d
+    const v4, 0x7f130459
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1590,7 +1674,7 @@
 
     invoke-virtual {v2, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    const v4, 0x7f13037c
+    const v4, 0x7f130388
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1630,7 +1714,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0f03f4
+    const v3, 0x7f0f0451
 
     invoke-virtual {v1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2132,7 +2216,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mDoneButton:Landroid/widget/TextView;
 
-    const v4, 0x7f0f03bd
+    const v4, 0x7f0f041a
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -2142,7 +2226,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0227
+    const v4, 0x7f0d0228
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2150,7 +2234,7 @@
 
     iput v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mCellHeight:I
 
-    const v3, 0x7f0d0228
+    const v3, 0x7f0d0229
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2158,7 +2242,7 @@
 
     iput v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mCellMargin:I
 
-    const v3, 0x7f0d023a
+    const v3, 0x7f0d023b
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2172,7 +2256,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d024e
+    const v4, 0x7f0d024f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2276,7 +2360,7 @@
 
     if-eqz v0, :cond_3
 
-    const v2, 0x7f0205ca
+    const v2, 0x7f0205d2
 
     :goto_2
     invoke-virtual {v4, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -2326,7 +2410,7 @@
     goto :goto_3
 
     :cond_3
-    const v2, 0x7f0205c8
+    const v2, 0x7f0205d0
 
     goto :goto_2
 .end method

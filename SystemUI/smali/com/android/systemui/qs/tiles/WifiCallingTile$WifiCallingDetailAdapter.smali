@@ -195,7 +195,7 @@
 
     const/4 v5, 0x0
 
-    const v3, 0x7f1303b1
+    const v3, 0x7f1303bd
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -205,7 +205,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->mRadioGroup:Landroid/widget/RadioGroup;
 
-    const v3, 0x7f13035d
+    const v3, 0x7f130369
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -215,7 +215,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->mSummary:Landroid/widget/TextView;
 
-    const v3, 0x7f1303b2
+    const v3, 0x7f1303be
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -396,7 +396,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->mWfcHelpIcon:Landroid/widget/ImageView;
 
-    const v4, 0x7f0207e3
+    const v4, 0x7f0207f3
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -466,7 +466,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040128
+    const v1, 0x7f04012c
 
     const/4 v2, 0x0
 

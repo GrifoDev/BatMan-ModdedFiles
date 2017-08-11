@@ -103,7 +103,7 @@
 
     invoke-direct {v3, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f020258
+    const v4, 0x7f02025c
 
     invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -137,7 +137,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0f051d
+    const v6, 0x7f0f057a
 
     invoke-virtual {v4, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -151,7 +151,7 @@
 
     iget-object v4, v4, Lcom/android/systemui/volume/VolumeUI;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f051e
+    const v5, 0x7f0f057b
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

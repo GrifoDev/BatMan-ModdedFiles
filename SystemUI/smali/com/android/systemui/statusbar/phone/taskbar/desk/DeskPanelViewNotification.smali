@@ -426,7 +426,7 @@
 .method private getDeskNotificationViewCollapseTo()F
     .locals 3
 
-    const v2, 0x7f0d0643
+    const v2, 0x7f0d0657
 
     const/4 v1, 0x0
 
@@ -506,7 +506,7 @@
 .method private getDeskNotificationViewExpandFrom()F
     .locals 3
 
-    const v2, 0x7f0d0643
+    const v2, 0x7f0d0657
 
     const/4 v1, 0x0
 
@@ -586,7 +586,7 @@
 .method private getDeskNotificationViewExpandTo()F
     .locals 3
 
-    const v2, 0x7f0d0476
+    const v2, 0x7f0d0477
 
     const/4 v0, 0x0
 
@@ -710,7 +710,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0654
+    const v3, 0x7f0d0668
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -722,7 +722,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d047a
+    const v3, 0x7f0d047b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -748,7 +748,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0476
+    const v2, 0x7f0d0477
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1214,7 +1214,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0476
+    const v2, 0x7f0d0477
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1526,7 +1526,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f020127
+    const v7, 0x7f02012c
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1689,7 +1689,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020127
+    const v4, 0x7f02012c
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2164,7 +2164,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f130180
+    const v0, 0x7f130184
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;->findViewById(I)Landroid/view/View;
 
@@ -2174,7 +2174,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;->mDeskNotificationView:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationView;
 
-    const v0, 0x7f13017c
+    const v0, 0x7f130180
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;->findViewById(I)Landroid/view/View;
 
@@ -2184,7 +2184,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;->mNotificationAreaView:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f13017f
+    const v0, 0x7f130183
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;->findViewById(I)Landroid/view/View;
 
@@ -3016,7 +3016,7 @@
 .method public setDeskHeaderViewBackground(Z)V
     .locals 3
 
-    const v1, 0x7f13017d
+    const v1, 0x7f130181
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;->findViewById(I)Landroid/view/View;
 
@@ -3032,7 +3032,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02012a
+    const v2, 0x7f02012f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3049,7 +3049,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020129
+    const v2, 0x7f02012e
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3091,7 +3091,7 @@
 .method public setHeaderView()V
     .locals 3
 
-    const v1, 0x7f13017d
+    const v1, 0x7f130181
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;->findViewById(I)Landroid/view/View;
 
@@ -3107,7 +3107,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020129
+    const v2, 0x7f02012e
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3163,7 +3163,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020125
+    const v2, 0x7f02012a
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3253,7 +3253,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f020127
+    const v5, 0x7f02012c
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3542,7 +3542,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f020127
+    const v5, 0x7f02012c
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

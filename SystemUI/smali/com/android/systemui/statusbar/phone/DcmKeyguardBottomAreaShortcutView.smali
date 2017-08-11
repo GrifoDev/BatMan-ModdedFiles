@@ -477,7 +477,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0319
+    const v7, 0x7f0d031a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1127,78 +1127,6 @@
     return-void
 .end method
 
-.method private setIconsInvisible()V
-    .locals 5
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    const/4 v4, 0x4
-
-    const-string/jumbo v0, "DcmKeyguardBottomAreaShortcutView"
-
-    const-string/jumbo v3, "setIconsInvisible()"
-
-    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mLockIcon:Lcom/android/systemui/statusbar/phone/DcmLockIcon;
-
-    invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mCameraImageView:Landroid/widget/ImageView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mPhoneImageView:Landroid/widget/ImageView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mCallTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getVisibility()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    move v0, v1
-
-    :goto_0
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mIsCallViewVisible:Z
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mCallTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mEmailTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getVisibility()I
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    :goto_1
-    iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mIsEmailViewVisible:Z
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mEmailTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    return-void
-
-    :cond_0
-    move v0, v2
-
-    goto :goto_0
-
-    :cond_1
-    move v1, v2
-
-    goto :goto_1
-.end method
-
 .method private setMissedCallCount(I)V
     .locals 2
 
@@ -1792,8 +1720,6 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->launchCamera()V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->setIconsInvisible()V
-
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mLockIcon:Lcom/android/systemui/statusbar/phone/DcmLockIcon;
@@ -1881,7 +1807,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0316
+    const v3, 0x7f0d0317
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1912,7 +1838,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0317
+    const v4, 0x7f0d0318
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1972,7 +1898,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    const v4, 0x7f130150
+    const v4, 0x7f130154
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->findViewById(I)Landroid/view/View;
 
@@ -1982,7 +1908,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mCameraImageView:Landroid/widget/ImageView;
 
-    const v4, 0x7f130154
+    const v4, 0x7f130158
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->findViewById(I)Landroid/view/View;
 
@@ -1992,7 +1918,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mPhoneImageView:Landroid/widget/ImageView;
 
-    const v4, 0x7f130152
+    const v4, 0x7f130156
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->findViewById(I)Landroid/view/View;
 
@@ -2002,7 +1928,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mLockIcon:Lcom/android/systemui/statusbar/phone/DcmLockIcon;
 
-    const v4, 0x7f13014e
+    const v4, 0x7f130152
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->findViewById(I)Landroid/view/View;
 
@@ -2012,7 +1938,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mIndicationText:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
-    const v4, 0x7f13014f
+    const v4, 0x7f130153
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->findViewById(I)Landroid/view/View;
 
@@ -2048,7 +1974,7 @@
 
     invoke-virtual {v4, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v4, 0x7f130151
+    const v4, 0x7f130155
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->findViewById(I)Landroid/view/View;
 
@@ -2058,7 +1984,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->mCallTextView:Landroid/widget/TextView;
 
-    const v4, 0x7f130153
+    const v4, 0x7f130157
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->findViewById(I)Landroid/view/View;
 
@@ -2610,7 +2536,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0316
+    const v4, 0x7f0d0317
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2622,7 +2548,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d03d8
+    const v4, 0x7f0d03d9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2634,7 +2560,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d03d8
+    const v4, 0x7f0d03d9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2652,7 +2578,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0317
+    const v5, 0x7f0d0318
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2676,7 +2602,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0318
+    const v4, 0x7f0d0319
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2704,7 +2630,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0319
+    const v4, 0x7f0d031a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2732,7 +2658,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0319
+    const v4, 0x7f0d031a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2760,7 +2686,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0319
+    const v4, 0x7f0d031a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2788,7 +2714,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0319
+    const v4, 0x7f0d031a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2810,7 +2736,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d031a
+    const v5, 0x7f0d031b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2834,7 +2760,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0319
+    const v4, 0x7f0d031a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2856,7 +2782,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d031a
+    const v5, 0x7f0d031b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

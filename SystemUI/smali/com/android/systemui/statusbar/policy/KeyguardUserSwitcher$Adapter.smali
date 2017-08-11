@@ -62,7 +62,7 @@
 
     check-cast v4, Lcom/android/systemui/qs/tiles/UserDetailItemView;
 
-    const v5, 0x7f1300f5
+    const v5, 0x7f1300f9
 
     invoke-virtual {v4, v5}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->findViewById(I)Landroid/view/View;
 
@@ -72,7 +72,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcher$Adapter;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b00b3
+    const v6, 0x7f0b00b4
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -96,7 +96,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcher$Adapter;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f020169
+    const v6, 0x7f02016e
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -128,7 +128,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f04009c
+    const v6, 0x7f04009e
 
     const/4 v7, 0x0
 

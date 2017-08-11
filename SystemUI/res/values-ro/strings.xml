@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Necunoscut</string>
     <string name="save">Salvați</string>
     <string name="ok">OK</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
+    <string name="battery_history_minutes_no_seconds">%d m</string>
     <string name="wifi_fail_to_scan">Nu se poate scana pentru rețele</string>
     <string name="wifi_failed_to_obtain_IP">Imposibil de obținut adresa IP</string>
     <string name="wifi_security_none">Niciuna</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">Nu se poate realiza conectarea la %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">Nu se poate realiza conectarea la %1$s. Verificați setările din %2$s și încercați din nou.</string>
     <string name="bluetooth_pairing_rejected_error_message">Asocierea a fost respinsă de %s.</string>
+    <string name="bluetooth_getting_remote_device_name">Se obține numele dispozitivului…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Numele dispozitivului va apărea atunci când acestea este conectat.</string>
     <string name="accessibility_wifi_off">Wi-Fi dezactivat.</string>
     <string name="accessibility_no_wifi">Wi-Fi deconectat.</string>
     <string name="accessibility_wifi_one_bar">Semnal Wi-Fi: o bară.</string>
@@ -1363,6 +1365,7 @@ Pentru mai multe informații, contactați administratorul."</string>
     <string name="keyboard_key_insert">Inserați</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Tasta numerică %1$s</string>
+    <string name="keyboard_popup_help">Tastă meta: tasta Windows, Command sau altă tastă simbol de sistem.</string>
     <string name="keyboard_shortcut_group_system">Comenzi rapide sistem</string>
     <string name="keyboard_shortcut_group_system_home">Ecran de pornire</string>
     <string name="keyboard_shortcut_group_system_recents">Recente</string>
@@ -1524,8 +1527,8 @@ Pentru mai multe informații, contactați administratorul."</string>
 
 Pentru protecție împotriva deteriorărilor produse de apă, asigurați-vă că ați etanșat bine capacul cartelei SIM/cardului SD."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Pentru protecție împotriva deteriorărilor produse de apă, asigurați-vă că ați etanșat bine capacul cartelei SIM/cardului SD.</string>
-    <string name="water_protection_notification_title">Verificați portul</string>
-    <string name="water_protection_notification_body">A fost detectată umiditate. Pentru a încărca dispozitivul, asigurați-vă că încărcătorul/portul USB este curat și uscat.</string>
+    <string name="water_protection_notification_title">Deconectați încărcătorul</string>
+    <string name="water_protection_notification_body">A fost detectată umiditate. Deconectați încărcătorul și asigurați-vă că atât încărcătorul, cât și portul USB sunt curate și uscate.</string>
     <string name="full_battery_title">Informații</string>
     <string name="full_battery_noti_text">Baterie încărcată complet</string>
     <string name="cooling_title">Disp. se supraîncălzește</string>
@@ -1619,6 +1622,7 @@ Supraîncălzirea poate fi cauzată de:
     <string name="battery_not_fully_connected_charging_title">Încărcare lentă</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Pentru o încărcare mai rapidă, utilizați încărcătorul furnizat împreună cu dispozitivul și asigurați-vă că este conectat corect.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Asigurați-vă că încărcătorul este conectat corect. Utilizați încărcătorul furnizat împreună cu dispozitivul.</string>
     <string name="battery_charging_level_and_time_text">"Încărcare %1$d%%
 (aproximativ %2$s până la încărcarea completă)"</string>
@@ -1632,14 +1636,20 @@ Supraîncălzirea poate fi cauzată de:
     <string name="battery_saver_recommend_notification_text_phone_psm">Încărcați telefonul.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Încărcați tableta.</string>
     <string name="button_close">Închide</string>
-    <string name="battery_health_interruption_title">Nu se poate încărca</string>
+    <string name="battery_health_interruption_title">Încărcare oprită</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Deconectare încărcător</string>
     <string name="battery_health_interruption_by_terminal_open_text">Dispozitivul nu se poate încărca. Asigurați-vă că utilizați o baterie și un încărcător compatibil Samsung și că dispozitivul este conectat corect la încărcător.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Încărcare întreruptă. Temperatura bateriei este prea ridicată.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Încărcare întreruptă. Temperatura bateriei este prea scăzută.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Încărcarea dispozitivului s-a oprit. Temperatura bateriei este prea ridicată. Aveți grijă când deconectați încărcătorul. Poate fi fierbinte.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Temperatura telefonului dvs. este prea ridicată. Încărcarea va continua atunci când temperatura revine la normal.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Temperatura tabletei dvs. este prea ridicată. Încărcarea va continua atunci când temperatura revine la normal.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Temperatura telefonului dvs. este prea scăzută. Încărcarea va continua atunci când temperatura revine la normal.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Temperatura tabletei dvs. este prea scăzută. Încărcarea va continua atunci când temperatura revine la normal.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Încărcarea s-a oprit. Temperatura telefonului este prea ridicată. Aveți grijă când deconectați încărcătorul. Poate fi fierbinte.
 
-Este posibil ca deconectarea și reconectarea încărcătorului să permită continuarea normală a încărcării. Dacă supraîncălzirea persistă, contactați serviciul de relații cu clienții, întrucât poate exista un pericol de incendiu sau rănire."</string>
+Este posibil ca deconectarea și reconectarea încărcătorului să permită continuarea normală a încărcării. Dacă supraîncălzirea persistă, contactați Serviciul de asistență pentru clienți, întrucât poate exista un pericol de incendiu sau rănire."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Încărcarea s-a oprit. Temperatura tabletei este prea ridicată. Aveți grijă când deconectați încărcătorul. Poate fi fierbinte.
+
+Este posibil ca deconectarea și reconectarea încărcătorului să permită continuarea normală a încărcării. Dacă supraîncălzirea persistă, contactați Serviciul de asistență pentru clienți, întrucât poate exista un pericol de incendiu sau rănire."</string>
     <string name="incompatible_charger_title">Nu se încarcă.</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1655,8 +1665,6 @@ Pentru a împiedica apariția acestei ferestre pop-up în viitor, asigurați-vă
     <string name="kg_biometrics_swipe_active_instructions">Utilizați datele biometrice sau glisați pe ecran pentru a deschide</string>
     <string name="kg_face_or_swipe_unlock_instructions">Utilizați recunoașterea facială sau glisați pe ecran pentru a debloca</string>
     <string name="kg_face_or_swipe_active_instructions">Utilizați recunoașterea facială sau glisați pe ecran pentru a deschide</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Utilizați recunoașterea facială pentru a debloca sau glisați pe ecran pentru a utiliza în schimb irisurile</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Utilizați recunoașterea facială pentru a deschide sau glisați pentru a utiliza în schimb irisurile</string>
     <string name="kg_face_unlock_instructions">Glisați ecranul pentru a debloca recunoașterea facială</string>
     <string name="kg_face_or_fingerprint_active_instructions">Utilizați amprenta pentru a deschide sau glisați ecranul pentru a utiliza în schimb recunoașterea facială</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Utilizați amprenta pentru a debloca sau glisați ecranul pentru a utiliza în schimb recunoașterea facială</string>
@@ -1671,6 +1679,20 @@ Pentru a împiedica apariția acestei ferestre pop-up în viitor, asigurați-vă
     <string name="kg_voice_assistant_unlock_instructions">Glisați cu două degete pentru a debloca ecranul.</string>
     <string name="kg_swipe_active_instructions">Glisați pe ecran pentru a deschide</string>
     <string name="kg_swipe_unlock_instructions">Glisați cu degetul pe ecran pentru deblocare</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Pentru a debloca, utilizați datele biometrice sau glisați cu două degete pe ecran.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Pentru a deschide, utilizați datele biometrice sau glisați cu două degete pe ecran.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Pentru a debloca, utilizați recunoașterea facială sau glisați cu două degete pe ecran.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Pentru a deschide, utilizați recunoașterea facială sau glisați cu două degete pe ecran.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Pentru a debloca prin recunoașterea facială, glisați cu două degete pe ecran.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Utilizați amprenta pentru a deschide sau glisați cu două degete pe ecran pentru a utiliza recunoașterea facială.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Utilizați amprenta pentru a debloca sau glisați cu două degete pe ecran pentru a utiliza recunoașterea facială.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Utilizați amprenta pentru a deschide sau glisați cu două degete pe ecran pentru a utiliza irisurile.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Utilizați amprenta pentru a debloca sau glisați cu două degete pe ecran pentru a utiliza irisurile.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Pentru a deschide, utilizați amprenta sau glisați cu două degete pe ecran.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Pentru a debloca, utilizați amprenta sau glisați cu două degete pe ecran.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Pentru a debloca, glisați cu două degete pe ecran pentru a utiliza irisurile.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Pentru a debloca, utilizați irisurile sau glisați cu două degete pe ecran.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Pentru a deschide, utilizați irisurile sau glisați cu două degete pe ecran.</string>
     <string name="kg_power_connect_charger">Conectați încărcătorul</string>
     <string name="kg_power_fully_charged">Încărcat complet</string>
     <string name="kg_power_fast_charging">Încărcare rapidă: %d%%</string>
@@ -1754,6 +1776,7 @@ rez. UHQ"</string>
     <string name="remote_input_send_text">Trimitere</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Atingeți de două ori butonul Blocare pentru a debloca telefonul</string>
     <string name="s_view_cover_toast_pop_up_message">Deschideți capacul pentru a utiliza butoanele pentru setările rapide.</string>
     <string name="remote_input_toast_text_on_sview_cover">Nu se poate utiliza funcția Răspuns rapid atunci când S View Cover este închisă.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"Trebuie să descărcați aplicația pentru a controla cantitatea de energie partajată. Dacă vă conectați dispozitivul la un alt dispozitiv prin cablul Power Sharing Samsung EP-SG900 fără această aplicație, întreaga cantitate de energie a bateriei va fi transferată către un celălalt dispozitiv.
@@ -1790,7 +1813,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Accept</string>
-    <string name="force_immersive_guide_text">Dacă atingeți această pictogramă, bara de navigare va fi ascunsă. Puteți utiliza în continuare butoanele de navigare glisând din partea de jos a ecranului. Atunci când este afișată bara de navigare, puteți atinge din nou această pictogramă pentru a o fixa. Pe unele ecrane, cum ar fi ecranul Acasă, bara de navigare va fi afișată întotdeauna.</string>
+    <string name="force_immersive_guide_text">Dacă atingeți acest buton, bara de navigare va fi ascunsă. Puteți utiliza în continuare butoanele de navigare glisând în sus din partea de jos a ecranului. Atunci când este afișată bara de navigare, puteți atinge din nou acest buton pentru a o fixa. Pe unele ecrane, cum ar fi ecranul Acasă, bara de navigare va fi afișată întotdeauna. Dacă o aplicație nu se comportă normal atunci când bara de navigare este ascunsă, fixați bara de navigare și reporniți aplicația.</string>
+    <string name="force_immersive_guide_dialog_title">Ascundere bară de navigare:</string>
+    <string name="force_immersive_guide_dialog_message1">Atingerea acestui buton duce la ascunderea barei de navigare.</string>
+    <string name="force_immersive_guide_dialog_message2">Pentru a afișa bara de navigare, glisați în sus din marginea de jos a ecranului.</string>
+    <string name="force_immersive_guide_dialog_message3">Atingeți din nou acest buton pentru a-l bloca.</string>
+    <string name="force_immersive_guide_dialog_message4">Pe unele ecrane, cum ar fi ecranul Acasă, bara de navigare va fi afișată întotdeauna.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Pentru a ascunde acest buton, accesați meniul Setări > Afișaj > Bară de navigare.</string>
+    <string name="force_immersive_guide_dialog_setting">Setări</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Conduceți atent</string>
     <string name="car_lockscreen_disclaimer_text">Aflați mereu condițiile de trafic și respectați întotdeauna legislația aplicabilă. Indicațiile de orientare pot fi inexacte, incomplete, periculoase, neadecvate, interzise sau pot implica trecerea prin zone administrative. Informațiile despre companii pot fi, de asemenea, inexacte sau incomplete. Datele nu sunt în timp real și nu se poate garanta exactitatea locației. Nu manipulați dispozitivul mobil și nu folosiți aplicații neconcepute pentru Android Auto când sunteți la volan.</string>
     <string name="pip_close">Închideți PIP</string>
@@ -2229,6 +2260,8 @@ Dacă nu vă cunoașteți codul PUK, consultați un centru de asistență pentru
     <string name="kg_face_retry_content_description">Atingeți de două ori pentru a utiliza recunoașterea facială.</string>
     <string name="kg_face_authentication_error_retry_text">Nicio față detectată. Atingeți pictograma pentru a încerca din nou recunoașterea facială</string>
     <string name="kg_face_authentication_failed_retry_text">Nicio potrivire. Atingeți pictograma pentru a utiliza recunoașterea facială</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">A existat o problemă la recunoașterea facială. Atingeți pentru a încerca din nou</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Nu se poate utiliza recunoașterea facială în timpul apelurilor video</string>
     <string name="kg_fingerprint_no_match">Nicio potrivire</string>
     <string name="kg_finger_print_not_responding_error_message">Senzorul pentru amprente nu răspunde. Reîncercați mai târziu.</string>
     <string name="kg_finger_print_database_error_message">Datele despre amprente au fost deteriorate. Resetați opțiunea Amprentă ca tip de blocare a ecranului, apoi adăugați din nou amprentele sau schimbați tipul de blocare a ecranului.</string>
@@ -2365,6 +2398,8 @@ Dacă nu vă cunoașteți codul PUK, consultați un centru de asistență pentru
     <string name="appicon_badge_new_item">1 element nou</string>
     <string name="banner_apps_for_dex_detail">Bucurați-vă de aplicațiile din Galaxy Apps optimizate cu DeX.</string>
     <string name="toast_cannot_move_more_than_items">Nu se pot muta mai mult de %d elemente.</string>
+    <string name="view_more_in_galaxy_apps">Viz. mai multe în Galaxy Apps</string>
+    <string name="view_more_in_play_store">Viz. mai multe în Magazinul Play</string>
     <string name="uninstall_title">Dezinstalați aplicațiile?</string>
     <string name="uninstall_1_app_message">Doriți să dezinstalați aplicația?</string>
     <string name="uninstall_apps_message">Următoarele aplicații vor fi dezinstalate:</string>
@@ -2408,6 +2443,13 @@ Dacă nu vă cunoașteți codul PUK, consultați un centru de asistență pentru
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Notificare</string>
     <string name="quick_settings_location_detail_device_only">Doar dispozitiv</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Încărcare întreruptă. Temperatura bateriei este prea ridicată.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Încărcare întreruptă. Temperatura bateriei este prea scăzută.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Încărcarea dispozitivului s-a oprit. Temperatura bateriei este prea ridicată. Aveți grijă când deconectați încărcătorul. Poate fi fierbinte.
+
+Este posibil ca deconectarea și reconectarea încărcătorului să permită continuarea normală a încărcării. Dacă supraîncălzirea persistă, contactați serviciul de relații cu clienții, întrucât poate exista un pericol de incendiu sau rănire."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Utilizați recunoașterea facială pentru a debloca sau glisați pe ecran pentru a utiliza în schimb irisurile</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Utilizați recunoașterea facială pentru a deschide sau glisați pentru a utiliza în schimb irisurile</string>
     <string name="kg_infinity_wallpaper_option_description">Fundalul cu tema Infinit va fi aplicat simultan pe ecranul Acasă și pe ecranul de blocare. Pentru o experiență optimă, porniți setarea de mai jos.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Pornire Always On Display</string>
 </resources>

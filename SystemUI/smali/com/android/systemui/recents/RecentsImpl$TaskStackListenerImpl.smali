@@ -32,119 +32,134 @@
 
 # virtual methods
 .method public onTaskStackChanged()V
-    .locals 10
+    .locals 12
 
-    const/4 v9, 0x2
+    const/4 v11, 0x2
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
 
     move-result-object v0
 
-    iget v6, v0, Lcom/android/systemui/recents/RecentsConfiguration;->svelteLevel:I
+    iget v7, v0, Lcom/android/systemui/recents/RecentsConfiguration;->svelteLevel:I
 
-    if-nez v6, :cond_1
+    if-nez v7, :cond_2
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getTaskLoader()Lcom/android/systemui/recents/model/RecentsTaskLoader;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getRunningTask()Landroid/app/ActivityManager$RunningTaskInfo;
+
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getRunningTask()Landroid/app/ActivityManager$RunningTaskInfo;
+    iget-object v7, p0, Lcom/android/systemui/recents/RecentsImpl$TaskStackListenerImpl;->this$0:Lcom/android/systemui/recents/RecentsImpl;
+
+    iget-object v7, v7, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v7}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->createLoadPlan(Landroid/content/Context;)Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;
 
     move-result-object v4
 
-    iget-object v6, p0, Lcom/android/systemui/recents/RecentsImpl$TaskStackListenerImpl;->this$0:Lcom/android/systemui/recents/RecentsImpl;
-
-    iget-object v6, v6, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2, v6}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->createLoadPlan(Landroid/content/Context;)Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;
-
-    move-result-object v3
-
-    sget-boolean v6, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSplitLayout:Z
-
-    if-eqz v6, :cond_2
-
-    iget-object v6, p0, Lcom/android/systemui/recents/RecentsImpl$TaskStackListenerImpl;->this$0:Lcom/android/systemui/recents/RecentsImpl;
-
-    invoke-static {v6}, Lcom/android/systemui/recents/RecentsImpl;->-get0(Lcom/android/systemui/recents/RecentsImpl;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
     invoke-virtual {v0}, Lcom/android/systemui/recents/RecentsConfiguration;->getLaunchState()Lcom/android/systemui/recents/RecentsActivityLaunchState;
 
-    move-result-object v6
+    move-result-object v2
 
-    iget v6, v6, Lcom/android/systemui/recents/RecentsActivityLaunchState;->launchedToTaskId:I
+    sget-boolean v7, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSplitLayout:Z
+
+    if-eqz v7, :cond_3
+
+    iget-object v7, p0, Lcom/android/systemui/recents/RecentsImpl$TaskStackListenerImpl;->this$0:Lcom/android/systemui/recents/RecentsImpl;
+
+    invoke-static {v7}, Lcom/android/systemui/recents/RecentsImpl;->-get0(Lcom/android/systemui/recents/RecentsImpl;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_3
+
+    iget v7, v2, Lcom/android/systemui/recents/RecentsActivityLaunchState;->launchedToTaskId:I
 
     :goto_0
-    invoke-virtual {v2, v3, v6, v7}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->preloadTasks(Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;IZ)V
+    iget-boolean v10, v2, Lcom/android/systemui/recents/RecentsActivityLaunchState;->launchedFromApp:Z
+
+    if-eqz v10, :cond_0
+
+    iget-boolean v10, v2, Lcom/android/systemui/recents/RecentsActivityLaunchState;->launchedViaDockGesture:Z
+
+    if-eqz v10, :cond_4
+
+    :cond_0
+    :goto_1
+    invoke-virtual {v3, v4, v7, v8}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->preloadTasks(Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;IZ)V
 
     new-instance v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;
 
     invoke-direct {v1}, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;-><init>()V
 
-    if-eqz v4, :cond_0
+    if-eqz v5, :cond_1
 
-    iget v6, v4, Landroid/app/ActivityManager$RunningTaskInfo;->id:I
+    iget v7, v5, Landroid/app/ActivityManager$RunningTaskInfo;->id:I
 
-    iput v6, v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;->runningTaskId:I
+    iput v7, v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;->runningTaskId:I
 
-    :cond_0
-    iput v9, v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;->numVisibleTasks:I
+    :cond_1
+    iput v11, v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;->numVisibleTasks:I
 
-    iput v9, v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;->numVisibleTaskThumbnails:I
+    iput v11, v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;->numVisibleTaskThumbnails:I
 
-    iput-boolean v8, v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;->onlyLoadForCache:Z
+    iput-boolean v9, v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;->onlyLoadForCache:Z
 
-    iput-boolean v8, v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;->onlyLoadPausedActivities:Z
+    iput-boolean v9, v1, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;->onlyLoadPausedActivities:Z
 
-    iget-object v6, p0, Lcom/android/systemui/recents/RecentsImpl$TaskStackListenerImpl;->this$0:Lcom/android/systemui/recents/RecentsImpl;
+    iget-object v7, p0, Lcom/android/systemui/recents/RecentsImpl$TaskStackListenerImpl;->this$0:Lcom/android/systemui/recents/RecentsImpl;
 
-    iget-object v6, v6, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
+    iget-object v7, v7, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2, v6, v3, v1}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->loadTasks(Landroid/content/Context;Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;)V
+    invoke-virtual {v3, v7, v4, v1}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->loadTasks(Landroid/content/Context;Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;Lcom/android/systemui/recents/model/RecentsTaskLoadPlan$Options;)V
 
-    sget-boolean v6, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSplitLayout:Z
+    sget-boolean v7, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSplitLayout:Z
 
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_2
 
-    iget-object v6, p0, Lcom/android/systemui/recents/RecentsImpl$TaskStackListenerImpl;->this$0:Lcom/android/systemui/recents/RecentsImpl;
+    iget-object v7, p0, Lcom/android/systemui/recents/RecentsImpl$TaskStackListenerImpl;->this$0:Lcom/android/systemui/recents/RecentsImpl;
 
-    invoke-static {v6}, Lcom/android/systemui/recents/RecentsImpl;->-get0(Lcom/android/systemui/recents/RecentsImpl;)Z
+    invoke-static {v7}, Lcom/android/systemui/recents/RecentsImpl;->-get0(Lcom/android/systemui/recents/RecentsImpl;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_2
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
-    move-result-object v6
+    move-result-object v7
 
-    new-instance v7, Lcom/android/systemui/recents/events/activity/TaskStackChangedEvent;
+    new-instance v8, Lcom/android/systemui/recents/events/activity/TaskStackChangedEvent;
 
-    invoke-virtual {v3}, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;->getTaskStack()Lcom/android/systemui/recents/model/TaskStack;
+    invoke-virtual {v4}, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;->getTaskStack()Lcom/android/systemui/recents/model/TaskStack;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-direct {v7, v8}, Lcom/android/systemui/recents/events/activity/TaskStackChangedEvent;-><init>(Lcom/android/systemui/recents/model/TaskStack;)V
+    invoke-direct {v8, v9}, Lcom/android/systemui/recents/events/activity/TaskStackChangedEvent;-><init>(Lcom/android/systemui/recents/model/TaskStack;)V
 
-    invoke-virtual {v6, v7}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
-
-    :cond_1
-    return-void
+    invoke-virtual {v7, v8}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     :cond_2
-    const/4 v6, -0x1
+    return-void
+
+    :cond_3
+    const/4 v7, -0x1
 
     goto :goto_0
+
+    :cond_4
+    move v8, v9
+
+    goto :goto_1
 .end method

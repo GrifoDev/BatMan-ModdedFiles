@@ -428,18 +428,6 @@
     return-object v0
 .end method
 
-.method public destroy()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
-
-    return-void
-.end method
-
 .method public editBegin()V
     .locals 1
 

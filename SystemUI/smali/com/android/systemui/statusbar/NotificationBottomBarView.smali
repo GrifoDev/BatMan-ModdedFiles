@@ -268,15 +268,15 @@
 .method protected onFinishInflate()V
     .locals 7
 
-    const v6, 0x7f13017a
+    const v6, 0x7f13017e
 
-    const v5, 0x7f130176
+    const v5, 0x7f13017a
 
-    const v4, 0x7f130179
+    const v4, 0x7f13017d
 
-    const v3, 0x7f130175
+    const v3, 0x7f130179
 
-    const v0, 0x7f130174
+    const v0, 0x7f130178
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mNormalModeView:Landroid/view/View;
 
-    const v0, 0x7f130177
+    const v0, 0x7f13017b
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->findViewById(I)Landroid/view/View;
 
@@ -324,7 +324,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mDoneButton:Landroid/widget/TextView;
 
-    const v0, 0x7f130178
+    const v0, 0x7f13017c
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->findViewById(I)Landroid/view/View;
 
@@ -344,7 +344,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0254
+    const v2, 0x7f0f02b1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -674,7 +674,7 @@
 .method public updateResources()V
     .locals 3
 
-    const v2, 0x7f0f0254
+    const v2, 0x7f0f02b1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mClearAllButton:Landroid/widget/TextView;
 
@@ -703,7 +703,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mNotiSettingButton:Landroid/widget/TextView;
 
-    const v1, 0x7f0f06e5
+    const v1, 0x7f0f0754
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -714,7 +714,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mBlockButton:Landroid/widget/TextView;
 
-    const v1, 0x7f0f06e6
+    const v1, 0x7f0f0755
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -725,7 +725,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mDoneButton:Landroid/widget/TextView;
 
-    const v1, 0x7f0f06e7
+    const v1, 0x7f0f0756
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -736,7 +736,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mBlockButtonInfoText:Landroid/widget/TextView;
 
-    const v1, 0x7f0f06e8
+    const v1, 0x7f0f0757
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -747,9 +747,9 @@
 .method public updateShowButtonBackground()V
     .locals 5
 
-    const v1, 0x7f0205ca
+    const v1, 0x7f0205d2
 
-    const v2, 0x7f0205c8
+    const v2, 0x7f0205d0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mContext:Landroid/content/Context;
 

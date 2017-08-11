@@ -109,7 +109,7 @@
 
     if-eqz v2, :cond_3
 
-    const v5, 0x7f1300d8
+    const v5, 0x7f1300dc
 
     invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     check-cast v0, Landroid/widget/CheckedTextView;
 
-    const v5, 0x7f1300d3
+    const v5, 0x7f1300d7
 
     invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -125,7 +125,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v5, 0x7f1300d9
+    const v5, 0x7f1300dd
 
     invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 

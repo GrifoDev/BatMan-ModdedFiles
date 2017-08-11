@@ -756,7 +756,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0f02ef
+    const v1, 0x7f0f034c
 
     :goto_0
     invoke-virtual {v3, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -774,7 +774,7 @@
     return-object v1
 
     :cond_1
-    const v1, 0x7f0f02f0
+    const v1, 0x7f0f034d
 
     goto :goto_0
 .end method
@@ -1525,7 +1525,7 @@
     :goto_0
     aput-object v1, v4, v5
 
-    const v1, 0x7f0f0400
+    const v1, 0x7f0f045d
 
     invoke-virtual {v3, v1, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

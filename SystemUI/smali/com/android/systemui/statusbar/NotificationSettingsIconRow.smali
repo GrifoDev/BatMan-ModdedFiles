@@ -383,7 +383,7 @@
 
     move-result v4
 
-    const v5, 0x7f130367
+    const v5, 0x7f130373
 
     if-ne v4, v5, :cond_0
 
@@ -470,7 +470,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f130367
+    const v0, 0x7f130373
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationSettingsIconRow;->findViewById(I)Landroid/view/View;
 
@@ -490,7 +490,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0206
+    const v1, 0x7f0d0207
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -504,7 +504,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d01fe
+    const v1, 0x7f0d01ff
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -571,7 +571,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0588
+    const v2, 0x7f0f05e5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

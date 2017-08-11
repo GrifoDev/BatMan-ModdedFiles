@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">Desconegut</string>
     <string name="save">Desa</string>
     <string name="ok">Acceptar</string>
-    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
-    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="battery_history_hours_no_seconds">%1$d h %2$d min</string>
+    <string name="battery_history_minutes_no_seconds">%d min</string>
     <string name="wifi_fail_to_scan">No es poden cercar xarxes</string>
     <string name="wifi_failed_to_obtain_IP">"Error en obtenir l'adreça IP"</string>
     <string name="wifi_security_none">Cap</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">No es pot connectar a %s.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">No es pot connectar a %1$s. Comprovi els ajustaments a %2$s i torni-ho a intentar.</string>
     <string name="bluetooth_pairing_rejected_error_message">Vinculació rebutjada per %s</string>
+    <string name="bluetooth_getting_remote_device_name">Obtenint el nom del dispositiu…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">El nom del dispositiu es mostrarà quan aquest dispositiu estigui connectat.</string>
     <string name="accessibility_wifi_off">Wi-Fi desactivada.</string>
     <string name="accessibility_no_wifi">Wi-Fi desconnectada.</string>
     <string name="accessibility_wifi_one_bar">Senyal Wi-Fi: una barra.</string>
@@ -1364,6 +1366,7 @@ Per obtenir més informació, contacta amb l'administrador."</string>
     <string name="keyboard_key_insert">"Tecla d'inserció"</string>
     <string name="keyboard_key_num_lock">Bloqueig de teclat numèric</string>
     <string name="keyboard_key_numpad_template">Teclat numèric %1$s</string>
+    <string name="keyboard_popup_help">Tecla Meta: Windows, Ordre o una altra tecla de símbol del sistema operatiu.</string>
     <string name="keyboard_shortcut_group_system">Accessos directes sistema</string>
     <string name="keyboard_shortcut_group_system_home">Inici</string>
     <string name="keyboard_shortcut_group_system_recents">Recents</string>
@@ -1525,8 +1528,8 @@ Per obtenir més informació, contacta amb l'administrador."</string>
 
 Per protegir-lo contra danys per aigua, asseguri's que la safata de la targeta SIM/SD estigui tancada fermament."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">"Per protegir-la contra els danys produïts per l'aigua, asseguri's que la safata de la targeta SIM/SD estigui tancada fermament."</string>
-    <string name="water_protection_notification_title">Comprovar el port</string>
-    <string name="water_protection_notification_body">"S'ha detectat humitat. Per carregar el dispositiu, asseguri's que el port del carregador o de l'USB estigui sec."</string>
+    <string name="water_protection_notification_title">Desendollar carregador</string>
+    <string name="water_protection_notification_body">"S'ha detectat humitat. Desendolla el carregador i assegura't que el carregador i el port USB estiguin secs."</string>
     <string name="full_battery_title">Info</string>
     <string name="full_battery_noti_text">Bateria completament carregada</string>
     <string name="cooling_title">Sobreescalfament disposit</string>
@@ -1620,6 +1623,7 @@ El sobreescalfament pot ser causat per:
     <string name="battery_not_fully_connected_charging_title">Càrrega lenta</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">"Perquè es carregui més ràpidament, utilitzi el carregador incorporat amb el dispositiu i asseguri's que està connectat correctament."</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">"Asseguri's que el carregador està connectat correctament. Utilitzi el carregador incorporat amb el dispositiu."</string>
     <string name="battery_charging_level_and_time_text">"Carregant: %1$d%%
 (Aproximadament %2$s fins que estigui completament carregat)"</string>
@@ -1633,14 +1637,20 @@ El sobreescalfament pot ser causat per:
     <string name="battery_saver_recommend_notification_text_phone_psm">Carregui el telèfon.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Carregui la tablet.</string>
     <string name="button_close">Tancar</string>
-    <string name="battery_health_interruption_title">No es pot carregar</string>
+    <string name="battery_health_interruption_title">"S'ha aturat la càrrega"</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Desendollar el carregador</string>
     <string name="battery_health_interruption_by_terminal_open_text">"No es pot carregar el dispositiu. Asseguri's que estigui utilitzant una bateria i un carregador compatibles amb Samsung i que el dispositiu estigui connectat al carregador."</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Càrrega pausada. Temperatura de la bateria massa alta.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Càrrega pausada. Temperatura de la bateria massa baixa.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"El dispositiu s'ha deixat de carregar. La temperatura de la bateria és massa alta. Vagi amb compte quan desconnecti el carregador. Pot estar molt calent.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">La temperatura del telèfon és massa alta. La càrrega continuarà quan la temperatura torni a la normalitat.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">La temperatura de la tablet és massa alta. La càrrega continuarà quan la temperatura torni a la normalitat.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">La temperatura del telèfon és massa baixa. La càrrega continuarà quan la temperatura torni a la normalitat.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">La temperatura de la tablet és massa baixa. La càrrega continuarà quan la temperatura torni a la normalitat.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"S'ha aturat la càrrega. La temperatura del telèfon és massa alta. Vés en compte quan desconnectis el carregador. Pot estar molt calent.
 
-Desconnectar i tornar a connectar el carregador pot permetre que la càrrega continuï amb normalitat. Si el sobreescalfament persisteix, posi's en contacte amb atenció al client perquè hi pot haver risc de foc o lesió."</string>
+Desconnectar i tornar a connectar el carregador pot permetre que la càrrega continuï amb normalitat. Si el sobreescalfament persisteix, posa't en contacte amb el Servei d'atenció al client perquè pot haver-hi risc de foc o lesió."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"S'ha aturat la càrrega. La temperatura de la tablet és massa alta. Vés en compte quan desconnectis el carregador. Pot estar molt calent.
+
+Desconnectar i tornar a connectar el carregador pot permetre que la càrrega continuï amb normalitat. Si el sobreescalfament persisteix, posa't en contacte amb el Servei d'atenció al client perquè pot haver-hi risc de foc o lesió."</string>
     <string name="incompatible_charger_title">"No s'està carregant"</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Per impedir que aquesta finestra emergent aparegui en el futur, asseguri's que e
     <string name="kg_biometrics_swipe_active_instructions">Utilitzar la biometria o desplaçar la pantalla per obrir-la</string>
     <string name="kg_face_or_swipe_unlock_instructions">Utilitzar el reconeixement facial o desplaçar la pantalla per desbloquejar-la</string>
     <string name="kg_face_or_swipe_active_instructions">Utilitzar el reconeixement facial o desplaçar la pantalla per obrir-la</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">"Utilitzar el reconeixement facial per desbloquejar o desplaçar la pantalla per utilitzar l'iris"</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">"Utilitzar el reconeixement facial per obrir o desplaçar la pantalla per utilitzar l'iris"</string>
     <string name="kg_face_unlock_instructions">Desplaçar la pantalla per desbloquejar-la amb el reconeixement facial</string>
     <string name="kg_face_or_fingerprint_active_instructions">Utilitzar les empremtes per obrir o desplaçar la pantalla per utilitzar el reconeixement facial</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Utilitzar les empremtes per desbloquejar o desplaçar la pantalla per utilitzar el reconeixement facial</string>
@@ -1672,6 +1680,20 @@ Per impedir que aquesta finestra emergent aparegui en el futur, asseguri's que e
     <string name="kg_voice_assistant_unlock_instructions">Desplaci dos dits per desbloquejar la pantalla</string>
     <string name="kg_swipe_active_instructions">Desplaçar la pantalla per obrir</string>
     <string name="kg_swipe_unlock_instructions">Desplaçar la pantalla per desbloquejar</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Utilitzi la biometria o desplaci la pantalla amb dos dits per desbloquejar.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Utilitzi la biometria o desplaci la pantalla amb dos dits per obrir.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Utilitzi el reconeixement facial o desplaci la pantalla amb dos dits per desbloquejar.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Utilitzi el reconeixement facial o desplaci la pantalla amb dos dits per obrir.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Desplaci la pantalla amb dos dits per desbloquejar amb el reconeixement facial.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">"Utilitzi l'empremta per obrir o desplaci la pantalla amb dos dits per utilitzar el reconeixement facial."</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">"Utilitzi l'empremta per desbloquejar o desplaci la pantalla amb dos dits per utilitzar el reconeixement facial."</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">"Utilitzi l'empremta per obrir o desplaci la pantalla amb dos dits per utilitzar l'iris."</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">"Utilitzi l'empremta per desbloquejar o desplaci la pantalla amb dos dits per utilitzar l'iris."</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">"Utilitzi l'empremta o desplaci la pantalla amb dos dits per obrir."</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">"Utilitzi l'empremta o desplaci la pantalla amb dos dits per desbloquejar."</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">"Desplaci la pantalla amb dos dits per utilitzar l'iris per desbloquejar."</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">"Utilitzi l'iris o desplaci la pantalla amb dos dits per desbloquejar."</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">"Utilitzi l'iris o desplaci la pantalla amb dos dits per obrir."</string>
     <string name="kg_power_connect_charger">Connectar el carregador</string>
     <string name="kg_power_fully_charged">Carregat complet</string>
     <string name="kg_power_fast_charging">Càrrega ràpida: %d%%</string>
@@ -1755,6 +1777,7 @@ dor UHQ"</string>
     <string name="remote_input_send_text">Enviar</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Toqui dos cops el botó Bloquejar per desbloquejar el telèfon</string>
     <string name="s_view_cover_toast_pop_up_message">"Obri la portada per utilitzar els botons d'ajustament ràpid."</string>
     <string name="remote_input_toast_text_on_sview_cover">No es pot utilitzar la funció Resposta ràpida mentre S View Cover estigui tancat.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Accepto</string>
-    <string name="force_immersive_guide_text">"Si toques aquesta icona, s'ocultarà la barra de navegació. Igualment pots utilitzar els botons de navegació desplaçant amunt des de la part inferior de la pantalla. Mentre es mostra la barra de navegació, pots tornar a tocar aquesta icona per bloquejar-la al seu lloc. En algunes pantalles, com ara la Pantalla d'inici i la barra de navegació, es mostrarà sempre."</string>
+    <string name="force_immersive_guide_text">"Si toques aquest botó, s'ocultarà la barra de navegació. Igualment, pots utilitzar els botons de navegació desplaçant amunt amb els dits des de la part inferior de la pantalla. Mentre es mostra la barra de navegació, pots tornar a tocar aquest botó per bloquejar-lo al seu lloc. En algunes pantalles, com ara la Pantalla d'inici, la barra de navegació es mostrarà sempre. Si una aplicació no es comporta de manera habitual mentre està oculta la barra de navegació, bloqueja la barra de navegació al seu lloc i reinicia l'aplicació."</string>
+    <string name="force_immersive_guide_dialog_title">Ocultar la barra de navegació:</string>
+    <string name="force_immersive_guide_dialog_message1">"Si toques aquest botó, s'oculta la barra de navegació."</string>
+    <string name="force_immersive_guide_dialog_message2">Llisca amunt des de la part inferior de la pantalla per visualitzar la barra de navegació.</string>
+    <string name="force_immersive_guide_dialog_message3">Torna a tocar aquest botó per bloquejar-lo al lloc.</string>
+    <string name="force_immersive_guide_dialog_message4">"En algunes pantalles, com ara la Pantalla d'inici, la barra de navegació es mostrarà sempre."</string>
+    <string name="force_immersive_guide_dialog_guide_path">Per ocultar aquest botó, ves a Ajustaments > Pantalla > Barra de navegació.</string>
+    <string name="force_immersive_guide_dialog_setting">Ajustaments</string>
+    <string name="force_immersive_guide_dialog_ok">ACCEPTAR</string>
     <string name="car_lockscreen_disclaimer_title">Condueix amb precaució</string>
     <string name="car_lockscreen_disclaimer_text">"Estigues al cas de la conducció i respecta sempre les lleis aplicables. Les indicacions poden ser inexactes, perilloses, inadequades o incompletes, o bé poden comportar maniobres prohibides o que creuis circumscripcions territorials. La informació de les empreses també pot ser inexacta o incompleta. No s'ofereixen dades en temps real i no es pot garantir la precisió de les ubicacions. Mentre condueixes, no utilitzis el dispositiu mòbil ni cap aplicació que no estigui destinada a Android Auto."</string>
     <string name="pip_close">Tanca PIP</string>
@@ -2230,6 +2261,8 @@ Si no sap el PUK, visiti el Centre d'atenció al client."</string>
     <string name="kg_face_retry_content_description">Toqui dos cops per utilitzar el reconeixement facial.</string>
     <string name="kg_face_authentication_error_retry_text">"No s'ha detectat cap cara. Toqui la icona per tornar a intentar el reconeixement facial"</string>
     <string name="kg_face_authentication_failed_retry_text">No hi ha cap coincidència. Toqui la icona per utilitzar el reconeixement facial</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">"S'ha produït un error amb el reconeixement facial. Toca per tornar-ho a intentar"</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">No es pot utilitzar el reconeixement facial durant les videotrucades</string>
     <string name="kg_fingerprint_no_match">Cap coincidència</string>
     <string name="kg_finger_print_not_responding_error_message">"El sensor d'empremtes no respon. Torni-ho a intentar més tard."</string>
     <string name="kg_finger_print_database_error_message">"Les dades de l'empremta estan malmeses. Restableixi Empremta com a tipus bloqueig de pantalla i després torni a afegir les empremtes o canviï el tipus bloqueig de pantalla."</string>
@@ -2366,6 +2399,8 @@ Torni-ho a intentar d'aquí a 1 segon"</string>
     <string name="appicon_badge_new_item">1 element nou</string>
     <string name="banner_apps_for_dex_detail">Gaudeixi de les aplicacions optimitzades per a DeX de Galaxy Apps.</string>
     <string name="toast_cannot_move_more_than_items">No es poden moure més de %d elements.</string>
+    <string name="view_more_in_galaxy_apps">Veure més a Galaxy Apps</string>
+    <string name="view_more_in_play_store">Veure més a Play Store</string>
     <string name="uninstall_title">Vol desinstal·lar les aplicacions?</string>
     <string name="uninstall_1_app_message">Vol desinstal·lar aquesta aplicació?</string>
     <string name="uninstall_apps_message">Es desinstal·laran les aplicacions següents:</string>
@@ -2409,6 +2444,13 @@ Torni-ho a intentar d'aquí a 1 segon"</string>
     <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="volumepanel_notification">Notificació</string>
     <string name="quick_settings_location_detail_device_only">Només el dispositiu</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Càrrega pausada. Temperatura de la bateria massa alta.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Càrrega pausada. Temperatura de la bateria massa baixa.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"El dispositiu s'ha deixat de carregar. La temperatura de la bateria és massa alta. Vagi amb compte quan desconnecti el carregador. Pot estar molt calent.
+
+Desconnectar i tornar a connectar el carregador pot permetre que la càrrega continuï amb normalitat. Si el sobreescalfament persisteix, posi's en contacte amb atenció al client perquè hi pot haver risc de foc o lesió."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">"Utilitzar el reconeixement facial per desbloquejar o desplaçar la pantalla per utilitzar l'iris"</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">"Utilitzar el reconeixement facial per obrir o desplaçar la pantalla per utilitzar l'iris"</string>
     <string name="kg_infinity_wallpaper_option_description">"S'aplicarà el fons de pantalla infinit a les pantalles d'Inici i Bloqueig simultàniament. Activi l'ajustament següent per obtenir la millor experiència."</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Activar Always On Display</string>
 </resources>

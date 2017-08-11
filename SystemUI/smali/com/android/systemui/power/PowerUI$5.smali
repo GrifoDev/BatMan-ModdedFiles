@@ -72,7 +72,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/power/PowerUI$5;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v3, v5}, Lcom/android/systemui/power/PowerUI;->-set10(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v3, v5}, Lcom/android/systemui/power/PowerUI;->-set11(Lcom/android/systemui/power/PowerUI;Z)Z
 
     goto :goto_0
 
@@ -87,11 +87,11 @@
 
     const/4 v4, 0x1
 
-    invoke-static {v3, v4}, Lcom/android/systemui/power/PowerUI;->-set10(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v3, v4}, Lcom/android/systemui/power/PowerUI;->-set11(Lcom/android/systemui/power/PowerUI;Z)Z
 
     iget-object v3, p0, Lcom/android/systemui/power/PowerUI$5;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v3}, Lcom/android/systemui/power/PowerUI;->-get11(Lcom/android/systemui/power/PowerUI;)Z
+    invoke-static {v3}, Lcom/android/systemui/power/PowerUI;->-get12(Lcom/android/systemui/power/PowerUI;)Z
 
     move-result v3
 
@@ -125,13 +125,13 @@
 
     iget-object v3, p0, Lcom/android/systemui/power/PowerUI$5;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v3}, Lcom/android/systemui/power/PowerUI;->-get18(Lcom/android/systemui/power/PowerUI;)Landroid/hardware/scontext/SContextManager;
+    invoke-static {v3}, Lcom/android/systemui/power/PowerUI;->-get19(Lcom/android/systemui/power/PowerUI;)Landroid/hardware/scontext/SContextManager;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/systemui/power/PowerUI$5;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v4}, Lcom/android/systemui/power/PowerUI;->-get17(Lcom/android/systemui/power/PowerUI;)Landroid/hardware/scontext/SContextListener;
+    invoke-static {v4}, Lcom/android/systemui/power/PowerUI;->-get18(Lcom/android/systemui/power/PowerUI;)Landroid/hardware/scontext/SContextListener;
 
     move-result-object v4
 
@@ -139,7 +139,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/power/PowerUI$5;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v3, v5}, Lcom/android/systemui/power/PowerUI;->-set13(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v3, v5}, Lcom/android/systemui/power/PowerUI;->-set14(Lcom/android/systemui/power/PowerUI;Z)Z
 
     goto :goto_0
 

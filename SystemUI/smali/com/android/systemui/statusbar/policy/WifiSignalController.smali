@@ -189,15 +189,15 @@
 
     sget-object v4, Lcom/android/systemui/statusbar/policy/AccessibilityContentDescriptions;->WIFI_CONNECTION_STRENGTH:[I
 
-    const v5, 0x7f020768
+    const v5, 0x7f020778
 
-    const v6, 0x7f020220
+    const v6, 0x7f020224
 
-    const v7, 0x7f020768
+    const v7, 0x7f020778
 
-    const v8, 0x7f020220
+    const v8, 0x7f020224
 
-    const v9, 0x7f0f00ec
+    const v9, 0x7f0f0149
 
     invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/policy/SignalController$IconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIII)V
 
@@ -1280,7 +1280,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/WifiSignalController;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f061a
+    const v4, 0x7f0f0678
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1348,7 +1348,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/WifiSignalController;->mNetworkController:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
-    const v1, 0x7f0f035b
+    const v1, 0x7f0f03b8
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/WifiSignalController;->getStringIfExists(I)Ljava/lang/String;
 
@@ -1432,7 +1432,7 @@
     :cond_a
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/WifiSignalController;->mNetworkController:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
-    const v1, 0x7f0f035a
+    const v1, 0x7f0f03b7
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/WifiSignalController;->getStringIfExists(I)Ljava/lang/String;
 

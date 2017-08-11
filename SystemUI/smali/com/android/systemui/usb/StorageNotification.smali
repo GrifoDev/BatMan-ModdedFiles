@@ -785,7 +785,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x10808b1
+    const v0, 0x108089f
 
     return v0
 
@@ -2388,7 +2388,7 @@
 
     move-result-object v9
 
-    const v10, 0x10804ce
+    const v10, 0x10804b8
 
     invoke-direct {v8, v10, v9, v3}, Landroid/app/Notification$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
@@ -2408,7 +2408,7 @@
 
     move-result-object v10
 
-    const v11, 0x10803d5
+    const v11, 0x10803bf
 
     invoke-direct {v8, v11, v9, v10}, Landroid/app/Notification$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
 

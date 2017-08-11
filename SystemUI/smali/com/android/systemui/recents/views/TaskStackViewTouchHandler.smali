@@ -245,7 +245,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/recents/views/TaskStackViewTouchHandler;->mFlingAnimUtils:Lcom/android/systemui/statusbar/FlingAnimationUtils;
 
-    const v2, 0x7f0d0388
+    const v2, 0x7f0d0389
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2514,7 +2514,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
     new-instance v3, Lcom/android/systemui/recents/views/AnimationProps;
 
@@ -2535,7 +2535,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Lcom/android/systemui/recents/views/TaskStackViewTouchHandler;->mSv:Lcom/android/systemui/recents/views/TaskStackView;
 
@@ -2569,14 +2569,13 @@
 
     invoke-virtual {v3, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
     sget-boolean v3, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSnapAction:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     sget-boolean v3, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSecondViewExpanded:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Lcom/android/systemui/recents/views/TaskStackViewTouchHandler;->mSv:Lcom/android/systemui/recents/views/TaskStackView;
 
@@ -2590,7 +2589,7 @@
 
     cmpg-float v3, v3, v11
 
-    if-gez v3, :cond_4
+    if-gez v3, :cond_3
 
     const/4 v1, -0x1
 
@@ -2605,11 +2604,11 @@
 
     cmpg-float v3, v3, v11
 
-    if-gez v3, :cond_1
+    if-gez v3, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_0
     iget-object v3, p0, Lcom/android/systemui/recents/views/TaskStackViewTouchHandler;->mScroller:Lcom/android/systemui/recents/views/TaskStackViewScroller;
 
     add-int v5, v1, v0
@@ -2628,7 +2627,7 @@
 
     invoke-virtual {v3, v5, v6, v4}, Lcom/android/systemui/recents/views/TaskStackViewScroller;->animateScroll(FILjava/lang/Runnable;)V
 
-    :cond_2
+    :cond_1
     invoke-virtual {v2}, Lcom/android/systemui/recents/views/TaskView;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -2639,12 +2638,12 @@
 
     return-void
 
-    :cond_3
+    :cond_2
     move-object v3, v4
 
     goto :goto_0
 
-    :cond_4
+    :cond_3
     iget-object v3, p0, Lcom/android/systemui/recents/views/TaskStackViewTouchHandler;->mSv:Lcom/android/systemui/recents/views/TaskStackView;
 
     invoke-virtual {v3}, Lcom/android/systemui/recents/views/TaskStackView;->getScroller()Lcom/android/systemui/recents/views/TaskStackViewScroller;

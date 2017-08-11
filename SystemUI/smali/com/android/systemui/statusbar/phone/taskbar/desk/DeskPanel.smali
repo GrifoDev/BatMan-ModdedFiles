@@ -409,7 +409,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanel;->mDeskPanelViewNotification:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;
 
-    const v1, 0x7f130182
+    const v1, 0x7f130186
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;->findViewById(I)Landroid/view/View;
 
@@ -434,7 +434,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanel;->mDeskPanelViewNotification:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;
 
-    const v1, 0x7f130181
+    const v1, 0x7f130185
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskPanelViewNotification;->findViewById(I)Landroid/view/View;
 

@@ -69,8 +69,8 @@
     <string name="clear_cover_servicebox_music_unknown">ناشناس</string>
     <string name="save">ذخیره کردن</string>
     <string name="ok">تاييد</string>
-    <string name="battery_history_hours_no_seconds">%1$dس %2$dد</string>
-    <string name="battery_history_minutes_no_seconds">%dد</string>
+    <string name="battery_history_hours_no_seconds">%1$d ساعت و %2$d دقیقه</string>
+    <string name="battery_history_minutes_no_seconds">%d دقیقه</string>
     <string name="wifi_fail_to_scan">اسکن شبکه‌ها امکان‌پذیر نیست</string>
     <string name="wifi_failed_to_obtain_IP">دریافت آدرس IP انجام نشد.</string>
     <string name="wifi_security_none">هیچ‌کدام</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">اتصال با %s ممکن نیست.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">اتصال به %1$s ممکن نیست. تنظیماتتان را در %2$s بررسی کرده و دوباره امتحان کنید.</string>
     <string name="bluetooth_pairing_rejected_error_message">مرتبط سازی توسط %s رد شد.</string>
+    <string name="bluetooth_getting_remote_device_name">در حال دریافت نام دستگاه…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">وقتی دستگاه متصل شد، نام دستگاه ظاهر می‌شود.</string>
     <string name="accessibility_wifi_off">‏Wi‑Fi خاموش است.</string>
     <string name="accessibility_no_wifi">‏Wi-Fi قطع‌ شد.</string>
     <string name="accessibility_wifi_one_bar">‏یک نوار برای Wi‑Fi.</string>
@@ -556,7 +558,7 @@ For example, your ringtone will not sound, you will not be able to answer phone 
     <string name="accessibility_back">برگشت</string>
     <string name="accessibility_home">صفحهٔ اصلی</string>
     <string name="accessibility_menu">منو</string>
-    <string name="sec_accessibility_recent">اخیر</string>
+    <string name="sec_accessibility_recent">موارد اخیر</string>
     <string name="accessibility_camera_button">دوربین</string>
     <string name="accessibility_phone_button">تلفن</string>
     <string name="accessibility_voice_assist_button">دستیار صوتی</string>
@@ -1364,6 +1366,7 @@ Wi-Fi و بلوتوث هم خاموش می‌شوند، اما می‌توانی
     <string name="keyboard_key_insert">درج</string>
     <string name="keyboard_key_num_lock">قفل اعداد</string>
     <string name="keyboard_key_numpad_template">صفحه‌کلید عددی %1$s</string>
+    <string name="keyboard_popup_help">کلید متا: Windows،‏ Command یا کلید نمادهای دیگر سیستم‌عامل.</string>
     <string name="keyboard_shortcut_group_system">میان‌برهای سیستم</string>
     <string name="keyboard_shortcut_group_system_home">صفحه اصلی</string>
     <string name="keyboard_shortcut_group_system_recents">موارد اخیر</string>
@@ -1525,8 +1528,8 @@ Wi-Fi و بلوتوث هم خاموش می‌شوند، اما می‌توانی
 
 برای محافظت در برابر آسیب با آب، مطمئن شوید سینی سیم‌کارت/کارت حافظه کاملا بسته و محکم شده باشد."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">برای محافظت در برابر آسیب با آب، مطمئن شوید سینی سیم‌کارت/کارت حافظه کاملا بسته و محکم شده باشد.</string>
-    <string name="water_protection_notification_title">بررسی پورت</string>
-    <string name="water_protection_notification_body">رطوبت وجود دارد. برای شارژ کردن دستگاه خود، مطمئن شوید پورت شارژر/USB خشک است.</string>
+    <string name="water_protection_notification_title">درآوردن شارژر از پریز</string>
+    <string name="water_protection_notification_body">رطوبت شناسایی شد. شارژر را از برق بکشید و بررسی کنید که هم شارژر و هم درگاه USB خشک باشد.</string>
     <string name="full_battery_title">اطلاعات</string>
     <string name="full_battery_noti_text">باطری بطور کامل پرشد.</string>
     <string name="cooling_title">دستگاه داغ است</string>
@@ -1620,6 +1623,7 @@ Using your tablet in a very hot location."</string>
     <string name="battery_not_fully_connected_charging_title">شارژ آهسته</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">برای شارژ سریع‌تر، از شارژری که با دستگاهتان ارائه می‌شود استفاده کنید و بررسی کنید به طور صحیح متصل شده باشد.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">بررسی کنید شارژر به طور صحیح متصل شده باشد. از شارژری که با دستگاهتان ارائه شده است استفاده کنید.</string>
     <string name="battery_charging_level_and_time_text">"شارژ کردن: ‎%1$d%%‎‏‎
 (تقریباً ‎%2$s تا شارژ کامل)"</string>
@@ -1633,14 +1637,20 @@ Using your tablet in a very hot location."</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">تلفن خود را شارژ کنید.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">تبلت خود را شارژ کنید.</string>
     <string name="button_close">بستن</string>
-    <string name="battery_health_interruption_title">شارژ ممکن نیست</string>
+    <string name="battery_health_interruption_title">شارژ کردن متوقف شد</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">شارژر را از پریز بیرون بیاورید</string>
     <string name="battery_health_interruption_by_terminal_open_text">شارژ دستگاه ممکن نیست. مطمئن شوید از باتری و شارژر سازگار با سامسونگ استفاده می‌کنید و دستگاهتان به درستی به شارژر متصل شده باشد.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">شارژ متوقف شد. دمای باتری بسیار زیاد است.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">شارژ متوقف شد. دمای باتری بسیار کم است.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"شارژ دستگاه متوقف شده است. دمای باتری خیلی زیاد است. هنگام جدا کردن شارژر مراقب باشید. ممکن است خیلی داغ باشد.‎
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">دمای تلفن شما خیلی بالاست. وقتی که دما به میزان طبیعی رسید،‌ شارژ کردن ادامه می‌یابد.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">دمای تبلت شما خیلی بالاست. وقتی که دما به میزان طبیعی رسید،‌ شارژ کردن ادامه می‌یابد.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">دمای تلفن شما خیلی پایین است. وقتی که دما به میزان طبیعی رسید،‌ شارژ کردن ادامه می‌یابد.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">دمای تبلت شما خیلی پایین است. وقتی که دما به میزان طبیعی رسید،‌ شارژ کردن ادامه می‌یابد.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"شارژ کردن متوقف شده است. دمای تلفن شما خیلی بالاست. هنگامی که شارژر را جدا می‌کنید مراقب باشید. ممکن است خیلی داغ باشد.
 
-ممکن است با جدا کردن و وصل کردن مجدد شارژر، شارژ به صورت عادی ادامه یابد. اگر داغ شدن بیش از حد ادامه داشت، با سرویس‌های مشتری تماس بگیرید چون خطر آتش‌سوزی یا جراحت وجود دارد."</string>
+اگر شارژر را جدا کنید و دوباره آن را وصل کنید شاید شارژ کردن به صورت عادی ادامه یابد. اگر همچنان دمای دستگاه خیلی بالاست، با خدمات مشتریان تماس بگیرید چون ممکن است خطر آتش‌سوزی یا صدمه دیدن وجود داشته باشد."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"شارژ کردن متوقف شده است. دمای تبلت شما خیلی بالاست. هنگامی که شارژر را جدا می‌کنید مراقب باشید. ممکن است خیلی داغ باشد.
+
+اگر شارژر را جدا کنید و دوباره آن را وصل کنید شاید شارژ کردن به صورت عادی ادامه یابد. اگر همچنان دمای دستگاه خیلی بالاست، با خدمات مشتریان تماس بگیرید چون ممکن است خطر آتش‌سوزی یا صدمه دیدن وجود داشته باشد."</string>
     <string name="incompatible_charger_title">شارژ نمی شود</string>
     <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
     <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
@@ -1656,8 +1666,6 @@ Using your tablet in a very hot location."</string>
     <string name="kg_biometrics_swipe_active_instructions">استفاده از اطلاعات بیومتریک یا کشیدن انگشت روی صفحه برای باز کردن</string>
     <string name="kg_face_or_swipe_unlock_instructions">استفاده از شناسایی چهره یا کشیدن انگشت روی صفحه برای بازگشایی قفل</string>
     <string name="kg_face_or_swipe_active_instructions">استفاده از شناسایی چهره یا کشیدن انگشت روی صفحه برای باز کردن</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">استفاده از شناسایی چهره برای بازگشایی قفل یا کشیدن انگشت روی صفحه برای استفاده از چشم‌ها</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">استفاده از شناسایی چهره برای باز کردن یا کشیدن انگشت روی صفحه برای استفاده از چشم‌ها</string>
     <string name="kg_face_unlock_instructions">برای بازگشایی قفل با شناسایی چهره، انگشت را روی صفحه بکشید</string>
     <string name="kg_face_or_fingerprint_active_instructions">با اثر انگشت صفحه را باز کنید یا صفحه را با انگشت بکشید تا به جای آن از شناسایی چهره استفاده کنید</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">با اثر انگشت قفل صفحه را باز کنید یا صفحه را با انگشت بکشید تا به جای آن از شناسایی چهره استفاده کنید</string>
@@ -1672,6 +1680,20 @@ Using your tablet in a very hot location."</string>
     <string name="kg_voice_assistant_unlock_instructions">برای قفل گشایی صفحه، دو انگشت خود را روی صفحه بکشید</string>
     <string name="kg_swipe_active_instructions">انگشت را روی صفحه بکشید تا باز شود</string>
     <string name="kg_swipe_unlock_instructions">برای بازگشایی قفل انگشت را روی صفحه بکشید</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">برای بازگشایی قفل، از اطلاعات بیومتریک استفاده کنید یا صفحه را با دو انگشت بکشید.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">برای باز کردن، از اطلاعات بیومتریک استفاده کنید یا صفحه را با دو انگشت بکشید.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">از شناسایی چهره یا کشیدن دو انگشت روی صفحه برای بازگشایی قفل استفاده کنید.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">از شناسایی چهره یا کشیدن دو انگشت روی صفحه برای باز کردن استفاده کنید.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">برای بازگشایی قفل با شناسایی چهره، صفحه را با دو انگشت بکشید.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">با اثر انگشت صفحه را باز کنید یا صفحه را با دو انگشت بکشید تا از شناسایی چهره استفاده کنید.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">با اثر انگشت قفل صفحه را باز کنید یا صفحه را با دو انگشت بکشید تا از شناسایی چهره استفاده کنید.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">با اثر انگشت صفحه را باز کنید یا صفحه را با دو انگشت بکشید تا از شناسایی چشم استفاده کنید.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">با اثر انگشت قفل صفحه را باز کنید یا صفحه را با دو انگشت بکشید تا از شناسایی چشم استفاده کنید.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">برای باز کردن، از اثر انگشت استفاده کنید یا صفحه را با دو انگشت بکشید.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">برای بازگشایی قفل، از اثر انگشت استفاده کنید یا صفحه را با دو انگشت بکشید.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">برای استفاده از چشم‌ها برای بازگشایی قفل، صفحه را با دو انگشت بکشید.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">برای بازگشایی قفل، از شناسایی چشم استفاده کنید یا صفحه را با دو انگشت بکشید.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">برای باز کردن، از شناسایی چشم استفاده کنید یا صفحه را با دو انگشت بکشید.</string>
     <string name="kg_power_connect_charger">متصل کردن شارژر</string>
     <string name="kg_power_fully_charged">کاملاً شارژ شد</string>
     <string name="kg_power_fast_charging">شارژ سریع: %d درصد</string>
@@ -1755,6 +1777,7 @@ upscaler"</string>
     <string name="remote_input_send_text">ارسال</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">برای بازگشایی قفل تلفن، دو بار روی دکمه قفل ضربه بزنید</string>
     <string name="s_view_cover_toast_pop_up_message">برای استفاده از دکمه‌های تنظیم سریع، جلد را باز کنید.</string>
     <string name="remote_input_toast_text_on_sview_cover">هنگامی که S view cover بسته است، استفاده از عملکرد پاسخ سریع ممکن نیست.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"برای کنترل مقدار نیروی اشتراک‌گذاری شده باید برنامه را دانلود کنید. اگر بدون دانلود برنامه، دستگاهتان را با کابل Power Sharing EP-SG900 سامسونگ به دستگاه دیگری متصل کنید، کل نیروی باتری به دستگاه دیگر انتقال خواهد یافت.
@@ -1791,7 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">می‌پذیرم</string>
-    <string name="force_immersive_guide_text">با ضربه زدن روی این نماد نوار پیمایش مخفی می‌شود. هنوز هم می‌توانید با کشیدن انگشت از پایین صفحه به بالا از دکمه‌های پیمایش استفاده کنید. وقتی نوار پیمایش نشان داده می‌شود، می‌توانید دوباره روی این نماد ضربه بزنید تا در جای خود ثابت شود. در بعضی از صفحه‌ها، مانند صفحه اصلی، نوار پیمایش همیشه نشان داده می‌شود.</string>
+    <string name="force_immersive_guide_text">با ضربه زدن روی این نماد، نوار پیمایش مخفی می‌شود. هنوز هم می‌توانید با کشیدن انگشت از پایین صفحه به بالا از دکمه‌های پیمایش استفاده کنید. وقتی نوار پیمایش نشان داده می‌شود، می‌توانید دوباره روی این نماد ضربه بزنید تا در جای خود ثابت شود. در بعضی از صفحه‌ها، مانند صفحه اصلی، نوار پیمایش همیشه نشان داده می‌شود. اگر برنامه‌ای با مخفی شدن نوار پیمایش درست کار نکرد، نوار پیمایش را در جای خود ثابت کنید و برنامه را دوباره راه‌اندازی کنید.</string>
+    <string name="force_immersive_guide_dialog_title">مخفی کردن نوار پیمایش:</string>
+    <string name="force_immersive_guide_dialog_message1">با ضربه زدن روی این دکمه نوار پیمایش مخفی می‌شود.</string>
+    <string name="force_immersive_guide_dialog_message2">برای نمایش نوار پیمایش، انگشت خود را از پایین به بالای صفحه بکشید.</string>
+    <string name="force_immersive_guide_dialog_message3">دوباره روی این دکمه ضربه بزنید تا در جایش قفل شود.</string>
+    <string name="force_immersive_guide_dialog_message4">در بعضی از صفحه‌ها، مانند صفحه اصلی، نوار پیمایش همیشه نشان داده می‌شود.</string>
+    <string name="force_immersive_guide_dialog_guide_path">برای مخفی کردن این دکمه، به تنظیمات > نمایش > نوار پیمایش بروید.</string>
+    <string name="force_immersive_guide_dialog_setting">تنظيمات</string>
+    <string name="force_immersive_guide_dialog_ok">تأیید</string>
     <string name="car_lockscreen_disclaimer_title">با ایمنی برانید</string>
     <string name="car_lockscreen_disclaimer_text">‏کاملاً از شرایط رانندگی آگاه باشید و همیشه قوانین مربوطه را رعایت کنید. مسیرها ممکن است غیردقیق، ناقص، ناکامل، خطرناک، نامناسب، ممنوع یا مستلزم عبور از تقسیمات کشوری باشند. اطلاعات کسب و کار نیز ممکن است غیردقیق یا ناکامل باشند. داده‌ها بی‌درنگ نیستند و دقت مکان نمی‌تواند تضمین شود. هنگام رانندگی دستگاه همراه را در دست نگیرید یا از برنامه‌هایی که ویژه Android Auto نیستند استفاده نکنید.</string>
     <string name="pip_close">‏بستن PIP</string>
@@ -2230,6 +2261,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_face_retry_content_description">برای استفاده از شناسایی چهره، دو بار ضربه بزنید.</string>
     <string name="kg_face_authentication_error_retry_text">هیج چهره‌ای شناسایی نشد. برای امتحان مجدد شناسایی چهره، روی نماد ضربه بزنید</string>
     <string name="kg_face_authentication_failed_retry_text">مورد منطبقی وجود ندارد. برای استفاده از شناسایی چهره، روی نماد ضربه بزنید</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">در شناسایی چهره مشکلی روی داد. برای امتحان مجدد ضربه بزنید</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">استفاده از شناسایی چهره در حین تماس ویدیویی ممکن نیست</string>
     <string name="kg_fingerprint_no_match">مورد منطبقی نیست</string>
     <string name="kg_finger_print_not_responding_error_message">حسگر اثر انگشت پاسخ نمی‌دهد. بعداً دوباره امتحان کنید.</string>
     <string name="kg_finger_print_database_error_message">داده‌های اثر انگشت خراب است. اثر انگشت را به عنوان نوع قفل صفحه بازنشانی کرده و دوباره اثر انگشت خود را اضافه کنید یا نوع قفل صفحه را تغییر دهید.</string>
@@ -2366,6 +2399,8 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="appicon_badge_new_item">1 مورد جدید</string>
     <string name="banner_apps_for_dex_detail">از برنامه‌های Galaxy Apps بهینه‌شده برای DeX لذت ببرید.</string>
     <string name="toast_cannot_move_more_than_items">انتقال بیشتر از %d مورد ممکن نیست.</string>
+    <string name="view_more_in_galaxy_apps">مشاهده بیشتر در Galaxy Apps</string>
+    <string name="view_more_in_play_store">مشاهده بیشتر در Play Store</string>
     <string name="uninstall_title">برنامه‌ها حذف شود؟</string>
     <string name="uninstall_1_app_message">این برنامه حذف شود؟</string>
     <string name="uninstall_apps_message">برنامه‌های زیر حذف خواهند شد:</string>
@@ -2406,6 +2441,13 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="taskbar_context_menu_close_desk_notification_view">مخفی کردن اعلان‌ها</string>
     <string name="volumepanel_notification">اعلانات</string>
     <string name="quick_settings_location_detail_device_only">فقط دستگاه</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">شارژ متوقف شد. دمای باتری بسیار زیاد است.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">شارژ متوقف شد. دمای باتری بسیار کم است.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"شارژ دستگاه متوقف شده است. دمای باتری خیلی زیاد است. هنگام جدا کردن شارژر مراقب باشید. ممکن است خیلی داغ باشد.‎
+
+ممکن است با جدا کردن و وصل کردن مجدد شارژر، شارژ به صورت عادی ادامه یابد. اگر داغ شدن بیش از حد ادامه داشت، با سرویس‌های مشتری تماس بگیرید چون خطر آتش‌سوزی یا جراحت وجود دارد."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">استفاده از شناسایی چهره برای بازگشایی قفل یا کشیدن انگشت روی صفحه برای استفاده از چشم‌ها</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">استفاده از شناسایی چهره برای باز کردن یا کشیدن انگشت روی صفحه برای استفاده از چشم‌ها</string>
     <string name="kg_infinity_wallpaper_option_description">عکس پس‌زمینه دائمی در صفحه اصلی و صفحه قفل به طور همزمان اعمال خواهد شد. برای داشتن بهترین تجربه تنظیم زیر را روشن کنید.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">روشن کردن Always On Display</string>
 </resources>

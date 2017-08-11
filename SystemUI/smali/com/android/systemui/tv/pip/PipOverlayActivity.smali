@@ -113,11 +113,11 @@
 
     sput-boolean v0, Lcom/android/systemui/tv/pip/PipOverlayActivity;->sActivityCreated:Z
 
-    const v0, 0x7f0401a6
+    const v0, 0x7f0401aa
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tv/pip/PipOverlayActivity;->setContentView(I)V
 
-    const v0, 0x7f130502
+    const v0, 0x7f13050c
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tv/pip/PipOverlayActivity;->findViewById(I)Landroid/view/View;
 

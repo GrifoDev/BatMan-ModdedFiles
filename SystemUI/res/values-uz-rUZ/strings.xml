@@ -70,7 +70,7 @@
     <string name="save">Saqlash</string>
     <string name="ok">OK</string>
     <string name="battery_history_hours_no_seconds">%1$ds %2$dd</string>
-    <string name="battery_history_minutes_no_seconds">%dd</string>
+    <string name="battery_history_minutes_no_seconds">%d d</string>
     <string name="wifi_fail_to_scan">Tarmoqlarni tekshirib chiqishni iloji bo‘lmadi</string>
     <string name="wifi_failed_to_obtain_IP">IP-manzilni olib bo‘lmadi.</string>
     <string name="wifi_security_none">Yo‘q</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">%s’ga ulanib bo‘lmaydi.</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">%1$s’ga ulanib bo‘lmaydi. %2$s’da parametrlarni tekshiring va qayta urinib ko‘ring.</string>
     <string name="bluetooth_pairing_rejected_error_message">Bog‘lanish %s tomonidan rad etildi.</string>
+    <string name="bluetooth_getting_remote_device_name">Qurilma nomi olinmoqda…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">Ushbu qurilma ulanganda, qurilma nomi ko‘rsatiladi.</string>
     <string name="accessibility_wifi_off">Wi-Fi o‘chiq.</string>
     <string name="accessibility_no_wifi">Wi-Fi o‘chiq.</string>
     <string name="accessibility_wifi_one_bar">Wi-Fi: bitta ustun</string>
@@ -1363,6 +1365,7 @@ Batafsil ma’lumot olish uchun administrator bilan bog‘laning."</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">Raqamli klaviatura (%1$s)</string>
+    <string name="keyboard_popup_help">Meta tugma: Windows, Buyruq yoki operatsion tizimning boshqa simvol tugmasi.</string>
     <string name="keyboard_shortcut_group_system">Tizim yorliqlari</string>
     <string name="keyboard_shortcut_group_system_home">Bosh ekran</string>
     <string name="keyboard_shortcut_group_system_recents">So‘nggi ishlatilganlar</string>
@@ -1524,8 +1527,8 @@ Batafsil ma’lumot olish uchun administrator bilan bog‘laning."</string>
 
 Suvdan zararlanishning oldini olish uchun SIM/SD-karta treyi mahkam qotirilganligiga ishonch hosil qiling."</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">Suvdan zararlanishning oldini olish uchun SIM/SD-karta treyi mahkam qotirilganligiga ishonch hosil qiling.</string>
-    <string name="water_protection_notification_title">Portni tekshirish</string>
-    <string name="water_protection_notification_body">Namlik aniqlandi. Qurilmani zaryadlash uchun zaryadlash qurilmasi/USB port quruqligiga ishonch hosil qiling.</string>
+    <string name="water_protection_notification_title">Zaryadlash qurilmasini chiqaring</string>
+    <string name="water_protection_notification_body">Namlik aniqlandi. Zaryadlash qurilmasini chiqaring va zaryadlash qurilmasi va USB port quruq ekanligiga ishonch hosil qiling.</string>
     <string name="full_battery_title">Ma’lumot</string>
     <string name="full_battery_noti_text">Batareya to‘la zaryadlandi.</string>
     <string name="cooling_title">Qurilma qizib ketmoqda</string>
@@ -1619,6 +1622,7 @@ Qizib ketish sababi quyidagilar bo‘lishi mumkin:
     <string name="battery_not_fully_connected_charging_title">Sekin zaryadlash</string>
     <string name="battery_not_fully_connected_charging_title_vzw">Incomplete connection</string>
     <string name="battery_not_fully_connected_charging_text">Tezroq zaryadlash uchun qurilma bilan birga kelgan zaryadlash qurilmasidan foydalaning va u to‘g‘ri ulanganligiga ishonch hosil qiling.</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">Make sure the charger is properly connected.</string>
     <string name="battery_not_fully_connected_charging_popup_text">Zaryadlash qurilmasi to‘g‘ri ulanganligiga ishonch hosil qiling. Qurilma bilan birga taqdim etilgan zaryadlash qurilmasidan foydalaning.</string>
     <string name="battery_charging_level_and_time_text">"Zaryadlanmoqda: %1$d%%
 (To‘liq zaryadlanishga taxminan %2$s qoldi)"</string>
@@ -1632,12 +1636,18 @@ Qizib ketish sababi quyidagilar bo‘lishi mumkin:
     <string name="battery_saver_recommend_notification_text_phone_psm">Telefonni zaryadlang.</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">Planshetni zaryadlang.</string>
     <string name="button_close">Yopish</string>
-    <string name="battery_health_interruption_title">Zaryadlab bo‘lmaydi</string>
+    <string name="battery_health_interruption_title">Zaryadlash to‘xtatildi</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">Zaryadlash qurilmasini chiqaring</string>
     <string name="battery_health_interruption_by_terminal_open_text">Qurilmangizni zaryadlab bo‘lmaydi. Siz Samsungga mos batareya va zaryadlash qurilmasidan foydalanayotganingizga va qurilmangiz zaryadlash qurilmasiga to‘g‘ri ulanganligiga ishonch hosil qiling.</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">Zaryadlash to‘xtatib turilmoqda. Batareya harorati juda yuqori.</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">Zaryadlash to‘xtatib turilmoqda. Batareya harorati juda past.</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"Qurilmani zaryadlash to‘xtatildi. Batareya harorati juda yuqori. Zaryadlash qurilmasini ehtiyotkorlik bilan chiqaring. U juda issiq bo‘lishi mumkin.
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">Telefoningiz harorati juda yuqori. Harorat normal darajaga qaytganda, zaryadlash davom ettiriladi.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">Planshetingiz harorati juda yuqori. Harorat normal darajaga qaytganda, zaryadlash davom ettiriladi.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">Telefoningiz harorati juda past. Harorat normal darajaga qaytganda, zaryadlash davom ettiriladi.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">Planshetingiz harorati juda past. Harorat normal darajaga qaytganda, zaryadlash davom ettiriladi.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"Zaryadlash to‘xtatildi. Telefoningiz harorati juda yuqori. Zaryadlash qurilmasini ehtiyotkorlik bilan chiqaring. U juda issiq bo‘lishi mumkin.
+
+Zaryadlash qurilmasini chiqarish va qayta ulash zaryadlashni normal davom ettirishga imkon berishi mumkin. Agar qizib ketsa, mijozlarga xizmat ko‘rsatish markazi bilan bog‘laning, chunki yong‘in yoki zarar yetish ehtimoli mavjud."</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"Zaryadlash to‘xtatildi. Planshetingiz harorati juda yuqori. Zaryadlash qurilmasini ehtiyotkorlik bilan chiqaring. U juda issiq bo‘lishi mumkin.
 
 Zaryadlash qurilmasini chiqarish va qayta ulash zaryadlashni normal davom ettirishga imkon berishi mumkin. Agar qizib ketsa, mijozlarga xizmat ko‘rsatish markazi bilan bog‘laning, chunki yong‘in yoki zarar yetish ehtimoli mavjud."</string>
     <string name="incompatible_charger_title">Zaryadlanmayapti.</string>
@@ -1655,8 +1665,6 @@ Kelajakda ushbu qalqib chiqmasligi uchun sensorli datchik to‘sib qo‘yilmagan
     <string name="kg_biometrics_swipe_active_instructions">Ochish uchun biometrik ma’lumotlar yoki ekranni surishdan foydalaning</string>
     <string name="kg_face_or_swipe_unlock_instructions">Blokdan chiqarish uchun yuzni aniqlashdan yoki ekranni surishdan foydalaning</string>
     <string name="kg_face_or_swipe_active_instructions">Ochish uchun yuzni aniqlashdan yoki ekranni surishdan foydalaning</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">Blokdan chiqarish uchun yuzni aniqlashdan foydalaning yoki uning o‘rniga ko‘z pardalaridan foydalanish uchun ekranni suring</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">Ochish uchun yuzni aniqlashdan foydalaning yoki uning o‘rniga ko‘z pardalaridan foydalanish uchun ekranni suring</string>
     <string name="kg_face_unlock_instructions">Yuzni tanish yordamida blokdan chiqarish uchun ekranni suring</string>
     <string name="kg_face_or_fingerprint_active_instructions">Ochish uchun barmoq izidan foydalaning yoki uning o‘rniga yuzni tanishdan foydalanish uchun ekranni suring</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">Blokdan chiqarish uchun barmoq izidan foydalaning yoki uning o‘rniga yuzni tanishdan foydalanish uchun ekranni suring</string>
@@ -1671,6 +1679,20 @@ Kelajakda ushbu qalqib chiqmasligi uchun sensorli datchik to‘sib qo‘yilmagan
     <string name="kg_voice_assistant_unlock_instructions">Ekranni blokdan chiqarish uchun uni ikkita barmog‘ingiz bilan suring.</string>
     <string name="kg_swipe_active_instructions">Ochish uchun ekranni suring</string>
     <string name="kg_swipe_unlock_instructions">Blokdan chiqarish uchun ekranni suring</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">Blokdan chiqarish uchun biometrik ma’lumotlardan foydalaning yoki ikkita barmoq bilan ekranni suring.</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">Biometrik ma’lumotlardan foydalaning yoki ochish uchun ikkita barmoq bilan ekranni suring.</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">Blokdan chiqarish uchun yuzni tanishdan foydalaning yoki ikkita barmoq bilan ekranni suring.</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">Ochish uchun yuzni tanishdan foydalaning yoki ikkita barmoq bilan ekranni suring.</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">Yuzni tanish yordamida blokdan chiqarish uchun ikkita barmoq bilan ekranni suring.</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">Ochish uchun barmoq izidan foydalaning yoki yuzni tanishdan foydalanish uchun ikkita barmoq bilan ekranni suring.</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">Blokdan chiqarish uchun barmoq izidan foydalaning yoki yuzni tanishdan foydalanish uchun ikkita barmoq bilan ekranni suring.</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">Ochish uchun barmoq izidan foydalaning yoki ko‘z pardalaridan foydalanish uchun ikki ta barmoq bilan ekranni suring.</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">Blokdan chiqarish uchun barmoq izidan foydalaning yoki ko‘z pardalaridan foydalanish uchun ikki ta barmoq bilan ekranni suring.</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">Ochish uchun barmoq izidan foydalaning yoki ikkita barmoq bilan ekranni suring.</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">Blokdan chiqarish uchun barmoq izidan foydalaning yoki ikkita barmoq bilan ekranni suring.</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">Blokdan chiqarishda ko‘z pardalaridan foydalanish uchun ikkita barmoq bilan ekranni suring.</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">Blokdan chiqarish uchun ko‘z pardalaridan foydalaning yoki ikki ta barmoq bilan ekranni suring.</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">Ochish uchun ko‘z pardalaridan foydalaning yoki ikki ta barmoq bilan ekranni suring.</string>
     <string name="kg_power_connect_charger">Zaryadlash qurilmasini ulang</string>
     <string name="kg_power_fully_charged">To‘la zaryadlangan</string>
     <string name="kg_power_fast_charging">Tez zaryadlash: %d%%</string>
@@ -1754,6 +1776,7 @@ upscaler"</string>
     <string name="remote_input_send_text">Yuborish</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">Tap Lock icon to use irises to unlock device</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">Telefonni blokdan chiqarish uchun Qulf tugmasiga ikki marta teging</string>
     <string name="s_view_cover_toast_pop_up_message">Tezkor parametr tugmalaridan foydalanish uchun qopqoqni oching.</string>
     <string name="remote_input_toast_text_on_sview_cover">S View muqovasi yopilgan vaqtda Tezkor javob funksiyasidan foydalanib bo‘lmaydi.</string>
     <string name="powerui_power_sharing_alert_dialog_body">"You must download the app in order to control the amount of power shared. If you connect your device to another device with the Samsung's Power Sharing Cable EP-SG900 without the app, the entire battery amount will be transferred to the other device. 
@@ -1790,7 +1813,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">Roziman</string>
-    <string name="force_immersive_guide_text">Bu ikonachaga tegish navigatsiya panelini yashiradi. Ekranning pastki qismidan yuqoriga surish orqali navigatsiya tugmalaridan foydalanishda davom etishingiz mumkin. Navigatsiya paneli ko‘rsatilgan vaqtda uni joyiga qulflash uchun bu ikonachaga tegishingiz mumkin. Asosiy ekran kabi ayrim ekranlarda navigatsiya paneli har doim ko‘rsatiladi.</string>
+    <string name="force_immersive_guide_text">Bu tugmaga tegish navigatsiya panelini yashiradi. Ekranning pastki qismidan yuqoriga surish orqali navigatsiya tugmalaridan foydalanishda davom etishingiz mumkin. Navigatsiya paneli ko‘rsatilgan vaqtda uni joyiga qulflash uchun bu tugmaga yana tegishingiz mumkin. Asosiy ekran kabi ayrim ekranlarda navigatsiya paneli har doim ko‘rsatiladi. Navigatsiya paneli yashirilgan vaqtda ilova ko‘ngildagidek ishlamasa, navigatsiya panelini joyiga qulflang va ilovani qayta ishga tushiring.</string>
+    <string name="force_immersive_guide_dialog_title">Navigatsiya panelini yashirish:</string>
+    <string name="force_immersive_guide_dialog_message1">Bu tugmaga tegish navigatsiya panelini yashiradi.</string>
+    <string name="force_immersive_guide_dialog_message2">Navigatsiya paneli ko‘rsatilishi uchun ekranni pastdan yuqoriga suring.</string>
+    <string name="force_immersive_guide_dialog_message3">Uni o‘sha joyga qulflash uchun bu tugmaga teging.</string>
+    <string name="force_immersive_guide_dialog_message4">Asosiy ekran kabi ayrim ekranlarda navigatsiya paneli har doim ko‘rsatiladi.</string>
+    <string name="force_immersive_guide_dialog_guide_path">Bu tugmani yashirish uchun Parametrlar > Displey > Navigatsiya paneliga o‘ting.</string>
+    <string name="force_immersive_guide_dialog_setting">Parametrlar</string>
+    <string name="force_immersive_guide_dialog_ok">OK</string>
     <string name="car_lockscreen_disclaimer_title">Xavfsiz haydash</string>
     <string name="car_lockscreen_disclaimer_text">Harakat xavfsizligi va amaldagi qonunchilikka doim rioya qiling. Yo‘l ko‘rsatmalari noaniq, chala, xavfli, mos emas, taqiqlangan yoki ma’muriy hududlarni kesib o‘tadigan bo‘lishi mumkin. Biznes ma’lumotlari ham noaniq yoki chala bo‘lishi mumkin. Ma’lumotlar real vaqt rejimida bo‘lmasligi hamda joylashuv ma’lumotining aniqligi kafolatlanmaydi. Avtomobilni haydash mobaynida Android Auto xizmati bilan bog‘liq bo‘lmagan hollarda mobil qurilma yoki ilovalardan foydalanmang.</string>
     <string name="pip_close">Kadr ichida kadr – chiqish</string>
@@ -2229,6 +2260,8 @@ PUK-kod esingizdan chiqqan bo‘lsa, mijozlarga xizmat ko‘rsatish markazi bila
     <string name="kg_face_retry_content_description">Yuzni tanishdan foydalanish uchun ikki marta teging.</string>
     <string name="kg_face_authentication_error_retry_text">Yuz tanilmadi. Yuzni tanishga qayta urinib ko‘rish uchun ikonachaga teging</string>
     <string name="kg_face_authentication_failed_retry_text">Moslik yo‘q. Yuzni tanishdan foydalanish uchun ikonachaga teging</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">Yuzni tanish bilan bog‘liq muammo yuzaga keldi. Qayta urinib ko‘rish uchun teging</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">Video qo‘ng‘iroqlar vaqtida yuzni tanishdan foydalanib bo‘lmaydi</string>
     <string name="kg_fingerprint_no_match">Moslik yo‘q</string>
     <string name="kg_finger_print_not_responding_error_message">Barmoq izi sensori javob bermayapti. Keyinroq qayta urinib ko‘ring.</string>
     <string name="kg_finger_print_database_error_message">Barmoq izi ma’lumoti zararlangan. Barmoq izini ekranni bloklash usuli sifatida qayta o‘rnating va undan so‘ng barmoq izlaringizni qayta qo‘shing, yoki ekranni bloklash usulini o‘zgartiring.</string>
@@ -2365,6 +2398,8 @@ PUK-kod esingizdan chiqqan bo‘lsa, mijozlarga xizmat ko‘rsatish markazi bila
     <string name="appicon_badge_new_item">1ta yangi element</string>
     <string name="banner_apps_for_dex_detail">Galaxy Apps’dan DeX uchun optimallashtirilgan ilovalarni yuklab oling.</string>
     <string name="toast_cannot_move_more_than_items">Ko‘pi bilan %d ta elementni ko‘chirish mumkin.</string>
+    <string name="view_more_in_galaxy_apps">Galaxy Apps’da ko‘proq</string>
+    <string name="view_more_in_play_store">Play Store’da ko‘proq</string>
     <string name="uninstall_title">Ilovalar olib tashlansinmi?</string>
     <string name="uninstall_1_app_message">Ushbu ilovani olib tashlamoqchimisiz?</string>
     <string name="uninstall_apps_message">Quyidagi ilovalar olib tashlanadi:</string>
@@ -2405,6 +2440,13 @@ PUK-kod esingizdan chiqqan bo‘lsa, mijozlarga xizmat ko‘rsatish markazi bila
     <string name="taskbar_context_menu_close_desk_notification_view">Bildirishnomalarni yashir</string>
     <string name="volumepanel_notification">Xabarnoma</string>
     <string name="quick_settings_location_detail_device_only">Faqat qurilma</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Zaryadlash to‘xtatib turilmoqda. Batareya harorati juda yuqori.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Zaryadlash to‘xtatib turilmoqda. Batareya harorati juda past.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Qurilmani zaryadlash to‘xtatildi. Batareya harorati juda yuqori. Zaryadlash qurilmasini ehtiyotkorlik bilan chiqaring. U juda issiq bo‘lishi mumkin.
+
+Zaryadlash qurilmasini chiqarish va qayta ulash zaryadlashni normal davom ettirishga imkon berishi mumkin. Agar qizib ketsa, mijozlarga xizmat ko‘rsatish markazi bilan bog‘laning, chunki yong‘in yoki zarar yetish ehtimoli mavjud."</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">Blokdan chiqarish uchun yuzni aniqlashdan foydalaning yoki uning o‘rniga ko‘z pardalaridan foydalanish uchun ekranni suring</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">Ochish uchun yuzni aniqlashdan foydalaning yoki uning o‘rniga ko‘z pardalaridan foydalanish uchun ekranni suring</string>
     <string name="kg_infinity_wallpaper_option_description">Cheksizlik tasviri tushirilgan fon rasmi bir vaqtda Asosiy va Bloklash ekranlaringizga qo‘llaniladi. Optimal tajribaga ega bo‘lish uchun quyidagi parametrni yoqing.</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">Always On Display’ni yoqish</string>
 </resources>

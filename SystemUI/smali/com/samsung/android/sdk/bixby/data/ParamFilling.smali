@@ -218,6 +218,23 @@
     goto :goto_0
 .end method
 
+.method public getScreenStates()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/data/ParamFilling;->screenStates:Ljava/util/List;
+
+    return-object v0
+.end method
+
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 

@@ -112,7 +112,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f04011f
+    const v7, 0x7f040123
 
     const/4 v8, 0x0
 
@@ -204,7 +204,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f02039d
+    const v7, 0x7f0203a5
 
     const/4 v8, 0x0
 
@@ -256,7 +256,7 @@
 
     if-eqz v6, :cond_7
 
-    const v6, 0x7f0b012f
+    const v6, 0x7f0b0130
 
     :goto_3
     invoke-virtual {v7, v6}, Landroid/content/res/Resources;->getColor(I)I
@@ -357,7 +357,7 @@
     goto :goto_2
 
     :cond_7
-    const v6, 0x7f0b012e
+    const v6, 0x7f0b012f
 
     goto :goto_3
 

@@ -177,6 +177,75 @@
     return-void
 .end method
 
+.method private adjustBackground(Landroid/view/View;)V
+    .locals 4
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
+
+    move-result v0
+
+    sget-object v1, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "isWhiteKeyguardWallpaper is "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v0, :cond_1
+
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->mContext:Landroid/content/Context;
+
+    sget v2, Lcom/android/keyguard/R$color;->servicebox_big_view_bg_color_white:I
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
+    invoke-virtual {p1, v1}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->mContext:Landroid/content/Context;
+
+    sget v2, Lcom/android/keyguard/R$color;->servicebox_big_view_bg_color_dark:I
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
+    invoke-virtual {p1, v1}, Landroid/view/View;->setBackgroundColor(I)V
+
+    goto :goto_0
+.end method
+
 .method private adjustNavigationBar(Landroid/view/View;Landroid/view/WindowManager$LayoutParams;)V
     .locals 4
 
@@ -232,16 +301,6 @@
 
     iput v1, p2, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
 
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->mContext:Landroid/content/Context;
-
-    sget v2, Lcom/android/keyguard/R$color;->servicebox_big_view_bg_color_white:I
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getColor(I)I
-
-    move-result v1
-
-    invoke-virtual {p1, v1}, Landroid/view/View;->setBackgroundColor(I)V
-
     :goto_0
     invoke-virtual {p1}, Landroid/view/View;->getSystemUiVisibility()I
 
@@ -263,16 +322,6 @@
     move-result v1
 
     iput v1, p2, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
-
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->mContext:Landroid/content/Context;
-
-    sget v2, Lcom/android/keyguard/R$color;->servicebox_big_view_bg_color_dark:I
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getColor(I)I
-
-    move-result v1
-
-    invoke-virtual {p1, v1}, Landroid/view/View;->setBackgroundColor(I)V
 
     goto :goto_0
 .end method
@@ -1287,6 +1336,8 @@
     iput-wide p7, v0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
 
     invoke-direct {p0, p2, v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->adjustNavigationBar(Landroid/view/View;Landroid/view/WindowManager$LayoutParams;)V
+
+    invoke-direct {p0, p2}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->adjustBackground(Landroid/view/View;)V
 
     const/4 v1, 0x0
 

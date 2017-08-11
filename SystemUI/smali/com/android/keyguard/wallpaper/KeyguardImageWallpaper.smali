@@ -34,6 +34,8 @@
 
 .field private mFileObserver:Landroid/os/FileObserver;
 
+.field private final mHandler:Landroid/os/Handler;
+
 .field private mIsOperatorWallpaper:Z
 
 .field private mIsSupportNavigationBar:Z
@@ -56,13 +58,7 @@
 
 .field private mOriginScale:F
 
-.field protected mReloadingBitmap:Z
-
 .field private mSelectedUser:Landroid/os/UserHandle;
-
-.field protected mSettingsChangedWhileReloadingBitmap:Z
-
-.field private mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
 
 .field private mShouldEnableScreenRotation:Z
 
@@ -166,10 +162,10 @@
     return v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;Landroid/graphics/Bitmap;)V
+.method static synthetic -wrap1(Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;Landroid/os/Bundle;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->setWhiteBgSettings(Landroid/graphics/Bitmap;)V
+    invoke-direct {p0, p1}, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->handleUpdateWhiteBgSettingsDB(Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -237,15 +233,11 @@
 
     iput-boolean v1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mIsOperatorWallpaper:Z
 
-    iput-boolean v1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mReloadingBitmap:Z
-
-    iput-boolean v1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mSettingsChangedWhileReloadingBitmap:Z
-
     new-instance v0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$1;
 
     invoke-direct {v0, p0}, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper$1;-><init>(Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;)V
 
-    iput-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+    iput-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mHandler:Landroid/os/Handler;
 
     iput-object p1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
 
@@ -323,6 +315,8 @@
 
 .method private checkDeviceDensity(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 11
+
+    if-eqz p1, :cond_2
 
     iget-object v8, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
 
@@ -1696,7 +1690,7 @@
 
     move-result-object v1
 
-    invoke-static {v4, v3}, Landroid/app/WallpaperManager;->getCSCWallpaperFile(ILandroid/app/WallpaperManager$SubUserWallpaperChecker;)Ljava/io/File;
+    invoke-static {v4, v3, v3}, Landroid/app/WallpaperManager;->getCSCWallpaperFile(ILandroid/app/WallpaperManager$SubUserWallpaperChecker;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
@@ -1740,6 +1734,231 @@
     move-result-object v2
 
     goto :goto_0
+.end method
+
+.method private handleUpdateWhiteBgSettingsDB(Landroid/os/Bundle;)V
+    .locals 11
+
+    const/4 v7, 0x1
+
+    const/4 v8, 0x0
+
+    iget-object v6, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardStatusBar()Z
+
+    move-result v5
+
+    iget-object v6, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
+
+    move-result v3
+
+    iget-object v6, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardNavigationBar()Z
+
+    move-result v4
+
+    const-string/jumbo v6, "newValStatusBar"
+
+    invoke-virtual {p1, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v2
+
+    const-string/jumbo v6, "newValBody"
+
+    invoke-virtual {p1, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    const-string/jumbo v6, "newValNaviBar"
+
+    invoke-virtual {p1, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    const-string/jumbo v6, "KeyguardImageWallpaper"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "oldValStatusBar="
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, ", newValStatusBar="
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v6, "KeyguardImageWallpaper"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "oldValBody="
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, ", newValBody="
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v6, "KeyguardImageWallpaper"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "oldValNaviBar="
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, ", newValNaviBar="
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eq v5, v2, :cond_0
+
+    iget-object v6, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v9
+
+    if-eqz v2, :cond_3
+
+    move v6, v7
+
+    :goto_0
+    invoke-virtual {v9, v6}, Lcom/android/keyguard/util/SettingsHelper;->setWhiteKeyguardStatusBar(I)V
+
+    :cond_0
+    if-eq v3, v0, :cond_1
+
+    const-string/jumbo v6, "KeyguardImageWallpaper"
+
+    const-string/jumbo v9, "oldValBody != newValBody setWhiteKeyguardWallpaper"
+
+    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v6, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v9
+
+    if-eqz v0, :cond_4
+
+    move v6, v7
+
+    :goto_1
+    invoke-virtual {v9, v6}, Lcom/android/keyguard/util/SettingsHelper;->setWhiteKeyguardWallpaper(I)V
+
+    :cond_1
+    iget-boolean v6, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mIsSupportNavigationBar:Z
+
+    if-eqz v6, :cond_2
+
+    if-eq v4, v1, :cond_2
+
+    iget-object v6, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v6
+
+    if-eqz v1, :cond_5
+
+    :goto_2
+    invoke-virtual {v6, v7}, Lcom/android/keyguard/util/SettingsHelper;->setWhiteKeyguardNavigationBar(I)V
+
+    :cond_2
+    return-void
+
+    :cond_3
+    move v6, v8
+
+    goto :goto_0
+
+    :cond_4
+    move v6, v8
+
+    goto :goto_1
+
+    :cond_5
+    move v7, v8
+
+    goto :goto_2
 .end method
 
 .method private init()Z
@@ -2228,306 +2447,154 @@
 
     const/4 v13, 0x2
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    const/4 v9, 0x1
+    const/16 v12, 0x64
 
-    const/4 v10, 0x3
+    const/4 v8, 0x1
 
-    new-array v2, v10, [Z
+    const/4 v9, 0x3
 
-    fill-array-data v2, :array_0
+    new-array v4, v9, [Z
 
-    iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
+    fill-array-data v4, :array_0
 
-    invoke-static {v10}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    iget v9, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mStatusBarHeight:I
 
-    move-result-object v10
+    int-to-float v9, v9
 
-    invoke-virtual {v10}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardStatusBar()Z
+    const/high16 v10, 0x3f800000    # 1.0f
 
-    move-result v4
+    mul-float/2addr v9, v10
 
-    iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
+    iget v10, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mCroppedScale:F
 
-    invoke-static {v10}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    div-float/2addr v9, v10
 
-    move-result-object v10
+    float-to-int v1, v9
 
-    invoke-virtual {v10}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
+    iget-object v9, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "lockscreen_wallpaper_transparent"
+
+    invoke-static {v9, v10, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v5
 
-    iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
+    sget-boolean v9, Lcom/android/keyguard/KeyguardRune;->SUPPORT_WHITE_WALLPAPER_AS_DEFAULT:Z
 
-    invoke-static {v10}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    if-eqz v9, :cond_3
 
-    move-result-object v10
-
-    invoke-virtual {v10}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardNavigationBar()Z
-
-    move-result v3
-
-    iget v10, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mStatusBarHeight:I
-
-    int-to-float v10, v10
-
-    const/high16 v11, 0x3f800000    # 1.0f
-
-    mul-float/2addr v10, v11
-
-    iget v11, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mCroppedScale:F
-
-    div-float/2addr v10, v11
-
-    float-to-int v0, v10
-
-    iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
-
-    invoke-static {v10}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Lcom/android/keyguard/util/SettingsHelper;->getLockscreenWallpaperTransparent()I
-
-    move-result v6
-
-    sget-boolean v10, Lcom/android/keyguard/KeyguardRune;->SUPPORT_WHITE_WALLPAPER_AS_DEFAULT:Z
-
-    if-eqz v10, :cond_5
-
-    iget-boolean v7, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mIsOperatorWallpaper:Z
+    iget-boolean v6, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mIsOperatorWallpaper:Z
 
     :goto_0
-    const-string/jumbo v10, "KeyguardImageWallpaper"
+    const-string/jumbo v9, "KeyguardImageWallpaper"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "wallpaperTransparent="
+    const-string/jumbo v11, "wallpaperTransparent="
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v11, ", whiteOperatorWallpaper="
 
-    move-result-object v11
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v10
 
-    if-ne v6, v9, :cond_0
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    if-eqz v7, :cond_1
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-ne v5, v8, :cond_0
+
+    if-eqz v6, :cond_1
 
     :cond_0
-    if-ne v6, v13, :cond_6
+    if-ne v5, v13, :cond_4
 
-    move v1, v8
+    move v3, v7
 
     :goto_1
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->checkWhiteLockscreenWallpaper(Landroid/graphics/Bitmap;IZ)[Z
+    invoke-direct {p0, p1, v1, v3}, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->checkWhiteLockscreenWallpaper(Landroid/graphics/Bitmap;IZ)[Z
+
+    move-result-object v4
+
+    :cond_1
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo v9, "newValStatusBar"
+
+    aget-boolean v7, v4, v7
+
+    invoke-virtual {v0, v9, v7}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    const-string/jumbo v7, "newValBody"
+
+    aget-boolean v8, v4, v8
+
+    invoke-virtual {v0, v7, v8}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    const-string/jumbo v7, "newValNaviBar"
+
+    aget-boolean v8, v4, v13
+
+    invoke-virtual {v0, v7, v8}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    iget-object v7, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v7, v12, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v2
 
-    :cond_1
-    const-string/jumbo v10, "KeyguardImageWallpaper"
+    iget-object v7, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mHandler:Landroid/os/Handler;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v12}, Landroid/os/Handler;->hasMessages(I)Z
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v7
 
-    const-string/jumbo v12, "oldValStatusBar="
+    if-eqz v7, :cond_2
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v7, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mHandler:Landroid/os/Handler;
 
-    move-result-object v11
-
-    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, ", newValStatusBar="
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    aget-boolean v12, v2, v8
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v10, "KeyguardImageWallpaper"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "oldValWallpaper="
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, ", newValWallpaper="
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    aget-boolean v12, v2, v9
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v10, "KeyguardImageWallpaper"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "oldValNavigationBar="
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, ", newValNavigationBar="
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    aget-boolean v12, v2, v13
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    aget-boolean v10, v2, v8
-
-    if-eq v4, v10, :cond_2
-
-    iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
-
-    invoke-static {v10}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v11
-
-    aget-boolean v10, v2, v8
-
-    if-eqz v10, :cond_7
-
-    move v10, v9
-
-    :goto_2
-    invoke-virtual {v11, v10}, Lcom/android/keyguard/util/SettingsHelper;->setWhiteKeyguardStatusBar(I)V
+    invoke-virtual {v7, v12}, Landroid/os/Handler;->removeMessages(I)V
 
     :cond_2
-    aget-boolean v10, v2, v9
+    iget-object v7, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mHandler:Landroid/os/Handler;
 
-    if-eq v5, v10, :cond_3
+    invoke-virtual {v7, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
-
-    invoke-static {v10}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v11
-
-    aget-boolean v10, v2, v9
-
-    if-eqz v10, :cond_8
-
-    move v10, v9
-
-    :goto_3
-    invoke-virtual {v11, v10}, Lcom/android/keyguard/util/SettingsHelper;->setWhiteKeyguardWallpaper(I)V
-
-    :cond_3
-    iget-boolean v10, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mIsSupportNavigationBar:Z
-
-    if-eqz v10, :cond_4
-
-    aget-boolean v10, v2, v13
-
-    if-eq v3, v10, :cond_4
-
-    iget-object v10, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
-
-    invoke-static {v10}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v10
-
-    aget-boolean v11, v2, v13
-
-    if-eqz v11, :cond_9
-
-    :goto_4
-    invoke-virtual {v10, v9}, Lcom/android/keyguard/util/SettingsHelper;->setWhiteKeyguardNavigationBar(I)V
-
-    :cond_4
     return-void
 
-    :cond_5
-    const/4 v7, 0x0
+    :cond_3
+    const/4 v6, 0x0
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_6
-    move v1, v9
+    :cond_4
+    move v3, v8
 
-    goto/16 :goto_1
-
-    :cond_7
-    move v10, v8
-
-    goto :goto_2
-
-    :cond_8
-    move v10, v8
-
-    goto :goto_3
-
-    :cond_9
-    move v9, v8
-
-    goto :goto_4
-
-    nop
+    goto :goto_1
 
     :array_0
     .array-data 1
@@ -2969,53 +3036,19 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 5
+    .locals 0
 
     invoke-super {p0}, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->onAttachedToWindow()V
-
-    iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Landroid/net/Uri;
-
-    const-string/jumbo v3, "lockscreen_wallpaper_transparent"
-
-    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    aput-object v3, v2, v4
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/util/SettingsHelper;->registerCallback(Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;[Landroid/net/Uri;)V
 
     return-void
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 3
+    .locals 2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     invoke-super {p0}, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->onDetachedFromWindow()V
-
-    iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/util/SettingsHelper;->unregisterCallback(Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;)V
 
     iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mFileObserver:Landroid/os/FileObserver;
 
@@ -3025,7 +3058,7 @@
 
     invoke-virtual {v0}, Landroid/os/FileObserver;->stopWatching()V
 
-    iput-object v2, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mFileObserver:Landroid/os/FileObserver;
+    iput-object v1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mFileObserver:Landroid/os/FileObserver;
 
     :cond_0
     return-void

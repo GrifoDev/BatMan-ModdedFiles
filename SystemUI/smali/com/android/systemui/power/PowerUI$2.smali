@@ -49,7 +49,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$2;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v0
 
@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$2;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get22(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v0
 
@@ -79,7 +79,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set15(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set16(Lcom/android/systemui/power/PowerUI;Z)Z
 
     goto :goto_0
 .end method

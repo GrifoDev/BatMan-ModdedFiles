@@ -42,7 +42,13 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
 
     move-result-object v2
 
@@ -50,7 +56,70 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "BixbyAppService onResponse "
+    const-string/jumbo v4, "onResponse "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    iget-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$1;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
+
+    invoke-static {v2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$200(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    :try_start_0
+    iget-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$1;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
+
+    invoke-static {v2, p1, p2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$300(Lcom/samsung/android/sdk/bixby/BixbyAppService;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    :goto_1
+    iget-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$1;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
+
+    invoke-static {v2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$200(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
+
+    move-result-object v2
+
+    invoke-interface {v2, v1}, Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;->onResponse(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_2
+    return-void
+
+    :cond_0
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "onResponse "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -76,24 +145,33 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$1;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
+    goto :goto_0
 
-    invoke-static {v2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
+    :cond_1
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    const-string/jumbo v3, "No Bixby Agent response callback method registered."
 
-    :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$1;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v2, p1, p2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$200(Lcom/samsung/android/sdk/bixby/BixbyAppService;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    return-void
 
-    move-result-object v1
+    :cond_2
+    :try_start_1
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    move-result-object v2
 
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
+    const-string/jumbo v3, "Failed to handle response command to Bixby Agent."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_3
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
 
     move-result-object v2
 
@@ -101,7 +179,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "jsonResponse:"
+    const-string/jumbo v4, "jsonResponse: "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -116,49 +194,15 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$1;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
-
-    invoke-static {v2}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
-
-    move-result-object v2
-
-    invoke-interface {v2, v1}, Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;->onResponse(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "No Bixby Agent response callback method registered."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
-    :try_start_1
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "Failed to handle response command to Bixby Agent."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    return-void
+    goto :goto_1
 
     :catch_0
     move-exception v0
 
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$100()Ljava/lang/String;
 
     move-result-object v2
 
@@ -166,5 +210,5 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_2
 .end method

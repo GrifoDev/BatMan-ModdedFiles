@@ -6,14 +6,26 @@
 .implements Lcom/android/keyguard/wallpaper/SystemUIWallpaperBase;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/keyguard/wallpaper/SystemUIWallpaper$1;
+    }
+.end annotation
+
+
 # instance fields
 .field private final TAG:Ljava/lang/String;
+
+.field protected mDensity:I
 
 .field protected mDisplay:Landroid/view/Display;
 
 .field private mDisplayManager:Landroid/hardware/display/DisplayManager;
 
 .field protected mDisplayMetrics:Landroid/util/DisplayMetrics;
+
+.field protected mFontScale:F
 
 .field protected mMetricsHeight:I
 
@@ -27,165 +39,199 @@
 
 .field protected mUnlockStarted:Z
 
+.field private mUpdateMonitorCallbacks:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
 
 # direct methods
+.method static synthetic -get0(Lcom/android/keyguard/wallpaper/SystemUIWallpaper;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/app/IWallpaperManager;)V
-    .locals 5
-
-    const/4 v2, 0x0
-
-    invoke-direct {p0, p1, v2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    new-instance v2, Landroid/util/DisplayMetrics;
-
-    invoke-direct {v2}, Landroid/util/DisplayMetrics;-><init>()V
-
-    iput-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    const-string/jumbo v2, "SystemUIWallpaper"
-
-    iput-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->TAG:Ljava/lang/String;
-
-    iput-object p2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mService:Landroid/app/IWallpaperManager;
-
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x1050017
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    iput v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mStatusBarHeight:I
-
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v3, "display"
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/hardware/display/DisplayManager;
-
-    iput-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayManager:Landroid/hardware/display/DisplayManager;
-
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayManager:Landroid/hardware/display/DisplayManager;
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+    .locals 6
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Landroid/hardware/display/DisplayManager;->getDisplay(I)Landroid/view/Display;
+    invoke-direct {p0, p1, v3}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    move-result-object v2
+    new-instance v3, Landroid/util/DisplayMetrics;
 
-    iput-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplay:Landroid/view/Display;
+    invoke-direct {v3}, Landroid/util/DisplayMetrics;-><init>()V
 
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplay:Landroid/view/Display;
+    iput-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
 
-    if-eqz v2, :cond_1
+    const-string/jumbo v3, "SystemUIWallpaper"
 
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplay:Landroid/view/Display;
+    iput-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->TAG:Ljava/lang/String;
+
+    new-instance v3, Lcom/android/keyguard/wallpaper/SystemUIWallpaper$1;
+
+    invoke-direct {v3, p0}, Lcom/android/keyguard/wallpaper/SystemUIWallpaper$1;-><init>(Lcom/android/keyguard/wallpaper/SystemUIWallpaper;)V
+
+    iput-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mUpdateMonitorCallbacks:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    iput-object p2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mService:Landroid/app/IWallpaperManager;
+
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x1050017
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mStatusBarHeight:I
+
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v3, v0, Landroid/content/res/Configuration;->densityDpi:I
+
+    iput v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDensity:I
+
+    iget v3, v0, Landroid/content/res/Configuration;->fontScale:F
+
+    iput v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mFontScale:F
+
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v4, "display"
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/hardware/display/DisplayManager;
+
+    iput-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Landroid/hardware/display/DisplayManager;->getDisplay(I)Landroid/view/Display;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplay:Landroid/view/Display;
+
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplay:Landroid/view/Display;
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplay:Landroid/view/Display;
+
+    iget-object v4, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
+
+    invoke-virtual {v3, v4}, Landroid/view/Display;->getRealMetrics(Landroid/util/DisplayMetrics;)V
 
     iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
 
-    invoke-virtual {v2, v3}, Landroid/view/Display;->getRealMetrics(Landroid/util/DisplayMetrics;)V
+    iget v3, v3, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
+    iput v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsWidth:I
 
-    iget v2, v2, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
 
-    iput v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsWidth:I
+    iget v3, v3, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
+    iput v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsHeight:I
 
-    iget v2, v2, Landroid/util/DisplayMetrics;->heightPixels:I
+    new-instance v2, Landroid/view/DisplayInfo;
 
-    iput v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsHeight:I
+    invoke-direct {v2}, Landroid/view/DisplayInfo;-><init>()V
 
-    new-instance v1, Landroid/view/DisplayInfo;
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplay:Landroid/view/Display;
 
-    invoke-direct {v1}, Landroid/view/DisplayInfo;-><init>()V
+    invoke-virtual {v3, v2}, Landroid/view/Display;->getDisplayInfo(Landroid/view/DisplayInfo;)Z
 
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplay:Landroid/view/Display;
+    iget v1, v2, Landroid/view/DisplayInfo;->rotation:I
 
-    invoke-virtual {v2, v1}, Landroid/view/Display;->getDisplayInfo(Landroid/view/DisplayInfo;)Z
+    const/4 v3, 0x1
 
-    iget v0, v1, Landroid/view/DisplayInfo;->rotation:I
+    if-eq v1, v3, :cond_0
 
-    const/4 v2, 0x1
+    const/4 v3, 0x3
 
-    if-eq v0, v2, :cond_0
-
-    const/4 v2, 0x3
-
-    if-ne v0, v2, :cond_1
+    if-ne v1, v3, :cond_1
 
     :cond_0
-    const-string/jumbo v2, "SystemUIWallpaper"
+    const-string/jumbo v3, "SystemUIWallpaper"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "deviceRotation="
+    const-string/jumbo v5, "deviceRotation="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string/jumbo v4, "mMetricsWidth="
+    const-string/jumbo v5, "mMetricsWidth="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    iget v4, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsWidth:I
+    iget v5, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsWidth:I
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string/jumbo v4, " mMetricsHeight="
+    const-string/jumbo v5, " mMetricsHeight="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    iget v4, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsHeight:I
+    iget v5, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsHeight:I
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
 
-    iget v2, v2, Landroid/util/DisplayMetrics;->heightPixels:I
+    iget v3, v3, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    iput v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsWidth:I
+    iput v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsWidth:I
 
-    iget-object v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
+    iget-object v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mDisplayMetrics:Landroid/util/DisplayMetrics;
 
-    iget v2, v2, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget v3, v3, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    iput v2, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsHeight:I
+    iput v3, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mMetricsHeight:I
 
     :cond_1
     return-void
@@ -201,6 +247,42 @@
 
 .method public handleTouchEvent(Landroid/view/MotionEvent;)V
     .locals 0
+
+    return-void
+.end method
+
+.method protected onAttachedToWindow()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/view/View;->onAttachedToWindow()V
+
+    iget-object v0, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mUpdateMonitorCallbacks:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+
+    return-void
+.end method
+
+.method protected onDetachedFromWindow()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/view/View;->onDetachedFromWindow()V
+
+    iget-object v0, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->mUpdateMonitorCallbacks:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->removeCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
     return-void
 .end method

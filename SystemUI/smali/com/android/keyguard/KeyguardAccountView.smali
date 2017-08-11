@@ -81,7 +81,23 @@
     return-object v0
 .end method
 
-.method static synthetic -get10(Lcom/android/keyguard/KeyguardAccountView;)Z
+.method static synthetic -get10(Lcom/android/keyguard/KeyguardAccountView;)Lcom/android/keyguard/KeyguardAccountView$SACallback;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mSACallback:Lcom/android/keyguard/KeyguardAccountView$SACallback;
+
+    return-object v0
+.end method
+
+.method static synthetic -get11(Lcom/android/keyguard/KeyguardAccountView;)Lcom/android/keyguard/SecurityMessageDisplay;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
+
+    return-object v0
+.end method
+
+.method static synthetic -get12(Lcom/android/keyguard/KeyguardAccountView;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mShowImeAtScreenOn:Z
@@ -105,7 +121,23 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/keyguard/KeyguardAccountView;)Landroid/widget/EditText;
+.method static synthetic -get4(Lcom/android/keyguard/KeyguardAccountView;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5(Lcom/android/keyguard/KeyguardAccountView;)Lcom/android/internal/widget/LockPatternUtils;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6(Lcom/android/keyguard/KeyguardAccountView;)Landroid/widget/EditText;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mLogin:Landroid/widget/EditText;
@@ -113,7 +145,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/keyguard/KeyguardAccountView;)Landroid/widget/EditText;
+.method static synthetic -get7(Lcom/android/keyguard/KeyguardAccountView;)Landroid/widget/EditText;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mPassword:Landroid/widget/EditText;
@@ -121,7 +153,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/keyguard/KeyguardAccountView;)Ljava/lang/String;
+.method static synthetic -get8(Lcom/android/keyguard/KeyguardAccountView;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mRegistertCode:Ljava/lang/String;
@@ -129,28 +161,12 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/keyguard/KeyguardAccountView;)I
+.method static synthetic -get9(Lcom/android/keyguard/KeyguardAccountView;)I
     .locals 1
 
     iget v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mRequestID:I
 
     return v0
-.end method
-
-.method static synthetic -get8(Lcom/android/keyguard/KeyguardAccountView;)Lcom/android/keyguard/KeyguardAccountView$SACallback;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mSACallback:Lcom/android/keyguard/KeyguardAccountView$SACallback;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Lcom/android/keyguard/KeyguardAccountView;)Lcom/android/keyguard/SecurityMessageDisplay;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
-
-    return-object v0
 .end method
 
 .method static synthetic -set0(Lcom/android/keyguard/KeyguardAccountView;Z)Z
@@ -1054,120 +1070,141 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 4
+    .locals 5
 
-    const/16 v3, 0x1000
+    const/16 v4, 0x1000
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    new-instance v0, Lcom/android/keyguard/KeyguardAccountView$SACallback;
+    new-instance v1, Lcom/android/keyguard/KeyguardAccountView$SACallback;
 
-    invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardAccountView$SACallback;-><init>(Lcom/android/keyguard/KeyguardAccountView;)V
+    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardAccountView$SACallback;-><init>(Lcom/android/keyguard/KeyguardAccountView;)V
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mSACallback:Lcom/android/keyguard/KeyguardAccountView$SACallback;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mSACallback:Lcom/android/keyguard/KeyguardAccountView$SACallback;
 
-    sget v0, Lcom/android/keyguard/R$id;->login:I
+    sget v1, Lcom/android/keyguard/R$id;->login:I
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardAccountView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardAccountView;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/EditText;
+    check-cast v1, Landroid/widget/EditText;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mLogin:Landroid/widget/EditText;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mLogin:Landroid/widget/EditText;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mLogin:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mLogin:Landroid/widget/EditText;
 
-    invoke-virtual {v0, p0}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v1, p0}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mLogin:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mLogin:Landroid/widget/EditText;
 
-    invoke-virtual {v0, v3, v2}, Landroid/widget/EditText;->semSetActionModeMenuItemEnabled(IZ)V
+    invoke-virtual {v1, v4, v3}, Landroid/widget/EditText;->semSetActionModeMenuItemEnabled(IZ)V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mLogin:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mLogin:Landroid/widget/EditText;
 
-    new-instance v1, Lcom/android/keyguard/KeyguardAccountView$1;
+    new-instance v2, Lcom/android/keyguard/KeyguardAccountView$1;
 
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardAccountView$1;-><init>(Lcom/android/keyguard/KeyguardAccountView;)V
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardAccountView$1;-><init>(Lcom/android/keyguard/KeyguardAccountView;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    sget v0, Lcom/android/keyguard/R$id;->password:I
+    sget v1, Lcom/android/keyguard/R$id;->password:I
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardAccountView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardAccountView;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/EditText;
+    check-cast v1, Landroid/widget/EditText;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mPassword:Landroid/widget/EditText;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mPassword:Landroid/widget/EditText;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mPassword:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mPassword:Landroid/widget/EditText;
 
-    invoke-virtual {v0, p0}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v1, p0}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mPassword:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mPassword:Landroid/widget/EditText;
 
-    invoke-virtual {v0, v3, v2}, Landroid/widget/EditText;->semSetActionModeMenuItemEnabled(IZ)V
+    invoke-virtual {v1, v4, v3}, Landroid/widget/EditText;->semSetActionModeMenuItemEnabled(IZ)V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mPassword:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mPassword:Landroid/widget/EditText;
 
-    new-instance v1, Lcom/android/keyguard/KeyguardAccountView$2;
+    new-instance v2, Lcom/android/keyguard/KeyguardAccountView$2;
 
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardAccountView$2;-><init>(Lcom/android/keyguard/KeyguardAccountView;)V
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardAccountView$2;-><init>(Lcom/android/keyguard/KeyguardAccountView;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    sget v0, Lcom/android/keyguard/R$id;->ok:I
+    sget v1, Lcom/android/keyguard/R$id;->ok:I
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardAccountView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardAccountView;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mOk:Landroid/widget/Button;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mOk:Landroid/widget/Button;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mOk:Landroid/widget/Button;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mOk:Landroid/widget/Button;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     invoke-static {p0}, Lcom/android/keyguard/KeyguardMessageArea;->findSecurityMessageDisplay(Landroid/view/View;)Lcom/android/keyguard/SecurityMessageDisplay;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardAccountView;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "input_method"
+    const-string/jumbo v2, "input_method"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
+    check-cast v1, Landroid/view/inputmethod/InputMethodManager;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mImm:Landroid/view/inputmethod/InputMethodManager;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mImm:Landroid/view/inputmethod/InputMethodManager;
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardAccountView;->reset()V
 
-    sget v0, Lcom/android/keyguard/R$id;->input_container:I
+    sget v1, Lcom/android/keyguard/R$id;->input_container:I
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardAccountView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardAccountView;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/view/ViewGroup;
+    check-cast v1, Landroid/view/ViewGroup;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardAccountView;->mInputContainer:Landroid/view/ViewGroup;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mInputContainer:Landroid/view/ViewGroup;
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardAccountView;->updateLayout()V
 
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardAccountView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFaceOptionEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    sget v1, Lcom/android/keyguard/R$id;->stub_keyguard_face_icon_view:I
+
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardAccountView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewStub;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+
+    :cond_0
     return-void
 .end method
 

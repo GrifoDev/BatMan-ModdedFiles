@@ -269,6 +269,33 @@
     return-void
 .end method
 
+.method public onStrongAuthStateChanged(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/face/KeyguardFaceIconView$1;->this$0:Lcom/android/keyguard/face/KeyguardFaceIconView;
+
+    invoke-static {v0}, Lcom/android/keyguard/face/KeyguardFaceIconView;->-get0(Lcom/android/keyguard/face/KeyguardFaceIconView;)Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockingWithBiometricAllowed()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/face/KeyguardFaceIconView$1;->this$0:Lcom/android/keyguard/face/KeyguardFaceIconView;
+
+    invoke-static {v0}, Lcom/android/keyguard/face/KeyguardFaceIconView;->-wrap2(Lcom/android/keyguard/face/KeyguardFaceIconView;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public onSystemDialogsShowing()V
     .locals 2
 

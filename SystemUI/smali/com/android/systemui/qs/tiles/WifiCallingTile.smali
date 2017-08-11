@@ -624,7 +624,7 @@
     :cond_4
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0494
+    const v1, 0x7f0f04f1
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -632,7 +632,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0496
+    const v2, 0x7f0f04f3
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -678,7 +678,7 @@
     :cond_6
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0494
+    const v1, 0x7f0f04f1
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -686,7 +686,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0495
+    const v2, 0x7f0f04f2
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -700,7 +700,7 @@
 
     invoke-direct {v6, p0}, Lcom/android/systemui/qs/tiles/WifiCallingTile$7;-><init>(Lcom/android/systemui/qs/tiles/WifiCallingTile;)V
 
-    const v3, 0x7f0f0497
+    const v3, 0x7f0f04f4
 
     const/high16 v5, 0x1040000
 
@@ -761,7 +761,7 @@
 
     if-eqz v0, :cond_a
 
-    const v0, 0x7f0f0434
+    const v0, 0x7f0f0491
 
     :goto_0
     invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -791,7 +791,7 @@
     return v0
 
     :cond_a
-    const v0, 0x7f0f0433
+    const v0, 0x7f0f0490
 
     goto :goto_0
 
@@ -1123,13 +1123,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f040132
+    const v4, 0x7f040136
 
     invoke-virtual {v3, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    const v3, 0x7f1300e2
+    const v3, 0x7f1300e6
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1301,7 +1301,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040133
+    const v2, 0x7f040137
 
     invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1313,7 +1313,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0f073e
+    const v2, 0x7f0f07ae
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1323,7 +1323,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/WifiCallingTile$10;-><init>(Lcom/android/systemui/qs/tiles/WifiCallingTile;)V
 
-    const v3, 0x7f0f0745
+    const v3, 0x7f0f07b5
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1475,7 +1475,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03e2
+    const v1, 0x7f0f043f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1486,7 +1486,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03e1
+    const v1, 0x7f0f043e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1767,7 +1767,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03e2
+    const v1, 0x7f0f043f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1780,7 +1780,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f02044a
+    const v0, 0x7f020452
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1805,7 +1805,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03e1
+    const v1, 0x7f0f043e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1820,7 +1820,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0203ed
+    const v0, 0x7f0203f5
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1835,7 +1835,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f020451
+    const v0, 0x7f020459
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1846,7 +1846,7 @@
     goto :goto_1
 
     :cond_3
-    const v0, 0x7f020452
+    const v0, 0x7f02045a
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

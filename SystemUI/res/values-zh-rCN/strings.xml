@@ -69,7 +69,7 @@
     <string name="clear_cover_servicebox_music_unknown">未知</string>
     <string name="save">保存</string>
     <string name="ok">确定</string>
-    <string name="battery_history_hours_no_seconds">%1$d小时 %2$d分</string>
+    <string name="battery_history_hours_no_seconds">%1$d 小时 %2$d 分钟</string>
     <string name="battery_history_minutes_no_seconds">%d 分钟</string>
     <string name="wifi_fail_to_scan">无法扫描网络</string>
     <string name="wifi_failed_to_obtain_IP">获取 IP 地址失败</string>
@@ -149,6 +149,8 @@
     <string name="bluetooth_pairing_device_down_error_message">无法连接至 %s</string>
     <string name="bluetooth_pairing_device_down_black_list_error_message">无法连接至%1$s。请在%2$s中检查您的设置并重试。</string>
     <string name="bluetooth_pairing_rejected_error_message">%s 已拒绝配对。</string>
+    <string name="bluetooth_getting_remote_device_name">正在获取设备名称…</string>
+    <string name="bluetooth_display_remote_device_name_after_pair">在连接此设备后，将显示设备名称。</string>
     <string name="accessibility_wifi_off">WLAN 已关闭。</string>
     <string name="accessibility_no_wifi">WLAN 连接已断开。</string>
     <string name="accessibility_wifi_one_bar">WLAN 信号强度为一格。</string>
@@ -558,7 +560,7 @@
     <string name="accessibility_back">返回</string>
     <string name="accessibility_home">主屏幕</string>
     <string name="accessibility_menu">菜单</string>
-    <string name="sec_accessibility_recent">最近</string>
+    <string name="sec_accessibility_recent">最近使用</string>
     <string name="accessibility_camera_button">相机</string>
     <string name="accessibility_phone_button">电话</string>
     <string name="accessibility_voice_assist_button">语音助理</string>
@@ -731,7 +733,7 @@
     <string name="start_dreams">屏保</string>
     <string name="ethernet_label">有线网络</string>
     <string name="wifi_not_found_hidden_ap">无法连接至网络。找不到名称为 %s 的网络。</string>
-    <string name="it_policy_not_allow_wifi">安全政策可防止 <cst>Wi-Fi</cst> 的使用。</string>
+    <string name="it_policy_not_allow_wifi">安全策略阻止使用 <cst>Wi-Fi</cst>。</string>
     <string name="it_policy_not_allow_wifiap">安全政策限制使用【互联网分享】。</string>
     <string name="wifi_authentication_succeed_kt">已验证 <cst>Wi-Fi</cst> AP</string>
     <string name="wifi_authentication_failed_kt">验证 <cst>Wi-Fi</cst> AP 失败</string>
@@ -1356,6 +1358,7 @@ P2P"</string>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template">数字键盘 %1$s</string>
+    <string name="keyboard_popup_help">元键：Windows 键、命令键或其他操作系统符号键。</string>
     <string name="keyboard_shortcut_group_system">系统快捷方式</string>
     <string name="keyboard_shortcut_group_system_home">主屏幕</string>
     <string name="keyboard_shortcut_group_system_recents">最近</string>
@@ -1517,8 +1520,8 @@ P2P"</string>
 
 为了防止设备因进水而损坏，请确保 SIM/SD 卡托已密封。"</string>
     <string name="sim_card_tray_empty_water_protection_dialog_body">为了防止设备因进水而损坏，请确保 SIM/SD 卡托已密封。</string>
-    <string name="water_protection_notification_title">检查端口</string>
-    <string name="water_protection_notification_body">检测到潮湿。若要为设备充电，请确保充电器/USB 端口干燥。</string>
+    <string name="water_protection_notification_title">拔下充电器</string>
+    <string name="water_protection_notification_body">检测到潮湿。请断开充电器并确保充电器和 USB 端口干燥。</string>
     <string name="full_battery_title">通知</string>
     <string name="full_battery_noti_text">电池已满</string>
     <string name="cooling_title">设备过热</string>
@@ -1612,6 +1615,7 @@ P2P"</string>
     <string name="battery_not_fully_connected_charging_title">缓慢充电</string>
     <string name="battery_not_fully_connected_charging_title_vzw">连接不完全</string>
     <string name="battery_not_fully_connected_charging_text">为了更快地充电，请使用设备随附的充电器并确保其正确连接。</string>
+    <string name="battery_not_fully_connected_charging_text_vzw">请确保正确连接充电器。</string>
     <string name="battery_not_fully_connected_charging_popup_text">请确保充电器正确连接。请使用设备随附的充电器。</string>
     <string name="battery_charging_level_and_time_text">"正在充电：%1$d%%
 (离充满电还有约 %2$s)"</string>
@@ -1625,12 +1629,18 @@ P2P"</string>
     <string name="battery_saver_recommend_notification_text_phone_psm">请为手机充电</string>
     <string name="battery_saver_recommend_notification_text_tablet_psm">请为平板电脑充电</string>
     <string name="button_close">关闭</string>
-    <string name="battery_health_interruption_title">无法充电</string>
+    <string name="battery_health_interruption_title">充电已停止</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_title">拔下充电器</string>
     <string name="battery_health_interruption_by_terminal_open_text">无法为您的设备充电。确保您使用的是三星兼容电池和充电器，并且您的设备已正确连接至充电器。</string>
     <string name="battery_health_interruption_by_terminal_open_galaxy_text">无法为设备充电。请确保您使用的是盖乐世兼容电池和充电器，并且设备已正确连接至充电器。</string>
-    <string name="battery_health_interruption_by_too_high_temperature_text">充电已暂停。电池温度过高。</string>
-    <string name="battery_health_interruption_by_too_low_temperature_text">充电已暂停。电池温度过低。</string>
-    <string name="battery_health_interruption_by_limit_high_temperature_text">"设备已停止充电。电池温度过高。断开充电器连接时请务必小心。充电器可能会非常热。
+    <string name="battery_health_interruption_by_too_high_temperature_text_phone">手机温度过高。充电将在温度恢复正常时继续。</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text_tablet">平板电脑温度过高。充电将在温度恢复正常时继续。</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_phone">手机温度过低。充电将在温度恢复正常时继续。</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text_tablet">平板电脑温度过低。充电将在温度恢复正常时继续。</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_phone">"充电已停止。您的手机温度过高。断开充电器连接时请务必小心。充电器可能会非常热。
+
+拔下并重新连接充电器即可继续正常充电。如果仍然过热，请联系客服，否则可能会有火灾或受伤的危险。"</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text_tablet">"充电已停止。您的平板电脑温度过高。断开充电器连接时请务必小心。充电器可能会非常热。
 
 拔下并重新连接充电器即可继续正常充电。如果仍然过热，请联系客服，否则可能会有火灾或受伤的危险。"</string>
     <string name="incompatible_charger_title">未在充电</string>
@@ -1648,8 +1658,6 @@ P2P"</string>
     <string name="kg_biometrics_swipe_active_instructions">请使用生物识别或滑动屏幕来打开</string>
     <string name="kg_face_or_swipe_unlock_instructions">请使用面部识别或滑动屏幕来解锁</string>
     <string name="kg_face_or_swipe_active_instructions">请使用面部识别或滑动屏幕来打开</string>
-    <string name="kg_face_or_iris_swipe_unlock_instructions">请使用面部识别来解锁，或滑动屏幕改为使用虹膜</string>
-    <string name="kg_face_or_iris_swipe_active_instructions">请使用面部识别来打开，或滑动屏幕改为使用虹膜</string>
     <string name="kg_face_unlock_instructions">请滑动屏幕来使用面部识别解锁</string>
     <string name="kg_face_or_fingerprint_active_instructions">请使用指纹打开，或滑动屏幕来使用面部识别</string>
     <string name="kg_face_or_fingerprint_unlock_instructions">请使用指纹解锁，或滑动屏幕来使用面部识别</string>
@@ -1664,6 +1672,20 @@ P2P"</string>
     <string name="kg_voice_assistant_unlock_instructions">用两个手指滑动以解锁屏幕</string>
     <string name="kg_swipe_active_instructions">滑动屏幕以打开</string>
     <string name="kg_swipe_unlock_instructions">滑动屏幕以解锁</string>
+    <string name="kg_biometrics_swipe_unlock_voice_assistant_instructions">请使用生物识别或用两根手指滑动屏幕来解锁。</string>
+    <string name="kg_biometrics_swipe_active_voice_assistant_instructions">请使用生物识别或用两根手指滑动屏幕来打开。</string>
+    <string name="kg_face_or_swipe_unlock_voice_assistant_instructions">请使用面部识别或用两根手指滑动屏幕来解锁。</string>
+    <string name="kg_face_or_swipe_active_voice_assistant_instructions">请使用面部识别或用两根手指滑动屏幕来打开。</string>
+    <string name="kg_face_unlock_voice_assistant_instructions">用两根手指滑动屏幕来使用面部识别解锁。</string>
+    <string name="kg_face_or_fingerprint_active_voice_assistant_instructions">请使用指纹打开或用两根手指滑动屏幕来使用面部识别。</string>
+    <string name="kg_face_or_fingerprint_unlock_voice_assistant_instructions">请使用指纹解锁或用两根手指滑动屏幕来使用面部识别。</string>
+    <string name="kg_iris_or_fingerprint_active_voice_assistant_instructions">请使用指纹来打开或用两根手指滑动屏幕来使用虹膜。</string>
+    <string name="kg_iris_or_fingerprint_unlock_voice_assistant_instructions">请使用指纹来解锁或用两根手指滑动屏幕来使用虹膜。</string>
+    <string name="kg_fingerprint_or_swipe_active_voice_assistant_instructions">请使用指纹或用两根手指滑动屏幕来打开。</string>
+    <string name="kg_fingerprint_or_swipe_unlock_voice_assistant_instructions">请使用指纹或用两根手指滑动来解锁。</string>
+    <string name="kg_iris_unlock_voice_assistant_instructions">用两根手指滑动屏幕来使用虹膜解锁。</string>
+    <string name="kg_iris_1st_unlock_voice_assistant_instructions">请使用虹膜或用两根手指滑动屏幕来解锁。</string>
+    <string name="kg_iris_1st_active_voice_assistant_instructions">请使用虹膜或用两根手指滑动屏幕来打开。</string>
     <string name="kg_power_connect_charger">连接充电器</string>
     <string name="kg_power_fully_charged">已充满</string>
     <string name="kg_power_fast_charging">正在快速充电：%d%%</string>
@@ -1744,6 +1766,7 @@ upscaler"</string>
     <string name="remote_input_send_text">发送</string>
     <string name="dcm_lockscreen_unlock_help_text_iris">若要使用虹膜解锁设备，请点击锁定图标</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">请使用指纹解锁设备，或点击锁定图标改为使用虹膜</string>
+    <string name="dcm_lockscreen_voice_assistant_active_instructions">双击【锁定】按钮来解锁手机</string>
     <string name="s_view_cover_toast_pop_up_message">打开保护盖以使用快捷设置按钮</string>
     <string name="remote_input_toast_text_on_sview_cover">智能保护皮套盖上时无法使用快速回复功能。</string>
     <string name="powerui_power_sharing_alert_dialog_body">"您必须下载该应用程序，才能控制分享的电量。如果在没有该应用程序的情况下，通过三星的 Power Sharing 电缆 EP-SG900 将您的设备连接至另一台设备，则整个电池的电量将被传输到另一台设备。
@@ -1780,7 +1803,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of <cst>Wi-Fi</cst> Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use <cst>Wi-Fi</cst> Calling, the software used on the device, the endpoint of the network used to connect with <cst>Wi-Fi</cst> Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">我接受</string>
-    <string name="force_immersive_guide_text">点击此图标可隐藏导航栏。您仍可以通过从屏幕底部向上滑动来使用导航按钮。显示导航栏后，您可以再次点击此图标将其锁定在固定位置。导航栏在某些屏幕上将始终显示，例如主屏幕。</string>
+    <string name="force_immersive_guide_text">点击此按钮可隐藏导航栏。您仍可以通过从屏幕底部向上滑动来使用导航按钮。显示导航栏后，您可以再次点击此按钮将其锁定在固定位置。导航栏在某些屏幕上将始终显示，例如主屏幕。如果应用程序在导航栏隐藏时不正常工作，请将导航栏锁定在固定位置，然后重启应用程序。</string>
+    <string name="force_immersive_guide_dialog_title">隐藏导航栏：</string>
+    <string name="force_immersive_guide_dialog_message1">点击此按钮将隐藏导航条。</string>
+    <string name="force_immersive_guide_dialog_message2">从屏幕底部向上滑动来显示导航条。</string>
+    <string name="force_immersive_guide_dialog_message3">再次点击此按钮将其锁定在固定位置。</string>
+    <string name="force_immersive_guide_dialog_message4">部分屏幕 (例如主屏幕) 上始终显示导航条。</string>
+    <string name="force_immersive_guide_dialog_guide_path">若要隐藏此按钮，请进入【设置】>【显示】>【导航条】。</string>
+    <string name="force_immersive_guide_dialog_setting">设置</string>
+    <string name="force_immersive_guide_dialog_ok">确定</string>
     <string name="car_lockscreen_disclaimer_title">安全驾驶</string>
     <string name="car_lockscreen_disclaimer_text">请充分了解驾驶条件并务必遵守适用的法律。路线指示可能不准确，不完整，也可能包含危险、不适合通行、禁止通行或跨越行政区域的路段。商家信息也可能不准确或不完整。数据并非实时提供，因此无法保证位置信息的精确度。请勿在驾驶过程中操作您的移动设备或使用不支持 Android Auto 的应用。</string>
     <string name="pip_close">关闭画中画</string>
@@ -2225,6 +2256,8 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_face_retry_content_description">双击来使用面部识别。</string>
     <string name="kg_face_authentication_error_retry_text">未检测到面部。请点击图标重新尝试面部识别</string>
     <string name="kg_face_authentication_failed_retry_text">不匹配。点击图标来使用面部识别</string>
+    <string name="kg_face_authentication_error_camera_unavailable_retry_text">面部识别出现问题，点击可重试。</string>
+    <string name="kg_face_authentication_error_camera_unavailable_video_call_text">视频通话期间无法使用面部识别</string>
     <string name="kg_fingerprint_no_match">无匹配</string>
     <string name="kg_finger_print_not_responding_error_message">指纹传感器未响应。请稍后再试。</string>
     <string name="kg_finger_print_database_error_message">指纹数据已损坏。请将指纹重置为屏幕锁定类型，然后重新添加您的指纹，或更改屏幕锁定类型。</string>
@@ -2359,8 +2392,11 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="edit_mode_cancel">取消</string>
     <string name="appicon_badge_new_items">%d 个新项目</string>
     <string name="appicon_badge_new_item">1 个新项目</string>
+    <string name="banner_apps_for_dex">三星 DeX 应用专区</string>
     <string name="banner_apps_for_dex_detail">从三星应用商店获取已针对 DeX 优化的应用程序。</string>
     <string name="toast_cannot_move_more_than_items">最多移动 %d 个项目</string>
+    <string name="view_more_in_galaxy_apps">查看三星应用商店中的更多结果</string>
+    <string name="view_more_in_play_store">查看 Play 商店中的更多结果</string>
     <string name="uninstall_title">是否卸载应用程序？</string>
     <string name="uninstall_1_app_message">是否要卸载此应用程序？</string>
     <string name="uninstall_apps_message">将卸载以下应用程序：</string>
@@ -2406,6 +2442,13 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="clear_cover_day_month_no_year">d日 MMM</string>
     <string name="volumepanel_notification">通知</string>
     <string name="quick_settings_location_detail_device_only">仅设备</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">充电已暂停。电池温度过高。</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">充电已暂停。电池温度过低。</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"设备已停止充电。电池温度过高。断开充电器连接时请务必小心。充电器可能会非常热。
+
+拔下并重新连接充电器即可继续正常充电。如果仍然过热，请联系客服，否则可能会有火灾或受伤的危险。"</string>
+    <string name="kg_face_or_iris_swipe_unlock_instructions">请使用面部识别来解锁，或滑动屏幕改为使用虹膜</string>
+    <string name="kg_face_or_iris_swipe_active_instructions">请使用面部识别来打开，或滑动屏幕改为使用虹膜</string>
     <string name="kg_infinity_wallpaper_option_description">Infinity 壁纸将同时应用至您的主屏幕和锁定屏幕。为获得最佳体验，请启用以下设置。</string>
     <string name="kg_infinity_wallpaper_option_check_icon_label">启用息屏提醒</string>
     <string name="sview_cover_wday_month_day_no_year">MMMM d日, E</string>

@@ -4,19 +4,19 @@
 
 
 # static fields
-.field public static final appear_y_translation_start:I = 0x7f0d00bc
+.field public static final appear_y_translation_start:I = 0x7f0d00bd
 
-.field public static final list_app_icon_size:I = 0x7f0d00d5
+.field public static final list_app_icon_size:I = 0x7f0d00d6
 
-.field public static final usage_graph_divider_size:I = 0x7f0d00ce
+.field public static final usage_graph_divider_size:I = 0x7f0d00cf
 
-.field public static final usage_graph_dot_interval:I = 0x7f0d00d2
+.field public static final usage_graph_dot_interval:I = 0x7f0d00d3
 
-.field public static final usage_graph_dot_size:I = 0x7f0d00d1
+.field public static final usage_graph_dot_size:I = 0x7f0d00d2
 
-.field public static final usage_graph_line_corner_radius:I = 0x7f0d00d0
+.field public static final usage_graph_line_corner_radius:I = 0x7f0d00d1
 
-.field public static final usage_graph_line_width:I = 0x7f0d00cf
+.field public static final usage_graph_line_width:I = 0x7f0d00d0
 
 
 # direct methods

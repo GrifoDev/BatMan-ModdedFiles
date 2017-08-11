@@ -3,12 +3,12 @@
 .source "KeyguardPinBasedInputView.java"
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardPinBasedInputView;->onFinishInflate()V
+    value = Lcom/android/keyguard/KeyguardPinBasedInputView;->initialize()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,24 +34,27 @@
 
 
 # virtual methods
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public onClick(Landroid/view/View;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView$3;->this$0:Lcom/android/keyguard/KeyguardPinBasedInputView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->-wrap0(Lcom/android/keyguard/KeyguardPinBasedInputView;)Z
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->doHapticKeyClick()V
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView$3;->this$0:Lcom/android/keyguard/KeyguardPinBasedInputView;
+
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/PasswordTextView;->isEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView$3;->this$0:Lcom/android/keyguard/KeyguardPinBasedInputView;
 
-    :goto_0
-    return v0
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->verifyPasswordAndUnlock()V
 
     :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
+    return-void
 .end method

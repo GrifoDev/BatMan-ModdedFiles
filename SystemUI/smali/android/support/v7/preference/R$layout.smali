@@ -4,11 +4,11 @@
 
 
 # static fields
-.field public static final preference:I = 0x7f0400fc
+.field public static final preference:I = 0x7f040100
 
-.field public static final preference_list_fragment:I = 0x7f040104
+.field public static final preference_list_fragment:I = 0x7f040108
 
-.field public static final preference_recyclerview:I = 0x7f040106
+.field public static final preference_recyclerview:I = 0x7f04010a
 
 
 # direct methods
