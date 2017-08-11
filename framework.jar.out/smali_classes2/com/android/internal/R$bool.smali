@@ -19,11 +19,13 @@
 
 .field public static final action_bar_expanded_action_views_exclusive:I = 0x1120007
 
-.field public static final config_DisableHWKeyOptionMenu:I = 0x11200d6
+.field public static final config_DisableHWKeyOptionMenu:I = 0x11200d7
 
-.field public static final config_EnableFakeMenuKeyByBackLong:I = 0x11200d7
+.field public static final config_EnableFakeMenuKeyByBackLong:I = 0x11200d8
 
 .field public static final config_LTE_eri_for_network_name:I = 0x11200a1
+
+.field public static final config_POC_enabled:I = 0x11200d3
 
 .field public static final config_all_around_sensing_enabled:I = 0x11200cf
 
@@ -103,7 +105,7 @@
 
 .field public static final config_cellBroadcastAppLinks:I = 0x1120075
 
-.field public static final config_dateformat:I = 0x11200d3
+.field public static final config_dateformat:I = 0x11200d4
 
 .field public static final config_debugBoost:I = 0x11200ba
 
@@ -147,7 +149,7 @@
 
 .field public static final config_duplicate_port_omadm_wappush:I = 0x1120069
 
-.field public static final config_dynamic_automatic_brightness_available:I = 0x11200e2
+.field public static final config_dynamic_automatic_brightness_available:I = 0x11200e3
 
 .field public static final config_eap_sim_based_auth_supported:I = 0x11200aa
 
@@ -185,7 +187,7 @@
 
 .field public static final config_enableHardwareFlpOverlay:I = 0x1120052
 
-.field public static final config_enableHorizontalMode:I = 0x11200dc
+.field public static final config_enableHorizontalMode:I = 0x11200dd
 
 .field public static final config_enableKeypressOptimization:I = 0x11200c1
 
@@ -201,9 +203,9 @@
 
 .field public static final config_enableNetworkLocationOverlay:I = 0x1120050
 
-.field public static final config_enableNetworkLocationOverlay_chn:I = 0x11200e1
+.field public static final config_enableNetworkLocationOverlay_chn:I = 0x11200e2
 
-.field public static final config_enableNetworkLocationOverlay_nlphub:I = 0x11200e0
+.field public static final config_enableNetworkLocationOverlay_nlphub:I = 0x11200e1
 
 .field public static final config_enablePerfBoostForAnimation:I = 0x11200b7
 
@@ -359,7 +361,7 @@
 
 .field public static final config_usbChargingMessage:I = 0x1120026
 
-.field public static final config_usb_data_unlock:I = 0x11200d4
+.field public static final config_usb_data_unlock:I = 0x11200d5
 
 .field public static final config_useAttentionLight:I = 0x1120027
 
@@ -375,7 +377,7 @@
 
 .field public static final config_user_notification_of_restrictied_mobile_access:I = 0x112005e
 
-.field public static final config_using_patterned_svc_led:I = 0x11200e3
+.field public static final config_using_patterned_svc_led:I = 0x11200e4
 
 .field public static final config_voice_capable:I = 0x112005c
 
@@ -421,7 +423,7 @@
 
 .field public static final preferences_prefer_dual_pane:I = 0x1120005
 
-.field public static final sem_window_light_status_bar:I = 0x11200dd
+.field public static final sem_window_light_status_bar:I = 0x11200de
 
 .field public static final show_ongoing_ime_switcher:I = 0x1120006
 
@@ -433,11 +435,11 @@
 
 .field public static final target_honeycomb_needs_options_menu:I = 0x1120008
 
-.field public static final tw_action_bar_text_item_mode:I = 0x11200d8
+.field public static final tw_action_bar_text_item_mode:I = 0x11200d9
 
-.field public static final tw_edit_text_hint_theme:I = 0x11200da
+.field public static final tw_edit_text_hint_theme:I = 0x11200db
 
-.field public static final tw_seekbar_sliding_animation:I = 0x11200d9
+.field public static final tw_seekbar_sliding_animation:I = 0x11200da
 
 .field public static final wifi_autocon:I = 0x1120019
 

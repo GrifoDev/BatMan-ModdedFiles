@@ -414,6 +414,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
     :goto_0
     invoke-static {p1}, Landroid/media/AudioAttributes;->usageForLegacyStreamType(I)I
 
@@ -513,13 +514,21 @@
 
     iget-object v0, p0, Landroid/media/AudioAttributes$Builder;->mTags:Ljava/util/HashSet;
 
+    const-string/jumbo v1, "BIXBY"
+
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/media/AudioAttributes$Builder;->mTags:Ljava/util/HashSet;
+
     const-string/jumbo v1, "STREAM_VOICENOTE"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

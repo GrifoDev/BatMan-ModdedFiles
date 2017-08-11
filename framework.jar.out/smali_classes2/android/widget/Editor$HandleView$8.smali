@@ -93,7 +93,7 @@
 
     iget-object v0, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get5(Landroid/widget/Editor;)Z
+    invoke-static {v0}, Landroid/widget/Editor;->-get3(Landroid/widget/Editor;)Z
 
     move-result v0
 

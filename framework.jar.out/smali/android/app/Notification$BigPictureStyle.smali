@@ -219,7 +219,7 @@
     :cond_2
     iget-object v2, p0, Landroid/app/Notification$BigPictureStyle;->mPicture:Landroid/graphics/Bitmap;
 
-    const v3, 0x102044b
+    const v3, 0x1020454
 
     invoke-virtual {v0, v3, v2}, Landroid/widget/RemoteViews;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
 

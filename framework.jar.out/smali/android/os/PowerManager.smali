@@ -372,7 +372,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0060
+    const v1, 0x10e0061
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -390,7 +390,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e005f
+    const v1, 0x10e0060
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -408,7 +408,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e005e
+    const v1, 0x10e005f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -834,6 +834,25 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public resetPersonalAutoBrightnessData()V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/os/PowerManager;->mService:Landroid/os/IPowerManager;
+
+    invoke-interface {v1}, Landroid/os/IPowerManager;->resetPersonalAutoBrightnessData()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method public semGetMaximumScreenBrightnessSetting()I

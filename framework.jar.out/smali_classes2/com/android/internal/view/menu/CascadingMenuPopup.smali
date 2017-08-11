@@ -25,7 +25,7 @@
 
 .field private static final HORIZ_POSITION_RIGHT:I = 0x1
 
-.field static final SEM_ITEM_LAYOUT:I = 0x109014d
+.field static final SEM_ITEM_LAYOUT:I = 0x109014e
 
 .field private static final SUBMENU_TIMEOUT_MS:I = 0xc8
 
@@ -781,7 +781,7 @@
 
     move-result-object v24
 
-    const v25, 0x10e00f3
+    const v25, 0x10e00f4
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -797,7 +797,7 @@
 
     move-result-object v24
 
-    const v25, 0x10501ca
+    const v25, 0x10501da
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1039,7 +1039,7 @@
 
     if-eqz v24, :cond_f
 
-    const v24, 0x1090102
+    const v24, 0x1090103
 
     const/16 v25, 0x0
 
@@ -1233,7 +1233,7 @@
     goto/16 :goto_6
 
     :cond_f
-    const v24, 0x10900b3
+    const v24, 0x10900b4
 
     const/16 v25, 0x0
 

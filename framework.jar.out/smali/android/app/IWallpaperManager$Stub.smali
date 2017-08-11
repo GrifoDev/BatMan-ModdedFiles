@@ -32,19 +32,19 @@
 
 .field static final TRANSACTION_clearWallpaper:I = 0x9
 
-.field static final TRANSACTION_copyFileToWallpaperFile:I = 0x26
+.field static final TRANSACTION_copyFileToWallpaperFile:I = 0x27
 
 .field static final TRANSACTION_getAnimatedPkgName:I = 0x1e
 
-.field static final TRANSACTION_getDCMLauncherEnabled:I = 0x29
+.field static final TRANSACTION_getDCMLauncherEnabled:I = 0x2a
 
-.field static final TRANSACTION_getDefaultInfinityWallpaper:I = 0x2d
+.field static final TRANSACTION_getDefaultInfinityWallpaper:I = 0x2e
 
 .field static final TRANSACTION_getDeviceColor:I = 0x21
 
 .field static final TRANSACTION_getHeightHint:I = 0xd
 
-.field static final TRANSACTION_getLastWallpaper:I = 0x2b
+.field static final TRANSACTION_getLastWallpaper:I = 0x2c
 
 .field static final TRANSACTION_getLockWallpaperType:I = 0x16
 
@@ -70,7 +70,9 @@
 
 .field static final TRANSACTION_isDesktopMode:I = 0x15
 
-.field static final TRANSACTION_isInfinityComponent:I = 0x2c
+.field static final TRANSACTION_isEnabledMultiLockWallpaper:I = 0x24
+
+.field static final TRANSACTION_isInfinityComponent:I = 0x2d
 
 .field static final TRANSACTION_isMotionWallpaperSupported:I = 0x22
 
@@ -84,19 +86,19 @@
 
 .field static final TRANSACTION_restoreLockWallpaper:I = 0x1d
 
-.field static final TRANSACTION_sendWindowWallpaperCommand:I = 0x27
+.field static final TRANSACTION_sendWindowWallpaperCommand:I = 0x28
 
 .field static final TRANSACTION_setAnimatedWallpaper:I = 0x1b
 
-.field static final TRANSACTION_setDCMLauncherEnabled:I = 0x28
+.field static final TRANSACTION_setDCMLauncherEnabled:I = 0x29
 
 .field static final TRANSACTION_setDimensionHints:I = 0xb
 
 .field static final TRANSACTION_setDisplayPadding:I = 0xe
 
-.field static final TRANSACTION_setImageWallpaper:I = 0x2a
+.field static final TRANSACTION_setImageWallpaper:I = 0x2b
 
-.field static final TRANSACTION_setKWPTypeLiveWallpaper:I = 0x25
+.field static final TRANSACTION_setKWPTypeLiveWallpaper:I = 0x26
 
 .field static final TRANSACTION_setLockWallpaperCallback:I = 0x14
 
@@ -104,7 +106,7 @@
 
 .field static final TRANSACTION_setPreloadWallpaper:I = 0x17
 
-.field static final TRANSACTION_setSWPTypePreload:I = 0x24
+.field static final TRANSACTION_setSWPTypePreload:I = 0x25
 
 .field static final TRANSACTION_setWallpaper:I = 0x1
 
@@ -1593,6 +1595,37 @@
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->isEnabledMultiLockWallpaper()Z
+
+    move-result v35
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v35, :cond_18
+
+    const/4 v5, 0x1
+
+    :goto_18
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :cond_18
+    const/4 v5, 0x0
+
+    goto :goto_18
+
+    :sswitch_25
+    const-string/jumbo v5, "android.app.IWallpaperManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v23
@@ -1609,7 +1642,7 @@
 
     return v5
 
-    :sswitch_25
+    :sswitch_26
     const-string/jumbo v5, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
@@ -1632,7 +1665,7 @@
 
     return v5
 
-    :sswitch_26
+    :sswitch_27
     const-string/jumbo v5, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
@@ -1647,7 +1680,7 @@
 
     return v5
 
-    :sswitch_27
+    :sswitch_28
     const-string/jumbo v5, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
@@ -1662,7 +1695,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_18
+    if-eqz v5, :cond_19
 
     sget-object v5, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -1674,7 +1707,7 @@
 
     check-cast v27, Landroid/os/Bundle;
 
-    :goto_18
+    :goto_19
     move-object/from16 v0, p0
 
     move-object/from16 v1, v27
@@ -1687,12 +1720,12 @@
 
     return v5
 
-    :cond_18
+    :cond_19
     const/16 v27, 0x0
 
-    goto :goto_18
+    goto :goto_19
 
-    :sswitch_28
+    :sswitch_29
     const-string/jumbo v5, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
@@ -1703,11 +1736,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_19
+    if-eqz v5, :cond_1a
 
     const/16 v26, 0x1
 
-    :goto_19
+    :goto_1a
     move-object/from16 v0, p0
 
     move/from16 v1, v26
@@ -1720,12 +1753,12 @@
 
     return v5
 
-    :cond_19
+    :cond_1a
     const/16 v26, 0x0
 
-    goto :goto_19
+    goto :goto_1a
 
-    :sswitch_29
+    :sswitch_2a
     const-string/jumbo v5, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
@@ -1738,11 +1771,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v35, :cond_1a
+    if-eqz v35, :cond_1b
 
     const/4 v5, 0x1
 
-    :goto_1a
+    :goto_1b
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
@@ -1751,12 +1784,12 @@
 
     return v5
 
-    :cond_1a
+    :cond_1b
     const/4 v5, 0x0
 
-    goto :goto_1a
+    goto :goto_1b
 
-    :sswitch_2a
+    :sswitch_2b
     const-string/jumbo v5, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
@@ -1767,11 +1800,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1b
+    if-eqz v5, :cond_1c
 
     const/16 v26, 0x1
 
-    :goto_1b
+    :goto_1c
     move-object/from16 v0, p0
 
     move/from16 v1, v26
@@ -1784,12 +1817,12 @@
 
     return v5
 
-    :cond_1b
+    :cond_1c
     const/16 v26, 0x0
 
-    goto :goto_1b
+    goto :goto_1c
 
-    :sswitch_2b
+    :sswitch_2c
     const-string/jumbo v5, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
@@ -1802,7 +1835,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v32, :cond_1c
+    if-eqz v32, :cond_1d
 
     const/4 v5, 0x1
 
@@ -1818,21 +1851,21 @@
 
     invoke-virtual {v0, v1, v5}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_1c
+    :goto_1d
     const/4 v5, 0x1
 
     return v5
 
-    :cond_1c
+    :cond_1d
     const/4 v5, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1c
+    goto :goto_1d
 
-    :sswitch_2c
+    :sswitch_2d
     const-string/jumbo v5, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
@@ -1851,11 +1884,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v35, :cond_1d
+    if-eqz v35, :cond_1e
 
     const/4 v5, 0x1
 
-    :goto_1d
+    :goto_1e
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
@@ -1864,12 +1897,12 @@
 
     return v5
 
-    :cond_1d
+    :cond_1e
     const/4 v5, 0x0
 
-    goto :goto_1d
+    goto :goto_1e
 
-    :sswitch_2d
+    :sswitch_2e
     const-string/jumbo v5, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
@@ -1882,7 +1915,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v32, :cond_1e
+    if-eqz v32, :cond_1f
 
     const/4 v5, 0x1
 
@@ -1898,19 +1931,21 @@
 
     invoke-virtual {v0, v1, v5}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_1e
+    :goto_1f
     const/4 v5, 0x1
 
     return v5
 
-    :cond_1e
+    :cond_1f
     const/4 v5, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1e
+    goto :goto_1f
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -1959,6 +1994,7 @@
         0x2b -> :sswitch_2b
         0x2c -> :sswitch_2c
         0x2d -> :sswitch_2d
+        0x2e -> :sswitch_2e
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

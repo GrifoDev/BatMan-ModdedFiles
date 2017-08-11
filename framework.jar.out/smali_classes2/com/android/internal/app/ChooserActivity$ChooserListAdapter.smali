@@ -111,7 +111,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e0088
+    const v3, 0x10e0089
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -926,7 +926,7 @@
 
     iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x10900d7
+    const v1, 0x10900d8
 
     const/4 v2, 0x0
 

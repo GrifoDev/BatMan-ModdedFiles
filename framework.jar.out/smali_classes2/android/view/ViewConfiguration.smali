@@ -356,7 +356,7 @@
 
     if-nez v12, :cond_0
 
-    const v12, 0x10e008f
+    const v12, 0x10e0090
 
     invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -446,7 +446,7 @@
 
     iput v12, p0, Landroid/view/ViewConfiguration;->mMaximumFlingVelocity:I
 
-    const v12, 0x10e0087
+    const v12, 0x10e0088
 
     invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -460,7 +460,7 @@
 
     move-result-object v12
 
-    const v13, 0x11200d6
+    const v13, 0x11200d7
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -472,7 +472,7 @@
 
     move-result-object v12
 
-    const v13, 0x11200d7
+    const v13, 0x11200d8
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getBoolean(I)Z
 

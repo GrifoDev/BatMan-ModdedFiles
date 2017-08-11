@@ -40,7 +40,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x1090125
+    const v0, 0x1090126
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 

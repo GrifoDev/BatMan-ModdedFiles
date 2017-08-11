@@ -35,7 +35,7 @@
 
 .field private static final LOG_TAG:Ljava/lang/String; = "SearchView"
 
-.field private static final TW_SEARCH_ICON_RES_ID:I = 0x1080a5e
+.field private static final TW_SEARCH_ICON_RES_ID:I = 0x1080a4c
 
 
 # instance fields
@@ -544,7 +544,7 @@
 
     const/4 v13, 0x1
 
-    const v14, 0x10900eb
+    const v14, 0x10900ec
 
     invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -615,7 +615,7 @@
 
     iput-boolean v13, v0, Landroid/widget/SearchView;->mIsPenSupport:Z
 
-    const v13, 0x1020496
+    const v13, 0x102049f
 
     move-object/from16 v0, p0
 
@@ -637,7 +637,7 @@
 
     invoke-virtual {v13, v0}, Landroid/widget/SearchView$SearchAutoComplete;->setSearchView(Landroid/widget/SearchView;)V
 
-    const v13, 0x1020493
+    const v13, 0x102049c
 
     move-object/from16 v0, p0
 
@@ -649,7 +649,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mSearchEditFrame:Landroid/view/View;
 
-    const v13, 0x1020495
+    const v13, 0x102049e
 
     move-object/from16 v0, p0
 
@@ -661,7 +661,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mSearchPlate:Landroid/view/View;
 
-    const v13, 0x1020498
+    const v13, 0x10204a1
 
     move-object/from16 v0, p0
 
@@ -673,7 +673,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mSubmitArea:Landroid/view/View;
 
-    const v13, 0x1020492
+    const v13, 0x102049b
 
     move-object/from16 v0, p0
 
@@ -687,7 +687,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mSearchButton:Landroid/widget/ImageView;
 
-    const v13, 0x1020499
+    const v13, 0x10204a2
 
     move-object/from16 v0, p0
 
@@ -701,7 +701,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mGoButton:Landroid/widget/ImageView;
 
-    const v13, 0x1020497
+    const v13, 0x10204a0
 
     move-object/from16 v0, p0
 
@@ -715,7 +715,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mCloseButton:Landroid/widget/ImageView;
 
-    const v13, 0x102049a
+    const v13, 0x10204a3
 
     move-object/from16 v0, p0
 
@@ -729,7 +729,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mVoiceButton:Landroid/widget/ImageView;
 
-    const v13, 0x1020494
+    const v13, 0x102049d
 
     move-object/from16 v0, p0
 
@@ -858,7 +858,7 @@
     :goto_0
     const/16 v13, 0xc
 
-    const v14, 0x10900ea
+    const v14, 0x10900eb
 
     invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -1158,7 +1158,7 @@
 
     move-result-object v14
 
-    const v15, 0x1080a5e
+    const v15, 0x1080a4c
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1178,7 +1178,7 @@
 
     move-result-object v14
 
-    const v15, 0x1080a5e
+    const v15, 0x1080a4c
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

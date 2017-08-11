@@ -376,17 +376,17 @@
 .end method
 
 .method public initialize()V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x4
+    const/4 v4, 0x4
+
+    const/4 v3, 0x0
 
     iget-boolean v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mAttached:Z
 
     if-nez v0, :cond_2
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/view/View;->setLayoutDirection(I)V
+    invoke-virtual {p0, v3}, Landroid/view/View;->setLayoutDirection(I)V
 
     iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mColorView:Landroid/widget/ImageView;
 
@@ -414,7 +414,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mColorView:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mColorView:Landroid/widget/ImageView;
 
@@ -435,26 +435,11 @@
 
     iput-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mNotSupportView:Landroid/widget/ImageView;
 
-    iget-boolean v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mIsScreenCornerR:Z
-
-    if-eqz v0, :cond_3
+    invoke-virtual {p0, v3}, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->setGuideWindowShapeWhenNotSupport(I)V
 
     iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mNotSupportView:Landroid/widget/ImageView;
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    sget v2, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream:I
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    :goto_0
-    iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mNotSupportView:Landroid/widget/ImageView;
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mNotSupportView:Landroid/widget/ImageView;
 
@@ -485,21 +470,6 @@
 
     :cond_2
     return-void
-
-    :cond_3
-    iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mNotSupportView:Landroid/widget/ImageView;
-
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    sget v2, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support:I
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
 .end method
 
 .method public isAttached()Z
@@ -654,6 +624,104 @@
         :pswitch_0
         :pswitch_0
         :pswitch_4
+    .end packed-switch
+.end method
+
+.method public setGuideWindowShapeWhenNotSupport(I)V
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mIsScreenCornerR:Z
+
+    if-eqz v0, :cond_0
+
+    packed-switch p1, :pswitch_data_0
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mNotSupportView:Landroid/widget/ImageView;
+
+    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+
+    sget v2, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream:I
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :goto_0
+    return-void
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mNotSupportView:Landroid/widget/ImageView;
+
+    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+
+    sget v2, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream_angle90:I
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_0
+
+    :pswitch_2
+    iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mNotSupportView:Landroid/widget/ImageView;
+
+    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+
+    sget v2, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream_angle270:I
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mNotSupportView:Landroid/widget/ImageView;
+
+    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    sget v2, Lcom/samsung/android/framework/res/R$dimen;->navigation_bar_height:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->mNotSupportView:Landroid/widget/ImageView;
+
+    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+
+    sget v2, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support:I
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 

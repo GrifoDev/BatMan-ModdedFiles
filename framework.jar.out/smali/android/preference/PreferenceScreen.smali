@@ -289,7 +289,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050299
+    const v2, 0x10502a9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -305,7 +305,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050295
+    const v2, 0x10502a5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -320,7 +320,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050296
+    const v2, 0x10502a6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -335,7 +335,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050297
+    const v2, 0x10502a7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -350,7 +350,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050298
+    const v2, 0x10502a8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -397,7 +397,7 @@
 
     check-cast v3, Landroid/view/LayoutInflater;
 
-    const v5, 0x10900c9
+    const v5, 0x10900ca
 
     invoke-virtual {v3, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

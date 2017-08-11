@@ -190,7 +190,7 @@
 
     if-eqz v4, :cond_2
 
-    const v4, 0x1080819
+    const v4, 0x1080804
 
     invoke-virtual {p2, v4}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -235,7 +235,7 @@
 
     move-result-object v5
 
-    const v6, 0x10502de
+    const v6, 0x10502ee
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 

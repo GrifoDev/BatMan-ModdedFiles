@@ -135,7 +135,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$PositionListener;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v1}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v1}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -214,7 +214,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$PositionListener;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -258,7 +258,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$PositionListener;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -320,7 +320,7 @@
 
     iget-object v4, p0, Landroid/widget/Editor$PositionListener;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v4}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v4}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v4
 
@@ -604,22 +604,27 @@
 .method public removeSubscriber(Landroid/widget/Editor$TextViewPositionListener;)V
     .locals 4
 
+    const/4 v3, 0x0
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
     const/4 v0, 0x0
 
     :goto_0
     const/4 v2, 0x7
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_1
 
     iget-object v2, p0, Landroid/widget/Editor$PositionListener;->mPositionListeners:[Landroid/widget/Editor$TextViewPositionListener;
 
     aget-object v2, v2, v0
 
-    if-ne v2, p1, :cond_2
+    if-ne v2, p1, :cond_3
 
     iget-object v2, p0, Landroid/widget/Editor$PositionListener;->mPositionListeners:[Landroid/widget/Editor$TextViewPositionListener;
-
-    const/4 v3, 0x0
 
     aput-object v3, v2, v0
 
@@ -629,14 +634,14 @@
 
     iput v2, p0, Landroid/widget/Editor$PositionListener;->mNumberOfListeners:I
 
-    :cond_0
+    :cond_1
     iget v2, p0, Landroid/widget/Editor$PositionListener;->mNumberOfListeners:I
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     iget-object v2, p0, Landroid/widget/Editor$PositionListener;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v2}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
 
@@ -646,10 +651,10 @@
 
     invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    :cond_1
+    :cond_2
     return-void
 
-    :cond_2
+    :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0

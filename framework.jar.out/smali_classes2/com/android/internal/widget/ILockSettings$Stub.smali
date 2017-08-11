@@ -241,7 +241,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 28
+    .locals 29
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -289,11 +289,11 @@
     :goto_0
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
     invoke-virtual {v0, v6, v7, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->setBoolean(Ljava/lang/String;ZI)V
 
@@ -321,17 +321,19 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v14
+    move-result-wide v16
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v19
+    move-wide/from16 v1, v16
 
-    invoke-virtual {v0, v6, v14, v15, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->setLong(Ljava/lang/String;JI)V
+    move/from16 v3, v20
+
+    invoke-virtual {v0, v6, v1, v2, v3}, Lcom/android/internal/widget/ILockSettings$Stub;->setLong(Ljava/lang/String;JI)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -352,17 +354,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    move/from16 v2, v19
+    move/from16 v2, v20
 
     invoke-virtual {v0, v6, v1, v2}, Lcom/android/internal/widget/ILockSettings$Stub;->setString(Ljava/lang/String;Ljava/lang/String;I)V
 
@@ -394,19 +396,19 @@
     :goto_1
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
     invoke-virtual {v0, v6, v7, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->getBoolean(Ljava/lang/String;ZI)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_2
+    if-eqz v28, :cond_2
 
     const/4 v5, 0x1
 
@@ -442,17 +444,19 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v14
+    move-result-wide v16
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v19
+    move-wide/from16 v1, v16
 
-    invoke-virtual {v0, v6, v14, v15, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->getLong(Ljava/lang/String;JI)J
+    move/from16 v3, v20
+
+    invoke-virtual {v0, v6, v1, v2, v3}, Lcom/android/internal/widget/ILockSettings$Stub;->getLong(Ljava/lang/String;JI)J
 
     move-result-wide v24
 
@@ -481,27 +485,27 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    move/from16 v2, v19
+    move/from16 v2, v20
 
     invoke-virtual {v0, v6, v1, v2}, Lcom/android/internal/widget/ILockSettings$Stub;->getString(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v27
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -522,17 +526,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    move/from16 v2, v19
+    move/from16 v2, v20
 
     invoke-virtual {v0, v6, v1, v2}, Lcom/android/internal/widget/ILockSettings$Stub;->setLockPattern(Ljava/lang/String;Ljava/lang/String;I)V
 
@@ -576,17 +580,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPattern(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPattern(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
 
-    move-result-object v23
+    move-result-object v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v23, :cond_3
+    if-eqz v26, :cond_3
 
     const/4 v5, 0x1
 
@@ -596,7 +600,7 @@
 
     const/4 v5, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p3
 
@@ -629,23 +633,25 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v14
+    move-result-wide v16
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v19
+    move-wide/from16 v1, v16
 
-    invoke-virtual {v0, v6, v14, v15, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->verifyPattern(Ljava/lang/String;JI)Lcom/android/internal/widget/VerifyCredentialResponse;
+    move/from16 v3, v20
 
-    move-result-object v23
+    invoke-virtual {v0, v6, v1, v2, v3}, Lcom/android/internal/widget/ILockSettings$Stub;->verifyPattern(Ljava/lang/String;JI)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v23, :cond_4
+    if-eqz v26, :cond_4
 
     const/4 v5, 0x1
 
@@ -655,7 +661,7 @@
 
     const/4 v5, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p3
 
@@ -688,17 +694,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    move/from16 v2, v19
+    move/from16 v2, v20
 
     invoke-virtual {v0, v6, v1, v2}, Lcom/android/internal/widget/ILockSettings$Stub;->setLockPassword(Ljava/lang/String;Ljava/lang/String;I)V
 
@@ -721,17 +727,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
 
-    move-result-object v23
+    move-result-object v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v23, :cond_5
+    if-eqz v26, :cond_5
 
     const/4 v5, 0x1
 
@@ -741,7 +747,7 @@
 
     const/4 v5, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p3
 
@@ -774,23 +780,25 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v14
+    move-result-wide v16
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v19
+    move-wide/from16 v1, v16
 
-    invoke-virtual {v0, v6, v14, v15, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->verifyPassword(Ljava/lang/String;JI)Lcom/android/internal/widget/VerifyCredentialResponse;
+    move/from16 v3, v20
 
-    move-result-object v23
+    invoke-virtual {v0, v6, v1, v2, v3}, Lcom/android/internal/widget/ILockSettings$Stub;->verifyPassword(Ljava/lang/String;JI)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v23, :cond_6
+    if-eqz v26, :cond_6
 
     const/4 v5, 0x1
 
@@ -800,7 +808,7 @@
 
     const/4 v5, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p3
 
@@ -852,11 +860,11 @@
 
     invoke-virtual/range {v5 .. v10}, Lcom/android/internal/widget/ILockSettings$Stub;->verifyTiedProfileChallenge(Ljava/lang/String;ZJI)Lcom/android/internal/widget/VerifyCredentialResponse;
 
-    move-result-object v23
+    move-result-object v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v23, :cond_8
+    if-eqz v26, :cond_8
 
     const/4 v5, 0x1
 
@@ -866,7 +874,7 @@
 
     const/4 v5, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p3
 
@@ -906,11 +914,11 @@
 
     invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->checkVoldPassword(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_9
+    if-eqz v28, :cond_9
 
     const/4 v5, 0x1
 
@@ -943,11 +951,11 @@
 
     invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->havePattern(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_a
+    if-eqz v28, :cond_a
 
     const/4 v5, 0x1
 
@@ -980,11 +988,11 @@
 
     invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->havePassword(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_b
+    if-eqz v28, :cond_b
 
     const/4 v5, 0x1
 
@@ -1024,11 +1032,11 @@
     :goto_c
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v21
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-virtual {v0, v4, v7, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->setSeparateProfileChallengeEnabled(IZLjava/lang/String;)V
 
@@ -1058,11 +1066,11 @@
 
     invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->getSeparateProfileChallengeEnabled(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_d
+    if-eqz v28, :cond_d
 
     const/4 v5, 0x1
 
@@ -1143,11 +1151,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->requireStrongAuth(II)V
+    invoke-virtual {v0, v4, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->requireStrongAuth(II)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1206,13 +1214,13 @@
 
     invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->getStrongAuthForUser(I)I
 
-    move-result v22
+    move-result v23
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1244,13 +1252,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ILockSettings$Stub;->getPassword()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v27
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -1290,13 +1298,29 @@
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ILockSettings$Stub;->sendLockTypeChangedInfo()V
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    if-eqz v5, :cond_e
+
+    const/4 v13, 0x1
+
+    :goto_e
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->sendLockTypeChangedInfo(Z)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v5, 0x1
 
     return v5
+
+    :cond_e
+    const/4 v13, 0x0
+
+    goto :goto_e
 
     :sswitch_1e
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
@@ -1313,15 +1337,15 @@
 
     invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveRecoveryPassword(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_e
+    if-eqz v28, :cond_f
 
     const/4 v5, 0x1
 
-    :goto_e
+    :goto_f
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
@@ -1330,10 +1354,10 @@
 
     return v5
 
-    :cond_e
+    :cond_f
     const/4 v5, 0x0
 
-    goto :goto_e
+    goto :goto_f
 
     :sswitch_1f
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
@@ -1348,17 +1372,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    move/from16 v2, v19
+    move/from16 v2, v20
 
     invoke-virtual {v0, v6, v1, v2}, Lcom/android/internal/widget/ILockSettings$Stub;->setLockRecoveryPassword(Ljava/lang/String;Ljava/lang/String;I)V
 
@@ -1381,76 +1405,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkRecoveryPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkRecoveryPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
 
-    move-result-object v23
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v23, :cond_f
-
-    const/4 v5, 0x1
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v5, 0x1
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1, v5}, Lcom/android/internal/widget/VerifyCredentialResponse;->writeToParcel(Landroid/os/Parcel;I)V
-
-    :goto_f
-    const/4 v5, 0x1
-
-    return v5
-
-    :cond_f
-    const/4 v5, 0x0
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_f
-
-    :sswitch_21
-    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v14
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v19
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v19
-
-    invoke-virtual {v0, v6, v14, v15, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->verifyRecoveryPassword(Ljava/lang/String;JI)Lcom/android/internal/widget/VerifyCredentialResponse;
-
-    move-result-object v23
+    move-result-object v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v23, :cond_10
+    if-eqz v26, :cond_10
 
     const/4 v5, 0x1
 
@@ -1460,7 +1425,7 @@
 
     const/4 v5, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p3
 
@@ -1480,6 +1445,67 @@
 
     goto :goto_10
 
+    :sswitch_21
+    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v16
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v20
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v16
+
+    move/from16 v3, v20
+
+    invoke-virtual {v0, v6, v1, v2, v3}, Lcom/android/internal/widget/ILockSettings$Stub;->verifyRecoveryPassword(Ljava/lang/String;JI)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v26
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v26, :cond_11
+
+    const/4 v5, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v5, 0x1
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v0, v1, v5}, Lcom/android/internal/widget/VerifyCredentialResponse;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_11
+    const/4 v5, 0x1
+
+    return v5
+
+    :cond_11
+    const/4 v5, 0x0
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_11
+
     :sswitch_22
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
@@ -1495,15 +1521,15 @@
 
     invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveBackupPassword(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_11
+    if-eqz v28, :cond_12
 
     const/4 v5, 0x1
 
-    :goto_11
+    :goto_12
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
@@ -1512,10 +1538,10 @@
 
     return v5
 
-    :cond_11
+    :cond_12
     const/4 v5, 0x0
 
-    goto :goto_11
+    goto :goto_12
 
     :sswitch_23
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
@@ -1530,17 +1556,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    move/from16 v2, v19
+    move/from16 v2, v20
 
     invoke-virtual {v0, v6, v1, v2}, Lcom/android/internal/widget/ILockSettings$Stub;->setLockBackupPassword(Ljava/lang/String;Ljava/lang/String;I)V
 
@@ -1563,76 +1589,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkBackupPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkBackupPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
 
-    move-result-object v23
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v23, :cond_12
-
-    const/4 v5, 0x1
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v5, 0x1
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1, v5}, Lcom/android/internal/widget/VerifyCredentialResponse;->writeToParcel(Landroid/os/Parcel;I)V
-
-    :goto_12
-    const/4 v5, 0x1
-
-    return v5
-
-    :cond_12
-    const/4 v5, 0x0
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_12
-
-    :sswitch_25
-    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v14
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v19
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v19
-
-    invoke-virtual {v0, v6, v14, v15, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->verifyBackupPassword(Ljava/lang/String;JI)Lcom/android/internal/widget/VerifyCredentialResponse;
-
-    move-result-object v23
+    move-result-object v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v23, :cond_13
+    if-eqz v26, :cond_13
 
     const/4 v5, 0x1
 
@@ -1642,7 +1609,7 @@
 
     const/4 v5, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p3
 
@@ -1661,6 +1628,67 @@
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_13
+
+    :sswitch_25
+    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v16
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v20
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v16
+
+    move/from16 v3, v20
+
+    invoke-virtual {v0, v6, v1, v2, v3}, Lcom/android/internal/widget/ILockSettings$Stub;->verifyBackupPassword(Ljava/lang/String;JI)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v26
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v26, :cond_14
+
+    const/4 v5, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v5, 0x1
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v0, v1, v5}, Lcom/android/internal/widget/VerifyCredentialResponse;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_14
+    const/4 v5, 0x1
+
+    return v5
+
+    :cond_14
+    const/4 v5, 0x0
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_14
 
     :sswitch_26
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
@@ -1696,11 +1724,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setPrivateModeLockPin(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setPrivateModeLockPin(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1721,11 +1749,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setPrivateModeLockPassword(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setPrivateModeLockPassword(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1746,11 +1774,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setPrivateModeLockPattern(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setPrivateModeLockPattern(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1771,11 +1799,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setPrivateModeLockBackupPin(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setPrivateModeLockBackupPin(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1796,58 +1824,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPrivateModePin(Ljava/lang/String;I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPrivateModePin(Ljava/lang/String;I)Z
 
-    move-result v27
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v27, :cond_14
-
-    const/4 v5, 0x1
-
-    :goto_14
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v5, 0x1
-
-    return v5
-
-    :cond_14
-    const/4 v5, 0x0
-
-    goto :goto_14
-
-    :sswitch_2c
-    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPrivateModePassword(Ljava/lang/String;I)Z
-
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_15
+    if-eqz v28, :cond_15
 
     const/4 v5, 0x1
 
@@ -1865,7 +1852,7 @@
 
     goto :goto_15
 
-    :sswitch_2d
+    :sswitch_2c
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -1878,17 +1865,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPrivateModePattern(Ljava/lang/String;I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPrivateModePassword(Ljava/lang/String;I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_16
+    if-eqz v28, :cond_16
 
     const/4 v5, 0x1
 
@@ -1906,7 +1893,7 @@
 
     goto :goto_16
 
-    :sswitch_2e
+    :sswitch_2d
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -1919,17 +1906,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPrivateModeBackupPin(Ljava/lang/String;I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPrivateModePattern(Ljava/lang/String;I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_17
+    if-eqz v28, :cond_17
 
     const/4 v5, 0x1
 
@@ -1947,26 +1934,30 @@
 
     goto :goto_17
 
-    :sswitch_2f
+    :sswitch_2e
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->havePrivateModePin(I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkPrivateModeBackupPin(Ljava/lang/String;I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_18
+    if-eqz v28, :cond_18
 
     const/4 v5, 0x1
 
@@ -1984,7 +1975,7 @@
 
     goto :goto_18
 
-    :sswitch_30
+    :sswitch_2f
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -1997,13 +1988,13 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->havePrivateModePassword(I)Z
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->havePrivateModePin(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_19
+    if-eqz v28, :cond_19
 
     const/4 v5, 0x1
 
@@ -2021,7 +2012,7 @@
 
     goto :goto_19
 
-    :sswitch_31
+    :sswitch_30
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -2034,13 +2025,13 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->havePrivateModePattern(I)Z
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->havePrivateModePassword(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_1a
+    if-eqz v28, :cond_1a
 
     const/4 v5, 0x1
 
@@ -2058,7 +2049,7 @@
 
     goto :goto_1a
 
-    :sswitch_32
+    :sswitch_31
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -2071,13 +2062,13 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->havePrivateModeBackupPin(I)Z
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->havePrivateModePattern(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_1b
+    if-eqz v28, :cond_1b
 
     const/4 v5, 0x1
 
@@ -2095,6 +2086,43 @@
 
     goto :goto_1b
 
+    :sswitch_32
+    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->havePrivateModeBackupPin(I)Z
+
+    move-result v28
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v28, :cond_1c
+
+    const/4 v5, 0x1
+
+    :goto_1c
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :cond_1c
+    const/4 v5, 0x0
+
+    goto :goto_1c
+
     :sswitch_33
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
@@ -2108,11 +2136,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setLockFMMPassword(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setLockFMMPassword(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2133,54 +2161,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkFMMPassword(Ljava/lang/String;I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkFMMPassword(Ljava/lang/String;I)Z
 
-    move-result v27
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v27, :cond_1c
-
-    const/4 v5, 0x1
-
-    :goto_1c
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v5, 0x1
-
-    return v5
-
-    :cond_1c
-    const/4 v5, 0x0
-
-    goto :goto_1c
-
-    :sswitch_35
-    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveFMMPassword(I)Z
-
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_1d
+    if-eqz v28, :cond_1d
 
     const/4 v5, 0x1
 
@@ -2198,7 +2189,7 @@
 
     goto :goto_1d
 
-    :sswitch_36
+    :sswitch_35
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -2211,13 +2202,13 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->getCarrierLockPlusMode(I)Z
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveFMMPassword(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_1e
+    if-eqz v28, :cond_1e
 
     const/4 v5, 0x1
 
@@ -2234,6 +2225,43 @@
     const/4 v5, 0x0
 
     goto :goto_1e
+
+    :sswitch_36
+    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->getCarrierLockPlusMode(I)Z
+
+    move-result v28
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v28, :cond_1f
+
+    const/4 v5, 0x1
+
+    :goto_1f
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :cond_1f
+    const/4 v5, 0x0
+
+    goto :goto_1f
 
     :sswitch_37
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
@@ -2269,11 +2297,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setLockCarrierPassword(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setLockCarrierPassword(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2296,52 +2324,11 @@
 
     invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->updateCarrierLockPlusMode(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_1f
-
-    const/4 v5, 0x1
-
-    :goto_1f
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v5, 0x1
-
-    return v5
-
-    :cond_1f
-    const/4 v5, 0x0
-
-    goto :goto_1f
-
-    :sswitch_3a
-    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkCarrierPassword(Ljava/lang/String;I)Z
-
-    move-result v27
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v27, :cond_20
+    if-eqz v28, :cond_20
 
     const/4 v5, 0x1
 
@@ -2359,26 +2346,30 @@
 
     goto :goto_20
 
-    :sswitch_3b
+    :sswitch_3a
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveCarrierPassword(I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkCarrierPassword(Ljava/lang/String;I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_21
+    if-eqz v28, :cond_21
 
     const/4 v5, 0x1
 
@@ -2395,6 +2386,43 @@
     const/4 v5, 0x0
 
     goto :goto_21
+
+    :sswitch_3b
+    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveCarrierPassword(I)Z
+
+    move-result v28
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v28, :cond_22
+
+    const/4 v5, 0x1
+
+    :goto_22
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :cond_22
+    const/4 v5, 0x0
+
+    goto :goto_22
 
     :sswitch_3c
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
@@ -2413,13 +2441,11 @@
 
     invoke-static {v5}, Lcom/android/internal/widget/IRemoteLockMonitorCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/widget/IRemoteLockMonitorCallback;
 
-    move-result-object v16
+    move-result-object v15
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v4, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->registerRemoteLockCallback(ILcom/android/internal/widget/IRemoteLockMonitorCallback;)V
+    invoke-virtual {v0, v4, v15}, Lcom/android/internal/widget/ILockSettings$Stub;->registerRemoteLockCallback(ILcom/android/internal/widget/IRemoteLockMonitorCallback;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2444,13 +2470,11 @@
 
     invoke-static {v5}, Lcom/android/internal/widget/IRemoteLockMonitorCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/widget/IRemoteLockMonitorCallback;
 
-    move-result-object v16
+    move-result-object v15
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v4, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->unregisterRemoteLockCallback(ILcom/android/internal/widget/IRemoteLockMonitorCallback;)V
+    invoke-virtual {v0, v4, v15}, Lcom/android/internal/widget/ILockSettings$Stub;->unregisterRemoteLockCallback(ILcom/android/internal/widget/IRemoteLockMonitorCallback;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2473,7 +2497,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_22
+    if-eqz v5, :cond_23
 
     sget-object v5, Lcom/android/internal/widget/RemoteLockInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -2481,14 +2505,14 @@
 
     invoke-interface {v5, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v17
+    move-result-object v18
 
-    check-cast v17, Lcom/android/internal/widget/RemoteLockInfo;
+    check-cast v18, Lcom/android/internal/widget/RemoteLockInfo;
 
-    :goto_22
+    :goto_23
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v4, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->setRemoteLock(ILcom/android/internal/widget/RemoteLockInfo;)V
 
@@ -2498,10 +2522,10 @@
 
     return v5
 
-    :cond_22
-    const/16 v17, 0x0
+    :cond_23
+    const/16 v18, 0x0
 
-    goto :goto_22
+    goto :goto_23
 
     :sswitch_3f
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
@@ -2516,11 +2540,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v20
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -2528,15 +2552,15 @@
 
     invoke-static {v5}, Landroid/os/IRemoteCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRemoteCallback;
 
-    move-result-object v21
+    move-result-object v22
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    move/from16 v2, v19
+    move/from16 v2, v20
 
-    move-object/from16 v3, v21
+    move-object/from16 v3, v22
 
     invoke-virtual {v0, v4, v1, v2, v3}, Lcom/android/internal/widget/ILockSettings$Stub;->checkCISPassword(ILjava/lang/String;ILandroid/os/IRemoteCallback;)V
 
@@ -2580,11 +2604,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setAppLockPin(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setAppLockPin(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2605,11 +2629,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setAppLockPassword(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setAppLockPassword(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2630,11 +2654,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setAppLockPattern(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setAppLockPattern(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2655,11 +2679,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setAppLockBackupPin(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setAppLockBackupPin(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2680,11 +2704,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->setAppLockFingerprintPassword(Ljava/lang/String;I)V
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->setAppLockFingerprintPassword(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2705,58 +2729,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkAppLockPin(Ljava/lang/String;I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkAppLockPin(Ljava/lang/String;I)Z
 
-    move-result v27
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v27, :cond_23
-
-    const/4 v5, 0x1
-
-    :goto_23
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v5, 0x1
-
-    return v5
-
-    :cond_23
-    const/4 v5, 0x0
-
-    goto :goto_23
-
-    :sswitch_47
-    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkAppLockPassword(Ljava/lang/String;I)Z
-
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_24
+    if-eqz v28, :cond_24
 
     const/4 v5, 0x1
 
@@ -2774,7 +2757,7 @@
 
     goto :goto_24
 
-    :sswitch_48
+    :sswitch_47
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -2787,17 +2770,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkAppLockPattern(Ljava/lang/String;I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkAppLockPassword(Ljava/lang/String;I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_25
+    if-eqz v28, :cond_25
 
     const/4 v5, 0x1
 
@@ -2815,7 +2798,7 @@
 
     goto :goto_25
 
-    :sswitch_49
+    :sswitch_48
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -2828,17 +2811,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkAppLockBackupPin(Ljava/lang/String;I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkAppLockPattern(Ljava/lang/String;I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_26
+    if-eqz v28, :cond_26
 
     const/4 v5, 0x1
 
@@ -2856,7 +2839,7 @@
 
     goto :goto_26
 
-    :sswitch_4a
+    :sswitch_49
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -2869,17 +2852,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v13}, Lcom/android/internal/widget/ILockSettings$Stub;->checkAppLockFingerprintPassword(Ljava/lang/String;I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkAppLockBackupPin(Ljava/lang/String;I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_27
+    if-eqz v28, :cond_27
 
     const/4 v5, 0x1
 
@@ -2897,26 +2880,30 @@
 
     goto :goto_27
 
-    :sswitch_4b
+    :sswitch_4a
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveAppLockPin(I)Z
+    invoke-virtual {v0, v6, v14}, Lcom/android/internal/widget/ILockSettings$Stub;->checkAppLockFingerprintPassword(Ljava/lang/String;I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_28
+    if-eqz v28, :cond_28
 
     const/4 v5, 0x1
 
@@ -2934,7 +2921,7 @@
 
     goto :goto_28
 
-    :sswitch_4c
+    :sswitch_4b
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -2947,13 +2934,13 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveAppLockPassword(I)Z
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveAppLockPin(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_29
+    if-eqz v28, :cond_29
 
     const/4 v5, 0x1
 
@@ -2971,7 +2958,7 @@
 
     goto :goto_29
 
-    :sswitch_4d
+    :sswitch_4c
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -2984,13 +2971,13 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveAppLockPattern(I)Z
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveAppLockPassword(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_2a
+    if-eqz v28, :cond_2a
 
     const/4 v5, 0x1
 
@@ -3008,7 +2995,7 @@
 
     goto :goto_2a
 
-    :sswitch_4e
+    :sswitch_4d
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -3021,13 +3008,13 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveAppLockBackupPin(I)Z
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveAppLockPattern(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_2b
+    if-eqz v28, :cond_2b
 
     const/4 v5, 0x1
 
@@ -3045,7 +3032,7 @@
 
     goto :goto_2b
 
-    :sswitch_4f
+    :sswitch_4e
     const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
 
     move-object/from16 v0, p2
@@ -3058,13 +3045,13 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveAppLockFingerprintPassword(I)Z
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveAppLockBackupPin(I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_2c
+    if-eqz v28, :cond_2c
 
     const/4 v5, 0x1
 
@@ -3081,6 +3068,45 @@
     const/4 v5, 0x0
 
     goto :goto_2c
+
+    :sswitch_4f
+    const-string/jumbo v5, "com.android.internal.widget.ILockSettings"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lcom/android/internal/widget/ILockSettings$Stub;->haveAppLockFingerprintPassword(I)Z
+
+    move-result v28
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v28, :cond_2d
+
+    const/4 v5, 0x1
+
+    :goto_2d
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :cond_2d
+    const/4 v5, 0x0
+
+    goto :goto_2d
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

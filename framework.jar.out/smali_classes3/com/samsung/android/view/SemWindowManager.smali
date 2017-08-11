@@ -261,6 +261,34 @@
     return-object v1
 .end method
 
+.method public isMaxAspectComponentEx(Landroid/content/ComponentName;I)I
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/view/IWindowManager;->isMaxAspectComponentEx(Landroid/content/ComponentName;I)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to isMaxAspectComponentEx"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
 .method public isMaxAspectPackage(Ljava/lang/String;I)Z
     .locals 3
 
@@ -280,7 +308,7 @@
 
     const-string/jumbo v1, "SemWindowManager"
 
-    const-string/jumbo v2, "Failed to setForcedDisplayRotation"
+    const-string/jumbo v2, "Failed to isMaxAspectPackage"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -308,7 +336,7 @@
 
     const-string/jumbo v1, "SemWindowManager"
 
-    const-string/jumbo v2, "Failed to setForcedDisplayRotation"
+    const-string/jumbo v2, "Failed to isMaxAspectPackageEx"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

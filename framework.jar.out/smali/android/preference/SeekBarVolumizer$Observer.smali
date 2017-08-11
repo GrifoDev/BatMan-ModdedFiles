@@ -38,7 +38,7 @@
 
     iget-object v0, p0, Landroid/preference/SeekBarVolumizer$Observer;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v0}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v0}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v0
 

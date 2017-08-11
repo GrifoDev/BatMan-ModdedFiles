@@ -144,7 +144,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/Window;->requestFeature(I)Z
 
-    const v0, 0x109008f
+    const v0, 0x1090090
 
     invoke-virtual {p0, v0}, Landroid/app/Dialog;->setContentView(I)V
 
@@ -163,7 +163,7 @@
 
     move-result-object v0
 
-    const v1, 0x1080445
+    const v1, 0x108042f
 
     invoke-virtual {v0, v2, v1}, Landroid/view/Window;->setFeatureDrawableResource(II)V
 
@@ -177,7 +177,7 @@
 
     iput-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialog;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialog$RouteAdapter;
 
-    const v0, 0x1020422
+    const v0, 0x102042b
 
     invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -209,7 +209,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->setEmptyView(Landroid/view/View;)V
 
-    const v0, 0x1020423
+    const v0, 0x102042c
 
     invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 

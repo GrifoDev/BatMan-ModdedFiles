@@ -124,7 +124,7 @@
 
     new-instance v0, Lcom/android/internal/widget/LockPatternChecker$2;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/internal/widget/LockPatternChecker$2;-><init>(Lcom/android/internal/widget/LockPatternUtils;Ljava/util/List;ILcom/android/internal/widget/LockPatternChecker$OnCheckCallback;)V
+    invoke-direct {v0, p1, p0, p2, p3}, Lcom/android/internal/widget/LockPatternChecker$2;-><init>(Ljava/util/List;Lcom/android/internal/widget/LockPatternUtils;ILcom/android/internal/widget/LockPatternChecker$OnCheckCallback;)V
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
@@ -321,9 +321,9 @@
 
     new-instance v1, Lcom/android/internal/widget/LockPatternChecker$1;
 
-    move-object v2, p0
+    move-object v2, p1
 
-    move-object v3, p1
+    move-object v3, p0
 
     move-wide v4, p2
 
@@ -331,7 +331,7 @@
 
     move-object v7, p5
 
-    invoke-direct/range {v1 .. v7}, Lcom/android/internal/widget/LockPatternChecker$1;-><init>(Lcom/android/internal/widget/LockPatternUtils;Ljava/util/List;JILcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;)V
+    invoke-direct/range {v1 .. v7}, Lcom/android/internal/widget/LockPatternChecker$1;-><init>(Ljava/util/List;Lcom/android/internal/widget/LockPatternUtils;JILcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;)V
 
     const/4 v0, 0x0
 

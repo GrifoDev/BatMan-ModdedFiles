@@ -16,9 +16,11 @@
         Landroid/widget/TextView$ChangeWatcher;,
         Landroid/widget/TextView$CharWrapper;,
         Landroid/widget/TextView$Drawables;,
+        Landroid/widget/TextView$MagnifierView;,
         Landroid/widget/TextView$Marquee;,
         Landroid/widget/TextView$MoreInfoHPW;,
         Landroid/widget/TextView$OnEditorActionListener;,
+        Landroid/widget/TextView$SFEffectsAPI;,
         Landroid/widget/TextView$SavedState;,
         Landroid/widget/TextView$StylusEventListener;,
         Landroid/widget/TextView$TextViewClipboardChangeListener;,
@@ -54,6 +56,38 @@
 .field private static final EMS:I = 0x1
 
 .field private static final ENABLE_SURVEY_MODE:Z
+
+.field protected static final EXTRA_FEATURE_COPYPASTE_MENU_ACTION_CLIPBOARD:Ljava/lang/String; = "CPCB"
+
+.field protected static final EXTRA_FEATURE_COPYPASTE_MENU_ACTION_COPY:Ljava/lang/String; = "CPCP"
+
+.field protected static final EXTRA_FEATURE_COPYPASTE_MENU_ACTION_CUT:Ljava/lang/String; = "CPCT"
+
+.field protected static final EXTRA_FEATURE_COPYPASTE_MENU_ACTION_DICTIONARY:Ljava/lang/String; = "CPDT"
+
+.field protected static final EXTRA_FEATURE_COPYPASTE_MENU_ACTION_PASTE:Ljava/lang/String; = "CPPT"
+
+.field protected static final EXTRA_FEATURE_COPYPASTE_MENU_ACTION_SELECTALL:Ljava/lang/String; = "CPSA"
+
+.field protected static final EXTRA_FEATURE_COPYPASTE_MENU_ACTION_SHARE:Ljava/lang/String; = "CPSH"
+
+.field protected static final EXTRA_FEATURE_COPYPASTE_MENU_ACTION_TRANSLATE:Ljava/lang/String; = "CPTL"
+
+.field protected static final EXTRA_FEATURE_COPYPASTE_MENU_ACTION_WEBSEARCH:Ljava/lang/String; = "CPWS"
+
+.field protected static final EXTRA_FEATURE_TEXT_SELECTED_DOUBLE_TAP:Ljava/lang/String; = "TSDT"
+
+.field protected static final EXTRA_FEATURE_TEXT_SELECTED_LONGPRESS:Ljava/lang/String; = "TSLP"
+
+.field protected static final FEATURE_NAME_BUTTON_SELECTED_CLOSE:Ljava/lang/String; = "BSCS"
+
+.field protected static final FEATURE_NAME_BUTTON_SELECTED_MORE:Ljava/lang/String; = "BSMR"
+
+.field protected static final FEATURE_NAME_COPYPASTE_MENU_ACTION:Ljava/lang/String; = "CPAT"
+
+.field protected static final FEATURE_NAME_COPYPASTE_MENU_SELECTED:Ljava/lang/String; = "CPMS"
+
+.field protected static final FEATURE_NAME_COPYPASTE_POPUP_SHOW:Ljava/lang/String; = "CPPS"
 
 .field static final ID_CLIPBOARD:I = 0x1020064
 
@@ -91,7 +125,7 @@
 
 .field static final ID_UNDO:I = 0x1020032
 
-.field static final ID_WEBSEARCH:I = 0x102054e
+.field static final ID_WEBSEARCH:I = 0x1020557
 
 .field private static final IS_PEN_SELECTION_ENABLED:Z = true
 
@@ -166,6 +200,8 @@
 .field private static mShowPenSelectionRunnable:Ljava/lang/Runnable;
 
 .field private static mTargetView:Landroid/widget/TextView;
+
+.field private static sIsMagnifierShowing:Z
 
 .field static sLastCutCopyOrTextChangedTime:J
 
@@ -343,6 +379,8 @@
 .end field
 
 .field private mLocalesChanged:Z
+
+.field private mMagnifierView:Landroid/widget/TextView$MagnifierView;
 
 .field private mMarquee:Landroid/widget/TextView$Marquee;
 
@@ -544,6 +582,14 @@
 .end method
 
 .method static synthetic -get15()Z
+    .locals 1
+
+    sget-boolean v0, Landroid/widget/TextView;->sIsMagnifierShowing:Z
+
+    return v0
+.end method
+
+.method static synthetic -get16()Z
     .locals 1
 
     sget-boolean v0, Landroid/widget/TextView;->sIsSpenUspLevel3:Z
@@ -980,7 +1026,7 @@
 
     sput-object v0, Landroid/widget/TextView;->TEMP_RECTF:Landroid/graphics/RectF;
 
-    new-array v0, v3, [Landroid/text/InputFilter;
+    new-array v0, v2, [Landroid/text/InputFilter;
 
     sput-object v0, Landroid/widget/TextView;->NO_FILTERS:[Landroid/text/InputFilter;
 
@@ -998,7 +1044,7 @@
 
     const v1, 0x101034d
 
-    aput v1, v0, v3
+    aput v1, v0, v2
 
     sput-object v0, Landroid/widget/TextView;->MULTILINE_STATE_SET:[I
 
@@ -1016,13 +1062,13 @@
 
     sput-object v0, Landroid/widget/TextView;->UNKNOWN_BORING:Landroid/text/BoringLayout$Metrics;
 
-    sput-object v2, Landroid/widget/TextView;->mMotionEventMonitorListener:Landroid/view/ViewRootImpl$MotionEventMonitor$OnTouchListener;
+    sput-object v3, Landroid/widget/TextView;->mMotionEventMonitorListener:Landroid/view/ViewRootImpl$MotionEventMonitor$OnTouchListener;
 
-    sput-object v2, Landroid/widget/TextView;->mLastHoveredView:Landroid/widget/TextView;
+    sput-object v3, Landroid/widget/TextView;->mLastHoveredView:Landroid/widget/TextView;
 
-    sput-object v2, Landroid/widget/TextView;->mTargetView:Landroid/widget/TextView;
+    sput-object v3, Landroid/widget/TextView;->mTargetView:Landroid/widget/TextView;
 
-    sput-boolean v3, Landroid/widget/TextView;->mIsFindTargetView:Z
+    sput-boolean v2, Landroid/widget/TextView;->mIsFindTargetView:Z
 
     sput-wide v4, Landroid/widget/TextView;->mLastHoveredTime:J
 
@@ -1030,7 +1076,9 @@
 
     sput-wide v4, Landroid/widget/TextView;->mCurTime:J
 
-    sput-object v2, Landroid/widget/TextView;->mShowPenSelectionRunnable:Ljava/lang/Runnable;
+    sput-object v3, Landroid/widget/TextView;->mShowPenSelectionRunnable:Ljava/lang/Runnable;
+
+    sput-boolean v2, Landroid/widget/TextView;->sIsMagnifierShowing:Z
 
     return-void
 .end method
@@ -2314,7 +2362,7 @@
 
     move-result-object v76
 
-    const v77, 0x10502b5
+    const v77, 0x10502c5
 
     invoke-virtual/range {v76 .. v77}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3710,7 +3758,7 @@
 
     move-result-object v76
 
-    const v77, 0x10502ba
+    const v77, 0x10502ca
 
     invoke-virtual/range {v76 .. v77}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3730,7 +3778,7 @@
 
     move-result-object v76
 
-    const v77, 0x105029d
+    const v77, 0x10502ad
 
     invoke-virtual/range {v76 .. v77}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3758,7 +3806,7 @@
 
     move-result-object v77
 
-    const v78, 0x106021c
+    const v78, 0x1060222
 
     move-object/from16 v0, v76
 
@@ -10262,6 +10310,26 @@
     const/4 v2, 0x0
 
     return v2
+.end method
+
+.method protected static isSupportMagnifier()Z
+    .locals 1
+
+    invoke-static {}, Landroid/view/ViewRootImpl;->isDesktopmode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method private static isVisiblePasswordInputType(I)Z
@@ -19093,6 +19161,29 @@
     return v0
 .end method
 
+.method protected getMagnifierView()Landroid/widget/TextView$MagnifierView;
+    .locals 2
+
+    iget-object v0, p0, Landroid/widget/TextView;->mMagnifierView:Landroid/widget/TextView$MagnifierView;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/widget/TextView$MagnifierView;
+
+    invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1, p0}, Landroid/widget/TextView$MagnifierView;-><init>(Landroid/widget/TextView;Landroid/content/Context;Landroid/widget/TextView;)V
+
+    iput-object v0, p0, Landroid/widget/TextView;->mMagnifierView:Landroid/widget/TextView$MagnifierView;
+
+    :cond_0
+    iget-object v0, p0, Landroid/widget/TextView;->mMagnifierView:Landroid/widget/TextView$MagnifierView;
+
+    return-object v0
+.end method
+
 .method public getMarqueeRepeatLimit()I
     .locals 1
 
@@ -22355,6 +22446,14 @@
     const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method protected isMagnifierShowing()Z
+    .locals 1
+
+    sget-boolean v0, Landroid/widget/TextView;->sIsMagnifierShowing:Z
+
+    return v0
 .end method
 
 .method public isMultiSelectionLinkArea(II)Z
@@ -31868,7 +31967,7 @@
     :cond_4
     const-string/jumbo v9, "CPAT"
 
-    const-string/jumbo v10, "CPSA"
+    const-string/jumbo v10, "CPCT"
 
     invoke-virtual {p0, v9, v10}, Landroid/widget/TextView;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -32124,6 +32223,10 @@
 
     invoke-virtual {v9}, Landroid/widget/Editor$SelectionModifierCursorController;->hide()V
 
+    const-string/jumbo v9, "BSCS"
+
+    invoke-virtual {p0, v9, v10}, Landroid/widget/TextView;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
+
     :cond_b
     return v12
 
@@ -32142,7 +32245,7 @@
         0x1020064 -> :sswitch_a
         0x1020065 -> :sswitch_8
         0x1020066 -> :sswitch_d
-        0x102054e -> :sswitch_b
+        0x1020557 -> :sswitch_b
     .end sparse-switch
 .end method
 
@@ -32685,7 +32788,7 @@
     return v6
 
     :cond_4
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_7
 
     const-string/jumbo v4, "ACTION_ARGUMENT_SELECTION_START_INT"
 
@@ -32694,7 +32797,7 @@
     move-result v1
 
     :goto_0
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_8
 
     const-string/jumbo v4, "ACTION_ARGUMENT_SELECTION_END_INT"
 
@@ -32713,39 +32816,48 @@
 
     move-result v4
 
-    if-eq v4, v0, :cond_a
+    if-eq v4, v0, :cond_b
 
     :cond_5
-    if-ne v1, v0, :cond_8
+    if-ne v1, v0, :cond_9
 
-    if-ne v0, v5, :cond_8
+    if-ne v0, v5, :cond_9
 
+    invoke-virtual {p0}, Landroid/widget/TextView;->hasSelection()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    invoke-virtual {p0}, Landroid/widget/TextView;->stopTextActionMode()V
+
+    :cond_6
     check-cast v2, Landroid/text/Spannable;
 
     invoke-static {v2}, Landroid/text/Selection;->removeSelection(Landroid/text/Spannable;)V
 
     return v7
 
-    :cond_6
+    :cond_7
     const/4 v1, -0x1
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     const/4 v0, -0x1
 
     goto :goto_1
 
-    :cond_8
-    if-ltz v1, :cond_a
+    :cond_9
+    if-ltz v1, :cond_b
 
-    if-gt v1, v0, :cond_a
+    if-gt v1, v0, :cond_b
 
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    if-gt v0, v4, :cond_a
+    if-gt v0, v4, :cond_b
 
     check-cast v2, Landroid/text/Spannable;
 
@@ -32753,16 +32865,16 @@
 
     iget-object v4, p0, Landroid/widget/TextView;->mEditor:Landroid/widget/Editor;
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_a
 
     iget-object v4, p0, Landroid/widget/TextView;->mEditor:Landroid/widget/Editor;
 
     invoke-virtual {v4}, Landroid/widget/Editor;->startSelectionActionMode()Z
 
-    :cond_9
+    :cond_a
     return v7
 
-    :cond_a
+    :cond_b
     return v6
 
     :sswitch_5
@@ -32779,13 +32891,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_c
 
     invoke-virtual {p0}, Landroid/widget/TextView;->canShare()Z
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_c
 
     const v4, 0x1020035
 
@@ -32793,11 +32905,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_c
 
     return v7
 
-    :cond_b
+    :cond_c
     return v6
 
     :sswitch_7
@@ -32805,19 +32917,19 @@
 
     move-result v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_d
 
     iget-object v4, p0, Landroid/widget/TextView;->mBufferType:Landroid/widget/TextView$BufferType;
 
     sget-object v5, Landroid/widget/TextView$BufferType;->EDITABLE:Landroid/widget/TextView$BufferType;
 
-    if-eq v4, v5, :cond_d
-
-    :cond_c
-    return v6
+    if-eq v4, v5, :cond_e
 
     :cond_d
-    if-eqz p2, :cond_e
+    return v6
+
+    :cond_e
+    if-eqz p2, :cond_f
 
     const-string/jumbo v4, "ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE"
 
@@ -32825,12 +32937,12 @@
 
     move-result-object v2
 
-    :cond_e
+    :cond_f
     invoke-virtual {p0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v4, p0, Landroid/widget/TextView;->mText:Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_10
 
     iget-object v4, p0, Landroid/widget/TextView;->mText:Ljava/lang/CharSequence;
 
@@ -32838,7 +32950,7 @@
 
     move-result v3
 
-    if-lez v3, :cond_f
+    if-lez v3, :cond_10
 
     iget-object v4, p0, Landroid/widget/TextView;->mText:Ljava/lang/CharSequence;
 
@@ -32846,10 +32958,8 @@
 
     invoke-static {v4, v3}, Landroid/widget/TextView;->semSetSelection(Landroid/text/Spannable;I)V
 
-    :cond_f
+    :cond_10
     return v7
-
-    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -36212,7 +36322,7 @@
 
     move-result-object v1
 
-    const v2, 0x10804f6
+    const v2, 0x10804e0
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -37301,6 +37411,14 @@
     .end annotation
 
     iput-boolean p1, p0, Landroid/widget/TextView;->mLinksClickable:Z
+
+    return-void
+.end method
+
+.method protected setMagnifierShowing(Z)V
+    .locals 0
+
+    sput-boolean p1, Landroid/widget/TextView;->sIsMagnifierShowing:Z
 
     return-void
 .end method

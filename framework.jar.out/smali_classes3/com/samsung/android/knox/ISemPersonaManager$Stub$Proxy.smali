@@ -206,7 +206,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x38
+    const/16 v3, 0x3a
 
     const/4 v4, 0x0
 
@@ -257,7 +257,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x89
+    const/16 v3, 0x8b
 
     const/4 v4, 0x0
 
@@ -457,7 +457,7 @@
     :goto_0
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x9f
+    const/16 v4, 0xa1
 
     const/4 v5, 0x0
 
@@ -534,7 +534,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6e
+    const/16 v4, 0x70
 
     const/4 v5, 0x0
 
@@ -601,7 +601,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x35
+    const/16 v3, 0x37
 
     const/4 v4, 0x0
 
@@ -650,7 +650,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x8b
+    const/16 v3, 0x8d
 
     const/4 v4, 0x0
 
@@ -703,7 +703,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x52
+    const/16 v3, 0x54
 
     const/4 v4, 0x0
 
@@ -848,7 +848,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x42
+    const/16 v4, 0x44
 
     const/4 v5, 0x0
 
@@ -924,7 +924,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x4e
+    const/16 v3, 0x50
 
     const/4 v4, 0x0
 
@@ -975,7 +975,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x43
+    const/16 v4, 0x45
 
     const/4 v5, 0x0
 
@@ -1331,7 +1331,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x9d
+    const/16 v4, 0x9f
 
     const/4 v5, 0x0
 
@@ -1386,7 +1386,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x96
+    const/16 v4, 0x98
 
     const/4 v5, 0x0
 
@@ -1449,7 +1449,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x88
+    const/16 v4, 0x8a
 
     const/4 v5, 0x0
 
@@ -1504,7 +1504,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x93
+    const/16 v4, 0x95
 
     const/4 v5, 0x0
 
@@ -1559,7 +1559,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x9a
+    const/16 v4, 0x9c
 
     const/4 v5, 0x0
 
@@ -1616,7 +1616,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x85
+    const/16 v4, 0x87
 
     const/4 v5, 0x0
 
@@ -1669,7 +1669,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x86
+    const/16 v4, 0x88
 
     const/4 v5, 0x0
 
@@ -1743,7 +1743,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x41
+    const/16 v4, 0x43
 
     const/4 v5, 0x0
 
@@ -1798,7 +1798,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x90
+    const/16 v4, 0x92
 
     const/4 v5, 0x0
 
@@ -1853,7 +1853,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x91
+    const/16 v4, 0x93
 
     const/4 v5, 0x0
 
@@ -1908,7 +1908,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x8f
+    const/16 v4, 0x91
 
     const/4 v5, 0x0
 
@@ -1963,7 +1963,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x97
+    const/16 v4, 0x99
 
     const/4 v5, 0x0
 
@@ -2018,7 +2018,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x67
+    const/16 v4, 0x69
 
     const/4 v5, 0x0
 
@@ -2083,7 +2083,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x81
+    const/16 v4, 0x83
 
     const/4 v5, 0x0
 
@@ -2138,7 +2138,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x80
+    const/16 v4, 0x82
 
     const/4 v5, 0x0
 
@@ -2191,7 +2191,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x72
+    const/16 v4, 0x74
 
     const/4 v5, 0x0
 
@@ -2244,7 +2244,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x71
+    const/16 v4, 0x73
 
     const/4 v5, 0x0
 
@@ -2283,136 +2283,6 @@
 .end method
 
 .method public getIsAdminLockedJustBefore(I)Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v3, "com.samsung.android.knox.ISemPersonaManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x63
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return v2
-
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getIsFingerAsSupplement(I)Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v3, "com.samsung.android.knox.ISemPersonaManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x53
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return v2
-
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getIsFingerIdentifyFailed(I)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2477,137 +2347,137 @@
     throw v3
 .end method
 
+.method public getIsFingerAsSupplement(I)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "com.samsung.android.knox.ISemPersonaManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x55
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getIsFingerIdentifyFailed(I)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "com.samsung.android.knox.ISemPersonaManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x67
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
 .method public getIsFingerReset(I)Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v3, "com.samsung.android.knox.ISemPersonaManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x5f
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return v2
-
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getIsFingerTimeout(I)Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v3, "com.samsung.android.knox.ISemPersonaManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x5b
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return v2
-
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getIsIrisReset(I)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2672,7 +2542,7 @@
     throw v3
 .end method
 
-.method public getIsIrisTimeout(I)Z
+.method public getIsFingerTimeout(I)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2737,6 +2607,136 @@
     throw v3
 .end method
 
+.method public getIsIrisReset(I)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "com.samsung.android.knox.ISemPersonaManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x63
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getIsIrisTimeout(I)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "com.samsung.android.knox.ISemPersonaManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x5f
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
 .method public getIsQuickAccessUIEnabled(I)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -2762,7 +2762,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x59
+    const/16 v4, 0x5b
 
     const/4 v5, 0x0
 
@@ -2827,7 +2827,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x57
+    const/16 v4, 0x59
 
     const/4 v5, 0x0
 
@@ -2892,7 +2892,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4f
+    const/16 v4, 0x51
 
     const/4 v5, 0x0
 
@@ -2959,7 +2959,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x7a
+    const/16 v4, 0x7c
 
     const/4 v5, 0x0
 
@@ -3030,7 +3030,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x7c
+    const/16 v4, 0x7e
 
     const/4 v5, 0x0
 
@@ -3103,7 +3103,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x79
+    const/16 v4, 0x7b
 
     const/4 v5, 0x0
 
@@ -3158,7 +3158,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x7b
+    const/16 v4, 0x7d
 
     const/4 v5, 0x0
 
@@ -3213,7 +3213,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6f
+    const/16 v4, 0x71
 
     const/4 v5, 0x0
 
@@ -3268,7 +3268,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v5, 0x55
+    const/16 v5, 0x57
 
     const/4 v6, 0x0
 
@@ -3384,7 +3384,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x95
+    const/16 v4, 0x97
 
     const/4 v5, 0x0
 
@@ -3447,7 +3447,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x8a
+    const/16 v4, 0x8c
 
     const/4 v5, 0x0
 
@@ -3561,7 +3561,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x87
+    const/16 v4, 0x89
 
     const/4 v5, 0x0
 
@@ -3642,7 +3642,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x3b
+    const/16 v4, 0x3d
 
     const/4 v5, 0x0
 
@@ -3803,7 +3803,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x45
+    const/16 v4, 0x47
 
     const/4 v5, 0x0
 
@@ -4570,7 +4570,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v5, 0x3d
+    const/16 v5, 0x3f
 
     const/4 v6, 0x0
 
@@ -4623,7 +4623,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x8e
+    const/16 v4, 0x90
 
     const/4 v5, 0x0
 
@@ -4910,7 +4910,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xa0
+    const/16 v3, 0xa2
 
     const/4 v4, 0x0
 
@@ -4979,7 +4979,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x51
+    const/16 v3, 0x53
 
     const/4 v4, 0x0
 
@@ -5277,7 +5277,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x9b
+    const/16 v4, 0x9d
 
     const/4 v5, 0x0
 
@@ -5342,7 +5342,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x92
+    const/16 v4, 0x94
 
     const/4 v5, 0x0
 
@@ -5407,7 +5407,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x7f
+    const/16 v4, 0x81
 
     const/4 v5, 0x0
 
@@ -5472,7 +5472,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x9c
+    const/16 v4, 0x9e
 
     const/4 v5, 0x0
 
@@ -5600,7 +5600,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6a
+    const/16 v4, 0x6c
 
     const/4 v5, 0x0
 
@@ -5665,7 +5665,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x69
+    const/16 v4, 0x6b
 
     const/4 v5, 0x0
 
@@ -5728,7 +5728,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x8c
+    const/16 v4, 0x8e
 
     const/4 v5, 0x0
 
@@ -5793,7 +5793,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6b
+    const/16 v4, 0x6d
 
     const/4 v5, 0x0
 
@@ -5856,7 +5856,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x47
+    const/16 v4, 0x49
 
     const/4 v5, 0x0
 
@@ -5921,7 +5921,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x46
+    const/16 v4, 0x48
 
     const/4 v5, 0x0
 
@@ -5986,7 +5986,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x50
+    const/16 v4, 0x52
 
     const/4 v5, 0x0
 
@@ -6049,7 +6049,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x99
+    const/16 v4, 0x9b
 
     const/4 v5, 0x0
 
@@ -6114,7 +6114,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x7d
+    const/16 v4, 0x7f
 
     const/4 v5, 0x0
 
@@ -6181,7 +6181,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x3a
+    const/16 v4, 0x3c
 
     const/4 v5, 0x0
 
@@ -6248,7 +6248,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x94
+    const/16 v4, 0x96
 
     const/4 v5, 0x0
 
@@ -6313,7 +6313,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4b
+    const/16 v4, 0x4d
 
     const/4 v5, 0x0
 
@@ -6639,7 +6639,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x75
+    const/16 v4, 0x77
 
     const/4 v5, 0x0
 
@@ -6776,7 +6776,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x4d
+    const/16 v3, 0x4f
 
     const/4 v4, 0x0
 
@@ -6827,7 +6827,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x74
+    const/16 v3, 0x76
 
     const/4 v4, 0x0
 
@@ -6893,7 +6893,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x40
+    const/16 v3, 0x42
 
     const/4 v4, 0x0
 
@@ -6944,7 +6944,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x3e
+    const/16 v3, 0x40
 
     const/4 v4, 0x0
 
@@ -7272,7 +7272,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x8d
+    const/16 v3, 0x8f
 
     const/4 v4, 0x0
 
@@ -7325,7 +7325,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x39
+    const/16 v3, 0x3b
 
     const/4 v4, 0x0
 
@@ -7431,7 +7431,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x37
+    const/16 v4, 0x39
 
     const/4 v5, 0x0
 
@@ -7560,7 +7560,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x49
+    const/16 v4, 0x4b
 
     const/4 v5, 0x0
 
@@ -7629,7 +7629,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x83
+    const/16 v3, 0x85
 
     const/4 v4, 0x0
 
@@ -7682,7 +7682,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x36
+    const/16 v4, 0x38
 
     const/4 v5, 0x0
 
@@ -7758,7 +7758,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x6d
+    const/16 v3, 0x6f
 
     const/4 v4, 0x0
 
@@ -7918,7 +7918,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x48
+    const/16 v3, 0x4a
 
     const/4 v4, 0x0
 
@@ -7971,7 +7971,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x98
+    const/16 v3, 0x9a
 
     const/4 v4, 0x0
 
@@ -8024,7 +8024,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x68
+    const/16 v3, 0x6a
 
     const/4 v4, 0x0
 
@@ -8087,7 +8087,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x82
+    const/16 v3, 0x84
 
     const/4 v4, 0x0
 
@@ -8149,7 +8149,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x7e
+    const/16 v3, 0x80
 
     const/4 v4, 0x0
 
@@ -8200,7 +8200,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x73
+    const/16 v3, 0x75
 
     const/4 v4, 0x0
 
@@ -8260,7 +8260,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x44
+    const/16 v3, 0x46
 
     const/4 v4, 0x0
 
@@ -8320,7 +8320,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x64
+    const/16 v3, 0x66
 
     const/4 v4, 0x0
 
@@ -8380,7 +8380,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x54
+    const/16 v3, 0x56
 
     const/4 v4, 0x0
 
@@ -8440,7 +8440,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x66
+    const/16 v3, 0x68
 
     const/4 v4, 0x0
 
@@ -8500,7 +8500,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x60
+    const/16 v3, 0x62
 
     const/4 v4, 0x0
 
@@ -8560,7 +8560,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x5c
+    const/16 v3, 0x5e
 
     const/4 v4, 0x0
 
@@ -8620,7 +8620,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x62
+    const/16 v3, 0x64
 
     const/4 v4, 0x0
 
@@ -8680,7 +8680,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x5e
+    const/16 v3, 0x60
 
     const/4 v4, 0x0
 
@@ -8740,7 +8740,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x5a
+    const/16 v3, 0x5c
 
     const/4 v4, 0x0
 
@@ -8800,7 +8800,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x58
+    const/16 v3, 0x5a
 
     const/4 v4, 0x0
 
@@ -8853,7 +8853,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x78
+    const/16 v3, 0x7a
 
     const/4 v4, 0x0
 
@@ -8906,7 +8906,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x70
+    const/16 v3, 0x72
 
     const/4 v4, 0x0
 
@@ -8959,7 +8959,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x56
+    const/16 v3, 0x58
 
     const/4 v4, 0x0
 
@@ -9012,7 +9012,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x3c
+    const/16 v3, 0x3e
 
     const/4 v4, 0x0
 
@@ -9363,7 +9363,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x6c
+    const/16 v3, 0x6e
 
     const/4 v4, 0x0
 
@@ -9479,7 +9479,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x84
+    const/16 v3, 0x86
 
     const/4 v4, 0x0
 
@@ -9532,7 +9532,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x4c
+    const/16 v3, 0x4e
 
     const/4 v4, 0x0
 
@@ -9592,7 +9592,7 @@
     :goto_0
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x9e
+    const/16 v4, 0xa0
 
     const/4 v5, 0x0
 
@@ -9871,7 +9871,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x76
+    const/16 v4, 0x78
 
     const/4 v5, 0x0
 
@@ -9942,7 +9942,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4a
+    const/16 v4, 0x4c
 
     const/4 v5, 0x0
 
@@ -9982,6 +9982,128 @@
     throw v3
 .end method
 
+.method public updateSecureFolderImmediateLockExceptionalList(Ljava/util/List;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v2, "com.samsung.android.knox.ISemPersonaManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
+
+    iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x35
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public updateShowKeyguardExceptionalList(Ljava/util/List;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v2, "com.samsung.android.knox.ISemPersonaManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
+
+    iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x36
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
 .method public userActivity(I)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
@@ -10007,7 +10129,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x3f
+    const/16 v3, 0x41
 
     const/4 v4, 0x0
 
@@ -10060,7 +10182,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/knox/ISemPersonaManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x77
+    const/16 v4, 0x79
 
     const/4 v5, 0x0
 

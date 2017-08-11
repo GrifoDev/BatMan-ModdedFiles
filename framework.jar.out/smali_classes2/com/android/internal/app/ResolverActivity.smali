@@ -801,7 +801,7 @@
 
     iput-object v0, p0, Lcom/android/internal/app/ResolverActivity;->mMoreActions:Lcom/samsung/android/share/SShareMoreActions;
 
-    const v0, 0x10204cf
+    const v0, 0x10204d8
 
     invoke-virtual {p0, v0}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 
@@ -832,7 +832,7 @@
 .method private addRecentHistoryGridView(Landroid/content/Intent;)V
     .locals 3
 
-    const v1, 0x10204ce
+    const v1, 0x10204d7
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 
@@ -1393,7 +1393,7 @@
 
     move-result-object v7
 
-    const v8, 0x1050256
+    const v8, 0x1050266
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1403,7 +1403,7 @@
 
     move-result-object v7
 
-    const v8, 0x1050257
+    const v8, 0x1050267
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1413,7 +1413,7 @@
 
     move-result-object v7
 
-    const v8, 0x104070b
+    const v8, 0x104070f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1458,7 +1458,7 @@
 
     if-ne v0, v7, :cond_4
 
-    const v7, 0x108081f
+    const v7, 0x108080a
 
     invoke-virtual {v2, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1527,7 +1527,7 @@
     goto/16 :goto_0
 
     :cond_4
-    const v7, 0x1080820
+    const v7, 0x108080b
 
     invoke-virtual {v2, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -2302,7 +2302,7 @@
 
     move-result-object v3
 
-    const v4, 0x10502dd
+    const v4, 0x10502ed
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2577,7 +2577,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e0088
+    const v2, 0x10e0089
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2770,7 +2770,7 @@
 
     if-eqz v1, :cond_b
 
-    const v12, 0x10900db
+    const v12, 0x10900dc
 
     const/16 p4, 0x0
 
@@ -2997,7 +2997,7 @@
 
     if-eqz v1, :cond_f
 
-    const v1, 0x1090107
+    const v1, 0x1090108
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->setContentView(I)V
 
@@ -3035,7 +3035,7 @@
     return v1
 
     :cond_f
-    const v1, 0x10900da
+    const v1, 0x10900db
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->setContentView(I)V
 
@@ -3046,7 +3046,7 @@
 
     if-eqz v1, :cond_11
 
-    const v1, 0x1090107
+    const v1, 0x1090108
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->setContentView(I)V
 
@@ -3082,7 +3082,7 @@
     goto/16 :goto_4
 
     :cond_11
-    const v1, 0x10900da
+    const v1, 0x10900db
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->setContentView(I)V
 
@@ -3211,17 +3211,17 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x109010a
+    const v0, 0x109010b
 
     return v0
 
     :cond_0
-    const v0, 0x1090107
+    const v0, 0x1090108
 
     return v0
 
     :cond_1
-    const v0, 0x10900da
+    const v0, 0x10900db
 
     return v0
 .end method
@@ -3957,7 +3957,7 @@
     move v2, v1
 
     :goto_0
-    const v1, 0x102047b
+    const v1, 0x1020484
 
     if-ne v0, v1, :cond_1
 
@@ -4067,7 +4067,7 @@
         }
     .end annotation
 
-    const v27, 0x1030495
+    const v27, 0x103049c
 
     move-object/from16 v0, p0
 
@@ -4725,7 +4725,7 @@
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/app/ResolverActivity;->addMoreActionsView()V
 
     :cond_9
-    const v27, 0x10204c7
+    const v27, 0x10204d0
 
     move-object/from16 v0, p0
 
@@ -4741,7 +4741,7 @@
 
     iput-object v0, v1, Lcom/android/internal/app/ResolverActivity;->mVisibleArea:Landroid/view/View;
 
-    const v27, 0x10204c6
+    const v27, 0x10204cf
 
     move-object/from16 v0, p0
 
@@ -4757,7 +4757,7 @@
 
     iput-object v0, v1, Lcom/android/internal/app/ResolverActivity;->mTitlePanelAFW:Landroid/view/View;
 
-    const v27, 0x10204c5
+    const v27, 0x10204ce
 
     move-object/from16 v0, p0
 
@@ -4796,7 +4796,7 @@
 
     if-nez v27, :cond_e
 
-    const v27, 0x10204d8
+    const v27, 0x10204e1
 
     move-object/from16 v0, p0
 
@@ -4812,7 +4812,7 @@
 
     move-result-object v27
 
-    const v28, 0x1050269
+    const v28, 0x1050279
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4861,7 +4861,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_b
-    const v27, 0x10204c8
+    const v27, 0x10204d1
 
     move-object/from16 v0, p0
 
@@ -4883,7 +4883,7 @@
 
     if-eqz v27, :cond_12
 
-    const v27, 0x1040706
+    const v27, 0x104070a
 
     move-object/from16 v0, v24
 
@@ -5120,7 +5120,7 @@
     return-void
 
     :cond_12
-    const v27, 0x1040705
+    const v27, 0x1040709
 
     move-object/from16 v0, v24
 
@@ -5310,7 +5310,7 @@
 
     if-eqz v27, :cond_19
 
-    const v27, 0x102046d
+    const v27, 0x1020476
 
     move-object/from16 v0, p0
 
@@ -5330,7 +5330,7 @@
 
     invoke-virtual {v7, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    const v27, 0x102047b
+    const v27, 0x1020484
 
     move/from16 v0, v27
 
@@ -5346,7 +5346,7 @@
 
     iput-object v0, v1, Lcom/android/internal/app/ResolverActivity;->mAlwaysButton:Landroid/widget/Button;
 
-    const v27, 0x102047a
+    const v27, 0x1020483
 
     move/from16 v0, v27
 
@@ -5384,7 +5384,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x10809fa
+    const v28, 0x10809e8
 
     invoke-virtual/range {v27 .. v28}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -5394,7 +5394,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x10809fa
+    const v28, 0x10809e8
 
     invoke-virtual/range {v27 .. v28}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -5890,7 +5890,7 @@
 
     move-result-object v3
 
-    const v4, 0x10900d9
+    const v4, 0x10900da
 
     const/4 v5, 0x0
 
@@ -7247,7 +7247,7 @@
 
     iput p1, p0, Lcom/android/internal/app/ResolverActivity;->mTotalCount:I
 
-    const v2, 0x10204c9
+    const v2, 0x10204d2
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 
@@ -7290,7 +7290,7 @@
 
     move-result-object v2
 
-    const v3, 0x1050258
+    const v3, 0x1050268
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7320,7 +7320,7 @@
 
     move-result-object v2
 
-    const v3, 0x105025a
+    const v3, 0x105026a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7363,7 +7363,7 @@
     invoke-virtual {v2, v3}, Lcom/android/internal/widget/ViewPager;->setOnPageChangeListener(Lcom/android/internal/widget/ViewPager$OnPageChangeListener;)V
 
     :cond_4
-    const v2, 0x10204ca
+    const v2, 0x10204d3
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 
@@ -7373,7 +7373,7 @@
 
     iput-object v2, p0, Lcom/android/internal/app/ResolverActivity;->mViewPagerNavi:Landroid/widget/LinearLayout;
 
-    const v2, 0x10204cb
+    const v2, 0x10204d4
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 
@@ -7405,7 +7405,7 @@
 
     move-result-object v2
 
-    const v3, 0x1050259
+    const v3, 0x1050269
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7567,7 +7567,7 @@
 .method setRoundCornerBackground()V
     .locals 4
 
-    const v3, 0x1080818
+    const v3, 0x1080803
 
     invoke-static {}, Landroid/util/GeneralUtil;->isPhone()Z
 
@@ -7622,7 +7622,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x10204d5
+    const v2, 0x10204de
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 

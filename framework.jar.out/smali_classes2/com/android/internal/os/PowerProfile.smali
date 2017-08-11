@@ -749,10 +749,10 @@
 
     :array_0
     .array-data 4
-        0x10e006c
         0x10e006d
         0x10e006e
         0x10e006f
+        0x10e0070
         0x10e003b
         0x10e003c
         0x10e003d

@@ -3015,19 +3015,19 @@
 
     move-result v12
 
-    if-eqz v12, :cond_10
+    if-eqz v12, :cond_18
 
     invoke-static/range {p0 .. p0}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaService(Landroid/content/Context;)Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v8
 
-    if-eqz v8, :cond_19
+    if-eqz v8, :cond_1a
 
     invoke-virtual {v8}, Lcom/samsung/android/knox/SemPersonaManager;->isUserManaged()Z
 
     move-result v12
 
-    if-eqz v12, :cond_18
+    if-eqz v12, :cond_19
 
     sget-object v12, Lcom/samsung/android/knox/SemPersonaManager;->mKnoxInfo:Landroid/os/Bundle;
 
@@ -3037,14 +3037,23 @@
 
     invoke-virtual {v12, v14, v15}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_b
-
     :cond_18
+    :goto_c
+    const-string/jumbo v12, "isSupportImpKeyguard"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v12, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_10
+
     sget-object v12, Lcom/samsung/android/knox/SemPersonaManager;->mKnoxInfo:Landroid/os/Bundle;
 
-    const-string/jumbo v14, "isSupportSecureFolder"
+    const-string/jumbo v14, "isSupportImpKeyguard"
 
-    const-string/jumbo v15, "false"
+    const-string/jumbo v15, "true"
 
     invoke-virtual {v12, v14, v15}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -3058,11 +3067,22 @@
     const-string/jumbo v15, "false"
 
     invoke-virtual {v12, v14, v15}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_c
+
+    :cond_1a
+    sget-object v12, Lcom/samsung/android/knox/SemPersonaManager;->mKnoxInfo:Landroid/os/Bundle;
+
+    const-string/jumbo v14, "isSupportSecureFolder"
+
+    const-string/jumbo v15, "false"
+
+    invoke-virtual {v12, v14, v15}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_c
     .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_0
     .catchall {:try_start_c .. :try_end_c} :catchall_0
 
-    goto/16 :goto_b
+    goto :goto_c
 .end method
 
 .method public static getPathStrategy(I)Lcom/samsung/android/knox/SemPersonaManager$PathStrategy;
@@ -10814,7 +10834,7 @@
 
     move-result-object v3
 
-    const v4, 0x1040648
+    const v4, 0x104064c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -13173,6 +13193,84 @@
     const-string/jumbo v3, "failed to updatePersonaInfo"
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public updateSecureFolderImmediateLockExceptionalList(Ljava/util/List;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v1, p0, Lcom/samsung/android/knox/SemPersonaManager;->mService:Lcom/samsung/android/knox/ISemPersonaManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/knox/SemPersonaManager;->mService:Lcom/samsung/android/knox/ISemPersonaManager;
+
+    invoke-interface {v1, p1}, Lcom/samsung/android/knox/ISemPersonaManager;->updateSecureFolderImmediateLockExceptionalList(Ljava/util/List;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    sget-object v1, Lcom/samsung/android/knox/SemPersonaManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "failed to updateSecureFolderImmediateLockExceptionalList"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public updateShowKeyguardExceptionalList(Ljava/util/List;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v1, p0, Lcom/samsung/android/knox/SemPersonaManager;->mService:Lcom/samsung/android/knox/ISemPersonaManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/knox/SemPersonaManager;->mService:Lcom/samsung/android/knox/ISemPersonaManager;
+
+    invoke-interface {v1, p1}, Lcom/samsung/android/knox/ISemPersonaManager;->updateShowKeyguardExceptionalList(Ljava/util/List;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    sget-object v1, Lcom/samsung/android/knox/SemPersonaManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "failed to updateShowKeyguardExceptionalList"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method

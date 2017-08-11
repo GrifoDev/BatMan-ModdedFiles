@@ -52,7 +52,7 @@
 
     iget-object v1, p0, Lcom/android/internal/view/menu/StandardMenuPopup$SemMenuAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x109014d
+    const v2, 0x109014e
 
     invoke-virtual {v1, v2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -90,7 +90,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/internal/view/menu/StandardMenuPopup$SemMenuAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x10900b4
+    const v2, 0x10900b5
 
     invoke-virtual {v1, v2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

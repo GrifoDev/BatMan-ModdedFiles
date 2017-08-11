@@ -682,33 +682,46 @@
 .end method
 
 .method private getQuickConnectSupportState()Z
-    .locals 4
+    .locals 6
+
+    const/4 v3, 0x0
+
+    const/4 v0, 0x0
 
     :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/share/SShareCommon;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/samsung/android/share/SShareCommon;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "com.samsung.android.oneconnect"
+    const-string/jumbo v4, "com.samsung.android.oneconnect"
 
-    const/16 v3, 0x80
+    const/16 v5, 0x80
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v2, v4, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v2, 0x1
+    move-result-object v0
 
-    return v2
+    if-eqz v0, :cond_0
+
+    iget v4, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit8 v4, v4, 0x1
+
+    if-lez v4, :cond_0
+
+    const/4 v3, 0x1
+
+    :cond_0
+    return v3
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const/4 v2, 0x0
-
-    return v2
+    return v3
 .end method
 
 .method private getResolverGuideSupportState(Landroid/content/Intent;)Z
@@ -1583,7 +1596,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040708
+    const v1, 0x104070c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1602,7 +1615,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040703
+    const v1, 0x1040707
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1621,7 +1634,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040704
+    const v1, 0x1040708
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

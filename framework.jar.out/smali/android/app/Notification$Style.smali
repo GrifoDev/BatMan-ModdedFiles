@@ -145,7 +145,7 @@
 .method protected getStandardView(I)Landroid/widget/RemoteViews;
     .locals 5
 
-    const v4, 0x1020456
+    const v4, 0x102045f
 
     invoke-virtual {p0}, Landroid/app/Notification$Style;->checkBuilder()V
 

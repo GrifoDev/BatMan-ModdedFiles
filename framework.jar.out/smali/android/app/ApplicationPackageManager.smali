@@ -2367,7 +2367,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x10803f9
+    const v1, 0x10803e3
 
     return v1
 
@@ -2386,7 +2386,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x10803fa
+    const v1, 0x10803e4
 
     return v1
 
@@ -2403,7 +2403,7 @@
 
     if-eqz v1, :cond_4
 
-    const v1, 0x10804d0
+    const v1, 0x10804ba
 
     return v1
 
@@ -2420,12 +2420,12 @@
 
     if-eqz v1, :cond_3
 
-    const v1, 0x10803d3
+    const v1, 0x10803bd
 
     return v1
 
     :cond_3
-    const v1, 0x10803c8
+    const v1, 0x10803b2
 
     return v1
 
@@ -3644,7 +3644,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x10803d4
+    const v0, 0x10803be
 
     invoke-direct {p0, v0, p3}, Landroid/app/ApplicationPackageManager;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
 
@@ -3814,7 +3814,7 @@
     move-object/from16 v26, v0
 
     :cond_0
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     move-object/from16 v0, p1
 
@@ -3851,6 +3851,14 @@
     return-object v6
 
     :cond_1
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v34, v0
+
+    if-eqz v34, :cond_2
+
     new-instance v34, Landroid/app/ApplicationPackageManager$ResourceName;
 
     move-object/from16 v0, p1
@@ -3873,11 +3881,14 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     return-object v6
 
     :cond_2
+    return-object p2
+
+    :cond_3
     const/4 v10, -0x1
 
     const/4 v8, -0x1
@@ -3888,7 +3899,7 @@
 
     move-result v34
 
-    if-nez v34, :cond_3
+    if-nez v34, :cond_4
 
     move-object/from16 v0, p0
 
@@ -3896,7 +3907,7 @@
 
     move-object/from16 v34, v0
 
-    if-eqz v34, :cond_8
+    if-eqz v34, :cond_9
 
     move-object/from16 v0, p0
 
@@ -3910,9 +3921,9 @@
 
     move/from16 v1, v35
 
-    if-le v0, v1, :cond_8
+    if-le v0, v1, :cond_9
 
-    :cond_3
+    :cond_4
     new-instance v11, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v11}, Landroid/graphics/BitmapFactory$Options;-><init>()V
@@ -3937,13 +3948,13 @@
 
     move/from16 v1, v35
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_8
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v34
 
-    const v35, 0x1080392
+    const v35, 0x108037c
 
     move-object/from16 v0, v34
 
@@ -3958,11 +3969,11 @@
 
     iget v8, v11, Landroid/graphics/BitmapFactory$Options;->outHeight:I
 
-    :cond_4
+    :cond_5
     :goto_1
     const/16 v23, 0x0
 
-    if-gez v10, :cond_5
+    if-gez v10, :cond_6
 
     move-object/from16 v0, p0
 
@@ -3970,7 +3981,7 @@
 
     move-object/from16 v34, v0
 
-    if-eqz v34, :cond_5
+    if-eqz v34, :cond_6
 
     move-object/from16 v0, p0
 
@@ -3984,7 +3995,7 @@
 
     move/from16 v1, v35
 
-    if-ge v0, v1, :cond_5
+    if-ge v0, v1, :cond_6
 
     const/16 v23, 0x1
 
@@ -3996,13 +4007,13 @@
 
     move/from16 v1, v35
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_b
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v34
 
-    const v35, 0x1080392
+    const v35, 0x108037c
 
     invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -4017,10 +4028,10 @@
 
     move-result v8
 
-    :cond_5
-    if-lez v10, :cond_13
+    :cond_6
+    if-lez v10, :cond_14
 
-    if-lez v8, :cond_13
+    if-lez v8, :cond_14
 
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
@@ -4030,19 +4041,19 @@
 
     move-result v14
 
-    if-lez v15, :cond_6
+    if-lez v15, :cond_7
 
-    if-gtz v14, :cond_b
-
-    :cond_6
-    return-object p2
+    if-gtz v14, :cond_c
 
     :cond_7
+    return-object p2
+
+    :cond_8
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v34
 
-    const v35, 0x1080390
+    const v35, 0x108037a
 
     move-object/from16 v0, v34
 
@@ -4054,7 +4065,7 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_9
     const/16 v34, 0x1
 
     move-object/from16 v0, p0
@@ -4067,13 +4078,13 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     instance-of v0, v6, Landroid/graphics/drawable/BitmapDrawable;
 
     move/from16 v34, v0
 
-    if-eqz v34, :cond_9
+    if-eqz v34, :cond_a
 
     move-object/from16 v34, v6
 
@@ -4100,7 +4111,7 @@
 
     goto/16 :goto_1
 
-    :cond_9
+    :cond_a
     invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v10
@@ -4147,12 +4158,12 @@
 
     goto :goto_3
 
-    :cond_a
+    :cond_b
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v34
 
-    const v35, 0x1080390
+    const v35, 0x108037a
 
     invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -4160,7 +4171,7 @@
 
     goto/16 :goto_2
 
-    :cond_b
+    :cond_c
     const-string/jumbo v34, "ApplicationPackageManager"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -4253,7 +4264,7 @@
 
     sget-boolean v34, Landroid/app/ApplicationPackageManager;->supportSmartIconUnify:Z
 
-    if-eqz v34, :cond_d
+    if-eqz v34, :cond_e
 
     move-object/from16 v0, p0
 
@@ -4261,7 +4272,7 @@
 
     move-object/from16 v34, v0
 
-    if-eqz v34, :cond_d
+    if-eqz v34, :cond_e
 
     move-object/from16 v0, p0
 
@@ -4275,7 +4286,7 @@
 
     move/from16 v1, v35
 
-    if-ge v0, v1, :cond_d
+    if-ge v0, v1, :cond_e
 
     move-object/from16 v0, p0
 
@@ -4289,7 +4300,7 @@
 
     move/from16 v1, v35
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_e
 
     const/16 v34, 0x0
 
@@ -4314,7 +4325,7 @@
 
     move/from16 v1, v34
 
-    if-ge v0, v1, :cond_c
+    if-ge v0, v1, :cond_d
 
     sget-object v34, Landroid/app/ApplicationPackageManager;->ICON_UNIFY_THEME_PKG_LIST:[Ljava/lang/String;
 
@@ -4330,7 +4341,7 @@
 
     move-result v34
 
-    if-eqz v34, :cond_14
+    if-eqz v34, :cond_15
 
     const/16 v34, 0x1
 
@@ -4340,7 +4351,7 @@
 
     iput v0, v1, Landroid/app/ApplicationPackageManager;->applyIconUnifyFeature:I
 
-    :cond_c
+    :cond_d
     const-string/jumbo v34, "ApplicationPackageManager"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -4385,14 +4396,14 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_d
+    :cond_e
     move-object/from16 v0, p2
 
     instance-of v0, v0, Landroid/graphics/drawable/BitmapDrawable;
 
     move/from16 v34, v0
 
-    if-eqz v34, :cond_15
+    if-eqz v34, :cond_16
 
     check-cast p2, Landroid/graphics/drawable/BitmapDrawable;
 
@@ -4427,7 +4438,7 @@
 
     move/from16 v1, v22
 
-    if-ge v0, v1, :cond_f
+    if-ge v0, v1, :cond_10
 
     move/from16 v0, v22
 
@@ -4475,13 +4486,13 @@
 
     move-result v34
 
-    if-eqz v34, :cond_e
+    if-eqz v34, :cond_f
 
     const/16 v8, 0xd8
 
     const/16 v10, 0xd8
 
-    :cond_e
+    :cond_f
     const-string/jumbo v34, "ApplicationPackageManager"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -4542,14 +4553,14 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_f
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/app/ApplicationPackageManager;->mPaint:Landroid/graphics/Paint;
 
     move-object/from16 v34, v0
 
-    if-nez v34, :cond_10
+    if-nez v34, :cond_11
 
     new-instance v34, Landroid/graphics/Paint;
 
@@ -4591,7 +4602,7 @@
 
     invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setDither(Z)V
 
-    :cond_10
+    :cond_11
     const/4 v5, 0x0
 
     const/4 v12, 0x0
@@ -4608,11 +4619,11 @@
 
     move-result v34
 
-    if-eqz v34, :cond_1d
+    if-eqz v34, :cond_1e
 
     const/16 v17, 0x0
 
-    if-eqz v31, :cond_1a
+    if-eqz v31, :cond_1b
 
     const v34, 0x3f99999a    # 1.2f
 
@@ -4632,7 +4643,7 @@
 
     cmpl-float v34, v34, v35
 
-    if-lez v34, :cond_17
+    if-lez v34, :cond_18
 
     const/16 v20, 0x1
 
@@ -4656,13 +4667,13 @@
 
     move/from16 v1, v35
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_17
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v34
 
-    const v35, 0x1080393
+    const v35, 0x108037d
 
     move-object/from16 v0, v34
 
@@ -4697,7 +4708,7 @@
 
     move/from16 v1, v34
 
-    if-eq v0, v1, :cond_11
+    if-eq v0, v1, :cond_12
 
     const/16 v34, 0x1
 
@@ -4713,7 +4724,7 @@
 
     move-result-object v21
 
-    :cond_11
+    :cond_12
     move/from16 v8, v32
 
     move/from16 v10, v32
@@ -4868,7 +4879,7 @@
     invoke-virtual {v12, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
     :goto_8
-    if-eqz v18, :cond_27
+    if-eqz v18, :cond_28
 
     move-object/from16 v0, p0
 
@@ -4876,7 +4887,7 @@
 
     move-object/from16 v34, v0
 
-    if-eqz v34, :cond_27
+    if-eqz v34, :cond_28
 
     move-object/from16 v0, p0
 
@@ -4890,7 +4901,7 @@
 
     move/from16 v1, v35
 
-    if-ge v0, v1, :cond_27
+    if-ge v0, v1, :cond_28
 
     const/16 v34, 0x1
 
@@ -4906,7 +4917,7 @@
 
     move-object/from16 v34, v0
 
-    if-nez v34, :cond_12
+    if-nez v34, :cond_13
 
     new-instance v34, Landroid/graphics/Paint;
 
@@ -4962,7 +4973,7 @@
 
     invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
-    :cond_12
+    :cond_13
     neg-int v0, v15
 
     move/from16 v34, v0
@@ -5009,7 +5020,7 @@
 
     move-result-object v34
 
-    const v35, 0x1080394
+    const v35, 0x108037e
 
     invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -5098,7 +5109,7 @@
 
     invoke-direct {v0, v1, v5}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_14
 
     move-object/from16 v0, p1
 
@@ -5106,7 +5117,7 @@
 
     move-object/from16 v34, v0
 
-    if-eqz v34, :cond_2a
+    if-eqz v34, :cond_2b
 
     new-instance v34, Landroid/app/ApplicationPackageManager$ResourceName;
 
@@ -5130,16 +5141,16 @@
 
     invoke-direct {v0, v1, v2}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
 
-    :cond_13
+    :cond_14
     :goto_a
     return-object p2
 
-    :cond_14
+    :cond_15
     add-int/lit8 v16, v16, 0x1
 
     goto/16 :goto_4
 
-    :cond_15
+    :cond_16
     sget-object v34, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     move-object/from16 v0, v34
@@ -5182,12 +5193,12 @@
 
     goto/16 :goto_5
 
-    :cond_16
+    :cond_17
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v34
 
-    const v35, 0x1080391
+    const v35, 0x108037b
 
     move-object/from16 v0, v34
 
@@ -5199,7 +5210,7 @@
 
     goto/16 :goto_6
 
-    :cond_17
+    :cond_18
     invoke-virtual/range {v17 .. v17}, Landroid/app/ApplicationPackageManager$IconScale;->getAlpha()I
 
     move-result v34
@@ -5228,11 +5239,11 @@
 
     rem-int/lit8 v34, v32, 0x2
 
-    if-eqz v34, :cond_18
+    if-eqz v34, :cond_19
 
     add-int/lit8 v32, v32, 0x1
 
-    :cond_18
+    :cond_19
     move/from16 v8, v32
 
     move/from16 v10, v32
@@ -5255,13 +5266,13 @@
 
     move/from16 v1, v35
 
-    if-ne v0, v1, :cond_19
+    if-ne v0, v1, :cond_1a
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v34
 
-    const v35, 0x1080392
+    const v35, 0x108037c
 
     move-object/from16 v0, v34
 
@@ -5394,12 +5405,12 @@
 
     goto/16 :goto_7
 
-    :cond_19
+    :cond_1a
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v34
 
-    const v35, 0x1080390
+    const v35, 0x108037a
 
     move-object/from16 v0, v34
 
@@ -5411,14 +5422,14 @@
 
     goto/16 :goto_b
 
-    :cond_1a
+    :cond_1b
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/app/ApplicationPackageManager;->mTargetAppIconSize:I
 
     move/from16 v34, v0
 
-    if-eqz v34, :cond_1b
+    if-eqz v34, :cond_1c
 
     move-object/from16 v0, p0
 
@@ -5581,7 +5592,7 @@
 
     goto/16 :goto_8
 
-    :cond_1b
+    :cond_1c
     sget v34, Landroid/app/ApplicationPackageManager;->configSmartAppIconScaler:I
 
     const/16 v35, 0x3
@@ -5590,13 +5601,13 @@
 
     move/from16 v1, v35
 
-    if-ne v0, v1, :cond_1c
+    if-ne v0, v1, :cond_1d
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v34
 
-    const v35, 0x1080392
+    const v35, 0x108037c
 
     invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -5613,12 +5624,12 @@
 
     goto/16 :goto_c
 
-    :cond_1c
+    :cond_1d
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v34
 
-    const v35, 0x1080390
+    const v35, 0x108037a
 
     invoke-virtual/range {v34 .. v35}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -5626,7 +5637,7 @@
 
     goto :goto_d
 
-    :cond_1d
+    :cond_1e
     sget-object v34, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     move-object/from16 v0, v34
@@ -5647,7 +5658,7 @@
 
     move-object/from16 v34, v0
 
-    if-eqz v34, :cond_1e
+    if-eqz v34, :cond_1f
 
     move-object/from16 v0, p0
 
@@ -5661,11 +5672,11 @@
 
     move/from16 v1, v35
 
-    if-ge v0, v1, :cond_1e
+    if-ge v0, v1, :cond_1f
 
-    if-eqz v23, :cond_1f
+    if-eqz v23, :cond_20
 
-    :cond_1e
+    :cond_1f
     :goto_e
     int-to-float v0, v10
 
@@ -5695,7 +5706,7 @@
 
     move-result v34
 
-    if-eqz v34, :cond_21
+    if-eqz v34, :cond_22
 
     int-to-float v0, v10
 
@@ -5824,7 +5835,7 @@
     :goto_f
     sget-boolean v34, Landroid/app/ApplicationPackageManager;->supportSmartIconUnify:Z
 
-    if-eqz v34, :cond_26
+    if-eqz v34, :cond_27
 
     move-object/from16 v0, p0
 
@@ -5838,9 +5849,9 @@
 
     move/from16 v1, v35
 
-    if-ne v0, v1, :cond_26
+    if-ne v0, v1, :cond_27
 
-    if-eqz v19, :cond_25
+    if-eqz v19, :cond_26
 
     int-to-float v0, v15
 
@@ -5866,8 +5877,8 @@
 
     goto/16 :goto_8
 
-    :cond_1f
-    if-eqz v7, :cond_20
+    :cond_20
+    if-eqz v7, :cond_21
 
     const/16 v34, 0x0
 
@@ -5889,7 +5900,7 @@
 
     goto/16 :goto_e
 
-    :cond_20
+    :cond_21
     const-string/jumbo v34, "ApplicationPackageManager"
 
     const-string/jumbo v35, "bgBitmap is null, so can\'t draw bg."
@@ -5898,7 +5909,7 @@
 
     goto/16 :goto_e
 
-    :cond_21
+    :cond_22
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/app/ApplicationPackageManager;->openThemeAppIconScale:F
@@ -5917,14 +5928,14 @@
 
     move/from16 v1, v35
 
-    if-eq v0, v1, :cond_22
+    if-eq v0, v1, :cond_23
 
-    if-eqz v23, :cond_23
-
-    :cond_22
-    const v33, 0x3f8ccccd    # 1.1f
+    if-eqz v23, :cond_24
 
     :cond_23
+    const v33, 0x3f8ccccd    # 1.1f
+
+    :cond_24
     move-object/from16 v0, p0
 
     move/from16 v1, v33
@@ -5941,7 +5952,7 @@
 
     cmpl-float v34, v28, v34
 
-    if-lez v34, :cond_24
+    if-lez v34, :cond_25
 
     const/16 v19, 0x1
 
@@ -5949,7 +5960,7 @@
 
     sub-float v28, v28, v34
 
-    :cond_24
+    :cond_25
     int-to-float v0, v10
 
     move/from16 v34, v0
@@ -6078,15 +6089,6 @@
 
     goto/16 :goto_f
 
-    :cond_25
-    move/from16 v0, v28
-
-    move/from16 v1, v29
-
-    invoke-virtual {v12, v0, v1}, Landroid/graphics/Canvas;->scale(FF)V
-
-    goto/16 :goto_8
-
     :cond_26
     move/from16 v0, v28
 
@@ -6097,7 +6099,16 @@
     goto/16 :goto_8
 
     :cond_27
-    if-eqz v20, :cond_29
+    move/from16 v0, v28
+
+    move/from16 v1, v29
+
+    invoke-virtual {v12, v0, v1}, Landroid/graphics/Canvas;->scale(FF)V
+
+    goto/16 :goto_8
+
+    :cond_28
+    if-eqz v20, :cond_2a
 
     move-object/from16 v0, p0
 
@@ -6105,7 +6116,7 @@
 
     move-object/from16 v34, v0
 
-    if-nez v34, :cond_28
+    if-nez v34, :cond_29
 
     new-instance v34, Landroid/graphics/Paint;
 
@@ -6161,7 +6172,7 @@
 
     invoke-virtual/range {v34 .. v35}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
-    :cond_28
+    :cond_29
     neg-int v0, v15
 
     move/from16 v34, v0
@@ -6206,7 +6217,7 @@
 
     goto/16 :goto_9
 
-    :cond_29
+    :cond_2a
     neg-int v0, v15
 
     move/from16 v34, v0
@@ -6251,7 +6262,7 @@
 
     goto/16 :goto_9
 
-    :cond_2a
+    :cond_2b
     new-instance v34, Landroid/app/ApplicationPackageManager$ResourceName;
 
     move-object/from16 v0, p1
@@ -9534,7 +9545,7 @@
 .method public getManagedUserBadgedDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;I)Landroid/graphics/drawable/Drawable;
     .locals 2
 
-    const v1, 0x10803c4
+    const v1, 0x10803ae
 
     invoke-direct {p0, v1, p3}, Landroid/app/ApplicationPackageManager;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
 
@@ -11744,7 +11755,7 @@
 
     move-result-object v7
 
-    const v8, 0x10803fc
+    const v8, 0x10803e6
 
     invoke-virtual {v7, v8, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
 
@@ -11771,7 +11782,7 @@
 
     move-result-object v7
 
-    const v8, 0x10803fb
+    const v8, 0x10803e5
 
     invoke-virtual {v7, v8, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
 
@@ -11830,7 +11841,7 @@
 
     move-result-object v7
 
-    const v8, 0x10804d1
+    const v8, 0x10804bb
 
     invoke-virtual {v7, v8, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
 
@@ -11859,7 +11870,7 @@
 
     move-result-object v7
 
-    const v8, 0x10803f9
+    const v8, 0x10803e3
 
     invoke-virtual {v7, v8, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
 
@@ -11868,7 +11879,7 @@
     return-object v7
 
     :cond_6
-    const v7, 0x10803c4
+    const v7, 0x10803ae
 
     invoke-direct {p0, p1, v7, p2}, Landroid/app/ApplicationPackageManager;->getManagedProfileIconForDensity(Landroid/os/UserHandle;II)Landroid/graphics/drawable/Drawable;
 
@@ -11880,7 +11891,7 @@
 .method public getUserBadgeForDensityNoBackground(Landroid/os/UserHandle;I)Landroid/graphics/drawable/Drawable;
     .locals 1
 
-    const v0, 0x10803c5
+    const v0, 0x10803af
 
     invoke-direct {p0, p1, v0, p2}, Landroid/app/ApplicationPackageManager;->getManagedProfileIconForDensity(Landroid/os/UserHandle;II)Landroid/graphics/drawable/Drawable;
 
@@ -12459,7 +12470,7 @@
 
     aput-object p1, v1, v2
 
-    const v2, 0x10405c4
+    const v2, 0x10405c6
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -13665,7 +13676,7 @@
 
     iget-object v11, p0, Landroid/app/ApplicationPackageManager;->mResources:Landroid/content/res/Resources;
 
-    const v12, 0x10600da
+    const v12, 0x10600e0
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getColor(I)I
 

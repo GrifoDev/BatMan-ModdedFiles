@@ -222,7 +222,7 @@
 
     iget v2, p0, Lcom/android/internal/policy/PhoneWindow$PanelFeatureState;->listPresenterTheme:I
 
-    const v3, 0x109008b
+    const v3, 0x109008c
 
     invoke-direct {v1, v3, v2}, Lcom/android/internal/view/menu/ListMenuPresenter;-><init>(II)V
 
@@ -533,7 +533,7 @@
 
     const/16 v1, 0x129
 
-    const v2, 0x1030483
+    const v2, 0x103048a
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

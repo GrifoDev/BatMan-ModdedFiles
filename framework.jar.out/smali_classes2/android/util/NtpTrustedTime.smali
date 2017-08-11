@@ -339,7 +339,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e0080
+    const v3, 0x10e0081
 
     invoke-virtual {v14, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1396,7 +1396,7 @@
 .method public setNtpInfoInternal(Landroid/content/Context;Ljava/lang/String;J)Z
     .locals 11
 
-    const v9, 0x10e0080
+    const v9, 0x10e0081
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 

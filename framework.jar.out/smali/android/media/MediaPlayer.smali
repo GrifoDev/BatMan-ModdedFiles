@@ -2218,7 +2218,7 @@
 .end method
 
 .method private varargs sendBroadcastingIntent(Ljava/lang/String;[Ljava/lang/Object;)Z
-    .locals 18
+    .locals 19
 
     move-object/from16 v0, p2
 
@@ -2267,7 +2267,7 @@
 
     invoke-virtual {v3, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
     :goto_0
     :try_start_0
@@ -2275,11 +2275,11 @@
 
     array-length v1, v0
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     if-ge v0, v1, :cond_3
 
-    add-int/lit8 v1, v17, 0x1
+    add-int/lit8 v1, v18, 0x1
 
     aget-object v1, p2, v1
 
@@ -2287,13 +2287,13 @@
 
     if-eqz v1, :cond_1
 
-    aget-object v1, p2, v17
+    aget-object v1, p2, v18
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    add-int/lit8 v2, v17, 0x1
+    add-int/lit8 v2, v18, 0x1
 
     aget-object v2, p2, v2
 
@@ -2304,12 +2304,12 @@
     invoke-virtual {v3, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     :goto_1
-    add-int/lit8 v17, v17, 0x2
+    add-int/lit8 v18, v18, 0x2
 
     goto :goto_0
 
     :cond_1
-    add-int/lit8 v1, v17, 0x1
+    add-int/lit8 v1, v18, 0x1
 
     aget-object v1, p2, v1
 
@@ -2317,13 +2317,13 @@
 
     if-eqz v1, :cond_2
 
-    aget-object v1, p2, v17
+    aget-object v1, p2, v18
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    add-int/lit8 v1, v17, 0x1
+    add-int/lit8 v1, v18, 0x1
 
     aget-object v1, p2, v1
 
@@ -2332,6 +2332,7 @@
     invoke-virtual {v3, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
 
     goto :goto_1
 
@@ -2362,7 +2363,7 @@
 
     move-result-object v2
 
-    add-int/lit8 v4, v17, 0x1
+    add-int/lit8 v4, v18, 0x1
 
     aget-object v4, p2, v4
 
@@ -2385,8 +2386,22 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_1
 
     goto :goto_1
+
+    :catch_1
+    move-exception v17
+
+    const-string/jumbo v1, "MediaPlayer"
+
+    const-string/jumbo v2, "sendBroadcast(NullPointerException) fail"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    return v1
 
     :cond_3
     :try_start_2
@@ -2424,13 +2439,13 @@
 
     invoke-interface/range {v1 .. v14}, Landroid/app/IActivityManager;->broadcastIntent(Landroid/app/IApplicationThread;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
     :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
 
     const/4 v1, 0x1
 
     return v1
 
-    :catch_1
+    :catch_2
     move-exception v15
 
     const-string/jumbo v1, "MediaPlayer"

@@ -55,6 +55,8 @@
 
 .field public isDockable:Z
 
+.field public isFullscreen:Z
+
 .field public isPrivateMode:Z
 
 .field public isVisible:Z
@@ -134,9 +136,9 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x1
-
     const/4 v3, 0x0
+
+    const/4 v2, 0x1
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -311,8 +313,19 @@
 
     if-ne v0, v2, :cond_5
 
+    move v0, v2
+
     :goto_5
-    iput-boolean v2, p0, Landroid/app/ActivityManager$RecentTaskInfo;->isPrivateMode:Z
+    iput-boolean v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->isPrivateMode:Z
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-ne v0, v2, :cond_6
+
+    :goto_6
+    iput-boolean v2, p0, Landroid/app/ActivityManager$RecentTaskInfo;->isFullscreen:Z
 
     return-void
 
@@ -342,9 +355,14 @@
     goto :goto_4
 
     :cond_5
-    move v2, v3
+    move v0, v3
 
     goto :goto_5
+
+    :cond_6
+    move v2, v3
+
+    goto :goto_6
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -469,7 +487,16 @@
 
     if-eqz v0, :cond_5
 
+    move v0, v1
+
     :goto_5
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-boolean v0, p0, Landroid/app/ActivityManager$RecentTaskInfo;->isFullscreen:Z
+
+    if-eqz v0, :cond_6
+
+    :goto_6
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
@@ -500,7 +527,12 @@
     goto :goto_4
 
     :cond_5
-    move v1, v2
+    move v0, v2
 
     goto :goto_5
+
+    :cond_6
+    move v1, v2
+
+    goto :goto_6
 .end method

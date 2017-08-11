@@ -603,6 +603,12 @@
 
     invoke-virtual {v1, v6, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_2
+
     new-instance v5, Landroid/content/Intent;
 
     invoke-direct {v5}, Landroid/content/Intent;-><init>()V
@@ -631,6 +637,7 @@
 
     invoke-virtual {v1, v6, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
+    :cond_2
     invoke-virtual {p0, v1}, Landroid/app/Activity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
     goto :goto_0
@@ -2603,7 +2610,7 @@
 
     move-result-object v5
 
-    const v6, 0x10e00ab
+    const v6, 0x10e00ac
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 

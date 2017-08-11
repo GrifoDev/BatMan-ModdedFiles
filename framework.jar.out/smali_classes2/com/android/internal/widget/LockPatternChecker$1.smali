@@ -27,6 +27,17 @@
 # instance fields
 .field private mThrottleTimeout:I
 
+.field private patternCopy:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/internal/widget/LockPatternView$Cell;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field final synthetic val$callback:Lcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;
 
 .field final synthetic val$challenge:J
@@ -39,12 +50,12 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/widget/LockPatternUtils;Ljava/util/List;JILcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;)V
+.method constructor <init>(Ljava/util/List;Lcom/android/internal/widget/LockPatternUtils;JILcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;)V
     .locals 1
 
-    iput-object p1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$utils:Lcom/android/internal/widget/LockPatternUtils;
+    iput-object p1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$pattern:Ljava/util/List;
 
-    iput-object p2, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$pattern:Ljava/util/List;
+    iput-object p2, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$utils:Lcom/android/internal/widget/LockPatternUtils;
 
     iput-wide p3, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$challenge:J
 
@@ -77,7 +88,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$utils:Lcom/android/internal/widget/LockPatternUtils;
 
-    iget-object v2, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$pattern:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/internal/widget/LockPatternChecker$1;->patternCopy:Ljava/util/List;
 
     iget-wide v4, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$challenge:J
 
@@ -134,6 +145,20 @@
     iget v1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->mThrottleTimeout:I
 
     invoke-interface {v0, p1, v1}, Lcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;->onVerified([BI)V
+
+    return-void
+.end method
+
+.method protected onPreExecute()V
+    .locals 2
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    iget-object v1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$pattern:Ljava/util/List;
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    iput-object v0, p0, Lcom/android/internal/widget/LockPatternChecker$1;->patternCopy:Ljava/util/List;
 
     return-void
 .end method

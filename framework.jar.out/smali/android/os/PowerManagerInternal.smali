@@ -133,6 +133,9 @@
 .method public abstract setDozeOverrideFromDreamManager(III)V
 .end method
 
+.method public abstract setForcedDisplayOff(Z)V
+.end method
+
 .method public abstract setGoToSleepPrevention(Z)V
 .end method
 

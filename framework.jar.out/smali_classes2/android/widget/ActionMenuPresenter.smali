@@ -357,7 +357,7 @@
 
     move-result-object v2
 
-    const v3, 0x11200d8
+    const v3, 0x11200d9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2026,9 +2026,9 @@
 
     if-eqz v4, :cond_0
 
-    const v4, 0x10900f7
+    const v4, 0x10900f8
 
-    const v5, 0x10900f6
+    const v5, 0x10900f7
 
     invoke-super {p0, v4, v5}, Lcom/android/internal/view/menu/BaseMenuPresenter;->setMenuLayoutResources(II)V
 

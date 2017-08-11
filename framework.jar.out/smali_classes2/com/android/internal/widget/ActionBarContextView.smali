@@ -205,11 +205,11 @@
 
     move-result v2
 
-    const v3, 0x1080748
+    const v3, 0x1080733
 
     if-ne v2, v3, :cond_0
 
-    const v2, 0x1080998
+    const v2, 0x1080986
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -778,7 +778,7 @@
 
     move-result v2
 
-    const v3, 0x1080748
+    const v3, 0x1080733
 
     if-ne v2, v3, :cond_2
 
@@ -786,7 +786,7 @@
 
     move-result-object v2
 
-    const v3, 0x1080998
+    const v3, 0x1080986
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1538,7 +1538,7 @@
 
     move-result-object v30
 
-    const v31, 0x1050174
+    const v31, 0x1050184
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1616,7 +1616,7 @@
 
     move-result-object v30
 
-    const v31, 0x1050174
+    const v31, 0x1050184
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1936,7 +1936,7 @@
 
     move-result-object v30
 
-    const v31, 0x1050174
+    const v31, 0x1050184
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1965,7 +1965,7 @@
 
     move-result-object v30
 
-    const v31, 0x1050174
+    const v31, 0x1050184
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDimension(I)F
 

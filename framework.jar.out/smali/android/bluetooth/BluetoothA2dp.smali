@@ -17,8 +17,6 @@
 
 
 # static fields
-.field public static final ACTION_AVC_NOTI_SELECTED:Ljava/lang/String; = "com.samsung.bluetooth.a2dp.intent.action.AVC_NOTI_SELECTED"
-
 .field public static final ACTION_AVRCP_CONNECTED_WITH_AVC:Ljava/lang/String; = "com.samsung.bluetooth.a2dp.intent.action.AVRCP_CONNECTED_WITH_AVC"
 
 .field public static final ACTION_AVRCP_CONNECTION_STATE_CHANGED:Ljava/lang/String; = "android.bluetooth.a2dp.profile.action.AVRCP_CONNECTION_STATE_CHANGED"
@@ -31,27 +29,23 @@
 
 .field public static final ACTION_PLAYING_STATE_CHANGED:Ljava/lang/String; = "android.bluetooth.a2dp.profile.action.PLAYING_STATE_CHANGED"
 
-.field public static final AVC_NOTI_SELECT_CANCEL:I = 0x2
-
-.field public static final AVC_NOTI_SELECT_SETTINGS:I = 0x1
-
 .field private static final DBG:Z
 
 .field public static final DUAL_PLAY_NOTI_SELECT_CANCEL:I = 0x2
 
 .field public static final DUAL_PLAY_NOTI_SELECT_SETTINGS:I = 0x1
 
-.field public static final EXTRA_AVC_NOTI_SELECT_TYPE:Ljava/lang/String; = "com.samsung.bluetooth.a2dp.intent.extra.AVC_NOTI_SELECT_TYPE"
+.field public static final DUAL_PLAY_NOTI_TYPE_HUN:I = 0x1
+
+.field public static final DUAL_PLAY_NOTI_TYPE_ONGOING:I = 0x2
 
 .field public static final EXTRA_DUAL_PLAY_NOTI_SELECT_TYPE:Ljava/lang/String; = "com.samsung.bluetooth.a2dp.intent.extra.DUAL_PLAY_NOTI_SELECT_TYPE"
 
-.field public static final NOTIFICATION_ID_AVC:I = 0x1
+.field public static final EXTRA_DUAL_PLAY_NOTI_TYPE:Ljava/lang/String; = "com.samsung.bluetooth.a2dp.intent.extra.DUAL_PLAY_NOTI_TYPE"
 
 .field public static final NOTIFICATION_ID_DUAL_PLAY:I = 0x1
 
 .field public static final NOTIFICATION_ID_DUAL_PLAY_ONGOING:I = 0x2
-
-.field public static final NOTIFICATION_TAG_AVC:Ljava/lang/String; = "bluetooth_absolute_volume_control"
 
 .field public static final NOTIFICATION_TAG_DUAL_PLAY:Ljava/lang/String; = "dual_play"
 

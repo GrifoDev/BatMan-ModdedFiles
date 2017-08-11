@@ -385,6 +385,14 @@
     .end annotation
 .end method
 
+.method public abstract isMaxAspectComponentEx(Landroid/content/ComponentName;I)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isMaxAspectPackage(Ljava/lang/String;I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

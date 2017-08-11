@@ -142,7 +142,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {p1}, Landroid/widget/Editor;->-get16(Landroid/widget/Editor;)Landroid/content/UndoOwner;
+    invoke-static {p1}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/content/UndoOwner;
 
     move-result-object v0
 
@@ -173,7 +173,7 @@
     iput p3, p0, Landroid/widget/Editor$EditOperation;->mNewTextStart:I
 
     :goto_0
-    invoke-static {p1}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {p1}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -592,7 +592,7 @@
 
     check-cast v8, Landroid/widget/Editor;
 
-    invoke-static {v8}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v8}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
 
@@ -682,7 +682,7 @@
 
     check-cast v6, Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v6}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -860,7 +860,7 @@
 
     check-cast v6, Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v6}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
 

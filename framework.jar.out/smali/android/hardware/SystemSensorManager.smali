@@ -25,6 +25,8 @@
 
 .field private static IS_DEBUG:Z
 
+.field private static sConnectionCount:I
+
 .field private static sInjectEventQueue:Landroid/hardware/SystemSensorManager$InjectEventQueue;
     .annotation build Lcom/android/internal/annotations/GuardedBy;
         value = "sLock"
@@ -41,6 +43,8 @@
 
 
 # instance fields
+.field private final MAX_CONNECTION_COUNT:I
+
 .field private final mContext:Landroid/content/Context;
 
 .field private mDynamicSensorBroadcastReceiver:Landroid/content/BroadcastReceiver;
@@ -204,6 +208,8 @@
 
     sput-object v0, Landroid/hardware/SystemSensorManager;->sInjectEventQueue:Landroid/hardware/SystemSensorManager$InjectEventQueue;
 
+    sput v1, Landroid/hardware/SystemSensorManager;->sConnectionCount:I
+
     return-void
 .end method
 
@@ -251,6 +257,10 @@
     invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
 
     iput-object v4, p0, Landroid/hardware/SystemSensorManager;->mDynamicSensorCallbacks:Ljava/util/HashMap;
+
+    const/16 v4, 0xc8
+
+    iput v4, p0, Landroid/hardware/SystemSensorManager;->MAX_CONNECTION_COUNT:I
 
     sget-object v5, Landroid/hardware/SystemSensorManager;->sLock:Ljava/lang/Object;
 
@@ -1796,11 +1806,26 @@
     return v8
 
     :cond_4
+    sget v4, Landroid/hardware/SystemSensorManager;->sConnectionCount:I
+
+    const/16 v5, 0xc8
+
+    if-lt v4, v5, :cond_5
+
+    const-string/jumbo v4, "SensorManager"
+
+    const-string/jumbo v5, "Application registers too many listeners."
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v8
+
+    :cond_5
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     const-string/jumbo v4, "com.tencent"
 
@@ -1808,15 +1833,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     const/16 v4, 0x1388
 
-    if-ge p3, v4, :cond_5
+    if-ge p3, v4, :cond_6
 
     const/16 p3, 0x1388
 
-    :cond_5
+    :cond_6
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1852,9 +1877,9 @@
 
     check-cast v2, Landroid/hardware/SystemSensorManager$SensorEventQueue;
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_b
 
-    if-eqz p4, :cond_6
+    if-eqz p4, :cond_7
 
     invoke-virtual {p4}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
@@ -1869,7 +1894,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -1892,7 +1917,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_9
 
     invoke-virtual {v2}, Landroid/hardware/SystemSensorManager$SensorEventQueue;->dispose()V
 
@@ -1972,13 +1997,13 @@
 
     return v8
 
-    :cond_6
+    :cond_7
     :try_start_1
     iget-object v1, p0, Landroid/hardware/SystemSensorManager;->mMainLooper:Landroid/os/Looper;
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
@@ -1989,12 +2014,18 @@
 
     goto :goto_1
 
-    :cond_8
+    :cond_9
     iget-object v4, p0, Landroid/hardware/SystemSensorManager;->mSensorListeners:Ljava/util/HashMap;
 
     invoke-virtual {v4, p1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_9
+    sget v4, Landroid/hardware/SystemSensorManager;->sConnectionCount:I
+
+    add-int/lit8 v4, v4, 0x1
+
+    sput v4, Landroid/hardware/SystemSensorManager;->sConnectionCount:I
+
+    :cond_a
     const-string/jumbo v4, "SensorManager"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2073,13 +2104,13 @@
 
     return v4
 
-    :cond_a
+    :cond_b
     :try_start_2
     invoke-virtual {v2, p2, p3, p5}, Landroid/hardware/SystemSensorManager$SensorEventQueue;->addSensor(Landroid/hardware/Sensor;II)Z
 
     move-result v4
 
-    if-nez v4, :cond_9
+    if-nez v4, :cond_a
 
     const-string/jumbo v4, "SensorManager"
 
@@ -2583,6 +2614,12 @@
     invoke-virtual {v3, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {v0}, Landroid/hardware/SystemSensorManager$SensorEventQueue;->dispose()V
+
+    sget v3, Landroid/hardware/SystemSensorManager;->sConnectionCount:I
+
+    add-int/lit8 v3, v3, -0x1
+
+    sput v3, Landroid/hardware/SystemSensorManager;->sConnectionCount:I
 
     :cond_1
     if-eqz p2, :cond_4

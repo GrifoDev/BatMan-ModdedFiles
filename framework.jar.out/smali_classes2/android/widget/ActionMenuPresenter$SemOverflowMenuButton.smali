@@ -92,7 +92,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v2, 0x10900f5
+    const v2, 0x10900f6
 
     invoke-virtual {v0, v2, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -361,7 +361,7 @@
 
     move-result-object v6
 
-    const v7, 0x10502f8
+    const v7, 0x1050308
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -377,7 +377,7 @@
 
     move-result-object v8
 
-    const v9, 0x10502f9
+    const v9, 0x1050309
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 

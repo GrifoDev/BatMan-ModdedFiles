@@ -759,7 +759,11 @@
 .end method
 
 .method private drawSweepText(Landroid/graphics/Canvas;Landroid/graphics/Paint;Ljava/lang/String;Landroid/graphics/Rect;)V
-    .locals 10
+    .locals 11
+
+    const/high16 v10, 0x40000000    # 2.0f
+
+    const/4 v9, 0x0
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getHeight()I
 
@@ -781,9 +785,7 @@
 
     move-result v7
 
-    const/4 v8, 0x0
-
-    invoke-virtual {p2, p3, v8, v7, v4}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
+    invoke-virtual {p2, p3, v9, v7, v4}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
 
     invoke-virtual {p2}, Landroid/graphics/Paint;->getFontMetrics()Landroid/graphics/Paint$FontMetrics;
 
@@ -813,15 +815,13 @@
 
     iget v7, p4, Landroid/graphics/Rect;->left:I
 
-    sget v8, Lcom/samsung/android/animation/SemSweepTranslationFilter;->SWEEP_TEXT_PADDING_PX:I
+    iget-object v8, p0, Lcom/samsung/android/animation/SemSweepTranslationFilter;->mSweepConfiguration:Lcom/samsung/android/animation/SemSweepListAnimator$SweepConfiguration;
+
+    iget v8, v8, Lcom/samsung/android/animation/SemSweepListAnimator$SweepConfiguration;->drawablePadding:I
 
     sub-int/2addr v7, v8
 
     iget v8, v4, Landroid/graphics/Rect;->right:I
-
-    iget v9, v4, Landroid/graphics/Rect;->left:I
-
-    sub-int/2addr v8, v9
 
     sub-int/2addr v7, v8
 
@@ -842,13 +842,9 @@
     :cond_1
     int-to-float v7, v0
 
-    const/high16 v8, 0x40000000    # 2.0f
+    div-float/2addr v7, v10
 
-    div-float/2addr v7, v8
-
-    const/high16 v8, 0x40000000    # 2.0f
-
-    div-float v8, v3, v8
+    div-float v8, v3, v10
 
     add-float/2addr v7, v8
 
@@ -866,9 +862,7 @@
 
     add-float/2addr v6, v7
 
-    const/4 v7, 0x0
-
-    iput-boolean v7, p0, Lcom/samsung/android/animation/SemSweepTranslationFilter;->mSweepRectFullyDrawn:Z
+    iput-boolean v9, p0, Lcom/samsung/android/animation/SemSweepTranslationFilter;->mSweepRectFullyDrawn:Z
 
     :cond_2
     invoke-virtual {p1, p3, v5, v6, p2}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
@@ -882,7 +876,9 @@
 
     iget v7, p4, Landroid/graphics/Rect;->right:I
 
-    sget v8, Lcom/samsung/android/animation/SemSweepTranslationFilter;->SWEEP_TEXT_PADDING_PX:I
+    iget-object v8, p0, Lcom/samsung/android/animation/SemSweepTranslationFilter;->mSweepConfiguration:Lcom/samsung/android/animation/SemSweepListAnimator$SweepConfiguration;
+
+    iget v8, v8, Lcom/samsung/android/animation/SemSweepListAnimator$SweepConfiguration;->drawablePadding:I
 
     add-int/2addr v7, v8
 

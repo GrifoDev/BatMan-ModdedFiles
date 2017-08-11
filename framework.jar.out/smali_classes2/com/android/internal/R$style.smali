@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final ActiveWallpaperSettings:I = 0x103047b
+.field public static final ActiveWallpaperSettings:I = 0x1030482
 
 .field public static final Animation:I = 0x1030000
 
@@ -29,27 +29,27 @@
 
 .field public static final Animation_DropDownUp:I = 0x10302ec
 
-.field public static final Animation_HoverPopup:I = 0x1030514
+.field public static final Animation_HoverPopup:I = 0x103051b
 
-.field public static final Animation_HoverPopupCenterBottom:I = 0x103051b
+.field public static final Animation_HoverPopupCenterBottom:I = 0x1030522
 
-.field public static final Animation_HoverPopupCenterCenter:I = 0x103051a
+.field public static final Animation_HoverPopupCenterCenter:I = 0x1030521
 
-.field public static final Animation_HoverPopupCenterTop:I = 0x1030519
+.field public static final Animation_HoverPopupCenterTop:I = 0x1030520
 
-.field public static final Animation_HoverPopupDeX:I = 0x1030515
+.field public static final Animation_HoverPopupDeX:I = 0x103051c
 
-.field public static final Animation_HoverPopupLeftBottom:I = 0x103051e
+.field public static final Animation_HoverPopupLeftBottom:I = 0x1030525
 
-.field public static final Animation_HoverPopupLeftCenter:I = 0x103051d
+.field public static final Animation_HoverPopupLeftCenter:I = 0x1030524
 
-.field public static final Animation_HoverPopupLeftTop:I = 0x103051c
+.field public static final Animation_HoverPopupLeftTop:I = 0x1030523
 
-.field public static final Animation_HoverPopupRightBottom:I = 0x1030518
+.field public static final Animation_HoverPopupRightBottom:I = 0x103051f
 
-.field public static final Animation_HoverPopupRightCenter:I = 0x1030517
+.field public static final Animation_HoverPopupRightCenter:I = 0x103051e
 
-.field public static final Animation_HoverPopupRightTop:I = 0x1030516
+.field public static final Animation_HoverPopupRightTop:I = 0x103051d
 
 .field public static final Animation_ImmersiveModeConfirmation:I = 0x10302f7
 
@@ -63,7 +63,7 @@
 
 .field public static final Animation_RecentApplications:I = 0x10302f3
 
-.field public static final Animation_TextSelectActionPopup:I = 0x10304f0
+.field public static final Animation_TextSelectActionPopup:I = 0x10304f7
 
 .field public static final Animation_Toast:I = 0x1030004
 
@@ -77,9 +77,9 @@
 
 .field public static final Animation_Wallpaper:I = 0x10302f2
 
-.field public static final Animation_WritingBuddyNonformCue:I = 0x1030520
+.field public static final Animation_WritingBuddyNonformCue:I = 0x1030527
 
-.field public static final Animation_WritingBuddyPopupCue:I = 0x103051f
+.field public static final Animation_WritingBuddyPopupCue:I = 0x1030526
 
 .field public static final Animation_ZoomButtons:I = 0x10302f1
 
@@ -97,11 +97,11 @@
 
 .field public static final DeviceDefault_SegmentedButton:I = 0x10301d1
 
-.field public static final GlobalActionsClearCoverDialogStyle:I = 0x10304fa
+.field public static final GlobalActionsClearCoverDialogStyle:I = 0x1030501
 
-.field public static final GlobalActionsClearCoverTextAppearance:I = 0x10304fb
+.field public static final GlobalActionsClearCoverTextAppearance:I = 0x1030502
 
-.field public static final GlobalActionsSViewCoverDialogStyle:I = 0x10304f9
+.field public static final GlobalActionsSViewCoverDialogStyle:I = 0x1030500
 
 .field public static final Holo_ButtonBar:I = 0x10300e5
 
@@ -133,21 +133,21 @@
 
 .field public static final Pointer:I = 0x103034d
 
-.field public static final PreviewWallpaperSettings:I = 0x103047c
+.field public static final PreviewWallpaperSettings:I = 0x1030483
 
-.field public static final SemBottomSheetFadeAnimation:I = 0x103050c
+.field public static final SemBottomSheetFadeAnimation:I = 0x1030513
 
-.field public static final SemPickerDialogAnimation:I = 0x103050b
+.field public static final SemPickerDialogAnimation:I = 0x1030512
 
-.field public static final SemPickerDialogTheme:I = 0x103050d
+.field public static final SemPickerDialogTheme:I = 0x1030514
 
-.field public static final SemPickerDialogTheme_DatePicker:I = 0x103050e
+.field public static final SemPickerDialogTheme_DatePicker:I = 0x1030515
 
-.field public static final SemPickerDialogTheme_TimePicker:I = 0x103050f
+.field public static final SemPickerDialogTheme_TimePicker:I = 0x1030516
 
-.field public static final SemPickerDialogTitle:I = 0x1030509
+.field public static final SemPickerDialogTitle:I = 0x1030510
 
-.field public static final SemPickerDialogTitle_Light:I = 0x103050a
+.field public static final SemPickerDialogTitle_Light:I = 0x1030511
 
 .field public static final TextAppearance:I = 0x103003e
 
@@ -317,9 +317,9 @@
 
 .field public static final TextAppearance_Material_Caption:I = 0x10301f1
 
-.field public static final TextAppearance_Material_DatePicker_List_YearLabel:I = 0x1030425
+.field public static final TextAppearance_Material_DatePicker_List_YearLabel:I = 0x103042c
 
-.field public static final TextAppearance_Material_DatePicker_List_YearLabel_Activated:I = 0x1030426
+.field public static final TextAppearance_Material_DatePicker_List_YearLabel_Activated:I = 0x103042d
 
 .field public static final TextAppearance_Material_DialogWindowTitle:I = 0x10301f2
 
@@ -367,7 +367,7 @@
 
 .field public static final TextAppearance_Material_Subhead:I = 0x1030208
 
-.field public static final TextAppearance_Material_TimePicker_TimeLabel:I = 0x1030421
+.field public static final TextAppearance_Material_TimePicker_TimeLabel:I = 0x1030428
 
 .field public static final TextAppearance_Material_Title:I = 0x1030209
 
@@ -399,11 +399,11 @@
 
 .field public static final TextAppearance_Material_Widget_Button_Inverse:I = 0x10302d4
 
-.field public static final TextAppearance_Material_Widget_Calendar_Day:I = 0x103041e
+.field public static final TextAppearance_Material_Widget_Calendar_Day:I = 0x1030425
 
-.field public static final TextAppearance_Material_Widget_Calendar_DayOfWeek:I = 0x103041f
+.field public static final TextAppearance_Material_Widget_Calendar_DayOfWeek:I = 0x1030426
 
-.field public static final TextAppearance_Material_Widget_Calendar_Month:I = 0x1030420
+.field public static final TextAppearance_Material_Widget_Calendar_Month:I = 0x1030427
 
 .field public static final TextAppearance_Material_Widget_DropDownHint:I = 0x1030216
 
@@ -529,7 +529,7 @@
 
 .field public static final Theme_DeviceDefault_Dialog_NoActionBar_MinWidth:I = 0x1030131
 
-.field public static final Theme_DeviceDefault_Dialog_NoFrame:I = 0x1030490
+.field public static final Theme_DeviceDefault_Dialog_NoFrame:I = 0x1030497
 
 .field public static final Theme_DeviceDefault_InputMethod:I = 0x103013e
 
@@ -571,11 +571,11 @@
 
 .field public static final Theme_DeviceDefault_Panel:I = 0x103013a
 
-.field public static final Theme_DeviceDefault_Resolver:I = 0x1030495
+.field public static final Theme_DeviceDefault_Resolver:I = 0x103049c
 
 .field public static final Theme_DeviceDefault_Settings:I = 0x1030223
 
-.field public static final Theme_DeviceDefault_VoiceInteractionSession:I = 0x103048e
+.field public static final Theme_DeviceDefault_VoiceInteractionSession:I = 0x1030495
 
 .field public static final Theme_DeviceDefault_Wallpaper:I = 0x103013c
 
@@ -583,13 +583,13 @@
 
 .field public static final Theme_Dialog:I = 0x103000b
 
-.field public static final Theme_Dialog_Alert:I = 0x103047e
+.field public static final Theme_Dialog_Alert:I = 0x1030485
 
-.field public static final Theme_Dialog_AppError:I = 0x1030484
+.field public static final Theme_Dialog_AppError:I = 0x103048b
 
-.field public static final Theme_Dialog_RecentApplications:I = 0x1030485
+.field public static final Theme_Dialog_RecentApplications:I = 0x103048c
 
-.field public static final Theme_ExpandedMenu:I = 0x1030483
+.field public static final Theme_ExpandedMenu:I = 0x103048a
 
 .field public static final Theme_Holo:I = 0x103006b
 
@@ -599,7 +599,7 @@
 
 .field public static final Theme_Holo_DialogWhenLarge_NoActionBar:I = 0x1030078
 
-.field public static final Theme_Holo_Dialog_Alert:I = 0x1030487
+.field public static final Theme_Holo_Dialog_Alert:I = 0x103048e
 
 .field public static final Theme_Holo_Dialog_MinWidth:I = 0x1030070
 
@@ -619,7 +619,7 @@
 
 .field public static final Theme_Holo_Light_DialogWhenLarge_NoActionBar:I = 0x103007a
 
-.field public static final Theme_Holo_Light_Dialog_Alert:I = 0x1030488
+.field public static final Theme_Holo_Light_Dialog_Alert:I = 0x103048f
 
 .field public static final Theme_Holo_Light_Dialog_MinWidth:I = 0x1030074
 
@@ -651,11 +651,11 @@
 
 .field public static final Theme_Holo_Wallpaper_NoTitleBar:I = 0x103007e
 
-.field public static final Theme_IconMenu:I = 0x1030482
+.field public static final Theme_IconMenu:I = 0x1030489
 
 .field public static final Theme_InputMethod:I = 0x1030054
 
-.field public static final Theme_Leanback_Dialog_Alert:I = 0x10304a6
+.field public static final Theme_Leanback_Dialog_Alert:I = 0x10304ad
 
 .field public static final Theme_Leanback_FormWizard:I = 0x10302d0
 
@@ -743,7 +743,7 @@
 
 .field public static final Theme_Material_Wallpaper_NoTitleBar:I = 0x1030236
 
-.field public static final Theme_Micro_Dialog_Alert:I = 0x10304c8
+.field public static final Theme_Micro_Dialog_Alert:I = 0x10304cf
 
 .field public static final Theme_NoDisplay:I = 0x1030055
 
@@ -755,7 +755,7 @@
 
 .field public static final Theme_Panel:I = 0x1030059
 
-.field public static final Theme_Toast:I = 0x1030486
+.field public static final Theme_Toast:I = 0x103048d
 
 .field public static final Theme_Translucent:I = 0x103000f
 
@@ -773,7 +773,7 @@
 
 .field public static final Theme_WithActionBar:I = 0x1030069
 
-.field public static final TwTheme_Dialog_Clipboard:I = 0x10304f8
+.field public static final TwTheme_Dialog_Clipboard:I = 0x10304ff
 
 .field public static final Widget:I = 0x1030012
 

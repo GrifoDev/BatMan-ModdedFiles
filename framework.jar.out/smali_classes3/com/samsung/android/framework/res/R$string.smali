@@ -49,6 +49,8 @@
 
 .field public static dex_dialog_promotion_msg2:I
 
+.field public static dex_dialog_promotion_msg2_mouse:I
+
 .field public static dex_hun_hdmi_settings:I
 
 .field public static dex_intro_msg:I
@@ -65,6 +67,10 @@
 
 .field public static dex_ongoing_dex_title:I
 
+.field public static dex_ongoing_dismissed_action:I
+
+.field public static dex_ongoing_dismissed_content:I
+
 .field public static dex_ongoing_mirroring_action:I
 
 .field public static dex_ongoing_mirroring_content:I
@@ -76,6 +82,8 @@
 .field public static dex_toast_emergency:I
 
 .field public static dex_toast_keyboard_cover:I
+
+.field public static dex_toast_led_view_cover:I
 
 .field public static dex_toast_low_memory_warning:I
 
@@ -168,83 +176,87 @@
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->close_button_text:I
 
-    const v0, 0x9002d
+    const v0, 0x90031
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_display_unsupport:I
 
-    const v0, 0x9002f
+    const v0, 0x90033
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_display_unsupport_msg:I
 
-    const v0, 0x9002e
+    const v0, 0x90032
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_display_unsupport_title:I
 
-    const v0, 0x9001d
+    const v0, 0x9001f
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_install:I
 
-    const v0, 0x9001e
+    const v0, 0x90020
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_install_positive:I
 
-    const v0, 0x90019
+    const v0, 0x9001b
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_launch_msg:I
 
-    const v0, 0x9001a
+    const v0, 0x9001c
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_launch_msg_additional:I
 
-    const v0, 0x9001c
+    const v0, 0x9001e
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_launch_negative:I
 
-    const v0, 0x9001b
+    const v0, 0x9001d
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_launch_positive:I
 
-    const v0, 0x90018
+    const v0, 0x9001a
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_launch_title:I
 
-    const v0, 0x90028
+    const v0, 0x9002b
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_launch_toast:I
 
-    const v0, 0x9002c
+    const v0, 0x90030
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_learn_more:I
 
-    const v0, 0x90029
+    const v0, 0x9002c
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion:I
 
-    const v0, 0x9002a
+    const v0, 0x9002d
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion_msg1:I
 
-    const v0, 0x9002b
+    const v0, 0x9002e
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion_msg2:I
 
-    const v0, 0x90030
+    const v0, 0x9002f
 
-    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_hun_hdmi_settings:I
-
-    const v0, 0x90033
-
-    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_intro_msg:I
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion_msg2_mouse:I
 
     const v0, 0x90034
 
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_hun_hdmi_settings:I
+
+    const v0, 0x90037
+
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_intro_msg:I
+
+    const v0, 0x90038
+
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_intro_msg_additional:I
 
-    const v0, 0x90032
+    const v0, 0x90036
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_intro_samsung_dex:I
 
-    const v0, 0x90031
+    const v0, 0x90035
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_intro_welcome_to:I
 
@@ -260,6 +272,14 @@
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_dex_title:I
 
+    const v0, 0x90019
+
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_dismissed_action:I
+
+    const v0, 0x90018
+
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_dismissed_content:I
+
     const v0, 0x90017
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_mirroring_action:I
@@ -272,107 +292,111 @@
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_mirroring_title:I
 
-    const v0, 0x90038
+    const v0, 0x9003c
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_tablet_touchpad_description:I
 
-    const v0, 0x90023
+    const v0, 0x90025
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_emergency:I
 
-    const v0, 0x90027
+    const v0, 0x9002a
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_keyboard_cover:I
 
-    const v0, 0x90020
+    const v0, 0x90029
 
-    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_low_memory_warning:I
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_led_view_cover:I
 
     const v0, 0x90022
 
-    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_max_power_saving:I
-
-    const v0, 0x90021
-
-    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_mid_power_saving:I
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_low_memory_warning:I
 
     const v0, 0x90024
 
-    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_safe_mode:I
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_max_power_saving:I
+
+    const v0, 0x90023
+
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_mid_power_saving:I
 
     const v0, 0x90026
 
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_safe_mode:I
+
+    const v0, 0x90028
+
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_scover:I
 
-    const v0, 0x9001f
+    const v0, 0x90021
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_unable_launch:I
 
-    const v0, 0x90025
+    const v0, 0x90027
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_unavailable_mode:I
 
-    const v0, 0x90036
+    const v0, 0x9003a
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad:I
 
-    const v0, 0x90037
+    const v0, 0x9003b
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_description:I
 
-    const v0, 0x90042
+    const v0, 0x90046
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_doubletap:I
 
-    const v0, 0x90043
+    const v0, 0x90047
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_doubletap_desc:I
 
-    const v0, 0x90044
+    const v0, 0x90048
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_doubletapdrag:I
 
-    const v0, 0x90045
+    const v0, 0x90049
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_doubletapdrag_desc:I
 
-    const v0, 0x90039
+    const v0, 0x9003d
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_gestures:I
 
-    const v0, 0x90040
+    const v0, 0x90044
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_pinch:I
 
-    const v0, 0x90041
+    const v0, 0x90045
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_pinch_desc:I
 
-    const v0, 0x9003e
+    const v0, 0x90042
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_swipe:I
 
-    const v0, 0x9003f
+    const v0, 0x90043
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_swipe_desc:I
 
-    const v0, 0x9003a
+    const v0, 0x9003e
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_tap:I
 
-    const v0, 0x9003c
+    const v0, 0x90040
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_tap2:I
 
-    const v0, 0x9003d
+    const v0, 0x90041
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_tap2_desc:I
 
-    const v0, 0x9003b
+    const v0, 0x9003f
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_dialog_tap_desc:I
 
-    const v0, 0x90035
+    const v0, 0x90039
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_touchpad_notice_popup:I
 

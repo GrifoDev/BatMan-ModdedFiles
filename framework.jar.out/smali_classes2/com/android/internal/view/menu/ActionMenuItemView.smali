@@ -376,7 +376,7 @@
 
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mContext:Landroid/content/Context;
 
-    const v2, 0x1080753
+    const v2, 0x108073e
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -399,7 +399,7 @@
 
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mContext:Landroid/content/Context;
 
-    const v2, 0x10807e9
+    const v2, 0x10807d4
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -412,7 +412,7 @@
     :cond_4
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mContext:Landroid/content/Context;
 
-    const v2, 0x1080752
+    const v2, 0x108073d
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1517,7 +1517,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
-    const v0, 0x1080753
+    const v0, 0x108073e
 
     if-eq p1, v0, :cond_0
 

@@ -683,6 +683,27 @@
     return-void
 .end method
 
+.method public removeFocusedTask()Z
+    .locals 1
+
+    sget-object v0, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;->sIMultiWindowManagerBridge:Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge$IMultiWindowManagerBridge;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;->sIMultiWindowManagerBridge:Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge$IMultiWindowManagerBridge;
+
+    invoke-interface {v0}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge$IMultiWindowManagerBridge;->removeFocusedTask()Z
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public removeSearchedTask(Ljava/lang/String;)Z
     .locals 1
 

@@ -96,7 +96,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v3}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v3}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
 
@@ -141,7 +141,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -231,7 +231,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -246,7 +246,7 @@
     :cond_4
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -276,7 +276,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -286,7 +286,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 

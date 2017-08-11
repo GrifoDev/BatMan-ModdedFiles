@@ -257,7 +257,7 @@
 
     const/16 v4, 0xd
 
-    const v5, 0x1030420
+    const v5, 0x1030427
 
     invoke-virtual {v10, v4, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -265,7 +265,7 @@
 
     const/16 v4, 0xb
 
-    const v5, 0x103041f
+    const v5, 0x1030426
 
     invoke-virtual {v10, v4, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -273,7 +273,7 @@
 
     const/16 v4, 0xc
 
-    const v5, 0x103041e
+    const v5, 0x1030425
 
     invoke-virtual {v10, v4, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

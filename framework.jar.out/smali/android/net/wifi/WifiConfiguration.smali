@@ -11,6 +11,7 @@
     value = {
         Landroid/net/wifi/WifiConfiguration$1;,
         Landroid/net/wifi/WifiConfiguration$AuthAlgorithm;,
+        Landroid/net/wifi/WifiConfiguration$BssidWhitelist;,
         Landroid/net/wifi/WifiConfiguration$GroupCipher;,
         Landroid/net/wifi/WifiConfiguration$KeyMgmt;,
         Landroid/net/wifi/WifiConfiguration$NetworkSelectionStatus;,
@@ -267,6 +268,8 @@
 .end field
 
 .field public loginUrl:Ljava/lang/String;
+
+.field public mBssidWhitelist:Landroid/net/wifi/WifiConfiguration$BssidWhitelist;
 
 .field mCachedConfigKey:Ljava/lang/String;
 
@@ -701,15 +704,21 @@
 
     iput v4, p0, Landroid/net/wifi/WifiConfiguration;->semAutoWifiScore:I
 
+    new-instance v1, Landroid/net/wifi/WifiConfiguration$BssidWhitelist;
+
+    invoke-direct {v1}, Landroid/net/wifi/WifiConfiguration$BssidWhitelist;-><init>()V
+
+    iput-object v1, p0, Landroid/net/wifi/WifiConfiguration;->mBssidWhitelist:Landroid/net/wifi/WifiConfiguration$BssidWhitelist;
+
     return-void
 .end method
 
 .method public constructor <init>(Landroid/net/wifi/WifiConfiguration;)V
     .locals 5
 
-    const/4 v4, 0x0
-
     const/4 v1, 0x0
+
+    const/4 v4, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -1266,6 +1275,18 @@
     iget-boolean v1, p1, Landroid/net/wifi/WifiConfiguration;->isSamsungAp:Z
 
     iput-boolean v1, p0, Landroid/net/wifi/WifiConfiguration;->isSamsungAp:Z
+
+    iget-object v1, p1, Landroid/net/wifi/WifiConfiguration;->mBssidWhitelist:Landroid/net/wifi/WifiConfiguration$BssidWhitelist;
+
+    if-eqz v1, :cond_3
+
+    new-instance v1, Landroid/net/wifi/WifiConfiguration$BssidWhitelist;
+
+    iget-object v2, p1, Landroid/net/wifi/WifiConfiguration;->mBssidWhitelist:Landroid/net/wifi/WifiConfiguration$BssidWhitelist;
+
+    invoke-direct {v1, v2}, Landroid/net/wifi/WifiConfiguration$BssidWhitelist;-><init>(Landroid/net/wifi/WifiConfiguration$BssidWhitelist;)V
+
+    iput-object v1, p0, Landroid/net/wifi/WifiConfiguration;->mBssidWhitelist:Landroid/net/wifi/WifiConfiguration$BssidWhitelist;
 
     :cond_3
     return-void
@@ -4072,6 +4093,45 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     :cond_23
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->visibility:Landroid/net/wifi/WifiConfiguration$Visibility;
+
+    move-object/from16 v20, v0
+
+    if-eqz v20, :cond_24
+
+    const/16 v20, 0xa
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v20, " Visibility: "
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->visibility:Landroid/net/wifi/WifiConfiguration$Visibility;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Landroid/net/wifi/WifiConfiguration$Visibility;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_24
     const-string/jumbo v20, "\nEnterprise config:\n"
 
     move-object/from16 v0, v18
@@ -4126,7 +4186,7 @@
 
     move-result-object v20
 
-    if-eqz v20, :cond_24
+    if-eqz v20, :cond_25
 
     const-string/jumbo v20, " networkSelectionBSSID="
 
@@ -4150,7 +4210,7 @@
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_24
+    :cond_25
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v14
@@ -4169,7 +4229,7 @@
 
     cmp-long v20, v20, v22
 
-    if-eqz v20, :cond_25
+    if-eqz v20, :cond_26
 
     const/16 v20, 0xa
 
@@ -4195,7 +4255,7 @@
 
     cmp-long v20, v6, v20
 
-    if-gtz v20, :cond_2d
+    if-gtz v20, :cond_2e
 
     const-string/jumbo v20, " blackListed since <incorrect>"
 
@@ -4205,7 +4265,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_25
+    :cond_26
     :goto_c
     move-object/from16 v0, p0
 
@@ -4213,7 +4273,7 @@
 
     move/from16 v20, v0
 
-    if-eqz v20, :cond_26
+    if-eqz v20, :cond_27
 
     const-string/jumbo v20, " cuid="
 
@@ -4233,14 +4293,14 @@
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :cond_26
+    :cond_27
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->creatorName:Ljava/lang/String;
 
     move-object/from16 v20, v0
 
-    if-eqz v20, :cond_27
+    if-eqz v20, :cond_28
 
     const-string/jumbo v20, " cname="
 
@@ -4260,14 +4320,14 @@
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_27
+    :cond_28
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/net/wifi/WifiConfiguration;->lastUpdateUid:I
 
     move/from16 v20, v0
 
-    if-eqz v20, :cond_28
+    if-eqz v20, :cond_29
 
     const-string/jumbo v20, " luid="
 
@@ -4287,14 +4347,14 @@
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :cond_28
+    :cond_29
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->lastUpdateName:Ljava/lang/String;
 
     move-object/from16 v20, v0
 
-    if-eqz v20, :cond_29
+    if-eqz v20, :cond_2a
 
     const-string/jumbo v20, " lname="
 
@@ -4314,7 +4374,7 @@
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_29
+    :cond_2a
     const-string/jumbo v20, " lcuid="
 
     move-object/from16 v0, v18
@@ -4391,7 +4451,7 @@
 
     cmp-long v20, v20, v22
 
-    if-eqz v20, :cond_2a
+    if-eqz v20, :cond_2b
 
     const/16 v20, 0xa
 
@@ -4413,7 +4473,7 @@
 
     cmp-long v20, v6, v20
 
-    if-gtz v20, :cond_2e
+    if-gtz v20, :cond_2f
 
     const-string/jumbo v20, "lastConnected since <incorrect>"
 
@@ -4423,55 +4483,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_2a
+    :cond_2b
     :goto_d
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/net/wifi/WifiConfiguration;->lastConnectionFailure:J
-
-    move-wide/from16 v20, v0
-
-    const-wide/16 v22, 0x0
-
-    cmp-long v20, v20, v22
-
-    if-eqz v20, :cond_2b
-
-    const/16 v20, 0xa
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-object/from16 v0, p0
-
-    iget-wide v0, v0, Landroid/net/wifi/WifiConfiguration;->lastConnectionFailure:J
-
-    move-wide/from16 v20, v0
-
-    sub-long v6, v14, v20
-
-    const-wide/16 v20, 0x0
-
-    cmp-long v20, v6, v20
-
-    if-gtz v20, :cond_2f
-
-    const-string/jumbo v20, "lastConnectionFailure since <incorrect> "
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_2b
-    :goto_e
-    move-object/from16 v0, p0
-
-    iget-wide v0, v0, Landroid/net/wifi/WifiConfiguration;->lastRoamingFailure:J
 
     move-wide/from16 v20, v0
 
@@ -4491,7 +4507,7 @@
 
     move-object/from16 v0, p0
 
-    iget-wide v0, v0, Landroid/net/wifi/WifiConfiguration;->lastRoamingFailure:J
+    iget-wide v0, v0, Landroid/net/wifi/WifiConfiguration;->lastConnectionFailure:J
 
     move-wide/from16 v20, v0
 
@@ -4503,7 +4519,7 @@
 
     if-gtz v20, :cond_30
 
-    const-string/jumbo v20, "lastRoamingFailure since <incorrect> "
+    const-string/jumbo v20, "lastConnectionFailure since <incorrect> "
 
     move-object/from16 v0, v18
 
@@ -4512,6 +4528,50 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_2c
+    :goto_e
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiConfiguration;->lastRoamingFailure:J
+
+    move-wide/from16 v20, v0
+
+    const-wide/16 v22, 0x0
+
+    cmp-long v20, v20, v22
+
+    if-eqz v20, :cond_2d
+
+    const/16 v20, 0xa
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiConfiguration;->lastRoamingFailure:J
+
+    move-wide/from16 v20, v0
+
+    sub-long v6, v14, v20
+
+    const-wide/16 v20, 0x0
+
+    cmp-long v20, v6, v20
+
+    if-gtz v20, :cond_31
+
+    const-string/jumbo v20, "lastRoamingFailure since <incorrect> "
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_2d
     :goto_f
     const-string/jumbo v20, "roamingFailureBlackListTimeMilli: "
 
@@ -4549,7 +4609,7 @@
 
     move-object/from16 v20, v0
 
-    if-eqz v20, :cond_31
+    if-eqz v20, :cond_32
 
     move-object/from16 v0, p0
 
@@ -4570,7 +4630,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_31
+    if-eqz v20, :cond_32
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4602,7 +4662,7 @@
 
     goto :goto_10
 
-    :cond_2d
+    :cond_2e
     const-string/jumbo v20, " blackListed: "
 
     move-object/from16 v0, v18
@@ -4631,7 +4691,7 @@
 
     goto/16 :goto_c
 
-    :cond_2e
+    :cond_2f
     const-string/jumbo v20, "lastConnected: "
 
     move-object/from16 v0, v18
@@ -4660,7 +4720,7 @@
 
     goto/16 :goto_d
 
-    :cond_2f
+    :cond_30
     const-string/jumbo v20, "lastConnectionFailure: "
 
     move-object/from16 v0, v18
@@ -4691,7 +4751,7 @@
 
     goto/16 :goto_e
 
-    :cond_30
+    :cond_31
     const-string/jumbo v20, "lastRoamingFailure: "
 
     move-object/from16 v0, v18
@@ -4722,7 +4782,7 @@
 
     goto/16 :goto_f
 
-    :cond_31
+    :cond_32
     const-string/jumbo v20, "triggeredLow: "
 
     move-object/from16 v0, v18
@@ -4898,7 +4958,7 @@
 
     move/from16 v1, v20
 
-    if-ge v0, v1, :cond_34
+    if-ge v0, v1, :cond_35
 
     move-object/from16 v0, p0
 
@@ -4914,7 +4974,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_32
+    if-eqz v20, :cond_33
 
     const-string/jumbo v20, " "
 
@@ -4936,7 +4996,7 @@
 
     move/from16 v1, v20
 
-    if-ge v0, v1, :cond_33
+    if-ge v0, v1, :cond_34
 
     sget-object v20, Landroid/net/wifi/WifiConfiguration$SamsungFlag;->strings:[Ljava/lang/String;
 
@@ -4948,13 +5008,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_32
+    :cond_33
     :goto_12
     add-int/lit8 v19, v19, 0x1
 
     goto :goto_11
 
-    :cond_33
+    :cond_34
     const-string/jumbo v20, "??"
 
     move-object/from16 v0, v18
@@ -4965,14 +5025,14 @@
 
     goto :goto_12
 
-    :cond_34
+    :cond_35
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->wapiAsCert:Ljava/lang/String;
 
     move-object/from16 v20, v0
 
-    if-eqz v20, :cond_35
+    if-eqz v20, :cond_36
 
     const/16 v20, 0xa
 
@@ -5000,14 +5060,14 @@
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_35
+    :cond_36
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->wapiUserCert:Ljava/lang/String;
 
     move-object/from16 v20, v0
 
-    if-eqz v20, :cond_36
+    if-eqz v20, :cond_37
 
     const/16 v20, 0xa
 
@@ -5035,7 +5095,7 @@
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_36
+    :cond_37
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/net/wifi/WifiConfiguration;->wapiCertIndex:I
@@ -5048,7 +5108,7 @@
 
     move/from16 v1, v21
 
-    if-eq v0, v1, :cond_37
+    if-eq v0, v1, :cond_38
 
     const/16 v20, 0xa
 
@@ -5076,7 +5136,7 @@
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :cond_37
+    :cond_38
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/net/wifi/WifiConfiguration;->wapiPskType:I
@@ -5089,7 +5149,7 @@
 
     move/from16 v1, v21
 
-    if-eq v0, v1, :cond_38
+    if-eq v0, v1, :cond_39
 
     const/16 v20, 0xa
 
@@ -5117,7 +5177,7 @@
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :cond_38
+    :cond_39
     const/16 v20, 0xa
 
     move-object/from16 v0, v18
@@ -5236,7 +5296,7 @@
 
     move-object/from16 v16, v0
 
-    if-eqz v16, :cond_39
+    if-eqz v16, :cond_3a
 
     const/16 v20, 0xa
 
@@ -5254,7 +5314,7 @@
 
     move/from16 v0, v20
 
-    if-ge v12, v0, :cond_39
+    if-ge v12, v0, :cond_3a
 
     const-string/jumbo v20, "poorBSSID: "
 
@@ -5272,7 +5332,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_39
+    :cond_3a
     const/16 v20, 0xa
 
     move-object/from16 v0, v18
@@ -5857,6 +5917,57 @@
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->mBssidWhitelist:Landroid/net/wifi/WifiConfiguration$BssidWhitelist;
+
+    move-object/from16 v20, v0
+
+    if-eqz v20, :cond_3b
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->mBssidWhitelist:Landroid/net/wifi/WifiConfiguration$BssidWhitelist;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Landroid/net/wifi/WifiConfiguration$BssidWhitelist;->size()I
+
+    move-result v20
+
+    if-lez v20, :cond_3b
+
+    const/16 v20, 0xa
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v20, "BSSID whitelist: "
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->mBssidWhitelist:Landroid/net/wifi/WifiConfiguration$BssidWhitelist;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Landroid/net/wifi/WifiConfiguration$BssidWhitelist;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_3b
     invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v20

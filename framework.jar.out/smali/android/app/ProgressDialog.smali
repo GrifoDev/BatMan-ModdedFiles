@@ -668,7 +668,7 @@
 
     move-result-object v4
 
-    const v5, 0x10501b4
+    const v5, 0x10501c4
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -682,7 +682,7 @@
 
     move-result-object v5
 
-    const v6, 0x10501b4
+    const v6, 0x10501c4
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -708,11 +708,11 @@
 
     move-result-object v3
 
-    const v4, 0x10809fe
+    const v4, 0x10809ec
 
     invoke-virtual {v3, v4}, Landroid/view/Window;->setBackgroundDrawableResource(I)V
 
-    const v3, 0x1090164
+    const v3, 0x1090165
 
     invoke-virtual {v1, v3, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -741,7 +741,7 @@
     :cond_b
     const/16 v3, 0x10
 
-    const v4, 0x10900d1
+    const v4, 0x10900d2
 
     invoke-virtual {v0, v3, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

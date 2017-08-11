@@ -35,6 +35,8 @@
 
 .field private static final LAST_SUMMARY_SAVE:Ljava/lang/String; = "/data/log/dump_summary.xml"
 
+.field private static final LAST_TZLOG:Ljava/lang/String; = "/proc/reset_tzlog"
+
 .field private static final MAX_LAST_KMSG:I = 0x5
 
 
@@ -324,45 +326,55 @@
 .end method
 
 .method private logLastKmsg()V
-    .locals 28
+    .locals 29
 
     new-instance v16, Ljava/io/File;
 
-    const-string/jumbo v25, "/proc/last_kmsg"
+    const-string/jumbo v26, "/proc/last_kmsg"
 
     move-object/from16 v0, v16
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     new-instance v19, Ljava/io/File;
 
-    const-string/jumbo v25, "/proc/reset_summary"
+    const-string/jumbo v26, "/proc/reset_summary"
 
     move-object/from16 v0, v19
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     new-instance v13, Ljava/io/File;
 
-    const-string/jumbo v25, "/proc/reset_klog"
+    const-string/jumbo v26, "/proc/reset_klog"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-direct {v13, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    new-instance v24, Ljava/io/File;
+    new-instance v22, Ljava/io/File;
 
-    const-string/jumbo v25, "/proc/version"
+    const-string/jumbo v26, "/proc/reset_tzlog"
 
-    invoke-direct/range {v24 .. v25}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v22
 
-    const/16 v25, 0x800
+    move-object/from16 v1, v26
 
-    move/from16 v0, v25
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    new-instance v25, Ljava/io/File;
+
+    const-string/jumbo v26, "/proc/version"
+
+    invoke-direct/range {v25 .. v26}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    const/16 v26, 0x800
+
+    move/from16 v0, v26
 
     new-array v3, v0, [B
 
@@ -370,7 +382,7 @@
 
     const/16 v18, 0x0
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     const/4 v9, 0x0
 
@@ -380,28 +392,28 @@
 
     invoke-direct/range {v21 .. v21}, Landroid/text/format/Time;-><init>()V
 
-    const-string/jumbo v25, "BootReceiver"
+    const-string/jumbo v26, "BootReceiver"
 
-    const-string/jumbo v26, "logLastKmsg - Start"
+    const-string/jumbo v27, "logLastKmsg - Start"
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual/range {v16 .. v16}, Ljava/io/File;->isFile()Z
 
-    move-result v25
+    move-result v26
 
-    if-nez v25, :cond_0
+    if-nez v26, :cond_0
 
     return-void
 
     :cond_0
     invoke-virtual/range {v21 .. v21}, Landroid/text/format/Time;->setToNow()V
 
-    const-string/jumbo v25, "%Y%m%d_%H%M%S"
+    const-string/jumbo v26, "%Y%m%d_%H%M%S"
 
     move-object/from16 v0, v21
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-virtual {v0, v1}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
 
@@ -409,94 +421,23 @@
 
     new-instance v17, Ljava/io/File;
 
-    new-instance v25, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v26, "/data/log/dumpstate_lastkmsg_"
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    move-object/from16 v0, v25
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    const-string/jumbo v26, ".log.gz"
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v25
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v25
-
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    const/4 v14, 0x0
-
-    :try_start_0
-    const-string/jumbo v25, "%Y-%m-%d %H:%M:%S"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v25
-
-    invoke-virtual {v0, v1}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v15, "========================================================\n"
-
-    new-instance v25, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v26, "== dumpstate lastkmsg : "
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    move-object/from16 v0, v25
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    const-string/jumbo v26, "\n"
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v20
-
-    const-string/jumbo v25, "BootReceiver"
-
     new-instance v26, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v27, "logLastKmsg - New filename is "
+    const-string/jumbo v27, "/data/log/dumpstate_lastkmsg_"
 
     invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v26
 
-    invoke-virtual/range {v17 .. v17}, Ljava/io/File;->getName()Ljava/lang/String;
+    move-object/from16 v0, v26
 
-    move-result-object v27
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v26
+
+    const-string/jumbo v27, ".log.gz"
 
     invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -506,13 +447,84 @@
 
     move-result-object v26
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v26
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    const/4 v14, 0x0
+
+    :try_start_0
+    const-string/jumbo v26, "%Y-%m-%d %H:%M:%S"
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string/jumbo v15, "========================================================\n"
+
+    new-instance v26, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v27, "== dumpstate lastkmsg : "
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v26
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v26
+
+    const-string/jumbo v27, "\n"
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v26
+
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    const-string/jumbo v26, "BootReceiver"
+
+    new-instance v27, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v28, "logLastKmsg - New filename is "
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    invoke-virtual/range {v17 .. v17}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v27
+
+    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v13}, Ljava/io/File;->isFile()Z
 
-    move-result v25
+    move-result v26
 
-    if-eqz v25, :cond_5
+    if-eqz v26, :cond_5
 
     new-instance v8, Ljava/io/FileInputStream;
 
@@ -541,37 +553,37 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_3
 
     :try_start_3
-    new-instance v25, Ljava/util/zip/ZipEntry;
+    new-instance v26, Ljava/util/zip/ZipEntry;
 
-    const-string/jumbo v26, "dumpstate_lastkmsg"
+    const-string/jumbo v27, "dumpstate_lastkmsg"
 
-    invoke-direct/range {v25 .. v26}, Ljava/util/zip/ZipEntry;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v26 .. v27}, Ljava/util/zip/ZipEntry;-><init>(Ljava/lang/String;)V
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v12, v0}, Ljava/util/zip/ZipOutputStream;->putNextEntry(Ljava/util/zip/ZipEntry;)V
 
     invoke-virtual {v15}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v12, v0}, Ljava/io/FilterOutputStream;->write([B)V
 
     invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v12, v0}, Ljava/io/FilterOutputStream;->write([B)V
 
     invoke-virtual {v15}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v12, v0}, Ljava/io/FilterOutputStream;->write([B)V
 
@@ -579,38 +591,38 @@
 
     invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v12, v0}, Ljava/io/FilterOutputStream;->write([B)V
 
-    invoke-virtual/range {v24 .. v24}, Ljava/io/File;->isFile()Z
+    invoke-virtual/range {v25 .. v25}, Ljava/io/File;->isFile()Z
 
-    move-result v25
+    move-result v26
 
-    if-eqz v25, :cond_6
+    if-eqz v26, :cond_6
 
-    new-instance v23, Ljava/io/FileInputStream;
+    new-instance v24, Ljava/io/FileInputStream;
 
-    invoke-direct/range {v23 .. v24}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    invoke-direct/range {v24 .. v25}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_4
 
     :goto_1
     :try_start_4
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
     invoke-virtual {v0, v3}, Ljava/io/FileInputStream;->read([B)I
 
     move-result v14
 
-    if-lez v14, :cond_13
+    if-lez v14, :cond_15
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v12, v3, v0, v14}, Ljava/util/zip/ZipOutputStream;->write([BII)V
     :try_end_4
@@ -626,35 +638,35 @@
 
     move-object v9, v10
 
-    move-object/from16 v22, v23
+    move-object/from16 v23, v24
 
     move-object v7, v8
 
     :goto_2
     :try_start_5
-    const-string/jumbo v25, "BootReceiver"
+    const-string/jumbo v26, "BootReceiver"
 
-    new-instance v26, Ljava/lang/StringBuilder;
+    new-instance v27, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v27, "logLastKmsg - File copy error"
+    const-string/jumbo v28, "logLastKmsg - File copy error"
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v27
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v27
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v27
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
@@ -667,10 +679,10 @@
 
     :cond_1
     :goto_3
-    if-eqz v22, :cond_2
+    if-eqz v23, :cond_2
 
     :try_start_7
-    invoke-virtual/range {v22 .. v22}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual/range {v23 .. v23}, Ljava/io/FileInputStream;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_8
 
@@ -699,28 +711,28 @@
 
     move-result-object v6
 
-    const/16 v25, 0x1a0
+    const/16 v26, 0x1a0
 
-    const/16 v26, 0x3e8
+    const/16 v27, 0x3e8
 
-    const/16 v27, 0x3ef
+    const/16 v28, 0x3ef
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
-    move/from16 v1, v26
+    move/from16 v1, v27
 
-    move/from16 v2, v27
+    move/from16 v2, v28
 
     invoke-static {v6, v0, v1, v2}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
     :try_end_a
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_f
 
     :goto_7
-    const-string/jumbo v25, "BootReceiver"
+    const-string/jumbo v26, "BootReceiver"
 
-    const-string/jumbo v26, "logLastKmsg - Save Complete"
+    const-string/jumbo v27, "logLastKmsg - Save Complete"
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -743,9 +755,9 @@
 
     invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v12, v0}, Ljava/io/FilterOutputStream;->write([B)V
 
@@ -754,47 +766,47 @@
 
     invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v12, v0}, Ljava/io/FilterOutputStream;->write([B)V
 
-    const-string/jumbo v25, "ro.build.fingerprint"
+    const-string/jumbo v26, "ro.build.fingerprint"
 
-    const-string/jumbo v26, "unknown"
+    const-string/jumbo v27, "unknown"
 
-    invoke-static/range {v25 .. v26}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v26 .. v27}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v20
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    const-string/jumbo v26, "\n\n"
+    const-string/jumbo v27, "\n\n"
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v20
 
     invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v25
+    move-result-object v26
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v12, v0}, Ljava/io/FilterOutputStream;->write([B)V
 
@@ -805,9 +817,9 @@
 
     if-lez v14, :cond_7
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v12, v3, v0, v14}, Ljava/util/zip/ZipOutputStream;->write([BII)V
 
@@ -831,15 +843,15 @@
 
     invoke-static {}, Lcom/android/server/BootReceiver;->-get2()Z
 
-    move-result v25
+    move-result v26
 
-    if-eqz v25, :cond_8
+    if-eqz v26, :cond_9
 
     invoke-virtual/range {v19 .. v19}, Ljava/io/File;->isFile()Z
 
-    move-result v25
+    move-result v26
 
-    if-eqz v25, :cond_12
+    if-eqz v26, :cond_9
 
     new-instance v7, Ljava/io/FileInputStream;
 
@@ -851,13 +863,13 @@
     .catchall {:try_start_c .. :try_end_c} :catchall_4
 
     :try_start_d
-    new-instance v25, Ljava/util/zip/ZipEntry;
+    new-instance v26, Ljava/util/zip/ZipEntry;
 
-    const-string/jumbo v26, "reset_summary.html"
+    const-string/jumbo v27, "reset_summary.html"
 
-    invoke-direct/range {v25 .. v26}, Ljava/util/zip/ZipEntry;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v26 .. v27}, Ljava/util/zip/ZipEntry;-><init>(Ljava/lang/String;)V
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-virtual {v12, v0}, Ljava/util/zip/ZipOutputStream;->putNextEntry(Ljava/util/zip/ZipEntry;)V
 
@@ -868,16 +880,13 @@
 
     move-result v14
 
-    if-lez v14, :cond_d
+    if-lez v14, :cond_8
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v12, v3, v0, v14}, Ljava/util/zip/ZipOutputStream;->write([BII)V
-    :try_end_d
-    .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_2
-    .catchall {:try_start_d .. :try_end_d} :catchall_0
 
     goto :goto_a
 
@@ -891,125 +900,187 @@
     goto/16 :goto_2
 
     :cond_8
-    move-object v7, v8
+    invoke-virtual {v12}, Ljava/util/zip/ZipOutputStream;->closeEntry()V
+    :try_end_d
+    .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_2
+    .catchall {:try_start_d .. :try_end_d} :catchall_0
 
-    :goto_b
-    if-eqz v7, :cond_9
-
-    :try_start_e
-    invoke-virtual {v7}, Ljava/io/FileInputStream;->close()V
-    :try_end_e
-    .catch Ljava/io/IOException; {:try_start_e .. :try_end_e} :catch_3
+    move-object v8, v7
 
     :cond_9
-    :goto_c
-    if-eqz v22, :cond_a
+    :try_start_e
+    invoke-static {}, Lcom/android/server/BootReceiver;->-get2()Z
+
+    move-result v26
+
+    if-eqz v26, :cond_e
+
+    invoke-virtual/range {v22 .. v22}, Ljava/io/File;->isFile()Z
+
+    move-result v26
+
+    if-eqz v26, :cond_14
+
+    new-instance v7, Ljava/io/FileInputStream;
+
+    move-object/from16 v0, v22
+
+    invoke-direct {v7, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_e
+    .catch Ljava/io/IOException; {:try_start_e .. :try_end_e} :catch_1
+    .catchall {:try_start_e .. :try_end_e} :catchall_4
 
     :try_start_f
-    invoke-virtual/range {v22 .. v22}, Ljava/io/FileInputStream;->close()V
+    new-instance v26, Ljava/util/zip/ZipEntry;
+
+    const-string/jumbo v27, "ocimem.lst"
+
+    invoke-direct/range {v26 .. v27}, Ljava/util/zip/ZipEntry;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v12, v0}, Ljava/util/zip/ZipOutputStream;->putNextEntry(Ljava/util/zip/ZipEntry;)V
+
+    const/4 v14, 0x0
+
+    :goto_b
+    invoke-virtual {v7, v3}, Ljava/io/FileInputStream;->read([B)I
+
+    move-result v14
+
+    if-lez v14, :cond_13
+
+    const/16 v26, 0x0
+
+    move/from16 v0, v26
+
+    invoke-virtual {v12, v3, v0, v14}, Ljava/util/zip/ZipOutputStream;->write([BII)V
     :try_end_f
-    .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_4
+    .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_2
+    .catchall {:try_start_f .. :try_end_f} :catchall_0
+
+    goto :goto_b
+
+    :catchall_0
+    move-exception v26
+
+    move-object v11, v12
+
+    move-object v9, v10
+
+    :goto_c
+    if-eqz v7, :cond_a
+
+    :try_start_10
+    invoke-virtual {v7}, Ljava/io/FileInputStream;->close()V
+    :try_end_10
+    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_10} :catch_b
 
     :cond_a
     :goto_d
-    if-eqz v12, :cond_b
+    if-eqz v23, :cond_b
 
-    :try_start_10
-    invoke-virtual {v12}, Ljava/util/zip/ZipOutputStream;->close()V
-    :try_end_10
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_10} :catch_5
+    :try_start_11
+    invoke-virtual/range {v23 .. v23}, Ljava/io/FileInputStream;->close()V
+    :try_end_11
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_11} :catch_c
 
     :cond_b
     :goto_e
-    if-eqz v10, :cond_c
+    if-eqz v11, :cond_c
 
-    :try_start_11
-    invoke-virtual {v10}, Ljava/io/FileOutputStream;->close()V
-    :try_end_11
-    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_11} :catch_6
+    :try_start_12
+    invoke-virtual {v11}, Ljava/util/zip/ZipOutputStream;->close()V
+    :try_end_12
+    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_12} :catch_d
 
     :cond_c
     :goto_f
+    if-eqz v9, :cond_d
+
+    :try_start_13
+    invoke-virtual {v9}, Ljava/io/FileOutputStream;->close()V
+    :try_end_13
+    .catch Ljava/io/IOException; {:try_start_13 .. :try_end_13} :catch_e
+
+    :cond_d
+    :goto_10
+    throw v26
+
+    :cond_e
+    move-object v7, v8
+
+    :goto_11
+    if-eqz v7, :cond_f
+
+    :try_start_14
+    invoke-virtual {v7}, Ljava/io/FileInputStream;->close()V
+    :try_end_14
+    .catch Ljava/io/IOException; {:try_start_14 .. :try_end_14} :catch_3
+
+    :cond_f
+    :goto_12
+    if-eqz v23, :cond_10
+
+    :try_start_15
+    invoke-virtual/range {v23 .. v23}, Ljava/io/FileInputStream;->close()V
+    :try_end_15
+    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_15} :catch_4
+
+    :cond_10
+    :goto_13
+    if-eqz v12, :cond_11
+
+    :try_start_16
+    invoke-virtual {v12}, Ljava/util/zip/ZipOutputStream;->close()V
+    :try_end_16
+    .catch Ljava/io/IOException; {:try_start_16 .. :try_end_16} :catch_5
+
+    :cond_11
+    :goto_14
+    if-eqz v10, :cond_12
+
+    :try_start_17
+    invoke-virtual {v10}, Ljava/io/FileOutputStream;->close()V
+    :try_end_17
+    .catch Ljava/io/IOException; {:try_start_17 .. :try_end_17} :catch_6
+
+    :cond_12
+    :goto_15
     move-object v11, v12
 
     move-object v9, v10
 
     goto/16 :goto_6
 
-    :cond_d
-    :try_start_12
+    :cond_13
+    :try_start_18
     invoke-virtual {v12}, Ljava/util/zip/ZipOutputStream;->closeEntry()V
-    :try_end_12
-    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_12} :catch_2
-    .catchall {:try_start_12 .. :try_end_12} :catchall_0
+    :try_end_18
+    .catch Ljava/io/IOException; {:try_start_18 .. :try_end_18} :catch_2
+    .catchall {:try_start_18 .. :try_end_18} :catchall_0
 
-    goto :goto_b
-
-    :catchall_0
-    move-exception v25
-
-    move-object v11, v12
-
-    move-object v9, v10
-
-    :goto_10
-    if-eqz v7, :cond_e
-
-    :try_start_13
-    invoke-virtual {v7}, Ljava/io/FileInputStream;->close()V
-    :try_end_13
-    .catch Ljava/io/IOException; {:try_start_13 .. :try_end_13} :catch_b
-
-    :cond_e
-    :goto_11
-    if-eqz v22, :cond_f
-
-    :try_start_14
-    invoke-virtual/range {v22 .. v22}, Ljava/io/FileInputStream;->close()V
-    :try_end_14
-    .catch Ljava/io/IOException; {:try_start_14 .. :try_end_14} :catch_c
-
-    :cond_f
-    :goto_12
-    if-eqz v11, :cond_10
-
-    :try_start_15
-    invoke-virtual {v11}, Ljava/util/zip/ZipOutputStream;->close()V
-    :try_end_15
-    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_15} :catch_d
-
-    :cond_10
-    :goto_13
-    if-eqz v9, :cond_11
-
-    :try_start_16
-    invoke-virtual {v9}, Ljava/io/FileOutputStream;->close()V
-    :try_end_16
-    .catch Ljava/io/IOException; {:try_start_16 .. :try_end_16} :catch_e
-
-    :cond_11
-    :goto_14
-    throw v25
+    goto :goto_11
 
     :catch_3
     move-exception v5
 
-    goto :goto_c
+    goto :goto_12
 
     :catch_4
     move-exception v5
 
-    goto :goto_d
+    goto :goto_13
 
     :catch_5
     move-exception v5
 
-    goto :goto_e
+    goto :goto_14
 
     :catch_6
     move-exception v5
 
-    goto :goto_f
+    goto :goto_15
 
     :catch_7
     move-exception v5
@@ -1034,75 +1105,75 @@
     :catch_b
     move-exception v5
 
-    goto :goto_11
+    goto :goto_d
 
     :catch_c
     move-exception v5
 
-    goto :goto_12
+    goto :goto_e
 
     :catch_d
     move-exception v5
 
-    goto :goto_13
+    goto :goto_f
 
     :catch_e
     move-exception v5
 
-    goto :goto_14
+    goto :goto_10
 
     :catch_f
     move-exception v5
 
-    const-string/jumbo v25, "BootReceiver"
+    const-string/jumbo v26, "BootReceiver"
 
-    new-instance v26, Ljava/lang/StringBuilder;
+    new-instance v27, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v27, "dumpstate_lastkmsg - getCanonicalPath error"
+    const-string/jumbo v28, "dumpstate_lastkmsg - getCanonicalPath error"
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v27
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v27
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v27
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_7
 
     :catchall_1
-    move-exception v25
+    move-exception v26
 
-    goto :goto_10
+    goto :goto_c
 
     :catchall_2
-    move-exception v25
+    move-exception v26
 
     move-object v7, v8
 
-    goto :goto_10
+    goto :goto_c
 
     :catchall_3
-    move-exception v25
+    move-exception v26
 
     move-object v9, v10
 
     move-object v7, v8
 
-    goto :goto_10
+    goto :goto_c
 
     :catchall_4
-    move-exception v25
+    move-exception v26
 
     move-object v11, v12
 
@@ -1110,20 +1181,20 @@
 
     move-object v7, v8
 
-    goto :goto_10
+    goto :goto_c
 
     :catchall_5
-    move-exception v25
+    move-exception v26
 
     move-object v11, v12
 
     move-object v9, v10
 
-    move-object/from16 v22, v23
+    move-object/from16 v23, v24
 
     move-object v7, v8
 
-    goto :goto_10
+    goto/16 :goto_c
 
     :catch_10
     move-exception v5
@@ -1146,13 +1217,13 @@
 
     goto/16 :goto_2
 
-    :cond_12
+    :cond_14
     move-object v7, v8
 
-    goto/16 :goto_b
+    goto :goto_11
 
-    :cond_13
-    move-object/from16 v22, v23
+    :cond_15
+    move-object/from16 v23, v24
 
     goto/16 :goto_8
 .end method

@@ -71,7 +71,7 @@
         }
     .end annotation
 
-    const v0, 0x109008d
+    const v0, 0x109008e
 
     const v1, 0x10200dc
 
@@ -330,7 +330,7 @@
 
     move-result-object v0
 
-    const v1, 0x1070099
+    const v1, 0x107009a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -346,7 +346,7 @@
 
     move-result-object v0
 
-    const v1, 0x1070098
+    const v1, 0x1070099
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

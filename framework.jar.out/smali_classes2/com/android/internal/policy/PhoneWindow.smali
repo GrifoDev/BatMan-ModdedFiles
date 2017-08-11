@@ -789,7 +789,7 @@
     invoke-direct {p0}, Lcom/android/internal/policy/PhoneWindow;->installDecor()V
 
     :cond_1
-    const v0, 0x1020486
+    const v0, 0x102048f
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/PhoneWindow;->findViewById(I)Landroid/view/View;
 
@@ -908,7 +908,7 @@
     invoke-direct {p0}, Lcom/android/internal/policy/PhoneWindow;->installDecor()V
 
     :cond_1
-    const v0, 0x1020487
+    const v0, 0x1020490
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/PhoneWindow;->findViewById(I)Landroid/view/View;
 
@@ -1407,7 +1407,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x1020488
+    const v20, 0x1020491
 
     invoke-virtual/range {v19 .. v20}, Lcom/android/internal/policy/DecorView;->findViewById(I)Landroid/view/View;
 
@@ -6468,7 +6468,7 @@
 
     if-eqz v33, :cond_3a
 
-    const v16, 0x10900e5
+    const v16, 0x10900e6
 
     :goto_e
     move-object/from16 v0, p0
@@ -6658,7 +6658,7 @@
 
     move-result-object v33
 
-    const v34, 0x11200dd
+    const v34, 0x11200de
 
     invoke-virtual/range {v33 .. v34}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -6687,7 +6687,7 @@
 
     move-result-object v33
 
-    const v34, 0x10600f6
+    const v34, 0x10600fc
 
     invoke-virtual/range {v33 .. v34}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6843,7 +6843,7 @@
     goto/16 :goto_e
 
     :cond_3b
-    const v16, 0x10900e7
+    const v16, 0x10900e8
 
     goto :goto_10
 
@@ -6858,7 +6858,7 @@
 
     if-nez v33, :cond_3d
 
-    const v16, 0x10900e2
+    const v16, 0x10900e3
 
     goto/16 :goto_e
 
@@ -6921,7 +6921,7 @@
     goto/16 :goto_e
 
     :cond_3e
-    const v16, 0x10900e1
+    const v16, 0x10900e2
 
     goto :goto_11
 
@@ -6981,7 +6981,7 @@
 
     const/16 v33, 0x30
 
-    const v34, 0x10900e0
+    const v34, 0x10900e1
 
     move/from16 v0, v33
 
@@ -6994,7 +6994,7 @@
     goto/16 :goto_e
 
     :cond_41
-    const v16, 0x10900e6
+    const v16, 0x10900e7
 
     goto/16 :goto_e
 
@@ -7005,12 +7005,12 @@
 
     if-eqz v33, :cond_43
 
-    const v16, 0x10900e4
+    const v16, 0x10900e5
 
     goto/16 :goto_e
 
     :cond_43
-    const v16, 0x10900e3
+    const v16, 0x10900e4
 
     goto/16 :goto_e
 
@@ -7157,7 +7157,7 @@
 
     move/from16 v33, v0
 
-    const v34, 0x1080aae
+    const v34, 0x1080a9c
 
     move/from16 v0, v33
 
@@ -7171,7 +7171,7 @@
 
     if-eqz v33, :cond_48
 
-    const v33, 0x1080aad
+    const v33, 0x1080a9b
 
     move/from16 v0, v33
 
@@ -7346,7 +7346,7 @@
     return-object v7
 
     :pswitch_0
-    const v33, 0x1080aae
+    const v33, 0x1080a9c
 
     move/from16 v0, v33
 
@@ -7383,7 +7383,7 @@
     goto/16 :goto_14
 
     :pswitch_data_0
-    .packed-switch 0x1080aad
+    .packed-switch 0x1080a9b
         :pswitch_0
     .end packed-switch
 .end method

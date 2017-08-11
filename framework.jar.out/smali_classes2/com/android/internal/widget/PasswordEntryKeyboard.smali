@@ -185,7 +185,7 @@
 
     move-result-object v0
 
-    const v1, 0x1080927
+    const v1, 0x1080915
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -193,7 +193,7 @@
 
     iput-object v1, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftIcon:Landroid/graphics/drawable/Drawable;
 
-    const v1, 0x1080928
+    const v1, 0x1080916
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

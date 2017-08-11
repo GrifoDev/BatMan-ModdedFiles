@@ -25,11 +25,11 @@
 
 .field public static final boost_activityList:I = 0x1070074
 
-.field public static final carrier_properties:I = 0x10700a0
+.field public static final carrier_properties:I = 0x10700a1
 
-.field public static final cinematic_service_list:I = 0x10700a8
+.field public static final cinematic_service_list:I = 0x10700a9
 
-.field public static final common_nicknames:I = 0x1070097
+.field public static final common_nicknames:I = 0x1070098
 
 .field public static final config_AdjustmentOfEBookSCRWhite:I = 0x107008f
 
@@ -59,6 +59,8 @@
 
 .field public static final config_HDR_Effect_Preload_List:I = 0x107008d
 
+.field public static final config_POC_RGB_Element:I = 0x1070092
+
 .field public static final config_Sbrowser_App_Launcher:I = 0x1070080
 
 .field public static final config_Svideo_App_Launcher:I = 0x1070087
@@ -69,13 +71,13 @@
 
 .field public static final config_Video_App_Launcher:I = 0x1070089
 
-.field public static final config_adaptiveControlValues:I = 0x10700b9
+.field public static final config_adaptiveControlValues:I = 0x10700bb
 
-.field public static final config_aodBrightnessValues:I = 0x10700b8
+.field public static final config_aodBrightnessValues:I = 0x10700ba
 
-.field public static final config_applock_locked_related_classes:I = 0x1070094
+.field public static final config_applock_locked_related_classes:I = 0x1070095
 
-.field public static final config_applock_locked_related_packages:I = 0x1070093
+.field public static final config_applock_locked_related_packages:I = 0x1070094
 
 .field public static final config_autoBrightnessButtonBacklightValues:I = 0x107004c
 
@@ -117,29 +119,29 @@
 
 .field public static final config_disabledUntilUsedPreinstalledImes:I = 0x107005a
 
-.field public static final config_dynamicAutoBrightnessHighHysteresisLevels:I = 0x10700af
+.field public static final config_dynamicAutoBrightnessHighHysteresisLevels:I = 0x10700b1
 
-.field public static final config_dynamicAutoBrightnessHighHysteresisLevelsForEbookOnly:I = 0x10700b5
+.field public static final config_dynamicAutoBrightnessHighHysteresisLevelsForEbookOnly:I = 0x10700b7
 
-.field public static final config_dynamicAutoBrightnessHighHysteresisValues:I = 0x10700b0
+.field public static final config_dynamicAutoBrightnessHighHysteresisValues:I = 0x10700b2
 
-.field public static final config_dynamicAutoBrightnessHighHysteresisValuesForEbookOnly:I = 0x10700b6
+.field public static final config_dynamicAutoBrightnessHighHysteresisValuesForEbookOnly:I = 0x10700b8
 
-.field public static final config_dynamicAutoBrightnessLevels:I = 0x10700ad
+.field public static final config_dynamicAutoBrightnessLevels:I = 0x10700af
 
-.field public static final config_dynamicAutoBrightnessLevelsForEbookOnly:I = 0x10700b3
+.field public static final config_dynamicAutoBrightnessLevelsForEbookOnly:I = 0x10700b5
 
-.field public static final config_dynamicAutoBrightnessLowHysteresisLevels:I = 0x10700ab
+.field public static final config_dynamicAutoBrightnessLowHysteresisLevels:I = 0x10700ad
 
-.field public static final config_dynamicAutoBrightnessLowHysteresisLevelsForEbookOnly:I = 0x10700b1
+.field public static final config_dynamicAutoBrightnessLowHysteresisLevelsForEbookOnly:I = 0x10700b3
 
-.field public static final config_dynamicAutoBrightnessLowHysteresisValues:I = 0x10700ac
+.field public static final config_dynamicAutoBrightnessLowHysteresisValues:I = 0x10700ae
 
-.field public static final config_dynamicAutoBrightnessLowHysteresisValuesForEbookOnly:I = 0x10700b2
+.field public static final config_dynamicAutoBrightnessLowHysteresisValuesForEbookOnly:I = 0x10700b4
 
-.field public static final config_dynamicAutoBrightnessValues:I = 0x10700ae
+.field public static final config_dynamicAutoBrightnessValues:I = 0x10700b0
 
-.field public static final config_dynamicAutoBrightnessValuesForEbookOnly:I = 0x10700b4
+.field public static final config_dynamicAutoBrightnessValuesForEbookOnly:I = 0x10700b6
 
 .field public static final config_ephemeralResolverPackage:I = 0x107004e
 
@@ -153,11 +155,11 @@
 
 .field public static final config_locationProviderPackageNames:I = 0x107004f
 
-.field public static final config_locationProviderPackageNames_chn:I = 0x10700a9
+.field public static final config_locationProviderPackageNames_chn:I = 0x10700ab
 
 .field public static final config_longPressVibePattern:I = 0x1070041
 
-.field public static final config_minimumExpressiveBrightnessValues:I = 0x10700aa
+.field public static final config_minimumExpressiveBrightnessValues:I = 0x10700ac
 
 .field public static final config_mobile_hotspot_provision_app:I = 0x107003a
 
@@ -181,9 +183,9 @@
 
 .field public static final config_sameNamedOperatorConsideredRoaming:I = 0x107005e
 
-.field public static final config_samsung_relaxed_broadcast_actions:I = 0x1070092
+.field public static final config_samsung_relaxed_broadcast_actions:I = 0x1070093
 
-.field public static final config_screenBrightnessRangeForClearView:I = 0x10700b7
+.field public static final config_screenBrightnessRangeForClearView:I = 0x10700b9
 
 .field public static final config_serialPorts:I = 0x1070040
 
@@ -277,15 +279,17 @@
 
 .field public static final debugBoost_param_value:I = 0x1070077
 
-.field public static final default_wallpaper_list:I = 0x10700a7
+.field public static final default_csc_wallpaper_list:I = 0x10700aa
+
+.field public static final default_wallpaper_list:I = 0x10700a8
 
 .field public static final dial_string_replace:I = 0x1070066
 
 .field public static final emailAddressTypes:I = 0x1070000
 
-.field public static final fingerprint_acquired_vendor:I = 0x107009d
+.field public static final fingerprint_acquired_vendor:I = 0x107009e
 
-.field public static final fingerprint_error_vendor:I = 0x107009e
+.field public static final fingerprint_error_vendor:I = 0x107009f
 
 .field public static final flingboost_param_value:I = 0x1070072
 
@@ -309,9 +313,9 @@
 
 .field public static final lte_signal_strength_threshold:I = 0x107007e
 
-.field public static final maps_starting_lat_lng:I = 0x1070095
+.field public static final maps_starting_lat_lng:I = 0x1070096
 
-.field public static final maps_starting_zoom:I = 0x1070096
+.field public static final maps_starting_zoom:I = 0x1070097
 
 .field public static final networkAttributes:I = 0x1070031
 
@@ -333,13 +337,13 @@
 
 .field public static final power_off_alarm_apps:I = 0x107000f
 
-.field public static final preload_knox_wallpapers:I = 0x10700a5
+.field public static final preload_knox_wallpapers:I = 0x10700a6
 
-.field public static final preload_sview_wallpapers:I = 0x10700a4
+.field public static final preload_sview_wallpapers:I = 0x10700a5
 
-.field public static final preload_tts_wallpapers:I = 0x10700a3
+.field public static final preload_tts_wallpapers:I = 0x10700a4
 
-.field public static final preload_wallpapers:I = 0x10700a2
+.field public static final preload_wallpapers:I = 0x10700a3
 
 .field public static final preloaded_color_state_lists:I = 0x1070007
 
@@ -355,7 +359,7 @@
 
 .field public static final scrollboost_param_value:I = 0x1070073
 
-.field public static final sem_resolver_target_actions_only_appinfo:I = 0x10700a1
+.field public static final sem_resolver_target_actions_only_appinfo:I = 0x10700a2
 
 .field public static final shouldNotWriteMessage:I = 0x1070011
 
@@ -365,19 +369,19 @@
 
 .field public static final special_locale_names:I = 0x107000a
 
-.field public static final specific_customer_supported_locales:I = 0x1070099
+.field public static final specific_customer_supported_locales:I = 0x107009a
 
-.field public static final supported_locales:I = 0x1070098
+.field public static final supported_locales:I = 0x1070099
 
 .field public static final umts_signal_strength_threshold:I = 0x107007d
 
-.field public static final wallpaper_device_color:I = 0x10700a6
+.field public static final wallpaper_device_color:I = 0x10700a7
 
-.field public static final wfcOperatorErrorAlertMessages:I = 0x107009a
+.field public static final wfcOperatorErrorAlertMessages:I = 0x107009b
 
-.field public static final wfcOperatorErrorNotificationMessages:I = 0x107009b
+.field public static final wfcOperatorErrorNotificationMessages:I = 0x107009c
 
-.field public static final wfcSpnFormats:I = 0x107009c
+.field public static final wfcSpnFormats:I = 0x107009d
 
 
 # direct methods

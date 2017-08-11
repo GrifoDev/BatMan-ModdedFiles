@@ -22,11 +22,9 @@
         Landroid/widget/Editor$InputMethodState;,
         Landroid/widget/Editor$InsertionHandleView;,
         Landroid/widget/Editor$InsertionPointCursorController;,
-        Landroid/widget/Editor$MagnifierView;,
         Landroid/widget/Editor$PinnedPopupWindow;,
         Landroid/widget/Editor$PositionListener;,
         Landroid/widget/Editor$ProcessTextIntentActionsHandler;,
-        Landroid/widget/Editor$SFEffectsAPI;,
         Landroid/widget/Editor$SelectionHandleView;,
         Landroid/widget/Editor$SelectionModifierCursorController;,
         Landroid/widget/Editor$SpanController;,
@@ -53,7 +51,7 @@
 
 .field private static DRAG_SHADOW_MAX_TEXT_LENGTH:I = 0x0
 
-.field private static final ERROR_MESSAGE_LAYOUT:I = 0x1090134
+.field private static final ERROR_MESSAGE_LAYOUT:I = 0x1090135
 
 .field static final EXTRACT_NOTHING:I = -0x2
 
@@ -76,8 +74,6 @@
 .field private static final INSERTION_HANDLE_SHOW_ANIMATOR:I = 0x3
 
 .field private static final LINE_SLOP_MULTIPLIER_FOR_HANDLEVIEWS:F = 0.5f
-
-.field private static final MAGNIFIER_FEATURE_ENABLE:Z = true
 
 .field private static final MENU_ITEM_ORDER_COPY:I = 0x4
 
@@ -117,7 +113,7 @@
 
 .field private static final TEMP_POSITION:[F
 
-.field private static final TW_ERROR_MESSAGE_LAYOUT:I = 0x1090172
+.field private static final TW_ERROR_MESSAGE_LAYOUT:I = 0x1090173
 
 .field private static final TW_MENU_ITEM_ORDER_CLIPBOARD:I = 0x6
 
@@ -213,10 +209,6 @@
 
 .field mIsInsertionActionModeStartPending:Z
 
-.field private mIsMagnifierShowing:Z
-
-.field private mIsSupportMagnifier:Z
-
 .field private mIsThemeDeviceDefault:Z
 
 .field mKeyListener:Landroid/text/method/KeyListener;
@@ -232,8 +224,6 @@
 .field mLastDownPositionY:F
 
 .field private mLastTouchUpTime:J
-
-.field private mMagnifierView:Landroid/widget/Editor$MagnifierView;
 
 .field private final mOnContextMenuItemClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
 
@@ -323,31 +313,7 @@
     return v0
 .end method
 
-.method static synthetic -get10(Landroid/widget/Editor;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/Editor;->mSelectHandleRight:Landroid/graphics/drawable/Drawable;
-
-    return-object v0
-.end method
-
-.method static synthetic -get11(Landroid/widget/Editor;)Landroid/widget/Editor$SuggestionHelper;
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/Editor;->mSuggestionHelper:Landroid/widget/Editor$SuggestionHelper;
-
-    return-object v0
-.end method
-
-.method static synthetic -get12(Landroid/widget/Editor;)I
-    .locals 1
-
-    iget v0, p0, Landroid/widget/Editor;->mTapState:I
-
-    return v0
-.end method
-
-.method static synthetic -get13(Landroid/widget/Editor;)Landroid/graphics/Rect;
+.method static synthetic -get10(Landroid/widget/Editor;)Landroid/graphics/Rect;
     .locals 1
 
     iget-object v0, p0, Landroid/widget/Editor;->mTempRect:Landroid/graphics/Rect;
@@ -355,7 +321,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+.method static synthetic -get11(Landroid/widget/Editor;)Landroid/widget/TextView;
     .locals 1
 
     iget-object v0, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -363,7 +329,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Landroid/widget/Editor;)Landroid/content/UndoManager;
+.method static synthetic -get12(Landroid/widget/Editor;)Landroid/content/UndoManager;
     .locals 1
 
     iget-object v0, p0, Landroid/widget/Editor;->mUndoManager:Landroid/content/UndoManager;
@@ -371,7 +337,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Landroid/widget/Editor;)Landroid/content/UndoOwner;
+.method static synthetic -get13(Landroid/widget/Editor;)Landroid/content/UndoOwner;
     .locals 1
 
     iget-object v0, p0, Landroid/widget/Editor;->mUndoOwner:Landroid/content/UndoOwner;
@@ -390,7 +356,7 @@
 .method static synthetic -get3(Landroid/widget/Editor;)Z
     .locals 1
 
-    iget-boolean v0, p0, Landroid/widget/Editor;->mIsMagnifierShowing:Z
+    iget-boolean v0, p0, Landroid/widget/Editor;->mIsThemeDeviceDefault:Z
 
     return v0
 .end method
@@ -398,36 +364,12 @@
 .method static synthetic -get4(Landroid/widget/Editor;)Z
     .locals 1
 
-    iget-boolean v0, p0, Landroid/widget/Editor;->mIsSupportMagnifier:Z
-
-    return v0
-.end method
-
-.method static synthetic -get5(Landroid/widget/Editor;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/widget/Editor;->mIsThemeDeviceDefault:Z
-
-    return v0
-.end method
-
-.method static synthetic -get6(Landroid/widget/Editor;)Landroid/widget/Editor$MagnifierView;
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/Editor;->mMagnifierView:Landroid/widget/Editor$MagnifierView;
-
-    return-object v0
-.end method
-
-.method static synthetic -get7(Landroid/widget/Editor;)Z
-    .locals 1
-
     iget-boolean v0, p0, Landroid/widget/Editor;->mPreserveSelection:Z
 
     return v0
 .end method
 
-.method static synthetic -get8(Landroid/widget/Editor;)Landroid/graphics/drawable/Drawable;
+.method static synthetic -get5(Landroid/widget/Editor;)Landroid/graphics/drawable/Drawable;
     .locals 1
 
     iget-object v0, p0, Landroid/widget/Editor;->mSelectHandleCenter:Landroid/graphics/drawable/Drawable;
@@ -435,12 +377,36 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Landroid/widget/Editor;)Landroid/graphics/drawable/Drawable;
+.method static synthetic -get6(Landroid/widget/Editor;)Landroid/graphics/drawable/Drawable;
     .locals 1
 
     iget-object v0, p0, Landroid/widget/Editor;->mSelectHandleLeft:Landroid/graphics/drawable/Drawable;
 
     return-object v0
+.end method
+
+.method static synthetic -get7(Landroid/widget/Editor;)Landroid/graphics/drawable/Drawable;
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/Editor;->mSelectHandleRight:Landroid/graphics/drawable/Drawable;
+
+    return-object v0
+.end method
+
+.method static synthetic -get8(Landroid/widget/Editor;)Landroid/widget/Editor$SuggestionHelper;
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/Editor;->mSuggestionHelper:Landroid/widget/Editor$SuggestionHelper;
+
+    return-object v0
+.end method
+
+.method static synthetic -get9(Landroid/widget/Editor;)I
+    .locals 1
+
+    iget v0, p0, Landroid/widget/Editor;->mTapState:I
+
+    return v0
 .end method
 
 .method static synthetic -set0(Landroid/widget/Editor;Ljava/lang/Runnable;)Ljava/lang/Runnable;
@@ -454,20 +420,12 @@
 .method static synthetic -set1(Landroid/widget/Editor;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Landroid/widget/Editor;->mIsMagnifierShowing:Z
-
-    return p1
-.end method
-
-.method static synthetic -set2(Landroid/widget/Editor;Z)Z
-    .locals 0
-
     iput-boolean p1, p0, Landroid/widget/Editor;->mPreserveSelection:Z
 
     return p1
 .end method
 
-.method static synthetic -set3(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+.method static synthetic -set2(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
     iput-object p1, p0, Landroid/widget/Editor;->mSelectHandleCenter:Landroid/graphics/drawable/Drawable;
@@ -475,7 +433,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set4(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+.method static synthetic -set3(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
     iput-object p1, p0, Landroid/widget/Editor;->mSelectHandleLeft:Landroid/graphics/drawable/Drawable;
@@ -483,7 +441,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set5(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+.method static synthetic -set4(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
     iput-object p1, p0, Landroid/widget/Editor;->mSelectHandleRight:Landroid/graphics/drawable/Drawable;
@@ -491,7 +449,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set6(Landroid/widget/Editor;Landroid/graphics/Rect;)Landroid/graphics/Rect;
+.method static synthetic -set5(Landroid/widget/Editor;Landroid/graphics/Rect;)Landroid/graphics/Rect;
     .locals 0
 
     iput-object p1, p0, Landroid/widget/Editor;->mTempRect:Landroid/graphics/Rect;
@@ -831,10 +789,6 @@
     iput-boolean v4, p0, Landroid/widget/Editor;->mAllowUndo:Z
 
     iput-boolean v2, p0, Landroid/widget/Editor;->mIsThemeDeviceDefault:Z
-
-    iput-boolean v4, p0, Landroid/widget/Editor;->mIsSupportMagnifier:Z
-
-    iput-boolean v2, p0, Landroid/widget/Editor;->mIsMagnifierShowing:Z
 
     iput-boolean v2, p0, Landroid/widget/Editor;->mIsCurrentSelecting:Z
 
@@ -2701,31 +2655,6 @@
     return-wide v4
 .end method
 
-.method private getMagnifierView()Landroid/widget/Editor$MagnifierView;
-    .locals 2
-
-    iget-object v0, p0, Landroid/widget/Editor;->mMagnifierView:Landroid/widget/Editor$MagnifierView;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/widget/Editor$MagnifierView;
-
-    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-direct {v0, p0, v1}, Landroid/widget/Editor$MagnifierView;-><init>(Landroid/widget/Editor;Landroid/content/Context;)V
-
-    iput-object v0, p0, Landroid/widget/Editor;->mMagnifierView:Landroid/widget/Editor$MagnifierView;
-
-    :cond_0
-    iget-object v0, p0, Landroid/widget/Editor;->mMagnifierView:Landroid/widget/Editor$MagnifierView;
-
-    return-object v0
-.end method
-
 .method private getNextCursorOffset(IZ)I
     .locals 2
 
@@ -2898,7 +2827,7 @@
 
     move-result-object v5
 
-    const v6, 0x1090129
+    const v6, 0x109012a
 
     invoke-static {v5, v6, v9}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -4780,17 +4709,18 @@
     return v3
 
     :cond_5
-    iput-boolean v2, p0, Landroid/widget/Editor;->mIsMagnifierShowing:Z
+    iget-object v0, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
 
-    iget-object v0, p0, Landroid/widget/Editor;->mMagnifierView:Landroid/widget/Editor$MagnifierView;
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setMagnifierShowing(Z)V
 
-    if-eqz v0, :cond_6
+    iget-object v0, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
 
-    iget-object v0, p0, Landroid/widget/Editor;->mMagnifierView:Landroid/widget/Editor$MagnifierView;
+    invoke-virtual {v0}, Landroid/widget/TextView;->getMagnifierView()Landroid/widget/TextView$MagnifierView;
 
-    invoke-virtual {v0}, Landroid/widget/Editor$MagnifierView;->stopMagnifier()V
+    move-result-object v0
 
-    :cond_6
+    invoke-virtual {v0}, Landroid/widget/TextView$MagnifierView;->stopMagnifier()V
+
     return v2
 .end method
 
@@ -5286,7 +5216,7 @@
 
     if-eqz v4, :cond_2
 
-    const v4, 0x1090172
+    const v4, 0x1090173
 
     invoke-virtual {v1, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -5389,7 +5319,7 @@
     return-void
 
     :cond_2
-    const v4, 0x1090134
+    const v4, 0x1090135
 
     invoke-virtual {v1, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -7690,6 +7620,20 @@
 
     invoke-direct {p0}, Landroid/widget/Editor;->removeAllAnimator()V
 
+    iget-object v0, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setMagnifierShowing(Z)V
+
+    iget-object v0, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getMagnifierView()Landroid/widget/TextView$MagnifierView;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/TextView$MagnifierView;->stopMagnifier()V
+
     iget-object v0, p0, Landroid/widget/Editor;->mInsertionPointCursorController:Landroid/widget/Editor$InsertionPointCursorController;
 
     if-eqz v0, :cond_1
@@ -8656,9 +8600,9 @@
 
     const/4 v8, 0x3
 
-    const/4 v7, 0x1
+    const/4 v7, 0x0
 
-    const/4 v6, 0x0
+    const/4 v6, 0x1
 
     const/4 v5, 0x0
 
@@ -8678,9 +8622,9 @@
 
     move-result v1
 
-    if-ne v1, v7, :cond_0
+    if-ne v1, v6, :cond_0
 
-    iput-boolean v7, p0, Landroid/widget/Editor;->mDiscardNextActionUp:Z
+    iput-boolean v6, p0, Landroid/widget/Editor;->mDiscardNextActionUp:Z
 
     :cond_0
     return-void
@@ -8703,21 +8647,33 @@
     invoke-virtual {v1, p1}, Landroid/widget/Editor$SelectionModifierCursorController;->onTouchEvent(Landroid/view/MotionEvent;)V
 
     :cond_2
-    iget-boolean v1, p0, Landroid/widget/Editor;->mIsSupportMagnifier:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-static {}, Landroid/widget/TextView;->isSupportMagnifier()Z
+
+    move-result v1
 
     if-eqz v1, :cond_3
 
-    iget-boolean v1, p0, Landroid/widget/Editor;->mIsMagnifierShowing:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
 
-    if-eqz v1, :cond_3
-
-    invoke-direct {p0}, Landroid/widget/Editor;->getMagnifierView()Landroid/widget/Editor$MagnifierView;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMagnifierView()Landroid/widget/TextView$MagnifierView;
 
     move-result-object v1
 
     if-eqz v1, :cond_3
 
-    invoke-direct {p0}, Landroid/widget/Editor;->getMagnifierView()Landroid/widget/Editor$MagnifierView;
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->isMagnifierShowing()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMagnifierView()Landroid/widget/TextView$MagnifierView;
 
     move-result-object v1
 
@@ -8733,7 +8689,7 @@
 
     move-result v4
 
-    invoke-virtual {v1, v2, v3, v4}, Landroid/widget/Editor$MagnifierView;->handleTouchEvent(IFF)V
+    invoke-virtual {v1, v2, v3, v4}, Landroid/widget/TextView$MagnifierView;->handleTouchEvent(IFF)V
 
     :cond_3
     iget-object v1, p0, Landroid/widget/Editor;->mShowSuggestionRunnable:Ljava/lang/Runnable;
@@ -8746,14 +8702,14 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    iput-object v6, p0, Landroid/widget/Editor;->mShowSuggestionRunnable:Ljava/lang/Runnable;
+    iput-object v7, p0, Landroid/widget/Editor;->mShowSuggestionRunnable:Ljava/lang/Runnable;
 
     :cond_4
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v1
 
-    if-eq v1, v7, :cond_5
+    if-eq v1, v6, :cond_5
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -8762,11 +8718,9 @@
     if-ne v1, v8, :cond_6
 
     :cond_5
-    iput-boolean v5, p0, Landroid/widget/Editor;->mIsMagnifierShowing:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
 
-    iget-object v1, p0, Landroid/widget/Editor;->mMagnifierView:Landroid/widget/Editor$MagnifierView;
-
-    if-eqz v1, :cond_6
+    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setMagnifierShowing(Z)V
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -8774,9 +8728,13 @@
 
     if-ne v1, v8, :cond_8
 
-    iget-object v1, p0, Landroid/widget/Editor;->mMagnifierView:Landroid/widget/Editor$MagnifierView;
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v1}, Landroid/widget/Editor$MagnifierView;->stopMagnifierByForce()V
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMagnifierView()Landroid/widget/TextView$MagnifierView;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/TextView$MagnifierView;->stopMagnifierByForce()V
 
     :cond_6
     :goto_0
@@ -8818,9 +8776,13 @@
     return-void
 
     :cond_8
-    iget-object v1, p0, Landroid/widget/Editor;->mMagnifierView:Landroid/widget/Editor$MagnifierView;
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v1}, Landroid/widget/Editor$MagnifierView;->stopMagnifier()V
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMagnifierView()Landroid/widget/TextView$MagnifierView;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/TextView$MagnifierView;->stopMagnifier()V
 
     goto :goto_0
 .end method
@@ -9076,13 +9038,27 @@
     :cond_2
     if-nez p1, :cond_4
 
-    iput-boolean v4, p0, Landroid/widget/Editor;->mIsMagnifierShowing:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    const-string/jumbo v2, "CPPS"
+
+    const-string/jumbo v3, "TSLP"
+
+    invoke-virtual {v1, v2, v3}, Landroid/widget/TextView;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setMagnifierShowing(Z)V
 
     invoke-direct {p0}, Landroid/widget/Editor;->selectCurrentWordAndStartDrag()Z
 
     move-result p1
 
-    iget-boolean v1, p0, Landroid/widget/Editor;->mIsSupportMagnifier:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-static {}, Landroid/widget/TextView;->isSupportMagnifier()Z
+
+    move-result v1
 
     if-nez v1, :cond_3
 
@@ -9093,21 +9069,33 @@
     iput-boolean v5, p0, Landroid/widget/Editor;->mIsCurrentSelecting:Z
 
     :cond_3
-    iget-boolean v1, p0, Landroid/widget/Editor;->mIsSupportMagnifier:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-static {}, Landroid/widget/TextView;->isSupportMagnifier()Z
+
+    move-result v1
 
     if-eqz v1, :cond_4
 
-    iget-boolean v1, p0, Landroid/widget/Editor;->mIsMagnifierShowing:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->isMagnifierShowing()Z
+
+    move-result v1
 
     if-eqz v1, :cond_4
 
-    invoke-direct {p0}, Landroid/widget/Editor;->getMagnifierView()Landroid/widget/Editor$MagnifierView;
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMagnifierView()Landroid/widget/TextView$MagnifierView;
 
     move-result-object v1
 
     if-eqz v1, :cond_4
 
-    invoke-direct {p0}, Landroid/widget/Editor;->getMagnifierView()Landroid/widget/Editor$MagnifierView;
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMagnifierView()Landroid/widget/TextView$MagnifierView;
 
     move-result-object v1
 
@@ -9115,7 +9103,7 @@
 
     iget v3, p0, Landroid/widget/Editor;->mLastDownPositionRawY:F
 
-    invoke-virtual {v1, v6, v2, v3}, Landroid/widget/Editor$MagnifierView;->handleTouchEvent(IFF)V
+    invoke-virtual {v1, v6, v2, v3}, Landroid/widget/TextView$MagnifierView;->handleTouchEvent(IFF)V
 
     :cond_4
     return p1
@@ -9157,16 +9145,30 @@
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_6
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    const-string/jumbo v2, "CPPS"
+
+    const-string/jumbo v3, "TSLP"
+
+    invoke-virtual {v1, v2, v3}, Landroid/widget/TextView;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
+
     invoke-virtual {p0}, Landroid/widget/Editor;->stopTextActionMode()V
 
-    iput-boolean v4, p0, Landroid/widget/Editor;->mIsMagnifierShowing:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setMagnifierShowing(Z)V
 
     invoke-direct {p0}, Landroid/widget/Editor;->selectCurrentWordAndStartDrag()Z
 
-    iget-boolean v1, p0, Landroid/widget/Editor;->mIsSupportMagnifier:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-static {}, Landroid/widget/TextView;->isSupportMagnifier()Z
+
+    move-result v1
 
     if-nez v1, :cond_7
 
@@ -9177,21 +9179,33 @@
     iput-boolean v5, p0, Landroid/widget/Editor;->mIsCurrentSelecting:Z
 
     :cond_7
-    iget-boolean v1, p0, Landroid/widget/Editor;->mIsSupportMagnifier:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-static {}, Landroid/widget/TextView;->isSupportMagnifier()Z
+
+    move-result v1
 
     if-eqz v1, :cond_1
 
-    iget-boolean v1, p0, Landroid/widget/Editor;->mIsMagnifierShowing:Z
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->isMagnifierShowing()Z
+
+    move-result v1
 
     if-eqz v1, :cond_1
 
-    invoke-direct {p0}, Landroid/widget/Editor;->getMagnifierView()Landroid/widget/Editor$MagnifierView;
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMagnifierView()Landroid/widget/TextView$MagnifierView;
 
     move-result-object v1
 
     if-eqz v1, :cond_1
 
-    invoke-direct {p0}, Landroid/widget/Editor;->getMagnifierView()Landroid/widget/Editor$MagnifierView;
+    iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getMagnifierView()Landroid/widget/TextView$MagnifierView;
 
     move-result-object v1
 
@@ -9199,7 +9213,7 @@
 
     iget v3, p0, Landroid/widget/Editor;->mLastDownPositionRawY:F
 
-    invoke-virtual {v1, v6, v2, v3}, Landroid/widget/Editor$MagnifierView;->handleTouchEvent(IFF)V
+    invoke-virtual {v1, v6, v2, v3}, Landroid/widget/TextView$MagnifierView;->handleTouchEvent(IFF)V
 
     goto/16 :goto_1
 .end method

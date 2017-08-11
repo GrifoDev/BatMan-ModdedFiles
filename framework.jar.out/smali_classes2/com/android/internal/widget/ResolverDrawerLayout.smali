@@ -173,7 +173,7 @@
 
     iget-object v2, p0, Lcom/android/internal/widget/ResolverDrawerLayout;->mContext:Landroid/content/Context;
 
-    const v3, 0x108071f
+    const v3, 0x108070a
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -2221,7 +2221,7 @@
 
     if-le v0, v1, :cond_3a
 
-    const v52, 0x1030516
+    const v52, 0x103051d
 
     move/from16 v0, v52
 
@@ -3317,7 +3317,7 @@
 
     if-lt v0, v1, :cond_3b
 
-    const v52, 0x1030517
+    const v52, 0x103051e
 
     move/from16 v0, v52
 
@@ -3340,7 +3340,7 @@
 
     if-ge v0, v1, :cond_14
 
-    const v52, 0x1030518
+    const v52, 0x103051f
 
     move/from16 v0, v52
 
@@ -3387,7 +3387,7 @@
 
     if-le v0, v1, :cond_3d
 
-    const v52, 0x1030519
+    const v52, 0x1030520
 
     move/from16 v0, v52
 
@@ -3422,7 +3422,7 @@
 
     if-lt v0, v1, :cond_3e
 
-    const v52, 0x103051a
+    const v52, 0x1030521
 
     move/from16 v0, v52
 
@@ -3445,7 +3445,7 @@
 
     if-ge v0, v1, :cond_14
 
-    const v52, 0x103051b
+    const v52, 0x1030522
 
     move/from16 v0, v52
 
@@ -3480,7 +3480,7 @@
 
     if-le v0, v1, :cond_40
 
-    const v52, 0x103051c
+    const v52, 0x1030523
 
     move/from16 v0, v52
 
@@ -3515,7 +3515,7 @@
 
     if-lt v0, v1, :cond_41
 
-    const v52, 0x103051d
+    const v52, 0x1030524
 
     move/from16 v0, v52
 
@@ -3538,7 +3538,7 @@
 
     if-ge v0, v1, :cond_14
 
-    const v52, 0x103051e
+    const v52, 0x1030525
 
     move/from16 v0, v52
 
@@ -3614,7 +3614,7 @@
 
     move-result-object v23
 
-    const v24, 0x1050391
+    const v24, 0x10503a1
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3630,7 +3630,7 @@
 
     move-result-object v23
 
-    const v24, 0x1050392
+    const v24, 0x10503a2
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3877,7 +3877,7 @@
 
     move-result-object v23
 
-    const v24, 0x1050396
+    const v24, 0x10503a6
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4621,7 +4621,7 @@
 
     move-result-object v23
 
-    const v24, 0x1050396
+    const v24, 0x10503a6
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4743,7 +4743,7 @@
 
     move-result-object v23
 
-    const v24, 0x1050396
+    const v24, 0x10503a6
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4892,7 +4892,7 @@
 
     move-result-object v23
 
-    const v24, 0x1050396
+    const v24, 0x10503a6
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6504,7 +6504,7 @@
 
     move-result-object v23
 
-    const v24, 0x1050396
+    const v24, 0x10503a6
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6958,7 +6958,7 @@
 
     move-result-object v2
 
-    const v4, 0x1090077
+    const v4, 0x1090078
 
     invoke-virtual {v2, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -7944,7 +7944,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x1030515
+    const v1, 0x103051c
 
     iput v1, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mAnimationStyle:I
 
@@ -8005,7 +8005,7 @@
 
     const/16 v1, 0x166
 
-    const v2, 0x108036e
+    const v2, 0x1080358
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -8066,7 +8066,7 @@
     return-void
 
     :cond_0
-    const v1, 0x1030514
+    const v1, 0x103051b
 
     iput v1, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mAnimationStyle:I
 
@@ -9668,7 +9668,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mHoverDetectTimeMS:I
 
-    const v0, 0x1030515
+    const v0, 0x103051c
 
     iput v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mAnimationStyle:I
 
@@ -9681,7 +9681,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mHoverDetectTimeMS:I
 
-    const v0, 0x1030514
+    const v0, 0x103051b
 
     iput v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mAnimationStyle:I
 

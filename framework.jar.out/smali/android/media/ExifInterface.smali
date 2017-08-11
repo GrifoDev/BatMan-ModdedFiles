@@ -5308,7 +5308,7 @@
     const/4 v7, 0x0
 
     :goto_0
-    if-ge v7, v14, :cond_b
+    if-ge v7, v14, :cond_e
 
     invoke-virtual/range {p1 .. p1}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readUnsignedShort()I
 
@@ -5349,7 +5349,7 @@
     if-gtz v6, :cond_4
 
     :cond_2
-    if-nez v15, :cond_6
+    if-nez v15, :cond_8
 
     const-string/jumbo v19, "ExifInterface"
 
@@ -5435,7 +5435,7 @@
 
     cmp-long v19, v20, v22
 
-    if-gtz v19, :cond_8
+    if-gtz v19, :cond_a
 
     move-object/from16 v0, p1
 
@@ -5448,49 +5448,108 @@
 
     move-result v8
 
-    if-ltz v8, :cond_a
+    if-ltz v8, :cond_d
 
-    const-wide/16 v16, -0x1
+    const-string/jumbo v19, "ExifInterface"
 
-    packed-switch v6, :pswitch_data_0
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    :goto_3
-    :pswitch_0
-    const-wide/16 v20, 0x0
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    cmp-long v19, v16, v20
+    const-string/jumbo v21, "innerIfdHint: "
 
-    if-lez v19, :cond_9
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static/range {p1 .. p1}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->-get0(Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;)J
+    move-result-object v20
 
-    move-result-wide v20
+    move-object/from16 v0, v20
 
-    cmp-long v19, v16, v20
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    if-gez v19, :cond_9
+    move-result-object v20
 
-    move-object/from16 v0, p1
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-wide/from16 v1, v16
+    move-result-object v20
 
-    invoke-virtual {v0, v1, v2}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->seek(J)V
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, p0
+    if-nez p2, :cond_6
 
-    move-object/from16 v1, p1
+    const/16 v19, 0x1
 
-    invoke-direct {v0, v1, v8}, Landroid/media/ExifInterface;->readImageFileDirectory(Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;I)V
+    move/from16 v0, v19
 
-    :goto_4
+    if-eq v8, v0, :cond_b
+
+    const/16 v19, 0x2
+
+    move/from16 v0, v19
+
+    if-eq v8, v0, :cond_b
+
+    :cond_6
+    const/16 v19, 0x1
+
+    move/from16 v0, p2
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_7
+
+    const/16 v19, 0x3
+
+    move/from16 v0, v19
+
+    if-eq v8, v0, :cond_b
+
+    :cond_7
+    const-string/jumbo v19, "ExifInterface"
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v21, "Skip the tag entry since innerIfdHint is invalid, hint: "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    move/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "innerIfdHint: "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v10, v11}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->seek(J)V
 
-    goto :goto_2
+    goto/16 :goto_2
 
-    :cond_6
-    if-gtz v9, :cond_7
+    :cond_8
+    if-gtz v9, :cond_9
 
     const-string/jumbo v19, "ExifInterface"
 
@@ -5518,7 +5577,7 @@
 
     goto/16 :goto_1
 
-    :cond_7
+    :cond_9
     const-string/jumbo v19, "ExifInterface"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -5545,7 +5604,7 @@
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_a
     const-string/jumbo v19, "ExifInterface"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -5578,6 +5637,46 @@
 
     goto/16 :goto_2
 
+    :cond_b
+    const-wide/16 v16, -0x1
+
+    packed-switch v6, :pswitch_data_0
+
+    :goto_3
+    :pswitch_0
+    const-wide/16 v20, 0x0
+
+    cmp-long v19, v16, v20
+
+    if-lez v19, :cond_c
+
+    invoke-static/range {p1 .. p1}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->-get0(Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;)J
+
+    move-result-wide v20
+
+    cmp-long v19, v16, v20
+
+    if-gez v19, :cond_c
+
+    move-object/from16 v0, p1
+
+    move-wide/from16 v1, v16
+
+    invoke-virtual {v0, v1, v2}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->seek(J)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v8}, Landroid/media/ExifInterface;->readImageFileDirectory(Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;I)V
+
+    :goto_4
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v10, v11}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->seek(J)V
+
+    goto/16 :goto_2
+
     :pswitch_1
     invoke-virtual/range {p1 .. p1}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readUnsignedShort()I
 
@@ -5589,7 +5688,7 @@
 
     move-wide/from16 v16, v0
 
-    goto/16 :goto_3
+    goto :goto_3
 
     :pswitch_2
     invoke-virtual/range {p1 .. p1}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readShort()S
@@ -5602,14 +5701,14 @@
 
     move-wide/from16 v16, v0
 
-    goto/16 :goto_3
+    goto :goto_3
 
     :pswitch_3
     invoke-virtual/range {p1 .. p1}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readUnsignedInt()J
 
     move-result-wide v16
 
-    goto/16 :goto_3
+    goto :goto_3
 
     :pswitch_4
     invoke-virtual/range {p1 .. p1}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readInt()I
@@ -5622,9 +5721,9 @@
 
     move-wide/from16 v16, v0
 
-    goto/16 :goto_3
+    goto :goto_3
 
-    :cond_9
+    :cond_c
     const-string/jumbo v19, "ExifInterface"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -5651,9 +5750,9 @@
 
     invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_4
+    goto :goto_4
 
-    :cond_a
+    :cond_d
     sget-object v19, Landroid/media/ExifInterface;->IFD_FORMAT_BYTES_PER_FORMAT:[I
 
     aget v19, v19, v6
@@ -5706,18 +5805,7 @@
 
     goto/16 :goto_2
 
-    :cond_b
-    const/16 v19, 0x4
-
-    move/from16 v0, p2
-
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_c
-
-    return-void
-
-    :cond_c
+    :cond_e
     invoke-virtual/range {p1 .. p1}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->peek()J
 
     move-result-wide v20
@@ -5732,17 +5820,54 @@
 
     cmp-long v19, v20, v22
 
-    if-gtz v19, :cond_d
+    if-gtz v19, :cond_10
 
     invoke-virtual/range {p1 .. p1}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readUnsignedInt()J
 
     move-result-wide v12
 
+    const-wide/16 v20, 0x0
+
+    cmp-long v19, v12, v20
+
+    if-eqz v19, :cond_f
+
+    if-eqz p2, :cond_f
+
+    const-string/jumbo v19, "ExifInterface"
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v21, "nextIfdOffset is not 0 && hint is not IFD_TIFF_HINT, hint: "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    move/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_f
     const-wide/16 v20, 0x8
 
     cmp-long v19, v12, v20
 
-    if-lez v19, :cond_d
+    if-lez v19, :cond_10
 
     invoke-static/range {p1 .. p1}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->-get0(Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;)J
 
@@ -5750,7 +5875,7 @@
 
     cmp-long v19, v12, v20
 
-    if-gez v19, :cond_d
+    if-gez v19, :cond_10
 
     move-object/from16 v0, p1
 
@@ -5766,7 +5891,7 @@
 
     invoke-direct {v0, v1, v2}, Landroid/media/ExifInterface;->readImageFileDirectory(Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;I)V
 
-    :cond_d
+    :cond_10
     return-void
 
     nop

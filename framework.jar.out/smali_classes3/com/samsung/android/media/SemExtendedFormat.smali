@@ -23,7 +23,7 @@
 # static fields
 .field private static final DEBUG:Z = false
 
-.field private static final SEF_VERSION:Ljava/lang/String; = "1.03"
+.field private static final SEF_VERSION:Ljava/lang/String; = "1.07"
 
 .field private static final TAG:Ljava/lang/String; = "SemExtendedFormat"
 
@@ -5928,7 +5928,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "1.03_"
+    const-string/jumbo v3, "1.07_"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

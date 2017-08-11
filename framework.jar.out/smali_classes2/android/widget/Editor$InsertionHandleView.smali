@@ -64,7 +64,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -109,7 +109,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v3}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/graphics/Rect;
+    invoke-static {v3}, Landroid/widget/Editor;->-get10(Landroid/widget/Editor;)Landroid/graphics/Rect;
 
     move-result-object v3
 
@@ -155,7 +155,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/graphics/Rect;
+    invoke-static {v2}, Landroid/widget/Editor;->-get10(Landroid/widget/Editor;)Landroid/graphics/Rect;
 
     move-result-object v2
 
@@ -167,7 +167,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v3}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/graphics/Rect;
+    invoke-static {v3}, Landroid/widget/Editor;->-get10(Landroid/widget/Editor;)Landroid/graphics/Rect;
 
     move-result-object v3
 
@@ -177,7 +177,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v3}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/graphics/Rect;
+    invoke-static {v3}, Landroid/widget/Editor;->-get10(Landroid/widget/Editor;)Landroid/graphics/Rect;
 
     move-result-object v3
 
@@ -229,7 +229,7 @@
     :goto_0
     iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -308,7 +308,7 @@
 
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get5(Landroid/widget/Editor;)Z
+    invoke-static {v6}, Landroid/widget/Editor;->-get3(Landroid/widget/Editor;)Z
 
     move-result v6
 
@@ -349,7 +349,7 @@
 
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v6}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v6
 
@@ -387,7 +387,7 @@
     :goto_1
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get5(Landroid/widget/Editor;)Z
+    invoke-static {v6}, Landroid/widget/Editor;->-get3(Landroid/widget/Editor;)Z
 
     move-result v6
 
@@ -453,7 +453,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -492,7 +492,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get12(Landroid/widget/Editor;)I
+    invoke-static {v2}, Landroid/widget/Editor;->-get9(Landroid/widget/Editor;)I
 
     move-result v2
 
@@ -500,7 +500,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get12(Landroid/widget/Editor;)I
+    invoke-static {v2}, Landroid/widget/Editor;->-get9(Landroid/widget/Editor;)I
 
     move-result v2
 
@@ -510,7 +510,7 @@
     :goto_0
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v2}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
 
@@ -525,7 +525,7 @@
     :cond_1
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get12(Landroid/widget/Editor;)I
+    invoke-static {v2}, Landroid/widget/Editor;->-get9(Landroid/widget/Editor;)I
 
     move-result v2
 
@@ -533,7 +533,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get12(Landroid/widget/Editor;)I
+    invoke-static {v2}, Landroid/widget/Editor;->-get9(Landroid/widget/Editor;)I
 
     move-result v2
 
@@ -594,7 +594,7 @@
     :cond_5
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v2}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
 
@@ -622,7 +622,7 @@
 
     iget-object v9, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v9}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v9}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v9
 
@@ -640,7 +640,7 @@
 
     iget-object v9, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v9}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v9}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v9
 
@@ -675,7 +675,7 @@
 
     iget-object v9, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v9}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v9}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v9
 
@@ -687,7 +687,7 @@
 
     iget-object v10, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v10}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v10}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v10
 
@@ -790,7 +790,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 

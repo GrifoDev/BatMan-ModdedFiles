@@ -3,6 +3,14 @@
 .source "EdgeManagerInternal.java"
 
 
+# static fields
+.field public static final NOTIFICATION_KEY_IS_HEAD_UP:Ljava/lang/String; = "isHeadUp"
+
+.field public static final NOTIFICATION_KEY_IS_INTERRUPT:Ljava/lang/String; = "isInterrupt"
+
+.field public static final NOTIFICATION_KEY_IS_UPDATE:Ljava/lang/String; = "isUpdate"
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -23,7 +31,7 @@
 .method public abstract hideForWakeLockByWindow(Ljava/lang/String;Ljava/lang/String;)V
 .end method
 
-.method public abstract showForNotification(Landroid/service/notification/StatusBarNotification;ZZ)Z
+.method public abstract showForNotification(Landroid/service/notification/StatusBarNotification;Landroid/os/Bundle;)Z
 .end method
 
 .method public abstract showForResumedActivity(Landroid/content/ComponentName;)V
@@ -42,4 +50,7 @@
 .end method
 
 .method public abstract showForWakeUpByWindow(Ljava/lang/String;Ljava/lang/String;I)Z
+.end method
+
+.method public abstract statusBarDisabled(II)V
 .end method

@@ -39,15 +39,15 @@
 
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$2;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
+    invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap11(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
+
+    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$2;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap9(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
 
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$2;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
-    invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap7(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
-
-    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$2;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
-
-    invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get1(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/view/ViewGroup;
+    invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get2(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/view/ViewGroup;
 
     move-result-object v0
 

@@ -54,7 +54,7 @@
     :cond_0
     iget-object v0, p0, Landroid/widget/Editor$UndoInputFilter;->mEditor:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get15(Landroid/widget/Editor;)Landroid/content/UndoManager;
+    invoke-static {v0}, Landroid/widget/Editor;->-get12(Landroid/widget/Editor;)Landroid/content/UndoManager;
 
     move-result-object v0
 
@@ -220,7 +220,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$UndoInputFilter;->mEditor:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v2}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
 
@@ -253,7 +253,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$UndoInputFilter;->mEditor:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get15(Landroid/widget/Editor;)Landroid/content/UndoManager;
+    invoke-static {v2}, Landroid/widget/Editor;->-get12(Landroid/widget/Editor;)Landroid/content/UndoManager;
 
     move-result-object v1
 
@@ -265,7 +265,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$UndoInputFilter;->mEditor:Landroid/widget/Editor;
 
-    invoke-static {v3}, Landroid/widget/Editor;->-get16(Landroid/widget/Editor;)Landroid/content/UndoOwner;
+    invoke-static {v3}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/content/UndoOwner;
 
     move-result-object v3
 
@@ -301,7 +301,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$UndoInputFilter;->mEditor:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get16(Landroid/widget/Editor;)Landroid/content/UndoOwner;
+    invoke-static {v2}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/content/UndoOwner;
 
     move-result-object v2
 
@@ -320,7 +320,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$UndoInputFilter;->mEditor:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get16(Landroid/widget/Editor;)Landroid/content/UndoOwner;
+    invoke-static {v2}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/content/UndoOwner;
 
     move-result-object v2
 

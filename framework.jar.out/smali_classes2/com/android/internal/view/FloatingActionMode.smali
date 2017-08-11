@@ -261,7 +261,7 @@
 
     move-result-object v1
 
-    const v2, 0x10502b6
+    const v2, 0x10502c6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -348,76 +348,108 @@
 .end method
 
 .method private isContentRectWithinBounds()Z
-    .locals 7
+    .locals 9
 
-    const/4 v6, 0x1
+    const/4 v8, 0x1
 
-    const/4 v0, 0x0
+    const/4 v7, 0x0
 
-    iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode;->mScreenRect:Landroid/graphics/Rect;
-
-    iget-object v2, p0, Lcom/android/internal/view/FloatingActionMode;->mRootViewPositionOnScreen:[I
-
-    aget v2, v2, v0
-
-    iget-object v3, p0, Lcom/android/internal/view/FloatingActionMode;->mRootViewPositionOnScreen:[I
-
-    aget v3, v3, v6
+    iget-object v3, p0, Lcom/android/internal/view/FloatingActionMode;->mScreenRect:Landroid/graphics/Rect;
 
     iget-object v4, p0, Lcom/android/internal/view/FloatingActionMode;->mRootViewPositionOnScreen:[I
 
-    aget v4, v4, v0
-
-    iget-object v5, p0, Lcom/android/internal/view/FloatingActionMode;->mOriginatingView:Landroid/view/View;
-
-    invoke-virtual {v5}, Landroid/view/View;->getRootView()Landroid/view/View;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/view/View;->getRight()I
-
-    move-result v5
-
-    add-int/2addr v4, v5
+    aget v4, v4, v7
 
     iget-object v5, p0, Lcom/android/internal/view/FloatingActionMode;->mRootViewPositionOnScreen:[I
 
-    aget v5, v5, v6
+    aget v5, v5, v8
 
-    iget-object v6, p0, Lcom/android/internal/view/FloatingActionMode;->mOriginatingView:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/internal/view/FloatingActionMode;->mRootViewPositionOnScreen:[I
 
-    invoke-virtual {v6}, Landroid/view/View;->getRootView()Landroid/view/View;
+    aget v6, v6, v7
 
-    move-result-object v6
+    iget-object v7, p0, Lcom/android/internal/view/FloatingActionMode;->mOriginatingView:Landroid/view/View;
 
-    invoke-virtual {v6}, Landroid/view/View;->getBottom()I
+    invoke-virtual {v7}, Landroid/view/View;->getRootView()Landroid/view/View;
 
-    move-result v6
+    move-result-object v7
 
-    add-int/2addr v5, v6
+    invoke-virtual {v7}, Landroid/view/View;->getRight()I
 
-    invoke-virtual {v1, v2, v3, v4, v5}, Landroid/graphics/Rect;->set(IIII)V
+    move-result v7
 
-    iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode;->mContentRectOnScreen:Landroid/graphics/Rect;
+    add-int/2addr v6, v7
 
-    iget-object v2, p0, Lcom/android/internal/view/FloatingActionMode;->mScreenRect:Landroid/graphics/Rect;
+    iget-object v7, p0, Lcom/android/internal/view/FloatingActionMode;->mRootViewPositionOnScreen:[I
 
-    invoke-static {v1, v2}, Lcom/android/internal/view/FloatingActionMode;->intersectsClosed(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
+    aget v7, v7, v8
+
+    iget-object v8, p0, Lcom/android/internal/view/FloatingActionMode;->mOriginatingView:Landroid/view/View;
+
+    invoke-virtual {v8}, Landroid/view/View;->getRootView()Landroid/view/View;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/view/View;->getBottom()I
+
+    move-result v8
+
+    add-int/2addr v7, v8
+
+    invoke-virtual {v3, v4, v5, v6, v7}, Landroid/graphics/Rect;->set(IIII)V
+
+    iget-object v3, p0, Lcom/android/internal/view/FloatingActionMode;->mContentRectOnScreen:Landroid/graphics/Rect;
+
+    iget-object v4, p0, Lcom/android/internal/view/FloatingActionMode;->mScreenRect:Landroid/graphics/Rect;
+
+    invoke-static {v3, v4}, Lcom/android/internal/view/FloatingActionMode;->intersectsClosed(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/internal/view/FloatingActionMode;->mContentRectOnScreen:Landroid/graphics/Rect;
+
+    iget-object v4, p0, Lcom/android/internal/view/FloatingActionMode;->mViewRectOnScreen:Landroid/graphics/Rect;
+
+    invoke-static {v3, v4}, Lcom/android/internal/view/FloatingActionMode;->intersectsClosed(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    :goto_0
+    new-instance v0, Lcom/samsung/android/app/SemMultiWindowManager;
 
-    iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode;->mContentRectOnScreen:Landroid/graphics/Rect;
+    invoke-direct {v0}, Lcom/samsung/android/app/SemMultiWindowManager;-><init>()V
 
-    iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode;->mViewRectOnScreen:Landroid/graphics/Rect;
+    invoke-virtual {v0}, Lcom/samsung/android/app/SemMultiWindowManager;->getMode()I
 
-    invoke-static {v0, v1}, Lcom/android/internal/view/FloatingActionMode;->intersectsClosed(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
+    move-result v3
 
-    move-result v0
+    if-nez v3, :cond_0
+
+    new-instance v2, Landroid/graphics/Rect;
+
+    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
+
+    iget-object v3, p0, Lcom/android/internal/view/FloatingActionMode;->mOriginatingView:Landroid/view/View;
+
+    invoke-virtual {v3, v2}, Landroid/view/View;->getWindowVisibleDisplayFrame(Landroid/graphics/Rect;)V
+
+    iget-object v3, p0, Lcom/android/internal/view/FloatingActionMode;->mContentRectOnScreen:Landroid/graphics/Rect;
+
+    invoke-static {v3, v2}, Lcom/android/internal/view/FloatingActionMode;->intersectsClosed(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
+
+    move-result v3
+
+    and-int/2addr v1, v3
 
     :cond_0
-    return v0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method
 
 .method private repositionToolbar()V
@@ -751,18 +783,42 @@
 .end method
 
 .method public invalidate()V
-    .locals 2
+    .locals 3
 
     invoke-direct {p0}, Lcom/android/internal/view/FloatingActionMode;->checkToolbarInitialized()V
 
-    iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode;->mCallback:Landroid/view/ActionMode$Callback2;
+    iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
+
+    invoke-virtual {v1}, Lcom/android/internal/view/menu/MenuBuilder;->size()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode;->mCallback:Landroid/view/ActionMode$Callback2;
+
+    iget-object v2, p0, Lcom/android/internal/view/FloatingActionMode;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
+
+    invoke-virtual {v1, p0, v2}, Landroid/view/ActionMode$Callback2;->onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
+
+    iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode;->mFloatingToolbar:Lcom/android/internal/widget/FloatingToolbar;
+
+    invoke-static {}, Lcom/android/internal/widget/FloatingToolbar;->isMovingStarted()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    invoke-virtual {v0, p0, v1}, Landroid/view/ActionMode$Callback2;->onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
+    invoke-virtual {v1}, Lcom/android/internal/view/menu/MenuBuilder;->size()I
 
+    move-result v1
+
+    if-eq v0, v1, :cond_1
+
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/view/FloatingActionMode;->invalidateContentRect()V
 
+    :cond_1
     return-void
 .end method
 

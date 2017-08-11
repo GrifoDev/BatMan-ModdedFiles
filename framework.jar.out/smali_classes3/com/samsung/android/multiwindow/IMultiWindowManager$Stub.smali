@@ -84,6 +84,8 @@
 
 .field static final TRANSACTION_registerMultiWindowServiceCallback:I = 0xc
 
+.field static final TRANSACTION_removeFocusedTask:I = 0x35
+
 .field static final TRANSACTION_removeFreeformTasks:I = 0x20
 
 .field static final TRANSACTION_removeSearchedTask:I = 0x34
@@ -1973,6 +1975,41 @@
 
     goto :goto_1d
 
+    :sswitch_35
+    const-string/jumbo v30, "com.samsung.android.multiwindow.IMultiWindowManager"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->removeFocusedTask()Z
+
+    move-result v28
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v28, :cond_1e
+
+    const/16 v30, 0x1
+
+    :goto_1e
+    move-object/from16 v0, p3
+
+    move/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v30, 0x1
+
+    return v30
+
+    :cond_1e
+    const/16 v30, 0x0
+
+    goto :goto_1e
+
     nop
 
     :sswitch_data_0
@@ -2029,6 +2066,7 @@
         0x32 -> :sswitch_32
         0x33 -> :sswitch_33
         0x34 -> :sswitch_34
+        0x35 -> :sswitch_35
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

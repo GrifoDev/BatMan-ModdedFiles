@@ -191,7 +191,7 @@
 
     move-result-object v0
 
-    const v1, 0x10900fb
+    const v1, 0x10900fc
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -243,7 +243,7 @@
 
     const v4, 0x1040421
 
-    const v0, 0x102049f
+    const v0, 0x10204a8
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -253,7 +253,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/widget/SemColorPicker;->mCurrentColorView:Landroid/widget/ImageView;
 
-    const v0, 0x10204a3
+    const v0, 0x10204ac
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -263,7 +263,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/widget/SemColorPicker;->mPickedColorView:Landroid/widget/ImageView;
 
-    const v0, 0x102049e
+    const v0, 0x10204a7
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -273,7 +273,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/widget/SemColorPicker;->mCurrentColorText:Landroid/widget/TextView;
 
-    const v0, 0x10204a4
+    const v0, 0x10204ad
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -283,7 +283,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/widget/SemColorPicker;->mPickedColorText:Landroid/widget/TextView;
 
-    const v0, 0x10204a1
+    const v0, 0x10204aa
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -291,7 +291,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/widget/SemColorPicker;->mCurrentColorFocus:Landroid/view/View;
 
-    const v0, 0x10204a2
+    const v0, 0x10204ab
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -413,7 +413,7 @@
 .method private initGradientColorSeekBar()V
     .locals 4
 
-    const v0, 0x10204a9
+    const v0, 0x10204b2
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -423,7 +423,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/widget/SemColorPicker;->mGradientColorSeekBar:Lcom/samsung/android/widget/SemGradientColorSeekBar;
 
-    const v0, 0x10204a8
+    const v0, 0x10204b1
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -557,14 +557,14 @@
 
     move-result-object v1
 
-    const v2, 0x1050358
+    const v2, 0x1050368
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
     :goto_0
-    const v1, 0x10204a7
+    const v1, 0x10204b0
 
     invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -669,7 +669,7 @@
 
     move-result-object v1
 
-    const v2, 0x105037d
+    const v2, 0x105038d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -681,7 +681,7 @@
 .method private initRecentColorLayout()V
     .locals 3
 
-    const v0, 0x10204ab
+    const v0, 0x10204b4
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -693,7 +693,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemColorPicker;->mRecentColorLayout:Landroid/view/ViewGroup;
 
-    const v1, 0x10204ad
+    const v1, 0x10204b6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -877,13 +877,13 @@
 
     invoke-virtual {v0, v9}, Landroid/graphics/drawable/GradientDrawable;->setShape(I)V
 
-    const v4, 0x106019a
+    const v4, 0x10601a0
 
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x1050371
+    const v7, 0x1050381
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1167,7 +1167,7 @@
 
     move-result-object v3
 
-    const v4, 0x106019b
+    const v4, 0x10601a1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 

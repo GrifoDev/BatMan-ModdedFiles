@@ -1,14 +1,11 @@
 .class Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;
-.super Ljava/lang/Object;
+.super Landroid/view/animation/Animation;
 .source "FloatingToolbar.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->createMoreButton()Landroid/widget/Button;
+    value = Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->closeOverflow()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,55 +17,86 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
+.field final synthetic val$overflowButtonStartX:F
+
+.field final synthetic val$overflowButtonTargetX:F
+
+.field final synthetic val$startWidth:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
+.method constructor <init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;FFI)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p2, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->val$overflowButtonStartX:F
+
+    iput p3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->val$overflowButtonTargetX:F
+
+    iput p4, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->val$startWidth:I
+
+    invoke-direct {p0}, Landroid/view/animation/Animation;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 2
+.method protected applyTransformation(FLandroid/view/animation/Transformation;)V
+    .locals 6
 
-    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    iget v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->val$overflowButtonStartX:F
 
-    invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get3(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Z
+    iget v4, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->val$overflowButtonTargetX:F
 
-    move-result v0
+    iget v5, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->val$overflowButtonStartX:F
 
-    if-nez v0, :cond_0
+    sub-float/2addr v4, v5
 
-    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    mul-float/2addr v4, p1
 
-    const/4 v1, 0x1
+    add-float v2, v3, v4
 
-    invoke-static {v0, v1}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-set0(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;Z)Z
+    iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
-    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    invoke-static {v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap1(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Z
 
-    invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get0(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/widget/ImageButton;
+    move-result v3
 
-    move-result-object v0
+    if-eqz v3, :cond_0
 
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    const/4 v3, 0x0
 
-    invoke-static {v1}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get9(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/view/View$OnClickListener;
+    :goto_0
+    int-to-float v1, v3
 
-    move-result-object v1
+    add-float v0, v2, v1
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
-    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    invoke-static {v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get20(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/widget/ImageButton;
 
-    invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap4(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Landroid/view/View;->setX(F)V
+
+    return-void
 
     :cond_0
-    return-void
+    iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+
+    invoke-static {v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get2(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/view/ViewGroup;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/view/View;->getWidth()I
+
+    move-result v3
+
+    iget v4, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->val$startWidth:I
+
+    sub-int/2addr v3, v4
+
+    goto :goto_0
 .end method

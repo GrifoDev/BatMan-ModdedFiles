@@ -695,7 +695,7 @@
 
     move-result-object v6
 
-    const v7, 0x106011c
+    const v7, 0x1060122
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -711,7 +711,7 @@
 
     move-result-object v6
 
-    const v7, 0x106011d
+    const v7, 0x1060123
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -727,7 +727,7 @@
 
     move-result-object v6
 
-    const v7, 0x1060125
+    const v7, 0x106012b
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -743,7 +743,7 @@
 
     move-result-object v6
 
-    const v7, 0x1060126
+    const v7, 0x106012c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -759,7 +759,7 @@
 
     move-result-object v6
 
-    const v7, 0x106011f
+    const v7, 0x1060125
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -775,7 +775,7 @@
 
     move-result-object v6
 
-    const v7, 0x1060120
+    const v7, 0x1060126
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -795,7 +795,7 @@
 
     move-result-object v6
 
-    const v7, 0x1060121
+    const v7, 0x1060127
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -811,7 +811,7 @@
 
     move-result-object v6
 
-    const v7, 0x1060122
+    const v7, 0x1060128
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -831,7 +831,7 @@
 
     move-result-object v6
 
-    const v7, 0x1060123
+    const v7, 0x1060129
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -847,7 +847,7 @@
 
     move-result-object v6
 
-    const v7, 0x1060124
+    const v7, 0x106012a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -867,7 +867,7 @@
 
     move-result-object v6
 
-    const v7, 0x11200d9
+    const v7, 0x11200da
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1302,9 +1302,9 @@
 .method private getDualOverlapDrawable()V
     .locals 3
 
-    const v2, 0x1080abc
+    const v2, 0x1080aaa
 
-    const v1, 0x1080aba
+    const v1, 0x1080aa8
 
     const/4 v0, 0x0
 
@@ -1395,9 +1395,9 @@
 .method private getTripleOverlapDrawable()V
     .locals 3
 
-    const v2, 0x1080abc
+    const v2, 0x1080aaa
 
-    const v1, 0x1080aba
+    const v1, 0x1080aa8
 
     const/4 v0, 0x0
 
@@ -1797,7 +1797,7 @@
 
     move-result-object v0
 
-    const v1, 0x1060125
+    const v1, 0x106012b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6758,7 +6758,7 @@
     :pswitch_2
     iget-object v1, p0, Landroid/widget/AbsSeekBar;->mContext:Landroid/content/Context;
 
-    const v2, 0x1080ab7
+    const v2, 0x1080aa5
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -6771,7 +6771,7 @@
     :pswitch_3
     iget-object v1, p0, Landroid/widget/AbsSeekBar;->mContext:Landroid/content/Context;
 
-    const v2, 0x1080acd
+    const v2, 0x1080abb
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -6781,7 +6781,7 @@
 
     iget-object v1, p0, Landroid/widget/AbsSeekBar;->mContext:Landroid/content/Context;
 
-    const v2, 0x1080ace
+    const v2, 0x1080abc
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -6881,7 +6881,7 @@
 .method public setDefaultColorForVolumePanel(Z)V
     .locals 3
 
-    const v2, 0x1060120
+    const v2, 0x1060126
 
     if-eqz p1, :cond_0
 
@@ -6967,7 +6967,7 @@
 
     move-result-object v0
 
-    const v1, 0x106011c
+    const v1, 0x1060122
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6985,7 +6985,7 @@
 
     move-result-object v0
 
-    const v1, 0x106011d
+    const v1, 0x1060123
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -7003,7 +7003,7 @@
 
     move-result-object v0
 
-    const v1, 0x1060125
+    const v1, 0x106012b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -7021,7 +7021,7 @@
 
     move-result-object v0
 
-    const v1, 0x106011f
+    const v1, 0x1060125
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 

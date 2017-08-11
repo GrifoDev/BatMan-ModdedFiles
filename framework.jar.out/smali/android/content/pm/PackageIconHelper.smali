@@ -53,7 +53,7 @@
 
     const-string/jumbo v1, "com.android.vending"
 
-    const v2, 0x108060c
+    const v2, 0x10805f7
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

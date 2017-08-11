@@ -22,7 +22,7 @@
 
 
 # static fields
-.field private static final DEFAULT_LAYOUT_RESOURCE_ID:I = 0x10900ac
+.field private static final DEFAULT_LAYOUT_RESOURCE_ID:I = 0x10900ad
 
 .field private static final DEFAULT_LONG_PRESS_UPDATE_INTERVAL:J = 0x12cL
 
@@ -644,7 +644,7 @@
 
     const/16 v18, 0x1
 
-    const v19, 0x10900ac
+    const v19, 0x10900ad
 
     move/from16 v0, v18
 
@@ -654,7 +654,7 @@
 
     move-result v13
 
-    const v18, 0x10900ac
+    const v18, 0x10900ad
 
     move/from16 v0, v18
 
@@ -1123,7 +1123,7 @@
 
     if-nez v18, :cond_7
 
-    const v18, 0x102045c
+    const v18, 0x1020465
 
     move-object/from16 v0, p0
 
@@ -1170,7 +1170,7 @@
 
     if-nez v18, :cond_8
 
-    const v18, 0x102045e
+    const v18, 0x1020467
 
     move-object/from16 v0, p0
 
@@ -1209,7 +1209,7 @@
     invoke-virtual {v0, v15}, Landroid/widget/ImageButton;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     :goto_4
-    const v18, 0x102045d
+    const v18, 0x1020466
 
     move-object/from16 v0, p0
 

@@ -1786,563 +1786,755 @@
 .end method
 
 .method private logResetReson()V
-    .locals 14
+    .locals 20
 
-    new-instance v6, Ljava/io/File;
+    new-instance v12, Ljava/io/File;
 
-    const-string/jumbo v11, "/proc/reset_reason"
+    const-string/jumbo v17, "/proc/reset_reason"
 
-    invoke-direct {v6, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v17
 
-    new-instance v10, Ljava/io/File;
+    invoke-direct {v12, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v11, "/proc/store_lastkmsg"
+    new-instance v16, Ljava/io/File;
 
-    invoke-direct {v10, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v17, "/proc/store_lastkmsg"
 
-    invoke-virtual {v6}, Ljava/io/File;->isFile()Z
+    invoke-direct/range {v16 .. v17}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-result v11
+    invoke-virtual {v12}, Ljava/io/File;->isFile()Z
 
-    if-nez v11, :cond_0
+    move-result v17
+
+    if-nez v17, :cond_0
 
     return-void
 
     :cond_0
-    const/4 v8, 0x0
+    const/4 v14, 0x0
 
     :try_start_0
-    const-string/jumbo v11, "\n"
+    const-string/jumbo v17, "\n"
 
-    const/16 v12, 0x400
+    const/16 v18, 0x400
 
-    invoke-static {v6, v12, v11}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
+    move/from16 v0, v18
+
+    move-object/from16 v1, v17
+
+    invoke-static {v12, v0, v1}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v8
+    move-result-object v14
 
     :goto_0
-    const-string/jumbo v11, "Reset_Reason"
+    const-string/jumbo v17, "Reset_Reason"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "resetString = "
+    const-string/jumbo v19, "resetString = "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v12
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v18
 
-    if-eqz v8, :cond_1
+    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
+    if-eqz v14, :cond_1
 
-    move-result v11
+    invoke-virtual {v14}, Ljava/lang/String;->length()I
 
-    const/4 v12, 0x2
+    move-result v17
 
-    if-lt v11, v12, :cond_1
+    const/16 v18, 0x2
 
-    const/4 v11, 0x0
+    move/from16 v0, v17
 
-    const/4 v12, 0x2
+    move/from16 v1, v18
 
-    invoke-virtual {v8, v11, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    if-lt v0, v1, :cond_1
 
-    move-result-object v8
+    const/16 v17, 0x0
 
-    const-string/jumbo v11, "RR"
+    const/16 v18, 0x2
 
-    invoke-static {v8, v11}, Landroid/os/Debug;->dumpResetReason(Ljava/lang/String;Ljava/lang/String;)V
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    invoke-virtual {v14, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v14
+
+    const-string/jumbo v17, "RR"
+
+    move-object/from16 v0, v17
+
+    invoke-static {v14, v0}, Landroid/os/Debug;->dumpResetReason(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
-    invoke-virtual {v10}, Ljava/io/File;->isFile()Z
+    invoke-virtual/range {v16 .. v16}, Ljava/io/File;->isFile()Z
 
-    move-result v11
+    move-result v17
 
-    if-nez v11, :cond_7
+    if-nez v17, :cond_7
 
-    const-string/jumbo v11, "RP"
+    const-string/jumbo v17, "RP"
 
-    invoke-virtual {v11, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v17
 
-    move-result v11
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v11, :cond_2
+    move-result v17
 
-    const-string/jumbo v11, "BP"
+    if-nez v17, :cond_2
 
-    invoke-virtual {v11, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v17, "BP"
 
-    move-result v11
+    move-object/from16 v0, v17
 
-    if-nez v11, :cond_2
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v11, "NP"
+    move-result v17
 
-    invoke-virtual {v11, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v17, :cond_2
 
-    move-result v11
+    const-string/jumbo v17, "NP"
 
-    if-eqz v11, :cond_4
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_4
 
     :cond_2
-    const-string/jumbo v11, "sys.reset_reason"
+    const-string/jumbo v17, "sys.reset_reason"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "N|"
+    const-string/jumbo v19, "N|"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v12
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v18
 
-    const/4 v11, 0x0
+    invoke-static/range {v17 .. v18}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    iput v11, p0, Lcom/android/server/BootReceiver;->reset:I
+    const/16 v17, 0x0
+
+    move/from16 v0, v17
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/BootReceiver;->reset:I
 
     :cond_3
     :goto_1
     return-void
 
     :catch_0
-    move-exception v3
+    move-exception v8
 
-    const-string/jumbo v11, "Reset_Reason"
+    const-string/jumbo v17, "Reset_Reason"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "readTextFile error"
+    const-string/jumbo v19, "readTextFile error"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v12
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_4
-    const/4 v7, 0x0
+    const/4 v13, 0x0
 
-    const-string/jumbo v11, "sys.reset_reason"
+    const-string/jumbo v17, "sys.reset_reason"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "K|"
+    const-string/jumbo v19, "K|"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v12
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v18
 
-    const/4 v11, 0x1
+    invoke-static/range {v17 .. v18}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    iput v11, p0, Lcom/android/server/BootReceiver;->reset:I
+    const/16 v17, 0x1
 
-    const-string/jumbo v11, "KP"
+    move/from16 v0, v17
 
-    invoke-virtual {v11, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v1, p0
 
-    move-result v11
+    iput v0, v1, Lcom/android/server/BootReceiver;->reset:I
 
-    if-nez v11, :cond_5
+    const-string/jumbo v17, "KP"
 
-    const-string/jumbo v11, "DP"
+    move-object/from16 v0, v17
 
-    invoke-virtual {v11, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v17
 
-    if-eqz v11, :cond_6
+    if-nez v17, :cond_5
+
+    const-string/jumbo v17, "DP"
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_6
 
     :cond_5
-    const-string/jumbo v11, "BootReceiver"
+    const-string/jumbo v17, "BootReceiver"
 
-    const-string/jumbo v12, "set store_dump_summary"
+    const-string/jumbo v18, "set store_dump_summary"
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v11, 0x1
+    const/16 v17, 0x1
 
-    sput-boolean v11, Lcom/android/server/BootReceiver;->store_dump_summary:Z
+    sput-boolean v17, Lcom/android/server/BootReceiver;->store_dump_summary:Z
 
     :cond_6
-    new-instance v7, Lcom/android/server/BootReceiver$SaveLastkmsg;
+    new-instance v13, Lcom/android/server/BootReceiver$SaveLastkmsg;
 
-    const/4 v11, 0x0
+    const/16 v17, 0x0
 
-    invoke-direct {v7, v11}, Lcom/android/server/BootReceiver$SaveLastkmsg;-><init>(Lcom/android/server/BootReceiver$SaveLastkmsg;)V
+    move-object/from16 v0, v17
 
-    invoke-virtual {v7}, Ljava/lang/Thread;->start()V
+    invoke-direct {v13, v0}, Lcom/android/server/BootReceiver$SaveLastkmsg;-><init>(Lcom/android/server/BootReceiver$SaveLastkmsg;)V
+
+    invoke-virtual {v13}, Ljava/lang/Thread;->start()V
 
     goto :goto_1
 
     :cond_7
-    const-string/jumbo v11, "KP"
+    const-string/jumbo v17, "KP"
 
-    invoke-virtual {v11, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v17
 
-    move-result v11
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v11, :cond_8
+    move-result v17
 
-    const-string/jumbo v11, "PP"
+    if-nez v17, :cond_8
 
-    invoke-virtual {v11, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v17, "PP"
 
-    move-result v11
+    move-object/from16 v0, v17
 
-    if-nez v11, :cond_8
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v11, "DP"
+    move-result v17
 
-    invoke-virtual {v11, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v17, :cond_8
 
-    move-result v11
+    const-string/jumbo v17, "DP"
 
-    if-eqz v11, :cond_b
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_b
 
     :cond_8
-    const-string/jumbo v11, "sys.reset_reason"
+    const-string/jumbo v17, "sys.reset_reason"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "K|"
+    const-string/jumbo v19, "K|"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v12
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v18
 
-    const/4 v11, 0x1
+    invoke-static/range {v17 .. v18}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    iput v11, p0, Lcom/android/server/BootReceiver;->reset:I
+    const/16 v17, 0x1
+
+    move/from16 v0, v17
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/BootReceiver;->reset:I
 
     :goto_2
-    const/4 v9, 0x0
+    const/4 v15, 0x0
 
     :try_start_1
-    const-string/jumbo v11, "\n"
+    const-string/jumbo v17, "\n"
 
-    const/4 v12, 0x4
+    const/16 v18, 0x4
 
-    invoke-static {v10, v12, v11}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, v16
+
+    move/from16 v1, v18
+
+    move-object/from16 v2, v17
+
+    invoke-static {v0, v1, v2}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result-object v9
+    move-result-object v15
 
     :goto_3
-    const-string/jumbo v11, "Store_lastKmsg"
+    const-string/jumbo v17, "Store_lastKmsg"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "validString = "
+    const-string/jumbo v19, "validString = "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v12
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v18
 
-    if-eqz v9, :cond_3
+    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v9}, Ljava/lang/String;->length()I
+    if-eqz v15, :cond_3
 
-    move-result v11
+    invoke-virtual {v15}, Ljava/lang/String;->length()I
 
-    const/4 v12, 0x1
+    move-result v17
 
-    if-lt v11, v12, :cond_3
+    const/16 v18, 0x1
 
-    const/4 v11, 0x0
+    move/from16 v0, v17
 
-    const/4 v12, 0x1
+    move/from16 v1, v18
 
-    invoke-virtual {v9, v11, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    if-lt v0, v1, :cond_3
 
-    move-result-object v9
+    const/16 v17, 0x0
 
-    const-string/jumbo v11, "1"
+    const/16 v18, 0x1
 
-    invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move/from16 v0, v17
 
-    move-result v11
+    move/from16 v1, v18
 
-    if-eqz v11, :cond_3
+    invoke-virtual {v15, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    new-instance v2, Ljava/io/File;
+    move-result-object v15
 
-    const-string/jumbo v11, "/sys/class/sec/sec_hw_param/last_dcvs"
+    const-string/jumbo v17, "1"
 
-    invoke-direct {v2, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v17
 
-    invoke-virtual {v2}, Ljava/io/File;->isFile()Z
+    invoke-virtual {v15, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v17
 
-    if-eqz v11, :cond_9
+    if-eqz v17, :cond_3
 
-    const/4 v1, 0x0
+    new-instance v7, Ljava/io/File;
 
-    const/16 v11, 0x400
+    const-string/jumbo v17, "/sys/class/sec/sec_hw_param/last_dcvs"
 
-    const/4 v12, 0x0
+    move-object/from16 v0, v17
+
+    invoke-direct {v7, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v7}, Ljava/io/File;->isFile()Z
+
+    move-result v17
+
+    if-eqz v17, :cond_9
+
+    const/4 v6, 0x0
+
+    const/16 v17, 0x400
+
+    const/16 v18, 0x0
 
     :try_start_2
-    invoke-static {v2, v11, v12}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
+    move/from16 v0, v17
 
-    move-result-object v1
+    move-object/from16 v1, v18
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-static {v7, v0, v1}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
 
-    move-result v11
+    move-result-object v6
 
-    const/4 v12, 0x1
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
 
-    if-le v11, v12, :cond_9
+    move-result v17
 
-    const-string/jumbo v11, "AP"
+    const/16 v18, 0x1
 
-    const-string/jumbo v12, "DCVS"
+    move/from16 v0, v17
 
-    invoke-direct {p0, v11, v12, v1}, Lcom/android/server/BootReceiver;->sendBroadcastToHWParm(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move/from16 v1, v18
+
+    if-le v0, v1, :cond_9
+
+    const-string/jumbo v17, "AP"
+
+    const-string/jumbo v18, "DCVS"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    move-object/from16 v2, v18
+
+    invoke-direct {v0, v1, v2, v6}, Lcom/android/server/BootReceiver;->sendBroadcastToHWParm(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
     :cond_9
     :goto_4
-    new-instance v5, Ljava/io/File;
+    new-instance v11, Ljava/io/File;
 
-    const-string/jumbo v11, "/sys/class/sec/sec_hw_param/extra_info"
+    const-string/jumbo v17, "/sys/class/sec/sec_hw_param/extra_info"
 
-    invoke-direct {v5, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v17
 
-    invoke-virtual {v5}, Ljava/io/File;->isFile()Z
+    invoke-direct {v11, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-result v11
+    invoke-virtual {v11}, Ljava/io/File;->isFile()Z
 
-    if-eqz v11, :cond_a
+    move-result v17
+
+    if-eqz v17, :cond_a
+
+    const/4 v10, 0x0
+
+    const/4 v9, 0x0
 
     const/4 v4, 0x0
 
-    const/16 v11, 0x400
+    const/4 v5, 0x0
 
-    const/4 v12, 0x0
+    const/16 v17, 0x400
+
+    const/16 v18, 0x0
 
     :try_start_3
-    invoke-static {v5, v11, v12}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
+    move/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-static {v11, v0, v1}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v17, "ro.crypto.state"
+
+    const-string/jumbo v18, "none"
+
+    invoke-static/range {v17 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
+    const-string/jumbo v17, "ro.crypto.type"
 
-    move-result v11
+    const-string/jumbo v18, "none"
 
-    const/4 v12, 0x1
+    invoke-static/range {v17 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    if-le v11, v12, :cond_a
+    move-result-object v5
 
-    const-string/jumbo v11, "AP"
+    invoke-virtual {v9}, Ljava/lang/String;->length()I
 
-    const-string/jumbo v12, "ETRA"
+    move-result v17
 
-    invoke-direct {p0, v11, v12, v4}, Lcom/android/server/BootReceiver;->sendBroadcastToHWParm(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    const/16 v18, 0x1
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-le v0, v1, :cond_a
+
+    new-instance v17, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string/jumbo v18, ",\"CPT\""
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string/jumbo v18, ":\""
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string/jumbo v18, "/"
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string/jumbo v18, "\""
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    const-string/jumbo v17, "AP"
+
+    const-string/jumbo v18, "ETRA"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    move-object/from16 v2, v18
+
+    invoke-direct {v0, v1, v2, v10}, Lcom/android/server/BootReceiver;->sendBroadcastToHWParm(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
 
     :cond_a
     :goto_5
-    const/4 v11, 0x1
+    const/16 v17, 0x1
 
-    sput-boolean v11, Lcom/android/server/BootReceiver;->store_dump_summary:Z
+    sput-boolean v17, Lcom/android/server/BootReceiver;->store_dump_summary:Z
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    new-instance v0, Lcom/android/server/BootReceiver$SaveLastkmsg;
+    new-instance v3, Lcom/android/server/BootReceiver$SaveLastkmsg;
 
-    const/4 v11, 0x0
+    const/16 v17, 0x0
 
-    invoke-direct {v0, v11}, Lcom/android/server/BootReceiver$SaveLastkmsg;-><init>(Lcom/android/server/BootReceiver$SaveLastkmsg;)V
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+    invoke-direct {v3, v0}, Lcom/android/server/BootReceiver$SaveLastkmsg;-><init>(Lcom/android/server/BootReceiver$SaveLastkmsg;)V
+
+    invoke-virtual {v3}, Ljava/lang/Thread;->start()V
 
     goto/16 :goto_1
 
     :cond_b
-    const-string/jumbo v11, "sys.reset_reason"
+    const-string/jumbo v17, "sys.reset_reason"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "N|"
+    const-string/jumbo v19, "N|"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v12
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v18
 
-    const/4 v11, 0x0
+    invoke-static/range {v17 .. v18}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    iput v11, p0, Lcom/android/server/BootReceiver;->reset:I
+    const/16 v17, 0x0
+
+    move/from16 v0, v17
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/BootReceiver;->reset:I
 
     goto/16 :goto_2
 
     :catch_1
-    move-exception v3
+    move-exception v8
 
-    const-string/jumbo v11, "Store_LasgKmsg"
+    const-string/jumbo v17, "Store_LasgKmsg"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "readTextFile error"
+    const-string/jumbo v19, "readTextFile error"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v12
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_3
 
     :catch_2
-    move-exception v3
+    move-exception v8
 
-    const-string/jumbo v11, "dcvsString"
+    const-string/jumbo v17, "dcvsString"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "readTextFile error"
+    const-string/jumbo v19, "readTextFile error"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v12
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_4
 
     :catch_3
-    move-exception v3
+    move-exception v8
 
-    const-string/jumbo v11, "extraString"
+    const-string/jumbo v17, "extraString"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "readTextFile error"
+    const-string/jumbo v19, "readTextFile error"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v18
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v12
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v12
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_5
 .end method

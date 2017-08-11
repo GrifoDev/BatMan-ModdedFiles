@@ -175,6 +175,14 @@
     .end annotation
 .end method
 
+.method public abstract resetPersonalAutoBrightnessData()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setAlpmMode(IIILandroid/os/IBinder;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -304,6 +312,14 @@
 .end method
 
 .method public abstract setPowerSaveMode(Z)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setProximityDebounceTimeLocked(Landroid/os/IBinder;II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

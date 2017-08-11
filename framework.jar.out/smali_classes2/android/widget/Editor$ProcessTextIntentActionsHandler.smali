@@ -72,7 +72,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mEditor:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get11(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -210,7 +210,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mEditor:Landroid/widget/Editor;
 
-    invoke-static {v0, v2}, Landroid/widget/Editor;->-set2(Landroid/widget/Editor;Z)Z
+    invoke-static {v0, v2}, Landroid/widget/Editor;->-set1(Landroid/widget/Editor;Z)Z
 
     iget-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
 
@@ -448,7 +448,7 @@
 
     move-result-object v10
 
-    const v11, 0x1080a10
+    const v11, 0x10809fe
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -501,7 +501,7 @@
 
     move-result-object v10
 
-    const v11, 0x1080a0e
+    const v11, 0x10809fc
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

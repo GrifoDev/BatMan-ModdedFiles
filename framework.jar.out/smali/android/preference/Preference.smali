@@ -194,7 +194,7 @@
 
     iput-boolean v6, p0, Landroid/preference/Preference;->mShouldDisableView:Z
 
-    const v5, 0x10900b6
+    const v5, 0x10900b7
 
     iput v5, p0, Landroid/preference/Preference;->mLayoutResId:I
 
@@ -470,7 +470,7 @@
 
     move-result-object v6
 
-    const v8, 0x106021b
+    const v8, 0x1060221
 
     invoke-virtual {v5, v8, v6}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
 
@@ -1518,7 +1518,7 @@
 
     iget-object v2, p0, Landroid/preference/Preference;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040899
+    const v3, 0x10408a0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

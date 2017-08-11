@@ -248,7 +248,7 @@
 
     move-result-object v1
 
-    const v2, 0x10900fa
+    const v2, 0x10900fb
 
     invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -258,7 +258,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/app/SemColorPickerDialogFragment;->mColorPickerDialogView:Landroid/view/View;
 
-    const v2, 0x10204a5
+    const v2, 0x10204ae
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -339,7 +339,7 @@
 
     move-result-object v1
 
-    const v2, 0x10405bc
+    const v2, 0x10405be
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

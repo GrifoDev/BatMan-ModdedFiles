@@ -312,7 +312,7 @@
 
     if-eqz v4, :cond_2
 
-    const v4, 0x1090151
+    const v4, 0x1090152
 
     invoke-virtual {v2, v4}, Landroid/preference/Preference;->setLayoutResourceInternal(I)V
 

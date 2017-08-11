@@ -3974,7 +3974,7 @@
 
     move-result-object v11
 
-    const v12, 0x1060172
+    const v12, 0x1060178
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4148,7 +4148,7 @@
 
     move-result-object v9
 
-    const v10, 0x1060172
+    const v10, 0x1060178
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6321,7 +6321,7 @@
 
     iget-object v7, p0, Landroid/view/ViewRootImpl;->mTmpValue:Landroid/util/TypedValue;
 
-    const v8, 0x105016e
+    const v8, 0x105017e
 
     const/4 v9, 0x1
 
@@ -6421,7 +6421,7 @@
     :cond_4
     iget-object v7, p0, Landroid/view/ViewRootImpl;->mTmpValue:Landroid/util/TypedValue;
 
-    const v8, 0x105016d
+    const v8, 0x105017d
 
     const/4 v9, 0x1
 

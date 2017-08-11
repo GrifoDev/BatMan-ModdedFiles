@@ -436,11 +436,11 @@
 
     move-result v5
 
-    const v6, 0x108074a
+    const v6, 0x1080735
 
     if-ne v5, v6, :cond_1
 
-    const v5, 0x1080999
+    const v5, 0x1080987
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2040,9 +2040,9 @@
 .method private setupQuickController(I)V
     .locals 10
 
-    const v8, 0x1080552
+    const v8, 0x108053c
 
-    const v7, 0x1080551
+    const v7, 0x108053b
 
     const/4 v9, 0x0
 
@@ -2221,7 +2221,7 @@
 
     move-result-object v6
 
-    const v7, 0x108054f
+    const v7, 0x1080539
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2233,7 +2233,7 @@
 
     move-result-object v6
 
-    const v7, 0x1080550
+    const v7, 0x108053a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

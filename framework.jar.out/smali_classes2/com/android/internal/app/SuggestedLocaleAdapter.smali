@@ -731,7 +731,7 @@
 
     iget-object v6, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x1090083
+    const v7, 0x1090084
 
     invoke-virtual {v6, v7, p3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -808,14 +808,14 @@
 
     iget-object v6, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x1090085
+    const v7, 0x1090086
 
     invoke-virtual {v6, v7, p3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p2
 
     :cond_4
-    const v6, 0x1020414
+    const v6, 0x102041d
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -825,7 +825,7 @@
 
     if-nez v1, :cond_5
 
-    const v5, 0x1040601
+    const v5, 0x1040605
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -853,21 +853,21 @@
 
     if-eqz v5, :cond_6
 
-    const v5, 0x1040656
+    const v5, 0x104065a
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_1
 
     :cond_6
-    const v5, 0x1040655
+    const v5, 0x1040659
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_1
 
     :cond_7
-    const v5, 0x1040602
+    const v5, 0x1040606
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 

@@ -45,6 +45,15 @@
 
     iget-object v3, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
 
+    invoke-static {v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/concurrent/locks/ReentrantLock;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
+
+    :try_start_0
+    iget-object v3, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
+
     new-instance v4, Lcom/samsung/android/cover/SViewCoverBaseServiceWrapper;
 
     invoke-static {p2}, Lcom/samsung/android/cover/ISViewCoverBaseService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/cover/ISViewCoverBaseService;
@@ -57,7 +66,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
 
-    invoke-static {v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get1(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$SViewCoverBaseState;
+    invoke-static {v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get2(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$SViewCoverBaseState;
 
     move-result-object v3
 
@@ -74,7 +83,7 @@
     :cond_0
     iget-object v3, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
 
-    invoke-static {v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/ArrayList;
+    invoke-static {v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get1(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/ArrayList;
 
     move-result-object v3
 
@@ -89,7 +98,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
 
-    invoke-static {v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/ArrayList;
+    invoke-static {v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get1(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/ArrayList;
 
     move-result-object v3
 
@@ -124,19 +133,47 @@
     check-cast v3, Lcom/samsung/android/cover/CoverState;
 
     invoke-virtual {v4, v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceWrapper;->updateCoverState(Lcom/samsung/android/cover/CoverState;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_1
 
+    :catchall_0
+    move-exception v3
+
+    iget-object v4, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
+
+    invoke-static {v4}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/concurrent/locks/ReentrantLock;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+
+    throw v3
+
     :cond_1
+    :try_start_1
     iget-object v3, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
 
-    invoke-static {v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/ArrayList;
+    invoke-static {v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get1(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/ArrayList;
 
     move-result-object v3
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    iget-object v3, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
+
+    invoke-static {v3}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/concurrent/locks/ReentrantLock;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -155,9 +192,41 @@
 
     iget-object v0, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
 
+    invoke-static {v0}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/concurrent/locks/ReentrantLock;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
+
+    :try_start_0
+    iget-object v0, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
+
     const/4 v1, 0x0
 
     iput-object v1, v0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->mSViewCoverBaseService:Lcom/samsung/android/cover/SViewCoverBaseServiceWrapper;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    iget-object v0, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
+
+    invoke-static {v0}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/concurrent/locks/ReentrantLock;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    iget-object v1, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$1;->this$0:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;
+
+    invoke-static {v1}, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->-get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/concurrent/locks/ReentrantLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+
+    throw v0
 .end method

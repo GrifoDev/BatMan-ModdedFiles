@@ -32,35 +32,35 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 7
+    .locals 8
 
-    const-string/jumbo v4, "CodecSolution"
+    const-string/jumbo v5, "CodecSolution"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "handleMessage : "
+    const-string/jumbo v7, "handleMessage : "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    iget v6, p1, Landroid/os/Message;->what:I
+    iget v7, p1, Landroid/os/Message;->what:I
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v4, p1, Landroid/os/Message;->what:I
+    iget v5, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v4, :sswitch_data_0
+    sparse-switch v5, :sswitch_data_0
 
     :goto_0
     return-void
@@ -74,23 +74,23 @@
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    const-string/jumbo v4, "com.samsung.android.mhdrservice"
+    const-string/jumbo v5, "com.samsung.android.mhdrservice"
 
-    const-string/jumbo v5, "com.samsung.android.mhdrservice.MhdrService"
+    const-string/jumbo v6, "com.samsung.android.mhdrservice.MhdrService"
 
-    invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     invoke-virtual {v2, v0}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    iget-object v4, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
+    iget-object v5, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
 
-    invoke-static {v4}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v5
 
-    sget-object v5, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
+    sget-object v6, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
 
-    invoke-virtual {v4, v2, v5}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+    invoke-virtual {v5, v2, v6}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
     goto :goto_0
 
@@ -99,21 +99,21 @@
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    const-string/jumbo v4, "com.samsung.android.mhdrservice"
+    const-string/jumbo v5, "com.samsung.android.mhdrservice"
 
-    const-string/jumbo v5, "com.samsung.android.mhdrservice.MhdrService"
+    const-string/jumbo v6, "com.samsung.android.mhdrservice.MhdrService"
 
-    invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    iget-object v4, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
+    iget-object v5, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
 
-    invoke-static {v4}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v5
 
-    sget-object v5, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
+    sget-object v6, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
 
-    invoke-virtual {v4, v2, v5}, Landroid/content/Context;->stopServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Z
+    invoke-virtual {v5, v2, v6}, Landroid/content/Context;->stopServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Z
 
     goto :goto_0
 
@@ -126,23 +126,23 @@
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    const-string/jumbo v4, "com.samsung.android.mhdrservice"
+    const-string/jumbo v5, "com.samsung.android.mhdrservice"
 
-    const-string/jumbo v5, "com.samsung.android.mhdrservice.MhdrParamService"
+    const-string/jumbo v6, "com.samsung.android.mhdrservice.MhdrParamService"
 
-    invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     invoke-virtual {v2, v0}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    iget-object v4, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
+    iget-object v5, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
 
-    invoke-static {v4}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v5
 
-    sget-object v5, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
+    sget-object v6, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
 
-    invoke-virtual {v4, v2, v5}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+    invoke-virtual {v5, v2, v6}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
     goto :goto_0
 
@@ -155,100 +155,154 @@
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    const-string/jumbo v4, "com.samsung.android.mhdrservice"
+    const-string/jumbo v5, "com.samsung.android.mhdrservice"
 
-    const-string/jumbo v5, "com.samsung.android.mhdrservice.MhdrMetaService"
+    const-string/jumbo v6, "com.samsung.android.mhdrservice.MhdrMetaService"
 
-    invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     invoke-virtual {v2, v0}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    iget-object v4, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
+    iget-object v5, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
 
-    invoke-static {v4}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v5
 
-    sget-object v5, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
+    sget-object v6, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
 
-    invoke-virtual {v4, v2, v5}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+    invoke-virtual {v5, v2, v6}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
     goto :goto_0
 
     :sswitch_4
+    new-instance v2, Landroid/content/Intent;
+
+    invoke-direct {v2}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v5, "com.samsung.android.smartfitting"
+
+    const-string/jumbo v6, "com.samsung.android.smartfitting.SmartFittingService"
+
+    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v5, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
+
+    invoke-static {v5}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
+
+    move-result-object v5
+
+    sget-object v6, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
+
+    invoke-virtual {v5, v2, v6}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+
+    move-result-object v4
+
+    goto/16 :goto_0
+
+    :sswitch_5
+    new-instance v2, Landroid/content/Intent;
+
+    invoke-direct {v2}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v5, "com.samsung.android.smartfitting"
+
+    const-string/jumbo v6, "com.samsung.android.smartfitting.SmartFittingService"
+
+    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v5, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
+
+    invoke-static {v5}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
+
+    move-result-object v5
+
+    sget-object v6, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
+
+    invoke-virtual {v5, v2, v6}, Landroid/content/Context;->stopServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Z
+
+    iget-object v5, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
+
+    const/4 v6, 0x1
+
+    invoke-static {v5, v6}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-set1(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;I)I
+
+    goto/16 :goto_0
+
+    :sswitch_6
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v0
 
-    const-string/jumbo v4, "intent"
+    const-string/jumbo v5, "intent"
 
-    invoke-virtual {v0, v4}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v5}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
     if-nez v3, :cond_0
 
-    const-string/jumbo v4, "CodecSolution"
+    const-string/jumbo v5, "CodecSolution"
 
-    const-string/jumbo v5, "intent is null."
+    const-string/jumbo v6, "intent is null."
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_0
-    const-string/jumbo v4, "CodecSolution"
+    const-string/jumbo v5, "CodecSolution"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "sendBroadcast "
+    const-string/jumbo v7, "sendBroadcast "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
+
+    invoke-static {v5}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
 
     move-result-object v5
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v6, Landroid/content/Intent;
 
-    move-result-object v5
+    invoke-direct {v6, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    sget-object v7, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
-
-    invoke-static {v4}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
-
-    move-result-object v4
-
-    new-instance v5, Landroid/content/Intent;
-
-    invoke-direct {v5, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    sget-object v6, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-virtual {v5, v6, v7}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     goto/16 :goto_0
 
-    :sswitch_5
-    iget-object v4, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
+    :sswitch_7
+    iget-object v5, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
 
-    invoke-static {v4}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get3(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Z
+    invoke-static {v5}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get3(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Z
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_1
+    if-nez v5, :cond_1
 
-    const-string/jumbo v4, "CodecSolution"
+    const-string/jumbo v5, "CodecSolution"
 
-    const-string/jumbo v5, "ignore before boot completed"
+    const-string/jumbo v6, "ignore before boot completed"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
@@ -257,51 +311,49 @@
 
     check-cast v1, Lcom/samsung/android/codecsolution/MediaStatisticsEvent;
 
-    const-string/jumbo v4, "CodecSolution"
+    const-string/jumbo v5, "CodecSolution"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "event : "
+    const-string/jumbo v7, "event : "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v1}, Lcom/samsung/android/codecsolution/MediaStatisticsEvent;->getCategory()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
+
+    invoke-static {v5}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
 
     move-result-object v5
 
     invoke-virtual {v1}, Lcom/samsung/android/codecsolution/MediaStatisticsEvent;->getCategory()Ljava/lang/String;
 
     move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService$2;->this$0:Lcom/samsung/android/codecsolution/CodecSolutionManagerService;
-
-    invoke-static {v4}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-get2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;)Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-virtual {v1}, Lcom/samsung/android/codecsolution/MediaStatisticsEvent;->getCategory()Ljava/lang/String;
-
-    move-result-object v5
 
     invoke-virtual {v1}, Lcom/samsung/android/codecsolution/MediaStatisticsEvent;->getLabel()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v4, v5, v6}, Lcom/samsung/android/codecsolution/Logging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v6, v7}, Lcom/samsung/android/codecsolution/Logging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -309,7 +361,9 @@
         0x65 -> :sswitch_1
         0x66 -> :sswitch_2
         0x67 -> :sswitch_3
-        0x320 -> :sswitch_4
-        0x384 -> :sswitch_5
+        0xc8 -> :sswitch_4
+        0xc9 -> :sswitch_5
+        0x320 -> :sswitch_6
+        0x384 -> :sswitch_7
     .end sparse-switch
 .end method

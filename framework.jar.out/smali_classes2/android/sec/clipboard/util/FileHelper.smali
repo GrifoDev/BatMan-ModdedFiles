@@ -443,7 +443,7 @@
 
     move-result-object v20
 
-    const v21, 0x10501fa
+    const v21, 0x105020a
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -459,7 +459,7 @@
 
     move-result-object v20
 
-    const v21, 0x10501f9
+    const v21, 0x1050209
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimension(I)F
     :try_end_0
@@ -1095,7 +1095,7 @@
 
     move-result-object v19
 
-    const v20, 0x10501fa
+    const v20, 0x105020a
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1111,7 +1111,7 @@
 
     move-result-object v19
 
-    const v20, 0x10501f9
+    const v20, 0x1050209
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
     :try_end_0

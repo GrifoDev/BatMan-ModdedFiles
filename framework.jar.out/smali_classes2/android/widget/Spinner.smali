@@ -503,7 +503,7 @@
     :goto_0
     if-eqz v0, :cond_2
 
-    const v1, 0x1080acb
+    const v1, 0x1080ab9
 
     invoke-virtual {p0, v1}, Landroid/widget/Spinner;->setBackgroundResource(I)V
 
@@ -1624,7 +1624,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/AbsSpinner;->setBackgroundResource(I)V
 
-    const v0, 0x1080acb
+    const v0, 0x1080ab9
 
     if-eq p1, v0, :cond_0
 

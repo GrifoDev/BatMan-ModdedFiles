@@ -102,6 +102,10 @@
 
 .field public static final RESTORE_STORAGE:Ljava/lang/String; = "restore_storage"
 
+.field public static final SYNC_FULL:Ljava/lang/String; = "sync_full"
+
+.field public static final SYNC_NORMAL:Ljava/lang/String; = "sync_normal"
+
 .field private static final TAG:Ljava/lang/String; = "MediaStore"
 
 .field public static final UNHIDE_CALL:Ljava/lang/String; = "unhide"

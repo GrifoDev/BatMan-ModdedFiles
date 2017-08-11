@@ -230,13 +230,13 @@
 
     move-result-object v5
 
-    const v9, 0x1090173
+    const v9, 0x1090174
 
     invoke-virtual {v5, v9, v11}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v8
 
-    const v9, 0x1020524
+    const v9, 0x102052d
 
     invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -244,7 +244,7 @@
 
     check-cast v7, Landroid/widget/TextView;
 
-    const v9, 0x1020525
+    const v9, 0x102052e
 
     invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -254,7 +254,7 @@
 
     iput-object v9, p0, Lcom/samsung/android/app/CustomBootMsgDialog;->mUpgradeProgressMsg:Landroid/widget/TextView;
 
-    const v9, 0x1020526
+    const v9, 0x102052f
 
     invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -264,7 +264,7 @@
 
     iput-object v9, p0, Lcom/samsung/android/app/CustomBootMsgDialog;->mProgressBar:Landroid/widget/ProgressBar;
 
-    const v9, 0x1020522
+    const v9, 0x102052b
 
     invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -272,7 +272,7 @@
 
     iput-object v9, p0, Lcom/samsung/android/app/CustomBootMsgDialog;->mBigGear:Landroid/view/View;
 
-    const v9, 0x1020523
+    const v9, 0x102052c
 
     invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

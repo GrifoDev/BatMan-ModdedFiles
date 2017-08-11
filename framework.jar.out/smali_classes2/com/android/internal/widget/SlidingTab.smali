@@ -163,7 +163,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 6
 
-    const v5, 0x1080535
+    const v5, 0x108051f
 
     const/4 v2, 0x1
 
@@ -219,9 +219,9 @@
 
     new-instance v2, Lcom/android/internal/widget/SlidingTab$Slider;
 
-    const v3, 0x1080527
+    const v3, 0x1080511
 
-    const v4, 0x1080516
+    const v4, 0x1080500
 
     invoke-direct {v2, p0, v3, v4, v5}, Lcom/android/internal/widget/SlidingTab$Slider;-><init>(Landroid/view/ViewGroup;III)V
 
@@ -229,9 +229,9 @@
 
     new-instance v2, Lcom/android/internal/widget/SlidingTab$Slider;
 
-    const v3, 0x1080530
+    const v3, 0x108051a
 
-    const v4, 0x108051f
+    const v4, 0x1080509
 
     invoke-direct {v2, p0, v3, v4, v5}, Lcom/android/internal/widget/SlidingTab$Slider;-><init>(Landroid/view/ViewGroup;III)V
 

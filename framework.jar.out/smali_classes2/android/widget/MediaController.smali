@@ -537,7 +537,7 @@
 
     iput-object v2, p0, Landroid/widget/MediaController;->mPauseDescription:Ljava/lang/CharSequence;
 
-    const v2, 0x102041e
+    const v2, 0x1020427
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -562,7 +562,7 @@
     invoke-virtual {v2, v5}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_0
-    const v2, 0x102041f
+    const v2, 0x1020428
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -598,7 +598,7 @@
     invoke-virtual {v5, v2}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     :cond_1
-    const v2, 0x102041d
+    const v2, 0x1020426
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -672,7 +672,7 @@
 
     :cond_4
     :goto_3
-    const v2, 0x1020421
+    const v2, 0x102042a
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -718,7 +718,7 @@
 
     iput-object v2, p0, Landroid/widget/MediaController;->mEndTime:Landroid/widget/TextView;
 
-    const v2, 0x1020420
+    const v2, 0x1020429
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1564,7 +1564,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x109008e
+    const v1, 0x109008f
 
     const/4 v2, 0x0
 

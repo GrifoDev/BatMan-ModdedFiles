@@ -73,7 +73,7 @@
 
     iget-object v5, p0, Lcom/android/internal/app/MediaRouteChooserDialog$RouteAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x1090091
+    const v6, 0x1090092
 
     invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

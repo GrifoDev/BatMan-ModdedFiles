@@ -30,107 +30,111 @@
 
 .field static final TRANSACTION_acquireWakeLockWithUid:I = 0x2
 
-.field static final TRANSACTION_boostScreenBrightness:I = 0x16
+.field static final TRANSACTION_boostScreenBrightness:I = 0x17
 
-.field static final TRANSACTION_crash:I = 0x14
+.field static final TRANSACTION_crash:I = 0x15
 
-.field static final TRANSACTION_getCurrentBrightness:I = 0x1f
+.field static final TRANSACTION_getCurrentBrightness:I = 0x20
 
-.field static final TRANSACTION_getMultipleScreenState:I = 0x31
+.field static final TRANSACTION_getMultipleScreenState:I = 0x32
 
-.field static final TRANSACTION_goToSleep:I = 0xa
+.field static final TRANSACTION_goToSleep:I = 0xb
 
-.field static final TRANSACTION_isAlpmMode:I = 0x28
+.field static final TRANSACTION_isAlpmMode:I = 0x29
 
-.field static final TRANSACTION_isDeviceIdleMode:I = 0xf
+.field static final TRANSACTION_isDeviceIdleMode:I = 0x10
 
-.field static final TRANSACTION_isForceUnblankDisplay:I = 0x26
+.field static final TRANSACTION_isForceUnblankDisplay:I = 0x27
 
-.field static final TRANSACTION_isInteractive:I = 0xc
+.field static final TRANSACTION_isInteractive:I = 0xd
 
-.field static final TRANSACTION_isLightDeviceIdleMode:I = 0x10
+.field static final TRANSACTION_isLightDeviceIdleMode:I = 0x11
 
-.field static final TRANSACTION_isPowerSaveMode:I = 0xd
+.field static final TRANSACTION_isPowerSaveMode:I = 0xe
 
-.field static final TRANSACTION_isScreenBrightnessBoosted:I = 0x17
+.field static final TRANSACTION_isScreenBrightnessBoosted:I = 0x18
 
 .field static final TRANSACTION_isWakeLockLevelSupported:I = 0x7
 
-.field static final TRANSACTION_nap:I = 0xb
+.field static final TRANSACTION_nap:I = 0xc
 
 .field static final TRANSACTION_powerHint:I = 0x5
 
-.field static final TRANSACTION_reboot:I = 0x11
+.field static final TRANSACTION_reboot:I = 0x12
 
-.field static final TRANSACTION_rebootSafeMode:I = 0x12
+.field static final TRANSACTION_rebootSafeMode:I = 0x13
 
 .field static final TRANSACTION_releaseWakeLock:I = 0x3
 
-.field static final TRANSACTION_setAlpmMode:I = 0x27
+.field static final TRANSACTION_resetPersonalAutoBrightnessData:I = 0x37
 
-.field static final TRANSACTION_setAttentionLight:I = 0x1a
+.field static final TRANSACTION_setAlpmMode:I = 0x28
 
-.field static final TRANSACTION_setAutoBrightnessForEbookOnly:I = 0x21
+.field static final TRANSACTION_setAttentionLight:I = 0x1b
 
-.field static final TRANSACTION_setAutoBrightnessLimit:I = 0x1b
+.field static final TRANSACTION_setAutoBrightnessForEbookOnly:I = 0x22
 
-.field static final TRANSACTION_setButtonBrightnessLimit:I = 0x24
+.field static final TRANSACTION_setAutoBrightnessLimit:I = 0x1c
 
-.field static final TRANSACTION_setCameraMode:I = 0x34
+.field static final TRANSACTION_setButtonBrightnessLimit:I = 0x25
 
-.field static final TRANSACTION_setClearViewBrightnessMode:I = 0x1c
+.field static final TRANSACTION_setCameraMode:I = 0x35
 
-.field static final TRANSACTION_setColorWeaknessMode:I = 0x1d
+.field static final TRANSACTION_setClearViewBrightnessMode:I = 0x1d
 
-.field static final TRANSACTION_setCoverType:I = 0x29
+.field static final TRANSACTION_setColorWeaknessMode:I = 0x1e
 
-.field static final TRANSACTION_setDozeOverrideFromAod:I = 0x2c
+.field static final TRANSACTION_setCoverType:I = 0x2a
 
-.field static final TRANSACTION_setForceUnblankDisplay:I = 0x25
+.field static final TRANSACTION_setDozeOverrideFromAod:I = 0x2d
 
-.field static final TRANSACTION_setHallstateForMultipleScreen:I = 0x30
+.field static final TRANSACTION_setForceUnblankDisplay:I = 0x26
 
-.field static final TRANSACTION_setKeyboardVisibility:I = 0x20
+.field static final TRANSACTION_setHallstateForMultipleScreen:I = 0x31
 
-.field static final TRANSACTION_setLCDFlashMode:I = 0x2f
+.field static final TRANSACTION_setKeyboardVisibility:I = 0x21
 
-.field static final TRANSACTION_setMasterBrightnessLimit:I = 0x1e
+.field static final TRANSACTION_setLCDFlashMode:I = 0x30
 
-.field static final TRANSACTION_setMultipleScreenStateOverride:I = 0x33
+.field static final TRANSACTION_setMasterBrightnessLimit:I = 0x1f
 
-.field static final TRANSACTION_setPowerSaveMode:I = 0xe
+.field static final TRANSACTION_setMultipleScreenStateOverride:I = 0x34
 
-.field static final TRANSACTION_setScreenBrightnessScaleFactor:I = 0x2e
+.field static final TRANSACTION_setPowerSaveMode:I = 0xf
 
-.field static final TRANSACTION_setSmartGlowState:I = 0x35
+.field static final TRANSACTION_setProximityDebounceTimeLocked:I = 0x8
 
-.field static final TRANSACTION_setStayOnSetting:I = 0x15
+.field static final TRANSACTION_setScreenBrightnessScaleFactor:I = 0x2f
 
-.field static final TRANSACTION_setSubScreenState:I = 0x32
+.field static final TRANSACTION_setSmartGlowState:I = 0x36
 
-.field static final TRANSACTION_setTemporaryMarkerScreenBrightnessSettingOverride:I = 0x2d
+.field static final TRANSACTION_setStayOnSetting:I = 0x16
 
-.field static final TRANSACTION_setTemporaryScreenAutoBrightnessAdjustmentSettingOverride:I = 0x19
+.field static final TRANSACTION_setSubScreenState:I = 0x33
 
-.field static final TRANSACTION_setTemporaryScreenBrightnessSettingOverride:I = 0x18
+.field static final TRANSACTION_setTemporaryMarkerScreenBrightnessSettingOverride:I = 0x2e
 
-.field static final TRANSACTION_shutdown:I = 0x13
+.field static final TRANSACTION_setTemporaryScreenAutoBrightnessAdjustmentSettingOverride:I = 0x1a
 
-.field static final TRANSACTION_switchForceLcdBacklightOffState:I = 0x23
+.field static final TRANSACTION_setTemporaryScreenBrightnessSettingOverride:I = 0x19
 
-.field static final TRANSACTION_systemShutdown:I = 0x2a
+.field static final TRANSACTION_shutdown:I = 0x14
 
-.field static final TRANSACTION_updateCoverState:I = 0x22
+.field static final TRANSACTION_switchForceLcdBacklightOffState:I = 0x24
+
+.field static final TRANSACTION_systemShutdown:I = 0x2b
+
+.field static final TRANSACTION_updateCoverState:I = 0x23
 
 .field static final TRANSACTION_updateWakeLockUids:I = 0x4
 
 .field static final TRANSACTION_updateWakeLockWorkSource:I = 0x6
 
-.field static final TRANSACTION_userActivity:I = 0x8
+.field static final TRANSACTION_userActivity:I = 0x9
 
-.field static final TRANSACTION_wakeUp:I = 0x9
+.field static final TRANSACTION_wakeUp:I = 0xa
 
-.field static final TRANSACTION_wakeUpWithReason:I = 0x2b
+.field static final TRANSACTION_wakeUpWithReason:I = 0x2c
 
 
 # direct methods
@@ -487,6 +491,35 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v5
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v14
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5, v6, v14}, Landroid/os/IPowerManager$Stub;->setProximityDebounceTimeLocked(Landroid/os/IBinder;II)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_9
+    const-string/jumbo v4, "android.os.IPowerManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v28
@@ -511,7 +544,7 @@
 
     return v4
 
-    :sswitch_9
+    :sswitch_a
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -544,7 +577,7 @@
 
     return v4
 
-    :sswitch_a
+    :sswitch_b
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -575,7 +608,7 @@
 
     return v4
 
-    :sswitch_b
+    :sswitch_c
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -598,7 +631,7 @@
 
     return v4
 
-    :sswitch_c
+    :sswitch_d
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -629,7 +662,7 @@
 
     goto :goto_3
 
-    :sswitch_d
+    :sswitch_e
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -660,7 +693,7 @@
 
     goto :goto_4
 
-    :sswitch_e
+    :sswitch_f
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -709,7 +742,7 @@
 
     goto :goto_6
 
-    :sswitch_f
+    :sswitch_10
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -740,7 +773,7 @@
 
     goto :goto_7
 
-    :sswitch_10
+    :sswitch_11
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -771,7 +804,7 @@
 
     goto :goto_8
 
-    :sswitch_11
+    :sswitch_12
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -826,7 +859,7 @@
 
     goto :goto_a
 
-    :sswitch_12
+    :sswitch_13
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -875,7 +908,7 @@
 
     goto :goto_c
 
-    :sswitch_13
+    :sswitch_14
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -930,7 +963,7 @@
 
     goto :goto_e
 
-    :sswitch_14
+    :sswitch_15
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -953,7 +986,7 @@
 
     return v4
 
-    :sswitch_15
+    :sswitch_16
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -974,7 +1007,7 @@
 
     return v4
 
-    :sswitch_16
+    :sswitch_17
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -997,7 +1030,7 @@
 
     return v4
 
-    :sswitch_17
+    :sswitch_18
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1028,7 +1061,7 @@
 
     goto :goto_f
 
-    :sswitch_18
+    :sswitch_19
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1049,7 +1082,7 @@
 
     return v4
 
-    :sswitch_19
+    :sswitch_1a
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1072,7 +1105,7 @@
 
     return v4
 
-    :sswitch_1a
+    :sswitch_1b
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1109,7 +1142,7 @@
 
     goto :goto_10
 
-    :sswitch_1b
+    :sswitch_1c
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1134,7 +1167,7 @@
 
     return v4
 
-    :sswitch_1c
+    :sswitch_1d
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1177,7 +1210,7 @@
 
     goto :goto_11
 
-    :sswitch_1d
+    :sswitch_1e
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1216,7 +1249,7 @@
 
     goto :goto_12
 
-    :sswitch_1e
+    :sswitch_1f
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1241,7 +1274,7 @@
 
     return v4
 
-    :sswitch_1f
+    :sswitch_20
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1282,7 +1315,7 @@
 
     goto :goto_13
 
-    :sswitch_20
+    :sswitch_21
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1315,7 +1348,7 @@
 
     goto :goto_14
 
-    :sswitch_21
+    :sswitch_22
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1348,7 +1381,7 @@
 
     goto :goto_15
 
-    :sswitch_22
+    :sswitch_23
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1381,7 +1414,7 @@
 
     goto :goto_16
 
-    :sswitch_23
+    :sswitch_24
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1396,7 +1429,7 @@
 
     return v4
 
-    :sswitch_24
+    :sswitch_25
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1417,7 +1450,7 @@
 
     return v4
 
-    :sswitch_25
+    :sswitch_26
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1450,7 +1483,7 @@
 
     goto :goto_17
 
-    :sswitch_26
+    :sswitch_27
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1481,7 +1514,7 @@
 
     goto :goto_18
 
-    :sswitch_27
+    :sswitch_28
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1516,7 +1549,7 @@
 
     return v4
 
-    :sswitch_28
+    :sswitch_29
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1547,7 +1580,7 @@
 
     goto :goto_19
 
-    :sswitch_29
+    :sswitch_2a
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1568,7 +1601,7 @@
 
     return v4
 
-    :sswitch_2a
+    :sswitch_2b
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1583,7 +1616,7 @@
 
     return v4
 
-    :sswitch_2b
+    :sswitch_2c
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1610,7 +1643,7 @@
 
     return v4
 
-    :sswitch_2c
+    :sswitch_2d
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1645,7 +1678,7 @@
 
     return v4
 
-    :sswitch_2d
+    :sswitch_2e
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1666,7 +1699,7 @@
 
     return v4
 
-    :sswitch_2e
+    :sswitch_2f
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1695,7 +1728,7 @@
 
     return v4
 
-    :sswitch_2f
+    :sswitch_30
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1734,7 +1767,7 @@
 
     goto :goto_1a
 
-    :sswitch_30
+    :sswitch_31
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1755,7 +1788,7 @@
 
     return v4
 
-    :sswitch_31
+    :sswitch_32
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1778,7 +1811,7 @@
 
     return v4
 
-    :sswitch_32
+    :sswitch_33
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1811,7 +1844,7 @@
 
     goto :goto_1b
 
-    :sswitch_33
+    :sswitch_34
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1836,7 +1869,7 @@
 
     return v4
 
-    :sswitch_34
+    :sswitch_35
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1875,7 +1908,7 @@
 
     goto :goto_1c
 
-    :sswitch_35
+    :sswitch_36
     const-string/jumbo v4, "android.os.IPowerManager"
 
     move-object/from16 v0, p2
@@ -1950,6 +1983,21 @@
 
     return v4
 
+    :sswitch_37
+    const-string/jumbo v4, "android.os.IPowerManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Landroid/os/IPowerManager$Stub;->resetPersonalAutoBrightnessData()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -2005,6 +2053,8 @@
         0x33 -> :sswitch_33
         0x34 -> :sswitch_34
         0x35 -> :sswitch_35
+        0x36 -> :sswitch_36
+        0x37 -> :sswitch_37
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

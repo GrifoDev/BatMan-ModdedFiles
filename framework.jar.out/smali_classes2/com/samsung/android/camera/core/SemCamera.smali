@@ -950,6 +950,8 @@
 
 .field private mErrorCallback:Lcom/samsung/android/camera/core/SemCamera$ErrorCallback;
 
+.field private final mErrorCallbackLock:Ljava/lang/Object;
+
 .field private mEventHandler:Lcom/samsung/android/camera/core/SemCamera$EventHandler;
 
 .field private mExtraInfoListener:Lcom/samsung/android/camera/core/SemCamera$ExtraInfoListener;
@@ -1002,6 +1004,8 @@
 
 .field private mLightConditionChangedListener:Lcom/samsung/android/camera/core/SemCamera$LightConditionChangedListener;
 
+.field private final mMetaDataCallbackLock:Ljava/lang/Object;
+
 .field private mMotionPanoramaEventListener:Lcom/samsung/android/camera/core/SemCamera$MotionPanoramaEventListener;
 
 .field private mMultiAutoFocusCallback:Lcom/samsung/android/camera/core/SemCamera$MultiAutoFocusCallback;
@@ -1040,6 +1044,8 @@
 
 .field private mShotAndMoreEventListener:Lcom/samsung/android/camera/core/SemCamera$ShotAndMoreEventListener;
 
+.field private final mShotModeListenerLock:Ljava/lang/Object;
+
 .field private mShutterCallback:Lcom/samsung/android/camera/core/SemCamera$ShutterCallback;
 
 .field private mSlowMotionEventListener:Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventListener;
@@ -1057,6 +1063,8 @@
 .field private mWithBuffer:Z
 
 .field private mZoomListener:Lcom/samsung/android/camera/core/SemCamera$OnZoomChangeListener;
+
+.field private final mZoomListenerLock:Ljava/lang/Object;
 
 
 # direct methods
@@ -1116,7 +1124,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ExtraInfoListener;
+.method static synthetic -get15(Lcom/samsung/android/camera/core/SemCamera;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mErrorCallbackLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -get16(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ExtraInfoListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mExtraInfoListener:Lcom/samsung/android/camera/core/SemCamera$ExtraInfoListener;
@@ -1124,7 +1140,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/samsung/android/camera/core/SemCamera;)Z
+.method static synthetic -get17(Lcom/samsung/android/camera/core/SemCamera;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mFaceDetectionRunning:Z
@@ -1132,7 +1148,7 @@
     return v0
 .end method
 
-.method static synthetic -get17(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$FaceDetectionListener;
+.method static synthetic -get18(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$FaceDetectionListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mFaceListener:Lcom/samsung/android/camera/core/SemCamera$FaceDetectionListener;
@@ -1140,18 +1156,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$FoodShotEventListener;
+.method static synthetic -get19(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$FoodShotEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mFoodShotEventListener:Lcom/samsung/android/camera/core/SemCamera$FoodShotEventListener;
-
-    return-object v0
-.end method
-
-.method static synthetic -get19(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$HardwareFaceDetectionListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mHardwareFaceDetectionListener:Lcom/samsung/android/camera/core/SemCamera$HardwareFaceDetectionListener;
 
     return-object v0
 .end method
@@ -1164,7 +1172,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get20(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$HazeRemovalEventListener;
+.method static synthetic -get20(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$HardwareFaceDetectionListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mHardwareFaceDetectionListener:Lcom/samsung/android/camera/core/SemCamera$HardwareFaceDetectionListener;
+
+    return-object v0
+.end method
+
+.method static synthetic -get21(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$HazeRemovalEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mHazeRemovalShotEventListener:Lcom/samsung/android/camera/core/SemCamera$HazeRemovalEventListener;
@@ -1172,7 +1188,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get21(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$HdrEventListener;
+.method static synthetic -get22(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$HdrEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mHdrEventListener:Lcom/samsung/android/camera/core/SemCamera$HdrEventListener;
@@ -1180,7 +1196,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get22(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ImageEffectEventListener;
+.method static synthetic -get23(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ImageEffectEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mImageEffectEventListener:Lcom/samsung/android/camera/core/SemCamera$ImageEffectEventListener;
@@ -1188,7 +1204,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get23(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$InteractiveShotEventListener;
+.method static synthetic -get24(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$InteractiveShotEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mInteractiveShotEventListener:Lcom/samsung/android/camera/core/SemCamera$InteractiveShotEventListener;
@@ -1196,7 +1212,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get24(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$IrisDataCallback;
+.method static synthetic -get25(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$IrisDataCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mIrisDataCallback:Lcom/samsung/android/camera/core/SemCamera$IrisDataCallback;
@@ -1204,7 +1220,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get25(Lcom/samsung/android/camera/core/SemCamera;)Z
+.method static synthetic -get26(Lcom/samsung/android/camera/core/SemCamera;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mIrisIrCallbackEnabled:Z
@@ -1212,7 +1228,7 @@
     return v0
 .end method
 
-.method static synthetic -get26(Lcom/samsung/android/camera/core/SemCamera;)Z
+.method static synthetic -get27(Lcom/samsung/android/camera/core/SemCamera;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mIrisPreviewCallbackEnabled:Z
@@ -1220,7 +1236,7 @@
     return v0
 .end method
 
-.method static synthetic -get27(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PictureCallback;
+.method static synthetic -get28(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PictureCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mJpegCallback:Lcom/samsung/android/camera/core/SemCamera$PictureCallback;
@@ -1228,18 +1244,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get28(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$LightConditionChangedListener;
+.method static synthetic -get29(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$LightConditionChangedListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mLightConditionChangedListener:Lcom/samsung/android/camera/core/SemCamera$LightConditionChangedListener;
-
-    return-object v0
-.end method
-
-.method static synthetic -get29(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$MotionPanoramaEventListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mMotionPanoramaEventListener:Lcom/samsung/android/camera/core/SemCamera$MotionPanoramaEventListener;
 
     return-object v0
 .end method
@@ -1252,7 +1260,23 @@
     return-object v0
 .end method
 
-.method static synthetic -get30(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$MultiAutoFocusCallback;
+.method static synthetic -get30(Lcom/samsung/android/camera/core/SemCamera;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mMetaDataCallbackLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -get31(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$MotionPanoramaEventListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mMotionPanoramaEventListener:Lcom/samsung/android/camera/core/SemCamera$MotionPanoramaEventListener;
+
+    return-object v0
+.end method
+
+.method static synthetic -get32(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$MultiAutoFocusCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mMultiAutoFocusCallback:Lcom/samsung/android/camera/core/SemCamera$MultiAutoFocusCallback;
@@ -1260,7 +1284,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get31(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$MultiFrameEventListener;
+.method static synthetic -get33(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$MultiFrameEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mMultiFrameEventListener:Lcom/samsung/android/camera/core/SemCamera$MultiFrameEventListener;
@@ -1268,7 +1292,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get32(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ObjectTrackingAutoFocusCallback;
+.method static synthetic -get34(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ObjectTrackingAutoFocusCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mObjectTrackingAutoFocusCallback:Lcom/samsung/android/camera/core/SemCamera$ObjectTrackingAutoFocusCallback;
@@ -1276,7 +1300,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get33(Lcom/samsung/android/camera/core/SemCamera;)Z
+.method static synthetic -get35(Lcom/samsung/android/camera/core/SemCamera;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mOneShot:Z
@@ -1284,7 +1308,7 @@
     return v0
 .end method
 
-.method static synthetic -get34(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PanoramaEventListener;
+.method static synthetic -get36(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PanoramaEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mPanoramaEventListener:Lcom/samsung/android/camera/core/SemCamera$PanoramaEventListener;
@@ -1292,7 +1316,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get35(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PhaseAutoFocusCallback;
+.method static synthetic -get37(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PhaseAutoFocusCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mPhaseAutoFocusCallback:Lcom/samsung/android/camera/core/SemCamera$PhaseAutoFocusCallback;
@@ -1300,7 +1324,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get36(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PostEventListener;
+.method static synthetic -get38(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PostEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mPostEventListener:Lcom/samsung/android/camera/core/SemCamera$PostEventListener;
@@ -1308,26 +1332,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get37(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PictureCallback;
+.method static synthetic -get39(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PictureCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mPostviewCallback:Lcom/samsung/android/camera/core/SemCamera$PictureCallback;
-
-    return-object v0
-.end method
-
-.method static synthetic -get38(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mPreviewCallback:Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;
-
-    return-object v0
-.end method
-
-.method static synthetic -get39(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mPreviewCallbackForGLEffect:Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;
 
     return-object v0
 .end method
@@ -1340,7 +1348,23 @@
     return-object v0
 .end method
 
-.method static synthetic -get40(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PreviewCallbackTimeStamp;
+.method static synthetic -get40(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mPreviewCallback:Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;
+
+    return-object v0
+.end method
+
+.method static synthetic -get41(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mPreviewCallbackForGLEffect:Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;
+
+    return-object v0
+.end method
+
+.method static synthetic -get42(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PreviewCallbackTimeStamp;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mPreviewCallbackTimeStamp:Lcom/samsung/android/camera/core/SemCamera$PreviewCallbackTimeStamp;
@@ -1348,7 +1372,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get41(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$QrCodeDetectionEventListener;
+.method static synthetic -get43(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$QrCodeDetectionEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mQrCodeDetectionEventListener:Lcom/samsung/android/camera/core/SemCamera$QrCodeDetectionEventListener;
@@ -1356,7 +1380,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get42(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PictureCallback;
+.method static synthetic -get44(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$PictureCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mRawImageCallback:Lcom/samsung/android/camera/core/SemCamera$PictureCallback;
@@ -1364,7 +1388,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get43(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$RelightEventListener;
+.method static synthetic -get45(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$RelightEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mRelightEventListener:Lcom/samsung/android/camera/core/SemCamera$RelightEventListener;
@@ -1372,7 +1396,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get44(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ScreenFlashEventListener;
+.method static synthetic -get46(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ScreenFlashEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mScreenFlashEventListener:Lcom/samsung/android/camera/core/SemCamera$ScreenFlashEventListener;
@@ -1380,7 +1404,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get45(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$SelectiveFocusEventListener;
+.method static synthetic -get47(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$SelectiveFocusEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mSelectiveFocusEventListener:Lcom/samsung/android/camera/core/SemCamera$SelectiveFocusEventListener;
@@ -1388,7 +1412,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get46(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ShotAndMoreEventListener;
+.method static synthetic -get48(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ShotAndMoreEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotAndMoreEventListener:Lcom/samsung/android/camera/core/SemCamera$ShotAndMoreEventListener;
@@ -1396,26 +1420,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get47(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ShutterCallback;
+.method static synthetic -get49(Lcom/samsung/android/camera/core/SemCamera;)Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShutterCallback:Lcom/samsung/android/camera/core/SemCamera$ShutterCallback;
-
-    return-object v0
-.end method
-
-.method static synthetic -get48(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mSlowMotionEventListener:Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventListener;
-
-    return-object v0
-.end method
-
-.method static synthetic -get49(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$SmartFilterListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mSmartFilterListener:Lcom/samsung/android/camera/core/SemCamera$SmartFilterListener;
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
 
     return-object v0
 .end method
@@ -1428,7 +1436,31 @@
     return-object v0
 .end method
 
-.method static synthetic -get50(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$StickerEventListener;
+.method static synthetic -get50(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$ShutterCallback;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShutterCallback:Lcom/samsung/android/camera/core/SemCamera$ShutterCallback;
+
+    return-object v0
+.end method
+
+.method static synthetic -get51(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mSlowMotionEventListener:Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventListener;
+
+    return-object v0
+.end method
+
+.method static synthetic -get52(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$SmartFilterListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mSmartFilterListener:Lcom/samsung/android/camera/core/SemCamera$SmartFilterListener;
+
+    return-object v0
+.end method
+
+.method static synthetic -get53(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$StickerEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mStickerEventListener:Lcom/samsung/android/camera/core/SemCamera$StickerEventListener;
@@ -1436,7 +1468,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get51(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$WideMotionSelfieEventListener;
+.method static synthetic -get54(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$WideMotionSelfieEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mWideMotionSelfieEventListener:Lcom/samsung/android/camera/core/SemCamera$WideMotionSelfieEventListener;
@@ -1444,7 +1476,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get52(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$WideSelfieEventListener;
+.method static synthetic -get55(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$WideSelfieEventListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mWideSelfieEventListener:Lcom/samsung/android/camera/core/SemCamera$WideSelfieEventListener;
@@ -1452,7 +1484,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get53(Lcom/samsung/android/camera/core/SemCamera;)Z
+.method static synthetic -get56(Lcom/samsung/android/camera/core/SemCamera;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mWithBuffer:Z
@@ -1460,10 +1492,18 @@
     return v0
 .end method
 
-.method static synthetic -get54(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$OnZoomChangeListener;
+.method static synthetic -get57(Lcom/samsung/android/camera/core/SemCamera;)Lcom/samsung/android/camera/core/SemCamera$OnZoomChangeListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mZoomListener:Lcom/samsung/android/camera/core/SemCamera$OnZoomChangeListener;
+
+    return-object v0
+.end method
+
+.method static synthetic -get58(Lcom/samsung/android/camera/core/SemCamera;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mZoomListenerLock:Ljava/lang/Object;
 
     return-object v0
 .end method
@@ -1554,6 +1594,30 @@
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mAutoFocusCallbackLock:Ljava/lang/Object;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mZoomListenerLock:Ljava/lang/Object;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mErrorCallbackLock:Ljava/lang/Object;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mMetaDataCallbackLock:Ljava/lang/Object;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
 
     new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;
 
@@ -1668,6 +1732,30 @@
     invoke-direct {v1}, Ljava/lang/Object;-><init>()V
 
     iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mAutoFocusCallbackLock:Ljava/lang/Object;
+
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mZoomListenerLock:Ljava/lang/Object;
+
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mErrorCallbackLock:Ljava/lang/Object;
+
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mMetaDataCallbackLock:Ljava/lang/Object;
+
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
 
     new-instance v1, Ljava/util/concurrent/locks/ReentrantLock;
 
@@ -1932,6 +2020,30 @@
 
     iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mAutoFocusCallbackLock:Ljava/lang/Object;
 
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mZoomListenerLock:Ljava/lang/Object;
+
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mErrorCallbackLock:Ljava/lang/Object;
+
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mMetaDataCallbackLock:Ljava/lang/Object;
+
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
     new-instance v1, Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-direct {v1}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
@@ -2019,12 +2131,6 @@
     iput-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mIrisPreviewQueue:Ljava/util/Queue;
 
     iput-object v2, p0, Lcom/samsung/android/camera/core/SemCamera;->mSmartFilterListener:Lcom/samsung/android/camera/core/SemCamera$SmartFilterListener;
-
-    const-string/jumbo v1, "SemCamera-JNI-Java"
-
-    const-string/jumbo v2, "Semcamera Version is 2401"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0, p1, p2, p3}, Lcom/samsung/android/camera/core/SemCamera;->cameraInitNormal(ILandroid/os/Looper;Z)I
 
@@ -4092,9 +4198,18 @@
 .end method
 
 .method public setAutoFocusMoveCallback(Lcom/samsung/android/camera/core/SemCamera$AutoFocusMoveCallback;)V
-    .locals 1
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mAutoFocusCallbackLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mAutoFocusMoveCallback:Lcom/samsung/android/camera/core/SemCamera$AutoFocusMoveCallback;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mAutoFocusMoveCallback:Lcom/samsung/android/camera/core/SemCamera$AutoFocusMoveCallback;
 
@@ -4107,6 +4222,13 @@
 
     return-void
 
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
+
     :cond_0
     const/4 v0, 0x0
 
@@ -4114,11 +4236,49 @@
 .end method
 
 .method public setBeautyEventListener(Lcom/samsung/android/camera/core/SemCamera$BeautyEventListener;)V
-    .locals 0
+    .locals 4
+
+    iget-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    const-string/jumbo v0, "SemCamera-JNI-Java"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "setBeautyEventListener : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mBeautyEventListener:Lcom/samsung/android/camera/core/SemCamera$BeautyEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public setBeautyLevel(ZI)V
@@ -4210,19 +4370,51 @@
 .end method
 
 .method public setBurstEventListener(Lcom/samsung/android/camera/core/SemCamera$BurstEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mBurstEventListener:Lcom/samsung/android/camera/core/SemCamera$BurstEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setBurstShotFpsCallback(Lcom/samsung/android/camera/core/SemCamera$BurstShotFpsCallback;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mMetaDataCallbackLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mBurstShotFpsCallback:Lcom/samsung/android/camera/core/SemCamera$BurstShotFpsCallback;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setBurstShotFpsCallbackEnabled(Z)V
@@ -4270,11 +4462,27 @@
 .end method
 
 .method public setCameraSensorDataListener(Lcom/samsung/android/camera/core/SemCamera$CameraSensorDataListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mMetaDataCallbackLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mCameraSensorDataListener:Lcom/samsung/android/camera/core/SemCamera$CameraSensorDataListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setCameraSensorDataListenerEnabled(Z)V
@@ -4332,19 +4540,51 @@
 .end method
 
 .method public setCommonEventListener(Lcom/samsung/android/camera/core/SemCamera$CommonEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mCommonEventListener:Lcom/samsung/android/camera/core/SemCamera$CommonEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setDepthMapEventListener(Lcom/samsung/android/camera/core/SemCamera$DepthMapEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mDepthMapEventListener:Lcom/samsung/android/camera/core/SemCamera$DepthMapEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public final native setDisplayOrientation(I)V
@@ -4447,19 +4687,51 @@
 .end method
 
 .method public final setErrorCallback(Lcom/samsung/android/camera/core/SemCamera$ErrorCallback;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mErrorCallbackLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mErrorCallback:Lcom/samsung/android/camera/core/SemCamera$ErrorCallback;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public final setExtraInfoListener(Lcom/samsung/android/camera/core/SemCamera$ExtraInfoListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mMetaDataCallbackLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mExtraInfoListener:Lcom/samsung/android/camera/core/SemCamera$ExtraInfoListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setEyeEnlargeLevel(I)V
@@ -4475,11 +4747,27 @@
 .end method
 
 .method public final setFaceDetectionListener(Lcom/samsung/android/camera/core/SemCamera$FaceDetectionListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mMetaDataCallbackLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mFaceListener:Lcom/samsung/android/camera/core/SemCamera$FaceDetectionListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setFaceDistortionCompensationEnabled(Z)V
@@ -4593,11 +4881,27 @@
 .end method
 
 .method public setFoodShotEventListener(Lcom/samsung/android/camera/core/SemCamera$FoodShotEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mFoodShotEventListener:Lcom/samsung/android/camera/core/SemCamera$FoodShotEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setGenericParameters(Ljava/lang/String;)V
@@ -4667,25 +4971,79 @@
 .end method
 
 .method public final setHardwareFaceDetectionListener(Lcom/samsung/android/camera/core/SemCamera$HardwareFaceDetectionListener;)V
-    .locals 0
+    .locals 4
+
+    iget-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mMetaDataCallbackLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    const-string/jumbo v0, "SemCamera-JNI-Java"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "mHardwareFaceDetectionListener : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mHardwareFaceDetectionListener:Lcom/samsung/android/camera/core/SemCamera$HardwareFaceDetectionListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public setHazeRemovalShotEventListener(Lcom/samsung/android/camera/core/SemCamera$HazeRemovalEventListener;)V
-    .locals 2
+    .locals 3
 
+    iget-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
     const-string/jumbo v0, "SemCamera-JNI-Java"
 
-    const-string/jumbo v1, "setHazeRemovalShotEventListener"
+    const-string/jumbo v2, "setHazeRemovalShotEventListener"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mHazeRemovalShotEventListener:Lcom/samsung/android/camera/core/SemCamera$HazeRemovalEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public setHdrAutoCallbackEnabled(Z)V
@@ -4711,11 +5069,27 @@
 .end method
 
 .method public setHdrEventListener(Lcom/samsung/android/camera/core/SemCamera$HdrEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mHdrEventListener:Lcom/samsung/android/camera/core/SemCamera$HdrEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setHdrSavingMode(I)V
@@ -4751,11 +5125,27 @@
 .end method
 
 .method public setImageEffectEventListener(Lcom/samsung/android/camera/core/SemCamera$ImageEffectEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mImageEffectEventListener:Lcom/samsung/android/camera/core/SemCamera$ImageEffectEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setImageEffectVisibleForRecording(Z)V
@@ -4781,11 +5171,27 @@
 .end method
 
 .method public setInteractiveEventListener(Lcom/samsung/android/camera/core/SemCamera$InteractiveShotEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mInteractiveShotEventListener:Lcom/samsung/android/camera/core/SemCamera$InteractiveShotEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public final setIrisDataCallback(Lcom/samsung/android/camera/core/SemCamera$IrisDataCallback;)V
@@ -4919,11 +5325,27 @@
 .end method
 
 .method public setMotionPanoramaEventListener(Lcom/samsung/android/camera/core/SemCamera$MotionPanoramaEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mMotionPanoramaEventListener:Lcom/samsung/android/camera/core/SemCamera$MotionPanoramaEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setMotionPanoramaModeEnabled(Z)V
@@ -4979,17 +5401,33 @@
 .end method
 
 .method public setMultiFrameEventListener(Lcom/samsung/android/camera/core/SemCamera$MultiFrameEventListener;)V
-    .locals 2
+    .locals 3
 
+    iget-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
     const-string/jumbo v0, "SemCamera-JNI-Java"
 
-    const-string/jumbo v1, "setMultiFrameShotEventListener"
+    const-string/jumbo v2, "setMultiFrameShotEventListener"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mMultiFrameEventListener:Lcom/samsung/android/camera/core/SemCamera$MultiFrameEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public setMultiTrackModeEnabled(Z)V
@@ -5062,7 +5500,16 @@
 
     if-eqz p2, :cond_0
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mPreviewCallbackForGLEffect:Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     const/16 v0, 0x51a
 
@@ -5070,6 +5517,13 @@
 
     :goto_0
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 
     :cond_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mPreviewCallback:Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;
@@ -5240,11 +5694,27 @@
 .end method
 
 .method public setPanoramaEventListener(Lcom/samsung/android/camera/core/SemCamera$PanoramaEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mPanoramaEventListener:Lcom/samsung/android/camera/core/SemCamera$PanoramaEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public declared-synchronized setParameters(Lcom/samsung/android/camera/core/SemCamera$Parameters;)V
@@ -5343,11 +5813,27 @@
 .end method
 
 .method public setPostEventListener(Lcom/samsung/android/camera/core/SemCamera$PostEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mPostEventListener:Lcom/samsung/android/camera/core/SemCamera$PostEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public final setPreviewCallback(Lcom/samsung/android/camera/core/SemCamera$PreviewCallback;)V
@@ -5754,11 +6240,27 @@
 .end method
 
 .method public setQrCodeDetectionEventListener(Lcom/samsung/android/camera/core/SemCamera$QrCodeDetectionEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mQrCodeDetectionEventListener:Lcom/samsung/android/camera/core/SemCamera$QrCodeDetectionEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setRecordingLocation(FF)V
@@ -5884,11 +6386,27 @@
 .end method
 
 .method public setRelightEventListener(Lcom/samsung/android/camera/core/SemCamera$RelightEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mRelightEventListener:Lcom/samsung/android/camera/core/SemCamera$RelightEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setSKinColorLevel(I)V
@@ -5954,11 +6472,27 @@
 .end method
 
 .method public setScreenFlashEventListener(Lcom/samsung/android/camera/core/SemCamera$ScreenFlashEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mScreenFlashEventListener:Lcom/samsung/android/camera/core/SemCamera$ScreenFlashEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setSeedPointToDetectFoodRegion(II)V
@@ -5972,11 +6506,27 @@
 .end method
 
 .method public setSelectiveFocusEventListener(Lcom/samsung/android/camera/core/SemCamera$SelectiveFocusEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mSelectiveFocusEventListener:Lcom/samsung/android/camera/core/SemCamera$SelectiveFocusEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setShootingMode(I)V
@@ -6016,11 +6566,27 @@
 .end method
 
 .method public setShotAndMoreEventListener(Lcom/samsung/android/camera/core/SemCamera$ShotAndMoreEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotAndMoreEventListener:Lcom/samsung/android/camera/core/SemCamera$ShotAndMoreEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setShutterSoundMode(I)V
@@ -6080,19 +6646,51 @@
 .end method
 
 .method public setSlowMotionEventListener(Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mSlowMotionEventListener:Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public final setSmartFilterListener(Lcom/samsung/android/camera/core/SemCamera$SmartFilterListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mSmartFilterListener:Lcom/samsung/android/camera/core/SemCamera$SmartFilterListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setStickerEnabled(Z)V
@@ -6118,11 +6716,49 @@
 .end method
 
 .method public setStickerEventListener(Lcom/samsung/android/camera/core/SemCamera$StickerEventListener;)V
-    .locals 0
+    .locals 4
+
+    iget-object v1, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    const-string/jumbo v0, "SemCamera-JNI-Java"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "mStickerEventListener : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mStickerEventListener:Lcom/samsung/android/camera/core/SemCamera$StickerEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public setThemeMask(I)V
@@ -6192,11 +6828,27 @@
 .end method
 
 .method public setWideMotionSelfieEventListener(Lcom/samsung/android/camera/core/SemCamera$WideMotionSelfieEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mWideMotionSelfieEventListener:Lcom/samsung/android/camera/core/SemCamera$WideMotionSelfieEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setWideMotionSelfieMotionEnabled(Z)V
@@ -6234,19 +6886,51 @@
 .end method
 
 .method public setWideSelfieEventListener(Lcom/samsung/android/camera/core/SemCamera$WideSelfieEventListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mShotModeListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mWideSelfieEventListener:Lcom/samsung/android/camera/core/SemCamera$WideSelfieEventListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public final setZoomChangeListener(Lcom/samsung/android/camera/core/SemCamera$OnZoomChangeListener;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/camera/core/SemCamera;->mZoomListenerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera;->mZoomListener:Lcom/samsung/android/camera/core/SemCamera$OnZoomChangeListener;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public final standbyPreview()V

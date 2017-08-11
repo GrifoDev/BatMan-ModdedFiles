@@ -44,7 +44,7 @@
 
     iget-object v2, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v2}, Landroid/preference/SeekBarVolumizer;->-get8(Landroid/preference/SeekBarVolumizer;)Z
+    invoke-static {v2}, Landroid/preference/SeekBarVolumizer;->-get9(Landroid/preference/SeekBarVolumizer;)Z
 
     move-result v2
 
@@ -59,7 +59,7 @@
     :goto_0
     iget-object v2, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v2}, Landroid/preference/SeekBarVolumizer;->-get10(Landroid/preference/SeekBarVolumizer;)Landroid/widget/SeekBar;
+    invoke-static {v2}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)Landroid/widget/SeekBar;
 
     move-result-object v2
 
@@ -73,13 +73,13 @@
 
     iget-object v2, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v2}, Landroid/preference/SeekBarVolumizer;->-get1(Landroid/preference/SeekBarVolumizer;)Landroid/media/AudioManager;
+    invoke-static {v2}, Landroid/preference/SeekBarVolumizer;->-get2(Landroid/preference/SeekBarVolumizer;)Landroid/media/AudioManager;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v3
 
@@ -96,13 +96,13 @@
     :goto_1
     iget-object v2, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v2}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)Landroid/preference/SeekBarVolumizer$H;
+    invoke-static {v2}, Landroid/preference/SeekBarVolumizer;->-get13(Landroid/preference/SeekBarVolumizer;)Landroid/preference/SeekBarVolumizer$H;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get5(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get6(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v3
 
@@ -114,7 +114,7 @@
     :cond_1
     iget-object v2, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v2}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v2}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v2
 
@@ -171,7 +171,7 @@
 
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v3
 
@@ -198,7 +198,7 @@
 
     iget-object v4, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v4}, Landroid/preference/SeekBarVolumizer;->-get1(Landroid/preference/SeekBarVolumizer;)Landroid/media/AudioManager;
+    invoke-static {v4}, Landroid/preference/SeekBarVolumizer;->-get2(Landroid/preference/SeekBarVolumizer;)Landroid/media/AudioManager;
 
     move-result-object v4
 
@@ -210,7 +210,7 @@
 
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v3
 
@@ -241,7 +241,7 @@
 
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v3
 
@@ -249,7 +249,7 @@
 
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get0(Landroid/preference/SeekBarVolumizer;)Z
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get1(Landroid/preference/SeekBarVolumizer;)Z
 
     move-result v3
 
@@ -272,7 +272,7 @@
 
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v3
 
@@ -295,7 +295,7 @@
     :try_start_0
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get9(Landroid/preference/SeekBarVolumizer;)Landroid/media/Ringtone;
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get10(Landroid/preference/SeekBarVolumizer;)Landroid/media/Ringtone;
 
     move-result-object v3
 
@@ -303,13 +303,13 @@
 
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get9(Landroid/preference/SeekBarVolumizer;)Landroid/media/Ringtone;
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get10(Landroid/preference/SeekBarVolumizer;)Landroid/media/Ringtone;
 
     move-result-object v3
 
     iget-object v4, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v4}, Landroid/preference/SeekBarVolumizer;->-get4(Landroid/preference/SeekBarVolumizer;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/preference/SeekBarVolumizer;->-get5(Landroid/preference/SeekBarVolumizer;)Landroid/net/Uri;
 
     move-result-object v4
 
@@ -317,7 +317,7 @@
 
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get9(Landroid/preference/SeekBarVolumizer;)Landroid/media/Ringtone;
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get10(Landroid/preference/SeekBarVolumizer;)Landroid/media/Ringtone;
 
     move-result-object v3
 
@@ -327,7 +327,7 @@
 
     iget-object v5, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v5}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v5}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v5
 
@@ -379,7 +379,7 @@
     :cond_5
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v3
 
@@ -425,7 +425,7 @@
 
     iget-object v4, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v4}, Landroid/preference/SeekBarVolumizer;->-get7(Landroid/preference/SeekBarVolumizer;)Landroid/app/NotificationManager;
+    invoke-static {v4}, Landroid/preference/SeekBarVolumizer;->-get8(Landroid/preference/SeekBarVolumizer;)Landroid/app/NotificationManager;
 
     move-result-object v4
 
@@ -437,21 +437,34 @@
 
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get11(Landroid/preference/SeekBarVolumizer;)I
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
 
     move-result v3
 
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_8
+    if-eq v3, v4, :cond_8
 
+    iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
+
+    invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-get12(Landroid/preference/SeekBarVolumizer;)I
+
+    move-result v3
+
+    invoke-static {}, Landroid/preference/SeekBarVolumizer;->-get0()I
+
+    move-result v4
+
+    if-ne v3, v4, :cond_9
+
+    :cond_8
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
     iget-object v4, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
     iget-object v5, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v5}, Landroid/preference/SeekBarVolumizer;->-get3(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
+    invoke-static {v5}, Landroid/preference/SeekBarVolumizer;->-get4(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
 
     move-result-object v5
 
@@ -459,7 +472,7 @@
 
     move-result-object v5
 
-    const v6, 0x106011d
+    const v6, 0x1060123
 
     invoke-virtual {v5, v6, v7}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -477,7 +490,7 @@
 
     iget-object v5, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v5}, Landroid/preference/SeekBarVolumizer;->-get3(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
+    invoke-static {v5}, Landroid/preference/SeekBarVolumizer;->-get4(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
 
     move-result-object v5
 
@@ -485,7 +498,7 @@
 
     move-result-object v5
 
-    const v6, 0x106011c
+    const v6, 0x1060122
 
     invoke-virtual {v5, v6, v7}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -503,7 +516,7 @@
 
     iget-object v5, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v5}, Landroid/preference/SeekBarVolumizer;->-get3(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
+    invoke-static {v5}, Landroid/preference/SeekBarVolumizer;->-get4(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
 
     move-result-object v5
 
@@ -511,7 +524,7 @@
 
     move-result-object v5
 
-    const v6, 0x1060126
+    const v6, 0x106012c
 
     invoke-virtual {v5, v6, v7}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -529,7 +542,7 @@
 
     iget-object v5, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v5}, Landroid/preference/SeekBarVolumizer;->-get3(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
+    invoke-static {v5}, Landroid/preference/SeekBarVolumizer;->-get4(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
 
     move-result-object v5
 
@@ -537,7 +550,7 @@
 
     move-result-object v5
 
-    const v6, 0x1060125
+    const v6, 0x106012b
 
     invoke-virtual {v5, v6, v7}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -549,7 +562,7 @@
 
     invoke-static {v3, v4}, Landroid/preference/SeekBarVolumizer;->-set7(Landroid/preference/SeekBarVolumizer;Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;
 
-    :cond_8
+    :cond_9
     iget-object v3, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
     invoke-static {v3}, Landroid/preference/SeekBarVolumizer;->-wrap5(Landroid/preference/SeekBarVolumizer;)V
@@ -597,7 +610,7 @@
 
     iget-object v1, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v1}, Landroid/preference/SeekBarVolumizer;->-get3(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
+    invoke-static {v1}, Landroid/preference/SeekBarVolumizer;->-get4(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -609,7 +622,7 @@
     :cond_1
     iget-object v1, p0, Landroid/preference/SeekBarVolumizer$Receiver;->this$0:Landroid/preference/SeekBarVolumizer;
 
-    invoke-static {v1}, Landroid/preference/SeekBarVolumizer;->-get3(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
+    invoke-static {v1}, Landroid/preference/SeekBarVolumizer;->-get4(Landroid/preference/SeekBarVolumizer;)Landroid/content/Context;
 
     move-result-object v1
 

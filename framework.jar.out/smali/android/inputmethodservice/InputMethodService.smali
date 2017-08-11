@@ -547,37 +547,37 @@
 
     packed-switch v0, :pswitch_data_0
 
-    const v0, 0x10803ee
+    const v0, 0x10803d8
 
     return v0
 
     :pswitch_0
-    const v0, 0x10803eb
+    const v0, 0x10803d5
 
     return v0
 
     :pswitch_1
-    const v0, 0x10803ef
+    const v0, 0x10803d9
 
     return v0
 
     :pswitch_2
-    const v0, 0x10803f0
+    const v0, 0x10803da
 
     return v0
 
     :pswitch_3
-    const v0, 0x10803ec
+    const v0, 0x10803d6
 
     return v0
 
     :pswitch_4
-    const v0, 0x10803ea
+    const v0, 0x10803d4
 
     return v0
 
     :pswitch_5
-    const v0, 0x10803ed
+    const v0, 0x10803d7
 
     return v0
 
@@ -2463,7 +2463,7 @@
 
     iget-object v0, p0, Landroid/inputmethodservice/InputMethodService;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x109007b
+    const v1, 0x109007c
 
     invoke-virtual {v0, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -2528,7 +2528,7 @@
     :cond_0
     iget-object v0, p0, Landroid/inputmethodservice/InputMethodService;->mRootView:Landroid/view/View;
 
-    const v1, 0x102040c
+    const v1, 0x1020415
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3299,7 +3299,7 @@
 
     iget-object v0, p0, Landroid/inputmethodservice/InputMethodService;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x1090143
+    const v1, 0x1090144
 
     const/4 v2, 0x0
 
@@ -5312,7 +5312,7 @@
 
     invoke-virtual {v1, p0}, Landroid/inputmethodservice/ExtractEditText;->setIME(Landroid/inputmethodservice/InputMethodService;)V
 
-    const v1, 0x102040e
+    const v1, 0x1020417
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5324,7 +5324,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x102040d
+    const v1, 0x1020416
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

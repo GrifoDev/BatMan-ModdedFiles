@@ -1288,7 +1288,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_8
+    if-eqz v17, :cond_9
 
     const/4 v8, 0x0
 
@@ -1324,7 +1324,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_9
+    if-eqz v17, :cond_a
 
     :cond_1
     :goto_1
@@ -1336,7 +1336,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_b
+    if-eqz v17, :cond_c
 
     move-object/from16 v0, p0
 
@@ -1350,25 +1350,48 @@
 
     move-result v17
 
-    if-eqz v17, :cond_a
+    if-eqz v17, :cond_b
 
     const/16 v16, 0x0
 
     :goto_2
-    if-eqz v16, :cond_2
+    if-eqz v16, :cond_3
 
-    move-object/from16 v0, p0
-
-    iput-object v9, v0, Landroid/telecom/Call;->mVideoCallImpl:Landroid/telecom/VideoCallImpl;
-
-    :cond_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/telecom/Call;->mVideoCallImpl:Landroid/telecom/VideoCallImpl;
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_3
+    if-eqz v17, :cond_2
+
+    const-string/jumbo v17, "TelecomCall"
+
+    const-string/jumbo v18, "destroy old VideoCallImpl"
+
+    invoke-static/range {v17 .. v18}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/telecom/Call;->mVideoCallImpl:Landroid/telecom/VideoCallImpl;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Landroid/telecom/VideoCallImpl;->destroy()V
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iput-object v9, v0, Landroid/telecom/Call;->mVideoCallImpl:Landroid/telecom/VideoCallImpl;
+
+    :cond_3
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/telecom/Call;->mVideoCallImpl:Landroid/telecom/VideoCallImpl;
+
+    move-object/from16 v17, v0
+
+    if-eqz v17, :cond_4
 
     move-object/from16 v0, p0
 
@@ -1386,7 +1409,7 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/telecom/VideoCallImpl;->setVideoState(I)V
 
-    :cond_3
+    :cond_4
     const-string/jumbo v17, "TelecomCall"
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -1455,18 +1478,18 @@
 
     move/from16 v0, v17
 
-    if-eq v0, v14, :cond_c
+    if-eq v0, v14, :cond_d
 
     const/4 v15, 0x1
 
     :goto_3
-    if-eqz v15, :cond_4
+    if-eqz v15, :cond_5
 
     move-object/from16 v0, p0
 
     iput v14, v0, Landroid/telecom/Call;->mState:I
 
-    :cond_4
+    :cond_5
     invoke-virtual/range {p1 .. p1}, Landroid/telecom/ParcelableCall;->getParentCallId()Ljava/lang/String;
 
     move-result-object v13
@@ -1483,18 +1506,18 @@
 
     move-result v17
 
-    if-eqz v17, :cond_d
+    if-eqz v17, :cond_e
 
     const/4 v12, 0x0
 
     :goto_4
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_6
 
     move-object/from16 v0, p0
 
     iput-object v13, v0, Landroid/telecom/Call;->mParentId:Ljava/lang/String;
 
-    :cond_5
+    :cond_6
     invoke-virtual/range {p1 .. p1}, Landroid/telecom/ParcelableCall;->getChildCallIds()Ljava/util/List;
 
     move-result-object v3
@@ -1511,12 +1534,12 @@
 
     move-result v17
 
-    if-eqz v17, :cond_e
+    if-eqz v17, :cond_f
 
     const/4 v4, 0x0
 
     :goto_5
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     move-object/from16 v0, p0
 
@@ -1546,7 +1569,7 @@
 
     iput-boolean v0, v1, Landroid/telecom/Call;->mChildrenCached:Z
 
-    :cond_6
+    :cond_7
     invoke-virtual/range {p1 .. p1}, Landroid/telecom/ParcelableCall;->getConferenceableCallIds()Ljava/util/List;
 
     move-result-object v5
@@ -1565,13 +1588,13 @@
 
     move-result-object v11
 
-    :cond_7
+    :cond_8
     :goto_6
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_f
+    if-eqz v17, :cond_10
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1585,7 +1608,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_7
+    if-eqz v17, :cond_8
 
     move-object/from16 v0, p2
 
@@ -1601,12 +1624,12 @@
 
     goto :goto_6
 
-    :cond_8
+    :cond_9
     const/4 v8, 0x1
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     invoke-virtual/range {p1 .. p1}, Landroid/telecom/ParcelableCall;->getCannedSmsResponses()Ljava/util/List;
 
     move-result-object v17
@@ -1625,32 +1648,32 @@
 
     goto/16 :goto_1
 
-    :cond_a
+    :cond_b
     const/16 v16, 0x1
 
     goto/16 :goto_2
 
-    :cond_b
+    :cond_c
     const/16 v16, 0x0
 
     goto/16 :goto_2
 
-    :cond_c
+    :cond_d
     const/4 v15, 0x0
 
     goto/16 :goto_3
 
-    :cond_d
+    :cond_e
     const/4 v12, 0x1
 
     goto/16 :goto_4
 
-    :cond_e
+    :cond_f
     const/4 v4, 0x1
 
     goto :goto_5
 
-    :cond_f
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/telecom/Call;->mConferenceableCalls:Ljava/util/List;
@@ -1663,7 +1686,7 @@
 
     move-result v17
 
-    if-nez v17, :cond_10
+    if-nez v17, :cond_11
 
     move-object/from16 v0, p0
 
@@ -1685,8 +1708,8 @@
 
     invoke-direct/range {p0 .. p0}, Landroid/telecom/Call;->fireConferenceableCallsChanged()V
 
-    :cond_10
-    if-eqz v15, :cond_11
+    :cond_11
+    if-eqz v15, :cond_12
 
     move-object/from16 v0, p0
 
@@ -1700,8 +1723,8 @@
 
     invoke-direct {v0, v1}, Landroid/telecom/Call;->fireStateChanged(I)V
 
-    :cond_11
-    if-eqz v8, :cond_12
+    :cond_12
+    if-eqz v8, :cond_13
 
     move-object/from16 v0, p0
 
@@ -1715,8 +1738,8 @@
 
     invoke-direct {v0, v1}, Landroid/telecom/Call;->fireDetailsChanged(Landroid/telecom/Call$Details;)V
 
-    :cond_12
-    if-eqz v2, :cond_13
+    :cond_13
+    if-eqz v2, :cond_14
 
     move-object/from16 v0, p0
 
@@ -1730,8 +1753,8 @@
 
     invoke-direct {v0, v1}, Landroid/telecom/Call;->fireCannedTextResponsesLoaded(Ljava/util/List;)V
 
-    :cond_13
-    if-eqz v16, :cond_14
+    :cond_14
+    if-eqz v16, :cond_15
 
     move-object/from16 v0, p0
 
@@ -1745,8 +1768,8 @@
 
     invoke-direct {v0, v1}, Landroid/telecom/Call;->fireVideoCallChanged(Landroid/telecom/InCallService$VideoCall;)V
 
-    :cond_14
-    if-eqz v12, :cond_15
+    :cond_15
+    if-eqz v12, :cond_16
 
     invoke-virtual/range {p0 .. p0}, Landroid/telecom/Call;->getParent()Landroid/telecom/Call;
 
@@ -1758,8 +1781,8 @@
 
     invoke-direct {v0, v1}, Landroid/telecom/Call;->fireParentChanged(Landroid/telecom/Call;)V
 
-    :cond_15
-    if-eqz v4, :cond_16
+    :cond_16
+    if-eqz v4, :cond_17
 
     invoke-virtual/range {p0 .. p0}, Landroid/telecom/Call;->getChildren()Ljava/util/List;
 
@@ -1771,7 +1794,7 @@
 
     invoke-direct {v0, v1}, Landroid/telecom/Call;->fireChildrenChanged(Ljava/util/List;)V
 
-    :cond_16
+    :cond_17
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telecom/Call;->mState:I
@@ -1784,11 +1807,11 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_17
+    if-ne v0, v1, :cond_18
 
     invoke-direct/range {p0 .. p0}, Landroid/telecom/Call;->fireCallDestroyed()V
 
-    :cond_17
+    :cond_18
     return-void
 .end method
 

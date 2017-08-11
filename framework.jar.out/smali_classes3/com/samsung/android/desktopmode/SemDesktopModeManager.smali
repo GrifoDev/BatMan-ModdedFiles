@@ -529,7 +529,7 @@
 
 
 # virtual methods
-.method public forceDisableDesktopMode()V
+.method public forceSetHdmiSettings(Z)V
     .locals 3
 
     sget-object v1, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->mService:Lcom/samsung/android/desktopmode/IDesktopMode;
@@ -538,34 +538,17 @@
 
     sget-object v1, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v2, "forceDisableDesktopMode: Desktop Mode feature not available"
+    const-string/jumbo v2, "forceSetHdmiSettings: Desktop Mode feature not available"
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopMode()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    sget-object v1, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "forceDisableDesktopMode: Already not in Desktop Mode"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
     :try_start_0
     sget-object v1, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->mService:Lcom/samsung/android/desktopmode/IDesktopMode;
 
-    const/4 v2, 0x0
-
-    invoke-interface {v1, v2}, Lcom/samsung/android/desktopmode/IDesktopMode;->setHdmiSettings(Z)V
+    invoke-interface {v1, p1}, Lcom/samsung/android/desktopmode/IDesktopMode;->setHdmiSettings(Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -577,7 +560,7 @@
 
     sget-object v1, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v2, "forceDisableDesktopMode: Failure communicating with DesktopModeService"
+    const-string/jumbo v2, "forceSetHdmiSettings: Failure communicating with DesktopModeService"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

@@ -771,7 +771,7 @@
 
     iget-object v4, p0, Landroid/content/ClipboardManager;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040625
+    const v5, 0x1040629
 
     const/4 v6, 0x0
 

@@ -737,7 +737,7 @@
 
     if-lez v7, :cond_2
 
-    const v11, 0x10204d1
+    const v11, 0x10204da
 
     invoke-virtual {p0, v11}, Lcom/android/internal/app/ChooserActivity;->findViewById(I)Landroid/view/View;
 
@@ -755,7 +755,7 @@
 
     if-eqz v9, :cond_0
 
-    const v11, 0x1040707
+    const v11, 0x104070b
 
     invoke-virtual {v9, v11}, Landroid/widget/TextView;->setText(I)V
 
@@ -1284,17 +1284,17 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x109010e
+    const v0, 0x109010f
 
     return v0
 
     :cond_0
-    const v0, 0x109010d
+    const v0, 0x109010e
 
     return v0
 
     :cond_1
-    const v0, 0x1090112
+    const v0, 0x1090113
 
     return v0
 
@@ -2246,7 +2246,7 @@
 
     if-eqz v1, :cond_4
 
-    const v1, 0x10204c4
+    const v1, 0x10204cd
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ChooserActivity;->findViewById(I)Landroid/view/View;
 
@@ -2619,7 +2619,7 @@
 
     move-result-object v3
 
-    const v4, 0x10e0088
+    const v4, 0x10e0089
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2680,7 +2680,7 @@
 .method prepareServiceTargetPanelView()V
     .locals 5
 
-    const v2, 0x10204c4
+    const v2, 0x10204cd
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/ChooserActivity;->findViewById(I)Landroid/view/View;
 
@@ -2708,7 +2708,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e0088
+    const v3, 0x10e0089
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 

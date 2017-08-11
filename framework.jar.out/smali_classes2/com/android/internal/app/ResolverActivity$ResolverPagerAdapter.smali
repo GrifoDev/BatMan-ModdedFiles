@@ -104,7 +104,7 @@
 
     iget-object v7, p0, Lcom/android/internal/app/ResolverActivity$ResolverPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v8, 0x109010b
+    const v8, 0x109010c
 
     const/4 v9, 0x0
 
@@ -112,7 +112,7 @@
 
     move-result-object v6
 
-    const v7, 0x10204cc
+    const v7, 0x10204d5
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

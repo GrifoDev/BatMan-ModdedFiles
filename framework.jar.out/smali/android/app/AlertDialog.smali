@@ -137,7 +137,7 @@
 
     if-ne p1, v3, :cond_0
 
-    const v1, 0x103047e
+    const v1, 0x1030485
 
     return v1
 
@@ -146,7 +146,7 @@
 
     if-ne p1, v1, :cond_1
 
-    const v1, 0x1030487
+    const v1, 0x103048e
 
     return v1
 
@@ -155,7 +155,7 @@
 
     if-ne p1, v1, :cond_2
 
-    const v1, 0x1030488
+    const v1, 0x103048f
 
     return v1
 

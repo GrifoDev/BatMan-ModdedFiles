@@ -1622,6 +1622,7 @@
     return-void
 
     :sswitch_12
+    :try_start_6
     invoke-static {}, Landroid/media/MediaPlayer;->-get0()Z
 
     move-result v28
@@ -2044,10 +2045,38 @@
     const/16 v29, 0x0
 
     invoke-static/range {v28 .. v29}, Landroid/media/MediaPlayer;->-set5(Landroid/media/MediaPlayer;I)I
+    :try_end_6
+    .catch Ljava/lang/NullPointerException; {:try_start_6 .. :try_end_6} :catch_6
+
+    goto/16 :goto_1
+
+    :catch_6
+    move-exception v8
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/media/MediaPlayer$EventHandler;->this$0:Landroid/media/MediaPlayer;
+
+    move-object/from16 v28, v0
+
+    const/16 v29, 0x4
+
+    invoke-static/range {v28 .. v29}, Landroid/media/MediaPlayer;->-set2(Landroid/media/MediaPlayer;I)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/media/MediaPlayer$EventHandler;->this$0:Landroid/media/MediaPlayer;
+
+    move-object/from16 v28, v0
+
+    const/16 v29, 0x0
+
+    invoke-static/range {v28 .. v29}, Landroid/media/MediaPlayer;->-set5(Landroid/media/MediaPlayer;I)I
 
     goto/16 :goto_1
 
     :cond_23
+    :try_start_7
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/media/MediaPlayer$EventHandler;->this$0:Landroid/media/MediaPlayer;
@@ -2221,8 +2250,12 @@
     const/16 v29, 0x4
 
     invoke-static/range {v28 .. v29}, Landroid/media/MediaPlayer;->-set2(Landroid/media/MediaPlayer;I)I
+    :try_end_7
+    .catch Ljava/lang/NullPointerException; {:try_start_7 .. :try_end_7} :catch_6
 
     goto/16 :goto_a
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

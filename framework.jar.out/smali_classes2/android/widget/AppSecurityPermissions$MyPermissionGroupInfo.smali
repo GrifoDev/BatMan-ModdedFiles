@@ -105,7 +105,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x10804a1
+    const v0, 0x108048b
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

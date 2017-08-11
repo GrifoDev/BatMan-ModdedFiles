@@ -316,7 +316,7 @@
     return-void
 
     :cond_0
-    const v0, 0x103048e
+    const v0, 0x1030495
 
     goto :goto_0
 .end method
@@ -940,7 +940,7 @@
 
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x1090179
+    const v1, 0x109017a
 
     const/4 v2, 0x0
 

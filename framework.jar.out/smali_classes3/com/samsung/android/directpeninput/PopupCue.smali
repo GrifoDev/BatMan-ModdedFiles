@@ -287,7 +287,7 @@
 
     move-result-object v27
 
-    const v28, 0x105039f
+    const v28, 0x10503af
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -307,7 +307,7 @@
 
     move-result-object v27
 
-    const v28, 0x10503a0
+    const v28, 0x10503b0
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -706,7 +706,7 @@
 
     move-result-object v27
 
-    const v28, 0x105039d
+    const v28, 0x10503ad
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -728,7 +728,7 @@
 
     move-result-object v27
 
-    const v28, 0x105039e
+    const v28, 0x10503ae
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1094,7 +1094,7 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    const v1, 0x103051f
+    const v1, 0x1030526
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -1800,7 +1800,7 @@
 
     if-eqz p1, :cond_2
 
-    const v0, 0x103051f
+    const v0, 0x1030526
 
     :goto_0
     iget v3, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I

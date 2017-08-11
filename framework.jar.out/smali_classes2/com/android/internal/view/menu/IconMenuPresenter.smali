@@ -35,13 +35,13 @@
 
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
-    const v1, 0x1030482
+    const v1, 0x1030489
 
     invoke-direct {v0, p1, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const v1, 0x1090079
+    const v1, 0x109007a
 
-    const v2, 0x1090078
+    const v2, 0x1090079
 
     invoke-direct {p0, v0, v1, v2}, Lcom/android/internal/view/menu/BaseMenuPresenter;-><init>(Landroid/content/Context;II)V
 

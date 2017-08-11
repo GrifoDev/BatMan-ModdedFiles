@@ -103,11 +103,11 @@
 
     if-gt v4, v5, :cond_0
 
-    const v4, 0x1080937
+    const v4, 0x1080925
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setBackgroundResource(I)V
 
-    const v4, 0x10601fa
+    const v4, 0x1060200
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getColorStateList(I)Landroid/content/res/ColorStateList;
 

@@ -60,7 +60,7 @@
 
     iput-object v0, p0, Lcom/android/internal/app/ResolverActivity$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    const v0, 0x1020479
+    const v0, 0x1020482
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

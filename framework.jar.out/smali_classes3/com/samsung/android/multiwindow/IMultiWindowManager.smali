@@ -247,6 +247,14 @@
     .end annotation
 .end method
 
+.method public abstract removeFocusedTask()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract removeFreeformTasks(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

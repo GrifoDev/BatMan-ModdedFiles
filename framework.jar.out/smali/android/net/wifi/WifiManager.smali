@@ -458,6 +458,8 @@
 
 .field public static final SEC_COMMAND_ID_SAR_BACK_OFF:I = 0x118
 
+.field public static final SEC_COMMAND_ID_SCAN_EVENT_WWSM:I = 0x132
+
 .field public static final SEC_COMMAND_ID_SEC_RECONNECT_ENABLED:I = 0x53
 
 .field public static final SEC_COMMAND_ID_SEND_ACTION_FRAME:I = 0x96
@@ -531,8 +533,6 @@
 .field public static final SEC_COMMAND_ID_SET_SCAN_HOME_TIME:I = 0x85
 
 .field public static final SEC_COMMAND_ID_SET_SCAN_NPROBES:I = 0x89
-
-.field public static final SEC_COMMAND_ID_SET_SEC_WHITELIST:I = 0x52
 
 .field public static final SEC_COMMAND_ID_SET_SKIP_SCAN_ASSOC_LOCK:I = 0x4c
 
@@ -761,6 +761,8 @@
 .field public static final WPS_TKIP_ONLY_PROHIBITED:I = 0x5
 
 .field public static final WPS_WEP_PROHIBITED:I = 0x4
+
+.field public static final WWSM_FORGET_NETWORK:I = 0x2506a
 
 .field public static final WWSM_NETWORK_CONNECTED:I = 0x25064
 
@@ -1217,7 +1219,7 @@
     return-void
 .end method
 
-.method private insertLogForHotSpotEnabled(ZI)V
+.method private insertBigdataForHotSpotEnabled(ZI)V
     .locals 11
 
     const-string/jumbo v2, ""
@@ -1274,7 +1276,7 @@
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "insertLogForHotSpotEnabled : packageName = "
+    const-string/jumbo v10, "insertBigdataForHotSpotEnabled : packageName = "
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1409,6 +1411,80 @@
     invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
+.end method
+
+.method private insertGsimForHotSpotEnabled(Z)V
+    .locals 4
+
+    if-eqz p1, :cond_0
+
+    new-instance v1, Landroid/os/Message;
+
+    invoke-direct {v1}, Landroid/os/Message;-><init>()V
+
+    const/16 v2, 0x4d
+
+    iput v2, v1, Landroid/os/Message;->what:I
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo v2, "feature"
+
+    const-string/jumbo v3, "HOTS"
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/net/wifi/WifiManager;->isWifiApConcurrentSupported()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {p0}, Landroid/net/wifi/WifiManager;->isWifiSharingEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-direct {p0}, Landroid/net/wifi/WifiManager;->isWifiConnected()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v2, "extra"
+
+    const-string/jumbo v3, "Hotspot_con_wifi"
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_0
+    iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
+
+    :cond_0
+    return-void
+
+    :cond_1
+    const-string/jumbo v2, "extra"
+
+    const-string/jumbo v3, "Hotspot_con_mobile"
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v2, "extra"
+
+    const-string/jumbo v3, "Hotspot_mobile"
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method private isCustomizedByKccAgent()Z
@@ -1641,6 +1717,33 @@
 
     :cond_3
     return v8
+.end method
+
+.method private isWifiConnected()Z
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getNetworkId()I
+
+    move-result v1
+
+    const/4 v2, -0x1
+
+    if-eq v1, v2, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method private putListener(Ljava/lang/Object;)I
@@ -5939,7 +6042,13 @@
 
     move/from16 v1, p2
 
-    invoke-direct {v0, v1, v11}, Landroid/net/wifi/WifiManager;->insertLogForHotSpotEnabled(ZI)V
+    invoke-direct {v0, v1, v11}, Landroid/net/wifi/WifiManager;->insertBigdataForHotSpotEnabled(ZI)V
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, p2
+
+    invoke-direct {v0, v1}, Landroid/net/wifi/WifiManager;->insertGsimForHotSpotEnabled(Z)V
 
     sget-boolean v11, Landroid/net/wifi/WifiManager;->DBG:Z
 

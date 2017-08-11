@@ -840,7 +840,7 @@
     if-ne v0, v1, :cond_1
 
     :cond_0
-    const v0, 0x1030490
+    const v0, 0x1030497
 
     iput v0, p0, Landroid/app/DialogFragment;->mTheme:I
 

@@ -595,7 +595,7 @@
 
     move-result-object v3
 
-    const v4, 0x10406fa
+    const v4, 0x10406fe
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -607,7 +607,7 @@
 
     move-result-object v3
 
-    const v4, 0x10406fb
+    const v4, 0x10406ff
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -691,7 +691,7 @@
 
     move-result-object v7
 
-    const v8, 0x1050252
+    const v8, 0x1050262
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -709,7 +709,7 @@
 
     move-result-object v7
 
-    const v8, 0x1050253
+    const v8, 0x1050263
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -727,7 +727,7 @@
 
     move-result-object v7
 
-    const v8, 0x10e00fe
+    const v8, 0x10e00ff
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -766,7 +766,7 @@
 
     move-result-object v7
 
-    const v8, 0x10406fb
+    const v8, 0x10406ff
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -818,7 +818,7 @@
 
     move-result-object v7
 
-    const v8, 0x10502dd
+    const v8, 0x10502ed
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1025,7 +1025,7 @@
 
     iget-object v7, v0, Lcom/samsung/android/share/SShareSimpleSharing;->mContext:Landroid/content/Context;
 
-    const v8, 0x10406fc
+    const v8, 0x1040700
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1718,7 +1718,7 @@
 
     move-result-object v7
 
-    const v8, 0x10406fb
+    const v8, 0x10406ff
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1783,7 +1783,7 @@
 
     move-result-object v8
 
-    const v9, 0x105024e
+    const v9, 0x105025e
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1795,7 +1795,7 @@
 
     move-result-object v8
 
-    const v9, 0x105024f
+    const v9, 0x105025f
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1823,7 +1823,7 @@
 
     move-result-object v8
 
-    const v9, 0x106012a
+    const v9, 0x1060130
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1861,7 +1861,7 @@
 
     move-result-object v8
 
-    const v9, 0x106012b
+    const v9, 0x1060131
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1940,7 +1940,7 @@
 
     move-result-object v7
 
-    const v8, 0x10804c3
+    const v8, 0x10804ad
 
     invoke-static {v7, v8}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 

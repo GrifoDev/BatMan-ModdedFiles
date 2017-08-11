@@ -32,9 +32,11 @@
 
 .field public static final AUDIO_PARAMETER_KEY_IS_UHQ:Ljava/lang/String; = "isAvailableUHQ"
 
-.field public static final AUDIO_PARAMETER_KEY_IS_USE_AUDIO:Ljava/lang/String; = "isUseAudio"
+.field public static final AUDIO_PARAMETER_KEY_IS_USE_AUDIO_FOR_PACKAGE:Ljava/lang/String; = "isUseAudioForPackage"
 
-.field public static final AUDIO_PARAMETER_KEY_MULTISOUND_GET_ACTIVE_BT_DEVICE_NAME:Ljava/lang/String; = "multisound_get_active_bt_device_name"
+.field public static final AUDIO_PARAMETER_KEY_IS_USE_AUDIO_FOR_UID:Ljava/lang/String; = "isUseAudioForUid"
+
+.field public static final AUDIO_PARAMETER_KEY_MULTISOUND_GET_ACTIVE_DEVICE_NAME:Ljava/lang/String; = "multisound_get_active_bt_device_name"
 
 .field public static final AUDIO_PARAMETER_KEY_MULTISOUND_MAX_LIMITED_SPK_VOLUME_STATE:Ljava/lang/String; = "multisound_max_limited_spk_volume_state"
 

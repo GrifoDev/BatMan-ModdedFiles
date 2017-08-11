@@ -1226,7 +1226,7 @@
 
     check-cast v7, Landroid/view/LayoutInflater;
 
-    const v8, 0x10900fe
+    const v8, 0x10900ff
 
     const/4 v13, 0x1
 
@@ -1271,7 +1271,7 @@
 
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
-    const v13, 0x10204ba
+    const v13, 0x10204c3
 
     move-object/from16 v0, p0
 
@@ -1319,7 +1319,7 @@
 
     invoke-virtual {v13, v14}, Lcom/android/internal/widget/ViewPager;->setOnPageChangeListener(Lcom/android/internal/widget/ViewPager$OnPageChangeListener;)V
 
-    const v13, 0x1050313
+    const v13, 0x1050323
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1329,7 +1329,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mPadding:I
 
-    const v13, 0x10204b1
+    const v13, 0x10204ba
 
     move-object/from16 v0, p0
 
@@ -1343,7 +1343,7 @@
 
     iput-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarHeader:Landroid/widget/RelativeLayout;
 
-    const v13, 0x10204b3
+    const v13, 0x10204bc
 
     move-object/from16 v0, p0
 
@@ -1393,7 +1393,7 @@
 
     iput-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mEndDate:Ljava/util/Calendar;
 
-    const v13, 0x10204b5
+    const v13, 0x10204be
 
     move-object/from16 v0, p0
 
@@ -1407,7 +1407,7 @@
 
     iput-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mAnimator:Landroid/widget/ViewAnimator;
 
-    const v13, 0x10204bb
+    const v13, 0x10204c4
 
     move-object/from16 v0, p0
 
@@ -1463,7 +1463,7 @@
 
     invoke-virtual {v13, v14}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    const v13, 0x105031c
+    const v13, 0x105032c
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1475,7 +1475,7 @@
 
     invoke-direct/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePicker;->checkMaxFontSize()V
 
-    const v13, 0x1050314
+    const v13, 0x1050324
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1485,7 +1485,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarViewPagerWidth:I
 
-    const v13, 0x105032e
+    const v13, 0x105033e
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1495,7 +1495,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarViewMargin:I
 
-    const v13, 0x1050314
+    const v13, 0x1050324
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1505,7 +1505,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mDayOfTheWeekLayoutWidth:I
 
-    const v13, 0x10204b8
+    const v13, 0x10204c1
 
     move-object/from16 v0, p0
 
@@ -1543,7 +1543,7 @@
 
     invoke-virtual {v13, v14}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    const v13, 0x10204af
+    const v13, 0x10204b8
 
     move-object/from16 v0, p0
 
@@ -1557,7 +1557,7 @@
 
     iput-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mDatePickerLayout:Landroid/widget/LinearLayout;
 
-    const v13, 0x10204b0
+    const v13, 0x10204b9
 
     move-object/from16 v0, p0
 
@@ -1577,7 +1577,7 @@
 
     if-eqz v13, :cond_2
 
-    const v13, 0x10204b4
+    const v13, 0x10204bd
 
     move-object/from16 v0, p0
 
@@ -1591,7 +1591,7 @@
 
     iput-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mPrevButton:Landroid/widget/ImageButton;
 
-    const v13, 0x10204b2
+    const v13, 0x10204bb
 
     move-object/from16 v0, p0
 
@@ -1613,7 +1613,7 @@
 
     iget-object v14, v0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    const v15, 0x10408fc
+    const v15, 0x1040903
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1629,7 +1629,7 @@
 
     iget-object v14, v0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    const v15, 0x10408fd
+    const v15, 0x1040904
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1750,7 +1750,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mBackgroundBorderlessResId:I
 
-    const v13, 0x1050320
+    const v13, 0x1050330
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1760,7 +1760,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarHeaderLayoutHeight:I
 
-    const v13, 0x1050321
+    const v13, 0x1050331
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1790,7 +1790,7 @@
 
     iget-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mPrevButton:Landroid/widget/ImageButton;
 
-    const v14, 0x10204b3
+    const v14, 0x10204bc
 
     invoke-virtual {v13, v14}, Landroid/view/View;->setNextFocusRightId(I)V
 
@@ -1798,7 +1798,7 @@
 
     iget-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mNextButton:Landroid/widget/ImageButton;
 
-    const v14, 0x10204b3
+    const v14, 0x10204bc
 
     invoke-virtual {v13, v14}, Landroid/view/View;->setNextFocusLeftId(I)V
 
@@ -1806,7 +1806,7 @@
 
     iget-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarHeaderText:Landroid/widget/TextView;
 
-    const v14, 0x10204b4
+    const v14, 0x10204bd
 
     invoke-virtual {v13, v14}, Landroid/view/View;->setNextFocusRightId(I)V
 
@@ -1814,7 +1814,7 @@
 
     iget-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarHeaderText:Landroid/widget/TextView;
 
-    const v14, 0x10204b2
+    const v14, 0x10204bb
 
     invoke-virtual {v13, v14}, Landroid/view/View;->setNextFocusLeftId(I)V
 
@@ -1856,7 +1856,7 @@
 
     invoke-virtual {v13, v0}, Lcom/samsung/android/widget/SemSimpleMonthView;->setOnDayClickListener(Lcom/samsung/android/widget/SemSimpleMonthView$OnDayClickListener;)V
 
-    const v13, 0x10204b7
+    const v13, 0x10204c0
 
     move-object/from16 v0, p0
 
@@ -1868,7 +1868,7 @@
 
     iput-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mFirstBlankSpace:Landroid/view/View;
 
-    const v13, 0x10204b9
+    const v13, 0x10204c2
 
     move-object/from16 v0, p0
 
@@ -1880,7 +1880,7 @@
 
     iput-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mSecondBlankSpace:Landroid/view/View;
 
-    const v13, 0x1050333
+    const v13, 0x1050343
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1890,7 +1890,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mFirstBlankSpaceHeight:I
 
-    const v13, 0x1050334
+    const v13, 0x1050344
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1900,7 +1900,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mSecondBlankSpaceHeight:I
 
-    const v13, 0x105032f
+    const v13, 0x105033f
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1910,7 +1910,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mSpinnerLayoutHeight:I
 
-    const v13, 0x1050330
+    const v13, 0x1050340
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1920,7 +1920,7 @@
 
     iput v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mSpinnerLayoutTopMargin:I
 
-    const v13, 0x1050331
+    const v13, 0x1050341
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1988,7 +1988,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v13, 0x10204b2
+    const v13, 0x10204bb
 
     move-object/from16 v0, p0
 
@@ -2002,7 +2002,7 @@
 
     iput-object v13, v0, Lcom/samsung/android/widget/SemDatePicker;->mPrevButton:Landroid/widget/ImageButton;
 
-    const v13, 0x10204b4
+    const v13, 0x10204bd
 
     move-object/from16 v0, p0
 
@@ -2038,7 +2038,7 @@
 
     move-result-object v1
 
-    const v2, 0x105031f
+    const v2, 0x105032f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -2882,23 +2882,30 @@
 .end method
 
 .method private isFarsiLanguage()Z
-    .locals 2
-
-    const-string/jumbo v0, "fa"
+    .locals 3
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    if-nez v0, :cond_0
 
-    move-result-object v1
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    return v1
 
-    move-result v0
+    :cond_0
+    const-string/jumbo v1, "fa"
 
-    return v0
+    invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    return v1
 .end method
 
 .method private isRTL()Z
@@ -2956,53 +2963,51 @@
 .end method
 
 .method private isSimplifiedChinese()Z
-    .locals 2
+    .locals 4
+
+    const/4 v1, 0x0
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0
 
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
     invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    sget-object v1, Ljava/util/Locale;->SIMPLIFIED_CHINESE:Ljava/util/Locale;
+    sget-object v3, Ljava/util/Locale;->SIMPLIFIED_CHINESE:Ljava/util/Locale;
 
-    invoke-virtual {v1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-
-    move-result-object v0
+    if-eqz v2, :cond_1
 
     invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
-    move-result-object v0
-
-    sget-object v1, Ljava/util/Locale;->SIMPLIFIED_CHINESE:Ljava/util/Locale;
-
-    invoke-virtual {v1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    sget-object v2, Ljava/util/Locale;->SIMPLIFIED_CHINESE:Ljava/util/Locale;
 
-    move-result v0
+    invoke-virtual {v2}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
-    :goto_0
-    return v0
+    move-result-object v2
 
-    :cond_0
-    const/4 v0, 0x0
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    move-result v1
+
+    :cond_1
+    return v1
 .end method
 
 .method private isYearSpinnerAtLeft()Z
@@ -3065,7 +3070,7 @@
 
     move-result-object v3
 
-    const v4, 0x1050316
+    const v4, 0x1050326
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4684,7 +4689,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x10204b2
+    .packed-switch 0x10204bb
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -4743,7 +4748,7 @@
 
     iput-boolean v5, p0, Lcom/samsung/android/widget/SemDatePicker;->mIsFirstMeasure:Z
 
-    const v2, 0x1050320
+    const v2, 0x1050330
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4751,7 +4756,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarHeaderLayoutHeight:I
 
-    const v2, 0x1050321
+    const v2, 0x1050331
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4759,7 +4764,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mCalendarViewPagerHeight:I
 
-    const v2, 0x105031c
+    const v2, 0x105032c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4767,7 +4772,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mDayOfTheWeekLayoutHeight:I
 
-    const v2, 0x1050333
+    const v2, 0x1050343
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4775,7 +4780,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mFirstBlankSpaceHeight:I
 
-    const v2, 0x1050334
+    const v2, 0x1050344
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4783,7 +4788,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mSecondBlankSpaceHeight:I
 
-    const v2, 0x105032f
+    const v2, 0x105033f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4791,7 +4796,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mSpinnerLayoutHeight:I
 
-    const v2, 0x1050330
+    const v2, 0x1050340
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4799,7 +4804,7 @@
 
     iput v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mSpinnerLayoutTopMargin:I
 
-    const v2, 0x1050331
+    const v2, 0x1050341
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -5541,7 +5546,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x10204b2
+    .packed-switch 0x10204bb
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -6801,7 +6806,7 @@
 
     move-result-object v15
 
-    const v16, 0x1050332
+    const v16, 0x1050342
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

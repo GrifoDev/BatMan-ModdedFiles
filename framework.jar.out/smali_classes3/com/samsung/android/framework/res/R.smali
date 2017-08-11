@@ -647,6 +647,16 @@
 
     sput v0, Lcom/samsung/android/framework/res/R$dimen;->mw_dsv_divider_panel_short:I
 
+    sget v0, Lcom/samsung/android/framework/res/R$dimen;->navigation_bar_height:I
+
+    and-int/2addr v0, v2
+
+    shl-int/lit8 v1, p0, 0x18
+
+    or-int/2addr v0, v1
+
+    sput v0, Lcom/samsung/android/framework/res/R$dimen;->navigation_bar_height:I
+
     sget v0, Lcom/samsung/android/framework/res/R$dimen;->samsung_decor_caption_icon_size:I
 
     and-int/2addr v0, v2
@@ -2527,6 +2537,26 @@
 
     sput v0, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream:I
 
+    sget v0, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream_angle270:I
+
+    and-int/2addr v0, v2
+
+    shl-int/lit8 v1, p0, 0x18
+
+    or-int/2addr v0, v1
+
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream_angle270:I
+
+    sget v0, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream_angle90:I
+
+    and-int/2addr v0, v2
+
+    shl-int/lit8 v1, p0, 0x18
+
+    or-int/2addr v0, v1
+
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream_angle90:I
+
     sget v0, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_when_docking_dream:I
 
     and-int/2addr v0, v2
@@ -3397,6 +3427,16 @@
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion_msg2:I
 
+    sget v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion_msg2_mouse:I
+
+    and-int/2addr v0, v2
+
+    shl-int/lit8 v1, p0, 0x18
+
+    or-int/2addr v0, v1
+
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion_msg2_mouse:I
+
     sget v0, Lcom/samsung/android/framework/res/R$string;->dex_hun_hdmi_settings:I
 
     and-int/2addr v0, v2
@@ -3477,6 +3517,26 @@
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_dex_title:I
 
+    sget v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_dismissed_action:I
+
+    and-int/2addr v0, v2
+
+    shl-int/lit8 v1, p0, 0x18
+
+    or-int/2addr v0, v1
+
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_dismissed_action:I
+
+    sget v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_dismissed_content:I
+
+    and-int/2addr v0, v2
+
+    shl-int/lit8 v1, p0, 0x18
+
+    or-int/2addr v0, v1
+
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_dismissed_content:I
+
     sget v0, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_mirroring_action:I
 
     and-int/2addr v0, v2
@@ -3536,6 +3596,16 @@
     or-int/2addr v0, v1
 
     sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_keyboard_cover:I
+
+    sget v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_led_view_cover:I
+
+    and-int/2addr v0, v2
+
+    shl-int/lit8 v1, p0, 0x18
+
+    or-int/2addr v0, v1
+
+    sput v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_led_view_cover:I
 
     sget v0, Lcom/samsung/android/framework/res/R$string;->dex_toast_low_memory_warning:I
 

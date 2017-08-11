@@ -1594,7 +1594,7 @@
 
     if-ltz v14, :cond_2e
 
-    invoke-static {}, Landroid/widget/TextView;->-get15()Z
+    invoke-static {}, Landroid/widget/TextView;->-get16()Z
 
     move-result v14
 

@@ -635,7 +635,7 @@
 
     check-cast v11, Landroid/view/LayoutInflater;
 
-    const v26, 0x109011a
+    const v26, 0x109011b
 
     const/16 v27, 0x0
 
@@ -1383,7 +1383,7 @@
 
     move/from16 v26, v0
 
-    const v27, 0x1080a15
+    const v27, 0x1080a03
 
     move/from16 v0, v26
 
@@ -1444,7 +1444,7 @@
 
     move/from16 v26, v0
 
-    const v27, 0x1080748
+    const v27, 0x1080733
 
     move/from16 v0, v26
 
@@ -1452,7 +1452,7 @@
 
     if-ne v0, v1, :cond_12
 
-    const v26, 0x1080998
+    const v26, 0x1080986
 
     move-object/from16 v0, p1
 
@@ -1468,7 +1468,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Toolbar;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    const v26, 0x1080998
+    const v26, 0x1080986
 
     move/from16 v0, v26
 
@@ -3998,7 +3998,7 @@
 
     move-result-object v5
 
-    const v6, 0x1050175
+    const v6, 0x1050185
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7559,7 +7559,7 @@
 .method public setNavigationIcon(I)V
     .locals 3
 
-    const v2, 0x1080a15
+    const v2, 0x1080a03
 
     const/4 v1, 0x0
 

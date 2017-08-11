@@ -2943,7 +2943,7 @@
 
     iput v4, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mItemWidthGap:I
 
-    const v0, 0x1050385
+    const v0, 0x1050395
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2953,7 +2953,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mBgRectWidth:I
 
-    const v0, 0x1050386
+    const v0, 0x1050396
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2963,7 +2963,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mTextSize:I
 
-    const v0, 0x1050387
+    const v0, 0x1050397
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2973,7 +2973,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mScrollTop:I
 
-    const v0, 0x1050388
+    const v0, 0x1050398
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2983,7 +2983,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mWidthShift:I
 
-    const v0, 0x1050389
+    const v0, 0x1050399
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2993,7 +2993,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mContentPadding:I
 
-    const v0, 0x105038a
+    const v0, 0x105039a
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3001,7 +3001,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mContentMinHeight:F
 
-    const v0, 0x105038b
+    const v0, 0x105039b
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3011,7 +3011,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mAdditionalSpace:I
 
-    const v0, 0x1050382
+    const v0, 0x1050392
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3019,7 +3019,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mIndexScrollPreviewRadius:F
 
-    const v0, 0x1050384
+    const v0, 0x1050394
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3027,7 +3027,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mPreviewLimitY:F
 
-    const v0, 0x1060187
+    const v0, 0x106018d
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3089,7 +3089,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mSecondLang:Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll$LangAttributeValues;
 
-    const v0, 0x105038d
+    const v0, 0x105039d
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3099,7 +3099,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mScrollThumbBgRectPadding:I
 
-    const v0, 0x105038e
+    const v0, 0x105039e
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3129,7 +3129,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->setBackgroundColor(I)V
 
-    const v0, 0x10807e6
+    const v0, 0x10807d1
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3155,7 +3155,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mThumbColor:I
 
-    const v0, 0x1060188
+    const v0, 0x106018e
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3163,7 +3163,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mTextColorDimmed:I
 
-    const v0, 0x1060189
+    const v0, 0x106018f
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3171,7 +3171,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mBgTintColor:I
 
-    const v0, 0x10807e5
+    const v0, 0x10807d0
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -75,7 +75,7 @@
 
     move-result-object v0
 
-    const v4, 0x1090135
+    const v4, 0x1090136
 
     const/4 v5, 0x0
 
@@ -107,7 +107,7 @@
 
     invoke-virtual {p0, v6}, Landroid/app/TimePickerDialog;->setButtonPanelLayoutHint(I)V
 
-    const v4, 0x10204e2
+    const v4, 0x10204eb
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

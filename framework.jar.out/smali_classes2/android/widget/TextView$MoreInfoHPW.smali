@@ -235,7 +235,7 @@
     move-result-object v1
 
     :goto_0
-    const v5, 0x1090076
+    const v5, 0x1090077
 
     invoke-virtual {v1, v5, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -342,7 +342,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mPopupGravity:I
 
-    const v0, 0x1030514
+    const v0, 0x103051b
 
     iput v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mAnimationStyle:I
 

@@ -20,9 +20,9 @@
 
 
 # static fields
-.field static final SEM_CHECKED_ITEM_LAYOUT:I = 0x109014c
+.field static final SEM_CHECKED_ITEM_LAYOUT:I = 0x109014d
 
-.field static final SEM_ITEM_LAYOUT:I = 0x109014d
+.field static final SEM_ITEM_LAYOUT:I = 0x109014e
 
 
 # instance fields
@@ -411,7 +411,7 @@
 
     move-result-object v9
 
-    const v10, 0x10e00f4
+    const v10, 0x10e00f5
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -423,7 +423,7 @@
 
     move-result-object v9
 
-    const v10, 0x10501cb
+    const v10, 0x10501db
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -508,7 +508,7 @@
 
     move-result-object v9
 
-    const v10, 0x1090102
+    const v10, 0x1090103
 
     invoke-virtual {v9, v10, v4, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -564,7 +564,7 @@
 
     move-result-object v9
 
-    const v10, 0x10e00f3
+    const v10, 0x10e00f4
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -576,7 +576,7 @@
 
     move-result-object v9
 
-    const v10, 0x10501ca
+    const v10, 0x10501da
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -591,7 +591,7 @@
 
     move-result-object v9
 
-    const v10, 0x10900b3
+    const v10, 0x10900b4
 
     invoke-virtual {v9, v10, v4, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

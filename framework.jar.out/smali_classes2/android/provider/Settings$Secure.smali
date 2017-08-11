@@ -782,6 +782,8 @@
 
 .field public static final WAKE_GESTURE_ENABLED:Ljava/lang/String; = "wake_gesture_enabled"
 
+.field public static final WIFI_ADPS:Ljava/lang/String; = "wifi_adps"
+
 .field public static final WIFI_AP_5G_CHECKED:Ljava/lang/String; = "wifi_ap_5G_checked"
 
 .field public static final WIFI_AP_CUSTOMER:Ljava/lang/String; = "wifi_ap_customer"
@@ -797,6 +799,8 @@
 .field public static final WIFI_AP_MOBILE_DATA_USAGE_VALUE:Ljava/lang/String; = "wifi_ap_mobile_data_usage_value"
 
 .field public static final WIFI_AP_PLUGGED_TYPE:Ljava/lang/String; = "wifi_ap_plugged_type"
+
+.field public static final WIFI_AP_PMF_CHECKED:Ljava/lang/String; = "wifi_ap_pmf_checked"
 
 .field public static final WIFI_AP_QR_CODE_GENERATED:Ljava/lang/String; = "wifi_ap_qr_code_generated"
 
@@ -1921,551 +1925,557 @@
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    const/16 v0, 0x5b
+    const/16 v0, 0x5c
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string/jumbo v1, "wifi_auto_connecct"
+    const-string/jumbo v1, "wifi_adps"
 
     const/4 v2, 0x0
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_cmcc_manual"
+    const-string/jumbo v1, "wifi_auto_connecct"
 
     const/4 v2, 0x1
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wlan_notify_cmcc"
+    const-string/jumbo v1, "wifi_cmcc_manual"
 
     const/4 v2, 0x2
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wlan_permission_available"
+    const-string/jumbo v1, "wlan_notify_cmcc"
 
     aput-object v1, v0, v4
 
-    const-string/jumbo v1, "wifi_internet_service_check_warning"
+    const-string/jumbo v1, "wlan_permission_available"
 
     const/4 v2, 0x4
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_poor_connection_warning"
+    const-string/jumbo v1, "wifi_internet_service_check_warning"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_key"
+    const-string/jumbo v1, "wifi_poor_connection_warning"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_remove_sns_menu_from_settings"
+    const-string/jumbo v1, "wifi_wwsm_patch_key"
 
     const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_update_available"
+    const-string/jumbo v1, "wifi_wwsm_patch_remove_sns_menu_from_settings"
 
     const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_need_to_check_appstore"
+    const-string/jumbo v1, "wifi_wwsm_patch_update_available"
 
     const/16 v2, 0x9
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_restore_sns_enabled"
+    const-string/jumbo v1, "wifi_wwsm_patch_need_to_check_appstore"
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_test_mode_enabled"
+    const-string/jumbo v1, "wifi_wwsm_patch_restore_sns_enabled"
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_scan_for_free_wlans"
+    const-string/jumbo v1, "wifi_wwsm_patch_test_mode_enabled"
 
     const/16 v2, 0xc
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "chameleon_tethereddata"
+    const-string/jumbo v1, "wifi_scan_for_free_wlans"
 
     const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "att_hotspot_test"
+    const-string/jumbo v1, "chameleon_tethereddata"
 
     const/16 v2, 0xe
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enabled_accessibility_s_talkback"
+    const-string/jumbo v1, "att_hotspot_test"
 
     const/16 v2, 0xf
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_cursor_color"
+    const-string/jumbo v1, "enabled_accessibility_s_talkback"
 
     const/16 v2, 0x10
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_large_cursor"
+    const-string/jumbo v1, "accessibility_cursor_color"
 
     const/16 v2, 0x11
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_web_granularity"
+    const-string/jumbo v1, "accessibility_large_cursor"
 
     const/16 v2, 0x12
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_single_tap_selection"
+    const-string/jumbo v1, "accessibility_web_granularity"
 
     const/16 v2, 0x13
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_universal_switch_cursor_color"
+    const-string/jumbo v1, "accessibility_single_tap_selection"
 
     const/16 v2, 0x14
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "universal_switch_enabled"
+    const-string/jumbo v1, "accessibility_universal_switch_cursor_color"
 
     const/16 v2, 0x15
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "universal_switch_enabled_from_directaccess"
+    const-string/jumbo v1, "universal_switch_enabled"
 
     const/16 v2, 0x16
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_universal_switch_screen_as_switch"
+    const-string/jumbo v1, "universal_switch_enabled_from_directaccess"
 
     const/16 v2, 0x17
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "universal_switch_bluetooth_key_mapped"
+    const-string/jumbo v1, "accessibility_universal_switch_screen_as_switch"
 
     const/16 v2, 0x18
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_non_web_granularity"
+    const-string/jumbo v1, "universal_switch_bluetooth_key_mapped"
 
     const/16 v2, 0x19
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "bugreport_in_power_menu"
+    const-string/jumbo v1, "accessibility_non_web_granularity"
 
     const/16 v2, 0x1a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mock_location"
+    const-string/jumbo v1, "bugreport_in_power_menu"
 
     const/16 v2, 0x1b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "parental_control_enabled"
+    const-string/jumbo v1, "mock_location"
 
     const/16 v2, 0x1c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "parental_control_redirect_url"
+    const-string/jumbo v1, "parental_control_enabled"
 
     const/16 v2, 0x1d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "usb_mass_storage_enabled"
+    const-string/jumbo v1, "parental_control_redirect_url"
 
     const/16 v2, 0x1e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_inversion_enabled"
+    const-string/jumbo v1, "usb_mass_storage_enabled"
 
     const/16 v2, 0x1f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_daltonizer"
+    const-string/jumbo v1, "accessibility_display_inversion_enabled"
 
     const/16 v2, 0x20
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_color_matrix"
+    const-string/jumbo v1, "accessibility_display_daltonizer"
 
     const/16 v2, 0x21
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_daltonizer_enabled"
+    const-string/jumbo v1, "accessibility_display_color_matrix"
 
     const/16 v2, 0x22
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_magnification_enabled"
+    const-string/jumbo v1, "accessibility_display_daltonizer_enabled"
 
     const/16 v2, 0x23
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_magnification_scale"
+    const-string/jumbo v1, "accessibility_display_magnification_enabled"
 
     const/16 v2, 0x24
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_magnification_auto_update"
+    const-string/jumbo v1, "accessibility_display_magnification_scale"
 
     const/16 v2, 0x25
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_script_injection"
+    const-string/jumbo v1, "accessibility_display_magnification_auto_update"
 
     const/16 v2, 0x26
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_web_content_key_bindings"
+    const-string/jumbo v1, "accessibility_script_injection"
 
     const/16 v2, 0x27
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enabled_accessibility_services"
+    const-string/jumbo v1, "accessibility_web_content_key_bindings"
 
     const/16 v2, 0x28
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enabled_notification_listeners"
+    const-string/jumbo v1, "enabled_accessibility_services"
 
     const/16 v2, 0x29
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enabled_vr_listeners"
+    const-string/jumbo v1, "enabled_notification_listeners"
 
     const/16 v2, 0x2a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enabled_input_methods"
+    const-string/jumbo v1, "enabled_vr_listeners"
 
     const/16 v2, 0x2b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "touch_exploration_granted_accessibility_services"
+    const-string/jumbo v1, "enabled_input_methods"
 
     const/16 v2, 0x2c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "touch_exploration_enabled"
+    const-string/jumbo v1, "touch_exploration_granted_accessibility_services"
 
     const/16 v2, 0x2d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_enabled"
+    const-string/jumbo v1, "touch_exploration_enabled"
 
     const/16 v2, 0x2e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "speak_password"
+    const-string/jumbo v1, "accessibility_enabled"
 
     const/16 v2, 0x2f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "high_text_contrast_enabled"
+    const-string/jumbo v1, "speak_password"
 
     const/16 v2, 0x30
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_preset"
+    const-string/jumbo v1, "high_text_contrast_enabled"
 
     const/16 v2, 0x31
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_enabled"
+    const-string/jumbo v1, "accessibility_captioning_preset"
 
     const/16 v2, 0x32
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_locale"
+    const-string/jumbo v1, "accessibility_captioning_enabled"
 
     const/16 v2, 0x33
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_background_color"
+    const-string/jumbo v1, "accessibility_captioning_locale"
 
     const/16 v2, 0x34
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_foreground_color"
+    const-string/jumbo v1, "accessibility_captioning_background_color"
 
     const/16 v2, 0x35
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_edge_type"
+    const-string/jumbo v1, "accessibility_captioning_foreground_color"
 
     const/16 v2, 0x36
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_edge_color"
+    const-string/jumbo v1, "accessibility_captioning_edge_type"
 
     const/16 v2, 0x37
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_typeface"
+    const-string/jumbo v1, "accessibility_captioning_edge_color"
 
     const/16 v2, 0x38
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_font_scale"
+    const-string/jumbo v1, "accessibility_captioning_typeface"
 
     const/16 v2, 0x39
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_window_color"
+    const-string/jumbo v1, "accessibility_captioning_font_scale"
 
     const/16 v2, 0x3a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_use_defaults"
+    const-string/jumbo v1, "accessibility_captioning_window_color"
 
     const/16 v2, 0x3b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_rate"
+    const-string/jumbo v1, "tts_use_defaults"
 
     const/16 v2, 0x3c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_pitch"
+    const-string/jumbo v1, "tts_default_rate"
 
     const/16 v2, 0x3d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_synth"
+    const-string/jumbo v1, "tts_default_pitch"
 
     const/16 v2, 0x3e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_lang"
+    const-string/jumbo v1, "tts_default_synth"
 
     const/16 v2, 0x3f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_country"
+    const-string/jumbo v1, "tts_default_lang"
 
     const/16 v2, 0x40
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_enabled_plugins"
+    const-string/jumbo v1, "tts_default_country"
 
     const/16 v2, 0x41
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_locale"
+    const-string/jumbo v1, "tts_enabled_plugins"
 
     const/16 v2, 0x42
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "show_ime_with_hard_keyboard"
+    const-string/jumbo v1, "tts_default_locale"
 
     const/16 v2, 0x43
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_networks_available_notification_on"
+    const-string/jumbo v1, "show_ime_with_hard_keyboard"
 
     const/16 v2, 0x44
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_networks_available_repeat_delay"
+    const-string/jumbo v1, "wifi_networks_available_notification_on"
 
     const/16 v2, 0x45
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_num_open_networks_kept"
+    const-string/jumbo v1, "wifi_networks_available_repeat_delay"
 
     const/16 v2, 0x46
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "selected_spell_checker"
+    const-string/jumbo v1, "wifi_num_open_networks_kept"
 
     const/16 v2, 0x47
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "selected_spell_checker_subtype"
+    const-string/jumbo v1, "selected_spell_checker"
 
     const/16 v2, 0x48
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "spell_checker_enabled"
+    const-string/jumbo v1, "selected_spell_checker_subtype"
 
     const/16 v2, 0x49
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mount_play_not_snd"
+    const-string/jumbo v1, "spell_checker_enabled"
 
     const/16 v2, 0x4a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mount_ums_autostart"
+    const-string/jumbo v1, "mount_play_not_snd"
 
     const/16 v2, 0x4b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mount_ums_prompt"
+    const-string/jumbo v1, "mount_ums_autostart"
 
     const/16 v2, 0x4c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mount_ums_notify_enabled"
+    const-string/jumbo v1, "mount_ums_prompt"
 
     const/16 v2, 0x4d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sleep_timeout"
+    const-string/jumbo v1, "mount_ums_notify_enabled"
 
     const/16 v2, 0x4e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "double_tap_to_wake"
+    const-string/jumbo v1, "sleep_timeout"
 
     const/16 v2, 0x4f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wake_gesture_enabled"
+    const-string/jumbo v1, "double_tap_to_wake"
 
     const/16 v2, 0x50
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "long_press_timeout"
+    const-string/jumbo v1, "wake_gesture_enabled"
 
     const/16 v2, 0x51
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "camera_gesture_disabled"
+    const-string/jumbo v1, "long_press_timeout"
 
     const/16 v2, 0x52
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_autoclick_enabled"
+    const-string/jumbo v1, "camera_gesture_disabled"
 
     const/16 v2, 0x53
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_autoclick_delay"
+    const-string/jumbo v1, "accessibility_autoclick_enabled"
 
     const/16 v2, 0x54
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_large_pointer_icon"
+    const-string/jumbo v1, "accessibility_autoclick_delay"
 
     const/16 v2, 0x55
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "preferred_tty_mode"
+    const-string/jumbo v1, "accessibility_large_pointer_icon"
 
     const/16 v2, 0x56
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enhanced_voice_privacy_enabled"
+    const-string/jumbo v1, "preferred_tty_mode"
 
     const/16 v2, 0x57
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tty_mode_enabled"
+    const-string/jumbo v1, "enhanced_voice_privacy_enabled"
 
     const/16 v2, 0x58
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "incall_power_button_behavior"
+    const-string/jumbo v1, "tty_mode_enabled"
 
     const/16 v2, 0x59
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_disconnect_delay_duration"
+    const-string/jumbo v1, "incall_power_button_behavior"
 
     const/16 v2, 0x5a
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "wifi_disconnect_delay_duration"
+
+    const/16 v2, 0x5b
 
     aput-object v1, v0, v2
 

@@ -1310,7 +1310,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
 
-    const v2, 0x104089a
+    const v2, 0x10408a1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1320,7 +1320,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
 
-    const v2, 0x104089d
+    const v2, 0x10408a4
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1330,7 +1330,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
 
-    const v2, 0x104089c
+    const v2, 0x10408a3
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1340,7 +1340,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
 
-    const v2, 0x104089b
+    const v2, 0x10408a2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1428,7 +1428,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
 
-    const v2, 0x104089f
+    const v2, 0x10408a6
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1506,13 +1506,13 @@
 
     if-nez v4, :cond_1
 
-    const v1, 0x10802bb
+    const v1, 0x10802b1
 
-    const v2, 0x10802bc
+    const v2, 0x10802b2
 
-    const v3, 0x10802bd
+    const v3, 0x10802b3
 
-    const v0, 0x10802ba
+    const v0, 0x10802b0
 
     :goto_1
     iget-object v4, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
@@ -1593,97 +1593,134 @@
     goto :goto_0
 
     :cond_1
-    const v1, 0x10802c0
+    const v1, 0x10802b6
 
-    const v2, 0x10802c2
+    const v2, 0x10802b8
 
-    const v3, 0x10802c4
+    const v3, 0x10802ba
 
-    const v0, 0x10802be
+    const v0, 0x10802b4
 
     goto :goto_1
 .end method
 
 .method private refreshScreenDimensions()V
-    .locals 6
+    .locals 8
 
-    iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->TAG:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/internal/widget/DirectionLockView;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v2, "in refreshScreenDimensions()"
+    const-string/jumbo v5, "in refreshScreenDimensions()"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance v1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->getWindowVisibleDisplayFrame(Landroid/graphics/Rect;)V
+    invoke-virtual {p0, v1}, Landroid/view/View;->getWindowVisibleDisplayFrame(Landroid/graphics/Rect;)V
 
-    iget v1, v0, Landroid/graphics/Rect;->top:I
+    iget v4, v1, Landroid/graphics/Rect;->top:I
 
-    iget v2, v0, Landroid/graphics/Rect;->bottom:I
+    iget v5, v1, Landroid/graphics/Rect;->bottom:I
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v4, v5
 
-    invoke-static {v1}, Ljava/lang/Math;->abs(I)I
+    invoke-static {v4}, Ljava/lang/Math;->abs(I)I
 
-    move-result v1
+    move-result v4
 
-    int-to-double v2, v1
+    int-to-double v4, v4
 
-    iput-wide v2, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenHeight:D
+    iput-wide v4, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenHeight:D
 
-    iget v1, v0, Landroid/graphics/Rect;->right:I
+    iget v4, v1, Landroid/graphics/Rect;->right:I
 
-    iget v2, v0, Landroid/graphics/Rect;->left:I
+    iget v5, v1, Landroid/graphics/Rect;->left:I
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v4, v5
 
-    invoke-static {v1}, Ljava/lang/Math;->abs(I)I
+    invoke-static {v4}, Ljava/lang/Math;->abs(I)I
 
-    move-result v1
+    move-result v4
 
-    int-to-double v2, v1
+    int-to-double v4, v4
 
-    iput-wide v2, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenWidth:D
+    iput-wide v4, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenWidth:D
 
-    iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->TAG:Ljava/lang/String;
+    const-string/jumbo v4, "ro.build.characteristics"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v0
 
-    const-string/jumbo v3, "in refreshScreenDimensions() mScreenWidth = "
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "tablet"
 
-    move-result-object v2
+    invoke-virtual {v0, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    :cond_0
+    :goto_0
+    iget-object v4, p0, Lcom/android/internal/widget/DirectionLockView;->TAG:Ljava/lang/String;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "in refreshScreenDimensions() mScreenWidth = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-wide v6, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenWidth:D
+
+    invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, " mScreenHeight = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-wide v6, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenHeight:D
+
+    invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    iget-wide v4, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenHeight:D
+
+    iget-wide v6, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenWidth:D
+
+    cmpg-double v4, v4, v6
+
+    if-gez v4, :cond_0
+
+    iget-wide v2, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenHeight:D
 
     iget-wide v4, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenWidth:D
 
-    invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+    iput-wide v4, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenHeight:D
 
-    move-result-object v2
+    iput-wide v2, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenWidth:D
 
-    const-string/jumbo v3, " mScreenHeight = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-wide v4, p0, Lcom/android/internal/widget/DirectionLockView;->mScreenHeight:D
-
-    invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
+    goto :goto_0
 .end method
 
 .method private releaseDirectionBitmaps()V
@@ -4102,7 +4139,7 @@
 
     if-eqz v1, :cond_5
 
-    const v0, 0x10802c1
+    const v0, 0x10802b7
 
     :cond_0
     :goto_0
@@ -4165,7 +4202,7 @@
 
     if-eqz v1, :cond_6
 
-    const v0, 0x10802c3
+    const v0, 0x10802b9
 
     goto :goto_0
 
@@ -4180,7 +4217,7 @@
 
     if-eqz v1, :cond_7
 
-    const v0, 0x10802c5
+    const v0, 0x10802bb
 
     goto :goto_0
 
@@ -4195,7 +4232,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x10802bf
+    const v0, 0x10802b5
 
     goto :goto_0
 .end method

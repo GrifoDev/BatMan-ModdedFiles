@@ -57,7 +57,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/ArrayList;
+.method static synthetic -get0(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/concurrent/locks/ReentrantLock;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->mCallLock:Ljava/util/concurrent/locks/ReentrantLock;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->mPendingCommand:Ljava/util/ArrayList;
@@ -65,7 +73,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$SViewCoverBaseState;
+.method static synthetic -get2(Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;)Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$SViewCoverBaseState;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate;->mSViewCoverBaseState:Lcom/samsung/android/cover/SViewCoverBaseServiceDelegate$SViewCoverBaseState;

@@ -209,14 +209,6 @@
     .end annotation
 .end method
 
-.method public abstract getPriorityDevice()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getRemainingMuteIntervalMs()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -321,6 +313,14 @@
     .end annotation
 .end method
 
+.method public abstract isAlreadyInDB(Ljava/lang/String;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isBluetoothA2dpOn()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -361,6 +361,14 @@
     .end annotation
 .end method
 
+.method public abstract isInAllowedList(Ljava/lang/String;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isMasterMute()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -386,6 +394,14 @@
 .end method
 
 .method public abstract isRadioSpeakerOn()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isSafeMediaVolumeStateActive()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -434,6 +450,14 @@
 .end method
 
 .method public abstract loadSoundEffects()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract makeBTVolumeSame(Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

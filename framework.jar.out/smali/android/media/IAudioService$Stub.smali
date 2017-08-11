@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_abandonAudioFocus:I = 0x24
 
-.field static final TRANSACTION_addPackage:I = 0x61
+.field static final TRANSACTION_addPackage:I = 0x60
 
 .field static final TRANSACTION_adjustStreamVolume:I = 0x2
 
@@ -58,7 +58,7 @@
 
 .field static final TRANSACTION_getCurrentAudioFocusPackageName:I = 0x49
 
-.field static final TRANSACTION_getInstalledAllAppList:I = 0x5f
+.field static final TRANSACTION_getInstalledAllAppList:I = 0x5e
 
 .field static final TRANSACTION_getLastAudibleStreamVolume:I = 0xb
 
@@ -66,13 +66,11 @@
 
 .field static final TRANSACTION_getMuteInterval:I = 0x50
 
-.field static final TRANSACTION_getPinAppInfo:I = 0x5d
+.field static final TRANSACTION_getPinAppInfo:I = 0x5c
 
-.field static final TRANSACTION_getPinDevice:I = 0x5e
+.field static final TRANSACTION_getPinDevice:I = 0x5d
 
 .field static final TRANSACTION_getPrevRingerMode:I = 0x52
-
-.field static final TRANSACTION_getPriorityDevice:I = 0x5a
 
 .field static final TRANSACTION_getRemainingMuteIntervalMs:I = 0x51
 
@@ -82,7 +80,7 @@
 
 .field static final TRANSACTION_getRingtonePlayer:I = 0x2c
 
-.field static final TRANSACTION_getSelectedAppList:I = 0x60
+.field static final TRANSACTION_getSelectedAppList:I = 0x5f
 
 .field static final TRANSACTION_getStreamMaxVolume:I = 0xa
 
@@ -90,7 +88,7 @@
 
 .field static final TRANSACTION_getStreamVolume:I = 0x8
 
-.field static final TRANSACTION_getStreamVolumeForDevice:I = 0x5c
+.field static final TRANSACTION_getStreamVolumeForDevice:I = 0x5b
 
 .field static final TRANSACTION_getTogether:I = 0x48
 
@@ -99,6 +97,8 @@
 .field static final TRANSACTION_getUidForDevice:I = 0x53
 
 .field static final TRANSACTION_getVibrateSetting:I = 0x13
+
+.field static final TRANSACTION_isAlreadyInDB:I = 0x63
 
 .field static final TRANSACTION_isBluetoothA2dpOn:I = 0x22
 
@@ -110,6 +110,8 @@
 
 .field static final TRANSACTION_isHdmiSystemAudioSupported:I = 0x38
 
+.field static final TRANSACTION_isInAllowedList:I = 0x64
+
 .field static final TRANSACTION_isMasterMute:I = 0x6
 
 .field static final TRANSACTION_isMediaSilentMode:I = 0x45
@@ -117,6 +119,8 @@
 .field static final TRANSACTION_isMultiSoundOn:I = 0x59
 
 .field static final TRANSACTION_isRadioSpeakerOn:I = 0x42
+
+.field static final TRANSACTION_isSafeMediaVolumeStateActive:I = 0x66
 
 .field static final TRANSACTION_isSpeakerphoneOn:I = 0x1e
 
@@ -130,6 +134,8 @@
 
 .field static final TRANSACTION_loadSoundEffects:I = 0x19
 
+.field static final TRANSACTION_makeBTVolumeSame:I = 0x65
+
 .field static final TRANSACTION_notifyVolumeControllerVisible:I = 0x33
 
 .field static final TRANSACTION_playSoundEffect:I = 0x17
@@ -142,9 +148,9 @@
 
 .field static final TRANSACTION_reloadAudioSettings:I = 0x1b
 
-.field static final TRANSACTION_removePackageForName:I = 0x63
+.field static final TRANSACTION_removePackageForName:I = 0x62
 
-.field static final TRANSACTION_removePackageForUid:I = 0x62
+.field static final TRANSACTION_removePackageForUid:I = 0x61
 
 .field static final TRANSACTION_requestAudioFocus:I = 0x23
 
@@ -194,7 +200,7 @@
 
 .field static final TRANSACTION_setStreamVolume:I = 0x3
 
-.field static final TRANSACTION_setStreamVolumeForDevice:I = 0x5b
+.field static final TRANSACTION_setStreamVolumeForDevice:I = 0x5a
 
 .field static final TRANSACTION_setTogether:I = 0x47
 
@@ -3143,29 +3149,6 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Landroid/media/IAudioService$Stub;->getPriorityDevice()I
-
-    move-result v49
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    move-object/from16 v0, p3
-
-    move/from16 v1, v49
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :sswitch_5b
-    const-string/jumbo v4, "android.media.IAudioService"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -3204,7 +3187,7 @@
 
     return v4
 
-    :sswitch_5c
+    :sswitch_5b
     const-string/jumbo v4, "android.media.IAudioService"
 
     move-object/from16 v0, p2
@@ -3237,7 +3220,7 @@
 
     return v4
 
-    :sswitch_5d
+    :sswitch_5c
     const-string/jumbo v4, "android.media.IAudioService"
 
     move-object/from16 v0, p2
@@ -3266,7 +3249,7 @@
 
     return v4
 
-    :sswitch_5e
+    :sswitch_5d
     const-string/jumbo v4, "android.media.IAudioService"
 
     move-object/from16 v0, p2
@@ -3289,7 +3272,7 @@
 
     return v4
 
-    :sswitch_5f
+    :sswitch_5e
     const-string/jumbo v4, "android.media.IAudioService"
 
     move-object/from16 v0, p2
@@ -3312,7 +3295,7 @@
 
     return v4
 
-    :sswitch_60
+    :sswitch_5f
     const-string/jumbo v4, "android.media.IAudioService"
 
     move-object/from16 v0, p2
@@ -3335,7 +3318,7 @@
 
     return v4
 
-    :sswitch_61
+    :sswitch_60
     const-string/jumbo v4, "android.media.IAudioService"
 
     move-object/from16 v0, p2
@@ -3362,7 +3345,7 @@
 
     return v4
 
-    :sswitch_62
+    :sswitch_61
     const-string/jumbo v4, "android.media.IAudioService"
 
     move-object/from16 v0, p2
@@ -3376,6 +3359,29 @@
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5}, Landroid/media/IAudioService$Stub;->removePackageForUid(I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_62
+    const-string/jumbo v4, "android.media.IAudioService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v39
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v39
+
+    invoke-virtual {v0, v1}, Landroid/media/IAudioService$Stub;->removePackageForName(Ljava/lang/String;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -3398,13 +3404,130 @@
 
     move-object/from16 v1, v39
 
-    invoke-virtual {v0, v1}, Landroid/media/IAudioService$Stub;->removePackageForName(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/media/IAudioService$Stub;->isAlreadyInDB(Ljava/lang/String;)Z
+
+    move-result v54
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v54, :cond_27
+
+    const/4 v4, 0x1
+
+    :goto_27
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_27
+    const/4 v4, 0x0
+
+    goto :goto_27
+
+    :sswitch_64
+    const-string/jumbo v4, "android.media.IAudioService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v39
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v39
+
+    invoke-virtual {v0, v1}, Landroid/media/IAudioService$Stub;->isInAllowedList(Ljava/lang/String;)Z
+
+    move-result v54
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v54, :cond_28
+
+    const/4 v4, 0x1
+
+    :goto_28
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_28
+    const/4 v4, 0x0
+
+    goto :goto_28
+
+    :sswitch_65
+    const-string/jumbo v4, "android.media.IAudioService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v39
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v44
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v39
+
+    move-object/from16 v2, v44
+
+    invoke-virtual {v0, v1, v2}, Landroid/media/IAudioService$Stub;->makeBTVolumeSame(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v4, 0x1
 
     return v4
+
+    :sswitch_66
+    const-string/jumbo v4, "android.media.IAudioService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Landroid/media/IAudioService$Stub;->isSafeMediaVolumeStateActive()Z
+
+    move-result v54
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v54, :cond_29
+
+    const/4 v4, 0x1
+
+    :goto_29
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_29
+    const/4 v4, 0x0
+
+    goto :goto_29
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -3507,6 +3630,9 @@
         0x61 -> :sswitch_61
         0x62 -> :sswitch_62
         0x63 -> :sswitch_63
+        0x64 -> :sswitch_64
+        0x65 -> :sswitch_65
+        0x66 -> :sswitch_66
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -6,7 +6,7 @@
 # static fields
 .field public static final GEAR_VR_MANAGER_SERVICE_VERSION_CODE:I = 0x1
 
-.field public static final SUPPORT_DAYDREAM:Z = false
+.field public static final SUPPORT_DAYDREAM:Z = true
 
 .field public static final SUPPORT_HMT:Z = true
 

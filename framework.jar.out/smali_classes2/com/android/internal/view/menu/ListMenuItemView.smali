@@ -193,7 +193,7 @@
 
     move-result-object v0
 
-    const v1, 0x1090100
+    const v1, 0x1090101
 
     const/4 v2, 0x0
 
@@ -225,7 +225,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x1090147
+    const v1, 0x1090148
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -254,7 +254,7 @@
     return-void
 
     :cond_1
-    const v1, 0x1090089
+    const v1, 0x109008a
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -276,7 +276,7 @@
 
     move-result-object v0
 
-    const v1, 0x109008a
+    const v1, 0x109008b
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -306,7 +306,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x1090149
+    const v1, 0x109014a
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -324,7 +324,7 @@
     return-void
 
     :cond_0
-    const v1, 0x109008c
+    const v1, 0x109008d
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -409,7 +409,7 @@
 
     move-result-object v5
 
-    const v6, 0x10502f8
+    const v6, 0x1050308
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -425,7 +425,7 @@
 
     move-result-object v7
 
-    const v8, 0x10502f9
+    const v8, 0x1050309
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -661,7 +661,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     :cond_0
-    const v0, 0x102041c
+    const v0, 0x1020425
 
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ListMenuItemView;->findViewById(I)Landroid/view/View;
 
@@ -671,7 +671,7 @@
 
     iput-object v0, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mShortcutView:Landroid/widget/TextView;
 
-    const v0, 0x1020463
+    const v0, 0x102046c
 
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ListMenuItemView;->findViewById(I)Landroid/view/View;
 

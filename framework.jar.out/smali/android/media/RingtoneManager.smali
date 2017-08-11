@@ -1644,6 +1644,8 @@
 
     const/4 v9, 0x0
 
+    const/4 v12, 0x0
+
     and-int/lit8 v0, p1, 0x1
 
     if-eqz v0, :cond_3
@@ -1668,11 +1670,9 @@
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :goto_0
-    and-int/lit16 v0, p1, 0x81
+    invoke-static {p1}, Landroid/media/RingtoneManager;->getOMCRingtonePropertyName(I)Ljava/lang/String;
 
-    if-eqz v0, :cond_1
-
-    const-string/jumbo v0, "persist.audio.omc.ringtone"
+    move-result-object v0
 
     const-string/jumbo v1, ""
 
@@ -1680,9 +1680,7 @@
 
     move-result-object v12
 
-    const-string/jumbo v0, ""
-
-    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v12}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
@@ -1768,7 +1766,7 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "\'"
+    const-string/jumbo v4, ".___\'"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2503,6 +2501,41 @@
 
     :cond_2
     return-object v4
+.end method
+
+.method public static getOMCRingtonePropertyName(I)Ljava/lang/String;
+    .locals 1
+
+    and-int/lit16 v0, p0, 0x81
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "persist.sys.omc.ringtone"
+
+    return-object v0
+
+    :cond_0
+    and-int/lit16 v0, p0, 0x102
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v0, "persist.sys.omc.notification"
+
+    return-object v0
+
+    :cond_1
+    const/4 v0, 0x4
+
+    if-ne p0, v0, :cond_2
+
+    const-string/jumbo v0, "persist.sys.omc.alarm"
+
+    return-object v0
+
+    :cond_2
+    const-string/jumbo v0, ""
+
+    return-object v0
 .end method
 
 .method public static getRingtone(Landroid/content/Context;Landroid/net/Uri;)Landroid/media/Ringtone;

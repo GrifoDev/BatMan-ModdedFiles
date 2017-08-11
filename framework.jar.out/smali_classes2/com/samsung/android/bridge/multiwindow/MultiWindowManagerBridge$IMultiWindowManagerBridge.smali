@@ -78,6 +78,9 @@
 .method public abstract registerMultiWindowFocusedFrameListener(Lcom/samsung/android/multiwindow/IMultiWindowFocusedFrameListener;)V
 .end method
 
+.method public abstract removeFocusedTask()Z
+.end method
+
 .method public abstract removeSearchedTask(Ljava/lang/String;)Z
 .end method
 

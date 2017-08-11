@@ -8,6 +8,10 @@
 
 .field static final DEBUG:Z = false
 
+.field public static final DEX_FREEFORM_PACKAGE_LIST:Ljava/lang/String; = "DFPA"
+
+.field public static final DEX_FREEFORM_TASK_COUNT:Ljava/lang/String; = "DFCO"
+
 .field public static final DOCKED_BY:Ljava/lang/String; = "DOBY"
 
 .field public static final DOCKED_BY_FREEFORM_DRAGGING:Ljava/lang/String; = "FreeformDragging"

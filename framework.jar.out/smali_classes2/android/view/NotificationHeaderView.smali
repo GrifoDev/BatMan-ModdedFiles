@@ -251,7 +251,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x10803b7
+    const v0, 0x10803a1
 
     iget-object v1, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
 
@@ -259,7 +259,7 @@
 
     move-result-object v2
 
-    const v3, 0x1040a5a
+    const v3, 0x1040a63
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -289,7 +289,7 @@
     return-void
 
     :cond_0
-    const v0, 0x10803d9
+    const v0, 0x10803c3
 
     iget-object v1, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
 
@@ -297,7 +297,7 @@
 
     move-result-object v2
 
-    const v3, 0x1040a59
+    const v3, 0x1040a62
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -459,7 +459,7 @@
 
     invoke-super {p0}, Landroid/view/ViewGroup;->onFinishInflate()V
 
-    const v0, 0x1020440
+    const v0, 0x1020449
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -467,7 +467,7 @@
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mAppName:Landroid/view/View;
 
-    const v0, 0x1020442
+    const v0, 0x102044b
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -475,7 +475,7 @@
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mHeaderText:Landroid/view/View;
 
-    const v0, 0x1020445
+    const v0, 0x102044e
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -504,7 +504,7 @@
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mIcon:Landroid/view/View;
 
-    const v0, 0x1020446
+    const v0, 0x102044f
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 

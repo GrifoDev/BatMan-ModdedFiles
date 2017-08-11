@@ -248,7 +248,7 @@
 
     move-result-object v7
 
-    const v8, 0x1040604
+    const v8, 0x1040608
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -258,7 +258,7 @@
 
     move-result-object v7
 
-    const v8, 0x1040605
+    const v8, 0x1040609
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -268,13 +268,13 @@
 
     move-result-object v7
 
-    const v8, 0x1090176
+    const v8, 0x1090177
 
     invoke-virtual {v7, v8, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v5
 
-    const v7, 0x1020532
+    const v7, 0x102053b
 
     invoke-virtual {v5, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -282,7 +282,7 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    const v7, 0x1020533
+    const v7, 0x102053c
 
     invoke-virtual {v5, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -310,7 +310,7 @@
 
     if-ne v7, v11, :cond_2
 
-    const v7, 0x1040606
+    const v7, 0x104060a
 
     invoke-virtual {v0, v7, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

@@ -1000,7 +1000,7 @@
 
     if-eqz v5, :cond_0
 
-    const v0, 0x10600da
+    const v0, 0x10600e0
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1152,7 +1152,7 @@
 
     move-result-object v4
 
-    const v5, 0x106015e
+    const v5, 0x1060164
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 

@@ -31,6 +31,10 @@
 
 .field private final mPackageName:Ljava/lang/String;
 
+.field private mProximityNegativeDebounce:I
+
+.field private mProximityPositiveDebounce:I
+
 .field private mRefCounted:Z
 
 .field private final mReleaser:Ljava/lang/Runnable;
@@ -48,7 +52,9 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/PowerManager;ILjava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .locals 5
+
+    const/4 v4, -0x1
 
     iput-object p1, p0, Landroid/os/PowerManager$WakeLock;->this$0:Landroid/os/PowerManager;
 
@@ -135,6 +141,10 @@
     move-result-object v2
 
     iput-object v2, p0, Landroid/os/PowerManager$WakeLock;->mTraceName:Ljava/lang/String;
+
+    iput v4, p0, Landroid/os/PowerManager$WakeLock;->mProximityPositiveDebounce:I
+
+    iput v4, p0, Landroid/os/PowerManager$WakeLock;->mProximityNegativeDebounce:I
 
     return-void
 .end method
@@ -515,6 +525,127 @@
     iput-object p1, p0, Landroid/os/PowerManager$WakeLock;->mHistoryTag:Ljava/lang/String;
 
     return-void
+.end method
+
+.method public setProximityDebounceTime(II)V
+    .locals 6
+
+    const/16 v4, 0xbb8
+
+    const/4 v2, -0x1
+
+    iget-object v3, p0, Landroid/os/PowerManager$WakeLock;->mToken:Landroid/os/IBinder;
+
+    monitor-enter v3
+
+    const/4 v0, 0x0
+
+    if-ge p1, v2, :cond_1
+
+    if-le p1, v4, :cond_1
+
+    :cond_0
+    :try_start_0
+    new-instance v2, Ljava/lang/IllegalArgumentException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "setProximityDebounceTime: positive = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", negative = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v2, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
+
+    :cond_1
+    if-ge p2, v2, :cond_2
+
+    if-gt p2, v4, :cond_0
+
+    :cond_2
+    :try_start_1
+    iget v2, p0, Landroid/os/PowerManager$WakeLock;->mProximityPositiveDebounce:I
+
+    if-eq v2, p1, :cond_3
+
+    iput p1, p0, Landroid/os/PowerManager$WakeLock;->mProximityPositiveDebounce:I
+
+    const/4 v0, 0x1
+
+    :cond_3
+    iget v2, p0, Landroid/os/PowerManager$WakeLock;->mProximityNegativeDebounce:I
+
+    if-eq v2, p2, :cond_4
+
+    iput p2, p0, Landroid/os/PowerManager$WakeLock;->mProximityNegativeDebounce:I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 v0, 0x1
+
+    :cond_4
+    if-eqz v0, :cond_5
+
+    :try_start_2
+    iget-object v2, p0, Landroid/os/PowerManager$WakeLock;->this$0:Landroid/os/PowerManager;
+
+    iget-object v2, v2, Landroid/os/PowerManager;->mService:Landroid/os/IPowerManager;
+
+    iget-object v4, p0, Landroid/os/PowerManager$WakeLock;->mToken:Landroid/os/IBinder;
+
+    invoke-interface {v2, v4, p1, p2}, Landroid/os/IPowerManager;->setProximityDebounceTimeLocked(Landroid/os/IBinder;II)V
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_5
+    monitor-exit v3
+
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    :try_start_3
+    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 .end method
 
 .method public setReferenceCounted(Z)V

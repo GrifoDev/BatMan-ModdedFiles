@@ -132,15 +132,64 @@
 .end method
 
 .method public getDefaultDisplay()Landroid/view/Display;
-    .locals 1
+    .locals 6
 
-    iget-object v0, p0, Landroid/view/WindowManagerImpl;->mContext:Landroid/content/Context;
+    const/4 v5, 0x0
 
-    invoke-virtual {v0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+    const-string/jumbo v3, "com.samsung.android.hmt.vrsvc"
+
+    invoke-static {}, Landroid/app/ActivityThread;->currentProcessName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v3, "sys.vs.mode"
+
+    invoke-static {v3, v5}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v3, "sys.vs.display"
+
+    invoke-static {v3, v5}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v3, p0, Landroid/view/WindowManagerImpl;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v4, "display"
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/hardware/display/DisplayManager;
+
+    invoke-virtual {v2, v1}, Landroid/hardware/display/DisplayManager;->getDisplay(I)Landroid/view/Display;
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
     return-object v0
+
+    :cond_0
+    iget-object v3, p0, Landroid/view/WindowManagerImpl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object v3
+
+    return-object v3
 .end method
 
 .method public removeView(Landroid/view/View;)V

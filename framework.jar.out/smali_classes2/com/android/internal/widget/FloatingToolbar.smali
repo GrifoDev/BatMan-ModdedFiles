@@ -18,7 +18,13 @@
 
 .field private static final NO_OP_MENUITEM_CLICK_LISTENER:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-.field private static mIsSemType:Z
+.field private static sIsDiscardTouch:Z
+
+.field private static sIsMovingStarted:Z
+
+.field private static sIsScrolling:Z
+
+.field private static sIsSemType:Z
 
 
 # instance fields
@@ -26,11 +32,11 @@
 
 .field private final mContext:Landroid/content/Context;
 
-.field private mIsTablet:Z
-
 .field private mMenu:Landroid/view/Menu;
 
 .field private mMenuItemClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
+
+.field private mOrientation:I
 
 .field private final mOrientationChangeHandler:Landroid/view/View$OnLayoutChangeListener;
 
@@ -57,15 +63,23 @@
 
 
 # direct methods
-.method static synthetic -get0()Z
+.method static synthetic -get0(Lcom/android/internal/widget/FloatingToolbar;)Landroid/content/Context;
     .locals 1
 
-    sget-boolean v0, Lcom/android/internal/widget/FloatingToolbar;->mIsSemType:Z
+    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/internal/widget/FloatingToolbar;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mOrientation:I
 
     return v0
 .end method
 
-.method static synthetic -get1(Lcom/android/internal/widget/FloatingToolbar;)Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+.method static synthetic -get2(Lcom/android/internal/widget/FloatingToolbar;)Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
@@ -73,12 +87,68 @@
     return-object v0
 .end method
 
-.method static synthetic -set0(Lcom/android/internal/widget/FloatingToolbar;Z)Z
+.method static synthetic -get3()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/internal/widget/FloatingToolbar;->sIsDiscardTouch:Z
+
+    return v0
+.end method
+
+.method static synthetic -get4()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/internal/widget/FloatingToolbar;->sIsScrolling:Z
+
+    return v0
+.end method
+
+.method static synthetic -get5()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/internal/widget/FloatingToolbar;->sIsSemType:Z
+
+    return v0
+.end method
+
+.method static synthetic -set0(Lcom/android/internal/widget/FloatingToolbar;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/internal/widget/FloatingToolbar;->mOrientation:I
+
+    return p1
+.end method
+
+.method static synthetic -set1(Lcom/android/internal/widget/FloatingToolbar;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/internal/widget/FloatingToolbar;->mWidthChanged:Z
 
     return p1
+.end method
+
+.method static synthetic -set2(Z)Z
+    .locals 0
+
+    sput-boolean p0, Lcom/android/internal/widget/FloatingToolbar;->sIsDiscardTouch:Z
+
+    return p0
+.end method
+
+.method static synthetic -set3(Z)Z
+    .locals 0
+
+    sput-boolean p0, Lcom/android/internal/widget/FloatingToolbar;->sIsMovingStarted:Z
+
+    return p0
+.end method
+
+.method static synthetic -set4(Z)Z
+    .locals 0
+
+    sput-boolean p0, Lcom/android/internal/widget/FloatingToolbar;->sIsScrolling:Z
+
+    return p0
 .end method
 
 .method static synthetic -wrap0(Landroid/view/View;)Landroid/animation/AnimatorSet;
@@ -142,7 +212,9 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     new-instance v0, Lcom/android/internal/widget/FloatingToolbar$1;
 
@@ -150,9 +222,13 @@
 
     sput-object v0, Lcom/android/internal/widget/FloatingToolbar;->NO_OP_MENUITEM_CLICK_LISTENER:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    const/4 v0, 0x0
+    sput-boolean v1, Lcom/android/internal/widget/FloatingToolbar;->sIsSemType:Z
 
-    sput-boolean v0, Lcom/android/internal/widget/FloatingToolbar;->mIsSemType:Z
+    sput-boolean v1, Lcom/android/internal/widget/FloatingToolbar;->sIsMovingStarted:Z
+
+    sput-boolean v1, Lcom/android/internal/widget/FloatingToolbar;->sIsDiscardTouch:Z
+
+    sput-boolean v1, Lcom/android/internal/widget/FloatingToolbar;->sIsScrolling:Z
 
     return-void
 .end method
@@ -171,10 +247,6 @@
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mIsTablet:Z
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -220,7 +292,7 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mContext:Landroid/content/Context;
 
-    sput-boolean p3, Lcom/android/internal/widget/FloatingToolbar;->mIsSemType:Z
+    sput-boolean p3, Lcom/android/internal/widget/FloatingToolbar;->sIsSemType:Z
 
     invoke-static {p2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -299,11 +371,11 @@
 
     const/4 v4, -0x2
 
-    sget-boolean v3, Lcom/android/internal/widget/FloatingToolbar;->mIsSemType:Z
+    sget-boolean v3, Lcom/android/internal/widget/FloatingToolbar;->sIsSemType:Z
 
     if-eqz v3, :cond_0
 
-    const v2, 0x1090141
+    const v2, 0x1090142
 
     :goto_0
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
@@ -326,7 +398,7 @@
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->setTag(Ljava/lang/Object;)V
 
-    sget-boolean v3, Lcom/android/internal/widget/FloatingToolbar;->mIsSemType:Z
+    sget-boolean v3, Lcom/android/internal/widget/FloatingToolbar;->sIsSemType:Z
 
     if-nez v3, :cond_1
 
@@ -825,6 +897,14 @@
     return v0
 .end method
 
+.method public static isDiscardTouch()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/internal/widget/FloatingToolbar;->sIsDiscardTouch:Z
+
+    return v0
+.end method
+
 .method private static isIconOnlyMenuItem(Landroid/view/MenuItem;)Z
     .locals 1
 
@@ -854,6 +934,14 @@
     return v0
 .end method
 
+.method public static isMovingStarted()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/internal/widget/FloatingToolbar;->sIsMovingStarted:Z
+
+    return v0
+.end method
+
 .method private registerOrientationHandler()V
     .locals 2
 
@@ -868,6 +956,14 @@
     iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mOrientationChangeHandler:Landroid/view/View$OnLayoutChangeListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+
+    return-void
+.end method
+
+.method public static setMovingStarted(Z)V
+    .locals 0
+
+    sput-boolean p0, Lcom/android/internal/widget/FloatingToolbar;->sIsMovingStarted:Z
 
     return-void
 .end method

@@ -69,11 +69,11 @@
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    const v2, 0x109016d
+    const v2, 0x109016e
 
     invoke-virtual {p0, v2}, Landroid/preference/Preference;->setLayoutResourceInternal(I)V
 
-    const v2, 0x109016e
+    const v2, 0x109016f
 
     invoke-virtual {p0, v2}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 

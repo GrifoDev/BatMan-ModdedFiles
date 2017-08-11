@@ -2250,6 +2250,34 @@
     return v1
 .end method
 
+.method public isClipboardShareAllowed()Z
+    .locals 3
+
+    :try_start_0
+    invoke-static {}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->getService()Landroid/sec/clipboard/IClipboardService;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->getPersonaId()I
+
+    move-result v2
+
+    invoke-interface {v1, v2}, Landroid/sec/clipboard/IClipboardService;->isClipboardShareAllowed(I)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const/4 v1, 0x1
+
+    return v1
+.end method
+
 .method public isEnabled()Z
     .locals 4
 
@@ -2430,7 +2458,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager;->mContext:Landroid/content/Context;
 
-    const v1, 0x1040628
+    const v1, 0x104062c
 
     const/4 v2, 0x0
 
@@ -3035,23 +3063,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager;->mContext:Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->isClipboardShareAllowed()Z
 
-    const v2, 0x1040627
+    move-result v1
 
-    const/4 v3, 0x0
+    if-eqz v1, :cond_1
 
-    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
-
-    return-void
-
-    :cond_1
     invoke-direct {p0}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->startClipboardUIServiceService()V
 
     :try_start_0
@@ -3066,10 +3085,28 @@
     const-string/jumbo v2, "showDialog - Fail~ Service is null."
 
     invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :cond_1
+    iget-object v1, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager;->mContext:Landroid/content/Context;
+
+    const v2, 0x104062b
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
     return-void
 
     :cond_2
+    :try_start_1
     invoke-virtual {p0}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->isFiltered()Z
 
     move-result v1
@@ -3131,8 +3168,8 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
 
@@ -3168,21 +3205,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-eqz v2, :cond_1
 
-    iget-object v2, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager;->mContext:Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->isClipboardShareAllowed()Z
 
-    const v3, 0x1040627
+    move-result v2
 
-    invoke-static {v2, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    if-eqz v2, :cond_1
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
-
-    return v5
-
-    :cond_1
     const/4 v0, 0x1
 
     invoke-direct {p0}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->startClipboardUIServiceService()V
@@ -3221,10 +3251,26 @@
     const-string/jumbo v3, "showDialog - Fail~ Service is null."
 
     invoke-static {v2, v3}, Landroid/sec/clipboard/util/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return v5
+
+    :cond_1
+    iget-object v2, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager;->mContext:Landroid/content/Context;
+
+    const v3, 0x104062b
+
+    invoke-static {v2, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
     return v5
 
     :cond_2
+    :try_start_1
     invoke-virtual {p0}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->isFiltered()Z
 
     move-result v2
@@ -3330,8 +3376,8 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
 

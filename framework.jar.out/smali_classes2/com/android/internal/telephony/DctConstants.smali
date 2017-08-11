@@ -165,6 +165,8 @@
 
 .field public static final EVENT_RESTORE_DEFAULT_APN:I = 0x4200e
 
+.field public static final EVENT_RETRY_GUARD_TIMER:I = 0x42072
+
 .field public static final EVENT_ROAMING_OFF:I = 0x4200c
 
 .field public static final EVENT_ROAMING_ON:I = 0x4200b

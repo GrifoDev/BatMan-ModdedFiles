@@ -644,7 +644,7 @@
 
     move-result-object v3
 
-    const v4, 0x10e0100
+    const v4, 0x10e0101
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -722,13 +722,13 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040703
+    const v4, 0x1040707
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x108081e
+    const v4, 0x1080809
 
     invoke-direct {v0, v10, v4, v3}, Lcom/samsung/android/share/SShareMoreActions$ActionItem;-><init>(IILjava/lang/String;)V
 
@@ -747,13 +747,13 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040704
+    const v4, 0x1040708
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x108081d
+    const v4, 0x1080808
 
     invoke-direct {v0, v9, v4, v3}, Lcom/samsung/android/share/SShareMoreActions$ActionItem;-><init>(IILjava/lang/String;)V
 
@@ -776,13 +776,13 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x10406fe
+    const v4, 0x1040702
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x1080b1d
+    const v4, 0x1080b0b
 
     invoke-direct {v0, v8, v4, v3}, Lcom/samsung/android/share/SShareMoreActions$ActionItem;-><init>(IILjava/lang/String;)V
 
@@ -798,7 +798,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/share/SShareMoreActions;->arItem:Ljava/util/ArrayList;
 
-    const v6, 0x1090104
+    const v6, 0x1090105
 
     invoke-direct {v3, p0, v4, v6, v5}, Lcom/samsung/android/share/SShareMoreActions$BottomPanelAdapter;-><init>(Lcom/samsung/android/share/SShareMoreActions;Landroid/content/Context;ILjava/util/ArrayList;)V
 
@@ -806,7 +806,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mWindow:Landroid/view/Window;
 
-    const v4, 0x10204d0
+    const v4, 0x10204d9
 
     invoke-virtual {v3, v4}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
@@ -883,13 +883,13 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x10406fe
+    const v4, 0x1040702
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x1080b1d
+    const v4, 0x1080b0b
 
     invoke-direct {v0, v8, v4, v3}, Lcom/samsung/android/share/SShareMoreActions$ActionItem;-><init>(IILjava/lang/String;)V
 
@@ -910,7 +910,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x10406ff
+    const v4, 0x1040703
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -918,7 +918,7 @@
 
     const/16 v4, 0x66
 
-    const v5, 0x108071e
+    const v5, 0x1080709
 
     invoke-direct {v0, v4, v5, v3}, Lcom/samsung/android/share/SShareMoreActions$ActionItem;-><init>(IILjava/lang/String;)V
 
@@ -937,7 +937,7 @@
 
     const-string/jumbo v3, "Smart View"
 
-    const v4, 0x108071e
+    const v4, 0x1080709
 
     invoke-direct {v0, v9, v4, v3}, Lcom/samsung/android/share/SShareMoreActions$ActionItem;-><init>(IILjava/lang/String;)V
 
@@ -958,13 +958,13 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040701
+    const v4, 0x1040705
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x10806da
+    const v4, 0x10806c5
 
     invoke-direct {v0, v10, v4, v3}, Lcom/samsung/android/share/SShareMoreActions$ActionItem;-><init>(IILjava/lang/String;)V
 
@@ -985,7 +985,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040702
+    const v4, 0x1040706
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -993,7 +993,7 @@
 
     const/16 v4, 0x69
 
-    const v5, 0x10806a4
+    const v5, 0x108068f
 
     invoke-direct {v0, v4, v5, v3}, Lcom/samsung/android/share/SShareMoreActions$ActionItem;-><init>(IILjava/lang/String;)V
 

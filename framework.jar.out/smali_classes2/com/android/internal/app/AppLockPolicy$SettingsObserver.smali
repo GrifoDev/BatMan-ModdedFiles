@@ -558,7 +558,7 @@
 
     move-result-object v9
 
-    const v11, 0x1070093
+    const v11, 0x1070094
 
     invoke-virtual {v9, v11}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -620,7 +620,7 @@
     goto :goto_0
 
     :cond_1
-    const v11, 0x1070094
+    const v11, 0x1070095
 
     invoke-virtual {v9, v11}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

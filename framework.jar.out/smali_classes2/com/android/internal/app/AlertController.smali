@@ -337,7 +337,7 @@
 
     const/16 v2, 0xc
 
-    const v3, 0x10900ec
+    const v3, 0x10900ed
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -437,7 +437,7 @@
 
     move-result-object v9
 
-    const v10, 0x105019a
+    const v10, 0x10501aa
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -449,7 +449,7 @@
 
     move-result-object v9
 
-    const v10, 0x1050199
+    const v10, 0x10501a9
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -461,7 +461,7 @@
 
     move-result-object v9
 
-    const v10, 0x105019b
+    const v10, 0x10501ab
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -473,7 +473,7 @@
 
     move-result-object v9
 
-    const v10, 0x105019c
+    const v10, 0x10501ac
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -485,7 +485,7 @@
 
     move-result-object v9
 
-    const v10, 0x105019d
+    const v10, 0x10501ad
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -497,7 +497,7 @@
 
     move-result-object v9
 
-    const v10, 0x1050195
+    const v10, 0x10501a5
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -509,7 +509,7 @@
 
     move-result-object v9
 
-    const v10, 0x1050196
+    const v10, 0x10501a6
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -965,23 +965,23 @@
 
     if-eqz v15, :cond_0
 
-    const v10, 0x1080694
+    const v10, 0x108067f
 
-    const v19, 0x10806a2
+    const v19, 0x108068d
 
-    const v7, 0x1080691
+    const v7, 0x108067c
 
-    const v4, 0x108068e
+    const v4, 0x1080679
 
-    const v9, 0x1080693
+    const v9, 0x108067e
 
-    const v18, 0x10806a1
+    const v18, 0x108068c
 
-    const v6, 0x1080690
+    const v6, 0x108067b
 
-    const v3, 0x108068d
+    const v3, 0x1080678
 
-    const v5, 0x108068f
+    const v5, 0x108067a
 
     :cond_0
     const/16 v22, 0x5
@@ -1336,7 +1336,7 @@
 .method private setupButtons(Landroid/view/ViewGroup;)V
     .locals 9
 
-    const v8, 0x10809fa
+    const v8, 0x10809e8
 
     const/4 v1, 0x1
 
@@ -1900,7 +1900,7 @@
 
     move-result-object v4
 
-    const v5, 0x1050185
+    const v5, 0x1050195
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

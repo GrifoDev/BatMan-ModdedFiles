@@ -379,6 +379,10 @@
 
 .field public static samsung_multiwindow_guideview_not_support_dream:I
 
+.field public static samsung_multiwindow_guideview_not_support_dream_angle270:I
+
+.field public static samsung_multiwindow_guideview_not_support_dream_angle90:I
+
 .field public static samsung_multiwindow_guideview_when_docking_dream:I
 
 .field public static stat_notify_desktop_mode:I
@@ -1134,41 +1138,49 @@
 
     const v0, 0x200b6
 
-    sput v0, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_when_docking_dream:I
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream_angle270:I
 
     const v0, 0x200b7
 
-    sput v0, Lcom/samsung/android/framework/res/R$drawable;->stat_notify_desktop_mode:I
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_not_support_dream_angle90:I
 
     const v0, 0x200b8
 
-    sput v0, Lcom/samsung/android/framework/res/R$drawable;->stat_notify_touchpad:I
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->samsung_multiwindow_guideview_when_docking_dream:I
 
     const v0, 0x200b9
 
-    sput v0, Lcom/samsung/android/framework/res/R$drawable;->touchpad_pointer:I
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->stat_notify_desktop_mode:I
 
     const v0, 0x200ba
 
-    sput v0, Lcom/samsung/android/framework/res/R$drawable;->touchpad_pointer_vertical:I
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->stat_notify_touchpad:I
 
     const v0, 0x200bb
 
-    sput v0, Lcom/samsung/android/framework/res/R$drawable;->tw_btn_default_mtrl:I
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->touchpad_pointer:I
 
     const v0, 0x200bc
 
-    sput v0, Lcom/samsung/android/framework/res/R$drawable;->tw_btn_dex_mtrl:I
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->touchpad_pointer_vertical:I
 
     const v0, 0x200bd
 
-    sput v0, Lcom/samsung/android/framework/res/R$drawable;->tw_image_welcome_dex_monitor:I
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->tw_btn_default_mtrl:I
 
     const v0, 0x200be
 
-    sput v0, Lcom/samsung/android/framework/res/R$drawable;->tw_img_launcher_flow_dock:I
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->tw_btn_dex_mtrl:I
 
     const v0, 0x200bf
+
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->tw_image_welcome_dex_monitor:I
+
+    const v0, 0x200c0
+
+    sput v0, Lcom/samsung/android/framework/res/R$drawable;->tw_img_launcher_flow_dock:I
+
+    const v0, 0x200c1
 
     sput v0, Lcom/samsung/android/framework/res/R$drawable;->tw_img_welcome_dex:I
 

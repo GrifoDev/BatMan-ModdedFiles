@@ -65,7 +65,7 @@
 
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
-    const v0, 0x10900c9
+    const v0, 0x10900ca
 
     iput v0, p0, Landroid/preference/PreferenceFragment;->mLayoutResId:I
 

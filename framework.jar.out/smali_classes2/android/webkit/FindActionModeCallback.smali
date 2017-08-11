@@ -65,7 +65,7 @@
 
     move-result-object v0
 
-    const v1, 0x109017c
+    const v1, 0x109017d
 
     const/4 v2, 0x0
 
@@ -105,7 +105,7 @@
 
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mCustomView:Landroid/view/View;
 
-    const v1, 0x1020536
+    const v1, 0x102053f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -426,7 +426,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x102054f
+    .packed-switch 0x1020558
         :pswitch_0
         :pswitch_1
     .end packed-switch

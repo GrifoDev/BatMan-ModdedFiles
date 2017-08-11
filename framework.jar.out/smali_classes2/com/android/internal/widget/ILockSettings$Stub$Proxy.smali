@@ -2943,13 +2943,15 @@
     throw v2
 .end method
 
-.method public sendLockTypeChangedInfo()V
+.method public sendLockTypeChangedInfo(Z)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    const/4 v2, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
@@ -2960,9 +2962,16 @@
     move-result-object v1
 
     :try_start_0
-    const-string/jumbo v2, "com.android.internal.widget.ILockSettings"
+    const-string/jumbo v3, "com.android.internal.widget.ILockSettings"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v2, p0, Lcom/android/internal/widget/ILockSettings$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

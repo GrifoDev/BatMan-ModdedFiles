@@ -21,6 +21,8 @@
 
 .field private mDefaultWallpaper:Landroid/graphics/Bitmap;
 
+.field private mIsCachedWallpaperForDeX:Z
+
 .field private mIsMotionWallpaperSupported:Z
 
 .field private mService:Landroid/app/IWallpaperManager;
@@ -388,12 +390,44 @@
 .method private getDefaultWallpaperLocked(Landroid/content/Context;I)Landroid/graphics/Bitmap;
     .locals 22
 
+    const/4 v13, 0x0
+
+    sget-boolean v19, Landroid/app/WallpaperManager;->SUPPORT_INFINITY_WALLPAPER:Z
+
+    if-eqz v19, :cond_0
+
+    invoke-static/range {p1 .. p1}, Landroid/app/WallpaperManager;->getInstance(Landroid/content/Context;)Landroid/app/WallpaperManager;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Landroid/app/WallpaperManager;->isInfinityWallpaper()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_0
+
+    invoke-static/range {p1 .. p1}, Landroid/app/WallpaperManager;->getInstance(Landroid/content/Context;)Landroid/app/WallpaperManager;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-static {v0, v1}, Landroid/app/WallpaperManager;->-wrap1(Landroid/app/WallpaperManager;Landroid/content/Context;)Ljava/io/InputStream;
+
+    move-result-object v13
+
+    :cond_0
+    if-nez v13, :cond_1
+
     invoke-static/range {p1 .. p2}, Landroid/app/WallpaperManager;->openDefaultWallpaper(Landroid/content/Context;I)Ljava/io/InputStream;
 
     move-result-object v13
 
+    :cond_1
     :try_start_0
-    invoke-static {}, Landroid/app/WallpaperManager;->-get2()Landroid/app/WallpaperManager$Globals;
+    invoke-static {}, Landroid/app/WallpaperManager;->-get1()Landroid/app/WallpaperManager$Globals;
 
     move-result-object v19
 
@@ -407,7 +441,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_1
+    if-eqz v19, :cond_3
 
     const-string/jumbo v4, "com.sec.android.app.desktoplauncher"
 
@@ -431,9 +465,9 @@
 
     move-result v16
 
-    if-lez v16, :cond_0
+    if-lez v16, :cond_2
 
-    invoke-static {}, Landroid/app/WallpaperManager;->-get2()Landroid/app/WallpaperManager$Globals;
+    invoke-static {}, Landroid/app/WallpaperManager;->-get1()Landroid/app/WallpaperManager$Globals;
 
     move-result-object v19
 
@@ -447,7 +481,7 @@
 
     move-result v18
 
-    invoke-static {}, Landroid/app/WallpaperManager;->-get2()Landroid/app/WallpaperManager$Globals;
+    invoke-static {}, Landroid/app/WallpaperManager;->-get1()Landroid/app/WallpaperManager$Globals;
 
     move-result-object v19
 
@@ -507,7 +541,7 @@
 
     return-object v19
 
-    :cond_0
+    :cond_2
     invoke-static {}, Landroid/app/WallpaperManager;->-get0()Ljava/lang/String;
 
     move-result-object v19
@@ -537,9 +571,9 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_1
+    :cond_3
     :goto_0
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_4
 
     :try_start_1
     new-instance v14, Landroid/graphics/BitmapFactory$Options;
@@ -623,7 +657,7 @@
 
     invoke-static {v13}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    :cond_2
+    :cond_4
     const/16 v19, 0x0
 
     return-object v19
@@ -717,6 +751,10 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/app/WallpaperManager$Globals;->mDefaultWallpaper:Landroid/graphics/Bitmap;
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/app/WallpaperManager$Globals;->mIsCachedWallpaperForDeX:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -755,38 +793,38 @@
 .end method
 
 .method public peekWallpaperBitmap(Landroid/content/Context;ZII)Landroid/graphics/Bitmap;
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v2, p0, Landroid/app/WallpaperManager$Globals;->mService:Landroid/app/IWallpaperManager;
+    iget-object v3, p0, Landroid/app/WallpaperManager$Globals;->mService:Landroid/app/IWallpaperManager;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     :try_start_1
-    iget-object v2, p0, Landroid/app/WallpaperManager$Globals;->mService:Landroid/app/IWallpaperManager;
+    iget-object v3, p0, Landroid/app/WallpaperManager$Globals;->mService:Landroid/app/IWallpaperManager;
 
     invoke-virtual {p1}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v2, v3}, Landroid/app/IWallpaperManager;->isWallpaperSupported(Ljava/lang/String;)Z
+    invoke-interface {v3, v4}, Landroid/app/IWallpaperManager;->isWallpaperSupported(Ljava/lang/String;)Z
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
     monitor-exit p0
 
-    return-object v4
+    return-object v5
 
     :catch_0
     move-exception v0
@@ -794,168 +832,212 @@
     :try_start_2
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v2
+    move-result-object v3
 
-    throw v2
+    throw v3
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :catchall_0
-    move-exception v2
+    move-exception v3
 
     monitor-exit p0
 
-    throw v2
+    throw v3
 
     :cond_0
+    const/4 v2, 0x0
+
     :try_start_3
-    iget-object v2, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
+    invoke-static {}, Landroid/app/WallpaperManager;->-get1()Landroid/app/WallpaperManager$Globals;
 
-    if-eqz v2, :cond_1
+    move-result-object v3
 
-    iget v2, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaperUserId:I
+    iget-object v3, v3, Landroid/app/WallpaperManager$Globals;->mService:Landroid/app/IWallpaperManager;
 
-    if-ne v2, p4, :cond_1
-
-    iget-object v2, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v2}, Landroid/graphics/Bitmap;->isRecycled()Z
+    invoke-interface {v3}, Landroid/app/IWallpaperManager;->isDesktopMode()Z
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    :try_start_4
+    iget-boolean v3, p0, Landroid/app/WallpaperManager$Globals;->mIsCachedWallpaperForDeX:Z
+
+    if-eqz v3, :cond_1
+
+    if-nez v2, :cond_3
 
     :cond_1
-    const/4 v2, 0x0
+    iget-boolean v3, p0, Landroid/app/WallpaperManager$Globals;->mIsCachedWallpaperForDeX:Z
 
-    iput-object v2, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
-
-    const/4 v2, 0x0
-
-    iput v2, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaperUserId:I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    :try_start_4
-    invoke-direct {p0, p1, p4}, Landroid/app/WallpaperManager$Globals;->getCurrentWallpaperLocked(Landroid/content/Context;I)Landroid/graphics/Bitmap;
-
-    move-result-object v2
-
-    iput-object v2, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
-
-    iput p4, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaperUserId:I
-    :try_end_4
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    :goto_0
-    :try_start_5
-    iget-object v2, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
+    if-nez v3, :cond_2
 
     if-eqz v2, :cond_3
 
-    iget-object v2, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
+    :cond_2
+    const/4 v3, 0x0
+
+    iput-object v3, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
+
+    const/4 v3, 0x0
+
+    iput v3, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaperUserId:I
+
+    const/4 v3, 0x0
+
+    iput-boolean v3, p0, Landroid/app/WallpaperManager$Globals;->mIsCachedWallpaperForDeX:Z
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    :try_start_5
+    invoke-direct {p0, p1, p4}, Landroid/app/WallpaperManager$Globals;->getCurrentWallpaperLocked(Landroid/content/Context;I)Landroid/graphics/Bitmap;
+
+    move-result-object v3
+
+    iput-object v3, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
+
+    iput p4, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaperUserId:I
+
+    iput-boolean v2, p0, Landroid/app/WallpaperManager$Globals;->mIsCachedWallpaperForDeX:Z
     :try_end_5
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_5 .. :try_end_5} :catch_2
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    monitor-exit p0
-
-    return-object v2
-
-    :cond_2
+    :goto_0
     :try_start_6
-    invoke-static {}, Landroid/app/WallpaperManager;->-get0()Ljava/lang/String;
+    iget-object v3, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
 
-    move-result-object v2
+    if-eqz v3, :cond_4
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "peekWallpaperBitmap() cached image height="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v4}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " width="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v4}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
+    iget-object v3, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     monitor-exit p0
 
-    return-object v2
+    return-object v3
 
     :catch_1
-    move-exception v1
+    move-exception v0
 
     :try_start_7
-    invoke-static {}, Landroid/app/WallpaperManager;->-get0()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string/jumbo v3, "No memory load current wallpaper"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
+    throw v3
 
     :cond_3
-    if-eqz p2, :cond_5
+    iget-object v3, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
 
-    iget-object v2, p0, Landroid/app/WallpaperManager$Globals;->mDefaultWallpaper:Landroid/graphics/Bitmap;
+    if-eqz v3, :cond_2
 
-    if-nez v2, :cond_4
+    iget v3, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaperUserId:I
 
-    invoke-direct {p0, p1, p3}, Landroid/app/WallpaperManager$Globals;->getDefaultWallpaperLocked(Landroid/content/Context;I)Landroid/graphics/Bitmap;
+    if-ne v3, p4, :cond_2
 
-    move-result-object v2
+    iget-object v3, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
 
-    iput-object v2, p0, Landroid/app/WallpaperManager$Globals;->mDefaultWallpaper:Landroid/graphics/Bitmap;
+    invoke-virtual {v3}, Landroid/graphics/Bitmap;->isRecycled()Z
 
-    :cond_4
-    iget-object v2, p0, Landroid/app/WallpaperManager$Globals;->mDefaultWallpaper:Landroid/graphics/Bitmap;
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    invoke-static {}, Landroid/app/WallpaperManager;->-get0()Ljava/lang/String;
+
+    move-result-object v3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "peekWallpaperBitmap() cached image height="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v5}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " width="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v5}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Landroid/app/WallpaperManager$Globals;->mCachedWallpaper:Landroid/graphics/Bitmap;
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     monitor-exit p0
 
-    return-object v2
+    return-object v3
+
+    :catch_2
+    move-exception v1
+
+    :try_start_8
+    invoke-static {}, Landroid/app/WallpaperManager;->-get0()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "No memory load current wallpaper"
+
+    invoke-static {v3, v4, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :cond_4
+    if-eqz p2, :cond_6
+
+    iget-object v3, p0, Landroid/app/WallpaperManager$Globals;->mDefaultWallpaper:Landroid/graphics/Bitmap;
+
+    if-nez v3, :cond_5
+
+    invoke-direct {p0, p1, p3}, Landroid/app/WallpaperManager$Globals;->getDefaultWallpaperLocked(Landroid/content/Context;I)Landroid/graphics/Bitmap;
+
+    move-result-object v3
+
+    iput-object v3, p0, Landroid/app/WallpaperManager$Globals;->mDefaultWallpaper:Landroid/graphics/Bitmap;
 
     :cond_5
+    iget-object v3, p0, Landroid/app/WallpaperManager$Globals;->mDefaultWallpaper:Landroid/graphics/Bitmap;
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+
     monitor-exit p0
 
-    return-object v4
+    return-object v3
+
+    :cond_6
+    monitor-exit p0
+
+    return-object v5
 .end method

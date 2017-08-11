@@ -3137,7 +3137,7 @@
     :pswitch_0
     iget-object v1, p0, Landroid/widget/ProgressBar;->mContext:Landroid/content/Context;
 
-    const v2, 0x1080abb
+    const v2, 0x1080aa9
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3152,7 +3152,7 @@
     :pswitch_1
     iget-object v1, p0, Landroid/widget/ProgressBar;->mContext:Landroid/content/Context;
 
-    const v2, 0x1080acc
+    const v2, 0x1080aba
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

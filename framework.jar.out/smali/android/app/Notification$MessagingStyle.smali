@@ -211,7 +211,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10405f9
+    const v7, 0x10405fd
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -735,7 +735,7 @@
     const v13, 0x105004e
 
     :goto_4
-    const v14, 0x1020456
+    const v14, 0x102045f
 
     invoke-virtual {v2, v14, v13}, Landroid/widget/RemoteViews;->setViewLayoutMarginBottomDimen(II)V
 
@@ -758,7 +758,7 @@
     const/4 v13, 0x0
 
     :goto_5
-    const v15, 0x1020455
+    const v15, 0x102045e
 
     invoke-virtual {v2, v15, v14, v13}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -867,7 +867,7 @@
     :cond_a
     const-string/jumbo v13, "setContractedChildId"
 
-    const v14, 0x1020455
+    const v14, 0x102045e
 
     invoke-virtual {v2, v14, v13, v3}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -877,13 +877,13 @@
 
     :array_0
     .array-data 4
-        0x102044d
-        0x102044e
-        0x102044f
-        0x1020450
-        0x1020451
-        0x1020452
-        0x1020453
+        0x1020456
+        0x1020457
+        0x1020458
+        0x1020459
+        0x102045a
+        0x102045b
+        0x102045c
     .end array-data
 .end method
 

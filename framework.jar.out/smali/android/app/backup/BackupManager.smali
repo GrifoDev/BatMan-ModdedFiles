@@ -363,6 +363,41 @@
     return v1
 .end method
 
+.method public isSubUserSupported()Z
+    .locals 3
+
+    invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
+
+    sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
+
+    invoke-interface {v1}, Landroid/app/backup/IBackupManager;->isSubUserSupported()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "BackupManager"
+
+    const-string/jumbo v2, "isSubUserSupported() couldn\'t connect"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
 .method public listAllTransports()[Ljava/lang/String;
     .locals 4
 

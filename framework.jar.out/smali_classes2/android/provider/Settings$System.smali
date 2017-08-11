@@ -1448,6 +1448,8 @@
 
 .field public static final VOLUME_ALARM:Ljava/lang/String; = "volume_alarm"
 
+.field public static final VOLUME_BIXBY:Ljava/lang/String; = "volume_bixby"
+
 .field public static final VOLUME_BLUETOOTH_SCO:Ljava/lang/String; = "volume_bluetooth_sco"
 
 .field public static final VOLUME_DTMF:Ljava/lang/String; = "volume_DTMF"
@@ -1457,6 +1459,10 @@
 .field public static final VOLUME_MUSIC:Ljava/lang/String; = "volume_music"
 
 .field public static final VOLUME_NOTIFICATION:Ljava/lang/String; = "volume_notification"
+
+.field public static final VOLUME_RESERVED1:Ljava/lang/String; = "volume_reserved1"
+
+.field public static final VOLUME_RESERVED2:Ljava/lang/String; = "volume_reserved2"
 
 .field public static final VOLUME_RING:Ljava/lang/String; = "volume_ring"
 
@@ -2586,7 +2592,7 @@
 
     sput-object v0, Landroid/provider/Settings$System;->VIBRATE_IN_SILENT_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
-    const/16 v0, 0xb
+    const/16 v0, 0xe
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -2643,6 +2649,24 @@
     const-string/jumbo v1, "volume_waiting_tone"
 
     const/16 v2, 0xa
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_reserved1"
+
+    const/16 v2, 0xb
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_reserved2"
+
+    const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_bixby"
+
+    const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
@@ -4105,6 +4129,12 @@
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
     const-string/jumbo v1, "ringtone_2"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "volume_bixby"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 

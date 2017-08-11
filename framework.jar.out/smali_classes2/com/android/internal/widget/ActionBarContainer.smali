@@ -231,11 +231,11 @@
 
     move-result v4
 
-    const v7, 0x1080748
+    const v7, 0x1080733
 
     if-ne v4, v7, :cond_6
 
-    const v4, 0x1080998
+    const v4, 0x1080986
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -266,7 +266,7 @@
 
     move-result v4
 
-    const v7, 0x102048c
+    const v7, 0x1020495
 
     if-ne v4, v7, :cond_1
 
@@ -598,7 +598,7 @@
 
     move-result v1
 
-    const v2, 0x1080748
+    const v2, 0x1080733
 
     if-ne v1, v2, :cond_2
 
@@ -606,7 +606,7 @@
 
     move-result-object v1
 
-    const v2, 0x1080998
+    const v2, 0x1080986
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -649,7 +649,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x102048a
+    const v0, 0x1020493
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarContainer;->findViewById(I)Landroid/view/View;
 
@@ -657,7 +657,7 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/ActionBarContainer;->mActionBarView:Landroid/view/View;
 
-    const v0, 0x102048b
+    const v0, 0x1020494
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarContainer;->findViewById(I)Landroid/view/View;
 

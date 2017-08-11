@@ -54,7 +54,7 @@
 
     move-result-object v0
 
-    const v3, 0x10900fa
+    const v3, 0x10900fb
 
     invoke-virtual {v0, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -62,7 +62,7 @@
 
     invoke-virtual {p0, v2}, Landroid/app/AlertDialog;->setView(Landroid/view/View;)V
 
-    const v3, 0x10405bc
+    const v3, 0x10405be
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -86,7 +86,7 @@
 
     invoke-virtual {p0, v3}, Landroid/app/Dialog;->requestWindowFeature(I)Z
 
-    const v3, 0x10204a5
+    const v3, 0x10204ae
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

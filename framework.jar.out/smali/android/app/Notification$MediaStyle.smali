@@ -60,7 +60,7 @@
 
     const/4 v3, -0x1
 
-    const v1, 0x1020436
+    const v1, 0x102043f
 
     iget-object v2, p1, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
@@ -81,7 +81,7 @@
 
     move-result-object v2
 
-    const v4, 0x1090099
+    const v4, 0x109009a
 
     invoke-direct {v0, v2, v4}, Landroid/app/Notification$BuilderRemoteViews;-><init>(Landroid/content/pm/ApplicationInfo;I)V
 
@@ -137,7 +137,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x1020456
+    const v0, 0x102045f
 
     invoke-virtual {p1, v0, v1}, Landroid/widget/RemoteViews;->setViewLayoutMarginEndDimen(II)V
 
@@ -154,7 +154,7 @@
 
     const/4 v9, 0x0
 
-    const v8, 0x102044a
+    const v8, 0x1020453
 
     const/4 v7, 0x0
 
@@ -213,7 +213,7 @@
     :cond_1
     iget-object v5, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    const v6, 0x109009e
+    const v6, 0x109009f
 
     invoke-static {v5, v6, v7}, Landroid/app/Notification$Builder;->-wrap3(Landroid/app/Notification$Builder;IZ)Landroid/widget/RemoteViews;
 
@@ -265,13 +265,13 @@
 .method private makeMediaContentView()Landroid/widget/RemoteViews;
     .locals 12
 
-    const v10, 0x102044a
+    const v10, 0x1020453
 
     const/4 v7, 0x0
 
     iget-object v8, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    const v9, 0x10900a2
+    const v9, 0x10900a3
 
     invoke-static {v8, v9, v7}, Landroid/app/Notification$Builder;->-wrap3(Landroid/app/Notification$Builder;IZ)Landroid/widget/RemoteViews;
 
@@ -403,7 +403,7 @@
     const v3, 0x1050042
 
     :cond_3
-    const v7, 0x1020448
+    const v7, 0x1020451
 
     invoke-virtual {v6, v7, v3}, Landroid/widget/RemoteViews;->setViewLayoutMarginEndDimen(II)V
 

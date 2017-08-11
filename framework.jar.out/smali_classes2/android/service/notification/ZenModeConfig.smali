@@ -1159,7 +1159,7 @@
 
     if-nez v11, :cond_1
 
-    const v3, 0x10405dc
+    const v3, 0x10405e0
 
     move-object/from16 v0, p0
 
@@ -1307,7 +1307,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10405de
+    const v7, 0x10405e2
 
     invoke-virtual {v3, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1983,7 +1983,7 @@
 
     const/4 v11, 0x1
 
-    if-eq v8, v11, :cond_c
+    if-eq v8, v11, :cond_a
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
@@ -2256,18 +2256,6 @@
     goto/16 :goto_0
 
     :cond_9
-    iget-object v11, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->conditionId:Landroid/net/Uri;
-
-    invoke-static {v11}, Landroid/service/notification/ZenModeConfig;->isValidScheduleConditionId(Landroid/net/Uri;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_a
-
-    if-eqz v6, :cond_b
-
-    :cond_a
-    :goto_2
     iput-object v3, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->id:Ljava/lang/String;
 
     iget-object v11, v5, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
@@ -2276,16 +2264,7 @@
 
     goto/16 :goto_0
 
-    :cond_b
-    const/4 v6, 0x1
-
-    const-string/jumbo v11, "twschedule"
-
-    iput-object v11, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
-
-    goto :goto_2
-
-    :cond_c
+    :cond_a
     new-instance v11, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v12, "Failed to reach END_DOCUMENT"
@@ -2715,7 +2694,7 @@
 
     aput-object v11, v3, v8
 
-    const v5, 0x10405db
+    const v5, 0x10405df
 
     invoke-virtual {v12, v5, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2997,7 +2976,7 @@
 
     aput-object v12, v4, v9
 
-    const v9, 0x10405da
+    const v9, 0x10405de
 
     invoke-virtual {v15, v9, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3109,7 +3088,7 @@
 
     aput-object v12, v4, v9
 
-    const v9, 0x10405da
+    const v9, 0x10405de
 
     invoke-virtual {v15, v9, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3136,7 +3115,7 @@
 
     aput-object v12, v4, v9
 
-    const v9, 0x10405da
+    const v9, 0x10405de
 
     invoke-virtual {v15, v9, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

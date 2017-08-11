@@ -89,7 +89,7 @@
 
     move-result-object v1
 
-    const v4, 0x10900fd
+    const v4, 0x10900fe
 
     invoke-virtual {v1, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -127,7 +127,7 @@
 
     invoke-virtual {v4, v5}, Landroid/view/Window;->addFlags(I)V
 
-    const v4, 0x10405bc
+    const v4, 0x10405be
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -145,7 +145,7 @@
 
     invoke-virtual {p0, v6, v4, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v4, 0x10204ae
+    const v4, 0x10204b7
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -201,7 +201,7 @@
 
     move-result-object v4
 
-    const v5, 0x103050c
+    const v5, 0x1030513
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -267,7 +267,7 @@
 
     if-nez p1, :cond_0
 
-    const v0, 0x103050d
+    const v0, 0x1030514
 
     return v0
 

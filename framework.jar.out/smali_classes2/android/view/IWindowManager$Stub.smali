@@ -34,9 +34,9 @@
 
 .field static final TRANSACTION_cancelTaskWindowTransition:I = 0x44
 
-.field static final TRANSACTION_changeDisplayScale:I = 0x78
+.field static final TRANSACTION_changeDisplayScale:I = 0x79
 
-.field static final TRANSACTION_changeNavigationBarHeight:I = 0x7e
+.field static final TRANSACTION_changeNavigationBarHeight:I = 0x7f
 
 .field static final TRANSACTION_clearForcedDisplayDensity:I = 0xd
 
@@ -54,7 +54,7 @@
 
 .field static final TRANSACTION_dismissKeyguard:I = 0x38
 
-.field static final TRANSACTION_dispatchSmartClipRemoteRequest:I = 0x7b
+.field static final TRANSACTION_dispatchSmartClipRemoteRequest:I = 0x7c
 
 .field static final TRANSACTION_enableScreenIfNeeded:I = 0x54
 
@@ -82,7 +82,7 @@
 
 .field static final TRANSACTION_getDefaultDisplayDensity:I = 0x69
 
-.field static final TRANSACTION_getDefaultDisplaySize:I = 0x81
+.field static final TRANSACTION_getDefaultDisplaySize:I = 0x82
 
 .field static final TRANSACTION_getDockedStackSide:I = 0x57
 
@@ -114,7 +114,9 @@
 
 .field static final TRANSACTION_isKeyguardSecure:I = 0x36
 
-.field static final TRANSACTION_isKeyguardShowingAndNotOccluded:I = 0x80
+.field static final TRANSACTION_isKeyguardShowingAndNotOccluded:I = 0x81
+
+.field static final TRANSACTION_isMaxAspectComponentEx:I = 0x74
 
 .field static final TRANSACTION_isMaxAspectPackage:I = 0x72
 
@@ -122,7 +124,7 @@
 
 .field static final TRANSACTION_isMetaKeyEventRequested:I = 0x64
 
-.field static final TRANSACTION_isProcessKillforMaxAspect:I = 0x74
+.field static final TRANSACTION_isProcessKillforMaxAspect:I = 0x75
 
 .field static final TRANSACTION_isRotationFrozen:I = 0x4d
 
@@ -168,7 +170,7 @@
 
 .field static final TRANSACTION_registerDockedStackListener:I = 0x5a
 
-.field static final TRANSACTION_registerEasyOneHandWatcher:I = 0x79
+.field static final TRANSACTION_registerEasyOneHandWatcher:I = 0x7a
 
 .field static final TRANSACTION_registerShortcutKey:I = 0x5e
 
@@ -204,9 +206,9 @@
 
 .field static final TRANSACTION_setAppVisibility:I = 0x26
 
-.field static final TRANSACTION_setBendedPendingIntent:I = 0x7f
+.field static final TRANSACTION_setBendedPendingIntent:I = 0x80
 
-.field static final TRANSACTION_setDeadzoneHole:I = 0x7c
+.field static final TRANSACTION_setDeadzoneHole:I = 0x7d
 
 .field static final TRANSACTION_setDockedStackDividerTouchRegion:I = 0x59
 
@@ -234,11 +236,11 @@
 
 .field static final TRANSACTION_setKeyguardPreview:I = 0x67
 
-.field static final TRANSACTION_setMaxAspectPackage:I = 0x75
+.field static final TRANSACTION_setMaxAspectPackage:I = 0x76
 
-.field static final TRANSACTION_setMaxAspectPackageEx:I = 0x76
+.field static final TRANSACTION_setMaxAspectPackageEx:I = 0x77
 
-.field static final TRANSACTION_setMaxAspectPackages:I = 0x77
+.field static final TRANSACTION_setMaxAspectPackages:I = 0x78
 
 .field static final TRANSACTION_setNewConfiguration:I = 0x2e
 
@@ -260,7 +262,7 @@
 
 .field static final TRANSACTION_startFreezingScreen:I = 0x30
 
-.field static final TRANSACTION_startSurfaceAnimation:I = 0x7d
+.field static final TRANSACTION_startSurfaceAnimation:I = 0x7e
 
 .field static final TRANSACTION_startViewServer:I = 0x1
 
@@ -274,7 +276,7 @@
 
 .field static final TRANSACTION_thawRotation:I = 0x4c
 
-.field static final TRANSACTION_unregisterEasyOneHandWatcher:I = 0x7a
+.field static final TRANSACTION_unregisterEasyOneHandWatcher:I = 0x7b
 
 .field static final TRANSACTION_updateCurrentUserPolicy:I = 0x71
 
@@ -4675,35 +4677,49 @@
 
     invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result-object v87
+    move-result v6
+
+    if-eqz v6, :cond_4a
+
+    sget-object v6, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v6, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v71
+
+    check-cast v71, Landroid/content/ComponentName;
+
+    :goto_4a
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v87
+    move-object/from16 v1, v71
 
-    invoke-virtual {v0, v1}, Landroid/view/IWindowManager$Stub;->isProcessKillforMaxAspect(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1, v8}, Landroid/view/IWindowManager$Stub;->isMaxAspectComponentEx(Landroid/content/ComponentName;I)I
 
-    move-result v114
+    move-result v107
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v114, :cond_4a
-
-    const/4 v6, 0x1
-
-    :goto_4a
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeInt(I)V
+    move/from16 v1, v107
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     const/4 v6, 0x1
 
     return v6
 
     :cond_4a
-    const/4 v6, 0x0
+    const/16 v71, 0x0
 
     goto :goto_4a
 
@@ -4718,35 +4734,31 @@
 
     move-result-object v87
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v8
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    if-eqz v6, :cond_4b
-
-    const/16 v104, 0x1
-
-    :goto_4b
     move-object/from16 v0, p0
 
     move-object/from16 v1, v87
 
-    move/from16 v2, v104
+    invoke-virtual {v0, v1}, Landroid/view/IWindowManager$Stub;->isProcessKillforMaxAspect(Ljava/lang/String;)Z
 
-    invoke-virtual {v0, v1, v8, v2}, Landroid/view/IWindowManager$Stub;->setMaxAspectPackage(Ljava/lang/String;IZ)V
+    move-result v114
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v114, :cond_4b
+
+    const/4 v6, 0x1
+
+    :goto_4b
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     const/4 v6, 0x1
 
     return v6
 
     :cond_4b
-    const/16 v104, 0x0
+    const/4 v6, 0x0
 
     goto :goto_4b
 
@@ -4774,15 +4786,58 @@
     const/16 v104, 0x1
 
     :goto_4c
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v87
+
+    move/from16 v2, v104
+
+    invoke-virtual {v0, v1, v8, v2}, Landroid/view/IWindowManager$Stub;->setMaxAspectPackage(Ljava/lang/String;IZ)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v6, 0x1
+
+    return v6
+
+    :cond_4c
+    const/16 v104, 0x0
+
+    goto :goto_4c
+
+    :sswitch_77
+    const-string/jumbo v6, "android.view.IWindowManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v87
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     if-eqz v6, :cond_4d
 
-    const/16 v65, 0x1
+    const/16 v104, 0x1
 
     :goto_4d
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    if-eqz v6, :cond_4e
+
+    const/16 v65, 0x1
+
+    :goto_4e
     move-object/from16 v0, p0
 
     move-object/from16 v1, v87
@@ -4799,17 +4854,17 @@
 
     return v6
 
-    :cond_4c
-    const/16 v104, 0x0
-
-    goto :goto_4c
-
     :cond_4d
-    const/16 v65, 0x0
+    const/16 v104, 0x0
 
     goto :goto_4d
 
-    :sswitch_77
+    :cond_4e
+    const/16 v65, 0x0
+
+    goto :goto_4e
+
+    :sswitch_78
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -4828,11 +4883,11 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4e
+    if-eqz v6, :cond_4f
 
     const/16 v104, 0x1
 
-    :goto_4e
+    :goto_4f
     move-object/from16 v0, p0
 
     move-object/from16 v1, v88
@@ -4849,12 +4904,12 @@
 
     return v6
 
-    :cond_4e
+    :cond_4f
     const/16 v104, 0x0
 
-    goto :goto_4e
+    goto :goto_4f
 
-    :sswitch_78
+    :sswitch_79
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -4877,11 +4932,11 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4f
+    if-eqz v6, :cond_50
 
     const/16 v65, 0x1
 
-    :goto_4f
+    :goto_50
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v6
@@ -4900,12 +4955,12 @@
 
     return v6
 
-    :cond_4f
+    :cond_50
     const/16 v65, 0x0
 
-    goto :goto_4f
+    goto :goto_50
 
-    :sswitch_79
+    :sswitch_7a
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -4932,7 +4987,7 @@
 
     return v6
 
-    :sswitch_7a
+    :sswitch_7b
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -4959,7 +5014,7 @@
 
     return v6
 
-    :sswitch_7b
+    :sswitch_7c
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -4978,7 +5033,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_50
+    if-eqz v6, :cond_51
 
     sget-object v6, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -4990,7 +5045,7 @@
 
     check-cast v103, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
 
-    :goto_50
+    :goto_51
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v105
@@ -5009,12 +5064,12 @@
 
     return v6
 
-    :cond_50
+    :cond_51
     const/16 v103, 0x0
 
-    goto :goto_50
+    goto :goto_51
 
-    :sswitch_7c
+    :sswitch_7d
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -5025,7 +5080,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_51
+    if-eqz v6, :cond_52
 
     sget-object v6, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -5037,7 +5092,7 @@
 
     check-cast v75, Landroid/os/Bundle;
 
-    :goto_51
+    :goto_52
     move-object/from16 v0, p0
 
     move-object/from16 v1, v75
@@ -5050,12 +5105,12 @@
 
     return v6
 
-    :cond_51
+    :cond_52
     const/16 v75, 0x0
 
-    goto :goto_51
+    goto :goto_52
 
-    :sswitch_7d
+    :sswitch_7e
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -5082,7 +5137,7 @@
 
     return v6
 
-    :sswitch_7e
+    :sswitch_7f
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -5103,7 +5158,7 @@
 
     return v6
 
-    :sswitch_7f
+    :sswitch_80
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -5114,7 +5169,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_52
+    if-eqz v6, :cond_53
 
     sget-object v6, Landroid/app/PendingIntent;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -5126,12 +5181,12 @@
 
     check-cast v70, Landroid/app/PendingIntent;
 
-    :goto_52
+    :goto_53
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
-    if-eqz v6, :cond_53
+    if-eqz v6, :cond_54
 
     sget-object v6, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -5143,7 +5198,7 @@
 
     check-cast v93, Landroid/content/Intent;
 
-    :goto_53
+    :goto_54
     move-object/from16 v0, p0
 
     move-object/from16 v1, v70
@@ -5158,17 +5213,17 @@
 
     return v6
 
-    :cond_52
-    const/16 v70, 0x0
-
-    goto :goto_52
-
     :cond_53
-    const/16 v93, 0x0
+    const/16 v70, 0x0
 
     goto :goto_53
 
-    :sswitch_80
+    :cond_54
+    const/16 v93, 0x0
+
+    goto :goto_54
+
+    :sswitch_81
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -5181,11 +5236,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v114, :cond_54
+    if-eqz v114, :cond_55
 
     const/4 v6, 0x1
 
-    :goto_54
+    :goto_55
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeInt(I)V
@@ -5194,12 +5249,12 @@
 
     return v6
 
-    :cond_54
+    :cond_55
     const/4 v6, 0x0
 
-    goto :goto_54
+    goto :goto_55
 
-    :sswitch_81
+    :sswitch_82
     const-string/jumbo v6, "android.view.IWindowManager"
 
     move-object/from16 v0, p2
@@ -5218,7 +5273,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v73, :cond_55
+    if-eqz v73, :cond_56
 
     const/4 v6, 0x1
 
@@ -5234,21 +5289,19 @@
 
     invoke-virtual {v0, v1, v6}, Landroid/graphics/Point;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_55
+    :goto_56
     const/4 v6, 0x1
 
     return v6
 
-    :cond_55
+    :cond_56
     const/4 v6, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_55
-
-    nop
+    goto :goto_56
 
     :sswitch_data_0
     .sparse-switch
@@ -5381,6 +5434,7 @@
         0x7f -> :sswitch_7f
         0x80 -> :sswitch_80
         0x81 -> :sswitch_81
+        0x82 -> :sswitch_82
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

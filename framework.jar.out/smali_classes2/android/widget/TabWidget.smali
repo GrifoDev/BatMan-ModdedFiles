@@ -348,11 +348,11 @@
 
     iget v13, v0, Landroid/widget/TabWidget;->mBackgroundResourceId:I
 
-    const v14, 0x108074a
+    const v14, 0x1080735
 
     if-ne v13, v14, :cond_1
 
-    const v13, 0x1080999
+    const v13, 0x1080987
 
     move-object/from16 v0, p1
 
@@ -364,7 +364,7 @@
 
     invoke-virtual {v0, v13}, Landroid/widget/TabWidget;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    const v13, 0x1080999
+    const v13, 0x1080987
 
     move-object/from16 v0, p0
 
@@ -449,7 +449,7 @@
     :cond_5
     if-eqz v8, :cond_6
 
-    const v13, 0x108092c
+    const v13, 0x108091a
 
     move-object/from16 v0, p1
 
@@ -464,7 +464,7 @@
     goto/16 :goto_1
 
     :cond_6
-    const v13, 0x108092b
+    const v13, 0x1080919
 
     move-object/from16 v0, p1
 
@@ -481,7 +481,7 @@
     :cond_7
     if-eqz v8, :cond_8
 
-    const v13, 0x108092e
+    const v13, 0x108091c
 
     move-object/from16 v0, p1
 
@@ -496,7 +496,7 @@
     goto/16 :goto_2
 
     :cond_8
-    const v13, 0x108092d
+    const v13, 0x108091b
 
     move-object/from16 v0, p1
 

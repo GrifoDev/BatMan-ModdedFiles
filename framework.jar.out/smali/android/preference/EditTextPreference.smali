@@ -141,7 +141,7 @@
 .method protected onAddEditTextToDialogView(Landroid/view/View;Landroid/widget/EditText;)V
     .locals 5
 
-    const v1, 0x1020467
+    const v1, 0x1020470
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

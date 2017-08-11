@@ -754,13 +754,19 @@
     :cond_0
     const/4 v2, 0x0
 
-    const/4 v3, 0x1
+    const/4 v3, 0x2
 
     new-array v3, v3, [Ljava/lang/String;
 
     const-string/jumbo v4, "KTT"
 
     const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "LGT"
+
+    const/4 v5, 0x1
 
     aput-object v4, v3, v5
 
@@ -1283,7 +1289,7 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/CallerInfo;->phoneNumber:Ljava/lang/String;
 
-    const v0, 0x1080609
+    const v0, 0x10805f4
 
     iput v0, p0, Lcom/android/internal/telephony/CallerInfo;->photoResource:I
 

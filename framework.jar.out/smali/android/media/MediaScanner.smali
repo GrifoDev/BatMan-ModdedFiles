@@ -2997,7 +2997,7 @@
 .end method
 
 .method private prescan(Ljava/lang/String;ZLjava/lang/String;)V
-    .locals 33
+    .locals 34
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3033,7 +3033,7 @@
 
     iget-boolean v2, v0, Landroid/media/MediaScanner;->mIsInternal:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_9
 
     move-object/from16 v0, p0
 
@@ -3115,6 +3115,7 @@
     invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    :goto_2
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/MediaScanner;->mFilesUri:Landroid/net/Uri;
@@ -3198,7 +3199,7 @@
 
     move-result-object v23
 
-    if-nez v23, :cond_9
+    if-nez v23, :cond_a
 
     :cond_3
     if-eqz v23, :cond_4
@@ -3331,6 +3332,57 @@
     goto/16 :goto_1
 
     :cond_9
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/media/MediaScanner;->mOmcPath:Ljava/lang/String;
+
+    if-eqz v2, :cond_0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "(((_data >= \'/omr\') AND (_data < \'/omr0\')) OR ((_data >= \'/system/omc\') AND (_data < \'/system/omc0\'))) AND (NOT _data LIKE \'"
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Landroid/media/MediaScanner;->mOmcPath:Ljava/lang/String;
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v4, "%\')"
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v33
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/media/MediaScanner;->mMediaProvider:Landroid/content/ContentProviderClient;
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Landroid/media/MediaScanner;->mFilesUri:Landroid/net/Uri;
+
+    const/4 v7, 0x0
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v2, v4, v0, v7}, Landroid/content/ContentProviderClient;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    goto/16 :goto_2
+
+    :cond_a
     :try_start_1
     invoke-interface/range {v23 .. v23}, Landroid/database/Cursor;->getCount()I
 
@@ -3338,8 +3390,8 @@
 
     if-eqz v31, :cond_3
 
-    :cond_a
-    :goto_2
+    :cond_b
+    :goto_3
     invoke-interface/range {v23 .. v23}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v2
@@ -3380,7 +3432,7 @@
 
     move-object/from16 v29, v11
 
-    if-eqz v11, :cond_a
+    if-eqz v11, :cond_b
 
     const-string/jumbo v2, "/"
 
@@ -3390,36 +3442,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
     const/16 v26, 0x0
 
     :try_start_2
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/media/MediaScanner;->mOmcPath:Ljava/lang/String;
-
-    if-eqz v2, :cond_b
-
-    const-string/jumbo v2, "/omr"
-
-    invoke-virtual {v11, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/media/MediaScanner;->mOmcPath:Ljava/lang/String;
-
-    invoke-virtual {v11, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_e
-
-    :cond_b
     sget v2, Landroid/system/OsConstants;->F_OK:I
 
     invoke-static {v11, v2}, Landroid/system/Os;->access(Ljava/lang/String;I)Z
@@ -3429,7 +3456,7 @@
 
     move-result v26
 
-    :goto_3
+    :goto_4
     if-nez v26, :cond_c
 
     :try_start_3
@@ -3437,14 +3464,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_e
 
     :cond_c
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Landroid/media/MediaScanner;->useHashMap:Z
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
     new-instance v8, Landroid/media/MediaScanner$FileEntry;
 
@@ -3458,7 +3485,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_2
+    goto :goto_3
 
     :catchall_0
     move-exception v2
@@ -3473,40 +3500,35 @@
     throw v2
 
     :cond_e
-    const/16 v26, 0x0
-
-    goto :goto_3
-
-    :cond_f
     :try_start_4
     invoke-static {v11}, Landroid/media/MediaFile;->getFileType(Ljava/lang/String;)Landroid/media/MediaFile$MediaFileType;
 
     move-result-object v30
 
-    if-nez v30, :cond_11
+    if-nez v30, :cond_10
 
     const/16 v27, 0x0
 
-    :goto_4
+    :goto_5
     invoke-static/range {v27 .. v27}, Landroid/media/MediaFile;->isPlayListFileType(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_b
 
     invoke-static/range {v27 .. v27}, Landroid/media/MediaFile;->isImageFileType(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_f
 
     invoke-static/range {v27 .. v27}, Landroid/media/MediaFile;->isRawImageFileType(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_11
 
-    :cond_10
+    :cond_f
     move-object/from16 v0, p0
 
     iget v2, v0, Landroid/media/MediaScanner;->mDeleteImageNum:I
@@ -3517,7 +3539,7 @@
 
     iput v2, v0, Landroid/media/MediaScanner;->mDeleteImageNum:I
 
-    :goto_5
+    :goto_6
     move-object/from16 v0, p0
 
     iget-wide v14, v0, Landroid/media/MediaScanner;->mPrescanBulkDeleted:J
@@ -3546,7 +3568,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
     invoke-virtual/range {v24 .. v24}, Landroid/media/MediaScanner$MediaBulkDeleter;->flush()V
 
@@ -3584,23 +3606,23 @@
 
     invoke-virtual {v2, v4, v0, v1}, Landroid/content/ContentProviderClient;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
-    :cond_11
+    :cond_10
     move-object/from16 v0, v30
 
     iget v0, v0, Landroid/media/MediaFile$MediaFileType;->fileType:I
 
     move/from16 v27, v0
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_12
+    :cond_11
     invoke-static/range {v27 .. v27}, Landroid/media/MediaFile;->isAudioFileType(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_12
 
     move-object/from16 v0, p0
 
@@ -3612,14 +3634,14 @@
 
     iput v2, v0, Landroid/media/MediaScanner;->mDeleteAudioNum:I
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_13
+    :cond_12
     invoke-static/range {v27 .. v27}, Landroid/media/MediaFile;->isVideoFileType(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_13
 
     move-object/from16 v0, p0
 
@@ -3631,9 +3653,9 @@
 
     iput v2, v0, Landroid/media/MediaScanner;->mDeleteVideoNum:I
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_14
+    :cond_13
     move-object/from16 v0, p0
 
     iget v2, v0, Landroid/media/MediaScanner;->mDeleteEtcNum:I
@@ -3646,12 +3668,12 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    goto :goto_5
+    goto :goto_6
 
     :catch_0
     move-exception v25
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 .end method
 
 .method private prescan(Z)V

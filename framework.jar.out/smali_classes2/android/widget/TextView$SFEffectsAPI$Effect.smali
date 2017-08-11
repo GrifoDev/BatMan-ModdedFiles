@@ -1,11 +1,11 @@
-.class public Landroid/widget/Editor$SFEffectsAPI$Effect;
+.class public Landroid/widget/TextView$SFEffectsAPI$Effect;
 .super Ljava/lang/Object;
-.source "Editor.java"
+.source "TextView.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/widget/Editor$SFEffectsAPI;
+    value = Landroid/widget/TextView$SFEffectsAPI;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,13 +15,13 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
+        Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;
     }
 .end annotation
 
 
 # instance fields
-.field private final mAnimationMode:Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
+.field private final mAnimationMode:Landroid/widget/TextView$SFEffectsAPI$AnimationMode;
 
 .field private final mEffectRegion:Ljava/util/Vector;
     .annotation system Ldalvik/annotation/Signature;
@@ -34,14 +34,14 @@
     .end annotation
 .end field
 
-.field private final mEffectTarget:Landroid/widget/Editor$SFEffectsAPI$EffectTarget;
+.field private final mEffectTarget:Landroid/widget/TextView$SFEffectsAPI$EffectTarget;
 
 .field private final mGeometryAnimationVector:Ljava/util/Vector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Vector",
             "<",
-            "Landroid/widget/Editor$SFEffectsAPI$Animation;",
+            "Landroid/widget/TextView$SFEffectsAPI$Animation;",
             ">;"
         }
     .end annotation
@@ -52,17 +52,17 @@
         value = {
             "Ljava/util/Vector",
             "<",
-            "Landroid/widget/Editor$SFEffectsAPI$Animation;",
+            "Landroid/widget/TextView$SFEffectsAPI$Animation;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final mPixelEffectType:Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
+.field private final mPixelEffectType:Landroid/widget/TextView$SFEffectsAPI$PixEffectType;
 
 
 # direct methods
-.method public constructor <init>(Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;)V
+.method public constructor <init>(Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,57 +71,57 @@
 
     invoke-direct {v0}, Ljava/util/Vector;-><init>()V
 
-    iput-object v0, p0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mEffectRegion:Ljava/util/Vector;
+    iput-object v0, p0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mEffectRegion:Ljava/util/Vector;
 
     new-instance v0, Ljava/util/Vector;
 
     invoke-direct {v0}, Ljava/util/Vector;-><init>()V
 
-    iput-object v0, p0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
+    iput-object v0, p0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
 
     new-instance v0, Ljava/util/Vector;
 
     invoke-direct {v0}, Ljava/util/Vector;-><init>()V
 
-    iput-object v0, p0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
+    iput-object v0, p0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
 
-    invoke-static {p1}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->-get0(Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;)Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mAnimationMode:Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
-
-    invoke-static {p1}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->-get2(Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;)Landroid/widget/Editor$SFEffectsAPI$EffectTarget;
+    invoke-static {p1}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->-get0(Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;)Landroid/widget/TextView$SFEffectsAPI$AnimationMode;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mEffectTarget:Landroid/widget/Editor$SFEffectsAPI$EffectTarget;
+    iput-object v0, p0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mAnimationMode:Landroid/widget/TextView$SFEffectsAPI$AnimationMode;
 
-    invoke-static {p1}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->-get5(Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;)Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
+    invoke-static {p1}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->-get2(Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;)Landroid/widget/TextView$SFEffectsAPI$EffectTarget;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelEffectType:Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
+    iput-object v0, p0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mEffectTarget:Landroid/widget/TextView$SFEffectsAPI$EffectTarget;
 
-    iget-object v0, p0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mEffectRegion:Ljava/util/Vector;
+    invoke-static {p1}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->-get5(Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;)Landroid/widget/TextView$SFEffectsAPI$PixEffectType;
 
-    invoke-static {p1}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->-get1(Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;)Ljava/util/Vector;
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelEffectType:Landroid/widget/TextView$SFEffectsAPI$PixEffectType;
+
+    iget-object v0, p0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mEffectRegion:Ljava/util/Vector;
+
+    invoke-static {p1}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->-get1(Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;)Ljava/util/Vector;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/Vector;->addAll(Ljava/util/Collection;)Z
 
-    iget-object v0, p0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
+    iget-object v0, p0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
 
-    invoke-static {p1}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->-get4(Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;)Ljava/util/Vector;
+    invoke-static {p1}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->-get4(Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;)Ljava/util/Vector;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/Vector;->addAll(Ljava/util/Collection;)Z
 
-    iget-object v0, p0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
+    iget-object v0, p0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
 
-    invoke-static {p1}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->-get3(Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;)Ljava/util/Vector;
+    invoke-static {p1}, Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;->-get3(Landroid/widget/TextView$SFEffectsAPI$Effect$Builder;)Ljava/util/Vector;
 
     move-result-object v1
 
@@ -137,7 +137,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mEffectRegion:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mEffectRegion:Ljava/util/Vector;
 
     invoke-virtual {v15}, Ljava/util/Vector;->size()I
 
@@ -149,7 +149,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
+    iget-object v0, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
 
     move-object/from16 v16, v0
 
@@ -163,7 +163,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
+    iget-object v0, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
 
     move-object/from16 v16, v0
 
@@ -181,7 +181,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15}, Ljava/util/Vector;->size()I
 
@@ -189,7 +189,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
+    iget-object v0, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
 
     move-object/from16 v16, v0
 
@@ -209,13 +209,13 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mAnimationMode:Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
+    iget-object v0, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mAnimationMode:Landroid/widget/TextView$SFEffectsAPI$AnimationMode;
 
     move-object/from16 v16, v0
 
     move-object/from16 v0, v16
 
-    iget v0, v0, Landroid/widget/Editor$SFEffectsAPI$AnimationMode;->id:I
+    iget v0, v0, Landroid/widget/TextView$SFEffectsAPI$AnimationMode;->id:I
 
     move/from16 v16, v0
 
@@ -225,9 +225,9 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mEffectTarget:Landroid/widget/Editor$SFEffectsAPI$EffectTarget;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mEffectTarget:Landroid/widget/TextView$SFEffectsAPI$EffectTarget;
 
-    iget v15, v15, Landroid/widget/Editor$SFEffectsAPI$EffectTarget;->id:I
+    iget v15, v15, Landroid/widget/TextView$SFEffectsAPI$EffectTarget;->id:I
 
     aput v15, v3, v1
 
@@ -241,9 +241,9 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelEffectType:Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelEffectType:Landroid/widget/TextView$SFEffectsAPI$PixEffectType;
 
-    iget v15, v15, Landroid/widget/Editor$SFEffectsAPI$PixEffectType;->id:I
+    iget v15, v15, Landroid/widget/TextView$SFEffectsAPI$PixEffectType;->id:I
 
     aput v15, v3, v1
 
@@ -254,7 +254,7 @@
     :goto_0
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mEffectRegion:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mEffectRegion:Ljava/util/Vector;
 
     invoke-virtual {v15}, Ljava/util/Vector;->size()I
 
@@ -264,7 +264,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mEffectRegion:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mEffectRegion:Ljava/util/Vector;
 
     invoke-virtual {v15, v7}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
@@ -309,7 +309,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15}, Ljava/util/Vector;->size()I
 
@@ -328,7 +328,7 @@
     :goto_1
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15}, Ljava/util/Vector;->size()I
 
@@ -340,17 +340,17 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15, v7}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
     move-result-object v15
 
-    check-cast v15, Landroid/widget/Editor$SFEffectsAPI$Animation;
+    check-cast v15, Landroid/widget/TextView$SFEffectsAPI$Animation;
 
-    iget-object v15, v15, Landroid/widget/Editor$SFEffectsAPI$Animation;->animParam:Landroid/widget/Editor$SFEffectsAPI$AnimParam;
+    iget-object v15, v15, Landroid/widget/TextView$SFEffectsAPI$Animation;->animParam:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
 
-    iget v15, v15, Landroid/widget/Editor$SFEffectsAPI$AnimParam;->id:I
+    iget v15, v15, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->id:I
 
     aput v15, v3, v1
 
@@ -358,15 +358,15 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15, v7}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
     move-result-object v15
 
-    check-cast v15, Landroid/widget/Editor$SFEffectsAPI$Animation;
+    check-cast v15, Landroid/widget/TextView$SFEffectsAPI$Animation;
 
-    iget v15, v15, Landroid/widget/Editor$SFEffectsAPI$Animation;->frame:I
+    iget v15, v15, Landroid/widget/TextView$SFEffectsAPI$Animation;->frame:I
 
     aput v15, v3, v2
 
@@ -374,15 +374,15 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15, v7}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
     move-result-object v15
 
-    check-cast v15, Landroid/widget/Editor$SFEffectsAPI$Animation;
+    check-cast v15, Landroid/widget/TextView$SFEffectsAPI$Animation;
 
-    iget v15, v15, Landroid/widget/Editor$SFEffectsAPI$Animation;->value:F
+    iget v15, v15, Landroid/widget/TextView$SFEffectsAPI$Animation;->value:F
 
     aput v15, v11, v12
 
@@ -390,17 +390,17 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mPixelAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15, v7}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
     move-result-object v15
 
-    check-cast v15, Landroid/widget/Editor$SFEffectsAPI$Animation;
+    check-cast v15, Landroid/widget/TextView$SFEffectsAPI$Animation;
 
-    iget-object v15, v15, Landroid/widget/Editor$SFEffectsAPI$Animation;->mode:Landroid/widget/Editor$SFEffectsAPI$InterpMode;
+    iget-object v15, v15, Landroid/widget/TextView$SFEffectsAPI$Animation;->mode:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
 
-    iget v15, v15, Landroid/widget/Editor$SFEffectsAPI$InterpMode;->id:I
+    iget v15, v15, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->id:I
 
     aput v15, v3, v1
 
@@ -424,7 +424,7 @@
     :goto_2
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15}, Ljava/util/Vector;->size()I
 
@@ -445,7 +445,7 @@
     :goto_3
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15}, Ljava/util/Vector;->size()I
 
@@ -457,17 +457,17 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15, v7}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
     move-result-object v15
 
-    check-cast v15, Landroid/widget/Editor$SFEffectsAPI$Animation;
+    check-cast v15, Landroid/widget/TextView$SFEffectsAPI$Animation;
 
-    iget-object v15, v15, Landroid/widget/Editor$SFEffectsAPI$Animation;->animParam:Landroid/widget/Editor$SFEffectsAPI$AnimParam;
+    iget-object v15, v15, Landroid/widget/TextView$SFEffectsAPI$Animation;->animParam:Landroid/widget/TextView$SFEffectsAPI$AnimParam;
 
-    iget v15, v15, Landroid/widget/Editor$SFEffectsAPI$AnimParam;->id:I
+    iget v15, v15, Landroid/widget/TextView$SFEffectsAPI$AnimParam;->id:I
 
     aput v15, v3, v1
 
@@ -475,15 +475,15 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15, v7}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
     move-result-object v15
 
-    check-cast v15, Landroid/widget/Editor$SFEffectsAPI$Animation;
+    check-cast v15, Landroid/widget/TextView$SFEffectsAPI$Animation;
 
-    iget v15, v15, Landroid/widget/Editor$SFEffectsAPI$Animation;->frame:I
+    iget v15, v15, Landroid/widget/TextView$SFEffectsAPI$Animation;->frame:I
 
     aput v15, v3, v2
 
@@ -491,15 +491,15 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15, v7}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
     move-result-object v15
 
-    check-cast v15, Landroid/widget/Editor$SFEffectsAPI$Animation;
+    check-cast v15, Landroid/widget/TextView$SFEffectsAPI$Animation;
 
-    iget v15, v15, Landroid/widget/Editor$SFEffectsAPI$Animation;->value:F
+    iget v15, v15, Landroid/widget/TextView$SFEffectsAPI$Animation;->value:F
 
     aput v15, v11, v12
 
@@ -507,17 +507,17 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Editor$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
+    iget-object v15, v0, Landroid/widget/TextView$SFEffectsAPI$Effect;->mGeometryAnimationVector:Ljava/util/Vector;
 
     invoke-virtual {v15, v7}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
     move-result-object v15
 
-    check-cast v15, Landroid/widget/Editor$SFEffectsAPI$Animation;
+    check-cast v15, Landroid/widget/TextView$SFEffectsAPI$Animation;
 
-    iget-object v15, v15, Landroid/widget/Editor$SFEffectsAPI$Animation;->mode:Landroid/widget/Editor$SFEffectsAPI$InterpMode;
+    iget-object v15, v15, Landroid/widget/TextView$SFEffectsAPI$Animation;->mode:Landroid/widget/TextView$SFEffectsAPI$InterpMode;
 
-    iget v15, v15, Landroid/widget/Editor$SFEffectsAPI$InterpMode;->id:I
+    iget v15, v15, Landroid/widget/TextView$SFEffectsAPI$InterpMode;->id:I
 
     aput v15, v3, v1
 

@@ -7,8 +7,6 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/app/WallpaperManager$1;,
-        Landroid/app/WallpaperManager$2;,
-        Landroid/app/WallpaperManager$3;,
         Landroid/app/WallpaperManager$FastBitmapDrawable;,
         Landroid/app/WallpaperManager$Globals;,
         Landroid/app/WallpaperManager$SubUserWallpaperChecker;,
@@ -44,6 +42,8 @@
 
 .field private static final DEFAULT_DEVICE_COLOR_BLACK:Ljava/lang/String; = "black"
 
+.field private static final DEFAULT_GUEST_MODE_WALLPAPER_NAME:Ljava/lang/String; = "default_wallpaper_10"
+
 .field public static final DEFAULT_KWP_SIZE:I = 0x1
 
 .field private static final DEFAULT_THUMB_NAME:Ljava/lang/String; = "default_thumb"
@@ -60,11 +60,15 @@
 
 .field public static final FLAG_SYSTEM:I = 0x1
 
+.field private static final FRAMEWORK_PACKAGE:Ljava/lang/String; = "android"
+
 .field private static final HOME_CSC_WALLPAPER_DIR_PATH:Ljava/lang/String; = "/system/wallpaper/default_wallpaper/"
 
 .field private static final HOME_OMC_WALLPAPER_DIR_PATH:Ljava/lang/String; = "/wallpaper/drawable/"
 
 .field public static final INFINITY_WALLPAPER:Landroid/content/ComponentName;
+
+.field private static final KEYGUARD_CSC_DEFAULT_WALLPAPER_NAME:Ljava/lang/String; = "lockscreen_default_wallpaper"
 
 .field private static final KEYGUARD_DEFAULT_THUMB_NAME:Ljava/lang/String; = "keyguard_default_wallpaper_thumbnail"
 
@@ -96,6 +100,8 @@
 
 .field private static final SETTINGS_SYSTEMUI_TRANSPARENCY:Ljava/lang/String; = "android.wallpaper.settings_systemui_transparency"
 
+.field public static final SUPPORT_CSC_CMF:Z
+
 .field public static final SUPPORT_DCM_WALLPAPER:Z
 
 .field public static final SUPPORT_INFINITY_WALLPAPER:Z
@@ -118,13 +124,13 @@
 
 .field private static final WALLPAPER:I = 0x1
 
+.field private static final WALLPAPER_PACKAGE:Ljava/lang/String; = "com.samsung.android.wallpaper.res"
+
 .field public static final WALLPAPER_PREVIEW_META_DATA:Ljava/lang/String; = "android.wallpaper.preview"
 
-.field private static mDefaultFileNameFilter:Ljava/io/FilenameFilter;
+.field private static final WALLPAPER_RES_PREFIX:Ljava/lang/String; = "android.resource://com.samsung.android.wallpaper.res/drawable/"
 
-.field private static mDefaultLockscreenFileNameFilter:Ljava/io/FilenameFilter;
-
-.field private static mGuestDefaultFileNameFilter:Ljava/io/FilenameFilter;
+.field private static mImageFileNameFilter:Ljava/io/FilenameFilter;
 
 .field private static sGlobals:Landroid/app/WallpaperManager$Globals;
 
@@ -148,15 +154,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1()Ljava/io/FilenameFilter;
-    .locals 1
-
-    sget-object v0, Landroid/app/WallpaperManager;->mGuestDefaultFileNameFilter:Ljava/io/FilenameFilter;
-
-    return-object v0
-.end method
-
-.method static synthetic -get2()Landroid/app/WallpaperManager$Globals;
+.method static synthetic -get1()Landroid/app/WallpaperManager$Globals;
     .locals 1
 
     sget-object v0, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
@@ -164,10 +162,20 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Ljava/lang/String;Ljava/io/FilenameFilter;)Ljava/io/File;
+.method static synthetic -wrap0(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
     .locals 1
 
-    invoke-static {p0, p1}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/io/FilenameFilter;)Ljava/io/File;
+    invoke-static {p0, p1}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap1(Landroid/app/WallpaperManager;Landroid/content/Context;)Ljava/io/InputStream;
+    .locals 1
+
+    invoke-direct {p0, p1}, Landroid/app/WallpaperManager;->openDefaultInfinityWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
 
     move-result-object v0
 
@@ -184,6 +192,24 @@
     sput-object v0, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
 
     sput-boolean v1, Landroid/app/WallpaperManager;->DEBUG:Z
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "SEC_FLOATING_FEATURE_LOCKSCREEN_CONFIG_DEFAULT_WALLPAPER_STYLE"
+
+    invoke-virtual {v0, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "CSC_CMF"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    sput-boolean v0, Landroid/app/WallpaperManager;->SUPPORT_CSC_CMF:Z
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
@@ -236,19 +262,7 @@
 
     invoke-direct {v0}, Landroid/app/WallpaperManager$1;-><init>()V
 
-    sput-object v0, Landroid/app/WallpaperManager;->mDefaultFileNameFilter:Ljava/io/FilenameFilter;
-
-    new-instance v0, Landroid/app/WallpaperManager$2;
-
-    invoke-direct {v0}, Landroid/app/WallpaperManager$2;-><init>()V
-
-    sput-object v0, Landroid/app/WallpaperManager;->mDefaultLockscreenFileNameFilter:Ljava/io/FilenameFilter;
-
-    new-instance v0, Landroid/app/WallpaperManager$3;
-
-    invoke-direct {v0}, Landroid/app/WallpaperManager$3;-><init>()V
-
-    sput-object v0, Landroid/app/WallpaperManager;->mGuestDefaultFileNameFilter:Ljava/io/FilenameFilter;
+    sput-object v0, Landroid/app/WallpaperManager;->mImageFileNameFilter:Ljava/io/FilenameFilter;
 
     return-void
 
@@ -346,7 +360,7 @@
 
     move-result-object v10
 
-    const v11, 0x10700a7
+    const v11, 0x10700a8
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -634,6 +648,94 @@
     goto :goto_4
 
     :cond_8
+    return-void
+.end method
+
+.method private addPreloadCSCWallpaperURI(ILjava/util/ArrayList;)V
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v5, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x10700aa
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v0, 0x0
+
+    invoke-static {}, Landroid/app/WallpaperManager;->getDeviceColor()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    :goto_0
+    array-length v5, v1
+
+    if-ge v3, v5, :cond_1
+
+    aget-object v0, v1, v3
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    invoke-direct {p0, p1, v0}, Landroid/app/WallpaperManager;->getCSCWallpaperURI(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    invoke-virtual {p2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v5, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "preload csc wallpaper : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_1
     return-void
 .end method
 
@@ -942,7 +1044,7 @@
     goto :goto_0
 .end method
 
-.method public static getCSCWallpaperFile(ILandroid/app/WallpaperManager$SubUserWallpaperChecker;)Ljava/io/File;
+.method public static getCSCWallpaperFile(ILandroid/app/WallpaperManager$SubUserWallpaperChecker;Ljava/lang/String;)Ljava/io/File;
     .locals 4
 
     const/4 v0, 0x0
@@ -951,7 +1053,7 @@
 
     if-ne p0, v1, :cond_2
 
-    invoke-static {p1}, Landroid/app/WallpaperManager;->getCSCWallpaperFile(Landroid/app/WallpaperManager$SubUserWallpaperChecker;)Ljava/io/File;
+    invoke-static {p1, p2}, Landroid/app/WallpaperManager;->getCSCWallpaperFile(Landroid/app/WallpaperManager$SubUserWallpaperChecker;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
@@ -991,9 +1093,11 @@
     :cond_2
     const-string/jumbo v1, "/system/csc_contents/"
 
-    sget-object v2, Landroid/app/WallpaperManager;->mDefaultLockscreenFileNameFilter:Ljava/io/FilenameFilter;
+    invoke-static {p0, p2}, Landroid/app/WallpaperManager;->getOperatorFileName(ILjava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v1, v2}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/io/FilenameFilter;)Ljava/io/File;
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
@@ -1001,17 +1105,21 @@
 
     const-string/jumbo v1, "/system/wallpaper/"
 
-    sget-object v2, Landroid/app/WallpaperManager;->mDefaultLockscreenFileNameFilter:Ljava/io/FilenameFilter;
+    invoke-static {p0, p2}, Landroid/app/WallpaperManager;->getOperatorFileName(ILjava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v1, v2}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/io/FilenameFilter;)Ljava/io/File;
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
     goto :goto_0
 .end method
 
-.method private static getCSCWallpaperFile(Landroid/app/WallpaperManager$SubUserWallpaperChecker;)Ljava/io/File;
+.method private static getCSCWallpaperFile(Landroid/app/WallpaperManager$SubUserWallpaperChecker;Ljava/lang/String;)Ljava/io/File;
     .locals 5
+
+    const/4 v4, 0x1
 
     const/4 v0, 0x0
 
@@ -1045,9 +1153,11 @@
 
     const-string/jumbo v2, "/system/csc_contents/"
 
-    sget-object v3, Landroid/app/WallpaperManager;->mDefaultFileNameFilter:Ljava/io/FilenameFilter;
+    invoke-static {v4, p1}, Landroid/app/WallpaperManager;->getOperatorFileName(ILjava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v2, v3}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/io/FilenameFilter;)Ljava/io/File;
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
@@ -1068,9 +1178,11 @@
 
     const-string/jumbo v2, "/system/wallpaper/default_wallpaper/"
 
-    sget-object v3, Landroid/app/WallpaperManager;->mDefaultFileNameFilter:Ljava/io/FilenameFilter;
+    invoke-static {v4, p1}, Landroid/app/WallpaperManager;->getOperatorFileName(ILjava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v2, v3}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/io/FilenameFilter;)Ljava/io/File;
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
@@ -1105,6 +1217,51 @@
 
     :cond_4
     return-object v0
+.end method
+
+.method private getCSCWallpaperURI(ILjava/lang/String;)Ljava/lang/String;
+    .locals 4
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-static {p1, v2, p2}, Landroid/app/WallpaperManager;->getCSCWallpaperFile(ILandroid/app/WallpaperManager$SubUserWallpaperChecker;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "file:/"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "?locType=csc"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    :cond_0
+    return-object v1
 .end method
 
 .method private getDcmLauncherVersionCode()I
@@ -1258,7 +1415,9 @@
 .end method
 
 .method private static getDefaultWallpaperFile()Ljava/io/File;
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x1
 
@@ -1271,11 +1430,11 @@
     return-object v0
 
     :cond_0
-    new-instance v1, Landroid/app/WallpaperManager$4;
+    new-instance v1, Landroid/app/WallpaperManager$2;
 
-    invoke-direct {v1}, Landroid/app/WallpaperManager$4;-><init>()V
+    invoke-direct {v1}, Landroid/app/WallpaperManager$2;-><init>()V
 
-    invoke-static {v1}, Landroid/app/WallpaperManager;->getCSCWallpaperFile(Landroid/app/WallpaperManager$SubUserWallpaperChecker;)Ljava/io/File;
+    invoke-static {v1, v2}, Landroid/app/WallpaperManager;->getCSCWallpaperFile(Landroid/app/WallpaperManager$SubUserWallpaperChecker;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v1
 
@@ -1283,22 +1442,22 @@
 .end method
 
 .method public static getDefaultWallpaperID(Landroid/content/Context;I)I
-    .locals 7
+    .locals 8
 
-    const/4 v4, 0x1
+    const/4 v7, 0x1
 
     invoke-static {}, Landroid/app/WallpaperManager;->getDeviceColor()Ljava/lang/String;
 
     move-result-object v1
 
-    if-ne p1, v4, :cond_1
+    if-ne p1, v7, :cond_1
 
     const-string/jumbo v0, "default_wallpaper"
 
     :goto_0
-    if-ne p1, v4, :cond_2
+    if-ne p1, v7, :cond_2
 
-    const-string/jumbo v2, "android"
+    const-string/jumbo v2, "com.samsung.android.wallpaper.res"
 
     :goto_1
     const/4 v3, 0x0
@@ -1423,6 +1582,23 @@
 
     move-result v3
 
+    if-ne p1, v7, :cond_5
+
+    if-nez v3, :cond_5
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "drawable"
+
+    const-string/jumbo v6, "android"
+
+    invoke-virtual {v4, v0, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    :cond_5
     sget-object v4, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1481,7 +1657,7 @@
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {p0, p1}, Landroid/app/WallpaperManager;->getOperatorWallpaperURI(I)Ljava/lang/String;
+    invoke-direct {p0, p1}, Landroid/app/WallpaperManager;->getOMCWallpaperURI(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1489,7 +1665,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_4
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -1499,7 +1675,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "operator wallpaper :"
+    const-string/jumbo v9, "omc wallpaper : "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1516,6 +1692,7 @@
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    :goto_0
     sget-boolean v7, Landroid/app/WallpaperManager;->SUPPORT_INFINITY_WALLPAPER:Z
 
     if-eqz v7, :cond_1
@@ -1566,7 +1743,7 @@
 
     move-result-object v7
 
-    const v8, 0x10700a7
+    const v8, 0x10700a8
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1574,10 +1751,10 @@
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1
     array-length v7, v6
 
-    if-ge v2, v7, :cond_4
+    if-ge v2, v7, :cond_5
 
     aget-object v7, v6, v2
 
@@ -1618,9 +1795,54 @@
     :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
+    const/4 v7, 0x0
+
+    invoke-direct {p0, p1, v7}, Landroid/app/WallpaperManager;->getCSCWallpaperURI(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v7, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "csc wallpaper : "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-boolean v7, Landroid/app/WallpaperManager;->SUPPORT_CSC_CMF:Z
+
+    if-eqz v7, :cond_0
+
+    invoke-direct {p0, p1, v3}, Landroid/app/WallpaperManager;->addPreloadCSCWallpaperURI(ILjava/util/ArrayList;)V
+
+    goto/16 :goto_0
+
+    :cond_5
     const-string/jumbo v7, "paramKeyUriList"
 
     invoke-virtual {v0, v7, v3}, Landroid/os/Bundle;->putStringArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
@@ -1664,7 +1886,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "android.resource://android/drawable/"
+    const-string/jumbo v7, "android.resource://com.samsung.android.wallpaper.res/drawable/"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1690,7 +1912,7 @@
 
     move-result-object v6
 
-    const-string/jumbo v7, "android.resource://android/drawable/"
+    const-string/jumbo v7, "android.resource://com.samsung.android.wallpaper.res/drawable/"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2027,6 +2249,8 @@
 .method public static getOMCWallpaperFile(I)Ljava/io/File;
     .locals 6
 
+    const/4 v5, 0x0
+
     const/4 v0, 0x0
 
     const-string/jumbo v3, "persist.sys.omc_respath"
@@ -2061,13 +2285,15 @@
 
     move-result-object v2
 
-    sget-object v3, Landroid/app/WallpaperManager;->mDefaultFileNameFilter:Ljava/io/FilenameFilter;
+    :goto_0
+    invoke-static {p0, v5}, Landroid/app/WallpaperManager;->getOperatorFileName(ILjava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v2, v3}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/io/FilenameFilter;)Ljava/io/File;
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
-    :goto_0
     if-eqz v0, :cond_0
 
     sget-object v3, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
@@ -2118,78 +2344,11 @@
 
     move-result-object v2
 
-    sget-object v3, Landroid/app/WallpaperManager;->mDefaultLockscreenFileNameFilter:Ljava/io/FilenameFilter;
-
-    invoke-static {v2, v3}, Landroid/app/WallpaperManager;->getOperatorFile(Ljava/lang/String;Ljava/io/FilenameFilter;)Ljava/io/File;
-
-    move-result-object v0
-
     goto :goto_0
 .end method
 
-.method private static getOperatorFile(Ljava/lang/String;Ljava/io/FilenameFilter;)Ljava/io/File;
-    .locals 6
-
-    const/4 v0, 0x0
-
-    new-instance v2, Ljava/io/File;
-
-    invoke-direct {v2, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, p1}, Ljava/io/File;->list(Ljava/io/FilenameFilter;)[Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    array-length v4, v3
-
-    if-lez v4, :cond_0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    array-length v4, v3
-
-    if-ge v1, v4, :cond_0
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    aget-object v5, v3, v1
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v4}, Landroid/app/WallpaperManager;->getFile(Ljava/lang/String;)Ljava/io/File;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    return-object v0
-
-    :cond_1
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-.end method
-
-.method private getOperatorWallpaperURI(I)Ljava/lang/String;
+.method private getOMCWallpaperURI(I)Ljava/lang/String;
     .locals 4
-
-    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
@@ -2197,7 +2356,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -2228,45 +2387,172 @@
     move-result-object v1
 
     :cond_0
-    :goto_0
     return-object v1
+.end method
 
-    :cond_1
-    invoke-static {p1, v2}, Landroid/app/WallpaperManager;->getCSCWallpaperFile(ILandroid/app/WallpaperManager$SubUserWallpaperChecker;)Ljava/io/File;
+.method private static getOperatorFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
+    .locals 8
+
+    const/4 v7, 0x0
+
+    const/4 v0, 0x0
+
+    new-instance v3, Ljava/io/File;
+
+    invoke-direct {v3, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    sget-object v5, Landroid/app/WallpaperManager;->mImageFileNameFilter:Ljava/io/FilenameFilter;
+
+    invoke-virtual {v3, v5}, Ljava/io/File;->list(Ljava/io/FilenameFilter;)[Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    array-length v5, v4
+
+    if-lez v5, :cond_0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    array-length v5, v4
+
+    if-ge v1, v5, :cond_0
+
+    aget-object v5, v4, v1
+
+    aget-object v6, v4, v1
+
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v6
+
+    add-int/lit8 v6, v6, -0x4
+
+    invoke-virtual {v5, v7, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    aget-object v6, v4, v1
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/app/WallpaperManager;->getFile(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    :cond_0
+    return-object v0
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
 
-    const-string/jumbo v3, "file:/"
+    goto :goto_0
+.end method
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+.method private static getOperatorFileName(ILjava/lang/String;)Ljava/lang/String;
+    .locals 3
 
-    move-result-object v2
+    const/4 v0, 0x0
 
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    const/4 v1, 0x1
 
-    move-result-object v3
+    if-ne p0, v1, :cond_2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "default_wallpaper"
 
-    move-result-object v2
+    :goto_0
+    sget-boolean v1, Landroid/app/WallpaperManager;->SUPPORT_CSC_CMF:Z
 
-    const-string/jumbo v3, "?locType=csc"
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result-object v2
+    move-result v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Landroid/app/WallpaperManager;->getDeviceColor()Ljava/lang/String;
+
+    move-result-object p1
+
+    :cond_0
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v1, "black"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    :cond_1
+    :goto_1
+    return-object v0
+
+    :cond_2
+    const-string/jumbo v0, "lockscreen_default_wallpaper"
+
+    goto :goto_0
+
+    :cond_3
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    goto :goto_0
+    const-string/jumbo v2, "_"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_1
 .end method
 
 .method private getPreloadWallpaperID(ILjava/lang/String;)I
@@ -2469,7 +2755,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "android.resource://android/drawable/"
+    const-string/jumbo v6, "android.resource://com.samsung.android.wallpaper.res/drawable/"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2485,7 +2771,7 @@
 
     move-result-object v5
 
-    const-string/jumbo v6, "android.resource://android/drawable/"
+    const-string/jumbo v6, "android.resource://com.samsung.android.wallpaper.res/drawable/"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2598,58 +2884,59 @@
 .end method
 
 .method private getResourceID(ILjava/lang/String;)I
-    .locals 6
+    .locals 7
 
     const/4 v1, 0x0
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    if-ne p1, v3, :cond_0
+    if-ne p1, v4, :cond_1
 
-    iget-object v3, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+    :try_start_0
+    iget-object v4, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v5, "com.samsung.android.wallpaper.res"
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+
+    move-result-object v3
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string/jumbo v4, "drawable"
+    const-string/jumbo v5, "drawable"
 
-    const-string/jumbo v5, "android"
+    const-string/jumbo v6, "com.samsung.android.wallpaper.res"
 
-    invoke-virtual {v3, p2, v4, v5}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :cond_0
-    :try_start_0
-    iget-object v3, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v4, "com.android.systemui"
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "drawable"
-
-    const-string/jumbo v5, "com.android.systemui"
-
-    invoke-virtual {v3, p2, v4, v5}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v4, p2, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_0
+    :goto_0
+    if-nez v1, :cond_0
+
+    iget-object v4, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "drawable"
+
+    const-string/jumbo v6, "android"
+
+    invoke-virtual {v4, p2, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    :cond_0
+    :goto_1
+    return v1
 
     :catch_0
     move-exception v0
@@ -2657,6 +2944,41 @@
     invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
     goto :goto_0
+
+    :cond_1
+    :try_start_1
+    iget-object v4, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v5, "com.android.systemui"
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "drawable"
+
+    const-string/jumbo v6, "com.android.systemui"
+
+    invoke-virtual {v4, p2, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+
+    move-result v1
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+
+    goto :goto_1
 .end method
 
 .method static initGlobals(Landroid/os/Looper;)V
@@ -2751,7 +3073,7 @@
 
     move-result-object v3
 
-    const v4, 0x10700a8
+    const v4, 0x10700a9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -2844,31 +3166,211 @@
     return v0
 .end method
 
-.method public static openDefaultWallpaper(Landroid/content/Context;I)Ljava/io/InputStream;
-    .locals 11
-
-    const/4 v10, 0x1
-
-    const/4 v9, 0x0
-
-    const/4 v8, 0x2
-
-    if-ne p1, v8, :cond_0
-
-    return-object v9
-
-    :cond_0
-    const-string/jumbo v7, "ro.config.wallpaper"
-
-    const v0, 0x10802a1
-
-    sget-object v8, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v9, "openDefaultWallpaper()"
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+.method private openDefaultInfinityWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
+    .locals 12
 
     const/4 v5, 0x0
+
+    const/4 v7, 0x0
+
+    :try_start_0
+    sget-object v9, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v9}, Landroid/app/WallpaperManager$Globals;->-get1(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v9
+
+    invoke-interface {v9}, Landroid/app/IWallpaperManager;->getLastWallpaper()Landroid/content/ComponentName;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v7
+
+    const/4 v0, 0x0
+
+    if-eqz v7, :cond_1
+
+    invoke-virtual {v7}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {p0, v9}, Landroid/app/WallpaperManager;->parseInfinityColorInfo(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "default_wallpaper"
+
+    const-string/jumbo v9, "black"
+
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_0
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "default_wallpaper_"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    const/4 v6, 0x0
+
+    :try_start_1
+    const-string/jumbo v9, "com.samsung.android.wallpaper.res"
+
+    const/4 v10, 0x0
+
+    invoke-virtual {p1, v9, v10}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "drawable"
+
+    const-string/jumbo v11, "com.samsung.android.wallpaper.res"
+
+    invoke-virtual {v9, v1, v10, v11}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v6}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_2
+
+    move-result-object v5
+
+    :goto_0
+    if-nez v5, :cond_1
+
+    :try_start_2
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "drawable"
+
+    const-string/jumbo v11, "android"
+
+    invoke-virtual {v9, v1, v10, v11}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v6}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+    :try_end_2
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_2 .. :try_end_2} :catch_2
+
+    move-result-object v5
+
+    :cond_1
+    :goto_1
+    sget-object v9, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "openDefaultInfinityWallpaper color="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v5
+
+    :catch_0
+    move-exception v4
+
+    invoke-virtual {v4}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v9
+
+    throw v9
+
+    :catch_1
+    move-exception v2
+
+    :try_start_3
+    invoke-virtual {v2}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    :try_end_3
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_3 .. :try_end_3} :catch_2
+
+    goto :goto_0
+
+    :catch_2
+    move-exception v3
+
+    sget-object v9, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v10, "Resource not found for still infinity wallpaper"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
+.method public static openDefaultWallpaper(Landroid/content/Context;I)Ljava/io/InputStream;
+    .locals 13
+
+    const/4 v12, 0x1
+
+    const/4 v11, 0x0
+
+    const/4 v10, 0x2
+
+    if-ne p1, v10, :cond_0
+
+    return-object v11
+
+    :cond_0
+    const-string/jumbo v9, "ro.config.wallpaper"
+
+    const v0, 0x108029c
+
+    sget-object v10, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v11, "openDefaultWallpaper()"
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v6, 0x0
 
     invoke-static {}, Landroid/app/WallpaperManager;->getDefaultWallpaperFile()Ljava/io/File;
 
@@ -2877,103 +3379,138 @@
     if-eqz v1, :cond_1
 
     :try_start_0
-    new-instance v6, Ljava/io/FileInputStream;
+    new-instance v7, Ljava/io/FileInputStream;
 
-    invoke-direct {v6, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    invoke-direct {v7, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v5, v6
+    move-object v6, v7
 
     :cond_1
     :goto_0
-    if-nez v5, :cond_2
+    if-nez v6, :cond_2
+
+    :try_start_1
+    const-string/jumbo v10, "com.samsung.android.wallpaper.res"
+
+    const/4 v11, 0x0
+
+    invoke-virtual {p0, v10, v11}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const/4 v11, 0x1
+
+    invoke-static {v8, v11}, Landroid/app/WallpaperManager;->getDefaultWallpaperID(Landroid/content/Context;I)I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+
+    move-result-object v6
+
+    :goto_1
+    if-nez v6, :cond_2
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-static {p0, v10}, Landroid/app/WallpaperManager;->getDefaultWallpaperID(Landroid/content/Context;I)I
+    invoke-static {p0, v12}, Landroid/app/WallpaperManager;->getDefaultWallpaperID(Landroid/content/Context;I)I
 
-    move-result v9
+    move-result v11
 
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
 
-    move-result-object v5
+    move-result-object v6
 
     :cond_2
-    sget-object v8, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+    sget-object v10, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
 
-    invoke-static {v8}, Landroid/app/WallpaperManager$Globals;->-get1(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+    invoke-static {v10}, Landroid/app/WallpaperManager$Globals;->-get1(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
 
-    move-result-object v8
+    move-result-object v10
 
-    if-nez v8, :cond_3
+    if-nez v10, :cond_3
 
-    sget-object v8, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+    sget-object v10, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v9, "WallpaperService not running"
+    const-string/jumbo v11, "WallpaperService not running"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v8, Ljava/lang/RuntimeException;
+    new-instance v10, Ljava/lang/RuntimeException;
 
-    new-instance v9, Landroid/os/DeadSystemException;
+    new-instance v11, Landroid/os/DeadSystemException;
 
-    invoke-direct {v9}, Landroid/os/DeadSystemException;-><init>()V
+    invoke-direct {v11}, Landroid/os/DeadSystemException;-><init>()V
 
-    invoke-direct {v8, v9}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v10, v11}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v8
+    throw v10
 
     :catch_0
-    move-exception v3
+    move-exception v4
 
-    sget-object v8, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+    sget-object v10, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v9, "getDefaultWallpaperFile error:"
+    const-string/jumbo v11, "getDefaultWallpaperFile error:"
 
-    invoke-static {v8, v9, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v10, v11, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    :cond_3
-    :try_start_1
-    sget-object v8, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v8}, Landroid/app/WallpaperManager$Globals;->-get1(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v8
-
-    const/4 v9, 0x1
-
-    invoke-interface {v8, v9}, Landroid/app/IWallpaperManager;->setSWPTypePreload(I)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_1
-
-    :goto_1
-    return-object v5
-
     :catch_1
-    move-exception v4
+    move-exception v2
 
-    sget-object v8, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v9, "Can\'t put value of SETTINGS_SYSTEMUI_TRANSPARENCY"
-
-    invoke-static {v8, v9, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {v2}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
     goto :goto_1
 
+    :cond_3
+    :try_start_2
+    sget-object v10, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v10}, Landroid/app/WallpaperManager$Globals;->-get1(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v10
+
+    const/4 v11, 0x1
+
+    invoke-interface {v10, v11}, Landroid/app/IWallpaperManager;->setSWPTypePreload(I)V
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_3
+    .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_2
+
+    :goto_2
+    return-object v6
+
     :catch_2
-    move-exception v2
+    move-exception v5
 
-    invoke-virtual {v2}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    sget-object v10, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
 
-    move-result-object v8
+    const-string/jumbo v11, "Can\'t put value of SETTINGS_SYSTEMUI_TRANSPARENCY"
 
-    throw v8
+    invoke-static {v10, v11, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
+
+    :catch_3
+    move-exception v3
+
+    invoke-virtual {v3}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v10
+
+    throw v10
 .end method
 
 .method private parseInfinityColorInfo(Ljava/lang/String;)Ljava/lang/String;
@@ -3494,6 +4031,46 @@
 
     if-eqz v0, :cond_3
 
+    const/4 v0, 0x1
+
+    invoke-static {v0}, Landroid/app/WallpaperManager;->getOMCWallpaperFile(I)Ljava/io/File;
+
+    move-result-object v0
+
+    if-nez v0, :cond_3
+
+    const/4 v0, 0x2
+
+    invoke-static {v0}, Landroid/app/WallpaperManager;->getOMCWallpaperFile(I)Ljava/io/File;
+
+    move-result-object v0
+
+    if-nez v0, :cond_3
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/app/WallpaperManager;->getCSCWallpaperFile(ILandroid/app/WallpaperManager$SubUserWallpaperChecker;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    if-nez v0, :cond_3
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/app/WallpaperManager;->getCSCWallpaperFile(ILandroid/app/WallpaperManager$SubUserWallpaperChecker;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    if-nez v0, :cond_3
+
     sget-object v0, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
 
     invoke-static {v0}, Landroid/app/WallpaperManager$Globals;->-get1(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
@@ -3630,7 +4207,7 @@
 
     move/from16 v0, p1
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_4
 
     sget-object v1, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
 
@@ -3642,6 +4219,9 @@
 
     :goto_0
     invoke-direct/range {p0 .. p2}, Landroid/app/WallpaperManager;->getPreloadWallpaperID(ILjava/lang/String;)I
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
 
     move-result v17
 
@@ -3651,13 +4231,39 @@
 
     move/from16 v0, p1
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_5
 
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+    :try_start_2
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v2, "com.samsung.android.wallpaper.res"
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    :try_end_2
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
     move-result-object v16
 
     :goto_1
+    if-nez v16, :cond_2
+
+    :try_start_3
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v16
+
+    :cond_2
+    :goto_2
     new-instance v6, Landroid/os/Bundle;
 
     invoke-direct {v6}, Landroid/os/Bundle;-><init>()V
@@ -3713,24 +4319,24 @@
     move/from16 v7, p1
 
     invoke-interface/range {v1 .. v9}, Landroid/app/IWallpaperManager;->setWallpaper(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/Rect;ZLandroid/os/Bundle;ILandroid/app/IWallpaperManagerCallback;I)Landroid/os/ParcelFileDescriptor;
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
     move-result-object v13
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_3
 
     const/4 v14, 0x0
 
-    :try_start_2
+    :try_start_4
     new-instance v15, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
 
     invoke-direct {v15, v13}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    :try_start_3
+    :try_start_5
     invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
 
     move-result-object v1
@@ -3742,32 +4348,46 @@
     invoke-virtual {v15}, Ljava/io/FileOutputStream;->close()V
 
     invoke-virtual {v8}, Landroid/app/WallpaperManager$WallpaperSetCompletion;->waitForCompletion()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    :try_start_4
+    :try_start_6
     invoke-static {v15}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    :cond_2
-    :goto_2
+    :cond_3
+    :goto_3
     return-void
 
-    :cond_3
+    :cond_4
     sget-object v1, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v2, "setOppositeSideOfWallpaper set home wallpaper to still image"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
 
     const/16 p1, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_4
-    :try_start_5
+    :catch_1
+    move-exception v10
+
+    invoke-virtual {v10}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    :try_end_6
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
+
+    goto :goto_1
+
+    :catch_2
+    move-exception v12
+
+    invoke-virtual {v12}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_3
+
+    :cond_5
+    :try_start_7
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
@@ -3781,51 +4401,40 @@
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-    :try_end_5
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_5 .. :try_end_5} :catch_1
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
+    :try_end_7
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7 .. :try_end_7} :catch_3
+    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_0
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
 
     move-result-object v16
 
-    goto :goto_1
+    goto :goto_2
 
-    :catch_1
+    :catch_3
     move-exception v10
 
-    :try_start_6
+    :try_start_8
     invoke-virtual {v10}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
-    :try_end_6
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
 
-    goto :goto_1
-
-    :catch_2
-    move-exception v12
-
-    invoke-virtual {v12}, Ljava/io/IOException;->printStackTrace()V
-
-    goto :goto_2
+    goto/16 :goto_2
 
     :catchall_0
     move-exception v1
 
-    :goto_3
-    :try_start_7
+    :goto_4
     invoke-static {v14}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     throw v1
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_0
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
+    :try_end_8
+    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_8} :catch_0
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_2
 
     :catchall_1
     move-exception v1
 
     move-object v14, v15
 
-    goto :goto_3
+    goto :goto_4
 .end method
 
 .method private setResource(III)I
@@ -6453,6 +7062,59 @@
     move-result-object v3
 
     throw v3
+.end method
+
+.method public isEnabledMultiLockWallpaper()Z
+    .locals 3
+
+    sget-object v1, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v1}, Landroid/app/WallpaperManager$Globals;->-get1(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    sget-object v1, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "WallpaperService not running"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    new-instance v2, Landroid/os/DeadSystemException;
+
+    invoke-direct {v2}, Landroid/os/DeadSystemException;-><init>()V
+
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v1
+
+    :cond_0
+    :try_start_0
+    sget-object v1, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v1}, Landroid/app/WallpaperManager$Globals;->-get1(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Landroid/app/IWallpaperManager;->isEnabledMultiLockWallpaper()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public isInfinityWallpaper()Z

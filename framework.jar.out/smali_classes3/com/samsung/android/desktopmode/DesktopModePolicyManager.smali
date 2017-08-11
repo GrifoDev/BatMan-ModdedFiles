@@ -175,7 +175,7 @@
 
     new-instance v0, Ljava/util/HashSet;
 
-    const/16 v1, 0x8
+    const/16 v1, 0x9
 
     new-array v1, v1, [Ljava/lang/String;
 
@@ -187,33 +187,39 @@
 
     aput-object v2, v1, v5
 
-    const-string/jumbo v2, "com.sec.android.inputmethod.iwnnime.japan"
+    const-string/jumbo v2, "com.sec.android.inputmethod.beta"
 
     aput-object v2, v1, v6
 
-    const-string/jumbo v2, "com.samsung.android.app.spage"
+    const-string/jumbo v2, "com.sec.android.inputmethod.iwnnime.japan"
 
     aput-object v2, v1, v7
 
-    const-string/jumbo v2, "com.microsoft.office.word"
+    const-string/jumbo v2, "com.samsung.android.app.spage"
 
     aput-object v2, v1, v8
 
-    const-string/jumbo v2, "com.microsoft.office.excel"
+    const-string/jumbo v2, "com.microsoft.office.word"
 
     const/4 v3, 0x5
 
     aput-object v2, v1, v3
 
-    const-string/jumbo v2, "com.microsoft.office.powerpoint"
+    const-string/jumbo v2, "com.microsoft.office.excel"
 
     const/4 v3, 0x6
 
     aput-object v2, v1, v3
 
-    const-string/jumbo v2, "com.facebook.katana"
+    const-string/jumbo v2, "com.microsoft.office.powerpoint"
 
     const/4 v3, 0x7
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "com.facebook.katana"
+
+    const/16 v3, 0x8
 
     aput-object v2, v1, v3
 
@@ -225,7 +231,11 @@
 
     sput-object v0, Lcom/samsung/android/desktopmode/DesktopModePolicyManager;->hKillPolicyPackages:Ljava/util/HashSet;
 
-    new-array v0, v4, [Ljava/lang/String;
+    new-array v0, v5, [Ljava/lang/String;
+
+    const-string/jumbo v1, "com.samsung.android.app.spage"
+
+    aput-object v1, v0, v4
 
     sput-object v0, Lcom/samsung/android/desktopmode/DesktopModePolicyManager;->sNotSupportedListPackages:[Ljava/lang/String;
 

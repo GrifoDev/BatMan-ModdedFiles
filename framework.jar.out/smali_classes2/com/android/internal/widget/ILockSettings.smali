@@ -375,7 +375,7 @@
     .end annotation
 .end method
 
-.method public abstract sendLockTypeChangedInfo()V
+.method public abstract sendLockTypeChangedInfo(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -32,7 +32,11 @@
 
 .field private static final HANDLER_MSG_START_MHDR_SERVICE:I = 0x64
 
+.field private static final HANDLER_MSG_START_SMART_FITTING_SERVICE:I = 0xc8
+
 .field private static final HANDLER_MSG_STOP_MHDR_SERVICE:I = 0x65
+
+.field private static final HANDLER_MSG_STOP_SMART_FITTING_SERVICE:I = 0xc9
 
 .field private static final INTENT_SMARTFIT_FOUND_BLACK_BAR:Ljava/lang/String; = "com.samsung.intent.action.FOUND_BLACK_BAR"
 
@@ -134,7 +138,15 @@
     return p1
 .end method
 
-.method static synthetic -set1(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;Lcom/samsung/android/smartfitting/ISmartFittingService;)Lcom/samsung/android/smartfitting/ISmartFittingService;
+.method static synthetic -set1(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->mSmartFittingMode:I
+
+    return p1
+.end method
+
+.method static synthetic -set2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;Lcom/samsung/android/smartfitting/ISmartFittingService;)Lcom/samsung/android/smartfitting/ISmartFittingService;
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->mSmartFittingServiceBinder:Lcom/samsung/android/smartfitting/ISmartFittingService;
@@ -142,7 +154,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic -set3(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->mTopActivityName:Ljava/lang/String;
@@ -1314,47 +1326,41 @@
 .end method
 
 .method public declared-synchronized startSmartFittingService()V
-    .locals 4
+    .locals 3
 
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v2, "CodecSolution"
+    const-string/jumbo v1, "CodecSolution"
 
-    const-string/jumbo v3, "startSmartFittingService"
+    const-string/jumbo v2, "startSmartFittingService"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Landroid/content/Intent;
+    iget-object v1, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->mHandler:Landroid/os/Handler;
 
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+    const/16 v2, 0xc8
 
-    const-string/jumbo v2, "com.samsung.android.smartfitting"
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    const-string/jumbo v3, "com.samsung.android.smartfitting.SmartFittingService"
+    move-result-object v0
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    iget-object v1, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->mHandler:Landroid/os/Handler;
 
-    iget-object v2, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->mContext:Landroid/content/Context;
-
-    sget-object v3, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
-
-    invoke-virtual {v2, v0, v3}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-object v1
 
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception v1
 
     monitor-exit p0
 
-    throw v2
+    throw v1
 .end method
 
 .method public stopMhdrService()V
@@ -1393,25 +1399,17 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Landroid/content/Intent;
+    iget-object v1, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->mHandler:Landroid/os/Handler;
 
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+    const/16 v2, 0xc9
 
-    const-string/jumbo v1, "com.samsung.android.smartfitting"
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    const-string/jumbo v2, "com.samsung.android.smartfitting.SmartFittingService"
+    move-result-object v0
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    iget-object v1, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->mContext:Landroid/content/Context;
-
-    sget-object v2, Landroid/os/UserHandle;->CURRENT_OR_SELF:Landroid/os/UserHandle;
-
-    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->stopServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Z
-
-    const/4 v1, 0x1
-
-    iput v1, p0, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->mSmartFittingMode:I
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

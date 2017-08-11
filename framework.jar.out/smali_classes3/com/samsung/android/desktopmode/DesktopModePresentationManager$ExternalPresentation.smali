@@ -268,6 +268,70 @@
 
     invoke-virtual {v9, v11}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    sget v11, Lcom/samsung/android/framework/res/R$id;->intro_image:I
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/ImageView;
+
+    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v5
+
+    iget v11, v7, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    int-to-float v11, v11
+
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Presentation;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v12
+
+    sget v13, Lcom/samsung/android/framework/res/R$fraction;->dex_intro_img_width:I
+
+    const/4 v14, 0x1
+
+    const/4 v15, 0x1
+
+    invoke-virtual {v12, v13, v14, v15}, Landroid/content/res/Resources;->getFraction(III)F
+
+    move-result v12
+
+    mul-float/2addr v11, v12
+
+    float-to-int v11, v11
+
+    iput v11, v5, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    iget v11, v7, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    int-to-float v11, v11
+
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Presentation;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v12
+
+    sget v13, Lcom/samsung/android/framework/res/R$fraction;->dex_intro_img_height:I
+
+    const/4 v14, 0x1
+
+    const/4 v15, 0x1
+
+    invoke-virtual {v12, v13, v14, v15}, Landroid/content/res/Resources;->getFraction(III)F
+
+    move-result v12
+
+    mul-float/2addr v11, v12
+
+    float-to-int v11, v11
+
+    iput v11, v5, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    invoke-virtual {v4, v5}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
     sget v11, Lcom/samsung/android/framework/res/R$id;->intro_msg:I
 
     move-object/from16 v0, p0
@@ -277,6 +341,10 @@
     move-result-object v8
 
     check-cast v8, Landroid/widget/TextView;
+
+    iget v11, v5, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    invoke-virtual {v8, v11}, Landroid/widget/TextView;->setWidth(I)V
 
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -367,70 +435,6 @@
     const/4 v12, 0x0
 
     invoke-virtual {v8, v12, v11}, Landroid/widget/TextView;->setTextSize(IF)V
-
-    sget v11, Lcom/samsung/android/framework/res/R$id;->intro_image:I
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v11}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/ImageView;
-
-    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v5
-
-    iget v11, v7, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    int-to-float v11, v11
-
-    invoke-virtual/range {p0 .. p0}, Landroid/app/Presentation;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v12
-
-    sget v13, Lcom/samsung/android/framework/res/R$fraction;->dex_intro_img_width:I
-
-    const/4 v14, 0x1
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v12, v13, v14, v15}, Landroid/content/res/Resources;->getFraction(III)F
-
-    move-result v12
-
-    mul-float/2addr v11, v12
-
-    float-to-int v11, v11
-
-    iput v11, v5, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    iget v11, v7, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    int-to-float v11, v11
-
-    invoke-virtual/range {p0 .. p0}, Landroid/app/Presentation;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v12
-
-    sget v13, Lcom/samsung/android/framework/res/R$fraction;->dex_intro_img_height:I
-
-    const/4 v14, 0x1
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v12, v13, v14, v15}, Landroid/content/res/Resources;->getFraction(III)F
-
-    move-result v12
-
-    mul-float/2addr v11, v12
-
-    float-to-int v11, v11
-
-    iput v11, v5, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    invoke-virtual {v4, v5}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     invoke-direct/range {p0 .. p0}, Lcom/samsung/android/desktopmode/DesktopModePresentationManager$ExternalPresentation;->getDefaultWallpaper()Landroid/graphics/drawable/Drawable;
 
