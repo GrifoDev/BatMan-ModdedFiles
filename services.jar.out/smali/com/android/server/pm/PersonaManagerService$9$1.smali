@@ -44,13 +44,13 @@
 
     iget v1, p0, Lcom/android/server/pm/PersonaManagerService$9$1;->val$userHandle:I
 
-    invoke-static {v0, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap55(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap54(Lcom/android/server/pm/PersonaManagerService;I)V
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$9$1;->this$1:Lcom/android/server/pm/PersonaManagerService$9;
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService$9;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PersonaManagerService;->-get18(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -69,7 +69,7 @@
 
     iget v2, p0, Lcom/android/server/pm/PersonaManagerService$9$1;->val$userHandle:I
 
-    invoke-static {v0, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap56(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v0, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap55(Lcom/android/server/pm/PersonaManagerService;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

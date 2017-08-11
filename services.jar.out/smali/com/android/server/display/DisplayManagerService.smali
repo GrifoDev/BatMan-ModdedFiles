@@ -1522,121 +1522,182 @@
 .end method
 
 .method private createVirtualDisplayInternal(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/media/projection/IMediaProjection;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;I)I
-    .locals 14
+    .locals 19
 
-    iget-object v13, p0, Lcom/android/server/display/DisplayManagerService;->mSyncRoot:Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    move-object/from16 v0, p0
 
-    monitor-enter v13
+    iget-object v0, v0, Lcom/android/server/display/DisplayManagerService;->mSyncRoot:Lcom/android/server/display/DisplayManagerService$SyncRoot;
+
+    move-object/from16 v18, v0
+
+    monitor-enter v18
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService;->mVirtualDisplayAdapter:Lcom/android/server/display/VirtualDisplayAdapter;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_0
+    iget-object v1, v0, Lcom/android/server/display/DisplayManagerService;->mVirtualDisplayAdapter:Lcom/android/server/display/VirtualDisplayAdapter;
 
-    const-string/jumbo v0, "DisplayManagerService"
+    if-nez v1, :cond_0
 
-    const-string/jumbo v1, "Rejecting request to create private virtual display because the virtual display adapter is not available."
+    const-string/jumbo v1, "DisplayManagerService"
 
-    invoke-static {v0, v1}, Lcom/android/server/power/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v2, "Rejecting request to create private virtual display because the virtual display adapter is not available."
+
+    invoke-static {v1, v2}, Lcom/android/server/power/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    monitor-exit v13
+    monitor-exit v18
 
-    return v0
+    return v1
 
     :cond_0
+    const/4 v12, 0x0
+
+    const/4 v13, 0x0
+
+    move/from16 v0, p10
+
+    and-int/lit16 v1, v0, 0x80
+
+    if-eqz v1, :cond_1
+
     :try_start_1
-    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService;->mVirtualDisplayAdapter:Lcom/android/server/display/VirtualDisplayAdapter;
+    move-object/from16 v0, p0
 
-    move-object v1, p1
+    iget-object v1, v0, Lcom/android/server/display/DisplayManagerService;->mDisplayDevices:Ljava/util/ArrayList;
 
-    move-object/from16 v2, p2
+    const/4 v2, 0x0
 
-    move/from16 v3, p3
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v4, p4
+    move-result-object v17
 
-    move-object/from16 v5, p5
+    check-cast v17, Lcom/android/server/display/DisplayDevice;
 
-    move/from16 v6, p6
+    if-eqz v17, :cond_1
 
-    move/from16 v7, p7
+    invoke-virtual/range {v17 .. v17}, Lcom/android/server/display/DisplayDevice;->getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
 
-    move/from16 v8, p8
+    move-result-object v16
 
-    move-object/from16 v9, p9
+    move-object/from16 v0, v16
 
-    move/from16 v10, p10
+    iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->densityDpi:I
 
-    invoke-virtual/range {v0 .. v10}, Lcom/android/server/display/VirtualDisplayAdapter;->createVirtualDisplayLocked(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/media/projection/IMediaProjection;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;I)Lcom/android/server/display/DisplayDevice;
+    move/from16 v0, p8
+
+    if-ne v0, v1, :cond_1
+
+    move-object/from16 v0, v16
+
+    iget v12, v0, Lcom/android/server/display/DisplayDeviceInfo;->xDpi:F
+
+    move-object/from16 v0, v16
+
+    iget v13, v0, Lcom/android/server/display/DisplayDeviceInfo;->yDpi:F
+
+    :cond_1
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/display/DisplayManagerService;->mVirtualDisplayAdapter:Lcom/android/server/display/VirtualDisplayAdapter;
+
+    move-object/from16 v2, p1
+
+    move-object/from16 v3, p2
+
+    move/from16 v4, p3
+
+    move-object/from16 v5, p4
+
+    move-object/from16 v6, p5
+
+    move/from16 v7, p6
+
+    move/from16 v8, p7
+
+    move/from16 v9, p8
+
+    move-object/from16 v10, p9
+
+    move/from16 v11, p10
+
+    invoke-virtual/range {v1 .. v13}, Lcom/android/server/display/VirtualDisplayAdapter;->createVirtualDisplayLocked(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/media/projection/IMediaProjection;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;IFF)Lcom/android/server/display/DisplayDevice;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result-object v11
+    move-result-object v14
 
-    if-nez v11, :cond_1
+    if-nez v14, :cond_2
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    monitor-exit v13
+    monitor-exit v18
 
-    return v0
+    return v1
 
-    :cond_1
+    :cond_2
     :try_start_2
-    invoke-direct {p0, v11}, Lcom/android/server/display/DisplayManagerService;->handleDisplayDeviceAddedLocked(Lcom/android/server/display/DisplayDevice;)V
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v11}, Lcom/android/server/display/DisplayManagerService;->findLogicalDisplayForDeviceLocked(Lcom/android/server/display/DisplayDevice;)Lcom/android/server/display/LogicalDisplay;
+    invoke-direct {v0, v14}, Lcom/android/server/display/DisplayManagerService;->handleDisplayDeviceAddedLocked(Lcom/android/server/display/DisplayDevice;)V
 
-    move-result-object v12
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_2
+    invoke-direct {v0, v14}, Lcom/android/server/display/DisplayManagerService;->findLogicalDisplayForDeviceLocked(Lcom/android/server/display/DisplayDevice;)Lcom/android/server/display/LogicalDisplay;
 
-    invoke-virtual {v12}, Lcom/android/server/display/LogicalDisplay;->getDisplayIdLocked()I
+    move-result-object v15
+
+    if-eqz v15, :cond_3
+
+    invoke-virtual {v15}, Lcom/android/server/display/LogicalDisplay;->getDisplayIdLocked()I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    move-result v0
+    move-result v1
 
-    monitor-exit v13
+    monitor-exit v18
 
-    return v0
+    return v1
 
-    :cond_2
+    :cond_3
     :try_start_3
-    const-string/jumbo v0, "DisplayManagerService"
+    const-string/jumbo v1, "DisplayManagerService"
 
-    const-string/jumbo v1, "Rejecting request to create virtual display because the logical display was not created."
+    const-string/jumbo v2, "Rejecting request to create virtual display because the logical display was not created."
 
-    invoke-static {v0, v1}, Lcom/android/server/power/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/android/server/power/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService;->mVirtualDisplayAdapter:Lcom/android/server/display/VirtualDisplayAdapter;
+    move-object/from16 v0, p0
 
-    invoke-interface {p1}, Landroid/hardware/display/IVirtualDisplayCallback;->asBinder()Landroid/os/IBinder;
+    iget-object v1, v0, Lcom/android/server/display/DisplayManagerService;->mVirtualDisplayAdapter:Lcom/android/server/display/VirtualDisplayAdapter;
 
-    move-result-object v1
+    invoke-interface/range {p1 .. p1}, Landroid/hardware/display/IVirtualDisplayCallback;->asBinder()Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/display/VirtualDisplayAdapter;->releaseVirtualDisplayLocked(Landroid/os/IBinder;)Lcom/android/server/display/DisplayDevice;
+    move-result-object v2
 
-    invoke-direct {p0, v11}, Lcom/android/server/display/DisplayManagerService;->handleDisplayDeviceRemovedLocked(Lcom/android/server/display/DisplayDevice;)V
+    invoke-virtual {v1, v2}, Lcom/android/server/display/VirtualDisplayAdapter;->releaseVirtualDisplayLocked(Landroid/os/IBinder;)Lcom/android/server/display/DisplayDevice;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lcom/android/server/display/DisplayManagerService;->handleDisplayDeviceRemovedLocked(Lcom/android/server/display/DisplayDevice;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    monitor-exit v13
+    monitor-exit v18
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    return v0
+    return v1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v13
+    monitor-exit v18
 
-    throw v0
+    throw v1
 .end method
 
 .method private deliverDeviceEvent(Landroid/os/Bundle;I)V

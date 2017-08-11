@@ -21,6 +21,10 @@
 
 
 # static fields
+.field private static final ABNORMAL_CALL_COUNT_CRITERIA:J = 0x1eL
+
+.field private static final ABNORMAL_CALL_INTERVAL_CRITERIA:J = 0x1f4L
+
 .field public static final ACTION_NETWORK_STATS_POLL:Ljava/lang/String; = "com.android.server.action.NETWORK_STATS_POLL"
 
 .field public static final ACTION_NETWORK_STATS_UPDATED:Ljava/lang/String; = "com.android.server.action.NETWORK_STATS_UPDATED"
@@ -40,6 +44,8 @@
 .field private static final MSG_REGISTER_GLOBAL_ALERT:I = 0x3
 
 .field private static final MSG_UPDATE_IFACES:I = 0x2
+
+.field private static final PERFORM_POLL_REFRESH_MIN_WIN_MS:J = 0x7530L
 
 .field private static final PREFIX_DEV:Ljava/lang/String; = "dev"
 
@@ -89,6 +95,8 @@
 
 .field private final mBaseDir:Ljava/io/File;
 
+.field mCallCount:J
+
 .field private mConfigNetworkTypeCapability:Ljava/lang/String;
 
 .field private mConnManager:Landroid/net/IConnectivityManager;
@@ -104,6 +112,12 @@
 .field private mHandlerCallback:Landroid/os/Handler$Callback;
 
 .field private mIsDuringVideoCall:Z
+
+.field mLastCallingTime:J
+
+.field mLastCallingUid:I
+
+.field mLastPerformPollTime:J
 
 .field private mLastvideoCallSnapshot:Landroid/net/NetworkStats;
 
@@ -341,6 +355,14 @@
     iput-object v0, p0, Lcom/android/server/net/NetworkStatsService;->mLastvideoCallSnapshot:Landroid/net/NetworkStats;
 
     iput-boolean v4, p0, Lcom/android/server/net/NetworkStatsService;->mIsDuringVideoCall:Z
+
+    iput-wide v2, p0, Lcom/android/server/net/NetworkStatsService;->mCallCount:J
+
+    iput v4, p0, Lcom/android/server/net/NetworkStatsService;->mLastCallingUid:I
+
+    iput-wide v2, p0, Lcom/android/server/net/NetworkStatsService;->mLastCallingTime:J
+
+    iput-wide v2, p0, Lcom/android/server/net/NetworkStatsService;->mLastPerformPollTime:J
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -801,11 +823,116 @@
 .end method
 
 .method private createSession(Ljava/lang/String;Z)Landroid/net/INetworkStatsSession;
-    .locals 3
+    .locals 5
 
     invoke-direct {p0}, Lcom/android/server/net/NetworkStatsService;->assertBandwidthControlEnabled()V
 
-    if-eqz p2, :cond_0
+    const-string/jumbo v2, "NetworkStats"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "createSession; CallingUid : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", CallingPid : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v2, "CHU"
+
+    sget-object v3, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "CHM"
+
+    sget-object v3, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "CBK"
+
+    sget-object v3, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "CHN"
+
+    sget-object v3, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "CHC"
+
+    sget-object v3, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v2
+
+    invoke-direct {p0, v2}, Lcom/android/server/net/NetworkStatsService;->isAbnormalCall(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const/4 p2, 0x0
+
+    :cond_1
+    :goto_0
+    if-eqz p2, :cond_2
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -820,12 +947,17 @@
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :cond_0
+    :cond_2
     new-instance v2, Lcom/android/server/net/NetworkStatsService$7;
 
     invoke-direct {v2, p0, p1}, Lcom/android/server/net/NetworkStatsService$7;-><init>(Lcom/android/server/net/NetworkStatsService;Ljava/lang/String;)V
 
     return-object v2
+
+    :cond_3
+    const/4 p2, 0x1
+
+    goto :goto_0
 
     :catchall_0
     move-exception v2
@@ -1213,6 +1345,139 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method private isAbnormalCall(I)Z
+    .locals 8
+
+    const/4 v1, 0x0
+
+    const/4 v0, 0x1
+
+    const/16 v4, 0x2710
+
+    if-le p1, v4, :cond_0
+
+    iget v4, p0, Lcom/android/server/net/NetworkStatsService;->mLastCallingUid:I
+
+    if-ne v4, p1, :cond_0
+
+    const/4 v0, 0x0
+
+    iget-wide v4, p0, Lcom/android/server/net/NetworkStatsService;->mCallCount:J
+
+    const-wide/16 v6, 0x1
+
+    add-long/2addr v4, v6
+
+    iput-wide v4, p0, Lcom/android/server/net/NetworkStatsService;->mCallCount:J
+
+    const-wide/16 v6, 0x1e
+
+    cmp-long v4, v4, v6
+
+    if-lez v4, :cond_0
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v2
+
+    iget-wide v4, p0, Lcom/android/server/net/NetworkStatsService;->mLastCallingTime:J
+
+    sub-long v4, v2, v4
+
+    const-wide/16 v6, 0x1f4
+
+    cmp-long v4, v4, v6
+
+    if-gez v4, :cond_0
+
+    const-string/jumbo v4, "NetworkStats"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "isAbnormalCall: Abnormal call detected("
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "/"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-wide v6, p0, Lcom/android/server/net/NetworkStatsService;->mCallCount:J
+
+    invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ")"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-wide v4, p0, Lcom/android/server/net/NetworkStatsService;->mLastPerformPollTime:J
+
+    const-wide/16 v6, 0x7530
+
+    add-long/2addr v4, v6
+
+    cmp-long v4, v2, v4
+
+    if-lez v4, :cond_3
+
+    const-string/jumbo v4, "NetworkStats"
+
+    const-string/jumbo v5, "isAbnormalCall; PERFORM_POLL_REFRESH_MIN_WIN_MS is expired!"
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    :goto_0
+    iput p1, p0, Lcom/android/server/net/NetworkStatsService;->mLastCallingUid:I
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v4
+
+    iput-wide v4, p0, Lcom/android/server/net/NetworkStatsService;->mLastCallingTime:J
+
+    if-eqz v0, :cond_1
+
+    const-wide/16 v4, 0x0
+
+    iput-wide v4, p0, Lcom/android/server/net/NetworkStatsService;->mCallCount:J
+
+    :cond_1
+    if-nez v1, :cond_2
+
+    iget-wide v4, p0, Lcom/android/server/net/NetworkStatsService;->mLastCallingTime:J
+
+    iput-wide v4, p0, Lcom/android/server/net/NetworkStatsService;->mLastPerformPollTime:J
+
+    :cond_2
+    return v1
+
+    :cond_3
+    const/4 v1, 0x1
+
+    goto :goto_0
 .end method
 
 .method private isBandwidthControlEnabled()Z

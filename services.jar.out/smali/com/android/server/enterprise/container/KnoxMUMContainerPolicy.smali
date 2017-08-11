@@ -7375,6 +7375,18 @@
 .method private notifySdcardSBABlacklistUpdate(I)V
     .locals 4
 
+    sget-object v1, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "KnoxMUMContainerPolicy.notifySdcardWhitelistUpdate"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/Exception;
+
+    invoke-direct {v1}, Ljava/lang/Exception;-><init>()V
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
@@ -7424,6 +7436,18 @@
 
 .method private notifySdcardWhitelistUpdate(I)V
     .locals 4
+
+    sget-object v1, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "KnoxMUMContainerPolicy.notifySdcardWhitelistUpdate"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/Exception;
+
+    invoke-direct {v1}, Ljava/lang/Exception;-><init>()V
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     new-instance v0, Landroid/content/Intent;
 
@@ -34430,12 +34454,71 @@
 .end method
 
 .method public isContactsSharingEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
-    .locals 6
+    .locals 10
 
-    if-eqz p1, :cond_0
+    const/4 v3, 0x1
+
+    const/4 v6, 0x0
+
+    if-eqz p1, :cond_2
 
     iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
+    invoke-static {v2}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    sget-object v7, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v7
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "caller_id_to_show_"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->getUserManagerService()Landroid/os/UserManager;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v2}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v9
+
+    iget-object v9, v9, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8, v6, v6}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v7
+
+    if-ne v7, v3, :cond_0
+
+    :goto_0
+    return v3
+
+    :cond_0
+    move v3, v6
+
+    goto :goto_0
+
+    :cond_1
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v4
@@ -34454,7 +34537,7 @@
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_0
+    :goto_1
     return v1
 
     :catch_0
@@ -34467,7 +34550,7 @@
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
     move-exception v3
@@ -34476,10 +34559,8 @@
 
     throw v3
 
-    :cond_0
-    const/4 v3, 0x0
-
-    return v3
+    :cond_2
+    return v6
 .end method
 
 .method public isEmergencyModeSupported()Z

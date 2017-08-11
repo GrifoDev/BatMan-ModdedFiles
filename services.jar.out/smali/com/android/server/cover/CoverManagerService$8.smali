@@ -39,6 +39,20 @@
 
     iget-object v0, p0, Lcom/android/server/cover/CoverManagerService$8;->this$0:Lcom/android/server/cover/CoverManagerService;
 
+    invoke-static {v0}, Lcom/android/server/cover/CoverManagerService;->-get1(Lcom/android/server/cover/CoverManagerService;)Lcom/android/server/cover/CoverHideAnimator;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/cover/CoverManagerService$8;->this$0:Lcom/android/server/cover/CoverManagerService;
+
+    invoke-static {v1}, Lcom/android/server/cover/CoverManagerService;->-get0(Lcom/android/server/cover/CoverManagerService;)Ljava/lang/Runnable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/cover/CoverHideAnimator;->playCoverHideAnimation(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/android/server/cover/CoverManagerService$8;->this$0:Lcom/android/server/cover/CoverManagerService;
+
     invoke-static {v0}, Lcom/android/server/cover/CoverManagerService;->-get6(Lcom/android/server/cover/CoverManagerService;)Lcom/android/server/cover/StateNotifier;
 
     move-result-object v0

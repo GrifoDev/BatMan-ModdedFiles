@@ -81,7 +81,7 @@
 
     if-eqz v2, :cond_2
 
-    const v1, 0x10304c8
+    const v1, 0x10304cf
 
     :goto_0
     iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager$23;->this$0:Lcom/android/server/policy/PhoneWindowManager;
@@ -247,7 +247,7 @@
 
     if-eqz v2, :cond_3
 
-    const v1, 0x10304a6
+    const v1, 0x10304ad
 
     goto/16 :goto_0
 

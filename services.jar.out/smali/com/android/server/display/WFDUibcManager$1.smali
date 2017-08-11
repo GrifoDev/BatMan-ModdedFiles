@@ -94,7 +94,7 @@
 
     move-result v4
 
-    invoke-static {v3, v4}, Lcom/android/server/display/WFDUibcManager;->-set2(Lcom/android/server/display/WFDUibcManager;I)I
+    invoke-static {v3, v4}, Lcom/android/server/display/WFDUibcManager;->-set1(Lcom/android/server/display/WFDUibcManager;I)I
 
     invoke-static {}, Lcom/android/server/display/WFDUibcManager;->-get0()Z
 
@@ -126,7 +126,7 @@
 
     iget-object v5, p0, Lcom/android/server/display/WFDUibcManager$1;->this$0:Lcom/android/server/display/WFDUibcManager;
 
-    invoke-static {v5}, Lcom/android/server/display/WFDUibcManager;->-get8(Lcom/android/server/display/WFDUibcManager;)I
+    invoke-static {v5}, Lcom/android/server/display/WFDUibcManager;->-get7(Lcom/android/server/display/WFDUibcManager;)I
 
     move-result v5
 
@@ -231,7 +231,7 @@
 
     iget-object v5, p0, Lcom/android/server/display/WFDUibcManager$1;->this$0:Lcom/android/server/display/WFDUibcManager;
 
-    invoke-static {v5}, Lcom/android/server/display/WFDUibcManager;->-get8(Lcom/android/server/display/WFDUibcManager;)I
+    invoke-static {v5}, Lcom/android/server/display/WFDUibcManager;->-get7(Lcom/android/server/display/WFDUibcManager;)I
 
     move-result v5
 

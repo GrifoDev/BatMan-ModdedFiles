@@ -24,8 +24,11 @@
 .method public abstract isCurrentVrListener(Ljava/lang/String;I)Z
 .end method
 
-.method public abstract setVrMode(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
+.method public abstract onScreenStateChanged(Z)V
 .end method
 
-.method public abstract setVrModeImmediate(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
+.method public abstract onSleepStateChanged(Z)V
+.end method
+
+.method public abstract setVrMode(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
 .end method

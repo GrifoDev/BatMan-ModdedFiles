@@ -1404,7 +1404,7 @@
 
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$CaptivePortalState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    const v2, 0x82012
+    const v2, 0x82013
 
     invoke-static {v1, v2}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap5(Lcom/android/server/connectivity/NetworkMonitor;I)V
 
@@ -1924,6 +1924,7 @@
         :pswitch_2
         :pswitch_0
         :pswitch_1
+        :pswitch_0
         :pswitch_0
         :pswitch_3
     .end packed-switch

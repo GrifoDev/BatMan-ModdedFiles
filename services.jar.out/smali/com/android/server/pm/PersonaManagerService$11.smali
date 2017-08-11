@@ -44,7 +44,7 @@
 
     const-string/jumbo v0, "userStopAborted"
 
-    invoke-static {v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap13(Ljava/lang/String;)I
+    invoke-static {v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap12(Ljava/lang/String;)I
 
     return-void
 .end method
@@ -54,7 +54,7 @@
 
     const-string/jumbo v0, "userStopped"
 
-    invoke-static {v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap13(Ljava/lang/String;)I
+    invoke-static {v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap12(Ljava/lang/String;)I
 
     const-string/jumbo v0, "PersonaManagerService"
 
@@ -84,7 +84,7 @@
 
     iget v1, p0, Lcom/android/server/pm/PersonaManagerService$11;->val$personaId:I
 
-    invoke-static {v0, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap65(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap64(Lcom/android/server/pm/PersonaManagerService;I)V
 
     return-void
 .end method

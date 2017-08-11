@@ -96,7 +96,7 @@
 
     const/4 v7, 0x1
 
-    invoke-static {v5, v2, v7}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap2(Lcom/android/server/wallpaper/WallpaperManagerService;II)Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
+    invoke-static {v5, v2, v7}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap3(Lcom/android/server/wallpaper/WallpaperManagerService;II)Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
     move-result-object v3
 
@@ -141,7 +141,7 @@
 
     const/4 v7, 0x1
 
-    invoke-static {v5, v2, v7}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap4(Lcom/android/server/wallpaper/WallpaperManagerService;II)Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
+    invoke-static {v5, v2, v7}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap5(Lcom/android/server/wallpaper/WallpaperManagerService;II)Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -223,7 +223,7 @@
 
     iget-object v7, p0, Lcom/android/server/wallpaper/WallpaperManagerService$1;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    invoke-static {v7}, Lcom/android/server/wallpaper/WallpaperManagerService;->-get2(Lcom/android/server/wallpaper/WallpaperManagerService;)I
+    invoke-static {v7}, Lcom/android/server/wallpaper/WallpaperManagerService;->-get4(Lcom/android/server/wallpaper/WallpaperManagerService;)I
 
     move-result v7
 
@@ -247,7 +247,7 @@
 
     iget-object v5, p0, Lcom/android/server/wallpaper/WallpaperManagerService$1;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    invoke-static {v5}, Lcom/android/server/wallpaper/WallpaperManagerService;->-get2(Lcom/android/server/wallpaper/WallpaperManagerService;)I
+    invoke-static {v5}, Lcom/android/server/wallpaper/WallpaperManagerService;->-get4(Lcom/android/server/wallpaper/WallpaperManagerService;)I
 
     move-result v5
 
@@ -283,7 +283,7 @@
 
     const/4 v7, 0x1
 
-    invoke-static {v5, v1, v7}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap3(Lcom/android/server/wallpaper/WallpaperManagerService;II)Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
+    invoke-static {v5, v1, v7}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap4(Lcom/android/server/wallpaper/WallpaperManagerService;II)Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
     move-result-object v3
 
@@ -314,14 +314,14 @@
 
     iget-object v5, p0, Lcom/android/server/wallpaper/WallpaperManagerService$1;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    invoke-static {v5, v1}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap20(Lcom/android/server/wallpaper/WallpaperManagerService;I)V
+    invoke-static {v5, v1}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap22(Lcom/android/server/wallpaper/WallpaperManagerService;I)V
 
     goto/16 :goto_0
 
     :sswitch_3
     iget-object v5, p0, Lcom/android/server/wallpaper/WallpaperManagerService$1;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    invoke-static {v5}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap12(Lcom/android/server/wallpaper/WallpaperManagerService;)V
+    invoke-static {v5}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap14(Lcom/android/server/wallpaper/WallpaperManagerService;)V
 
     goto/16 :goto_0
 
@@ -434,14 +434,14 @@
 
     iget-object v5, p0, Lcom/android/server/wallpaper/WallpaperManagerService$1;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    invoke-static {v5}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap17(Lcom/android/server/wallpaper/WallpaperManagerService;)V
+    invoke-static {v5}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap19(Lcom/android/server/wallpaper/WallpaperManagerService;)V
 
     goto/16 :goto_0
 
     :sswitch_9
     iget-object v5, p0, Lcom/android/server/wallpaper/WallpaperManagerService$1;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    invoke-static {v5}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap13(Lcom/android/server/wallpaper/WallpaperManagerService;)V
+    invoke-static {v5}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap15(Lcom/android/server/wallpaper/WallpaperManagerService;)V
 
     goto/16 :goto_0
 

@@ -248,7 +248,7 @@
 
     check-cast v11, Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;
 
-    const-string/jumbo v24, "https://%s/dm/v1/dev/check2"
+    const-string/jumbo v24, "https://%s/dm/v1/dev/check4"
 
     move-object/from16 v0, p0
 
@@ -359,7 +359,7 @@
 
     move-result-object v17
 
-    if-eqz v17, :cond_6
+    if-eqz v17, :cond_7
 
     invoke-virtual/range {v17 .. v17}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getHttpStatusCode()I
 
@@ -589,6 +589,8 @@
 
     move-result-object v19
 
+    if-eqz v19, :cond_5
+
     invoke-static/range {v19 .. v19}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
     invoke-interface/range {v19 .. v19}, Ljava/util/List;->size()I
@@ -777,7 +779,7 @@
 
     invoke-static/range {v24 .. v25}, Lcom/samsung/android/rlc/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v21, :cond_5
+    if-eqz v21, :cond_6
 
     const/16 v24, 0x193
 
@@ -785,9 +787,9 @@
 
     move/from16 v1, v24
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_6
 
-    if-eqz v23, :cond_5
+    if-eqz v23, :cond_6
 
     sget-object v24, Lcom/samsung/android/rlc/receiver/handler/CheckRegistrationHandler;->TAG:Ljava/lang/String;
 
@@ -867,6 +869,41 @@
     goto/16 :goto_2
 
     :cond_5
+    const-string/jumbo v24, "retryInterval1"
+
+    const-wide/32 v26, 0xf731400
+
+    invoke-static/range {v26 .. v27}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v24
+
+    move-object/from16 v2, v25
+
+    invoke-static {v0, v1, v2}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v24, "retryInterval2"
+
+    const-wide/32 v26, 0x240c8400
+
+    invoke-static/range {v26 .. v27}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v24
+
+    move-object/from16 v2, v25
+
+    invoke-static {v0, v1, v2}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_2
+
+    :cond_6
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v24
@@ -883,7 +920,7 @@
 
     goto/16 :goto_1
 
-    :cond_6
+    :cond_7
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v24

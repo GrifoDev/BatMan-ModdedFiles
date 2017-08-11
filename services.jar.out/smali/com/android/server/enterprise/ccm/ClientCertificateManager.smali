@@ -609,6 +609,8 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_2
+
     const-string/jumbo v7, "SELECT * FROM MUMCONTAINER;"
 
     const/4 v8, 0x0
@@ -621,14 +623,14 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3
 
     :goto_0
     invoke-interface {v2}, Landroid/database/Cursor;->isAfterLast()Z
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_3
 
     const/4 v7, 0x0
 
@@ -679,7 +681,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7
 
     sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
@@ -690,11 +692,22 @@
     return-void
 
     :cond_2
-    if-eqz v2, :cond_3
+    :try_start_1
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v8, "DB is null"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_3
+    if-eqz v2, :cond_4
 
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
-    :cond_3
+    :cond_4
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
@@ -704,24 +717,24 @@
     :catchall_0
     move-exception v7
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
-    :cond_4
-    if-eqz v0, :cond_5
+    :cond_5
+    if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
 
-    :cond_5
+    :cond_6
     throw v7
 
-    :cond_6
+    :cond_7
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v7
 
-    if-nez v7, :cond_a
+    if-nez v7, :cond_b
 
     const/4 v6, 0x0
 
@@ -730,7 +743,7 @@
 
     move-result v7
 
-    if-ge v6, v7, :cond_b
+    if-ge v6, v7, :cond_c
 
     const/4 v5, -0x1
 
@@ -749,65 +762,6 @@
     move-result v7
 
     const-string/jumbo v8, "com.samsung.android.email.provider"
-
-    invoke-direct {p0, v7, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getPackageUid(ILjava/lang/String;)I
-
-    move-result v5
-
-    if-eq v5, v13, :cond_8
-
-    invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/lang/String;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
-
-    move-result v8
-
-    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/lang/String;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
-
-    move-result v7
-
-    invoke-static {v12, v8, v7, v5, v11}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_manage_exempt_list(ZIIIZ)J
-
-    :cond_7
-    :goto_3
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_2
-
-    :cond_8
-    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/lang/String;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
-
-    move-result v7
-
-    const-string/jumbo v8, "com.samsung.android.email.sync"
 
     invoke-direct {p0, v7, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getPackageUid(ILjava/lang/String;)I
 
@@ -845,7 +799,11 @@
 
     invoke-static {v12, v8, v7, v5, v11}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_manage_exempt_list(ZIIIZ)J
 
-    goto :goto_3
+    :cond_8
+    :goto_3
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_2
 
     :cond_9
     invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -862,13 +820,13 @@
 
     move-result v7
 
-    const-string/jumbo v8, "com.android.exchange"
+    const-string/jumbo v8, "com.samsung.android.email.sync"
 
     invoke-direct {p0, v7, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getPackageUid(ILjava/lang/String;)I
 
     move-result v5
 
-    if-eq v5, v13, :cond_7
+    if-eq v5, v13, :cond_a
 
     invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -903,6 +861,61 @@
     goto :goto_3
 
     :cond_a
+    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/lang/String;
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+
+    move-result v7
+
+    const-string/jumbo v8, "com.android.exchange"
+
+    invoke-direct {p0, v7, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getPackageUid(ILjava/lang/String;)I
+
+    move-result v5
+
+    if-eq v5, v13, :cond_8
+
+    invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/lang/String;
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+
+    move-result v8
+
+    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/lang/String;
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+
+    move-result v7
+
+    invoke-static {v12, v8, v7, v5, v11}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_manage_exempt_list(ZIIIZ)J
+
+    goto :goto_3
+
+    :cond_b
     sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v8, "No Admin for this container"
@@ -911,7 +924,7 @@
 
     return-void
 
-    :cond_b
+    :cond_c
     return-void
 .end method
 

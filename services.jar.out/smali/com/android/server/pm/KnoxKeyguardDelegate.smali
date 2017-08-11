@@ -6,6 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/pm/KnoxKeyguardDelegate$1;,
+        Lcom/android/server/pm/KnoxKeyguardDelegate$BootReceiver;,
         Lcom/android/server/pm/KnoxKeyguardDelegate$KeyguardHandler;
     }
 .end annotation
@@ -15,6 +17,8 @@
 .field public static final FLAG_B2C_PWC_RESET:I = 0x40
 
 .field public static final FLAG_DISMISS_KNOX_KEYGUARD:I = 0x2
+
+.field private static final FLAG_FAST_SHOW_KEYGUARD:I = 0x4
 
 .field protected static final FLAG_FROM_NOTIFICATION:I = 0x2
 
@@ -50,8 +54,14 @@
 
 .field private static final TIME_TO_CLEAR_PENDING_FLAG:I = 0x1388
 
+.field private static lastInfinityWallpaperColor:Ljava/lang/String;
+
+.field private static lastInfinityWallpaperData:Landroid/graphics/Bitmap;
+
 
 # instance fields
+.field private final eventListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
+
 .field private isHomeShowPending:Z
 
 .field private isOwnerHomeShowPending:Z
@@ -82,7 +92,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/server/pm/KnoxKeyguardDelegate;)Z
+.method static synthetic -get0(Lcom/android/server/pm/KnoxKeyguardDelegate;)Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->eventListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/server/pm/KnoxKeyguardDelegate;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->isOwnerHomeShowPending:Z
@@ -90,12 +108,20 @@
     return v0
 .end method
 
-.method static synthetic -get1(Lcom/android/server/pm/KnoxKeyguardDelegate;)Lcom/android/server/pm/KnoxNativeKeyguardHost;
+.method static synthetic -get2(Lcom/android/server/pm/KnoxKeyguardDelegate;)Lcom/android/server/pm/KnoxNativeKeyguardHost;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mKnoxKeyguardScrim:Lcom/android/server/pm/KnoxNativeKeyguardHost;
 
     return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/server/pm/KnoxKeyguardDelegate;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mVisibleKeyguardOwner:I
+
+    return v0
 .end method
 
 .method static synthetic -set0(Lcom/android/server/pm/KnoxKeyguardDelegate;Z)Z
@@ -146,8 +172,22 @@
     return-void
 .end method
 
+.method static constructor <clinit>()V
+    .locals 1
+
+    const-string/jumbo v0, ""
+
+    sput-object v0, Lcom/android/server/pm/KnoxKeyguardDelegate;->lastInfinityWallpaperColor:Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/android/server/pm/KnoxKeyguardDelegate;->lastInfinityWallpaperData:Landroid/graphics/Bitmap;
+
+    return-void
+.end method
+
 .method constructor <init>(Landroid/content/Context;Lcom/android/server/pm/PersonaManagerService;)V
-    .locals 3
+    .locals 4
 
     const/4 v2, 0x0
 
@@ -172,6 +212,12 @@
     iput-boolean v2, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mIsHidingProcessing:Z
 
     iput-boolean v2, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->isOwnerHomeShowPending:Z
+
+    new-instance v0, Lcom/android/server/pm/KnoxKeyguardDelegate$1;
+
+    invoke-direct {v0, p0}, Lcom/android/server/pm/KnoxKeyguardDelegate$1;-><init>(Lcom/android/server/pm/KnoxKeyguardDelegate;)V
+
+    iput-object v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->eventListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
     iput-object p1, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mContext:Landroid/content/Context;
 
@@ -209,15 +255,17 @@
 
     iget-object v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v1, "desktopmode"
+    new-instance v1, Lcom/android/server/pm/KnoxKeyguardDelegate$BootReceiver;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-direct {v1, p0}, Lcom/android/server/pm/KnoxKeyguardDelegate$BootReceiver;-><init>(Lcom/android/server/pm/KnoxKeyguardDelegate;)V
 
-    move-result-object v0
+    new-instance v2, Landroid/content/IntentFilter;
 
-    check-cast v0, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    const-string/jumbo v3, "android.intent.action.BOOT_COMPLETED"
 
-    iput-object v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mSemDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     invoke-direct {p0}, Lcom/android/server/pm/KnoxKeyguardDelegate;->createScrim()V
 
@@ -332,7 +380,7 @@
 
     invoke-direct {p0, v9}, Lcom/android/server/pm/KnoxKeyguardDelegate;->parseInfinityColorInfo(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     const-string/jumbo v9, "KnoxKeyguardDelegate"
 
@@ -356,7 +404,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
@@ -366,6 +414,34 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    const/4 v2, 0x0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_1
+
+    sget-object v9, Lcom/android/server/pm/KnoxKeyguardDelegate;->lastInfinityWallpaperColor:Ljava/lang/String;
+
+    invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1
+
+    sget-object v9, Lcom/android/server/pm/KnoxKeyguardDelegate;->lastInfinityWallpaperData:Landroid/graphics/Bitmap;
+
+    if-eqz v9, :cond_1
+
+    sget-object v2, Lcom/android/server/pm/KnoxKeyguardDelegate;->lastInfinityWallpaperData:Landroid/graphics/Bitmap;
+
+    :goto_0
+    return-object v2
+
+    :cond_1
+    sput-object v0, Lcom/android/server/pm/KnoxKeyguardDelegate;->lastInfinityWallpaperColor:Ljava/lang/String;
+
     new-instance v4, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v4}, Landroid/graphics/BitmapFactory$Options;-><init>()V
@@ -374,24 +450,24 @@
 
     iput v9, v4, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    const-string/jumbo v7, "keyguard_default_wallpaper"
+    const-string/jumbo v7, "keyguard_default_wallpaper_thumbnail"
 
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v9
 
-    if-nez v9, :cond_1
+    if-nez v9, :cond_2
 
     const-string/jumbo v9, "black"
 
-    invoke-virtual {v1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_3
 
-    :cond_1
-    :goto_0
+    :cond_2
+    :goto_1
     const-string/jumbo v9, "KnoxKeyguardDelegate"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -443,11 +519,13 @@
 
     invoke-static {v5, v6, v4}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    sput-object v2, Lcom/android/server/pm/KnoxKeyguardDelegate;->lastInfinityWallpaperData:Landroid/graphics/Bitmap;
 
-    :cond_2
+    goto :goto_0
+
+    :cond_3
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -462,7 +540,7 @@
 
     move-result-object v9
 
-    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v9
 
@@ -470,12 +548,12 @@
 
     move-result-object v7
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
-    move-exception v2
+    move-exception v1
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     return-object v12
 .end method
@@ -1223,7 +1301,7 @@
 
     iget-boolean v2, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mIsHidingProcessing:Z
 
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_9
 
     :try_start_0
     const-string/jumbo v5, "KnoxKeyguardEventFlag"
@@ -1254,6 +1332,17 @@
     invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     :cond_6
+    and-int/lit8 v5, p3, 0x4
+
+    if-eqz v5, :cond_7
+
+    const-string/jumbo v5, "isFastShowKeyguard"
+
+    const/4 v6, 0x1
+
+    invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    :cond_7
     iget-object v5, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mService:Lcom/android/server/pm/PersonaManagerService;
 
     invoke-virtual {v5, p1}, Lcom/android/server/pm/PersonaManagerService;->getPersonaInfo(I)Lcom/samsung/android/knox/SemPersonaInfo;
@@ -1275,7 +1364,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_a
 
     new-instance v5, Landroid/content/ComponentName;
 
@@ -1298,7 +1387,7 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_8
 
     const-string/jumbo v5, "KnoxKeyguardDelegate"
 
@@ -1369,10 +1458,10 @@
 
     iput-boolean v2, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mIsHidingProcessing:Z
 
-    :cond_7
+    :cond_8
     return-void
 
-    :cond_8
+    :cond_9
     :try_start_1
     const-string/jumbo v5, "KnoxKeyguardEventFlag"
 
@@ -1390,7 +1479,7 @@
 
     goto :goto_0
 
-    :cond_9
+    :cond_a
     new-instance v5, Landroid/content/ComponentName;
 
     const-string/jumbo v6, "com.samsung.knox.kss"
@@ -1847,28 +1936,6 @@
 
     :cond_9
     :try_start_7
-    iget-object v2, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mService:Lcom/android/server/pm/PersonaManagerService;
-
-    invoke-virtual {v2, p1}, Lcom/android/server/pm/PersonaManagerService;->isSdcardAlertAlreadyShown(I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_a
-
-    const-string/jumbo v2, "KnoxKeyguardDelegate"
-
-    const-string/jumbo v3, "isSdcardAlertAlreadyShown is true, skip to show keyguard!"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
-
-    monitor-exit p0
-
-    return-void
-
-    :cond_a
-    :try_start_8
     const-string/jumbo v2, "KnoxKeyguardDelegate"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1904,8 +1971,8 @@
     const/4 v2, 0x1
 
     invoke-direct {p0, p1, v2, p2}, Lcom/android/server/pm/KnoxKeyguardDelegate;->sendKeyguardCommand(IZI)V
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     monitor-exit p0
 
@@ -2016,9 +2083,9 @@
 
     iget-object v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mKnoxKeyguardScrim:Lcom/android/server/pm/KnoxNativeKeyguardHost;
 
-    new-instance v1, Lcom/android/server/pm/KnoxKeyguardDelegate$3;
+    new-instance v1, Lcom/android/server/pm/KnoxKeyguardDelegate$4;
 
-    invoke-direct {v1, p0}, Lcom/android/server/pm/KnoxKeyguardDelegate$3;-><init>(Lcom/android/server/pm/KnoxKeyguardDelegate;)V
+    invoke-direct {v1, p0}, Lcom/android/server/pm/KnoxKeyguardDelegate$4;-><init>(Lcom/android/server/pm/KnoxKeyguardDelegate;)V
 
     invoke-virtual {v0, v1}, Lcom/android/server/pm/KnoxNativeKeyguardHost;->post(Ljava/lang/Runnable;)Z
 
@@ -2320,9 +2387,9 @@
 
     iget-object v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mKnoxKeyguardScrim:Lcom/android/server/pm/KnoxNativeKeyguardHost;
 
-    new-instance v1, Lcom/android/server/pm/KnoxKeyguardDelegate$2;
+    new-instance v1, Lcom/android/server/pm/KnoxKeyguardDelegate$3;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/server/pm/KnoxKeyguardDelegate$2;-><init>(Lcom/android/server/pm/KnoxKeyguardDelegate;Z)V
+    invoke-direct {v1, p0, p1}, Lcom/android/server/pm/KnoxKeyguardDelegate$3;-><init>(Lcom/android/server/pm/KnoxKeyguardDelegate;Z)V
 
     invoke-virtual {v0, v1}, Lcom/android/server/pm/KnoxNativeKeyguardHost;->post(Ljava/lang/Runnable;)Z
 
@@ -2365,9 +2432,9 @@
 
     iget-object v4, p0, Lcom/android/server/pm/KnoxKeyguardDelegate;->mKnoxKeyguardScrim:Lcom/android/server/pm/KnoxNativeKeyguardHost;
 
-    new-instance v5, Lcom/android/server/pm/KnoxKeyguardDelegate$1;
+    new-instance v5, Lcom/android/server/pm/KnoxKeyguardDelegate$2;
 
-    invoke-direct {v5, p0}, Lcom/android/server/pm/KnoxKeyguardDelegate$1;-><init>(Lcom/android/server/pm/KnoxKeyguardDelegate;)V
+    invoke-direct {v5, p0}, Lcom/android/server/pm/KnoxKeyguardDelegate$2;-><init>(Lcom/android/server/pm/KnoxKeyguardDelegate;)V
 
     invoke-virtual {v4, v5}, Lcom/android/server/pm/KnoxNativeKeyguardHost;->post(Ljava/lang/Runnable;)Z
     :try_end_0

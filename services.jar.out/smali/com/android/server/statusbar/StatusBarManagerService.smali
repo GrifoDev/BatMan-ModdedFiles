@@ -68,6 +68,8 @@
 
 .field private mDockedStackSysUiVisibility:I
 
+.field private mEdgeInternal:Lcom/samsung/android/edge/EdgeManagerInternal;
+
 .field private final mFullscreenStackBounds:Landroid/graphics/Rect;
 
 .field private mFullscreenStackSysUiVisibility:I
@@ -189,7 +191,9 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/wm/WindowManagerService;)V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
@@ -247,13 +251,13 @@
 
     iput v1, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mImeWindowVis:I
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mImeToken:Landroid/os/IBinder;
+    iput-object v2, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mImeToken:Landroid/os/IBinder;
 
     iput-boolean v1, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mPanelExpandState:Z
 
     iput-boolean v1, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mQsPanelExpandState:Z
+
+    iput-object v2, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mEdgeInternal:Lcom/samsung/android/edge/EdgeManagerInternal;
 
     new-instance v0, Lcom/android/server/statusbar/StatusBarManagerService$1;
 
@@ -323,7 +327,7 @@
 
     iget v0, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mDisabled2:I
 
-    if-eq v3, v0, :cond_2
+    if-eq v3, v0, :cond_4
 
     :cond_0
     iput v2, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mDisabled1:I
@@ -340,7 +344,7 @@
 
     iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     :try_start_0
     iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
@@ -350,9 +354,34 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    return-void
+    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mEdgeInternal:Lcom/samsung/android/edge/EdgeManagerInternal;
+
+    if-nez v0, :cond_1
+
+    const-class v0, Lcom/samsung/android/edge/EdgeManagerInternal;
+
+    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/edge/EdgeManagerInternal;
+
+    iput-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mEdgeInternal:Lcom/samsung/android/edge/EdgeManagerInternal;
 
     :cond_1
+    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mEdgeInternal:Lcom/samsung/android/edge/EdgeManagerInternal;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService;->mEdgeInternal:Lcom/samsung/android/edge/EdgeManagerInternal;
+
+    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/edge/EdgeManagerInternal;->statusBarDisabled(II)V
+
+    :cond_2
+    :goto_1
+    return-void
+
+    :cond_3
     move-object v0, p0
 
     move v1, p1
@@ -363,7 +392,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_4
     move-object v0, p0
 
     move v1, p1
@@ -374,7 +403,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/statusbar/StatusBarManagerService;->makeDisableHistory2(IIIILjava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v6

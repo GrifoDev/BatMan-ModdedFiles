@@ -57,7 +57,7 @@
 
     iget-object v0, v0, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get26(Lcom/android/server/desktopmode/DesktopModeService;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get27(Lcom/android/server/desktopmode/DesktopModeService;)Ljava/util/List;
 
     move-result-object v0
 
@@ -67,7 +67,7 @@
 
     iget-object v0, v0, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get26(Lcom/android/server/desktopmode/DesktopModeService;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get27(Lcom/android/server/desktopmode/DesktopModeService;)Ljava/util/List;
 
     move-result-object v0
 
@@ -79,7 +79,7 @@
 
     iget-object v0, v0, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get26(Lcom/android/server/desktopmode/DesktopModeService;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get27(Lcom/android/server/desktopmode/DesktopModeService;)Ljava/util/List;
 
     move-result-object v0
 
@@ -132,7 +132,7 @@
 
     iget-object v2, v2, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v2}, Lcom/android/server/desktopmode/DesktopModeService;->-get26(Lcom/android/server/desktopmode/DesktopModeService;)Ljava/util/List;
+    invoke-static {v2}, Lcom/android/server/desktopmode/DesktopModeService;->-get27(Lcom/android/server/desktopmode/DesktopModeService;)Ljava/util/List;
 
     move-result-object v2
 

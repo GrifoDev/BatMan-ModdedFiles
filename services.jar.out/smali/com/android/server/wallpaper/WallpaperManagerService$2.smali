@@ -91,7 +91,7 @@
 
     iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$2;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap16(Lcom/android/server/wallpaper/WallpaperManagerService;Z)V
+    invoke-static {v0, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap18(Lcom/android/server/wallpaper/WallpaperManagerService;Z)V
 
     iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$2;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 

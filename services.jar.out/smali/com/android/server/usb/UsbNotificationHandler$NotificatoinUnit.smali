@@ -153,7 +153,7 @@
     :try_start_1
     iget-object v10, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;->this$0:Lcom/android/server/usb/UsbNotificationHandler;
 
-    invoke-static {v10}, Lcom/android/server/usb/UsbNotificationHandler;->-get1(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
+    invoke-static {v10}, Lcom/android/server/usb/UsbNotificationHandler;->-get2(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
 
     move-result-object v10
 
@@ -253,7 +253,7 @@
 
     iget-object v11, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;->this$0:Lcom/android/server/usb/UsbNotificationHandler;
 
-    invoke-static {v11}, Lcom/android/server/usb/UsbNotificationHandler;->-get1(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
+    invoke-static {v11}, Lcom/android/server/usb/UsbNotificationHandler;->-get2(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
 
     move-result-object v11
 

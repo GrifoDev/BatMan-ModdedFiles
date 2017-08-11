@@ -214,7 +214,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/globalactions/GlobalActionsSViewCoverDialog$Builder;->context:Landroid/content/Context;
 
-    const v5, 0x10304f9
+    const v5, 0x1030500
 
     invoke-direct {v1, v4, v5}, Lcom/android/server/policy/globalactions/GlobalActionsSViewCoverDialog;-><init>(Landroid/content/Context;I)V
 
@@ -371,7 +371,7 @@
 
     move-result-object v4
 
-    const v5, 0x105022e
+    const v5, 0x105023e
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -385,7 +385,7 @@
 
     move-result-object v4
 
-    const v5, 0x105022f
+    const v5, 0x105023f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

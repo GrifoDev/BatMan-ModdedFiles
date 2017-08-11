@@ -829,7 +829,7 @@
 .method private showConstrainedStateNotification(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 8
 
-    const v7, 0x10409fd
+    const v7, 0x1040a06
 
     const/4 v6, 0x0
 
@@ -863,13 +863,13 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
-    const v3, 0x10805b5
+    const v3, 0x10805a0
 
     invoke-virtual {v0, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     iget-object v3, p0, Lcom/android/server/enterprise/utils/ConstrainedState;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040a48
+    const v4, 0x1040a51
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

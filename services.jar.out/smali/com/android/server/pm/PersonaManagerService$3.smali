@@ -164,7 +164,7 @@
 
     aget v18, v13, v7
 
-    invoke-static/range {v17 .. v18}, Lcom/android/server/pm/PersonaManagerService;->-wrap41(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static/range {v17 .. v18}, Lcom/android/server/pm/PersonaManagerService;->-wrap40(Lcom/android/server/pm/PersonaManagerService;I)V
 
     add-int/lit8 v7, v7, 0x1
 
@@ -198,7 +198,7 @@
 
     move-object/from16 v1, p1
 
-    invoke-static {v0, v1, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap60(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
+    invoke-static {v0, v1, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap59(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
 
     :cond_2
     :goto_2
@@ -304,7 +304,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get21(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get22(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
 
     move-result-object v17
 
@@ -326,7 +326,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get21(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get22(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
 
     move-result-object v17
 
@@ -348,7 +348,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get21(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get22(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
 
     move-result-object v17
 
@@ -370,7 +370,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get21(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get22(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
 
     move-result-object v17
 
@@ -392,7 +392,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get21(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get22(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
 
     move-result-object v17
 
@@ -426,7 +426,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get21(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get22(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
 
     move-result-object v17
 
@@ -449,7 +449,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get21(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get22(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
 
     move-result-object v17
 
@@ -472,7 +472,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get21(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get22(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
 
     move-result-object v17
 
@@ -540,7 +540,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     move-result-object v17
 
@@ -558,7 +558,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     move-result-object v17
 
@@ -591,7 +591,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     move-result-object v17
 
@@ -607,7 +607,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     move-result-object v17
 
@@ -651,7 +651,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get25(Lcom/android/server/pm/PersonaManagerService;)Lcom/samsung/android/camera/iris/SemIrisManager;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get26(Lcom/android/server/pm/PersonaManagerService;)Lcom/samsung/android/camera/iris/SemIrisManager;
 
     move-result-object v17
 
@@ -669,7 +669,7 @@
 
     move-object/from16 v18, v0
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/pm/PersonaManagerService;->-get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+    invoke-static/range {v18 .. v18}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
 
     move-result-object v18
 
@@ -712,6 +712,36 @@
 
     if-eqz v10, :cond_b
 
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService$3;->this$0:Lcom/android/server/pm/PersonaManagerService;
+
+    move-object/from16 v17, v0
+
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+
+    move-result-object v17
+
+    new-instance v18, Landroid/os/UserHandle;
+
+    iget v0, v10, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+
+    move/from16 v19, v0
+
+    invoke-direct/range {v18 .. v19}, Landroid/os/UserHandle;-><init>(I)V
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    :goto_4
     const-string/jumbo v17, "PersonaManagerService"
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -752,7 +782,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
 
     move-result-object v17
 
@@ -764,7 +794,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get25(Lcom/android/server/pm/PersonaManagerService;)Lcom/samsung/android/camera/iris/SemIrisManager;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get26(Lcom/android/server/pm/PersonaManagerService;)Lcom/samsung/android/camera/iris/SemIrisManager;
 
     move-result-object v17
 
@@ -776,7 +806,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get25(Lcom/android/server/pm/PersonaManagerService;)Lcom/samsung/android/camera/iris/SemIrisManager;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get26(Lcom/android/server/pm/PersonaManagerService;)Lcom/samsung/android/camera/iris/SemIrisManager;
 
     move-result-object v17
 
@@ -794,7 +824,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
 
     move-result-object v17
 
@@ -845,6 +875,35 @@
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->removeBiometricLockscreen(II)V
 
     goto/16 :goto_3
+
+    :catch_1
+    move-exception v6
+
+    const-string/jumbo v17, "PersonaManagerService"
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "sendBroadcast failed :"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_4
 
     :cond_c
     const-string/jumbo v17, "com.samsung.android.intent.action.FINGERPRINT_ADDED"
@@ -905,7 +964,7 @@
     move-result-object v11
 
     :cond_e
-    :goto_4
+    :goto_5
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
@@ -920,6 +979,36 @@
 
     if-eqz v10, :cond_e
 
+    :try_start_2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService$3;->this$0:Lcom/android/server/pm/PersonaManagerService;
+
+    move-object/from16 v17, v0
+
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+
+    move-result-object v17
+
+    new-instance v18, Landroid/os/UserHandle;
+
+    iget v0, v10, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+
+    move/from16 v19, v0
+
+    invoke-direct/range {v18 .. v19}, Landroid/os/UserHandle;-><init>(I)V
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+
+    :goto_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService$3;->this$0:Lcom/android/server/pm/PersonaManagerService;
@@ -976,7 +1065,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
 
     move-result-object v17
 
@@ -988,7 +1077,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get8(Lcom/android/server/pm/PersonaManagerService;)Landroid/hardware/fingerprint/FingerprintManager;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get9(Lcom/android/server/pm/PersonaManagerService;)Landroid/hardware/fingerprint/FingerprintManager;
 
     move-result-object v17
 
@@ -1000,7 +1089,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get8(Lcom/android/server/pm/PersonaManagerService;)Landroid/hardware/fingerprint/FingerprintManager;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get9(Lcom/android/server/pm/PersonaManagerService;)Landroid/hardware/fingerprint/FingerprintManager;
 
     move-result-object v17
 
@@ -1018,7 +1107,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
 
     move-result-object v17
 
@@ -1082,7 +1171,36 @@
 
     invoke-virtual/range {v17 .. v19}, Lcom/android/server/pm/PersonaManagerService;->setIsFingerAsSupplement(IZ)V
 
-    goto/16 :goto_4
+    goto/16 :goto_5
+
+    :catch_2
+    move-exception v6
+
+    const-string/jumbo v17, "PersonaManagerService"
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "sendBroadcast failed :"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_6
 
     :cond_f
     const-string/jumbo v17, "com.sec.knox.container.INTENT_KNOX_SDP_ACTIVATED"
@@ -1224,7 +1342,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     move-result-object v17
 
@@ -1242,7 +1360,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     move-result-object v17
 
@@ -1269,7 +1387,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     move-result-object v17
 
@@ -1329,7 +1447,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     move-result-object v17
 
@@ -1356,7 +1474,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     move-result-object v17
 
@@ -1416,7 +1534,7 @@
 
     move-object/from16 v17, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/PersonaManagerService;->-get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     move-result-object v17
 

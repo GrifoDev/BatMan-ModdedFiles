@@ -21150,7 +21150,7 @@
 
     check-cast v0, Lcom/android/server/pm/PackageSetting;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v1, p0, Lcom/android/server/pm/Settings;->mPackages:Landroid/util/ArrayMap;
 
@@ -21160,7 +21160,7 @@
 
     iget-object v1, v0, Lcom/android/server/pm/PackageSetting;->sharedUser:Lcom/android/server/pm/SharedUserSetting;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     iget-object v1, v0, Lcom/android/server/pm/PackageSetting;->sharedUser:Lcom/android/server/pm/SharedUserSetting;
 
@@ -21174,8 +21174,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
+    invoke-virtual {v0}, Lcom/android/server/pm/PackageSetting;->isSystem()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const/4 v1, -0x1
+
+    return v1
+
+    :cond_1
     iget-object v1, p0, Lcom/android/server/pm/Settings;->mSharedUsers:Landroid/util/ArrayMap;
 
     iget-object v2, v0, Lcom/android/server/pm/PackageSetting;->sharedUser:Lcom/android/server/pm/SharedUserSetting;
@@ -21196,17 +21208,12 @@
 
     return v1
 
-    :cond_0
+    :cond_2
     iget v1, v0, Lcom/android/server/pm/PackageSetting;->appId:I
 
     invoke-direct {p0, v1}, Lcom/android/server/pm/Settings;->removeUserIdLPw(I)V
 
     iget v1, v0, Lcom/android/server/pm/PackageSetting;->appId:I
-
-    return v1
-
-    :cond_1
-    const/4 v1, -0x1
 
     return v1
 .end method

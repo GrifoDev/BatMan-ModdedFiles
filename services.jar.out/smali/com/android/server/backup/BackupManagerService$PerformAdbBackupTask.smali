@@ -61,11 +61,13 @@
 
 .field mPrivilegeApp:Z
 
+.field mUserId:I
+
 .field final synthetic this$0:Lcom/android/server/backup/BackupManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Landroid/os/ParcelFileDescriptor;Landroid/app/backup/IFullBackupRestoreObserver;ZZZZLjava/lang/String;Ljava/lang/String;ZZZ[Ljava/lang/String;Ljava/util/concurrent/atomic/AtomicBoolean;ZI)V
+.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Landroid/os/ParcelFileDescriptor;Landroid/app/backup/IFullBackupRestoreObserver;ZZZZLjava/lang/String;Ljava/lang/String;ZZZ[Ljava/lang/String;Ljava/util/concurrent/atomic/AtomicBoolean;ZII)V
     .locals 4
 
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
@@ -150,6 +152,10 @@
     move/from16 v0, p16
 
     iput v0, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->mExtraFlag:I
+
+    move/from16 v0, p17
+
+    iput v0, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->mUserId:I
 
     return-void
 
@@ -611,7 +617,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -670,7 +676,52 @@
     goto :goto_0
 
     :cond_1
+    iget v6, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->mUserId:I
+
+    const/16 v7, 0x96
+
+    if-lt v6, v7, :cond_2
+
+    iget v6, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->mUserId:I
+
+    const/16 v7, 0xa0
+
+    if-gt v6, v7, :cond_2
+
     :try_start_1
+    iget-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v6, v6, Lcom/android/server/backup/BackupManagerService;->mPackageManagerBinder:Landroid/content/pm/IPackageManager;
+
+    iget v7, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->mUserId:I
+
+    const/16 v8, 0x40
+
+    invoke-interface {v6, v4, v8, v7}, Landroid/content/pm/IPackageManager;->getPackageInfo(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {p1, v4, v3}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    const-string/jumbo v6, "BackupManagerService"
+
+    const-string/jumbo v7, "Fail to obtain package info for backup - Nowner request"
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_2
+    :try_start_2
     iget-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     invoke-static {v6}, Lcom/android/server/backup/BackupManagerService;->-get8(Lcom/android/server/backup/BackupManagerService;)Landroid/content/pm/PackageManager;
@@ -684,12 +735,12 @@
     move-result-object v2
 
     invoke-virtual {p1, v4, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_2
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_2
 
     goto :goto_0
 
-    :catch_1
+    :catch_2
     move-exception v0
 
     const-string/jumbo v6, "BackupManagerService"
@@ -720,9 +771,9 @@
 
     invoke-static {v6, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 
@@ -780,7 +831,7 @@
 .end method
 
 .method public run()V
-    .locals 36
+    .locals 37
 
     const-string/jumbo v3, "BackupManagerService"
 
@@ -788,21 +839,21 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v31, Ljava/util/TreeMap;
+    new-instance v32, Ljava/util/TreeMap;
 
-    invoke-direct/range {v31 .. v31}, Ljava/util/TreeMap;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/util/TreeMap;-><init>()V
 
-    new-instance v28, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;
+    new-instance v29, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     invoke-direct {v0, v3}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;-><init>(Lcom/android/server/backup/BackupManagerService;)V
 
-    invoke-virtual/range {v28 .. v28}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->establish()V
+    invoke-virtual/range {v29 .. v29}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->establish()V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->sendStartBackup()V
 
@@ -824,22 +875,22 @@
 
     invoke-virtual {v3, v4}, Landroid/content/pm/PackageManager;->getInstalledPackages(I)Ljava/util/List;
 
-    move-result-object v13
+    move-result-object v14
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     :goto_0
-    invoke-interface {v13}, Ljava/util/List;->size()I
+    invoke-interface {v14}, Ljava/util/List;->size()I
 
     move-result v3
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     if-ge v0, v3, :cond_2
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
-    invoke-interface {v13, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v14, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -862,12 +913,12 @@
     :cond_0
     iget-object v3, v7, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v32
 
     invoke-virtual {v0, v3, v7}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_1
-    add-int/lit8 v25, v25, 0x1
+    add-int/lit8 v26, v26, 0x1
 
     goto :goto_0
 
@@ -882,9 +933,9 @@
 
     invoke-static {v3}, Lcom/android/server/AppWidgetBackupBridge;->getWidgetParticipants(I)Ljava/util/List;
 
-    move-result-object v32
+    move-result-object v33
 
-    if-eqz v32, :cond_4
+    if-eqz v33, :cond_4
 
     const-string/jumbo v3, "BackupManagerService"
 
@@ -892,46 +943,46 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v35, Ljava/lang/StringBuilder;
+    new-instance v36, Ljava/lang/StringBuilder;
 
     const/16 v3, 0x80
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v36
 
     invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(I)V
 
     const-string/jumbo v3, "   "
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v36
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface/range {v32 .. v32}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v33 .. v33}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v34
+    move-result-object v35
 
     :goto_1
-    invoke-interface/range {v34 .. v34}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v35 .. v35}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_3
 
-    invoke-interface/range {v34 .. v34}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v35 .. v35}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v33
+    move-result-object v34
 
-    check-cast v33, Ljava/lang/String;
+    check-cast v34, Ljava/lang/String;
 
     const/16 v3, 0x20
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v36
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v36
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v34
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -940,7 +991,7 @@
     :cond_3
     const-string/jumbo v3, "BackupManagerService"
 
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v36 .. v36}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -948,9 +999,9 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v31
+    move-object/from16 v1, v32
 
-    move-object/from16 v2, v32
+    move-object/from16 v2, v33
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->addPackagesToSet(Ljava/util/TreeMap;Ljava/util/List;)V
 
@@ -967,7 +1018,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v31
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1, v3}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->addPackagesToSet(Ljava/util/TreeMap;Ljava/util/List;)V
 
@@ -983,15 +1034,15 @@
     if-eqz v3, :cond_c
 
     :cond_6
-    new-instance v14, Ljava/util/ArrayList;
+    new-instance v15, Ljava/util/ArrayList;
 
-    invoke-virtual/range {v31 .. v31}, Ljava/util/TreeMap;->values()Ljava/util/Collection;
+    invoke-virtual/range {v32 .. v32}, Ljava/util/TreeMap;->values()Ljava/util/Collection;
 
     move-result-object v3
 
-    invoke-direct {v14, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v15, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    new-instance v30, Ljava/io/FileOutputStream;
+    new-instance v31, Ljava/io/FileOutputStream;
 
     move-object/from16 v0, p0
 
@@ -1001,7 +1052,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v31
 
     invoke-direct {v0, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
 
@@ -1026,7 +1077,7 @@
 
     if-lez v3, :cond_10
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
     :goto_2
     move-object/from16 v0, p0
@@ -1045,10 +1096,10 @@
 
     if-eqz v3, :cond_7
 
-    if-eqz v20, :cond_11
+    if-eqz v21, :cond_11
 
     :cond_7
-    move-object/from16 v21, v30
+    move-object/from16 v22, v31
 
     move-object/from16 v0, p0
 
@@ -1061,23 +1112,23 @@
     if-eqz v3, :cond_12
 
     :cond_8
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v25, Ljava/lang/StringBuilder;
 
     const/16 v3, 0x400
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(I)V
 
     const-string/jumbo v3, "ANDROID BACKUP\n"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const/4 v3, 0x4
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1090,7 +1141,7 @@
     const-string/jumbo v3, "\n1\n"
 
     :goto_3
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_0
@@ -1098,7 +1149,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
     .catchall {:try_start_0 .. :try_end_0} :catchall_c
 
-    if-eqz v20, :cond_9
+    if-eqz v21, :cond_9
 
     :try_start_1
     move-object/from16 v0, p0
@@ -1124,7 +1175,7 @@
     :cond_9
     const-string/jumbo v3, "none\n"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_1
@@ -1132,11 +1183,11 @@
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_c
 
-    move-object/from16 v22, v21
+    move-object/from16 v23, v22
 
     :goto_4
     :try_start_2
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1144,11 +1195,11 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v23
+    move-result-object v24
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v24
 
     invoke-virtual {v0, v1}, Ljava/io/FileOutputStream;->write([B)V
 
@@ -1158,28 +1209,32 @@
 
     if-eqz v3, :cond_1b
 
-    new-instance v15, Ljava/util/zip/Deflater;
+    new-instance v16, Ljava/util/zip/Deflater;
 
     const/16 v3, 0x9
 
-    invoke-direct {v15, v3}, Ljava/util/zip/Deflater;-><init>(I)V
+    move-object/from16 v0, v16
 
-    new-instance v21, Ljava/util/zip/DeflaterOutputStream;
+    invoke-direct {v0, v3}, Ljava/util/zip/Deflater;-><init>(I)V
+
+    new-instance v22, Ljava/util/zip/DeflaterOutputStream;
 
     const/4 v3, 0x1
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
-    invoke-direct {v0, v1, v15, v3}, Ljava/util/zip/DeflaterOutputStream;-><init>(Ljava/io/OutputStream;Ljava/util/zip/Deflater;Z)V
+    move-object/from16 v2, v16
+
+    invoke-direct {v0, v1, v2, v3}, Ljava/util/zip/DeflaterOutputStream;-><init>(Ljava/io/OutputStream;Ljava/util/zip/Deflater;Z)V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_9
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_c
 
     :goto_5
-    move-object/from16 v5, v21
+    move-object/from16 v5, v22
 
     :try_start_3
     move-object/from16 v0, p0
@@ -1209,7 +1264,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v14, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v15, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_4
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_4 .. :try_end_4} :catch_2
     .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
@@ -1219,20 +1274,20 @@
     :cond_a
     :goto_6
     :try_start_5
-    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v15}, Ljava/util/ArrayList;->size()I
 
-    move-result v12
+    move-result v13
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     :goto_7
-    move/from16 v0, v25
+    move/from16 v0, v26
 
-    if-ge v0, v12, :cond_18
+    if-ge v0, v13, :cond_18
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
-    invoke-virtual {v14, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v15, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1248,7 +1303,7 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v26
+    move-result v27
 
     new-instance v3, Lcom/android/server/backup/BackupManagerService$FullBackupEngine;
 
@@ -1268,17 +1323,21 @@
 
     iget-boolean v11, v0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->mPrivilegeApp:Z
 
+    move-object/from16 v0, p0
+
+    iget v12, v0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->mUserId:I
+
     const/4 v6, 0x0
 
     move-object/from16 v9, p0
 
-    invoke-direct/range {v3 .. v11}, Lcom/android/server/backup/BackupManagerService$FullBackupEngine;-><init>(Lcom/android/server/backup/BackupManagerService;Ljava/io/OutputStream;Lcom/android/server/backup/BackupManagerService$FullBackupPreflight;Landroid/content/pm/PackageInfo;ZLcom/android/server/backup/BackupManagerService$BackupRestoreTask;IZ)V
+    invoke-direct/range {v3 .. v12}, Lcom/android/server/backup/BackupManagerService$FullBackupEngine;-><init>(Lcom/android/server/backup/BackupManagerService;Ljava/io/OutputStream;Lcom/android/server/backup/BackupManagerService$FullBackupPreflight;Landroid/content/pm/PackageInfo;ZLcom/android/server/backup/BackupManagerService$BackupRestoreTask;IZI)V
 
     move-object/from16 v0, p0
 
     iput-object v3, v0, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->mBackupEngine:Lcom/android/server/backup/BackupManagerService$FullBackupEngine;
 
-    if-eqz v26, :cond_16
+    if-eqz v27, :cond_16
 
     const-string/jumbo v3, "Shared storage"
 
@@ -1303,13 +1362,13 @@
 
     if-eqz v3, :cond_17
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     invoke-virtual {v0, v7, v5}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->backupObbs(Landroid/content/pm/PackageInfo;Ljava/io/OutputStream;)Z
 
-    move-result v29
+    move-result v30
 
-    if-nez v29, :cond_17
+    if-nez v30, :cond_17
 
     new-instance v3, Ljava/lang/RuntimeException;
 
@@ -1340,7 +1399,7 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_c
 
     :catch_0
-    move-exception v17
+    move-exception v18
 
     :try_start_6
     const-string/jumbo v3, "BackupManagerService"
@@ -1414,7 +1473,7 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->sendEndBackup()V
 
-    invoke-virtual/range {v28 .. v28}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
+    invoke-virtual/range {v29 .. v29}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
 
     const-string/jumbo v3, "BackupManagerService"
 
@@ -1449,23 +1508,23 @@
     if-nez v3, :cond_6
 
     :cond_d
-    invoke-virtual/range {v31 .. v31}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
+    invoke-virtual/range {v32 .. v32}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
 
     move-result-object v3
 
     invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v27
+    move-result-object v28
 
     :cond_e
     :goto_b
-    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v28 .. v28}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_6
 
-    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v28 .. v28}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1500,12 +1559,12 @@
     if-eqz v3, :cond_e
 
     :cond_f
-    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->remove()V
+    invoke-interface/range {v28 .. v28}, Ljava/util/Iterator;->remove()V
 
     goto :goto_b
 
     :cond_10
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
     goto/16 :goto_2
 
@@ -1589,7 +1648,7 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->sendEndBackup()V
 
-    invoke-virtual/range {v28 .. v28}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
+    invoke-virtual/range {v29 .. v29}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
 
     const-string/jumbo v3, "BackupManagerService"
 
@@ -1711,7 +1770,7 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->sendEndBackup()V
 
-    invoke-virtual/range {v28 .. v28}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
+    invoke-virtual/range {v29 .. v29}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
 
     const-string/jumbo v3, "BackupManagerService"
 
@@ -1757,9 +1816,9 @@
     :try_start_13
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v31
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->emitAesBackupHeader(Ljava/lang/StringBuilder;Ljava/io/OutputStream;)Ljava/io/OutputStream;
     :try_end_13
@@ -1767,14 +1826,14 @@
     .catch Landroid/os/RemoteException; {:try_start_13 .. :try_end_13} :catch_0
     .catchall {:try_start_13 .. :try_end_13} :catchall_c
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v22, v21
+    move-object/from16 v23, v22
 
     goto/16 :goto_4
 
     :catch_1
-    move-exception v19
+    move-exception v20
 
     :goto_e
     :try_start_14
@@ -1782,7 +1841,7 @@
 
     const-string/jumbo v4, "Unable to emit archive header"
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     invoke-static {v3, v4, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -1856,7 +1915,7 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->sendEndBackup()V
 
-    invoke-virtual/range {v28 .. v28}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
+    invoke-virtual/range {v29 .. v29}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
 
     const-string/jumbo v3, "BackupManagerService"
 
@@ -1889,7 +1948,7 @@
     throw v3
 
     :catch_2
-    move-exception v16
+    move-exception v17
 
     :try_start_18
     const-string/jumbo v3, "BackupManagerService"
@@ -1905,14 +1964,14 @@
     goto/16 :goto_6
 
     :catch_3
-    move-exception v19
+    move-exception v20
 
     :try_start_19
     const-string/jumbo v3, "BackupManagerService"
 
     const-string/jumbo v4, "Internal exception during full backup"
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     invoke-static {v3, v4, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_19
@@ -1981,7 +2040,7 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->sendEndBackup()V
 
-    invoke-virtual/range {v28 .. v28}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
+    invoke-virtual/range {v29 .. v29}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
 
     const-string/jumbo v3, "BackupManagerService"
 
@@ -2006,7 +2065,7 @@
     goto/16 :goto_8
 
     :cond_17
-    add-int/lit8 v25, v25, 0x1
+    add-int/lit8 v26, v26, 0x1
 
     goto/16 :goto_7
 
@@ -2082,7 +2141,7 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->sendEndBackup()V
 
-    invoke-virtual/range {v28 .. v28}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
+    invoke-virtual/range {v29 .. v29}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
 
     const-string/jumbo v3, "BackupManagerService"
 
@@ -2208,7 +2267,7 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformAdbBackupTask;->sendEndBackup()V
 
-    invoke-virtual/range {v28 .. v28}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
+    invoke-virtual/range {v29 .. v29}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->tearDown()V
 
     const-string/jumbo v4, "BackupManagerService"
 
@@ -2241,49 +2300,49 @@
     throw v3
 
     :catch_4
-    move-exception v18
+    move-exception v19
 
     goto :goto_12
 
     :catch_5
-    move-exception v18
+    move-exception v19
 
     goto/16 :goto_9
 
     :catch_6
-    move-exception v18
+    move-exception v19
 
     goto/16 :goto_10
 
     :catch_7
-    move-exception v18
+    move-exception v19
 
     goto/16 :goto_11
 
     :catch_8
-    move-exception v18
+    move-exception v19
 
     goto/16 :goto_f
 
     :catch_9
-    move-exception v19
+    move-exception v20
 
-    move-object/from16 v21, v22
+    move-object/from16 v22, v23
 
     goto/16 :goto_e
 
     :catch_a
-    move-exception v18
+    move-exception v19
 
     goto/16 :goto_d
 
     :catch_b
-    move-exception v18
+    move-exception v19
 
     goto/16 :goto_c
 
     :cond_1b
-    move-object/from16 v21, v22
+    move-object/from16 v22, v23
 
     goto/16 :goto_5
 .end method

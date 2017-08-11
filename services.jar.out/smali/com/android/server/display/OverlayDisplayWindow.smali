@@ -345,7 +345,7 @@
 
     move-result-object v0
 
-    const v1, 0x10900b0
+    const v1, 0x10900b1
 
     const/4 v3, 0x0
 
@@ -363,7 +363,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    const v3, 0x102045f
+    const v3, 0x1020468
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -413,7 +413,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    const v3, 0x1020460
+    const v3, 0x1020469
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

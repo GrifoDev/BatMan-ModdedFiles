@@ -150,171 +150,93 @@
 
 # virtual methods
 .method public encryptData(Landroid/content/Context;Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;)Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;
-    .locals 13
+    .locals 15
 
-    sget-object v10, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->TAG:Ljava/lang/String;
+    sget-object v12, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v11, "[getEncrytedData]"
+    const-string/jumbo v13, "[getEncrytedData]"
 
-    invoke-static {v10, v11}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v12, v13}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {p1}, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->getCertBody(Landroid/content/Context;)Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;
+    invoke-static/range {p1 .. p1}, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->getCertBody(Landroid/content/Context;)Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v10, "https://%s/dm/v1/dev/getCert3"
+    const-string/jumbo v12, "https://%s/dm/v1/dev/getCert4"
 
-    invoke-static {p1, v10}, Lcom/samsung/android/rlc/util/PushUtil;->getDMURL(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    move-result-object v9
-
-    invoke-static {p1, v1, v9}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler;->httpRequest(Landroid/content/Context;Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;Ljava/lang/String;)Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
-
-    move-result-object v10
-
-    iput-object v10, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
-
-    iget-object v10, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
-
-    if-eqz v10, :cond_2
-
-    iget-object v10, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
-
-    invoke-virtual {v10}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getHttpStatusCode()I
-
-    move-result v10
-
-    const/16 v11, 0xc8
-
-    if-ne v10, v11, :cond_2
-
-    sget-object v10, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v11, "To receive cert data success"
-
-    invoke-static {v10, v11}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v10, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
-
-    invoke-virtual {v10}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getCertByte()[B
-
-    move-result-object v0
-
-    const/4 v10, 0x0
-
-    new-array v5, v10, [B
-
-    :try_start_0
-    invoke-static {p1}, Lcom/samsung/android/rlc/util/RLCUtil;->getInstance(Landroid/content/Context;)Lcom/samsung/android/rlc/util/RLCUtil;
-
-    move-result-object v10
-
-    invoke-virtual {p2}, Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;->getData()Ljava/lang/String;
+    invoke-static {v0, v12}, Lcom/samsung/android/rlc/util/PushUtil;->getDMURL(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
-    invoke-virtual {v11}, Ljava/lang/String;->getBytes()[B
+    move-object/from16 v0, p1
 
-    move-result-object v11
+    invoke-static {v0, v2, v11}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler;->httpRequest(Landroid/content/Context;Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;Ljava/lang/String;)Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
 
-    invoke-virtual {v10, v11, v0}, Lcom/samsung/android/rlc/util/RLCUtil;->encryptData([B[B)[B
-    :try_end_0
-    .catch Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v12
 
-    move-result-object v5
-
-    :goto_0
-    if-eqz v5, :cond_2
-
-    invoke-virtual {p2, v5}, Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;->setDataByte([B)V
-
-    iget-object v10, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
-
-    invoke-virtual {v10}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getImei()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v10
-
-    if-nez v10, :cond_1
-
-    invoke-static {p1}, Lcom/samsung/android/rlc/util/DeviceUtil;->getTelephonyManagerWithException(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
-
-    move-result v2
-
-    invoke-static {p1}, Lcom/samsung/android/rlc/util/RLCUtil;->getInstance(Landroid/content/Context;)Lcom/samsung/android/rlc/util/RLCUtil;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v2}, Lcom/samsung/android/rlc/util/RLCUtil;->getIMEI(I)[Ljava/lang/String;
-
-    move-result-object v7
-
-    const/4 v10, 0x0
-
-    array-length v11, v7
-
-    :goto_1
-    if-ge v10, v11, :cond_2
-
-    aget-object v6, v7, v10
+    iput-object v12, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
 
     iget-object v12, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
 
-    invoke-virtual {v12}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
+    if-eqz v12, :cond_4
 
-    move-result-object v12
+    iget-object v12, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
 
-    invoke-virtual {v12}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getImei()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v12}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getHttpStatusCode()I
 
     move-result v12
 
-    if-eqz v12, :cond_0
+    const/16 v13, 0xc8
 
-    iget-object v10, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
+    if-ne v12, v13, :cond_4
 
-    invoke-virtual {v10}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
+    sget-object v12, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->TAG:Ljava/lang/String;
 
-    move-result-object v10
+    const-string/jumbo v13, "To receive cert data success"
 
-    invoke-virtual {v10}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getImei()Ljava/lang/String;
+    invoke-static {v12, v13}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v10
+    iget-object v12, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
 
-    invoke-virtual {p2, v10}, Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;->setImei(Ljava/lang/String;)V
+    invoke-virtual {v12}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
 
-    :try_start_1
-    invoke-static {p1}, Lcom/samsung/android/rlc/util/RLCUtil;->getInstance(Landroid/content/Context;)Lcom/samsung/android/rlc/util/RLCUtil;
+    move-result-object v12
 
-    move-result-object v10
+    invoke-virtual {v12}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getCertByte()[B
 
-    iget-object v11, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
+    move-result-object v1
 
-    invoke-virtual {v11}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
+    const/4 v12, 0x0
 
-    move-result-object v11
+    new-array v6, v12, [B
 
-    invoke-virtual {v11}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getImei()Ljava/lang/String;
+    :try_start_0
+    invoke-static/range {p1 .. p1}, Lcom/samsung/android/rlc/util/RLCUtil;->getInstance(Landroid/content/Context;)Lcom/samsung/android/rlc/util/RLCUtil;
 
-    move-result-object v11
+    move-result-object v12
+
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;->getData()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13, v1}, Lcom/samsung/android/rlc/util/RLCUtil;->encryptData([B[B)[B
+    :try_end_0
+    .catch Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v6
+
+    :goto_0
+    if-eqz v6, :cond_4
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;->setDataByte([B)V
 
     iget-object v12, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
 
@@ -326,139 +248,271 @@
 
     move-result-object v12
 
-    invoke-static {v11, v12}, Lcom/samsung/android/rlc/util/HMACUtil;->encryption(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result-object v11
+    move-result v12
 
-    invoke-virtual {v11}, Ljava/lang/String;->getBytes()[B
+    if-nez v12, :cond_5
 
-    move-result-object v11
+    invoke-static/range {p1 .. p1}, Lcom/samsung/android/rlc/util/DeviceUtil;->getTelephonyManagerWithException(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v10, v11, v0}, Lcom/samsung/android/rlc/util/RLCUtil;->encryptData([B[B)[B
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
+
+    move-result v3
+
+    invoke-static/range {p1 .. p1}, Lcom/samsung/android/rlc/util/RLCUtil;->getInstance(Landroid/content/Context;)Lcom/samsung/android/rlc/util/RLCUtil;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v3}, Lcom/samsung/android/rlc/util/RLCUtil;->getIMEI(I)[Ljava/lang/String;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_3
+
+    const/4 v12, 0x0
+
+    array-length v13, v9
+
+    :goto_1
+    if-ge v12, v13, :cond_4
+
+    aget-object v8, v9, v12
+
+    iget-object v14, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
+
+    invoke-virtual {v14}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getImei()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v8, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_2
+
+    iget-object v12, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
+
+    invoke-virtual {v12}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getImei()Ljava/lang/String;
+
+    move-result-object v12
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v12}, Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;->setImei(Ljava/lang/String;)V
+
+    :try_start_1
+    iget-object v12, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
+
+    invoke-virtual {v12}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getImei()Ljava/lang/String;
+
+    move-result-object v12
+
+    iget-object v13, p0, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->response:Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
+
+    invoke-virtual {v13}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getImei()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Lcom/samsung/android/rlc/util/HMACUtil;->encryption(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_0
+
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_1
+
+    :cond_0
+    sget-object v12, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v13, "Encrypted IMEI is null"
+
+    invoke-static {v12, v13}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result-object v5
+    const/4 v12, 0x0
 
-    :goto_2
-    invoke-virtual {p2, v5}, Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;->setDataByte([B)V
-
-    return-object p2
+    return-object v12
 
     :catch_0
-    move-exception v3
+    move-exception v4
 
-    invoke-virtual {v3}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;->printStackTrace()V
+    invoke-virtual {v4}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;->printStackTrace()V
 
-    sget-object v10, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->TAG:Ljava/lang/String;
+    sget-object v12, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->TAG:Ljava/lang/String;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "Exception in RMMManager : "
+    const-string/jumbo v14, "Exception in RMMManager : "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v13
 
-    invoke-virtual {v3}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v13
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v13
 
-    invoke-static {v10, v11}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v12, v13}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v10, "check_backoff"
+    const-string/jumbo v12, "check_backoff"
 
-    const v11, 0x44aa200
+    const v13, 0x44aa200
 
-    invoke-static {p1, v10, v11}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
+    move-object/from16 v0, p1
 
-    const-string/jumbo v10, "spp_backoff"
+    invoke-static {v0, v12, v13}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
 
-    const v11, 0x44aa200
+    const-string/jumbo v12, "spp_backoff"
 
-    invoke-static {p1, v10, v11}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
+    const v13, 0x44aa200
 
-    const-string/jumbo v10, "gcm_backoff"
+    move-object/from16 v0, p1
 
-    const v11, 0x44aa200
+    invoke-static {v0, v12, v13}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
 
-    invoke-static {p1, v10, v11}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
+    const-string/jumbo v12, "gcm_backoff"
+
+    const v13, 0x44aa200
+
+    move-object/from16 v0, p1
+
+    invoke-static {v0, v12, v13}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
 
     goto/16 :goto_0
 
-    :catch_1
-    move-exception v4
-
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
-
-    const-string/jumbo v10, "check_backoff"
-
-    const v11, 0x44aa200
-
-    invoke-static {p1, v10, v11}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
-
-    const-string/jumbo v10, "spp_backoff"
-
-    const v11, 0x44aa200
-
-    invoke-static {p1, v10, v11}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
-
-    const-string/jumbo v10, "gcm_backoff"
-
-    const v11, 0x44aa200
-
-    invoke-static {p1, v10, v11}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
-
-    sget-object v10, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->TAG:Ljava/lang/String;
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "Exception in RMMManager : "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v4}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    :cond_1
+    :try_start_2
+    invoke-static/range {p1 .. p1}, Lcom/samsung/android/rlc/util/RLCUtil;->getInstance(Landroid/content/Context;)Lcom/samsung/android/rlc/util/RLCUtil;
 
     move-result-object v12
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v11
+    move-result-object v13
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v12, v13, v1}, Lcom/samsung/android/rlc/util/RLCUtil;->encryptData([B[B)[B
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    move-result-object v11
+    move-result-object v6
 
-    invoke-static {v10, v11}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :goto_2
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;->setDataByte([B)V
+
+    return-object p2
+
+    :catch_1
+    move-exception v5
+
+    invoke-virtual {v5}, Ljava/lang/Exception;->printStackTrace()V
+
+    const-string/jumbo v12, "check_backoff"
+
+    const v13, 0x44aa200
+
+    move-object/from16 v0, p1
+
+    invoke-static {v0, v12, v13}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
+
+    const-string/jumbo v12, "spp_backoff"
+
+    const v13, 0x44aa200
+
+    move-object/from16 v0, p1
+
+    invoke-static {v0, v12, v13}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
+
+    const-string/jumbo v12, "gcm_backoff"
+
+    const v13, 0x44aa200
+
+    move-object/from16 v0, p1
+
+    invoke-static {v0, v12, v13}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setRetryBackoff(Landroid/content/Context;Ljava/lang/String;I)V
+
+    sget-object v12, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->TAG:Ljava/lang/String;
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "Exception in RMMManager : "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v5}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_2
 
-    :cond_0
-    add-int/lit8 v10, v10, 0x1
+    :cond_2
+    add-int/lit8 v12, v12, 0x1
 
     goto/16 :goto_1
 
-    :cond_1
+    :cond_3
+    sget-object v12, Lcom/samsung/android/rlc/receiver/handler/CertHandler;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v13, "Devc IMEI is null"
+
+    invoke-static {v12, v13}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_4
+    const/4 v12, 0x0
+
+    return-object v12
+
+    :cond_5
     return-object p2
-
-    :cond_2
-    const/4 v10, 0x0
-
-    return-object v10
 .end method
 
 .method public getResponse()Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;

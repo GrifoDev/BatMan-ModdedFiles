@@ -1223,7 +1223,7 @@
 
     move-result-object v4
 
-    const v5, 0x10e0050
+    const v5, 0x10e0051
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1237,7 +1237,7 @@
 
     move-result-object v4
 
-    const v5, 0x10e0052
+    const v5, 0x10e0053
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1253,7 +1253,7 @@
 
     move-result-object v5
 
-    const v6, 0x10e0053
+    const v6, 0x10e0054
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1269,7 +1269,7 @@
 
     move-result-object v4
 
-    const v5, 0x10e0051
+    const v5, 0x10e0052
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2687,9 +2687,9 @@
 .method private getIconLocked(I)I
     .locals 4
 
-    const v3, 0x108089f
+    const v3, 0x108088d
 
-    const v2, 0x1080891
+    const v2, 0x108087f
 
     iget-object v0, p0, Lcom/android/server/BatteryService;->mBatteryProps:Landroid/os/BatteryProperties;
 
@@ -2752,7 +2752,7 @@
     return v2
 
     :cond_4
-    const v0, 0x10808ad
+    const v0, 0x108089b
 
     return v0
 .end method
@@ -6767,13 +6767,13 @@
 
     check-cast v8, Landroid/app/NotificationManager;
 
-    const v3, 0x10408f6
+    const v3, 0x10408fd
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v10
 
-    const v3, 0x10408f8
+    const v3, 0x10408ff
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -6791,7 +6791,7 @@
 
     invoke-direct {v1, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x108071b
+    const v3, 0x1080706
 
     invoke-virtual {v1, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -8050,7 +8050,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e0052
+    const v3, 0x10e0053
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -8077,7 +8077,7 @@
 
     move-result-object v3
 
-    const v4, 0x10e0053
+    const v4, 0x10e0054
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 

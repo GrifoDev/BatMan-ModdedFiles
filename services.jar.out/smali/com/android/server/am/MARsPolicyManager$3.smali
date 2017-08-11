@@ -32,17 +32,7 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
-
-    iget-object v1, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
-
-    invoke-static {v1}, Lcom/android/server/am/MARsPolicyManager;->-wrap1(Lcom/android/server/am/MARsPolicyManager;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/server/am/MARsPolicyManager;->-set0(Lcom/android/server/am/MARsPolicyManager;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
 
     sget-boolean v0, Lcom/android/server/am/MARsPolicyManager;->DEBUG_MARs:Z
 
@@ -50,32 +40,57 @@
 
     const-string/jumbo v0, "MARsPolicyManager"
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onChange - DEFAULT_INPUT_METHOD!  defaultIME = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
-
-    invoke-static {v2}, Lcom/android/server/am/MARsPolicyManager;->-get3(Lcom/android/server/am/MARsPolicyManager;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
+    const-string/jumbo v1, "onChange - DEFAULT_INPUT_METHOD!"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
+
+    iget-object v1, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
+
+    iget-object v1, v1, Lcom/android/server/am/MARsPolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getUserId()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/android/server/am/MARsPolicyManager;->-wrap4(Lcom/android/server/am/MARsPolicyManager;I)V
+
+    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
+
+    iget-object v0, v0, Lcom/android/server/am/MARsPolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getUserId()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
+
+    iget v0, v0, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
+
+    const/16 v1, 0x96
+
+    if-lt v0, v1, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
+
+    iget v0, v0, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
+
+    const/16 v1, 0xa0
+
+    if-gt v0, v1, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
+
+    iget-object v1, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
+
+    iget v1, v1, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
+
+    invoke-static {v0, v1}, Lcom/android/server/am/MARsPolicyManager;->-wrap4(Lcom/android/server/am/MARsPolicyManager;I)V
+
+    :cond_1
     return-void
 .end method

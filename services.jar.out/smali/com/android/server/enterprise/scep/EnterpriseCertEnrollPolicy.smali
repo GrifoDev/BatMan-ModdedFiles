@@ -1737,13 +1737,13 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_8
 
     invoke-interface {v7}, Ljava/util/List;->size()I
 
     move-result v8
 
-    if-lez v8, :cond_6
+    if-lez v8, :cond_8
 
     sget-object v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
@@ -1751,50 +1751,66 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
     invoke-interface {v7}, Ljava/util/List;->size()I
 
     move-result v8
 
-    if-ge v2, v8, :cond_5
+    if-ge v1, v8, :cond_7
 
-    invoke-interface {v7, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v7, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/content/ContentValues;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6
 
     const-string/jumbo v8, "adminUid"
 
     invoke-virtual {v0, v8}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v8
+    move-result-object v2
 
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+    if-nez v2, :cond_5
 
-    move-result v1
+    sget-boolean v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->DBG:Z
 
+    if-eqz v8, :cond_4
+
+    sget-object v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "integer is null"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    return v11
+
+    :cond_5
     sget-object v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
     const-string/jumbo v9, "delegatorUid : delegatorUid"
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v1
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
-    :cond_4
-    add-int/lit8 v2, v2, 0x1
+    move-result v8
+
+    return v8
+
+    :cond_6
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_5
+    :cond_7
     return v11
 
-    :cond_6
+    :cond_8
     sget-object v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
     const-string/jumbo v9, "caller is not delegated"

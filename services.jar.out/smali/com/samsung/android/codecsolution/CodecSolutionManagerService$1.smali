@@ -53,7 +53,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-set1(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;Lcom/samsung/android/smartfitting/ISmartFittingService;)Lcom/samsung/android/smartfitting/ISmartFittingService;
+    invoke-static {v0, v1}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-set2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;Lcom/samsung/android/smartfitting/ISmartFittingService;)Lcom/samsung/android/smartfitting/ISmartFittingService;
 
     return-void
 .end method
@@ -71,7 +71,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-set1(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;Lcom/samsung/android/smartfitting/ISmartFittingService;)Lcom/samsung/android/smartfitting/ISmartFittingService;
+    invoke-static {v0, v1}, Lcom/samsung/android/codecsolution/CodecSolutionManagerService;->-set2(Lcom/samsung/android/codecsolution/CodecSolutionManagerService;Lcom/samsung/android/smartfitting/ISmartFittingService;)Lcom/samsung/android/smartfitting/ISmartFittingService;
 
     return-void
 .end method

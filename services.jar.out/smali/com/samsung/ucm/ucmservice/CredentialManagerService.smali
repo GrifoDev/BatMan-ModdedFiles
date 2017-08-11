@@ -8657,39 +8657,39 @@
 .method private processAdminConfigRequest(ILjava/lang/String;Landroid/os/Bundle;)Z
     .locals 9
 
-    const-string/jumbo v1, "UcmService"
+    const-string/jumbo v6, "UcmService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v8, "processAdminConfigRequest is called...adminId-"
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
     const-string/jumbo v8, ", uri-"
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-static {v1, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v7, 0x1
+    const/4 v5, 0x1
 
     if-eqz p3, :cond_1
 
@@ -8698,208 +8698,204 @@
 
     move-result-object v4
 
-    const-string/jumbo v1, "applet_location"
+    const-string/jumbo v6, "applet_location"
 
-    invoke-virtual {p3, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p3, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    const-string/jumbo v1, "applet_id"
+    const-string/jumbo v6, "applet_id"
 
-    invoke-virtual {p3, v1}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
+    invoke-virtual {p3, v6}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
 
-    move-result-object v3
+    move-result-object v0
 
-    const-string/jumbo v1, "UcmService"
+    const-string/jumbo v6, "UcmService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v8, "processAdminConfigRequest is called...appletLocation-"
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
     const-string/jumbo v8, ", pluginName-"
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-static {v1, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0, v2}, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->isValidFormFactor(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-eqz v1, :cond_4
+    if-eqz v6, :cond_4
 
-    const-string/jumbo v1, "reset"
+    const-string/jumbo v6, "reset"
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v6
 
-    if-eqz v1, :cond_2
+    if-eqz v6, :cond_2
 
-    iget-object v1, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
+    iget-object v6, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
 
-    invoke-virtual {v1, v4}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v4}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v6
 
-    if-eqz v1, :cond_0
+    if-eqz v6, :cond_0
 
-    iget-object v1, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
+    iget-object v6, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
 
-    invoke-virtual {v1, v4}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v4}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v1, "UcmService"
+    const-string/jumbo v6, "UcmService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v8, "processAdminConfigRequest removed pluginName-"
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-static {v1, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
-    iget-object v1, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mHandler:Landroid/os/Handler;
+    iget-object v6, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mHandler:Landroid/os/Handler;
 
-    const/4 v5, 0x5
+    const/4 v7, 0x5
 
-    invoke-virtual {v1, v5}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v6, v7}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     :cond_1
     :goto_1
-    return v7
+    return v5
 
     :cond_2
-    iget-object v1, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
+    iget-object v6, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
 
-    invoke-virtual {v1, v4}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v4}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v6
 
-    if-eqz v1, :cond_3
+    if-eqz v6, :cond_3
 
-    iget-object v1, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
+    iget-object v6, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
 
-    invoke-virtual {v1, v4}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v4}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_3
-    new-instance v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;
+    new-instance v1, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;
 
-    move-object v1, p0
+    invoke-direct {v1, v2, v0, v4, p1}, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;-><init>(Ljava/lang/String;[BLjava/lang/String;I)V
 
-    move v5, p1
+    iget-object v6, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
 
-    invoke-direct/range {v0 .. v5}, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;-><init>(Lcom/samsung/ucm/ucmservice/CredentialManagerService;Ljava/lang/String;[BLjava/lang/String;I)V
+    invoke-virtual {v6, v4}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    iget-object v1, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
+    move-result v6
 
-    invoke-virtual {v1, v4}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    if-nez v6, :cond_0
 
-    move-result v1
+    const-string/jumbo v6, "UcmService"
 
-    if-nez v1, :cond_0
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "UcmService"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v8, "processAdminConfigRequest added pluginName-"
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-static {v1, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
+    iget-object v6, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
 
-    invoke-virtual {v1, v4, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v4, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v6
+    move-exception v3
 
-    const-string/jumbo v1, "UcmService"
+    const-string/jumbo v6, "UcmService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v8, "processAdminConfigRequest Exception"
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-static {v1, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
     :cond_4
     if-eqz v2, :cond_1
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
     :try_start_1
-    const-string/jumbo v1, "UcmService"
+    const-string/jumbo v6, "UcmService"
 
-    const-string/jumbo v5, "processAdminConfigRequest not valid form factor"
+    const-string/jumbo v7, "processAdminConfigRequest not valid form factor"
 
-    invoke-static {v1, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -8909,233 +8905,261 @@
 .method private readPersistentAppletsInfoLocked()V
     .locals 22
 
-    const-string/jumbo v3, "UcmService"
+    const-string/jumbo v19, "UcmService"
 
     const-string/jumbo v20, "readPersistentAppletsInfoLocked is called..."
 
-    move-object/from16 v0, v20
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v15, 0x0
+    const/4 v13, 0x0
 
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfoFile:Landroid/util/AtomicFile;
+    iget-object v0, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfoFile:Landroid/util/AtomicFile;
 
-    invoke-virtual {v3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    move-object/from16 v19, v0
 
-    move-result-object v3
+    invoke-virtual/range {v19 .. v19}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
 
-    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+    move-result-object v19
 
-    move-result v3
+    invoke-virtual/range {v19 .. v19}, Ljava/io/File;->exists()Z
 
-    if-nez v3, :cond_0
+    move-result v19
 
-    const-string/jumbo v3, "UcmService"
+    if-nez v19, :cond_0
+
+    const-string/jumbo v19, "UcmService"
 
     const-string/jumbo v20, "readPersistentAppletsInfoLocked mPersistentAppletInfoFile not exist..."
 
-    move-object/from16 v0, v20
-
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
+    iget-object v0, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
 
-    invoke-virtual {v3}, Ljava/util/HashMap;->clear()V
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Ljava/util/HashMap;->clear()V
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfoFile:Landroid/util/AtomicFile;
+    iget-object v0, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfoFile:Landroid/util/AtomicFile;
 
-    invoke-virtual {v3}, Landroid/util/AtomicFile;->openRead()Ljava/io/FileInputStream;
+    move-object/from16 v19, v0
 
-    move-result-object v15
+    invoke-virtual/range {v19 .. v19}, Landroid/util/AtomicFile;->openRead()Ljava/io/FileInputStream;
+
+    move-result-object v13
 
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
-    move-result-object v17
+    move-result-object v15
 
-    const/4 v3, 0x0
+    const/16 v19, 0x0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    invoke-interface {v0, v15, v3}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
+    invoke-interface {v15, v13, v0}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    invoke-interface/range {v17 .. v17}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
+    invoke-interface {v15}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
-    move-result v14
+    move-result v12
 
     :goto_0
-    const/4 v3, 0x2
+    const/16 v19, 0x2
 
-    if-eq v14, v3, :cond_1
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    if-eq v12, v0, :cond_1
 
-    if-eq v14, v3, :cond_1
+    const/16 v19, 0x1
 
-    invoke-interface/range {v17 .. v17}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+    move/from16 v0, v19
 
-    move-result v14
+    if-eq v12, v0, :cond_1
+
+    invoke-interface {v15}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+
+    move-result v12
 
     goto :goto_0
 
     :cond_1
-    invoke-interface/range {v17 .. v17}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+    invoke-interface {v15}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v17
 
-    const-string/jumbo v3, "applets"
+    const-string/jumbo v19, "applets"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v1, v17
 
-    move-result v3
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v3, :cond_5
+    move-result v19
 
-    invoke-interface/range {v17 .. v17}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+    if-eqz v19, :cond_5
 
-    move-result v14
+    invoke-interface {v15}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+
+    move-result v12
 
     :cond_2
-    const/4 v3, 0x2
+    const/16 v19, 0x2
 
-    if-ne v14, v3, :cond_4
+    move/from16 v0, v19
 
-    invoke-interface/range {v17 .. v17}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+    if-ne v12, v0, :cond_4
 
-    move-result v3
+    invoke-interface {v15}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v19
 
     const/16 v20, 0x2
 
-    move/from16 v0, v20
+    move/from16 v0, v19
 
-    if-ne v3, v0, :cond_4
+    move/from16 v1, v20
 
-    invoke-interface/range {v17 .. v17}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+    if-ne v0, v1, :cond_4
 
-    move-result-object v18
+    invoke-interface {v15}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    const-string/jumbo v3, "applet"
+    move-result-object v17
 
-    move-object/from16 v0, v18
+    const-string/jumbo v19, "applet"
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v19
 
-    move-result v3
+    move-object/from16 v1, v17
 
-    if-eqz v3, :cond_4
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v3, "pluginName"
+    move-result v19
 
-    const/16 v20, 0x0
+    if-eqz v19, :cond_4
 
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v20
-
-    invoke-interface {v0, v1, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string/jumbo v3, "appletLocation"
+    const-string/jumbo v19, "pluginName"
 
     const/16 v20, 0x0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v19
 
-    invoke-interface {v0, v1, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v15, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v16
+
+    const-string/jumbo v19, "appletLocation"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v15, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v19, "adminId"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v15, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v19, "aid"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v15, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    const-string/jumbo v3, "adminId"
+    invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    const/16 v20, 0x0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v20
-
-    invoke-interface {v0, v1, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    const-string/jumbo v3, "aid"
-
-    const/16 v20, 0x0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v20
-
-    invoke-interface {v0, v1, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v7
+    move-result v2
 
     const/4 v5, 0x0
 
-    if-eqz v9, :cond_3
+    if-eqz v4, :cond_3
 
-    invoke-static {v9}, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->hexStringToByteArray(Ljava/lang/String;)[B
+    invoke-static {v4}, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->hexStringToByteArray(Ljava/lang/String;)[B
 
     move-result-object v5
 
     :cond_3
-    new-instance v2, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;
+    new-instance v6, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;
 
-    move-object/from16 v3, p0
+    move-object/from16 v0, v16
 
-    invoke-direct/range {v2 .. v7}, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;-><init>(Lcom/samsung/ucm/ucmservice/CredentialManagerService;Ljava/lang/String;[BLjava/lang/String;I)V
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
-
-    invoke-virtual {v3, v6}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_4
+    invoke-direct {v6, v7, v5, v0, v2}, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;-><init>(Ljava/lang/String;[BLjava/lang/String;I)V
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
+    iget-object v0, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
 
-    invoke-virtual {v3, v6, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_4
-    invoke-interface/range {v17 .. v17}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+    invoke-interface {v15}, Lorg/xmlpull/v1/XmlPullParser;->next()I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v14
+    move-result v12
 
-    const/4 v3, 0x1
+    const/16 v19, 0x1
 
-    if-ne v14, v3, :cond_2
+    move/from16 v0, v19
+
+    if-ne v12, v0, :cond_2
 
     :cond_5
-    if-eqz v15, :cond_6
+    if-eqz v13, :cond_6
 
     :try_start_1
-    invoke-virtual {v15}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v13}, Ljava/io/FileInputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -9143,42 +9167,44 @@
     :goto_1
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
+    iget-object v0, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mPersistentAppletInfo:Ljava/util/HashMap;
 
-    invoke-virtual {v3}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+    move-object/from16 v19, v0
 
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v13
-
-    :goto_2
-    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_8
-
-    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Ljava/util/Map$Entry;
-
-    invoke-interface {v12}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v16
-
-    check-cast v16, Ljava/lang/String;
-
-    invoke-interface {v12}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-virtual/range {v19 .. v19}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
     move-result-object v19
 
-    check-cast v19, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;
+    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    const-string/jumbo v3, "UcmService"
+    move-result-object v11
+
+    :goto_2
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_8
+
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Ljava/util/Map$Entry;
+
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Ljava/lang/String;
+
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v18
+
+    check-cast v18, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;
+
+    const-string/jumbo v19, "UcmService"
 
     new-instance v20, Ljava/lang/StringBuilder;
 
@@ -9192,9 +9218,7 @@
 
     move-object/from16 v0, v20
 
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v20
 
@@ -9202,11 +9226,9 @@
 
     move-result-object v20
 
-    move-object/from16 v0, v20
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "UcmService"
+    const-string/jumbo v19, "UcmService"
 
     new-instance v20, Ljava/lang/StringBuilder;
 
@@ -9218,7 +9240,7 @@
 
     move-result-object v20
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     iget-object v0, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;->pluginName:Ljava/lang/String;
 
@@ -9232,11 +9254,9 @@
 
     move-result-object v20
 
-    move-object/from16 v0, v20
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "UcmService"
+    const-string/jumbo v19, "UcmService"
 
     new-instance v20, Ljava/lang/StringBuilder;
 
@@ -9248,7 +9268,7 @@
 
     move-result-object v20
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     iget-object v0, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;->aid:[B
 
@@ -9270,11 +9290,9 @@
 
     move-result-object v20
 
-    move-object/from16 v0, v20
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "UcmService"
+    const-string/jumbo v19, "UcmService"
 
     new-instance v20, Ljava/lang/StringBuilder;
 
@@ -9286,7 +9304,7 @@
 
     move-result-object v20
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     iget-object v0, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;->appletLocation:Ljava/lang/String;
 
@@ -9300,11 +9318,9 @@
 
     move-result-object v20
 
-    move-object/from16 v0, v20
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "UcmService"
+    const-string/jumbo v19, "UcmService"
 
     new-instance v20, Ljava/lang/StringBuilder;
 
@@ -9316,7 +9332,7 @@
 
     move-result-object v20
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     iget v0, v0, Lcom/samsung/ucm/ucmservice/CredentialManagerService$AppletProperties;->adminId:I
 
@@ -9330,61 +9346,61 @@
 
     move-result-object v20
 
-    move-object/from16 v0, v20
-
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_2
 
     :catch_0
-    move-exception v11
+    move-exception v9
 
     goto/16 :goto_1
 
     :catch_1
-    move-exception v10
+    move-exception v8
 
     :try_start_2
-    const-string/jumbo v3, "UcmService"
+    const-string/jumbo v19, "UcmService"
 
     const-string/jumbo v20, "Error reading persistent applet info, starting from scratch"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v19
 
-    invoke-static {v3, v0, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    move-object/from16 v1, v20
+
+    invoke-static {v0, v1, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-eqz v15, :cond_6
+    if-eqz v13, :cond_6
 
     :try_start_3
-    invoke-virtual {v15}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v13}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
     goto/16 :goto_1
 
     :catch_2
-    move-exception v11
+    move-exception v9
 
     goto/16 :goto_1
 
     :catchall_0
-    move-exception v3
+    move-exception v19
 
-    if-eqz v15, :cond_7
+    if-eqz v13, :cond_7
 
     :try_start_4
-    invoke-virtual {v15}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v13}, Ljava/io/FileInputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
     :cond_7
     :goto_3
-    throw v3
+    throw v19
 
     :catch_3
-    move-exception v11
+    move-exception v9
 
     goto :goto_3
 
@@ -11640,11 +11656,11 @@
 
     iget v9, v5, Lcom/samsung/ucm/ucmservice/EFSProperties$ODEProperties;->enabledUCSInODE:I
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_1
 
     iget-object v9, v5, Lcom/samsung/ucm/ucmservice/EFSProperties$ODEProperties;->CertLocation:[B
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_1
 
     new-instance v0, Ljava/lang/String;
 
@@ -11654,23 +11670,7 @@
 
     const-string/jumbo v9, "UcmService"
 
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "********restoreCACertificate - started for "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
+    const-string/jumbo v10, "********restoreCACertificate - started"
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -11700,6 +11700,10 @@
 
     check-cast v2, [B
 
+    sget-boolean v9, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->DBG:Z
+
+    if-eqz v9, :cond_0
+
     const-string/jumbo v9, "UcmService"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -11712,7 +11716,11 @@
 
     move-result-object v10
 
-    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Ljava/util/Arrays;->toString([B)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
@@ -11722,11 +11730,12 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
     iget-object v9, p0, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->mTADriver:Lcom/samsung/ucm/ucmservice/scp/TADriver;
 
     iget-object v10, v5, Lcom/samsung/ucm/ucmservice/EFSProperties$ODEProperties;->CertAlias:[B
 
-    invoke-virtual {v10}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-static {v10}, Ljava/util/Arrays;->toString([B)Ljava/lang/String;
 
     move-result-object v10
 
@@ -11735,6 +11744,10 @@
     invoke-virtual {v9, v10, v2, v11}, Lcom/samsung/ucm/ucmservice/scp/TADriver;->installCACerttificate(Ljava/lang/String;[BI)Z
 
     move-result v8
+
+    sget-boolean v9, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->DBG:Z
+
+    if-eqz v9, :cond_7
 
     const-string/jumbo v9, "UcmService"
 
@@ -11763,41 +11776,42 @@
 
     move-object v6, v7
 
-    :cond_0
-    if-eqz v6, :cond_1
+    :cond_1
+    :goto_0
+    if-eqz v6, :cond_2
 
     :try_start_2
     invoke-virtual {v6}, Ljava/io/ObjectInputStream;->close()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    :cond_1
-    :goto_0
-    if-eqz v4, :cond_2
+    :cond_2
+    :goto_1
+    if-eqz v4, :cond_3
 
     :try_start_3
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
 
-    :cond_2
-    :goto_1
+    :cond_3
+    :goto_2
     return-void
 
     :catch_0
     move-exception v3
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_1
     move-exception v3
 
-    goto :goto_1
+    goto :goto_2
 
     :catch_2
     move-exception v3
 
-    :goto_2
+    :goto_3
     :try_start_4
     const-string/jumbo v9, "UcmService"
 
@@ -11823,81 +11837,86 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     :try_start_5
     invoke-virtual {v6}, Ljava/io/ObjectInputStream;->close()V
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_4
 
-    :cond_3
-    :goto_3
-    if-eqz v4, :cond_2
+    :cond_4
+    :goto_4
+    if-eqz v4, :cond_3
 
     :try_start_6
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
     :try_end_6
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_3
 
-    goto :goto_1
+    goto :goto_2
 
     :catch_3
     move-exception v3
 
-    goto :goto_1
+    goto :goto_2
 
     :catch_4
     move-exception v3
 
-    goto :goto_3
+    goto :goto_4
 
     :catchall_0
     move-exception v9
 
-    :goto_4
-    if-eqz v6, :cond_4
+    :goto_5
+    if-eqz v6, :cond_5
 
     :try_start_7
     invoke-virtual {v6}, Ljava/io/ObjectInputStream;->close()V
     :try_end_7
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_5
 
-    :cond_4
-    :goto_5
-    if-eqz v4, :cond_5
+    :cond_5
+    :goto_6
+    if-eqz v4, :cond_6
 
     :try_start_8
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
     :try_end_8
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_6
 
-    :cond_5
-    :goto_6
+    :cond_6
+    :goto_7
     throw v9
 
     :catch_5
     move-exception v3
 
-    goto :goto_5
+    goto :goto_6
 
     :catch_6
     move-exception v3
 
-    goto :goto_6
+    goto :goto_7
 
     :catchall_1
     move-exception v9
 
     move-object v6, v7
 
-    goto :goto_4
+    goto :goto_5
 
     :catch_7
     move-exception v3
 
     move-object v6, v7
 
-    goto :goto_2
+    goto :goto_3
+
+    :cond_7
+    move-object v6, v7
+
+    goto :goto_0
 .end method
 
 .method private sendStateChangeBroadcast(ILjava/lang/String;)V

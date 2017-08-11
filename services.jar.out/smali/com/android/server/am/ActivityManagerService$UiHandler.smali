@@ -443,7 +443,7 @@
 
     iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v11, 0x10405e6
+    const v11, 0x10405ea
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -532,7 +532,7 @@
 
     iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v11, 0x10405e7
+    const v11, 0x10405eb
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -801,7 +801,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-wrap6(Lcom/android/server/am/ActivityManagerService;)V
+    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-wrap5(Lcom/android/server/am/ActivityManagerService;)V
 
     goto/16 :goto_0
 
@@ -818,7 +818,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v10, v6, v9}, Lcom/android/server/am/ActivityManagerService;->-wrap5(Lcom/android/server/am/ActivityManagerService;II)V
+    invoke-static {v10, v6, v9}, Lcom/android/server/am/ActivityManagerService;->-wrap4(Lcom/android/server/am/ActivityManagerService;II)V
 
     goto/16 :goto_0
 
@@ -827,7 +827,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-wrap7(Lcom/android/server/am/ActivityManagerService;)V
+    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-wrap6(Lcom/android/server/am/ActivityManagerService;)V
 
     goto/16 :goto_0
 
@@ -846,6 +846,6 @@
         0x2e -> :sswitch_9
         0x30 -> :sswitch_a
         0x36 -> :sswitch_d
-        0x46 -> :sswitch_8
+        0x45 -> :sswitch_8
     .end sparse-switch
 .end method

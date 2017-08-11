@@ -160,13 +160,11 @@
 
     check-cast v2, Lcom/android/server/am/TaskRecord;
 
-    iget-object v3, v2, Lcom/android/server/am/TaskRecord;->mActivities:Ljava/util/ArrayList;
+    invoke-virtual {v2}, Lcom/android/server/am/TaskRecord;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->isEmpty()Z
+    move-result-object v3
 
-    move-result v3
-
-    if-nez v3, :cond_1
+    if-eqz v3, :cond_1
 
     iget-object v3, v2, Lcom/android/server/am/TaskRecord;->mBounds:Landroid/graphics/Rect;
 
@@ -622,7 +620,7 @@
 
     :cond_1
     :goto_0
-    if-nez p6, :cond_6
+    if-nez p6, :cond_5
 
     return-void
 
@@ -675,7 +673,7 @@
 
     iget v2, p0, Lcom/android/server/am/LaunchingTaskPositioner;->mDefaultFreeformStartX:I
 
-    if-gt v1, v2, :cond_5
+    if-le v1, v2, :cond_0
 
     iget v1, p3, Landroid/graphics/Rect;->top:I
 
@@ -683,14 +681,13 @@
 
     if-le v1, v2, :cond_0
 
-    :cond_5
     iget-object v1, p0, Lcom/android/server/am/LaunchingTaskPositioner;->mTmpOriginal:Landroid/graphics/Rect;
 
     invoke-virtual {p3, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     goto :goto_0
 
-    :cond_6
+    :cond_5
     invoke-virtual {p1, p3}, Lcom/android/server/am/TaskRecord;->updateOverrideConfiguration(Landroid/graphics/Rect;)Landroid/content/res/Configuration;
 
     return-void

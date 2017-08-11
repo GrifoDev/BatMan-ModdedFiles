@@ -257,7 +257,7 @@
 
     const/4 v3, 0x1
 
-    invoke-static {v1, v3}, Lcom/android/server/power/PowerManagerService;->-wrap48(Lcom/android/server/power/PowerManagerService;Z)V
+    invoke-static {v1, v3}, Lcom/android/server/power/PowerManagerService;->-wrap49(Lcom/android/server/power/PowerManagerService;Z)V
 
     const-string/jumbo v1, "nativeSetAutoSuspend(true)"
 
@@ -314,7 +314,7 @@
 
     const/4 v3, 0x0
 
-    invoke-static {v1, v3}, Lcom/android/server/power/PowerManagerService;->-wrap48(Lcom/android/server/power/PowerManagerService;Z)V
+    invoke-static {v1, v3}, Lcom/android/server/power/PowerManagerService;->-wrap49(Lcom/android/server/power/PowerManagerService;Z)V
 
     const-string/jumbo v1, "nativeSetAutoSuspend(false)"
 
@@ -405,7 +405,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/server/power/PowerManagerService;->-set30(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/android/server/power/PowerManagerService;->-set31(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$4;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -521,7 +521,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/server/power/PowerManagerService;->-set29(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/android/server/power/PowerManagerService;->-set30(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$4;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -580,7 +580,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2, p1}, Lcom/android/server/power/PowerManagerService;->-wrap49(Lcom/android/server/power/PowerManagerService;ZI)V
+    invoke-static {v1, v2, p1}, Lcom/android/server/power/PowerManagerService;->-wrap50(Lcom/android/server/power/PowerManagerService;ZI)V
 
     const-string/jumbo v1, "nativeSetInteractive(false)"
 
@@ -603,7 +603,7 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v1, v2, p1}, Lcom/android/server/power/PowerManagerService;->-wrap49(Lcom/android/server/power/PowerManagerService;ZI)V
+    invoke-static {v1, v2, p1}, Lcom/android/server/power/PowerManagerService;->-wrap50(Lcom/android/server/power/PowerManagerService;ZI)V
 
     const-string/jumbo v1, "nativeSetInteractive(true)"
 

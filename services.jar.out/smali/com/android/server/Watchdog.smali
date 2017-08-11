@@ -83,7 +83,7 @@
 
     const/4 v3, 0x0
 
-    const/16 v0, 0xa
+    const/16 v0, 0xc
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -142,6 +142,18 @@
     const-string/jumbo v1, "com.android.bluetooth"
 
     const/16 v2, 0x9
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "zygote64"
+
+    const/16 v2, 0xa
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "zygote"
+
+    const/16 v2, 0xb
 
     aput-object v1, v0, v2
 

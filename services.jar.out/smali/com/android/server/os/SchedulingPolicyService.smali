@@ -54,8 +54,6 @@
 
     const/4 v1, 0x3
 
-    const/4 v3, 0x1
-
     const/4 v4, -0x1
 
     invoke-direct {p0}, Lcom/android/server/os/SchedulingPolicyService;->isPermittedCallingUid()Z
@@ -64,7 +62,9 @@
 
     if-eqz v2, :cond_0
 
-    if-ge p3, v3, :cond_2
+    const/4 v2, 0x1
+
+    if-ge p3, v2, :cond_2
 
     :cond_0
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
@@ -106,7 +106,7 @@
     :cond_4
     invoke-static {p2, v1}, Landroid/os/Process;->setThreadGroup(II)V
 
-    const/4 v1, 0x1
+    const v1, 0x40000001    # 2.0000002f
 
     invoke-static {p2, v1, p3}, Landroid/os/Process;->setThreadScheduler(III)V
     :try_end_0

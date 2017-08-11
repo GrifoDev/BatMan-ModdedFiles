@@ -98,7 +98,7 @@
     if-eqz v1, :cond_1
 
     :cond_0
-    const v0, 0x10700a9
+    const v0, 0x10700ab
 
     iget-object v1, p0, Lcom/android/server/LocationManagerService$3;->this$0:Lcom/android/server/LocationManagerService;
 

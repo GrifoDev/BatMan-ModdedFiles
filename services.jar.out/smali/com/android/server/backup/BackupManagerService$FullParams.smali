@@ -29,6 +29,8 @@
 
 .field final synthetic this$0:Lcom/android/server/backup/BackupManagerService;
 
+.field public userId:I
+
 
 # direct methods
 .method constructor <init>(Lcom/android/server/backup/BackupManagerService;)V
@@ -47,6 +49,8 @@
     iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$FullParams;->latch:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     iput-boolean v1, p0, Lcom/android/server/backup/BackupManagerService$FullParams;->privilegeApp:Z
+
+    iput v1, p0, Lcom/android/server/backup/BackupManagerService$FullParams;->userId:I
 
     return-void
 .end method

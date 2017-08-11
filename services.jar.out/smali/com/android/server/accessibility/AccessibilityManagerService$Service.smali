@@ -28,6 +28,8 @@
 # instance fields
 .field mAccessibilityServiceInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
 
+.field mAllowBixby:Z
+
 .field mComponentName:Landroid/content/ComponentName;
 
 .field public mEventDispatchHandler:Landroid/os/Handler;

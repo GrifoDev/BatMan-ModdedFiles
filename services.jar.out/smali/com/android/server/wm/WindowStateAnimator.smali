@@ -532,7 +532,7 @@
 
     iget-object v9, v13, Landroid/view/WindowManager$LayoutParams;->surfaceInsets:Landroid/graphics/Rect;
 
-    if-eqz p4, :cond_d
+    if-eqz p4, :cond_e
 
     move-object/from16 v0, p0
 
@@ -545,7 +545,7 @@
     float-to-int v3, v13
 
     :goto_0
-    if-eqz p4, :cond_e
+    if-eqz p4, :cond_f
 
     move-object/from16 v0, p0
 
@@ -580,7 +580,7 @@
 
     iget v14, v14, Lcom/android/server/wm/WindowState;->mYOffset:I
 
-    if-ne v13, v14, :cond_f
+    if-ne v13, v14, :cond_10
 
     move-object/from16 v0, p1
 
@@ -632,7 +632,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_10
+    if-eqz v13, :cond_11
 
     :cond_8
     :goto_3
@@ -640,16 +640,16 @@
 
     move-result v13
 
-    if-eqz v13, :cond_11
+    if-eqz v13, :cond_12
 
-    if-nez v8, :cond_11
+    if-nez v8, :cond_12
 
     const/4 v11, 0x1
 
     :goto_4
     sget-boolean v13, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v13, :cond_9
+    if-eqz v13, :cond_a
 
     move-object/from16 v0, p1
 
@@ -677,7 +677,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_13
+    if-eqz v13, :cond_14
 
     move-object/from16 v0, p1
 
@@ -689,12 +689,33 @@
 
     move-result v13
 
-    if-nez v13, :cond_12
+    if-nez v13, :cond_13
 
     const/4 v11, 0x1
 
     :cond_9
     :goto_5
+    sget-boolean v13, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_WINDOW_SUPPORT:Z
+
+    if-eqz v13, :cond_a
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/WindowState;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v13
+
+    if-eqz v13, :cond_a
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/WindowState;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v13
+
+    iget-boolean v13, v13, Lcom/android/server/wm/Task;->mSnapWindowTarget:Z
+
+    if-eqz v13, :cond_a
+
+    const/4 v11, 0x0
+
+    :cond_a
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
@@ -707,12 +728,12 @@
 
     move-result v13
 
-    if-eqz v13, :cond_a
+    if-eqz v13, :cond_b
 
     const/4 v11, 0x0
 
-    :cond_a
-    if-eqz v11, :cond_16
+    :cond_b
+    if-eqz v11, :cond_17
 
     move-object/from16 v0, p0
 
@@ -724,7 +745,7 @@
 
     sget-boolean v13, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v13, :cond_c
+    if-eqz v13, :cond_d
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/WindowState;->getStackId()I
 
@@ -732,15 +753,15 @@
 
     const/4 v14, 0x3
 
-    if-ne v13, v14, :cond_c
+    if-ne v13, v14, :cond_d
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/WindowState;->getDisplayId()I
 
     move-result v13
 
-    if-nez v13, :cond_c
+    if-nez v13, :cond_d
 
-    if-nez v6, :cond_b
+    if-nez v6, :cond_c
 
     move-object/from16 v0, p0
 
@@ -750,20 +771,20 @@
 
     move-result-object v6
 
-    :cond_b
-    if-eqz v6, :cond_c
+    :cond_c
+    if-eqz v6, :cond_d
 
     invoke-virtual {v6}, Landroid/view/MagnificationSpec;->isNop()Z
 
     move-result v13
 
-    if-eqz v13, :cond_14
+    if-eqz v13, :cond_15
 
-    :cond_c
+    :cond_d
     :goto_6
     return-void
 
-    :cond_d
+    :cond_e
     move-object/from16 v0, p1
 
     iget-object v13, v0, Lcom/android/server/wm/WindowState;->mCompatFrame:Landroid/graphics/Rect;
@@ -784,7 +805,7 @@
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_f
     move-object/from16 v0, p1
 
     iget-object v13, v0, Lcom/android/server/wm/WindowState;->mCompatFrame:Landroid/graphics/Rect;
@@ -805,7 +826,7 @@
 
     goto/16 :goto_1
 
-    :cond_f
+    :cond_10
     move-object/from16 v0, p1
 
     iget-object v13, v0, Lcom/android/server/wm/WindowState;->mCompatFrame:Landroid/graphics/Rect;
@@ -818,7 +839,7 @@
 
     goto/16 :goto_2
 
-    :cond_10
+    :cond_11
     int-to-float v13, v3
 
     iget v14, v6, Landroid/view/MagnificationSpec;->offsetX:F
@@ -837,17 +858,12 @@
 
     goto/16 :goto_3
 
-    :cond_11
+    :cond_12
     move-object/from16 v0, p0
 
     iget-boolean v11, v0, Lcom/android/server/wm/WindowStateAnimator;->mDestroyPreservedSurfaceUponRedraw:Z
 
     goto/16 :goto_4
-
-    :cond_12
-    const/4 v11, 0x0
-
-    goto/16 :goto_5
 
     :cond_13
     const/4 v11, 0x0
@@ -855,13 +871,18 @@
     goto/16 :goto_5
 
     :cond_14
+    const/4 v11, 0x0
+
+    goto/16 :goto_5
+
+    :cond_15
     iget v13, v6, Landroid/view/MagnificationSpec;->scale:F
 
     const/4 v14, 0x0
 
     cmpl-float v13, v13, v14
 
-    if-eqz v13, :cond_c
+    if-eqz v13, :cond_d
 
     move-object/from16 v0, p1
 
@@ -875,7 +896,7 @@
 
     cmpg-float v13, v5, v13
 
-    if-gez v13, :cond_15
+    if-gez v13, :cond_16
 
     move-object/from16 v0, p0
 
@@ -887,7 +908,7 @@
 
     goto :goto_6
 
-    :cond_15
+    :cond_16
     move-object/from16 v0, p0
 
     iget v13, v0, Lcom/android/server/wm/WindowStateAnimator;->mDtDy:F
@@ -910,12 +931,12 @@
 
     goto :goto_6
 
-    :cond_16
+    :cond_17
     move-object/from16 v0, p1
 
     iget-boolean v13, v0, Lcom/android/server/wm/WindowState;->mDssEnabled:Z
 
-    if-eqz v13, :cond_17
+    if-eqz v13, :cond_18
 
     move-object/from16 v0, p0
 
@@ -927,14 +948,14 @@
 
     invoke-virtual {v13, v14}, Landroid/graphics/Rect;->scale(F)V
 
-    :cond_17
+    :cond_18
     iget v13, v7, Lcom/android/server/wm/TaskStack;->mStackId:I
 
     invoke-static {v13}, Landroid/app/ActivityManager$StackId;->hasWindowShadow(I)Z
 
     move-result v13
 
-    if-eqz v13, :cond_18
+    if-eqz v13, :cond_19
 
     iget v13, v7, Lcom/android/server/wm/TaskStack;->mStackId:I
 
@@ -942,9 +963,9 @@
 
     move-result v13
 
-    if-eqz v13, :cond_19
+    if-eqz v13, :cond_1a
 
-    :cond_18
+    :cond_19
     :goto_7
     move-object/from16 v0, p0
 
@@ -1060,7 +1081,7 @@
 
     goto/16 :goto_6
 
-    :cond_19
+    :cond_1a
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/wm/WindowStateAnimator;->mTmpStackBounds:Landroid/graphics/Rect;

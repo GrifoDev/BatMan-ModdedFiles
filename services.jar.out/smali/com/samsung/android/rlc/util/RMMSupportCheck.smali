@@ -1027,287 +1027,345 @@
 .end method
 
 .method public static setRetryChangedTime(Landroid/content/Context;)V
-    .locals 18
+    .locals 22
 
-    const/16 v13, 0x8
+    const/16 v17, 0x8
 
     :try_start_0
-    new-array v9, v13, [I
+    move/from16 v0, v17
 
-    const/16 v13, 0xa
+    new-array v13, v0, [I
 
-    const/4 v14, 0x0
+    const/16 v17, 0xa
 
-    aput v13, v9, v14
+    const/16 v18, 0x0
 
-    const/16 v13, 0xb
+    aput v17, v13, v18
 
-    const/4 v14, 0x1
+    const/16 v17, 0xb
 
-    aput v13, v9, v14
+    const/16 v18, 0x1
 
-    const/16 v13, 0xc
+    aput v17, v13, v18
 
-    const/4 v14, 0x2
+    const/16 v17, 0xc
 
-    aput v13, v9, v14
+    const/16 v18, 0x2
 
-    const/16 v13, 0xd
+    aput v17, v13, v18
 
-    const/4 v14, 0x3
+    const/16 v17, 0xd
 
-    aput v13, v9, v14
+    const/16 v18, 0x3
 
-    const/16 v13, 0xe
+    aput v17, v13, v18
 
-    const/4 v14, 0x4
+    const/16 v17, 0xe
 
-    aput v13, v9, v14
+    const/16 v18, 0x4
 
-    const/16 v13, 0xf
+    aput v17, v13, v18
 
-    const/4 v14, 0x5
+    const/16 v17, 0xf
 
-    aput v13, v9, v14
+    const/16 v18, 0x5
 
-    const/16 v13, 0x10
+    aput v17, v13, v18
 
-    const/4 v14, 0x6
+    const/16 v17, 0x10
 
-    aput v13, v9, v14
+    const/16 v18, 0x6
 
-    const/16 v13, 0x11
+    aput v17, v13, v18
 
-    const/4 v14, 0x7
+    const/16 v17, 0x11
 
-    aput v13, v9, v14
+    const/16 v18, 0x7
+
+    aput v17, v13, v18
 
     invoke-static/range {p0 .. p0}, Lcom/samsung/android/rlc/util/RLCUtil;->getInstance(Landroid/content/Context;)Lcom/samsung/android/rlc/util/RLCUtil;
 
-    move-result-object v13
+    move-result-object v17
 
-    const-string/jumbo v14, "bootTime"
+    const-string/jumbo v18, "bootTime"
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/rlc/util/RLCUtil;->getStringInSecure(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v13, "boot_time"
-
-    move-object/from16 v0, p0
-
-    invoke-static {v0, v13}, Lcom/samsung/android/rlc/util/PreferencesUtil;->getString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v6
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_0
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v14
-
-    invoke-static {v14, v15}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-virtual/range {v17 .. v18}, Lcom/samsung/android/rlc/util/RLCUtil;->getStringInSecure(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    sget-object v13, Lcom/samsung/android/rlc/util/RMMSupportCheck;->TAG:Ljava/lang/String;
+    const-string/jumbo v17, "boot_time"
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v1, v17
 
-    const-string/jumbo v15, "There is no boot Time : "
+    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/PreferencesUtil;->getString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v14
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-wide v10
 
-    move-result-object v14
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v17
 
-    move-result-object v14
+    if-eqz v17, :cond_0
 
-    invoke-static {v13, v14}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v18
+
+    invoke-static/range {v18 .. v19}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v6
+
+    sget-object v17, Lcom/samsung/android/rlc/util/RMMSupportCheck;->TAG:Ljava/lang/String;
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "There is no boot Time : "
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static/range {p0 .. p0}, Lcom/samsung/android/rlc/util/RLCUtil;->getInstance(Landroid/content/Context;)Lcom/samsung/android/rlc/util/RLCUtil;
 
-    move-result-object v13
+    move-result-object v17
 
-    const-string/jumbo v14, "bootTime"
+    const-string/jumbo v18, "bootTime"
 
-    invoke-virtual {v13, v14, v4}, Lcom/samsung/android/rlc/util/RLCUtil;->setStringInSecure(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1, v6}, Lcom/samsung/android/rlc/util/RLCUtil;->setStringInSecure(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v13
+    move-result v17
 
-    if-eqz v13, :cond_1
+    if-eqz v17, :cond_1
 
-    const-string/jumbo v13, "boot_time"
+    const-string/jumbo v17, "boot_time"
 
-    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static {v10, v11}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v18
 
     move-object/from16 v0, p0
 
-    invoke-static {v0, v13, v14}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v1, v17
+
+    move-object/from16 v2, v18
+
+    invoke-static {v0, v1, v2}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
-    const-string/jumbo v13, "boot_time"
+    const-string/jumbo v17, "boot_time"
 
     move-object/from16 v0, p0
 
-    invoke-static {v0, v13}, Lcom/samsung/android/rlc/util/PreferencesUtil;->getString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v17
 
-    move-result-object v13
+    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/PreferencesUtil;->getString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v13}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    move-result-object v17
 
-    move-result-wide v14
+    invoke-static/range {v17 .. v17}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    sub-long v14, v6, v14
+    move-result-wide v18
+
+    sub-long v18, v10, v18
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v16
+    move-result-wide v20
 
-    sub-long v10, v14, v16
+    sub-long v14, v18, v20
 
-    const/4 v13, 0x0
+    invoke-static {v4}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    array-length v14, v9
+    move-result-wide v18
+
+    add-long v8, v18, v14
+
+    const/16 v17, 0x0
+
+    array-length v0, v13
+
+    move/from16 v18, v0
 
     :goto_0
-    if-ge v13, v14, :cond_3
+    move/from16 v0, v17
 
-    aget v12, v9, v13
+    move/from16 v1, v18
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    if-ge v0, v1, :cond_3
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    aget v16, v13, v17
 
-    const-string/jumbo v16, "retry_"
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v15
+    const-string/jumbo v20, "retry_"
 
-    invoke-virtual {v15, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v19
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    move-result-object v15
+    move/from16 v1, v16
 
-    move-object/from16 v0, p0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v15}, Lcom/samsung/android/rlc/util/PreferencesUtil;->getString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v19
 
-    move-result-object v8
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v15
-
-    if-nez v15, :cond_2
-
-    sget-object v15, Lcom/samsung/android/rlc/util/RMMSupportCheck;->TAG:Ljava/lang/String;
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "Retry Time Change : "
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-static/range {v15 .. v16}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v16, "retry_"
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-static {v8}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v16
-
-    add-long v16, v16, v10
-
-    invoke-static/range {v16 .. v17}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v16
+    move-result-object v19
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v19
 
-    invoke-static {v0, v15, v1}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/PreferencesUtil;->getString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_2
+
+    sget-object v19, Lcom/samsung/android/rlc/util/RMMSupportCheck;->TAG:Ljava/lang/String;
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v21, "Retry Time Change : "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    move/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v19 .. v20}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "retry_"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static {v12}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v20
+
+    add-long v20, v20, v14
+
+    invoke-static/range {v20 .. v21}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v20
+
+    invoke-static {v0, v1, v2}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_2
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v17, v17, 0x1
 
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v13, "boot_time"
+    const-string/jumbo v17, "boot_time"
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v14
+    move-result-wide v18
 
-    sub-long v14, v6, v14
+    sub-long v18, v10, v18
 
-    invoke-static {v14, v15}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static/range {v18 .. v19}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v18
 
     move-object/from16 v0, p0
 
-    invoke-static {v0, v13, v14}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v1, v17
+
+    move-object/from16 v2, v18
+
+    invoke-static {v0, v1, v2}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static/range {p0 .. p0}, Lcom/samsung/android/rlc/util/RLCUtil;->getInstance(Landroid/content/Context;)Lcom/samsung/android/rlc/util/RLCUtil;
+
+    move-result-object v17
+
+    const-string/jumbo v18, "bootTime"
+
+    invoke-static {v8, v9}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v17 .. v19}, Lcom/samsung/android/rlc/util/RLCUtil;->setStringInSecure(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1315,33 +1373,33 @@
     return-void
 
     :catch_0
-    move-exception v5
+    move-exception v7
 
-    sget-object v13, Lcom/samsung/android/rlc/util/RMMSupportCheck;->TAG:Ljava/lang/String;
+    sget-object v17, Lcom/samsung/android/rlc/util/RMMSupportCheck;->TAG:Ljava/lang/String;
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "Exception : "
+    const-string/jumbo v19, "Exception : "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v18
 
-    invoke-virtual {v5}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v19
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v18
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v18
 
-    invoke-static {v13, v14}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static/range {v17 .. v18}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_1
 .end method

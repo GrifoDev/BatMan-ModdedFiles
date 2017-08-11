@@ -26,8 +26,6 @@
 
 .field private static mDisableImmersiveConfirmationPackages:[Ljava/lang/String;
 
-.field private static mRecentsVisible:Z
-
 .field private static sDesktopTaskBarEnabled:Z
 
 .field private static sForceFullScreen:Z
@@ -57,7 +55,7 @@
 
     sput-boolean v2, Lcom/android/server/policy/PolicyControl;->DEBUG:Z
 
-    const/4 v0, 0x2
+    const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -68,6 +66,18 @@
     const-string/jumbo v1, "com.sec.android.gallery3d"
 
     const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.sec.enterprise.knox.cloudmdm.smdms"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.sec.knox.kccagent"
+
+    const/4 v2, 0x3
 
     aput-object v1, v0, v2
 
@@ -273,7 +283,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_6
 
     :cond_1
     sget-boolean v1, Lcom/android/server/policy/PolicyControl;->sForceImmersiveMode:Z
@@ -314,11 +324,6 @@
     goto :goto_1
 
     :cond_6
-    sget-boolean v1, Lcom/android/server/policy/PolicyControl;->mRecentsVisible:Z
-
-    if-nez v1, :cond_2
-
-    :cond_7
     or-int/lit16 v0, v0, 0x1202
 
     const v1, 0x7ffffeff
@@ -471,6 +476,16 @@
     return v2
 
     :cond_6
+    invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v1, 0x96f
+
+    if-eq v0, v1, :cond_5
+
     invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getBridge()Lcom/samsung/android/view/IWindowStateBridge;
 
     move-result-object v0
@@ -513,14 +528,6 @@
     const/4 v0, 0x1
 
     :cond_1
-    return v0
-.end method
-
-.method public static isRecentsVisible()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/server/policy/PolicyControl;->mRecentsVisible:Z
-
     return v0
 .end method
 
@@ -879,14 +886,6 @@
     .locals 0
 
     sput-boolean p0, Lcom/android/server/policy/PolicyControl;->sInputMethodVisible:Z
-
-    return-void
-.end method
-
-.method public static setRecentsVisible(Z)V
-    .locals 0
-
-    sput-boolean p0, Lcom/android/server/policy/PolicyControl;->mRecentsVisible:Z
 
     return-void
 .end method

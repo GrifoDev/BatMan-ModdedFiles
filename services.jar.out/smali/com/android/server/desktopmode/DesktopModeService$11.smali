@@ -43,15 +43,15 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get8(Lcom/android/server/desktopmode/DesktopModeService;)I
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get9(Lcom/android/server/desktopmode/DesktopModeService;)I
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get18(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get20(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
     move-result v0
 
@@ -59,22 +59,28 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    const-string/jumbo v1, "1st_mouse"
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get14(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
-    invoke-static {v0, v1, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap0(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;Z)Z
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
+
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get20(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    :cond_0
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap1(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get14(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -84,18 +90,52 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
-    :cond_1
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get10(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get12(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v1}, Lcom/android/server/desktopmode/DesktopModeService;->-get10(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+    invoke-static {v1}, Lcom/android/server/desktopmode/DesktopModeService;->-get12(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+
+    move-result-object v1
+
+    const/4 v2, 0x5
+
+    invoke-virtual {v1, v3, v2, v4}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
+
+    const-string/jumbo v1, "1st_mouse"
+
+    invoke-static {v0, v1, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap0(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
+
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get12(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService$11;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
+
+    invoke-static {v1}, Lcom/android/server/desktopmode/DesktopModeService;->-get12(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
 
     move-result-object v1
 
@@ -107,6 +147,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_2
-    return-void
+    goto :goto_0
 .end method

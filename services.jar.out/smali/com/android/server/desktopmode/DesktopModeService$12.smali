@@ -82,7 +82,7 @@
 
     const/4 v3, 0x1
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap30(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;I)V
+    invoke-static {v1, v2, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap31(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;I)V
 
     goto :goto_0
 .end method

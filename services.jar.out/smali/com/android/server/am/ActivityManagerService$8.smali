@@ -70,7 +70,7 @@
 
     move-object/from16 v0, p1
 
-    invoke-static {v2, v0, v4}, Lcom/android/server/am/ActivityManagerService;->-wrap8(Lcom/android/server/am/ActivityManagerService;Ljava/lang/String;I)V
+    invoke-static {v2, v0, v4}, Lcom/android/server/am/ActivityManagerService;->-wrap7(Lcom/android/server/am/ActivityManagerService;Ljava/lang/String;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

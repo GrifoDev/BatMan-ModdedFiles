@@ -3907,47 +3907,54 @@
 
     iget v4, v1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     invoke-virtual {p1, p2}, Lcom/android/server/wm/WindowState;->isObscuringFullscreen(Landroid/view/DisplayInfo;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
-    iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+    sget-boolean v6, Lcom/samsung/android/config/SamsungCoreConfig;->FEATURE_AOD:Z
 
-    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->type:I
+    if-eqz v6, :cond_0
 
-    const/16 v7, 0x8b1
+    invoke-static {}, Lcom/android/server/SamsungCoreServices;->getAODWindowPolicy()Lcom/android/server/policy/AODWindowPolicy;
 
-    if-eq v6, v7, :cond_1
+    move-result-object v6
 
+    invoke-interface {v6, p1}, Lcom/android/server/policy/AODWindowPolicy;->isObscuredWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    :cond_0
     iget-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mObscured:Z
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1
 
     iput-object p1, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mObsuringWindow:Lcom/android/server/wm/WindowState;
 
-    :cond_0
+    :cond_1
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mObscured:Z
 
-    :cond_1
+    :cond_2
     iget-boolean v6, p1, Lcom/android/server/wm/WindowState;->mHasSurface:Z
 
-    if-eqz v6, :cond_10
+    if-eqz v6, :cond_11
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->isVisibleNow()Z
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_9
 
     and-int/lit16 v6, v0, 0x80
 
-    if-eqz v6, :cond_11
+    if-eqz v6, :cond_12
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
 
@@ -3955,44 +3962,15 @@
 
     iput-object p1, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mHoldScreenWindow:Lcom/android/server/wm/WindowState;
 
-    :cond_2
-    :goto_0
-    iget-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mSyswin:Z
-
-    if-nez v6, :cond_3
-
-    iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
-
-    const/4 v7, 0x0
-
-    cmpl-float v6, v6, v7
-
-    if-ltz v6, :cond_3
-
-    iget v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mScreenBrightness:F
-
-    const/4 v7, 0x0
-
-    cmpg-float v6, v6, v7
-
-    if-gez v6, :cond_3
-
-    iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
-
-    iput v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mScreenBrightness:F
-
     :cond_3
+    :goto_0
     iget-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mSyswin:Z
 
     if-nez v6, :cond_4
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
+    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     const/4 v7, 0x0
 
@@ -4000,7 +3978,7 @@
 
     if-ltz v6, :cond_4
 
-    iget v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mButtonBrightness:F
+    iget v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mScreenBrightness:F
 
     const/4 v7, 0x0
 
@@ -4010,9 +3988,9 @@
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
+    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    iput v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mButtonBrightness:F
+    iput v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mScreenBrightness:F
 
     :cond_4
     iget-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mSyswin:Z
@@ -4021,27 +3999,27 @@
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
+    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    const-wide/16 v8, 0x0
+    const/4 v7, 0x0
 
-    cmp-long v6, v6, v8
+    cmpl-float v6, v6, v7
 
     if-ltz v6, :cond_5
 
-    iget-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mUserActivityTimeout:J
+    iget v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mButtonBrightness:F
 
-    const-wide/16 v8, 0x0
+    const/4 v7, 0x0
 
-    cmp-long v6, v6, v8
+    cmpg-float v6, v6, v7
 
     if-gez v6, :cond_5
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
+    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    iput-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mUserActivityTimeout:J
+    iput v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mButtonBrightness:F
 
     :cond_5
     iget-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mSyswin:Z
@@ -4050,7 +4028,7 @@
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+    iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
     const-wide/16 v8, 0x0
 
@@ -4058,7 +4036,7 @@
 
     if-ltz v6, :cond_6
 
-    iget-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mScreenDimDuration:J
+    iget-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mUserActivityTimeout:J
 
     const-wide/16 v8, 0x0
 
@@ -4068,9 +4046,9 @@
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+    iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
-    iput-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mScreenDimDuration:J
+    iput-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mUserActivityTimeout:J
 
     :cond_6
     iget-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mSyswin:Z
@@ -4079,7 +4057,7 @@
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
+    iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
     const-wide/16 v8, 0x0
 
@@ -4087,7 +4065,7 @@
 
     if-ltz v6, :cond_7
 
-    iget-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mButtonLightTimeout:J
+    iget-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mScreenDimDuration:J
 
     const-wide/16 v8, 0x0
 
@@ -4097,11 +4075,40 @@
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
+    iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+
+    iput-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mScreenDimDuration:J
+
+    :cond_7
+    iget-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mSyswin:Z
+
+    if-nez v6, :cond_8
+
+    iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
+
+    const-wide/16 v8, 0x0
+
+    cmp-long v6, v6, v8
+
+    if-ltz v6, :cond_8
+
+    iget-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mButtonLightTimeout:J
+
+    const-wide/16 v8, 0x0
+
+    cmp-long v6, v6, v8
+
+    if-gez v6, :cond_8
+
+    iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
     iget-wide v6, v6, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
 
     iput-wide v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mButtonLightTimeout:J
 
-    :cond_7
+    :cond_8
     iget-object v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v6, v6, Lcom/android/server/wm/WindowManagerService;->mBridge:Lcom/android/server/wm/IWindowManagerServiceBridge;
@@ -4110,49 +4117,49 @@
 
     invoke-interface {v6, v7, p1}, Lcom/android/server/wm/IWindowManagerServiceBridge;->restoreFromForceUserActivityTimeout(ZLcom/android/server/wm/WindowState;)V
 
-    :cond_8
+    :cond_9
     iget v5, v1, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
     const/16 v6, 0x7d8
 
-    if-eq v5, v6, :cond_9
+    if-eq v5, v6, :cond_a
 
     const/16 v6, 0x7da
 
-    if-ne v5, v6, :cond_12
+    if-ne v5, v6, :cond_13
 
-    :cond_9
+    :cond_a
     :goto_1
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mSyswin:Z
 
-    :cond_a
-    if-eqz v2, :cond_15
+    :cond_b
+    if-eqz v2, :cond_16
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
 
     move-result-object v3
 
-    if-eqz v3, :cond_13
+    if-eqz v3, :cond_14
 
     iget-boolean v6, v3, Lcom/android/server/wm/DisplayContent;->isDefaultDisplay:Z
 
-    if-eqz v6, :cond_13
+    if-eqz v6, :cond_14
 
     const/16 v6, 0x7e7
 
-    if-eq v5, v6, :cond_b
+    if-eq v5, v6, :cond_c
 
     iget v6, v1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     and-int/lit16 v6, v6, 0x400
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_d
 
-    :cond_b
+    :cond_c
     iget-object v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v6, v6, Lcom/android/server/wm/WindowManagerService;->mBridge:Lcom/android/server/wm/IWindowManagerServiceBridge;
@@ -4161,18 +4168,18 @@
 
     move-result v6
 
-    if-nez v6, :cond_c
+    if-nez v6, :cond_d
 
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mObscureApplicationContentOnSecondaryDisplays:Z
 
-    :cond_c
+    :cond_d
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mDisplayHasContent:Z
 
-    :cond_d
+    :cond_e
     :goto_2
     iget v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mPreferredRefreshRate:F
 
@@ -4180,7 +4187,7 @@
 
     cmpl-float v6, v6, v7
 
-    if-nez v6, :cond_e
+    if-nez v6, :cond_f
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
@@ -4190,7 +4197,7 @@
 
     cmpl-float v6, v6, v7
 
-    if-eqz v6, :cond_e
+    if-eqz v6, :cond_f
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
@@ -4198,16 +4205,16 @@
 
     iput v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mPreferredRefreshRate:F
 
-    :cond_e
+    :cond_f
     iget v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mPreferredModeId:I
 
-    if-nez v6, :cond_f
+    if-nez v6, :cond_10
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
     iget v6, v6, Landroid/view/WindowManager$LayoutParams;->preferredDisplayModeId:I
 
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_10
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
@@ -4215,31 +4222,31 @@
 
     iput v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mPreferredModeId:I
 
-    :cond_f
+    :cond_10
     const/high16 v6, 0x40000
 
     and-int/2addr v6, v4
 
-    if-eqz v6, :cond_10
+    if-eqz v6, :cond_11
 
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mSustainedPerformanceModeCurrent:Z
 
-    :cond_10
+    :cond_11
     :goto_3
     return-void
 
-    :cond_11
+    :cond_12
     sget-boolean v6, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_KEEP_SCREEN_ON:Z
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     iget-object v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v6, v6, Lcom/android/server/wm/WindowManagerService;->mLastWakeLockHoldingWindow:Lcom/android/server/wm/WindowState;
 
-    if-ne p1, v6, :cond_2
+    if-ne p1, v6, :cond_3
 
     const-string/jumbo v6, "DebugKeepScreenOn"
 
@@ -4287,12 +4294,12 @@
 
     goto/16 :goto_0
 
-    :cond_12
+    :cond_13
     iget v6, v1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     and-int/lit16 v6, v6, 0x400
 
-    if-nez v6, :cond_9
+    if-nez v6, :cond_a
 
     iget v6, v1, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
 
@@ -4300,33 +4307,33 @@
 
     and-int/2addr v6, v7
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_b
 
     goto/16 :goto_1
 
-    :cond_13
-    if-eqz v3, :cond_d
+    :cond_14
+    if-eqz v3, :cond_e
 
     iget-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mObscureApplicationContentOnSecondaryDisplays:Z
 
-    if-eqz v6, :cond_14
+    if-eqz v6, :cond_15
 
     iget-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mObscured:Z
 
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_e
 
     const/16 v6, 0x7d9
 
-    if-ne v5, v6, :cond_d
+    if-ne v5, v6, :cond_e
 
-    :cond_14
+    :cond_15
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mDisplayHasContent:Z
 
     goto/16 :goto_2
 
-    :cond_15
+    :cond_16
     iget-object v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v6, v6, Lcom/android/server/wm/WindowManagerService;->mBridge:Lcom/android/server/wm/IWindowManagerServiceBridge;
@@ -4335,21 +4342,21 @@
 
     move-result v6
 
-    if-eqz v6, :cond_10
+    if-eqz v6, :cond_11
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
 
     move-result-object v3
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_11
 
     iget-boolean v6, p0, Lcom/android/server/wm/WindowSurfacePlacer;->mObscureApplicationContentOnSecondaryDisplays:Z
 
-    if-nez v6, :cond_10
+    if-nez v6, :cond_11
 
     const/16 v6, 0x8b6
 
-    if-ne v5, v6, :cond_10
+    if-ne v5, v6, :cond_11
 
     const/4 v6, 0x1
 
@@ -7134,9 +7141,9 @@
 
     move-result-wide v28
 
-    const-string/jumbo v30, "android.server.wm:TURN_ON"
+    const/16 v30, 0x11
 
-    invoke-virtual/range {v27 .. v30}, Landroid/os/PowerManager;->wakeUp(JLjava/lang/String;)V
+    invoke-virtual/range {v27 .. v30}, Landroid/os/PowerManager;->wakeUp(JI)V
 
     :cond_33
     move-object/from16 v0, p0

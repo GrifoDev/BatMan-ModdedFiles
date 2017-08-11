@@ -216,7 +216,7 @@
 .end method
 
 .method public run()V
-    .locals 11
+    .locals 12
 
     const/4 v5, 0x0
 
@@ -246,7 +246,9 @@
 
     move v8, v5
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/server/backup/BackupManagerService$FullBackupEngine;-><init>(Lcom/android/server/backup/BackupManagerService;Ljava/io/OutputStream;Lcom/android/server/backup/BackupManagerService$FullBackupPreflight;Landroid/content/pm/PackageInfo;ZLcom/android/server/backup/BackupManagerService$BackupRestoreTask;IZ)V
+    move v9, v5
+
+    invoke-direct/range {v0 .. v9}, Lcom/android/server/backup/BackupManagerService$FullBackupEngine;-><init>(Lcom/android/server/backup/BackupManagerService;Ljava/io/OutputStream;Lcom/android/server/backup/BackupManagerService$FullBackupPreflight;Landroid/content/pm/PackageInfo;ZLcom/android/server/backup/BackupManagerService$BackupRestoreTask;IZI)V
 
     iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;->mEngine:Lcom/android/server/backup/BackupManagerService$FullBackupEngine;
 
@@ -310,7 +312,7 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     :catch_0
-    move-exception v10
+    move-exception v11
 
     :try_start_4
     const-string/jumbo v0, "PFTBT"
@@ -355,7 +357,7 @@
     goto :goto_0
 
     :catch_1
-    move-exception v9
+    move-exception v10
 
     const-string/jumbo v0, "PFTBT"
 
@@ -366,7 +368,7 @@
     goto :goto_0
 
     :catch_2
-    move-exception v9
+    move-exception v10
 
     const-string/jumbo v0, "PFTBT"
 
@@ -394,7 +396,7 @@
     throw v0
 
     :catch_3
-    move-exception v9
+    move-exception v10
 
     const-string/jumbo v1, "PFTBT"
 

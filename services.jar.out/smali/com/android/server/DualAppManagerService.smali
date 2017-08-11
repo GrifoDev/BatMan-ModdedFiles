@@ -647,7 +647,7 @@
 
     sget-object v0, Lcom/android/server/DualAppManagerService;->mDualAppBadge:Landroid/widget/ImageView;
 
-    const v1, 0x10803f9
+    const v1, 0x10803e3
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 

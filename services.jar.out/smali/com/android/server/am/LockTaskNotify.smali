@@ -24,12 +24,18 @@
 
 .field private mLastToast:Landroid/widget/Toast;
 
+.field private mShowNavigationBar:Z
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/am/LockTaskNotify;->mShowNavigationBar:Z
 
     iput-object p1, p0, Lcom/android/server/am/LockTaskNotify;->mContext:Landroid/content/Context;
 
@@ -52,6 +58,18 @@
     check-cast v0, Landroid/view/accessibility/AccessibilityManager;
 
     iput-object v0, p0, Lcom/android/server/am/LockTaskNotify;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x112006a
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/server/am/LockTaskNotify;->mShowNavigationBar:Z
 
     return-void
 .end method
@@ -101,7 +119,7 @@
 
     iget-object v1, p0, Lcom/android/server/am/LockTaskNotify;->mContext:Landroid/content/Context;
 
-    const v2, 0x10405cd
+    const v2, 0x10405d1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -109,7 +127,7 @@
 
     :cond_0
     :goto_0
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5
 
     return-void
 
@@ -117,6 +135,10 @@
     const/4 v1, 0x2
 
     if-ne p1, v1, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/server/am/LockTaskNotify;->mShowNavigationBar:Z
+
+    if-eqz v1, :cond_3
 
     iget-object v2, p0, Lcom/android/server/am/LockTaskNotify;->mContext:Landroid/content/Context;
 
@@ -128,7 +150,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x10405cc
+    const v1, 0x10405d0
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -138,20 +160,45 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x10405cb
+    const v1, 0x10405ce
 
     goto :goto_1
 
     :cond_3
-    iget-object v1, p0, Lcom/android/server/am/LockTaskNotify;->mLastToast:Landroid/widget/Toast;
+    iget-object v2, p0, Lcom/android/server/am/LockTaskNotify;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/server/am/LockTaskNotify;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
+
+    move-result v1
 
     if-eqz v1, :cond_4
+
+    const v1, 0x10405cf
+
+    :goto_2
+    invoke-virtual {v2, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_4
+    const v1, 0x10405cd
+
+    goto :goto_2
+
+    :cond_5
+    iget-object v1, p0, Lcom/android/server/am/LockTaskNotify;->mLastToast:Landroid/widget/Toast;
+
+    if-eqz v1, :cond_6
 
     iget-object v1, p0, Lcom/android/server/am/LockTaskNotify;->mLastToast:Landroid/widget/Toast;
 
     invoke-virtual {v1}, Landroid/widget/Toast;->cancel()V
 
-    :cond_4
+    :cond_6
     invoke-direct {p0, v0}, Lcom/android/server/am/LockTaskNotify;->makeAllUserToastAndShow(Ljava/lang/String;)Landroid/widget/Toast;
 
     move-result-object v1
@@ -164,11 +211,11 @@
 .method public show(Z)V
     .locals 2
 
-    const v0, 0x10405cf
+    const v0, 0x10405d3
 
     if-eqz p1, :cond_0
 
-    const v0, 0x10405ce
+    const v0, 0x10405d2
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/am/LockTaskNotify;->mContext:Landroid/content/Context;

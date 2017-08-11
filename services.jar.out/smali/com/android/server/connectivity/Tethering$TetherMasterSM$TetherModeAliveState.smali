@@ -143,7 +143,7 @@
 
     iget v12, p1, Landroid/os/Message;->what:I
 
-    invoke-static {v11, p0, v12}, Lcom/android/server/connectivity/Tethering;->-wrap10(Lcom/android/server/connectivity/Tethering;Lcom/android/internal/util/State;I)V
+    invoke-static {v11, p0, v12}, Lcom/android/server/connectivity/Tethering;->-wrap9(Lcom/android/server/connectivity/Tethering;Lcom/android/internal/util/State;I)V
 
     const-string/jumbo v11, "Tethering"
 

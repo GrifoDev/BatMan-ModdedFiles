@@ -102,6 +102,21 @@
 .method public static generatePublicKey([B)Ljava/security/interfaces/RSAPublicKey;
     .locals 6
 
+    const/4 v2, 0x0
+
+    if-eqz p0, :cond_0
+
+    :try_start_0
+    array-length v3, p0
+
+    if-gtz v3, :cond_1
+
+    :cond_0
+    sget-object v3, Lcom/samsung/android/rlc/util/HMACUtil;->publicKey:Ljava/security/interfaces/RSAPublicKey;
+
+    return-object v3
+
+    :cond_1
     sget-object v3, Lcom/samsung/android/rlc/util/HMACUtil;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -126,21 +141,6 @@
 
     invoke-static {v3, v4}, Lcom/samsung/android/rlc/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v2, 0x0
-
-    if-eqz p0, :cond_0
-
-    :try_start_0
-    array-length v3, p0
-
-    if-gtz v3, :cond_1
-
-    :cond_0
-    sget-object v3, Lcom/samsung/android/rlc/util/HMACUtil;->publicKey:Ljava/security/interfaces/RSAPublicKey;
-
-    return-object v3
-
-    :cond_1
     const-string/jumbo v3, "X.509"
 
     invoke-static {v3}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;

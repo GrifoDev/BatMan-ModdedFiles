@@ -3357,16 +3357,16 @@
     goto/16 :goto_1
 
     :cond_8
-    if-lez v7, :cond_12
+    if-lez v7, :cond_11
 
-    if-lt v6, v7, :cond_12
+    if-lt v6, v7, :cond_11
 
     const/4 v3, 0x1
 
     :goto_3
-    if-lez v7, :cond_13
+    if-lez v7, :cond_12
 
-    if-lt v8, v7, :cond_13
+    if-lt v8, v7, :cond_12
 
     const/4 v5, 0x1
 
@@ -3503,7 +3503,7 @@
 
     iget-object v13, v10, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_13
 
     move v10, v12
 
@@ -3526,32 +3526,19 @@
     invoke-virtual {v10, v2}, Lcom/android/server/wm/WindowManagerService$H;->sendMessage(Landroid/os/Message;)Z
 
     :cond_10
-    iget-boolean v10, p0, Lcom/android/server/wm/AppWindowToken;->reportedVisible:Z
-
-    if-eqz v10, :cond_11
-
-    iget-object v10, p0, Lcom/android/server/wm/AppWindowToken;->service:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v10}, Lcom/android/server/wm/WindowManagerService;->getBridge()Lcom/android/server/wm/IWindowManagerServiceBridge;
-
-    move-result-object v10
-
-    invoke-interface {v10, p0}, Lcom/android/server/wm/IWindowManagerServiceBridge;->showConventionalModeGuidePopup(Lcom/android/server/wm/AppWindowToken;)V
-
-    :cond_11
     return-void
 
-    :cond_12
+    :cond_11
     const/4 v3, 0x0
 
     goto/16 :goto_3
 
-    :cond_13
+    :cond_12
     const/4 v5, 0x0
 
     goto/16 :goto_4
 
-    :cond_14
+    :cond_13
     move v10, v11
 
     goto :goto_5

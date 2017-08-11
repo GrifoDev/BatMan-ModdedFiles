@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/cover/CoverManagerService;->systemReady()V
+    value = Lcom/android/server/cover/CoverManagerService;-><init>(Landroid/content/Context;Lcom/android/server/wm/WindowManagerService;Lcom/android/server/input/InputManagerService;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,21 +35,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 1
 
-    const/4 v1, 0x1
+    const/4 v0, -0x4
 
-    iget-object v0, p0, Lcom/android/server/cover/CoverManagerService$6;->this$0:Lcom/android/server/cover/CoverManagerService;
+    invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
 
-    invoke-static {v0, v1}, Lcom/android/server/cover/CoverManagerService;->-set0(Lcom/android/server/cover/CoverManagerService;Z)Z
+    const/4 v0, 0x0
 
-    iget-object v0, p0, Lcom/android/server/cover/CoverManagerService$6;->this$0:Lcom/android/server/cover/CoverManagerService;
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v2
-
-    invoke-virtual {v0, v2, v3, v1}, Lcom/android/server/cover/CoverManagerService;->notifyCoverAttachStateChanged(JZ)V
+    invoke-static {v0}, Landroid/os/Process;->setCanSelfBackground(Z)V
 
     return-void
 .end method

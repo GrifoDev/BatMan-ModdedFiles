@@ -122,7 +122,7 @@
 
     if-ne v0, v5, :cond_1
 
-    const v2, 0x1080302
+    const v2, 0x10802f8
 
     iget-object v0, p0, Lcom/android/server/DirEncryptServiceHelper$AnimatingNotification;->mContext:Landroid/content/Context;
 
@@ -130,7 +130,7 @@
 
     move-result-object v0
 
-    const v5, 0x104068b
+    const v5, 0x104068f
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -142,7 +142,7 @@
 
     move-result-object v0
 
-    const v5, 0x104068a
+    const v5, 0x104068e
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -287,7 +287,7 @@
 
     move-result-object v0
 
-    const v5, 0x104068f
+    const v5, 0x1040693
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -299,7 +299,7 @@
 
     move-result-object v0
 
-    const v5, 0x104068e
+    const v5, 0x1040692
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

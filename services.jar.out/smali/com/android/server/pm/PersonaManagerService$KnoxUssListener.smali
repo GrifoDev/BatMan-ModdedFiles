@@ -67,7 +67,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$KnoxUssListener;->mPersonaManagerService:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->-wrap47(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->-wrap46(Lcom/android/server/pm/PersonaManagerService;I)V
 
     return-void
 .end method
@@ -82,7 +82,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$KnoxUssListener;->mPersonaManagerService:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->-wrap48(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->-wrap47(Lcom/android/server/pm/PersonaManagerService;I)V
 
     return-void
 .end method
@@ -97,7 +97,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$KnoxUssListener;->mPersonaManagerService:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->-wrap49(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->-wrap48(Lcom/android/server/pm/PersonaManagerService;I)V
 
     return-void
 .end method
@@ -112,7 +112,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$KnoxUssListener;->mPersonaManagerService:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->-wrap50(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->-wrap49(Lcom/android/server/pm/PersonaManagerService;I)V
 
     return-void
 .end method

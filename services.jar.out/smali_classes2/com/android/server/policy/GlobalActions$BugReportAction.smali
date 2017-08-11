@@ -27,7 +27,7 @@
 
     iput-object p1, p0, Lcom/android/server/policy/GlobalActions$BugReportAction;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    const v0, 0x1080402
+    const v0, 0x10803ec
 
     const v1, 0x104013a
 

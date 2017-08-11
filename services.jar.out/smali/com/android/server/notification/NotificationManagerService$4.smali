@@ -1,9 +1,6 @@
 .class Lcom/android/server/notification/NotificationManagerService$4;
-.super Ljava/lang/Object;
+.super Landroid/service/vr/IVrStateCallbacks$Stub;
 .source "NotificationManagerService.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -27,27 +24,29 @@
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$4;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/service/vr/IVrStateCallbacks$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public onVrStateChanged(Z)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$4;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$4;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
+    invoke-static {v1}, Lcom/android/server/notification/NotificationManagerService;->-get14(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$NotificationListeners;
+
+    move-result-object v0
+
+    if-eqz p1, :cond_0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$4;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    const/4 v1, 0x0
 
-    iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
-
-    invoke-interface {v0}, Lcom/android/server/statusbar/StatusBarManagerInternal;->buzzBeepBlinked()V
+    invoke-virtual {v0, v1}, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->rebindServices(Z)V
 
     :cond_0
     return-void

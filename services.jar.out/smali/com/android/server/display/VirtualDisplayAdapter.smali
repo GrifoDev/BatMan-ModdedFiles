@@ -246,17 +246,17 @@
 
 
 # virtual methods
-.method public createVirtualDisplayLocked(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/media/projection/IMediaProjection;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;I)Lcom/android/server/display/DisplayDevice;
-    .locals 21
+.method public createVirtualDisplayLocked(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/media/projection/IMediaProjection;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;IFF)Lcom/android/server/display/DisplayDevice;
+    .locals 23
 
     and-int/lit8 v4, p10, 0x4
 
     if-eqz v4, :cond_2
 
-    const/16 v20, 0x1
+    const/16 v22, 0x1
 
     :goto_0
-    if-eqz v20, :cond_3
+    if-eqz v22, :cond_3
 
     :cond_0
     :goto_1
@@ -266,7 +266,7 @@
 
     move-object/from16 v0, p5
 
-    move/from16 v1, v20
+    move/from16 v1, v22
 
     move/from16 v2, p10
 
@@ -322,11 +322,11 @@
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v20
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v20
 
     invoke-direct {v0, v1}, Lcom/android/server/display/VirtualDisplayAdapter;->getNextUniqueIndex(Ljava/lang/String;)I
 
@@ -348,7 +348,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -382,7 +382,11 @@
 
     move/from16 v14, p10
 
-    invoke-direct/range {v3 .. v17}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;-><init>(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;Landroid/os/IBinder;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;ILcom/android/server/display/VirtualDisplayAdapter$Callback;Ljava/lang/String;I)V
+    move/from16 v18, p11
+
+    move/from16 v19, p12
+
+    invoke-direct/range {v3 .. v19}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;-><init>(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;Landroid/os/IBinder;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;ILcom/android/server/display/VirtualDisplayAdapter$Callback;Ljava/lang/String;IFF)V
 
     move-object/from16 v0, p0
 
@@ -413,7 +417,7 @@
     return-object v3
 
     :cond_2
-    const/16 v20, 0x0
+    const/16 v22, 0x0
 
     goto/16 :goto_0
 
@@ -424,12 +428,12 @@
 
     if-eqz v4, :cond_0
 
-    const/16 v20, 0x1
+    const/16 v22, 0x1
 
     goto/16 :goto_1
 
     :catch_0
-    move-exception v19
+    move-exception v21
 
     move-object/from16 v0, p0
 

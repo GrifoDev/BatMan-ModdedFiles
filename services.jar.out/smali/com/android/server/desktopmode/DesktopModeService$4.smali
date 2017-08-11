@@ -47,13 +47,13 @@
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap25(Lcom/android/server/desktopmode/DesktopModeService;I)V
+    invoke-static {v1, v2}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap26(Lcom/android/server/desktopmode/DesktopModeService;I)V
 
     iget-object v2, p0, Lcom/android/server/desktopmode/DesktopModeService$4;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
     iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService$4;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v1}, Lcom/android/server/desktopmode/DesktopModeService;->-get12(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    invoke-static {v1}, Lcom/android/server/desktopmode/DesktopModeService;->-get14(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
     move-result v1
 

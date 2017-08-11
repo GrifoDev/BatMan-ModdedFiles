@@ -151,11 +151,9 @@
 .end method
 
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .locals 6
+    .locals 4
 
-    const-wide/16 v4, 0x0
-
-    const/4 v2, 0x0
+    const-wide/16 v2, 0x0
 
     const/4 v1, 0x1
 
@@ -293,7 +291,7 @@
 
     iget-object v0, v0, Lcom/android/server/am/PendingIntentRecord$Key;->requestIntent:Landroid/content/Intent;
 
-    invoke-virtual {v0, v2, v1, v1, v1}, Landroid/content/Intent;->toShortString(ZZZZ)Ljava/lang/String;
+    invoke-virtual {v0, v1, v1, v1, v1}, Landroid/content/Intent;->toShortString(ZZZZ)Ljava/lang/String;
 
     move-result-object v0
 
@@ -330,7 +328,7 @@
     :cond_6
     iget-wide v0, p0, Lcom/android/server/am/PendingIntentRecord;->whitelistDuration:J
 
-    cmp-long v0, v0, v4
+    cmp-long v0, v0, v2
 
     if-eqz v0, :cond_7
 
@@ -351,7 +349,7 @@
 
     iget-wide v0, v0, Lcom/android/server/am/PendingIntentRecord$Key;->grabTime:J
 
-    cmp-long v0, v0, v4
+    cmp-long v0, v0, v2
 
     if-eqz v0, :cond_8
 

@@ -36,157 +36,233 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 7
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    const-string/jumbo v4, "WallpaperManagerService"
+    const-string/jumbo v3, "WallpaperManagerService"
 
-    const-string/jumbo v5, "ColorCodePollingThread run()"
+    const-string/jumbo v4, "ColorCodePollingThread run()"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
     const-string/jumbo v4, "ril.product_code"
 
     invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
+
+    iput-object v4, v3, Lcom/android/server/wallpaper/WallpaperManagerService;->mProductCode:Ljava/lang/String;
 
     :goto_0
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    iget-object v3, v3, Lcom/android/server/wallpaper/WallpaperManagerService;->mProductCode:Ljava/lang/String;
+
     if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    iget-object v3, v3, Lcom/android/server/wallpaper/WallpaperManagerService;->mProductCode:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
     :cond_0
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    iget v3, v3, Lcom/android/server/wallpaper/WallpaperManagerService;->mLastColorCodePollingThreadCount:I
+
+    if-lez v3, :cond_1
+
     :try_start_0
-    const-string/jumbo v4, "WallpaperManagerService"
+    const-string/jumbo v3, "WallpaperManagerService"
 
-    const-string/jumbo v5, "ColorCodePollingThread sleep(1000)"
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "ColorCodePollingThread sleep(1000) count="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    iget v5, v5, Lcom/android/server/wallpaper/WallpaperManagerService;->mLastColorCodePollingThreadCount:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     const-wide/16 v4, 0x3e8
 
     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
+
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    iget v4, v3, Lcom/android/server/wallpaper/WallpaperManagerService;->mLastColorCodePollingThreadCount:I
+
+    add-int/lit8 v4, v4, -0x1
+
+    iput v4, v3, Lcom/android/server/wallpaper/WallpaperManagerService;->mLastColorCodePollingThreadCount:I
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_1
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
     const-string/jumbo v4, "ril.product_code"
 
     invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
+
+    iput-object v4, v3, Lcom/android/server/wallpaper/WallpaperManagerService;->mProductCode:Ljava/lang/String;
 
     goto :goto_0
 
     :catch_0
     move-exception v1
 
-    const-string/jumbo v4, "WallpaperManagerService"
+    const-string/jumbo v3, "WallpaperManagerService"
 
-    const-string/jumbo v5, "InterruptedException occurred"
+    const-string/jumbo v4, "InterruptedException occurred"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
     :cond_1
+    :try_start_1
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    iget-object v3, v3, Lcom/android/server/wallpaper/WallpaperManagerService;->mProductCode:Ljava/lang/String;
+
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    iget-object v3, v3, Lcom/android/server/wallpaper/WallpaperManagerService;->mProductCode:Ljava/lang/String;
+
     const/16 v4, 0x8
 
     const/16 v5, 0xa
 
-    :try_start_1
     invoke-virtual {v3, v4, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v4, "WallpaperManagerService"
+    const-string/jumbo v3, "WallpaperManagerService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Color code ("
+    const-string/jumbo v5, "Color code ("
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ") retrieved!!"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->val$context:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    const-string/jumbo v5, "cmf_color_code"
-
-    invoke-static {v4, v5, v0}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    iget-object v4, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
-
-    invoke-static {v4, v0}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap8(Lcom/android/server/wallpaper/WallpaperManagerService;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    invoke-static {v4}, Lcom/android/server/wallpaper/WallpaperManagerService;->-set2(Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v5, ") retrieved!!"
 
-    iget-object v4, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v4}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap0(Lcom/android/server/wallpaper/WallpaperManagerService;)Z
+    move-result-object v4
 
-    move-result v4
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-nez v4, :cond_2
+    move-result-object v4
 
-    iget-object v4, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v4, v4, Lcom/android/server/wallpaper/WallpaperManagerService;->mHandler:Landroid/os/Handler;
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->val$context:Landroid/content/Context;
 
-    const/16 v5, 0x3f0
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    move-result-object v3
+
+    const-string/jumbo v4, "cmf_color_code"
+
+    invoke-static {v3, v4, v0}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    invoke-static {v3, v0}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap9(Lcom/android/server/wallpaper/WallpaperManagerService;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/server/wallpaper/WallpaperManagerService;->-set2(Ljava/lang/String;)Ljava/lang/String;
+
+    invoke-static {}, Lcom/android/server/wallpaper/WallpaperManagerService;->-get1()Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    invoke-static {v3}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap0(Lcom/android/server/wallpaper/WallpaperManagerService;)Z
     :try_end_1
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_1
 
+    move-result v3
+
+    if-eqz v3, :cond_3
+
     :cond_2
     :goto_2
-    invoke-static {v7}, Lcom/android/server/wallpaper/WallpaperManagerService;->-set0(Ljava/lang/Thread;)Ljava/lang/Thread;
+    invoke-static {v6}, Lcom/android/server/wallpaper/WallpaperManagerService;->-set0(Ljava/lang/Thread;)Ljava/lang/Thread;
 
     return-void
+
+    :cond_3
+    :try_start_2
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$7;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    iget-object v3, v3, Lcom/android/server/wallpaper/WallpaperManagerService;->mHandler:Landroid/os/Handler;
+
+    const/16 v4, 0x3f0
+
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    :try_end_2
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_1
+
+    goto :goto_2
 
     :catch_1
     move-exception v2
 
-    const-string/jumbo v4, "WallpaperManagerService"
+    const-string/jumbo v3, "WallpaperManagerService"
 
-    const-string/jumbo v5, "IndexOutOfBoundsException occurred on mColorCodePollingThread"
+    const-string/jumbo v4, "IndexOutOfBoundsException occurred on mColorCodePollingThread"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 .end method

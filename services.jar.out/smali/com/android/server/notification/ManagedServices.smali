@@ -179,15 +179,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap3(Lcom/android/server/notification/ManagedServices;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/notification/ManagedServices;->rebindServices(Z)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap4(Lcom/android/server/notification/ManagedServices;)V
+.method static synthetic -wrap3(Lcom/android/server/notification/ManagedServices;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/notification/ManagedServices;->rebuildRestoredPackages()V
@@ -366,568 +358,6 @@
     invoke-direct/range {v0 .. v7}, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;-><init>(Lcom/android/server/notification/ManagedServices;Landroid/os/IInterface;Landroid/content/ComponentName;IZLandroid/content/ServiceConnection;I)V
 
     return-object v0
-.end method
-
-.method private rebindServices(Z)V
-    .locals 23
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/notification/ManagedServices;->DEBUG:Z
-
-    move/from16 v20, v0
-
-    if-eqz v20, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->TAG:Ljava/lang/String;
-
-    move-object/from16 v20, v0
-
-    const-string/jumbo v21, "rebindServices"
-
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mUserProfiles:Lcom/android/server/notification/ManagedServices$UserProfiles;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Lcom/android/server/notification/ManagedServices$UserProfiles;->getCurrentProfileIds()[I
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    array-length v12, v0
-
-    new-instance v7, Landroid/util/SparseArray;
-
-    invoke-direct {v7}, Landroid/util/SparseArray;-><init>()V
-
-    const/4 v8, 0x0
-
-    :goto_0
-    if-ge v8, v12, :cond_2
-
-    aget v20, v19, v8
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mConfig:Lcom/android/server/notification/ManagedServices$Config;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices$Config;->secureSettingName:Ljava/lang/String;
-
-    move-object/from16 v21, v0
-
-    aget v22, v19, v8
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move/from16 v2, v22
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/notification/ManagedServices;->loadComponentNamesFromSetting(Ljava/lang/String;I)Landroid/util/ArraySet;
-
-    move-result-object v21
-
-    move/from16 v0, v20
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v7, v0, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mConfig:Lcom/android/server/notification/ManagedServices$Config;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices$Config;->secondarySettingName:Ljava/lang/String;
-
-    move-object/from16 v20, v0
-
-    if-eqz v20, :cond_1
-
-    aget v20, v19, v8
-
-    move/from16 v0, v20
-
-    invoke-virtual {v7, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v20
-
-    check-cast v20, Landroid/util/ArraySet;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mConfig:Lcom/android/server/notification/ManagedServices$Config;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices$Config;->secondarySettingName:Ljava/lang/String;
-
-    move-object/from16 v21, v0
-
-    aget v22, v19, v8
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move/from16 v2, v22
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/notification/ManagedServices;->loadComponentNamesFromSetting(Ljava/lang/String;I)Landroid/util/ArraySet;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
-
-    :cond_1
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    new-instance v14, Ljava/util/ArrayList;
-
-    invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
-
-    new-instance v17, Landroid/util/SparseArray;
-
-    invoke-direct/range {v17 .. v17}, Landroid/util/SparseArray;-><init>()V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mMutex:Ljava/lang/Object;
-
-    move-object/from16 v21, v0
-
-    monitor-enter v21
-
-    :try_start_0
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mServices:Ljava/util/ArrayList;
-
-    move-object/from16 v20, v0
-
-    invoke-interface/range {v20 .. v20}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v16
-
-    :cond_3
-    :goto_1
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v20
-
-    if-eqz v20, :cond_4
-
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v15
-
-    check-cast v15, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
-
-    iget-boolean v0, v15, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->isSystem:Z
-
-    move/from16 v20, v0
-
-    if-nez v20, :cond_3
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v15, v0}, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->isGuest(Lcom/android/server/notification/ManagedServices;)Z
-
-    move-result v20
-
-    if-nez v20, :cond_3
-
-    invoke-virtual {v14, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto :goto_1
-
-    :catchall_0
-    move-exception v20
-
-    monitor-exit v21
-
-    throw v20
-
-    :cond_4
-    :try_start_1
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mEnabledServicesForCurrentProfiles:Landroid/util/ArraySet;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/util/ArraySet;->clear()V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mEnabledServicesPackageNames:Landroid/util/ArraySet;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/util/ArraySet;->clear()V
-
-    const/4 v8, 0x0
-
-    :goto_2
-    if-ge v8, v12, :cond_7
-
-    aget v20, v19, v8
-
-    move/from16 v0, v20
-
-    invoke-virtual {v7, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v18
-
-    check-cast v18, Landroid/util/ArraySet;
-
-    if-nez v18, :cond_6
-
-    aget v20, v19, v8
-
-    new-instance v22, Landroid/util/ArraySet;
-
-    invoke-direct/range {v22 .. v22}, Landroid/util/ArraySet;-><init>()V
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v20
-
-    move-object/from16 v2, v22
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    :cond_5
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_2
-
-    :cond_6
-    new-instance v3, Ljava/util/HashSet;
-
-    move-object/from16 v0, v18
-
-    invoke-direct {v3, v0}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mSnoozingForCurrentProfiles:Landroid/util/ArraySet;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    invoke-interface {v3, v0}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
-
-    aget v20, v19, v8
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v20
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mEnabledServicesForCurrentProfiles:Landroid/util/ArraySet;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
-
-    const/4 v11, 0x0
-
-    :goto_3
-    invoke-virtual/range {v18 .. v18}, Landroid/util/ArraySet;->size()I
-
-    move-result v20
-
-    move/from16 v0, v20
-
-    if-ge v11, v0, :cond_5
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v11}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/content/ComponentName;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mEnabledServicesPackageNames:Landroid/util/ArraySet;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v22
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    add-int/lit8 v11, v11, 0x1
-
-    goto :goto_3
-
-    :cond_7
-    monitor-exit v21
-
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v10
-
-    :cond_8
-    :goto_4
-    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v20
-
-    if-eqz v20, :cond_b
-
-    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
-
-    iget-object v5, v9, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->component:Landroid/content/ComponentName;
-
-    iget v13, v9, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
-
-    iget v0, v9, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
-
-    move/from16 v20, v0
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/util/Set;
-
-    if-eqz v4, :cond_8
-
-    invoke-interface {v4, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v20
-
-    if-eqz v20, :cond_9
-
-    if-eqz p1, :cond_a
-
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->TAG:Ljava/lang/String;
-
-    move-object/from16 v20, v0
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v22, "disabling "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/ManagedServices;->getCaption()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, " for user "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ": "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5, v13}, Lcom/android/server/notification/ManagedServices;->unregisterService(Landroid/content/ComponentName;I)V
-
-    goto :goto_4
-
-    :cond_a
-    invoke-interface {v4, v5}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
-
-    goto :goto_4
-
-    :cond_b
-    const/4 v8, 0x0
-
-    :goto_5
-    if-ge v8, v12, :cond_d
-
-    aget v20, v19, v8
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/util/Set;
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    :goto_6
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v20
-
-    if-eqz v20, :cond_c
-
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/content/ComponentName;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->TAG:Ljava/lang/String;
-
-    move-object/from16 v20, v0
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v22, "enabling "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/ManagedServices;->getCaption()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, " for "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    aget v22, v19, v8
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ": "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    aget v20, v19, v8
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v20
-
-    invoke-direct {v0, v5, v1}, Lcom/android/server/notification/ManagedServices;->registerService(Landroid/content/ComponentName;I)V
-
-    goto :goto_6
-
-    :cond_c
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_5
-
-    :cond_d
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/server/notification/ManagedServices;->mLastSeenProfileIds:[I
-
-    return-void
 .end method
 
 .method private rebuildRestoredPackages()V
@@ -2992,7 +2422,7 @@
     invoke-direct {p0}, Lcom/android/server/notification/ManagedServices;->rebuildRestoredPackages()V
 
     :cond_5
-    invoke-direct {p0, v3}, Lcom/android/server/notification/ManagedServices;->rebindServices(Z)V
+    invoke-virtual {p0, v3}, Lcom/android/server/notification/ManagedServices;->rebindServices(Z)V
 
     :cond_6
     return-void
@@ -3069,7 +2499,7 @@
     :cond_2
     const/4 v0, 0x1
 
-    invoke-direct {p0, v0}, Lcom/android/server/notification/ManagedServices;->rebindServices(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/server/notification/ManagedServices;->rebindServices(Z)V
 
     return-void
 .end method
@@ -3108,7 +2538,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/server/notification/ManagedServices;->rebindServices(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/server/notification/ManagedServices;->rebindServices(Z)V
 
     return-void
 .end method
@@ -3310,6 +2740,568 @@
 
     :cond_3
     return-object v4
+.end method
+
+.method public rebindServices(Z)V
+    .locals 23
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/notification/ManagedServices;->DEBUG:Z
+
+    move/from16 v20, v0
+
+    if-eqz v20, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->TAG:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const-string/jumbo v21, "rebindServices"
+
+    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mUserProfiles:Lcom/android/server/notification/ManagedServices$UserProfiles;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Lcom/android/server/notification/ManagedServices$UserProfiles;->getCurrentProfileIds()[I
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    array-length v12, v0
+
+    new-instance v7, Landroid/util/SparseArray;
+
+    invoke-direct {v7}, Landroid/util/SparseArray;-><init>()V
+
+    const/4 v8, 0x0
+
+    :goto_0
+    if-ge v8, v12, :cond_2
+
+    aget v20, v19, v8
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mConfig:Lcom/android/server/notification/ManagedServices$Config;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices$Config;->secureSettingName:Ljava/lang/String;
+
+    move-object/from16 v21, v0
+
+    aget v22, v19, v8
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    move/from16 v2, v22
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/notification/ManagedServices;->loadComponentNamesFromSetting(Ljava/lang/String;I)Landroid/util/ArraySet;
+
+    move-result-object v21
+
+    move/from16 v0, v20
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v7, v0, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mConfig:Lcom/android/server/notification/ManagedServices$Config;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices$Config;->secondarySettingName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    if-eqz v20, :cond_1
+
+    aget v20, v19, v8
+
+    move/from16 v0, v20
+
+    invoke-virtual {v7, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v20
+
+    check-cast v20, Landroid/util/ArraySet;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mConfig:Lcom/android/server/notification/ManagedServices$Config;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices$Config;->secondarySettingName:Ljava/lang/String;
+
+    move-object/from16 v21, v0
+
+    aget v22, v19, v8
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    move/from16 v2, v22
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/notification/ManagedServices;->loadComponentNamesFromSetting(Ljava/lang/String;I)Landroid/util/ArraySet;
+
+    move-result-object v21
+
+    invoke-virtual/range {v20 .. v21}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
+
+    :cond_1
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    new-instance v14, Ljava/util/ArrayList;
+
+    invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v17, Landroid/util/SparseArray;
+
+    invoke-direct/range {v17 .. v17}, Landroid/util/SparseArray;-><init>()V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mMutex:Ljava/lang/Object;
+
+    move-object/from16 v21, v0
+
+    monitor-enter v21
+
+    :try_start_0
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mServices:Ljava/util/ArrayList;
+
+    move-object/from16 v20, v0
+
+    invoke-interface/range {v20 .. v20}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v16
+
+    :cond_3
+    :goto_1
+    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_4
+
+    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v15
+
+    check-cast v15, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+
+    iget-boolean v0, v15, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->isSystem:Z
+
+    move/from16 v20, v0
+
+    if-nez v20, :cond_3
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v15, v0}, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->isGuest(Lcom/android/server/notification/ManagedServices;)Z
+
+    move-result v20
+
+    if-nez v20, :cond_3
+
+    invoke-virtual {v14, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v20
+
+    monitor-exit v21
+
+    throw v20
+
+    :cond_4
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mEnabledServicesForCurrentProfiles:Landroid/util/ArraySet;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Landroid/util/ArraySet;->clear()V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mEnabledServicesPackageNames:Landroid/util/ArraySet;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Landroid/util/ArraySet;->clear()V
+
+    const/4 v8, 0x0
+
+    :goto_2
+    if-ge v8, v12, :cond_7
+
+    aget v20, v19, v8
+
+    move/from16 v0, v20
+
+    invoke-virtual {v7, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v18
+
+    check-cast v18, Landroid/util/ArraySet;
+
+    if-nez v18, :cond_6
+
+    aget v20, v19, v8
+
+    new-instance v22, Landroid/util/ArraySet;
+
+    invoke-direct/range {v22 .. v22}, Landroid/util/ArraySet;-><init>()V
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v20
+
+    move-object/from16 v2, v22
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    :cond_5
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_2
+
+    :cond_6
+    new-instance v3, Ljava/util/HashSet;
+
+    move-object/from16 v0, v18
+
+    invoke-direct {v3, v0}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mSnoozingForCurrentProfiles:Landroid/util/ArraySet;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    invoke-interface {v3, v0}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
+
+    aget v20, v19, v8
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mEnabledServicesForCurrentProfiles:Landroid/util/ArraySet;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
+
+    const/4 v11, 0x0
+
+    :goto_3
+    invoke-virtual/range {v18 .. v18}, Landroid/util/ArraySet;->size()I
+
+    move-result v20
+
+    move/from16 v0, v20
+
+    if-ge v11, v0, :cond_5
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v11}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/content/ComponentName;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->mEnabledServicesPackageNames:Landroid/util/ArraySet;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    add-int/lit8 v11, v11, 0x1
+
+    goto :goto_3
+
+    :cond_7
+    monitor-exit v21
+
+    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v10
+
+    :cond_8
+    :goto_4
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_b
+
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+
+    iget-object v5, v9, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->component:Landroid/content/ComponentName;
+
+    iget v13, v9, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
+
+    iget v0, v9, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
+
+    move/from16 v20, v0
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/util/Set;
+
+    if-eqz v4, :cond_8
+
+    invoke-interface {v4, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v20
+
+    if-eqz v20, :cond_9
+
+    if-eqz p1, :cond_a
+
+    :cond_9
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->TAG:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, "disabling "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/ManagedServices;->getCaption()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    const-string/jumbo v22, " for user "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    const-string/jumbo v22, ": "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5, v13}, Lcom/android/server/notification/ManagedServices;->unregisterService(Landroid/content/ComponentName;I)V
+
+    goto :goto_4
+
+    :cond_a
+    invoke-interface {v4, v5}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+
+    goto :goto_4
+
+    :cond_b
+    const/4 v8, 0x0
+
+    :goto_5
+    if-ge v8, v12, :cond_d
+
+    aget v20, v19, v8
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/Set;
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :goto_6
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_c
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/content/ComponentName;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/ManagedServices;->TAG:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, "enabling "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/ManagedServices;->getCaption()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    const-string/jumbo v22, " for "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    aget v22, v19, v8
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    const-string/jumbo v22, ": "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    aget v20, v19, v8
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v20
+
+    invoke-direct {v0, v5, v1}, Lcom/android/server/notification/ManagedServices;->registerService(Landroid/content/ComponentName;I)V
+
+    goto :goto_6
+
+    :cond_c
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_5
+
+    :cond_d
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/server/notification/ManagedServices;->mLastSeenProfileIds:[I
+
+    return-void
 .end method
 
 .method public registerGuestService(Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;)V

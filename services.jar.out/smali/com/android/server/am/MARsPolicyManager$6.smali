@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/MARsPolicyManager;->handelNotificationBarClicked(Ljava/lang/String;)V
+    value = Lcom/android/server/am/MARsPolicyManager;->handleAlertToastWindowStarted(Ljava/lang/String;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,14 +22,18 @@
 
 .field final synthetic val$localPackageName:Ljava/lang/String;
 
+.field final synthetic val$userId:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/MARsPolicyManager;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/server/am/MARsPolicyManager;Ljava/lang/String;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/MARsPolicyManager$6;->this$0:Lcom/android/server/am/MARsPolicyManager;
 
     iput-object p2, p0, Lcom/android/server/am/MARsPolicyManager$6;->val$localPackageName:Ljava/lang/String;
+
+    iput p3, p0, Lcom/android/server/am/MARsPolicyManager$6;->val$userId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 6
 
     iget-object v1, p0, Lcom/android/server/am/MARsPolicyManager$6;->this$0:Lcom/android/server/am/MARsPolicyManager;
 
@@ -54,13 +58,15 @@
 
     iget-object v3, p0, Lcom/android/server/am/MARsPolicyManager$6;->this$0:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-static {v3}, Lcom/android/server/am/MARsPolicyManager;->-get6(Lcom/android/server/am/MARsPolicyManager;)Ljava/util/ArrayList;
+    invoke-static {v3}, Lcom/android/server/am/MARsPolicyManager;->-get5(Lcom/android/server/am/MARsPolicyManager;)Ljava/util/ArrayList;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/server/am/MARsPolicyManager$6;->val$localPackageName:Ljava/lang/String;
 
-    invoke-static {v1, v3, v4}, Lcom/android/server/am/MARsPolicyManager;->-wrap0(Lcom/android/server/am/MARsPolicyManager;Ljava/util/ArrayList;Ljava/lang/String;)Lcom/android/server/am/MARsPackageStatus;
+    iget v5, p0, Lcom/android/server/am/MARsPolicyManager$6;->val$userId:I
+
+    invoke-static {v1, v3, v4, v5}, Lcom/android/server/am/MARsPolicyManager;->-wrap0(Lcom/android/server/am/MARsPolicyManager;Ljava/util/ArrayList;Ljava/lang/String;I)Lcom/android/server/am/MARsPackageStatus;
 
     move-result-object v0
 

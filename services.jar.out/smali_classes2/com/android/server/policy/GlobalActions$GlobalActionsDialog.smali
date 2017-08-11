@@ -256,12 +256,12 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x10304fa
+    const v1, 0x1030501
 
     return v1
 
     :cond_0
-    const v1, 0x10304f9
+    const v1, 0x1030500
 
     return v1
 
@@ -358,7 +358,7 @@
 
     iget-object v3, p0, Lcom/android/server/policy/GlobalActions$GlobalActionsDialog;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040803
+    const v4, 0x1040807
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

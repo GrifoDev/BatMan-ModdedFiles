@@ -75,5 +75,21 @@
     :cond_0
     invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-set1(Z)Z
 
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get18()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get17()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    :cond_1
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-wrap10()V
+
+    :cond_2
     return-void
 .end method

@@ -63,6 +63,14 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
+    iget-object v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$4;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
+
+    invoke-static {v2}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-get2(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
     iget v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$4;->val$val:I
 
     const/4 v3, 0x1

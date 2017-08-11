@@ -138,7 +138,7 @@
 
     iget-object v6, p0, Lcom/android/server/notification/ZenModeHelper$1;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v6}, Lcom/android/server/notification/ZenModeHelper;->-get1(Lcom/android/server/notification/ZenModeHelper;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/server/notification/ZenModeHelper;->-get0(Lcom/android/server/notification/ZenModeHelper;)Landroid/content/Context;
 
     move-result-object v6
 
@@ -158,6 +158,10 @@
 
     :goto_0
     iput v6, v4, Landroid/service/notification/ZenModeConfig$ZenRule;->zenMode:I
+
+    sget-object v6, Lcom/android/server/notification/ScheduleConditionProvider;->COMPONENT:Landroid/content/ComponentName;
+
+    iput-object v6, v4, Landroid/service/notification/ZenModeConfig$ZenRule;->component:Landroid/content/ComponentName;
 
     iget-object v6, v3, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
 

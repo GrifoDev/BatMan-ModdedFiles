@@ -7053,13 +7053,11 @@
     goto/16 :goto_0
 
     :cond_f
+    const/4 v14, 0x0
+
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/server/pm/UserManagerService;->mUsers:Landroid/util/SparseArray;
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v14, v15}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-direct {v0, v14}, Lcom/android/server/pm/UserManagerService;->getUserDataNoChecks(I)Lcom/android/server/pm/UserManagerService$UserData;
 
     move-result-object v14
 
@@ -14419,7 +14417,7 @@
 
     move-result-object v11
 
-    const v12, 0x10e0089
+    const v12, 0x10e008a
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getInteger(I)I
 

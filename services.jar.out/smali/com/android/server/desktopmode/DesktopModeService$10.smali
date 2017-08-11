@@ -124,7 +124,7 @@
     :goto_1
     const/4 v6, 0x4
 
-    invoke-static {v5, v0, v6}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap21(Lcom/android/server/desktopmode/DesktopModeService;II)V
+    invoke-static {v5, v0, v6}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap22(Lcom/android/server/desktopmode/DesktopModeService;II)V
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -134,7 +134,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0, v4}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap39(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+    invoke-static {v0, v4}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap40(Lcom/android/server/desktopmode/DesktopModeService;Z)V
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -142,7 +142,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get22(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/am/IActivityManagerServiceBridge;
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get23(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/am/IActivityManagerServiceBridge;
 
     move-result-object v0
 
@@ -152,11 +152,11 @@
 
     iget-boolean v5, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->val$enabled:Z
 
-    invoke-static {v0, v5}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap23(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+    invoke-static {v0, v5}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap24(Lcom/android/server/desktopmode/DesktopModeService;Z)V
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get22(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/am/IActivityManagerServiceBridge;
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get23(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/am/IActivityManagerServiceBridge;
 
     move-result-object v5
 
@@ -169,7 +169,7 @@
     :goto_2
     iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v6}, Lcom/android/server/desktopmode/DesktopModeService;->-get27(Lcom/android/server/desktopmode/DesktopModeService;)I
+    invoke-static {v6}, Lcom/android/server/desktopmode/DesktopModeService;->-get28(Lcom/android/server/desktopmode/DesktopModeService;)I
 
     move-result v6
 
@@ -181,7 +181,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get22(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/am/IActivityManagerServiceBridge;
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get23(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/am/IActivityManagerServiceBridge;
 
     move-result-object v0
 
@@ -192,13 +192,13 @@
 
     iget-object v5, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v5}, Lcom/android/server/desktopmode/DesktopModeService;->-get28(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/content/Intent;
+    invoke-static {v5}, Lcom/android/server/desktopmode/DesktopModeService;->-get29(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/content/Intent;
 
     move-result-object v5
 
     iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v6}, Lcom/android/server/desktopmode/DesktopModeService;->-get27(Lcom/android/server/desktopmode/DesktopModeService;)I
+    invoke-static {v6}, Lcom/android/server/desktopmode/DesktopModeService;->-get28(Lcom/android/server/desktopmode/DesktopModeService;)I
 
     move-result v6
 
@@ -227,13 +227,13 @@
 
     iget-boolean v5, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->val$enabled:Z
 
-    invoke-static {v0, v5}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap26(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+    invoke-static {v0, v5}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap27(Lcom/android/server/desktopmode/DesktopModeService;Z)V
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
     iget-boolean v5, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->val$enabled:Z
 
-    invoke-static {v0, v5}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap32(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+    invoke-static {v0, v5}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap33(Lcom/android/server/desktopmode/DesktopModeService;Z)V
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -247,7 +247,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get13(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get15(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
     move-result v0
 
@@ -255,7 +255,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get9(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get11(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
     move-result v0
 
@@ -263,7 +263,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get18(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get20(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
     move-result v0
 
@@ -272,7 +272,7 @@
     move v0, v4
 
     :goto_3
-    invoke-static {v5, v0, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap31(Lcom/android/server/desktopmode/DesktopModeService;ZI)V
+    invoke-static {v5, v0, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap32(Lcom/android/server/desktopmode/DesktopModeService;ZI)V
 
     :goto_4
     iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->val$enabled:Z
@@ -281,7 +281,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get25(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/telecom/TelecomManager;
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get26(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/telecom/TelecomManager;
 
     move-result-object v0
 
@@ -312,7 +312,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get25(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/telecom/TelecomManager;
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get26(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/telecom/TelecomManager;
 
     move-result-object v0
 
@@ -328,7 +328,7 @@
     :goto_5
     const/4 v2, 0x5
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap21(Lcom/android/server/desktopmode/DesktopModeService;II)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap22(Lcom/android/server/desktopmode/DesktopModeService;II)V
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -379,7 +379,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get13(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get15(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
     move-result v0
 
@@ -387,7 +387,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get9(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get11(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
     move-result v0
 
@@ -395,7 +395,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get18(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    invoke-static {v0}, Lcom/android/server/desktopmode/DesktopModeService;->-get20(Lcom/android/server/desktopmode/DesktopModeService;)Z
 
     move-result v0
 
@@ -404,7 +404,7 @@
     move v0, v4
 
     :goto_6
-    invoke-static {v5, v0, v4}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap31(Lcom/android/server/desktopmode/DesktopModeService;ZI)V
+    invoke-static {v5, v0, v4}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap32(Lcom/android/server/desktopmode/DesktopModeService;ZI)V
 
     goto :goto_4
 

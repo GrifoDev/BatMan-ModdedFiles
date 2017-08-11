@@ -4188,7 +4188,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0069
+    const v1, 0x10e006a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4420,7 +4420,7 @@
 
     sget-object v1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    const v2, 0x10408b3
+    const v2, 0x10408ba
 
     invoke-virtual {v0, v3, v2, v1}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
@@ -6943,7 +6943,7 @@
 .method private showMissingKeyboardLayoutNotification(Landroid/view/InputDevice;)V
     .locals 10
 
-    const v9, 0x10408b3
+    const v9, 0x10408ba
 
     const/4 v1, 0x0
 
@@ -7004,7 +7004,7 @@
 
     move-result-object v0
 
-    const v1, 0x10408b4
+    const v1, 0x10408bb
 
     invoke-virtual {v8, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7018,7 +7018,7 @@
 
     move-result-object v0
 
-    const v1, 0x10804cf
+    const v1, 0x10804b9
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -7077,7 +7077,7 @@
 
     if-ne p1, v2, :cond_1
 
-    const v2, 0x10408b1
+    const v2, 0x10408b8
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7112,7 +7112,7 @@
     return-void
 
     :cond_1
-    const v2, 0x10408b2
+    const v2, 0x10408b9
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -12612,6 +12612,8 @@
     invoke-virtual {p0}, Lcom/android/server/input/InputManagerService;->updateSpenScreenOnFromSettings()V
 
     invoke-virtual {p0}, Lcom/android/server/input/InputManagerService;->updateGameForceTouchLockFromSettings()V
+
+    invoke-virtual {p0}, Lcom/android/server/input/InputManagerService;->updatePressureCalibrationSettings()V
 
     const-string/jumbo v1, "true"
 

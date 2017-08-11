@@ -36,6 +36,10 @@
 
 .field public final mPackageName:Ljava/lang/String;
 
+.field public mProximityNegativeDebounce:I
+
+.field public mProximityPositiveDebounce:I
+
 .field public mTag:Ljava/lang/String;
 
 .field public mWorkSource:Landroid/os/WorkSource;
@@ -45,7 +49,9 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/power/PowerManagerService;Landroid/os/IBinder;ILjava/lang/String;Ljava/lang/String;Landroid/os/WorkSource;Ljava/lang/String;II)V
-    .locals 2
+    .locals 3
+
+    const/4 v2, -0x1
 
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$WakeLock;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -76,6 +82,10 @@
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/server/power/PowerManagerService$WakeLock;->mAcqTime:J
+
+    iput v2, p0, Lcom/android/server/power/PowerManagerService$WakeLock;->mProximityPositiveDebounce:I
+
+    iput v2, p0, Lcom/android/server/power/PowerManagerService$WakeLock;->mProximityNegativeDebounce:I
 
     return-void
 .end method

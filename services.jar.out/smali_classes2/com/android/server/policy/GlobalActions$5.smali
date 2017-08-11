@@ -170,14 +170,6 @@
 
     if-nez v2, :cond_1
 
-    const-string/jumbo v2, "closeSystemDialogFromTaskBar"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
     const-string/jumbo v2, "GlobalActions"
 
     const-string/jumbo v3, "mBroadcastReceiver : onReceive : sendEmptyMessage(MESSAGE_DISMISS) reason #1"

@@ -2899,9 +2899,34 @@
     return-void
 .end method
 
-.method createAspectScaledThumbnailEnterExitAnimationLocked(IIIILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIZLandroid/graphics/Rect;)Landroid/view/animation/Animation;
-    .locals 37
+.method createAspectScaledThumbnailEnterExitAnimationLocked(IIIILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIZILandroid/graphics/Rect;)Landroid/view/animation/Animation;
+    .locals 43
 
+    invoke-virtual/range {p5 .. p5}, Landroid/graphics/Rect;->height()I
+
+    move-result v5
+
+    invoke-virtual/range {p5 .. p5}, Landroid/graphics/Rect;->width()I
+
+    move-result v6
+
+    if-le v5, v6, :cond_1
+
+    const/16 v19, 0x1
+
+    :goto_0
+    if-eqz p10, :cond_0
+
+    if-eqz v19, :cond_4
+
+    const/4 v5, 0x1
+
+    move/from16 v0, p3
+
+    if-ne v0, v5, :cond_2
+
+    :cond_0
+    :goto_1
     invoke-virtual/range {p5 .. p5}, Landroid/graphics/Rect;->width()I
 
     move-result v16
@@ -2924,16 +2949,16 @@
 
     invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
 
-    move-result v31
+    move-result v36
 
-    if-lez v31, :cond_0
+    if-lez v36, :cond_6
 
-    move/from16 v5, v31
+    move/from16 v5, v36
 
-    :goto_0
+    :goto_2
     int-to-float v0, v5
 
-    move/from16 v30, v0
+    move/from16 v35, v0
 
     move-object/from16 v0, p0
 
@@ -2941,16 +2966,16 @@
 
     invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
 
-    move-result v27
+    move-result v32
 
-    if-lez v27, :cond_1
+    if-lez v32, :cond_7
 
-    move/from16 v5, v27
+    move/from16 v5, v32
 
-    :goto_1
+    :goto_3
     int-to-float v0, v5
 
-    move/from16 v26, v0
+    move/from16 v31, v0
 
     move-object/from16 v0, p0
 
@@ -2962,7 +2987,13 @@
 
     iget v6, v0, Landroid/graphics/Rect;->left:I
 
-    sub-int v28, v5, v6
+    sub-int/2addr v5, v6
+
+    move-object/from16 v0, p6
+
+    iget v6, v0, Landroid/graphics/Rect;->left:I
+
+    sub-int v33, v5, v6
 
     move-object/from16 v0, p0
 
@@ -2974,7 +3005,7 @@
 
     iget v6, v0, Landroid/graphics/Rect;->top:I
 
-    sub-int v29, v5, v6
+    sub-int v34, v5, v6
 
     packed-switch p1, :pswitch_data_0
 
@@ -2986,25 +3017,198 @@
 
     throw v5
 
-    :cond_0
-    const/4 v5, 0x1
+    :cond_1
+    const/16 v19, 0x0
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const/4 v5, 0x1
 
-    goto :goto_1
+    move/from16 v0, p11
+
+    if-ne v0, v5, :cond_3
+
+    move-object/from16 v0, p6
+
+    iget v0, v0, Landroid/graphics/Rect;->top:I
+
+    move/from16 v38, v0
+
+    move-object/from16 v0, p6
+
+    iget v5, v0, Landroid/graphics/Rect;->left:I
+
+    move-object/from16 v0, p6
+
+    iput v5, v0, Landroid/graphics/Rect;->top:I
+
+    move-object/from16 v0, p6
+
+    iget v5, v0, Landroid/graphics/Rect;->bottom:I
+
+    move-object/from16 v0, p6
+
+    iput v5, v0, Landroid/graphics/Rect;->left:I
+
+    move-object/from16 v0, p6
+
+    iget v5, v0, Landroid/graphics/Rect;->right:I
+
+    move-object/from16 v0, p6
+
+    iput v5, v0, Landroid/graphics/Rect;->bottom:I
+
+    move/from16 v0, v38
+
+    move-object/from16 v1, p6
+
+    iput v0, v1, Landroid/graphics/Rect;->right:I
+
+    goto/16 :goto_1
+
+    :cond_3
+    const/4 v5, 0x3
+
+    move/from16 v0, p11
+
+    if-ne v0, v5, :cond_0
+
+    move-object/from16 v0, p6
+
+    iget v0, v0, Landroid/graphics/Rect;->top:I
+
+    move/from16 v38, v0
+
+    move-object/from16 v0, p6
+
+    iget v5, v0, Landroid/graphics/Rect;->right:I
+
+    move-object/from16 v0, p6
+
+    iput v5, v0, Landroid/graphics/Rect;->top:I
+
+    move-object/from16 v0, p6
+
+    iget v5, v0, Landroid/graphics/Rect;->bottom:I
+
+    move-object/from16 v0, p6
+
+    iput v5, v0, Landroid/graphics/Rect;->right:I
+
+    move-object/from16 v0, p6
+
+    iget v5, v0, Landroid/graphics/Rect;->left:I
+
+    move-object/from16 v0, p6
+
+    iput v5, v0, Landroid/graphics/Rect;->bottom:I
+
+    move/from16 v0, v38
+
+    move-object/from16 v1, p6
+
+    iput v0, v1, Landroid/graphics/Rect;->left:I
+
+    goto/16 :goto_1
+
+    :cond_4
+    const/4 v5, 0x1
+
+    move/from16 v0, p3
+
+    if-ne v0, v5, :cond_5
+
+    move-object/from16 v0, p6
+
+    iget v0, v0, Landroid/graphics/Rect;->right:I
+
+    move/from16 v37, v0
+
+    move-object/from16 v0, p6
+
+    iget v5, v0, Landroid/graphics/Rect;->bottom:I
+
+    move-object/from16 v0, p6
+
+    iput v5, v0, Landroid/graphics/Rect;->right:I
+
+    move/from16 v0, v37
+
+    move-object/from16 v1, p6
+
+    iput v0, v1, Landroid/graphics/Rect;->bottom:I
+
+    move-object/from16 v0, p6
+
+    iget v0, v0, Landroid/graphics/Rect;->left:I
+
+    move/from16 v37, v0
+
+    move-object/from16 v0, p6
+
+    iget v5, v0, Landroid/graphics/Rect;->top:I
+
+    move-object/from16 v0, p6
+
+    iput v5, v0, Landroid/graphics/Rect;->left:I
+
+    move/from16 v0, v37
+
+    move-object/from16 v1, p6
+
+    iput v0, v1, Landroid/graphics/Rect;->top:I
+
+    goto/16 :goto_1
+
+    :cond_5
+    const/4 v5, 0x3
+
+    move/from16 v0, p11
+
+    if-ne v0, v5, :cond_0
+
+    move-object/from16 v0, p6
+
+    iget v0, v0, Landroid/graphics/Rect;->right:I
+
+    move/from16 v37, v0
+
+    move-object/from16 v0, p6
+
+    iget v5, v0, Landroid/graphics/Rect;->left:I
+
+    move-object/from16 v0, p6
+
+    iput v5, v0, Landroid/graphics/Rect;->right:I
+
+    move/from16 v0, v37
+
+    move-object/from16 v1, p6
+
+    iput v0, v1, Landroid/graphics/Rect;->left:I
+
+    goto/16 :goto_1
+
+    :cond_6
+    const/4 v5, 0x1
+
+    goto/16 :goto_2
+
+    :cond_7
+    const/4 v5, 0x1
+
+    goto/16 :goto_3
 
     :pswitch_0
-    if-nez p1, :cond_2
+    if-nez p1, :cond_8
 
-    const/16 v20, 0x1
+    const/16 v25, 0x1
 
-    :goto_2
-    if-eqz p8, :cond_3
+    :goto_4
+    if-eqz p8, :cond_9
 
-    if-eqz v20, :cond_3
+    if-eqz v25, :cond_9
 
     move-object/from16 v0, p0
 
@@ -3018,7 +3222,7 @@
 
     move-result-object v7
 
-    :goto_3
+    :goto_5
     move-object/from16 v0, p0
 
     move/from16 v1, p9
@@ -3051,13 +3255,13 @@
 
     return-object v5
 
-    :cond_2
-    const/16 v20, 0x0
+    :cond_8
+    const/16 v25, 0x0
 
-    goto :goto_2
+    goto :goto_4
 
-    :cond_3
-    if-eqz p8, :cond_4
+    :cond_9
+    if-eqz p8, :cond_a
 
     move-object/from16 v0, p0
 
@@ -3071,14 +3275,14 @@
 
     move-result-object v7
 
-    goto :goto_3
+    goto :goto_5
 
-    :cond_4
-    new-instance v21, Landroid/view/animation/AnimationSet;
+    :cond_a
+    new-instance v26, Landroid/view/animation/AnimationSet;
 
     const/4 v5, 0x1
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v26
 
     invoke-direct {v0, v5}, Landroid/view/animation/AnimationSet;-><init>(Z)V
 
@@ -3118,49 +3322,6 @@
 
     invoke-virtual {v5, v6, v8}, Landroid/graphics/Rect;->offsetTo(II)V
 
-    if-eqz p10, :cond_5
-
-    move-object/from16 v0, p6
-
-    iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    move/from16 v32, v0
-
-    move-object/from16 v0, p6
-
-    iget v5, v0, Landroid/graphics/Rect;->bottom:I
-
-    move-object/from16 v0, p6
-
-    iput v5, v0, Landroid/graphics/Rect;->right:I
-
-    move/from16 v0, v32
-
-    move-object/from16 v1, p6
-
-    iput v0, v1, Landroid/graphics/Rect;->bottom:I
-
-    move-object/from16 v0, p6
-
-    iget v0, v0, Landroid/graphics/Rect;->left:I
-
-    move/from16 v32, v0
-
-    move-object/from16 v0, p6
-
-    iget v5, v0, Landroid/graphics/Rect;->top:I
-
-    move-object/from16 v0, p6
-
-    iput v5, v0, Landroid/graphics/Rect;->left:I
-
-    move/from16 v0, v32
-
-    move-object/from16 v1, p6
-
-    iput v0, v1, Landroid/graphics/Rect;->top:I
-
-    :cond_5
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
@@ -3185,51 +3346,57 @@
 
     move-result v5
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_b
 
     const/4 v5, 0x1
 
     move/from16 v0, p3
 
-    if-ne v0, v5, :cond_12
+    if-ne v0, v5, :cond_19
 
-    :cond_6
-    const/high16 v19, 0x3f800000    # 1.0f
+    :cond_b
+    const/high16 v24, 0x3f800000    # 1.0f
 
-    if-eqz p10, :cond_a
+    if-eqz p10, :cond_c
+
+    if-eqz v19, :cond_11
+
+    :cond_c
+    move-object/from16 v0, p6
+
+    iget v5, v0, Landroid/graphics/Rect;->left:I
+
+    sub-int v5, v16, v5
 
     move-object/from16 v0, p6
 
-    iget v5, v0, Landroid/graphics/Rect;->top:I
-
-    sub-int v5, v15, v5
-
-    move-object/from16 v0, p6
-
-    iget v6, v0, Landroid/graphics/Rect;->bottom:I
+    iget v6, v0, Landroid/graphics/Rect;->right:I
 
     sub-int v17, v5, v6
 
-    :goto_4
-    const/16 v34, 0x0
+    :goto_6
+    const/16 v40, 0x0
 
-    if-eqz v17, :cond_7
+    if-eqz v17, :cond_d
 
     move/from16 v0, v17
 
     int-to-float v5, v0
 
-    div-float v19, v30, v5
+    div-float v24, v35, v5
 
-    div-float v5, v26, v19
+    div-float v5, v31, v24
 
     float-to-int v0, v5
 
-    move/from16 v34, v0
+    move/from16 v40, v0
 
-    :cond_7
-    if-eqz p10, :cond_b
+    :cond_d
+    if-eqz p10, :cond_e
 
+    if-eqz v19, :cond_12
+
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
@@ -3238,14 +3405,14 @@
 
     iget-object v6, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->left:I
+    iget v6, v6, Landroid/graphics/Rect;->top:I
 
-    add-int v6, v6, v34
+    add-int v6, v6, v40
 
-    iput v6, v5, Landroid/graphics/Rect;->right:I
+    iput v6, v5, Landroid/graphics/Rect;->bottom:I
 
-    :goto_5
-    move-object/from16 v0, p11
+    :goto_7
+    move-object/from16 v0, p12
 
     iget v5, v0, Landroid/graphics/Rect;->left:I
 
@@ -3253,9 +3420,9 @@
 
     iget v6, v0, Landroid/graphics/Rect;->left:I
 
-    if-ne v5, v6, :cond_8
+    if-ne v5, v6, :cond_f
 
-    move-object/from16 v0, p11
+    move-object/from16 v0, p12
 
     iget v5, v0, Landroid/graphics/Rect;->top:I
 
@@ -3263,9 +3430,9 @@
 
     iget v6, v0, Landroid/graphics/Rect;->top:I
 
-    if-eq v5, v6, :cond_9
+    if-eq v5, v6, :cond_10
 
-    :cond_8
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
@@ -3274,7 +3441,7 @@
 
     iget v6, v0, Landroid/graphics/Rect;->left:I
 
-    move-object/from16 v0, p11
+    move-object/from16 v0, p12
 
     iget v8, v0, Landroid/graphics/Rect;->left:I
 
@@ -3284,7 +3451,7 @@
 
     iget v8, v0, Landroid/graphics/Rect;->top:I
 
-    move-object/from16 v0, p11
+    move-object/from16 v0, p12
 
     iget v9, v0, Landroid/graphics/Rect;->top:I
 
@@ -3300,7 +3467,7 @@
 
     iget v6, v0, Landroid/graphics/Rect;->left:I
 
-    move-object/from16 v0, p11
+    move-object/from16 v0, p12
 
     iget v8, v0, Landroid/graphics/Rect;->left:I
 
@@ -3310,7 +3477,7 @@
 
     iget v8, v0, Landroid/graphics/Rect;->top:I
 
-    move-object/from16 v0, p11
+    move-object/from16 v0, p12
 
     iget v9, v0, Landroid/graphics/Rect;->top:I
 
@@ -3318,7 +3485,7 @@
 
     invoke-virtual {v5, v6, v8}, Landroid/graphics/Rect;->offset(II)V
 
-    :cond_9
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mNextAppTransitionInsets:Landroid/graphics/Rect;
@@ -3329,26 +3496,26 @@
 
     new-instance v4, Landroid/view/animation/ScaleAnimation;
 
-    if-eqz v20, :cond_c
+    if-eqz v25, :cond_13
 
-    move/from16 v5, v19
+    move/from16 v5, v24
 
-    :goto_6
-    if-eqz v20, :cond_d
+    :goto_8
+    if-eqz v25, :cond_14
 
     const/high16 v6, 0x3f800000    # 1.0f
 
-    :goto_7
-    if-eqz v20, :cond_e
+    :goto_9
+    if-eqz v25, :cond_15
 
-    move/from16 v7, v19
+    move/from16 v7, v24
 
-    :goto_8
-    if-eqz v20, :cond_f
+    :goto_a
+    if-eqz v25, :cond_16
 
     const/high16 v8, 0x3f800000    # 1.0f
 
-    :goto_9
+    :goto_b
     invoke-virtual/range {p5 .. p5}, Landroid/graphics/Rect;->width()I
 
     move-result v9
@@ -3359,7 +3526,7 @@
 
     div-float/2addr v9, v10
 
-    move-object/from16 v0, p11
+    move-object/from16 v0, p12
 
     iget v10, v0, Landroid/graphics/Rect;->left:I
 
@@ -3401,7 +3568,7 @@
 
     int-to-float v0, v5
 
-    move/from16 v24, v0
+    move/from16 v29, v0
 
     invoke-virtual/range {p5 .. p5}, Landroid/graphics/Rect;->width()I
 
@@ -3423,9 +3590,9 @@
 
     div-float/2addr v6, v8
 
-    mul-float v6, v6, v19
+    mul-float v6, v6, v24
 
-    sub-float v35, v5, v6
+    sub-float v41, v5, v6
 
     move-object/from16 v0, p0
 
@@ -3441,7 +3608,7 @@
 
     int-to-float v0, v5
 
-    move/from16 v25, v0
+    move/from16 v30, v0
 
     invoke-virtual/range {p5 .. p5}, Landroid/graphics/Rect;->height()I
 
@@ -3463,15 +3630,15 @@
 
     div-float/2addr v6, v8
 
-    mul-float v6, v6, v19
+    mul-float v6, v6, v24
 
-    sub-float v36, v5, v6
+    sub-float v42, v5, v6
 
-    sub-float v22, v24, v35
+    sub-float v27, v29, v41
 
-    sub-float v23, v25, v36
+    sub-float v28, v30, v42
 
-    if-eqz v20, :cond_10
+    if-eqz v25, :cond_17
 
     new-instance v18, Landroid/view/animation/ClipRectAnimation;
 
@@ -3487,8 +3654,8 @@
 
     invoke-direct {v0, v5, v6}, Landroid/view/animation/ClipRectAnimation;-><init>(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    :goto_a
-    if-eqz v20, :cond_11
+    :goto_c
+    if-eqz v25, :cond_18
 
     const/4 v5, 0x0
 
@@ -3498,62 +3665,62 @@
 
     int-to-float v6, v6
 
-    sub-float v6, v23, v6
+    sub-float v6, v28, v6
 
     const/high16 v8, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v27
 
     invoke-direct {v0, v1, v5, v6, v8}, Lcom/android/server/wm/AppTransition;->createCurvedMotion(FFFF)Landroid/view/animation/Animation;
 
-    move-result-object v33
+    move-result-object v39
 
-    :goto_b
-    move-object/from16 v0, v21
+    :goto_d
+    move-object/from16 v0, v26
 
     move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v26
 
     invoke-virtual {v0, v4}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v39
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    :goto_c
-    move-object/from16 v7, v21
+    :goto_e
+    move-object/from16 v7, v26
 
     const/4 v5, 0x1
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v26
 
     invoke-virtual {v0, v5}, Landroid/view/animation/Animation;->setZAdjustment(I)V
 
-    goto/16 :goto_3
+    goto/16 :goto_5
 
-    :cond_a
+    :cond_11
     move-object/from16 v0, p6
 
-    iget v5, v0, Landroid/graphics/Rect;->left:I
+    iget v5, v0, Landroid/graphics/Rect;->top:I
 
-    sub-int v5, v16, v5
+    sub-int v5, v15, v5
 
     move-object/from16 v0, p6
 
-    iget v6, v0, Landroid/graphics/Rect;->right:I
+    iget v6, v0, Landroid/graphics/Rect;->bottom:I
 
     sub-int v17, v5, v6
 
-    goto/16 :goto_4
+    goto/16 :goto_6
 
-    :cond_b
+    :cond_12
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
@@ -3562,35 +3729,35 @@
 
     iget-object v6, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->top:I
+    iget v6, v6, Landroid/graphics/Rect;->left:I
 
-    add-int v6, v6, v34
+    add-int v6, v6, v40
 
-    iput v6, v5, Landroid/graphics/Rect;->bottom:I
-
-    goto/16 :goto_5
-
-    :cond_c
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    goto/16 :goto_6
-
-    :cond_d
-    move/from16 v6, v19
+    iput v6, v5, Landroid/graphics/Rect;->right:I
 
     goto/16 :goto_7
 
-    :cond_e
-    const/high16 v7, 0x3f800000    # 1.0f
+    :cond_13
+    const/high16 v5, 0x3f800000    # 1.0f
 
     goto/16 :goto_8
 
-    :cond_f
-    move/from16 v8, v19
+    :cond_14
+    move/from16 v6, v24
 
     goto/16 :goto_9
 
-    :cond_10
+    :cond_15
+    const/high16 v7, 0x3f800000    # 1.0f
+
+    goto/16 :goto_a
+
+    :cond_16
+    move/from16 v8, v24
+
+    goto/16 :goto_b
+
+    :cond_17
     new-instance v18, Landroid/view/animation/ClipRectAnimation;
 
     move-object/from16 v0, p0
@@ -3605,9 +3772,9 @@
 
     invoke-direct {v0, v5, v6}, Landroid/view/animation/ClipRectAnimation;-><init>(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    goto :goto_a
+    goto :goto_c
 
-    :cond_11
+    :cond_18
     const/4 v5, 0x0
 
     const/4 v6, 0x0
@@ -3618,19 +3785,29 @@
 
     int-to-float v8, v8
 
-    sub-float v8, v23, v8
+    sub-float v8, v28, v8
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v27
 
     invoke-direct {v0, v5, v1, v6, v8}, Lcom/android/server/wm/AppTransition;->createCurvedMotion(FFFF)Landroid/view/animation/Animation;
 
-    move-result-object v33
+    move-result-object v39
 
-    goto :goto_b
+    goto :goto_d
 
-    :cond_12
+    :cond_19
+    if-eqz p10, :cond_1f
+
+    if-eqz v19, :cond_1f
+
+    const/4 v5, 0x1
+
+    move/from16 v0, p11
+
+    if-ne v0, v5, :cond_1e
+
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
@@ -3641,7 +3818,219 @@
 
     iget v6, v6, Landroid/graphics/Rect;->top:I
 
-    add-int v6, v6, v27
+    add-int v6, v6, v36
+
+    iput v6, v5, Landroid/graphics/Rect;->bottom:I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    iget v6, v6, Landroid/graphics/Rect;->right:I
+
+    sub-int v6, v6, v32
+
+    iput v6, v5, Landroid/graphics/Rect;->left:I
+
+    :cond_1a
+    :goto_f
+    move-object/from16 v0, p12
+
+    iget v5, v0, Landroid/graphics/Rect;->left:I
+
+    move-object/from16 v0, p5
+
+    iget v6, v0, Landroid/graphics/Rect;->left:I
+
+    if-ne v5, v6, :cond_1b
+
+    move-object/from16 v0, p12
+
+    iget v5, v0, Landroid/graphics/Rect;->top:I
+
+    move-object/from16 v0, p5
+
+    iget v6, v0, Landroid/graphics/Rect;->top:I
+
+    if-eq v5, v6, :cond_1c
+
+    :cond_1b
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    move-object/from16 v0, p5
+
+    iget v6, v0, Landroid/graphics/Rect;->left:I
+
+    move-object/from16 v0, p12
+
+    iget v8, v0, Landroid/graphics/Rect;->left:I
+
+    sub-int/2addr v6, v8
+
+    move-object/from16 v0, p5
+
+    iget v8, v0, Landroid/graphics/Rect;->top:I
+
+    move-object/from16 v0, p12
+
+    iget v9, v0, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v8, v9
+
+    invoke-virtual {v5, v6, v8}, Landroid/graphics/Rect;->offset(II)V
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpToClipRect:Landroid/graphics/Rect;
+
+    move-object/from16 v0, p5
+
+    iget v6, v0, Landroid/graphics/Rect;->left:I
+
+    move-object/from16 v0, p12
+
+    iget v8, v0, Landroid/graphics/Rect;->left:I
+
+    sub-int/2addr v6, v8
+
+    move-object/from16 v0, p5
+
+    iget v8, v0, Landroid/graphics/Rect;->top:I
+
+    move-object/from16 v0, p12
+
+    iget v9, v0, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v8, v9
+
+    invoke-virtual {v5, v6, v8}, Landroid/graphics/Rect;->offset(II)V
+
+    :cond_1c
+    if-eqz p10, :cond_1d
+
+    if-eqz v19, :cond_20
+
+    :cond_1d
+    :goto_10
+    if-eqz v25, :cond_21
+
+    new-instance v18, Landroid/view/animation/ClipRectAnimation;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/wm/AppTransition;->mTmpToClipRect:Landroid/graphics/Rect;
+
+    move-object/from16 v0, v18
+
+    invoke-direct {v0, v5, v6}, Landroid/view/animation/ClipRectAnimation;-><init>(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    :goto_11
+    if-eqz v25, :cond_22
+
+    move/from16 v0, v33
+
+    int-to-float v5, v0
+
+    const/4 v6, 0x0
+
+    move-object/from16 v0, p6
+
+    iget v8, v0, Landroid/graphics/Rect;->top:I
+
+    sub-int v8, v34, v8
+
+    int-to-float v8, v8
+
+    const/4 v9, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5, v6, v8, v9}, Lcom/android/server/wm/AppTransition;->createCurvedMotion(FFFF)Landroid/view/animation/Animation;
+
+    move-result-object v39
+
+    :goto_12
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, v39
+
+    invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+
+    goto/16 :goto_e
+
+    :cond_1e
+    const/4 v5, 0x3
+
+    move/from16 v0, p11
+
+    if-ne v0, v5, :cond_1a
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    move-object/from16 v0, p5
+
+    invoke-virtual {v5, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    iget v6, v6, Landroid/graphics/Rect;->bottom:I
+
+    sub-int v6, v6, v36
+
+    iput v6, v5, Landroid/graphics/Rect;->top:I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    iget v6, v6, Landroid/graphics/Rect;->left:I
+
+    add-int v6, v6, v32
+
+    iput v6, v5, Landroid/graphics/Rect;->right:I
+
+    goto/16 :goto_f
+
+    :cond_1f
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    iget v6, v6, Landroid/graphics/Rect;->top:I
+
+    add-int v6, v6, v32
 
     iput v6, v5, Landroid/graphics/Rect;->bottom:I
 
@@ -3655,87 +4044,70 @@
 
     iget v6, v6, Landroid/graphics/Rect;->left:I
 
-    add-int v6, v6, v31
+    add-int v6, v6, v36
 
     iput v6, v5, Landroid/graphics/Rect;->right:I
 
-    move-object/from16 v0, p11
+    goto/16 :goto_f
 
-    iget v5, v0, Landroid/graphics/Rect;->left:I
+    :cond_20
+    const/4 v5, 0x3
 
-    move-object/from16 v0, p5
+    move/from16 v0, p11
 
-    iget v6, v0, Landroid/graphics/Rect;->left:I
-
-    if-ne v5, v6, :cond_13
-
-    move-object/from16 v0, p11
-
-    iget v5, v0, Landroid/graphics/Rect;->top:I
-
-    move-object/from16 v0, p5
-
-    iget v6, v0, Landroid/graphics/Rect;->top:I
-
-    if-eq v5, v6, :cond_14
-
-    :cond_13
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
-
-    move-object/from16 v0, p5
-
-    iget v6, v0, Landroid/graphics/Rect;->left:I
-
-    move-object/from16 v0, p11
-
-    iget v8, v0, Landroid/graphics/Rect;->left:I
-
-    sub-int/2addr v6, v8
-
-    move-object/from16 v0, p5
-
-    iget v8, v0, Landroid/graphics/Rect;->top:I
-
-    move-object/from16 v0, p11
-
-    iget v9, v0, Landroid/graphics/Rect;->top:I
-
-    sub-int/2addr v8, v9
-
-    invoke-virtual {v5, v6, v8}, Landroid/graphics/Rect;->offset(II)V
+    if-ne v0, v5, :cond_1d
 
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpToClipRect:Landroid/graphics/Rect;
 
-    move-object/from16 v0, p5
+    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
 
-    iget v6, v0, Landroid/graphics/Rect;->left:I
+    move-result v5
 
-    move-object/from16 v0, p11
+    div-int/lit8 v22, v5, 0x2
 
-    iget v8, v0, Landroid/graphics/Rect;->left:I
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpToClipRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
+
+    move-result v5
+
+    div-int/lit8 v23, v5, 0x2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
+
+    move-result v21
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
+
+    move-result v20
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    mul-int/lit8 v6, v22, 0x2
+
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    iget v8, v8, Landroid/graphics/Rect;->right:I
 
     sub-int/2addr v6, v8
 
-    move-object/from16 v0, p5
-
-    iget v8, v0, Landroid/graphics/Rect;->top:I
-
-    move-object/from16 v0, p11
-
-    iget v9, v0, Landroid/graphics/Rect;->top:I
-
-    sub-int/2addr v8, v9
-
-    invoke-virtual {v5, v6, v8}, Landroid/graphics/Rect;->offset(II)V
-
-    :cond_14
-    if-eqz v20, :cond_15
-
-    new-instance v18, Landroid/view/animation/ClipRectAnimation;
+    iput v6, v5, Landroid/graphics/Rect;->left:I
 
     move-object/from16 v0, p0
 
@@ -3743,57 +4115,47 @@
 
     move-object/from16 v0, p0
 
-    iget-object v6, v0, Lcom/android/server/wm/AppTransition;->mTmpToClipRect:Landroid/graphics/Rect;
+    iget-object v6, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
 
-    move-object/from16 v0, v18
+    iget v6, v6, Landroid/graphics/Rect;->left:I
 
-    invoke-direct {v0, v5, v6}, Landroid/view/animation/ClipRectAnimation;-><init>(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+    add-int v6, v6, v21
 
-    :goto_d
-    if-eqz v20, :cond_16
-
-    move-object/from16 v0, p6
-
-    iget v5, v0, Landroid/graphics/Rect;->left:I
-
-    sub-int v5, v28, v5
-
-    int-to-float v5, v5
-
-    const/4 v6, 0x0
-
-    move-object/from16 v0, p6
-
-    iget v8, v0, Landroid/graphics/Rect;->top:I
-
-    sub-int v8, v29, v8
-
-    int-to-float v8, v8
-
-    const/4 v9, 0x0
+    iput v6, v5, Landroid/graphics/Rect;->right:I
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v5, v6, v8, v9}, Lcom/android/server/wm/AppTransition;->createCurvedMotion(FFFF)Landroid/view/animation/Animation;
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
 
-    move-result-object v33
+    mul-int/lit8 v6, v23, 0x2
 
-    :goto_e
-    move-object/from16 v0, v21
+    move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    iget-object v8, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+    iget v8, v8, Landroid/graphics/Rect;->bottom:I
 
-    move-object/from16 v0, v21
+    sub-int/2addr v6, v8
 
-    move-object/from16 v1, v33
+    iput v6, v5, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+    move-object/from16 v0, p0
 
-    goto/16 :goto_c
+    iget-object v5, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
 
-    :cond_15
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/wm/AppTransition;->mTmpFromClipRect:Landroid/graphics/Rect;
+
+    iget v6, v6, Landroid/graphics/Rect;->top:I
+
+    add-int v6, v6, v20
+
+    iput v6, v5, Landroid/graphics/Rect;->bottom:I
+
+    goto/16 :goto_10
+
+    :cond_21
     new-instance v18, Landroid/view/animation/ClipRectAnimation;
 
     move-object/from16 v0, p0
@@ -3808,18 +4170,14 @@
 
     invoke-direct {v0, v5, v6}, Landroid/view/animation/ClipRectAnimation;-><init>(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    goto :goto_d
+    goto/16 :goto_11
 
-    :cond_16
+    :cond_22
     const/4 v5, 0x0
 
-    move-object/from16 v0, p6
+    move/from16 v0, v33
 
-    iget v6, v0, Landroid/graphics/Rect;->left:I
-
-    sub-int v6, v28, v6
-
-    int-to-float v6, v6
+    int-to-float v6, v0
 
     const/4 v8, 0x0
 
@@ -3827,7 +4185,7 @@
 
     iget v9, v0, Landroid/graphics/Rect;->top:I
 
-    sub-int v9, v29, v9
+    sub-int v9, v34, v9
 
     int-to-float v9, v9
 
@@ -3835,16 +4193,16 @@
 
     invoke-direct {v0, v5, v6, v8, v9}, Lcom/android/server/wm/AppTransition;->createCurvedMotion(FFFF)Landroid/view/animation/Animation;
 
-    move-result-object v33
+    move-result-object v39
 
-    goto :goto_e
+    goto/16 :goto_12
 
     :pswitch_1
     const/16 v5, 0xe
 
     move/from16 v0, p4
 
-    if-ne v0, v5, :cond_17
+    if-ne v0, v5, :cond_23
 
     new-instance v7, Landroid/view/animation/AlphaAnimation;
 
@@ -3854,9 +4212,9 @@
 
     invoke-direct {v7, v5, v6}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
-    goto/16 :goto_3
+    goto/16 :goto_5
 
-    :cond_17
+    :cond_23
     new-instance v7, Landroid/view/animation/AlphaAnimation;
 
     const/high16 v5, 0x3f800000    # 1.0f
@@ -3865,14 +4223,14 @@
 
     invoke-direct {v7, v5, v6}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
-    goto/16 :goto_3
+    goto/16 :goto_5
 
     :pswitch_2
     const/16 v5, 0xe
 
     move/from16 v0, p4
 
-    if-ne v0, v5, :cond_18
+    if-ne v0, v5, :cond_24
 
     new-instance v7, Landroid/view/animation/AlphaAnimation;
 
@@ -3882,9 +4240,9 @@
 
     invoke-direct {v7, v5, v6}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
-    goto/16 :goto_3
+    goto/16 :goto_5
 
-    :cond_18
+    :cond_24
     new-instance v7, Landroid/view/animation/AlphaAnimation;
 
     const/high16 v5, 0x3f800000    # 1.0f
@@ -3893,7 +4251,9 @@
 
     invoke-direct {v7, v5, v6}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
-    goto/16 :goto_3
+    goto/16 :goto_5
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -5948,12 +6308,12 @@
     goto :goto_0
 .end method
 
-.method loadAnimation(Landroid/view/WindowManager$LayoutParams;IZIILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZZIZLandroid/graphics/Rect;Lcom/android/server/wm/AppWindowToken;)Landroid/view/animation/Animation;
+.method loadAnimation(Landroid/view/WindowManager$LayoutParams;IZIILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZZIZILandroid/graphics/Rect;Lcom/android/server/wm/AppWindowToken;)Landroid/view/animation/Animation;
     .locals 35
 
     const/4 v7, 0x0
 
-    move-object/from16 v0, p15
+    move-object/from16 v0, p16
 
     iput v7, v0, Lcom/android/server/wm/AppWindowToken;->DimBetweenTwoWindow:I
 
@@ -6283,7 +6643,7 @@
 
     iget-object v7, v7, Lcom/android/server/wm/WindowManagerService;->mMultiWindowManagerInternal:Lcom/android/server/wm/IMultiWindowManagerInternalBridge;
 
-    move-object/from16 v0, p15
+    move-object/from16 v0, p16
 
     move/from16 v1, p3
 
@@ -7134,9 +7494,11 @@
 
     move/from16 v16, p13
 
-    move-object/from16 v17, p14
+    move/from16 v17, p14
 
-    invoke-virtual/range {v6 .. v17}, Lcom/android/server/wm/AppTransition;->createAspectScaledThumbnailEnterExitAnimationLocked(IIIILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIZLandroid/graphics/Rect;)Landroid/view/animation/Animation;
+    move-object/from16 v18, p15
+
+    invoke-virtual/range {v6 .. v18}, Lcom/android/server/wm/AppTransition;->createAspectScaledThumbnailEnterExitAnimationLocked(IIIILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIZILandroid/graphics/Rect;)Landroid/view/animation/Animation;
 
     move-result-object v14
 
@@ -8023,7 +8385,7 @@
 
     move-object/from16 v2, p6
 
-    move-object/from16 v3, p14
+    move-object/from16 v3, p15
 
     invoke-interface {v7, v0, v1, v2, v3}, Lcom/android/server/wm/IWindowManagerServiceBridge;->checkAnimValue(Landroid/view/WindowManager$LayoutParams;ZLandroid/graphics/Rect;Landroid/graphics/Rect;)Z
 
@@ -8033,7 +8395,7 @@
 
     const/4 v7, 0x1
 
-    move-object/from16 v0, p15
+    move-object/from16 v0, p16
 
     iput v7, v0, Lcom/android/server/wm/AppWindowToken;->DimBetweenTwoWindow:I
 
@@ -8047,7 +8409,7 @@
 
     move-result-object v7
 
-    move-object/from16 v0, p15
+    move-object/from16 v0, p16
 
     iput-object v7, v0, Lcom/android/server/wm/AppWindowToken;->mDepthInOutDimAnimation:Landroid/view/animation/Animation;
 
@@ -8078,7 +8440,7 @@
 
     move-object/from16 v2, p6
 
-    move-object/from16 v3, p14
+    move-object/from16 v3, p15
 
     invoke-interface {v7, v0, v1, v2, v3}, Lcom/android/server/wm/IWindowManagerServiceBridge;->checkAnimValue(Landroid/view/WindowManager$LayoutParams;ZLandroid/graphics/Rect;Landroid/graphics/Rect;)Z
 
@@ -8088,7 +8450,7 @@
 
     const/4 v7, 0x2
 
-    move-object/from16 v0, p15
+    move-object/from16 v0, p16
 
     iput v7, v0, Lcom/android/server/wm/AppWindowToken;->DimBetweenTwoWindow:I
 
@@ -8102,7 +8464,7 @@
 
     move-result-object v7
 
-    move-object/from16 v0, p15
+    move-object/from16 v0, p16
 
     iput-object v7, v0, Lcom/android/server/wm/AppWindowToken;->mDepthInOutDimAnimation:Landroid/view/animation/Animation;
 
@@ -8991,11 +9353,13 @@
 .end method
 
 .method prepareAppTransitionLocked(IZ)Z
-    .locals 8
+    .locals 9
 
-    const/16 v7, 0xd
+    const/16 v8, 0xd
 
-    const/16 v6, 0x8
+    const/16 v7, 0x8
+
+    const/4 v6, 0x7
 
     const/4 v5, 0x6
 
@@ -9068,20 +9432,31 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    if-ne p1, v6, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/wm/AppTransition;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mBridge:Lcom/android/server/wm/IWindowManagerServiceBridge;
+
+    const/4 v2, 0x1
+
+    invoke-interface {v1, v2}, Lcom/android/server/wm/IWindowManagerServiceBridge;->setWallpaperAnimationBlocked(Z)V
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/server/wm/AppTransition;->isTransitionSet()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget v1, p0, Lcom/android/server/wm/AppTransition;->mNextAppTransition:I
 
-    if-nez v1, :cond_5
-
-    :cond_1
-    invoke-direct {p0, p1}, Lcom/android/server/wm/AppTransition;->setAppTransition(I)V
+    if-nez v1, :cond_6
 
     :cond_2
+    invoke-direct {p0, p1}, Lcom/android/server/wm/AppTransition;->setAppTransition(I)V
+
+    :cond_3
     :goto_0
     iget-object v1, p0, Lcom/android/server/wm/AppTransition;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -9097,11 +9472,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     invoke-direct {p0, v4}, Lcom/android/server/wm/AppTransition;->setAppTransition(I)V
 
-    :cond_3
+    :cond_4
     invoke-direct {p0}, Lcom/android/server/wm/AppTransition;->prepare()Z
 
     move-result v0
@@ -9110,13 +9485,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     iget-object v1, p0, Lcom/android/server/wm/AppTransition;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
 
-    invoke-virtual {v1, v7}, Lcom/android/server/wm/WindowManagerService$H;->removeMessages(I)V
+    invoke-virtual {v1, v8}, Lcom/android/server/wm/WindowManagerService$H;->removeMessages(I)V
 
     iget-object v1, p0, Lcom/android/server/wm/AppTransition;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -9124,32 +9499,17 @@
 
     const-wide/16 v2, 0x1388
 
-    invoke-virtual {v1, v7, v2, v3}, Lcom/android/server/wm/WindowManagerService$H;->sendEmptyMessageDelayed(IJ)Z
-
-    :cond_4
-    return v0
+    invoke-virtual {v1, v8, v2, v3}, Lcom/android/server/wm/WindowManagerService$H;->sendEmptyMessageDelayed(IJ)Z
 
     :cond_5
-    if-nez p2, :cond_2
-
-    if-ne p1, v6, :cond_6
-
-    const/16 v1, 0x9
-
-    invoke-virtual {p0, v1}, Lcom/android/server/wm/AppTransition;->isTransitionEqual(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/AppTransition;->setAppTransition(I)V
-
-    goto :goto_0
+    return v0
 
     :cond_6
-    if-ne p1, v5, :cond_7
+    if-nez p2, :cond_3
 
-    const/4 v1, 0x7
+    if-ne p1, v7, :cond_7
+
+    const/16 v1, 0x9
 
     invoke-virtual {p0, v1}, Lcom/android/server/wm/AppTransition;->isTransitionEqual(I)Z
 
@@ -9162,13 +9522,26 @@
     goto :goto_0
 
     :cond_7
-    if-ne p1, v6, :cond_2
+    if-ne p1, v5, :cond_8
+
+    invoke-virtual {p0, v6}, Lcom/android/server/wm/AppTransition;->isTransitionEqual(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/AppTransition;->setAppTransition(I)V
+
+    goto :goto_0
+
+    :cond_8
+    if-ne p1, v7, :cond_3
 
     invoke-virtual {p0, v5}, Lcom/android/server/wm/AppTransition;->isTransitionEqual(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/AppTransition;->setAppTransition(I)V
 

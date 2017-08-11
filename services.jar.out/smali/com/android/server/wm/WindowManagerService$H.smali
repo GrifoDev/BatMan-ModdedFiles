@@ -1934,6 +1934,22 @@
 
     if-ne v0, v2, :cond_25
 
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/wm/WindowManagerService$H;->this$0:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mMultiWindowManagerInternal:Lcom/android/server/wm/IMultiWindowManagerInternalBridge;
+
+    invoke-interface {v2}, Lcom/android/server/wm/IMultiWindowManagerInternalBridge;->getHandler()Landroid/os/Handler;
+
+    move-result-object v2
+
+    const-wide/16 v4, 0x7d0
+
+    const/16 v6, 0x12
+
+    invoke-virtual {v2, v6, v4, v5}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
     const/4 v2, 0x1
 
     move-object/from16 v0, v22
@@ -3958,8 +3974,6 @@
     move-exception v24
 
     goto/16 :goto_14
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x2

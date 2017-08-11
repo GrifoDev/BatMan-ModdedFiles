@@ -719,6 +719,12 @@
 
     invoke-interface {v13, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    const-string/jumbo v33, "android.permission.GET_ACCOUNTS"
+
+    move-object/from16 v0, v33
+
+    invoke-interface {v13, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
     const-string/jumbo v33, "android.permission.READ_CALL_LOG"
 
     move-object/from16 v0, v33
@@ -2677,63 +2683,112 @@
 .end method
 
 .method private grantDefaultPermissionsToKddiApp(I)V
-    .locals 44
+    .locals 42
 
-    const-string/jumbo v43, "com.kddi.android.au_wifi_connect"
+    const-string/jumbo v41, "com.kddi.android.au_wifi_connect"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v37
+
+    if-eqz v37, :cond_0
+
+    invoke-static/range {v37 .. v37}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v41
+
+    if-eqz v41, :cond_0
+
+    new-instance v38, Landroid/util/ArraySet;
+
+    invoke-direct/range {v38 .. v38}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v41, "android.permission.ACCESS_FINE_LOCATION"
+
+    move-object/from16 v0, v38
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v41, "android.permission.ACCESS_COARSE_LOCATION"
+
+    move-object/from16 v0, v38
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
+
+    move-object/from16 v0, v38
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v41, "android.permission.PROCESS_OUTGOING_CALLS"
+
+    move-object/from16 v0, v38
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v37
+
+    move-object/from16 v2, v38
+
+    move/from16 v3, v41
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    :cond_0
+    const-string/jumbo v41, "com.kddi.android.au_wifi_connect2"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
     move-result-object v39
 
-    if-eqz v39, :cond_0
+    if-eqz v39, :cond_1
 
     invoke-static/range {v39 .. v39}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_0
+    if-eqz v41, :cond_1
 
     new-instance v40, Landroid/util/ArraySet;
 
     invoke-direct/range {v40 .. v40}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v41, "android.permission.ACCESS_FINE_LOCATION"
 
-    move-object/from16 v0, v40
+    invoke-interface/range {v40 .. v41}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v1, v43
+    const-string/jumbo v41, "android.permission.ACCESS_COARSE_LOCATION"
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface/range {v40 .. v41}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v43, "android.permission.ACCESS_COARSE_LOCATION"
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v40
+    invoke-interface/range {v40 .. v41}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
-
-    move-object/from16 v0, v40
-
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.PROCESS_OUTGOING_CALLS"
-
-    move-object/from16 v0, v40
-
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const/16 v43, 0x0
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
@@ -2741,128 +2796,79 @@
 
     move-object/from16 v2, v40
 
-    move/from16 v3, v43
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_0
-    const-string/jumbo v43, "com.kddi.android.au_wifi_connect2"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v43
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v41
-
-    if-eqz v41, :cond_1
-
-    invoke-static/range {v41 .. v41}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v43
-
-    if-eqz v43, :cond_1
-
-    new-instance v42, Landroid/util/ArraySet;
-
-    invoke-direct/range {v42 .. v42}, Landroid/util/ArraySet;-><init>()V
-
-    const-string/jumbo v43, "android.permission.ACCESS_FINE_LOCATION"
-
-    invoke-interface/range {v42 .. v43}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.ACCESS_COARSE_LOCATION"
-
-    invoke-interface/range {v42 .. v43}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
-
-    invoke-interface/range {v42 .. v43}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const/16 v43, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v41
-
-    move-object/from16 v2, v42
-
-    move/from16 v3, v43
+    move/from16 v3, v41
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_1
-    const-string/jumbo v43, "com.kddi.android.klop"
+    const-string/jumbo v41, "com.kddi.android.klop"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v19
+    move-result-object v17
 
-    if-eqz v19, :cond_2
+    if-eqz v17, :cond_2
 
-    invoke-static/range {v19 .. v19}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_2
+    if-eqz v41, :cond_2
 
-    new-instance v20, Landroid/util/ArraySet;
+    new-instance v18, Landroid/util/ArraySet;
 
-    invoke-direct/range {v20 .. v20}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v18 .. v18}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v41, "android.permission.ACCESS_FINE_LOCATION"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.ACCESS_COARSE_LOCATION"
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v41, "android.permission.ACCESS_COARSE_LOCATION"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v43, 0x0
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v17
 
-    move-object/from16 v2, v20
+    move-object/from16 v2, v18
 
-    move/from16 v3, v43
+    move/from16 v3, v41
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_2
-    const-string/jumbo v43, "com.kddi.android.AddressbookPlus"
+    const-string/jumbo v41, "com.kddi.android.AddressbookPlus"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -2872,117 +2878,115 @@
 
     invoke-static {v5}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_3
+    if-eqz v41, :cond_3
 
     new-instance v6, Landroid/util/ArraySet;
 
     invoke-direct {v6}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.CALL_PHONE"
+    const-string/jumbo v41, "android.permission.CALL_PHONE"
 
-    move-object/from16 v0, v43
-
-    invoke-interface {v6, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.READ_CALL_LOG"
-
-    move-object/from16 v0, v43
+    move-object/from16 v0, v41
 
     invoke-interface {v6, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v43, "android.permission.WRITE_CALL_LOG"
+    const-string/jumbo v41, "android.permission.READ_CALL_LOG"
 
-    move-object/from16 v0, v43
+    move-object/from16 v0, v41
 
     invoke-interface {v6, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v43, 0x0
+    const-string/jumbo v41, "android.permission.WRITE_CALL_LOG"
+
+    move-object/from16 v0, v41
+
+    invoke-interface {v6, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v43
+    move/from16 v1, v41
 
     move/from16 v2, p1
 
     invoke-direct {v0, v5, v6, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_3
-    const-string/jumbo v43, "com.kddi.android.evc"
+    const-string/jumbo v41, "com.kddi.android.evc"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v17
+    move-result-object v15
 
-    if-eqz v17, :cond_4
+    if-eqz v15, :cond_4
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static {v15}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_4
+    if-eqz v41, :cond_4
 
-    new-instance v18, Landroid/util/ArraySet;
+    new-instance v16, Landroid/util/ArraySet;
 
-    invoke-direct/range {v18 .. v18}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v16 .. v16}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.CALL_PHONE"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v43, "android.permission.READ_CONTACTS"
+    const-string/jumbo v41, "android.permission.CALL_PHONE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.GET_ACCOUNTS"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v43, 0x0
+    const-string/jumbo v41, "android.permission.READ_CONTACTS"
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v41, "android.permission.GET_ACCOUNTS"
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v16
 
-    move-object/from16 v2, v18
+    move/from16 v2, v41
 
-    move/from16 v3, v43
+    move/from16 v3, p1
 
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+    invoke-direct {v0, v15, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_4
-    const-string/jumbo v43, "com.kddi.android.checker_android"
+    const-string/jumbo v41, "com.kddi.android.checker_android"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -2992,154 +2996,154 @@
 
     invoke-static {v9}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_5
+    if-eqz v41, :cond_5
 
     new-instance v10, Landroid/util/ArraySet;
 
     invoke-direct {v10}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v41, "android.permission.ACCESS_FINE_LOCATION"
 
-    move-object/from16 v0, v43
-
-    invoke-interface {v10, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.ACCESS_COARSE_LOCATION"
-
-    move-object/from16 v0, v43
+    move-object/from16 v0, v41
 
     invoke-interface {v10, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v41, "android.permission.ACCESS_COARSE_LOCATION"
 
-    move-object/from16 v0, v43
+    move-object/from16 v0, v41
 
     invoke-interface {v10, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v43, 0x0
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
+
+    move-object/from16 v0, v41
+
+    invoke-interface {v10, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v43
+    move/from16 v1, v41
 
     move/from16 v2, p1
 
     invoke-direct {v0, v9, v10, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_5
-    const-string/jumbo v43, "com.kddi.android.ausharelink"
+    const-string/jumbo v41, "com.kddi.android.ausharelink"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v27
+    move-result-object v25
 
-    if-eqz v27, :cond_6
+    if-eqz v25, :cond_6
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v25 .. v25}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_6
+    if-eqz v41, :cond_6
 
-    new-instance v28, Landroid/util/ArraySet;
+    new-instance v26, Landroid/util/ArraySet;
 
-    invoke-direct/range {v28 .. v28}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v26 .. v26}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v41, "android.permission.ACCESS_FINE_LOCATION"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v43, "android.permission.READ_CONTACTS"
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v43, 0x0
+    const-string/jumbo v41, "android.permission.READ_CONTACTS"
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v25
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v26
 
-    move/from16 v3, v43
+    move/from16 v3, v41
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_6
-    const-string/jumbo v43, "com.kddi.android.screenshotshare"
+    const-string/jumbo v41, "com.kddi.android.screenshotshare"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v23
+    move-result-object v21
 
-    if-eqz v23, :cond_7
+    if-eqz v21, :cond_7
 
-    invoke-static/range {v23 .. v23}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v21 .. v21}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_7
+    if-eqz v41, :cond_7
 
-    new-instance v24, Landroid/util/ArraySet;
+    new-instance v22, Landroid/util/ArraySet;
 
-    invoke-direct/range {v24 .. v24}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v22 .. v22}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v43, 0x0
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v21
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v22
 
-    move/from16 v3, v43
+    move/from16 v3, v41
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_7
-    const-string/jumbo v43, "com.kddi.cs.app001"
+    const-string/jumbo v41, "com.kddi.disasterapp"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -3149,346 +3153,158 @@
 
     invoke-static {v11}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_8
+    if-eqz v41, :cond_8
 
     new-instance v12, Landroid/util/ArraySet;
 
     invoke-direct {v12}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.CALL_PHONE"
+    const-string/jumbo v41, "android.permission.RECEIVE_SMS"
 
-    move-object/from16 v0, v43
-
-    invoke-interface {v12, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
-
-    move-object/from16 v0, v43
+    move-object/from16 v0, v41
 
     invoke-interface {v12, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v43, 0x0
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
+
+    move-object/from16 v0, v41
+
+    invoke-interface {v12, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v43
+    move/from16 v1, v41
 
     move/from16 v2, p1
 
     invoke-direct {v0, v11, v12, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_8
-    const-string/jumbo v43, "com.kddi.disasterapp"
+    const-string/jumbo v41, "com.kddi.market"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v13
+    move-result-object v19
 
-    if-eqz v13, :cond_9
+    if-eqz v19, :cond_9
 
-    invoke-static {v13}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v19 .. v19}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_9
+    if-eqz v41, :cond_9
 
-    new-instance v14, Landroid/util/ArraySet;
+    new-instance v20, Landroid/util/ArraySet;
 
-    invoke-direct {v14}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v20 .. v20}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.RECEIVE_SMS"
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v43
+    move-object/from16 v0, v20
 
-    invoke-interface {v14, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
-
-    move-object/from16 v0, v43
-
-    invoke-interface {v14, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const/16 v43, 0x1
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v43
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v13, v14, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_9
-    const-string/jumbo v43, "com.kddi.market"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v43
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v21
-
-    if-eqz v21, :cond_a
-
-    invoke-static/range {v21 .. v21}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v43
-
-    if-eqz v43, :cond_a
-
-    new-instance v22, Landroid/util/ArraySet;
-
-    invoke-direct/range {v22 .. v22}, Landroid/util/ArraySet;-><init>()V
-
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v43, 0x0
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v19
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v20
 
-    move/from16 v3, v43
+    move/from16 v3, v41
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    :cond_9
+    const-string/jumbo v41, "com.kddi.pass.launcher"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v41
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v23
+
+    if-eqz v23, :cond_a
+
+    invoke-static/range {v23 .. v23}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v41
+
+    if-eqz v41, :cond_a
+
+    new-instance v24, Landroid/util/ArraySet;
+
+    invoke-direct/range {v24 .. v24}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v41, "android.permission.GET_ACCOUNTS"
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    move/from16 v3, v41
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_a
-    const-string/jumbo v43, "com.kddi.pass.launcher"
+    const-string/jumbo v41, "jp.auone.wallet"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v25
-
-    if-eqz v25, :cond_b
-
-    invoke-static/range {v25 .. v25}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v43
-
-    if-eqz v43, :cond_b
-
-    new-instance v26, Landroid/util/ArraySet;
-
-    invoke-direct/range {v26 .. v26}, Landroid/util/ArraySet;-><init>()V
-
-    const-string/jumbo v43, "android.permission.GET_ACCOUNTS"
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const/16 v43, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v25
-
-    move-object/from16 v2, v26
-
-    move/from16 v3, v43
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_b
-    const-string/jumbo v43, "jp.auone.wallet"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v43
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v37
-
-    if-eqz v37, :cond_c
-
-    invoke-static/range {v37 .. v37}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v43
-
-    if-eqz v43, :cond_c
-
-    new-instance v38, Landroid/util/ArraySet;
-
-    invoke-direct/range {v38 .. v38}, Landroid/util/ArraySet;-><init>()V
-
-    const-string/jumbo v43, "android.permission.GET_ACCOUNTS"
-
-    move-object/from16 v0, v38
-
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const/16 v43, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v37
-
-    move-object/from16 v2, v38
-
-    move/from16 v3, v43
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_c
-    const-string/jumbo v43, "com.kddi.android.email"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v43
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v15
-
-    if-eqz v15, :cond_d
-
-    invoke-static {v15}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v43
-
-    if-eqz v43, :cond_d
-
-    new-instance v16, Landroid/util/ArraySet;
-
-    invoke-direct/range {v16 .. v16}, Landroid/util/ArraySet;-><init>()V
-
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.RECEIVE_SMS"
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.RECEIVE_MMS"
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const/16 v43, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    move/from16 v2, v43
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v15, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_d
-    const-string/jumbo v43, "com.kddi.android.lismobookstore"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v43
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_e
-
-    invoke-static {v7}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v43
-
-    if-eqz v43, :cond_e
-
-    new-instance v8, Landroid/util/ArraySet;
-
-    invoke-direct {v8}, Landroid/util/ArraySet;-><init>()V
-
-    const-string/jumbo v43, "android.permission.GET_ACCOUNTS"
-
-    move-object/from16 v0, v43
-
-    invoke-interface {v8, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const/16 v43, 0x0
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v43
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v7, v8, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_e
-    const-string/jumbo v43, "web.wm.auone.jp"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
     move-result-object v35
 
-    if-eqz v35, :cond_f
+    if-eqz v35, :cond_b
 
     invoke-static/range {v35 .. v35}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_f
+    if-eqz v41, :cond_b
 
     new-instance v36, Landroid/util/ArraySet;
 
     invoke-direct/range {v36 .. v36}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.GET_ACCOUNTS"
+    const-string/jumbo v41, "android.permission.GET_ACCOUNTS"
 
     move-object/from16 v0, v36
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v43, 0x0
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
@@ -3496,105 +3312,134 @@
 
     move-object/from16 v2, v36
 
-    move/from16 v3, v43
+    move/from16 v3, v41
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
-    :cond_f
-    const-string/jumbo v43, "com.kddi.android.smartpass"
+    :cond_b
+    const-string/jumbo v41, "com.kddi.android.email"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v29
+    move-result-object v13
 
-    if-eqz v29, :cond_10
+    if-eqz v13, :cond_c
 
-    invoke-static/range {v29 .. v29}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static {v13}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_10
+    if-eqz v41, :cond_c
 
-    new-instance v30, Landroid/util/ArraySet;
+    new-instance v14, Landroid/util/ArraySet;
 
-    invoke-direct/range {v30 .. v30}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct {v14}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.GET_ACCOUNTS"
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v41
 
-    move-object/from16 v1, v43
+    invoke-interface {v14, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    const-string/jumbo v41, "android.permission.RECEIVE_SMS"
 
-    const/16 v43, 0x0
+    move-object/from16 v0, v41
 
-    move-object/from16 v0, p0
+    invoke-interface {v14, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v1, v29
+    const-string/jumbo v41, "android.permission.RECEIVE_MMS"
 
-    move-object/from16 v2, v30
+    move-object/from16 v0, v41
 
-    move/from16 v3, v43
+    invoke-interface {v14, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_10
-    const-string/jumbo v43, "com.kddi.android.videopass"
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move/from16 v1, v41
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v13, v14, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    :cond_c
+    const-string/jumbo v41, "com.kddi.android.lismobookstore"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v41
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_d
+
+    invoke-static {v7}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v41
+
+    if-eqz v41, :cond_d
+
+    new-instance v8, Landroid/util/ArraySet;
+
+    invoke-direct {v8}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v41, "android.permission.GET_ACCOUNTS"
+
+    move-object/from16 v0, v41
+
+    invoke-interface {v8, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v41
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v7, v8, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    :cond_d
+    const-string/jumbo v41, "web.wm.auone.jp"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
     move-result-object v33
 
-    if-eqz v33, :cond_11
+    if-eqz v33, :cond_e
 
     invoke-static/range {v33 .. v33}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_11
+    if-eqz v41, :cond_e
 
     new-instance v34, Landroid/util/ArraySet;
 
     invoke-direct/range {v34 .. v34}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.GET_ACCOUNTS"
+    const-string/jumbo v41, "android.permission.GET_ACCOUNTS"
 
     move-object/from16 v0, v34
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v43, "android.permission.WRITE_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const/16 v43, 0x0
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
@@ -3602,68 +3447,105 @@
 
     move-object/from16 v2, v34
 
-    move/from16 v3, v43
+    move/from16 v3, v41
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
-    :cond_11
-    const-string/jumbo v43, "com.redbend.client"
+    :cond_e
+    const-string/jumbo v41, "com.kddi.android.smartpass"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_f
+
+    invoke-static/range {v27 .. v27}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v41
+
+    if-eqz v41, :cond_f
+
+    new-instance v28, Landroid/util/ArraySet;
+
+    invoke-direct/range {v28 .. v28}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v41, "android.permission.GET_ACCOUNTS"
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v27
+
+    move-object/from16 v2, v28
+
+    move/from16 v3, v41
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    :cond_f
+    const-string/jumbo v41, "com.kddi.android.videopass"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v41
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
     move-result-object v31
 
-    if-eqz v31, :cond_12
+    if-eqz v31, :cond_10
 
     invoke-static/range {v31 .. v31}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v43
+    move-result v41
 
-    if-eqz v43, :cond_12
+    if-eqz v41, :cond_10
 
     new-instance v32, Landroid/util/ArraySet;
 
     invoke-direct/range {v32 .. v32}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v43, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v41, "android.permission.GET_ACCOUNTS"
 
     move-object/from16 v0, v32
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v43, "android.permission.RECEIVE_WAP_PUSH"
+    const-string/jumbo v41, "android.permission.WRITE_EXTERNAL_STORAGE"
 
     move-object/from16 v0, v32
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v43, "android.permission.RECEIVE_SMS"
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
 
     move-object/from16 v0, v32
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v41
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v43, "android.permission.ACCESS_COARSE_LOCATION"
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, v43
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const/16 v43, 0x0
+    const/16 v41, 0x0
 
     move-object/from16 v0, p0
 
@@ -3671,13 +3553,82 @@
 
     move-object/from16 v2, v32
 
-    move/from16 v3, v43
+    move/from16 v3, v41
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
-    :cond_12
+    :cond_10
+    const-string/jumbo v41, "com.redbend.client"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v41
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v29
+
+    if-eqz v29, :cond_11
+
+    invoke-static/range {v29 .. v29}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v41
+
+    if-eqz v41, :cond_11
+
+    new-instance v30, Landroid/util/ArraySet;
+
+    invoke-direct/range {v30 .. v30}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v41, "android.permission.READ_PHONE_STATE"
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v41, "android.permission.RECEIVE_WAP_PUSH"
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v41, "android.permission.RECEIVE_SMS"
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v41, "android.permission.ACCESS_COARSE_LOCATION"
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v41
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v41, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v29
+
+    move-object/from16 v2, v30
+
+    move/from16 v3, v41
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    :cond_11
     return-void
 .end method
 
@@ -5921,245 +5872,245 @@
 .end method
 
 .method private grantDefaultSystemHandlerPermissions(I)V
-    .locals 185
+    .locals 188
 
-    const-string/jumbo v180, "DefaultPermGrantPolicy"
+    const-string/jumbo v183, "DefaultPermGrantPolicy"
 
-    new-instance v181, Ljava/lang/StringBuilder;
+    new-instance v184, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v181 .. v181}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v184 .. v184}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v182, "Granting permissions to default platform handlers for user "
+    const-string/jumbo v185, "Granting permissions to default platform handlers for user "
 
-    invoke-virtual/range {v181 .. v182}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v184 .. v185}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v181
+    move-result-object v184
 
-    move-object/from16 v0, v181
+    move-object/from16 v0, v184
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v181
+    move-result-object v184
 
-    invoke-virtual/range {v181 .. v181}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v184 .. v184}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v181
+    move-result-object v184
 
-    invoke-static/range {v180 .. v181}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v183 .. v184}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    move-object/from16 v180, v0
+    move-object/from16 v183, v0
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
-    move-object/from16 v181, v0
+    move-object/from16 v184, v0
 
-    monitor-enter v181
+    monitor-enter v184
 
     :try_start_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mImePackagesProvider:Landroid/content/pm/PackageManagerInternal$PackagesProvider;
 
-    move-object/from16 v101, v0
+    move-object/from16 v102, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mLocationPackagesProvider:Landroid/content/pm/PackageManagerInternal$PackagesProvider;
 
-    move-object/from16 v105, v0
+    move-object/from16 v106, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mVoiceInteractionPackagesProvider:Landroid/content/pm/PackageManagerInternal$PackagesProvider;
 
-    move-object/from16 v170, v0
+    move-object/from16 v173, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mSmsAppPackagesProvider:Landroid/content/pm/PackageManagerInternal$PackagesProvider;
 
-    move-object/from16 v144, v0
+    move-object/from16 v147, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mDialerAppPackagesProvider:Landroid/content/pm/PackageManagerInternal$PackagesProvider;
 
-    move-object/from16 v73, v0
+    move-object/from16 v74, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mSimCallManagerPackagesProvider:Landroid/content/pm/PackageManagerInternal$PackagesProvider;
 
-    move-object/from16 v142, v0
+    move-object/from16 v145, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mSyncAdapterPackagesProvider:Landroid/content/pm/PackageManagerInternal$SyncAdapterPackagesProvider;
 
-    move-object/from16 v153, v0
+    move-object/from16 v156, v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    monitor-exit v181
+    monitor-exit v184
 
-    if-eqz v101, :cond_2
+    if-eqz v102, :cond_2
 
-    move-object/from16 v0, v101
+    move-object/from16 v0, v102
 
     move/from16 v1, p1
 
     invoke-interface {v0, v1}, Landroid/content/pm/PackageManagerInternal$PackagesProvider;->getPackages(I)[Ljava/lang/String;
 
-    move-result-object v100
+    move-result-object v101
 
     :goto_0
-    if-eqz v170, :cond_3
+    if-eqz v173, :cond_3
 
-    move-object/from16 v0, v170
+    move-object/from16 v0, v173
 
     move/from16 v1, p1
 
     invoke-interface {v0, v1}, Landroid/content/pm/PackageManagerInternal$PackagesProvider;->getPackages(I)[Ljava/lang/String;
 
-    move-result-object v169
+    move-result-object v172
 
     :goto_1
-    if-eqz v105, :cond_4
+    if-eqz v106, :cond_4
 
-    move-object/from16 v0, v105
+    move-object/from16 v0, v106
 
     move/from16 v1, p1
 
     invoke-interface {v0, v1}, Landroid/content/pm/PackageManagerInternal$PackagesProvider;->getPackages(I)[Ljava/lang/String;
 
-    move-result-object v104
+    move-result-object v105
 
     :goto_2
-    if-eqz v144, :cond_5
+    if-eqz v147, :cond_5
 
-    move-object/from16 v0, v144
+    move-object/from16 v0, v147
 
     move/from16 v1, p1
 
     invoke-interface {v0, v1}, Landroid/content/pm/PackageManagerInternal$PackagesProvider;->getPackages(I)[Ljava/lang/String;
 
-    move-result-object v143
+    move-result-object v146
 
     :goto_3
-    if-eqz v73, :cond_6
+    if-eqz v74, :cond_6
 
-    move-object/from16 v0, v73
+    move-object/from16 v0, v74
 
     move/from16 v1, p1
 
     invoke-interface {v0, v1}, Landroid/content/pm/PackageManagerInternal$PackagesProvider;->getPackages(I)[Ljava/lang/String;
 
-    move-result-object v72
+    move-result-object v73
 
     :goto_4
-    if-eqz v142, :cond_7
+    if-eqz v145, :cond_7
 
-    move-object/from16 v0, v142
+    move-object/from16 v0, v145
 
     move/from16 v1, p1
 
     invoke-interface {v0, v1}, Landroid/content/pm/PackageManagerInternal$PackagesProvider;->getPackages(I)[Ljava/lang/String;
 
-    move-result-object v141
+    move-result-object v144
 
     :goto_5
-    if-eqz v153, :cond_8
+    if-eqz v156, :cond_8
 
-    const-string/jumbo v180, "com.android.contacts"
+    const-string/jumbo v183, "com.android.contacts"
 
-    move-object/from16 v0, v153
+    move-object/from16 v0, v156
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     move/from16 v2, p1
 
     invoke-interface {v0, v1, v2}, Landroid/content/pm/PackageManagerInternal$SyncAdapterPackagesProvider;->getPackages(Ljava/lang/String;I)[Ljava/lang/String;
 
-    move-result-object v65
+    move-result-object v66
 
     :goto_6
-    if-eqz v153, :cond_9
+    if-eqz v156, :cond_9
 
-    const-string/jumbo v180, "com.android.calendar"
+    const-string/jumbo v183, "com.android.calendar"
 
-    move-object/from16 v0, v153
+    move-object/from16 v0, v156
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     move/from16 v2, p1
 
     invoke-interface {v0, v1, v2}, Landroid/content/pm/PackageManagerInternal$SyncAdapterPackagesProvider;->getPackages(Ljava/lang/String;I)[Ljava/lang/String;
 
-    move-result-object v47
+    move-result-object v48
 
     :goto_7
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    move-object/from16 v180, v0
+    move-object/from16 v183, v0
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
-    move-object/from16 v181, v0
+    move-object/from16 v184, v0
 
-    monitor-enter v181
+    monitor-enter v184
 
     :try_start_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    move-object/from16 v180, v0
+    move-object/from16 v183, v0
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mRequiredInstallerPackage:Ljava/lang/String;
 
-    move-object/from16 v180, v0
+    move-object/from16 v183, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v102
+    move-result-object v103
 
-    if-eqz v102, :cond_0
+    if-eqz v103, :cond_0
 
-    invoke-static/range {v102 .. v102}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v103 .. v103}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_0
+    if-eqz v183, :cond_0
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x1
+    const/16 v185, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v102
+    move-object/from16 v1, v103
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
@@ -6170,93 +6121,93 @@
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    move-object/from16 v180, v0
+    move-object/from16 v183, v0
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->getRequiredVerifiers(I)Ljava/util/ArrayList;
 
-    move-result-object v127
+    move-result-object v128
 
-    invoke-interface/range {v127 .. v127}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v128 .. v128}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v165
+    move-result-object v168
 
     :cond_1
     :goto_8
-    invoke-interface/range {v165 .. v165}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v168 .. v168}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_a
+    if-eqz v183, :cond_a
 
-    invoke-interface/range {v165 .. v165}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v168 .. v168}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v164
+    move-result-object v167
 
-    check-cast v164, Ljava/lang/String;
+    check-cast v167, Ljava/lang/String;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v164
+    move-object/from16 v1, v167
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v166
+    move-result-object v169
 
-    if-eqz v166, :cond_1
+    if-eqz v169, :cond_1
 
-    invoke-static/range {v166 .. v166}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v169 .. v169}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_1
+    if-eqz v183, :cond_1
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x1
+    const/16 v185, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v166
+    move-object/from16 v1, v169
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x0
+    const/16 v185, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v166
+    move-object/from16 v1, v169
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x0
+    const/16 v185, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v166
+    move-object/from16 v1, v169
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
@@ -6267,56 +6218,56 @@
     goto :goto_8
 
     :catchall_0
-    move-exception v180
+    move-exception v183
 
-    monitor-exit v181
+    monitor-exit v184
 
-    throw v180
+    throw v183
 
     :catchall_1
-    move-exception v180
+    move-exception v183
 
-    monitor-exit v181
+    monitor-exit v184
 
-    throw v180
+    throw v183
 
     :cond_2
-    const/16 v100, 0x0
+    const/16 v101, 0x0
 
     goto/16 :goto_0
 
     :cond_3
-    const/16 v169, 0x0
+    const/16 v172, 0x0
 
     goto/16 :goto_1
 
     :cond_4
-    const/16 v104, 0x0
+    const/16 v105, 0x0
 
     goto/16 :goto_2
 
     :cond_5
-    const/16 v143, 0x0
+    const/16 v146, 0x0
 
     goto/16 :goto_3
 
     :cond_6
-    const/16 v72, 0x0
+    const/16 v73, 0x0
 
     goto/16 :goto_4
 
     :cond_7
-    const/16 v141, 0x0
+    const/16 v144, 0x0
 
     goto/16 :goto_5
 
     :cond_8
-    const/16 v65, 0x0
+    const/16 v66, 0x0
 
     goto/16 :goto_6
 
     :cond_9
-    const/16 v47, 0x0
+    const/16 v48, 0x0
 
     goto/16 :goto_7
 
@@ -6326,613 +6277,613 @@
 
     iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    move-object/from16 v180, v0
+    move-object/from16 v183, v0
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mSetupWizardPackage:Ljava/lang/String;
 
-    move-object/from16 v180, v0
+    move-object/from16 v183, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v136
+    move-result-object v139
 
-    if-eqz v136, :cond_b
+    if-eqz v139, :cond_b
 
-    invoke-static/range {v136 .. v136}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v139 .. v139}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_b
+    if-eqz v183, :cond_b
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v136
+    move-object/from16 v1, v139
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v136
+    move-object/from16 v1, v139
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v136
+    move-object/from16 v1, v139
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v136
+    move-object/from16 v1, v139
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_b
-    const-string/jumbo v180, "com.samsung.android.app.spage"
+    const-string/jumbo v183, "com.samsung.android.app.spage"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v92
+    move-result-object v93
 
-    if-eqz v92, :cond_c
+    if-eqz v93, :cond_c
 
-    invoke-static/range {v92 .. v92}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v93 .. v93}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_c
+    if-eqz v183, :cond_c
 
-    new-instance v93, Landroid/util/ArraySet;
+    new-instance v94, Landroid/util/ArraySet;
 
-    invoke-direct/range {v93 .. v93}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v94 .. v94}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.CALL_PHONE"
+    const-string/jumbo v183, "android.permission.CALL_PHONE"
 
-    move-object/from16 v0, v93
+    move-object/from16 v0, v94
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.SEND_SMS"
-
-    move-object/from16 v0, v93
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_SMS"
+    const-string/jumbo v183, "android.permission.SEND_SMS"
 
-    move-object/from16 v0, v93
+    move-object/from16 v0, v94
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_CONTACTS"
-
-    move-object/from16 v0, v93
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v183, "android.permission.READ_SMS"
 
-    move-object/from16 v0, v93
+    move-object/from16 v0, v94
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v93
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_CALENDAR"
+    const-string/jumbo v183, "android.permission.READ_CONTACTS"
 
-    move-object/from16 v0, v93
+    move-object/from16 v0, v94
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_CALL_LOG"
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
 
-    move-object/from16 v0, v93
+    move-object/from16 v0, v94
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v94
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_CALENDAR"
+
+    move-object/from16 v0, v94
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_CALL_LOG"
+
+    move-object/from16 v0, v94
+
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v92
+    move-object/from16 v1, v93
 
-    move-object/from16 v2, v93
+    move-object/from16 v2, v94
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_c
-    const-string/jumbo v180, "com.claroColombia.contenedor"
+    const-string/jumbo v183, "com.claroColombia.contenedor"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v57
+    move-result-object v58
 
-    if-eqz v57, :cond_d
+    if-eqz v58, :cond_d
 
-    invoke-static/range {v57 .. v57}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v58 .. v58}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_d
+    if-eqz v183, :cond_d
 
-    new-instance v58, Landroid/util/ArraySet;
+    new-instance v59, Landroid/util/ArraySet;
 
-    invoke-direct/range {v58 .. v58}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v59 .. v59}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v58
+    move-object/from16 v0, v59
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v57
+    move-object/from16 v1, v58
 
-    move-object/from16 v2, v58
+    move-object/from16 v2, v59
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_d
-    const-string/jumbo v180, "com.telcel.contenedor"
+    const-string/jumbo v183, "com.telcel.contenedor"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v160
+    move-result-object v163
 
-    if-eqz v160, :cond_e
+    if-eqz v163, :cond_e
 
-    invoke-static/range {v160 .. v160}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v163 .. v163}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_e
+    if-eqz v183, :cond_e
 
-    new-instance v161, Landroid/util/ArraySet;
+    new-instance v164, Landroid/util/ArraySet;
 
-    invoke-direct/range {v161 .. v161}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v164 .. v164}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v161
+    move-object/from16 v0, v164
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v160
+    move-object/from16 v1, v163
 
-    move-object/from16 v2, v161
+    move-object/from16 v2, v164
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_e
-    const-string/jumbo v180, "com.skt.skaf.A000Z00040"
+    const-string/jumbo v183, "com.skt.skaf.A000Z00040"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v154
+    move-result-object v157
 
-    if-eqz v154, :cond_f
+    if-eqz v157, :cond_f
 
-    invoke-static/range {v154 .. v154}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v157 .. v157}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_f
+    if-eqz v183, :cond_f
 
-    new-instance v155, Landroid/util/ArraySet;
+    new-instance v158, Landroid/util/ArraySet;
 
-    invoke-direct/range {v155 .. v155}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v158 .. v158}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v155
+    move-object/from16 v0, v158
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v155
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v155
+    move-object/from16 v0, v158
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v158
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v154
+    move-object/from16 v1, v157
 
-    move-object/from16 v2, v155
+    move-object/from16 v2, v158
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_f
-    const-string/jumbo v180, "com.skt.skaf.Z0000TSEED"
+    const-string/jumbo v183, "com.skt.skaf.Z0000TSEED"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v158
+    move-result-object v161
 
-    if-eqz v158, :cond_10
+    if-eqz v161, :cond_10
 
-    invoke-static/range {v158 .. v158}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v161 .. v161}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_10
+    if-eqz v183, :cond_10
 
-    new-instance v159, Landroid/util/ArraySet;
+    new-instance v162, Landroid/util/ArraySet;
 
-    invoke-direct/range {v159 .. v159}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v162 .. v162}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v159
+    move-object/from16 v0, v162
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v159
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v162
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v158
+    move-object/from16 v1, v161
 
-    move-object/from16 v2, v159
+    move-object/from16 v2, v162
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_10
-    const-string/jumbo v180, "com.skp.tstore.startup"
+    const-string/jumbo v183, "com.skp.tstore.startup"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v156
+    move-result-object v159
 
-    if-eqz v156, :cond_11
+    if-eqz v159, :cond_11
 
-    invoke-static/range {v156 .. v156}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v159 .. v159}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_11
+    if-eqz v183, :cond_11
 
-    new-instance v157, Landroid/util/ArraySet;
+    new-instance v160, Landroid/util/ArraySet;
 
-    invoke-direct/range {v157 .. v157}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v160 .. v160}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v157
+    move-object/from16 v0, v160
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v156
+    move-object/from16 v1, v159
 
-    move-object/from16 v2, v157
+    move-object/from16 v2, v160
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_11
-    const-string/jumbo v180, "com.skt.tservice"
+    const-string/jumbo v183, "com.skt.tservice"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v162
+    move-result-object v165
 
-    if-eqz v162, :cond_12
+    if-eqz v165, :cond_12
 
-    invoke-static/range {v162 .. v162}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v165 .. v165}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_12
+    if-eqz v183, :cond_12
 
-    new-instance v163, Landroid/util/ArraySet;
+    new-instance v166, Landroid/util/ArraySet;
 
-    invoke-direct/range {v163 .. v163}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v166 .. v166}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v163
+    move-object/from16 v0, v166
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v162
+    move-object/from16 v1, v165
 
-    move-object/from16 v2, v163
+    move-object/from16 v2, v166
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_12
-    const-string/jumbo v180, "com.skt.hps20client"
+    const-string/jumbo v183, "com.skt.hps20client"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v95
+    move-result-object v96
 
-    if-eqz v95, :cond_13
+    if-eqz v96, :cond_13
 
-    invoke-static/range {v95 .. v95}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v96 .. v96}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_13
+    if-eqz v183, :cond_13
 
-    new-instance v96, Landroid/util/ArraySet;
+    new-instance v97, Landroid/util/ArraySet;
 
-    invoke-direct/range {v96 .. v96}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v97 .. v97}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.RECEIVE_WAP_PUSH"
+    const-string/jumbo v183, "android.permission.RECEIVE_WAP_PUSH"
 
-    move-object/from16 v0, v96
+    move-object/from16 v0, v97
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
-
-    move-object/from16 v0, v96
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.ACCESS_COARSE_LOCATION"
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
 
-    move-object/from16 v0, v96
+    move-object/from16 v0, v97
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
-
-    move-object/from16 v0, v96
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.RECEIVE_SMS"
+    const-string/jumbo v183, "android.permission.ACCESS_COARSE_LOCATION"
 
-    move-object/from16 v0, v96
+    move-object/from16 v0, v97
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_SMS"
-
-    move-object/from16 v0, v96
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
+
+    move-object/from16 v0, v97
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.RECEIVE_SMS"
+
+    move-object/from16 v0, v97
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_SMS"
+
+    move-object/from16 v0, v97
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v95
+    move-object/from16 v1, v96
 
-    move-object/from16 v2, v96
+    move-object/from16 v2, v97
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_13
-    const-string/jumbo v180, "com.skt.skaf.OA00018282"
+    const-string/jumbo v183, "com.skt.skaf.OA00018282"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v117
+    move-result-object v118
 
-    if-eqz v117, :cond_14
+    if-eqz v118, :cond_14
 
-    invoke-static/range {v117 .. v117}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v118 .. v118}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_14
+    if-eqz v183, :cond_14
 
-    new-instance v118, Landroid/util/ArraySet;
+    new-instance v119, Landroid/util/ArraySet;
 
-    invoke-direct/range {v118 .. v118}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v119 .. v119}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v118
+    move-object/from16 v0, v119
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v118
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v119
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v117
+    move-object/from16 v1, v118
 
-    move-object/from16 v2, v118
+    move-object/from16 v2, v119
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_14
-    const-string/jumbo v180, "com.lguplus.appstore"
+    const-string/jumbo v183, "com.lguplus.appstore"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -6942,39 +6893,39 @@
 
     invoke-static/range {v22 .. v22}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_15
+    if-eqz v183, :cond_15
 
     new-instance v23, Landroid/util/ArraySet;
 
     invoke-direct/range {v23 .. v23}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
     move-object/from16 v0, v23
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
     move-object/from16 v0, v23
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
 
     move-object/from16 v0, v23
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
@@ -6982,18 +6933,18 @@
 
     move-object/from16 v2, v23
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_15
-    const-string/jumbo v180, "com.lguplus.downloader"
+    const-string/jumbo v183, "com.lguplus.downloader"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7003,48 +6954,48 @@
 
     invoke-static {v15}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_16
+    if-eqz v183, :cond_16
 
     new-instance v10, Landroid/util/ArraySet;
 
     invoke-direct {v10}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v180
-
-    invoke-interface {v10, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     invoke-interface {v10, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     invoke-interface {v10, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v183
+
+    invoke-interface {v10, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v180
+    move/from16 v1, v183
 
     move/from16 v2, p1
 
     invoke-direct {v0, v15, v10, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_16
-    const-string/jumbo v180, "com.lguplus.pushagent"
+    const-string/jumbo v183, "com.lguplus.pushagent"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7054,23 +7005,23 @@
 
     invoke-static/range {v20 .. v20}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_17
+    if-eqz v183, :cond_17
 
     new-instance v21, Landroid/util/ArraySet;
 
     invoke-direct/range {v21 .. v21}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
     move-object/from16 v0, v21
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
@@ -7078,18 +7029,18 @@
 
     move-object/from16 v2, v21
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_17
-    const-string/jumbo v180, "com.lguplus.common"
+    const-string/jumbo v183, "com.lguplus.common"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7099,48 +7050,48 @@
 
     invoke-static {v13}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_18
+    if-eqz v183, :cond_18
 
     new-instance v14, Landroid/util/ArraySet;
 
     invoke-direct {v14}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v180
-
-    invoke-interface {v14, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.ACCESS_COARSE_LOCATION"
-
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     invoke-interface {v14, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v183, "android.permission.ACCESS_COARSE_LOCATION"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     invoke-interface {v14, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x1
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
+
+    move-object/from16 v0, v183
+
+    invoke-interface {v14, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v183, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v180
+    move/from16 v1, v183
 
     move/from16 v2, p1
 
     invoke-direct {v0, v13, v14, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_18
-    const-string/jumbo v180, "com.lguplus.common_api_impl"
+    const-string/jumbo v183, "com.lguplus.common_api_impl"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7150,39 +7101,39 @@
 
     invoke-static/range {v18 .. v18}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_19
+    if-eqz v183, :cond_19
 
     new-instance v19, Landroid/util/ArraySet;
 
     invoke-direct/range {v19 .. v19}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
     move-object/from16 v0, v19
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.ACCESS_COARSE_LOCATION"
+    const-string/jumbo v183, "android.permission.ACCESS_COARSE_LOCATION"
 
     move-object/from16 v0, v19
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
 
     move-object/from16 v0, v19
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x1
+    const/16 v183, 0x1
 
     move-object/from16 v0, p0
 
@@ -7190,18 +7141,18 @@
 
     move-object/from16 v2, v19
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_19
-    const-string/jumbo v180, "com.lguplus.common.lgugpson"
+    const-string/jumbo v183, "com.lguplus.common.lgugpson"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7211,39 +7162,39 @@
 
     invoke-static/range {v16 .. v16}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_1a
+    if-eqz v183, :cond_1a
 
     new-instance v17, Landroid/util/ArraySet;
 
     invoke-direct/range {v17 .. v17}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
     move-object/from16 v0, v17
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.ACCESS_COARSE_LOCATION"
+    const-string/jumbo v183, "android.permission.ACCESS_COARSE_LOCATION"
 
     move-object/from16 v0, v17
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
 
     move-object/from16 v0, v17
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x1
+    const/16 v183, 0x1
 
     move-object/from16 v0, p0
 
@@ -7251,18 +7202,18 @@
 
     move-object/from16 v2, v17
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_1a
-    const-string/jumbo v180, "com.lgt.arm"
+    const-string/jumbo v183, "com.lgt.arm"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7272,36 +7223,36 @@
 
     invoke-static {v11}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_1b
+    if-eqz v183, :cond_1b
 
     new-instance v12, Landroid/util/ArraySet;
 
     invoke-direct {v12}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     invoke-interface {v12, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v180
+    move/from16 v1, v183
 
     move/from16 v2, p1
 
     invoke-direct {v0, v11, v12, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_1b
-    const-string/jumbo v180, "com.kt.olleh.storefront"
+    const-string/jumbo v183, "com.kt.olleh.storefront"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7311,39 +7262,39 @@
 
     invoke-static/range {v30 .. v30}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_1c
+    if-eqz v183, :cond_1c
 
     new-instance v31, Landroid/util/ArraySet;
 
     invoke-direct/range {v31 .. v31}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
     move-object/from16 v0, v31
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
     move-object/from16 v0, v31
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
 
     move-object/from16 v0, v31
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
@@ -7351,18 +7302,18 @@
 
     move-object/from16 v2, v31
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_1c
-    const-string/jumbo v180, "com.kt.serviceagent"
+    const-string/jumbo v183, "com.kt.serviceagent"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7372,55 +7323,55 @@
 
     invoke-static/range {v28 .. v28}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_1d
+    if-eqz v183, :cond_1d
 
     new-instance v29, Landroid/util/ArraySet;
 
     invoke-direct/range {v29 .. v29}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.RECEIVE_SMS"
+    const-string/jumbo v183, "android.permission.RECEIVE_SMS"
 
     move-object/from16 v0, v29
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
     move-object/from16 v0, v29
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.CALL_PHONE"
+    const-string/jumbo v183, "android.permission.CALL_PHONE"
 
     move-object/from16 v0, v29
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.ACCESS_COARSE_LOCATION"
+    const-string/jumbo v183, "android.permission.ACCESS_COARSE_LOCATION"
 
     move-object/from16 v0, v29
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
 
     move-object/from16 v0, v29
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x1
+    const/16 v183, 0x1
 
     move-object/from16 v0, p0
 
@@ -7428,18 +7379,18 @@
 
     move-object/from16 v2, v29
 
-    move/from16 v3, v180
+    move/from16 v3, v183
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_1d
-    const-string/jumbo v180, "com.kt.om.ktpackageinstaller"
+    const-string/jumbo v183, "com.kt.om.ktpackageinstaller"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7449,37 +7400,37 @@
 
     invoke-static {v8}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_1e
+    if-eqz v183, :cond_1e
 
     new-instance v9, Landroid/util/ArraySet;
 
     invoke-direct {v9}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v180
-
-    invoke-interface {v9, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     invoke-interface {v9, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     invoke-interface {v9, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v180, 0x0
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v183
+
+    invoke-interface {v9, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const/16 v183, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v180
+    move/from16 v1, v183
 
     move/from16 v2, p1
 
@@ -7492,88 +7443,88 @@
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToSbmApp(I)V
 
-    new-instance v49, Landroid/content/Intent;
+    new-instance v50, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.media.action.IMAGE_CAPTURE"
+    const-string/jumbo v183, "android.media.action.IMAGE_CAPTURE"
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v50
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v50
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v50
+    move-result-object v51
 
-    if-eqz v50, :cond_1f
+    if-eqz v51, :cond_1f
 
-    invoke-static/range {v50 .. v50}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v51 .. v51}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_1f
+    if-eqz v183, :cond_1f
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v51
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v51
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v51
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v51
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_1f
-    const-string/jumbo v180, "com.sec.android.app.magnifier"
+    const-string/jumbo v183, "com.sec.android.app.magnifier"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7583,27 +7534,27 @@
 
     invoke-static/range {v25 .. v25}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_20
+    if-eqz v183, :cond_20
 
-    new-instance v106, Landroid/util/ArraySet;
+    new-instance v107, Landroid/util/ArraySet;
 
-    invoke-direct/range {v106 .. v106}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v107 .. v107}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.CAMERA"
+    const-string/jumbo v183, "android.permission.CAMERA"
 
-    move-object/from16 v0, v106
+    move-object/from16 v0, v107
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v106
+    move-object/from16 v0, v107
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -7611,18 +7562,18 @@
 
     move-object/from16 v1, v25
 
-    move-object/from16 v2, v106
+    move-object/from16 v2, v107
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_20
-    const-string/jumbo v180, "com.sec.android.app.camera.plb"
+    const-string/jumbo v183, "com.sec.android.app.camera.plb"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -7632,132 +7583,132 @@
 
     invoke-static/range {v24 .. v24}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_21
+    if-eqz v183, :cond_21
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v24
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v24
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v24
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x0
+    const/16 v185, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v24
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x0
+    const/16 v185, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v24
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_21
-    const-string/jumbo v180, "com.samsung.android.spay"
+    const-string/jumbo v183, "com.samsung.android.spay"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v131
+    move-result-object v134
 
-    if-eqz v131, :cond_23
+    if-eqz v134, :cond_23
 
-    invoke-static/range {v131 .. v131}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v134 .. v134}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_23
+    if-eqz v183, :cond_23
 
-    new-instance v132, Landroid/util/ArraySet;
+    new-instance v135, Landroid/util/ArraySet;
 
-    invoke-direct/range {v132 .. v132}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v135 .. v135}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "US"
+    const-string/jumbo v183, "US"
 
-    const-string/jumbo v182, "ro.csc.countryiso_code"
+    const-string/jumbo v185, "ro.csc.countryiso_code"
 
-    invoke-static/range {v182 .. v182}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v185 .. v185}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v182
+    move-result-object v185
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
-    move-object/from16 v1, v182
+    move-object/from16 v1, v185
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_2c
+    if-eqz v183, :cond_2c
 
-    const-string/jumbo v180, "android.permission.CAMERA"
+    const-string/jumbo v183, "android.permission.CAMERA"
 
-    move-object/from16 v0, v132
+    move-object/from16 v0, v135
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v132
+    move-object/from16 v0, v135
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -7765,683 +7716,683 @@
     :goto_9
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v131
+    move-object/from16 v1, v134
 
-    move-object/from16 v2, v132
+    move-object/from16 v2, v135
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_23
-    const-string/jumbo v180, "com.sec.android.app.shealth"
+    const-string/jumbo v183, "com.sec.android.app.shealth"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v137
+    move-result-object v140
 
-    if-eqz v137, :cond_24
+    if-eqz v140, :cond_24
 
-    invoke-static/range {v137 .. v137}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v140 .. v140}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_24
+    if-eqz v183, :cond_24
 
-    new-instance v138, Landroid/util/ArraySet;
+    new-instance v141, Landroid/util/ArraySet;
 
-    invoke-direct/range {v138 .. v138}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v141 .. v141}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.BODY_SENSORS"
+    const-string/jumbo v183, "android.permission.BODY_SENSORS"
 
-    move-object/from16 v0, v138
+    move-object/from16 v0, v141
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
-
-    move-object/from16 v0, v138
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.GET_ACCOUNTS"
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
 
-    move-object/from16 v0, v138
+    move-object/from16 v0, v141
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
-
-    move-object/from16 v0, v138
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.GET_ACCOUNTS"
 
-    move-object/from16 v0, v138
+    move-object/from16 v0, v141
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v138
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.CAMERA"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v138
+    move-object/from16 v0, v141
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_CONTACTS"
-
-    move-object/from16 v0, v138
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_SMS"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v138
+    move-object/from16 v0, v141
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.RECEIVE_SMS"
-
-    move-object/from16 v0, v138
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.SEND_SMS"
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v138
+    move-object/from16 v0, v141
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.CAMERA"
+
+    move-object/from16 v0, v141
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_CONTACTS"
+
+    move-object/from16 v0, v141
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_SMS"
+
+    move-object/from16 v0, v141
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.RECEIVE_SMS"
+
+    move-object/from16 v0, v141
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.SEND_SMS"
+
+    move-object/from16 v0, v141
+
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v137
+    move-object/from16 v1, v140
 
-    move-object/from16 v2, v138
+    move-object/from16 v2, v141
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_24
-    const-string/jumbo v180, "media"
+    const-string/jumbo v183, "media"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultProviderAuthorityPackageLPr(Ljava/lang/String;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v109
+    move-result-object v110
 
-    if-eqz v109, :cond_25
+    if-eqz v110, :cond_25
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x1
+    const/16 v185, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v109
+    move-object/from16 v1, v110
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_25
-    const-string/jumbo v180, "downloads"
+    const-string/jumbo v183, "downloads"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultProviderAuthorityPackageLPr(Ljava/lang/String;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v76
+    move-result-object v77
 
-    if-eqz v76, :cond_26
+    if-eqz v77, :cond_26
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x1
+    const/16 v185, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v76
+    move-object/from16 v1, v77
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_26
-    new-instance v77, Landroid/content/Intent;
+    new-instance v78, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.intent.action.VIEW_DOWNLOADS"
+    const-string/jumbo v183, "android.intent.action.VIEW_DOWNLOADS"
 
-    move-object/from16 v0, v77
+    move-object/from16 v0, v78
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v77
+    move-object/from16 v1, v78
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v78
+    move-result-object v79
 
-    if-eqz v78, :cond_27
+    if-eqz v79, :cond_27
 
-    invoke-static/range {v78 .. v78}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v79 .. v79}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_27
+    if-eqz v183, :cond_27
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x1
+    const/16 v185, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v78
+    move-object/from16 v1, v79
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_27
-    const-string/jumbo v180, "com.android.externalstorage.documents"
+    const-string/jumbo v183, "com.android.externalstorage.documents"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultProviderAuthorityPackageLPr(Ljava/lang/String;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v149
+    move-result-object v152
 
-    if-eqz v149, :cond_28
+    if-eqz v152, :cond_28
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x1
+    const/16 v185, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v149
+    move-object/from16 v1, v152
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_28
-    new-instance v55, Landroid/content/Intent;
+    new-instance v56, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.credentials.INSTALL"
+    const-string/jumbo v183, "android.credentials.INSTALL"
 
-    move-object/from16 v0, v55
+    move-object/from16 v0, v56
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v55
+    move-object/from16 v1, v56
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v56
+    move-result-object v57
 
-    if-eqz v56, :cond_29
+    if-eqz v57, :cond_29
 
-    invoke-static/range {v56 .. v56}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v57 .. v57}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_29
+    if-eqz v183, :cond_29
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x1
+    const/16 v185, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v56
+    move-object/from16 v1, v57
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_29
-    if-nez v72, :cond_2d
+    if-nez v73, :cond_2d
 
-    new-instance v74, Landroid/content/Intent;
+    new-instance v75, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.intent.action.DIAL"
+    const-string/jumbo v183, "android.intent.action.DIAL"
 
-    move-object/from16 v0, v74
+    move-object/from16 v0, v75
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v74
+    move-object/from16 v1, v75
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v75
+    move-result-object v76
 
-    if-eqz v75, :cond_2a
+    if-eqz v76, :cond_2a
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v75
+    move-object/from16 v1, v76
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSystemDialerAppLPr(Landroid/content/pm/PackageParser$Package;I)V
 
     :cond_2a
-    if-eqz v141, :cond_2f
+    if-eqz v144, :cond_2f
 
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
-    move-object/from16 v0, v141
+    move-object/from16 v0, v144
 
     array-length v0, v0
 
-    move/from16 v182, v0
+    move/from16 v185, v0
 
     :goto_a
-    move/from16 v0, v180
+    move/from16 v0, v183
 
-    move/from16 v1, v182
+    move/from16 v1, v185
 
     if-ge v0, v1, :cond_2f
 
-    aget-object v140, v141, v180
+    aget-object v143, v144, v183
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v140
+    move-object/from16 v1, v143
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v139
+    move-result-object v142
 
-    if-eqz v139, :cond_2b
+    if-eqz v142, :cond_2b
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v139
+    move-object/from16 v1, v142
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSimCallManagerLPr(Landroid/content/pm/PackageParser$Package;I)V
 
     :cond_2b
-    add-int/lit8 v180, v180, 0x1
+    add-int/lit8 v183, v183, 0x1
 
     goto :goto_a
 
     :cond_2c
-    const-string/jumbo v180, "android.permission.CAMERA"
+    const-string/jumbo v183, "android.permission.CAMERA"
 
-    move-object/from16 v0, v132
+    move-object/from16 v0, v135
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v132
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v132
+    move-object/from16 v0, v135
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
-
-    move-object/from16 v0, v132
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.ACCESS_COARSE_LOCATION"
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v132
+    move-object/from16 v0, v135
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.RECORD_AUDIO"
-
-    move-object/from16 v0, v132
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.RECEIVE_SMS"
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
 
-    move-object/from16 v0, v132
+    move-object/from16 v0, v135
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "CN"
+    const-string/jumbo v183, "android.permission.ACCESS_COARSE_LOCATION"
 
-    const-string/jumbo v182, "ro.csc.countryiso_code"
+    move-object/from16 v0, v135
 
-    invoke-static/range {v182 .. v182}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v183
 
-    move-result-object v182
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, v180
+    const-string/jumbo v183, "android.permission.RECORD_AUDIO"
 
-    move-object/from16 v1, v182
+    move-object/from16 v0, v135
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.RECEIVE_SMS"
+
+    move-object/from16 v0, v135
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "CN"
+
+    const-string/jumbo v185, "ro.csc.countryiso_code"
+
+    invoke-static/range {v185 .. v185}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v185
+
+    move-object/from16 v0, v183
+
+    move-object/from16 v1, v185
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_22
+    if-eqz v183, :cond_22
 
-    const-string/jumbo v180, "android.permission.READ_SMS"
+    const-string/jumbo v183, "android.permission.READ_SMS"
 
-    move-object/from16 v0, v132
+    move-object/from16 v0, v135
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_9
 
     :cond_2d
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
-    move-object/from16 v0, v72
+    move-object/from16 v0, v73
 
     array-length v0, v0
 
-    move/from16 v182, v0
+    move/from16 v185, v0
 
     :goto_b
-    move/from16 v0, v180
+    move/from16 v0, v183
 
-    move/from16 v1, v182
+    move/from16 v1, v185
 
     if-ge v0, v1, :cond_2a
 
-    aget-object v71, v72, v180
+    aget-object v72, v73, v183
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v71
+    move-object/from16 v1, v72
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v75
+    move-result-object v76
 
-    if-eqz v75, :cond_2e
+    if-eqz v76, :cond_2e
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v75
+    move-object/from16 v1, v76
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSystemDialerAppLPr(Landroid/content/pm/PackageParser$Package;I)V
 
     :cond_2e
-    add-int/lit8 v180, v180, 0x1
+    add-int/lit8 v183, v183, 0x1
 
     goto :goto_b
 
     :cond_2f
-    if-nez v143, :cond_39
+    if-nez v146, :cond_39
 
-    new-instance v145, Landroid/content/Intent;
+    new-instance v148, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.intent.action.MAIN"
+    const-string/jumbo v183, "android.intent.action.MAIN"
 
-    move-object/from16 v0, v145
+    move-object/from16 v0, v148
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v180, "android.intent.category.APP_MESSAGING"
+    const-string/jumbo v183, "android.intent.category.APP_MESSAGING"
 
-    move-object/from16 v0, v145
+    move-object/from16 v0, v148
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v145
+    move-object/from16 v1, v148
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v146
+    move-result-object v149
 
-    if-eqz v146, :cond_30
+    if-eqz v149, :cond_30
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v146
+    move-object/from16 v1, v149
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSystemSmsAppLPr(Landroid/content/pm/PackageParser$Package;I)V
 
     :cond_30
-    const-string/jumbo v180, "com.sec.android.app.clockpackage"
+    const-string/jumbo v183, "com.sec.android.app.clockpackage"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v59
+    move-result-object v60
 
-    if-eqz v59, :cond_31
+    if-eqz v60, :cond_31
 
-    invoke-static/range {v59 .. v59}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v60 .. v60}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_31
+    if-eqz v183, :cond_31
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v59
+    move-object/from16 v1, v60
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v59
+    move-object/from16 v1, v60
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_31
-    const-string/jumbo v180, "com.samsung.android.app.memo"
+    const-string/jumbo v183, "com.samsung.android.app.memo"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v110
+    move-result-object v111
 
-    if-eqz v110, :cond_32
+    if-eqz v111, :cond_32
 
-    invoke-static/range {v110 .. v110}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v111 .. v111}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_32
+    if-eqz v183, :cond_32
 
-    new-instance v111, Landroid/util/ArraySet;
+    new-instance v112, Landroid/util/ArraySet;
 
-    invoke-direct/range {v111 .. v111}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v112 .. v112}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v111
+    move-object/from16 v0, v112
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.CAMERA"
-
-    move-object/from16 v0, v111
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.RECORD_AUDIO"
+    const-string/jumbo v183, "android.permission.CAMERA"
 
-    move-object/from16 v0, v111
+    move-object/from16 v0, v112
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v111
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.RECORD_AUDIO"
 
-    move-object/from16 v0, v111
+    move-object/from16 v0, v112
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v112
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v112
+
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v110
+    move-object/from16 v1, v111
 
-    move-object/from16 v2, v111
+    move-object/from16 v2, v112
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_32
-    const-string/jumbo v180, "com.samsung.greetingcard"
+    const-string/jumbo v183, "com.samsung.greetingcard"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -8451,23 +8402,23 @@
 
     invoke-static {v5}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_33
+    if-eqz v183, :cond_33
 
     new-instance v6, Landroid/util/ArraySet;
 
     invoke-direct {v6}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_CALENDAR"
+    const-string/jumbo v183, "android.permission.READ_CALENDAR"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     invoke-interface {v6, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_CONTACTS"
+    const-string/jumbo v183, "android.permission.READ_CONTACTS"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
     invoke-interface {v6, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -8478,202 +8429,202 @@
     invoke-direct {v0, v5, v6, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_33
-    new-instance v53, Landroid/content/Intent;
+    new-instance v54, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.provider.Telephony.SMS_CB_RECEIVED"
+    const-string/jumbo v183, "android.provider.Telephony.SMS_CB_RECEIVED"
 
-    move-object/from16 v0, v53
+    move-object/from16 v0, v54
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v53
+    move-object/from16 v1, v54
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v54
+    move-result-object v55
 
-    if-eqz v54, :cond_34
+    if-eqz v55, :cond_34
 
-    invoke-static/range {v54 .. v54}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v55 .. v55}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_34
+    if-eqz v183, :cond_34
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v54
+    move-object/from16 v1, v55
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_34
-    new-instance v51, Landroid/content/Intent;
+    new-instance v52, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.provider.Telephony.SMS_CARRIER_PROVISION"
+    const-string/jumbo v183, "android.provider.Telephony.SMS_CARRIER_PROVISION"
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v52
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v51
+    move-object/from16 v1, v52
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerServicePackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v52
+    move-result-object v53
 
-    if-eqz v52, :cond_35
+    if-eqz v53, :cond_35
 
-    invoke-static/range {v52 .. v52}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v53 .. v53}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_35
+    if-eqz v183, :cond_35
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x0
+    const/16 v185, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v52
+    move-object/from16 v1, v53
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
     :cond_35
-    new-instance v42, Landroid/content/Intent;
+    new-instance v43, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.intent.action.MAIN"
+    const-string/jumbo v183, "android.intent.action.MAIN"
 
-    move-object/from16 v0, v42
+    move-object/from16 v0, v43
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v180, "android.intent.category.APP_CALENDAR"
+    const-string/jumbo v183, "android.intent.category.APP_CALENDAR"
 
-    move-object/from16 v0, v42
+    move-object/from16 v0, v43
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v42
+    move-object/from16 v1, v43
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v43
+    move-result-object v44
 
-    if-eqz v43, :cond_36
+    if-eqz v44, :cond_36
 
-    invoke-static/range {v43 .. v43}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v44 .. v44}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_36
+    if-eqz v183, :cond_36
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v44
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v43
+    move-object/from16 v1, v44
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_36
-    const-string/jumbo v180, "com.android.calendar"
+    const-string/jumbo v183, "com.android.calendar"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultProviderAuthorityPackageLPr(Ljava/lang/String;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v44
+    move-result-object v45
 
-    if-eqz v44, :cond_37
+    if-eqz v45, :cond_37
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v44
+    move-object/from16 v1, v45
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x1
+    const/16 v185, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v44
+    move-object/from16 v1, v45
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v44
+    move-object/from16 v1, v45
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
@@ -8682,226 +8633,226 @@
     :cond_37
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v47
+    move-object/from16 v1, v48
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getHeadlessSyncAdapterPackagesLPr([Ljava/lang/String;I)Ljava/util/List;
 
-    move-result-object v48
+    move-result-object v49
 
-    invoke-interface/range {v48 .. v48}, Ljava/util/List;->size()I
+    invoke-interface/range {v49 .. v49}, Ljava/util/List;->size()I
 
-    move-result v46
+    move-result v47
 
-    const/16 v97, 0x0
+    const/16 v98, 0x0
 
     :goto_c
-    move/from16 v0, v97
+    move/from16 v0, v98
 
-    move/from16 v1, v46
+    move/from16 v1, v47
 
     if-ge v0, v1, :cond_3b
 
-    move-object/from16 v0, v48
+    move-object/from16 v0, v49
 
-    move/from16 v1, v97
+    move/from16 v1, v98
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v45
+    move-result-object v46
 
-    check-cast v45, Landroid/content/pm/PackageParser$Package;
+    check-cast v46, Landroid/content/pm/PackageParser$Package;
 
-    invoke-static/range {v45 .. v45}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v46 .. v46}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_38
+    if-eqz v183, :cond_38
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v45
+    move-object/from16 v1, v46
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_38
-    add-int/lit8 v97, v97, 0x1
+    add-int/lit8 v98, v98, 0x1
 
     goto :goto_c
 
     :cond_39
-    const/16 v180, 0x0
+    const/16 v183, 0x0
 
-    move-object/from16 v0, v143
+    move-object/from16 v0, v146
 
     array-length v0, v0
 
-    move/from16 v182, v0
+    move/from16 v185, v0
 
     :goto_d
-    move/from16 v0, v180
+    move/from16 v0, v183
 
-    move/from16 v1, v182
+    move/from16 v1, v185
 
     if-ge v0, v1, :cond_30
 
-    aget-object v147, v143, v180
+    aget-object v150, v146, v183
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v147
+    move-object/from16 v1, v150
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v146
+    move-result-object v149
 
-    if-eqz v146, :cond_3a
+    if-eqz v149, :cond_3a
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v146
+    move-object/from16 v1, v149
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSystemSmsAppLPr(Landroid/content/pm/PackageParser$Package;I)V
 
     :cond_3a
-    add-int/lit8 v180, v180, 0x1
+    add-int/lit8 v183, v183, 0x1
 
     goto :goto_d
 
     :cond_3b
-    const-string/jumbo v180, "com.samsung.android.opencalendar"
+    const-string/jumbo v183, "com.samsung.android.opencalendar"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v119
+    move-result-object v120
 
-    if-eqz v119, :cond_3c
+    if-eqz v120, :cond_3c
 
-    invoke-static/range {v119 .. v119}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v120 .. v120}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_3c
+    if-eqz v183, :cond_3c
 
-    new-instance v68, Landroid/util/ArraySet;
+    new-instance v69, Landroid/util/ArraySet;
 
-    invoke-direct/range {v68 .. v68}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v69 .. v69}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
 
-    move-object/from16 v0, v68
+    move-object/from16 v0, v69
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.ACCESS_COARSE_LOCATION"
-
-    move-object/from16 v0, v68
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.ACCESS_COARSE_LOCATION"
 
-    move-object/from16 v0, v68
+    move-object/from16 v0, v69
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
+
+    move-object/from16 v0, v69
+
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v119
+    move-object/from16 v1, v120
 
-    move-object/from16 v2, v68
+    move-object/from16 v2, v69
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_3c
-    new-instance v60, Landroid/content/Intent;
+    new-instance v61, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.intent.action.MAIN"
+    const-string/jumbo v183, "android.intent.action.MAIN"
 
-    move-object/from16 v0, v60
+    move-object/from16 v0, v61
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v180, "android.intent.category.APP_CONTACTS"
+    const-string/jumbo v183, "android.intent.category.APP_CONTACTS"
 
-    move-object/from16 v0, v60
+    move-object/from16 v0, v61
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v60
+    move-object/from16 v1, v61
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v61
+    move-result-object v62
 
-    if-eqz v61, :cond_3d
+    if-eqz v62, :cond_3d
 
-    invoke-static/range {v61 .. v61}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v62 .. v62}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_3d
+    if-eqz v183, :cond_3d
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v61
+    move-object/from16 v1, v62
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v61
+    move-object/from16 v1, v62
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v61
+    move-object/from16 v1, v62
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
@@ -8910,505 +8861,505 @@
     :cond_3d
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v65
+    move-object/from16 v1, v66
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getHeadlessSyncAdapterPackagesLPr([Ljava/lang/String;I)Ljava/util/List;
 
-    move-result-object v66
+    move-result-object v67
 
-    invoke-interface/range {v66 .. v66}, Ljava/util/List;->size()I
+    invoke-interface/range {v67 .. v67}, Ljava/util/List;->size()I
 
-    move-result v64
+    move-result v65
 
-    const/16 v97, 0x0
+    const/16 v98, 0x0
 
     :goto_e
-    move/from16 v0, v97
+    move/from16 v0, v98
 
-    move/from16 v1, v64
+    move/from16 v1, v65
 
     if-ge v0, v1, :cond_3f
 
-    move-object/from16 v0, v66
+    move-object/from16 v0, v67
 
-    move/from16 v1, v97
+    move/from16 v1, v98
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v63
+    move-result-object v64
 
-    check-cast v63, Landroid/content/pm/PackageParser$Package;
+    check-cast v64, Landroid/content/pm/PackageParser$Package;
 
-    invoke-static/range {v63 .. v63}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v64 .. v64}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_3e
+    if-eqz v183, :cond_3e
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v63
+    move-object/from16 v1, v64
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_3e
-    add-int/lit8 v97, v97, 0x1
+    add-int/lit8 v98, v98, 0x1
 
     goto :goto_e
 
     :cond_3f
-    const-string/jumbo v180, "com.android.contacts"
+    const-string/jumbo v183, "com.android.contacts"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultProviderAuthorityPackageLPr(Ljava/lang/String;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v62
+    move-result-object v63
 
-    if-eqz v62, :cond_40
+    if-eqz v63, :cond_40
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x1
+    const/16 v185, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v62
+    move-object/from16 v1, v63
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v182, 0x1
+    const/16 v185, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v62
+    move-object/from16 v1, v63
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
-    move/from16 v3, v182
+    move/from16 v3, v185
 
     move/from16 v4, p1
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v62
+    move-object/from16 v1, v63
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_40
-    new-instance v69, Landroid/content/Intent;
+    new-instance v70, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.app.action.PROVISION_MANAGED_DEVICE"
+    const-string/jumbo v183, "android.app.action.PROVISION_MANAGED_DEVICE"
 
-    move-object/from16 v0, v69
+    move-object/from16 v0, v70
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v69
+    move-object/from16 v1, v70
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v70
+    move-result-object v71
 
-    if-eqz v70, :cond_41
+    if-eqz v71, :cond_41
 
-    invoke-static/range {v70 .. v70}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v71 .. v71}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_41
+    if-eqz v183, :cond_41
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v70
+    move-object/from16 v1, v71
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_41
-    new-instance v107, Landroid/content/Intent;
+    new-instance v108, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.intent.action.MAIN"
+    const-string/jumbo v183, "android.intent.action.MAIN"
 
-    move-object/from16 v0, v107
+    move-object/from16 v0, v108
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v180, "android.intent.category.APP_MAPS"
+    const-string/jumbo v183, "android.intent.category.APP_MAPS"
 
-    move-object/from16 v0, v107
+    move-object/from16 v0, v108
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v107
+    move-object/from16 v1, v108
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v108
+    move-result-object v109
 
-    if-eqz v108, :cond_42
+    if-eqz v109, :cond_42
 
-    invoke-static/range {v108 .. v108}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v109 .. v109}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_42
+    if-eqz v183, :cond_42
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v108
+    move-object/from16 v1, v109
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_42
-    new-instance v86, Landroid/content/Intent;
+    new-instance v87, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.intent.action.MAIN"
+    const-string/jumbo v183, "android.intent.action.MAIN"
 
-    move-object/from16 v0, v86
+    move-object/from16 v0, v87
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v180, "android.intent.category.APP_GALLERY"
+    const-string/jumbo v183, "android.intent.category.APP_GALLERY"
 
-    move-object/from16 v0, v86
+    move-object/from16 v0, v87
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v86
+    move-object/from16 v1, v87
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v87
+    move-result-object v88
 
-    if-eqz v87, :cond_43
+    if-eqz v88, :cond_43
 
-    invoke-static/range {v87 .. v87}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v88 .. v88}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_43
+    if-eqz v183, :cond_43
 
-    new-instance v88, Landroid/util/ArraySet;
+    new-instance v89, Landroid/util/ArraySet;
 
-    invoke-direct/range {v88 .. v88}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v89 .. v89}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.READ_SMS"
+    const-string/jumbo v183, "android.permission.READ_SMS"
 
-    move-object/from16 v0, v88
+    move-object/from16 v0, v89
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.SEND_SMS"
-
-    move-object/from16 v0, v88
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.RECEIVE_SMS"
+    const-string/jumbo v183, "android.permission.SEND_SMS"
 
-    move-object/from16 v0, v88
+    move-object/from16 v0, v89
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_CONTACTS"
-
-    move-object/from16 v0, v88
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.RECEIVE_SMS"
 
-    move-object/from16 v0, v88
+    move-object/from16 v0, v89
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_CONTACTS"
 
-    move-object/from16 v0, v88
+    move-object/from16 v0, v89
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v89
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v89
+
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v87
+    move-object/from16 v1, v88
 
-    move-object/from16 v2, v88
+    move-object/from16 v2, v89
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_43
-    const-string/jumbo v180, "com.samsung.android.app.watchmanager"
+    const-string/jumbo v183, "com.samsung.android.app.watchmanager"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v90
+    move-result-object v91
 
-    if-eqz v90, :cond_44
+    if-eqz v91, :cond_44
 
-    invoke-static/range {v90 .. v90}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v91 .. v91}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_44
+    if-eqz v183, :cond_44
 
-    new-instance v91, Landroid/util/ArraySet;
+    new-instance v92, Landroid/util/ArraySet;
 
-    invoke-direct/range {v91 .. v91}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v92 .. v92}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
 
-    move-object/from16 v0, v91
+    move-object/from16 v0, v92
 
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v91
-
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
-    move-object/from16 v0, v91
+    move-object/from16 v0, v92
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v92
+
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v90
+    move-object/from16 v1, v91
 
-    move-object/from16 v2, v91
+    move-object/from16 v2, v92
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_44
-    new-instance v81, Landroid/content/Intent;
+    new-instance v82, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.intent.action.MAIN"
+    const-string/jumbo v183, "android.intent.action.MAIN"
 
-    move-object/from16 v0, v81
+    move-object/from16 v0, v82
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v180, "android.intent.category.APP_EMAIL"
+    const-string/jumbo v183, "android.intent.category.APP_EMAIL"
 
-    move-object/from16 v0, v81
+    move-object/from16 v0, v82
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v81
+    move-object/from16 v1, v82
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v82
+    move-result-object v83
 
-    if-eqz v82, :cond_45
+    if-eqz v83, :cond_45
 
-    invoke-static/range {v82 .. v82}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v83 .. v83}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_45
+    if-eqz v183, :cond_45
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v82
+    move-object/from16 v1, v83
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_45
-    const-string/jumbo v180, "com.samsung.android.email.provider"
+    const-string/jumbo v183, "com.samsung.android.email.provider"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v80
+    move-result-object v81
 
-    if-eqz v80, :cond_46
+    if-eqz v81, :cond_46
 
-    invoke-static/range {v80 .. v80}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v81 .. v81}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_46
+    if-eqz v183, :cond_46
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v80
+    move-object/from16 v1, v81
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v80
+    move-object/from16 v1, v81
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v80
+    move-object/from16 v1, v81
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    new-instance v148, Landroid/util/ArraySet;
+    new-instance v151, Landroid/util/ArraySet;
 
-    invoke-direct/range {v148 .. v148}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v151 .. v151}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.RECEIVE_SMS"
+    const-string/jumbo v183, "android.permission.RECEIVE_SMS"
 
-    move-object/from16 v0, v148
+    move-object/from16 v0, v151
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.SEND_SMS"
+    const-string/jumbo v183, "android.permission.SEND_SMS"
 
-    move-object/from16 v0, v148
+    move-object/from16 v0, v151
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v80
+    move-object/from16 v1, v81
 
-    move-object/from16 v2, v148
+    move-object/from16 v2, v151
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_46
-    const-string/jumbo v180, "com.samsung.android.app.notes"
+    const-string/jumbo v183, "com.samsung.android.app.notes"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
@@ -9418,43 +9369,43 @@
 
     invoke-static/range {v26 .. v26}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_47
+    if-eqz v183, :cond_47
 
     new-instance v27, Landroid/util/ArraySet;
 
     invoke-direct/range {v27 .. v27}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.CAMERA"
+    const-string/jumbo v183, "android.permission.CAMERA"
 
     move-object/from16 v0, v27
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.RECORD_AUDIO"
+    const-string/jumbo v183, "android.permission.RECORD_AUDIO"
 
     move-object/from16 v0, v27
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
 
     move-object/from16 v0, v27
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
 
     move-object/from16 v0, v27
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -9469,298 +9420,29 @@
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_47
-    const-string/jumbo v180, "com.samsung.android.game.gametools"
+    const-string/jumbo v183, "com.samsung.android.game.gametools"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v89
+    move-result-object v90
 
-    if-eqz v89, :cond_48
+    if-eqz v90, :cond_48
 
-    invoke-static/range {v89 .. v89}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_48
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v89
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v89
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v89
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v89
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_48
-    const/16 v41, 0x0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
-
-    move-object/from16 v180, v0
-
-    move-object/from16 v0, v180
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->getDefaultBrowserPackageName(I)Ljava/lang/String;
-
-    move-result-object v67
-
-    if-eqz v67, :cond_49
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v67
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v41
-
-    :cond_49
-    if-nez v41, :cond_4a
-
-    new-instance v40, Landroid/content/Intent;
-
-    const-string/jumbo v180, "android.intent.action.MAIN"
-
-    move-object/from16 v0, v40
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v180, "android.intent.category.APP_BROWSER"
-
-    move-object/from16 v0, v40
-
-    move-object/from16 v1, v180
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v40
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v41
-
-    :cond_4a
-    if-eqz v41, :cond_4b
-
-    invoke-static/range {v41 .. v41}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_4b
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v41
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_4b
-    const-string/jumbo v180, "com.sec.android.app.sbrowser"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v134
-
-    if-eqz v134, :cond_4c
-
-    invoke-static/range {v134 .. v134}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_4c
-
-    new-instance v135, Landroid/util/ArraySet;
-
-    invoke-direct/range {v135 .. v135}, Landroid/util/ArraySet;-><init>()V
-
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v135
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v134
-
-    move-object/from16 v2, v135
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_4c
-    if-eqz v100, :cond_4e
-
-    const/16 v180, 0x0
-
-    move-object/from16 v0, v100
-
-    array-length v0, v0
-
-    move/from16 v182, v0
-
-    :goto_f
-    move/from16 v0, v180
-
-    move/from16 v1, v182
-
-    if-ge v0, v1, :cond_4e
-
-    aget-object v99, v100, v180
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v99
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v98
-
-    if-eqz v98, :cond_4d
-
-    invoke-static/range {v98 .. v98}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v90 .. v90}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
     move-result v183
 
-    if-eqz v183, :cond_4d
+    if-eqz v183, :cond_48
 
-    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v98
-
-    move-object/from16 v2, v183
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_4d
-    add-int/lit8 v180, v180, 0x1
-
-    goto :goto_f
-
-    :cond_4e
-    if-eqz v169, :cond_50
-
-    const/16 v180, 0x0
-
-    move-object/from16 v0, v169
-
-    array-length v0, v0
-
-    move/from16 v182, v0
-
-    :goto_10
-    move/from16 v0, v180
-
-    move/from16 v1, v182
-
-    if-ge v0, v1, :cond_50
-
-    aget-object v168, v169, v180
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v168
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v167
-
-    if-eqz v167, :cond_4f
-
-    invoke-static/range {v167 .. v167}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v183
-
-    if-eqz v183, :cond_4f
-
-    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v167
-
-    move-object/from16 v2, v183
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v167
+    move-object/from16 v1, v90
 
     move-object/from16 v2, v183
 
@@ -9772,7 +9454,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v167
+    move-object/from16 v1, v90
 
     move-object/from16 v2, v183
 
@@ -9780,11 +9462,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v167
+    move-object/from16 v1, v90
 
     move-object/from16 v2, v183
 
@@ -9792,242 +9474,396 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v167
+    move-object/from16 v1, v90
 
     move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_48
+    const/16 v42, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
+
+    move-object/from16 v183, v0
+
+    move-object/from16 v0, v183
+
+    move/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->getDefaultBrowserPackageName(I)Ljava/lang/String;
+
+    move-result-object v68
+
+    if-eqz v68, :cond_49
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v68
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v42
+
+    :cond_49
+    if-nez v42, :cond_4a
+
+    new-instance v41, Landroid/content/Intent;
+
+    const-string/jumbo v183, "android.intent.action.MAIN"
+
+    move-object/from16 v0, v41
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v183, "android.intent.category.APP_BROWSER"
+
+    move-object/from16 v0, v41
+
+    move-object/from16 v1, v183
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v41
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v42
+
+    :cond_4a
+    if-eqz v42, :cond_4b
+
+    invoke-static/range {v42 .. v42}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_4b
 
     sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v167
+    move-object/from16 v1, v42
 
     move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_4b
+    const-string/jumbo v183, "com.sec.android.app.sbrowser"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v137
+
+    if-eqz v137, :cond_4c
+
+    invoke-static/range {v137 .. v137}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_4c
+
+    new-instance v138, Landroid/util/ArraySet;
+
+    invoke-direct/range {v138 .. v138}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v138
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v137
+
+    move-object/from16 v2, v138
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_4c
+    if-eqz v101, :cond_4e
+
+    const/16 v183, 0x0
+
+    move-object/from16 v0, v101
+
+    array-length v0, v0
+
+    move/from16 v185, v0
+
+    :goto_f
+    move/from16 v0, v183
+
+    move/from16 v1, v185
+
+    if-ge v0, v1, :cond_4e
+
+    aget-object v100, v101, v183
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v100
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v99
+
+    if-eqz v99, :cond_4d
+
+    invoke-static/range {v99 .. v99}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v186
+
+    if-eqz v186, :cond_4d
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v99
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_4d
+    add-int/lit8 v183, v183, 0x1
+
+    goto :goto_f
+
+    :cond_4e
+    if-eqz v172, :cond_50
+
+    const/16 v183, 0x0
+
+    move-object/from16 v0, v172
+
+    array-length v0, v0
+
+    move/from16 v185, v0
+
+    :goto_10
+    move/from16 v0, v183
+
+    move/from16 v1, v185
+
+    if-ge v0, v1, :cond_50
+
+    aget-object v171, v172, v183
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v171
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v170
+
+    if-eqz v170, :cond_4f
+
+    invoke-static/range {v170 .. v170}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v186
+
+    if-eqz v186, :cond_4f
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v170
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v170
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v170
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v170
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v170
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v170
+
+    move-object/from16 v2, v186
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_4f
-    add-int/lit8 v180, v180, 0x1
+    add-int/lit8 v183, v183, 0x1
 
     goto :goto_10
 
     :cond_50
-    new-instance v171, Landroid/content/Intent;
+    new-instance v174, Landroid/content/Intent;
 
-    const-string/jumbo v180, "android.speech.RecognitionService"
+    const-string/jumbo v183, "android.speech.RecognitionService"
 
-    move-object/from16 v0, v171
+    move-object/from16 v0, v174
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v180, "android.intent.category.DEFAULT"
+    const-string/jumbo v183, "android.intent.category.DEFAULT"
 
-    move-object/from16 v0, v171
+    move-object/from16 v0, v174
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v171
+    move-object/from16 v1, v174
 
     move/from16 v2, p1
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerServicePackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v172
+    move-result-object v175
 
-    if-eqz v172, :cond_51
+    if-eqz v175, :cond_51
 
-    invoke-static/range {v172 .. v172}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v175 .. v175}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_51
+    if-eqz v183, :cond_51
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v172
+    move-object/from16 v1, v175
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_51
-    sget-object v180, Landroid/os/Build;->PRODUCT:Ljava/lang/String;
+    sget-object v183, Landroid/os/Build;->PRODUCT:Ljava/lang/String;
 
-    const-string/jumbo v182, "zc"
+    const-string/jumbo v185, "zc"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
-    move-object/from16 v1, v182
+    move-object/from16 v1, v185
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_52
+    if-nez v183, :cond_52
 
-    const-string/jumbo v180, "com.google.android.gms"
+    sget-object v183, Landroid/os/Build;->PRODUCT:Ljava/lang/String;
+
+    const-string/jumbo v185, "zm"
+
+    move-object/from16 v0, v183
+
+    move-object/from16 v1, v185
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_53
+
+    :cond_52
+    const-string/jumbo v183, "com.google.android.gms"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
     move-result-object v7
 
-    if-eqz v7, :cond_52
+    if-eqz v7, :cond_53
 
     invoke-static {v7}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_52
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    const/16 v182, 0x1
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    move/from16 v2, v182
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v7, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SENSORS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_52
-    if-eqz v104, :cond_54
-
-    const/16 v180, 0x0
-
-    move-object/from16 v0, v104
-
-    array-length v0, v0
-
-    move/from16 v182, v0
-
-    :goto_11
-    move/from16 v0, v180
-
-    move/from16 v1, v182
-
-    if-ge v0, v1, :cond_54
-
-    aget-object v120, v104, v180
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v120
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v103
-
-    if-eqz v103, :cond_53
-
-    invoke-static/range {v103 .. v103}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
     move-result v183
 
@@ -10037,19 +9873,315 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v103
+    move-object/from16 v1, v183
 
-    move-object/from16 v2, v183
+    move/from16 v2, p1
 
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v103
+    move-object/from16 v1, v183
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v185, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    move/from16 v2, v185
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v7, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SENSORS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v7, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_53
+    if-eqz v105, :cond_55
+
+    const/16 v183, 0x0
+
+    move-object/from16 v0, v105
+
+    array-length v0, v0
+
+    move/from16 v185, v0
+
+    :goto_11
+    move/from16 v0, v183
+
+    move/from16 v1, v185
+
+    if-ge v0, v1, :cond_55
+
+    aget-object v121, v105, v183
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v121
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v104
+
+    if-eqz v104, :cond_54
+
+    invoke-static/range {v104 .. v104}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v186
+
+    if-eqz v186, :cond_54
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v104
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v104
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v104
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v104
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v104
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v187, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v104
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, v187
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v104
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SENSORS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v104
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v186, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v104
+
+    move-object/from16 v2, v186
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_54
+    add-int/lit8 v183, v183, 0x1
+
+    goto/16 :goto_11
+
+    :cond_55
+    new-instance v113, Landroid/content/Intent;
+
+    const-string/jumbo v183, "android.intent.action.VIEW"
+
+    move-object/from16 v0, v113
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v183, "android.intent.category.DEFAULT"
+
+    move-object/from16 v0, v113
+
+    move-object/from16 v1, v183
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    new-instance v183, Ljava/io/File;
+
+    const-string/jumbo v185, "foo.mp3"
+
+    move-object/from16 v0, v183
+
+    move-object/from16 v1, v185
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-static/range {v183 .. v183}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
+
+    move-result-object v183
+
+    const-string/jumbo v185, "audio/mpeg"
+
+    move-object/from16 v0, v113
+
+    move-object/from16 v1, v183
+
+    move-object/from16 v2, v185
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v113
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v114
+
+    if-eqz v114, :cond_56
+
+    invoke-static/range {v114 .. v114}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_56
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v114
 
     move-object/from16 v2, v183
 
@@ -10057,11 +10189,126 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+    :cond_56
+    const-string/jumbo v183, "com.samsung.oh"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v103
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v130
+
+    if-eqz v130, :cond_57
+
+    invoke-static/range {v130 .. v130}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_57
+
+    new-instance v131, Landroid/util/ArraySet;
+
+    invoke-direct/range {v131 .. v131}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v183, "android.permission.GET_ACCOUNTS"
+
+    move-object/from16 v0, v131
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
+
+    move-object/from16 v0, v131
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
+
+    move-object/from16 v0, v131
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.ACCESS_COARSE_LOCATION"
+
+    move-object/from16 v0, v131
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v130
+
+    move-object/from16 v2, v131
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_57
+    const-string/jumbo v183, "de.telekom.tsc"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v35
+
+    if-eqz v35, :cond_58
+
+    invoke-static/range {v35 .. v35}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_58
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v35
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_58
+    const-string/jumbo v183, "de.telekom.mds.mbp"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v33
+
+    if-eqz v33, :cond_59
+
+    invoke-static/range {v33 .. v33}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_59
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v33
 
     move-object/from16 v2, v183
 
@@ -10073,7 +10320,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v103
+    move-object/from16 v1, v33
 
     move-object/from16 v2, v183
 
@@ -10081,11 +10328,466 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
+    :cond_59
+    const-string/jumbo v183, "de.telekom.puls.widget"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v34
+
+    if-eqz v34, :cond_5a
+
+    invoke-static/range {v34 .. v34}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_5a
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v34
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_5a
+    const-string/jumbo v183, "at.tmobile.android.myt"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v37
+
+    if-eqz v37, :cond_5b
+
+    invoke-static/range {v37 .. v37}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_5b
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v37
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_5b
+    const-string/jumbo v183, "pl.tmobile.miboa"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v36
+
+    if-eqz v36, :cond_5c
+
+    invoke-static/range {v36 .. v36}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_5c
+
     sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v103
+    move-object/from16 v1, v36
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v36
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_5c
+    const-string/jumbo v183, "pl.tmobile.panel"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v38
+
+    if-eqz v38, :cond_5d
+
+    invoke-static/range {v38 .. v38}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_5d
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v38
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v38
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_5d
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
+
+    move-object/from16 v183, v0
+
+    const-string/jumbo v185, "android.hardware.type.watch"
+
+    const/16 v186, 0x0
+
+    move-object/from16 v0, v183
+
+    move-object/from16 v1, v185
+
+    move/from16 v2, v186
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PackageManagerService;->hasSystemFeature(Ljava/lang/String;I)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_5e
+
+    new-instance v95, Landroid/content/Intent;
+
+    const-string/jumbo v183, "android.intent.action.MAIN"
+
+    move-object/from16 v0, v95
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v183, "android.intent.category.HOME_MAIN"
+
+    move-object/from16 v0, v95
+
+    move-object/from16 v1, v183
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v95
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v177
+
+    if-eqz v177, :cond_5e
+
+    invoke-static/range {v177 .. v177}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_5e
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v185, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v177
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, v185
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v185, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v177
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, v185
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v185, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v177
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, v185
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v185, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v177
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, v185
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    :cond_5e
+    const-string/jumbo v183, "com.android.printspooler"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v124
+
+    if-eqz v124, :cond_5f
+
+    invoke-static/range {v124 .. v124}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_5f
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v185, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v124
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, v185
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    :cond_5f
+    new-instance v84, Landroid/content/Intent;
+
+    const-string/jumbo v183, "android.telephony.action.EMERGENCY_ASSISTANCE"
+
+    move-object/from16 v0, v84
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v84
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v85
+
+    if-eqz v85, :cond_60
+
+    invoke-static/range {v85 .. v85}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_60
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v185, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v85
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, v185
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v185, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v85
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, v185
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    :cond_60
+    new-instance v115, Landroid/content/Intent;
+
+    const-string/jumbo v183, "android.intent.action.VIEW"
+
+    move-object/from16 v0, v115
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v183, "vnd.android.cursor.item/ndef_msg"
+
+    move-object/from16 v0, v115
+
+    move-object/from16 v1, v183
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v115
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v116
+
+    if-eqz v116, :cond_61
+
+    invoke-static/range {v116 .. v116}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_61
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v185, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v116
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, v185
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    const/16 v185, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v116
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, v185
+
+    move/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
+
+    :cond_61
+    const-string/jumbo v183, "com.sec.android.daemonapp"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v180
+
+    if-eqz v180, :cond_62
+
+    invoke-static/range {v180 .. v180}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_62
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v180
 
     move-object/from16 v2, v183
 
@@ -10095,25 +10797,9 @@
 
     sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v184, 0x1
-
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v103
-
-    move-object/from16 v2, v183
-
-    move/from16 v3, v184
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v103
+    move-object/from16 v1, v180
 
     move-object/from16 v2, v183
 
@@ -10121,11 +10807,435 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SENSORS_PERMISSIONS:Ljava/util/Set;
+    :cond_62
+    const-string/jumbo v183, "com.sec.android.widgetapp.ap.hero.accuweather"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v103
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v178
+
+    if-eqz v178, :cond_63
+
+    invoke-static/range {v178 .. v178}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_63
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v178
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v178
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_63
+    const-string/jumbo v183, "com.sec.android.widgetapp.ap.hero.cmaweather"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v179
+
+    if-eqz v179, :cond_64
+
+    invoke-static/range {v179 .. v179}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_64
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v179
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v179
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_64
+    const-string/jumbo v183, "com.sec.android.widgetapp.ap.hero.kweather"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v182
+
+    if-eqz v182, :cond_65
+
+    invoke-static/range {v182 .. v182}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_65
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v182
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v182
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_65
+    const-string/jumbo v183, "com.sec.android.widgetapp.ap.hero.weathernewsjp"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v181
+
+    if-eqz v181, :cond_66
+
+    invoke-static/range {v181 .. v181}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_66
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v181
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v181
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_66
+    const-string/jumbo v183, "com.samsung.android.video"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v136
+
+    if-eqz v136, :cond_67
+
+    invoke-static/range {v136 .. v136}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_67
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v136
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_67
+    const-string/jumbo v133, ""
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :try_start_3
+    const-string/jumbo v183, "ro.csc.sales_code"
+
+    invoke-static/range {v183 .. v183}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v133
+
+    invoke-static/range {v133 .. v133}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_68
+
+    const-string/jumbo v183, "ril.sales_code"
+
+    invoke-static/range {v183 .. v183}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    move-result-object v133
+
+    :cond_68
+    :goto_12
+    :try_start_4
+    const-string/jumbo v183, "ATT"
+
+    move-object/from16 v0, v183
+
+    move-object/from16 v1, v133
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_77
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToAttApp(I)V
+
+    :cond_69
+    :goto_13
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v183
+
+    const-string/jumbo v185, "CscFeature_Common_EnableSprintExtension"
+
+    move-object/from16 v0, v183
+
+    move-object/from16 v1, v185
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_6a
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToSprintApps(I)V
+
+    :cond_6a
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v183
+
+    const-string/jumbo v185, "CscFeature_Common_SupportHuxPermissionPregrant"
+
+    move-object/from16 v0, v183
+
+    move-object/from16 v1, v185
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v39
+
+    invoke-static/range {v39 .. v39}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v183
+
+    if-nez v183, :cond_6b
+
+    const-string/jumbo v183, "USC"
+
+    move-object/from16 v0, v183
+
+    move-object/from16 v1, v39
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_6b
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToUsccApps(I)V
+
+    :cond_6b
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
+
+    move-object/from16 v183, v0
+
+    move-object/from16 v0, v183
+
+    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
+
+    move-object/from16 v183, v0
+
+    move-object/from16 v0, v183
+
+    move/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/Settings;->onDefaultRuntimePermissionsGrantedLPr(I)V
+
+    const-string/jumbo v183, "com.samsung.android.service.peoplestripe"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v122
+
+    if-eqz v122, :cond_6c
+
+    invoke-static/range {v122 .. v122}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_6c
+
+    new-instance v123, Landroid/util/ArraySet;
+
+    invoke-direct/range {v123 .. v123}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v183, "android.permission.READ_CONTACTS"
+
+    move-object/from16 v0, v123
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.WRITE_CONTACTS"
+
+    move-object/from16 v0, v123
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v123
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v123
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.CAMERA"
+
+    move-object/from16 v0, v123
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v122
+
+    move-object/from16 v2, v123
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_6c
+    const-string/jumbo v183, "com.sec.android.app.samsungapps"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v86
+
+    if-eqz v86, :cond_6d
+
+    invoke-static/range {v86 .. v86}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_6d
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v86
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v86
 
     move-object/from16 v2, v183
 
@@ -10137,7 +11247,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v103
+    move-object/from16 v1, v86
 
     move-object/from16 v2, v183
 
@@ -10145,1586 +11255,538 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    :cond_53
-    add-int/lit8 v180, v180, 0x1
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
 
-    goto/16 :goto_11
-
-    :cond_54
-    new-instance v112, Landroid/content/Intent;
-
-    const-string/jumbo v180, "android.intent.action.VIEW"
-
-    move-object/from16 v0, v112
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v180, "android.intent.category.DEFAULT"
-
-    move-object/from16 v0, v112
-
-    move-object/from16 v1, v180
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
-
-    new-instance v180, Ljava/io/File;
-
-    const-string/jumbo v182, "foo.mp3"
-
-    move-object/from16 v0, v180
-
-    move-object/from16 v1, v182
-
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-static/range {v180 .. v180}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
-
-    move-result-object v180
-
-    const-string/jumbo v182, "audio/mpeg"
-
-    move-object/from16 v0, v112
-
-    move-object/from16 v1, v180
-
-    move-object/from16 v2, v182
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v112
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v113
-
-    if-eqz v113, :cond_55
-
-    invoke-static/range {v113 .. v113}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_55
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v113
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_55
-    const-string/jumbo v180, "de.telekom.tsc"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v34
-
-    if-eqz v34, :cond_56
-
-    invoke-static/range {v34 .. v34}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_56
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v34
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_56
-    const-string/jumbo v180, "de.telekom.mds.mbp"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v33
-
-    if-eqz v33, :cond_57
-
-    invoke-static/range {v33 .. v33}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_57
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v33
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v33
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_57
-    const-string/jumbo v180, "at.tmobile.android.myt"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v36
-
-    if-eqz v36, :cond_58
-
-    invoke-static/range {v36 .. v36}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_58
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v36
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_58
-    const-string/jumbo v180, "pl.tmobile.miboa"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v35
-
-    if-eqz v35, :cond_59
-
-    invoke-static/range {v35 .. v35}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_59
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v35
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v35
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_59
-    const-string/jumbo v180, "pl.tmobile.panel"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v37
-
-    if-eqz v37, :cond_5a
-
-    invoke-static/range {v37 .. v37}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_5a
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v37
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v37
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_5a
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
-
-    move-object/from16 v180, v0
-
-    const-string/jumbo v182, "android.hardware.type.watch"
-
-    const/16 v183, 0x0
-
-    move-object/from16 v0, v180
-
-    move-object/from16 v1, v182
-
-    move/from16 v2, v183
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PackageManagerService;->hasSystemFeature(Ljava/lang/String;I)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_5b
-
-    new-instance v94, Landroid/content/Intent;
-
-    const-string/jumbo v180, "android.intent.action.MAIN"
-
-    move-object/from16 v0, v94
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v180, "android.intent.category.HOME_MAIN"
-
-    move-object/from16 v0, v94
-
-    move-object/from16 v1, v180
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v94
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v174
-
-    if-eqz v174, :cond_5b
-
-    invoke-static/range {v174 .. v174}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_5b
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
-
-    const/16 v182, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v174
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, v182
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    const/16 v182, 0x1
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v174
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, v182
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
-
-    const/16 v182, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v174
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, v182
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    const/16 v182, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v174
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, v182
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_5b
-    const-string/jumbo v180, "com.android.printspooler"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v123
-
-    if-eqz v123, :cond_5c
-
-    invoke-static/range {v123 .. v123}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_5c
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    const/16 v182, 0x1
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v123
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, v182
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_5c
-    new-instance v83, Landroid/content/Intent;
-
-    const-string/jumbo v180, "android.telephony.action.EMERGENCY_ASSISTANCE"
-
-    move-object/from16 v0, v83
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v83
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v84
-
-    if-eqz v84, :cond_5d
-
-    invoke-static/range {v84 .. v84}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_5d
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
-
-    const/16 v182, 0x1
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v84
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, v182
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    const/16 v182, 0x1
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v84
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, v182
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_5d
-    new-instance v114, Landroid/content/Intent;
-
-    const-string/jumbo v180, "android.intent.action.VIEW"
-
-    move-object/from16 v0, v114
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v180, "vnd.android.cursor.item/ndef_msg"
-
-    move-object/from16 v0, v114
-
-    move-object/from16 v1, v180
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v114
-
-    move/from16 v2, p1
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackageLPr(Landroid/content/Intent;I)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v115
-
-    if-eqz v115, :cond_5e
-
-    invoke-static/range {v115 .. v115}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_5e
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
-
-    const/16 v182, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v115
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, v182
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    const/16 v182, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v115
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, v182
-
-    move/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;ZI)V
-
-    :cond_5e
-    const-string/jumbo v180, "com.sec.android.daemonapp"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v177
-
-    if-eqz v177, :cond_5f
-
-    invoke-static/range {v177 .. v177}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_5f
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v177
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v177
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_5f
-    const-string/jumbo v180, "com.sec.android.widgetapp.ap.hero.accuweather"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v175
-
-    if-eqz v175, :cond_60
-
-    invoke-static/range {v175 .. v175}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_60
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v175
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v175
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_60
-    const-string/jumbo v180, "com.sec.android.widgetapp.ap.hero.cmaweather"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v176
-
-    if-eqz v176, :cond_61
-
-    invoke-static/range {v176 .. v176}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_61
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v176
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v176
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_61
-    const-string/jumbo v180, "com.sec.android.widgetapp.ap.hero.kweather"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v179
-
-    if-eqz v179, :cond_62
-
-    invoke-static/range {v179 .. v179}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_62
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v179
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v179
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_62
-    const-string/jumbo v180, "com.sec.android.widgetapp.ap.hero.weathernewsjp"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v178
-
-    if-eqz v178, :cond_63
-
-    invoke-static/range {v178 .. v178}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_63
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v178
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v178
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_63
-    const-string/jumbo v180, "com.samsung.android.video"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v133
-
-    if-eqz v133, :cond_64
-
-    invoke-static/range {v133 .. v133}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_64
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v133
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_64
-    const-string/jumbo v130, ""
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    :try_start_3
-    const-string/jumbo v180, "ro.csc.sales_code"
-
-    invoke-static/range {v180 .. v180}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v130
-
-    invoke-static/range {v130 .. v130}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_65
-
-    const-string/jumbo v180, "ril.sales_code"
-
-    invoke-static/range {v180 .. v180}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    move-result-object v130
-
-    :cond_65
-    :goto_12
-    :try_start_4
-    const-string/jumbo v180, "ATT"
-
-    move-object/from16 v0, v180
-
-    move-object/from16 v1, v130
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_74
-
-    invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToAttApp(I)V
-
-    :cond_66
-    :goto_13
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v180
-
-    const-string/jumbo v182, "CscFeature_Common_EnableSprintExtension"
-
-    move-object/from16 v0, v180
-
-    move-object/from16 v1, v182
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_67
-
-    invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToSprintApps(I)V
-
-    :cond_67
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v180
-
-    const-string/jumbo v182, "CscFeature_Common_SupportHuxPermissionPregrant"
-
-    move-object/from16 v0, v180
-
-    move-object/from16 v1, v182
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v38
-
-    invoke-static/range {v38 .. v38}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v180
-
-    if-nez v180, :cond_68
-
-    const-string/jumbo v180, "USC"
-
-    move-object/from16 v0, v180
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_68
-
-    invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToUsccApps(I)V
-
-    :cond_68
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
-
-    move-object/from16 v180, v0
-
-    move-object/from16 v0, v180
-
-    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
-
-    move-object/from16 v180, v0
-
-    move-object/from16 v0, v180
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/Settings;->onDefaultRuntimePermissionsGrantedLPr(I)V
-
-    const-string/jumbo v180, "com.samsung.android.service.peoplestripe"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v121
-
-    if-eqz v121, :cond_69
-
-    invoke-static/range {v121 .. v121}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_69
-
-    new-instance v122, Landroid/util/ArraySet;
-
-    invoke-direct/range {v122 .. v122}, Landroid/util/ArraySet;-><init>()V
-
-    const-string/jumbo v180, "android.permission.READ_CONTACTS"
-
-    move-object/from16 v0, v122
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.WRITE_CONTACTS"
-
-    move-object/from16 v0, v122
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v122
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v122
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.CAMERA"
-
-    move-object/from16 v0, v122
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v121
-
-    move-object/from16 v2, v122
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_69
-    const-string/jumbo v180, "com.sec.android.app.samsungapps"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v85
-
-    if-eqz v85, :cond_6a
-
-    invoke-static/range {v85 .. v85}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_6a
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v85
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v85
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v85
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v85
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_6a
-    const-string/jumbo v180, "com.samsung.android.app.qragent"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v126
-
-    if-eqz v126, :cond_6b
-
-    invoke-static/range {v126 .. v126}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_6b
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v126
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v126
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_6b
-    const-string/jumbo v180, "com.sec.android.app.voicenote"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v39
-
-    if-eqz v39, :cond_6c
-
-    invoke-static/range {v39 .. v39}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_6c
-
-    new-instance v173, Landroid/util/ArraySet;
-
-    invoke-direct/range {v173 .. v173}, Landroid/util/ArraySet;-><init>()V
-
-    const-string/jumbo v180, "android.permission.RECORD_AUDIO"
-
-    move-object/from16 v0, v173
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
-
-    move-object/from16 v0, v173
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.CALL_PHONE"
-
-    move-object/from16 v0, v173
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v173
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.WRITE_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v173
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v39
-
-    move-object/from16 v2, v173
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    :cond_6c
-    const-string/jumbo v180, "com.samsung.android.app.galaxyfinder"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v180
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
-
-    move-result-object v128
-
-    if-eqz v128, :cond_6d
-
-    invoke-static/range {v128 .. v128}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-
-    move-result v180
-
-    if-eqz v180, :cond_6d
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v128
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v128
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v128
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v128
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
-
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v128
+    move-object/from16 v1, v86
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_6d
-    const-string/jumbo v180, "com.samsung.voiceserviceplatform"
+    const-string/jumbo v183, "com.samsung.android.app.qragent"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v151
+    move-result-object v127
 
-    if-eqz v151, :cond_6e
+    if-eqz v127, :cond_6e
 
-    invoke-static/range {v151 .. v151}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v127 .. v127}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_6e
+    if-eqz v183, :cond_6e
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v151
+    move-object/from16 v1, v127
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v151
+    move-object/from16 v1, v127
 
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v151
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v151
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v151
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v151
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v151
-
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_6e
-    const-string/jumbo v180, "com.samsung.svoice.sync"
+    const-string/jumbo v183, "com.sec.android.app.voicenote"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v152
+    move-result-object v40
 
-    if-eqz v152, :cond_6f
+    if-eqz v40, :cond_6f
 
-    invoke-static/range {v152 .. v152}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v40 .. v40}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_6f
+    if-eqz v183, :cond_6f
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    new-instance v176, Landroid/util/ArraySet;
+
+    invoke-direct/range {v176 .. v176}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v183, "android.permission.RECORD_AUDIO"
+
+    move-object/from16 v0, v176
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
+
+    move-object/from16 v0, v176
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.CALL_PHONE"
+
+    move-object/from16 v0, v176
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v176
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v176
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v152
+    move-object/from16 v1, v40
 
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v152
-
-    move-object/from16 v2, v180
-
-    move/from16 v3, p1
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
-
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v152
-
-    move-object/from16 v2, v180
+    move-object/from16 v2, v176
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_6f
-    const-string/jumbo v180, "com.samsung.android.svoiceime"
+    const-string/jumbo v183, "com.samsung.android.app.galaxyfinder"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v150
+    move-result-object v129
 
-    if-eqz v150, :cond_70
+    if-eqz v129, :cond_70
 
-    invoke-static/range {v150 .. v150}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v129 .. v129}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_70
+    if-eqz v183, :cond_70
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v150
+    move-object/from16 v1, v129
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v129
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v129
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v129
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v129
+
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_70
-    const-string/jumbo v180, "com.wsomacp"
+    const-string/jumbo v183, "com.samsung.voiceserviceplatform"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v116
+    move-result-object v154
 
-    if-eqz v116, :cond_71
+    if-eqz v154, :cond_71
 
-    invoke-static/range {v116 .. v116}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v154 .. v154}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_71
+    if-eqz v183, :cond_71
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v116
+    move-object/from16 v1, v154
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
-    sget-object v180, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v116
+    move-object/from16 v1, v154
 
-    move-object/from16 v2, v180
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v154
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v154
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v154
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->LOCATION_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v154
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v154
+
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_71
-    const-string/jumbo v180, "com.samsung.android.oneconnect"
+    const-string/jumbo v183, "com.samsung.svoice.sync"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
-    move-result-object v124
+    move-result-object v155
 
-    if-eqz v124, :cond_72
+    if-eqz v155, :cond_72
 
-    invoke-static/range {v124 .. v124}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {v155 .. v155}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_72
+    if-eqz v183, :cond_72
 
-    new-instance v125, Landroid/util/ArraySet;
-
-    invoke-direct/range {v125 .. v125}, Landroid/util/ArraySet;-><init>()V
-
-    const-string/jumbo v180, "android.permission.ACCESS_FINE_LOCATION"
-
-    move-object/from16 v0, v125
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_CONTACTS"
-
-    move-object/from16 v0, v125
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v180, "android.permission.READ_EXTERNAL_STORAGE"
-
-    move-object/from16 v0, v125
-
-    move-object/from16 v1, v180
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v124
+    move-object/from16 v1, v155
 
-    move-object/from16 v2, v125
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v155
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v155
+
+    move-object/from16 v2, v183
 
     move/from16 v3, p1
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
 
     :cond_72
-    const-string/jumbo v180, "com.osp.app.signin"
+    const-string/jumbo v183, "com.samsung.android.svoiceime"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v153
+
+    if-eqz v153, :cond_73
+
+    invoke-static/range {v153 .. v153}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_73
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v153
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_73
+    const-string/jumbo v183, "com.wsomacp"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v117
+
+    if-eqz v117, :cond_74
+
+    invoke-static/range {v117 .. v117}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_74
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v117
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    sget-object v183, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v117
+
+    move-object/from16 v2, v183
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_74
+    const-string/jumbo v183, "com.samsung.android.oneconnect"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v125
+
+    if-eqz v125, :cond_75
+
+    invoke-static/range {v125 .. v125}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_75
+
+    new-instance v126, Landroid/util/ArraySet;
+
+    invoke-direct/range {v126 .. v126}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v183, "android.permission.ACCESS_FINE_LOCATION"
+
+    move-object/from16 v0, v126
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_CONTACTS"
+
+    move-object/from16 v0, v126
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v183, "android.permission.READ_EXTERNAL_STORAGE"
+
+    move-object/from16 v0, v126
+
+    move-object/from16 v1, v183
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v125
+
+    move-object/from16 v2, v126
+
+    move/from16 v3, p1
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_75
+    const-string/jumbo v183, "com.osp.app.signin"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v183
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
 
     move-result-object v32
 
-    if-eqz v32, :cond_73
+    if-eqz v32, :cond_76
 
     invoke-static/range {v32 .. v32}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_73
+    if-eqz v183, :cond_76
 
-    new-instance v129, Landroid/util/ArraySet;
+    new-instance v132, Landroid/util/ArraySet;
 
-    invoke-direct/range {v129 .. v129}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct/range {v132 .. v132}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v180, "android.permission.RECEIVE_SMS"
+    const-string/jumbo v183, "android.permission.RECEIVE_SMS"
 
-    move-object/from16 v0, v129
+    move-object/from16 v0, v132
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v180, "android.permission.READ_PHONE_STATE"
+    const-string/jumbo v183, "android.permission.READ_PHONE_STATE"
 
-    move-object/from16 v0, v129
+    move-object/from16 v0, v132
 
-    move-object/from16 v1, v180
+    move-object/from16 v1, v183
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -11732,7 +11794,7 @@
 
     move-object/from16 v1, v32
 
-    move-object/from16 v2, v129
+    move-object/from16 v2, v132
 
     move/from16 v3, p1
 
@@ -11740,124 +11802,124 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    :cond_73
-    monitor-exit v181
+    :cond_76
+    monitor-exit v184
 
     return-void
 
     :catch_0
-    move-exception v79
+    move-exception v80
 
     :try_start_5
-    const-string/jumbo v180, "DefaultPermGrantPolicy"
+    const-string/jumbo v183, "DefaultPermGrantPolicy"
 
-    const-string/jumbo v182, "readSalesCode failed"
+    const-string/jumbo v185, "readSalesCode failed"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
-    move-object/from16 v1, v182
+    move-object/from16 v1, v185
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_12
 
-    :cond_74
-    const-string/jumbo v180, "TMB"
+    :cond_77
+    const-string/jumbo v183, "TMB"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
-    move-object/from16 v1, v130
+    move-object/from16 v1, v133
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_75
+    if-eqz v183, :cond_78
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToTmoApp(I)V
 
     goto/16 :goto_13
 
-    :cond_75
-    const-string/jumbo v180, "TMK"
+    :cond_78
+    const-string/jumbo v183, "TMK"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
-    move-object/from16 v1, v130
+    move-object/from16 v1, v133
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_76
+    if-eqz v183, :cond_79
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToMetroApp(I)V
 
     goto/16 :goto_13
 
-    :cond_76
-    const-string/jumbo v180, "VZW"
+    :cond_79
+    const-string/jumbo v183, "VZW"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
-    move-object/from16 v1, v130
+    move-object/from16 v1, v133
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_77
+    if-eqz v183, :cond_7a
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToVerizonApp(I)V
 
     goto/16 :goto_13
 
-    :cond_77
-    const-string/jumbo v180, "CCT"
+    :cond_7a
+    const-string/jumbo v183, "CCT"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
-    move-object/from16 v1, v130
+    move-object/from16 v1, v133
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_78
+    if-eqz v183, :cond_7b
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToComcastApp(I)V
 
     goto/16 :goto_13
 
-    :cond_78
-    const-string/jumbo v180, "AIO"
+    :cond_7b
+    const-string/jumbo v183, "AIO"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
-    move-object/from16 v1, v130
+    move-object/from16 v1, v133
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_79
+    if-eqz v183, :cond_7c
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToCricketApp(I)V
 
     goto/16 :goto_13
 
-    :cond_79
-    const-string/jumbo v180, "SIN"
+    :cond_7c
+    const-string/jumbo v183, "SIN"
 
-    move-object/from16 v0, v180
+    move-object/from16 v0, v183
 
-    move-object/from16 v1, v130
+    move-object/from16 v1, v133
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v180
+    move-result v183
 
-    if-eqz v180, :cond_66
+    if-eqz v183, :cond_69
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToSingtelApp(I)V
     :try_end_5
@@ -12580,14 +12642,6 @@
 
     invoke-direct {v2}, Landroid/util/ArraySet;-><init>()V
 
-    const-string/jumbo v0, "android.permission.ACCESS_FINE_LOCATION"
-
-    invoke-interface {v2, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v0, "android.permission.ACCESS_COARSE_LOCATION"
-
-    invoke-interface {v2, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
     move-object v0, p0
 
     move v5, p2
@@ -12649,14 +12703,6 @@
     invoke-interface {v7, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     const-string/jumbo v0, "android.permission.RECEIVE_SMS"
-
-    invoke-interface {v7, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v0, "android.permission.ACCESS_FINE_LOCATION"
-
-    invoke-interface {v7, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v0, "android.permission.ACCESS_COARSE_LOCATION"
 
     invoke-interface {v7, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 

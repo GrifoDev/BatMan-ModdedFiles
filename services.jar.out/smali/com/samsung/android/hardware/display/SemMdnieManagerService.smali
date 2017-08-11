@@ -21,15 +21,23 @@
 
 .field private final DEBUG:Z
 
+.field private EFS_MDNIE_INFO:Ljava/lang/String;
+
 .field private EFS_PANEL_INFO:Ljava/lang/String;
+
+.field private final FACTORY_DEFAULT_INDEX_VALUE:I
 
 .field private final FACTORY_WHITE_INDEX_SIZE:I
 
 .field private final LCD_SRGB_MODE:I
 
+.field private final MAX_POC_INDEX:I
+
 .field private final MDNIE_SUPPORT_FUNCTION:I
 
 .field private final NIGHT_MODE_MAX_INDEX:I
+
+.field private final POC_WHITE_DEFAULT_VALUE:I
 
 .field private final POC_WHITE_INDEX_SIZE:I
 
@@ -145,6 +153,8 @@
 
 .field private mMdniePOCFused:Z
 
+.field private mMdniePOCGray:Z
+
 .field private mMdniePOCInfoSupported:Z
 
 .field private mMdniePOCSupported:Z
@@ -163,6 +173,8 @@
 
 .field private mPOCAdjustWhiteRGB:[[I
 
+.field private mPocElementArray:[F
+
 .field private mPocFused:I
 
 .field private mPocIndex:I
@@ -180,6 +192,8 @@
 .field private mReadingModeEnabled:Z
 
 .field private mReadingScreenMode:I
+
+.field private mResourcePocConfig:Z
 
 .field private mScreenCurtainEnabled:Z
 
@@ -270,1089 +284,1218 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 10
+    .locals 12
 
-    const/4 v9, 0x0
+    const/4 v11, -0x6
 
-    const/4 v8, -0x6
+    const/4 v10, 0x0
 
-    const/4 v7, -0x2
+    const/4 v9, -0x2
 
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
     invoke-direct {p0}, Lcom/samsung/android/hardware/display/ISemMdnieManager$Stub;-><init>()V
 
-    const-string/jumbo v2, "eng"
+    const-string/jumbo v4, "eng"
 
-    sget-object v5, Landroid/os/Build;->TYPE:Ljava/lang/String;
+    sget-object v7, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
-    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->DEBUG:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->DEBUG:Z
 
-    iput-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->adaptiveDisplay:Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;
+    iput-object v10, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->adaptiveDisplay:Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;
 
-    const-string/jumbo v2, "screen_mode_automatic_setting"
+    const-string/jumbo v4, "screen_mode_automatic_setting"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SCREEN_MODE_AUTOMATIC_SETTING:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SCREEN_MODE_AUTOMATIC_SETTING:Ljava/lang/String;
 
-    const-string/jumbo v2, "screen_mode_setting"
+    const-string/jumbo v4, "screen_mode_setting"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SCREEN_MODE_SETTING:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SCREEN_MODE_SETTING:Ljava/lang/String;
 
-    const-string/jumbo v2, "sec_display_temperature_red"
+    const-string/jumbo v4, "sec_display_temperature_red"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_TEMPERATURE_R:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_TEMPERATURE_R:Ljava/lang/String;
 
-    const-string/jumbo v2, "sec_display_temperature_green"
+    const-string/jumbo v4, "sec_display_temperature_green"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_TEMPERATURE_G:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_TEMPERATURE_G:Ljava/lang/String;
 
-    const-string/jumbo v2, "sec_display_temperature_blue"
+    const-string/jumbo v4, "sec_display_temperature_blue"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_TEMPERATURE_B:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_TEMPERATURE_B:Ljava/lang/String;
 
-    const-string/jumbo v2, "sec_display_preset_index"
+    const-string/jumbo v4, "sec_display_preset_index"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_PRESET_INDEX:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_PRESET_INDEX:Ljava/lang/String;
 
-    const-string/jumbo v2, "sec_display_poc_index"
+    const-string/jumbo v4, "sec_display_poc_index"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_POC_INDEX:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_POC_INDEX:Ljava/lang/String;
 
-    const-string/jumbo v2, "sec_display_poc_default_position"
+    const-string/jumbo v4, "sec_display_poc_default_position"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_POC_DEFAULT_POSITION:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_POC_DEFAULT_POSITION:Ljava/lang/String;
 
-    const-string/jumbo v2, "sec_display_poc_support"
+    const-string/jumbo v4, "sec_display_poc_support"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_POC_SUPPORT:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_POC_SUPPORT:Ljava/lang/String;
 
-    const-string/jumbo v2, "sec_display_poc_application_start"
+    const-string/jumbo v4, "sec_display_poc_application_start"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_POC_APPLICATION_START:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_POC_APPLICATION_START:Ljava/lang/String;
 
-    const-string/jumbo v2, "sec_display_poc_application_complete"
+    const-string/jumbo v4, "sec_display_poc_application_complete"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_POC_APPLICATION_COMPLETE:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SEC_DISPLAY_POC_APPLICATION_COMPLETE:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/accessibility"
+    const-string/jumbo v4, "/sys/class/mdnie/mdnie/accessibility"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_VISION_MODE:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_VISION_MODE:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/mdnie_1/mdnie_1/accessibility"
+    const-string/jumbo v4, "/sys/class/mdnie_1/mdnie_1/accessibility"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_VISION_MODE_SUB:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_VISION_MODE_SUB:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/mode"
+    const-string/jumbo v4, "/sys/class/mdnie/mdnie/mode"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_SCREEN_MODE:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_SCREEN_MODE:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/scenario"
+    const-string/jumbo v4, "/sys/class/mdnie/mdnie/scenario"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_CONTENT_MODE:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_CONTENT_MODE:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/negative"
+    const-string/jumbo v4, "/sys/class/mdnie/mdnie/negative"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_NEGATIVE:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_NEGATIVE:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/outdoor"
+    const-string/jumbo v4, "/sys/class/mdnie/mdnie/outdoor"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_OUTDOOR:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_OUTDOOR:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/playspeed"
+    const-string/jumbo v4, "/sys/class/mdnie/mdnie/playspeed"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_PLAYSPEED:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_PLAYSPEED:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/night_mode"
+    const-string/jumbo v4, "/sys/class/mdnie/mdnie/night_mode"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_NIGHT_MODE:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_NIGHT_MODE:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/whiteRGB"
+    const-string/jumbo v4, "/sys/class/mdnie/mdnie/whiteRGB"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_WHITE_RGB:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_WHITE_RGB:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/light_notification"
+    const-string/jumbo v4, "/sys/class/mdnie/mdnie/light_notification"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_LIGHT_NOTIFICATION:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_LIGHT_NOTIFICATION:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/lcd/panel/poc"
+    const-string/jumbo v4, "/sys/class/lcd/panel/poc"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_STATUS:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_STATUS:Ljava/lang/String;
 
-    const-string/jumbo v2, "/efs/FactoryApp/poc_info"
+    const-string/jumbo v4, "/efs/FactoryApp/poc_info"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_INFO:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_INFO:Ljava/lang/String;
 
-    const-string/jumbo v2, "/efs/poc/current_index"
+    const-string/jumbo v4, "/efs/poc/current_index"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_CURRENT_INDEX:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_CURRENT_INDEX:Ljava/lang/String;
 
-    const-string/jumbo v2, "/efs/etc/poc/org.vec"
+    const-string/jumbo v4, "/efs/etc/poc/org.vec"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_ORIGINAL_VECTOR:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_ORIGINAL_VECTOR:Ljava/lang/String;
 
-    const-string/jumbo v2, "/efs/FactoryApp/mdnie"
+    const-string/jumbo v4, "/efs/FactoryApp/mdnie"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_FACTORY_MDNIE:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_MDNIE_FACTORY_MDNIE:Ljava/lang/String;
 
-    const-string/jumbo v2, "/efs/FactoryApp/poc_done"
+    const-string/jumbo v4, "/efs/FactoryApp/poc_done"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_READ_COMPLETE:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_READ_COMPLETE:Ljava/lang/String;
 
-    const-string/jumbo v2, "/sys/class/lcd/panel/cell_id"
+    const-string/jumbo v4, "/sys/class/lcd/panel/cell_id"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_PANEL_CELL_ID:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_PANEL_CELL_ID:Ljava/lang/String;
 
-    const-string/jumbo v2, "/efs/etc/poc/cell_id"
+    const-string/jumbo v4, "/efs/etc/poc/cell_id"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_CELL_ID:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_CELL_ID:Ljava/lang/String;
 
-    const-string/jumbo v2, "/efs/etc/poc/totalfailcount"
+    const-string/jumbo v4, "/efs/etc/poc/totalfailcount"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_TOTAL_FAIL_COUNT:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_TOTAL_FAIL_COUNT:Ljava/lang/String;
 
-    const-string/jumbo v2, "/efs/etc/poc/totaltrycount"
+    const-string/jumbo v4, "/efs/etc/poc/totaltrycount"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_TOTAL_TRY_COUNT:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_TOTAL_TRY_COUNT:Ljava/lang/String;
 
-    const-string/jumbo v2, "/efs/FactoryApp/poc_user"
+    const-string/jumbo v4, "/efs/FactoryApp/poc_user"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_USER:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->SYSFS_POC_USER:Ljava/lang/String;
 
-    const-string/jumbo v2, "/cache/recovery/command"
+    const-string/jumbo v4, "/cache/recovery/command"
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->COMMAND_FILE:Ljava/lang/String;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->COMMAND_FILE:Ljava/lang/String;
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->LCD_SRGB_MODE:I
+    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->LCD_SRGB_MODE:I
 
-    const/16 v2, 0xb
+    const/16 v4, 0xb
 
-    iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->NIGHT_MODE_MAX_INDEX:I
+    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->NIGHT_MODE_MAX_INDEX:I
 
-    new-instance v2, Ljava/lang/Object;
+    const/16 v4, 0x168
 
-    invoke-direct {v2}, Ljava/lang/Object;-><init>()V
+    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MAX_POC_INDEX:I
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mLock:Ljava/lang/Object;
+    new-instance v4, Ljava/lang/Object;
 
-    const-string/jumbo v2, "65303"
+    invoke-direct {v4}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mLock:Ljava/lang/Object;
 
-    move-result-object v2
+    const-string/jumbo v4, "65303"
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result v2
+    move-result-object v4
 
-    iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
-    iput-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->USER_PANEL_INFO:Ljava/lang/String;
+    move-result v4
 
-    iput-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->EFS_PANEL_INFO:Ljava/lang/String;
+    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentMode:Z
+    const/4 v4, 0x7
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentModeGame:Z
+    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->FACTORY_WHITE_INDEX_SIZE:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentModeVideoEnhance:Z
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->FACTORY_DEFAULT_INDEX_VALUE:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreenMode:Z
+    const/16 v4, 0xc
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreeenReadingMode:Z
+    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->PRESET_WHITE_INDEX_SIZE:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportNegative:Z
+    const/4 v4, 0x6
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportGrayscale:Z
+    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->POC_WHITE_INDEX_SIZE:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreenCurtain:Z
+    iput v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->POC_WHITE_DEFAULT_VALUE:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportColorAdjustment:Z
+    iput-object v10, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->USER_PANEL_INFO:Ljava/lang/String;
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportBlueFilter:Z
+    iput-object v10, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->EFS_PANEL_INFO:Ljava/lang/String;
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportHMT:Z
+    iput-object v10, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->EFS_MDNIE_INFO:Ljava/lang/String;
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportHDR:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentMode:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportLightNotificationMode:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentModeGame:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieCustomized:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentModeVideoEnhance:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mNightMode:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreenMode:Z
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mNightModeIndex:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreeenReadingMode:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieFactorySupported:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportNegative:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWhiteRGBSupported:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportGrayscale:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCFused:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreenCurtain:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportColorAdjustment:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCInfoSupported:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportBlueFilter:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCCurrentIndex:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportHMT:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCUsedExist:Z
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportHDR:Z
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocFused:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportLightNotificationMode:Z
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocIndex:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieCustomized:Z
 
-    const/4 v2, 0x3
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mNightMode:Z
 
-    iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mNightModeIndex:I
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPresetScrIndex:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieFactorySupported:Z
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mFactoryScrIndex:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWhiteRGBSupported:Z
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mFactoryScrRIndex:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCFused:Z
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mFactoryScrGIndex:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mFactoryScrBIndex:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCGray:Z
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCustomScrRIndex:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCInfoSupported:Z
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCustomScrGIndex:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCCurrentIndex:Z
 
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCustomScrBIndex:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCUsedExist:Z
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWorkingCondition:Z
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocFused:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mDisplayOn:Z
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocIndex:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mScreenCurtainEnabled:Z
+    iput v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mNegativeColorEnabled:Z
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPresetScrIndex:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mColorBlindEnabled:Z
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mFactoryScrIndex:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mAutoModeEnabled:Z
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mFactoryScrRIndex:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mReadingModeEnabled:Z
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mFactoryScrGIndex:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mEbookScenarioEnabled:Z
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mFactoryScrBIndex:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mBrowserScenarioEnabled:Z
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCustomScrRIndex:I
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mUseAdaptiveDisplayColorServiceConfig:Z
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCustomScrGIndex:I
 
-    const/4 v2, 0x4
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCustomScrBIndex:I
 
-    iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->FACTORY_WHITE_INDEX_SIZE:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWorkingCondition:Z
 
-    const/16 v2, 0x9
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mDisplayOn:Z
 
-    iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->PRESET_WHITE_INDEX_SIZE:I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mScreenCurtainEnabled:Z
 
-    const/16 v2, 0x9
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mNegativeColorEnabled:Z
 
-    new-array v2, v2, [[I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mColorBlindEnabled:Z
 
-    filled-new-array {v4, v8, v4}, [I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mAutoModeEnabled:Z
 
-    move-result-object v5
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mReadingModeEnabled:Z
 
-    aput-object v5, v2, v4
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mEbookScenarioEnabled:Z
 
-    const/4 v5, -0x3
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mBrowserScenarioEnabled:Z
 
-    filled-new-array {v4, v5, v4}, [I
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mUseAdaptiveDisplayColorServiceConfig:Z
 
-    move-result-object v5
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mResourcePocConfig:Z
 
-    aput-object v5, v2, v3
+    const/16 v4, 0xc
 
-    filled-new-array {v4, v4, v4}, [I
+    new-array v4, v4, [[I
 
-    move-result-object v5
+    filled-new-array {v6, v11, v6}, [I
 
-    const/4 v6, 0x2
+    move-result-object v7
 
-    aput-object v5, v2, v6
+    aput-object v7, v4, v6
 
-    const/4 v5, -0x3
+    const/4 v7, -0x3
 
-    const/4 v6, -0x3
+    filled-new-array {v6, v7, v6}, [I
 
-    filled-new-array {v5, v4, v6}, [I
+    move-result-object v7
 
-    move-result-object v5
+    aput-object v7, v4, v5
 
-    const/4 v6, 0x3
+    filled-new-array {v6, v6, v6}, [I
 
-    aput-object v5, v2, v6
+    move-result-object v7
 
-    filled-new-array {v8, v4, v8}, [I
+    const/4 v8, 0x2
 
-    move-result-object v5
+    aput-object v7, v4, v8
 
-    const/4 v6, 0x4
+    const/4 v7, -0x3
 
-    aput-object v5, v2, v6
+    const/4 v8, -0x3
 
-    const/16 v5, -0x9
+    filled-new-array {v7, v6, v8}, [I
 
-    const/16 v6, -0x9
+    move-result-object v7
 
-    filled-new-array {v5, v4, v6}, [I
+    const/4 v8, 0x3
 
-    move-result-object v5
+    aput-object v7, v4, v8
 
-    const/4 v6, 0x5
+    filled-new-array {v11, v6, v11}, [I
 
-    aput-object v5, v2, v6
+    move-result-object v7
 
-    const/16 v5, -0xc
+    const/4 v8, 0x4
 
-    const/16 v6, -0xc
+    aput-object v7, v4, v8
 
-    filled-new-array {v5, v4, v6}, [I
+    const/16 v7, -0x9
 
-    move-result-object v5
+    const/16 v8, -0x9
 
-    const/4 v6, 0x6
+    filled-new-array {v7, v6, v8}, [I
 
-    aput-object v5, v2, v6
+    move-result-object v7
 
-    const/16 v5, -0xf
+    const/4 v8, 0x5
 
-    const/16 v6, -0xf
+    aput-object v7, v4, v8
 
-    filled-new-array {v5, v4, v6}, [I
+    const/16 v7, -0xc
 
-    move-result-object v5
+    const/16 v8, -0xc
 
-    const/4 v6, 0x7
+    filled-new-array {v7, v6, v8}, [I
 
-    aput-object v5, v2, v6
+    move-result-object v7
 
-    const/16 v5, -0x12
+    const/4 v8, 0x6
 
-    const/16 v6, -0x12
+    aput-object v7, v4, v8
 
-    filled-new-array {v5, v4, v6}, [I
+    const/16 v7, -0xf
 
-    move-result-object v5
+    const/16 v8, -0xf
 
-    const/16 v6, 0x8
+    filled-new-array {v7, v6, v8}, [I
 
-    aput-object v5, v2, v6
+    move-result-object v7
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPresetAdjustWhiteRGB:[[I
+    const/4 v8, 0x7
 
-    const/16 v2, 0xa
+    aput-object v7, v4, v8
 
-    iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->POC_WHITE_INDEX_SIZE:I
+    const/16 v7, -0x12
 
-    const/16 v2, 0xa
+    const/16 v8, -0x12
 
-    new-array v2, v2, [[I
+    filled-new-array {v7, v6, v8}, [I
 
-    filled-new-array {v4, v8, v8}, [I
+    move-result-object v7
 
-    move-result-object v5
+    const/16 v8, 0x8
 
-    aput-object v5, v2, v4
+    aput-object v7, v4, v8
 
-    const/4 v5, -0x4
+    const/16 v7, -0x15
 
-    const/4 v6, -0x4
+    const/16 v8, -0x15
 
-    filled-new-array {v4, v5, v6}, [I
+    filled-new-array {v7, v6, v8}, [I
 
-    move-result-object v5
+    move-result-object v7
 
-    aput-object v5, v2, v3
+    const/16 v8, 0x9
 
-    filled-new-array {v4, v7, v7}, [I
+    aput-object v7, v4, v8
 
-    move-result-object v5
+    const/16 v7, -0x18
 
-    const/4 v6, 0x2
+    const/16 v8, -0x18
 
-    aput-object v5, v2, v6
+    filled-new-array {v7, v6, v8}, [I
 
-    filled-new-array {v4, v4, v4}, [I
+    move-result-object v7
 
-    move-result-object v5
+    const/16 v8, 0xa
 
-    const/4 v6, 0x3
+    aput-object v7, v4, v8
 
-    aput-object v5, v2, v6
+    const/16 v7, -0x1b
 
-    filled-new-array {v7, v4, v4}, [I
+    const/16 v8, -0x1b
 
-    move-result-object v5
+    filled-new-array {v7, v6, v8}, [I
 
-    const/4 v6, 0x4
+    move-result-object v7
 
-    aput-object v5, v2, v6
+    const/16 v8, 0xb
 
-    const/4 v5, -0x4
+    aput-object v7, v4, v8
 
-    filled-new-array {v5, v4, v4}, [I
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPresetAdjustWhiteRGB:[[I
 
-    move-result-object v5
+    const/4 v4, 0x6
 
-    const/4 v6, 0x5
+    new-array v4, v4, [[I
 
-    aput-object v5, v2, v6
+    filled-new-array {v6, v9, v9}, [I
 
-    filled-new-array {v8, v4, v4}, [I
+    move-result-object v7
 
-    move-result-object v5
+    aput-object v7, v4, v6
 
-    const/4 v6, 0x6
+    filled-new-array {v6, v6, v6}, [I
 
-    aput-object v5, v2, v6
+    move-result-object v7
 
-    const/4 v5, -0x8
+    aput-object v7, v4, v5
 
-    filled-new-array {v5, v4, v4}, [I
+    filled-new-array {v9, v6, v6}, [I
 
-    move-result-object v5
+    move-result-object v7
 
-    const/4 v6, 0x7
+    const/4 v8, 0x2
 
-    aput-object v5, v2, v6
+    aput-object v7, v4, v8
 
-    const/16 v5, -0xa
+    const/4 v7, -0x4
 
-    filled-new-array {v5, v4, v4}, [I
+    filled-new-array {v7, v6, v6}, [I
 
-    move-result-object v5
+    move-result-object v7
 
-    const/16 v6, 0x8
+    const/4 v8, 0x3
 
-    aput-object v5, v2, v6
+    aput-object v7, v4, v8
 
-    const/16 v5, -0xc
+    filled-new-array {v11, v6, v6}, [I
 
-    filled-new-array {v5, v4, v4}, [I
+    move-result-object v7
 
-    move-result-object v5
+    const/4 v8, 0x4
 
-    const/16 v6, 0x9
+    aput-object v7, v4, v8
 
-    aput-object v5, v2, v6
+    const/4 v7, -0x8
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
+    filled-new-array {v7, v6, v6}, [I
 
-    iput-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPowerManager:Landroid/os/PowerManager;
+    move-result-object v7
 
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCurtainModeIsRunning:Z
+    const/4 v8, 0x5
+
+    aput-object v7, v4, v8
+
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
+
+    iput-object v10, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPowerManager:Landroid/os/PowerManager;
+
+    iput-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCurtainModeIsRunning:Z
 
     iput-object p1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v3
 
-    new-instance v2, Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
+    new-instance v4, Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
 
-    invoke-direct {v2, p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;-><init>(Lcom/samsung/android/hardware/display/SemMdnieManagerService;)V
+    invoke-direct {v4, p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;-><init>(Lcom/samsung/android/hardware/display/SemMdnieManagerService;)V
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit8 v2, v2, 0x1
+    and-int/lit8 v4, v4, 0x1
 
-    if-eqz v2, :cond_6
+    if-eqz v4, :cond_9
 
-    move v2, v3
+    move v4, v5
 
     :goto_0
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentMode:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentMode:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit8 v2, v2, 0x2
+    and-int/lit8 v4, v4, 0x2
 
-    if-eqz v2, :cond_7
+    if-eqz v4, :cond_a
 
-    move v2, v3
+    move v4, v5
 
     :goto_1
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentModeGame:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentModeGame:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit8 v2, v2, 0x4
+    and-int/lit8 v4, v4, 0x4
 
-    if-eqz v2, :cond_8
+    if-eqz v4, :cond_b
 
-    move v2, v3
+    move v4, v5
 
     :goto_2
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentModeVideoEnhance:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportContentModeVideoEnhance:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit8 v2, v2, 0x10
+    and-int/lit8 v4, v4, 0x10
 
-    if-eqz v2, :cond_9
+    if-eqz v4, :cond_c
 
-    move v2, v3
+    move v4, v5
 
     :goto_3
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreenMode:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreenMode:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit8 v2, v2, 0x20
+    and-int/lit8 v4, v4, 0x20
 
-    if-eqz v2, :cond_a
+    if-eqz v4, :cond_d
 
-    move v2, v3
+    move v4, v5
 
     :goto_4
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreeenReadingMode:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreeenReadingMode:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit16 v2, v2, 0x100
+    and-int/lit16 v4, v4, 0x100
 
-    if-eqz v2, :cond_b
+    if-eqz v4, :cond_e
 
-    move v2, v3
+    move v4, v5
 
     :goto_5
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportNegative:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportNegative:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit16 v2, v2, 0x200
+    and-int/lit16 v4, v4, 0x200
 
-    if-eqz v2, :cond_c
+    if-eqz v4, :cond_f
 
-    move v2, v3
+    move v4, v5
 
     :goto_6
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportGrayscale:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportGrayscale:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit16 v2, v2, 0x400
+    and-int/lit16 v4, v4, 0x400
 
-    if-eqz v2, :cond_d
+    if-eqz v4, :cond_10
 
-    move v2, v3
+    move v4, v5
 
     :goto_7
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreenCurtain:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportScreenCurtain:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit16 v2, v2, 0x800
+    and-int/lit16 v4, v4, 0x800
 
-    if-eqz v2, :cond_e
+    if-eqz v4, :cond_11
 
-    move v2, v3
+    move v4, v5
 
     :goto_8
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportColorAdjustment:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportColorAdjustment:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit16 v2, v2, 0x1000
+    and-int/lit16 v4, v4, 0x1000
 
-    if-eqz v2, :cond_f
+    if-eqz v4, :cond_12
 
-    move v2, v3
+    move v4, v5
 
     :goto_9
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportBlueFilter:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportBlueFilter:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit16 v2, v2, 0x2000
+    and-int/lit16 v4, v4, 0x2000
 
-    if-eqz v2, :cond_10
+    if-eqz v4, :cond_13
 
-    move v2, v3
+    move v4, v5
 
     :goto_a
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportHMT:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportHMT:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    and-int/lit16 v2, v2, 0x4000
+    and-int/lit16 v4, v4, 0x4000
 
-    if-eqz v2, :cond_11
+    if-eqz v4, :cond_14
 
-    move v2, v3
+    move v4, v5
 
     :goto_b
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportHDR:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportHDR:Z
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->MDNIE_SUPPORT_FUNCTION:I
 
-    const v5, 0x8000
+    const v7, 0x8000
 
-    and-int/2addr v2, v5
+    and-int/2addr v4, v7
 
-    if-eqz v2, :cond_12
+    if-eqz v4, :cond_15
 
-    move v2, v3
+    move v4, v5
 
     :goto_c
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportLightNotificationMode:Z
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSupportLightNotificationMode:Z
 
-    const/4 v2, 0x5
+    const/4 v4, 0x5
 
-    iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mReadingScreenMode:I
+    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mReadingScreenMode:I
 
-    const-string/jumbo v2, "screen_mode_setting"
+    const-string/jumbo v4, "screen_mode_setting"
 
-    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
+    iget-object v7, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
 
-    invoke-virtual {v1, v2, v4, v5, v7}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v3, v4, v6, v7, v9}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    const-string/jumbo v2, "sec_display_temperature_red"
+    const-string/jumbo v4, "sec_display_temperature_red"
 
-    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
+    iget-object v7, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
 
-    invoke-virtual {v1, v2, v4, v5, v7}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v3, v4, v6, v7, v9}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    const-string/jumbo v2, "sec_display_temperature_green"
+    const-string/jumbo v4, "sec_display_temperature_green"
 
-    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
+    iget-object v7, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
 
-    invoke-virtual {v1, v2, v4, v5, v7}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v3, v4, v6, v7, v9}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    const-string/jumbo v2, "sec_display_temperature_blue"
+    const-string/jumbo v4, "sec_display_temperature_blue"
 
-    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
+    iget-object v7, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
 
-    invoke-virtual {v1, v2, v4, v5, v7}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v3, v4, v6, v7, v9}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    const-string/jumbo v2, "sec_display_preset_index"
+    const-string/jumbo v4, "sec_display_preset_index"
 
-    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
+    iget-object v7, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
 
-    invoke-virtual {v1, v2, v4, v5, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v3, v4, v6, v7, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    const-string/jumbo v2, "sec_display_poc_index"
+    const-string/jumbo v4, "sec_display_poc_index"
 
-    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
+    iget-object v7, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mSettingsObserver:Lcom/samsung/android/hardware/display/SemMdnieManagerService$SettingsObserver;
 
-    invoke-virtual {v1, v2, v4, v5, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v3, v4, v6, v7, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    new-instance v0, Landroid/content/IntentFilter;
+    new-instance v1, Landroid/content/IntentFilter;
 
-    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+    invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string/jumbo v2, "android.intent.action.BOOT_COMPLETED"
+    const-string/jumbo v4, "android.intent.action.BOOT_COMPLETED"
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v2, "android.intent.action.SCREEN_ON"
+    const-string/jumbo v4, "android.intent.action.SCREEN_ON"
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v2, "android.intent.action.SCREEN_OFF"
+    const-string/jumbo v4, "android.intent.action.SCREEN_OFF"
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v2, "android.intent.action.USER_PRESENT"
+    const-string/jumbo v4, "android.intent.action.USER_PRESENT"
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
 
-    new-instance v5, Lcom/samsung/android/hardware/display/SemMdnieManagerService$ScreenWatchingReceiver;
+    new-instance v7, Lcom/samsung/android/hardware/display/SemMdnieManagerService$ScreenWatchingReceiver;
 
-    invoke-direct {v5, p0, v9}, Lcom/samsung/android/hardware/display/SemMdnieManagerService$ScreenWatchingReceiver;-><init>(Lcom/samsung/android/hardware/display/SemMdnieManagerService;Lcom/samsung/android/hardware/display/SemMdnieManagerService$ScreenWatchingReceiver;)V
+    invoke-direct {v7, p0, v10}, Lcom/samsung/android/hardware/display/SemMdnieManagerService$ScreenWatchingReceiver;-><init>(Lcom/samsung/android/hardware/display/SemMdnieManagerService;Lcom/samsung/android/hardware/display/SemMdnieManagerService$ScreenWatchingReceiver;)V
 
-    invoke-virtual {v2, v5, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v4, v7, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    new-instance v2, Ljava/io/File;
+    new-instance v4, Ljava/io/File;
 
-    const-string/jumbo v5, "/efs/FactoryApp/mdnie"
+    const-string/jumbo v7, "/efs/FactoryApp/mdnie"
 
-    invoke-direct {v2, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
-    iput-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieFactorySupported:Z
+    iput-boolean v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieFactorySupported:Z
 
     :cond_0
-    new-instance v2, Ljava/io/File;
+    new-instance v4, Ljava/io/File;
 
-    const-string/jumbo v5, "/sys/class/mdnie/mdnie/whiteRGB"
+    const-string/jumbo v7, "/sys/class/mdnie/mdnie/whiteRGB"
 
-    invoke-direct {v2, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_1
+    if-eqz v4, :cond_1
 
-    iput-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWhiteRGBSupported:Z
+    iput-boolean v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWhiteRGBSupported:Z
 
     :cond_1
-    new-instance v2, Ljava/io/File;
+    new-instance v4, Ljava/io/File;
 
-    const-string/jumbo v5, "/sys/class/lcd/panel/poc"
+    const-string/jumbo v7, "/sys/class/lcd/panel/poc"
 
-    invoke-direct {v2, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_2
+    if-eqz v4, :cond_2
 
-    iput-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+    iput-boolean v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+
+    iput-boolean v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCGray:Z
 
     :cond_2
-    new-instance v2, Ljava/io/File;
+    new-instance v4, Ljava/io/File;
 
-    const-string/jumbo v5, "/efs/poc/current_index"
+    const-string/jumbo v7, "/efs/poc/current_index"
 
-    invoke-direct {v2, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_3
+    if-eqz v4, :cond_3
 
-    iput-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCCurrentIndex:Z
+    iput-boolean v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCCurrentIndex:Z
 
     :cond_3
-    new-instance v2, Ljava/io/File;
+    new-instance v4, Ljava/io/File;
 
-    const-string/jumbo v5, "/efs/FactoryApp/poc_info"
+    const-string/jumbo v7, "/efs/FactoryApp/poc_info"
 
-    invoke-direct {v2, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_4
+    if-eqz v4, :cond_4
 
-    iput-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCInfoSupported:Z
+    iput-boolean v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCInfoSupported:Z
 
     :cond_4
-    iget-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieFactorySupported:Z
+    iget-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieFactorySupported:Z
 
-    iget-boolean v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWhiteRGBSupported:Z
+    iget-boolean v7, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWhiteRGBSupported:Z
 
-    and-int/2addr v2, v5
+    and-int/2addr v4, v7
 
-    if-eqz v2, :cond_13
+    if-eqz v4, :cond_5
 
     invoke-direct {p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->setFactoryWhiteRGB()V
 
-    :goto_d
-    iget-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+    :cond_5
+    iget-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
 
-    if-eqz v2, :cond_14
+    if-eqz v4, :cond_6
 
     invoke-direct {p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->getPOCStatus()V
 
-    :goto_e
-    iget-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+    :cond_6
+    iget-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
 
-    iget-boolean v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCInfoSupported:Z
+    iget-boolean v7, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCInfoSupported:Z
 
-    and-int/2addr v2, v5
+    and-int/2addr v4, v7
 
-    if-eqz v2, :cond_15
+    if-eqz v4, :cond_7
 
     invoke-direct {p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->getPOCInfo()V
 
-    :goto_f
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+    :cond_7
+    iget-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string/jumbo v5, "sec_display_poc_default_position"
+    const-string/jumbo v7, "sec_display_poc_default_position"
 
-    iget v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocIndex:I
+    iget v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocIndex:I
 
-    invoke-static {v2, v5, v6, v4}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+    invoke-static {v4, v7, v8, v6}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+    const-string/jumbo v4, "SemMdnieManagerService"
 
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "screen_mode_automatic_setting"
+    const-string/jumbo v8, "SYSFS_MDNIE_FACTORY_MDNIE : "
 
-    invoke-static {v2, v5, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v2
+    move-result-object v7
 
-    if-ne v2, v3, :cond_16
+    iget-boolean v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieFactorySupported:Z
 
-    move v2, v3
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    :goto_10
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mAutoModeEnabled:Z
+    move-result-object v7
 
-    iget-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mAutoModeEnabled:Z
+    const-string/jumbo v8, ", mMdnieWhiteRGBSupported - "
 
-    if-eqz v2, :cond_17
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v2, 0x4
+    move-result-object v7
 
-    iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mScreenMode:I
+    iget-boolean v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWhiteRGBSupported:Z
 
-    :goto_11
-    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContentMode:I
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    iput-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mDisplayOn:Z
+    move-result-object v7
 
-    iput-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWorkingCondition:Z
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mScreenMode:I
+    move-result-object v7
 
-    invoke-virtual {p0, v2}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->setScreenMode(I)Z
+    invoke-static {v4, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContentMode:I
+    const-string/jumbo v4, "SemMdnieManagerService"
 
-    invoke-virtual {p0, v2}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->setContentMode(I)Z
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "mMdniePOCSupported : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-boolean v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v4, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v4, "SemMdnieManagerService"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "mMdniePOCSupported : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-boolean v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ", mMdniePOCInfoSupported - "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-boolean v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCInfoSupported:Z
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v4, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string/jumbo v7, "screen_mode_automatic_setting"
+
+    invoke-static {v4, v7, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-ne v4, v5, :cond_16
+
+    move v4, v5
+
+    :goto_d
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mAutoModeEnabled:Z
+
+    iget-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mAutoModeEnabled:Z
+
+    if-eqz v4, :cond_17
+
+    const/4 v4, 0x4
+
+    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mScreenMode:I
+
+    :goto_e
+    iput v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContentMode:I
+
+    iput-boolean v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mDisplayOn:Z
+
+    iput-boolean v5, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWorkingCondition:Z
+
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mScreenMode:I
+
+    invoke-virtual {p0, v4}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->setScreenMode(I)Z
+
+    iget v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContentMode:I
+
+    invoke-virtual {p0, v4}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->setContentMode(I)Z
 
     invoke-direct {p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->update_cell_id()V
 
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+    invoke-direct {p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->update_mdnie_info()V
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x11200d1
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v4
+
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mUseAdaptiveDisplayColorServiceConfig:Z
+
+    iget-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mUseAdaptiveDisplayColorServiceConfig:Z
+
+    if-eqz v4, :cond_8
+
+    new-instance v4, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;
+
+    invoke-direct {v4, p1}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;-><init>(Landroid/content/Context;)V
+
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->adaptiveDisplay:Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;
+
+    :cond_8
+    iget-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x11200d3
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v4
+
+    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mResourcePocConfig:Z
+
+    iget-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mResourcePocConfig:Z
+
+    if-eqz v4, :cond_19
+
+    const/16 v4, 0x168
+
+    new-array v4, v4, [F
+
+    iput-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocElementArray:[F
+
+    iget-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x1070092
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x11200d1
+    const/4 v0, 0x0
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
+    :goto_f
+    iget-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocElementArray:[F
 
-    move-result v2
+    array-length v4, v4
 
-    iput-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mUseAdaptiveDisplayColorServiceConfig:Z
+    if-ge v0, v4, :cond_18
 
-    iget-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mUseAdaptiveDisplayColorServiceConfig:Z
+    iget-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocElementArray:[F
 
-    if-eqz v2, :cond_5
+    aget-object v5, v2, v0
 
-    new-instance v2, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;
+    invoke-static {v5}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    invoke-direct {v2, p1}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;-><init>(Landroid/content/Context;)V
+    move-result v5
 
-    iput-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->adaptiveDisplay:Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;
+    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    :cond_5
-    invoke-direct {p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->setting_is_changed()V
+    move-result-object v5
 
-    return-void
+    invoke-virtual {v5}, Ljava/lang/Float;->floatValue()F
 
-    :cond_6
-    move v2, v4
+    move-result v5
+
+    aput v5, v4, v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_f
+
+    :cond_9
+    move v4, v6
 
     goto/16 :goto_0
 
-    :cond_7
-    move v2, v4
+    :cond_a
+    move v4, v6
 
     goto/16 :goto_1
 
-    :cond_8
-    move v2, v4
+    :cond_b
+    move v4, v6
 
     goto/16 :goto_2
 
-    :cond_9
-    move v2, v4
+    :cond_c
+    move v4, v6
 
     goto/16 :goto_3
 
-    :cond_a
-    move v2, v4
+    :cond_d
+    move v4, v6
 
     goto/16 :goto_4
 
-    :cond_b
-    move v2, v4
+    :cond_e
+    move v4, v6
 
     goto/16 :goto_5
 
-    :cond_c
-    move v2, v4
+    :cond_f
+    move v4, v6
 
     goto/16 :goto_6
 
-    :cond_d
-    move v2, v4
+    :cond_10
+    move v4, v6
 
     goto/16 :goto_7
 
-    :cond_e
-    move v2, v4
+    :cond_11
+    move v4, v6
 
     goto/16 :goto_8
 
-    :cond_f
-    move v2, v4
+    :cond_12
+    move v4, v6
 
     goto/16 :goto_9
 
-    :cond_10
-    move v2, v4
+    :cond_13
+    move v4, v6
 
     goto/16 :goto_a
 
-    :cond_11
-    move v2, v4
+    :cond_14
+    move v4, v6
 
     goto/16 :goto_b
 
-    :cond_12
-    move v2, v4
+    :cond_15
+    move v4, v6
 
     goto/16 :goto_c
 
-    :cond_13
-    const-string/jumbo v2, "SemMdnieManagerService"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "SYSFS_MDNIE_FACTORY_MDNIE : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieFactorySupported:Z
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ", mMdnieWhiteRGBSupported - "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWhiteRGBSupported:Z
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v2, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :cond_16
+    move v4, v6
 
     goto/16 :goto_d
 
-    :cond_14
-    const-string/jumbo v2, "SemMdnieManagerService"
+    :cond_17
+    iget-object v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v4
 
-    const-string/jumbo v6, "mMdniePOCSupported : "
+    const-string/jumbo v7, "screen_mode_setting"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v4, v7, v6, v9}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result-object v5
+    move-result v4
 
-    iget-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v2, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mScreenMode:I
 
     goto/16 :goto_e
 
-    :cond_15
-    const-string/jumbo v2, "SemMdnieManagerService"
+    :cond_18
+    const-string/jumbo v4, "SemMdnieManagerService"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "mMdniePOCSupported : "
+    const-string/jumbo v7, "mResourcePocConfig : "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    const-string/jumbo v6, ", mMdniePOCInfoSupported - "
+    iget-boolean v7, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mResourcePocConfig:Z
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    iget-boolean v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCInfoSupported:Z
+    const-string/jumbo v7, " : "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v7, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocElementArray:[F
+
+    aget v6, v7, v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -1360,31 +1503,12 @@
 
     move-result-object v5
 
-    invoke-static {v2, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_f
+    :cond_19
+    invoke-direct {p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->setting_is_changed()V
 
-    :cond_16
-    move v2, v4
-
-    goto/16 :goto_10
-
-    :cond_17
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v5, "screen_mode_setting"
-
-    invoke-static {v2, v5, v4, v7}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v2
-
-    iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mScreenMode:I
-
-    goto/16 :goto_11
+    return-void
 .end method
 
 .method private checkContentMode(I)Z
@@ -2039,7 +2163,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_3
 
     invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
 
@@ -2055,7 +2179,7 @@
 
     const/4 v10, 0x3
 
-    if-ne v9, v10, :cond_2
+    if-ne v9, v10, :cond_3
 
     const/4 v9, 0x0
 
@@ -2085,9 +2209,9 @@
 
     iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocFused:I
 
-    if-ne v9, v11, :cond_6
+    if-ne v9, v11, :cond_7
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_7
 
     const/4 v9, 0x1
 
@@ -2119,11 +2243,40 @@
 
     if-eqz v9, :cond_1
 
+    iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocFused:I
+
+    if-ne v9, v11, :cond_1
+
     const/4 v9, 0x0
 
-    iput-boolean v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+    iput-boolean v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCGray:Z
 
     :cond_1
+    const/4 v9, 0x2
+
+    aget-object v9, v7, v9
+
+    invoke-virtual {v9}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "64"
+
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_2
+
+    iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocFused:I
+
+    if-ne v9, v11, :cond_2
+
+    const/4 v9, 0x0
+
+    iput-boolean v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCGray:Z
+
+    :cond_2
     const-string/jumbo v9, "SemMdnieManagerService"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -2152,13 +2305,13 @@
 
     move-result-object v10
 
-    const-string/jumbo v11, ", mMdniePOCSupported - "
+    const-string/jumbo v11, ", mMdniePOCGray - "
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
-    iget-boolean v11, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+    iget-boolean v11, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCGray:Z
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -2174,34 +2327,34 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_d
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    :cond_2
-    if-eqz v1, :cond_3
+    :cond_3
+    if-eqz v1, :cond_4
 
     :try_start_3
     invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
-    :cond_3
+    :cond_4
     :goto_1
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     :try_start_4
     invoke-virtual {v5}, Ljava/io/FileReader;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
-    :cond_4
+    :cond_5
     :goto_2
     move-object v0, v1
 
     move-object v4, v5
 
-    :cond_5
+    :cond_6
     :goto_3
     return-void
 
-    :cond_6
+    :cond_7
     const/4 v9, 0x0
 
     :try_start_5
@@ -2226,16 +2379,16 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     :try_start_7
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_7
 
-    :cond_7
+    :cond_8
     :goto_5
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     :try_start_8
     invoke-virtual {v4}, Ljava/io/FileReader;->close()V
@@ -2346,16 +2499,16 @@
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
     :try_start_a
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
     :try_end_a
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_6
 
-    :cond_8
+    :cond_9
     :goto_7
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     :try_start_b
     invoke-virtual {v4}, Ljava/io/FileReader;->close()V
@@ -2461,23 +2614,23 @@
     move-exception v9
 
     :goto_8
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
     :try_start_c
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
     :try_end_c
     .catch Ljava/io/IOException; {:try_start_c .. :try_end_c} :catch_8
 
-    :cond_9
+    :cond_a
     :goto_9
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     :try_start_d
     invoke-virtual {v4}, Ljava/io/FileReader;->close()V
     :try_end_d
     .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_9
 
-    :cond_a
+    :cond_b
     :goto_a
     throw v9
 
@@ -2586,6 +2739,256 @@
     move-object v4, v5
 
     goto/16 :goto_6
+.end method
+
+.method private getPocCurrentUser()I
+    .locals 13
+
+    const/4 v7, 0x0
+
+    :try_start_0
+    new-instance v2, Ljava/io/File;
+
+    const-string/jumbo v9, "/efs/FactoryApp/poc_user"
+
+    invoke-direct {v2, v9}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result v9
+
+    if-eqz v9, :cond_1
+
+    const/4 v3, 0x0
+
+    :try_start_1
+    new-instance v4, Ljava/io/BufferedReader;
+
+    new-instance v9, Ljava/io/FileReader;
+
+    invoke-direct {v9, v2}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+
+    invoke-direct {v4, v9}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    const-string/jumbo v8, "0"
+
+    invoke-virtual {v4}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_0
+
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v9
+
+    if-lez v9, :cond_0
+
+    const-string/jumbo v9, ","
+
+    invoke-virtual {v6, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v9}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v5
+
+    const/4 v9, 0x0
+
+    invoke-interface {v5, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Ljava/lang/String;
+
+    :cond_0
+    invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_5
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    move-result v7
+
+    if-eqz v4, :cond_1
+
+    :try_start_3
+    invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+
+    :cond_1
+    :goto_0
+    return v7
+
+    :catch_0
+    move-exception v0
+
+    :try_start_4
+    const-string/jumbo v9, "SemMdnieManagerService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "BufferedReader Close IOException : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
+
+    :catch_2
+    move-exception v1
+
+    :goto_1
+    :try_start_5
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    if-eqz v3, :cond_1
+
+    :try_start_6
+    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
+
+    goto :goto_0
+
+    :catch_3
+    move-exception v0
+
+    :try_start_7
+    const-string/jumbo v9, "SemMdnieManagerService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "BufferedReader Close IOException : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v9
+
+    :goto_2
+    if-eqz v3, :cond_2
+
+    :try_start_8
+    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_4
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_1
+
+    :cond_2
+    :goto_3
+    :try_start_9
+    throw v9
+
+    :catch_4
+    move-exception v0
+
+    const-string/jumbo v10, "SemMdnieManagerService"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "BufferedReader Close IOException : "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_1
+
+    goto :goto_3
+
+    :catchall_1
+    move-exception v9
+
+    move-object v3, v4
+
+    goto :goto_2
+
+    :catch_5
+    move-exception v1
+
+    move-object v3, v4
+
+    goto :goto_1
 .end method
 
 .method private getStringFromFile(Ljava/lang/String;)Ljava/lang/String;
@@ -2786,21 +3189,19 @@
     goto :goto_2
 .end method
 
-.method private static native nativeMergeVector(III)I
+.method private static native nativeMergeVector(III[F)I
 .end method
 
 .method private static readStrFromFile(Ljava/lang/String;)Ljava/lang/String;
-    .locals 13
+    .locals 12
 
     const/4 v5, 0x0
 
     const/4 v0, 0x0
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
     const/4 v4, 0x0
-
-    const/4 v7, 0x1
 
     :try_start_0
     new-instance v6, Ljava/io/FileReader;
@@ -2827,7 +3228,7 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_d
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    move-result-object v8
+    move-result-object v7
 
     if-eqz v1, :cond_0
 
@@ -2853,67 +3254,67 @@
 
     :cond_2
     :goto_2
-    return-object v8
+    return-object v7
 
     :catch_0
     move-exception v3
 
-    sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "BufferedReader Close IOException : "
+    const-string/jumbo v10, "BufferedReader Close IOException : "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
     invoke-virtual {v3}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v10
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_0
 
     :catch_1
     move-exception v3
 
-    sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "FileReader Close IOException : "
+    const-string/jumbo v10, "FileReader Close IOException : "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
     invoke-virtual {v3}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v10
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -2947,62 +3348,62 @@
     :catch_3
     move-exception v3
 
-    sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "FileReader Close IOException : "
+    const-string/jumbo v10, "FileReader Close IOException : "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
     invoke-virtual {v3}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v10
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_2
 
     :catch_4
     move-exception v3
 
-    sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "BufferedReader Close IOException : "
+    const-string/jumbo v10, "BufferedReader Close IOException : "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
     invoke-virtual {v3}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v10
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_4
 
@@ -3036,35 +3437,90 @@
     :catch_6
     move-exception v3
 
-    sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "FileReader Close IOException : "
+    const-string/jumbo v10, "FileReader Close IOException : "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
     invoke-virtual {v3}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v10
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto/16 :goto_2
 
     :catch_7
+    move-exception v3
+
+    sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "BufferedReader Close IOException : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v3}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    goto :goto_6
+
+    :catchall_0
+    move-exception v8
+
+    :goto_7
+    if-eqz v0, :cond_5
+
+    :try_start_b
+    invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
+    :try_end_b
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_8
+
+    :cond_5
+    :goto_8
+    if-eqz v5, :cond_6
+
+    :try_start_c
+    invoke-virtual {v5}, Ljava/io/FileReader;->close()V
+    :try_end_c
+    .catch Ljava/io/IOException; {:try_start_c .. :try_end_c} :catch_9
+
+    :cond_6
+    :goto_9
+    throw v8
+
+    :catch_8
     move-exception v3
 
     sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -3093,103 +3549,48 @@
 
     invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    goto :goto_6
-
-    :catchall_0
-    move-exception v9
-
-    :goto_7
-    if-eqz v0, :cond_5
-
-    :try_start_b
-    invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
-    :try_end_b
-    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_8
-
-    :cond_5
-    :goto_8
-    if-eqz v5, :cond_6
-
-    :try_start_c
-    invoke-virtual {v5}, Ljava/io/FileReader;->close()V
-    :try_end_c
-    .catch Ljava/io/IOException; {:try_start_c .. :try_end_c} :catch_9
-
-    :cond_6
-    :goto_9
-    throw v9
-
-    :catch_8
-    move-exception v3
-
-    sget-object v10, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "BufferedReader Close IOException : "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v3}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
     goto :goto_8
 
     :catch_9
     move-exception v3
 
-    sget-object v10, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "FileReader Close IOException : "
+    const-string/jumbo v11, "FileReader Close IOException : "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v10
 
     invoke-virtual {v3}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v11
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-virtual {v10, v11}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_9
 
     :catchall_1
-    move-exception v9
+    move-exception v8
 
     move-object v5, v6
 
     goto :goto_7
 
     :catchall_2
-    move-exception v9
+    move-exception v8
 
     move-object v0, v1
 
@@ -3425,7 +3826,7 @@
 
     iget v11, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mFactoryScrIndex:I
 
-    const/4 v12, 0x4
+    const/4 v12, 0x7
 
     if-le v11, v12, :cond_5
 
@@ -3822,9 +4223,9 @@
 
     const/4 v14, 0x2
 
-    const/4 v13, 0x1
+    const/16 v13, -0x28
 
-    const/16 v12, -0x28
+    const/4 v12, 0x1
 
     const/4 v10, -0x2
 
@@ -3934,17 +4335,17 @@
 
     iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mReadingScreenMode:I
 
-    if-ne v8, v9, :cond_3
+    if-ne v8, v9, :cond_4
 
     iget-object v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPowerManager:Landroid/os/PowerManager;
 
-    invoke-virtual {v8, v13}, Landroid/os/PowerManager;->setAutoBrightnessForEbookOnly(Z)V
+    invoke-virtual {v8, v12}, Landroid/os/PowerManager;->setAutoBrightnessForEbookOnly(Z)V
 
     :cond_0
     :goto_0
     iget-boolean v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWhiteRGBSupported:Z
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_3
 
     const-string/jumbo v8, "SemMdnieManagerService"
 
@@ -4000,45 +4401,25 @@
 
     iput v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCustomScrBIndex:I
 
-    iget-object v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
+    iget-boolean v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
 
-    iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+    if-eqz v8, :cond_1
 
-    aget-object v8, v8, v9
+    iget-boolean v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCGray:Z
 
-    aget v8, v8, v11
+    if-eqz v8, :cond_5
 
-    add-int/2addr v6, v8
-
-    iget-object v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
-
-    iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
-
-    aget-object v8, v8, v9
-
-    aget v8, v8, v13
-
-    add-int/2addr v4, v8
-
-    iget-object v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
-
-    iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
-
-    aget-object v8, v8, v9
-
-    aget v8, v8, v14
-
-    add-int/2addr v3, v8
-
+    :cond_1
+    :goto_1
     iget v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mFactoryScrIndex:I
 
     add-int v5, v8, v2
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_2
 
-    const/16 v8, 0x9
+    const/16 v8, 0xc
 
-    if-ge v5, v8, :cond_1
+    if-ge v5, v8, :cond_2
 
     iput v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPresetScrIndex:I
 
@@ -4054,7 +4435,7 @@
 
     aget-object v8, v8, v5
 
-    aget v8, v8, v13
+    aget v8, v8, v12
 
     add-int/2addr v4, v8
 
@@ -4066,18 +4447,18 @@
 
     add-int/2addr v3, v8
 
-    :cond_1
-    if-gtz v6, :cond_2
+    :cond_2
+    if-gtz v6, :cond_3
 
-    if-lt v6, v12, :cond_2
+    if-lt v6, v13, :cond_3
 
-    if-gtz v4, :cond_2
+    if-gtz v4, :cond_3
 
-    if-lt v4, v12, :cond_2
+    if-lt v4, v13, :cond_3
 
-    if-gtz v3, :cond_2
+    if-gtz v3, :cond_3
 
-    if-lt v3, v12, :cond_2
+    if-lt v3, v13, :cond_3
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -4127,10 +4508,10 @@
 
     invoke-static {v8, v7}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWriteSting(Ljava/lang/String;Ljava/lang/String;)Z
 
-    :cond_2
+    :cond_3
     return-void
 
-    :cond_3
+    :cond_4
     iget v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPrevScreenModeForReadingMode:I
 
     iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mReadingScreenMode:I
@@ -4142,6 +4523,53 @@
     invoke-virtual {v8, v11}, Landroid/os/PowerManager;->setAutoBrightnessForEbookOnly(Z)V
 
     goto/16 :goto_0
+
+    :cond_5
+    iget v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+
+    if-ltz v8, :cond_6
+
+    iget v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+
+    const/4 v9, 0x6
+
+    if-lt v8, v9, :cond_7
+
+    :cond_6
+    iput v12, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+
+    :cond_7
+    iget-object v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
+
+    iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+
+    aget-object v8, v8, v9
+
+    aget v8, v8, v11
+
+    add-int/2addr v6, v8
+
+    iget-object v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
+
+    iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+
+    aget-object v8, v8, v9
+
+    aget v8, v8, v12
+
+    add-int/2addr v4, v8
+
+    iget-object v8, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
+
+    iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+
+    aget-object v8, v8, v9
+
+    aget v8, v8, v14
+
+    add-int/2addr v3, v8
+
+    goto/16 :goto_1
 .end method
 
 .method private static sysfsWrite(Ljava/lang/String;I)Z
@@ -5159,7 +5587,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_a
 
     :try_start_1
     const-string/jumbo v1, "/efs/etc/poc/cell_id"
@@ -5214,17 +5642,41 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->EFS_PANEL_INFO:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->USER_PANEL_INFO:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
+    if-nez v1, :cond_9
 
     const-string/jumbo v1, "SemMdnieManagerService"
 
-    const-string/jumbo v2, "EFS_PANEL_INFO , USER_PANEL_INFO Diff X"
+    const-string/jumbo v2, "EFS_PANEL_INFO value is NULL"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v1, "/efs/etc/poc/cell_id"
+
+    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->USER_PANEL_INFO:Ljava/lang/String;
+
+    invoke-static {v1, v2}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWriteSting(Ljava/lang/String;Ljava/lang/String;)Z
+
+    const-string/jumbo v1, "SemMdnieManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "UPDATE EFS_PANEL_INFO : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->EFS_PANEL_INFO:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5237,7 +5689,7 @@
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :catch_1
     move-exception v0
@@ -5496,6 +5948,15 @@
     goto/16 :goto_2
 
     :cond_9
+    const-string/jumbo v1, "SemMdnieManagerService"
+
+    const-string/jumbo v2, "EFS_PANEL_INFO , USER_PANEL_INFO Diff X"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_2
+
+    :cond_a
     new-instance v1, Ljava/io/File;
 
     const-string/jumbo v2, "/efs/etc/poc/cell_id"
@@ -5555,6 +6016,95 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_2
+.end method
+
+.method private update_mdnie_info()V
+    .locals 4
+
+    const-string/jumbo v1, "SemMdnieManagerService"
+
+    const-string/jumbo v2, "update_mdnie_info"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/io/File;
+
+    const-string/jumbo v2, "/efs/FactoryApp/poc_user"
+
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->getPocCurrentUser()I
+
+    move-result v0
+
+    const/4 v1, 0x4
+
+    if-gt v0, v1, :cond_0
+
+    const/4 v1, -0x1
+
+    if-ge v0, v1, :cond_2
+
+    :cond_0
+    const/4 v1, 0x1
+
+    iput v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+
+    :cond_1
+    :goto_0
+    const-string/jumbo v1, "SemMdnieManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "update_mdnie_info - mPocScrIndex : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    add-int/lit8 v1, v0, 0x1
+
+    iput v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+
+    goto :goto_0
+
+    :cond_3
+    iget-boolean v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCInfoSupported:Z
+
+    if-eqz v1, :cond_1
+
+    iget v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocIndex:I
+
+    add-int/lit8 v1, v1, 0x1
+
+    iput v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+
+    goto :goto_0
 .end method
 
 
@@ -6005,23 +6555,63 @@
 .end method
 
 .method public isMdniePocFused()Z
-    .locals 1
+    .locals 2
+
+    new-instance v0, Ljava/io/File;
+
+    const-string/jumbo v1, "/sys/class/lcd/panel/poc"
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     invoke-direct {p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->getPOCStatus()V
 
+    :goto_0
     iget-boolean v0, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCFused:Z
 
     return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCFused:Z
+
+    goto :goto_0
 .end method
 
 .method public isMdniePocSupported()Z
-    .locals 1
+    .locals 2
+
+    new-instance v0, Ljava/io/File;
+
+    const-string/jumbo v1, "/sys/class/lcd/panel/poc"
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     invoke-direct {p0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->getPOCStatus()V
 
-    iget-boolean v0, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+    :goto_0
+    iget-boolean v0, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCGray:Z
 
     return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCGray:Z
+
+    goto :goto_0
 .end method
 
 .method public isScreenModeSupported()Z
@@ -6310,6 +6900,12 @@
 
     move-result v0
 
+    const-string/jumbo v2, "SemMdnieManagerService"
+
+    const-string/jumbo v3, "setPocCancel"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
 
     if-eqz v2, :cond_0
@@ -6335,7 +6931,7 @@
 .end method
 
 .method public setPocSetting(I)Z
-    .locals 14
+    .locals 13
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
@@ -6369,26 +6965,31 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCSupported:Z
+    const/4 v9, -0x1
 
-    if-eqz v9, :cond_2
+    if-lt p1, v9, :cond_0
 
-    iget-object v10, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mLock:Ljava/lang/Object;
+    const/4 v9, 0x4
 
-    monitor-enter v10
+    if-le p1, v9, :cond_1
 
-    :try_start_0
+    :cond_0
+    const/4 v9, 0x0
+
+    return v9
+
+    :cond_1
     new-instance v9, Ljava/io/File;
 
-    const-string/jumbo v11, "/efs/etc/poc/org.vec"
+    const-string/jumbo v10, "/efs/etc/poc/org.vec"
 
-    invoke-direct {v9, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v9, v10}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v9}, Ljava/io/File;->exists()Z
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_2
 
     const/4 v0, 0x1
 
@@ -6396,92 +6997,26 @@
 
     iput-boolean v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCUsedExist:Z
 
-    :cond_0
+    :cond_2
     iget v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocFused:I
 
-    invoke-static {v0, v9, p1}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->nativeMergeVector(III)I
+    iget-object v10, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocElementArray:[F
+
+    invoke-static {v0, v9, p1, v10}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->nativeMergeVector(III[F)I
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_6
 
-    iget-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+    iget-boolean v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdniePOCGray:Z
 
-    invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    if-nez v9, :cond_5
 
-    move-result-object v9
-
-    const-string/jumbo v11, "sec_display_poc_application_complete"
-
-    const/4 v12, 0x1
-
-    const/4 v13, 0x0
-
-    invoke-static {v9, v11, v12, v13}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
-
-    const-string/jumbo v9, "/efs/FactoryApp/poc_done"
-
-    const/4 v11, 0x1
-
-    invoke-static {v9, v11}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite(Ljava/lang/String;I)Z
-
-    const-string/jumbo v9, "SemMdnieManagerService"
-
-    const-string/jumbo v11, "setPocSetting  Complete"
-
-    invoke-static {v9, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const/4 v9, 0x1
-
-    monitor-exit v10
-
-    return v9
-
-    :cond_1
-    :try_start_1
-    iget-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v9
-
-    const-string/jumbo v11, "sec_display_poc_application_complete"
-
-    const/4 v12, 0x2
-
-    const/4 v13, 0x0
-
-    invoke-static {v9, v11, v12, v13}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
-
-    const-string/jumbo v9, "SemMdnieManagerService"
-
-    const-string/jumbo v11, "setPocSetting  Fail"
-
-    invoke-static {v9, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v9, 0x0
-
-    monitor-exit v10
-
-    return v9
-
-    :catchall_0
-    move-exception v9
-
-    monitor-exit v10
-
-    throw v9
-
-    :cond_2
     iget-boolean v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWhiteRGBSupported:Z
 
     if-eqz v9, :cond_5
 
-    iput p1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
+    add-int/lit8 p1, p1, 0x1
 
     iget v6, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCustomScrRIndex:I
 
@@ -6491,9 +7026,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
 
-    iget v10, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
-
-    aget-object v9, v9, v10
+    aget-object v9, v9, p1
 
     const/4 v10, 0x0
 
@@ -6503,9 +7036,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
 
-    iget v10, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
-
-    aget-object v9, v9, v10
+    aget-object v9, v9, p1
 
     const/4 v10, 0x1
 
@@ -6515,9 +7046,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPOCAdjustWhiteRGB:[[I
 
-    iget v10, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
-
-    aget-object v9, v9, v10
+    aget-object v9, v9, p1
 
     const/4 v10, 0x2
 
@@ -6533,7 +7062,7 @@
 
     if-ltz v5, :cond_3
 
-    const/16 v9, 0x9
+    const/16 v9, 0xc
 
     if-ge v5, v9, :cond_3
 
@@ -6585,6 +7114,8 @@
     const/16 v9, -0x28
 
     if-lt v3, v9, :cond_4
+
+    iput p1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mPocScrIndex:I
 
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -6656,7 +7187,7 @@
 
     const-string/jumbo v9, "SemMdnieManagerService"
 
-    const-string/jumbo v10, "setPocSetting  Complete"
+    const-string/jumbo v10, "setPocSetting - POC - Success- RGB - Complete"
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -6681,7 +7212,7 @@
 
     const-string/jumbo v9, "SemMdnieManagerService"
 
-    const-string/jumbo v10, "setPocSetting  Fail"
+    const-string/jumbo v10, "ssetPocSetting - POC - Success- RGB - Fail - Out of Value"
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -6690,6 +7221,57 @@
     return v9
 
     :cond_5
+    iget-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "sec_display_poc_application_complete"
+
+    const/4 v11, 0x1
+
+    const/4 v12, 0x0
+
+    invoke-static {v9, v10, v11, v12}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
+    const-string/jumbo v9, "/efs/FactoryApp/poc_done"
+
+    const/4 v10, 0x1
+
+    invoke-static {v9, v10}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite(Ljava/lang/String;I)Z
+
+    const-string/jumbo v9, "SemMdnieManagerService"
+
+    const-string/jumbo v10, "setPocSetting  - mMdniePOCGray - Complete"
+
+    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v9, 0x1
+
+    return v9
+
+    :cond_6
+    iget-object v9, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "sec_display_poc_application_complete"
+
+    const/4 v11, 0x2
+
+    const/4 v12, 0x0
+
+    invoke-static {v9, v10, v11, v12}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
+    const-string/jumbo v9, "SemMdnieManagerService"
+
+    const-string/jumbo v10, "setPocSetting  - mMdniePOCGray - Fail"
+
+    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     const/4 v9, 0x0
 
     return v9

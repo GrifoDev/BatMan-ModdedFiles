@@ -41,6 +41,8 @@
 
 .field private static final KEYGUARD_HOST_ID:I = 0x4b455947
 
+.field private static final LAUNCHER_UNBIND_WIDGET:Ljava/lang/String; = "com.sec.android.launcher.action.UNBIND_WIDGET"
+
 .field private static final LOADED_PROFILE_ID:I = -0x1
 
 .field private static final MAX_HOST_HISTORY:I = 0x7
@@ -67,8 +69,12 @@
 
 .field private static final UNKNOWN_USER_ID:I = -0xa
 
+.field private static mBlackListPackage:[Ljava/lang/String;
+
 
 # instance fields
+.field private final SEC_SCPM_INTENT_APPWIDGET:Ljava/lang/String;
+
 .field private final mActivityManager:Landroid/app/ActivityManager;
 
 .field private final mAlarmManager:Landroid/app/AlarmManager;
@@ -103,7 +109,7 @@
 
 .field private mEmergencyState:I
 
-.field private mFdFile:Ljava/io/File;
+.field private final mFdFile:Ljava/io/File;
 
 .field private mHostHistory:[Ljava/lang/String;
 
@@ -122,9 +128,15 @@
 
 .field private final mIconUtilities:Lcom/android/server/policy/IconUtilities;
 
+.field private mIsPolicySeqNum:Z
+
+.field private mIsPolicySkipMerge:Z
+
+.field private mIsPolicyTooLarge:Z
+
 .field private final mKeyguardManager:Landroid/app/KeyguardManager;
 
-.field private mLastSeqNumber:Ljava/util/HashMap;
+.field private final mLastSeqNumber:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -148,7 +160,7 @@
 
 .field private final mPackageManager:Landroid/content/pm/IPackageManager;
 
-.field private mPackageToPidMap:Ljava/util/HashMap;
+.field private final mPackageToPidMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -176,7 +188,7 @@
     .end annotation
 .end field
 
-.field private mPidToPackageMap:Ljava/util/HashMap;
+.field private final mPidToPackageMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -187,6 +199,8 @@
         }
     .end annotation
 .end field
+
+.field private mPolicyMaxFdCount:I
 
 .field private final mProviders:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -224,6 +238,12 @@
 .field private mScreenDensity:I
 
 .field private final mSecurityPolicy:Lcom/android/server/appwidget/AppWidgetServiceImpl$SecurityPolicy;
+
+.field private mSemAppWidgetPolicyManager:Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
+
+.field private mSeqNumMin:I
+
+.field private mSeqNumNextStep:I
 
 .field private mThemePkg:Ljava/lang/String;
 
@@ -273,7 +293,15 @@
     return v0
 .end method
 
-.method static synthetic -get10(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Lcom/android/server/appwidget/AppWidgetServiceImpl$SecurityPolicy;
+.method static synthetic -get10(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Ljava/util/ArrayList;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mProviders:Ljava/util/ArrayList;
+
+    return-object v0
+.end method
+
+.method static synthetic -get11(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Lcom/android/server/appwidget/AppWidgetServiceImpl$SecurityPolicy;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSecurityPolicy:Lcom/android/server/appwidget/AppWidgetServiceImpl$SecurityPolicy;
@@ -281,7 +309,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get11(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Landroid/os/UserManager;
+.method static synthetic -get12(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Landroid/os/UserManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mUserManager:Landroid/os/UserManager;
@@ -289,7 +317,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get12(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Ljava/util/ArrayList;
+.method static synthetic -get13(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mWidgets:Ljava/util/ArrayList;
@@ -305,7 +333,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Landroid/content/Context;
+.method static synthetic -get3()[Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mBlackListPackage:[Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mContext:Landroid/content/Context;
@@ -313,7 +349,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Landroid/app/admin/DevicePolicyManagerInternal;
+.method static synthetic -get5(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Landroid/app/admin/DevicePolicyManagerInternal;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mDevicePolicyManagerInternal:Landroid/app/admin/DevicePolicyManagerInternal;
@@ -321,7 +357,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Ljava/util/ArrayList;
+.method static synthetic -get6(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mHosts:Ljava/util/ArrayList;
@@ -329,7 +365,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Ljava/lang/Object;
+.method static synthetic -get7(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mLock:Ljava/lang/Object;
@@ -337,7 +373,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Landroid/content/pm/IPackageManager;
+.method static synthetic -get8(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Landroid/content/pm/IPackageManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPackageManager:Landroid/content/pm/IPackageManager;
@@ -345,18 +381,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Landroid/util/ArraySet;
+.method static synthetic -get9(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Landroid/util/ArraySet;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPackagesWithBindWidgetPermission:Landroid/util/ArraySet;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mProviders:Ljava/util/ArrayList;
 
     return-object v0
 .end method
@@ -495,7 +523,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap22(Lcom/android/server/appwidget/AppWidgetServiceImpl;[Ljava/lang/String;ZI)V
+.method static synthetic -wrap22(Lcom/android/server/appwidget/AppWidgetServiceImpl;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->updateAppWidgetPolicy()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap23(Lcom/android/server/appwidget/AppWidgetServiceImpl;[Ljava/lang/String;ZI)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->updateWidgetPackageSuspensionMaskedState([Ljava/lang/String;ZI)V
@@ -634,11 +670,13 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 5
+    .locals 6
+
+    const/4 v5, 0x0
 
     const/4 v4, 0x0
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
     invoke-direct {p0}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;-><init>()V
 
@@ -702,9 +740,9 @@
 
     iput-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mWidgetPackages:Landroid/util/SparseArray;
 
-    iput-object v3, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mThemePkg:Ljava/lang/String;
+    iput-object v4, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mThemePkg:Ljava/lang/String;
 
-    iput v4, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mEmergencyState:I
+    iput v5, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mEmergencyState:I
 
     new-instance v1, Landroid/util/SparseIntArray;
 
@@ -738,13 +776,35 @@
 
     iput-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mLastSeqNumber:Ljava/util/HashMap;
 
+    iput-boolean v3, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySeqNum:Z
+
+    iput-boolean v3, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicyTooLarge:Z
+
+    iput-boolean v3, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySkipMerge:Z
+
+    const/16 v1, 0x40
+
+    iput v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPolicyMaxFdCount:I
+
+    const/16 v1, 0x320
+
+    iput v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSeqNumMin:I
+
+    const/16 v1, 0xc8
+
+    iput v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSeqNumNextStep:I
+
+    const-string/jumbo v1, "sec.app.policy.UPDATE.AppWidget"
+
+    iput-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->SEC_SCPM_INTENT_APPWIDGET:Ljava/lang/String;
+
     const/4 v1, 0x7
 
     new-array v1, v1, [Ljava/lang/String;
 
     iput-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mHostHistory:[Ljava/lang/String;
 
-    iput v4, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mHostHistoryIdx:I
+    iput v5, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mHostHistoryIdx:I
 
     iput-object p1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mContext:Landroid/content/Context;
 
@@ -844,13 +904,13 @@
 
     new-instance v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController;
 
-    invoke-direct {v1, p0, v3}, Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController;-><init>(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController;)V
+    invoke-direct {v1, p0, v4}, Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController;-><init>(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController;)V
 
     iput-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mBackupRestoreController:Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController;
 
     new-instance v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$SecurityPolicy;
 
-    invoke-direct {v1, p0, v3}, Lcom/android/server/appwidget/AppWidgetServiceImpl$SecurityPolicy;-><init>(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$SecurityPolicy;)V
+    invoke-direct {v1, p0, v4}, Lcom/android/server/appwidget/AppWidgetServiceImpl$SecurityPolicy;-><init>(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$SecurityPolicy;)V
 
     iput-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSecurityPolicy:Lcom/android/server/appwidget/AppWidgetServiceImpl$SecurityPolicy;
 
@@ -859,6 +919,14 @@
     invoke-direct {v1, p1}, Lcom/android/server/policy/IconUtilities;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIconUtilities:Lcom/android/server/policy/IconUtilities;
+
+    new-instance v1, Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Lcom/android/server/appwidget/SemAppWidgetPolicyManager;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSemAppWidgetPolicyManager:Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
 
     invoke-direct {p0}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->computeMaximumWidgetBitmapMemory()V
 
@@ -1670,20 +1738,20 @@
 
     move-result-object v1
 
-    const v2, 0x1090180
+    const v2, 0x1090181
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
     if-eqz p1, :cond_0
 
-    const v1, 0x102053b
+    const v1, 0x1020544
 
     invoke-virtual {v0, v1, p1}, Landroid/widget/RemoteViews;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
 
     :cond_0
     if-nez p2, :cond_1
 
-    const v1, 0x102053c
+    const v1, 0x1020545
 
     const/4 v2, 0x4
 
@@ -1692,7 +1760,7 @@
     :cond_1
     if-eqz p3, :cond_2
 
-    const v1, 0x102053a
+    const v1, 0x1020543
 
     invoke-virtual {v0, v1, p3}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -2316,19 +2384,32 @@
     invoke-virtual {p2, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
     :cond_2
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->transactionError:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->remoteExceptionErr:Ljava/lang/String;
 
     if-eqz v0, :cond_3
 
-    const-string/jumbo v0, "    transactionError="
+    const-string/jumbo v0, "    remoteExceptionErr="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->transactionError:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->remoteExceptionErr:Ljava/lang/String;
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :cond_3
+    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->tooLargeExceptionErr:Ljava/lang/String;
+
+    if-eqz v0, :cond_4
+
+    const-string/jumbo v0, "    tooLargeExceptionErr="
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->tooLargeExceptionErr:Ljava/lang/String;
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    :cond_4
     return-void
 .end method
 
@@ -2593,336 +2674,424 @@
     return-object v4
 .end method
 
-.method private getAshmemFdCount(I)I
-    .locals 17
+.method private getAshmemFdCount(Ljava/util/ArrayList;)I
+    .locals 26
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/Integer;",
+            ">;)I"
+        }
+    .end annotation
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v12
+    move-result-wide v20
 
     const/4 v2, 0x0
 
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string/jumbo v14, "dev/ashmem/Parcel Blob_"
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14}, Ljava/lang/String;->length()I
 
-    move-result-object v11
+    move-result v15
 
-    move/from16 v0, p1
-
-    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
     :try_start_0
     new-instance v3, Ljava/io/BufferedReader;
 
-    new-instance v11, Ljava/io/FileReader;
+    new-instance v22, Ljava/io/FileReader;
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "/proc/"
+    const-string/jumbo v24, "/proc/"
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
-    move-result v15
+    move-result v24
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    const-string/jumbo v15, "/maps"
+    const-string/jumbo v24, "/maps"
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-direct {v11, v14}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v22 .. v23}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v3, v11}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+    move-object/from16 v0, v22
+
+    invoke-direct {v3, v0}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3
 
     :cond_0
     :goto_0
     :try_start_1
     invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v19
 
-    if-eqz v10, :cond_1
+    if-eqz v19, :cond_3
 
-    invoke-virtual {v10, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v14}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v11
+
+    if-ltz v11, :cond_0
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    add-int v12, v11, v15
+
+    move v13, v12
+
+    :goto_1
+    add-int/lit8 v12, v13, 0x1
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v13}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    const/16 v22, 0x30
+
+    move/from16 v0, v22
+
+    if-lt v4, v0, :cond_1
+
+    const/16 v22, 0x39
+
+    move/from16 v0, v22
+
+    if-gt v4, v0, :cond_1
+
+    int-to-char v0, v4
+
+    move/from16 v22, v0
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move v13, v12
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v22
+
+    if-lez v22, :cond_0
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    invoke-interface/range {p1 .. p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v17
+
+    :cond_2
+    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v22
+
+    if-eqz v22, :cond_0
+
+    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Ljava/lang/Integer;
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/Integer;->intValue()I
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-result v11
+    move-result v16
 
-    if-eqz v11, :cond_0
+    move/from16 v0, v16
 
-    add-int/lit8 v4, v4, 0x1
+    if-ne v0, v5, :cond_2
+
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    :cond_1
-    if-eqz v3, :cond_2
+    :cond_3
+    if-eqz v3, :cond_4
 
     :try_start_2
     invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    :cond_2
-    :goto_1
+    :cond_4
+    :goto_2
     move-object v2, v3
 
-    :cond_3
-    :goto_2
+    :cond_5
+    :goto_3
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v14
+    move-result-wide v22
 
-    sub-long v6, v14, v12
+    sub-long v8, v22, v20
 
-    const-string/jumbo v11, "AppWidgetServiceImpl"
+    const-string/jumbo v22, "AppWidgetServiceImpl"
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "getAshmemFdCount returning : pid = "
+    const-string/jumbo v24, "getAshmemFdCount returning : pid = "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    move/from16 v0, p1
+    move-object/from16 v0, v23
 
-    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v1, p1
 
-    move-result-object v14
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v15, ", fd count = "
+    move-result-object v23
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v24, ", fd count = "
 
-    move-result-object v14
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v23
 
-    move-result-object v14
+    move-object/from16 v0, v23
 
-    const-string/jumbo v15, " ("
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v23
 
-    move-result-object v14
+    const-string/jumbo v24, " ("
 
-    invoke-virtual {v14, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    const-string/jumbo v15, ")"
+    move-object/from16 v0, v23
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v24, ")"
 
-    move-result-object v14
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v11, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v23
 
-    return v4
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v6
 
     :catch_0
-    move-exception v5
+    move-exception v7
 
-    const-string/jumbo v11, "AppWidgetServiceImpl"
+    const-string/jumbo v22, "AppWidgetServiceImpl"
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "exception to close buffer reader : "
+    const-string/jumbo v24, "exception to close buffer reader : "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-virtual {v5}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v24
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-static {v11, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_2
 
     :catch_1
-    move-exception v8
+    move-exception v10
 
-    :goto_3
+    :goto_4
     :try_start_3
-    const-string/jumbo v11, "AppWidgetServiceImpl"
+    const-string/jumbo v22, "AppWidgetServiceImpl"
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "exception to get process name by proc : "
+    const-string/jumbo v24, "exception to get process name by proc : "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-virtual {v8}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v24
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-static {v11, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5
 
     :try_start_4
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :catch_2
-    move-exception v5
+    move-exception v7
 
-    const-string/jumbo v11, "AppWidgetServiceImpl"
+    const-string/jumbo v22, "AppWidgetServiceImpl"
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "exception to close buffer reader : "
+    const-string/jumbo v24, "exception to close buffer reader : "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-virtual {v5}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v24
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v23
 
-    invoke-static {v11, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :catchall_0
-    move-exception v11
+    move-exception v22
 
-    :goto_4
-    if-eqz v2, :cond_4
+    :goto_5
+    if-eqz v2, :cond_6
 
     :try_start_5
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
-    :cond_4
-    :goto_5
-    throw v11
+    :cond_6
+    :goto_6
+    throw v22
 
     :catch_3
-    move-exception v5
+    move-exception v7
 
-    const-string/jumbo v14, "AppWidgetServiceImpl"
+    const-string/jumbo v23, "AppWidgetServiceImpl"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "exception to close buffer reader : "
+    const-string/jumbo v25, "exception to close buffer reader : "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v24
 
-    invoke-virtual {v5}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v25
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v24
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v24
 
-    invoke-static {v14, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_6
+
+    :catchall_1
+    move-exception v22
+
+    move-object v2, v3
 
     goto :goto_5
 
-    :catchall_1
-    move-exception v11
+    :catch_4
+    move-exception v10
 
     move-object v2, v3
 
     goto :goto_4
-
-    :catch_4
-    move-exception v8
-
-    move-object v2, v3
-
-    goto :goto_3
 .end method
 
 .method private getCanonicalPackageName(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
@@ -3003,6 +3172,113 @@
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v4
+.end method
+
+.method private getFdFromPackage(ILjava/lang/String;)I
+    .locals 3
+
+    const/4 v0, 0x0
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPackageToPidMap:Ljava/util/HashMap;
+
+    invoke-virtual {v2, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/HashSet;
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Ljava/util/HashSet;
+
+    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+
+    :cond_0
+    if-eqz p1, :cond_1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    :cond_1
+    invoke-virtual {v1}, Ljava/util/HashSet;->size()I
+
+    move-result v2
+
+    if-lez v2, :cond_2
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-direct {p0, v2}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->getAshmemFdCount(Ljava/util/ArrayList;)I
+
+    move-result v0
+
+    :cond_2
+    return v0
+.end method
+
+.method private getPidFromPackage(Ljava/lang/String;)I
+    .locals 4
+
+    iget-object v3, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mActivityManager:Landroid/app/ActivityManager;
+
+    invoke-virtual {v3}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
+    const/4 v1, 0x0
+
+    :cond_0
+    :goto_0
+    if-eqz v1, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager$RunningAppProcessInfo;
+
+    if-eqz v0, :cond_0
+
+    iget-object v3, v0, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, v0, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
+
+    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    iget v3, v0, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+
+    return v3
+
+    :cond_1
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v3, 0x0
+
+    return v3
 .end method
 
 .method private getProviderInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
@@ -3674,228 +3950,62 @@
 .end method
 
 .method private handleNotifyUpdateAppWidget(Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Lcom/android/internal/appwidget/IAppWidgetHost;ILandroid/widget/RemoteViews;J)V
-    .locals 29
+    .locals 33
 
-    if-nez p4, :cond_2
+    if-nez p4, :cond_0
 
-    const-string/jumbo v18, "#NULL#"
+    const-string/jumbo v16, "#NULL#"
 
     :goto_0
-    if-eqz p4, :cond_8
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->getPidFromPackage(Ljava/lang/String;)I
+
+    move-result v11
+
+    const/4 v7, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mLock:Ljava/lang/Object;
+
+    move-object/from16 v24, v0
+
+    monitor-enter v24
 
     :try_start_0
-    invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->getSequenceNumber()I
-
-    move-result v19
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mActivityManager:Landroid/app/ActivityManager;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {v24 .. v24}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
-
-    move-result-object v9
-
-    if-nez v9, :cond_3
-
-    const/4 v4, 0x0
-
-    :goto_1
-    const/4 v13, 0x0
-
-    :cond_0
-    if-eqz v4, :cond_1
-
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v24
-
-    if-eqz v24, :cond_1
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/app/ActivityManager$RunningAppProcessInfo;
-
-    if-eqz v5, :cond_0
-
-    iget-object v0, v5, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->getPackage()Ljava/lang/String;
-
-    move-result-object v25
-
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v24
-
-    if-eqz v24, :cond_0
-
-    iget v13, v5, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
-
-    :cond_1
-    if-nez v13, :cond_4
-
-    const/4 v11, 0x0
-
-    :goto_2
-    if-nez v11, :cond_5
-
-    const/16 v10, 0x320
-
-    :goto_3
-    if-eqz v13, :cond_6
-
-    add-int/lit16 v0, v10, 0xc8
-
-    move/from16 v24, v0
-
-    move/from16 v0, v19
-
-    move/from16 v1, v24
-
-    if-le v0, v1, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mLastSeqNumber:Ljava/util/HashMap;
-
-    move-object/from16 v24, v0
-
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v25
-
-    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v26
-
-    invoke-virtual/range {v24 .. v26}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v13}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->getAshmemFdCount(I)I
-
-    move-result v14
-
-    const/16 v24, 0x40
-
-    move/from16 v0, v24
-
-    if-le v14, v0, :cond_8
-
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
     move-object/from16 v0, p0
 
     move/from16 v1, p3
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v23
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->lookupWidgetLocked(ILcom/android/server/appwidget/AppWidgetServiceImpl$HostId;)Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;
 
-    move-result-object v23
+    move-result-object v22
 
-    move-object/from16 v0, p0
+    if-eqz v22, :cond_1
 
-    move-object/from16 v1, v23
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->semIsIncludeBlackList()Z
 
-    invoke-direct {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->deleteAppWidgetLocked(Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;)V
+    move-result v7
 
-    new-instance v6, Landroid/content/Intent;
-
-    const-string/jumbo v24, "com.sec.android.launcher.action.UNBIND_WIDGET"
-
-    move-object/from16 v0, v24
-
-    invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v24, "appWidgetId"
-
-    move-object/from16 v0, v24
-
-    move/from16 v1, p3
-
-    invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    move-object/from16 v0, v23
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
-
-    move-object/from16 v24, v0
-
-    move-object/from16 v0, v24
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->info:Landroid/appwidget/AppWidgetProviderInfo;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {v24 .. v24}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
-
-    move-result-object v24
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v24
-
-    invoke-direct {v0, v6, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    new-instance v7, Landroid/content/Intent;
-
-    const-string/jumbo v24, "com.samsung.android.appwidget.action.APPWIDGET_UNBIND"
-
-    move-object/from16 v0, v24
-
-    invoke-direct {v7, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v24, "appWidgetPackageName"
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v7, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-object/from16 v0, v23
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
-
-    move-object/from16 v24, v0
-
-    move-object/from16 v0, v24
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->info:Landroid/appwidget/AppWidgetProviderInfo;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {v24 .. v24}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
-
-    move-result-object v24
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v24
-
-    invoke-direct {v0, v7, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    invoke-static {}, Ljava/lang/System;->gc()V
-
-    const-string/jumbo v24, "AppWidgetServiceImpl"
+    :goto_1
+    const-string/jumbo v23, "AppWidgetServiceImpl"
 
     new-instance v25, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "Detected abnormal operation. seqNumber="
+    const-string/jumbo v26, "handleNotifyUpdateAppWidget, w = "
 
     invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3903,7 +4013,310 @@
 
     move-object/from16 v0, v25
 
-    move/from16 v1, v19
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, ", isBlackListWidget = "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, ", mIsPolicySeqNum = "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySeqNum:Z
+
+    move/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, ", mIsPolicyTooLarge = "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicyTooLarge:Z
+
+    move/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, ", mIsPolicySkipMerge = "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySkipMerge:Z
+
+    move/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v7, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySeqNum:Z
+
+    move/from16 v23, v0
+
+    if-eqz v23, :cond_6
+
+    if-eqz p4, :cond_6
+
+    invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->getSequenceNumber()I
+
+    move-result v17
+
+    if-nez v11, :cond_2
+
+    const/4 v9, 0x0
+
+    :goto_2
+    if-nez v9, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget v8, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSeqNumMin:I
+
+    :goto_3
+    const-string/jumbo v23, "AppWidgetServiceImpl"
+
+    new-instance v25, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v26, "handleNotifyUpdateAppWidget, seqNumber = "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v11, :cond_8
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSeqNumNextStep:I
+
+    move/from16 v23, v0
+
+    add-int v23, v23, v8
+
+    move/from16 v0, v17
+
+    move/from16 v1, v23
+
+    if-le v0, v1, :cond_8
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mLastSeqNumber:Ljava/util/HashMap;
+
+    move-object/from16 v23, v0
+
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v25
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v26
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    move-object/from16 v2, v26
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v11, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->getFdFromPackage(ILjava/lang/String;)I
+
+    move-result v12
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mFdFile:Ljava/io/File;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Ljava/io/File;->listFiles()[Ljava/io/File;
+
+    move-result-object v4
+
+    if-nez v4, :cond_4
+
+    const/16 v19, 0x0
+
+    :goto_4
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPolicyMaxFdCount:I
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    if-le v12, v0, :cond_5
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v22
+
+    invoke-direct {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->deleteAppWidgetLocked(Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;)V
+
+    new-instance v5, Landroid/content/Intent;
+
+    const-string/jumbo v23, "com.sec.android.launcher.action.UNBIND_WIDGET"
+
+    move-object/from16 v0, v23
+
+    invoke-direct {v5, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "appWidgetId"
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, p3
+
+    invoke-virtual {v5, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    move-object/from16 v0, v22
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->info:Landroid/appwidget/AppWidgetProviderInfo;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
+
+    move-result-object v23
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    invoke-direct {v0, v5, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    new-instance v6, Landroid/content/Intent;
+
+    const-string/jumbo v23, "com.samsung.android.appwidget.action.APPWIDGET_UNBIND"
+
+    move-object/from16 v0, v23
+
+    invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "appWidgetPackageName"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-object/from16 v0, v22
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->info:Landroid/appwidget/AppWidgetProviderInfo;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
+
+    move-result-object v23
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    invoke-direct {v0, v6, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    invoke-static {}, Ljava/lang/System;->gc()V
+
+    const-string/jumbo v23, "AppWidgetServiceImpl"
+
+    new-instance v25, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v26, "Detected abnormal operation#1. seqNumber="
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    move/from16 v1, v17
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -3917,7 +4330,35 @@
 
     move-object/from16 v0, v25
 
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, " serverFd="
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, " kill widget="
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v25
 
@@ -3925,94 +4366,208 @@
 
     move-result-object v25
 
-    invoke-static/range {v24 .. v25}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v24
 
     return-void
 
-    :cond_2
+    :cond_0
     invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->getPackage()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v16
 
     goto/16 :goto_0
 
-    :cond_3
-    :try_start_1
-    invoke-interface {v9}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
+    :cond_1
+    const/4 v7, 0x0
 
     goto/16 :goto_1
 
-    :cond_4
+    :cond_2
+    :try_start_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mLastSeqNumber:Ljava/util/HashMap;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v25
 
-    invoke-virtual/range {v24 .. v25}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v23
 
-    move-result-object v24
+    move-object/from16 v1, v25
 
-    check-cast v24, Ljava/lang/Integer;
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v11, v24
+    move-result-object v23
+
+    check-cast v23, Ljava/lang/Integer;
+
+    move-object/from16 v9, v23
 
     goto/16 :goto_2
 
-    :cond_5
-    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+    :cond_3
+    invoke-virtual {v9}, Ljava/lang/Integer;->intValue()I
 
-    move-result v10
+    move-result v8
 
     goto/16 :goto_3
 
-    :cond_6
-    add-int/lit16 v0, v10, -0xc8
+    :cond_4
+    array-length v0, v4
 
-    move/from16 v24, v0
+    move/from16 v19, v0
 
-    move/from16 v0, v19
+    goto/16 :goto_4
 
-    move/from16 v1, v24
+    :cond_5
+    const-string/jumbo v23, "AppWidgetServiceImpl"
 
-    if-ge v0, v1, :cond_8
+    new-instance v25, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v26, "handleNotifyUpdateAppWidget("
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    move/from16 v1, p3
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, ") mLastSeqNumber="
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mLastSeqNumber:Ljava/util/HashMap;
 
-    move-object/from16 v24, v0
+    move-object/from16 v26, v0
 
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v25
 
-    const/16 v26, 0x320
+    const-string/jumbo v26, "\n views.estimateMemoryUsage()="
 
-    move/from16 v0, v19
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v1, v26
+    move-result-object v25
 
-    if-ge v0, v1, :cond_7
+    invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->estimateMemoryUsage()I
 
-    const/16 v19, 0x320
+    move-result v26
 
-    :cond_7
-    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, "\nTotal Memory : %6.2f MB"
+
+    const/16 v27, 0x1
+
+    move/from16 v0, v27
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v27, v0
+
+    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/Runtime;->totalMemory()J
+
+    move-result-wide v28
+
+    move-wide/from16 v0, v28
+
+    long-to-double v0, v0
+
+    move-wide/from16 v28, v0
+
+    const-wide/high16 v30, 0x4130000000000000L    # 1048576.0
+
+    div-double v28, v28, v30
+
+    invoke-static/range {v28 .. v29}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+
+    move-result-object v28
+
+    const/16 v29, 0x0
+
+    aput-object v28, v27, v29
+
+    invoke-static/range {v26 .. v27}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v26
 
-    invoke-virtual/range {v24 .. v26}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_8
+    move-result-object v25
+
+    const-string/jumbo v26, " pidFd="
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, " serverFd="
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_6
+    :goto_5
+    monitor-exit v24
+
+    :try_start_2
     invoke-interface/range {p2 .. p4}, Lcom/android/internal/appwidget/IAppWidgetHost;->updateAppWidget(ILandroid/widget/RemoteViews;)V
 
     move-wide/from16 v0, p5
@@ -4021,216 +4576,337 @@
 
     iput-wide v0, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->lastWidgetUpdateTime:J
 
-    if-nez p4, :cond_9
+    if-nez v7, :cond_d
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySeqNum:Z
+
+    move/from16 v23, v0
+
+    if-nez v23, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicyTooLarge:Z
+
+    move/from16 v23, v0
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+
+    if-eqz v23, :cond_d
+
+    :cond_7
+    if-nez p4, :cond_a
 
     return-void
 
-    :cond_9
+    :cond_8
+    :try_start_3
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mActivityManager:Landroid/app/ActivityManager;
+    iget v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSeqNumNextStep:I
 
-    move-object/from16 v24, v0
+    move/from16 v23, v0
 
-    invoke-virtual/range {v24 .. v24}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
+    sub-int v23, v8, v23
 
-    move-result-object v9
+    move/from16 v0, v17
 
-    if-nez v9, :cond_11
+    move/from16 v1, v23
 
-    const/4 v4, 0x0
+    if-ge v0, v1, :cond_6
 
-    :goto_4
-    const/4 v13, 0x0
+    move-object/from16 v0, p0
 
-    :cond_a
-    if-eqz v4, :cond_b
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mLastSeqNumber:Ljava/util/HashMap;
 
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    move-object/from16 v23, v0
 
-    move-result v24
-
-    if-eqz v24, :cond_b
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/app/ActivityManager$RunningAppProcessInfo;
-
-    if-eqz v5, :cond_a
-
-    iget-object v0, v5, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->getPackage()Ljava/lang/String;
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v25
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, p0
 
-    move-result v24
+    iget v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSeqNumMin:I
 
-    if-eqz v24, :cond_a
+    move/from16 v26, v0
 
-    iget v13, v5, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+    move/from16 v0, v17
 
-    :cond_b
-    if-eqz v13, :cond_e
+    move/from16 v1, v26
 
+    if-ge v0, v1, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSeqNumMin:I
+
+    move/from16 v17, v0
+
+    :cond_9
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v26
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    move-object/from16 v2, v26
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    goto :goto_5
+
+    :catchall_0
+    move-exception v23
+
+    monitor-exit v24
+
+    throw v23
+
+    :cond_a
+    if-eqz v11, :cond_d
+
+    :try_start_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPidToPackageMap:Ljava/util/HashMap;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v25
+    move-result-object v24
 
-    invoke-virtual/range {v24 .. v25}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {v23 .. v24}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v16
+    move-result-object v14
 
-    check-cast v16, Ljava/lang/String;
+    check-cast v14, Ljava/lang/String;
 
-    if-eqz v16, :cond_c
+    if-eqz v14, :cond_b
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPackageToPidMap:Ljava/util/HashMap;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v14}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Ljava/util/HashSet;
+
+    if-eqz v13, :cond_b
+
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v13, v0}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPidToPackageMap:Ljava/util/HashMap;
+
+    move-object/from16 v23, v0
+
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v24
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    move-object/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPackageToPidMap:Ljava/util/HashMap;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
 
     move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v13
 
-    check-cast v15, Ljava/util/HashSet;
+    check-cast v13, Ljava/util/HashSet;
 
-    if-eqz v15, :cond_c
+    if-nez v13, :cond_c
 
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    new-instance v13, Ljava/util/HashSet;
 
-    move-result-object v24
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v15, v0}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+    invoke-direct {v13}, Ljava/util/HashSet;-><init>()V
 
     :cond_c
-    move-object/from16 v0, p0
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPidToPackageMap:Ljava/util/HashMap;
+    move-result-object v23
 
-    move-object/from16 v24, v0
+    move-object/from16 v0, v23
 
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v25
-
-    invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->getPackage()Ljava/lang/String;
-
-    move-result-object v26
-
-    invoke-virtual/range {v24 .. v26}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v13, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPackageToPidMap:Ljava/util/HashMap;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->getPackage()Ljava/lang/String;
+    move-object/from16 v0, v23
 
-    move-result-object v25
+    move-object/from16 v1, v16
 
-    invoke-virtual/range {v24 .. v25}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v15
-
-    check-cast v15, Ljava/util/HashSet;
-
-    if-nez v15, :cond_d
-
-    new-instance v15, Ljava/util/HashSet;
-
-    invoke-direct {v15}, Ljava/util/HashSet;-><init>()V
+    invoke-virtual {v0, v1, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
 
     :cond_d
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    :goto_6
+    sget-boolean v23, Lcom/android/server/appwidget/AppWidgetServiceImpl;->DEBUG_REMOTEVIEWS:Z
 
-    move-result-object v24
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v15, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPackageToPidMap:Ljava/util/HashMap;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->getPackage()Ljava/lang/String;
-
-    move-result-object v25
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v25
-
-    invoke-virtual {v0, v1, v15}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-
-    :cond_e
-    :goto_5
-    sget-boolean v24, Lcom/android/server/appwidget/AppWidgetServiceImpl;->DEBUG_REMOTEVIEWS:Z
-
-    if-eqz v24, :cond_10
-
-    const/16 v21, 0x0
+    if-eqz v23, :cond_f
 
     const/16 v20, 0x0
 
-    if-eqz p4, :cond_f
+    const/16 v18, 0x0
+
+    if-eqz p4, :cond_e
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
-    move-result-object v12
+    move-result-object v10
 
-    const/16 v24, 0x0
+    const/16 v23, 0x0
 
     move-object/from16 v0, p4
 
-    move/from16 v1, v24
+    move/from16 v1, v23
 
-    invoke-virtual {v0, v12, v1}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {v0, v10, v1}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
 
-    invoke-virtual {v12}, Landroid/os/Parcel;->dataSize()I
-
-    move-result v21
-
-    invoke-virtual {v12}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->getSequenceNumber()I
+    invoke-virtual {v10}, Landroid/os/Parcel;->dataSize()I
 
     move-result v20
 
+    invoke-virtual {v10}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual/range {p4 .. p4}, Landroid/widget/RemoteViews;->getSequenceNumber()I
+
+    move-result v18
+
+    :cond_e
+    const-string/jumbo v23, "AppWidgetServiceImpl"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Update widget ID : "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, p3
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    const-string/jumbo v25, ", RemoteViews size : "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    const-string/jumbo v25, " sn : "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     :cond_f
-    const-string/jumbo v24, "AppWidgetServiceImpl"
+    return-void
+
+    :catch_0
+    move-exception v15
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mLock:Ljava/lang/Object;
+
+    move-object/from16 v24, v0
+
+    monitor-enter v24
+
+    :try_start_5
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->callbacks:Lcom/android/internal/appwidget/IAppWidgetHost;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p2
+
+    if-eq v0, v1, :cond_11
+
+    const/16 v21, 0x1
+
+    :goto_7
+    if-eqz v21, :cond_12
+
+    const-string/jumbo v23, "AppWidgetServiceImpl"
 
     new-instance v25, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "Update widget ID : "
+    const-string/jumbo v26, "Skip callback clear #1.appWidgetId : "
 
     invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4239,34 +4915,6 @@
     move-object/from16 v0, v25
 
     move/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    const-string/jumbo v26, ", RemoteViews size : "
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    const-string/jumbo v26, " sn : "
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -4276,143 +4924,68 @@
 
     move-result-object v25
 
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v23
 
-    :cond_10
-    return-void
-
-    :cond_11
-    :try_start_2
-    invoke-interface {v9}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
-
-    move-result-object v4
-
-    goto/16 :goto_4
-
-    :catch_0
-    move-exception v17
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mLock:Ljava/lang/Object;
-
-    move-object/from16 v25, v0
-
-    monitor-enter v25
-
-    :try_start_3
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->callbacks:Lcom/android/internal/appwidget/IAppWidgetHost;
-
-    move-object/from16 v24, v0
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, p2
-
-    if-eq v0, v1, :cond_12
-
-    const/16 v22, 0x1
-
-    :goto_6
-    if-eqz v22, :cond_13
-
-    const-string/jumbo v24, "AppWidgetServiceImpl"
-
-    new-instance v26, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v27, "Skip callback clear #1.appWidgetId : "
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v26
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    :goto_7
-    monitor-exit v25
+    :cond_10
+    :goto_8
+    monitor-exit v24
 
-    goto/16 :goto_5
+    goto/16 :goto_6
+
+    :cond_11
+    const/16 v21, 0x0
+
+    goto :goto_7
 
     :cond_12
-    const/16 v22, 0x0
+    :try_start_6
+    const-string/jumbo v23, "AppWidgetServiceImpl"
 
-    goto :goto_6
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    :cond_13
-    :try_start_4
-    move-object/from16 v0, v17
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    instance-of v0, v0, Landroid/os/TransactionTooLargeException;
+    const-string/jumbo v26, "Skip callback clear #1.appWidgetId : "
 
-    move/from16 v24, v0
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v24, :cond_1e
+    move-result-object v25
 
-    const-string/jumbo v24, "AppWidgetServiceImpl"
-
-    new-instance v26, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v27, "Skip callback clear #1.appWidgetId : "
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    move-object/from16 v0, v26
+    move-object/from16 v0, v25
 
     move/from16 v1, p3
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v25
 
-    const-string/jumbo v27, " by TransactionTooLargeException. views.getPackage() = "
+    const-string/jumbo v26, " by RemoteException. views.getPackage() = "
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v25
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v25
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v25
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v25
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -4420,467 +4993,287 @@
 
     iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
     move-object/from16 v0, p0
 
     move/from16 v1, p3
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v23
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->lookupWidgetLocked(ILcom/android/server/appwidget/AppWidgetServiceImpl$HostId;)Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;
 
-    move-result-object v23
+    move-result-object v22
 
-    if-eqz v23, :cond_14
+    if-eqz v22, :cond_16
 
-    invoke-virtual/range {v17 .. v17}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->semIsIncludeBlackList()Z
 
-    move-result-object v24
+    move-result v7
+
+    :goto_9
+    if-nez v7, :cond_13
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v24
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicyTooLarge:Z
 
-    invoke-direct {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->toTimestampFormat(Ljava/lang/String;)Ljava/lang/String;
+    move/from16 v23, v0
 
-    move-result-object v24
+    if-nez v23, :cond_14
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySkipMerge:Z
+
+    move/from16 v23, v0
+
+    if-nez v23, :cond_14
+
+    :cond_13
+    instance-of v0, v15, Landroid/os/TransactionTooLargeException;
+
+    move/from16 v23, v0
+
+    if-eqz v23, :cond_15
+
+    :cond_14
+    if-eqz v22, :cond_15
+
+    instance-of v0, v15, Landroid/os/TransactionTooLargeException;
+
+    move/from16 v23, v0
+
+    if-eqz v23, :cond_17
+
+    const-string/jumbo v23, "AppWidgetServiceImpl"
+
+    const-string/jumbo v25, "handleNotifyUpdateAppWidget, TransactionTooLargeException : attach tooLargeExceptionErr"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v15}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, p0
 
     move-object/from16 v1, v23
 
-    iput-object v0, v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->transactionError:Ljava/lang/String;
+    invoke-direct {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->toTimestampFormat(Ljava/lang/String;)Ljava/lang/String;
 
-    :cond_14
-    move-object/from16 v0, p0
+    move-result-object v23
 
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mActivityManager:Landroid/app/ActivityManager;
+    move-object/from16 v0, v23
 
-    move-object/from16 v24, v0
+    move-object/from16 v1, v22
 
-    invoke-virtual/range {v24 .. v24}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
-
-    move-result-object v9
-
-    if-nez v9, :cond_18
-
-    const/4 v4, 0x0
-
-    :goto_8
-    const/4 v13, 0x0
+    iput-object v0, v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->tooLargeExceptionErr:Ljava/lang/String;
 
     :cond_15
-    if-eqz v4, :cond_16
+    :goto_a
+    if-nez v7, :cond_1b
 
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    move-object/from16 v0, p0
 
-    move-result v24
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicyTooLarge:Z
 
-    if-eqz v24, :cond_16
+    move/from16 v23, v0
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    if-eqz v23, :cond_1b
 
-    move-result-object v5
-
-    check-cast v5, Landroid/app/ActivityManager$RunningAppProcessInfo;
-
-    if-eqz v5, :cond_15
-
-    iget-object v0, v5, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
-
-    move-object/from16 v24, v0
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v24
-
-    if-eqz v24, :cond_15
-
-    iget v13, v5, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
-
-    :cond_16
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mFdFile:Ljava/io/File;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v24 .. v24}, Ljava/io/File;->listFiles()[Ljava/io/File;
-
-    move-result-object v3
-
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPackageToPidMap:Ljava/util/HashMap;
-
-    move-object/from16 v24, v0
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v15
-
-    check-cast v15, Ljava/util/HashSet;
-
-    if-eqz v15, :cond_19
-
-    const-string/jumbo v24, "AppWidgetServiceImpl"
-
-    const-string/jumbo v26, "pidSet is exist"
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v26
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v13, :cond_17
-
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v24
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v15, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    :cond_17
-    invoke-virtual {v15}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
-
-    move-result-object v8
-
-    :goto_9
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v24
-
-    if-eqz v24, :cond_1a
-
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v24
-
-    check-cast v24, Ljava/lang/Integer;
-
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/Integer;->intValue()I
-
-    move-result v24
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v24
-
-    invoke-direct {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->getAshmemFdCount(I)I
-
-    move-result v24
-
-    add-int v14, v14, v24
-
-    goto :goto_9
-
-    :cond_18
-    invoke-interface {v9}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual/range {v23 .. v23}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object v4
 
-    goto :goto_8
+    move-object/from16 v0, p0
 
-    :cond_19
-    if-nez v13, :cond_1b
+    move-object/from16 v1, v16
 
-    const/4 v14, 0x0
+    invoke-direct {v0, v11, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->getFdFromPackage(ILjava/lang/String;)I
 
-    :cond_1a
-    :goto_a
-    const/16 v24, 0x40
-
-    move/from16 v0, v24
-
-    if-le v14, v0, :cond_1d
-
-    if-eqz v3, :cond_1c
-
-    if-eqz v23, :cond_1c
-
-    const-string/jumbo v24, "AppWidgetServiceImpl"
-
-    new-instance v26, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v27, "TransactionTooLargeException, App occupied fd are over 64, system fd count = "
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    array-length v0, v3
-
-    move/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    const-string/jumbo v27, ", kill widget, w = "
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v26
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v26
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v12
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v23
+    iget v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPolicyMaxFdCount:I
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    if-le v12, v0, :cond_1a
+
+    if-eqz v4, :cond_19
+
+    if-eqz v22, :cond_19
+
+    const-string/jumbo v23, "AppWidgetServiceImpl"
+
+    new-instance v25, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v26, "Detected abnormal operation#2, RemoteException, App occupied fd are over "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPolicyMaxFdCount:I
+
+    move/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, ", system fd count = "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    array-length v0, v4
+
+    move/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, ", kill widget, w = "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v22
 
     invoke-direct {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->deleteAppWidgetLocked(Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;)V
 
-    new-instance v6, Landroid/content/Intent;
+    new-instance v5, Landroid/content/Intent;
 
-    const-string/jumbo v24, "com.sec.android.launcher.action.UNBIND_WIDGET"
+    const-string/jumbo v23, "com.sec.android.launcher.action.UNBIND_WIDGET"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
-    invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v24, "appWidgetId"
+    const-string/jumbo v23, "appWidgetId"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
     move/from16 v1, p3
 
-    invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v5, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    move-object/from16 v0, v23
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
-
-    move-object/from16 v24, v0
-
-    move-object/from16 v0, v24
-
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->info:Landroid/appwidget/AppWidgetProviderInfo;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {v24 .. v24}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
-
-    move-result-object v24
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v24
-
-    invoke-direct {v0, v6, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    new-instance v7, Landroid/content/Intent;
-
-    const-string/jumbo v24, "com.samsung.android.appwidget.action.APPWIDGET_UNBIND"
-
-    move-object/from16 v0, v24
-
-    invoke-direct {v7, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v24, "appWidgetPackageName"
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v7, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
     iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->info:Landroid/appwidget/AppWidgetProviderInfo;
 
-    move-object/from16 v24, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v24 .. v24}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
+    invoke-virtual/range {v23 .. v23}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
 
-    move-result-object v24
+    move-result-object v23
 
     move-object/from16 v0, p0
-
-    move-object/from16 v1, v24
-
-    invoke-direct {v0, v7, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    invoke-static {}, Ljava/lang/System;->gc()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    goto/16 :goto_7
-
-    :catchall_0
-    move-exception v24
-
-    monitor-exit v25
-
-    throw v24
-
-    :cond_1b
-    :try_start_5
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v13}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->getAshmemFdCount(I)I
-
-    move-result v14
-
-    goto/16 :goto_a
-
-    :cond_1c
-    const-string/jumbo v24, "AppWidgetServiceImpl"
-
-    new-instance v26, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v27, "TransactionTooLargeException, failed to remove widget because : fds = "
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    move-object/from16 v0, v26
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    const-string/jumbo v27, ", w = "
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    move-object/from16 v0, v26
 
     move-object/from16 v1, v23
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v5, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    move-result-object v26
+    new-instance v6, Landroid/content/Intent;
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v23, "com.samsung.android.appwidget.action.APPWIDGET_UNBIND"
 
-    move-result-object v26
+    move-object/from16 v0, v23
 
-    move-object/from16 v0, v24
+    invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move-object/from16 v1, v26
+    const-string/jumbo v23, "appWidgetPackageName"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v23
 
-    goto/16 :goto_7
+    move-object/from16 v1, v16
 
-    :cond_1d
-    const-string/jumbo v24, "AppWidgetServiceImpl"
+    invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v26, "TransactionTooLargeException, App occupied fd are under 64, not kill widget"
+    move-object/from16 v0, v22
 
-    move-object/from16 v0, v24
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
 
-    move-object/from16 v1, v26
+    move-object/from16 v23, v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v23
 
-    goto/16 :goto_7
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->info:Landroid/appwidget/AppWidgetProviderInfo;
 
-    :cond_1e
-    const-string/jumbo v24, "AppWidgetServiceImpl"
+    move-object/from16 v23, v0
 
-    new-instance v26, Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v23}, Landroid/appwidget/AppWidgetProviderInfo;->getProfile()Landroid/os/UserHandle;
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v23
 
-    const-string/jumbo v27, "Widget host dead: "
+    move-object/from16 v0, p0
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v1, v23
 
-    move-result-object v26
+    invoke-direct {v0, v6, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    move-object/from16 v0, p1
+    invoke-static {}, Ljava/lang/System;->gc()V
 
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
+    :goto_b
+    const-string/jumbo v23, "AppWidgetServiceImpl"
 
-    move-object/from16 v27, v0
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v26
+    const-string/jumbo v26, "handleNotifyUpdateAppWidget Widget host dead: "
 
-    const-string/jumbo v27, ", "
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v26
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v26
-
-    move-object/from16 v2, v17
-
-    invoke-static {v0, v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    new-instance v24, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v26, "Host dead #1 : "
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
+    move-result-object v25
 
     move-object/from16 v0, p1
 
@@ -4888,71 +5281,414 @@
 
     move-object/from16 v26, v0
 
-    move-object/from16 v0, v24
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, v26
+    move-result-object v25
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string/jumbo v26, ", "
 
-    move-result-object v24
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v26, ", appWidgetId : "
+    move-result-object v25
 
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     move/from16 v1, p3
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v25
 
-    const-string/jumbo v26, " "
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v0, v24
+    move-result-object v25
 
-    move-object/from16 v1, v26
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Host dead #1 : "
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v23
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v23
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v25, ", appWidgetId : "
 
-    move-result-object v24
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, p3
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    const-string/jumbo v25, " "
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->updateHostHistoryLocked(Ljava/lang/String;)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    const/16 v24, 0x0
+    goto/16 :goto_8
 
-    move-object/from16 v0, v24
+    :catchall_1
+    move-exception v23
+
+    monitor-exit v24
+
+    throw v23
+
+    :cond_16
+    const/4 v7, 0x0
+
+    goto/16 :goto_9
+
+    :cond_17
+    if-nez v7, :cond_15
+
+    :try_start_7
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicyTooLarge:Z
+
+    move/from16 v23, v0
+
+    if-nez v23, :cond_18
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySkipMerge:Z
+
+    move/from16 v23, v0
+
+    if-eqz v23, :cond_15
+
+    :cond_18
+    const-string/jumbo v23, "AppWidgetServiceImpl"
+
+    const-string/jumbo v25, "handleNotifyUpdateAppWidget, RemoteException : attach remoteExceptionErr"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v15}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    invoke-direct {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->toTimestampFormat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v22
+
+    iput-object v0, v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->remoteExceptionErr:Ljava/lang/String;
+
+    const/16 v23, 0x0
+
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p1
 
     iput-object v0, v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->callbacks:Lcom/android/internal/appwidget/IAppWidgetHost;
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    goto/16 :goto_7
+    goto/16 :goto_a
+
+    :cond_19
+    const-string/jumbo v23, "AppWidgetServiceImpl"
+
+    new-instance v25, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v26, "RemoteException, failed to remove widget because : fds = "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, ", w = "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_b
+
+    :cond_1a
+    const-string/jumbo v23, "AppWidgetServiceImpl"
+
+    new-instance v25, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v26, "RemoteException, App occupied fd are under "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPolicyMaxFdCount:I
+
+    move/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, ", not kill widget"
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_b
+
+    :cond_1b
+    instance-of v0, v15, Landroid/os/TransactionTooLargeException;
+
+    move/from16 v23, v0
+
+    if-nez v23, :cond_10
+
+    if-nez v7, :cond_1c
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySkipMerge:Z
+
+    move/from16 v23, v0
+
+    if-nez v23, :cond_10
+
+    :cond_1c
+    const-string/jumbo v23, "AppWidgetServiceImpl"
+
+    new-instance v25, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v26, "Widget host dead: "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
+
+    move-object/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    const-string/jumbo v26, ", "
+
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    move/from16 v1, p3
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1, v15}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Host dead #2 : "
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    const-string/jumbo v25, ", appWidgetId : "
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, p3
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    const-string/jumbo v25, " "
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    invoke-direct {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->updateHostHistoryLocked(Ljava/lang/String;)V
+
+    const/16 v23, 0x0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p1
+
+    iput-object v0, v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->callbacks:Lcom/android/internal/appwidget/IAppWidgetHost;
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+
+    goto/16 :goto_8
 .end method
 
 .method private incrementAndGetAppWidgetIdLocked(I)I
@@ -9376,7 +10112,7 @@
 .end method
 
 .method private registerBroadcastReceiver()V
-    .locals 35
+    .locals 39
 
     new-instance v4, Landroid/content/IntentFilter;
 
@@ -9600,15 +10336,17 @@
 
     invoke-virtual/range {v25 .. v30}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    sget-boolean v1, Lcom/android/server/appwidget/AppWidgetServiceImpl;->EMERGENCY_MODE_SUPPORTED:Z
-
-    if-eqz v1, :cond_0
-
     new-instance v32, Landroid/content/IntentFilter;
 
     invoke-direct/range {v32 .. v32}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string/jumbo v1, "com.samsung.intent.action.EMERGENCY_STATE_CHANGED"
+    const-string/jumbo v1, "sec.app.policy.UPDATE.AppWidget"
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "android.intent.action.BOOT_COMPLETED"
 
     move-object/from16 v0, v32
 
@@ -9633,6 +10371,40 @@
     const/16 v34, 0x0
 
     invoke-virtual/range {v29 .. v34}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
+    sget-boolean v1, Lcom/android/server/appwidget/AppWidgetServiceImpl;->EMERGENCY_MODE_SUPPORTED:Z
+
+    if-eqz v1, :cond_0
+
+    new-instance v36, Landroid/content/IntentFilter;
+
+    invoke-direct/range {v36 .. v36}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v1, "com.samsung.intent.action.EMERGENCY_STATE_CHANGED"
+
+    move-object/from16 v0, v36
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mContext:Landroid/content/Context;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    move-object/from16 v34, v0
+
+    sget-object v35, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    const/16 v37, 0x0
+
+    const/16 v38, 0x0
+
+    invoke-virtual/range {v33 .. v38}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     :cond_0
     return-void
@@ -10710,7 +11482,7 @@
 
     if-nez v4, :cond_1
 
-    iget-object v4, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->transactionError:Ljava/lang/String;
+    iget-object v4, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->tooLargeExceptionErr:Ljava/lang/String;
 
     if-nez v4, :cond_1
 
@@ -11565,73 +12337,110 @@
 .end method
 
 .method private updateAppWidgetInstanceLocked(Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;Landroid/widget/RemoteViews;Z)V
-    .locals 4
+    .locals 6
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     if-eqz p1, :cond_0
 
-    iget-object v1, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
 
-    iget-boolean v1, v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->zombie:Z
+    iget-boolean v2, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->zombie:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    iget-object v1, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->host:Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->host:Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
 
-    iget-boolean v1, v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->zombie:Z
+    iget-boolean v2, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->zombie:Z
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_5
 
-    iget-object v1, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_5
 
-    iget-object v1, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
+    invoke-virtual {p1}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->semIsIncludeBlackList()Z
 
-    invoke-virtual {v1, p2}, Landroid/widget/RemoteViews;->mergeRemoteViews(Landroid/widget/RemoteViews;)V
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    iget-boolean v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySkipMerge:Z
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->remoteExceptionErr:Ljava/lang/String;
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->host:Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
+
+    iget-object v2, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->callbacks:Lcom/android/internal/appwidget/IAppWidgetHost;
+
+    if-nez v2, :cond_3
+
+    :cond_2
+    const-string/jumbo v2, "AppWidgetServiceImpl"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "updateAppWidgetInstanceLocked skip mergeRemoteViews by remoteException appWidget = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_1
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
+    move-result v2
+
+    invoke-static {v2}, Landroid/os/UserHandle;->getAppId(I)I
+
+    move-result v2
+
+    const/16 v3, 0x3e8
+
+    if-eq v2, v3, :cond_6
+
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
+
+    if-eqz v2, :cond_6
+
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
+
+    invoke-virtual {v2}, Landroid/widget/RemoteViews;->estimateMemoryUsage()I
+
     move-result v1
 
-    invoke-static {v1}, Landroid/os/UserHandle;->getAppId(I)I
+    iget v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mMaxWidgetBitmapMemory:I
 
-    move-result v1
+    if-le v1, v2, :cond_6
 
-    const/16 v2, 0x3e8
-
-    if-eq v1, v2, :cond_3
-
-    iget-object v1, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
-
-    invoke-virtual {v1}, Landroid/widget/RemoteViews;->estimateMemoryUsage()I
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mMaxWidgetBitmapMemory:I
-
-    if-le v0, v1, :cond_3
-
-    iput-object v3, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
-
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    iput-object v5, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -11643,7 +12452,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -11667,25 +12476,191 @@
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v2, "AppWidgetServiceImpl"
 
-    throw v1
+    invoke-static {v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
-    iput-object p2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v2, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_3
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->host:Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
+
+    iget-object v2, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->callbacks:Lcom/android/internal/appwidget/IAppWidgetHost;
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->tooLargeExceptionErr:Ljava/lang/String;
+
+    if-nez v2, :cond_2
+
+    :cond_4
+    const-string/jumbo v2, "AppWidgetServiceImpl"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "updateAppWidgetInstanceLocked, merge! widget = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
+
+    invoke-virtual {v2, p2}, Landroid/widget/RemoteViews;->mergeRemoteViews(Landroid/widget/RemoteViews;)V
 
     goto :goto_1
 
-    :cond_3
+    :cond_5
+    const-string/jumbo v2, "AppWidgetServiceImpl"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "updateAppWidgetInstanceLocked, full update widget = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-object p2, p1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->views:Landroid/widget/RemoteViews;
+
+    goto/16 :goto_1
+
+    :cond_6
     invoke-virtual {p1}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->getEffectiveViewsLocked()Landroid/widget/RemoteViews;
+
+    move-result-object v2
+
+    invoke-direct {p0, p1, v2}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->scheduleNotifyUpdateAppWidgetLocked(Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;Landroid/widget/RemoteViews;)V
+
+    goto/16 :goto_0
+.end method
+
+.method private updateAppWidgetPolicy()V
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSemAppWidgetPolicyManager:Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
+
+    invoke-virtual {v2}, Lcom/android/server/appwidget/SemAppWidgetPolicyManager;->reloadFdLeakPolicy()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSemAppWidgetPolicyManager:Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
+
+    invoke-virtual {v2}, Lcom/android/server/appwidget/SemAppWidgetPolicyManager;->isPolicySeqNum()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySeqNum:Z
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSemAppWidgetPolicyManager:Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
+
+    invoke-virtual {v2}, Lcom/android/server/appwidget/SemAppWidgetPolicyManager;->isPolicyTooLarge()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicyTooLarge:Z
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSemAppWidgetPolicyManager:Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
+
+    invoke-virtual {v2}, Lcom/android/server/appwidget/SemAppWidgetPolicyManager;->isPolicySkipMerge()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mIsPolicySkipMerge:Z
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSemAppWidgetPolicyManager:Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
+
+    invoke-virtual {v2}, Lcom/android/server/appwidget/SemAppWidgetPolicyManager;->getPolicyMaxFdCount()I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mPolicyMaxFdCount:I
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSemAppWidgetPolicyManager:Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
+
+    invoke-virtual {v2}, Lcom/android/server/appwidget/SemAppWidgetPolicyManager;->getBlackListPackage()[Ljava/lang/String;
+
+    move-result-object v2
+
+    sput-object v2, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mBlackListPackage:[Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSemAppWidgetPolicyManager:Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
+
+    invoke-virtual {v2}, Lcom/android/server/appwidget/SemAppWidgetPolicyManager;->getSeqNumMin()I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSeqNumMin:I
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSemAppWidgetPolicyManager:Lcom/android/server/appwidget/SemAppWidgetPolicyManager;
+
+    invoke-virtual {v2}, Lcom/android/server/appwidget/SemAppWidgetPolicyManager;->getSeqNumNextStep()I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mSeqNumNextStep:I
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mWidgets:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl;->mWidgets:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-direct {p0, p1, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->scheduleNotifyUpdateAppWidgetLocked(Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;Landroid/widget/RemoteViews;)V
+    check-cast v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, v1, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->needToCheckBlackList:Z
+
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
+
+    :cond_0
+    return-void
 .end method
 
 .method private updateHostHistoryLocked(Ljava/lang/String;)V

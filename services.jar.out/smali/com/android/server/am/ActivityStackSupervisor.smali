@@ -325,8 +325,6 @@
     .end annotation
 .end field
 
-.field mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
 .field final mService:Lcom/android/server/am/ActivityManagerService;
 
 .field mSleepTimeout:Z
@@ -1128,7 +1126,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00a4
+    const v1, 0x10e00a5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1165,7 +1163,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00a7
+    const v1, 0x10e00a8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2694,146 +2692,15 @@
 
     const/4 v5, 0x0
 
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    if-nez v2, :cond_0
-
-    const-string/jumbo v2, "SecureFolder"
-
-    const-string/jumbo v3, "mSecureFodlerImmeditateLockExceptionalList == null"
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.android.systemui.recents.RecentsActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.android.systemui.recents.SeparatedRecentsActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.samsung.android.server.iris.enroll.IrisEnrollActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.samsung.android.settings.iris.IrisLockSettings"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.android.settings.ConfirmLockPattern$InternalActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.android.settings.ConfirmLockPassword$InternalActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.android.settings.ChooseLockGeneric"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.android.settings.ChooseLockPattern"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.android.settings.ChooseLockPassword"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.samsung.android.settings.biometrics.BiometricsLockSetup"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.android.settings.fingerprint.RegisterFingerprint"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.samsung.android.fingerprint.service.activity.StartEnrollActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.samsung.android.settings.notification.SecRedactionInterstitial"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.samsung.android.voc.LauncherActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.samsung.android.voc.disclaimer.DisclaimerActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.samsung.android.app.syncmldm.ui.XUIInstallConfirmActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.android.internal.app.ChooserActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.samsung.knox.securefolder.foldercontainer.MultiwindowLockActivity"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
-
-    const-string/jumbo v3, "com.samsung.android.smartmirroring.CastingDialog"
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_0
     invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor;->getPersonaManagerLocked()Lcom/android/server/pm/PersonaManagerService;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     return v5
 
-    :cond_1
+    :cond_0
     iget-object v3, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v3
@@ -2847,13 +2714,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1
 
     invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor;->isKnoxFullscreenVisibleLocked(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1
 
     invoke-virtual {v0}, Lcom/android/server/pm/PersonaManagerService;->getForegroundUser()I
 
@@ -2863,7 +2730,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1
 
     invoke-virtual {v0}, Lcom/android/server/pm/PersonaManagerService;->getFocusedUser()I
 
@@ -2873,9 +2740,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
-    :cond_2
+    :cond_1
     const-string/jumbo v2, "SecureFolder"
 
     const-string/jumbo v4, "it\'s secure folder. Thus do not lock!"
@@ -2890,7 +2757,7 @@
 
     return v6
 
-    :cond_3
+    :cond_2
     monitor-exit v3
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
@@ -2906,7 +2773,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_3
 
     move-object v1, p2
 
@@ -2915,7 +2782,7 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_4
 
     const-string/jumbo v2, "SecureFolder"
 
@@ -2934,7 +2801,7 @@
 
     throw v2
 
-    :cond_4
+    :cond_3
     :try_start_2
     iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mFocusedStack:Lcom/android/server/am/ActivityStack;
 
@@ -2955,10 +2822,10 @@
 
     throw v2
 
-    :cond_5
+    :cond_4
     iget-object v2, v1, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_5
 
     const-string/jumbo v2, "SecureFolder"
 
@@ -2968,20 +2835,18 @@
 
     return v5
 
-    :cond_6
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
+    :cond_5
+    iget-object v2, v1, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
 
-    iget-object v3, v1, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
-    invoke-virtual {v3}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
-
-    invoke-interface {v2, v3}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Lcom/android/server/pm/PersonaManagerService;->isSecureFolderImmediateLockExceptionalCase(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_6
 
     const-string/jumbo v2, "SecureFolder"
 
@@ -3013,7 +2878,7 @@
 
     return v6
 
-    :cond_7
+    :cond_6
     const-string/jumbo v2, "SecureFolder"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5452,6 +5317,152 @@
     const/4 v4, 0x1
 
     return v4
+.end method
+
+.method public clearKnoxTasks(I)V
+    .locals 10
+
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_3
+
+    const-string/jumbo v7, "SecureFolder"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "hide and clear knox tasks for "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v7, p0, Lcom/android/server/am/ActivityStackSupervisor;->mActivityDisplays:Landroid/util/SparseArray;
+
+    invoke-virtual {v7}, Landroid/util/SparseArray;->size()I
+
+    move-result v7
+
+    add-int/lit8 v0, v7, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_4
+
+    iget-object v7, p0, Lcom/android/server/am/ActivityStackSupervisor;->mActivityDisplays:Landroid/util/SparseArray;
+
+    invoke-virtual {v7, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+
+    iget-object v3, v7, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v7
+
+    add-int/lit8 v2, v7, -0x1
+
+    :goto_1
+    if-ltz v2, :cond_2
+
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/am/ActivityStack;
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+
+    move-result v7
+
+    add-int/lit8 v5, v7, -0x1
+
+    :goto_2
+    if-ltz v5, :cond_1
+
+    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/am/TaskRecord;
+
+    if-eqz v4, :cond_0
+
+    iget v7, v4, Lcom/android/server/am/TaskRecord;->userId:I
+
+    invoke-static {v7}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_0
+
+    iget v7, v4, Lcom/android/server/am/TaskRecord;->userId:I
+
+    if-ne v7, p1, :cond_0
+
+    invoke-virtual {v4}, Lcom/android/server/am/TaskRecord;->removeTaskActivitiesLocked()V
+
+    :cond_0
+    add-int/lit8 v5, v5, -0x1
+
+    goto :goto_2
+
+    :cond_1
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_1
+
+    :cond_2
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v7, "SecureFolder"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "failed to hide and clear knox tasks for "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    return-void
 .end method
 
 .method clearOtherAppTimeTrackers(Lcom/android/server/am/AppTimeTracker;)V
@@ -9488,6 +9499,415 @@
     return-void
 .end method
 
+.method public hideKnoxMultiwindowsLockedAsTask(Lcom/android/server/am/TaskRecord;)V
+    .locals 30
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v25
+
+    if-nez v25, :cond_0
+
+    return-void
+
+    :cond_0
+    if-eqz p1, :cond_4
+
+    move-object/from16 v0, p1
+
+    iget v1, v0, Lcom/android/server/am/TaskRecord;->userId:I
+
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    move-object/from16 v0, p1
+
+    iget v1, v0, Lcom/android/server/am/TaskRecord;->mHiddenState:I
+
+    if-nez v1, :cond_4
+
+    move-object/from16 v0, p1
+
+    iget-object v1, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    if-eqz v1, :cond_3
+
+    move-object/from16 v0, p1
+
+    iget-object v1, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->getStackId()I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    if-ne v1, v2, :cond_3
+
+    :cond_1
+    new-instance v3, Landroid/content/Intent;
+
+    invoke-direct {v3}, Landroid/content/Intent;-><init>()V
+
+    move-object/from16 v0, p1
+
+    iget v1, v0, Lcom/android/server/am/TaskRecord;->userId:I
+
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-string/jumbo v2, "com.samsung.knox.securefolder"
+
+    const-string/jumbo v4, "com.samsung.knox.securefolder.foldercontainer.MultiwindowLockActivity"
+
+    invoke-direct {v1, v2, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v3, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    :goto_0
+    const-string/jumbo v1, "userid"
+
+    move-object/from16 v0, p1
+
+    iget v2, v0, Lcom/android/server/am/TaskRecord;->userId:I
+
+    invoke-virtual {v3, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const/high16 v1, 0x10000
+
+    invoke-virtual {v3, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    const/16 v1, 0x80
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v3, v1, v2}, Landroid/content/pm/PackageManager;->queryIntentActivitiesAsUser(Landroid/content/Intent;II)Ljava/util/List;
+
+    move-result-object v28
+
+    if-eqz v28, :cond_2
+
+    invoke-interface/range {v28 .. v28}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-nez v1, :cond_6
+
+    :cond_2
+    return-void
+
+    :cond_3
+    move-object/from16 v0, p1
+
+    iget-object v1, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->getStackId()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    if-eq v1, v2, :cond_1
+
+    move-object/from16 v0, p1
+
+    iget-object v1, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/ActivityStackSupervisor;->isSplitMode(Lcom/android/server/am/ActivityStack;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    :cond_4
+    :goto_1
+    return-void
+
+    :cond_5
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-string/jumbo v2, "com.sec.knox.foldercontainer"
+
+    const-string/jumbo v4, "com.sec.knox.foldercontainer.MultiwindowLockActivity"
+
+    invoke-direct {v1, v2, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v3, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    goto :goto_0
+
+    :cond_6
+    const/4 v1, 0x0
+
+    move-object/from16 v0, v28
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Landroid/content/pm/ResolveInfo;
+
+    if-nez v27, :cond_7
+
+    return-void
+
+    :cond_7
+    invoke-virtual/range {p0 .. p1}, Lcom/android/server/am/ActivityStackSupervisor;->findLockActivity(Lcom/android/server/am/TaskRecord;)Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v26
+
+    if-eqz v26, :cond_a
+
+    move-object/from16 v0, v26
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v2, "com.samsung.knox.securefolder/.foldercontainer.MultiwindowLockActivity"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_8
+
+    move-object/from16 v0, v26
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v2, "com.sec.knox.foldercontainer/.MultiwindowLockActivity"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_8
+
+    move-object/from16 v0, v26
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v2, "com.android.settings/.ChooseLockPattern"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_8
+
+    move-object/from16 v0, v26
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v2, "com.android.settings/.ChooseLockPassword"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_8
+
+    move-object/from16 v0, v26
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v2, "com.samsung.android.settings/.KnoxChooseLockTwoFactor"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_8
+
+    move-object/from16 v0, v26
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v2, "com.samsung.knox.kss/.KnoxKeyguardActivityPauser"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_8
+
+    move-object/from16 v0, v26
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v2, "com.samsung.knox.securefolder/.keyguard.KnoxKeyguardActivityPauser"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_8
+
+    move-object/from16 v0, v26
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v2, "com.samsung.knox.securefolder/.keyguard.KnoxKeyguardSamsungAccountBridge"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    :cond_8
+    return-void
+
+    :cond_9
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/TaskRecord;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v26
+
+    :cond_a
+    move-object/from16 v0, p1
+
+    iget-object v1, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->getStackId()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    if-ne v1, v2, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Lcom/android/server/am/ActivityStackSupervisor;->mIsDockMinimized:Z
+
+    if-nez v1, :cond_c
+
+    :cond_b
+    if-nez v26, :cond_d
+
+    :cond_c
+    return-void
+
+    :cond_d
+    move-object/from16 v0, v26
+
+    iget-boolean v1, v0, Lcom/android/server/am/ActivityRecord;->visible:Z
+
+    if-eqz v1, :cond_c
+
+    move-object/from16 v0, v26
+
+    iget-boolean v1, v0, Lcom/android/server/am/ActivityRecord;->finishing:Z
+
+    if-nez v1, :cond_c
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/TaskRecord;->getRootActivity()Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v29
+
+    if-eqz v29, :cond_e
+
+    const-string/jumbo v1, "appName"
+
+    move-object/from16 v0, v29
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v2, v0}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
+
+    :cond_e
+    const-string/jumbo v1, "pkgName"
+
+    move-object/from16 v0, p1
+
+    iget-object v2, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mActivityStarter:Lcom/android/server/am/ActivityStarter;
+
+    move-object/from16 v0, v27
+
+    iget-object v6, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    const/4 v2, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    const/4 v13, 0x0
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    const/16 v16, 0x0
+
+    const/16 v17, 0x0
+
+    const/16 v18, 0x0
+
+    const/16 v19, 0x0
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x0
+
+    const/16 v22, 0x0
+
+    const/16 v23, 0x0
+
+    move-object/from16 v24, p1
+
+    invoke-virtual/range {v1 .. v24}, Lcom/android/server/am/ActivityStarter;->startActivityLocked(Landroid/app/IApplicationThread;Landroid/content/Intent;Landroid/content/Intent;Ljava/lang/String;Landroid/content/pm/ActivityInfo;Landroid/content/pm/ResolveInfo;Landroid/service/voice/IVoiceInteractionSession;Lcom/android/internal/app/IVoiceInteractor;Landroid/os/IBinder;Ljava/lang/String;IIILjava/lang/String;IIILandroid/app/ActivityOptions;ZZ[Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;Lcom/android/server/am/TaskRecord;)I
+
+    goto/16 :goto_1
+.end method
+
 .method initPowerManagement()V
     .locals 4
 
@@ -9732,41 +10152,41 @@
 .end method
 
 .method public isKnoxFullscreenVisibleLocked(I)Z
-    .locals 9
+    .locals 11
 
-    const/4 v8, 0x1
+    const/4 v10, 0x1
 
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
-    iget-object v6, p0, Lcom/android/server/am/ActivityStackSupervisor;->mActivityDisplays:Landroid/util/SparseArray;
+    iget-object v8, p0, Lcom/android/server/am/ActivityStackSupervisor;->mActivityDisplays:Landroid/util/SparseArray;
 
-    invoke-virtual {v6}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v8}, Landroid/util/SparseArray;->size()I
 
-    move-result v6
+    move-result v8
 
-    add-int/lit8 v0, v6, -0x1
+    add-int/lit8 v0, v8, -0x1
 
     :goto_0
-    if-ltz v0, :cond_3
+    if-ltz v0, :cond_4
 
-    iget-object v6, p0, Lcom/android/server/am/ActivityStackSupervisor;->mActivityDisplays:Landroid/util/SparseArray;
+    iget-object v8, p0, Lcom/android/server/am/ActivityStackSupervisor;->mActivityDisplays:Landroid/util/SparseArray;
 
-    invoke-virtual {v6, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v8, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v8
 
-    check-cast v6, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+    check-cast v8, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
 
-    iget-object v3, v6, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
+    iget-object v3, v8, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v6
+    move-result v8
 
-    add-int/lit8 v2, v6, -0x1
+    add-int/lit8 v2, v8, -0x1
 
     :goto_1
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_3
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -9774,71 +10194,95 @@
 
     check-cast v1, Lcom/android/server/am/ActivityStack;
 
-    const/4 v6, 0x3
+    if-eqz v1, :cond_2
 
-    invoke-virtual {p0, v6}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+    const/4 v8, 0x3
 
-    move-result-object v6
+    invoke-virtual {p0, v8}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
 
-    if-nez v6, :cond_1
+    move-result-object v8
+
+    if-nez v8, :cond_2
 
     invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->getStackId()I
 
-    move-result v6
+    move-result v8
 
-    if-ne v6, v8, :cond_1
+    if-ne v8, v10, :cond_2
 
     invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+
+    move-result v8
+
+    add-int/lit8 v5, v8, -0x1
+
+    :goto_2
+    if-ltz v5, :cond_2
+
+    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
     move-result-object v4
 
-    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+    check-cast v4, Lcom/android/server/am/TaskRecord;
 
-    move-result-object v5
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v4}, Lcom/android/server/am/TaskRecord;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v7
 
     if-nez p1, :cond_0
 
-    if-eqz v5, :cond_1
+    if-eqz v7, :cond_1
 
-    iget v6, v5, Lcom/android/server/am/ActivityRecord;->userId:I
+    iget v8, v7, Lcom/android/server/am/ActivityRecord;->userId:I
 
-    invoke-static {v6}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+    invoke-static {v8}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_1
+    if-eqz v8, :cond_1
 
-    iget-boolean v6, v5, Lcom/android/server/am/ActivityRecord;->nowVisible:Z
+    iget-boolean v8, v7, Lcom/android/server/am/ActivityRecord;->nowVisible:Z
 
-    if-eqz v6, :cond_1
+    if-eqz v8, :cond_1
 
-    return v8
+    return v10
 
     :cond_0
-    if-eqz v5, :cond_1
+    if-eqz v7, :cond_1
 
-    iget v6, v5, Lcom/android/server/am/ActivityRecord;->userId:I
+    iget v8, v7, Lcom/android/server/am/ActivityRecord;->userId:I
 
-    if-ne p1, v6, :cond_1
+    if-ne p1, v8, :cond_1
 
-    iget-boolean v6, v5, Lcom/android/server/am/ActivityRecord;->nowVisible:Z
+    iget-boolean v8, v7, Lcom/android/server/am/ActivityRecord;->nowVisible:Z
 
-    if-eqz v6, :cond_1
+    if-eqz v8, :cond_1
 
-    return v8
+    return v10
 
     :cond_1
+    add-int/lit8 v5, v5, -0x1
+
+    goto :goto_2
+
+    :cond_2
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    :cond_3
-    return v7
+    :cond_4
+    return v9
 .end method
 
 .method public isKnoxMultiwindowOrLockActivityExist(I)Z
@@ -12451,7 +12895,7 @@
 
     iget-object v9, v9, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
 
-    invoke-interface {v9}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->checkCountOfRunningFreeformWithLogging()V
+    invoke-interface {v9, p1}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->checkRunningFreeformWithLoggingLocked(Lcom/android/server/am/TaskRecord;)V
 
     :cond_a
     return-object v4
@@ -12597,21 +13041,7 @@
     :cond_14
     iget v9, v1, Lcom/android/server/am/ActivityStack;->mStackId:I
 
-    invoke-static {v9, p2}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge$Utils;->isFreeformMaximizing(II)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_7
-
-    iget-object v9, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v9, v9, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
-
-    iget-object v10, p0, Lcom/android/server/am/ActivityStackSupervisor;->mHomeStack:Lcom/android/server/am/ActivityStack;
-
-    const/4 v11, 0x0
-
-    invoke-interface {v9, v10, v11}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->isVisibleStackBehindFreeformLocked(Lcom/android/server/am/ActivityStack;Lcom/android/server/am/ActivityRecord;)Z
+    invoke-virtual {p0, v9, p2}, Lcom/android/server/am/ActivityStackSupervisor;->shouldSetTaskReturnToHome(II)Z
 
     move-result v9
 
@@ -15430,82 +15860,143 @@
 .end method
 
 .method reportActivityVisibleLocked(Lcom/android/server/am/ActivityRecord;)V
-    .locals 0
+    .locals 3
 
     invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor;->sendWaitingVisibleReportLocked(Lcom/android/server/am/ActivityRecord;)V
 
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor;->getPersonaManager()Lcom/android/server/pm/PersonaManagerService;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor;->getPersonaManager()Lcom/android/server/pm/PersonaManagerService;
+
+    move-result-object v1
+
+    iget v2, p1, Lcom/android/server/am/ActivityRecord;->userId:I
+
+    invoke-virtual {v1, v2}, Lcom/android/server/pm/PersonaManagerService;->notifyFocusChanged(I)V
+
+    const/4 v1, 0x3
+
+    invoke-virtual {p0, v1}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/server/am/ActivityStackSupervisor;->mIsDockMinimized:Z
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    :goto_0
     invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor;->lockSecureFolderIfNeeded()V
 
     return-void
-.end method
 
-.method reportResumedActivityLocked(Lcom/android/server/am/ActivityRecord;)Z
-    .locals 9
+    :cond_1
+    iget v1, p1, Lcom/android/server/am/ActivityRecord;->userId:I
 
-    const/4 v8, 0x0
-
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
-
-    iget-object v1, p1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
-
-    iget-object v0, v1, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
-
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityStackSupervisor;->isFocusedStack(Lcom/android/server/am/ActivityStack;)Z
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor;->getPersonaManagerLocked()Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-virtual {v1, p1, v7}, Lcom/android/server/am/ActivityManagerService;->updateUsageStats(Lcom/android/server/am/ActivityRecord;Z)V
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v1, Lcom/samsung/android/knox/SemPersonaState;->LOCKED:Lcom/samsung/android/knox/SemPersonaState;
+
+    iget v2, p1, Lcom/android/server/am/ActivityRecord;->userId:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PersonaManagerService;->inState(Lcom/samsung/android/knox/SemPersonaState;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    invoke-virtual {p0, v1}, Lcom/android/server/am/ActivityStackSupervisor;->hideKnoxMultiwindowsLockedAsTask(Lcom/android/server/am/TaskRecord;)V
+
+    goto :goto_0
+.end method
+
+.method reportResumedActivityLocked(Lcom/android/server/am/ActivityRecord;)Z
+    .locals 10
+
+    const/4 v9, 0x0
+
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
+
+    iget-object v0, p1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    iget-object v6, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    invoke-virtual {p0, v6}, Lcom/android/server/am/ActivityStackSupervisor;->isFocusedStack(Lcom/android/server/am/ActivityStack;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {v0, p1, v8}, Lcom/android/server/am/ActivityManagerService;->updateUsageStats(Lcom/android/server/am/ActivityRecord;Z)V
 
     :cond_0
-    sget-boolean v1, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
+    sget-boolean v0, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    iget-object v2, p1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+    iget-object v1, p1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    iget-object v3, p1, Lcom/android/server/am/ActivityRecord;->launchedFromPackage:Ljava/lang/String;
+    iget-object v2, p1, Lcom/android/server/am/ActivityRecord;->launchedFromPackage:Ljava/lang/String;
 
-    iget-boolean v4, p1, Lcom/android/server/am/ActivityRecord;->fullscreen:Z
+    iget-boolean v3, p1, Lcom/android/server/am/ActivityRecord;->fullscreen:Z
 
-    iget-object v5, p1, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
+    iget-object v4, p1, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
 
-    invoke-virtual {v1, v2, v3, v4, v5}, Lcom/android/server/am/MARsPolicyManager;->handlePackageResumedFG(Ljava/lang/String;Ljava/lang/String;ZLandroid/content/Intent;)V
+    iget v5, p1, Lcom/android/server/am/ActivityRecord;->userId:I
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/MARsPolicyManager;->handlePackageResumedFG(Ljava/lang/String;Ljava/lang/String;ZLandroid/content/Intent;I)V
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor;->allResumedActivitiesComplete()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    invoke-virtual {p0, v8, v6, v6}, Lcom/android/server/am/ActivityStackSupervisor;->ensureActivitiesVisibleLocked(Lcom/android/server/am/ActivityRecord;IZ)V
+    invoke-virtual {p0, v9, v7, v7}, Lcom/android/server/am/ActivityStackSupervisor;->ensureActivitiesVisibleLocked(Lcom/android/server/am/ActivityRecord;IZ)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/WindowManagerService;->executeAppTransition()V
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->executeAppTransition()V
 
-    return v7
+    return v8
 
     :cond_2
-    return v6
+    return v7
 .end method
 
 .method reportTaskToFrontNoLaunch(Lcom/android/server/am/ActivityRecord;)V
@@ -18423,6 +18914,39 @@
     return-void
 .end method
 
+.method shouldSetTaskReturnToHome(II)Z
+    .locals 3
+
+    invoke-static {p1, p2}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge$Utils;->isFreeformMaximizing(II)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor;->mHomeStack:Lcom/android/server/am/ActivityStack;
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v1, v2}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->isVisibleStackBehindFreeformLocked(Lcom/android/server/am/ActivityStack;Lcom/android/server/am/ActivityRecord;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method showLockTaskEscapeMessageLocked(Lcom/android/server/am/TaskRecord;)V
     .locals 2
 
@@ -18914,7 +19438,7 @@
 
     if-eqz v3, :cond_b
 
-    if-eqz v24, :cond_12
+    if-eqz v24, :cond_16
 
     :cond_b
     :goto_4
@@ -18930,7 +19454,7 @@
 
     if-ne v3, v4, :cond_c
 
-    if-eqz v24, :cond_14
+    if-eqz v24, :cond_18
 
     :cond_c
     :goto_5
@@ -18963,16 +19487,16 @@
 
     move-result-object v23
 
-    if-eqz v23, :cond_15
+    if-eqz v23, :cond_19
 
     invoke-virtual/range {v23 .. v23}, Lcom/android/server/am/ActivityStack;->topActivity()Lcom/android/server/am/ActivityRecord;
 
     move-result-object v28
 
     :goto_6
-    const/4 v3, -0x1
+    sget-boolean v3, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eq v5, v3, :cond_e
+    if-eqz v3, :cond_f
 
     move-object/from16 v0, v18
 
@@ -18980,7 +19504,52 @@
 
     iget v3, v3, Lcom/android/server/am/ActivityStack;->mStackId:I
 
-    if-eq v3, v5, :cond_e
+    const/4 v4, 0x2
+
+    if-eq v3, v4, :cond_e
+
+    if-eqz v24, :cond_f
+
+    :cond_e
+    move-object/from16 v0, v18
+
+    iget-object v3, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
+
+    if-eqz v3, :cond_1a
+
+    move-object/from16 v0, v18
+
+    iget-object v3, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v21
+
+    :goto_7
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
+
+    const-string/jumbo v4, "FFEP"
+
+    move-object/from16 v0, v21
+
+    invoke-interface {v3, v4, v0}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_f
+    const/4 v3, -0x1
+
+    if-eq v5, v3, :cond_10
+
+    move-object/from16 v0, v18
+
+    iget-object v3, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    iget v3, v3, Lcom/android/server/am/ActivityStack;->mStackId:I
+
+    if-eq v3, v5, :cond_10
 
     const-string/jumbo v8, "startActivityFromRecents"
 
@@ -18998,20 +19567,20 @@
 
     invoke-virtual/range {v3 .. v10}, Lcom/android/server/am/ActivityStackSupervisor;->moveTaskToStackLocked(IIZZLjava/lang/String;ZZ)Z
 
-    :cond_e
+    :cond_10
     sget-boolean v3, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_11
 
     const/4 v3, 0x3
 
-    if-ne v5, v3, :cond_17
+    if-ne v5, v3, :cond_11
 
     move-object/from16 v0, v18
 
     iget-object v3, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_1b
 
     move-object/from16 v0, v18
 
@@ -19021,7 +19590,7 @@
 
     move-result-object v21
 
-    :goto_7
+    :goto_8
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -19034,15 +19603,14 @@
 
     invoke-interface {v3, v4, v0}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_f
-    :goto_8
+    :cond_11
     sget-boolean v3, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_12
 
-    if-eqz v25, :cond_19
+    if-eqz v25, :cond_1c
 
-    :cond_10
+    :cond_12
     :goto_9
     move-object/from16 v0, p0
 
@@ -19058,13 +19626,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_1c
+    if-nez v3, :cond_1f
 
     invoke-virtual/range {v18 .. v18}, Lcom/android/server/am/TaskRecord;->getRootActivity()Lcom/android/server/am/ActivityRecord;
 
     move-result-object v3
 
-    if-eqz v3, :cond_1c
+    if-eqz v3, :cond_1f
 
     move-object/from16 v0, p0
 
@@ -19100,11 +19668,11 @@
 
     const/4 v3, 0x3
 
-    if-ne v5, v3, :cond_11
+    if-ne v5, v3, :cond_13
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/am/ActivityStackSupervisor;->setResizingDuringAnimation(I)V
 
-    :cond_11
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -19115,7 +19683,7 @@
 
     move-result-object v7
 
-    if-eqz v28, :cond_1b
+    if-eqz v28, :cond_1e
 
     move-object/from16 v0, v28
 
@@ -19136,11 +19704,39 @@
 
     invoke-virtual/range {v6 .. v11}, Lcom/android/server/am/ActivityStarter;->postStartActivityUncheckedProcessing(Lcom/android/server/am/ActivityRecord;IILcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityStack;)V
 
+    sget-boolean v3, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+
+    if-eqz v3, :cond_15
+
+    const/4 v3, -0x1
+
+    if-eq v5, v3, :cond_14
+
+    move-object/from16 v0, v18
+
+    iget-object v3, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    iget v3, v3, Lcom/android/server/am/ActivityStack;->mStackId:I
+
+    if-ne v5, v3, :cond_15
+
+    :cond_14
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
+
+    move-object/from16 v0, v18
+
+    invoke-interface {v3, v0}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->checkRunningFreeformWithLoggingLocked(Lcom/android/server/am/TaskRecord;)V
+
+    :cond_15
     const/4 v3, 0x2
 
     return v3
 
-    :cond_12
+    :cond_16
     invoke-virtual/range {v18 .. v18}, Lcom/android/server/am/TaskRecord;->canGoInDockedStack()Z
 
     move-result v3
@@ -19159,7 +19755,7 @@
 
     iget-object v3, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
 
-    if-eqz v3, :cond_13
+    if-eqz v3, :cond_17
 
     move-object/from16 v0, v18
 
@@ -19182,12 +19778,12 @@
 
     goto/16 :goto_4
 
-    :cond_13
+    :cond_17
     const/4 v3, 0x0
 
     goto :goto_b
 
-    :cond_14
+    :cond_18
     const/4 v3, -0x1
 
     if-ne v5, v3, :cond_c
@@ -19196,55 +19792,23 @@
 
     goto/16 :goto_5
 
-    :cond_15
+    :cond_19
     const/16 v28, 0x0
 
     goto/16 :goto_6
 
-    :cond_16
-    const/16 v21, 0x0
+    :cond_1a
+    const-string/jumbo v21, "null"
 
     goto/16 :goto_7
 
-    :cond_17
-    if-eqz v24, :cond_f
-
-    move-object/from16 v0, v18
-
-    iget-object v3, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
-
-    if-eqz v3, :cond_18
-
-    move-object/from16 v0, v18
-
-    iget-object v3, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v21
-
-    :goto_c
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
-
-    const-string/jumbo v4, "FFEP"
-
-    move-object/from16 v0, v21
-
-    invoke-interface {v3, v4, v0}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
+    :cond_1b
+    const/16 v21, 0x0
 
     goto/16 :goto_8
 
-    :cond_18
-    const-string/jumbo v21, "null"
-
-    goto :goto_c
-
-    :cond_19
-    if-nez v24, :cond_1a
+    :cond_1c
+    if-nez v24, :cond_1d
 
     move-object/from16 v0, v18
 
@@ -19254,9 +19818,9 @@
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_10
+    if-ne v3, v4, :cond_12
 
-    :cond_1a
+    :cond_1d
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -19271,12 +19835,12 @@
 
     goto/16 :goto_9
 
-    :cond_1b
+    :cond_1e
     const/4 v9, -0x1
 
     goto/16 :goto_a
 
-    :cond_1c
+    :cond_1f
     move-object/from16 v0, v18
 
     iget v7, v0, Lcom/android/server/am/TaskRecord;->mCallingUid:I
@@ -19323,7 +19887,7 @@
 
     const/4 v3, 0x3
 
-    if-ne v5, v3, :cond_1d
+    if-ne v5, v3, :cond_20
 
     move-object/from16 v0, v18
 
@@ -19333,8 +19897,8 @@
 
     invoke-direct {v0, v3}, Lcom/android/server/am/ActivityStackSupervisor;->setResizingDuringAnimation(I)V
 
-    :cond_1d
-    if-eqz v25, :cond_1e
+    :cond_20
+    if-eqz v25, :cond_21
 
     move-object/from16 v0, v18
 
@@ -19344,13 +19908,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_1e
+    if-nez v3, :cond_21
 
     invoke-virtual/range {v18 .. v18}, Lcom/android/server/am/TaskRecord;->isApplicationTask()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1e
+    if-eqz v3, :cond_21
 
     invoke-virtual/range {v18 .. v18}, Lcom/android/server/am/TaskRecord;->getBaseIntent()Landroid/content/Intent;
 
@@ -19372,7 +19936,35 @@
 
     invoke-virtual {v0, v6, v1, v3, v4}, Lcom/android/server/am/ActivityStackSupervisor;->notifyAppsStatusToTaskBar(ILcom/android/server/am/TaskRecord;Landroid/content/ComponentName;Ljava/lang/String;)V
 
-    :cond_1e
+    :cond_21
+    sget-boolean v3, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+
+    if-eqz v3, :cond_23
+
+    const/4 v3, -0x1
+
+    if-eq v5, v3, :cond_22
+
+    move-object/from16 v0, v18
+
+    iget-object v3, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    iget v3, v3, Lcom/android/server/am/ActivityStack;->mStackId:I
+
+    if-ne v5, v3, :cond_23
+
+    :cond_22
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
+
+    move-object/from16 v0, v18
+
+    invoke-interface {v3, v0}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->checkRunningFreeformWithLoggingLocked(Lcom/android/server/am/TaskRecord;)V
+
+    :cond_23
     return v27
 .end method
 

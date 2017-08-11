@@ -162,11 +162,11 @@
 
     const-string/jumbo v6, "UsbDevices"
 
-    const v1, 0x1040abb
+    const v1, 0x1040ac4
 
     const/4 v2, 0x0
 
-    const v3, 0x10808b1
+    const v3, 0x108089f
 
     const/4 v4, 0x0
 
@@ -249,11 +249,11 @@
 
     const-string/jumbo v6, "UsbDevices"
 
-    const v1, 0x1040abc
+    const v1, 0x1040ac5
 
     const/4 v2, 0x0
 
-    const v3, 0x10808b1
+    const v3, 0x108089f
 
     const/4 v4, 0x0
 
@@ -328,11 +328,11 @@
 
     const-string/jumbo v6, "OVERCURRENT"
 
-    const v1, 0x1040abd
+    const v1, 0x1040ac6
 
-    const v2, 0x1040abe
+    const v2, 0x1040ac7
 
-    const v3, 0x10808b2
+    const v3, 0x10808a0
 
     const/4 v4, 0x1
 
@@ -359,11 +359,11 @@
 
     const-string/jumbo v6, "UNKNOWN"
 
-    const v1, 0x1040abf
+    const v1, 0x1040ac8
 
     const/4 v2, 0x0
 
-    const v3, 0x10808b3
+    const v3, 0x10808a1
 
     const/4 v4, 0x1
 

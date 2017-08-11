@@ -390,7 +390,7 @@
 
     move-result-object v7
 
-    const v19, 0x10808ae
+    const v19, 0x108089c
 
     move-object/from16 v0, p0
 
@@ -619,7 +619,7 @@
 
     move-result-object v7
 
-    const v19, 0x10808ae
+    const v19, 0x108089c
 
     goto/16 :goto_0
 

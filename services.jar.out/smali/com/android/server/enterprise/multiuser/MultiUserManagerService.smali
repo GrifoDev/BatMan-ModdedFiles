@@ -514,7 +514,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x10409f2
+    const v6, 0x10409fb
 
     invoke-virtual {v4, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -677,7 +677,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x10409f0
+    const v2, 0x10409f9
 
     invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -755,7 +755,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x10409f1
+    const v2, 0x10409fa
 
     invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -825,7 +825,7 @@
     goto :goto_0
 
     :cond_4
-    const v3, 0x10409ef
+    const v3, 0x10409f8
 
     invoke-static {v3}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 

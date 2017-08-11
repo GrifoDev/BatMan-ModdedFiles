@@ -31,6 +31,8 @@
 
 .field private static final BIN_TYPE_USER:Z
 
+.field private static final BLACK_THEME_TEXT_MESSAGE_SCALE:F = 1.12f
+
 .field private static final BROADCAST_STOP_PERCENT:I = 0x2
 
 .field private static final BUTTON_DESCRIPTION_INDEX:I = 0x2
@@ -41,7 +43,9 @@
 
 .field private static final BUTTON_VIEW_SIZE:F = 1.3f
 
-.field private static final DESCRIP_TEXT_SIZE:I = 0xe
+.field private static final DESCRIP_TEXT_PADDING:I = 0x18
+
+.field private static final DESCRIP_TEXT_SIZE:I = 0xd
 
 .field private static final FORCE_SHUTDOWN_ACTION_PROPERTY:Ljava/lang/String; = "sys.property_forcedshutdown"
 
@@ -91,7 +95,7 @@
 
 .field private static final TAG:Ljava/lang/String; = "ShutdownThread"
 
-.field private static final TEXT_MESSAGE_SIZE:F = 17.92f
+.field private static final TEXT_MESSAGE_SIZE:F = 15.0f
 
 .field private static final TIMEOUT_EXTENDS_RATIO:I = 0x8
 
@@ -1501,7 +1505,7 @@
 
     if-eqz v10, :cond_2
 
-    const v9, 0x104070c
+    const v9, 0x1040710
 
     :goto_0
     invoke-static {p0}, Lcom/android/server/power/ShutdownThread;->getDescriptionText(Landroid/content/Context;)I
@@ -1529,7 +1533,7 @@
 
     new-instance v7, Landroid/app/AlertDialog$Builder;
 
-    const v10, 0x10304fa
+    const v10, 0x1030501
 
     invoke-direct {v7, p0, v10}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
@@ -1876,7 +1880,7 @@
     if-eqz v1, :cond_2
 
     :cond_1
-    const v1, 0x1080a51
+    const v1, 0x1080a3f
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1892,7 +1896,7 @@
 
     if-nez p1, :cond_3
 
-    const v1, 0x1080a4d
+    const v1, 0x1080a3b
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1901,7 +1905,7 @@
     goto :goto_0
 
     :cond_3
-    const v1, 0x1080a4e
+    const v1, 0x1080a3c
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1912,7 +1916,7 @@
     :cond_4
     if-nez p1, :cond_5
 
-    const v1, 0x1080a49
+    const v1, 0x1080a37
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1921,7 +1925,7 @@
     goto :goto_0
 
     :cond_5
-    const v1, 0x1080a4a
+    const v1, 0x1080a38
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2025,7 +2029,7 @@
     if-eqz v2, :cond_2
 
     :cond_1
-    const v0, 0x1040800
+    const v0, 0x1040804
 
     :goto_0
     return v0
@@ -2048,12 +2052,12 @@
 
     if-eqz v2, :cond_4
 
-    const v0, 0x10407fd
+    const v0, 0x1040801
 
     goto :goto_0
 
     :cond_4
-    const v0, 0x10407fb
+    const v0, 0x10407ff
 
     goto :goto_0
 
@@ -2075,7 +2079,7 @@
 
     if-ne v1, v5, :cond_8
 
-    const v0, 0x104070d
+    const v0, 0x1040711
 
     goto :goto_0
 
@@ -2092,12 +2096,12 @@
 
     if-eqz v2, :cond_6
 
-    const v0, 0x10408ac
+    const v0, 0x10408b3
 
     goto :goto_0
 
     :cond_8
-    const v0, 0x10406f5
+    const v0, 0x10406f9
 
     goto :goto_0
 
@@ -2115,11 +2119,15 @@
 .end method
 
 .method private static getDescriptionView(Landroid/content/Context;Z)Landroid/widget/TextView;
-    .locals 7
+    .locals 10
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v4
 
     new-instance v0, Landroid/widget/TextView;
 
@@ -2127,79 +2135,85 @@
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v5}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v2
 
-    const/high16 v4, 0x439b0000    # 310.0f
+    const/high16 v5, 0x439b0000    # 310.0f
 
-    const/4 v5, 0x1
-
-    invoke-static {v5, v4, v2}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+    invoke-static {v9, v5, v2}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
     move-result v1
 
-    new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
+    new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
 
-    float-to-int v5, v1
+    float-to-int v6, v1
 
-    const/4 v6, -0x2
+    const/4 v7, -0x2
 
-    invoke-direct {v4, v5, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v5, v6, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    const/high16 v5, 0x41c00000    # 24.0f
+
+    invoke-static {v9, v5, v2}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+
+    move-result v5
+
+    float-to-int v3, v5
 
     invoke-static {p0}, Lcom/android/server/power/ShutdownThread;->getDescriptionText(Landroid/content/Context;)I
 
-    move-result v4
+    move-result v5
 
-    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const/high16 v4, 0x41600000    # 14.0f
+    const/high16 v5, 0x41500000    # 13.0f
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    invoke-virtual {v0, v5, v4}, Landroid/widget/TextView;->setTextSize(IF)V
+    invoke-virtual {v0, v6, v5}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    const/4 v4, 0x0
+    invoke-virtual {v0, v3, v8, v3, v8}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setSingleLine(Z)V
+    invoke-virtual {v0, v8}, Landroid/widget/TextView;->setSingleLine(Z)V
 
-    const/4 v4, 0x3
+    const/4 v5, 0x3
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setMaxLines(I)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    const/16 v4, 0x11
+    const/16 v5, 0x11
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setGravity(I)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setGravity(I)V
 
     if-eqz p1, :cond_0
 
-    const v4, 0x1060151
+    const v5, 0x1060157
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
-    move-result v4
+    move-result v5
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
 
     :goto_0
     return-object v0
 
     :cond_0
-    const v4, 0x1060146
+    const v5, 0x106014c
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
-    move-result v4
+    move-result v5
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto :goto_0
 .end method
@@ -2366,7 +2380,9 @@
 .end method
 
 .method private static getTextView(Landroid/content/Context;Z)Landroid/widget/TextView;
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x2
 
     const/4 v3, -0x2
 
@@ -2394,15 +2410,13 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const/4 v2, 0x2
-
-    const v3, 0x418f5c29    # 17.92f
-
-    invoke-virtual {v0, v2, v3}, Landroid/widget/TextView;->setTextSize(IF)V
-
     if-eqz p1, :cond_0
 
-    const v2, 0x1060150
+    const/high16 v2, 0x41700000    # 15.0f
+
+    invoke-virtual {v0, v4, v2}, Landroid/widget/TextView;->setTextSize(IF)V
+
+    const v2, 0x1060156
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2414,7 +2428,11 @@
     return-object v0
 
     :cond_0
-    const v2, 0x1060145
+    const v2, 0x41866666    # 16.8f
+
+    invoke-virtual {v0, v4, v2}, Landroid/widget/TextView;->setTextSize(IF)V
+
+    const v2, 0x106014b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2442,7 +2460,7 @@
     if-eqz v1, :cond_2
 
     :cond_1
-    const v0, 0x10407ff
+    const v0, 0x1040803
 
     :goto_0
     return v0
@@ -2461,7 +2479,7 @@
 
     if-eqz v1, :cond_4
 
-    const v0, 0x104070c
+    const v0, 0x1040710
 
     goto :goto_0
 
@@ -2545,9 +2563,7 @@
 .end method
 
 .method private static isConfirmAvailable(Landroid/content/Context;)Z
-    .locals 11
-
-    const v10, 0x10407c3
+    .locals 10
 
     const/4 v9, 0x1
 
@@ -2661,21 +2677,23 @@
     if-eqz v6, :cond_8
 
     :cond_6
-    invoke-virtual {p0, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    const v6, 0x10407c8
+
+    invoke-virtual {p0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
+    :goto_1
     invoke-static {p0, v5, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v6
 
     invoke-virtual {v6}, Landroid/widget/Toast;->show()V
 
-    :goto_1
     return v8
 
     :cond_7
-    const v6, 0x10407c0
+    const v6, 0x10407c4
 
     invoke-virtual {p0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2690,15 +2708,11 @@
     return v8
 
     :cond_8
-    invoke-virtual {p0, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    const v6, 0x10407c7
+
+    invoke-virtual {p0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
-
-    invoke-static {p0, v5, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/widget/Toast;->show()V
 
     goto :goto_1
 

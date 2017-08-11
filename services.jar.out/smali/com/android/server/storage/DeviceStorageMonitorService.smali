@@ -1269,13 +1269,13 @@
 
     check-cast v2, Landroid/app/NotificationManager;
 
-    const v5, 0x1040acb
+    const v5, 0x1040ad4
 
     invoke-virtual {v0, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
-    const v5, 0x1040acc
+    const v5, 0x1040ad5
 
     invoke-virtual {v0, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1285,7 +1285,7 @@
 
     invoke-direct {v5, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x1080883
+    const v6, 0x108086f
 
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -1471,7 +1471,7 @@
 
     invoke-direct {v1, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x1080883
+    const v3, 0x108086f
 
     invoke-virtual {v1, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -1596,13 +1596,13 @@
 
     check-cast v8, Landroid/app/NotificationManager;
 
-    const v3, 0x10408f6
+    const v3, 0x10408fd
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v10
 
-    const v3, 0x10408f7
+    const v3, 0x10408fe
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1620,7 +1620,7 @@
 
     invoke-direct {v1, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x108071b
+    const v3, 0x1080706
 
     invoke-virtual {v1, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 

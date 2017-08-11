@@ -37,7 +37,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Landroid/os/ParcelFileDescriptor;ZZZZZZZ[Ljava/lang/String;I)V
+.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Landroid/os/ParcelFileDescriptor;ZZZZZZZ[Ljava/lang/String;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$FullBackupParams;->this$0:Lcom/android/server/backup/BackupManagerService;
@@ -63,6 +63,8 @@
     iput-object p10, p0, Lcom/android/server/backup/BackupManagerService$FullBackupParams;->packages:[Ljava/lang/String;
 
     iput p11, p0, Lcom/android/server/backup/BackupManagerService$FullBackupParams;->extraFlag:I
+
+    iput p12, p0, Lcom/android/server/backup/BackupManagerService$FullBackupParams;->userId:I
 
     return-void
 .end method

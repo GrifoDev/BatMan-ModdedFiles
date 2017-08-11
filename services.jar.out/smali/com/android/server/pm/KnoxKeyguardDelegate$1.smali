@@ -3,12 +3,12 @@
 .source "KnoxKeyguardDelegate.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/KnoxKeyguardDelegate;->showScrimSD()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/pm/KnoxKeyguardDelegate;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,18 +34,45 @@
 
 
 # virtual methods
-.method public run()V
+.method public onDesktopDockConnectionChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onDesktopModeChanged(Z)V
     .locals 2
+
+    const-string/jumbo v0, "KnoxKeyguardDelegate"
+
+    const-string/jumbo v1, "On DesktopMode State Changed"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate$1;->this$0:Lcom/android/server/pm/KnoxKeyguardDelegate;
 
-    invoke-static {v0}, Lcom/android/server/pm/KnoxKeyguardDelegate;->-get1(Lcom/android/server/pm/KnoxKeyguardDelegate;)Lcom/android/server/pm/KnoxNativeKeyguardHost;
+    invoke-static {v0}, Lcom/android/server/pm/KnoxKeyguardDelegate;->-get3(Lcom/android/server/pm/KnoxKeyguardDelegate;)I
 
-    move-result-object v0
+    move-result v0
 
-    const/4 v1, 0x0
+    const/16 v1, -0x2710
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/KnoxNativeKeyguardHost;->setVisibility(I)V
+    if-eq v0, v1, :cond_0
 
+    iget-object v0, p0, Lcom/android/server/pm/KnoxKeyguardDelegate$1;->this$0:Lcom/android/server/pm/KnoxKeyguardDelegate;
+
+    iget-object v1, p0, Lcom/android/server/pm/KnoxKeyguardDelegate$1;->this$0:Lcom/android/server/pm/KnoxKeyguardDelegate;
+
+    invoke-static {v1}, Lcom/android/server/pm/KnoxKeyguardDelegate;->-get3(Lcom/android/server/pm/KnoxKeyguardDelegate;)I
+
+    move-result v1
+
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/KnoxKeyguardDelegate;->showScrim(Z)V
+
+    :cond_0
     return-void
 .end method

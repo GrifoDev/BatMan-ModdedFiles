@@ -22,11 +22,15 @@
 
 
 # static fields
-.field private static final AUTO_BRIGHTNESS_RATE_FOR_AUTO_BRIGHTNESS_V3:I = 0x10
+.field private static final AUTO_BRIGHTNESS_LOW_LUX_STEP_FOR_PAC_V3:I = 0xe
+
+.field private static final AUTO_BRIGHTNESS_STEP_FOR_PAC_V3:I = 0x4
 
 .field private static final FORCE_1STEP_DELTA_TIME:F = 0.016f
 
-.field private static final MANUAL_BRIGHTNESS_STEP_FOR_AUTO_BRIGHTNESS_V3:I = 0xa
+.field private static final MANUAL_BRIGHTNESS_STEP_FOR_PAC_V3:I = 0xa
+
+.field private static final MAX_BRIGHTNESS_BEFORE_HBM_FOR_PAC_V3:I = 0x639c
 
 .field private static final TAG:Ljava/lang/String; = "RampAnimator"
 
@@ -275,143 +279,157 @@
 
 # virtual methods
 .method public animateTo(II)Z
-    .locals 5
+    .locals 6
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     iput p1, p0, Lcom/android/server/display/RampAnimator;->mTarget:I
 
-    sget-boolean v1, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS_V3:Z
+    sget-boolean v2, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS_V3:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     if-lez p1, :cond_0
 
     mul-int/lit8 p1, p1, 0x64
 
     :cond_0
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
 
-    if-ge p1, v1, :cond_6
+    if-ge p1, v2, :cond_6
 
-    move v1, v2
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
+
+    const/16 v5, 0x639c
+
+    if-gt v2, v5, :cond_6
+
+    move v2, v3
 
     :goto_0
-    iput-boolean v1, p0, Lcom/android/server/display/RampAnimator;->mDecreasing:Z
+    iput-boolean v2, p0, Lcom/android/server/display/RampAnimator;->mDecreasing:Z
 
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
+    const-string/jumbo v2, "sys.display.manualsteps"
 
-    sub-int v1, p1, v1
+    const/16 v5, 0xa
 
-    invoke-static {v1}, Ljava/lang/Math;->abs(I)I
+    invoke-static {v2, v5}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
-    div-int/lit8 v1, v1, 0xa
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
 
-    int-to-float v1, v1
+    sub-int v2, p1, v2
 
-    iput v1, p0, Lcom/android/server/display/RampAnimator;->mDynamicAmountForManualBrightness:F
+    invoke-static {v2}, Ljava/lang/Math;->abs(I)I
+
+    move-result v2
+
+    div-int/2addr v2, v1
+
+    int-to-float v2, v2
+
+    iput v2, p0, Lcom/android/server/display/RampAnimator;->mDynamicAmountForManualBrightness:F
 
     :cond_1
-    iget-boolean v1, p0, Lcom/android/server/display/RampAnimator;->mFirstTime:Z
+    iget-boolean v2, p0, Lcom/android/server/display/RampAnimator;->mFirstTime:Z
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
     if-gtz p2, :cond_8
 
     :cond_2
-    iget-boolean v1, p0, Lcom/android/server/display/RampAnimator;->mFirstTime:Z
+    iget-boolean v2, p0, Lcom/android/server/display/RampAnimator;->mFirstTime:Z
 
-    if-nez v1, :cond_3
+    if-nez v2, :cond_3
 
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
 
-    if-eq p1, v1, :cond_7
+    if-eq p1, v2, :cond_7
 
     :cond_3
-    iput-boolean v3, p0, Lcom/android/server/display/RampAnimator;->mFirstTime:Z
+    iput-boolean v4, p0, Lcom/android/server/display/RampAnimator;->mFirstTime:Z
 
-    iput v3, p0, Lcom/android/server/display/RampAnimator;->mRate:I
+    iput v4, p0, Lcom/android/server/display/RampAnimator;->mRate:I
 
     iput p1, p0, Lcom/android/server/display/RampAnimator;->mTargetValue:I
 
     iput p1, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
 
-    iget-object v1, p0, Lcom/android/server/display/RampAnimator;->mProperty:Landroid/util/IntProperty;
+    iget-object v2, p0, Lcom/android/server/display/RampAnimator;->mProperty:Landroid/util/IntProperty;
 
-    iget-object v4, p0, Lcom/android/server/display/RampAnimator;->mObject:Ljava/lang/Object;
+    iget-object v5, p0, Lcom/android/server/display/RampAnimator;->mObject:Ljava/lang/Object;
 
-    invoke-virtual {v1, v4, p1}, Landroid/util/IntProperty;->setValue(Ljava/lang/Object;I)V
+    invoke-virtual {v2, v5, p1}, Landroid/util/IntProperty;->setValue(Ljava/lang/Object;I)V
 
-    iget-boolean v1, p0, Lcom/android/server/display/RampAnimator;->mAnimating:Z
+    iget-boolean v2, p0, Lcom/android/server/display/RampAnimator;->mAnimating:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v2, :cond_4
 
-    iput-boolean v3, p0, Lcom/android/server/display/RampAnimator;->mAnimating:Z
+    iput-boolean v4, p0, Lcom/android/server/display/RampAnimator;->mAnimating:Z
 
     invoke-direct {p0}, Lcom/android/server/display/RampAnimator;->cancelAnimationCallback()V
 
     :cond_4
-    iget-object v1, p0, Lcom/android/server/display/RampAnimator;->mListener:Lcom/android/server/display/RampAnimator$Listener;
+    iget-object v2, p0, Lcom/android/server/display/RampAnimator;->mListener:Lcom/android/server/display/RampAnimator$Listener;
 
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_5
 
-    iget-object v1, p0, Lcom/android/server/display/RampAnimator;->mListener:Lcom/android/server/display/RampAnimator$Listener;
+    iget-object v2, p0, Lcom/android/server/display/RampAnimator;->mListener:Lcom/android/server/display/RampAnimator$Listener;
 
-    invoke-interface {v1}, Lcom/android/server/display/RampAnimator$Listener;->onAnimationEnd()V
+    invoke-interface {v2}, Lcom/android/server/display/RampAnimator$Listener;->onAnimationEnd()V
 
     :cond_5
-    return v2
+    return v3
 
     :cond_6
-    move v1, v3
+    move v2, v4
 
     goto :goto_0
 
     :cond_7
-    return v3
+    return v4
 
     :cond_8
-    iget-boolean v1, p0, Lcom/android/server/display/RampAnimator;->mAnimating:Z
+    iget-boolean v2, p0, Lcom/android/server/display/RampAnimator;->mAnimating:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v2, :cond_9
 
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mRate:I
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mRate:I
 
-    if-le p2, v1, :cond_c
+    if-le p2, v2, :cond_c
 
     :cond_9
     :goto_1
     iput p2, p0, Lcom/android/server/display/RampAnimator;->mRate:I
 
     :cond_a
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mTargetValue:I
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mTargetValue:I
 
-    if-eq v1, p1, :cond_e
+    if-eq v2, p1, :cond_e
 
     const/4 v0, 0x1
 
     :goto_2
     iput p1, p0, Lcom/android/server/display/RampAnimator;->mTargetValue:I
 
-    iget-boolean v1, p0, Lcom/android/server/display/RampAnimator;->mAnimating:Z
+    iget-boolean v2, p0, Lcom/android/server/display/RampAnimator;->mAnimating:Z
 
-    if-nez v1, :cond_b
+    if-nez v2, :cond_b
 
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
 
-    if-eq p1, v1, :cond_b
+    if-eq p1, v2, :cond_b
 
-    iput-boolean v2, p0, Lcom/android/server/display/RampAnimator;->mAnimating:Z
+    iput-boolean v3, p0, Lcom/android/server/display/RampAnimator;->mAnimating:Z
 
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
-    iput v1, p0, Lcom/android/server/display/RampAnimator;->mAnimatedValue:F
+    iput v2, p0, Lcom/android/server/display/RampAnimator;->mAnimatedValue:F
 
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
@@ -425,26 +443,26 @@
     return v0
 
     :cond_c
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
 
-    if-gt p1, v1, :cond_d
+    if-gt p1, v2, :cond_d
 
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
 
-    iget v3, p0, Lcom/android/server/display/RampAnimator;->mTargetValue:I
+    iget v4, p0, Lcom/android/server/display/RampAnimator;->mTargetValue:I
 
-    if-le v1, v3, :cond_9
+    if-le v2, v4, :cond_9
 
     :cond_d
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mTargetValue:I
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mTargetValue:I
 
-    iget v3, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
+    iget v4, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
 
-    if-gt v1, v3, :cond_a
+    if-gt v2, v4, :cond_a
 
-    iget v1, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
+    iget v2, p0, Lcom/android/server/display/RampAnimator;->mCurrentValue:I
 
-    if-gt v1, p1, :cond_a
+    if-gt v2, p1, :cond_a
 
     goto :goto_1
 

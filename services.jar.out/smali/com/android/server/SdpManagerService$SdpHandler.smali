@@ -725,7 +725,7 @@
 
     iget-object v4, v0, Lcom/android/server/SdpManagerService$SdpHandler;->this$0:Lcom/android/server/SdpManagerService;
 
-    invoke-static {v4, v9}, Lcom/android/server/SdpManagerService;->-wrap14(Lcom/android/server/SdpManagerService;[B)V
+    invoke-static {v4, v9}, Lcom/android/server/SdpManagerService;->-wrap16(Lcom/android/server/SdpManagerService;[B)V
 
     if-eqz v18, :cond_8
 
@@ -995,11 +995,27 @@
 
     goto/16 :goto_0
 
+    :pswitch_3
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService$SdpHandler;->this$0:Lcom/android/server/SdpManagerService;
+
+    move-object/from16 v0, p1
+
+    iget v5, v0, Landroid/os/Message;->arg1:I
+
+    invoke-static {v4, v5}, Lcom/android/server/SdpManagerService;->-wrap13(Lcom/android/server/SdpManagerService;I)V
+
+    goto/16 :goto_0
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
         :pswitch_0
         :pswitch_0
         :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

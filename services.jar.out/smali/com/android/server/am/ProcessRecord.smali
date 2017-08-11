@@ -1348,6 +1348,16 @@
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    const-string/jumbo v6, "vrThreadTid="
+
+    invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v6, p0, Lcom/android/server/am/ProcessRecord;->vrThreadTid:I
+
+    invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->print(I)V
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
     const-string/jumbo v6, "curProcState="
 
     invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V

@@ -235,6 +235,9 @@
 .method public abstract hasIMEHeightChanged()Z
 .end method
 
+.method public abstract hasRelaunchingAppWindowTokenLocked(Lcom/android/server/wm/Task;)Z
+.end method
+
 .method public abstract isAnimatingForMinimizedDockedStack(I)Z
 .end method
 
@@ -508,6 +511,9 @@
 .end method
 
 .method public abstract unregisterMultiWindowDividerPanelListener(Lcom/samsung/android/multiwindow/IMultiWindowDividerPanelListener;)V
+.end method
+
+.method public abstract updateFreeformRoundedDim(Z)V
 .end method
 
 .method public abstract updateFreeformShadowLightLocationLocked(I)V

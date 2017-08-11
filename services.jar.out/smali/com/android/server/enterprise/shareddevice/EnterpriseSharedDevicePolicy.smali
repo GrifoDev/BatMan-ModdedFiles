@@ -3116,7 +3116,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/shareddevice/EnterpriseSharedDevicePolicy;->mContext:Landroid/content/Context;
 
-    const v2, 0x10408b5
+    const v2, 0x10408bc
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

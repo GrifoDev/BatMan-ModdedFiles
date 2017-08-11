@@ -33,7 +33,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x1080a4b
+    const v0, 0x1080a39
 
     :goto_0
     const v1, 0x1040137
@@ -49,12 +49,12 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x1080a48
+    const v0, 0x1080a36
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x1080a57
+    const v0, 0x1080a45
 
     goto :goto_0
 .end method

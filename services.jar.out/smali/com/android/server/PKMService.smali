@@ -1042,7 +1042,7 @@
 
     new-instance v2, Lcom/android/server/PKMService$PKMServiceHandler;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/server/PKMService$PKMServiceHandler;-><init>(Lcom/android/server/PKMService;Landroid/os/Looper;)V
+    invoke-direct {v2, v0}, Lcom/android/server/PKMService$PKMServiceHandler;-><init>(Landroid/os/Looper;)V
 
     iput-object v2, p0, Lcom/android/server/PKMService;->mPKMServiceHandler:Lcom/android/server/PKMService$PKMServiceHandler;
 

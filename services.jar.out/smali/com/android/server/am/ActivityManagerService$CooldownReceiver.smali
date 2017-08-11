@@ -100,7 +100,7 @@
 
     const-string/jumbo v4, "overheat_id"
 
-    const v5, 0x10406e6
+    const v5, 0x10406ea
 
     invoke-virtual {v1, v4, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 

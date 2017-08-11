@@ -939,7 +939,7 @@
 
     const-string/jumbo v5, "conditionChanged"
 
-    invoke-virtual {v4, v2, v5}, Lcom/android/server/notification/ZenModeHelper;->setConfigAsync(Landroid/service/notification/ZenModeConfig;Ljava/lang/String;)V
+    invoke-virtual {v4, v2, v5}, Lcom/android/server/notification/ZenModeHelper;->setConfig(Landroid/service/notification/ZenModeConfig;Ljava/lang/String;)V
 
     :cond_3
     return-void
@@ -985,7 +985,7 @@
 
     const-string/jumbo v2, "zmc.onServiceAdded"
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/notification/ZenModeHelper;->setConfigAsync(Landroid/service/notification/ZenModeConfig;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/notification/ZenModeHelper;->setConfig(Landroid/service/notification/ZenModeConfig;Ljava/lang/String;)V
 
     return-void
 .end method

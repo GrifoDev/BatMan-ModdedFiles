@@ -549,41 +549,41 @@
 .end method
 
 .method private getBluetoothLogEnabled(Lcom/samsung/android/knox/ContextInfo;Z)Z
-    .locals 12
+    .locals 13
 
-    const/4 v11, 0x1
+    const/4 v12, 0x1
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    const-string/jumbo v7, "BluetoothPolicyService"
+    const-string/jumbo v8, "BluetoothPolicyService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "getBluetoothLogEnabled("
+    const-string/jumbo v10, "getBluetoothLogEnabled("
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    const-string/jumbo v9, ")"
+    const-string/jumbo v10, ")"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v6, -0x1
+    const/4 v7, -0x1
 
     if-nez p2, :cond_0
 
@@ -591,138 +591,196 @@
 
     move-result-object p1
 
-    iget v6, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     :cond_0
-    new-array v0, v11, [Ljava/lang/String;
+    new-array v0, v12, [Ljava/lang/String;
 
-    const-string/jumbo v7, "bluetoothLogEnabled"
+    const-string/jumbo v8, "bluetoothLogEnabled"
 
-    aput-object v7, v0, v10
+    aput-object v8, v0, v11
 
     const/4 v5, 0x0
 
-    const-string/jumbo v7, "BluetoothPolicyService"
+    const-string/jumbo v8, "BluetoothPolicyService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "getBluetoothLogEnabled - uid: "
+    const-string/jumbo v10, "getBluetoothLogEnabled - uid: "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-lez v6, :cond_3
+    if-lez v7, :cond_4
 
-    iget-object v7, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    const/4 v1, 0x0
 
-    const-string/jumbo v8, "BLUETOOTH"
+    :try_start_0
+    iget-object v8, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    invoke-virtual {v7, v8, v6, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
+    const-string/jumbo v9, "BLUETOOTH"
+
+    invoke-virtual {v8, v9, v7, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     invoke-interface {v1}, Landroid/database/Cursor;->getCount()I
 
-    move-result v7
+    move-result v8
 
-    if-ne v7, v11, :cond_1
+    if-ne v8, v12, :cond_1
 
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_1
+    if-eqz v8, :cond_1
 
-    invoke-interface {v1, v10}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    const/4 v8, 0x0
 
-    move-result-object v7
+    invoke-interface {v1, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    const-string/jumbo v8, "true"
+    move-result-object v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v9, "true"
 
-    move-result v7
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v7, :cond_1
+    move-result v8
+
+    if-eqz v8, :cond_1
 
     const/4 v5, 0x1
 
     :cond_1
+    if-eqz v1, :cond_2
+
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     :cond_2
     :goto_0
-    const-string/jumbo v7, "BluetoothPolicyService"
+    const-string/jumbo v8, "BluetoothPolicyService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "getBluetoothLogEnabled - ret: "
+    const-string/jumbo v10, "getBluetoothLogEnabled - ret: "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     return v5
 
+    :catch_0
+    move-exception v6
+
+    :try_start_1
+    const-string/jumbo v8, "BluetoothPolicyService"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v6}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v8
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
     :cond_3
-    iget-object v7, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    throw v8
 
-    const-string/jumbo v8, "BLUETOOTH"
+    :cond_4
+    iget-object v8, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    invoke-virtual {v7, v8, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesList(Ljava/lang/String;[Ljava/lang/String;)Ljava/util/List;
+    const-string/jumbo v9, "BLUETOOTH"
+
+    invoke-virtual {v8, v9, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesList(Ljava/lang/String;[Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v3
 
     if-eqz v3, :cond_2
 
-    const-string/jumbo v7, "BluetoothPolicyService"
+    const-string/jumbo v8, "BluetoothPolicyService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "getBluetoothLogEnabled - cvList: "
+    const-string/jumbo v10, "getBluetoothLogEnabled - cvList: "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 v2, 0x0
 
@@ -730,12 +788,12 @@
 
     move-result-object v4
 
-    :cond_4
+    :cond_5
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_2
+    if-eqz v8, :cond_2
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -743,45 +801,45 @@
 
     check-cast v2, Landroid/content/ContentValues;
 
-    const-string/jumbo v7, "BluetoothPolicyService"
+    const-string/jumbo v8, "BluetoothPolicyService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "getBluetoothLogEnabled - cv: "
+    const-string/jumbo v10, "getBluetoothLogEnabled - cv: "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v7, "true"
+    const-string/jumbo v8, "true"
 
-    const-string/jumbo v8, "bluetoothLogEnabled"
+    const-string/jumbo v9, "bluetoothLogEnabled"
 
-    invoke-virtual {v2, v8}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v9}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_4
+    if-eqz v8, :cond_5
 
     const/4 v5, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method private getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
@@ -1513,7 +1571,7 @@
     return-void
 
     :sswitch_0
-    const v0, 0x1040a19
+    const v0, 0x1040a22
 
     :goto_0
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
@@ -1521,47 +1579,47 @@
     return-void
 
     :sswitch_1
-    const v0, 0x1040a1a
+    const v0, 0x1040a23
 
     goto :goto_0
 
     :sswitch_2
-    const v0, 0x1040a17
+    const v0, 0x1040a20
 
     goto :goto_0
 
     :sswitch_3
-    const v0, 0x1040a18
+    const v0, 0x1040a21
 
     goto :goto_0
 
     :sswitch_4
-    const v0, 0x1040a1b
+    const v0, 0x1040a24
 
     goto :goto_0
 
     :sswitch_5
-    const v0, 0x1040a1c
+    const v0, 0x1040a25
 
     goto :goto_0
 
     :sswitch_6
-    const v0, 0x1040a1d
+    const v0, 0x1040a26
 
     goto :goto_0
 
     :sswitch_7
-    const v0, 0x1040a1e
+    const v0, 0x1040a27
 
     goto :goto_0
 
     :sswitch_8
-    const v0, 0x1040a1f
+    const v0, 0x1040a28
 
     goto :goto_0
 
     :sswitch_9
-    const v0, 0x1040a20
+    const v0, 0x1040a29
 
     goto :goto_0
 
@@ -2988,7 +3046,7 @@
     return v0
 
     :cond_3
-    const v4, 0x1040a25
+    const v4, 0x1040a2e
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -3440,7 +3498,7 @@
     return v0
 
     :cond_3
-    const v1, 0x1040a23
+    const v1, 0x1040a2c
 
     invoke-static {v1}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -3557,7 +3615,7 @@
     goto :goto_0
 
     :cond_4
-    const v4, 0x1040a16
+    const v4, 0x1040a1f
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -3820,7 +3878,7 @@
     return v0
 
     :cond_3
-    const v4, 0x1040a21
+    const v4, 0x1040a2a
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -4082,7 +4140,7 @@
     return v0
 
     :cond_3
-    const v4, 0x1040a24
+    const v4, 0x1040a2d
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -4159,7 +4217,7 @@
     return v0
 
     :cond_3
-    const v4, 0x1040a22
+    const v4, 0x1040a2b
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 

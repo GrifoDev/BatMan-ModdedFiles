@@ -55,7 +55,7 @@
 
 .field public static final CMD_CAPTIVE_PORTAL_RESTART_CHECK_UID:I = 0x8200e
 
-.field public static final CMD_CAPTIVE_PORTAL_RESTART_LOGIN_ACTIVITY:I = 0x82012
+.field public static final CMD_CAPTIVE_PORTAL_RESTART_LOGIN_ACTIVITY:I = 0x82013
 
 .field public static final CMD_FORCE_REEVALUATION:I = 0x82008
 
@@ -1881,7 +1881,7 @@
 
     const-wide/16 v4, 0xbb8
 
-    const v3, 0x82012
+    const v3, 0x82013
 
     invoke-virtual {p0, v3, v4, v5}, Lcom/android/server/connectivity/NetworkMonitor;->sendMessageDelayed(IJ)V
     :try_end_0

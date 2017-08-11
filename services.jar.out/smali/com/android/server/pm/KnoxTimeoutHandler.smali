@@ -15,6 +15,8 @@
 
 
 # static fields
+.field private static final FLAG_ACTIVITY_DRAWN:I = 0x100
+
 .field private static final INTENT_ACTION_LOCK_TIMEOUT:Ljava/lang/String; = "com.sec.knox.container.INTENT_ACTION_LOCK_TIMEOUT"
 
 .field private static final LOG_TAG:Ljava/lang/String; = "KnoxTimeoutHandler"
@@ -212,32 +214,32 @@
 .end method
 
 .method private declared-synchronized activityDrawn(Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;)V
-    .locals 7
+    .locals 8
 
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v3, "KnoxTimeoutHandler"
+    const-string/jumbo v4, "KnoxTimeoutHandler"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "activityDrawn "
+    const-string/jumbo v6, "activityDrawn "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -249,29 +251,29 @@
 
     :cond_0
     :try_start_1
-    iget-object v3, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mService:Lcom/android/server/pm/PersonaManagerService;
+    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mService:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-virtual {v3}, Lcom/android/server/pm/PersonaManagerService;->isKioskContainerExistOnDevice()Z
+    invoke-virtual {v4}, Lcom/android/server/pm/PersonaManagerService;->isKioskContainerExistOnDevice()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    iget-boolean v3, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->showWhenLocked:Z
+    iget-boolean v4, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->showWhenLocked:Z
 
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
+    if-eqz v4, :cond_1
 
     iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
 
-    const/4 v5, 0x5
+    iget-object v5, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    const/4 v6, 0x5
 
-    move-result-object v4
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    invoke-virtual {v3, v4}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -283,50 +285,118 @@
 
     :cond_2
     :try_start_2
-    iget-object v3, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mService:Lcom/android/server/pm/PersonaManagerService;
+    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mService:Lcom/android/server/pm/PersonaManagerService;
 
-    iget v4, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->userId:I
+    iget v5, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->userId:I
 
-    invoke-virtual {v3, v4}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
+    invoke-virtual {v4, v5}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_3
+    if-eqz v4, :cond_5
 
-    iget-boolean v3, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->showWhenLocked:Z
+    iget-boolean v4, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->showWhenLocked:Z
 
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
+    if-eqz v4, :cond_3
 
     iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
 
-    const/4 v5, 0x5
+    iget-object v5, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    const/4 v6, 0x5
 
-    move-result-object v4
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    invoke-virtual {v3, v4}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    :cond_3
+    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mService:Lcom/android/server/pm/PersonaManagerService;
+
+    sget-object v5, Lcom/samsung/android/knox/SemPersonaState;->ACTIVE:Lcom/samsung/android/knox/SemPersonaState;
+
+    iget v6, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->userId:I
+
+    invoke-virtual {v4, v5, v6}, Lcom/android/server/pm/PersonaManagerService;->inState(Lcom/samsung/android/knox/SemPersonaState;I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mService:Lcom/android/server/pm/PersonaManagerService;
+
+    iget v5, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->userId:I
+
+    invoke-virtual {v4, v5}, Lcom/android/server/pm/PersonaManagerService;->isKnoxKeyguardServiceRunning(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    const-string/jumbo v4, "KnoxTimeoutHandler"
+
+    const-string/jumbo v5, "KnoxKeyguardService is running"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Landroid/content/Intent;
+
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+
+    new-instance v4, Landroid/content/ComponentName;
+
+    const-string/jumbo v5, "com.samsung.knox.securefolder"
+
+    const-string/jumbo v6, "com.samsung.knox.securefolder.keyguard.KnoxKeyguardService"
+
+    invoke-direct {v4, v5, v6}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v1, v4}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    const-string/jumbo v4, "KnoxKeyguardEventFlag"
+
+    const/16 v5, 0x100
+
+    invoke-virtual {v1, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mContext:Landroid/content/Context;
+
+    new-instance v5, Landroid/os/UserHandle;
+
+    iget v6, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->userId:I
+
+    invoke-direct {v5, v6}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-virtual {v4, v1, v5}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
     monitor-exit p0
 
-    throw v3
+    throw v4
 
-    :cond_3
+    :cond_4
     :try_start_3
-    iget-object v3, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mContext:Landroid/content/Context;
+    const-string/jumbo v4, "KnoxTimeoutHandler"
 
-    const-string/jumbo v4, "enterprise_policy_new"
+    const-string/jumbo v5, "KnoxKeyguardService is not running now"
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_5
+    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v5, "enterprise_policy_new"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -334,138 +404,138 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->getEnterpriseSharedDevicePolicy()Lcom/samsung/android/knox/shareddevice/EnterpriseSharedDevicePolicy;
 
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/samsung/android/knox/shareddevice/EnterpriseSharedDevicePolicy;->isSharedDeviceEnabled()Z
-
-    move-result v1
-
-    const-string/jumbo v3, "KnoxTimeoutHandler"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "SD activity"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v4
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v3, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "isEmergencyCall"
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
-
-    invoke-static {v3, v4, v5, v6}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-virtual {v4}, Lcom/samsung/android/knox/shareddevice/EnterpriseSharedDevicePolicy;->isSharedDeviceEnabled()Z
 
     move-result v2
 
-    if-eqz v1, :cond_5
+    const-string/jumbo v4, "KnoxTimeoutHandler"
 
-    iget-boolean v3, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->showWhenLocked:Z
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    if-eqz v3, :cond_4
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v3, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
+    const-string/jumbo v6, "SD activity"
 
-    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v5, 0x5
+    move-result-object v5
 
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    const-string/jumbo v5, "isEmergencyCall"
 
-    const-string/jumbo v3, "KnoxTimeoutHandler"
+    const/4 v6, 0x0
 
-    const-string/jumbo v4, "Hide"
+    const/4 v7, 0x0
 
-    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5, v6, v7}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v3
+
+    if-eqz v2, :cond_7
+
+    iget-boolean v4, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->showWhenLocked:Z
+
+    if-eqz v4, :cond_6
+
+    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
+
+    iget-object v5, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
+
+    const/4 v6, 0x5
+
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    const-string/jumbo v4, "KnoxTimeoutHandler"
+
+    const-string/jumbo v5, "Hide"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :cond_4
+    :cond_6
     monitor-exit p0
 
     return-void
 
-    :cond_5
+    :cond_7
     :try_start_4
-    iget v3, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->multiwindowstyle:I
+    iget v4, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->multiwindowstyle:I
 
-    if-eqz v3, :cond_6
+    if-eqz v4, :cond_8
 
-    iget v3, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->multiwindowstyle:I
+    iget v4, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->multiwindowstyle:I
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    if-ne v3, v4, :cond_1
+    if-ne v4, v5, :cond_1
 
-    :cond_6
-    iget-boolean v3, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->fullscreen:Z
+    :cond_8
+    iget-boolean v4, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->fullscreen:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    iget-boolean v3, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->isMutiwindowRecord:Z
+    iget-boolean v4, p1, Lcom/android/server/pm/KnoxTimeoutHandler$MsgParam;->isMutiwindowRecord:Z
 
-    if-nez v3, :cond_1
+    if-nez v4, :cond_1
 
-    iget-object v3, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mService:Lcom/android/server/pm/PersonaManagerService;
+    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mService:Lcom/android/server/pm/PersonaManagerService;
 
-    iget v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mCurrentId:I
+    iget v5, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mCurrentId:I
 
-    invoke-virtual {v3, v4}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
+    invoke-virtual {v4, v5}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_7
-
-    iget-object v3, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
+    if-nez v4, :cond_9
 
     iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
 
-    const/4 v5, 0x5
+    iget-object v5, p0, Lcom/android/server/pm/KnoxTimeoutHandler;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    const/4 v6, 0x5
 
-    move-result-object v4
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    invoke-virtual {v3, v4}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    move-result-object v5
 
-    const-string/jumbo v3, "KnoxTimeoutHandler"
+    invoke-virtual {v4, v5}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    const-string/jumbo v4, "Fullscreen and mCurrent is not KNOX user. Hence hide keyguard"
+    const-string/jumbo v4, "KnoxTimeoutHandler"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v5, "Fullscreen and mCurrent is not KNOX user. Hence hide keyguard"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
-    :cond_7
-    const-string/jumbo v3, "KnoxTimeoutHandler"
+    :cond_9
+    const-string/jumbo v4, "KnoxTimeoutHandler"
 
-    const-string/jumbo v4, "Fullscreen but mCurrent is KNOX user."
+    const-string/jumbo v5, "Fullscreen but mCurrent is KNOX user."
 
-    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 

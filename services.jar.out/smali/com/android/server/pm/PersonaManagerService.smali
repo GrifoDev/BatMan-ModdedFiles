@@ -21,6 +21,7 @@
         Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;,
         Lcom/android/server/pm/PersonaManagerService$PendingNotification;,
         Lcom/android/server/pm/PersonaManagerService$PersonaHandler;,
+        Lcom/android/server/pm/PersonaManagerService$SecureFolderAppOpsReceiver;,
         Lcom/android/server/pm/PersonaManagerService$UnInstallPkgsThread;,
         Lcom/android/server/pm/PersonaManagerService$UnlockReceiver;
     }
@@ -866,11 +867,35 @@
 
 .field private mSecureFolderId:I
 
+.field mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mSemIrisManager:Lcom/samsung/android/camera/iris/SemIrisManager;
 
 .field mService:Lcom/android/internal/statusbar/IStatusBarService;
 
 .field private mShouldNotShowKeyguard:Z
+
+.field mShowKeyguardExceptionalList:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mShowWhenLocked:Z
 
 .field private final mShownSdcardAlertMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -1050,10 +1075,10 @@
     return v0
 .end method
 
-.method static synthetic -get1()Ljava/lang/String;
+.method static synthetic -get1(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/android/server/pm/PersonaManagerService;->TYPE_FILE_PATH:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->SF_SHARE_PKG:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -1061,12 +1086,20 @@
 .method static synthetic -get10(Lcom/android/server/pm/PersonaManagerService;)Landroid/os/RemoteCallbackList;
     .locals 1
 
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mIKnoxModeChangeObserver:Landroid/os/RemoteCallbackList;
+
+    return-object v0
+.end method
+
+.method static synthetic -get11(Lcom/android/server/pm/PersonaManagerService;)Landroid/os/RemoteCallbackList;
+    .locals 1
+
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mISystemPersonaObserver:Landroid/os/RemoteCallbackList;
 
     return-object v0
 .end method
 
-.method static synthetic -get11(Lcom/android/server/pm/PersonaManagerService;)Z
+.method static synthetic -get12(Lcom/android/server/pm/PersonaManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->mIsAdminLock:Z
@@ -1074,7 +1107,7 @@
     return v0
 .end method
 
-.method static synthetic -get12(Lcom/android/server/pm/PersonaManagerService;)Z
+.method static synthetic -get13(Lcom/android/server/pm/PersonaManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->mIsFOTAUpgrade:Z
@@ -1082,7 +1115,7 @@
     return v0
 .end method
 
-.method static synthetic -get13(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/KnoxKeyguardDelegate;
+.method static synthetic -get14(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/KnoxKeyguardDelegate;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mKeyguard:Lcom/android/server/pm/KnoxKeyguardDelegate;
@@ -1090,7 +1123,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get14(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/KnoxKeyguardUpdateMonitor;
+.method static synthetic -get15(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/KnoxKeyguardUpdateMonitor;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mKeyguardUpdateMonitor:Lcom/android/server/pm/KnoxKeyguardUpdateMonitor;
@@ -1098,7 +1131,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;
+.method static synthetic -get16(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPackageInstallObserver:Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;
@@ -1106,7 +1139,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/ArrayList;
+.method static synthetic -get17(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPartialsForPrune:Ljava/util/ArrayList;
@@ -1114,7 +1147,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/Map;
+.method static synthetic -get18(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPasswordMap:Ljava/util/Map;
@@ -1122,7 +1155,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/Object;
+.method static synthetic -get19(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPersonaDbLock:Ljava/lang/Object;
@@ -1130,7 +1163,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+.method static synthetic -get2()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/pm/PersonaManagerService;->TYPE_FILE_PATH:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPersonaHandler:Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
@@ -1138,15 +1179,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/server/pm/PersonaManagerService;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->disableNonCoreServices:Z
-
-    return v0
-.end method
-
-.method static synthetic -get20(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseArray;
+.method static synthetic -get21(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseArray;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPersonas:Landroid/util/SparseArray;
@@ -1154,7 +1187,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get21(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
+.method static synthetic -get22(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPm:Lcom/android/server/pm/PackageManagerService;
@@ -1162,7 +1195,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get22(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/BroadcastReceiver;
+.method static synthetic -get23(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/BroadcastReceiver;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -1170,7 +1203,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get23(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseBooleanArray;
+.method static synthetic -get24(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseBooleanArray;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mRemovingPersonaIds:Landroid/util/SparseBooleanArray;
@@ -1178,7 +1211,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get24(Lcom/android/server/pm/PersonaManagerService;)I
+.method static synthetic -get25(Lcom/android/server/pm/PersonaManagerService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
@@ -1186,7 +1219,7 @@
     return v0
 .end method
 
-.method static synthetic -get25(Lcom/android/server/pm/PersonaManagerService;)Lcom/samsung/android/camera/iris/SemIrisManager;
+.method static synthetic -get26(Lcom/android/server/pm/PersonaManagerService;)Lcom/samsung/android/camera/iris/SemIrisManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSemIrisManager:Lcom/samsung/android/camera/iris/SemIrisManager;
@@ -1194,7 +1227,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get26(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/HashMap;
+.method static synthetic -get27(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/HashMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mShownSdcardAlertMap:Ljava/util/HashMap;
@@ -1202,7 +1235,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get27(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/HashMap;
+.method static synthetic -get28(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/HashMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mTimerMap:Ljava/util/HashMap;
@@ -1210,7 +1243,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get28(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/List;
+.method static synthetic -get29(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/List;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mTypeList:Ljava/util/List;
@@ -1218,7 +1251,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get29(Lcom/android/server/pm/PersonaManagerService;)Z
+.method static synthetic -get3(Lcom/android/server/pm/PersonaManagerService;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->disableNonCoreServices:Z
+
+    return v0
+.end method
+
+.method static synthetic -get30(Lcom/android/server/pm/PersonaManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->restartAccessibilityServiceForOwner:Z
@@ -1226,15 +1267,7 @@
     return v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic -get30(Lcom/android/server/pm/PersonaManagerService;)Z
+.method static synthetic -get31(Lcom/android/server/pm/PersonaManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->xmlnotParsedforFOTA:Z
@@ -1242,7 +1275,15 @@
     return v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/BroadcastReceiver;
+.method static synthetic -get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/BroadcastReceiver;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mDPMStateChangeReceiver:Landroid/content/BroadcastReceiver;
@@ -1250,7 +1291,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/Object;
+.method static synthetic -get6(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mDeviceEmergencyModeLock:Ljava/lang/Object;
@@ -1258,7 +1299,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/Map;
+.method static synthetic -get7(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mEncodedPasswordMap:Ljava/util/Map;
@@ -1266,7 +1307,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/pm/PersonaManagerService;)Lcom/sec/knox/container/util/KnoxFileHandler;
+.method static synthetic -get8(Lcom/android/server/pm/PersonaManagerService;)Lcom/sec/knox/container/util/KnoxFileHandler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mFSHandler:Lcom/sec/knox/container/util/KnoxFileHandler;
@@ -1274,18 +1315,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/pm/PersonaManagerService;)Landroid/hardware/fingerprint/FingerprintManager;
+.method static synthetic -get9(Lcom/android/server/pm/PersonaManagerService;)Landroid/hardware/fingerprint/FingerprintManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Lcom/android/server/pm/PersonaManagerService;)Landroid/os/RemoteCallbackList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mIKnoxModeChangeObserver:Landroid/os/RemoteCallbackList;
 
     return-object v0
 .end method
@@ -1643,17 +1676,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap10(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/SdpManagerService;
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->getSdpService()Lcom/android/server/SdpManagerService;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap11(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/clipboardex/ClipboardExService;
+.method static synthetic -wrap10(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/clipboardex/ClipboardExService;
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->getClipboardExService()Lcom/android/server/clipboardex/ClipboardExService;
@@ -1663,7 +1686,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap12(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/wallpaper/WallpaperManagerService;
+.method static synthetic -wrap11(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/wallpaper/WallpaperManagerService;
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->getWallpaperManagerLocked()Lcom/android/server/wallpaper/WallpaperManagerService;
@@ -1673,7 +1696,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap13(Ljava/lang/String;)I
+.method static synthetic -wrap12(Ljava/lang/String;)I
     .locals 1
 
     invoke-static {p0}, Lcom/android/server/pm/PersonaManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
@@ -1683,7 +1706,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap14(Lcom/android/server/pm/PersonaManagerService;ILjava/lang/String;)I
+.method static synthetic -wrap13(Lcom/android/server/pm/PersonaManagerService;ILjava/lang/String;)I
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->installExistingPackageForPersona(ILjava/lang/String;)I
@@ -1693,7 +1716,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap15(Lcom/android/server/pm/PersonaManagerService;IZ)I
+.method static synthetic -wrap14(Lcom/android/server/pm/PersonaManagerService;IZ)I
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->startResetPersona(IZ)I
@@ -1703,7 +1726,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap16(Lcom/android/server/pm/PersonaManagerService;I)Ljava/lang/String;
+.method static synthetic -wrap15(Lcom/android/server/pm/PersonaManagerService;I)Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->getAdminPackageName(I)Ljava/lang/String;
@@ -1713,7 +1736,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap17(Lcom/android/server/pm/PersonaManagerService;I)Ljava/lang/String;
+.method static synthetic -wrap16(Lcom/android/server/pm/PersonaManagerService;I)Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->getPasswordResetTokenFromTima(I)Ljava/lang/String;
@@ -1723,7 +1746,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap18(Lcom/android/server/pm/PersonaManagerService;ILjava/lang/String;II)Ljava/lang/String;
+.method static synthetic -wrap17(Lcom/android/server/pm/PersonaManagerService;ILjava/lang/String;II)Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/PersonaManagerService;->retrieveCMK(ILjava/lang/String;II)Ljava/lang/String;
@@ -1733,10 +1756,18 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap19(Lcom/android/server/pm/PersonaManagerService;Z)V
+.method static synthetic -wrap18(Lcom/android/server/pm/PersonaManagerService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->blockIncomingCall(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap19(Lcom/android/server/pm/PersonaManagerService;IZLjava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PersonaManagerService;->blockStatusbar(IZLjava/lang/String;)V
 
     return-void
 .end method
@@ -1751,15 +1782,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap20(Lcom/android/server/pm/PersonaManagerService;IZLjava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PersonaManagerService;->blockStatusbar(IZLjava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap21(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap20(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->broadcastKnoxModeChangeIntent(I)V
@@ -1767,7 +1790,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap22(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+.method static synthetic -wrap21(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->changeSecureFolderIcon(Ljava/lang/String;)V
@@ -1775,7 +1798,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap23(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+.method static synthetic -wrap22(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->changeSecureFolderName(Ljava/lang/String;)V
@@ -1783,7 +1806,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap24(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap23(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->changeStateAndSwitch(I)V
@@ -1791,7 +1814,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap25(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap24(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->checkIfAdminHasBeenRemoved(I)V
@@ -1799,7 +1822,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap26(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap25(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->clearCachedPassword(I)V
@@ -1807,7 +1830,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap27(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap26(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->clearResetPasswordKey(I)V
@@ -1815,7 +1838,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap28(Lcom/android/server/pm/PersonaManagerService;)V
+.method static synthetic -wrap27(Lcom/android/server/pm/PersonaManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->drawKnoxbadge()V
@@ -1823,10 +1846,18 @@
     return-void
 .end method
 
-.method static synthetic -wrap29(Lcom/android/server/pm/PersonaManagerService;ILandroid/content/ComponentName;Z)V
+.method static synthetic -wrap28(Lcom/android/server/pm/PersonaManagerService;ILandroid/content/ComponentName;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PersonaManagerService;->drawKnoxbadge(ILandroid/content/ComponentName;Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap29(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;Ljava/lang/String;IZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/PersonaManagerService;->enableComponents(Ljava/lang/String;Ljava/lang/String;IZ)V
 
     return-void
 .end method
@@ -1841,15 +1872,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap30(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;Ljava/lang/String;IZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/PersonaManagerService;->enableComponents(Ljava/lang/String;Ljava/lang/String;IZ)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap31(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;)V
+.method static synthetic -wrap30(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->enableKnoxShortcut(Landroid/content/Context;)V
@@ -1857,7 +1880,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap32(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
+.method static synthetic -wrap31(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->handleFOTAUpgrade(Lcom/samsung/android/knox/SemPersonaInfo;)V
@@ -1865,7 +1888,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap33(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap32(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->handleRestart(I)V
@@ -1873,7 +1896,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap34(Lcom/android/server/pm/PersonaManagerService;Landroid/os/Message;)V
+.method static synthetic -wrap33(Lcom/android/server/pm/PersonaManagerService;Landroid/os/Message;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->handleSPOKnoxContainerLaunch(Landroid/os/Message;)V
@@ -1881,7 +1904,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap35(Lcom/android/server/pm/PersonaManagerService;Landroid/os/Message;)V
+.method static synthetic -wrap34(Lcom/android/server/pm/PersonaManagerService;Landroid/os/Message;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->handleSPOPersonaActive(Landroid/os/Message;)V
@@ -1889,7 +1912,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap36(Lcom/android/server/pm/PersonaManagerService;Landroid/os/Message;)V
+.method static synthetic -wrap35(Lcom/android/server/pm/PersonaManagerService;Landroid/os/Message;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->handleSPOResetPersona(Landroid/os/Message;)V
@@ -1897,7 +1920,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap37(Lcom/android/server/pm/PersonaManagerService;Landroid/os/Message;)V
+.method static synthetic -wrap36(Lcom/android/server/pm/PersonaManagerService;Landroid/os/Message;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->handleSPOStateChange(Landroid/os/Message;)V
@@ -1905,7 +1928,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap38(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap37(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->handleUserStarted(I)V
@@ -1913,10 +1936,18 @@
     return-void
 .end method
 
-.method static synthetic -wrap39(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap38(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->handleUserStopped(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap39(Lcom/android/server/pm/PersonaManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->handleUserUnlocked(I)V
 
     return-void
 .end method
@@ -1934,20 +1965,12 @@
 .method static synthetic -wrap40(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->handleUserUnlocked(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap41(Lcom/android/server/pm/PersonaManagerService;I)V
-    .locals 0
-
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->killKnoxLauncher(I)V
 
     return-void
 .end method
 
-.method static synthetic -wrap42(Lcom/android/server/pm/PersonaManagerService;IZ)V
+.method static synthetic -wrap41(Lcom/android/server/pm/PersonaManagerService;IZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->killTimer(IZ)V
@@ -1955,7 +1978,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap43(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap42(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->killTimer(I)V
@@ -1963,7 +1986,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap44(Lcom/android/server/pm/PersonaManagerService;II)V
+.method static synthetic -wrap43(Lcom/android/server/pm/PersonaManagerService;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->killTimer(II)V
@@ -1971,7 +1994,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap45(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap44(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->migrateAndCleanupSharedPreferences(I)V
@@ -1979,7 +2002,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap46(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap45(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->notifyNeedRestartMsg(I)V
@@ -1987,7 +2010,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap47(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap46(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->onUnlockUser(I)V
@@ -1995,7 +2018,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap48(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap47(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->onUserStarted(I)V
@@ -2003,7 +2026,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap49(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap48(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->onUserStopped(I)V
@@ -2011,17 +2034,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/android/server/pm/PersonaManagerService;I)Z
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->isKnoxKeyguardServiceRunning(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap50(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap49(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->onUserUnlocked(I)V
@@ -2029,79 +2042,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap51(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaState;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->recoverTimaStatus(Lcom/samsung/android/knox/SemPersonaState;I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap52(Lcom/android/server/pm/PersonaManagerService;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removeKnoxBadge(Z)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap53(Lcom/android/server/pm/PersonaManagerService;Ljava/util/ArrayList;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removePartialContainer(Ljava/util/ArrayList;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap54(Lcom/android/server/pm/PersonaManagerService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removePersonaHelper(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap55(Lcom/android/server/pm/PersonaManagerService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removeUserStateExternal(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap56(Lcom/android/server/pm/PersonaManagerService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removeUserStateLocked(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap57(Lcom/android/server/pm/PersonaManagerService;IZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->scheduleTimer(IZ)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap58(Lcom/android/server/pm/PersonaManagerService;IIJ)V
-    .locals 1
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/PersonaManagerService;->scheduleTimer(IIJ)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap59(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PersonaManagerService;->sendIntentForAdminLock(Ljava/lang/String;II)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap6(Lcom/android/server/pm/PersonaManagerService;)Z
+.method static synthetic -wrap5(Lcom/android/server/pm/PersonaManagerService;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->isSMSCapable()Z
@@ -2111,7 +2052,79 @@
     return v0
 .end method
 
-.method static synthetic -wrap60(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
+.method static synthetic -wrap50(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaState;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->recoverTimaStatus(Lcom/samsung/android/knox/SemPersonaState;I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap51(Lcom/android/server/pm/PersonaManagerService;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removeKnoxBadge(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap52(Lcom/android/server/pm/PersonaManagerService;Ljava/util/ArrayList;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removePartialContainer(Ljava/util/ArrayList;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap53(Lcom/android/server/pm/PersonaManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removePersonaHelper(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap54(Lcom/android/server/pm/PersonaManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removeUserStateExternal(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap55(Lcom/android/server/pm/PersonaManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removeUserStateLocked(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap56(Lcom/android/server/pm/PersonaManagerService;IZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->scheduleTimer(IZ)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap57(Lcom/android/server/pm/PersonaManagerService;IIJ)V
+    .locals 1
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/PersonaManagerService;->scheduleTimer(IIJ)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap58(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PersonaManagerService;->sendIntentForAdminLock(Ljava/lang/String;II)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap59(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->setKnoxAppsComponentSetting(Landroid/content/Context;I)V
@@ -2119,79 +2132,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap61(Lcom/android/server/pm/PersonaManagerService;IZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->setSdpActive(IZ)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap62(Lcom/android/server/pm/PersonaManagerService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->showSecureFolder(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap63(Lcom/android/server/pm/PersonaManagerService;III)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PersonaManagerService;->startActivityAdminLocked(III)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap64(Lcom/android/server/pm/PersonaManagerService;IIIZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/PersonaManagerService;->startActivityKnoxAppsUpdate(IIIZ)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap65(Lcom/android/server/pm/PersonaManagerService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->triggerAppUninstallationonReset(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap66(Lcom/android/server/pm/PersonaManagerService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->updateCurrentUserPolicy(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap67(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->updateRCPCalendarSyncAccountInfo(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap68(Lcom/android/server/pm/PersonaManagerService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->updateUserIdsLocked()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap69(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->upgradeContainer(Lcom/samsung/android/knox/SemPersonaInfo;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap7(Lcom/android/server/pm/PersonaManagerService;I)Z
+.method static synthetic -wrap6(Lcom/android/server/pm/PersonaManagerService;I)Z
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->isSamsunAccessibilityServiceRunning(I)Z
@@ -2201,7 +2142,79 @@
     return v0
 .end method
 
-.method static synthetic -wrap70(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
+.method static synthetic -wrap60(Lcom/android/server/pm/PersonaManagerService;IZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->setSdpActive(IZ)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap61(Lcom/android/server/pm/PersonaManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->showSecureFolder(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap62(Lcom/android/server/pm/PersonaManagerService;III)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PersonaManagerService;->startActivityAdminLocked(III)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap63(Lcom/android/server/pm/PersonaManagerService;IIIZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/PersonaManagerService;->startActivityKnoxAppsUpdate(IIIZ)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap64(Lcom/android/server/pm/PersonaManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->triggerAppUninstallationonReset(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap65(Lcom/android/server/pm/PersonaManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->updateCurrentUserPolicy(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap66(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->updateRCPCalendarSyncAccountInfo(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap67(Lcom/android/server/pm/PersonaManagerService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->updateUserIdsLocked()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap68(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->upgradeContainer(Lcom/samsung/android/knox/SemPersonaInfo;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap69(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->writeUserLocked(Lcom/samsung/android/knox/SemPersonaInfo;)V
@@ -2209,23 +2222,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap71(Lcom/android/server/pm/PersonaManagerService;[B)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->zeroOut([B)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap72(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->zeroOut(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap8(Lcom/android/server/pm/PersonaManagerService;)Z
+.method static synthetic -wrap7(Lcom/android/server/pm/PersonaManagerService;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->isVoiceCapable()Z
@@ -2235,7 +2232,23 @@
     return v0
 .end method
 
-.method static synthetic -wrap9(Lcom/android/server/pm/PersonaManagerService;ILjava/lang/String;Ljava/lang/String;II)Z
+.method static synthetic -wrap70(Lcom/android/server/pm/PersonaManagerService;[B)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->zeroOut([B)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap71(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->zeroOut(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap8(Lcom/android/server/pm/PersonaManagerService;ILjava/lang/String;Ljava/lang/String;II)Z
     .locals 1
 
     invoke-direct/range {p0 .. p5}, Lcom/android/server/pm/PersonaManagerService;->storeCMK(ILjava/lang/String;Ljava/lang/String;II)Z
@@ -2243,6 +2256,16 @@
     move-result v0
 
     return v0
+.end method
+
+.method static synthetic -wrap9(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/SdpManagerService;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->getSdpService()Lcom/android/server/SdpManagerService;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method static constructor <clinit>()V
@@ -2878,6 +2901,10 @@
 
     iput v10, p0, Lcom/android/server/pm/PersonaManagerService;->cleanPersonaId:I
 
+    const/4 v10, 0x0
+
+    iput-boolean v10, p0, Lcom/android/server/pm/PersonaManagerService;->mShowWhenLocked:Z
+
     const/4 v10, 0x1
 
     iput-boolean v10, p0, Lcom/android/server/pm/PersonaManagerService;->xmlnotParsedforFOTA:Z
@@ -2955,6 +2982,14 @@
     const/4 v10, 0x0
 
     iput-object v10, p0, Lcom/android/server/pm/PersonaManagerService;->mService:Lcom/android/internal/statusbar/IStatusBarService;
+
+    const/4 v10, 0x0
+
+    iput-object v10, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const/4 v10, 0x0
+
+    iput-object v10, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
 
     new-instance v10, Lcom/android/server/pm/PersonaManagerService$4;
 
@@ -8703,7 +8738,7 @@
     return-void
 
     :cond_0
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_2
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
@@ -8730,7 +8765,7 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "com.samsung.knox.kss.KnoxKeyguardActivityPauser"
+    const-string/jumbo v4, "com.android.settings.ConfirmLockPattern$InternalActivity"
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -8742,18 +8777,15 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "com.samsung.knox.securefolder.keyguard.KnoxKeyguardActivityPauser"
+    const-string/jumbo v4, "com.android.settings.ConfirmLockPassword$InternalActivity"
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     :cond_2
-    return-void
-
-    :cond_3
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
@@ -8785,7 +8817,7 @@
 
     iget-object v3, v0, Lcom/android/server/pm/PersonaManagerService;->personaBadge:Landroid/widget/ImageView;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     move-object/from16 v0, p0
 
@@ -8801,13 +8833,28 @@
 
     invoke-direct {v0, v3}, Lcom/android/server/pm/PersonaManagerService;->removeKnoxBadge(Z)V
 
-    :cond_4
+    :cond_3
     :goto_1
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/pm/PersonaManagerService;->isKioskContainerExistOnDevice()Z
 
     move-result v3
 
     if-eqz v3, :cond_9
+
+    return-void
+
+    :cond_4
+    invoke-virtual/range {p2 .. p2}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Lcom/android/server/pm/PersonaManagerService;->isShowKeyguardExceptionalCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
 
     return-void
 
@@ -9081,7 +9128,7 @@
 
     move-result-object v3
 
-    const v4, 0x10803fc
+    const v4, 0x10803e6
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -9108,7 +9155,7 @@
 
     move-result-object v3
 
-    const v4, 0x10803fb
+    const v4, 0x10803e5
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -9184,7 +9231,7 @@
 
     move-result-object v3
 
-    const v4, 0x10804d1
+    const v4, 0x10804bb
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
     :try_end_0
@@ -18335,99 +18382,6 @@
     return v1
 .end method
 
-.method private isKnoxKeyguardServiceRunning(I)Z
-    .locals 7
-
-    const/4 v6, 0x0
-
-    const-string/jumbo v4, "activity"
-
-    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/am/ActivityManagerService;
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v4, "PersonaManagerService"
-
-    const-string/jumbo v5, "cannot get ActivityManagerService!!"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v6
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/server/pm/PersonaManagerService;->getSecureFolderId()I
-
-    move-result v4
-
-    if-eq p1, v4, :cond_2
-
-    const-string/jumbo v3, "com.samsung.knox.kss.KnoxKeyguardService"
-
-    :goto_0
-    const v4, 0x7fffffff
-
-    invoke-virtual {v0, v4, p1}, Lcom/android/server/am/ActivityManagerService;->getServicesForUser(II)Ljava/util/List;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/ActivityManager$RunningServiceInfo;
-
-    iget-object v4, v1, Landroid/app/ActivityManager$RunningServiceInfo;->service:Landroid/content/ComponentName;
-
-    invoke-virtual {v4}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    const-string/jumbo v4, "PersonaManagerService"
-
-    const-string/jumbo v5, "isKnoxKeyguardServiceRunning: true"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :cond_2
-    const-string/jumbo v3, "com.samsung.knox.securefolder.keyguard.KnoxKeyguardService"
-
-    goto :goto_0
-
-    :cond_3
-    const-string/jumbo v4, "PersonaManagerService"
-
-    const-string/jumbo v5, "isKnoxKeyguardServiceRunning: false"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v6
-.end method
-
 .method private isMaximumScreenOffTimeoutFromDeviceAdminEnforcedLocked(I)Z
     .locals 6
 
@@ -19097,20 +19051,13 @@
 
     iget-boolean v0, p1, Lcom/samsung/android/knox/SemPersonaInfo;->isSdpMinor:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/server/pm/PersonaManagerService;->isKioskContainerExistOnDevice()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
     iget-boolean v0, p1, Lcom/samsung/android/knox/SemPersonaInfo;->kioskModeEnabled:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
-    :cond_3
     const-string/jumbo v0, "PersonaManagerService"
 
     const-string/jumbo v1, "not supportted for COM container for express auth"
@@ -19119,7 +19066,7 @@
 
     return v2
 
-    :cond_4
+    :cond_3
     const-string/jumbo v0, "PersonaManagerService"
 
     const-string/jumbo v1, "not supportted for SDP full for express auth"
@@ -19128,10 +19075,10 @@
 
     return v2
 
-    :cond_5
+    :cond_4
     iget-boolean v0, p1, Lcom/samsung/android/knox/SemPersonaInfo;->isSecureFolder:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
     const-string/jumbo v0, "PersonaManagerService"
 
@@ -19141,7 +19088,7 @@
 
     return v2
 
-    :cond_6
+    :cond_5
     const/4 v0, 0x1
 
     return v0
@@ -33797,103 +33744,81 @@
 .end method
 
 .method private showSecureFolder(I)V
-    .locals 25
+    .locals 26
 
-    const-string/jumbo v22, "PersonaManagerService"
+    const-string/jumbo v23, "PersonaManagerService"
 
-    new-instance v23, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v24, "showSecureFolder id "
+    const-string/jumbo v25, "showSecureFolder id "
 
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v23
+    move-result-object v24
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
 
-    move/from16 v24, v0
+    move/from16 v25, v0
 
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v23
+    move-result-object v24
 
-    const-string/jumbo v24, " newValue "
+    const-string/jumbo v25, " newValue "
 
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v23
+    move-result-object v24
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v23
+    move-result-object v24
 
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v24
 
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v17
+    move-result-object v18
 
-    new-instance v7, Landroid/content/ComponentName;
+    new-instance v8, Landroid/content/ComponentName;
 
-    const-string/jumbo v22, "com.samsung.knox.securefolder"
+    const-string/jumbo v23, "com.samsung.knox.securefolder"
 
-    const-string/jumbo v23, "com.samsung.knox.securefolder.switcher.SwitchSfActivity"
+    const-string/jumbo v24, "com.samsung.knox.securefolder.switcher.SwitchSfActivity"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v24
 
-    invoke-direct {v7, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v8, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v21, Landroid/content/ComponentName;
+    new-instance v22, Landroid/content/ComponentName;
 
-    const-string/jumbo v22, "com.samsung.knox.securefolder"
+    const-string/jumbo v23, "com.samsung.knox.securefolder"
 
-    const-string/jumbo v23, "com.samsung.knox.securefolder.switcher.SecureFolderShortcutActivity"
+    const-string/jumbo v24, "com.samsung.knox.securefolder.switcher.SecureFolderShortcutActivity"
 
-    invoke-direct/range {v21 .. v23}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct/range {v22 .. v24}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/16 v17, 0x0
+
+    const/4 v6, 0x0
 
     const/16 v16, 0x0
 
-    const/4 v5, 0x0
-
     const/4 v15, 0x0
-
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
-
-    move-object/from16 v22, v0
-
-    const-string/jumbo v23, "persona"
-
-    invoke-virtual/range {v22 .. v23}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v13, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
-
-    move/from16 v22, v0
 
     move-object/from16 v0, p0
 
@@ -33901,161 +33826,187 @@
 
     move-object/from16 v23, v0
 
-    move/from16 v0, v22
+    const-string/jumbo v24, "persona"
 
-    move-object/from16 v1, v23
+    invoke-virtual/range {v23 .. v24}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {v13, v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getContainerName(ILandroid/content/Context;)Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v16
+    check-cast v14, Lcom/samsung/android/knox/SemPersonaManager;
+
+    if-eqz v14, :cond_0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    move/from16 v0, v22
+    move-object/from16 v0, p0
 
-    invoke-virtual {v13, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getContainerIcon(I)[B
+    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
 
-    move-result-object v15
-
-    if-eqz v15, :cond_0
-
-    array-length v0, v15
-
-    move/from16 v22, v0
-
-    const/16 v23, 0x0
+    move-object/from16 v24, v0
 
     move/from16 v0, v23
 
-    move/from16 v1, v22
+    move-object/from16 v1, v24
 
-    invoke-static {v15, v0, v1}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
+    invoke-virtual {v14, v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getContainerName(ILandroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v17
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    invoke-virtual {v14, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getContainerIcon(I)[B
+
+    move-result-object v16
+
+    if-eqz v16, :cond_0
+
+    move-object/from16 v0, v16
+
+    array-length v0, v0
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v24
+
+    move/from16 v2, v23
+
+    invoke-static {v0, v1, v2}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
+
+    move-result-object v15
 
     :cond_0
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     :try_start_0
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
-    invoke-interface {v0, v7, v1}, Landroid/content/pm/IPackageManager;->getComponentEnabledSetting(Landroid/content/ComponentName;I)I
+    invoke-interface {v0, v8, v1}, Landroid/content/pm/IPackageManager;->getComponentEnabledSetting(Landroid/content/ComponentName;I)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v8
+    move-result v9
 
     :goto_0
     if-nez p1, :cond_4
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    if-ne v8, v0, :cond_1
+    if-ne v9, v0, :cond_1
 
     return-void
 
     :catch_0
-    move-exception v9
+    move-exception v10
 
-    invoke-virtual {v9}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v10}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 
     :cond_1
-    if-nez v16, :cond_2
+    if-nez v17, :cond_2
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
     :try_start_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v22 .. v22}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v22
+    move-result-object v23
 
-    const-string/jumbo v23, "com.samsung.knox.securefolder"
+    const-string/jumbo v24, "com.samsung.knox.securefolder"
 
-    invoke-virtual/range {v22 .. v23}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
+    invoke-virtual/range {v23 .. v24}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
 
-    move-result-object v18
+    move-result-object v19
 
     :goto_1
-    if-eqz v18, :cond_2
+    if-eqz v19, :cond_2
 
     :try_start_2
-    const-string/jumbo v22, "com.samsung.knox.securefolder:string/sf_app_name"
-
-    const/16 v23, 0x0
+    const-string/jumbo v23, "com.samsung.knox.securefolder:string/sf_app_name"
 
     const/16 v24, 0x0
+
+    const/16 v25, 0x0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    move-object/from16 v3, v25
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v20
+
+    if-eqz v20, :cond_2
+
+    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v17
+
+    :cond_2
+    const/16 v23, 0x1
+
+    const/16 v24, 0x0
+
+    const/16 v25, 0x0
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    move/from16 v3, v25
+
+    invoke-interface {v0, v8, v1, v2, v3}, Landroid/content/pm/IPackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;III)V
+
+    const/16 v23, 0x1
+
+    const/16 v24, 0x0
+
+    const/16 v25, 0x0
 
     move-object/from16 v0, v18
 
     move-object/from16 v1, v22
 
-    move-object/from16 v2, v23
-
-    move-object/from16 v3, v24
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v19
-
-    if-eqz v19, :cond_2
-
-    invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v16
-
-    :cond_2
-    const/16 v22, 0x1
-
-    const/16 v23, 0x0
-
-    const/16 v24, 0x0
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v22
-
     move/from16 v2, v23
 
     move/from16 v3, v24
 
-    invoke-interface {v0, v7, v1, v2, v3}, Landroid/content/pm/IPackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;III)V
-
-    const/16 v22, 0x1
-
-    const/16 v23, 0x0
-
-    const/16 v24, 0x0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v21
-
-    move/from16 v2, v22
-
-    move/from16 v3, v23
-
-    move/from16 v4, v24
+    move/from16 v4, v25
 
     invoke-interface {v0, v1, v2, v3, v4}, Landroid/content/pm/IPackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;III)V
 
@@ -34064,90 +34015,49 @@
     return-void
 
     :catch_1
-    move-exception v10
+    move-exception v11
 
-    invoke-virtual {v10}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v11}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
 
     goto :goto_1
 
     :catch_2
-    move-exception v9
+    move-exception v10
 
-    invoke-virtual {v9}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v10}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_2
 
     :cond_4
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
     move/from16 v0, p1
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-ne v0, v1, :cond_3
 
-    const/16 v22, 0x2
+    const/16 v23, 0x2
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    if-ne v8, v0, :cond_5
+    if-ne v9, v0, :cond_5
 
     return-void
 
     :cond_5
     :try_start_3
-    move-object/from16 v0, p0
+    const-string/jumbo v23, "activity"
 
-    iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
+    invoke-static/range {v23 .. v23}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move/from16 v22, v0
+    move-result-object v5
 
-    move-object/from16 v0, p0
+    check-cast v5, Lcom/android/server/am/ActivityManagerService;
 
-    move/from16 v1, v22
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/PersonaManagerService;->isKnoxFullscreenExist(I)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_6
-
-    new-instance v12, Landroid/content/Intent;
-
-    const-string/jumbo v22, "android.intent.action.MAIN"
-
-    move-object/from16 v0, v22
-
-    invoke-direct {v12, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v22, "android.intent.category.HOME"
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v12, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
-
-    move-object/from16 v22, v0
-
-    new-instance v23, Landroid/os/UserHandle;
-
-    const/16 v24, 0x0
-
-    invoke-direct/range {v23 .. v24}, Landroid/os/UserHandle;-><init>(I)V
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v12, v1}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    :cond_6
-    sget-object v22, Landroid/content/pm/PersonaNewEvent;->USER_LOCK:Landroid/content/pm/PersonaNewEvent;
+    if-eqz v5, :cond_8
 
     move-object/from16 v0, p0
 
@@ -34155,158 +34065,172 @@
 
     move/from16 v23, v0
 
+    move/from16 v0, v23
+
+    invoke-virtual {v5, v0}, Lcom/android/server/am/ActivityManagerService;->clearKnoxTasks(I)V
+
+    :cond_6
+    :goto_3
+    sget-object v23, Landroid/content/pm/PersonaNewEvent;->USER_LOCK:Landroid/content/pm/PersonaNewEvent;
+
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
 
-    move/from16 v2, v23
+    move/from16 v24, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    move/from16 v2, v24
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PersonaManagerService;->fireEvent(Landroid/content/pm/PersonaNewEvent;I)Lcom/samsung/android/knox/SemPersonaState;
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_3
 
-    if-nez v16, :cond_7
+    if-nez v17, :cond_7
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
     :try_start_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v22 .. v22}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v22
+    move-result-object v23
 
-    const-string/jumbo v23, "com.samsung.knox.securefolder"
+    const-string/jumbo v24, "com.samsung.knox.securefolder"
 
-    invoke-virtual/range {v22 .. v23}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
+    invoke-virtual/range {v23 .. v24}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
     :try_end_4
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_4 .. :try_end_4} :catch_4
     .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_3
 
-    move-result-object v18
+    move-result-object v19
 
-    :goto_3
-    if-eqz v18, :cond_7
+    :goto_4
+    if-eqz v19, :cond_7
 
     :try_start_5
-    const-string/jumbo v22, "com.samsung.knox.securefolder:string/sf_app_name"
-
-    const/16 v23, 0x0
+    const-string/jumbo v23, "com.samsung.knox.securefolder:string/sf_app_name"
 
     const/16 v24, 0x0
+
+    const/16 v25, 0x0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    move-object/from16 v3, v25
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v20
+
+    if-eqz v20, :cond_7
+
+    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v17
+
+    :cond_7
+    const/16 v23, 0x2
+
+    const/16 v24, 0x0
+
+    const/16 v25, 0x0
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    move/from16 v3, v25
+
+    invoke-interface {v0, v8, v1, v2, v3}, Landroid/content/pm/IPackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;III)V
+
+    const/16 v23, 0x2
+
+    const/16 v24, 0x0
+
+    const/16 v25, 0x0
 
     move-object/from16 v0, v18
 
     move-object/from16 v1, v22
 
-    move-object/from16 v2, v23
-
-    move-object/from16 v3, v24
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v19
-
-    if-eqz v19, :cond_7
-
-    invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v16
-
-    :cond_7
-    const/16 v22, 0x2
-
-    const/16 v23, 0x0
-
-    const/16 v24, 0x0
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v22
-
     move/from16 v2, v23
 
     move/from16 v3, v24
 
-    invoke-interface {v0, v7, v1, v2, v3}, Landroid/content/pm/IPackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;III)V
-
-    const/16 v22, 0x2
-
-    const/16 v23, 0x0
-
-    const/16 v24, 0x0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v21
-
-    move/from16 v2, v22
-
-    move/from16 v3, v23
-
-    move/from16 v4, v24
+    move/from16 v4, v25
 
     invoke-interface {v0, v1, v2, v3, v4}, Landroid/content/pm/IPackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;III)V
 
-    new-instance v20, Landroid/content/Intent;
+    new-instance v21, Landroid/content/Intent;
 
-    const-string/jumbo v22, "com.android.launcher.action.UNINSTALL_SHORTCUT"
+    const-string/jumbo v23, "com.android.launcher.action.UNINSTALL_SHORTCUT"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v22, "android.intent.extra.shortcut.NAME"
+    const-string/jumbo v23, "android.intent.extra.shortcut.NAME"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v17
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v22, "android.intent.extra.shortcut.INTENT"
+    const-string/jumbo v23, "android.intent.extra.shortcut.INTENT"
 
-    new-instance v23, Landroid/content/Intent;
+    new-instance v24, Landroid/content/Intent;
 
-    const-string/jumbo v24, "android.intent.action.MAIN"
+    const-string/jumbo v25, "android.intent.action.MAIN"
 
-    invoke-direct/range {v23 .. v24}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v24 .. v25}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v24, "android.intent.category.LAUNCHER"
+    const-string/jumbo v25, "android.intent.category.LAUNCHER"
 
-    invoke-virtual/range {v23 .. v24}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual/range {v24 .. v25}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v23
+    move-result-object v24
 
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    move-result-object v23
-
-    move-object/from16 v0, v20
+    move-object/from16 v0, v24
 
     move-object/from16 v1, v22
 
-    move-object/from16 v2, v23
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    move-result-object v24
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    const/high16 v22, 0x10000000
+    const/high16 v23, 0x10000000
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
@@ -34314,39 +34238,77 @@
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    sget-object v23, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
+    sget-object v24, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
-    move-object/from16 v2, v23
+    move-object/from16 v2, v24
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    new-instance v11, Landroid/content/Intent;
+    new-instance v12, Landroid/content/Intent;
 
-    invoke-direct {v11}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v12}, Landroid/content/Intent;-><init>()V
 
-    new-instance v22, Landroid/content/ComponentName;
+    new-instance v23, Landroid/content/ComponentName;
 
-    const-string/jumbo v23, "com.samsung.knox.rcp.components"
+    const-string/jumbo v24, "com.samsung.knox.rcp.components"
 
-    const-string/jumbo v24, "com.samsung.knox.rcp.components.remoteshortcut.RCPRemoteShortcutProvider"
+    const-string/jumbo v25, "com.samsung.knox.rcp.components.remoteshortcut.RCPRemoteShortcutProvider"
 
-    invoke-direct/range {v22 .. v24}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct/range {v23 .. v25}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    invoke-virtual {v11, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v12, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    new-instance v6, Landroid/os/Bundle;
+    new-instance v7, Landroid/os/Bundle;
 
-    invoke-direct {v6}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
 
-    const-string/jumbo v22, "userId"
+    const-string/jumbo v23, "userId"
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
+
+    move/from16 v24, v0
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, v24
+
+    invoke-virtual {v7, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    const-string/jumbo v23, "createOrRemove"
+
+    const-string/jumbo v24, "removeAllForUser"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v7, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v12, v7}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    move-object/from16 v23, v0
+
+    sget-object v24, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v12, v1}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
     move-object/from16 v0, p0
 
@@ -34354,47 +34316,9 @@
 
     move/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, p0
 
     move/from16 v1, v23
-
-    invoke-virtual {v6, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    const-string/jumbo v22, "createOrRemove"
-
-    const-string/jumbo v23, "removeAllForUser"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v6, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v11, v6}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
-
-    move-object/from16 v22, v0
-
-    sget-object v23, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v11, v1}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
-
-    move/from16 v22, v0
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v22
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/PersonaManagerService;->removeApplicationShortcut(I)V
     :try_end_5
@@ -34403,21 +34327,80 @@
     goto/16 :goto_2
 
     :catch_3
-    move-exception v9
+    move-exception v10
 
-    invoke-virtual {v9}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v10}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto/16 :goto_2
 
-    :catch_4
-    move-exception v10
-
+    :cond_8
     :try_start_6
-    invoke-virtual {v10}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
+
+    move/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    invoke-direct {v0, v1}, Lcom/android/server/pm/PersonaManagerService;->isKnoxFullscreenExist(I)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_6
+
+    new-instance v13, Landroid/content/Intent;
+
+    const-string/jumbo v23, "android.intent.action.MAIN"
+
+    move-object/from16 v0, v23
+
+    invoke-direct {v13, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "android.intent.category.HOME"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v13, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    move-object/from16 v23, v0
+
+    new-instance v24, Landroid/os/UserHandle;
+
+    const/16 v25, 0x0
+
+    invoke-direct/range {v24 .. v25}, Landroid/os/UserHandle;-><init>(I)V
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v13, v1}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/server/pm/PersonaManagerService;->mShouldNotShowKeyguard:Z
+
+    goto/16 :goto_3
+
+    :catch_4
+    move-exception v11
+
+    invoke-virtual {v11}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
     :try_end_6
     .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_3
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 .end method
 
 .method private startActivityAdminLocked(III)V
@@ -49669,7 +49652,7 @@
 .method public getCustomBadgedResourceIdIconifRequired(Ljava/lang/String;I)I
     .locals 10
 
-    const v9, 0x10803f9
+    const v9, 0x10803e3
 
     const/4 v8, 0x0
 
@@ -49758,7 +49741,7 @@
     return v9
 
     :cond_2
-    const v6, 0x10803fa
+    const v6, 0x10803e4
 
     return v6
 
@@ -51582,7 +51565,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     sget-object v0, Lcom/samsung/android/knox/SemPersonaState;->LOCKED:Lcom/samsung/android/knox/SemPersonaState;
 
@@ -51614,17 +51597,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     :cond_3
+    iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->mShowWhenLocked:Z
+
+    if-nez v0, :cond_4
+
     const/4 v0, 0x1
 
     return v0
 
     :cond_4
+    return v3
+
+    :cond_5
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mKeyguardShown:Landroid/util/SparseBooleanArray;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mKeyguardShown:Landroid/util/SparseBooleanArray;
 
@@ -51634,7 +51624,7 @@
 
     return v0
 
-    :cond_5
+    :cond_6
     const-string/jumbo v0, "PersonaManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -56847,6 +56837,99 @@
     return v2
 .end method
 
+.method public isKnoxKeyguardServiceRunning(I)Z
+    .locals 7
+
+    const/4 v6, 0x0
+
+    const-string/jumbo v4, "activity"
+
+    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/am/ActivityManagerService;
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v4, "PersonaManagerService"
+
+    const-string/jumbo v5, "cannot get ActivityManagerService!!"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v6
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/pm/PersonaManagerService;->getSecureFolderId()I
+
+    move-result v4
+
+    if-eq p1, v4, :cond_2
+
+    const-string/jumbo v3, "com.samsung.knox.kss.KnoxKeyguardService"
+
+    :goto_0
+    const v4, 0x7fffffff
+
+    invoke-virtual {v0, v4, p1}, Lcom/android/server/am/ActivityManagerService;->getServicesForUser(II)Ljava/util/List;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/ActivityManager$RunningServiceInfo;
+
+    iget-object v4, v1, Landroid/app/ActivityManager$RunningServiceInfo;->service:Landroid/content/ComponentName;
+
+    invoke-virtual {v4}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    const-string/jumbo v4, "PersonaManagerService"
+
+    const-string/jumbo v5, "isKnoxKeyguardServiceRunning: true"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_2
+    const-string/jumbo v3, "com.samsung.knox.securefolder.keyguard.KnoxKeyguardService"
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v4, "PersonaManagerService"
+
+    const-string/jumbo v5, "isKnoxKeyguardServiceRunning: false"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v6
+.end method
+
 .method public isKnoxKeyguardShown(I)Z
     .locals 4
 
@@ -57435,99 +57518,162 @@
     goto :goto_0
 .end method
 
-.method isSdcardAlertAlreadyShown(I)Z
-    .locals 5
+.method public isSecureFolderImmediateLockExceptionalCase(Ljava/lang/String;)Z
+    .locals 2
 
-    invoke-virtual {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->getPersonaInfo(I)Lcom/samsung/android/knox/SemPersonaInfo;
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
 
-    move-result-object v1
+    if-nez v0, :cond_0
 
-    if-eqz v1, :cond_0
+    new-instance v0, Ljava/util/ArrayList;
 
-    iget-boolean v2, v1, Lcom/samsung/android/knox/SemPersonaInfo;->needsRestart:Z
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    if-eqz v2, :cond_0
+    iput-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
 
-    iget-boolean v2, v1, Lcom/samsung/android/knox/SemPersonaInfo;->kioskModeEnabled:Z
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
 
-    if-eqz v2, :cond_1
+    const-string/jumbo v1, "com.android.systemui.recents.RecentsActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.android.systemui.recents.SeparatedRecentsActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.android.server.iris.enroll.IrisEnrollActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.android.settings.iris.IrisLockSettings"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.android.settings.ConfirmLockPattern$InternalActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.android.settings.ConfirmLockPassword$InternalActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.android.settings.ChooseLockGeneric"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.android.settings.ChooseLockPattern"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.android.settings.ChooseLockPassword"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.android.settings.biometrics.BiometricsLockSetup"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.android.settings.fingerprint.RegisterFingerprint"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.android.fingerprint.service.activity.StartEnrollActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.android.settings.notification.SecRedactionInterstitial"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.android.bio.face.service.enroll.FaceEnrollActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.android.voc.LauncherActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.android.voc.disclaimer.DisclaimerActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.android.app.syncmldm.ui.XUIInstallConfirmActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.android.internal.app.ChooserActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.knox.securefolder.foldercontainer.MultiwindowLockActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.samsung.android.smartmirroring.CastingDialog"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v1, "com.android.settings.Settings$LockAndSecuritySettingsActivity"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    const/4 v2, 0x0
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
 
-    return v2
+    invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_1
     const/4 v0, 0x0
 
-    iget-object v2, p0, Lcom/android/server/pm/PersonaManagerService;->mShownSdcardAlertMap:Ljava/util/HashMap;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lcom/android/server/pm/PersonaManagerService;->mShownSdcardAlertMap:Ljava/util/HashMap;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Boolean;
-
-    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    :cond_2
-    const-string/jumbo v2, "PersonaManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "isSdcardAlertAlreadyShown:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " and personaInfo.isRestarting:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-boolean v4, v1, Lcom/samsung/android/knox/SemPersonaInfo;->isRestarting:Z
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v0, :cond_0
-
-    const/4 v2, 0x1
-
-    return v2
+    return v0
 .end method
 
 .method public isSessionExpired(I)Z
@@ -57676,22 +57822,193 @@
     return v7
 .end method
 
+.method public isShowKeyguardExceptionalCase(Ljava/lang/String;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/pm/PersonaManagerService;->isShowKeyguardExceptionalCase(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isShowKeyguardExceptionalCase(Ljava/lang/String;Z)Z
+    .locals 4
+
+    const/4 v3, 0x1
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.samsung.android.settings.iris.IrisLockSettings"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.android.settings.ConfirmLockPattern$InternalActivity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.android.settings.ConfirmLockPassword$InternalActivity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.samsung.android.server.iris.enroll.IrisEnrollActivity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.p1.mobile.putong.api.push.keep.OnePixelActivity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.p1.mobile.putong/.api.push.keep.OnePixelActivity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.castad.sdk.activity.InstanceActivity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.tencent.news.push.alive.offactivity.HollowActivity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.tencent.news.push.alive.offactivity.OffActivity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.tencent.news/.push.alive.offactivity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v2, "com.tencent.reading/.activity.SplashActivity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    if-nez p2, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    invoke-interface {v1, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    return v3
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    return v3
+
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
 .method public isUserHasTrust(I)Z
     .locals 5
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->getPersonaInfo(I)Lcom/samsung/android/knox/SemPersonaInfo;
+    iget-object v2, p0, Lcom/android/server/pm/PersonaManagerService;->mPersonas:Landroid/util/SparseArray;
+
+    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Lcom/samsung/android/knox/SemPersonaInfo;
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v2, v0, Lcom/samsung/android/knox/SemPersonaInfo;->partial:Z
+
+    if-nez v2, :cond_0
+
+    iget-boolean v2, v0, Lcom/samsung/android/knox/SemPersonaInfo;->removePersona:Z
+
+    if-nez v2, :cond_0
+
+    iget v2, p0, Lcom/android/server/pm/PersonaManagerService;->cleanPersonaId:I
+
+    if-ne p1, v2, :cond_1
+
+    :cond_0
+    return v1
+
+    :cond_1
     sget-object v2, Landroid/content/pm/PersonaAttribute;->PASSWORD_CHANGE_REQUEST:Landroid/content/pm/PersonaAttribute;
 
     invoke-virtual {p0, v2, p1}, Lcom/android/server/pm/PersonaManagerService;->isAttribute(Landroid/content/pm/PersonaAttribute;I)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2
 
     sget-object v2, Landroid/content/pm/PersonaAttribute;->PASSWORD_CHANGE_REQUEST_ENFORCED:Landroid/content/pm/PersonaAttribute;
 
@@ -57699,9 +58016,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3
 
-    :cond_0
+    :cond_2
     const-string/jumbo v2, "PersonaManagerService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -57726,12 +58043,12 @@
 
     return v1
 
-    :cond_1
+    :cond_3
     invoke-direct {p0, v0}, Lcom/android/server/pm/PersonaManagerService;->isTrustAgentSupported(Lcom/samsung/android/knox/SemPersonaInfo;)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_4
 
     const-string/jumbo v2, "PersonaManagerService"
 
@@ -57757,10 +58074,10 @@
 
     return v1
 
-    :cond_2
+    :cond_4
     iget-object v2, p0, Lcom/android/server/pm/PersonaManagerService;->mKeyguardUpdateMonitor:Lcom/android/server/pm/KnoxKeyguardUpdateMonitor;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5
 
     iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mKeyguardUpdateMonitor:Lcom/android/server/pm/KnoxKeyguardUpdateMonitor;
 
@@ -57768,7 +58085,7 @@
 
     move-result v1
 
-    :cond_3
+    :cond_5
     return v1
 .end method
 
@@ -59572,7 +59889,7 @@
 
     if-eqz v1, :cond_4
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_8
 
     iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
 
@@ -59626,15 +59943,20 @@
 
     move-result v1
 
+    if-nez v1, :cond_7
+
+    iget-boolean v1, p0, Lcom/android/server/pm/PersonaManagerService;->mShowWhenLocked:Z
+
     if-eqz v1, :cond_0
 
+    :cond_7
     const-string/jumbo v1, "container_kioskmode"
 
     invoke-direct {p0, p1, p2, v1}, Lcom/android/server/pm/PersonaManagerService;->blockStatusbar(IZLjava/lang/String;)V
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -60209,6 +60531,8 @@
     if-eqz v3, :cond_4
 
     if-nez p6, :cond_3
+
+    iput-boolean p3, p0, Lcom/android/server/pm/PersonaManagerService;->mShowWhenLocked:Z
 
     iget-object v3, p0, Lcom/android/server/pm/PersonaManagerService;->mTimeoutHandler:Lcom/android/server/pm/KnoxTimeoutHandler;
 
@@ -61142,13 +61466,13 @@
 .end method
 
 .method public removeKnoxShortcutStub(I)V
-    .locals 28
+    .locals 29
 
-    const-string/jumbo v25, "PersonaManagerService"
+    const-string/jumbo v26, "PersonaManagerService"
 
-    const-string/jumbo v26, "removeKnoxShortcutStub"
+    const-string/jumbo v27, "removeKnoxShortcutStub"
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v5, 0x1
 
@@ -61156,50 +61480,64 @@
 
     const/4 v4, 0x3
 
-    const/4 v13, -0x1
+    const/4 v14, -0x1
 
     const/4 v9, 0x0
 
-    const/16 v21, 0x0
-
     const/16 v22, 0x0
 
-    const/16 v16, 0x0
+    const/16 v23, 0x0
+
+    const/16 v17, 0x0
 
     const/4 v7, 0x0
 
     const/4 v12, 0x0
 
-    const/4 v14, 0x0
+    const/4 v15, 0x0
 
-    const/16 v17, 0x0
+    const/16 v18, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mRemovingPersonaIds:Landroid/util/SparseBooleanArray;
+
+    move-object/from16 v26, v0
+
+    move-object/from16 v0, v26
+
+    move/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseBooleanArray;->get(I)Z
+
+    move-result v13
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v25, v0
+    move-object/from16 v26, v0
 
-    const-string/jumbo v26, "persona"
+    const-string/jumbo v27, "persona"
 
-    invoke-virtual/range {v25 .. v26}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual/range {v26 .. v27}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v15
 
-    check-cast v14, Lcom/samsung/android/knox/SemPersonaManager;
+    check-cast v15, Lcom/samsung/android/knox/SemPersonaManager;
 
-    if-nez v14, :cond_0
+    if-nez v15, :cond_0
 
     return-void
 
     :cond_0
-    const-string/jumbo v25, "package"
+    const-string/jumbo v26, "package"
 
-    invoke-static/range {v25 .. v25}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static/range {v26 .. v26}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-static/range {v25 .. v25}, Landroid/content/pm/IPackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageManager;
+    invoke-static/range {v26 .. v26}, Landroid/content/pm/IPackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageManager;
 
     move-result-object v11
 
@@ -61207,326 +61545,339 @@
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v25, v0
-
-    invoke-virtual/range {v25 .. v25}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v19
-
-    const/16 v18, 0x0
-
-    const/16 v25, 0x0
-
-    const/16 v26, 0x0
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v25
-
-    move/from16 v2, v26
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PersonaManagerService;->getPersonasForUser(IZ)Ljava/util/List;
-
-    move-result-object v18
-
-    if-eqz v18, :cond_1
-
-    invoke-interface/range {v18 .. v18}, Ljava/util/List;->size()I
-
-    move-result v25
-
-    if-lez v25, :cond_1
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
-
-    move-object/from16 v25, v0
-
-    const-string/jumbo v26, "user"
-
-    invoke-virtual/range {v25 .. v26}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v24
-
-    check-cast v24, Landroid/os/UserManager;
-
-    move-object/from16 v0, v24
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
-
-    move-result-object v23
-
-    if-eqz v23, :cond_6
-
-    const-string/jumbo v25, "KNOX"
-
-    move-object/from16 v0, v23
-
-    iget-object v0, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
     move-object/from16 v26, v0
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual/range {v26 .. v26}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result v25
+    move-result-object v20
 
-    if-eqz v25, :cond_6
-
-    const/4 v13, 0x1
-
-    move-object/from16 v0, v23
-
-    iget-object v9, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
-    :cond_1
-    :goto_0
-    const-string/jumbo v25, "PersonaManagerService"
-
-    new-instance v26, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v27, "removeKnoxShortcutStub Knox:"
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    move-object/from16 v0, v26
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v26
-
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move/from16 v0, p1
-
-    invoke-virtual {v14, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaInfo(I)Lcom/samsung/android/knox/SemPersonaInfo;
-
-    move-result-object v17
-
-    if-eqz v17, :cond_2
-
-    invoke-virtual/range {v17 .. v17}, Lcom/samsung/android/knox/SemPersonaInfo;->isECContainer()Z
-
-    move-result v12
-
-    :cond_2
-    const/16 v25, 0x1
-
-    move/from16 v0, v25
-
-    if-ne v13, v0, :cond_8
-
-    new-instance v21, Landroid/content/ComponentName;
-
-    const-string/jumbo v25, "com.sec.knox.switcher"
-
-    const-string/jumbo v26, "com.sec.knox.switcher.SwitchB2bActivityI"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v25
-
-    move-object/from16 v2, v26
-
-    invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/16 v25, 0x64
-
-    move/from16 v0, p1
-
-    move/from16 v1, v25
-
-    if-lt v0, v1, :cond_3
-
-    if-eqz v14, :cond_3
-
-    const-string/jumbo v25, "com.sec.knox.switcher"
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, p1
-
-    invoke-virtual {v14, v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxNameChanged(Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v16
-
-    :cond_3
-    if-nez v16, :cond_4
-
-    new-instance v15, Landroid/content/Intent;
-
-    const-string/jumbo v25, "android.intent.action.MAIN"
-
-    const/16 v26, 0x0
-
-    move-object/from16 v0, v25
-
-    move-object/from16 v1, v26
-
-    invoke-direct {v15, v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
-
-    const-string/jumbo v25, "android.intent.category.LAUNCHER"
-
-    move-object/from16 v0, v25
-
-    invoke-virtual {v15, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v15, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    const/16 v25, 0x0
+    const/16 v19, 0x0
 
     const/16 v26, 0x0
 
     const/16 v27, 0x0
 
-    :try_start_0
-    move-object/from16 v0, v25
+    move-object/from16 v0, p0
 
     move/from16 v1, v26
 
     move/from16 v2, v27
 
-    invoke-interface {v11, v15, v0, v1, v2}, Landroid/content/pm/IPackageManager;->queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PersonaManagerService;->getPersonasForUser(IZ)Ljava/util/List;
+
+    move-result-object v19
+
+    if-eqz v19, :cond_1
+
+    invoke-interface/range {v19 .. v19}, Ljava/util/List;->size()I
+
+    move-result v26
+
+    if-lez v26, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "user"
+
+    invoke-virtual/range {v26 .. v27}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v25
 
-    invoke-virtual/range {v25 .. v25}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_4
-
-    invoke-interface {v7}, Ljava/util/List;->size()I
-
-    move-result v25
-
-    if-lez v25, :cond_4
-
-    const/16 v25, 0x0
-
-    move/from16 v0, v25
-
-    invoke-interface {v7, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v25
-
-    check-cast v25, Landroid/content/pm/ResolveInfo;
+    check-cast v25, Landroid/os/UserManager;
 
     move-object/from16 v0, v25
 
-    move-object/from16 v1, v19
+    move/from16 v1, p1
 
-    invoke-virtual {v0, v1}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
-    move-result-object v25
+    move-result-object v24
 
-    invoke-interface/range {v25 .. v25}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    if-eqz v24, :cond_3
 
-    move-result-object v16
+    const-string/jumbo v26, "KNOX"
+
+    move-object/from16 v0, v24
+
+    iget-object v0, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+
+    move-object/from16 v27, v0
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v26
+
+    if-eqz v26, :cond_3
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, v24
+
+    iget-object v9, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+
+    :cond_1
+    :goto_0
+    const-string/jumbo v26, "PersonaManagerService"
+
+    new-instance v27, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v28, "removeKnoxShortcutStub Knox:"
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v27
+
+    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move/from16 v0, p1
+
+    invoke-virtual {v15, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaInfo(I)Lcom/samsung/android/knox/SemPersonaInfo;
+
+    move-result-object v18
+
+    if-eqz v18, :cond_2
+
+    invoke-virtual/range {v18 .. v18}, Lcom/samsung/android/knox/SemPersonaInfo;->isECContainer()Z
+
+    move-result v12
+
+    :cond_2
+    const/16 v26, 0x1
+
+    move/from16 v0, v26
+
+    if-ne v14, v0, :cond_9
+
+    if-eqz v13, :cond_5
+
+    return-void
+
+    :cond_3
+    if-eqz v24, :cond_4
+
+    const-string/jumbo v26, "KNOX II"
+
+    move-object/from16 v0, v24
+
+    iget-object v0, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+
+    move-object/from16 v27, v0
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v26
+
+    if-eqz v26, :cond_4
+
+    const/4 v14, 0x2
+
+    move-object/from16 v0, v24
+
+    iget-object v9, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+
+    goto :goto_0
 
     :cond_4
-    :goto_1
-    if-nez v16, :cond_5
+    if-eqz v24, :cond_1
 
-    move-object/from16 v16, v9
+    const/16 v26, 0x96
+
+    move/from16 v0, p1
+
+    move/from16 v1, v26
+
+    if-lt v0, v1, :cond_1
+
+    const/16 v26, 0xa0
+
+    move/from16 v0, p1
+
+    move/from16 v1, v26
+
+    if-gt v0, v1, :cond_1
+
+    const/4 v14, 0x3
+
+    move-object/from16 v0, v24
+
+    iget-object v9, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+
+    goto :goto_0
 
     :cond_5
-    :goto_2
-    if-nez v21, :cond_f
+    new-instance v22, Landroid/content/ComponentName;
 
-    const-string/jumbo v25, "PersonaManagerService"
+    const-string/jumbo v26, "com.sec.knox.switcher"
 
-    new-instance v26, Ljava/lang/StringBuilder;
+    const-string/jumbo v27, "com.sec.knox.switcher.SwitchB2bActivityI"
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v0, v22
 
-    const-string/jumbo v27, "updateEnabledState() activity not found "
+    move-object/from16 v1, v26
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v2, v27
 
-    move-result-object v26
+    invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/16 v26, 0x64
+
+    move/from16 v0, p1
+
+    move/from16 v1, v26
+
+    if-lt v0, v1, :cond_6
+
+    if-eqz v15, :cond_6
+
+    const-string/jumbo v26, "com.sec.knox.switcher"
 
     move-object/from16 v0, v26
 
     move/from16 v1, p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v15, v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxNameChanged(Ljava/lang/String;I)Ljava/lang/String;
 
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v26
-
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
+    move-result-object v17
 
     :cond_6
-    if-eqz v23, :cond_7
+    if-nez v17, :cond_7
 
-    const-string/jumbo v25, "KNOX II"
+    new-instance v16, Landroid/content/Intent;
 
-    move-object/from16 v0, v23
+    const-string/jumbo v26, "android.intent.action.MAIN"
 
-    iget-object v0, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+    const/16 v27, 0x0
 
-    move-object/from16 v26, v0
+    move-object/from16 v0, v16
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-object/from16 v1, v26
 
-    move-result v25
+    move-object/from16 v2, v27
 
-    if-eqz v25, :cond_7
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    const/4 v13, 0x2
+    const-string/jumbo v26, "android.intent.category.LAUNCHER"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v16
 
-    iget-object v9, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+    move-object/from16 v1, v26
 
-    goto/16 :goto_0
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    const/16 v26, 0x0
+
+    const/16 v27, 0x0
+
+    const/16 v28, 0x0
+
+    :try_start_0
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v26
+
+    move/from16 v2, v27
+
+    move/from16 v3, v28
+
+    invoke-interface {v11, v0, v1, v2, v3}, Landroid/content/pm/IPackageManager;->queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v26
+
+    invoke-virtual/range {v26 .. v26}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_7
+
+    invoke-interface {v7}, Ljava/util/List;->size()I
+
+    move-result v26
+
+    if-lez v26, :cond_7
+
+    const/16 v26, 0x0
+
+    move/from16 v0, v26
+
+    invoke-interface {v7, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v26
+
+    check-cast v26, Landroid/content/pm/ResolveInfo;
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v26
+
+    invoke-interface/range {v26 .. v26}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v17
 
     :cond_7
-    if-eqz v23, :cond_1
+    :goto_1
+    if-nez v17, :cond_8
 
-    const/16 v25, 0x96
+    move-object/from16 v17, v9
 
-    move/from16 v0, p1
+    :cond_8
+    :goto_2
+    if-nez v22, :cond_11
 
-    move/from16 v1, v25
+    const-string/jumbo v26, "PersonaManagerService"
 
-    if-lt v0, v1, :cond_1
+    new-instance v27, Ljava/lang/StringBuilder;
 
-    const/16 v25, 0xa0
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v0, p1
+    const-string/jumbo v28, "updateEnabledState() activity not found "
 
-    move/from16 v1, v25
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-gt v0, v1, :cond_1
+    move-result-object v27
 
-    const/4 v13, 0x3
+    move-object/from16 v0, v27
 
-    move-object/from16 v0, v23
+    move/from16 v1, p1
 
-    iget-object v9, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_0
+    move-result-object v27
+
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v27
+
+    invoke-static/range {v26 .. v27}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 
     :catch_0
     move-exception v10
@@ -61535,130 +61886,143 @@
 
     goto :goto_1
 
-    :cond_8
-    const/16 v25, 0x2
-
-    move/from16 v0, v25
-
-    if-ne v13, v0, :cond_b
-
-    new-instance v21, Landroid/content/ComponentName;
-
-    const-string/jumbo v25, "com.sec.knox.switcher"
-
-    const-string/jumbo v26, "com.sec.knox.switcher.SwitchB2bActivityII"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v25
-
-    move-object/from16 v2, v26
-
-    invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/16 v25, 0x64
-
-    move/from16 v0, p1
-
-    move/from16 v1, v25
-
-    if-lt v0, v1, :cond_9
-
-    if-eqz v14, :cond_9
-
-    const-string/jumbo v25, "com.sec.knox.switcher"
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, p1
-
-    invoke-virtual {v14, v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxNameChanged(Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v16
-
     :cond_9
-    if-nez v16, :cond_a
+    const/16 v26, 0x2
 
-    new-instance v15, Landroid/content/Intent;
+    move/from16 v0, v26
 
-    const-string/jumbo v25, "android.intent.action.MAIN"
+    if-ne v14, v0, :cond_d
 
-    const/16 v26, 0x0
+    if-eqz v13, :cond_a
 
-    move-object/from16 v0, v25
+    return-void
+
+    :cond_a
+    new-instance v22, Landroid/content/ComponentName;
+
+    const-string/jumbo v26, "com.sec.knox.switcher"
+
+    const-string/jumbo v27, "com.sec.knox.switcher.SwitchB2bActivityII"
+
+    move-object/from16 v0, v22
 
     move-object/from16 v1, v26
 
-    invoke-direct {v15, v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    move-object/from16 v2, v27
 
-    const-string/jumbo v25, "android.intent.category.LAUNCHER"
+    invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v0, v25
+    const/16 v26, 0x64
 
-    invoke-virtual {v15, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+    move/from16 v0, p1
 
-    move-object/from16 v0, v21
+    move/from16 v1, v26
 
-    invoke-virtual {v15, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    if-lt v0, v1, :cond_b
 
-    const/16 v25, 0x0
+    if-eqz v15, :cond_b
+
+    const-string/jumbo v26, "com.sec.knox.switcher"
+
+    move-object/from16 v0, v26
+
+    move/from16 v1, p1
+
+    invoke-virtual {v15, v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxNameChanged(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v17
+
+    :cond_b
+    if-nez v17, :cond_c
+
+    new-instance v16, Landroid/content/Intent;
+
+    const-string/jumbo v26, "android.intent.action.MAIN"
+
+    const/16 v27, 0x0
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v26
+
+    move-object/from16 v2, v27
+
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    const-string/jumbo v26, "android.intent.category.LAUNCHER"
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     const/16 v26, 0x0
 
     const/16 v27, 0x0
 
-    :try_start_1
-    move-object/from16 v0, v25
+    const/16 v28, 0x0
 
-    move/from16 v1, v26
+    :try_start_1
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v26
 
     move/from16 v2, v27
 
-    invoke-interface {v11, v15, v0, v1, v2}, Landroid/content/pm/IPackageManager;->queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
+    move/from16 v3, v28
 
-    move-result-object v25
+    invoke-interface {v11, v0, v1, v2, v3}, Landroid/content/pm/IPackageManager;->queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
 
-    invoke-virtual/range {v25 .. v25}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+    move-result-object v26
+
+    invoke-virtual/range {v26 .. v26}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
 
     move-result-object v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_c
 
     invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v25
+    move-result v26
 
-    if-lez v25, :cond_a
+    if-lez v26, :cond_c
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-interface {v7, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v25
+    move-result-object v26
 
-    check-cast v25, Landroid/content/pm/ResolveInfo;
+    check-cast v26, Landroid/content/pm/ResolveInfo;
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-interface/range {v25 .. v25}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface/range {v26 .. v26}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result-object v16
+    move-result-object v17
 
-    :cond_a
+    :cond_c
     :goto_3
-    if-nez v16, :cond_5
+    if-nez v17, :cond_8
 
-    move-object/from16 v16, v9
+    move-object/from16 v17, v9
 
     goto/16 :goto_2
 
@@ -61669,278 +62033,286 @@
 
     goto :goto_3
 
-    :cond_b
-    const/16 v25, 0x3
+    :cond_d
+    const/16 v26, 0x3
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
-    if-ne v13, v0, :cond_5
+    if-ne v14, v0, :cond_8
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
     move/from16 v0, p1
 
-    move/from16 v1, v25
+    move/from16 v1, v26
 
-    if-eq v0, v1, :cond_c
+    if-eq v0, v1, :cond_e
 
     return-void
 
-    :cond_c
+    :cond_e
+    new-instance v23, Landroid/content/ComponentName;
+
+    const-string/jumbo v26, "com.samsung.knox.securefolder"
+
+    const-string/jumbo v27, "com.samsung.knox.securefolder.switcher.SwitchSfActivity"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v26
+
+    move-object/from16 v2, v27
+
+    invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
     new-instance v22, Landroid/content/ComponentName;
 
-    const-string/jumbo v25, "com.samsung.knox.securefolder"
+    const-string/jumbo v26, "com.samsung.knox.securefolder"
 
-    const-string/jumbo v26, "com.samsung.knox.securefolder.switcher.SwitchSfActivity"
+    const-string/jumbo v27, "com.samsung.knox.securefolder.switcher.SecureFolderShortcutActivity"
 
     move-object/from16 v0, v22
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
-    move-object/from16 v2, v26
-
-    invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v21, Landroid/content/ComponentName;
-
-    const-string/jumbo v25, "com.samsung.knox.securefolder"
-
-    const-string/jumbo v26, "com.samsung.knox.securefolder.switcher.SecureFolderShortcutActivity"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v25
-
-    move-object/from16 v2, v26
+    move-object/from16 v2, v27
 
     invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v25, 0x64
+    const/16 v26, 0x64
 
     move/from16 v0, p1
 
-    move/from16 v1, v25
+    move/from16 v1, v26
 
-    if-lt v0, v1, :cond_d
+    if-lt v0, v1, :cond_f
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v25, v0
+    move-object/from16 v26, v0
 
     move/from16 v0, p1
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
-    invoke-virtual {v14, v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getContainerName(ILandroid/content/Context;)Ljava/lang/String;
+    invoke-virtual {v15, v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getContainerName(ILandroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v17
 
-    :cond_d
-    if-nez v16, :cond_e
+    :cond_f
+    if-nez v17, :cond_10
 
-    new-instance v15, Landroid/content/Intent;
+    new-instance v16, Landroid/content/Intent;
 
-    const-string/jumbo v25, "android.intent.action.MAIN"
+    const-string/jumbo v26, "android.intent.action.MAIN"
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v16
 
     move-object/from16 v1, v26
 
-    invoke-direct {v15, v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    move-object/from16 v2, v27
 
-    const-string/jumbo v25, "android.intent.category.LAUNCHER"
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    move-object/from16 v0, v25
+    const-string/jumbo v26, "android.intent.category.LAUNCHER"
 
-    invoke-virtual {v15, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+    move-object/from16 v0, v16
 
-    move-object/from16 v0, v21
+    move-object/from16 v1, v26
 
-    invoke-virtual {v15, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    const/16 v25, 0x0
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     const/16 v26, 0x0
 
     const/16 v27, 0x0
 
-    :try_start_2
-    move-object/from16 v0, v25
+    const/16 v28, 0x0
 
-    move/from16 v1, v26
+    :try_start_2
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v26
 
     move/from16 v2, v27
 
-    invoke-interface {v11, v15, v0, v1, v2}, Landroid/content/pm/IPackageManager;->queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
+    move/from16 v3, v28
 
-    move-result-object v25
+    invoke-interface {v11, v0, v1, v2, v3}, Landroid/content/pm/IPackageManager;->queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
 
-    invoke-virtual/range {v25 .. v25}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+    move-result-object v26
+
+    invoke-virtual/range {v26 .. v26}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
 
     move-result-object v7
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_10
 
     invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v25
+    move-result v26
 
-    if-lez v25, :cond_e
+    if-lez v26, :cond_10
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-interface {v7, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v25
+    move-result-object v26
 
-    check-cast v25, Landroid/content/pm/ResolveInfo;
+    check-cast v26, Landroid/content/pm/ResolveInfo;
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-interface/range {v25 .. v25}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface/range {v26 .. v26}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
 
-    move-result-object v16
+    move-result-object v17
 
-    :cond_e
+    :cond_10
     :goto_4
-    if-nez v16, :cond_5
+    if-nez v17, :cond_8
 
-    move-object/from16 v16, v9
+    move-object/from16 v17, v9
 
     goto/16 :goto_2
 
     :catch_2
     move-exception v10
 
-    const-string/jumbo v25, "PersonaManagerService"
+    const-string/jumbo v26, "PersonaManagerService"
 
-    const-string/jumbo v26, "There is an exception!"
+    const-string/jumbo v27, "There is an exception!"
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v10}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_4
 
-    :cond_f
-    const-string/jumbo v25, "PersonaManagerService"
+    :cond_11
+    const-string/jumbo v26, "PersonaManagerService"
 
-    new-instance v26, Ljava/lang/StringBuilder;
+    new-instance v27, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v27, "Disabling component "
+    const-string/jumbo v28, "Disabling component "
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v27
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v27
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v27
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v12, :cond_10
+    if-eqz v12, :cond_12
 
     new-instance v8, Landroid/content/ComponentName;
 
-    const-string/jumbo v25, "com.sec.knox.knoxecswitcher"
+    const-string/jumbo v26, "com.sec.knox.knoxecswitcher"
 
-    const-string/jumbo v26, "com.sec.knox.knoxecswitcher.SwitchECActivity"
+    const-string/jumbo v27, "com.sec.knox.knoxecswitcher.SwitchECActivity"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v27
 
     invoke-direct {v8, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v25, 0x2
+    const/16 v26, 0x2
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move/from16 v1, v25
+    move/from16 v1, v26
 
-    move/from16 v2, v26
+    move/from16 v2, v27
 
     invoke-virtual {v0, v8, v1, v2}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
 
     :goto_5
-    new-instance v20, Landroid/content/Intent;
+    new-instance v21, Landroid/content/Intent;
 
-    const-string/jumbo v25, "com.android.launcher.action.UNINSTALL_SHORTCUT"
+    const-string/jumbo v26, "com.android.launcher.action.UNINSTALL_SHORTCUT"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v25, "android.intent.extra.shortcut.NAME"
+    const-string/jumbo v26, "android.intent.extra.shortcut.NAME"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v17
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v25, "android.intent.extra.shortcut.INTENT"
+    const-string/jumbo v26, "android.intent.extra.shortcut.INTENT"
 
-    new-instance v26, Landroid/content/Intent;
+    new-instance v27, Landroid/content/Intent;
 
-    const-string/jumbo v27, "android.intent.action.MAIN"
+    const-string/jumbo v28, "android.intent.action.MAIN"
 
-    invoke-direct/range {v26 .. v27}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v27 .. v28}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v27, "android.intent.category.LAUNCHER"
+    const-string/jumbo v28, "android.intent.category.LAUNCHER"
 
-    invoke-virtual/range {v26 .. v27}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual/range {v27 .. v28}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v26
+    move-result-object v27
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    move-result-object v26
+    move-result-object v27
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
-    move-object/from16 v2, v26
+    move-object/from16 v2, v27
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
@@ -61948,75 +62320,75 @@
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v25, v0
-
-    move-object/from16 v0, v25
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    const-string/jumbo v25, "PersonaManagerService"
-
-    new-instance v26, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v27, "Knox shortcut uninstalled for "
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
+    move-object/from16 v26, v0
 
     move-object/from16 v0, v26
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    const-string/jumbo v26, "PersonaManagerService"
+
+    new-instance v27, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v28, "Knox shortcut uninstalled for "
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v27
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v27
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
-    :cond_10
-    const/16 v25, 0x3
+    :cond_12
+    const/16 v26, 0x3
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
-    if-ne v13, v0, :cond_11
+    if-ne v14, v0, :cond_13
 
-    const/16 v25, 0x2
+    const/16 v26, 0x2
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
-    move/from16 v3, v26
+    move/from16 v3, v27
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
 
-    :cond_11
-    const/16 v25, 0x2
+    :cond_13
+    const/16 v26, 0x2
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
-    move/from16 v3, v26
+    move/from16 v3, v27
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
 
@@ -63587,7 +63959,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     const-string/jumbo v1, "sdcard"
 
@@ -63595,7 +63967,51 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v1, "PersonaManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "PersonaManagerService.setAccessPermission() canAccess="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " pi.canUseExtSdcard="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-boolean v3, v0, Lcom/samsung/android/knox/SemPersonaInfo;->canUseExtSdcard:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v1, v0, Lcom/samsung/android/knox/SemPersonaInfo;->canUseExtSdcard:Z
+
+    if-eq p3, v1, :cond_0
+
+    new-instance v1, Ljava/lang/Exception;
+
+    invoke-direct {v1}, Ljava/lang/Exception;-><init>()V
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     iput-boolean p3, v0, Lcom/samsung/android/knox/SemPersonaInfo;->canUseExtSdcard:Z
 
@@ -63605,6 +64021,7 @@
 
     invoke-direct {p0, p2}, Lcom/android/server/pm/PersonaManagerService;->notifyNeedRestartMsg(I)V
 
+    :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mPersonaDbLock:Ljava/lang/Object;
 
@@ -63620,20 +64037,20 @@
     :goto_1
     return-void
 
-    :cond_0
+    :cond_1
     const-string/jumbo v1, "bluetooth"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iput-boolean p3, v0, Lcom/samsung/android/knox/SemPersonaInfo;->canUseBluetooth:Z
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const-string/jumbo v1, "PersonaManagerService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -63665,7 +64082,7 @@
 
     throw v2
 
-    :cond_2
+    :cond_3
     const-string/jumbo v1, "PersonaManagerService"
 
     const-string/jumbo v2, "persona info not available for setting access permission"
@@ -66396,6 +66813,24 @@
 
     invoke-virtual {v4, v5, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    new-instance v5, Lcom/android/server/pm/PersonaManagerService$SecureFolderAppOpsReceiver;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v5, v0}, Lcom/android/server/pm/PersonaManagerService$SecureFolderAppOpsReceiver;-><init>(Lcom/android/server/pm/PersonaManagerService;)V
+
+    new-instance v6, Landroid/content/IntentFilter;
+
+    const-string/jumbo v7, "com.samsung.intent.action.SECURE_FOLDER.APPOPS_MODE_ERRORED"
+
+    invoke-direct {v6, v7}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
     if-eqz v38, :cond_0
 
     invoke-virtual/range {v38 .. v38}, Ljava/lang/String;->isEmpty()Z
@@ -67659,6 +68094,92 @@
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return v1
+.end method
+
+.method public updateSecureFolderImmediateLockExceptionalList(Ljava/util/List;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "PersonaManagerService"
+
+    const-string/jumbo v1, "update SecureFolder ImmediateLock Exceptional List"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderImmediateLockExceptionalList:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    goto :goto_0
+.end method
+
+.method public updateShowKeyguardExceptionalList(Ljava/util/List;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "PersonaManagerService"
+
+    const-string/jumbo v1, "update ShowKeyguard Exceptional List"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mShowKeyguardExceptionalList:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    goto :goto_0
 .end method
 
 .method public userActivity(I)V

@@ -13,6 +13,7 @@
         Lcom/android/server/cover/CoverManagerService$2;,
         Lcom/android/server/cover/CoverManagerService$3;,
         Lcom/android/server/cover/CoverManagerService$4;,
+        Lcom/android/server/cover/CoverManagerService$5;,
         Lcom/android/server/cover/CoverManagerService$CoverManagerHandler;,
         Lcom/android/server/cover/CoverManagerService$CoverShapeThread;
     }
@@ -33,6 +34,8 @@
 .field private static final DEBUG:Z = true
 
 .field private static final LED_COVER_SERVICE_FAIL_COUNT_MAX:I = 0x5
+
+.field private static final LED_COVER_SERVICE_PACKAGE:Ljava/lang/String; = "com.sec.android.cover.ledcover"
 
 .field private static final MESSAGE_SCREEN_SIZE_UPDATE:I = 0x12c
 
@@ -86,9 +89,13 @@
 
 .field private mLedCoverServiceBound:Z
 
+.field private mLedCoverServiceChangeBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
 .field private mLedCoverServiceConnection:Landroid/content/ServiceConnection;
 
 .field private mLedCoverServiceDisconnectCount:I
+
+.field private mLedCoverServiceUpdateReceiverRegistered:Z
 
 .field private mNfcLedCoverController:Lcom/android/server/cover/BaseNfcLedCoverController;
 
@@ -229,9 +236,9 @@
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/wm/WindowManagerService;Lcom/android/server/input/InputManagerService;)V
     .locals 4
 
-    const/4 v2, 0x0
-
     const/4 v3, 0x0
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Lcom/samsung/android/cover/ICoverManager$Stub;-><init>()V
 
@@ -271,11 +278,19 @@
 
     iput v2, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceDisconnectCount:I
 
+    iput-boolean v2, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceUpdateReceiverRegistered:Z
+
     new-instance v0, Lcom/android/server/cover/CoverManagerService$4;
 
     invoke-direct {v0, p0}, Lcom/android/server/cover/CoverManagerService$4;-><init>(Lcom/android/server/cover/CoverManagerService;)V
 
     iput-object v0, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceConnection:Landroid/content/ServiceConnection;
+
+    new-instance v0, Lcom/android/server/cover/CoverManagerService$5;
+
+    invoke-direct {v0, p0}, Lcom/android/server/cover/CoverManagerService$5;-><init>(Lcom/android/server/cover/CoverManagerService;)V
+
+    iput-object v0, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceChangeBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     iput-object p1, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
 
@@ -327,9 +342,9 @@
 
     iget-object v0, p0, Lcom/android/server/cover/CoverManagerService;->mHandler:Lcom/android/server/cover/CoverManagerService$CoverManagerHandler;
 
-    new-instance v1, Lcom/android/server/cover/CoverManagerService$5;
+    new-instance v1, Lcom/android/server/cover/CoverManagerService$6;
 
-    invoke-direct {v1, p0}, Lcom/android/server/cover/CoverManagerService$5;-><init>(Lcom/android/server/cover/CoverManagerService;)V
+    invoke-direct {v1, p0}, Lcom/android/server/cover/CoverManagerService$6;-><init>(Lcom/android/server/cover/CoverManagerService;)V
 
     invoke-virtual {v0, v1}, Lcom/android/server/cover/CoverManagerService$CoverManagerHandler;->post(Ljava/lang/Runnable;)Z
 
@@ -759,6 +774,83 @@
     goto :goto_0
 .end method
 
+.method private registerLedCoverServiceUpdateReceiver()V
+    .locals 6
+
+    const/4 v4, 0x0
+
+    const-string/jumbo v0, "CoverManager"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "registerLedCoverServiceUpdateReceiver; registered? "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceUpdateReceiverRegistered:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v0, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceUpdateReceiverRegistered:Z
+
+    if-nez v0, :cond_0
+
+    new-instance v3, Landroid/content/IntentFilter;
+
+    invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v0, "android.intent.action.PACKAGE_CHANGED"
+
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "android.intent.action.PACKAGE_ADDED"
+
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "android.intent.action.PACKAGE_REPLACED"
+
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "package"
+
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "com.sec.android.cover.ledcover"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v3, v0, v1}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/String;I)V
+
+    iget-object v0, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceChangeBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    move-object v5, v4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceUpdateReceiverRegistered:Z
+
+    :cond_0
+    return-void
+.end method
+
 .method private registerListenerCallback(Landroid/os/IBinder;Landroid/content/ComponentName;IZ)V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
@@ -966,6 +1058,8 @@
 
     invoke-direct {p0}, Lcom/android/server/cover/CoverManagerService;->initializeLedCoverService()V
 
+    invoke-direct {p0}, Lcom/android/server/cover/CoverManagerService;->registerLedCoverServiceUpdateReceiver()V
+
     :cond_8
     :goto_2
     if-eqz v0, :cond_13
@@ -1100,6 +1194,8 @@
 
     :cond_e
     iput v8, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceDisconnectCount:I
+
+    invoke-direct {p0}, Lcom/android/server/cover/CoverManagerService;->unRegisterLedCoverServiceUpdateReceiver()V
 
     goto/16 :goto_2
 
@@ -1448,9 +1544,9 @@
 
     iget-object v1, p0, Lcom/android/server/cover/CoverManagerService;->mHandler:Lcom/android/server/cover/CoverManagerService$CoverManagerHandler;
 
-    new-instance v2, Lcom/android/server/cover/CoverManagerService$7;
+    new-instance v2, Lcom/android/server/cover/CoverManagerService$8;
 
-    invoke-direct {v2, p0}, Lcom/android/server/cover/CoverManagerService$7;-><init>(Lcom/android/server/cover/CoverManagerService;)V
+    invoke-direct {v2, p0}, Lcom/android/server/cover/CoverManagerService$8;-><init>(Lcom/android/server/cover/CoverManagerService;)V
 
     invoke-virtual {v1, v2}, Lcom/android/server/cover/CoverManagerService$CoverManagerHandler;->post(Ljava/lang/Runnable;)Z
 
@@ -1504,9 +1600,9 @@
 
     iget-object v1, p0, Lcom/android/server/cover/CoverManagerService;->mHandler:Lcom/android/server/cover/CoverManagerService$CoverManagerHandler;
 
-    new-instance v2, Lcom/android/server/cover/CoverManagerService$8;
+    new-instance v2, Lcom/android/server/cover/CoverManagerService$9;
 
-    invoke-direct {v2, p0}, Lcom/android/server/cover/CoverManagerService$8;-><init>(Lcom/android/server/cover/CoverManagerService;)V
+    invoke-direct {v2, p0}, Lcom/android/server/cover/CoverManagerService$9;-><init>(Lcom/android/server/cover/CoverManagerService;)V
 
     invoke-virtual {v1, v2}, Lcom/android/server/cover/CoverManagerService$CoverManagerHandler;->postAtFrontOfQueue(Ljava/lang/Runnable;)Z
 
@@ -1570,6 +1666,51 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+.end method
+
+.method private unRegisterLedCoverServiceUpdateReceiver()V
+    .locals 3
+
+    const-string/jumbo v0, "CoverManager"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "unRegisterLedCoverServiceUpdateReceiver; registered? "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceUpdateReceiverRegistered:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v0, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceUpdateReceiverRegistered:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceChangeBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceUpdateReceiverRegistered:Z
+
+    :cond_0
+    return-void
 .end method
 
 .method private unregisterCallback(Landroid/os/IBinder;Z)Z
@@ -4403,9 +4544,9 @@
 
     iget-object v1, p0, Lcom/android/server/cover/CoverManagerService;->mHandler:Lcom/android/server/cover/CoverManagerService$CoverManagerHandler;
 
-    new-instance v3, Lcom/android/server/cover/CoverManagerService$6;
+    new-instance v3, Lcom/android/server/cover/CoverManagerService$7;
 
-    invoke-direct {v3, p0}, Lcom/android/server/cover/CoverManagerService$6;-><init>(Lcom/android/server/cover/CoverManagerService;)V
+    invoke-direct {v3, p0}, Lcom/android/server/cover/CoverManagerService$7;-><init>(Lcom/android/server/cover/CoverManagerService;)V
 
     const-wide/16 v4, 0x1388
 

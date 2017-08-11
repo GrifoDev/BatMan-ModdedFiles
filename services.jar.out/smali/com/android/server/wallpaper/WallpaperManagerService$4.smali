@@ -99,7 +99,7 @@
 
     iget-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$4;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap21(Lcom/android/server/wallpaper/WallpaperManagerService;I)V
+    invoke-static {v1, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap23(Lcom/android/server/wallpaper/WallpaperManagerService;I)V
 
     goto :goto_0
 .end method
@@ -146,7 +146,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$4;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap21(Lcom/android/server/wallpaper/WallpaperManagerService;I)V
+    invoke-static {v1, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap23(Lcom/android/server/wallpaper/WallpaperManagerService;I)V
 
     goto :goto_0
 .end method

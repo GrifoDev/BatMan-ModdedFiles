@@ -22,6 +22,14 @@
 # static fields
 .field private static final EVENT_LOG_SIZE:I = 0x20
 
+.field private static final FLAG_ALL:I = 0x3
+
+.field private static final FLAG_AWAKE:I = 0x1
+
+.field private static final FLAG_NONE:I = 0x0
+
+.field private static final FLAG_SCREEN_ON:I = 0x2
+
 .field private static final INVALID_APPOPS_MODE:I = -0x1
 
 .field private static final MSG_PENDING_VR_STATE_CHANGE:I = 0x1
@@ -86,7 +94,11 @@
     .end annotation
 .end field
 
+.field private mSystemSleepFlags:I
+
 .field private final mVrManager:Landroid/service/vr/IVrManager;
+
+.field private mVrModeAllowed:Z
 
 .field private mVrModeEnabled:Z
 
@@ -126,6 +138,14 @@
     return-object v0
 .end method
 
+.method static synthetic -get4(Lcom/android/server/vr/VrManagerService;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/vr/VrManagerService;->mVrModeAllowed:Z
+
+    return v0
+.end method
+
 .method static synthetic -wrap0(Lcom/android/server/vr/VrManagerService;)Z
     .locals 1
 
@@ -146,23 +166,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap10(Lcom/android/server/vr/VrManagerService;Landroid/service/vr/IVrStateCallbacks;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/vr/VrManagerService;->removeStateCallback(Landroid/service/vr/IVrStateCallbacks;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap11(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/vr/VrManagerService;->revokeCoarseLocationPermissionIfNeeded(Ljava/lang/String;I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap12(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+.method static synthetic -wrap10(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/vr/VrManagerService;->revokeNotificationListenerAccess(Ljava/lang/String;I)V
@@ -170,7 +174,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap13(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
+.method static synthetic -wrap11(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/vr/VrManagerService;->revokeNotificationPolicyAccess(Ljava/lang/String;)V
@@ -178,10 +182,26 @@
     return-void
 .end method
 
-.method static synthetic -wrap14(Lcom/android/server/vr/VrManagerService;ZLandroid/content/ComponentName;ILandroid/content/ComponentName;Z)V
+.method static synthetic -wrap12(Lcom/android/server/vr/VrManagerService;Z)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/server/vr/VrManagerService;->setVrMode(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;Z)V
+    invoke-direct {p0, p1}, Lcom/android/server/vr/VrManagerService;->setScreenOn(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap13(Lcom/android/server/vr/VrManagerService;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/vr/VrManagerService;->setSleepState(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap14(Lcom/android/server/vr/VrManagerService;ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/vr/VrManagerService;->setVrMode(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
 
     return-void
 .end method
@@ -231,23 +251,23 @@
 .method static synthetic -wrap7(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/vr/VrManagerService;->grantCoarseLocationPermissionIfNeeded(Ljava/lang/String;I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap8(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
-    .locals 0
-
     invoke-direct {p0, p1, p2}, Lcom/android/server/vr/VrManagerService;->grantNotificationListenerAccess(Ljava/lang/String;I)V
 
     return-void
 .end method
 
-.method static synthetic -wrap9(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
+.method static synthetic -wrap8(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/vr/VrManagerService;->grantNotificationPolicyAccess(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap9(Lcom/android/server/vr/VrManagerService;Landroid/service/vr/IVrStateCallbacks;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/vr/VrManagerService;->removeStateCallback(Landroid/service/vr/IVrStateCallbacks;)V
 
     return-void
 .end method
@@ -309,6 +329,10 @@
 
     iput-object v0, p0, Lcom/android/server/vr/VrManagerService;->mNotifAccessManager:Lcom/android/server/vr/VrManagerService$NotificationAccessManager;
 
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
+
     new-instance v0, Lcom/android/server/vr/VrManagerService$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/vr/VrManagerService$1;-><init>(Lcom/android/server/vr/VrManagerService;)V
@@ -324,6 +348,83 @@
     return-void
 .end method
 
+.method private DisablePhysicalKey(Landroid/content/ComponentName;Z)V
+    .locals 5
+
+    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v2, "VrManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "DisableKeycodeWink, component = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", enabled = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v2, 0x43a
+
+    invoke-interface {v1, v2, p1, p2}, Landroid/view/IWindowManager;->requestSystemKeyEvent(ILandroid/content/ComponentName;Z)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "VrManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "requestSystemKeyEvent : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
 .method private addStateCallback(Landroid/service/vr/IVrStateCallbacks;)V
     .locals 1
 
@@ -334,12 +435,91 @@
     return-void
 .end method
 
+.method private changeAppOpsMode(Z)V
+    .locals 4
+
+    const/high16 v2, 0x100000
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    const/16 v1, 0x3e9
+
+    invoke-direct {p0, v1, v0}, Lcom/android/server/vr/VrManagerService;->setUidMode(II)V
+
+    const-string/jumbo v1, "com.android.systemui"
+
+    invoke-direct {p0, v1, v0, v2}, Lcom/android/server/vr/VrManagerService;->setModeWithOpPostNotification(Ljava/lang/String;II)V
+
+    const-string/jumbo v1, "android"
+
+    invoke-direct {p0, v1, v0, v2}, Lcom/android/server/vr/VrManagerService;->setMode(Ljava/lang/String;II)V
+
+    const-string/jumbo v1, "com.samsung.android.messaging"
+
+    invoke-direct {p0, v1, v0, v2}, Lcom/android/server/vr/VrManagerService;->setMode(Ljava/lang/String;II)V
+
+    const-string/jumbo v1, "com.samsung.android.game.gametools"
+
+    invoke-direct {p0, v1, v0, v2}, Lcom/android/server/vr/VrManagerService;->setMode(Ljava/lang/String;II)V
+
+    const-string/jumbo v1, "com.samsung.android.app.cocktailbarservice"
+
+    invoke-direct {p0, v1, v0, v2}, Lcom/android/server/vr/VrManagerService;->setMode(Ljava/lang/String;II)V
+
+    const-string/jumbo v1, "com.skt.prod.phone"
+
+    invoke-direct {p0, v1, v0, v2}, Lcom/android/server/vr/VrManagerService;->setMode(Ljava/lang/String;II)V
+
+    const-string/jumbo v1, "com.sec.android.app.launcher"
+
+    invoke-direct {p0, v1, v0, v2}, Lcom/android/server/vr/VrManagerService;->setMode(Ljava/lang/String;II)V
+
+    const-string/jumbo v1, "VrManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "changeAppOpsMode, Mode = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x3
+
+    goto :goto_0
+.end method
+
 .method private changeVrModeLocked(Z)V
     .locals 3
 
     iget-boolean v0, p0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
 
     if-eq v0, p1, :cond_0
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/server/vr/VrManagerService;->setResolutiontToWQHD()V
+
+    :goto_0
+    invoke-direct {p0, p1}, Lcom/android/server/vr/VrManagerService;->sendBroadCastWhenVrModeChanged(Z)V
 
     iput-boolean p1, p0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
 
@@ -357,11 +537,11 @@
 
     iget-boolean v0, p0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const-string/jumbo v0, "enabled"
 
-    :goto_0
+    :goto_1
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -382,19 +562,143 @@
     return-void
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/server/vr/VrManagerService;->clearResolution()V
+
+    goto :goto_0
+
+    :cond_2
     const-string/jumbo v0, "disabled"
+
+    goto :goto_1
+.end method
+
+.method private checkOps(Ljava/lang/String;I)I
+    .locals 7
+
+    const/4 v2, 0x1
+
+    :try_start_0
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService;->mContext:Landroid/content/Context;
+
+    const-class v5, Landroid/app/AppOpsManager;
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/AppOpsManager;
+
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1, p2}, Landroid/content/pm/PackageManager;->getPackageUid(Ljava/lang/String;I)I
+
+    move-result v3
+
+    const/16 v4, 0x40
+
+    invoke-virtual {v0, v4, v3, p1}, Landroid/app/AppOpsManager;->checkOp(IILjava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v4, "VrManagerService"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "checkOps, packageName = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ", uid = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ", mode = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return v2
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v4, "VrManagerService"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, " not found!"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
 
 .method private consumeAndApplyPendingStateLocked()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/server/vr/VrManagerService;->consumeAndApplyPendingStateLocked(Z)V
+
+    return-void
+.end method
+
+.method private consumeAndApplyPendingStateLocked(Z)V
     .locals 5
+
+    const/4 v1, 0x0
 
     const/4 v4, 0x0
 
     iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
 
@@ -417,7 +721,15 @@
     iput-object v4, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
 
     :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    if-eqz p1, :cond_0
+
+    invoke-direct {p0, v1, v4, v1, v4}, Lcom/android/server/vr/VrManagerService;->updateCurrentVrServiceLocked(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)Z
+
+    goto :goto_0
 .end method
 
 .method private static create(Landroid/content/Context;Landroid/content/ComponentName;I)Lcom/android/server/utils/ManagedApplicationService;
@@ -844,35 +1156,6 @@
     throw v1
 .end method
 
-.method private grantCoarseLocationPermissionIfNeeded(Ljava/lang/String;I)V
-    .locals 3
-
-    const-string/jumbo v0, "android.permission.ACCESS_COARSE_LOCATION"
-
-    invoke-direct {p0, v0, p1, p2}, Lcom/android/server/vr/VrManagerService;->isPermissionUserUpdated(Ljava/lang/String;Ljava/lang/String;I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "android.permission.ACCESS_COARSE_LOCATION"
-
-    new-instance v2, Landroid/os/UserHandle;
-
-    invoke-direct {v2, p2}, Landroid/os/UserHandle;-><init>(I)V
-
-    invoke-virtual {v0, p1, v1, v2}, Landroid/content/pm/PackageManager;->grantRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
-
-    :cond_0
-    return-void
-.end method
-
 .method private grantNotificationListenerAccess(Ljava/lang/String;I)V
     .locals 10
 
@@ -1248,35 +1531,6 @@
     return-void
 .end method
 
-.method private revokeCoarseLocationPermissionIfNeeded(Ljava/lang/String;I)V
-    .locals 3
-
-    const-string/jumbo v0, "android.permission.ACCESS_COARSE_LOCATION"
-
-    invoke-direct {p0, v0, p1, p2}, Lcom/android/server/vr/VrManagerService;->isPermissionUserUpdated(Ljava/lang/String;Ljava/lang/String;I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "android.permission.ACCESS_COARSE_LOCATION"
-
-    new-instance v2, Landroid/os/UserHandle;
-
-    invoke-direct {v2, p2}, Landroid/os/UserHandle;-><init>(I)V
-
-    invoke-virtual {v0, p1, v1, v2}, Landroid/content/pm/PackageManager;->revokeRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
-
-    :cond_0
-    return-void
-.end method
-
 .method private revokeNotificationListenerAccess(Ljava/lang/String;I)V
     .locals 8
 
@@ -1366,8 +1620,255 @@
     return-void
 .end method
 
-.method private setVrMode(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;Z)V
-    .locals 5
+.method private sendBroadCastWhenVrModeChanged(Z)V
+    .locals 4
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string/jumbo v1, "com.samsung.intent.action.DAYDREAM_CONNECTED"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "STATUS"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    const/high16 v1, 0x10000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/server/vr/VrManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    const-string/jumbo v1, "VrManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Broadcast intent com.samsung.intent.action.DAYDREAM_CONNECTED, STATUS : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method private setMode(Ljava/lang/String;II)V
+    .locals 6
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/vr/VrManagerService;->mContext:Landroid/content/Context;
+
+    const-class v4, Landroid/app/AppOpsManager;
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/AppOpsManager;
+
+    iget-object v3, p0, Lcom/android/server/vr/VrManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1, p3}, Landroid/content/pm/PackageManager;->getPackageUid(Ljava/lang/String;I)I
+
+    move-result v2
+
+    const/16 v3, 0x2d
+
+    invoke-virtual {v0, v3, v2, p1, p2}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+
+    const/16 v3, 0x18
+
+    invoke-virtual {v0, v3, v2, p1, p2}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+
+    const/16 v3, 0x40
+
+    invoke-virtual {v0, v3, v2, p1, p2}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v3, "VrManagerService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " not found!"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method private setModeWithOpPostNotification(Ljava/lang/String;II)V
+    .locals 6
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/vr/VrManagerService;->mContext:Landroid/content/Context;
+
+    const-class v4, Landroid/app/AppOpsManager;
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/AppOpsManager;
+
+    iget-object v3, p0, Lcom/android/server/vr/VrManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1, p3}, Landroid/content/pm/PackageManager;->getPackageUid(Ljava/lang/String;I)I
+
+    move-result v2
+
+    const/16 v3, 0x2d
+
+    invoke-virtual {v0, v3, v2, p1, p2}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+
+    const/16 v3, 0x18
+
+    invoke-virtual {v0, v3, v2, p1, p2}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+
+    const/16 v3, 0x40
+
+    invoke-virtual {v0, v3, v2, p1, p2}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+
+    const/16 v3, 0xb
+
+    invoke-virtual {v0, v3, v2, p1, p2}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v3, "VrManagerService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " not found!"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method private setScreenOn(Z)V
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/server/vr/VrManagerService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    if-eqz p1, :cond_0
+
+    :try_start_0
+    iget v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
+
+    or-int/lit8 v0, v0, 0x2
+
+    iput v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
+
+    :goto_0
+    iget v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
+
+    const/4 v2, 0x3
+
+    if-ne v0, v2, :cond_1
+
+    const/4 v0, 0x1
+
+    :goto_1
+    invoke-direct {p0, v0}, Lcom/android/server/vr/VrManagerService;->setVrModeAllowedLocked(Z)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    iget v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
+
+    and-int/lit8 v0, v0, -0x3
+
+    iput v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
+.end method
+
+.method private setSleepState(Z)V
+    .locals 3
 
     iget-object v1, p0, Lcom/android/server/vr/VrManagerService;->mLock:Ljava/lang/Object;
 
@@ -1376,24 +1877,23 @@
     if-nez p1, :cond_0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+    iget v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
 
-    if-eqz v0, :cond_0
+    or-int/lit8 v0, v0, 0x1
 
-    if-eqz p5, :cond_1
+    iput v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mHandler:Landroid/os/Handler;
+    :goto_0
+    iget v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
 
-    const/4 v2, 0x1
+    const/4 v2, 0x3
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
+    if-ne v0, v2, :cond_1
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    iput-object v0, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/vr/VrManagerService;->updateCurrentVrServiceLocked(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)Z
+    :goto_1
+    invoke-direct {p0, v0}, Lcom/android/server/vr/VrManagerService;->setVrModeAllowedLocked(Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1401,32 +1901,17 @@
 
     return-void
 
-    :cond_1
+    :cond_0
     :try_start_1
-    iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
+    iget v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
 
-    if-nez v0, :cond_2
+    and-int/lit8 v0, v0, -0x2
 
-    iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mHandler:Landroid/os/Handler;
-
-    const-wide/16 v2, 0x12c
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v0, v4, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
-    :cond_2
-    new-instance v0, Lcom/android/server/vr/VrManagerService$VrState;
-
-    invoke-direct {v0, p1, p2, p3, p4}, Lcom/android/server/vr/VrManagerService$VrState;-><init>(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
-
-    iput-object v0, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
+    iput v0, p0, Lcom/android/server/vr/VrManagerService;->mSystemSleepFlags:I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v1
-
-    return-void
+    goto :goto_0
 
     :catchall_0
     move-exception v0
@@ -1434,318 +1919,653 @@
     monitor-exit v1
 
     throw v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
+.end method
+
+.method private setUidMode(II)V
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/server/vr/VrManagerService;->mContext:Landroid/content/Context;
+
+    const-class v2, Landroid/app/AppOpsManager;
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/AppOpsManager;
+
+    const/16 v1, 0x18
+
+    invoke-virtual {v0, v1, p1, p2}, Landroid/app/AppOpsManager;->setUidMode(III)V
+
+    const/16 v1, 0x2d
+
+    invoke-virtual {v0, v1, p1, p2}, Landroid/app/AppOpsManager;->setUidMode(III)V
+
+    const/16 v1, 0x40
+
+    invoke-virtual {v0, v1, p1, p2}, Landroid/app/AppOpsManager;->setUidMode(III)V
+
+    return-void
+.end method
+
+.method private setVrMode(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
+    .locals 6
+
+    iget-object v2, p0, Lcom/android/server/vr/VrManagerService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    new-instance v0, Lcom/android/server/vr/VrManagerService$VrState;
+
+    invoke-direct {v0, p1, p2, p3, p4}, Lcom/android/server/vr/VrManagerService$VrState;-><init>(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
+
+    iget-boolean v1, p0, Lcom/android/server/vr/VrManagerService;->mVrModeAllowed:Z
+
+    if-nez v1, :cond_0
+
+    iput-object v0, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
+
+    return-void
+
+    :cond_0
+    if-nez p1, :cond_2
+
+    :try_start_1
+    iget-object v1, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
+
+    if-nez v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/vr/VrManagerService;->mHandler:Landroid/os/Handler;
+
+    const-wide/16 v4, 0x12c
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v3, v4, v5}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    :cond_1
+    iput-object v0, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v2
+
+    return-void
+
+    :cond_2
+    :try_start_2
+    iget-object v1, p0, Lcom/android/server/vr/VrManagerService;->mHandler:Landroid/os/Handler;
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v3}, Landroid/os/Handler;->removeMessages(I)V
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/vr/VrManagerService;->updateCurrentVrServiceLocked(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)Z
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit v2
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+.end method
+
+.method private setVrModeAllowedLocked(Z)V
+    .locals 7
+
+    const/4 v6, 0x0
+
+    const/4 v1, 0x0
+
+    iget-boolean v0, p0, Lcom/android/server/vr/VrManagerService;->mVrModeAllowed:Z
+
+    if-eq v0, p1, :cond_0
+
+    iput-boolean p1, p0, Lcom/android/server/vr/VrManagerService;->mVrModeAllowed:Z
+
+    const-string/jumbo v2, "VrManagerService"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "VR mode is "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    if-eqz p1, :cond_1
+
+    const-string/jumbo v0, "allowed"
+
+    :goto_0
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v2, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v0, p0, Lcom/android/server/vr/VrManagerService;->mVrModeAllowed:Z
+
+    if-eqz v0, :cond_2
+
+    invoke-direct {p0}, Lcom/android/server/vr/VrManagerService;->consumeAndApplyPendingStateLocked()V
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    const-string/jumbo v0, "disallowed"
+
+    goto :goto_0
+
+    :cond_2
+    iget-boolean v0, p0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    if-eqz v0, :cond_3
+
+    new-instance v0, Lcom/android/server/vr/VrManagerService$VrState;
+
+    iget-boolean v2, p0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
+
+    iget-object v3, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    invoke-virtual {v3}, Lcom/android/server/utils/ManagedApplicationService;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    invoke-virtual {v4}, Lcom/android/server/utils/ManagedApplicationService;->getUserId()I
+
+    move-result v4
+
+    iget-object v5, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeComponent:Landroid/content/ComponentName;
+
+    invoke-direct {v0, v2, v3, v4, v5}, Lcom/android/server/vr/VrManagerService$VrState;-><init>(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
+
+    :goto_2
+    iput-object v0, p0, Lcom/android/server/vr/VrManagerService;->mPendingState:Lcom/android/server/vr/VrManagerService$VrState;
+
+    invoke-direct {p0, v6, v1, v6, v1}, Lcom/android/server/vr/VrManagerService;->updateCurrentVrServiceLocked(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)Z
+
+    goto :goto_1
+
+    :cond_3
+    move-object v0, v1
+
+    goto :goto_2
 .end method
 
 .method private static native setVrModeNative(Z)V
 .end method
 
 .method private updateCurrentVrServiceLocked(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)Z
-    .locals 14
+    .locals 18
 
-    const/4 v9, 0x0
+    const/4 v13, 0x0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v4
+    move-result-wide v6
 
     :try_start_0
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mComponentObserver:Lcom/android/server/vr/EnabledComponentsObserver;
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mComponentObserver:Lcom/android/server/vr/EnabledComponentsObserver;
 
     move-object/from16 v0, p2
 
     move/from16 v1, p3
 
-    invoke-virtual {v11, v0, v1}, Lcom/android/server/vr/EnabledComponentsObserver;->isValid(Landroid/content/ComponentName;I)I
+    invoke-virtual {v15, v0, v1}, Lcom/android/server/vr/EnabledComponentsObserver;->isValid(Landroid/content/ComponentName;I)I
 
-    move-result v11
+    move-result v15
 
-    if-nez v11, :cond_5
+    if-nez v15, :cond_6
 
-    const/4 v10, 0x1
+    const/4 v14, 0x1
 
     :goto_0
-    iget-boolean v11, p0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
+    if-eqz v14, :cond_7
 
-    if-nez v11, :cond_0
-
-    if-eqz p1, :cond_6
-
-    :cond_0
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
-
-    if-eqz v11, :cond_7
-
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
-
-    invoke-virtual {v11}, Lcom/android/server/utils/ManagedApplicationService;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v8
+    move/from16 v5, p1
 
     :goto_1
-    iget v7, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeUser:I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, p1}, Lcom/android/server/vr/VrManagerService;->changeVrModeLocked(Z)V
+    iget-boolean v15, v0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
 
-    if-eqz p1, :cond_8
+    if-nez v15, :cond_0
 
-    if-eqz v10, :cond_8
+    if-eqz v5, :cond_8
 
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+    :cond_0
+    move-object/from16 v0, p0
 
-    if-eqz v11, :cond_9
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
 
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+    if-eqz v15, :cond_9
 
-    move-object/from16 v0, p2
+    move-object/from16 v0, p0
 
-    move/from16 v1, p3
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
 
-    invoke-virtual {v11, v0, v1}, Lcom/android/server/utils/ManagedApplicationService;->disconnectIfNotMatching(Landroid/content/ComponentName;I)Z
+    invoke-virtual {v15}, Lcom/android/server/utils/ManagedApplicationService;->getComponent()Landroid/content/ComponentName;
 
-    move-result v11
+    move-result-object v15
 
-    if-eqz v11, :cond_1
-
-    const-string/jumbo v11, "VrManagerService"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "Disconnecting "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v15}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v12
 
-    iget-object v13, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
-
-    invoke-virtual {v13}, Lcom/android/server/utils/ManagedApplicationService;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v13
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, " for user "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    iget-object v13, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
-
-    invoke-virtual {v13}, Lcom/android/server/utils/ManagedApplicationService;->getUserId()I
-
-    move-result v13
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p2
-
-    move/from16 v1, p3
-
-    invoke-direct {p0, v0, v1}, Lcom/android/server/vr/VrManagerService;->createAndConnectService(Landroid/content/ComponentName;I)V
-
-    const/4 v9, 0x1
-
-    :cond_1
     :goto_2
-    if-eqz p4, :cond_2
+    move-object/from16 v0, p0
 
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeComponent:Landroid/content/ComponentName;
+    iget v11, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeUser:I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/server/vr/VrManagerService;->changeVrModeLocked(Z)V
+
+    const/4 v10, 0x0
+
+    if-nez v5, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    if-eqz v15, :cond_a
+
+    const-string/jumbo v15, "VrManagerService"
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, "Leaving VR mode, disconnecting "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/server/utils/ManagedApplicationService;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string/jumbo v17, " for user "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/server/utils/ManagedApplicationService;->getUserId()I
+
+    move-result v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    invoke-virtual {v15}, Lcom/android/server/utils/ManagedApplicationService;->disconnect()V
+
+    const/4 v15, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    :goto_3
+    if-eqz p4, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeComponent:Landroid/content/ComponentName;
 
     move-object/from16 v0, p4
 
-    invoke-static {v0, v11}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v15}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v15
 
-    if-eqz v11, :cond_a
+    if-eqz v15, :cond_e
+
+    :cond_1
+    :goto_4
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeUser:I
+
+    move/from16 v0, p3
+
+    if-eq v15, v0, :cond_2
+
+    move/from16 v0, p3
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeUser:I
+
+    const/4 v13, 0x1
 
     :cond_2
-    :goto_3
-    iget v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeUser:I
+    move-object/from16 v0, p0
 
-    move/from16 v0, p3
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
 
-    if-eq v11, v0, :cond_3
+    if-eqz v15, :cond_f
 
-    move/from16 v0, p3
+    move-object/from16 v0, p0
 
-    iput v0, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeUser:I
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
 
-    const/4 v9, 0x1
+    invoke-virtual {v15}, Lcom/android/server/utils/ManagedApplicationService;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v9
+
+    :goto_5
+    move-object/from16 v0, p0
+
+    iget v8, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeUser:I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v9, v8, v12, v11}, Lcom/android/server/vr/VrManagerService;->updateDependentAppOpsLocked(Ljava/lang/String;ILjava/lang/String;I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeComponent:Landroid/content/ComponentName;
+
+    if-eqz v15, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeComponent:Landroid/content/ComponentName;
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
+
+    move/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v16
+
+    invoke-direct {v0, v15, v1}, Lcom/android/server/vr/VrManagerService;->DisablePhysicalKey(Landroid/content/ComponentName;Z)V
 
     :cond_3
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+    move-object/from16 v0, p0
 
-    if-eqz v11, :cond_b
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
 
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+    if-eqz v15, :cond_4
 
-    invoke-virtual {v11}, Lcom/android/server/utils/ManagedApplicationService;->getComponent()Landroid/content/ComponentName;
+    if-eqz v13, :cond_4
 
-    move-result-object v11
+    move-object/from16 v0, p0
 
-    invoke-virtual {v11}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    iget-object v4, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeComponent:Landroid/content/ComponentName;
 
-    move-result-object v6
+    move-object/from16 v0, p0
 
-    :goto_4
-    iget v3, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeUser:I
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
 
-    invoke-direct {p0, v6, v3, v8, v7}, Lcom/android/server/vr/VrManagerService;->updateDependentAppOpsLocked(Ljava/lang/String;ILjava/lang/String;I)V
+    new-instance v16, Lcom/android/server/vr/VrManagerService$4;
 
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+    move-object/from16 v0, v16
 
-    if-eqz v11, :cond_4
+    move-object/from16 v1, p0
 
-    if-eqz v9, :cond_4
+    invoke-direct {v0, v1, v4}, Lcom/android/server/vr/VrManagerService$4;-><init>(Lcom/android/server/vr/VrManagerService;Landroid/content/ComponentName;)V
 
-    iget-object v2, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeComponent:Landroid/content/ComponentName;
-
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
-
-    new-instance v12, Lcom/android/server/vr/VrManagerService$4;
-
-    invoke-direct {v12, p0, v2}, Lcom/android/server/vr/VrManagerService$4;-><init>(Lcom/android/server/vr/VrManagerService;Landroid/content/ComponentName;)V
-
-    invoke-virtual {v11, v12}, Lcom/android/server/utils/ManagedApplicationService;->sendEvent(Lcom/android/server/utils/ManagedApplicationService$PendingEvent;)V
+    invoke-virtual/range {v15 .. v16}, Lcom/android/server/utils/ManagedApplicationService;->sendEvent(Lcom/android/server/utils/ManagedApplicationService$PendingEvent;)V
 
     :cond_4
-    invoke-direct {p0}, Lcom/android/server/vr/VrManagerService;->logStateLocked()V
+    if-nez v10, :cond_5
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/vr/VrManagerService;->logStateLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v10
-
     :cond_5
-    const/4 v10, 0x0
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v14
+
+    :cond_6
+    const/4 v14, 0x0
 
     goto/16 :goto_0
 
-    :cond_6
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v10
-
     :cond_7
-    const/4 v8, 0x0
+    const/4 v5, 0x0
 
     goto/16 :goto_1
 
     :cond_8
-    :try_start_1
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v11, :cond_1
-
-    const-string/jumbo v11, "VrManagerService"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "Disconnecting "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    iget-object v13, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
-
-    invoke-virtual {v13}, Lcom/android/server/utils/ManagedApplicationService;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v13
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, " for user "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    iget-object v13, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
-
-    invoke-virtual {v13}, Lcom/android/server/utils/ManagedApplicationService;->getUserId()I
-
-    move-result v13
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
-
-    invoke-virtual {v11}, Lcom/android/server/utils/ManagedApplicationService;->disconnect()V
-
-    const/4 v11, 0x0
-
-    iput-object v11, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto/16 :goto_2
-
-    :catchall_0
-    move-exception v11
-
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v11
+    return v14
 
     :cond_9
-    :try_start_2
-    move-object/from16 v0, p2
-
-    move/from16 v1, p3
-
-    invoke-direct {p0, v0, v1}, Lcom/android/server/vr/VrManagerService;->createAndConnectService(Landroid/content/ComponentName;I)V
-
-    const/4 v9, 0x1
+    const/4 v12, 0x0
 
     goto/16 :goto_2
 
     :cond_a
-    move-object/from16 v0, p4
-
-    iput-object v0, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeComponent:Landroid/content/ComponentName;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
     goto/16 :goto_3
 
     :cond_b
-    const/4 v6, 0x0
+    :try_start_1
+    move-object/from16 v0, p0
 
-    goto :goto_4
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    if-eqz v15, :cond_d
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    move-object/from16 v0, p2
+
+    move/from16 v1, p3
+
+    invoke-virtual {v15, v0, v1}, Lcom/android/server/utils/ManagedApplicationService;->disconnectIfNotMatching(Landroid/content/ComponentName;I)Z
+
+    move-result v15
+
+    if-eqz v15, :cond_c
+
+    const-string/jumbo v15, "VrManagerService"
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, "VR mode component changed to "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string/jumbo v17, ", disconnecting "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/server/utils/ManagedApplicationService;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string/jumbo v17, " for user "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/server/utils/ManagedApplicationService;->getUserId()I
+
+    move-result v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, p3
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/vr/VrManagerService;->createAndConnectService(Landroid/content/ComponentName;I)V
+
+    const/4 v13, 0x1
+
+    goto/16 :goto_3
+
+    :cond_c
+    const/4 v10, 0x1
+
+    goto/16 :goto_3
+
+    :cond_d
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, p3
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/vr/VrManagerService;->createAndConnectService(Landroid/content/ComponentName;I)V
+
+    const/4 v13, 0x1
+
+    goto/16 :goto_3
+
+    :cond_e
+    move-object/from16 v0, p4
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/server/vr/VrManagerService;->mCurrentVrModeComponent:Landroid/content/ComponentName;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 v13, 0x1
+
+    goto/16 :goto_4
+
+    :cond_f
+    const/4 v9, 0x0
+
+    goto/16 :goto_5
+
+    :catchall_0
+    move-exception v15
+
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v15
 .end method
 
 .method private updateDependentAppOpsLocked(Ljava/lang/String;ILjava/lang/String;I)V
@@ -1782,68 +2602,123 @@
 .end method
 
 .method private updateOverlayStateLocked(Ljava/lang/String;II)V
-    .locals 6
+    .locals 5
 
     const/4 v4, 0x0
 
-    const/16 v1, 0x18
-
-    const/4 v2, 0x0
-
     invoke-virtual {p0}, Lcom/android/server/vr/VrManagerService;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v2
 
-    const-class v5, Landroid/app/AppOpsManager;
+    const-class v3, Landroid/app/AppOpsManager;
 
-    invoke-virtual {v3, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/AppOpsManager;
 
-    if-eq p3, p2, :cond_0
+    if-nez p1, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/vr/VrManagerService;->mOverlayToken:Landroid/os/IBinder;
-
-    move v5, p3
-
-    invoke-virtual/range {v0 .. v5}, Landroid/app/AppOpsManager;->setUserRestrictionForUser(IZLandroid/os/IBinder;[Ljava/lang/String;I)V
-
-    :cond_0
-    if-nez p1, :cond_1
-
-    new-array v4, v2, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     :goto_0
     iget-boolean v2, p0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
 
     iget-object v3, p0, Lcom/android/server/vr/VrManagerService;->mOverlayToken:Landroid/os/IBinder;
 
-    move v5, p2
+    const/16 v4, 0x18
 
-    invoke-virtual/range {v0 .. v5}, Landroid/app/AppOpsManager;->setUserRestrictionForUser(IZLandroid/os/IBinder;[Ljava/lang/String;I)V
+    invoke-virtual {v0, v4, v2, v3, v1}, Landroid/app/AppOpsManager;->setUserRestriction(IZLandroid/os/IBinder;[Ljava/lang/String;)V
+
+    iget-boolean v2, p0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
+
+    iget-object v3, p0, Lcom/android/server/vr/VrManagerService;->mOverlayToken:Landroid/os/IBinder;
+
+    const/16 v4, 0x40
+
+    invoke-virtual {v0, v4, v2, v3, v1}, Landroid/app/AppOpsManager;->setUserRestriction(IZLandroid/os/IBinder;[Ljava/lang/String;)V
+
+    iget-boolean v2, p0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
+
+    iget-object v3, p0, Lcom/android/server/vr/VrManagerService;->mOverlayToken:Landroid/os/IBinder;
+
+    const/16 v4, 0x2d
+
+    invoke-virtual {v0, v4, v2, v3, v1}, Landroid/app/AppOpsManager;->setUserRestriction(IZLandroid/os/IBinder;[Ljava/lang/String;)V
+
+    iget-boolean v2, p0, Lcom/android/server/vr/VrManagerService;->mVrModeEnabled:Z
+
+    invoke-direct {p0, v2}, Lcom/android/server/vr/VrManagerService;->changeAppOpsMode(Z)V
 
     return-void
 
-    :cond_1
-    const/4 v3, 0x1
+    :cond_0
+    const/4 v2, 0x1
 
-    new-array v4, v3, [Ljava/lang/String;
+    new-array v1, v2, [Ljava/lang/String;
 
-    aput-object p1, v4, v2
+    aput-object p1, v1, v4
 
     goto :goto_0
 .end method
 
 
 # virtual methods
+.method public clearResolution()V
+    .locals 5
+
+    iget-object v3, p0, Lcom/android/server/vr/VrManagerService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    :try_start_0
+    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-interface {v1, v2}, Landroid/view/IWindowManager;->clearForcedDisplaySizeDensity(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit v3
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    const-string/jumbo v2, "VrManagerService"
+
+    const-string/jumbo v4, "clearForcedDisplaySizeDensity() for Normal mode has occured exception"
+
+    invoke-static {v2, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
+.end method
+
 .method public onBootPhase(I)V
-    .locals 9
+    .locals 10
+
+    const/4 v9, 0x1
 
     const/16 v0, 0x1f4
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_2
 
     iget-object v8, p0, Lcom/android/server/vr/VrManagerService;->mLock:Ljava/lang/Object;
 
@@ -1883,12 +2758,38 @@
     iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mComponentObserver:Lcom/android/server/vr/EnabledComponentsObserver;
 
     invoke-virtual {v0}, Lcom/android/server/vr/EnabledComponentsObserver;->rebuildAll()V
+
+    const-string/jumbo v0, "com.sec.android.app.launcher"
+
+    const/high16 v2, 0x100000
+
+    invoke-direct {p0, v0, v2}, Lcom/android/server/vr/VrManagerService;->checkOps(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-ne v0, v9, :cond_0
+
+    const-string/jumbo v0, "VrManagerService"
+
+    const-string/jumbo v2, "onBootPhase, detect abnormal exit at last VR mode"
+
+    invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/android/server/vr/VrManagerService;->changeAppOpsMode(Z)V
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/server/vr/VrManagerService;->setVrModeNative(Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :cond_0
     monitor-exit v8
 
-    :cond_0
+    :cond_1
+    :goto_0
     return-void
 
     :catchall_0
@@ -1897,6 +2798,33 @@
     monitor-exit v8
 
     throw v0
+
+    :cond_2
+    const/16 v0, 0x258
+
+    if-ne p1, v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/vr/VrManagerService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    const/4 v2, 0x1
+
+    :try_start_1
+    iput-boolean v2, p0, Lcom/android/server/vr/VrManagerService;->mVrModeAllowed:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    monitor-exit v0
+
+    goto :goto_0
+
+    :catchall_1
+    move-exception v2
+
+    monitor-exit v0
+
+    throw v2
 .end method
 
 .method public onCleanupUser(I)V
@@ -2030,7 +2958,7 @@
 
     invoke-virtual {v6, v2}, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->update(Ljava/util/Collection;)V
 
-    iget-object v6, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
+    iget-boolean v6, p0, Lcom/android/server/vr/VrManagerService;->mVrModeAllowed:Z
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -2041,8 +2969,10 @@
     return-void
 
     :cond_3
+    const/4 v6, 0x0
+
     :try_start_3
-    invoke-direct {p0}, Lcom/android/server/vr/VrManagerService;->consumeAndApplyPendingStateLocked()V
+    invoke-direct {p0, v6}, Lcom/android/server/vr/VrManagerService;->consumeAndApplyPendingStateLocked(Z)V
 
     iget-object v6, p0, Lcom/android/server/vr/VrManagerService;->mCurrentVrService:Lcom/android/server/utils/ManagedApplicationService;
     :try_end_3
@@ -2207,4 +3137,78 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public setResolutiontToWQHD()V
+    .locals 10
+
+    iget-object v9, p0, Lcom/android/server/vr/VrManagerService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v9
+
+    :try_start_0
+    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    new-instance v8, Landroid/graphics/Point;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-direct {v8, v2, v3}, Landroid/graphics/Point;-><init>(II)V
+
+    invoke-interface {v0, v1, v8}, Landroid/view/IWindowManager;->getInitialDisplaySize(ILandroid/graphics/Point;)V
+
+    invoke-interface {v0, v1}, Landroid/view/IWindowManager;->getInitialDisplayDensity(I)I
+
+    move-result v4
+
+    iget v2, v8, Landroid/graphics/Point;->x:I
+
+    iget v3, v8, Landroid/graphics/Point;->y:I
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x1
+
+    invoke-interface/range {v0 .. v6}, Landroid/view/IWindowManager;->setForcedDisplaySizeDensityExt(IIIIZZ)V
+
+    const-string/jumbo v2, "VrManagerService"
+
+    const-string/jumbo v3, "change Resolution"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit v9
+
+    return-void
+
+    :catch_0
+    move-exception v7
+
+    :try_start_1
+    const-string/jumbo v2, "VrManagerService"
+
+    const-string/jumbo v3, "change Resolution exception"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v9
+
+    throw v2
 .end method

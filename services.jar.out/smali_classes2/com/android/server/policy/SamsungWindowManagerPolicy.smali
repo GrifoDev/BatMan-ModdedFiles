@@ -200,6 +200,9 @@
 .method public abstract isAnyKeyMode()Z
 .end method
 
+.method public abstract isAvailableOneTouchReport()Z
+.end method
+
 .method public abstract isBlockedPowerKeyByKeyTest()Z
 .end method
 
@@ -426,6 +429,9 @@
 .end method
 
 .method public abstract updateDarkNaviBarLw(ILandroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;)I
+.end method
+
+.method public abstract updateDeskTopUiMode()V
 .end method
 
 .method public abstract updateSViewCoverLayout(Z)V

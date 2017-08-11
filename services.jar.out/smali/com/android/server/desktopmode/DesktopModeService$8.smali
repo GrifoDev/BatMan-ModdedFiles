@@ -53,7 +53,7 @@
 
     const/4 v11, -0x1
 
-    invoke-static {v6, v10, v11}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap7(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;I)I
+    invoke-static {v6, v10, v11}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap6(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;I)I
 
     move-result v6
 

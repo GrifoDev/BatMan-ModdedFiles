@@ -312,7 +312,7 @@
 
     move-object/from16 v2, v19
 
-    invoke-static {v0, v1, v6, v2}, Lcom/android/server/SdpManagerService;->-wrap13(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-static {v0, v1, v6, v2}, Lcom/android/server/SdpManagerService;->-wrap15(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
 
     if-eqz v8, :cond_5
 
@@ -683,7 +683,7 @@
 
     const-string/jumbo v14, "Failed to update engine list..."
 
-    invoke-static {v12, v13, v3, v14}, Lcom/android/server/SdpManagerService;->-wrap13(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-static {v12, v13, v3, v14}, Lcom/android/server/SdpManagerService;->-wrap15(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
 
     invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 

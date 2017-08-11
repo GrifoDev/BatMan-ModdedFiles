@@ -807,6 +807,31 @@
     return v0
 .end method
 
+.method public isSubUserSupported()Z
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/server/backup/BackupManagerService;->isSubUserSupported()Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method public listAllTransports()[Ljava/lang/String;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;

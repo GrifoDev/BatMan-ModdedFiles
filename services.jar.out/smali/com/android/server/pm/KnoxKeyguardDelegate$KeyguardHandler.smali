@@ -110,7 +110,7 @@
     :pswitch_3
     iget-object v2, p0, Lcom/android/server/pm/KnoxKeyguardDelegate$KeyguardHandler;->this$0:Lcom/android/server/pm/KnoxKeyguardDelegate;
 
-    invoke-static {v2}, Lcom/android/server/pm/KnoxKeyguardDelegate;->-get0(Lcom/android/server/pm/KnoxKeyguardDelegate;)Z
+    invoke-static {v2}, Lcom/android/server/pm/KnoxKeyguardDelegate;->-get1(Lcom/android/server/pm/KnoxKeyguardDelegate;)Z
 
     move-result v2
 

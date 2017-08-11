@@ -16439,60 +16439,95 @@
 .end method
 
 .method public powerOff()I
-    .locals 6
+    .locals 8
 
     invoke-direct {p0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->enforceSystemPermission()I
 
     move-result v0
 
-    const/4 v2, -0x6
+    const/4 v4, -0x6
 
-    :try_start_0
-    new-instance v3, Ljava/lang/Thread;
+    invoke-direct {p0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    new-instance v4, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$5;
+    move-result-object v5
 
-    invoke-direct {v4, p0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$5;-><init>(Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;)V
+    invoke-virtual {v5}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->getRestrictionPolicy()Lcom/samsung/android/knox/restriction/RestrictionPolicy;
 
-    invoke-direct {v3, v4}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+    move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/Thread;->start()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v3}, Lcom/samsung/android/knox/restriction/RestrictionPolicy;->isPowerOffAllowed()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
 
     const/4 v2, 0x0
 
     :goto_0
-    return v2
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v5, "KnoxCustomManagerService"
+
+    const-string/jumbo v6, "powerOff() - eSDK Power Off disabled"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v5, -0x7
+
+    return v5
+
+    :cond_0
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    :try_start_0
+    new-instance v5, Ljava/lang/Thread;
+
+    new-instance v6, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$5;
+
+    invoke-direct {v6, p0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$5;-><init>(Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;)V
+
+    invoke-direct {v5, v6}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    invoke-virtual {v5}, Ljava/lang/Thread;->start()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 v4, 0x0
+
+    :goto_1
+    return v4
 
     :catch_0
     move-exception v1
 
-    const-string/jumbo v3, "KnoxCustomManagerService"
+    const-string/jumbo v5, "KnoxCustomManagerService"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "powerOff() failed "
+    const-string/jumbo v7, "powerOff() failed "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v2, -0x1
+    const/4 v4, -0x1
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public registerSystemUiCallback(Lcom/samsung/android/knox/custom/IKnoxCustomManagerSystemUiCallback;)Z
@@ -24961,14 +24996,14 @@
 
     move/from16 v21, v0
 
-    if-nez v21, :cond_d
+    if-nez v21, :cond_e
 
     and-int/lit8 v21, p2, 0x11
 
     or-int v9, v9, v21
 
     :goto_0
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_f
 
     or-int v16, v8, v9
 
@@ -25028,7 +25063,7 @@
 
     const-string/jumbo v25, "lock_screen_show_clock"
 
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_10
 
     const/16 v21, 0x0
 
@@ -25064,7 +25099,7 @@
 
     const-string/jumbo v25, "lock_screen_date_and_year"
 
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_11
 
     const/16 v21, 0x0
 
@@ -25086,7 +25121,7 @@
 
     move/from16 v1, v24
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_7
 
     new-instance v15, Lcom/android/internal/widget/LockPatternUtils;
 
@@ -25100,28 +25135,37 @@
 
     invoke-direct {v15, v0}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
-    if-eqz v15, :cond_6
+    if-eqz v15, :cond_7
 
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
     move-result v4
 
-    if-eqz p1, :cond_11
+    invoke-virtual {v15, v4}, Lcom/android/internal/widget/LockPatternUtils;->getOwnerInfo(I)Ljava/lang/String;
 
-    const/16 v21, 0x0
+    move-result-object v13
 
+    if-eqz v13, :cond_5
+
+    const-string/jumbo v21, ""
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v13, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v21
+
+    if-eqz v21, :cond_12
+
+    :cond_5
     :goto_4
-    move/from16 v0, v21
-
-    invoke-virtual {v15, v0, v4}, Lcom/android/internal/widget/LockPatternUtils;->setOwnerInfoEnabled(ZI)V
-
     const/16 v20, 0x0
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_6
 
     const/16 v20, 0x1
 
-    :cond_5
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -25142,7 +25186,7 @@
 
     invoke-virtual {v0, v7, v1, v2, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putInt(ILjava/lang/String;Ljava/lang/String;I)Z
 
-    :cond_6
+    :cond_7
     and-int/lit8 v21, p2, 0x40
 
     const/16 v24, 0x40
@@ -25151,7 +25195,7 @@
 
     move/from16 v1, v24
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_8
 
     move-object/from16 v0, p0
 
@@ -25179,9 +25223,9 @@
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_13
+    if-eqz v21, :cond_15
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_8
 
     move-object/from16 v0, p0
 
@@ -25195,7 +25239,7 @@
 
     const-string/jumbo v25, "set_shortcuts_mode"
 
-    if-eqz p1, :cond_12
+    if-eqz p1, :cond_14
 
     const/16 v21, 0x0
 
@@ -25208,7 +25252,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :cond_7
+    :cond_8
     :goto_6
     move/from16 v0, p2
 
@@ -25222,7 +25266,7 @@
 
     move/from16 v1, v24
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_9
 
     move-object/from16 v0, p0
 
@@ -25236,7 +25280,7 @@
 
     const-string/jumbo v25, "lock_additional_info"
 
-    if-eqz p1, :cond_17
+    if-eqz p1, :cond_19
 
     const/16 v21, 0x0
 
@@ -25255,7 +25299,7 @@
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_8
+    if-eqz v21, :cond_9
 
     move-object/from16 v0, p0
 
@@ -25269,7 +25313,7 @@
 
     const-string/jumbo v25, "lock_additional_weather"
 
-    if-eqz p1, :cond_18
+    if-eqz p1, :cond_1a
 
     const/16 v21, 0x0
 
@@ -25296,7 +25340,7 @@
 
     const-string/jumbo v25, "lock_additional_steps"
 
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_1b
 
     const/16 v21, 0x0
 
@@ -25309,7 +25353,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :cond_8
+    :cond_9
     move/from16 v0, p2
 
     and-int/lit16 v0, v0, 0x100
@@ -25317,46 +25361,6 @@
     move/from16 v21, v0
 
     const/16 v24, 0x100
-
-    move/from16 v0, v21
-
-    move/from16 v1, v24
-
-    if-ne v0, v1, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->mContext:Landroid/content/Context;
-
-    move-object/from16 v21, v0
-
-    invoke-virtual/range {v21 .. v21}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v24
-
-    const-string/jumbo v25, "unlock_text"
-
-    if-eqz p1, :cond_1a
-
-    const/16 v21, 0x0
-
-    :goto_a
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v25
-
-    move/from16 v2, v21
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    :cond_9
-    move/from16 v0, p2
-
-    and-int/lit16 v0, v0, 0x200
-
-    move/from16 v21, v0
-
-    const/16 v24, 0x200
 
     move/from16 v0, v21
 
@@ -25374,9 +25378,49 @@
 
     move-result-object v24
 
+    const-string/jumbo v25, "unlock_text"
+
+    if-eqz p1, :cond_1c
+
+    const/16 v21, 0x0
+
+    :goto_a
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v25
+
+    move/from16 v2, v21
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    :cond_a
+    move/from16 v0, p2
+
+    and-int/lit16 v0, v0, 0x200
+
+    move/from16 v21, v0
+
+    const/16 v24, 0x200
+
+    move/from16 v0, v21
+
+    move/from16 v1, v24
+
+    if-ne v0, v1, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->mContext:Landroid/content/Context;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v24
+
     const-string/jumbo v25, "lock_screen_show_notifications"
 
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_1d
 
     const/16 v21, 0x0
 
@@ -25389,8 +25433,8 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :cond_a
-    if-eqz v18, :cond_b
+    :cond_b
+    if-eqz v18, :cond_c
 
     move-object/from16 v0, p0
 
@@ -25416,8 +25460,8 @@
 
     invoke-virtual {v5, v0}, Landroid/app/ActivityManager;->forceStopPackage(Ljava/lang/String;)V
 
-    :cond_b
-    if-eqz v9, :cond_c
+    :cond_c
+    if-eqz v9, :cond_d
 
     new-instance v11, Landroid/content/Intent;
 
@@ -25471,14 +25515,14 @@
 
     invoke-virtual {v0, v12, v1}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    :cond_c
+    :cond_d
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->mSystemUiCallback:Lcom/samsung/android/knox/custom/IKnoxCustomManagerSystemUiCallback;
 
     move-object/from16 v21, v0
 
-    if-eqz v21, :cond_1c
+    if-eqz v21, :cond_1e
 
     invoke-virtual/range {p0 .. p0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getLockScreenHiddenItems()I
 
@@ -25494,7 +25538,7 @@
 
     invoke-interface {v0, v14}, Lcom/samsung/android/knox/custom/IKnoxCustomManagerSystemUiCallback;->setLockScreenHiddenItems(I)V
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     const/16 v17, 0x0
 
@@ -25503,14 +25547,14 @@
 
     return v17
 
-    :cond_d
+    :cond_e
     and-int/lit8 v21, p2, 0x11
 
     or-int v18, v18, v21
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_f
     not-int v0, v9
 
     move/from16 v21, v0
@@ -25519,28 +25563,78 @@
 
     goto/16 :goto_1
 
-    :cond_f
+    :cond_10
     const/16 v21, 0x1
 
     goto/16 :goto_2
 
-    :cond_10
+    :cond_11
     const/16 v21, 0x1
 
     goto/16 :goto_3
 
-    :cond_11
-    const/16 v21, 0x1
+    :cond_12
+    if-eqz p1, :cond_13
+
+    const/16 v21, 0x0
+
+    :goto_d
+    :try_start_1
+    move/from16 v0, v21
+
+    invoke-virtual {v15, v0, v4}, Lcom/android/internal/widget/LockPatternUtils;->setOwnerInfoEnabled(ZI)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_4
 
-    :cond_12
+    :catch_0
+    move-exception v10
+
+    const-string/jumbo v21, "KnoxCustomManagerService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "setLockScreenHiddenItems() failed - persistence problem "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v24
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v21, -0x1
+
+    return v21
+
+    :cond_13
+    const/16 v21, 0x1
+
+    goto :goto_d
+
+    :cond_14
     const/16 v21, 0x1
 
     goto/16 :goto_5
 
-    :cond_13
-    :try_start_1
+    :cond_15
+    :try_start_2
     const-string/jumbo v21, ";"
 
     move-object/from16 v0, v21
@@ -25549,20 +25643,20 @@
 
     move-result-object v19
 
-    if-eqz p1, :cond_14
-
-    const-string/jumbo v21, "0"
-
-    :goto_d
-    const/16 v24, 0x0
-
-    aput-object v21, v19, v24
-
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_16
 
     const-string/jumbo v21, "0"
 
     :goto_e
+    const/16 v24, 0x0
+
+    aput-object v21, v19, v24
+
+    if-eqz p1, :cond_17
+
+    const-string/jumbo v21, "0"
+
+    :goto_f
     const/16 v24, 0x2
 
     aput-object v21, v19, v24
@@ -25577,12 +25671,12 @@
 
     move/from16 v24, v0
 
-    :goto_f
+    :goto_10
     move/from16 v0, v21
 
     move/from16 v1, v24
 
-    if-ge v0, v1, :cond_16
+    if-ge v0, v1, :cond_18
 
     aget-object v13, v19, v21
 
@@ -25614,19 +25708,19 @@
 
     add-int/lit8 v21, v21, 0x1
 
-    goto :goto_f
+    goto :goto_10
 
-    :cond_14
-    const-string/jumbo v21, "1"
-
-    goto :goto_d
-
-    :cond_15
+    :cond_16
     const-string/jumbo v21, "1"
 
     goto :goto_e
 
-    :cond_16
+    :cond_17
+    const-string/jumbo v21, "1"
+
+    goto :goto_f
+
+    :cond_18
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->mContext:Landroid/content/Context;
@@ -25644,15 +25738,15 @@
     move-object/from16 v1, v24
 
     invoke-static {v0, v1, v6}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
     goto/16 :goto_6
 
-    :catch_0
+    :catch_1
     move-exception v10
 
-    :try_start_2
+    :try_start_3
     const-string/jumbo v21, "KnoxCustomManagerService"
 
     new-instance v24, Ljava/lang/StringBuilder;
@@ -25685,32 +25779,32 @@
 
     return v21
 
-    :cond_17
+    :cond_19
     const/16 v21, 0x1
 
     goto/16 :goto_7
 
-    :cond_18
+    :cond_1a
     const/16 v21, 0x1
 
     goto/16 :goto_8
 
-    :cond_19
+    :cond_1b
     const/16 v21, 0x1
 
     goto/16 :goto_9
 
-    :cond_1a
+    :cond_1c
     const/16 v21, 0x1
 
     goto/16 :goto_a
 
-    :cond_1b
+    :cond_1d
     const/16 v21, 0x1
 
     goto/16 :goto_b
 
-    :cond_1c
+    :cond_1e
     const-string/jumbo v21, "KnoxCustomManagerService"
 
     const-string/jumbo v24, "mSystemUiCallback is not available in setLockScreenHiddenItems"
@@ -25720,47 +25814,12 @@
     move-object/from16 v1, v24
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
 
     const/16 v17, -0x1
 
     goto/16 :goto_c
-
-    :catch_1
-    move-exception v10
-
-    const-string/jumbo v21, "KnoxCustomManagerService"
-
-    new-instance v24, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v25, "setLockScreenHiddenItems() failed - persistence problem "
-
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
-
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v24
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v24
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v21, -0x1
-
-    return v21
 .end method
 
 .method public setLockScreenOverrideMode(I)I
@@ -31241,7 +31300,7 @@
 
     if-eqz p1, :cond_1
 
-    const v7, -0x1030001
+    const v7, -0x30001
 
     and-int/2addr v2, v7
 
@@ -31273,7 +31332,7 @@
     return v3
 
     :cond_1
-    const/high16 v7, 0x1030000
+    const/high16 v7, 0x30000
 
     or-int/2addr v2, v7
 

@@ -152,7 +152,7 @@
 
     move/from16 v1, v38
 
-    invoke-static {v0, v1}, Lcom/android/server/connectivity/Tethering;->-wrap22(Lcom/android/server/connectivity/Tethering;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/connectivity/Tethering;->-wrap21(Lcom/android/server/connectivity/Tethering;Z)V
 
     :cond_1
     move-object/from16 v0, p0
@@ -233,7 +233,7 @@
 
     move/from16 v1, v38
 
-    invoke-static {v0, v1}, Lcom/android/server/connectivity/Tethering;->-wrap21(Lcom/android/server/connectivity/Tethering;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/connectivity/Tethering;->-wrap20(Lcom/android/server/connectivity/Tethering;Z)V
 
     :cond_2
     move-object/from16 v0, p0
@@ -401,7 +401,7 @@
 
     move-result v37
 
-    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap18(Lcom/android/server/connectivity/Tethering;I)V
+    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap17(Lcom/android/server/connectivity/Tethering;I)V
 
     goto/16 :goto_0
 
@@ -444,7 +444,7 @@
 
     move-result v37
 
-    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap19(Lcom/android/server/connectivity/Tethering;I)V
+    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap18(Lcom/android/server/connectivity/Tethering;I)V
 
     goto/16 :goto_0
 
@@ -487,7 +487,7 @@
 
     move-result v37
 
-    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap18(Lcom/android/server/connectivity/Tethering;I)V
+    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap17(Lcom/android/server/connectivity/Tethering;I)V
 
     goto/16 :goto_0
 
@@ -768,9 +768,9 @@
 
     move-object/from16 v36, v0
 
-    const v37, 0x10808e4
+    const v37, 0x10808d2
 
-    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap19(Lcom/android/server/connectivity/Tethering;I)V
+    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap18(Lcom/android/server/connectivity/Tethering;I)V
 
     goto/16 :goto_0
 
@@ -831,9 +831,9 @@
 
     move-object/from16 v36, v0
 
-    const v37, 0x10808e3
+    const v37, 0x10808d1
 
-    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap19(Lcom/android/server/connectivity/Tethering;I)V
+    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap18(Lcom/android/server/connectivity/Tethering;I)V
 
     goto/16 :goto_0
 
@@ -865,9 +865,9 @@
 
     move-object/from16 v36, v0
 
-    const v37, 0x10808e0
+    const v37, 0x10808ce
 
-    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap18(Lcom/android/server/connectivity/Tethering;I)V
+    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap17(Lcom/android/server/connectivity/Tethering;I)V
 
     goto/16 :goto_0
 
@@ -878,9 +878,9 @@
 
     move-object/from16 v36, v0
 
-    const v37, 0x10808e2
+    const v37, 0x10808d0
 
-    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap18(Lcom/android/server/connectivity/Tethering;I)V
+    invoke-static/range {v36 .. v37}, Lcom/android/server/connectivity/Tethering;->-wrap17(Lcom/android/server/connectivity/Tethering;I)V
 
     const-string/jumbo v36, "ATT"
 
@@ -1428,7 +1428,7 @@
 
     const/16 v38, 0x0
 
-    invoke-static/range {v36 .. v38}, Lcom/android/server/connectivity/Tethering;->-wrap14(Lcom/android/server/connectivity/Tethering;Landroid/content/Context;I)V
+    invoke-static/range {v36 .. v38}, Lcom/android/server/connectivity/Tethering;->-wrap13(Lcom/android/server/connectivity/Tethering;Landroid/content/Context;I)V
 
     goto/16 :goto_0
 
@@ -2034,7 +2034,7 @@
 
     move-object/from16 v36, v0
 
-    invoke-static/range {v36 .. v36}, Lcom/android/server/connectivity/Tethering;->-wrap17(Lcom/android/server/connectivity/Tethering;)V
+    invoke-static/range {v36 .. v36}, Lcom/android/server/connectivity/Tethering;->-wrap16(Lcom/android/server/connectivity/Tethering;)V
 
     :cond_23
     :goto_4
@@ -2162,7 +2162,7 @@
 
     move-object/from16 v36, v0
 
-    invoke-static/range {v36 .. v36}, Lcom/android/server/connectivity/Tethering;->-wrap7(Lcom/android/server/connectivity/Tethering;)V
+    invoke-static/range {v36 .. v36}, Lcom/android/server/connectivity/Tethering;->-wrap6(Lcom/android/server/connectivity/Tethering;)V
 
     goto/16 :goto_4
 
@@ -2550,7 +2550,7 @@
 
     move-object/from16 v1, v16
 
-    invoke-static {v0, v1}, Lcom/android/server/connectivity/Tethering;->-wrap6(Lcom/android/server/connectivity/Tethering;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/connectivity/Tethering;->-wrap5(Lcom/android/server/connectivity/Tethering;Ljava/lang/String;)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
@@ -2748,7 +2748,7 @@
 
     const/16 v40, 0x0
 
-    invoke-static/range {v38 .. v40}, Lcom/android/server/connectivity/Tethering;->-wrap15(Lcom/android/server/connectivity/Tethering;ZLandroid/os/ResultReceiver;)V
+    invoke-static/range {v38 .. v40}, Lcom/android/server/connectivity/Tethering;->-wrap14(Lcom/android/server/connectivity/Tethering;ZLandroid/os/ResultReceiver;)V
 
     goto :goto_7
 

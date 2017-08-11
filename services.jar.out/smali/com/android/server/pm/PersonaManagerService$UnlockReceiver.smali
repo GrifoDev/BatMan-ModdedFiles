@@ -123,7 +123,7 @@
 
     iget-object v3, p0, Lcom/android/server/pm/PersonaManagerService$UnlockReceiver;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v3}, Lcom/android/server/pm/PersonaManagerService;->-get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
 
     move-result-object v3
 

@@ -546,7 +546,17 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap4(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
+.method static synthetic -wrap4(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/usb/UsbDeviceManager;->validateDeviceRestriction(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap5(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/usb/UsbDeviceManager;->AuditLog(Ljava/lang/String;)V
@@ -554,7 +564,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/android/server/usb/UsbDeviceManager;)V
+.method static synthetic -wrap6(Lcom/android/server/usb/UsbDeviceManager;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/usb/UsbDeviceManager;->registerDeviceRestriction()V
@@ -562,7 +572,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap6(Lcom/android/server/usb/UsbDeviceManager;Z)V
+.method static synthetic -wrap7(Lcom/android/server/usb/UsbDeviceManager;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/usb/UsbDeviceManager;->showWaterUsbNoti(Z)V
@@ -570,7 +580,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Lcom/android/server/usb/UsbDeviceManager;)V
+.method static synthetic -wrap8(Lcom/android/server/usb/UsbDeviceManager;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/usb/UsbDeviceManager;->startAccessoryMode()V
@@ -578,7 +588,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap8(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
+.method static synthetic -wrap9(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/usb/UsbDeviceManager;->updateTimeStamp(Ljava/lang/String;)V
@@ -2333,13 +2343,13 @@
 .method private showWaterUsbNoti(Z)V
     .locals 11
 
-    const/4 v10, 0x0
+    const/4 v10, 0x1
 
     const/4 v9, 0x0
 
-    const v8, 0x1040a9d
+    const v8, 0x1040aa6
 
-    const v0, 0x1040a9d
+    const v0, 0x1040aa6
 
     iget-object v5, p0, Lcom/android/server/usb/UsbDeviceManager;->mNotificationManager:Landroid/app/NotificationManager;
 
@@ -2413,7 +2423,7 @@
 
     move-result-object v4
 
-    const v5, 0x1040a9e
+    const v5, 0x1040aa7
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2425,7 +2435,7 @@
 
     invoke-direct {v5, v6}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x1080887
+    const v6, 0x1080873
 
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -2445,7 +2455,9 @@
 
     move-result-object v5
 
-    invoke-virtual {v5, v10}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
+    const/4 v6, 0x0
+
+    invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
 
     move-result-object v5
 
@@ -2475,9 +2487,7 @@
 
     move-result-object v5
 
-    const/4 v6, 0x1
-
-    invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setVisibility(I)Landroid/app/Notification$Builder;
+    invoke-virtual {v5, v10}, Landroid/app/Notification$Builder;->setVisibility(I)Landroid/app/Notification$Builder;
 
     move-result-object v5
 
@@ -2859,6 +2869,8 @@
     .locals 3
 
     move-object v1, p1
+
+    if-eqz p1, :cond_0
 
     const-string/jumbo v2, "adb"
 
@@ -3391,6 +3403,38 @@
     return-void
 
     :cond_4
+    invoke-direct {p0, p1}, Lcom/android/server/usb/UsbDeviceManager;->validateDeviceRestriction(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string/jumbo v0, "UsbDeviceManager"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager;->KERNEL_LOG_PREFIX:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "setCurrentFunctions - validateDeviceRestriction : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     const-string/jumbo v0, "persist.sys.usb.q_config"
 
     invoke-static {v0, p1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V

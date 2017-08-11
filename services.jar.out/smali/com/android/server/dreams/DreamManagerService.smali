@@ -1408,7 +1408,15 @@
 
     if-ne v0, p4, :cond_0
 
-    return-void
+    if-eqz p3, :cond_1
+
+    if-eqz p1, :cond_1
+
+    const-string/jumbo v0, "DreamManagerService"
+
+    const-string/jumbo v1, "startDream : Force restart Dream"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     const/4 v0, 0x1
@@ -1452,6 +1460,15 @@
     invoke-direct/range {v0 .. v6}, Lcom/android/server/dreams/DreamManagerService$5;-><init>(Lcom/android/server/dreams/DreamManagerService;Landroid/os/Binder;Landroid/content/ComponentName;ZZI)V
 
     invoke-virtual {v7, v0}, Lcom/android/server/dreams/DreamManagerService$DreamHandler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+
+    :cond_1
+    const-string/jumbo v0, "DreamManagerService"
+
+    const-string/jumbo v1, "startDream : Dream Already exist. Do not start"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

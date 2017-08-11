@@ -18,6 +18,7 @@
         Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;,
         Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;,
         Lcom/android/server/display/AutomaticBrightnessController$SettingsObserver;,
+        Lcom/android/server/display/AutomaticBrightnessController$ShutdownReceiver;,
         Lcom/android/server/display/AutomaticBrightnessController$UserSwitchedReceiver;
     }
 .end annotation
@@ -203,6 +204,8 @@
 .field private mManualAdjustment:F
 
 .field private mNeedToAddPersonalAutoBrightnessPoint:Z
+
+.field private mNeedToLoadPersonalAutoBrightnessPointSettings:Z
 
 .field private mPendingPabAddPoint:I
 
@@ -1009,6 +1012,10 @@
 
     iput-object v4, p0, Lcom/android/server/display/AutomaticBrightnessController;->mSettingsObserver:Lcom/android/server/display/AutomaticBrightnessController$SettingsObserver;
 
+    const/4 v4, 0x0
+
+    invoke-direct {p0, v4}, Lcom/android/server/display/AutomaticBrightnessController;->notifyHbmInfo(Z)V
+
     invoke-direct {p0}, Lcom/android/server/display/AutomaticBrightnessController;->readHbmLevelLimitFromFile()V
 
     sget-boolean v4, Lcom/android/server/display/AutomaticBrightnessController;->SPECIFIC_HBM_FEATURE:Z
@@ -1033,6 +1040,14 @@
     sget-boolean v4, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS:Z
 
     if-eqz v4, :cond_0
+
+    iget-object v4, p0, Lcom/android/server/display/AutomaticBrightnessController;->mHandler:Lcom/android/server/display/AutomaticBrightnessController$AutomaticBrightnessHandler;
+
+    new-instance v5, Lcom/android/server/display/AutomaticBrightnessController$7;
+
+    invoke-direct {v5, p0}, Lcom/android/server/display/AutomaticBrightnessController$7;-><init>(Lcom/android/server/display/AutomaticBrightnessController;)V
+
+    invoke-virtual {v4, v5}, Lcom/android/server/display/AutomaticBrightnessController$AutomaticBrightnessHandler;->post(Ljava/lang/Runnable;)Z
 
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController;->mLockPAB:Ljava/lang/Object;
 
@@ -1064,6 +1079,10 @@
     const/4 v4, 0x0
 
     invoke-direct {p0, v4}, Lcom/android/server/display/AutomaticBrightnessController;->updatePersonalScreenAutoBrightnessTableLocked(Z)V
+
+    iget-object v4, p0, Lcom/android/server/display/AutomaticBrightnessController;->mPersonalAutoBrightness:Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;
+
+    invoke-static {v4}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->-wrap0(Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1565,6 +1584,124 @@
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
+.end method
+
+.method private notifyHbmInfo(Z)V
+    .locals 8
+
+    const-string/jumbo v5, "AutomaticBrightnessController"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "pmstemp: AutomaticBrightnessController putIntForUser: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " +"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "user"
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/os/UserManager;
+
+    invoke-virtual {v4}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    if-ge v1, v5, :cond_1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/UserInfo;
+
+    if-eqz p1, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_1
+    iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "high_brightness_mode_pms_enter"
+
+    iget v7, v3, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v5, v6, v2, v7}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    const-string/jumbo v5, "AutomaticBrightnessController"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "pmstemp: AutomaticBrightnessController putIntForUser: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " -"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 .end method
 
 .method private notifySurfaceFlinger()V
@@ -3364,20 +3501,7 @@
 
     const/4 v4, 0x1
 
-    iget-object v12, p0, Lcom/android/server/display/AutomaticBrightnessController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v12}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "high_brightness_mode_pms_enter"
-
-    if-eqz v8, :cond_17
-
-    const/4 v12, 0x1
-
-    :goto_8
-    invoke-static {v13, v14, v12}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-direct {p0, v8}, Lcom/android/server/display/AutomaticBrightnessController;->notifyHbmInfo(Z)V
 
     :cond_7
     iget v12, p0, Lcom/android/server/display/AutomaticBrightnessController;->mAmbientLux:F
@@ -3386,18 +3510,18 @@
 
     cmpl-float v12, v12, v13
 
-    if-ltz v12, :cond_18
+    if-ltz v12, :cond_17
 
     const/4 v6, 0x1
 
-    :goto_9
+    :goto_8
     const/4 v5, 0x0
 
     iget-boolean v12, p0, Lcom/android/server/display/AutomaticBrightnessController;->mWasTconMaxLevel:Z
 
     if-eq v12, v6, :cond_8
 
-    if-eqz v6, :cond_19
+    if-eqz v6, :cond_18
 
     const-string/jumbo v12, "AutomaticBrightnessController"
 
@@ -3405,7 +3529,7 @@
 
     invoke-static {v12, v13}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_a
+    :goto_9
     iput-boolean v6, p0, Lcom/android/server/display/AutomaticBrightnessController;->mWasTconMaxLevel:Z
 
     const/4 v5, 0x1
@@ -3419,7 +3543,7 @@
 
     iget v13, p0, Lcom/android/server/display/AutomaticBrightnessController;->mLatestAnimationTarget:I
 
-    if-eq v12, v13, :cond_1a
+    if-eq v12, v13, :cond_19
 
     :cond_9
     iput v9, p0, Lcom/android/server/display/AutomaticBrightnessController;->mScreenAutoBrightness:I
@@ -3447,7 +3571,7 @@
     invoke-direct {p0, v12, v13}, Lcom/android/server/display/AutomaticBrightnessController;->sendLuxLevel(FZ)V
 
     :cond_a
-    :goto_b
+    :goto_a
     move/from16 v0, p2
 
     iput v0, p0, Lcom/android/server/display/AutomaticBrightnessController;->lastRawBrightnessValue:F
@@ -3577,32 +3701,27 @@
     goto/16 :goto_7
 
     :cond_17
-    const/4 v12, 0x0
+    const/4 v6, 0x0
 
     goto/16 :goto_8
 
     :cond_18
-    const/4 v6, 0x0
-
-    goto/16 :goto_9
-
-    :cond_19
     const-string/jumbo v12, "AutomaticBrightnessController"
 
     const-string/jumbo v13, "[DAB] The Ambient Lux has dropped below 20000."
 
     invoke-static {v12, v13}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_a
+    goto/16 :goto_9
 
-    :cond_1a
+    :cond_19
     if-eqz p1, :cond_a
 
-    if-nez v4, :cond_1b
+    if-nez v4, :cond_1a
 
     if-eqz v5, :cond_a
 
-    :cond_1b
+    :cond_1a
     iget-object v12, p0, Lcom/android/server/display/AutomaticBrightnessController;->mCallbacks:Lcom/android/server/display/AutomaticBrightnessController$Callbacks;
 
     invoke-interface {v12}, Lcom/android/server/display/AutomaticBrightnessController$Callbacks;->updateBrightness()V
@@ -3613,7 +3732,7 @@
 
     invoke-direct {p0, v12, v13}, Lcom/android/server/display/AutomaticBrightnessController;->sendLuxLevel(FZ)V
 
-    goto/16 :goto_b
+    goto/16 :goto_a
 .end method
 
 .method private updatePersonalScreenAutoBrightnessTableLocked(Z)V
@@ -3737,9 +3856,9 @@
     :cond_2
     iget v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mScreenBrightnessModeSetting:I
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_3
 
-    if-ne v0, v6, :cond_4
+    if-ne v0, v6, :cond_3
 
     iget-boolean v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mUseAutoBrightnessController:Z
 
@@ -3747,26 +3866,15 @@
 
     iget-boolean v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mIsSupportedSensorHubAutoBrightness:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     invoke-direct {p0}, Lcom/android/server/display/AutomaticBrightnessController;->getAmbientLuxAndCandelaFromSensorHub()V
 
     :cond_3
     :goto_1
-    iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mPersonalAutoBrightness:Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;
-
-    invoke-virtual {v3}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->resetPersonalAutoBrightness()V
-
-    const-string/jumbo v3, "AutomaticBrightnessController"
-
-    const-string/jumbo v4, "[PAB] Setting : It\'s manual. So Reset Personal Auto Brightness."
-
-    invoke-static {v3, v4}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
     return-void
 
-    :cond_5
+    :cond_4
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v4, p0, Lcom/android/server/display/AutomaticBrightnessController;->mLightSensorListener:Landroid/hardware/SensorEventListener;
@@ -3828,11 +3936,33 @@
 
     sget-boolean v1, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS:Z
 
+    if-eqz v1, :cond_2
+
+    iget-boolean v1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mNeedToLoadPersonalAutoBrightnessPointSettings:Z
+
     if-eqz v1, :cond_1
 
+    iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController;->mLockPAB:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mPersonalAutoBrightness:Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;
+
+    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->-wrap0(Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mNeedToLoadPersonalAutoBrightnessPointSettings:Z
+
+    :cond_1
     const/4 v1, -0x1
 
-    if-eq p11, v1, :cond_1
+    if-eq p11, v1, :cond_2
 
     iput p11, p0, Lcom/android/server/display/AutomaticBrightnessController;->mScreenAutoBrightness:I
 
@@ -3840,54 +3970,54 @@
 
     monitor-enter v2
 
-    :try_start_0
+    :try_start_1
     iput p11, p0, Lcom/android/server/display/AutomaticBrightnessController;->mPendingPabAddPoint:I
 
     const/4 v1, 0x1
 
     invoke-direct {p0, v1}, Lcom/android/server/display/AutomaticBrightnessController;->updatePersonalScreenAutoBrightnessTableLocked(Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     monitor-exit v2
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x0
 
     iget-boolean v1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mAutoBrightnessForEbookOnly:Z
 
-    if-eq v1, p6, :cond_3
+    if-eq v1, p6, :cond_4
 
     iput-boolean p6, p0, Lcom/android/server/display/AutomaticBrightnessController;->mAutoBrightnessForEbookOnly:Z
 
     iget-boolean v1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mIsSupportedSensorHubAutoBrightness:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     iget-boolean v1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mAutoBrightnessForEbookOnly:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_a
 
     const/4 v1, 0x1
 
     :goto_0
     invoke-direct {p0, v1}, Lcom/android/server/display/AutomaticBrightnessController;->changeModeInSensorHubAutoBrightness(I)V
 
-    :cond_2
+    :cond_3
     const/4 v0, 0x1
 
-    :cond_3
+    :cond_4
     iget-boolean v1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mUseAutoBrightnessController:Z
 
-    if-ne v1, p1, :cond_4
+    if-ne v1, p1, :cond_5
 
     iget v1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mManualAdjustment:F
 
     cmpl-float v1, v1, p8
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_b
 
-    :cond_4
+    :cond_5
     :goto_1
     iput p8, p0, Lcom/android/server/display/AutomaticBrightnessController;->mManualAdjustment:F
 
@@ -3901,12 +4031,12 @@
 
     or-int/2addr v0, v1
 
-    :cond_5
-    if-eqz p1, :cond_6
-
-    if-eqz p3, :cond_b
-
     :cond_6
+    if-eqz p1, :cond_7
+
+    if-eqz p3, :cond_c
+
+    :cond_7
     const/4 v1, 0x0
 
     :goto_2
@@ -3928,18 +4058,18 @@
 
     or-int/2addr v0, v1
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     const/4 v1, 0x0
 
     invoke-direct {p0, v1}, Lcom/android/server/display/AutomaticBrightnessController;->updateAutoBrightnessSEC(Z)V
 
-    :cond_7
-    if-eqz p1, :cond_8
-
-    if-eqz p3, :cond_c
-
     :cond_8
+    if-eqz p1, :cond_9
+
+    if-eqz p3, :cond_d
+
+    :cond_9
     :goto_3
     return-void
 
@@ -3950,29 +4080,36 @@
 
     throw v1
 
-    :cond_9
+    :catchall_1
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+
+    :cond_a
     const/4 v1, 0x0
 
     goto :goto_0
 
-    :cond_a
+    :cond_b
     iget-boolean v1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mIsBrightnessModeAuto:Z
 
-    if-ne v1, p9, :cond_4
+    if-ne v1, p9, :cond_5
 
     iget-boolean v1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mUseHbmAtManualMax:Z
 
-    if-eq v1, p10, :cond_5
+    if-eq v1, p10, :cond_6
 
     goto :goto_1
 
-    :cond_b
+    :cond_c
     const/4 v1, 0x1
 
     goto :goto_2
 
-    :cond_c
-    if-eqz p4, :cond_8
+    :cond_d
+    if-eqz p4, :cond_9
 
     invoke-direct {p0}, Lcom/android/server/display/AutomaticBrightnessController;->prepareBrightnessAdjustmentSample()V
 
@@ -5050,6 +5187,22 @@
     move-exception v0
 
     goto/16 :goto_1
+.end method
+
+.method public resetPersonalAutoBrightnessData()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController;->mPersonalAutoBrightness:Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;
+
+    invoke-virtual {v0}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->resetPersonalAutoBrightness()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/display/AutomaticBrightnessController;->mAmbientLuxValid:Z
+
+    invoke-direct {p0}, Lcom/android/server/display/AutomaticBrightnessController;->getAmbientLuxAndCandelaFromSensorHub()V
+
+    return-void
 .end method
 
 .method public setOutdoorMode(Z)V

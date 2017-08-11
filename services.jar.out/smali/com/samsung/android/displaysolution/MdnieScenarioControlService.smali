@@ -1424,7 +1424,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00ae
+    const v1, 0x10e00af
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1438,7 +1438,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00af
+    const v1, 0x10e00b0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1452,7 +1452,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00b0
+    const v1, 0x10e00b1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1466,7 +1466,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00b1
+    const v1, 0x10e00b2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1480,7 +1480,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00b2
+    const v1, 0x10e00b3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1494,7 +1494,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00b3
+    const v1, 0x10e00b4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1508,7 +1508,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00b4
+    const v1, 0x10e00b5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1522,7 +1522,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00b5
+    const v1, 0x10e00b6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1536,7 +1536,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00b6
+    const v1, 0x10e00b7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1550,7 +1550,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00b7
+    const v1, 0x10e00b8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1564,7 +1564,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00b8
+    const v1, 0x10e00b9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1578,7 +1578,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00b9
+    const v1, 0x10e00ba
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1592,7 +1592,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00ba
+    const v1, 0x10e00bb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -8269,7 +8269,7 @@
 
     const v11, 0x102005f
 
-    const v10, 0x10408d1
+    const v10, 0x10408d8
 
     const/4 v9, 0x1
 
@@ -8277,7 +8277,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/displaysolution/MdnieScenarioControlService;->mContext:Landroid/content/Context;
 
-    const v6, 0x10408d0
+    const v6, 0x10408d7
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -8299,7 +8299,7 @@
 
     invoke-direct {v5, v6}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x1080b1b
+    const v6, 0x1080b09
 
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -8315,7 +8315,7 @@
 
     move-result-object v6
 
-    const v7, 0x10408d0
+    const v7, 0x10408d7
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8369,7 +8369,7 @@
 
     move-result-object v6
 
-    const v7, 0x10408d2
+    const v7, 0x10408d9
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8391,7 +8391,7 @@
 
     move-result-object v6
 
-    const v7, 0x10408d3
+    const v7, 0x10408da
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8471,7 +8471,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/displaysolution/MdnieScenarioControlService;->mContext:Landroid/content/Context;
 
-    const v6, 0x10408d3
+    const v6, 0x10408da
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -8481,7 +8481,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/displaysolution/MdnieScenarioControlService;->mContext:Landroid/content/Context;
 
-    const v6, 0x10408d2
+    const v6, 0x10408d9
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -8534,7 +8534,7 @@
 
     invoke-direct {v5, v6}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x1080b1b
+    const v6, 0x1080b09
 
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -8550,7 +8550,7 @@
 
     move-result-object v6
 
-    const v7, 0x10408d0
+    const v7, 0x10408d7
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8604,7 +8604,7 @@
 
     move-result-object v6
 
-    const v7, 0x10408d2
+    const v7, 0x10408d9
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8626,7 +8626,7 @@
 
     move-result-object v6
 
-    const v7, 0x10408d3
+    const v7, 0x10408da
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8700,7 +8700,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/displaysolution/MdnieScenarioControlService;->mContext:Landroid/content/Context;
 
-    const v6, 0x10408d3
+    const v6, 0x10408da
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -8710,7 +8710,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/displaysolution/MdnieScenarioControlService;->mContext:Landroid/content/Context;
 
-    const v6, 0x10408d2
+    const v6, 0x10408d9
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

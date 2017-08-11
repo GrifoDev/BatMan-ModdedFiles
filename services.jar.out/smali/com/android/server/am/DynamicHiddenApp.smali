@@ -343,7 +343,7 @@
 
     const-string/jumbo v0, "ro.cfg.dha_2ndprop_thMB"
 
-    const-string/jumbo v1, "5120"
+    const-string/jumbo v1, "4096"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -1035,13 +1035,7 @@
 
     iput-object v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mInfo:Lcom/android/internal/util/MemInfoReader;
 
-    iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mInfo:Lcom/android/internal/util/MemInfoReader;
-
-    invoke-virtual {v0}, Lcom/android/internal/util/MemInfoReader;->readLightMemInfo()V
-
-    iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mInfo:Lcom/android/internal/util/MemInfoReader;
-
-    invoke-virtual {v0}, Lcom/android/internal/util/MemInfoReader;->getTotalSize()J
+    invoke-static {}, Landroid/os/Process;->getTotalMemory()J
 
     move-result-wide v0
 
@@ -1054,6 +1048,8 @@
     invoke-virtual {p0}, Lcom/android/server/am/DynamicHiddenApp;->initProperty()V
 
     return-void
+
+    nop
 
     :array_0
     .array-data 4
@@ -7373,21 +7369,527 @@
 .end method
 
 .method public initProperty()V
-    .locals 4
+    .locals 5
 
-    const/4 v0, 0x1
+    const/16 v4, 0x38a
 
-    invoke-virtual {p0, v0}, Lcom/android/server/am/DynamicHiddenApp;->makeLists(Z)V
+    iget-wide v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mTotalMemMb:J
 
-    iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mProcessList:Lcom/android/server/am/ProcessList;
+    sget v2, Lcom/android/server/am/DynamicHiddenApp;->TOTAL_MEMORY:I
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessList;->updateLMKThreshold()V
+    int-to-long v2, v2
 
-    const-string/jumbo v0, "ro.config.dha_step"
+    cmp-long v0, v0, v2
 
-    iget v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAStep:I
+    if-lez v0, :cond_0
 
-    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const-string/jumbo v0, "ro.cfg.dha_cached_max"
+
+    const-string/jumbo v1, "ro.config.dha_cached_max"
+
+    const-string/jumbo v2, "6"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->INIT_CACHED_APPS:I
+
+    const-string/jumbo v0, "ro.cfg.dha_cached_min"
+
+    const-string/jumbo v1, "ro.config.dha_cached_min"
+
+    const-string/jumbo v2, "4"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
+
+    const-string/jumbo v0, "ro.cfg.dha_cached_max"
+
+    const-string/jumbo v1, "ro.config.dha_cached_max"
+
+    const-string/jumbo v2, "6"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
+
+    const-string/jumbo v0, "ro.cfg.dha_empty_init"
+
+    const-string/jumbo v1, "ro.config.dha_empty_init"
+
+    const-string/jumbo v2, "30"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->INIT_EMPTY_APPS:I
+
+    const-string/jumbo v0, "ro.cfg.dha_empty_min"
+
+    const-string/jumbo v1, "ro.config.dha_empty_min"
+
+    const-string/jumbo v2, "8"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
+
+    const-string/jumbo v0, "ro.cfg.dha_empty_max"
+
+    const-string/jumbo v1, "ro.config.dha_empty_max"
+
+    const-string/jumbo v2, "30"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->MAX_EMPTY_APPS:I
+
+    const-string/jumbo v0, "ro.cfg.ldha_es_enable"
+
+    const-string/jumbo v1, "ro.config.ldha_es_enable"
+
+    const-string/jumbo v2, "false"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
+
+    const-string/jumbo v0, "ro.cfg.ldha_spc_enable"
+
+    const-string/jumbo v1, "ro.config.ldha_spc_enable"
+
+    const-string/jumbo v2, "true"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->LDHA_SPC_ENABLE:Z
+
+    const-string/jumbo v0, "ro.cfg.dha_adj_cached_factor"
+
+    const-string/jumbo v1, "ro.config.dha_adj_cached_factor"
+
+    const-string/jumbo v2, "false"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_ADJ_CACHED_FACTOR:Z
+
+    const-string/jumbo v0, "ro.cfg.64bit_lmk_enable"
+
+    const-string/jumbo v1, "ro.config.64bit_lmk_enable"
+
+    const-string/jumbo v2, "true"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mb64bitLMKEnable:Z
+
+    const-string/jumbo v0, "ro.cfg.dha_ils_enable"
+
+    const-string/jumbo v1, "ro.config.dha_ils_enable"
+
+    const-string/jumbo v2, "false"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mILS_Enable:Z
+
+    const-string/jumbo v0, "ro.cfg.dha_ils_2nd_enable"
+
+    const-string/jumbo v1, "ro.config.dha_ils_2nd_enable"
+
+    const-string/jumbo v2, "false"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mILS_2nd_Enable:Z
+
+    const-string/jumbo v0, "ro.cfg.dha_ils_rate"
+
+    const-string/jumbo v1, "ro.config.dha_ils_rate"
+
+    const-string/jumbo v2, "1.5"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->mSzILSRate:F
+
+    const-string/jumbo v0, "ro.cfg.dha_pwhitelist_enable"
+
+    const-string/jumbo v1, "ro.config.dha_pwhitelist_enable"
+
+    const-string/jumbo v2, "0"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->mDhaKeepEmptyEnable:I
+
+    const-string/jumbo v0, "ro.config.dha_knox_plist_enable"
+
+    const-string/jumbo v1, "ro.config.dha_knox_plist_enable"
+
+    const-string/jumbo v2, "0"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->mDhaKeepEmptyEnableKnox:I
+
+    const-string/jumbo v0, "ro.cfg.dha_lmk_scale"
+
+    const-string/jumbo v1, "ro.config.dha_lmk_scale"
+
+    const-string/jumbo v2, "-1"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->mLMKScale:F
+
+    const-string/jumbo v0, "ro.cfg.dha_lmk_array"
+
+    const-string/jumbo v1, "ro.config.dha_lmk_array"
+
+    const-string/jumbo v2, "none"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/server/am/DynamicHiddenApp;->mLMKArray:Ljava/lang/String;
+
+    const-string/jumbo v0, "ro.cfg.ams_exception_enable"
+
+    const-string/jumbo v1, "ro.config.ams_exception_enable"
+
+    const-string/jumbo v2, "true"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mAMSExceptionEnable:Z
+
+    const-string/jumbo v0, "ro.cfg.ams_knoxexpt_enable"
+
+    const-string/jumbo v1, "ro.config.ams_knoxexpt_enable"
+
+    const-string/jumbo v2, "true"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mKnoxAMSExceptionEnable:Z
+
+    const-string/jumbo v0, "ro.cfg.fall_prevent_enable"
+
+    const-string/jumbo v1, "ro.config.fall_prevent_enable"
+
+    const-string/jumbo v2, "false"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
+
+    const-string/jumbo v0, "ro.cfg.dha_package_enable"
+
+    const-string/jumbo v1, "ro.config.dha_package_enable"
+
+    const-string/jumbo v2, "false"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_PACKAGE_ENABLE:Z
+
+    const-string/jumbo v0, "ro.cfg.infinite_bg_enable"
+
+    const-string/jumbo v1, "ro.config.infinite_bg_enable"
+
+    const-string/jumbo v2, "true"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->INFINITE_CACHED_ENABLE:Z
+
+    const-string/jumbo v0, "ro.cfg.dha_es_lru_en"
+
+    const-string/jumbo v1, "ro.config.dha_es_lru_en"
+
+    const-string/jumbo v2, "false"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->ES_LRU_BASE_ENABLE:Z
+
+    const-string/jumbo v0, "ro.cfg.dha_pwhl_key"
+
+    const-string/jumbo v1, "ro.config.dha_pwhl_key"
+
+    const-string/jumbo v2, "7682"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->dha_keepempty_key:I
+
+    const-string/jumbo v0, "ro.cfg.dha_pwhl_key_knox"
+
+    const-string/jumbo v1, "ro.config.dha_pwhl_key_knox"
+
+    const-string/jumbo v2, "1539"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->dha_keepempty_key_knox:I
+
+    const-string/jumbo v0, "ro.cfg.dha_step"
+
+    const-string/jumbo v1, "ro.config.dha_step"
+
+    iget v2, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAStep:I
+
+    invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -7401,11 +7903,17 @@
 
     iput v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAStep:I
 
-    const-string/jumbo v0, "ro.config.dha_th_rate"
+    const-string/jumbo v0, "ro.cfg.dha_th_rate"
 
-    iget v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThresholdRate:F
+    const-string/jumbo v1, "ro.config.dha_th_rate"
 
-    invoke-static {v1}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
+    iget v2, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThresholdRate:F
+
+    invoke-static {v2}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -7421,11 +7929,15 @@
 
     iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mProcessList:Lcom/android/server/am/ProcessList;
 
-    const-string/jumbo v1, "ro.config.dha_th_level"
+    const-string/jumbo v1, "ro.cfg.dha_th_level"
 
-    const/16 v2, 0x38a
+    const-string/jumbo v2, "ro.config.dha_th_level"
 
-    invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -7443,11 +7955,17 @@
 
     iput-wide v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThreshold:J
 
-    const-string/jumbo v0, "ro.config.dha_increase_th"
+    const-string/jumbo v0, "ro.cfg.dha_increase_th"
+
+    const-string/jumbo v1, "ro.config.dha_increase_th"
 
     sget-wide v2, Lcom/android/server/am/DynamicHiddenApp;->DHA_INCREASE_THRESHOLD:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -7460,6 +7978,15 @@
     move-result-wide v0
 
     sput-wide v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_INCREASE_THRESHOLD:J
+
+    :goto_0
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/server/am/DynamicHiddenApp;->makeLists(Z)V
+
+    iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mProcessList:Lcom/android/server/am/ProcessList;
+
+    invoke-virtual {v0}, Lcom/android/server/am/ProcessList;->updateLMKThreshold()V
 
     const-string/jumbo v0, "DHA_PROPERTY"
 
@@ -7558,6 +8085,85 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
+
+    :cond_0
+    const-string/jumbo v0, "ro.config.dha_step"
+
+    iget v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAStep:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAStep:I
+
+    const-string/jumbo v0, "ro.config.dha_th_rate"
+
+    iget v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThresholdRate:F
+
+    invoke-static {v1}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThresholdRate:F
+
+    iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mProcessList:Lcom/android/server/am/ProcessList;
+
+    const-string/jumbo v1, "ro.config.dha_th_level"
+
+    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/ProcessList;->getMemLevel(I)J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThreshold:J
+
+    const-string/jumbo v0, "ro.config.dha_increase_th"
+
+    sget-wide v2, Lcom/android/server/am/DynamicHiddenApp;->DHA_INCREASE_THRESHOLD:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v0
+
+    sput-wide v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_INCREASE_THRESHOLD:J
+
+    goto/16 :goto_0
 .end method
 
 .method public makeLists(Z)V

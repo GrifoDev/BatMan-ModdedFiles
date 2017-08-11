@@ -8,6 +8,7 @@
     value = {
         Lcom/android/server/LockSettingsService$-boolean_haveKnoxPassword_int_userId_int_lockType_LambdaImpl0;,
         Lcom/android/server/LockSettingsService$-boolean_haveKnoxPassword_int_userId_int_lockType_LambdaImpl1;,
+        Lcom/android/server/LockSettingsService$-void_notifyPasswordChanged_int_userId_LambdaImpl0;,
         Lcom/android/server/LockSettingsService$1;,
         Lcom/android/server/LockSettingsService$CredentialInfo;,
         Lcom/android/server/LockSettingsService$CredentialUtil;,
@@ -1993,9 +1994,9 @@
 
     move-result-object v3
 
-    new-instance v8, Lcom/android/server/LockSettingsService$10;
+    new-instance v8, Lcom/android/server/LockSettingsService$11;
 
-    invoke-direct {v8, p0}, Lcom/android/server/LockSettingsService$10;-><init>(Lcom/android/server/LockSettingsService;)V
+    invoke-direct {v8, p0}, Lcom/android/server/LockSettingsService$11;-><init>(Lcom/android/server/LockSettingsService;)V
 
     move-object v1, p0
 
@@ -2474,9 +2475,9 @@
 
     move-result-object v3
 
-    new-instance v8, Lcom/android/server/LockSettingsService$9;
+    new-instance v8, Lcom/android/server/LockSettingsService$10;
 
-    invoke-direct {v8, p0}, Lcom/android/server/LockSettingsService$9;-><init>(Lcom/android/server/LockSettingsService;)V
+    invoke-direct {v8, p0}, Lcom/android/server/LockSettingsService$10;-><init>(Lcom/android/server/LockSettingsService;)V
 
     move-object v1, p0
 
@@ -3215,7 +3216,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     new-instance v1, Lcom/android/server/LockSettingsService$GateKeeperDiedRecipient;
 
@@ -3227,12 +3228,25 @@
 
     invoke-interface {v0, v1, v2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
-    invoke-static {v0}, Landroid/service/gatekeeper/IGateKeeperService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/gatekeeper/IGateKeeperService;
+    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v1, "LockSettingsService"
+
+    const-string/jumbo v2, "using IGateKeeperServiceMDFPP"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {v0}, Landroid/service/gatekeeper/IGateKeeperServiceMDFPP$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/gatekeeper/IGateKeeperService;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/server/LockSettingsService;->mGateKeeperService:Landroid/service/gatekeeper/IGateKeeperService;
 
+    :goto_0
     iget-object v1, p0, Lcom/android/server/LockSettingsService;->mGateKeeperService:Landroid/service/gatekeeper/IGateKeeperService;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -3245,15 +3259,19 @@
     :try_start_2
     const-string/jumbo v1, "LockSettingsService"
 
-    const-string/jumbo v2, "Unable to acquire GateKeeperService"
+    const-string/jumbo v2, "using IGateKeeperService"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {v0}, Landroid/service/gatekeeper/IGateKeeperService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/gatekeeper/IGateKeeperService;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/server/LockSettingsService;->mGateKeeperService:Landroid/service/gatekeeper/IGateKeeperService;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    monitor-exit p0
-
-    return-object v3
+    goto :goto_0
 
     :catchall_0
     move-exception v1
@@ -3261,6 +3279,20 @@
     monitor-exit p0
 
     throw v1
+
+    :cond_2
+    :try_start_3
+    const-string/jumbo v1, "LockSettingsService"
+
+    const-string/jumbo v2, "Unable to acquire GateKeeperService"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    monitor-exit p0
+
+    return-object v3
 .end method
 
 .method private getKeyType(I)I
@@ -5251,6 +5283,40 @@
     goto :goto_a
 .end method
 
+.method private notifyActivePasswordMetricsAvailable(Ljava/lang/String;I)V
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/server/LockSettingsService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v1, p2}, Lcom/android/internal/widget/LockPatternUtils;->getKeyguardStoredPasswordQuality(I)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/server/LockSettingsService;->mHandler:Landroid/os/Handler;
+
+    new-instance v2, Lcom/android/server/LockSettingsService$9;
+
+    invoke-direct {v2, p0, p1, v0, p2}, Lcom/android/server/LockSettingsService$9;-><init>(Lcom/android/server/LockSettingsService;Ljava/lang/String;II)V
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method private notifyPasswordChanged(I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/LockSettingsService;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/server/LockSettingsService$-void_notifyPasswordChanged_int_userId_LambdaImpl0;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/server/LockSettingsService$-void_notifyPasswordChanged_int_userId_LambdaImpl0;-><init>(Lcom/android/server/LockSettingsService;I)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
 .method private onUserLockChanged(I)V
     .locals 8
     .annotation system Ldalvik/annotation/Throws;
@@ -5868,6 +5934,8 @@
     invoke-direct {p0, p3}, Lcom/android/server/LockSettingsService;->onUserLockChanged(I)V
 
     :cond_2
+    invoke-direct {p0, v5, p3}, Lcom/android/server/LockSettingsService;->notifyActivePasswordMetricsAvailable(Ljava/lang/String;I)V
+
     return-void
 
     :cond_3
@@ -6114,6 +6182,8 @@
     invoke-direct {p0, p3}, Lcom/android/server/LockSettingsService;->onUserLockChanged(I)V
 
     :cond_2
+    invoke-direct {p0, v5, p3}, Lcom/android/server/LockSettingsService;->notifyActivePasswordMetricsAvailable(Ljava/lang/String;I)V
+
     return-void
 
     :cond_3
@@ -6366,19 +6436,19 @@
 
     move-result-object v6
 
-    const v0, 0x1040609
+    const v0, 0x104060d
 
     invoke-virtual {v6, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    const v0, 0x104060a
+    const v0, 0x104060e
 
     invoke-virtual {v6, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v0, 0x104060b
+    const v0, 0x104060f
 
     invoke-virtual {v6, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -6427,7 +6497,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x10804e1
+    const v2, 0x10804cb
 
     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -6513,19 +6583,19 @@
 
     move-result-object v7
 
-    const v0, 0x1040609
+    const v0, 0x104060d
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    const v0, 0x104060d
+    const v0, 0x1040611
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v0, 0x104060c
+    const v0, 0x1040610
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -7471,6 +7541,14 @@
 
     if-nez p4, :cond_6
 
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/LockSettingsService;->notifyActivePasswordMetricsAvailable(Ljava/lang/String;I)V
+
     sget-object v4, Lcom/android/internal/widget/VerifyCredentialResponse;->OK:Lcom/android/internal/widget/VerifyCredentialResponse;
 
     return-object v4
@@ -7580,6 +7658,14 @@
     move-result v4
 
     if-nez v4, :cond_d
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/LockSettingsService;->notifyActivePasswordMetricsAvailable(Ljava/lang/String;I)V
 
     move-object/from16 v0, p0
 
@@ -8092,7 +8178,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     const-string/jumbo v1, "Verification - Unacceptable credential..."
 
@@ -8109,7 +8195,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     invoke-direct {p0}, Lcom/android/server/LockSettingsService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
 
@@ -8130,6 +8216,9 @@
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :cond_2
+    invoke-direct {p0, p1, p2}, Lcom/android/server/LockSettingsService;->notifyActivePasswordMetricsAvailable(Ljava/lang/String;I)V
+
+    :cond_3
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -8156,7 +8245,7 @@
 
     return-object v10
 
-    :cond_3
+    :cond_4
     new-instance v0, Lcom/android/server/LockSettingsService$CredentialInfo;
 
     invoke-interface {p3}, Lcom/android/server/LockSettingsService$IKeystoreUtil;->getLockType()I
@@ -8201,7 +8290,7 @@
     :pswitch_1
     iget-boolean v1, v0, Lcom/android/server/LockSettingsService$CredentialInfo;->isSdpEnabled:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     iget-object v1, v0, Lcom/android/server/LockSettingsService$CredentialInfo;->credential:Ljava/lang/String;
 
@@ -8223,12 +8312,12 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     iget v1, v0, Lcom/android/server/LockSettingsService$CredentialInfo;->verifType:I
 
     const/16 v2, 0x10
 
-    if-ne v2, v1, :cond_5
+    if-ne v2, v1, :cond_6
 
     iget-object v1, v0, Lcom/android/server/LockSettingsService$CredentialInfo;->credential:Ljava/lang/String;
 
@@ -8254,7 +8343,7 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     const-string/jumbo v1, "Verification - Unexpected condition..."
 
     invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
@@ -8269,6 +8358,8 @@
     invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
     goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch -0x1
@@ -8351,6 +8442,24 @@
 
 
 # virtual methods
+.method synthetic -com_android_server_LockSettingsService_lambda$3(I)V
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/server/LockSettingsService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v2, "device_policy"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0, p1}, Landroid/app/admin/DevicePolicyManager;->reportPasswordChanged(I)V
+
+    return-void
+.end method
+
 .method public checkAppLockBackupPin(Ljava/lang/String;I)Z
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
@@ -11129,12 +11238,12 @@
     goto :goto_0
 .end method
 
-.method public sendLockTypeChangedInfo()V
+.method public sendLockTypeChangedInfo(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/LockSettingsService;->mStorage:Lcom/android/server/LockSettingsStorage;
 
-    invoke-virtual {v0}, Lcom/android/server/LockSettingsStorage;->sendLockTypeChangedInfo()V
+    invoke-virtual {v0, p1}, Lcom/android/server/LockSettingsStorage;->sendLockTypeChangedInfo(Z)V
 
     return-void
 .end method
@@ -11514,6 +11623,8 @@
     const/4 v2, 0x0
 
     invoke-virtual {p0, p3, v0, v2}, Lcom/android/server/LockSettingsService;->setSeparateProfileChallengeEnabled(IZLjava/lang/String;)V
+
+    invoke-direct {p0, p3}, Lcom/android/server/LockSettingsService;->notifyPasswordChanged(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -11551,6 +11662,8 @@
     const/4 v2, 0x0
 
     invoke-virtual {p0, p3, v0, v2}, Lcom/android/server/LockSettingsService;->setSeparateProfileChallengeEnabled(IZLjava/lang/String;)V
+
+    invoke-direct {p0, p3}, Lcom/android/server/LockSettingsService;->notifyPasswordChanged(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -11654,6 +11767,25 @@
 
     invoke-direct {p0, p1, p4, v0}, Lcom/android/server/LockSettingsService;->setStringUnchecked(Ljava/lang/String;ILjava/lang/String;)V
 
+    const-string/jumbo v0, "lockscreen.samsung_biometric"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "LockSettingsService"
+
+    const-string/jumbo v1, "setLong ## sendLockTypeChangedInfo"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/server/LockSettingsService;->sendLockTypeChangedInfo(Z)V
+
+    :cond_0
     return-void
 .end method
 

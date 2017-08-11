@@ -19,10 +19,16 @@
 .method public abstract init(Landroid/content/Context;Lcom/android/server/policy/PhoneWindowManager;Lcom/android/server/policy/SamsungWindowManagerPolicy;Lcom/android/server/policy/StatusBarController;)V
 .end method
 
+.method public abstract isAODWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
+.end method
+
 .method public abstract isAODWindowHasWallpaper(Landroid/view/WindowManager$LayoutParams;)Z
 .end method
 
 .method public abstract isNightClockVisible()Z
+.end method
+
+.method public abstract isObscuredWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
 .end method
 
 .method public abstract prepareAddWindowLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;)I

@@ -725,159 +725,187 @@
 .end method
 
 .method private checkMinimizeChanged(Z)V
-    .locals 10
+    .locals 12
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    iget-object v9, p0, Lcom/android/server/wm/DockedStackDividerController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    iget-object v10, p0, Lcom/android/server/wm/DockedStackDividerController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v9}, Lcom/android/server/wm/DisplayContent;->getDockedStackVisibleForUserLocked()Lcom/android/server/wm/TaskStack;
+    invoke-virtual {v10}, Lcom/android/server/wm/DisplayContent;->getDockedStackVisibleForUserLocked()Lcom/android/server/wm/TaskStack;
 
-    move-result-object v9
+    move-result-object v10
 
-    if-nez v9, :cond_0
+    if-nez v10, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v9, p0, Lcom/android/server/wm/DockedStackDividerController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    iget-object v10, p0, Lcom/android/server/wm/DockedStackDividerController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v9}, Lcom/android/server/wm/DisplayContent;->getHomeStack()Lcom/android/server/wm/TaskStack;
+    invoke-virtual {v10}, Lcom/android/server/wm/DisplayContent;->getHomeStack()Lcom/android/server/wm/TaskStack;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
     return-void
 
     :cond_1
-    invoke-virtual {v2}, Lcom/android/server/wm/TaskStack;->findHomeTask()Lcom/android/server/wm/Task;
+    invoke-virtual {v3}, Lcom/android/server/wm/TaskStack;->findHomeTask()Lcom/android/server/wm/Task;
 
-    move-result-object v4
+    move-result-object v5
 
-    if-eqz v4, :cond_5
+    if-eqz v5, :cond_7
 
-    invoke-direct {p0, v4}, Lcom/android/server/wm/DockedStackDividerController;->isWithinDisplay(Lcom/android/server/wm/Task;)Z
+    invoke-direct {p0, v5}, Lcom/android/server/wm/DockedStackDividerController;->isWithinDisplay(Lcom/android/server/wm/Task;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_5
+    if-eqz v10, :cond_7
 
-    iget-object v9, p0, Lcom/android/server/wm/DockedStackDividerController;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v10, p0, Lcom/android/server/wm/DockedStackDividerController;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v9, v9, Lcom/android/server/wm/WindowManagerService;->mStackIdToStack:Landroid/util/SparseArray;
+    iget-object v10, v10, Lcom/android/server/wm/WindowManagerService;->mStackIdToStack:Landroid/util/SparseArray;
 
-    invoke-virtual {v9, v8}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v10, v9}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/server/wm/TaskStack;
 
-    invoke-virtual {v2}, Lcom/android/server/wm/TaskStack;->getTasks()Ljava/util/ArrayList;
+    invoke-virtual {v3}, Lcom/android/server/wm/TaskStack;->getTasks()Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    move-result v9
+    move-result v10
 
-    add-int/lit8 v9, v9, -0x1
+    add-int/lit8 v10, v10, -0x1
 
-    invoke-virtual {v3, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v7
 
-    check-cast v6, Lcom/android/server/wm/Task;
+    check-cast v7, Lcom/android/server/wm/Task;
 
-    invoke-virtual {v4}, Lcom/android/server/wm/Task;->getTopVisibleAppToken()Lcom/android/server/wm/AppWindowToken;
+    invoke-virtual {v5}, Lcom/android/server/wm/Task;->getTopVisibleAppToken()Lcom/android/server/wm/AppWindowToken;
 
-    move-result-object v9
+    move-result-object v10
 
-    if-eqz v9, :cond_6
+    if-eqz v10, :cond_8
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
     :goto_0
     if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Lcom/android/server/wm/TaskStack;->isVisibleLocked()Z
 
-    move-result v9
+    move-result v10
 
-    if-nez v9, :cond_7
+    if-nez v10, :cond_9
 
     :cond_2
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    move-result v9
+    move-result v10
 
-    if-le v9, v8, :cond_8
+    if-le v10, v9, :cond_a
 
-    if-eq v6, v4, :cond_8
+    if-eq v7, v5, :cond_a
 
     const/4 v1, 0x1
 
     :goto_1
-    sget-boolean v9, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+    sget-boolean v10, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v9, :cond_a
+    if-eqz v10, :cond_c
 
-    iget-object v9, p0, Lcom/android/server/wm/DockedStackDividerController;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v10, p0, Lcom/android/server/wm/DockedStackDividerController;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    iget-boolean v9, v9, Lcom/android/server/wm/WindowManagerService;->mLastDockTaskToBackToFullScreen:Z
+    iget-boolean v10, v10, Lcom/android/server/wm/WindowManagerService;->mLastDockTaskToBackToFullScreen:Z
 
-    if-nez v9, :cond_4
+    if-nez v10, :cond_6
 
-    if-eqz v5, :cond_3
+    const/4 v2, 0x0
 
-    if-eqz v1, :cond_9
+    if-nez v6, :cond_3
+
+    iget-object v10, p0, Lcom/android/server/wm/DockedStackDividerController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v10, v10, Lcom/android/server/wm/WindowManagerService;->mMultiWindowManagerInternal:Lcom/android/server/wm/IMultiWindowManagerInternalBridge;
+
+    invoke-interface {v10, v5}, Lcom/android/server/wm/IMultiWindowManagerInternalBridge;->hasRelaunchingAppWindowTokenLocked(Lcom/android/server/wm/Task;)Z
+
+    move-result v2
+
+    sget-boolean v10, Lcom/android/server/wm/WindowManagerDebugConfig;->SAFE_DEBUG:Z
+
+    if-eqz v10, :cond_3
+
+    if-eqz v2, :cond_3
+
+    sget-object v10, Lcom/android/server/wm/DockedStackDividerController;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v11, "Home is not visible, but relaunching"
+
+    invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    :goto_2
-    invoke-direct {p0, v7, p1}, Lcom/android/server/wm/DockedStackDividerController;->setMinimizedDockedStack(ZZ)V
+    if-nez v6, :cond_4
+
+    if-eqz v2, :cond_5
 
     :cond_4
+    if-eqz v1, :cond_b
+
+    :cond_5
+    :goto_2
+    invoke-direct {p0, v8, p1}, Lcom/android/server/wm/DockedStackDividerController;->setMinimizedDockedStack(ZZ)V
+
+    :cond_6
     :goto_3
     return-void
 
-    :cond_5
+    :cond_7
     return-void
 
-    :cond_6
-    const/4 v5, 0x0
+    :cond_8
+    const/4 v6, 0x0
 
     goto :goto_0
 
-    :cond_7
+    :cond_9
     const/4 v1, 0x1
 
     goto :goto_1
 
-    :cond_8
+    :cond_a
     const/4 v1, 0x0
 
     goto :goto_1
 
-    :cond_9
-    move v7, v8
+    :cond_b
+    move v8, v9
 
     goto :goto_2
 
-    :cond_a
-    if-eqz v5, :cond_b
+    :cond_c
+    if-eqz v6, :cond_d
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_e
 
-    :cond_b
+    :cond_d
     :goto_4
-    invoke-direct {p0, v7, p1}, Lcom/android/server/wm/DockedStackDividerController;->setMinimizedDockedStack(ZZ)V
+    invoke-direct {p0, v8, p1}, Lcom/android/server/wm/DockedStackDividerController;->setMinimizedDockedStack(ZZ)V
 
     goto :goto_3
 
-    :cond_c
-    move v7, v8
+    :cond_e
+    move v8, v9
 
     goto :goto_4
 .end method

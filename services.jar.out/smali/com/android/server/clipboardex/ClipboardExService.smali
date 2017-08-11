@@ -2043,41 +2043,6 @@
     throw v8
 .end method
 
-.method private isClipboardShareAllowed(I)I
-    .locals 2
-
-    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
-
-    if-nez v1, :cond_0
-
-    const/4 v1, -0x1
-
-    return v1
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Landroid/sec/clipboard/util/ClipboardPolicyObserver;->getInstance(Landroid/content/Context;)Landroid/sec/clipboard/util/ClipboardPolicyObserver;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Landroid/sec/clipboard/util/ClipboardPolicyObserver;->isClipboardSharedAllowed(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v1, 0x1
-
-    :goto_0
-    return v1
-
-    :cond_1
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
 .method private isEnabled(I)Z
     .locals 1
 
@@ -3930,7 +3895,7 @@
 
     move-result v7
 
-    invoke-direct {p0, v7}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)I
+    invoke-virtual {p0, v7}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)Z
 
     move-result v7
 
@@ -4259,11 +4224,11 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v12}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)I
+    invoke-virtual {v0, v12}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)Z
 
     move-result v15
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v14
 
@@ -4281,7 +4246,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v12}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)I
+    invoke-virtual {v0, v12}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)Z
 
     move-result v13
 
@@ -4328,7 +4293,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v12}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)I
+    invoke-virtual {v0, v12}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)Z
 
     move-result v13
 
@@ -4703,7 +4668,7 @@
 
     move-result v6
 
-    invoke-direct {p0, v6}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)I
+    invoke-virtual {p0, v6}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)Z
 
     move-result v6
 
@@ -4826,8 +4791,6 @@
 .method public getCount()I
     .locals 10
 
-    const/4 v7, 0x0
-
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
 
     move-result v4
@@ -4858,7 +4821,7 @@
 
     if-eqz v5, :cond_1
 
-    invoke-direct {p0, v4}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)I
+    invoke-virtual {p0, v4}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)Z
 
     move-result v5
 
@@ -4907,7 +4870,9 @@
 
     invoke-static {v5, v6}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v7
+    const/4 v5, 0x0
+
+    return v5
 
     :cond_2
     const-string/jumbo v5, "ClipboardExService"
@@ -5053,6 +5018,31 @@
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/sec/clipboard/util/ClipboardPolicyObserver;->isClipboardAllowed(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isClipboardShareAllowed(I)Z
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Landroid/sec/clipboard/util/ClipboardPolicyObserver;->getInstance(Landroid/content/Context;)Landroid/sec/clipboard/util/ClipboardPolicyObserver;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/sec/clipboard/util/ClipboardPolicyObserver;->isClipboardSharedAllowed(I)Z
 
     move-result v0
 

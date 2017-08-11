@@ -256,13 +256,13 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x104060e
+    const v8, 0x1040612
 
     invoke-virtual {v5, v8, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
-    const v7, 0x104060f
+    const v7, 0x1040613
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -282,7 +282,7 @@
 
     move-result-object v7
 
-    const v8, 0x10808af
+    const v8, 0x108089d
 
     invoke-virtual {v7, v8}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 

@@ -49,7 +49,7 @@
 
     iget-object v1, p0, Lcom/android/server/notification/ZenModeHelper$RingerModeDelegate;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v1}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v1}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v1
 
@@ -68,7 +68,7 @@
 
     iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$RingerModeDelegate;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v0}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v0}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v0
 
@@ -144,7 +144,7 @@
 
     iget-object v4, p0, Lcom/android/server/notification/ZenModeHelper$RingerModeDelegate;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v4}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v4}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v4
 
@@ -172,7 +172,7 @@
     :pswitch_1
     iget-object v4, p0, Lcom/android/server/notification/ZenModeHelper$RingerModeDelegate;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v4}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v4}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v4
 
@@ -250,7 +250,7 @@
 
     iget-object v3, p0, Lcom/android/server/notification/ZenModeHelper$RingerModeDelegate;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v3}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v3}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v3
 
@@ -258,7 +258,7 @@
 
     iget-object v3, p0, Lcom/android/server/notification/ZenModeHelper$RingerModeDelegate;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v3}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v3}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v3
 
@@ -284,7 +284,7 @@
 
     iget-object v3, p0, Lcom/android/server/notification/ZenModeHelper$RingerModeDelegate;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v3}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v3}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v3
 
@@ -292,7 +292,7 @@
 
     iget-object v3, p0, Lcom/android/server/notification/ZenModeHelper$RingerModeDelegate;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v3}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v3}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v3
 
@@ -306,7 +306,7 @@
     :cond_7
     iget-object v3, p0, Lcom/android/server/notification/ZenModeHelper$RingerModeDelegate;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v3}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v3}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v3
 

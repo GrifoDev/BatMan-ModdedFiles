@@ -848,6 +848,10 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    const-string/jumbo v6, "SUPPORT_DAYDREAM=true"
+
+    invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
     new-instance v6, Ljava/lang/StringBuilder;

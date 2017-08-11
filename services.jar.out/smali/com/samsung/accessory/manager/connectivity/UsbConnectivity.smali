@@ -23,8 +23,6 @@
 
 .field protected mContext:Landroid/content/Context;
 
-.field protected mEnabledInternal:Z
-
 
 # direct methods
 .method static synthetic -get0()Ljava/lang/String;
@@ -55,10 +53,6 @@
     const/4 v1, 0x0
 
     invoke-direct {p0, p1}, Lcom/samsung/accessory/manager/connectivity/Connectivity;-><init>(Landroid/content/Context;)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/samsung/accessory/manager/connectivity/UsbConnectivity;->mEnabledInternal:Z
 
     new-instance v0, Lcom/samsung/accessory/manager/connectivity/UsbConnectivity$ccicFW;
 

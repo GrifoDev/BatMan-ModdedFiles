@@ -19,13 +19,10 @@
 .method public abstract applyFreeformMinimizePolicyLocked(I)V
 .end method
 
-.method public abstract checkCountOfRunningFreeformWithLogging()V
-.end method
-
 .method public abstract checkLaunchPolicyLocked(Landroid/content/pm/ActivityInfo;)Z
 .end method
 
-.method public abstract checkRunningFreeformWithLogging(Lcom/android/server/am/ActivityRecord;)V
+.method public abstract checkRunningFreeformWithLoggingLocked(Lcom/android/server/am/TaskRecord;)V
 .end method
 
 .method public abstract dumpLocked(Ljava/io/PrintWriter;Z)V
@@ -109,9 +106,6 @@
 .method public abstract isLaunchableForMultiInstance(Landroid/content/pm/ActivityInfo;)Z
 .end method
 
-.method public abstract isMaximizingStackByDividerLocked()Z
-.end method
-
 .method public abstract isMinTaskDimensionsChangedLocked(Lcom/android/server/am/ActivityRecord;)Z
 .end method
 
@@ -133,13 +127,13 @@
 .method public abstract logSplitWindowComplete(Ljava/lang/String;Ljava/lang/String;)V
 .end method
 
-.method public abstract maximizeStackByDivider(ZZI)V
-.end method
-
 .method public abstract minimizeAllTasksInFreeformLocked()V
 .end method
 
 .method public abstract minimizeOhterFreeforms(Landroid/os/IBinder;)V
+.end method
+
+.method public abstract moveDockedTasksToFullscreenStack(ZZ)V
 .end method
 
 .method public abstract moveMultiWindowTasksToFullScreen()V

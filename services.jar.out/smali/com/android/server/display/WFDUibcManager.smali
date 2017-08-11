@@ -58,10 +58,6 @@
 
 .field private mNegRs_Y:F
 
-.field private mOrientation:I
-
-.field private mOrientationListener:Landroid/view/OrientationEventListener;
-
 .field private mPresentDisplayID:I
 
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
@@ -127,14 +123,6 @@
 .method static synthetic -get7(Lcom/android/server/display/WFDUibcManager;)I
     .locals 1
 
-    iget v0, p0, Lcom/android/server/display/WFDUibcManager;->mOrientation:I
-
-    return v0
-.end method
-
-.method static synthetic -get8(Lcom/android/server/display/WFDUibcManager;)I
-    .locals 1
-
     iget v0, p0, Lcom/android/server/display/WFDUibcManager;->mPresentDisplayID:I
 
     return v0
@@ -149,14 +137,6 @@
 .end method
 
 .method static synthetic -set1(Lcom/android/server/display/WFDUibcManager;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/display/WFDUibcManager;->mOrientation:I
-
-    return p1
-.end method
-
-.method static synthetic -set2(Lcom/android/server/display/WFDUibcManager;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/display/WFDUibcManager;->mPresentDisplayID:I
@@ -202,10 +182,6 @@
     iput-object v0, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcher:Lcom/android/server/display/WFDUibcManager$EventDispatcher;
 
     iput-object v0, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcherThread:Ljava/lang/Thread;
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/android/server/display/WFDUibcManager;->mOrientation:I
 
     iput-boolean v1, p0, Lcom/android/server/display/WFDUibcManager;->mCoupleShot:Z
 
@@ -313,14 +289,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Lcom/android/server/display/WFDUibcManager$2;
-
-    iget-object v1, p0, Lcom/android/server/display/WFDUibcManager;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, p0, v1}, Lcom/android/server/display/WFDUibcManager$2;-><init>(Lcom/android/server/display/WFDUibcManager;Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/android/server/display/WFDUibcManager;->mOrientationListener:Landroid/view/OrientationEventListener;
-
     return-void
 .end method
 
@@ -377,10 +345,6 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    iget-object v0, p0, Lcom/android/server/display/WFDUibcManager;->mOrientationListener:Landroid/view/OrientationEventListener;
-
-    invoke-virtual {v0}, Landroid/view/OrientationEventListener;->enable()V
-
     const-string/jumbo v0, "WFDUibcManager"
 
     const-string/jumbo v1, "Uibc Manager started"
@@ -412,10 +376,6 @@
     iget-object v0, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcherThread:Ljava/lang/Thread;
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
-
-    iget-object v0, p0, Lcom/android/server/display/WFDUibcManager;->mOrientationListener:Landroid/view/OrientationEventListener;
-
-    invoke-virtual {v0}, Landroid/view/OrientationEventListener;->enable()V
 
     const-string/jumbo v0, "WFDUibcManager"
 
@@ -535,10 +495,6 @@
     const/4 v4, 0x1
 
     const/4 v3, 0x0
-
-    iget-object v1, p0, Lcom/android/server/display/WFDUibcManager;->mOrientationListener:Landroid/view/OrientationEventListener;
-
-    invoke-virtual {v1}, Landroid/view/OrientationEventListener;->disable()V
 
     iget-object v1, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcher:Lcom/android/server/display/WFDUibcManager$EventDispatcher;
 

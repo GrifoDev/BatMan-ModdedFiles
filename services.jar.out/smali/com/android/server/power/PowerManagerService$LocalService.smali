@@ -329,6 +329,46 @@
     return-void
 .end method
 
+.method public setForcedDisplayOff(Z)V
+    .locals 3
+
+    const-string/jumbo v0, "PowerManagerService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "[api] setForcedDisplayOff: off: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/android/server/power/PowerManagerService;->-wrap10()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/power/PowerManagerService$LocalService;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v0, p1}, Lcom/android/server/power/PowerManagerService;->-wrap47(Lcom/android/server/power/PowerManagerService;Z)V
+
+    return-void
+.end method
+
 .method public setGoToSleepPrevention(Z)V
     .locals 3
 
@@ -364,7 +404,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$LocalService;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/power/PowerManagerService;->-wrap47(Lcom/android/server/power/PowerManagerService;Z)V
+    invoke-static {v0, p1}, Lcom/android/server/power/PowerManagerService;->-wrap48(Lcom/android/server/power/PowerManagerService;Z)V
 
     return-void
 .end method
@@ -408,7 +448,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$LocalService;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/power/PowerManagerService;->-wrap51(Lcom/android/server/power/PowerManagerService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/power/PowerManagerService;->-wrap53(Lcom/android/server/power/PowerManagerService;I)V
 
     return-void
 .end method
@@ -418,7 +458,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$LocalService;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/power/PowerManagerService;->-wrap52(Lcom/android/server/power/PowerManagerService;J)V
+    invoke-static {v0, p1, p2}, Lcom/android/server/power/PowerManagerService;->-wrap54(Lcom/android/server/power/PowerManagerService;J)V
 
     return-void
 .end method
@@ -428,7 +468,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$LocalService;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/power/PowerManagerService;->-wrap56(Lcom/android/server/power/PowerManagerService;J)V
+    invoke-static {v0, p1, p2}, Lcom/android/server/power/PowerManagerService;->-wrap58(Lcom/android/server/power/PowerManagerService;J)V
 
     return-void
 .end method
@@ -438,7 +478,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$LocalService;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-wrap57(Lcom/android/server/power/PowerManagerService;)V
+    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-wrap59(Lcom/android/server/power/PowerManagerService;)V
 
     return-void
 .end method

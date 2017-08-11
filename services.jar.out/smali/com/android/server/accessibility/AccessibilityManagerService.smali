@@ -87,6 +87,8 @@
 
 .field private static final mSCafeVersion:Ljava/lang/String;
 
+.field private static mWhiteList:[Ljava/lang/String;
+
 .field private static final sFakeAccessibilityServiceComponentName:Landroid/content/ComponentName;
 
 .field private static sIdCounter:I
@@ -891,7 +893,9 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x1
 
     const/4 v3, 0x0
 
@@ -911,11 +915,47 @@
 
     sput v0, Lcom/android/server/accessibility/AccessibilityManagerService;->OWN_PROCESS_ID:I
 
-    const/4 v0, 0x1
-
-    sput v0, Lcom/android/server/accessibility/AccessibilityManagerService;->sIdCounter:I
+    sput v4, Lcom/android/server/accessibility/AccessibilityManagerService;->sIdCounter:I
 
     sput-boolean v3, Lcom/android/server/accessibility/AccessibilityManagerService;->mConfirm:Z
+
+    const/4 v0, 0x6
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "com.samsung.android.app.talkback"
+
+    aput-object v1, v0, v3
+
+    const-string/jumbo v1, "com.samsung.android.universalswitch"
+
+    aput-object v1, v0, v4
+
+    const-string/jumbo v1, "com.sec.android.app.camera"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.google.android.marvin.talkback"
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.samsung.android.bixby.agent"
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.salab.act"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    sput-object v0, Lcom/android/server/accessibility/AccessibilityManagerService;->mWhiteList:[Ljava/lang/String;
 
     const-string/jumbo v0, "ro.build.scafe.version"
 
@@ -1268,18 +1308,35 @@
 
     invoke-interface {v1, v2, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    invoke-direct {p0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->isWhiteList(Lcom/android/server/accessibility/AccessibilityManagerService$Service;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p1, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mAllowBixby:Z
+
     :goto_1
     return-void
 
     :cond_0
     invoke-virtual {p1}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->onAdded()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
     move-exception v0
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    iput-boolean v1, p1, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mAllowBixby:Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 .end method
@@ -2142,12 +2199,23 @@
 
     const/4 v2, 0x0
 
+    if-nez p1, :cond_0
+
+    const-string/jumbo v1, "AccessibilityManagerService"
+
+    const-string/jumbo v3, "callerpackage list is null"
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v2
+
+    :cond_0
     array-length v3, p1
 
     move v1, v2
 
     :goto_0
-    if-ge v1, v3, :cond_1
+    if-ge v1, v3, :cond_2
 
     aget-object v0, p1, v1
 
@@ -2155,18 +2223,18 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     const/4 v1, 0x1
 
     return v1
 
-    :cond_0
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return v2
 .end method
 
@@ -2247,8 +2315,49 @@
     goto :goto_0
 .end method
 
-.method private notifyAccessibilityServicesDelayedLocked(Landroid/view/accessibility/AccessibilityEvent;Z)V
+.method private isWhiteList(Lcom/android/server/accessibility/AccessibilityManagerService$Service;)Z
     .locals 6
+
+    const/4 v2, 0x0
+
+    sget-object v3, Lcom/android/server/accessibility/AccessibilityManagerService;->mWhiteList:[Ljava/lang/String;
+
+    array-length v4, v3
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v4, :cond_1
+
+    aget-object v0, v3, v1
+
+    iget-object v5, p1, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v5}, Landroid/content/ComponentName;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return v2
+.end method
+
+.method private notifyAccessibilityServicesDelayedLocked(Landroid/view/accessibility/AccessibilityEvent;Z)V
+    .locals 7
 
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/accessibility/AccessibilityManagerService;->getCurrentUserStateLocked()Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
@@ -2264,7 +2373,7 @@
     move-result v0
 
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_2
 
     iget-object v5, v4, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mBoundServices:Ljava/util/concurrent/CopyOnWriteArrayList;
 
@@ -2274,6 +2383,55 @@
 
     check-cast v3, Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
+    iget-boolean v5, v3, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mAllowBixby:Z
+
+    if-nez v5, :cond_1
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getPackageName()Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_1
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getPackageName()Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "com.samsung.android.app.spage"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getPackageName()Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "com.samsung.android.bixby"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    :cond_0
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
     iget-boolean v5, v3, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mIsDefault:Z
 
     if-ne v5, p2, :cond_0
@@ -2288,15 +2446,12 @@
     :try_end_0
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v2
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
@@ -7931,23 +8086,6 @@
 
     const/4 v5, 0x0
 
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/server/accessibility/AccessibilityManagerService;->mLock:Ljava/lang/Object;
-
-    monitor-enter v14
-
-    :try_start_0
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/accessibility/AccessibilityManagerService;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilityManagerService$SecurityPolicy;
-
-    move/from16 v0, p2
-
-    invoke-virtual {v13, v0}, Lcom/android/server/accessibility/AccessibilityManagerService$SecurityPolicy;->resolveCallingUserIdEnforcingPermissionsLocked(I)I
-
-    move-result v6
-
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v13
@@ -7964,15 +8102,15 @@
 
     const-string/jumbo v13, "com.samsung.android.bixby.agent"
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
-    aput-object v13, v8, v15
+    aput-object v13, v8, v14
 
     const-string/jumbo v13, "hide.bixby.accessibility"
 
-    const-string/jumbo v15, "com.kakao.talk"
+    const-string/jumbo v14, "com.kakao.talk"
 
-    invoke-static {v13, v15}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v13, v14}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -7995,6 +8133,23 @@
     const/4 v5, 0x1
 
     :cond_0
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/accessibility/AccessibilityManagerService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v14
+
+    :try_start_0
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/accessibility/AccessibilityManagerService;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilityManagerService$SecurityPolicy;
+
+    move/from16 v0, p2
+
+    invoke-virtual {v13, v0}, Lcom/android/server/accessibility/AccessibilityManagerService$SecurityPolicy;->resolveCallingUserIdEnforcingPermissionsLocked(I)I
+
+    move-result v6
+
     move-object/from16 v0, p0
 
     invoke-direct {v0, v6}, Lcom/android/server/accessibility/AccessibilityManagerService;->getUserStateLocked(I)Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
@@ -10119,7 +10274,7 @@
 
     iget-object v10, p0, Lcom/android/server/accessibility/AccessibilityManagerService;->mContext:Landroid/content/Context;
 
-    const v11, 0x1040695
+    const v11, 0x1040699
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -10139,7 +10294,7 @@
 
     aput-object v3, v11, v12
 
-    const v12, 0x1040696
+    const v12, 0x104069a
 
     invoke-virtual {v10, v12, v11}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -10322,7 +10477,7 @@
 
     aput-object v3, v11, v12
 
-    const v12, 0x1040697
+    const v12, 0x104069b
 
     invoke-virtual {v10, v12, v11}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

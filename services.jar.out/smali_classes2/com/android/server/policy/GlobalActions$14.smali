@@ -196,11 +196,11 @@
     :cond_5
     iget-object v0, p0, Lcom/android/server/policy/GlobalActions$14;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    const v1, 0x10407f3
+    const v1, 0x10407f7
 
-    const v2, 0x10407f6
+    const v2, 0x10407fa
 
-    const v3, 0x10407f7
+    const v3, 0x10407fb
 
     invoke-static {v0, p0, v1, v2, v3}, Lcom/android/server/policy/GlobalActions;->-wrap17(Lcom/android/server/policy/GlobalActions;Lcom/android/server/policy/GlobalActions$ToggleAction;III)V
 

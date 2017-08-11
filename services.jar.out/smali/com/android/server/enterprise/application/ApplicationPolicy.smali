@@ -922,7 +922,7 @@
 
     move-result-object v2
 
-    const v7, 0x105016c
+    const v7, 0x105017c
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5229,7 +5229,22 @@
 
     aget-object v1, v0, v7
 
-    if-nez p2, :cond_5
+    invoke-static {v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->validatePackageName(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    const-string/jumbo v4, "ApplicationPolicy"
+
+    const-string/jumbo v5, "changeApplicationIcon: Invalid package name"
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v2
+
+    :cond_2
+    if-nez p2, :cond_6
 
     iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppIconDb:Lcom/android/server/enterprise/application/ApplicationIconDb;
 
@@ -5238,11 +5253,11 @@
     move-result v2
 
     :goto_0
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     sget-object v4, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppNameChangedPkgNameMap:Ljava/util/HashMap;
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3
 
     new-instance v4, Ljava/util/HashMap;
 
@@ -5250,8 +5265,8 @@
 
     sput-object v4, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppNameChangedPkgNameMap:Ljava/util/HashMap;
 
-    :cond_2
-    if-nez p2, :cond_6
+    :cond_3
+    if-nez p2, :cond_7
 
     sget-object v4, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppNameChangedPkgNameMap:Ljava/util/HashMap;
 
@@ -5263,7 +5278,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     sget-object v4, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppNameChangedPkgNameMap:Ljava/util/HashMap;
 
@@ -5279,14 +5294,14 @@
 
     invoke-interface {v4, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    :cond_3
+    :cond_4
     :goto_1
     invoke-direct {p0, v1, v3}, Lcom/android/server/enterprise/application/ApplicationPolicy;->notifyApplicationChanged(Ljava/lang/String;I)V
 
-    :cond_4
+    :cond_5
     return v2
 
-    :cond_5
+    :cond_6
     iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppIconDb:Lcom/android/server/enterprise/application/ApplicationIconDb;
 
     invoke-virtual {v4, p1, p2, p3}, Lcom/android/server/enterprise/application/ApplicationIconDb;->updateApplicationName(Ljava/lang/String;Ljava/lang/String;I)Z
@@ -5295,7 +5310,7 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     sget-object v4, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppNameChangedPkgNameMap:Ljava/util/HashMap;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -5306,7 +5321,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8
 
     sget-object v4, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppNameChangedPkgNameMap:Ljava/util/HashMap;
 
@@ -5324,9 +5339,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9
 
-    :cond_7
+    :cond_8
     sget-object v4, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppNameChangedPkgNameMap:Ljava/util/HashMap;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -5337,7 +5352,7 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4
 
     sget-object v4, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppNameChangedPkgNameMap:Ljava/util/HashMap;
 
@@ -5367,7 +5382,7 @@
 
     goto :goto_1
 
-    :cond_8
+    :cond_9
     sget-object v4, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppNameChangedPkgNameMap:Ljava/util/HashMap;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -5386,18 +5401,18 @@
 .end method
 
 .method private checkApplicationsStateToBeReconciled(I)V
-    .locals 12
+    .locals 13
 
-    const/high16 v11, 0x1000000
+    const/high16 v12, 0x1000000
 
     const/4 v1, 0x0
 
     :try_start_0
-    iget-object v6, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v7, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "appToReconcile"
+    const-string/jumbo v8, "appToReconcile"
 
-    invoke-virtual {v6, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getGenericValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v7, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getGenericValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -5409,34 +5424,34 @@
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    move-result v6
+    move-result v7
 
-    if-lez v6, :cond_0
+    if-lez v7, :cond_0
 
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_0
-    iget-object v6, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v7, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "APPLICATION"
+    const-string/jumbo v8, "APPLICATION"
 
-    const/4 v8, 0x2
+    const/4 v9, 0x2
 
-    new-array v8, v8, [Ljava/lang/String;
+    new-array v9, v9, [Ljava/lang/String;
 
-    const-string/jumbo v9, "packageName"
+    const-string/jumbo v10, "packageName"
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    aput-object v9, v8, v10
+    aput-object v10, v9, v11
 
-    const-string/jumbo v9, "controlState"
+    const-string/jumbo v10, "controlState"
 
-    const/4 v10, 0x1
+    const/4 v11, 0x1
 
-    aput-object v9, v8, v10
+    aput-object v10, v9, v11
 
-    invoke-virtual {v6, v7, p1, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {v7, v8, p1, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
 
@@ -5444,81 +5459,102 @@
     :goto_0
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_4
+    if-eqz v7, :cond_4
 
-    const-string/jumbo v6, "packageName"
+    const-string/jumbo v7, "packageName"
 
-    invoke-interface {v1, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v1, v7}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v6
+    move-result v7
 
-    invoke-interface {v1, v6}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v1, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const-string/jumbo v6, "controlState"
+    const-string/jumbo v7, "controlState"
 
-    invoke-interface {v1, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v1, v7}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v6
+    move-result v7
 
-    invoke-interface {v1, v6}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v1, v7}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v0
 
-    and-int/lit8 v6, v0, 0x2
+    and-int/lit8 v7, v0, 0x2
 
-    if-eqz v6, :cond_2
+    if-eqz v7, :cond_2
 
     invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "&"
+    const-string/jumbo v7, "&"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v6, 0x2
+    const/4 v7, 0x2
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, ";"
+    const-string/jumbo v7, ";"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_2
-    and-int v6, v0, v11
+    and-int v7, v0, v12
 
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_1
 
     invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "&"
+    const-string/jumbo v7, "&"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/high16 v6, 0x1000000
+    const/high16 v7, 0x1000000
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, ";"
+    const-string/jumbo v7, ";"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception v6
 
     :try_start_1
-    const-string/jumbo v6, "ApplicationPolicy"
+    const-string/jumbo v7, "ApplicationPolicy"
 
-    const-string/jumbo v7, "error in changeUidOnAppReconcileNeeded"
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-static {v6, v7, v2}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v6}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -5534,21 +5570,22 @@
     :try_start_2
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v6
+    move-result v7
 
-    if-lez v6, :cond_5
+    if-lez v7, :cond_5
 
-    iget-object v6, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v7, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "appToReconcile"
+    const-string/jumbo v8, "appToReconcile"
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v6, v7, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v7, v8, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Landroid/database/SQLException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :cond_5
@@ -5558,28 +5595,46 @@
 
     goto :goto_1
 
+    :catch_1
+    move-exception v2
+
+    :try_start_3
+    const-string/jumbo v7, "ApplicationPolicy"
+
+    const-string/jumbo v8, "error in changeUidOnAppReconcileNeeded"
+
+    invoke-static {v7, v8, v2}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
     :catchall_0
-    move-exception v6
+    move-exception v7
 
     if-eqz v1, :cond_6
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     :cond_6
-    throw v6
+    throw v7
 .end method
 
 .method private checkComponentsStateToBeReconciled(I)V
-    .locals 11
+    .locals 12
 
     const/4 v3, 0x0
 
     :try_start_0
-    iget-object v6, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v7, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "componentsToReconcile"
+    const-string/jumbo v8, "componentsToReconcile"
 
-    invoke-virtual {v6, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getGenericValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v7, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getGenericValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -5591,34 +5646,34 @@
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v6
+    move-result v7
 
-    if-lez v6, :cond_0
+    if-lez v7, :cond_0
 
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_0
-    iget-object v6, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v7, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "APPLICATION_COMPONENT"
+    const-string/jumbo v8, "APPLICATION_COMPONENT"
 
-    const/4 v8, 0x2
+    const/4 v9, 0x2
 
-    new-array v8, v8, [Ljava/lang/String;
+    new-array v9, v9, [Ljava/lang/String;
 
-    const-string/jumbo v9, "component"
+    const-string/jumbo v10, "component"
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    aput-object v9, v8, v10
+    aput-object v10, v9, v11
 
-    const-string/jumbo v9, "componentControlState"
+    const-string/jumbo v10, "componentControlState"
 
-    const/4 v10, 0x1
+    const/4 v11, 0x1
 
-    aput-object v9, v8, v10
+    aput-object v10, v9, v11
 
-    invoke-virtual {v6, v7, p1, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {v7, v8, p1, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v3
 
@@ -5626,54 +5681,75 @@
     :goto_0
     invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_3
+    if-eqz v7, :cond_3
 
-    const-string/jumbo v6, "component"
+    const-string/jumbo v7, "component"
 
-    invoke-interface {v3, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v6
+    move-result v7
 
-    invoke-interface {v3, v6}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v6, "componentControlState"
+    const-string/jumbo v7, "componentControlState"
 
-    invoke-interface {v3, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v6
+    move-result v7
 
-    invoke-interface {v3, v6}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v2
 
-    and-int/lit8 v6, v2, 0x1
+    and-int/lit8 v7, v2, 0x1
 
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_1
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, ";"
+    const-string/jumbo v7, ";"
 
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v4
+    move-exception v6
 
     :try_start_1
-    const-string/jumbo v6, "ApplicationPolicy"
+    const-string/jumbo v7, "ApplicationPolicy"
 
-    const-string/jumbo v7, "error in changeUidOnComponentReconcileNeeded"
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-static {v6, v7, v4}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v6}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -5689,21 +5765,22 @@
     :try_start_2
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v6
+    move-result v7
 
-    if-lez v6, :cond_4
+    if-lez v7, :cond_4
 
-    iget-object v6, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v7, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "componentsToReconcile"
+    const-string/jumbo v8, "componentsToReconcile"
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v6, v7, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v7, v8, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Landroid/database/SQLException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :cond_4
@@ -5713,15 +5790,33 @@
 
     goto :goto_1
 
+    :catch_1
+    move-exception v4
+
+    :try_start_3
+    const-string/jumbo v7, "ApplicationPolicy"
+
+    const-string/jumbo v8, "error in changeUidOnComponentReconcileNeeded"
+
+    invoke-static {v7, v8, v4}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    if-eqz v3, :cond_2
+
+    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
     :catchall_0
-    move-exception v6
+    move-exception v7
 
     if-eqz v3, :cond_5
 
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
     :cond_5
-    throw v6
+    throw v7
 .end method
 
 .method private checkPkgNameMatch(Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)Z
@@ -9312,13 +9407,7 @@
 .end method
 
 .method private getApplicationsListInternal(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)[Lcom/samsung/android/knox/application/ManagedAppInfo;
-    .locals 12
-
-    const/4 v11, 0x0
-
-    const/4 v10, 0x1
-
-    const/4 v9, 0x0
+    .locals 11
 
     const/4 v7, 0x0
 
@@ -9332,11 +9421,15 @@
 
     const-string/jumbo v0, "packageName"
 
-    aput-object v0, v5, v9
+    const/4 v1, 0x0
+
+    aput-object v0, v5, v1
 
     const-string/jumbo v0, "applicationInstallationCount"
 
-    aput-object v0, v5, v10
+    const/4 v1, 0x1
+
+    aput-object v0, v5, v1
 
     const-string/jumbo v0, "applicationUninstallationCount"
 
@@ -9362,6 +9455,9 @@
 
     aput-object v0, v5, v1
 
+    const/4 v9, 0x0
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     const-string/jumbo v1, "APPLICATION"
@@ -9374,20 +9470,24 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdminAndField(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result-object v8
+    move-result-object v9
 
-    if-eqz v8, :cond_5
+    if-eqz v9, :cond_6
 
-    new-instance v7, Ljava/util/ArrayList;
+    new-instance v8, Ljava/util/ArrayList;
 
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
-    invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
+    :try_start_1
+    invoke-interface {v9}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     new-instance v6, Lcom/samsung/android/knox/application/ManagedAppInfo;
 
@@ -9395,11 +9495,11 @@
 
     const-string/jumbo v0, "packageName"
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v0
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -9407,11 +9507,11 @@
 
     const-string/jumbo v0, "applicationInstallationCount"
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v0
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v0
 
@@ -9419,11 +9519,11 @@
 
     const-string/jumbo v0, "applicationUninstallationCount"
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v0
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v0
 
@@ -9431,11 +9531,11 @@
 
     const-string/jumbo v0, "managedApp"
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v0
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v0
 
@@ -9443,11 +9543,11 @@
 
     const-string/jumbo v0, "install_sourceMDM"
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v0
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v0
 
@@ -9459,7 +9559,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
@@ -9471,9 +9571,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    move v0, v9
+    const/4 v0, 0x0
 
     :goto_1
     iput v0, v6, Lcom/samsung/android/knox/application/ManagedAppInfo;->mAppDisabled:I
@@ -9484,9 +9584,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    move v0, v9
+    const/4 v0, 0x0
 
     :goto_2
     iput v0, v6, Lcom/samsung/android/knox/application/ManagedAppInfo;->mAppInstallationDisabled:I
@@ -9497,48 +9597,68 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    move v0, v9
+    const/4 v0, 0x0
 
     :goto_3
     iput v0, v6, Lcom/samsung/android/knox/application/ManagedAppInfo;->mAppUninstallationDisabled:I
 
-    invoke-virtual {v7, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catch Landroid/database/SQLException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_0
 
+    :catch_0
+    move-exception v10
+
+    move-object v7, v8
+
+    :goto_4
+    :try_start_2
+    const-string/jumbo v0, "ApplicationPolicy"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v10}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    if-eqz v9, :cond_0
+
+    invoke-interface {v9}, Landroid/database/Cursor;->close()V
+
     :cond_0
-    move v0, v10
-
-    goto :goto_1
-
-    :cond_1
-    move v0, v9
-
-    goto :goto_1
-
-    :cond_2
-    move v0, v10
-
-    goto :goto_2
-
-    :cond_3
-    move v0, v10
-
-    goto :goto_3
-
-    :cond_4
-    invoke-interface {v8}, Landroid/database/Cursor;->close()V
-
-    :cond_5
-    if-eqz v7, :cond_6
+    :goto_5
+    if-eqz v7, :cond_8
 
     invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_6
+    if-lez v0, :cond_8
 
     invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
@@ -9554,8 +9674,63 @@
 
     return-object v0
 
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_3
+    const/4 v0, 0x1
+
+    goto :goto_2
+
+    :cond_4
+    const/4 v0, 0x1
+
+    goto :goto_3
+
+    :cond_5
+    move-object v7, v8
+
     :cond_6
-    return-object v11
+    if-eqz v9, :cond_0
+
+    invoke-interface {v9}, Landroid/database/Cursor;->close()V
+
+    goto :goto_5
+
+    :catchall_0
+    move-exception v0
+
+    :goto_6
+    if-eqz v9, :cond_7
+
+    invoke-interface {v9}, Landroid/database/Cursor;->close()V
+
+    :cond_7
+    throw v0
+
+    :cond_8
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :catchall_1
+    move-exception v0
+
+    move-object v7, v8
+
+    goto :goto_6
+
+    :catch_1
+    move-exception v10
+
+    goto :goto_4
 .end method
 
 .method public static getContainerizedPackageName(ILjava/lang/String;)Ljava/lang/String;
@@ -12017,7 +12192,7 @@
 
     iget-object v5, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v6, 0x1040848
+    const v6, 0x104084d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12031,7 +12206,7 @@
 
     iget-object v8, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v9, 0x104084c
+    const v9, 0x1040851
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12050,7 +12225,7 @@
     goto :goto_1
 
     :cond_4
-    const v5, 0x10409fb
+    const v5, 0x1040a04
 
     invoke-static {v5}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12103,7 +12278,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040848
+    const v5, 0x104084d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12117,7 +12292,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x104084c
+    const v8, 0x1040851
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12136,7 +12311,7 @@
     goto :goto_2
 
     :cond_8
-    const v4, 0x10409fb
+    const v4, 0x1040a04
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12172,7 +12347,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040848
+    const v5, 0x104084d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12186,7 +12361,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x104084c
+    const v8, 0x1040851
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12205,7 +12380,7 @@
     goto :goto_2
 
     :cond_9
-    const v4, 0x10409fb
+    const v4, 0x1040a04
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12241,7 +12416,7 @@
 
     iget-object v5, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v6, 0x1040848
+    const v6, 0x104084d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12255,7 +12430,7 @@
 
     iget-object v8, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v9, 0x104084c
+    const v9, 0x1040851
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12274,7 +12449,7 @@
     goto :goto_3
 
     :cond_c
-    const v5, 0x10409fb
+    const v5, 0x1040a04
 
     invoke-static {v5}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12740,7 +12915,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040848
+    const v5, 0x104084d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12754,7 +12929,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x104084c
+    const v8, 0x1040851
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12773,7 +12948,7 @@
     goto :goto_8
 
     :cond_19
-    const v4, 0x10409fb
+    const v4, 0x1040a04
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
     :try_end_9
@@ -12917,7 +13092,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040848
+    const v5, 0x104084d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12931,7 +13106,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x104084c
+    const v8, 0x1040851
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12950,7 +13125,7 @@
     goto :goto_9
 
     :cond_1e
-    const v4, 0x10409fb
+    const v4, 0x1040a04
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
     :try_end_b
@@ -13216,7 +13391,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040848
+    const v5, 0x104084d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13230,7 +13405,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x104084c
+    const v8, 0x1040851
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13249,7 +13424,7 @@
     goto :goto_b
 
     :cond_26
-    const v4, 0x10409fb
+    const v4, 0x1040a04
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -13276,7 +13451,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040848
+    const v5, 0x104084d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13290,7 +13465,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x104084c
+    const v8, 0x1040851
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13309,7 +13484,7 @@
     goto/16 :goto_5
 
     :cond_28
-    const v4, 0x10409fb
+    const v4, 0x1040a04
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -13332,7 +13507,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040848
+    const v5, 0x104084d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13346,7 +13521,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x104084c
+    const v8, 0x1040851
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13365,7 +13540,7 @@
     goto/16 :goto_5
 
     :cond_2a
-    const v4, 0x10409fb
+    const v4, 0x1040a04
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -13388,7 +13563,7 @@
 
     iget-object v5, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v6, 0x1040848
+    const v6, 0x104084d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13402,7 +13577,7 @@
 
     iget-object v8, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v9, 0x104084c
+    const v9, 0x1040851
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13421,7 +13596,7 @@
     goto/16 :goto_6
 
     :cond_2c
-    const v5, 0x10409fb
+    const v5, 0x1040a04
 
     invoke-static {v5}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
     :try_end_e
@@ -14427,97 +14602,97 @@
 .end method
 
 .method private loadApplicationBlacklistWhitelist()V
-    .locals 24
+    .locals 25
 
-    sget-object v19, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppControlStateLock:Ljava/lang/Object;
+    sget-object v20, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppControlStateLock:Ljava/lang/Object;
 
-    monitor-enter v19
+    monitor-enter v20
 
     :try_start_0
-    sget-object v18, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppControlState:Ljava/util/Map;
+    sget-object v19, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppControlState:Ljava/util/Map;
 
-    invoke-interface/range {v18 .. v18}, Ljava/util/Map;->clear()V
+    invoke-interface/range {v19 .. v19}, Ljava/util/Map;->clear()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getAdminLUidList()Ljava/util/ArrayList;
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getAdminLUidList()Ljava/util/ArrayList;
 
-    move-result-object v17
+    move-result-object v18
 
-    const/16 v18, 0x2
+    const/16 v19, 0x2
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     new-array v8, v0, [Ljava/lang/String;
 
-    const-string/jumbo v18, "packageName"
+    const-string/jumbo v19, "packageName"
 
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
-    aput-object v18, v8, v20
+    aput-object v19, v8, v21
 
-    const-string/jumbo v18, "controlState"
+    const-string/jumbo v19, "controlState"
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    aput-object v18, v8, v20
+    aput-object v19, v8, v21
 
-    const/16 v18, 0x2
+    const/16 v19, 0x2
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     new-array v9, v0, [Ljava/lang/String;
 
-    const-string/jumbo v18, "signature"
+    const-string/jumbo v19, "signature"
 
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
-    aput-object v18, v9, v20
+    aput-object v19, v9, v21
 
-    const-string/jumbo v18, "controlState"
+    const-string/jumbo v19, "controlState"
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    aput-object v18, v9, v20
+    aput-object v19, v9, v21
 
-    new-instance v18, Ljava/util/HashMap;
+    new-instance v19, Ljava/util/HashMap;
 
-    invoke-direct/range {v18 .. v18}, Ljava/util/HashMap;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/util/HashMap;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/enterprise/application/ApplicationPolicy;->mNotificationMode:Ljava/util/Map;
 
-    invoke-interface/range {v17 .. v17}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
     :goto_0
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_1f
+    if-eqz v19, :cond_22
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/lang/Long;
+    check-cast v19, Ljava/lang/Long;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/Long;->longValue()J
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v6
 
     invoke-static {v6, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getAdminUidFromLUID(J)I
 
-    move-result v15
+    move-result v16
 
     invoke-static {v6, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getContainerIdFromLUID(J)I
 
@@ -14527,1285 +14702,1489 @@
 
     invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
 
-    const-string/jumbo v18, "PackageNameInstallationBlacklist"
+    const-string/jumbo v19, "PackageNameInstallationBlacklist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameInstallationWhitelist"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "PermissionInstallationBlacklist"
+    const-string/jumbo v19, "PackageNameInstallationWhitelist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "SignatureInstallationBlacklist"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "SignatureInstallationWhitelist"
+    const-string/jumbo v19, "PermissionInstallationBlacklist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "UninstallationBlacklist"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "UninstallationWhitelist"
+    const-string/jumbo v19, "SignatureInstallationBlacklist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameStopBlacklist"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "PackageNameStopWhitelist"
+    const-string/jumbo v19, "SignatureInstallationWhitelist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameWidgetWhitelist"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "PackageNameWidgetBlacklist"
+    const-string/jumbo v19, "UninstallationBlacklist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameNotificationWhitelist"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "PackageNameNotificationBlacklist"
+    const-string/jumbo v19, "UninstallationWhitelist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "RevocationCheck"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "OcspCheck"
+    const-string/jumbo v19, "PackageNameStopBlacklist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameClearDataBlacklist"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "PackageNameClearDataWhitelist"
+    const-string/jumbo v19, "PackageNameStopWhitelist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameClearCacheBlacklist"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "PackageNameClearCacheWhitelist"
+    const-string/jumbo v19, "PackageNameWidgetWhitelist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameUpdateBlacklist"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "PackageNameUpdateWhitelist"
+    const-string/jumbo v19, "PackageNameWidgetBlacklist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameStartBlacklist"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "PackageNameStartWhitelist"
+    const-string/jumbo v19, "PackageNameNotificationWhitelist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameDisableClipboardBlackList"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "PackageNameDisableClipboardWhitelist"
+    const-string/jumbo v19, "PackageNameNotificationBlacklist"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameFocusMonitoringList"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v18, "PackageNameFocusMonitoringWhiteList"
+    const-string/jumbo v19, "RevocationCheck"
 
-    new-instance v20, Ljava/util/TreeSet;
+    new-instance v21, Ljava/util/TreeSet;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v18, "PackageNameDozeModeWhiteList"
-
-    new-instance v20, Ljava/util/TreeSet;
-
-    invoke-direct/range {v20 .. v20}, Ljava/util/TreeSet;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    const-string/jumbo v19, "OcspCheck"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameClearDataBlacklist"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameClearDataWhitelist"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameClearCacheBlacklist"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameClearCacheWhitelist"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameUpdateBlacklist"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameUpdateWhitelist"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameStartBlacklist"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameStartWhitelist"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameDisableClipboardBlackList"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameDisableClipboardWhitelist"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameFocusMonitoringList"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameFocusMonitoringWhiteList"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v19, "PackageNameDozeModeWhiteList"
+
+    new-instance v21, Ljava/util/TreeSet;
+
+    invoke-direct/range {v21 .. v21}, Ljava/util/TreeSet;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/4 v12, 0x0
+
+    :try_start_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v20, "APPLICATION"
+    const-string/jumbo v21, "APPLICATION"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1, v15, v10, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;II[Ljava/lang/String;)Landroid/database/Cursor;
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2, v10, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;II[Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v12
 
-    if-eqz v12, :cond_18
+    if-eqz v12, :cond_1c
 
     :cond_0
     :goto_1
     invoke-interface {v12}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_17
+    if-eqz v19, :cond_1c
 
-    const-string/jumbo v18, "packageName"
+    const-string/jumbo v19, "packageName"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v12, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v18
+    move-result v19
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     invoke-interface {v12, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v14
 
-    const-string/jumbo v18, "controlState"
+    const-string/jumbo v19, "controlState"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v12, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v18
+    move-result v19
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     invoke-interface {v12, v0}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v11
 
-    and-int/lit8 v18, v11, 0x4
+    and-int/lit8 v19, v11, 0x4
 
-    const/16 v20, 0x4
+    const/16 v21, 0x4
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_1
 
-    const-string/jumbo v18, "PackageNameInstallationBlacklist"
+    const-string/jumbo v19, "PackageNameInstallationBlacklist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_1
-    and-int/lit8 v18, v11, 0x8
+    and-int/lit8 v19, v11, 0x8
 
-    const/16 v20, 0x8
+    const/16 v21, 0x8
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_2
 
-    const-string/jumbo v18, "PackageNameInstallationWhitelist"
+    const-string/jumbo v19, "PackageNameInstallationWhitelist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_2
-    and-int/lit8 v18, v11, 0x1
+    and-int/lit8 v19, v11, 0x1
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_3
 
-    const-string/jumbo v18, "UninstallationBlacklist"
+    const-string/jumbo v19, "UninstallationBlacklist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_3
     and-int/lit16 v0, v11, 0x400
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const/16 v20, 0x400
+    const/16 v21, 0x400
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_4
 
-    const-string/jumbo v18, "UninstallationWhitelist"
+    const-string/jumbo v19, "UninstallationWhitelist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_4
-    and-int/lit8 v18, v11, 0x10
+    and-int/lit8 v19, v11, 0x10
 
-    const/16 v20, 0x10
+    const/16 v21, 0x10
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_5
 
-    const-string/jumbo v18, "PackageNameStopBlacklist"
+    const-string/jumbo v19, "PackageNameStopBlacklist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_5
-    and-int/lit8 v18, v11, 0x20
+    and-int/lit8 v19, v11, 0x20
 
-    const/16 v20, 0x20
+    const/16 v21, 0x20
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_6
 
-    const-string/jumbo v18, "PackageNameStopWhitelist"
+    const-string/jumbo v19, "PackageNameStopWhitelist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_6
-    and-int/lit8 v18, v11, 0x40
+    and-int/lit8 v19, v11, 0x40
 
-    const/16 v20, 0x40
+    const/16 v21, 0x40
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_7
 
-    const-string/jumbo v18, "PackageNameWidgetBlacklist"
+    const-string/jumbo v19, "PackageNameWidgetBlacklist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_7
     and-int/lit16 v0, v11, 0x80
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const/16 v20, 0x80
+    const/16 v21, 0x80
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_8
 
-    const-string/jumbo v18, "PackageNameWidgetWhitelist"
+    const-string/jumbo v19, "PackageNameWidgetWhitelist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_8
     and-int/lit16 v0, v11, 0x100
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const/16 v20, 0x100
+    const/16 v21, 0x100
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_9
 
-    const-string/jumbo v18, "PackageNameNotificationBlacklist"
+    const-string/jumbo v19, "PackageNameNotificationBlacklist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_9
     and-int/lit16 v0, v11, 0x200
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const/16 v20, 0x200
+    const/16 v21, 0x200
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_a
 
-    const-string/jumbo v18, "PackageNameNotificationWhitelist"
+    const-string/jumbo v19, "PackageNameNotificationWhitelist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_a
     and-int/lit16 v0, v11, 0x800
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const/16 v20, 0x800
+    const/16 v21, 0x800
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_b
 
-    const-string/jumbo v18, "RevocationCheck"
+    const-string/jumbo v19, "RevocationCheck"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_b
     and-int/lit16 v0, v11, 0x1000
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const/16 v20, 0x1000
+    const/16 v21, 0x1000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_c
 
-    const-string/jumbo v18, "OcspCheck"
+    const-string/jumbo v19, "OcspCheck"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_c
     and-int/lit16 v0, v11, 0x2000
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const/16 v20, 0x2000
+    const/16 v21, 0x2000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_d
 
-    const-string/jumbo v18, "PackageNameClearDataBlacklist"
+    const-string/jumbo v19, "PackageNameClearDataBlacklist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_d
     and-int/lit16 v0, v11, 0x4000
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const/16 v20, 0x4000
+    const/16 v21, 0x4000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_e
 
-    const-string/jumbo v18, "PackageNameClearDataWhitelist"
+    const-string/jumbo v19, "PackageNameClearDataWhitelist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_e
-    const v18, 0x8000
+    const v19, 0x8000
 
-    and-int v18, v18, v11
+    and-int v19, v19, v11
 
-    const v20, 0x8000
+    const v21, 0x8000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_f
 
-    const-string/jumbo v18, "PackageNameClearCacheBlacklist"
+    const-string/jumbo v19, "PackageNameClearCacheBlacklist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_f
-    const/high16 v18, 0x10000
+    const/high16 v19, 0x10000
 
-    and-int v18, v18, v11
+    and-int v19, v19, v11
 
-    const/high16 v20, 0x10000
+    const/high16 v21, 0x10000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_10
 
-    const-string/jumbo v18, "PackageNameClearCacheWhitelist"
+    const-string/jumbo v19, "PackageNameClearCacheWhitelist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_10
-    const/high16 v18, 0x20000
+    const/high16 v19, 0x20000
 
-    and-int v18, v18, v11
+    and-int v19, v19, v11
 
-    const/high16 v20, 0x20000
+    const/high16 v21, 0x20000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_11
 
-    const-string/jumbo v18, "PackageNameUpdateBlacklist"
+    const-string/jumbo v19, "PackageNameUpdateBlacklist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_11
-    const/high16 v18, 0x40000
+    const/high16 v19, 0x40000
 
-    and-int v18, v18, v11
+    and-int v19, v19, v11
 
-    const/high16 v20, 0x40000
+    const/high16 v21, 0x40000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_12
 
-    const-string/jumbo v18, "PackageNameUpdateWhitelist"
+    const-string/jumbo v19, "PackageNameUpdateWhitelist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_12
-    const/high16 v18, 0x80000
+    const/high16 v19, 0x80000
 
-    and-int v18, v18, v11
+    and-int v19, v19, v11
 
-    const/high16 v20, 0x80000
+    const/high16 v21, 0x80000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_13
 
-    const-string/jumbo v18, "PackageNameStartBlacklist"
+    const-string/jumbo v19, "PackageNameStartBlacklist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_13
-    const/high16 v18, 0x200000
+    const/high16 v19, 0x200000
 
-    and-int v18, v18, v11
+    and-int v19, v19, v11
 
-    const/high16 v20, 0x200000
+    const/high16 v21, 0x200000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_14
 
-    const-string/jumbo v18, "PackageNameDisableClipboardBlackList"
+    const-string/jumbo v19, "PackageNameDisableClipboardBlackList"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_14
-    const/high16 v18, 0x400000
+    const/high16 v19, 0x400000
 
-    and-int v18, v18, v11
+    and-int v19, v19, v11
 
-    const/high16 v20, 0x400000
+    const/high16 v21, 0x400000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_15
 
-    const-string/jumbo v18, "PackageNameDisableClipboardWhitelist"
+    const-string/jumbo v19, "PackageNameDisableClipboardWhitelist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_15
-    const/high16 v18, 0x800000
+    const/high16 v19, 0x800000
 
-    and-int v18, v18, v11
+    and-int v19, v19, v11
 
-    const/high16 v20, 0x800000
+    const/high16 v21, 0x800000
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_16
 
-    const-string/jumbo v18, "PackageNameFocusMonitoringList"
+    const-string/jumbo v19, "PackageNameFocusMonitoringList"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_16
-    const/high16 v18, 0x1000000
+    const/high16 v19, 0x1000000
 
-    and-int v18, v18, v11
+    and-int v19, v19, v11
 
-    const/high16 v20, 0x1000000
-
-    move/from16 v0, v20
-
-    move/from16 v1, v18
-
-    if-ne v0, v1, :cond_0
-
-    const-string/jumbo v18, "PackageNameDozeModeWhiteList"
-
-    move-object/from16 v0, v18
-
-    invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v18
-
-    check-cast v18, Ljava/util/Set;
-
-    move-object/from16 v0, v18
-
-    invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto/16 :goto_1
-
-    :catchall_0
-    move-exception v18
-
-    monitor-exit v19
-
-    throw v18
-
-    :cond_17
-    :try_start_1
-    invoke-interface {v12}, Landroid/database/Cursor;->close()V
-
-    :cond_18
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    move-object/from16 v18, v0
-
-    const-string/jumbo v20, "APPLICATION_PERMISSION"
-
-    const/16 v21, 0x1
+    const/high16 v21, 0x1000000
 
     move/from16 v0, v21
 
-    new-array v0, v0, [Ljava/lang/String;
+    move/from16 v1, v19
 
-    move-object/from16 v21, v0
+    if-ne v0, v1, :cond_0
 
-    const-string/jumbo v22, "permission"
+    const-string/jumbo v19, "PackageNameDozeModeWhiteList"
 
-    const/16 v23, 0x0
-
-    aput-object v22, v21, v23
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v20
-
-    move-object/from16 v2, v21
-
-    invoke-virtual {v0, v1, v15, v10, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;II[Ljava/lang/String;)Landroid/database/Cursor;
-
-    move-result-object v12
-
-    if-eqz v12, :cond_1a
-
-    :goto_2
-    invoke-interface {v12}, Landroid/database/Cursor;->moveToNext()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_19
-
-    const-string/jumbo v18, "PermissionInstallationBlacklist"
-
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    const-string/jumbo v20, "permission"
+    move-object/from16 v0, v19
 
-    move-object/from16 v0, v20
+    invoke-interface {v0, v14}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catch Landroid/database/SQLException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    invoke-interface {v12, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    goto/16 :goto_1
 
-    move-result v20
+    :catch_0
+    move-exception v15
 
-    move/from16 v0, v20
+    :try_start_2
+    const-string/jumbo v19, "ApplicationPolicy"
 
-    invoke-interface {v12, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
+    const-string/jumbo v22, "Exception occurred accessing Enterprise db "
 
-    move-object/from16 v1, v20
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    move-result-object v21
 
-    goto :goto_2
+    invoke-virtual {v15}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
 
-    :cond_19
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    if-eqz v12, :cond_17
+
+    :try_start_3
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :cond_1a
+    :goto_2
+    const/4 v12, 0x0
+
+    :cond_17
+    :try_start_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v20, "APPLICATION_SIGNATURE2"
+    const-string/jumbo v21, "APPLICATION_PERMISSION"
 
-    move-object/from16 v0, v18
+    const/16 v22, 0x1
 
-    move-object/from16 v1, v20
+    move/from16 v0, v22
 
-    invoke-virtual {v0, v1, v15, v10, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;II[Ljava/lang/String;)Landroid/database/Cursor;
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v22, v0
+
+    const-string/jumbo v23, "permission"
+
+    const/16 v24, 0x0
+
+    aput-object v23, v22, v24
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    move/from16 v2, v16
+
+    move-object/from16 v3, v22
+
+    invoke-virtual {v0, v1, v2, v10, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;II[Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v12
 
     if-eqz v12, :cond_1e
 
-    :cond_1b
     :goto_3
     invoke-interface {v12}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_1d
+    if-eqz v19, :cond_1e
 
-    const-string/jumbo v18, "signature"
+    const-string/jumbo v19, "PermissionInstallationBlacklist"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
+
+    invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v19
+
+    check-cast v19, Ljava/util/Set;
+
+    const-string/jumbo v21, "permission"
+
+    move-object/from16 v0, v21
 
     invoke-interface {v12, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v18
+    move-result v21
 
-    move/from16 v0, v18
+    move/from16 v0, v21
 
     invoke-interface {v12, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v21
 
-    const-string/jumbo v18, "controlState"
+    move-object/from16 v0, v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v1, v21
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    :try_end_4
+    .catch Landroid/database/SQLException; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+
+    goto :goto_3
+
+    :catch_1
+    move-exception v15
+
+    :try_start_5
+    const-string/jumbo v19, "ApplicationPolicy"
+
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual {v15}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    if-eqz v12, :cond_18
+
+    :try_start_6
+    invoke-interface {v12}, Landroid/database/Cursor;->close()V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    :goto_4
+    const/4 v12, 0x0
+
+    :cond_18
+    :try_start_7
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    move-object/from16 v19, v0
+
+    const-string/jumbo v21, "APPLICATION_SIGNATURE2"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2, v10, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;II[Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_20
+
+    :cond_19
+    :goto_5
+    invoke-interface {v12}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_20
+
+    const-string/jumbo v19, "signature"
+
+    move-object/from16 v0, v19
 
     invoke-interface {v12, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v18
+    move-result v19
 
-    move/from16 v0, v18
+    move/from16 v0, v19
+
+    invoke-interface {v12, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v17
+
+    const-string/jumbo v19, "controlState"
+
+    move-object/from16 v0, v19
+
+    invoke-interface {v12, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v19
+
+    move/from16 v0, v19
 
     invoke-interface {v12, v0}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v11
 
-    and-int/lit8 v18, v11, 0x1
+    and-int/lit8 v19, v11, 0x1
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
-    if-ne v0, v1, :cond_1c
+    if-ne v0, v1, :cond_1a
 
-    const-string/jumbo v18, "SignatureInstallationBlacklist"
+    const-string/jumbo v19, "SignatureInstallationBlacklist"
 
-    move-object/from16 v0, v18
-
-    invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v18
-
-    check-cast v18, Ljava/util/Set;
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v16
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    :cond_1c
-    and-int/lit8 v18, v11, 0x2
-
-    const/16 v20, 0x2
-
-    move/from16 v0, v20
-
-    move/from16 v1, v18
-
-    if-ne v0, v1, :cond_1b
-
-    const-string/jumbo v18, "SignatureInstallationWhitelist"
-
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Ljava/util/Set;
+    check-cast v19, Ljava/util/Set;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v17
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    :cond_1a
+    and-int/lit8 v19, v11, 0x2
 
-    :cond_1d
+    const/16 v21, 0x2
+
+    move/from16 v0, v21
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_19
+
+    const-string/jumbo v19, "SignatureInstallationWhitelist"
+
+    move-object/from16 v0, v19
+
+    invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v19
+
+    check-cast v19, Ljava/util/Set;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v17
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    :try_end_7
+    .catch Landroid/database/SQLException; {:try_start_7 .. :try_end_7} :catch_2
+    .catchall {:try_start_7 .. :try_end_7} :catchall_3
+
+    goto :goto_5
+
+    :catch_2
+    move-exception v15
+
+    :try_start_8
+    const-string/jumbo v19, "ApplicationPolicy"
+
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual {v15}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_3
+
+    if-eqz v12, :cond_1b
+
+    :try_start_9
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
-    :cond_1e
-    :try_start_2
+    :cond_1b
+    :goto_6
+    :try_start_a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mNotificationMode:Ljava/util/Map;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
     invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v20
+    move-result-object v21
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    const-string/jumbo v22, "APPLICATION_MISC"
+    const-string/jumbo v23, "APPLICATION_MISC"
 
-    const-string/jumbo v23, "appNotificationMode"
+    const-string/jumbo v24, "appNotificationMode"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v22
+    move/from16 v1, v16
 
     move-object/from16 v2, v23
 
-    invoke-virtual {v0, v15, v10, v1, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getInt(IILjava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v3, v24
 
-    move-result v21
+    invoke-virtual {v0, v1, v10, v2, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getInt(IILjava/lang/String;Ljava/lang/String;)I
 
-    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v22
 
-    move-result-object v21
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-object/from16 v0, v18
+    move-result-object v22
 
-    move-object/from16 v1, v20
+    move-object/from16 v0, v19
 
-    move-object/from16 v2, v21
+    move-object/from16 v1, v21
+
+    move-object/from16 v2, v22
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_2
-    .catch Lcom/android/server/enterprise/storage/SettingNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_a
+    .catch Lcom/android/server/enterprise/storage/SettingNotFoundException; {:try_start_a .. :try_end_a} :catch_3
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
 
-    :goto_4
-    :try_start_3
-    sget-object v18, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppControlState:Ljava/util/Map;
+    :goto_7
+    :try_start_b
+    sget-object v19, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppControlState:Ljava/util/Map;
 
     invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v0, v1, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
 
     goto/16 :goto_0
 
+    :catchall_0
+    move-exception v19
+
+    monitor-exit v20
+
+    throw v19
+
+    :cond_1c
+    if-eqz v12, :cond_17
+
+    :try_start_c
+    invoke-interface {v12}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_2
+
+    :catchall_1
+    move-exception v19
+
+    if-eqz v12, :cond_1d
+
+    invoke-interface {v12}, Landroid/database/Cursor;->close()V
+
+    const/4 v12, 0x0
+
+    :cond_1d
+    throw v19
+
+    :cond_1e
+    if-eqz v12, :cond_18
+
+    invoke-interface {v12}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_4
+
+    :catchall_2
+    move-exception v19
+
+    if-eqz v12, :cond_1f
+
+    invoke-interface {v12}, Landroid/database/Cursor;->close()V
+
+    const/4 v12, 0x0
+
     :cond_1f
-    monitor-exit v19
+    throw v19
+
+    :cond_20
+    if-eqz v12, :cond_1b
+
+    invoke-interface {v12}, Landroid/database/Cursor;->close()V
+
+    goto :goto_6
+
+    :catchall_3
+    move-exception v19
+
+    if-eqz v12, :cond_21
+
+    invoke-interface {v12}, Landroid/database/Cursor;->close()V
+
+    :cond_21
+    throw v19
+    :try_end_c
+    .catchall {:try_start_c .. :try_end_c} :catchall_0
+
+    :cond_22
+    monitor-exit v20
 
     return-void
 
-    :catch_0
+    :catch_3
     move-exception v13
 
-    goto :goto_4
+    goto :goto_7
 .end method
 
 .method private manageHomeShorcut(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
@@ -24859,6 +25238,125 @@
     return v5
 .end method
 
+.method static validatePackageName(Ljava/lang/String;)Z
+    .locals 10
+
+    const/4 v6, 0x0
+
+    if-nez p0, :cond_0
+
+    return v6
+
+    :cond_0
+    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    return v6
+
+    :cond_1
+    const-string/jumbo v5, "\\."
+
+    invoke-virtual {p0, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-ge v0, v5, :cond_3
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v5
+
+    const/16 v7, 0x2e
+
+    if-ne v5, v7, :cond_2
+
+    add-int/lit8 v3, v3, 0x1
+
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    array-length v5, v2
+
+    if-lt v3, v5, :cond_4
+
+    return v6
+
+    :cond_4
+    const-string/jumbo v4, "^[A-Za-z0-9_]+$"
+
+    array-length v7, v2
+
+    move v5, v6
+
+    :goto_1
+    if-ge v5, v7, :cond_8
+
+    aget-object v1, v2, v5
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_5
+
+    invoke-virtual {v1, v6}, Ljava/lang/String;->charAt(I)C
+
+    move-result v8
+
+    const/16 v9, 0x5f
+
+    if-ne v8, v9, :cond_6
+
+    :cond_5
+    return v6
+
+    :cond_6
+    invoke-virtual {v1, v6}, Ljava/lang/String;->charAt(I)C
+
+    move-result v8
+
+    const/16 v9, 0x30
+
+    if-lt v8, v9, :cond_7
+
+    invoke-virtual {v1, v6}, Ljava/lang/String;->charAt(I)C
+
+    move-result v8
+
+    const/16 v9, 0x39
+
+    if-le v8, v9, :cond_5
+
+    :cond_7
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_1
+
+    :cond_8
+    const/4 v5, 0x1
+
+    return v5
+.end method
+
 
 # virtual methods
 .method public addAppNotificationBlackList(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Z
@@ -25054,7 +25552,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, " has prevented installation of "
+    const-string/jumbo v1, " has added "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -25064,7 +25562,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "."
+    const-string/jumbo v1, " to package name blacklist."
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -25158,15 +25656,17 @@
 .end method
 
 .method public addAppPackageNameToWhiteList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 7
+    .locals 13
 
-    const/4 v6, 0x0
+    const/4 v3, 0x0
 
-    const-string/jumbo v4, "ApplicationPolicy"
+    const/4 v2, 0x1
 
-    const-string/jumbo v5, "addAppPackageNameToWhiteList"
+    const-string/jumbo v0, "ApplicationPolicy"
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v1, "addAppPackageNameToWhiteList"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -25178,198 +25678,408 @@
 
     invoke-direct {p0, p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->checkRegex(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
-    return v6
+    return v3
 
     :cond_0
-    iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    const/16 v5, 0x8
+    const/16 v1, 0x8
 
-    const/4 v6, 0x1
+    invoke-direct {p0, p2, v0, v1, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationPkgNameControlState(Ljava/lang/String;IIZ)Z
 
-    invoke-direct {p0, p2, v4, v5, v6}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationPkgNameControlState(Ljava/lang/String;IIZ)Z
+    move-result v9
 
-    move-result v2
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
-
-    move-result v3
-
-    if-eqz v2, :cond_1
-
-    if-nez v3, :cond_1
-
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
-
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
-
-    invoke-direct {v1, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    move-result-wide v10
 
     :try_start_0
-    const-string/jumbo v4, "Application"
-
-    const-string/jumbo v5, "addAppPackageNameToWhiteList"
-
-    invoke-virtual {v1, v4, v5, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
 
     const-string/jumbo v4, "ApplicationPolicy"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "addAppPackageNameToWhiteList : packageName : "
+    const-string/jumbo v1, "Admin "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has added "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " to package name whitelist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move-result-object v5
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v6
 
-    move-result-object v5
+    const/4 v0, 0x5
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v12
+
+    if-eqz v9, :cond_1
+
+    if-nez v12, :cond_1
+
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v8, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+
+    :try_start_1
+    const-string/jumbo v0, "Application"
+
+    const-string/jumbo v1, "addAppPackageNameToWhiteList"
+
+    invoke-virtual {v8, v0, v1, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v0, "ApplicationPolicy"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "addAppPackageNameToWhiteList : packageName : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_1
     :goto_0
-    return v2
+    return v9
 
-    :catch_0
+    :catchall_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public addAppPermissionToBlackList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 6
+    .locals 13
 
-    const/4 v4, 0x0
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
 
     if-nez p2, :cond_0
 
-    return v4
+    return v0
 
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    const/4 v5, 0x1
+    invoke-direct {p0, p2, v0, v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationPermissionControlState(Ljava/lang/String;IZ)Z
 
-    invoke-direct {p0, p2, v4, v5}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationPermissionControlState(Ljava/lang/String;IZ)Z
+    move-result v9
 
-    move-result v2
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    :try_start_0
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
+
+    const-string/jumbo v4, "ApplicationPolicy"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has added "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " to permission blacklist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v3
+    move-result v12
 
-    if-eqz v2, :cond_1
+    if-eqz v9, :cond_1
 
-    if-nez v3, :cond_1
+    if-nez v12, :cond_1
 
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
 
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
 
-    :try_start_0
-    const-string/jumbo v4, "Application"
+    :try_start_1
+    const-string/jumbo v0, "Application"
 
-    const-string/jumbo v5, "addAppPermissionToBlackList"
+    const-string/jumbo v1, "addAppPermissionToBlackList"
 
-    invoke-virtual {v1, v4, v5, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v8, v0, v1, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_1
     :goto_0
-    return v2
+    return v9
 
-    :catch_0
+    :catchall_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public addAppSignatureToBlackList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 6
+    .locals 13
 
-    const/4 v5, 0x1
+    const/4 v0, 0x0
 
-    const/4 v4, 0x0
+    const/4 v1, 0x1
 
     if-nez p2, :cond_0
 
-    return v4
+    return v0
 
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    invoke-direct {p0, p2, v4, v5, v5}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationSignatureControlState(Ljava/lang/String;IIZ)Z
+    invoke-direct {p0, p2, v0, v1, v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationSignatureControlState(Ljava/lang/String;IIZ)Z
 
-    move-result v2
+    move-result v9
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    :try_start_0
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
+
+    const-string/jumbo v4, "ApplicationPolicy"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has added "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " to app signature blacklist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v3
+    move-result v12
 
-    if-eqz v2, :cond_1
+    if-eqz v9, :cond_1
 
-    if-nez v3, :cond_1
+    if-nez v12, :cond_1
 
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
 
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
 
-    :try_start_0
-    const-string/jumbo v4, "Application"
+    :try_start_1
+    const-string/jumbo v0, "Application"
 
-    const-string/jumbo v5, "addAppSignatureToBlackList"
+    const-string/jumbo v1, "addAppSignatureToBlackList"
 
-    invoke-virtual {v1, v4, v5, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v8, v0, v1, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_1
     :goto_0
-    return v2
+    return v9
 
-    :catch_0
+    :catchall_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public addAppSignatureToWhiteList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 7
+    .locals 13
 
-    const/4 v4, 0x0
+    const/4 v0, 0x0
+
+    const/4 v2, 0x1
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -25377,52 +26087,120 @@
 
     if-eqz p2, :cond_1
 
-    iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    const/4 v5, 0x2
+    const/4 v1, 0x2
 
-    const/4 v6, 0x1
+    invoke-direct {p0, p2, v0, v1, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationSignatureControlState(Ljava/lang/String;IIZ)Z
 
-    invoke-direct {p0, p2, v4, v5, v6}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationSignatureControlState(Ljava/lang/String;IIZ)Z
+    move-result v9
 
-    move-result v2
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    :try_start_0
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
+
+    const-string/jumbo v4, "ApplicationPolicy"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has added "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " to app signature whitelist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v3
+    move-result v12
 
-    if-eqz v2, :cond_0
+    if-eqz v9, :cond_0
 
-    if-nez v3, :cond_0
+    if-nez v12, :cond_0
 
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
 
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
 
-    :try_start_0
-    const-string/jumbo v4, "Application"
+    :try_start_1
+    const-string/jumbo v0, "Application"
 
-    const-string/jumbo v5, "addAppSignatureToWhiteList"
+    const-string/jumbo v1, "addAppSignatureToWhiteList"
 
-    invoke-virtual {v1, v4, v5, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v8, v0, v1, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_0
     :goto_0
-    return v2
+    return v9
 
-    :catch_0
+    :catchall_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
     :cond_1
-    return v4
+    return v0
 .end method
 
 .method public addHomeShortcut(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Z
@@ -25696,95 +26474,152 @@
 .end method
 
 .method public addPackageToInstallWhiteList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 8
+    .locals 13
 
-    const/4 v7, 0x0
+    const/4 v12, 0x0
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    const-string/jumbo v4, "ApplicationPolicy"
+    const-string/jumbo v0, "ApplicationPolicy"
 
-    const-string/jumbo v5, "addPackageToInstallList :  pkgName: "
+    const-string/jumbo v1, "addPackageToInstallList :  pkgName: "
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->getValidStr(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v4, "ApplicationPolicy"
+    const-string/jumbo v0, "ApplicationPolicy"
 
-    const-string/jumbo v5, "addPackageToInstallList() Package name is invalid"
+    const-string/jumbo v1, "addPackageToInstallList() Package name is invalid"
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    return v7
+    return v12
 
     :cond_0
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v1
+    move-result v8
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v2
+    move-result-wide v10
 
     :try_start_0
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mPersonaManagerAdapter:Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mPersonaManagerAdapter:Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;
 
-    invoke-virtual {v4, v1, p2}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->addPackageToInstallWhiteList(ILjava/lang/String;)Z
+    invoke-virtual {v0, v8, p2}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->addPackageToInstallWhiteList(ILjava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1
+
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
+
+    const-string/jumbo v4, "ApplicationPolicy"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has added "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " to install whitelist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v4
+    :cond_1
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v4
+    return v9
 
     :catch_0
-    move-exception v0
+    move-exception v7
 
     :try_start_1
-    const-string/jumbo v4, "ApplicationPolicy"
+    const-string/jumbo v0, "ApplicationPolicy"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "addPackageToInstallList() - "
+    const-string/jumbo v2, "addPackageToInstallList() - "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v7
+    return v12
 
     :catchall_0
-    move-exception v4
+    move-exception v0
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v4
+    throw v0
 .end method
 
 .method public addPackagesToClearCacheBlackList(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Z
@@ -29093,7 +29928,7 @@
 .end method
 
 .method public getAllWidgets(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Ljava/util/Map;
-    .locals 36
+    .locals 37
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -29116,7 +29951,7 @@
 
     invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v32
+    move-result v33
 
     const/16 v27, 0x0
 
@@ -29127,7 +29962,7 @@
 
     move-object/from16 v0, p2
 
-    move/from16 v1, v32
+    move/from16 v1, v33
 
     invoke-virtual {v8, v0, v1}, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter;->getAllWidgets(Ljava/lang/String;I)Ljava/util/Map;
     :try_end_0
@@ -29212,17 +30047,17 @@
 
     const-string/jumbo v9, "android"
 
-    const/16 v34, 0x0
+    const/16 v35, 0x0
 
-    move/from16 v0, v34
+    move/from16 v0, v35
 
-    move/from16 v1, v32
+    move/from16 v1, v33
 
     invoke-static {v8, v9, v0, v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->createContextAsUser(Landroid/content/Context;Ljava/lang/String;II)Landroid/content/Context;
 
-    move-result-object v31
+    move-result-object v32
 
-    if-nez v31, :cond_2
+    if-nez v32, :cond_2
 
     return-object v27
 
@@ -29245,9 +30080,9 @@
     :try_start_1
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v28
+    move-result-wide v30
 
-    invoke-virtual/range {v31 .. v31}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual/range {v32 .. v32}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -29298,7 +30133,7 @@
     move-result-object v16
 
     :cond_3
-    invoke-static/range {v28 .. v29}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :cond_4
     :goto_1
@@ -29318,7 +30153,7 @@
 
     invoke-interface {v0, v8}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v33
+    move-result v34
 
     const/4 v8, 0x1
 
@@ -29326,23 +30161,25 @@
 
     invoke-interface {v0, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
     :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/database/SQLException; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_5
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-result-object v30
+    move-result-object v29
 
     const/16 v24, 0x0
 
     const/4 v8, 0x0
 
     :try_start_2
-    move-object/from16 v0, v30
+    move-object/from16 v0, v29
 
     invoke-static {v0, v8}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
     :try_end_2
     .catch Ljava/net/URISyntaxException; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Landroid/database/SQLException; {:try_start_2 .. :try_end_2} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_5
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     move-result-object v24
 
@@ -29359,11 +30196,11 @@
 
     move-result-object v9
 
-    const/16 v34, 0x3
+    const/16 v35, 0x3
 
-    move/from16 v0, v34
+    move/from16 v0, v35
 
-    move/from16 v1, v32
+    move/from16 v1, v33
 
     invoke-static {v8, v9, v0, v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->createContextAsUser(Landroid/content/Context;Ljava/lang/String;II)Landroid/content/Context;
 
@@ -29381,10 +30218,11 @@
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
     :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catch Landroid/database/SQLException; {:try_start_3 .. :try_end_3} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_5
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    move-result-wide v28
+    move-result-wide v30
 
     const/16 v26, 0x0
 
@@ -29395,15 +30233,15 @@
 
     const-string/jumbo v9, "plug_in_name"
 
-    const-string/jumbo v34, "string"
+    const-string/jumbo v35, "string"
 
     invoke-virtual/range {v24 .. v24}, Landroid/content/Intent;->getPackage()Ljava/lang/String;
 
-    move-result-object v35
+    move-result-object v36
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v35
 
-    move-object/from16 v1, v35
+    move-object/from16 v1, v36
 
     invoke-virtual {v8, v9, v0, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
@@ -29421,9 +30259,9 @@
 
     move-result-object v9
 
-    const/16 v34, 0x80
+    const/16 v35, 0x80
 
-    move/from16 v0, v34
+    move/from16 v0, v35
 
     invoke-virtual {v8, v9, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
@@ -29448,10 +30286,10 @@
     :try_end_4
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_4 .. :try_end_4} :catch_4
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_4 .. :try_end_4} :catch_2
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :try_start_5
-    invoke-static/range {v28 .. v29}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     const/16 v21, 0x0
 
@@ -29507,8 +30345,9 @@
 
     check-cast v21, Ljava/util/ArrayList;
     :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    .catch Landroid/database/SQLException; {:try_start_5 .. :try_end_5} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     goto :goto_3
 
@@ -29531,7 +30370,7 @@
     :try_end_6
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_6 .. :try_end_6} :catch_4
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_6 .. :try_end_6} :catch_2
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     move-result-object v8
 
@@ -29541,15 +30380,16 @@
     move-exception v22
 
     :try_start_7
-    invoke-static/range {v28 .. v29}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_3
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+    .catch Landroid/database/SQLException; {:try_start_7 .. :try_end_7} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_5
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     goto/16 :goto_1
 
     :catch_3
-    move-exception v19
+    move-exception v28
 
     :try_start_8
     const-string/jumbo v8, "ApplicationPolicy"
@@ -29558,9 +30398,65 @@
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, "getAllWidgets Ex: "
+    const-string/jumbo v35, "Exception occurred accessing Enterprise db "
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v35
+
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual/range {v28 .. v28}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v35
+
+    move-object/from16 v0, v35
+
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+
+    if-eqz v16, :cond_7
+
+    invoke-interface/range {v16 .. v16}, Landroid/database/Cursor;->close()V
+
+    :cond_7
+    :goto_4
+    return-object v27
+
+    :catch_4
+    move-exception v23
+
+    :try_start_9
+    invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_9
+    .catch Landroid/database/SQLException; {:try_start_9 .. :try_end_9} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_5
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+
+    goto/16 :goto_1
+
+    :catch_5
+    move-exception v19
+
+    :try_start_a
+    const-string/jumbo v8, "ApplicationPolicy"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v35, "getAllWidgets Ex: "
+
+    move-object/from16 v0, v35
 
     invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -29577,29 +30473,28 @@
     move-result-object v9
 
     invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_1
 
     if-eqz v16, :cond_7
 
     invoke-interface/range {v16 .. v16}, Landroid/database/Cursor;->close()V
 
-    :cond_7
-    :goto_4
-    return-object v27
-
-    :catch_4
-    move-exception v23
-
-    :try_start_9
-    invoke-static/range {v28 .. v29}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_3
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
-
-    goto/16 :goto_1
+    goto :goto_4
 
     :catchall_0
+    move-exception v8
+
+    :try_start_b
+    invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v8
+    :try_end_b
+    .catch Landroid/database/SQLException; {:try_start_b .. :try_end_b} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_5
+    .catchall {:try_start_b .. :try_end_b} :catchall_1
+
+    :catchall_1
     move-exception v8
 
     if-eqz v16, :cond_8
@@ -29609,22 +30504,15 @@
     :cond_8
     throw v8
 
-    :catchall_1
-    move-exception v8
-
-    :try_start_a
-    invoke-static/range {v28 .. v29}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v8
-
     :cond_9
     if-nez v21, :cond_a
 
+    :try_start_c
     new-instance v21, Ljava/util/ArrayList;
 
     invoke-direct/range {v21 .. v21}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v34 .. v34}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v8
 
@@ -29643,16 +30531,17 @@
     goto/16 :goto_1
 
     :cond_a
-    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v34 .. v34}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v8
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_a
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_3
-    .catchall {:try_start_a .. :try_end_a} :catchall_0
+    :try_end_c
+    .catch Landroid/database/SQLException; {:try_start_c .. :try_end_c} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_5
+    .catchall {:try_start_c .. :try_end_c} :catchall_1
 
     goto/16 :goto_1
 
@@ -30648,17 +31537,15 @@
 .end method
 
 .method public getAppPermissionsBlackList(Lcom/samsung/android/knox/ContextInfo;)[Ljava/lang/String;
-    .locals 9
+    .locals 11
 
-    const/4 v8, 0x0
+    const/4 v10, 0x0
 
-    const/4 v7, 0x0
+    const-string/jumbo v5, "ApplicationPolicy"
 
-    const-string/jumbo v3, "ApplicationPolicy"
+    const-string/jumbo v6, "getAppPermissionsBlackList:"
 
-    const-string/jumbo v4, "getAppPermissionsBlackList:"
-
-    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrUserUid(Lcom/samsung/android/knox/ContextInfo;)I
 
@@ -30666,77 +31553,159 @@
 
     const/4 v2, 0x0
 
-    iget-object v3, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    const/4 v1, 0x0
 
-    const-string/jumbo v4, "APPLICATION_PERMISSION"
+    :try_start_0
+    iget-object v5, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const/4 v5, 0x1
+    const-string/jumbo v6, "APPLICATION_PERMISSION"
 
-    new-array v5, v5, [Ljava/lang/String;
+    const/4 v7, 0x1
 
-    const-string/jumbo v6, "permission"
+    new-array v7, v7, [Ljava/lang/String;
 
-    aput-object v6, v5, v8
+    const-string/jumbo v8, "permission"
 
-    invoke-virtual {v3, v4, v0, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
+    const/4 v9, 0x0
+
+    aput-object v8, v7, v9
+
+    invoke-virtual {v5, v6, v0, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
+    :try_start_1
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_0
+    if-eqz v5, :cond_1
 
-    const-string/jumbo v3, "permission"
+    const-string/jumbo v5, "permission"
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v1, v5}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v3
+    move-result v5
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v1, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catch Landroid/database/SQLException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_0
 
-    :cond_0
+    :catch_0
+    move-exception v4
+
+    move-object v2, v3
+
+    :goto_1
+    :try_start_2
+    const-string/jumbo v5, "ApplicationPolicy"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v4}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    if-eqz v1, :cond_0
+
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
+    :cond_0
+    :goto_2
+    if-eqz v2, :cond_4
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    if-lez v5, :cond_4
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    new-array v5, v5, [Ljava/lang/String;
+
+    invoke-interface {v2, v5}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, [Ljava/lang/String;
+
+    return-object v5
+
     :cond_1
-    if-eqz v2, :cond_2
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-lez v3, :cond_2
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    new-array v3, v3, [Ljava/lang/String;
-
-    invoke-interface {v2, v3}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, [Ljava/lang/String;
-
-    return-object v3
+    move-object v2, v3
 
     :cond_2
-    return-object v7
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception v5
+
+    :goto_3
+    if-eqz v1, :cond_3
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    :cond_3
+    throw v5
+
+    :cond_4
+    return-object v10
+
+    :catchall_1
+    move-exception v5
+
+    move-object v2, v3
+
+    goto :goto_3
+
+    :catch_1
+    move-exception v4
+
+    goto :goto_1
 .end method
 
 .method public getAppSignatureBlackList(Lcom/samsung/android/knox/ContextInfo;)[Ljava/lang/String;
@@ -33910,7 +34879,7 @@
 .end method
 
 .method public getDisabledPackages(I)Ljava/util/List;
-    .locals 10
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -33921,131 +34890,187 @@
         }
     .end annotation
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     const/4 v2, 0x0
 
-    iget-object v5, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v6, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v6, "APPLICATION"
+    const-string/jumbo v7, "APPLICATION"
 
-    const/4 v7, 0x2
+    const/4 v8, 0x2
 
-    new-array v7, v7, [Ljava/lang/String;
+    new-array v8, v8, [Ljava/lang/String;
 
-    const-string/jumbo v8, "packageName"
+    const-string/jumbo v9, "packageName"
 
-    aput-object v8, v7, v9
+    aput-object v9, v8, v10
 
-    const-string/jumbo v8, "controlState"
+    const-string/jumbo v9, "controlState"
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
-    aput-object v8, v7, v9
+    aput-object v9, v8, v10
 
-    invoke-virtual {v5, v6, p1, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {v6, v7, p1, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     :try_start_0
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
     :goto_0
     :try_start_1
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_1
+    if-eqz v6, :cond_2
 
-    const-string/jumbo v5, "packageName"
+    const-string/jumbo v6, "packageName"
 
-    invoke-interface {v1, v5}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v1, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v5
+    move-result v6
 
-    invoke-interface {v1, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v1, v6}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const-string/jumbo v5, "controlState"
+    const-string/jumbo v6, "controlState"
 
-    invoke-interface {v1, v5}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v1, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v5
+    move-result v6
 
-    invoke-interface {v1, v5}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v1, v6}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v0
 
-    and-int/lit8 v5, v0, 0x2
+    and-int/lit8 v6, v0, 0x2
 
-    if-eqz v5, :cond_0
+    if-eqz v6, :cond_0
 
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/database/SQLException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_0
 
-    :catchall_0
+    :catch_0
     move-exception v5
 
     move-object v2, v3
 
     :goto_1
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    throw v5
-
-    :cond_1
     :try_start_2
-    const-string/jumbo v5, "ApplicationPolicy"
+    const-string/jumbo v6, "ApplicationPolicy"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Disabled Package List "
+    const-string/jumbo v8, "Exception occurred accessing Enterprise db "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    if-eqz v1, :cond_1
+
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    :cond_1
+    :goto_2
+    return-object v2
+
+    :cond_2
+    :try_start_3
+    const-string/jumbo v6, "ApplicationPolicy"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "Disabled Package List "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_3
+    .catch Landroid/database/SQLException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    :cond_3
+    move-object v2, v3
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception v6
+
+    :goto_3
+    if-eqz v1, :cond_4
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    :cond_4
+    throw v6
+
+    :catchall_1
+    move-exception v6
 
     move-object v2, v3
 
-    :cond_2
-    return-object v2
+    goto :goto_3
 
-    :catchall_1
+    :catch_1
     move-exception v5
 
     goto :goto_1
 .end method
 
 .method public getHomeShortcuts(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Z)Ljava/util/List;
-    .locals 29
+    .locals 30
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -34069,7 +35094,7 @@
 
     invoke-static {v6}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v25
+    move-result v26
 
     new-instance v20, Ljava/util/ArrayList;
 
@@ -34435,17 +35460,17 @@
 
     const-string/jumbo v7, "android"
 
-    const/16 v28, 0x0
+    const/16 v29, 0x0
 
-    move/from16 v0, v28
+    move/from16 v0, v29
 
-    move/from16 v1, v25
+    move/from16 v1, v26
 
     invoke-static {v6, v7, v0, v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->createContextAsUser(Landroid/content/Context;Ljava/lang/String;II)Landroid/content/Context;
 
-    move-result-object v24
+    move-result-object v23
 
-    if-nez v24, :cond_b
+    if-nez v23, :cond_b
 
     const-string/jumbo v6, "ApplicationPolicy"
 
@@ -34619,9 +35644,9 @@
     :cond_c
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v22
+    move-result-wide v24
 
-    invoke-virtual/range {v24 .. v24}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -34648,37 +35673,39 @@
 
     invoke-interface {v0, v10}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v26
+    move-result v27
 
     move-object/from16 v0, v17
 
     invoke-interface {v0, v12}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v27
+    move-result v28
 
     :cond_d
     move-object/from16 v0, v17
 
-    move/from16 v1, v26
+    move/from16 v1, v27
 
     invoke-interface {v0, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
     new-instance v14, Landroid/content/Intent;
 
     invoke-direct {v14}, Landroid/content/Intent;-><init>()V
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     const/4 v6, 0x0
 
     :try_start_1
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-static {v0, v6}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
     :try_end_1
     .catch Ljava/net/URISyntaxException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/database/SQLException; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v14
@@ -34698,6 +35725,7 @@
     :cond_e
     invoke-interface/range {v17 .. v17}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_2
+    .catch Landroid/database/SQLException; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result v6
@@ -34710,18 +35738,19 @@
     invoke-interface/range {v17 .. v17}, Landroid/database/Cursor;->close()V
 
     :cond_f
-    invoke-static/range {v22 .. v23}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v24 .. v25}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :cond_10
+    :goto_3
     const-string/jumbo v6, "ApplicationPolicy"
 
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "getHomeShortcuts: pkgName : "
+    const-string/jumbo v29, "getHomeShortcuts: pkgName : "
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -34733,9 +35762,9 @@
 
     move-result-object v7
 
-    const-string/jumbo v28, "include hot seat: "
+    const-string/jumbo v29, "include hot seat: "
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -34747,9 +35776,9 @@
 
     move-result-object v7
 
-    const-string/jumbo v28, " return..."
+    const-string/jumbo v29, " return..."
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -34769,33 +35798,80 @@
     :try_start_3
     invoke-virtual/range {v18 .. v18}, Ljava/net/URISyntaxException;->printStackTrace()V
     :try_end_3
+    .catch Landroid/database/SQLException; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_1
 
-    :catchall_0
-    move-exception v6
+    :catch_1
+    move-exception v21
+
+    :try_start_4
+    const-string/jumbo v6, "ApplicationPolicy"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v29, "Exception occurred accessing Enterprise db "
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual/range {v21 .. v21}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v29
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     if-eqz v17, :cond_11
 
     invoke-interface/range {v17 .. v17}, Landroid/database/Cursor;->close()V
 
     :cond_11
-    invoke-static/range {v22 .. v23}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v24 .. v25}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v6
+    goto :goto_3
 
     :cond_12
-    :try_start_4
+    :try_start_5
     const-string/jumbo v6, "ApplicationPolicy"
 
     const-string/jumbo v7, "getHomeShortcuts: get cursor failed. "
 
     invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_5
+    .catch Landroid/database/SQLException; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     goto :goto_2
+
+    :catchall_0
+    move-exception v6
+
+    if-eqz v17, :cond_13
+
+    invoke-interface/range {v17 .. v17}, Landroid/database/Cursor;->close()V
+
+    :cond_13
+    invoke-static/range {v24 .. v25}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v6
 .end method
 
 .method public getInstalledApplicationsIDList(Lcom/samsung/android/knox/ContextInfo;)[Ljava/lang/String;
@@ -34918,7 +35994,7 @@
 .end method
 
 .method public getInstalledManagedApplicationsList(Lcom/samsung/android/knox/ContextInfo;)[Ljava/lang/String;
-    .locals 17
+    .locals 20
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -34926,251 +36002,382 @@
 
     move-object/from16 v0, p1
 
-    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v5, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    const/4 v12, 0x0
+    const/4 v7, 0x0
 
-    const/4 v15, 0x2
+    const/4 v13, 0x0
+
+    const/16 v17, 0x2
 
     :try_start_0
-    new-array v5, v15, [Ljava/lang/String;
+    move/from16 v0, v17
 
-    const-string/jumbo v15, "packageName"
+    new-array v6, v0, [Ljava/lang/String;
 
-    const/16 v16, 0x0
+    const-string/jumbo v17, "packageName"
 
-    aput-object v15, v5, v16
+    const/16 v18, 0x0
 
-    const-string/jumbo v15, "managedApp"
+    aput-object v17, v6, v18
 
-    const/16 v16, 0x1
+    const-string/jumbo v17, "managedApp"
 
-    aput-object v15, v5, v16
+    const/16 v18, 0x1
+
+    aput-object v17, v6, v18
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v16, "APPLICATION"
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v16
+    const-string/jumbo v18, "APPLICATION"
 
-    invoke-virtual {v15, v0, v4, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
+    move-object/from16 v0, v17
 
-    move-result-object v6
+    move-object/from16 v1, v18
 
-    if-eqz v6, :cond_4
+    invoke-virtual {v0, v1, v5, v6}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCursorByAdmin(Ljava/lang/String;I[Ljava/lang/String;)Landroid/database/Cursor;
 
-    new-instance v13, Ljava/util/ArrayList;
+    move-result-object v7
 
-    invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
+    if-eqz v7, :cond_4
+
+    new-instance v14, Ljava/util/ArrayList;
+
+    invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
     :goto_0
     :try_start_1
-    invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
+    invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v15
+    move-result v17
 
-    if-eqz v15, :cond_3
+    if-eqz v17, :cond_3
 
-    const-string/jumbo v15, "managedApp"
+    const-string/jumbo v17, "managedApp"
 
-    invoke-interface {v6, v15}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    move-object/from16 v0, v17
 
-    move-result v15
+    invoke-interface {v7, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    invoke-interface {v6, v15}, Landroid/database/Cursor;->getInt(I)I
+    move-result v17
 
-    move-result v14
+    move/from16 v0, v17
 
-    and-int/lit8 v15, v14, 0x1
+    invoke-interface {v7, v0}, Landroid/database/Cursor;->getInt(I)I
 
-    const/16 v16, 0x1
+    move-result v16
 
-    move/from16 v0, v16
+    and-int/lit8 v17, v16, 0x1
 
-    if-ne v0, v15, :cond_2
+    const/16 v18, 0x1
 
-    const/4 v11, 0x1
+    move/from16 v0, v18
+
+    move/from16 v1, v17
+
+    if-ne v0, v1, :cond_2
+
+    const/4 v12, 0x1
 
     :goto_1
-    if-eqz v11, :cond_0
+    if-eqz v12, :cond_0
 
-    const-string/jumbo v15, "packageName"
+    const-string/jumbo v17, "packageName"
 
-    invoke-interface {v6, v15}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    move-object/from16 v0, v17
 
-    move-result v15
+    invoke-interface {v7, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    invoke-interface {v6, v15}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    move-result v17
 
-    move-result-object v15
+    move/from16 v0, v17
 
-    invoke-virtual {v13, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v7, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v14, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/database/SQLException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_0
 
     :catch_0
-    move-exception v9
+    move-exception v15
 
-    move-object v12, v13
+    move-object v13, v14
 
     :goto_2
-    invoke-virtual {v9}, Ljava/lang/Exception;->printStackTrace()V
+    :try_start_2
+    const-string/jumbo v17, "ApplicationPolicy"
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual {v15}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    if-eqz v7, :cond_1
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     :cond_1
     :goto_3
-    if-eqz v2, :cond_8
+    if-eqz v3, :cond_b
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v15
+    move-result v17
 
-    if-lez v15, :cond_8
+    if-lez v17, :cond_b
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v15
+    move-result v17
 
-    new-array v15, v15, [Ljava/lang/String;
+    move/from16 v0, v17
 
-    invoke-virtual {v2, v15}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/String;
 
-    move-result-object v15
+    move-object/from16 v17, v0
 
-    check-cast v15, [Ljava/lang/String;
+    move-object/from16 v0, v17
 
-    return-object v15
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, [Ljava/lang/String;
+
+    return-object v17
 
     :cond_2
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
     goto :goto_1
 
     :cond_3
-    :try_start_2
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-
-    move-object v12, v13
+    move-object v13, v14
 
     :cond_4
-    if-eqz v12, :cond_1
+    if-eqz v13, :cond_9
 
     :try_start_3
-    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
 
-    move-result v15
+    move-result v17
 
-    if-lez v15, :cond_1
+    if-lez v17, :cond_9
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
     :try_end_3
+    .catch Landroid/database/SQLException; {:try_start_3 .. :try_end_3} :catch_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    const/4 v15, 0x0
+    const/16 v17, 0x0
 
     :try_start_4
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v1, v15}, Lcom/android/server/enterprise/application/ApplicationPolicy;->getInstalledApplicationsIDListExtended(Lcom/samsung/android/knox/ContextInfo;Z)[Ljava/lang/String;
+    move/from16 v2, v17
 
-    move-result-object v7
-
-    const/4 v8, 0x0
-
-    if-eqz v7, :cond_5
-
-    array-length v15, v7
-
-    if-lez v15, :cond_5
-
-    invoke-static {v7}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->getInstalledApplicationsIDListExtended(Lcom/samsung/android/knox/ContextInfo;Z)[Ljava/lang/String;
 
     move-result-object v8
 
+    const/4 v9, 0x0
+
+    if-eqz v8, :cond_5
+
+    array-length v0, v8
+
+    move/from16 v17, v0
+
+    if-lez v17, :cond_5
+
+    invoke-static {v8}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v9
+
     :cond_5
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
     :goto_4
-    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
 
-    move-result v15
+    move-result v17
 
-    if-ge v10, v15, :cond_9
+    move/from16 v0, v17
 
-    if-eqz v8, :cond_7
+    if-ge v11, v0, :cond_8
 
-    invoke-virtual {v12, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    if-eqz v9, :cond_7
 
-    move-result-object v15
+    invoke-virtual {v13, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-interface {v8, v15}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    move-result-object v17
 
-    move-result v15
+    move-object/from16 v0, v17
 
-    if-eqz v15, :cond_6
+    invoke-interface {v9, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    invoke-virtual {v12, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result v17
 
-    move-result-object v15
+    if-eqz v17, :cond_6
 
-    check-cast v15, Ljava/lang/String;
+    invoke-virtual {v13, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v3, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v17
+
+    check-cast v17, Ljava/lang/String;
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_6
     :goto_5
-    add-int/lit8 v10, v10, 0x1
+    add-int/lit8 v11, v11, 0x1
 
     goto :goto_4
 
     :cond_7
-    invoke-virtual {v12, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v13, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v17
 
-    check-cast v15, Ljava/lang/String;
+    check-cast v17, Ljava/lang/String;
 
-    invoke-virtual {v3, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-object/from16 v0, v17
+
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+    .catch Landroid/database/SQLException; {:try_start_4 .. :try_end_4} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_5
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     goto :goto_5
 
     :catch_1
-    move-exception v9
+    move-exception v15
 
-    move-object v2, v3
+    move-object v3, v4
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_8
-    const/4 v15, 0x0
-
-    return-object v15
-
-    :catch_2
-    move-exception v9
-
-    goto :goto_2
+    move-object v3, v4
 
     :cond_9
-    move-object v2, v3
+    if-eqz v7, :cond_1
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     goto :goto_3
+
+    :catch_2
+    move-exception v10
+
+    :goto_6
+    :try_start_5
+    invoke-virtual {v10}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    if-eqz v7, :cond_1
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_3
+
+    :catchall_0
+    move-exception v17
+
+    :goto_7
+    if-eqz v7, :cond_a
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    :cond_a
+    throw v17
+
+    :cond_b
+    const/16 v17, 0x0
+
+    return-object v17
+
+    :catchall_1
+    move-exception v17
+
+    move-object v13, v14
+
+    goto :goto_7
+
+    :catchall_2
+    move-exception v17
+
+    move-object v3, v4
+
+    goto :goto_7
+
+    :catch_3
+    move-exception v15
+
+    goto/16 :goto_2
+
+    :catch_4
+    move-exception v10
+
+    move-object v13, v14
+
+    goto :goto_6
+
+    :catch_5
+    move-exception v10
+
+    move-object v3, v4
+
+    goto :goto_6
 .end method
 
 .method public getMySinglePackageName(Lcom/samsung/android/knox/ContextInfo;)Ljava/lang/String;
@@ -38159,7 +39366,7 @@
 
     if-eqz p3, :cond_0
 
-    const v0, 0x10409eb
+    const v0, 0x10409f4
 
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -38195,7 +39402,7 @@
 
     if-eqz p3, :cond_0
 
-    const v0, 0x10409ea
+    const v0, 0x10409f3
 
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -38255,7 +39462,7 @@
 
     if-eqz p6, :cond_0
 
-    const v13, 0x10409e9
+    const v13, 0x10409f2
 
     invoke-static {v13}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -39424,7 +40631,7 @@
 
     if-nez v6, :cond_1
 
-    const v6, 0x1040a47
+    const v6, 0x1040a50
 
     invoke-static {v6}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -39806,7 +41013,7 @@
 
     if-eqz p2, :cond_0
 
-    const v0, 0x10409fc
+    const v0, 0x1040a05
 
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -40049,126 +41256,201 @@
 .end method
 
 .method public onAdminRemoved(I)V
-    .locals 8
+    .locals 14
 
-    const-string/jumbo v5, "ApplicationPolicy"
+    const/4 v13, 0x0
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v10, "ApplicationPolicy"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "onAdminRemoved hit1 "
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v12, "onAdminRemoved hit1 "
 
-    move-result-object v6
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v6
+    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v6
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v11
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/application/ApplicationPolicy;->loadApplicationBlacklistWhitelist()V
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v4
+    move-result v7
 
-    new-instance v5, Lcom/android/server/enterprise/application/ApplicationPolicy$5;
+    new-instance v4, Lcom/samsung/android/knox/ContextInfo;
 
-    invoke-direct {v5, p0, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy$5;-><init>(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
+    invoke-direct {v4, p1, v7}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
 
-    invoke-virtual {v5}, Lcom/android/server/enterprise/application/ApplicationPolicy$5;->start()V
+    invoke-virtual {p0, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->getApplicationUninstallationMode(Lcom/samsung/android/knox/ContextInfo;)I
 
-    invoke-direct {p0, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->reconcileApplicationsState(I)V
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v8
+
+    new-instance v5, Landroid/content/Intent;
+
+    const-string/jumbo v10, "com.samsung.android.knox.intent.action.EDM_UNINSTALL_STATUS_INTERNAL"
+
+    invoke-direct {v5, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "com.samsung.android.knox.intent.extra.APPLICATION_PACKAGE_NAME"
+
+    const-string/jumbo v11, ".*"
+
+    invoke-virtual {v5, v10, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v10, "com.samsung.android.knox.intent.extra.USER_ID"
+
+    invoke-virtual {v5, v10, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v10, "disable_status"
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v5, v10, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v10, "ApplicationPolicy"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "Admin was removed. Therefore, send new intent broadcast to all packages  of user (userId) "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, " to allow uninstallation."
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+
+    new-instance v11, Landroid/os/UserHandle;
+
+    invoke-direct {v11, v7}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-virtual {v10, v5, v11}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/server/enterprise/application/ApplicationPolicy;->loadApplicationBlacklistWhitelist()V
+
+    new-instance v10, Lcom/android/server/enterprise/application/ApplicationPolicy$5;
+
+    invoke-direct {v10, p0, v7}, Lcom/android/server/enterprise/application/ApplicationPolicy$5;-><init>(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
+
+    invoke-virtual {v10}, Lcom/android/server/enterprise/application/ApplicationPolicy$5;->start()V
+
+    invoke-direct {p0, v7}, Lcom/android/server/enterprise/application/ApplicationPolicy;->reconcileApplicationsState(I)V
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->clearApplicationIconDbForUser(I)V
 
-    invoke-direct {p0, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->reconcileComponentsState(I)V
+    invoke-direct {p0, v7}, Lcom/android/server/enterprise/application/ApplicationPolicy;->reconcileComponentsState(I)V
 
-    iget-object v5, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v10}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v6
 
     const/4 v2, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v6, :cond_1
 
-    invoke-virtual {v3, p1}, Landroid/content/pm/PackageManager;->getNameForUid(I)Ljava/lang/String;
+    invoke-virtual {v6, p1}, Landroid/content/pm/PackageManager;->getNameForUid(I)Ljava/lang/String;
 
     move-result-object v2
 
-    :cond_0
-    if-eqz v2, :cond_3
-
-    const-string/jumbo v5, "com.samsung.klmsagent"
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_1
-
-    const-string/jumbo v5, "com.samsung.android.email.provider"
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
     :cond_1
-    :goto_0
-    const/4 v5, 0x0
+    if-eqz v2, :cond_4
 
-    invoke-static {p1, v5}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->translateToAdminLUID(II)J
+    const-string/jumbo v10, "com.samsung.klmsagent"
+
+    invoke-virtual {v2, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_2
+
+    const-string/jumbo v10, "com.samsung.android.email.provider"
+
+    invoke-virtual {v2, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_4
+
+    :cond_2
+    :goto_0
+    invoke-static {p1, v13}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->translateToAdminLUID(II)J
 
     move-result-wide v0
 
-    sget-object v5, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppStartOnUserSwitch:Ljava/util/Map;
+    sget-object v10, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppStartOnUserSwitch:Ljava/util/Map;
 
-    if-eqz v5, :cond_2
+    if-eqz v10, :cond_3
 
-    sget-object v5, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppStartOnUserSwitch:Ljava/util/Map;
+    sget-object v10, Lcom/android/server/enterprise/application/ApplicationPolicy;->mAppStartOnUserSwitch:Ljava/util/Map;
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v6
+    move-result-object v11
 
-    invoke-interface {v5, v6}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v10, v11}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_2
-    iget-object v5, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+    :cond_3
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v6, "content://com.sec.knox.provider2/ApplicationPolicy/getPackagesFromDisableClipboardBlackList"
+    const-string/jumbo v11, "content://com.sec.knox.provider2/ApplicationPolicy/getPackagesFromDisableClipboardBlackList"
 
-    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v11}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v6
+    move-result-object v11
 
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
 
-    iget-object v5, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v6, "content://com.sec.knox.provider2/ApplicationPolicy/getPackagesFromDisableClipboardWhiteList"
+    const-string/jumbo v11, "content://com.sec.knox.provider2/ApplicationPolicy/getPackagesFromDisableClipboardWhiteList"
 
-    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v11}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v6
+    move-result-object v11
 
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
 
     return-void
 
-    :cond_3
-    invoke-virtual {p0, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->reapplyRuntimePermissions(I)V
+    :cond_4
+    invoke-virtual {p0, v7}, Lcom/android/server/enterprise/application/ApplicationPolicy;->reapplyRuntimePermissions(I)V
 
     invoke-virtual {p0}, Lcom/android/server/enterprise/application/ApplicationPolicy;->grantRuntimePermissionsForEnterpriseAdmin()V
 
@@ -40478,15 +41760,15 @@
 .end method
 
 .method public removeAppPackageNameFromBlackList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 7
+    .locals 13
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
-    const-string/jumbo v4, "ApplicationPolicy"
+    const-string/jumbo v0, "ApplicationPolicy"
 
-    const-string/jumbo v5, "removeAppPackageNameFromBlackList "
+    const-string/jumbo v1, "removeAppPackageNameFromBlackList "
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -40498,88 +41780,158 @@
 
     invoke-direct {p0, p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->checkRegex(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
-    return v6
+    return v2
 
     :cond_0
-    iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    const/4 v5, 0x4
+    const/4 v1, 0x4
 
-    invoke-direct {p0, p2, v4, v5, v6}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationPkgNameControlState(Ljava/lang/String;IIZ)Z
+    invoke-direct {p0, p2, v0, v1, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationPkgNameControlState(Ljava/lang/String;IIZ)Z
 
-    move-result v2
+    move-result v9
 
-    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result v3
-
-    if-eqz v2, :cond_1
-
-    if-nez v3, :cond_1
-
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
-
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
-
-    invoke-direct {v1, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    move-result-wide v10
 
     :try_start_0
-    const-string/jumbo v4, "Application"
-
-    const-string/jumbo v5, "removeAppPackageNameFromBlackList"
-
-    invoke-virtual {v1, v4, v5, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
 
     const-string/jumbo v4, "ApplicationPolicy"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "removeAppPackageNameFromBlackList : packageName : "
+    const-string/jumbo v1, "Admin "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has removed "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " from package name blacklist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move-result-object v5
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v6
 
-    move-result-object v5
+    const/4 v0, 0x5
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v12
+
+    if-eqz v9, :cond_1
+
+    if-nez v12, :cond_1
+
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v8, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+
+    :try_start_1
+    const-string/jumbo v0, "Application"
+
+    const-string/jumbo v1, "removeAppPackageNameFromBlackList"
+
+    invoke-virtual {v8, v0, v1, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v0, "ApplicationPolicy"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "removeAppPackageNameFromBlackList : packageName : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_1
     :goto_0
-    return v2
+    return v9
 
-    :catch_0
+    :catchall_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public removeAppPackageNameFromWhiteList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 7
+    .locals 13
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
-    const-string/jumbo v4, "ApplicationPolicy"
+    const-string/jumbo v0, "ApplicationPolicy"
 
-    const-string/jumbo v5, "removeAppPackageNameFromWhiteList"
+    const-string/jumbo v1, "removeAppPackageNameFromWhiteList"
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -40591,228 +41943,508 @@
 
     invoke-direct {p0, p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->checkRegex(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
-    return v6
+    return v2
 
     :cond_0
-    iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    const/16 v5, 0x8
+    const/16 v1, 0x8
 
-    invoke-direct {p0, p2, v4, v5, v6}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationPkgNameControlState(Ljava/lang/String;IIZ)Z
+    invoke-direct {p0, p2, v0, v1, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationPkgNameControlState(Ljava/lang/String;IIZ)Z
 
-    move-result v2
+    move-result v9
 
-    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result v3
-
-    if-eqz v2, :cond_1
-
-    if-nez v3, :cond_1
-
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
-
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
-
-    invoke-direct {v1, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    move-result-wide v10
 
     :try_start_0
-    const-string/jumbo v4, "Application"
-
-    const-string/jumbo v5, "removeAppPackageNameFromWhiteList"
-
-    invoke-virtual {v1, v4, v5, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
 
     const-string/jumbo v4, "ApplicationPolicy"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "removeAppPackageNameFromWhiteList : packageName : "
+    const-string/jumbo v1, "Admin "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has removed "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " from package name whitelist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move-result-object v5
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v6
 
-    move-result-object v5
+    const/4 v0, 0x5
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v12
+
+    if-eqz v9, :cond_1
+
+    if-nez v12, :cond_1
+
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v8, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+
+    :try_start_1
+    const-string/jumbo v0, "Application"
+
+    const-string/jumbo v1, "removeAppPackageNameFromWhiteList"
+
+    invoke-virtual {v8, v0, v1, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v0, "ApplicationPolicy"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "removeAppPackageNameFromWhiteList : packageName : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_1
     :goto_0
-    return v2
+    return v9
 
-    :catch_0
+    :catchall_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public removeAppPermissionFromBlackList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 6
+    .locals 13
 
-    const/4 v5, 0x0
+    const/4 v1, 0x0
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    invoke-direct {p0, p2, v4, v5}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationPermissionControlState(Ljava/lang/String;IZ)Z
+    invoke-direct {p0, p2, v0, v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationPermissionControlState(Ljava/lang/String;IZ)Z
 
-    move-result v2
+    move-result v9
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    :try_start_0
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
+
+    const-string/jumbo v4, "ApplicationPolicy"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has removed "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " from permission blacklist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v3
+    move-result v12
 
-    if-eqz v2, :cond_0
+    if-eqz v9, :cond_0
 
-    if-nez v3, :cond_0
+    if-nez v12, :cond_0
 
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
 
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
 
-    :try_start_0
-    const-string/jumbo v4, "Application"
+    :try_start_1
+    const-string/jumbo v0, "Application"
 
-    const-string/jumbo v5, "removeAppPermissionFromBlackList"
+    const-string/jumbo v1, "removeAppPermissionFromBlackList"
 
-    invoke-virtual {v1, v4, v5, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v8, v0, v1, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_0
     :goto_0
-    return v2
+    return v9
 
-    :catch_0
+    :catchall_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public removeAppSignatureFromBlackList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 7
+    .locals 13
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
+
+    const/4 v1, 0x1
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    const/4 v5, 0x1
+    invoke-direct {p0, p2, v0, v1, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationSignatureControlState(Ljava/lang/String;IIZ)Z
 
-    invoke-direct {p0, p2, v4, v5, v6}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationSignatureControlState(Ljava/lang/String;IIZ)Z
+    move-result v9
 
-    move-result v2
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    :try_start_0
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
+
+    const-string/jumbo v4, "ApplicationPolicy"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has removed "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " from app signature blacklist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v3
+    move-result v12
 
-    if-eqz v2, :cond_0
+    if-eqz v9, :cond_0
 
-    if-nez v3, :cond_0
+    if-nez v12, :cond_0
 
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
 
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
 
-    :try_start_0
-    const-string/jumbo v4, "Application"
+    :try_start_1
+    const-string/jumbo v0, "Application"
 
-    const-string/jumbo v5, "removeAppSignatureFromBlackList"
+    const-string/jumbo v1, "removeAppSignatureFromBlackList"
 
-    invoke-virtual {v1, v4, v5, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v8, v0, v1, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_0
     :goto_0
-    return v2
+    return v9
 
-    :catch_0
+    :catchall_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public removeAppSignatureFromWhiteList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 7
+    .locals 13
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    const/4 v5, 0x2
+    const/4 v1, 0x2
 
-    invoke-direct {p0, p2, v4, v5, v6}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationSignatureControlState(Ljava/lang/String;IIZ)Z
+    invoke-direct {p0, p2, v0, v1, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->setApplicationSignatureControlState(Ljava/lang/String;IIZ)Z
 
-    move-result v2
+    move-result v9
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v3
+    move-result v12
 
-    if-eqz v2, :cond_0
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    if-nez v3, :cond_0
-
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
-
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
-
-    invoke-direct {v1, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    move-result-wide v10
 
     :try_start_0
-    const-string/jumbo v4, "Application"
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
 
-    const-string/jumbo v5, "removeAppSignatureFromWhiteList"
+    const-string/jumbo v4, "ApplicationPolicy"
 
-    invoke-virtual {v1, v4, v5, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has removed "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " from app signature whitelist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    if-eqz v9, :cond_0
+
+    if-nez v12, :cond_0
+
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v8, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+
+    :try_start_1
+    const-string/jumbo v0, "Application"
+
+    const-string/jumbo v1, "removeAppSignatureFromWhiteList"
+
+    invoke-virtual {v8, v0, v1, p2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_0
     :goto_0
-    return v2
+    return v9
 
-    :catch_0
+    :catchall_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -41342,9 +42974,9 @@
 .end method
 
 .method public removePackageFromInstallWhiteList(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 8
+    .locals 13
 
-    const/4 v7, 0x0
+    const/4 v12, 0x0
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->enforceAppPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -41352,79 +42984,136 @@
 
     invoke-static {p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->getValidStr(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v4, "ApplicationPolicy"
+    const-string/jumbo v0, "ApplicationPolicy"
 
-    const-string/jumbo v5, "removePackageFromInstallWhiteList() Package name is invalid"
+    const-string/jumbo v1, "removePackageFromInstallWhiteList() Package name is invalid"
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    return v7
+    return v12
 
     :cond_0
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v1
+    move-result v8
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v2
+    move-result-wide v10
 
     :try_start_0
-    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mPersonaManagerAdapter:Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mPersonaManagerAdapter:Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;
 
-    invoke-virtual {v4, v1, p2}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->removePackageFromInstallWhiteList(ILjava/lang/String;)Z
+    invoke-virtual {v0, v8, p2}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->removePackageFromInstallWhiteList(ILjava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1
+
+    sget v3, Lcom/android/server/enterprise/application/ApplicationPolicy;->MY_PID:I
+
+    const-string/jumbo v4, "ApplicationPolicy"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has removed "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " from install whitelist."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v4
+    :cond_1
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v4
+    return v9
 
     :catch_0
-    move-exception v0
+    move-exception v7
 
     :try_start_1
-    const-string/jumbo v4, "ApplicationPolicy"
+    const-string/jumbo v0, "ApplicationPolicy"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "addPackageToInstallList() - "
+    const-string/jumbo v2, "addPackageToInstallList() - "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v7
+    return v12
 
     :catchall_0
-    move-exception v4
+    move-exception v0
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v4
+    throw v0
 .end method
 
 .method public removePackagesFromClearCacheBlackList(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Z

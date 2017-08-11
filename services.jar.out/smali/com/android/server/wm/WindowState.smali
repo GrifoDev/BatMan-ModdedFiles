@@ -12147,9 +12147,7 @@
 .method public getNeedsMenuLw(Landroid/view/WindowManagerPolicy$WindowState;)Z
     .locals 6
 
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     const/4 v0, -0x1
 
@@ -12160,30 +12158,31 @@
     move-result-object v1
 
     :goto_0
-    iget-object v5, v2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+    iget-object v4, v2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget v5, v5, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
+    iget v4, v4, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_1
 
-    iget-object v5, v2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+    iget-object v4, v2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget v5, v5, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
+    iget v4, v4, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
-    if-ne v5, v3, :cond_0
+    const/4 v5, 0x1
 
-    :goto_1
-    return v3
+    if-ne v4, v5, :cond_0
+
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->isVisibleLw()Z
+
+    move-result v3
 
     :cond_0
-    move v3, v4
-
-    goto :goto_1
+    return v3
 
     :cond_1
     if-ne v2, p1, :cond_2
 
-    return v4
+    return v3
 
     :cond_2
     if-gez v0, :cond_3
@@ -12197,7 +12196,7 @@
 
     if-gez v0, :cond_4
 
-    return v4
+    return v3
 
     :cond_4
     invoke-virtual {v1, v0}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
@@ -15325,7 +15324,7 @@
 
     iget-boolean v4, v2, Lcom/android/server/wm/WindowState;->mAnimatingExit:Z
 
-    invoke-virtual {v3, v2, v4}, Lcom/android/server/wm/WindowManagerService;->removeWindowInnerLocked(Lcom/android/server/wm/WindowState;Z)V
+    invoke-virtual {v3, v2, v4, v6}, Lcom/android/server/wm/WindowManagerService;->removeWindowInnerLocked(Lcom/android/server/wm/WindowState;ZZ)V
 
     goto :goto_1
 

@@ -21,6 +21,8 @@
 
 .field public static final MODE_COOL_DOWN:I = 0x1
 
+.field public static final MODE_COOL_DOWN_NO_SCALE:I = 0x5
+
 .field public static final MODE_EDGE_COLLAPSE:I = 0x3
 
 .field public static final MODE_EDGE_UNITE:I = 0x4
@@ -3390,397 +3392,336 @@
 .end method
 
 .method public draw(F)Z
-    .locals 22
+    .locals 18
 
     move-object/from16 v0, p0
 
-    iget-boolean v15, v0, Lcom/android/server/display/ColorFade;->mPrepared:Z
+    iget-boolean v14, v0, Lcom/android/server/display/ColorFade;->mPrepared:Z
 
-    if-nez v15, :cond_0
+    if-nez v14, :cond_0
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
-    return v15
+    return v14
 
     :cond_0
     move-object/from16 v0, p0
 
-    iget v15, v0, Lcom/android/server/display/ColorFade;->mMode:I
+    iget v14, v0, Lcom/android/server/display/ColorFade;->mMode:I
 
-    const/16 v18, 0x2
+    const/4 v15, 0x2
 
-    move/from16 v0, v18
+    if-ne v14, v15, :cond_1
 
-    if-ne v15, v0, :cond_1
+    const/high16 v14, 0x3f800000    # 1.0f
 
-    const/high16 v15, 0x3f800000    # 1.0f
-
-    sub-float v15, v15, p1
+    sub-float v14, v14, p1
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v15}, Lcom/android/server/display/ColorFade;->showSurface(F)Z
+    invoke-direct {v0, v14}, Lcom/android/server/display/ColorFade;->showSurface(F)Z
 
-    move-result v15
+    move-result v14
 
-    return v15
+    return v14
 
     :cond_1
     invoke-direct/range {p0 .. p0}, Lcom/android/server/display/ColorFade;->attachEglContext()Z
 
-    move-result v15
+    move-result v14
 
-    if-nez v15, :cond_2
+    if-nez v14, :cond_2
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
-    return v15
+    return v14
 
     :cond_2
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/display/ColorFade;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+    iget-object v14, v0, Lcom/android/server/display/ColorFade;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
-    invoke-virtual {v15}, Landroid/hardware/display/DisplayManager;->getDisplays()[Landroid/view/Display;
+    invoke-virtual {v14}, Landroid/hardware/display/DisplayManager;->getDisplays()[Landroid/view/Display;
 
-    move-result-object v8
+    move-result-object v6
 
-    array-length v15, v8
+    array-length v14, v6
 
-    const/16 v18, 0x1
+    const/4 v15, 0x1
 
-    move/from16 v0, v18
-
-    if-le v15, v0, :cond_6
+    if-le v14, v15, :cond_6
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Lcom/android/server/display/ColorFade;->mMode:I
+    iget v14, v0, Lcom/android/server/display/ColorFade;->mMode:I
 
-    const/16 v18, 0x3
+    const/4 v15, 0x3
 
-    move/from16 v0, v18
-
-    if-eq v15, v0, :cond_3
+    if-eq v14, v15, :cond_3
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Lcom/android/server/display/ColorFade;->mMode:I
+    iget v14, v0, Lcom/android/server/display/ColorFade;->mMode:I
 
-    const/16 v18, 0x4
+    const/4 v15, 0x4
 
-    move/from16 v0, v18
-
-    if-ne v15, v0, :cond_6
+    if-ne v14, v15, :cond_6
 
     :cond_3
     move/from16 v0, p1
 
-    float-to-double v0, v0
+    float-to-double v14, v0
 
-    move-wide/from16 v18, v0
+    const-wide v16, 0x3eb0c6f7a0b5ed8dL    # 1.0E-6
 
-    const-wide v20, 0x3eb0c6f7a0b5ed8dL    # 1.0E-6
+    cmpg-double v14, v14, v16
 
-    cmpg-double v15, v18, v20
+    if-gtz v14, :cond_6
 
-    if-gtz v15, :cond_6
-
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
     :goto_0
-    const/4 v15, 0x6
+    const/4 v14, 0x6
 
-    if-ge v7, v15, :cond_4
+    if-ge v5, v14, :cond_4
+
+    const/4 v14, 0x0
 
     const/4 v15, 0x0
 
-    const/16 v18, 0x0
+    const/16 v16, 0x0
 
-    const/16 v19, 0x0
-
-    const/high16 v20, 0x3f800000    # 1.0f
+    const/high16 v17, 0x3f800000    # 1.0f
 
     :try_start_0
-    move/from16 v0, v18
+    invoke-static/range {v14 .. v17}, Landroid/opengl/GLES20;->glClearColor(FFFF)V
 
-    move/from16 v1, v19
+    const/16 v14, 0x4000
 
-    move/from16 v2, v20
-
-    invoke-static {v15, v0, v1, v2}, Landroid/opengl/GLES20;->glClearColor(FFFF)V
-
-    const/16 v15, 0x4000
-
-    invoke-static {v15}, Landroid/opengl/GLES20;->glClear(I)V
+    invoke-static {v14}, Landroid/opengl/GLES20;->glClear(I)V
 
     invoke-static {}, Landroid/opengl/GLES20;->glFinish()V
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/display/ColorFade;->mEglDisplay:Landroid/opengl/EGLDisplay;
+    iget-object v14, v0, Lcom/android/server/display/ColorFade;->mEglDisplay:Landroid/opengl/EGLDisplay;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/display/ColorFade;->mEglSurface:Landroid/opengl/EGLSurface;
+    iget-object v15, v0, Lcom/android/server/display/ColorFade;->mEglSurface:Landroid/opengl/EGLSurface;
 
-    move-object/from16 v18, v0
+    invoke-static {v14, v15}, Landroid/opengl/EGL14;->eglSwapBuffers(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;)Z
 
-    move-object/from16 v0, v18
-
-    invoke-static {v15, v0}, Landroid/opengl/EGL14;->eglSwapBuffers(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;)Z
-
-    const/high16 v15, 0x3f800000    # 1.0f
+    const/high16 v14, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v15}, Lcom/android/server/display/ColorFade;->showSurface(F)Z
+    invoke-direct {v0, v14}, Lcom/android/server/display/ColorFade;->showSurface(F)Z
 
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v15, "drawFrame"
+    const-string/jumbo v14, "drawFrame"
 
-    invoke-static {v15}, Lcom/android/server/display/ColorFade;->checkGlErrors(Ljava/lang/String;)Z
+    invoke-static {v14}, Lcom/android/server/display/ColorFade;->checkGlErrors(Ljava/lang/String;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v15
+    move-result v14
 
-    if-eqz v15, :cond_5
+    if-eqz v14, :cond_5
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/display/ColorFade;->detachEglContext()V
 
-    return v15
+    return v14
 
     :cond_5
     invoke-direct/range {p0 .. p0}, Lcom/android/server/display/ColorFade;->detachEglContext()V
 
-    const/4 v15, 0x1
+    const/4 v14, 0x1
 
-    return v15
+    return v14
 
     :catchall_0
-    move-exception v15
+    move-exception v14
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/display/ColorFade;->detachEglContext()V
 
-    throw v15
+    throw v14
 
     :cond_6
+    const/4 v14, 0x0
+
     const/4 v15, 0x0
 
-    const/16 v18, 0x0
+    const/16 v16, 0x0
 
-    const/16 v19, 0x0
-
-    const/high16 v20, 0x3f800000    # 1.0f
+    const/high16 v17, 0x3f800000    # 1.0f
 
     :try_start_1
-    move/from16 v0, v18
+    invoke-static/range {v14 .. v17}, Landroid/opengl/GLES20;->glClearColor(FFFF)V
 
-    move/from16 v1, v19
+    const/16 v14, 0x4000
 
-    move/from16 v2, v20
+    invoke-static {v14}, Landroid/opengl/GLES20;->glClear(I)V
 
-    invoke-static {v15, v0, v1, v2}, Landroid/opengl/GLES20;->glClearColor(FFFF)V
+    const/high16 v14, 0x3f800000    # 1.0f
 
-    const/16 v15, 0x4000
+    sub-float v14, v14, p1
 
-    invoke-static {v15}, Landroid/opengl/GLES20;->glClear(I)V
+    float-to-double v8, v14
+
+    const-wide v14, 0x400921fb54442d18L    # Math.PI
+
+    mul-double/2addr v14, v8
+
+    invoke-static {v14, v15}, Ljava/lang/Math;->cos(D)D
+
+    move-result-wide v2
+
+    const-wide/16 v14, 0x0
+
+    cmpg-double v14, v2, v14
+
+    if-gez v14, :cond_8
+
+    const/4 v14, -0x1
+
+    :goto_1
+    int-to-double v12, v14
+
+    const-wide/high16 v14, 0x4000000000000000L    # 2.0
+
+    invoke-static {v8, v9, v14, v15}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v14
+
+    neg-double v14, v14
+
+    double-to-float v14, v14
 
     const/high16 v15, 0x3f800000    # 1.0f
 
-    sub-float v15, v15, p1
-
-    float-to-double v10, v15
-
-    const-wide v18, 0x400921fb54442d18L    # Math.PI
-
-    mul-double v18, v18, v10
-
-    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->cos(D)D
-
-    move-result-wide v4
-
-    const-wide/16 v18, 0x0
-
-    cmpg-double v15, v4, v18
-
-    if-gez v15, :cond_7
-
-    const/4 v15, -0x1
-
-    :goto_1
-    int-to-double v0, v15
-
-    move-wide/from16 v16, v0
-
-    const-wide/high16 v18, 0x4000000000000000L    # 2.0
-
-    move-wide/from16 v0, v18
-
-    invoke-static {v10, v11, v0, v1}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v18
-
-    move-wide/from16 v0, v18
-
-    neg-double v0, v0
-
-    move-wide/from16 v18, v0
-
-    move-wide/from16 v0, v18
-
-    double-to-float v15, v0
-
-    const/high16 v18, 0x3f800000    # 1.0f
-
-    add-float v9, v15, v18
+    add-float v7, v14, v15
 
     move/from16 v0, p1
 
-    float-to-double v0, v0
+    float-to-double v14, v0
 
-    move-wide/from16 v18, v0
+    const-wide/high16 v16, 0x4010000000000000L    # 4.0
 
-    const-wide/high16 v20, 0x4010000000000000L    # 4.0
+    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
 
-    invoke-static/range {v18 .. v21}, Ljava/lang/Math;->pow(DD)D
+    move-result-wide v14
 
-    move-result-wide v18
+    double-to-float v10, v14
 
-    move-wide/from16 v0, v18
-
-    double-to-float v12, v0
-
-    const-wide/high16 v18, 0x4000000000000000L    # 2.0
-
-    move-wide/from16 v0, v18
-
-    invoke-static {v10, v11, v0, v1}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v18
-
-    move-wide/from16 v0, v18
-
-    neg-double v0, v0
-
-    move-wide/from16 v18, v0
-
-    const-wide/high16 v20, 0x3ff0000000000000L    # 1.0
-
-    add-double v18, v18, v20
-
-    const-wide v20, 0x3fb999999999999aL    # 0.1
-
-    mul-double v18, v18, v20
-
-    const-wide v20, 0x3feccccccccccccdL    # 0.9
-
-    add-double v18, v18, v20
-
-    move-wide/from16 v0, v18
-
-    double-to-float v14, v0
-
-    const-wide/high16 v18, 0x3fe0000000000000L    # 0.5
-
-    mul-double v18, v18, v16
-
-    const-wide/high16 v20, 0x4000000000000000L    # 2.0
-
-    move-wide/from16 v0, v20
-
-    invoke-static {v4, v5, v0, v1}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v20
-
-    mul-double v18, v18, v20
-
-    const-wide/high16 v20, 0x3fe0000000000000L    # 0.5
-
-    add-double v18, v18, v20
-
-    const-wide v20, 0x3feccccccccccccdL    # 0.9
-
-    mul-double v18, v18, v20
-
-    const-wide v20, 0x3fb999999999999aL    # 0.1
-
-    add-double v18, v18, v20
-
-    move-wide/from16 v0, v18
-
-    double-to-float v6, v0
+    const/high16 v11, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Lcom/android/server/display/ColorFade;->mMode:I
+    iget v14, v0, Lcom/android/server/display/ColorFade;->mMode:I
 
-    const/16 v18, 0x3
+    const/4 v15, 0x5
 
-    move/from16 v0, v18
+    if-eq v14, v15, :cond_7
 
-    if-ne v15, v0, :cond_8
+    const-wide/high16 v14, 0x4000000000000000L    # 2.0
 
-    move/from16 v0, p1
+    invoke-static {v8, v9, v14, v15}, Ljava/lang/Math;->pow(DD)D
 
-    float-to-double v0, v0
+    move-result-wide v14
 
-    move-wide/from16 v18, v0
+    neg-double v14, v14
 
-    const-wide/high16 v20, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v16, 0x3ff0000000000000L    # 1.0
 
-    invoke-static/range {v18 .. v21}, Ljava/lang/Math;->pow(DD)D
+    add-double v14, v14, v16
 
-    move-result-wide v18
+    const-wide v16, 0x3fb999999999999aL    # 0.1
 
-    move-wide/from16 v0, v18
+    mul-double v14, v14, v16
 
-    double-to-float v13, v0
+    const-wide v16, 0x3feccccccccccccdL    # 0.9
+
+    add-double v14, v14, v16
+
+    double-to-float v11, v14
+
+    :cond_7
+    const-wide/high16 v14, 0x3fe0000000000000L    # 0.5
+
+    mul-double/2addr v14, v12
+
+    const-wide/high16 v16, 0x4000000000000000L    # 2.0
+
+    move-wide/from16 v0, v16
+
+    invoke-static {v2, v3, v0, v1}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v16
+
+    mul-double v14, v14, v16
+
+    const-wide/high16 v16, 0x3fe0000000000000L    # 0.5
+
+    add-double v14, v14, v16
+
+    const-wide v16, 0x3feccccccccccccdL    # 0.9
+
+    mul-double v14, v14, v16
+
+    const-wide v16, 0x3fb999999999999aL    # 0.1
+
+    add-double v14, v14, v16
+
+    double-to-float v4, v14
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v13}, Lcom/android/server/display/ColorFade;->drawEdgeCollapse(F)V
+    iget v14, v0, Lcom/android/server/display/ColorFade;->mMode:I
+
+    const/4 v15, 0x3
+
+    if-ne v14, v15, :cond_9
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/display/ColorFade;->drawEdgeCollapse(F)V
 
     :goto_2
-    const-string/jumbo v15, "drawFrame"
+    const-string/jumbo v14, "drawFrame"
 
-    invoke-static {v15}, Lcom/android/server/display/ColorFade;->checkGlErrors(Ljava/lang/String;)Z
+    invoke-static {v14}, Lcom/android/server/display/ColorFade;->checkGlErrors(Ljava/lang/String;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-result v15
+    move-result v14
 
-    if-eqz v15, :cond_a
+    if-eqz v14, :cond_b
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/display/ColorFade;->detachEglContext()V
 
-    return v15
-
-    :cond_7
-    const/4 v15, 0x1
-
-    goto/16 :goto_1
+    return v14
 
     :cond_8
+    const/4 v14, 0x1
+
+    goto :goto_1
+
+    :cond_9
     :try_start_2
     move-object/from16 v0, p0
 
-    iget v15, v0, Lcom/android/server/display/ColorFade;->mMode:I
+    iget v14, v0, Lcom/android/server/display/ColorFade;->mMode:I
 
-    const/16 v18, 0x4
+    const/4 v15, 0x4
 
-    move/from16 v0, v18
-
-    if-ne v15, v0, :cond_9
+    if-ne v14, v15, :cond_a
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/display/ColorFade;->drawEdgeUnite(F)V
     :try_end_2
@@ -3789,52 +3730,48 @@
     goto :goto_2
 
     :catchall_1
-    move-exception v15
+    move-exception v14
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/display/ColorFade;->detachEglContext()V
 
-    throw v15
+    throw v14
 
-    :cond_9
-    const/high16 v15, 0x3f800000    # 1.0f
+    :cond_a
+    const/high16 v14, 0x3f800000    # 1.0f
 
-    div-float/2addr v15, v6
+    div-float/2addr v14, v4
 
     :try_start_3
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v9, v15, v12, v14}, Lcom/android/server/display/ColorFade;->drawFaded(FFFF)V
+    invoke-direct {v0, v7, v14, v10, v11}, Lcom/android/server/display/ColorFade;->drawFaded(FFFF)V
 
     goto :goto_2
 
-    :cond_a
+    :cond_b
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/display/ColorFade;->mEglDisplay:Landroid/opengl/EGLDisplay;
+    iget-object v14, v0, Lcom/android/server/display/ColorFade;->mEglDisplay:Landroid/opengl/EGLDisplay;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/display/ColorFade;->mEglSurface:Landroid/opengl/EGLSurface;
+    iget-object v15, v0, Lcom/android/server/display/ColorFade;->mEglSurface:Landroid/opengl/EGLSurface;
 
-    move-object/from16 v18, v0
-
-    move-object/from16 v0, v18
-
-    invoke-static {v15, v0}, Landroid/opengl/EGL14;->eglSwapBuffers(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;)Z
+    invoke-static {v14, v15}, Landroid/opengl/EGL14;->eglSwapBuffers(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;)Z
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/display/ColorFade;->detachEglContext()V
 
-    const/high16 v15, 0x3f800000    # 1.0f
+    const/high16 v14, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v15}, Lcom/android/server/display/ColorFade;->showSurface(F)Z
+    invoke-direct {v0, v14}, Lcom/android/server/display/ColorFade;->showSurface(F)Z
 
-    move-result v15
+    move-result v14
 
-    return v15
+    return v14
 .end method
 
 .method public dump(Ljava/io/PrintWriter;)V
@@ -4500,14 +4437,19 @@
 
     iput-boolean v6, p0, Lcom/android/server/display/ColorFade;->mPrepared:Z
 
-    if-ne p2, v6, :cond_7
+    if-eq p2, v6, :cond_7
 
+    const/4 v2, 0x5
+
+    if-ne p2, v2, :cond_8
+
+    :cond_7
     const/4 v1, 0x0
 
     :goto_1
     const/4 v2, 0x3
 
-    if-ge v1, v2, :cond_7
+    if-ge v1, v2, :cond_8
 
     const/high16 v2, 0x3f800000    # 1.0f
 
@@ -4530,7 +4472,7 @@
 
     throw v2
 
-    :cond_7
+    :cond_8
     iget-object v2, p0, Lcom/android/server/display/ColorFade;->mTimeMeasurementForPrepare:Lcom/android/server/power/PowerManagerUtil$TimeMeasurement;
 
     const-string/jumbo v3, "ColorFade prepare"

@@ -54,7 +54,7 @@
 
     iget-object v2, p0, Lcom/android/server/audio/AudioService$2;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v2}, Lcom/android/server/audio/AudioService;->-get39(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v2}, Lcom/android/server/audio/AudioService;->-get41(Lcom/android/server/audio/AudioService;)I
 
     move-result v2
 
@@ -72,13 +72,17 @@
 
     iget-object v3, p0, Lcom/android/server/audio/AudioService$2;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get39(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get41(Lcom/android/server/audio/AudioService;)I
 
     move-result v3
 
-    invoke-static {v2, v3}, Lcom/android/server/audio/AudioService;->-wrap18(Lcom/android/server/audio/AudioService;I)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/android/server/audio/AudioService;->-wrap16(Lcom/android/server/audio/AudioService;I)[Ljava/lang/String;
 
     move-result-object v2
+
+    const/4 v3, 0x0
+
+    aget-object v2, v2, v3
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

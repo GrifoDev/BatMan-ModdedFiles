@@ -3162,7 +3162,7 @@
 
     iget-object v6, p0, Lcom/android/server/BluetoothManagerService;->mContext:Landroid/content/Context;
 
-    const v7, 0x1040840
+    const v7, 0x1040845
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3186,7 +3186,7 @@
 
     iget-object v8, p0, Lcom/android/server/BluetoothManagerService;->mContext:Landroid/content/Context;
 
-    const v9, 0x1040843
+    const v9, 0x1040848
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3194,7 +3194,7 @@
 
     aput-object v8, v7, v10
 
-    const v8, 0x1040842
+    const v8, 0x1040847
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -7041,6 +7041,102 @@
     return v5
 
     :cond_2
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "CscFeature_Common_ConfigLocalSecurityPolicy"
+
+    invoke-virtual {v1, v3}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "CscFeature_Common_ConfigLocalSecurityPolicy"
+
+    invoke-virtual {v1, v3}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    iget-object v1, p0, Lcom/android/server/BluetoothManagerService;->mContentResolver:Landroid/content/ContentResolver;
+
+    const-string/jumbo v3, "bluetooth_security_on_check"
+
+    invoke-static {v1, v3, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v9
+
+    const-string/jumbo v1, "BluetoothManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "enable(): enable PopUp for Bluetooth isChecked : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v1, "ChinaNalSecurity"
+
+    invoke-virtual {v1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    if-ne v9, v2, :cond_4
+
+    invoke-virtual {p0}, Lcom/android/server/BluetoothManagerService;->isUserAction()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    sget-boolean v1, Lcom/android/server/BluetoothManagerService;->isEnablePopup:Z
+
+    if-nez v1, :cond_3
+
+    iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mHandler:Lcom/android/server/BluetoothManagerService$BluetoothHandler;
+
+    const/16 v1, 0x2bc
+
+    invoke-virtual {v0, v1}, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v7
+
+    iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mHandler:Lcom/android/server/BluetoothManagerService$BluetoothHandler;
+
+    const-wide/16 v4, 0x32
+
+    invoke-virtual {v0, v7, v4, v5}, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
+    return v2
+
+    :cond_3
+    sput-boolean v5, Lcom/android/server/BluetoothManagerService;->isEnablePopup:Z
+
+    :cond_4
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v10
@@ -7059,7 +7155,7 @@
 
     sget-boolean v1, Lcom/android/server/BluetoothManagerService;->DBG:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
     const-string/jumbo v1, "BluetoothManagerService"
 
@@ -7108,102 +7204,6 @@
     move-result-object v3
 
     invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v1
-
-    const-string/jumbo v3, "CscFeature_Common_ConfigLocalSecurityPolicy"
-
-    invoke-virtual {v1, v3}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_5
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v1
-
-    const-string/jumbo v3, "CscFeature_Common_ConfigLocalSecurityPolicy"
-
-    invoke-virtual {v1, v3}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    iget-object v1, p0, Lcom/android/server/BluetoothManagerService;->mContentResolver:Landroid/content/ContentResolver;
-
-    const-string/jumbo v3, "bluetooth_security_on_check"
-
-    invoke-static {v1, v3, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v9
-
-    const-string/jumbo v1, "BluetoothManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "enable(): enable PopUp for Bluetooth isChecked : "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v1, "ChinaNalSecurity"
-
-    invoke-virtual {v1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    if-ne v9, v2, :cond_5
-
-    invoke-virtual {p0}, Lcom/android/server/BluetoothManagerService;->isUserAction()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    sget-boolean v1, Lcom/android/server/BluetoothManagerService;->isEnablePopup:Z
-
-    if-nez v1, :cond_4
-
-    iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mHandler:Lcom/android/server/BluetoothManagerService$BluetoothHandler;
-
-    const/16 v1, 0x2bc
-
-    invoke-virtual {v0, v1}, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v7
-
-    iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mHandler:Lcom/android/server/BluetoothManagerService$BluetoothHandler;
-
-    const-wide/16 v4, 0x32
-
-    invoke-virtual {v0, v7, v4, v5}, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    return v2
-
-    :cond_4
-    sput-boolean v5, Lcom/android/server/BluetoothManagerService;->isEnablePopup:Z
 
     :cond_5
     iget-object v1, p0, Lcom/android/server/BluetoothManagerService;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -8823,13 +8823,13 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v8
 
-    if-lez v8, :cond_6
+    if-lez v8, :cond_7
 
     invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -8840,7 +8840,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_7
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8945,73 +8945,23 @@
     if-eqz v8, :cond_2
 
     :cond_1
-    iget v8, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+    const-string/jumbo v8, "com.samsung.cts.AndroidBluetooth"
 
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->getCallingPid()I
+    invoke-virtual {v8}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result v9
+    move-result-object v8
 
-    if-ne v8, v9, :cond_0
+    iget-object v9, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
 
-    :try_start_0
-    iget-object v8, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
 
     if-eqz v8, :cond_4
-
-    iget-object v8, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
-
-    array-length v9, v8
-
-    :goto_0
-    if-ge v7, v9, :cond_5
-
-    aget-object v5, v8, v7
-
-    const/16 v10, 0x80
-
-    invoke-virtual {v6, v5, v10}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v10
-
-    invoke-virtual {v6, v10}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
-
-    move-result-object v10
-
-    invoke-interface {v10}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    iput-object v10, p0, Lcom/android/server/BluetoothManagerService;->chinaThirdPartyAppName:Ljava/lang/String;
-
-    const-string/jumbo v10, "BluetoothManagerService"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "appName = "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    iget-object v12, p0, Lcom/android/server/BluetoothManagerService;->chinaThirdPartyAppName:Ljava/lang/String;
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_0
 
     :cond_2
     const-string/jumbo v8, "BluetoothManagerService"
@@ -9044,7 +8994,7 @@
 
     move-result v9
 
-    if-ne v8, v9, :cond_1
+    if-ne v8, v9, :cond_4
 
     const-string/jumbo v8, "BluetoothManagerService"
 
@@ -9104,7 +9054,73 @@
     return v7
 
     :cond_4
-    :try_start_1
+    iget v8, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->getCallingPid()I
+
+    move-result v9
+
+    if-ne v8, v9, :cond_0
+
+    :try_start_0
+    iget-object v8, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
+
+    if-eqz v8, :cond_5
+
+    iget-object v8, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
+
+    array-length v9, v8
+
+    :goto_0
+    if-ge v7, v9, :cond_6
+
+    aget-object v5, v8, v7
+
+    const/16 v10, 0x80
+
+    invoke-virtual {v6, v5, v10}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v10
+
+    invoke-virtual {v6, v10}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+
+    move-result-object v10
+
+    invoke-interface {v10}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/server/BluetoothManagerService;->chinaThirdPartyAppName:Ljava/lang/String;
+
+    const-string/jumbo v10, "BluetoothManagerService"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "appName = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    iget-object v12, p0, Lcom/android/server/BluetoothManagerService;->chinaThirdPartyAppName:Ljava/lang/String;
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_0
+
+    :cond_5
     iget-object v7, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
 
     const/16 v8, 0x80
@@ -9146,10 +9162,10 @@
     move-result-object v8
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_5
+    :cond_6
     :goto_1
     return v13
 
@@ -9164,7 +9180,7 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     return v13
 .end method
 

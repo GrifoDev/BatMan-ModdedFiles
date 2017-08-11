@@ -559,6 +559,17 @@
 
     invoke-virtual {p0, v0, p1}, Lcom/android/server/LockSettingsStrongAuth;->requireStrongAuth(II)V
 
+    iget-object v0, p0, Lcom/android/server/LockSettingsStrongAuth;->mStrongAuthFor24HoursListener:Landroid/app/AlarmManager$OnAlarmListener;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/LockSettingsStrongAuth;->mAlarmManager:Landroid/app/AlarmManager;
+
+    iget-object v1, p0, Lcom/android/server/LockSettingsStrongAuth;->mStrongAuthFor24HoursListener:Landroid/app/AlarmManager$OnAlarmListener;
+
+    invoke-virtual {v0, v1}, Landroid/app/AlarmManager;->cancel(Landroid/app/AlarmManager$OnAlarmListener;)V
+
+    :cond_0
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/LockSettingsStrongAuth;->mPendingUserid:I

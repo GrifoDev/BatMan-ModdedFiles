@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/LockSettingsService;->doVerifyBackupPassword(Ljava/lang/String;ZJI)Lcom/android/internal/widget/VerifyCredentialResponse;
+    value = Lcom/android/server/LockSettingsService;->doVerifyRecoveryPassword(Ljava/lang/String;ZJI)Lcom/android/internal/widget/VerifyCredentialResponse;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -58,7 +58,7 @@
 
     iget-object v0, p0, Lcom/android/server/LockSettingsService$10;->this$0:Lcom/android/server/LockSettingsService;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/LockSettingsService;->setLockBackupPassword(Ljava/lang/String;Ljava/lang/String;I)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/LockSettingsService;->setLockRecoveryPassword(Ljava/lang/String;Ljava/lang/String;I)V
 
     return-void
 .end method

@@ -38,6 +38,8 @@
 
 .field private static final LAUNCH_REPORTING_BASE:J
 
+.field private static final LAUNCH_REPORTING_LIMIT:J
+
 .field static final RECENTS_ACTIVITY_TYPE:I = 0x2
 
 .field public static final RECENTS_PACKAGE_NAME:Ljava/lang/String; = "com.android.systemui.recents"
@@ -64,6 +66,20 @@
 
 
 # instance fields
+.field private final APP_LAUNCH_ARRAY:[Ljava/lang/String;
+
+.field private final APP_LAUNCH_MAP:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field app:Lcom/android/server/am/ProcessRecord;
 
 .field final appInfo:Landroid/content/pm/ApplicationInfo;
@@ -134,6 +150,8 @@
 .field final intent:Landroid/content/Intent;
 
 .field isConventionalMode:Z
+
+.field private isMapped:Z
 
 .field isRelaunching:Z
 
@@ -396,6 +414,18 @@
 
     sput-wide v0, Lcom/android/server/am/ActivityRecord;->LAUNCH_REPORTING_BASE:J
 
+    const-string/jumbo v0, "debug.launch.reporting.limit"
+
+    const/16 v1, 0x2710
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    int-to-long v0, v0
+
+    sput-wide v0, Lcom/android/server/am/ActivityRecord;->LAUNCH_REPORTING_LIMIT:J
+
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v0
@@ -415,6 +445,52 @@
     .locals 18
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v13, v0, Lcom/android/server/am/ActivityRecord;->isMapped:Z
+
+    const/4 v13, 0x4
+
+    new-array v13, v13, [Ljava/lang/String;
+
+    const-string/jumbo v14, "com.sec.android.app.camera"
+
+    const/4 v15, 0x0
+
+    aput-object v14, v13, v15
+
+    const-string/jumbo v14, "com.samsung.android.messaging"
+
+    const/4 v15, 0x1
+
+    aput-object v14, v13, v15
+
+    const-string/jumbo v14, "com.sec.android.gallery3d"
+
+    const/4 v15, 0x2
+
+    aput-object v14, v13, v15
+
+    const-string/jumbo v14, "com.samsung.android.contacts"
+
+    const/4 v15, 0x3
+
+    aput-object v14, v13, v15
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/am/ActivityRecord;->APP_LAUNCH_ARRAY:[Ljava/lang/String;
+
+    new-instance v13, Ljava/util/HashMap;
+
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/am/ActivityRecord;->APP_LAUNCH_MAP:Ljava/util/HashMap;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -1994,22 +2070,61 @@
 .end method
 
 .method private reportLaunchTimeLocked(J)V
-    .locals 13
+    .locals 15
 
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    iget-object v9, v1, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+    iget-object v11, v1, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
 
-    if-nez v9, :cond_0
+    if-nez v11, :cond_0
 
     return-void
 
     :cond_0
+    iget-boolean v1, p0, Lcom/android/server/am/ActivityRecord;->isMapped:Z
+
+    if-nez v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->APP_LAUNCH_MAP:Ljava/util/HashMap;
+
+    invoke-virtual {v1}, Ljava/util/HashMap;->clear()V
+
+    const/4 v9, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->APP_LAUNCH_ARRAY:[Ljava/lang/String;
+
+    array-length v1, v1
+
+    if-ge v9, v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->APP_LAUNCH_MAP:Ljava/util/HashMap;
+
+    iget-object v2, p0, Lcom/android/server/am/ActivityRecord;->APP_LAUNCH_ARRAY:[Ljava/lang/String;
+
+    aget-object v2, v2, v9
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    add-int/lit8 v9, v9, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/server/am/ActivityRecord;->isMapped:Z
+
+    :cond_2
     invoke-static {}, Landroid/util/GateConfig;->isGateEnabled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
     const-string/jumbo v1, "GATE"
 
@@ -2041,24 +2156,24 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_3
     iget-wide v2, p0, Lcom/android/server/am/ActivityRecord;->displayStartTime:J
 
     sub-long v4, p1, v2
 
-    iget-wide v2, v9, Lcom/android/server/am/ActivityStack;->mLaunchStartTime:J
+    iget-wide v2, v11, Lcom/android/server/am/ActivityStack;->mLaunchStartTime:J
 
-    const-wide/16 v10, 0x0
+    const-wide/16 v12, 0x0
 
-    cmp-long v1, v2, v10
+    cmp-long v1, v2, v12
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_a
 
-    iget-wide v2, v9, Lcom/android/server/am/ActivityStack;->mLaunchStartTime:J
+    iget-wide v2, v11, Lcom/android/server/am/ActivityStack;->mLaunchStartTime:J
 
     sub-long v6, p1, v2
 
-    :goto_0
+    :goto_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2081,9 +2196,9 @@
 
     const-wide/16 v2, 0x40
 
-    const/4 v10, 0x0
+    const/4 v12, 0x0
 
-    invoke-static {v2, v3, v1, v10}, Landroid/os/Trace;->asyncTraceEnd(JLjava/lang/String;I)V
+    invoke-static {v2, v3, v1, v12}, Landroid/os/Trace;->asyncTraceEnd(JLjava/lang/String;I)V
 
     const/4 v1, 0x5
 
@@ -2137,28 +2252,125 @@
 
     invoke-static {v2, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    sget-boolean v1, Lcom/android/server/am/ActivityRecord;->BIGDATA_ENABLE:Z
+
+    if-eqz v1, :cond_4
+
+    sget-wide v2, Lcom/android/server/am/ActivityRecord;->LAUNCH_REPORTING_LIMIT:J
+
+    cmp-long v1, v4, v2
+
+    if-gtz v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->APP_LAUNCH_MAP:Ljava/util/HashMap;
+
+    iget-object v2, p0, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    new-instance v8, Landroid/content/ContentValues;
+
+    invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v1, "app_id"
+
+    const-string/jumbo v2, "com.android.server.ssrm"
+
+    invoke-virtual {v8, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v1, "feature"
+
+    const-string/jumbo v2, "APPL"
+
+    invoke-virtual {v8, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v1, "extra"
+
+    iget-object v2, p0, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v8, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v1, "value"
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v2
+
+    invoke-virtual {v8, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v1, "com.samsung.android.providers.context.log.action.USE_APP_FEATURE_SURVEY"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "data"
+
+    invoke-virtual {v0, v1, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "com.samsung.android.providers.context"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    sget-object v1, Lcom/android/server/am/ActivityRecord;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Complete : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
     sget-boolean v1, Lcom/android/server/am/SluggishInfo;->ENABLE:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5
 
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
 
     invoke-static {v1}, Lcom/android/server/am/SluggishInfo;->addEndLaunchLog(Ljava/lang/String;)V
 
-    :cond_2
+    :cond_5
     sget-wide v2, Lcom/android/server/am/ActivityRecord;->LAUNCH_REPORTING_BASE:J
 
     cmp-long v1, v4, v2
 
-    if-ltz v1, :cond_3
+    if-ltz v1, :cond_6
 
     cmp-long v1, v4, v6
 
-    if-gtz v1, :cond_3
+    if-gtz v1, :cond_6
 
     sget-boolean v1, Lcom/android/server/am/ActivityRecord;->BIGDATA_ENABLE:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6
 
     new-instance v0, Landroid/content/Intent;
 
@@ -2192,47 +2404,47 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    :cond_3
+    :cond_6
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v8, v1, Lcom/android/server/am/ActivityManagerService;->mStringBuilder:Ljava/lang/StringBuilder;
+    iget-object v10, v1, Lcom/android/server/am/ActivityManagerService;->mStringBuilder:Ljava/lang/StringBuilder;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->setLength(I)V
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->setLength(I)V
 
     const-string/jumbo v1, "Displayed "
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string/jumbo v1, ": "
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v4, v5, v8}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
+    invoke-static {v4, v5, v10}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
     cmp-long v1, v4, v6
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_7
 
     const-string/jumbo v1, " (total "
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v6, v7, v8}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
+    invoke-static {v6, v7, v10}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
     const-string/jumbo v1, ")"
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_4
+    :cond_7
     sget-object v1, Lcom/android/server/am/ActivityRecord;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -2250,16 +2462,16 @@
 
     cmp-long v1, v6, v2
 
-    if-lez v1, :cond_5
+    if-lez v1, :cond_8
 
-    :cond_5
+    :cond_8
     const-wide/16 v2, 0x0
 
     iput-wide v2, p0, Lcom/android/server/am/ActivityRecord;->displayStartTime:J
 
     const-wide/16 v2, 0x0
 
-    iput-wide v2, v9, Lcom/android/server/am/ActivityStack;->mLaunchStartTime:J
+    iput-wide v2, v11, Lcom/android/server/am/ActivityStack;->mLaunchStartTime:J
 
     iget-object v2, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
 
@@ -2270,7 +2482,7 @@
 
     sget-boolean v1, Lcom/android/server/am/DynamicHiddenApp;->mILS_Enable:Z
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_9
 
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
 
@@ -2278,17 +2490,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_6
+    :cond_9
     monitor-exit v2
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     return-void
 
-    :cond_7
+    :cond_a
     move-wide v6, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :catchall_0
     move-exception v1

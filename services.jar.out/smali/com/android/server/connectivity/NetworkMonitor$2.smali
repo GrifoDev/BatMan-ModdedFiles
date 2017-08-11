@@ -217,7 +217,7 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    const v3, 0x82012
+    const v3, 0x82013
 
     invoke-static {v2, v3}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap5(Lcom/android/server/connectivity/NetworkMonitor;I)V
 

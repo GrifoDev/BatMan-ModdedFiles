@@ -332,13 +332,13 @@
 
     const-string/jumbo v3, "wallpaper_lock_orig"
 
-    invoke-static {p2, v3}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap7(ILjava/lang/String;)[Ljava/lang/String;
+    invoke-static {p2, v3}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap8(ILjava/lang/String;)[Ljava/lang/String;
 
     move-result-object v2
 
     const-string/jumbo v3, "wallpaper_lock"
 
-    invoke-static {p2, v3}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap7(ILjava/lang/String;)[Ljava/lang/String;
+    invoke-static {p2, v3}, Lcom/android/server/wallpaper/WallpaperManagerService;->-wrap8(ILjava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 

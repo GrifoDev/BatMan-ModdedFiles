@@ -4574,7 +4574,7 @@
 .end method
 
 .method private setTargetStackAndMoveToFrontIfNeeded(Lcom/android/server/am/ActivityRecord;)Lcom/android/server/am/ActivityRecord;
-    .locals 17
+    .locals 18
 
     move-object/from16 v0, p1
 
@@ -4600,14 +4600,16 @@
 
     invoke-virtual {v1}, Lcom/android/server/am/ActivityStackSupervisor;->getFocusedStack()Lcom/android/server/am/ActivityStack;
 
-    move-result-object v11
+    move-result-object v12
 
-    if-nez v11, :cond_7
+    if-nez v12, :cond_7
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     :goto_0
-    const/4 v14, 0x0
+    const/4 v15, 0x0
+
+    const/4 v8, 0x0
 
     sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
@@ -4643,7 +4645,7 @@
 
     invoke-virtual {v1}, Landroid/app/ActivityOptions;->getLaunchStackId()I
 
-    move-result v13
+    move-result v14
 
     :goto_1
     move-object/from16 v0, p0
@@ -4654,7 +4656,7 @@
 
     iget-object v1, v1, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
 
-    iget v10, v1, Lcom/android/server/am/ActivityStack;->mStackId:I
+    iget v11, v1, Lcom/android/server/am/ActivityStack;->mStackId:I
 
     move-object/from16 v0, p0
 
@@ -4670,18 +4672,18 @@
 
     const/4 v1, 0x2
 
-    if-eq v10, v1, :cond_0
+    if-eq v11, v1, :cond_0
 
     const/4 v1, 0x3
 
-    if-ne v10, v1, :cond_a
+    if-ne v11, v1, :cond_a
 
     :cond_0
     const/4 v1, 0x1
 
-    if-ne v13, v1, :cond_a
+    if-ne v14, v1, :cond_a
 
-    const/4 v14, 0x1
+    const/4 v15, 0x1
 
     :goto_2
     move-object/from16 v0, p0
@@ -4694,18 +4696,24 @@
 
     iget-object v1, v0, Lcom/android/server/am/ActivityStarter;->mSourceRecord:Lcom/android/server/am/ActivityRecord;
 
-    iget-object v15, v1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+    iget-object v0, v1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    move-object/from16 v16, v0
 
     :goto_3
-    if-eqz v15, :cond_3
+    if-eqz v16, :cond_3
 
-    new-instance v8, Landroid/content/ComponentName;
+    new-instance v9, Landroid/content/ComponentName;
 
-    iget-object v1, v15, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    iget-object v2, v15, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v1, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    invoke-direct {v8, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v0, v16
+
+    iget-object v2, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-direct {v9, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
@@ -4717,11 +4725,15 @@
 
     if-eqz v1, :cond_3
 
-    iget-object v1, v15, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    move-object/from16 v0, v16
+
+    iget-object v1, v0, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     if-eqz v1, :cond_1
 
-    iget-object v1, v15, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    move-object/from16 v0, v16
+
+    iget-object v1, v0, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     const-string/jumbo v2, "com.samsung.android.sdk.multiwindow.force_hide_floating_multiwindow"
 
@@ -4740,7 +4752,7 @@
 
     iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
 
-    invoke-virtual {v8}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
+    invoke-virtual {v9}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -4760,9 +4772,9 @@
     invoke-interface {v1}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->minimizeAllTasksInFreeformLocked()V
 
     :cond_3
-    if-eqz v9, :cond_5
+    if-eqz v10, :cond_5
 
-    iget-object v1, v9, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+    iget-object v1, v10, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
     move-object/from16 v0, p1
 
@@ -4770,9 +4782,9 @@
 
     if-ne v1, v2, :cond_4
 
-    iget-object v1, v9, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+    iget-object v1, v10, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    invoke-virtual {v11}, Lcom/android/server/am/ActivityStack;->topTask()Lcom/android/server/am/TaskRecord;
+    invoke-virtual {v12}, Lcom/android/server/am/ActivityStack;->topTask()Lcom/android/server/am/TaskRecord;
 
     move-result-object v2
 
@@ -4858,36 +4870,38 @@
 
     iget-object v1, v0, Lcom/android/server/am/ActivityStarter;->mNotTop:Lcom/android/server/am/ActivityRecord;
 
-    invoke-virtual {v11, v1}, Lcom/android/server/am/ActivityStack;->topRunningNonDelayedActivityLocked(Lcom/android/server/am/ActivityRecord;)Lcom/android/server/am/ActivityRecord;
+    invoke-virtual {v12, v1}, Lcom/android/server/am/ActivityStack;->topRunningNonDelayedActivityLocked(Lcom/android/server/am/ActivityRecord;)Lcom/android/server/am/ActivityRecord;
 
-    move-result-object v9
+    move-result-object v10
 
     goto/16 :goto_0
 
     :cond_8
-    const/4 v13, -0x1
+    const/4 v14, -0x1
 
     goto/16 :goto_1
 
     :cond_9
-    const/4 v14, 0x1
+    const/4 v15, 0x1
 
     goto/16 :goto_2
 
     :cond_a
-    const/4 v14, 0x0
+    const/4 v15, 0x0
 
     goto/16 :goto_2
 
     :cond_b
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/am/ActivityStarter;->mNewTaskInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v0, v0, Lcom/android/server/am/ActivityStarter;->mNewTaskInfo:Landroid/content/pm/ActivityInfo;
+
+    move-object/from16 v16, v0
 
     goto/16 :goto_3
 
     :cond_c
-    if-eqz v14, :cond_5
+    if-eqz v15, :cond_5
 
     goto :goto_4
 
@@ -4978,10 +4992,10 @@
 
     if-ne v1, v2, :cond_12
 
-    const/16 v16, 0x1
+    const/16 v17, 0x1
 
     :goto_6
-    if-nez v16, :cond_5
+    if-nez v17, :cond_5
 
     move-object/from16 v0, p0
 
@@ -5005,15 +5019,15 @@
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/am/ActivityStarter;->getLaunchStack(Lcom/android/server/am/ActivityRecord;ILcom/android/server/am/TaskRecord;Landroid/app/ActivityOptions;)Lcom/android/server/am/ActivityStack;
 
-    move-result-object v12
+    move-result-object v13
 
-    if-eqz v12, :cond_10
+    if-eqz v13, :cond_10
 
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/am/ActivityStarter;->mTargetStack:Lcom/android/server/am/ActivityStack;
 
-    if-ne v12, v1, :cond_13
+    if-ne v13, v1, :cond_13
 
     :cond_10
     move-object/from16 v0, p0
@@ -5056,6 +5070,8 @@
 
     iput-object v1, v0, Lcom/android/server/am/ActivityStarter;->mOptions:Landroid/app/ActivityOptions;
 
+    if-nez v8, :cond_5
+
     move-object/from16 v0, p1
 
     iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
@@ -5066,23 +5082,23 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v1, v2, v11}, Lcom/android/server/am/ActivityStarter;->updateTaskReturnToType(Lcom/android/server/am/TaskRecord;ILcom/android/server/am/ActivityStack;)V
+    invoke-direct {v0, v1, v2, v12}, Lcom/android/server/am/ActivityStarter;->updateTaskReturnToType(Lcom/android/server/am/TaskRecord;ILcom/android/server/am/ActivityStack;)V
 
     goto/16 :goto_5
 
     :cond_12
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
     goto :goto_6
 
     :cond_13
-    iget v1, v12, Lcom/android/server/am/ActivityStack;->mStackId:I
+    iget v1, v13, Lcom/android/server/am/ActivityStack;->mStackId:I
 
     const/4 v2, 0x3
 
     if-eq v1, v2, :cond_14
 
-    iget v1, v12, Lcom/android/server/am/ActivityStack;->mStackId:I
+    iget v1, v13, Lcom/android/server/am/ActivityStack;->mStackId:I
 
     const/4 v2, 0x1
 
@@ -5107,7 +5123,7 @@
 
     iget v2, v2, Lcom/android/server/am/TaskRecord;->taskId:I
 
-    iget v3, v12, Lcom/android/server/am/ActivityStack;->mStackId:I
+    iget v3, v13, Lcom/android/server/am/ActivityStack;->mStackId:I
 
     const-string/jumbo v6, "launchToSide"
 
@@ -5129,7 +5145,27 @@
     goto :goto_7
 
     :cond_15
-    if-eqz v14, :cond_16
+    if-eqz v15, :cond_16
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityStarter;->mSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mStartActivity:Lcom/android/server/am/ActivityRecord;
+
+    iget-object v2, v2, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    iget-object v2, v2, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    iget v2, v2, Lcom/android/server/am/ActivityStack;->mStackId:I
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/am/ActivityStackSupervisor;->shouldSetTaskReturnToHome(II)Z
+
+    move-result v8
 
     move-object/from16 v0, p0
 
@@ -7229,7 +7265,7 @@
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mSourceRecord:Lcom/android/server/am/ActivityRecord;
 
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_32
 
     move-object/from16 v0, p0
 
@@ -7245,7 +7281,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_30
+    if-eqz v2, :cond_31
 
     move-object/from16 v0, p0
 
@@ -7385,11 +7421,11 @@
 
     iget-boolean v2, v0, Lcom/android/server/am/ActivityStarter;->mMovedOtherTask:Z
 
-    if-nez v2, :cond_27
+    if-nez v2, :cond_28
 
     sget-boolean v2, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_27
 
     move-object/from16 v0, p0
 
@@ -7399,7 +7435,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_2f
+    if-ne v2, v3, :cond_27
 
     move-object/from16 v0, p0
 
@@ -7419,8 +7455,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_27
 
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/am/ActivityStarter;->mTargetStack:Lcom/android/server/am/ActivityStack;
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v4}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->isVisibleStackBehindFreeformLocked(Lcom/android/server/am/ActivityStack;Lcom/android/server/am/ActivityRecord;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_30
+
+    :cond_27
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mStartActivity:Lcom/android/server/am/ActivityRecord;
@@ -7433,15 +7488,11 @@
 
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Lcom/android/server/am/ActivityStarter;->mSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    move-object/from16 v1, v20
 
-    iget-object v4, v4, Lcom/android/server/am/ActivityStackSupervisor;->mHomeStack:Lcom/android/server/am/ActivityStack;
+    invoke-direct {v0, v2, v3, v1}, Lcom/android/server/am/ActivityStarter;->updateTaskReturnToType(Lcom/android/server/am/TaskRecord;ILcom/android/server/am/ActivityStack;)V
 
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v2, v3, v4}, Lcom/android/server/am/ActivityStarter;->updateTaskReturnToType(Lcom/android/server/am/TaskRecord;ILcom/android/server/am/ActivityStack;)V
-
-    :cond_27
+    :cond_28
     :goto_d
     move-object/from16 v0, p0
 
@@ -7489,7 +7540,7 @@
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mSourceRecord:Lcom/android/server/am/ActivityRecord;
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_29
 
     move-object/from16 v0, p0
 
@@ -7499,7 +7550,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_29
 
     move-object/from16 v0, p0
 
@@ -7511,8 +7562,8 @@
 
     invoke-virtual {v2, v3}, Lcom/android/server/am/TaskRecord;->setTaskToReturnTo(I)V
 
-    :cond_28
-    if-eqz v15, :cond_29
+    :cond_29
+    if-eqz v15, :cond_2a
 
     const/4 v2, 0x2
 
@@ -7552,7 +7603,7 @@
 
     invoke-static {v3, v2}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    :cond_29
+    :cond_2a
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mStartActivity:Lcom/android/server/am/ActivityRecord;
@@ -7597,13 +7648,13 @@
 
     iget-boolean v2, v0, Lcom/android/server/am/ActivityStarter;->mDoResume:Z
 
-    if-eqz v2, :cond_36
+    if-eqz v2, :cond_37
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/server/am/ActivityStarter;->mLaunchTaskBehind:Z
 
-    if-nez v2, :cond_2a
+    if-nez v2, :cond_2b
 
     move-object/from16 v0, p0
 
@@ -7617,7 +7668,7 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/android/server/am/ActivityManagerService;->setFocusedActivityLocked(Lcom/android/server/am/ActivityRecord;Ljava/lang/String;)Z
 
-    :cond_2a
+    :cond_2b
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mStartActivity:Lcom/android/server/am/ActivityRecord;
@@ -7636,15 +7687,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2b
+    if-eqz v2, :cond_2c
 
-    if-eqz v21, :cond_35
+    if-eqz v21, :cond_36
 
     move-object/from16 v0, v21
 
     iget-boolean v2, v0, Lcom/android/server/am/ActivityRecord;->mTaskOverlay:Z
 
-    if-eqz v2, :cond_35
+    if-eqz v2, :cond_36
 
     move-object/from16 v0, p0
 
@@ -7652,9 +7703,9 @@
 
     move-object/from16 v0, v21
 
-    if-eq v2, v0, :cond_35
+    if-eq v2, v0, :cond_36
 
-    :cond_2b
+    :cond_2c
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mTargetStack:Lcom/android/server/am/ActivityStack;
@@ -7718,7 +7769,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_2c
+    if-ne v2, v3, :cond_2d
 
     move-object/from16 v0, p0
 
@@ -7730,13 +7781,13 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_2d
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mSourceStack:Lcom/android/server/am/ActivityStack;
 
-    if-eqz v2, :cond_37
+    if-eqz v2, :cond_38
 
     move-object/from16 v0, p0
 
@@ -7744,7 +7795,7 @@
 
     iget v2, v2, Lcom/android/server/am/ActivityStack;->mStackId:I
 
-    if-nez v2, :cond_37
+    if-nez v2, :cond_38
 
     :goto_f
     move-object/from16 v0, p0
@@ -7765,7 +7816,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_38
+    if-eqz v2, :cond_39
 
     const-string/jumbo v2, "RecentsAppList"
 
@@ -7786,12 +7837,12 @@
 
     invoke-interface {v2}, Lcom/android/server/wm/IMultiWindowManagerInternalBridge;->blinkMultiWindowDividerButton()V
 
-    :cond_2c
+    :cond_2d
     sget-boolean v2, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_2e
 
-    if-eqz v15, :cond_2d
+    if-eqz v15, :cond_2e
 
     move-object/from16 v0, p0
 
@@ -7803,9 +7854,11 @@
 
     iget-object v3, v0, Lcom/android/server/am/ActivityStarter;->mStartActivity:Lcom/android/server/am/ActivityRecord;
 
-    invoke-interface {v2, v3}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->checkRunningFreeformWithLogging(Lcom/android/server/am/ActivityRecord;)V
+    iget-object v3, v3, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    :cond_2d
+    invoke-interface {v2, v3}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->checkRunningFreeformWithLoggingLocked(Lcom/android/server/am/TaskRecord;)V
+
+    :cond_2e
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -7814,21 +7867,21 @@
 
     move-result v2
 
-    if-nez v2, :cond_2e
+    if-nez v2, :cond_2f
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ActivityRecord;->isResizeable()Z
 
     move-result v2
 
-    if-eqz v2, :cond_39
+    if-eqz v2, :cond_3a
 
-    :cond_2e
+    :cond_2f
     :goto_11
     const/4 v2, 0x0
 
     return v2
 
-    :cond_2f
+    :cond_30
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mStartActivity:Lcom/android/server/am/ActivityRecord;
@@ -7841,27 +7894,31 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    iget-object v4, v0, Lcom/android/server/am/ActivityStarter;->mSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-direct {v0, v2, v3, v1}, Lcom/android/server/am/ActivityStarter;->updateTaskReturnToType(Lcom/android/server/am/TaskRecord;ILcom/android/server/am/ActivityStack;)V
+    iget-object v4, v4, Lcom/android/server/am/ActivityStackSupervisor;->mHomeStack:Lcom/android/server/am/ActivityStack;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v3, v4}, Lcom/android/server/am/ActivityStarter;->updateTaskReturnToType(Lcom/android/server/am/TaskRecord;ILcom/android/server/am/ActivityStack;)V
 
     goto/16 :goto_d
 
-    :cond_30
+    :cond_31
     invoke-direct/range {p0 .. p0}, Lcom/android/server/am/ActivityStarter;->setTaskFromSourceRecord()I
 
     move-result v17
 
-    if-eqz v17, :cond_27
+    if-eqz v17, :cond_28
 
     return v17
 
-    :cond_31
+    :cond_32
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mInTask:Lcom/android/server/am/TaskRecord;
 
-    if-eqz v2, :cond_34
+    if-eqz v2, :cond_35
 
     move-object/from16 v0, p0
 
@@ -7875,7 +7932,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_33
 
     move-object/from16 v0, p0
 
@@ -7913,12 +7970,12 @@
 
     return v2
 
-    :cond_32
+    :cond_33
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mLaunchBounds:Landroid/graphics/Rect;
 
-    if-nez v2, :cond_33
+    if-nez v2, :cond_34
 
     move-object/from16 v0, p0
 
@@ -7930,7 +7987,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_33
+    if-eqz v2, :cond_34
 
     move-object/from16 v0, p0
 
@@ -7950,21 +8007,21 @@
 
     iput-object v2, v0, Lcom/android/server/am/ActivityStarter;->mLaunchBounds:Landroid/graphics/Rect;
 
-    :cond_33
+    :cond_34
     invoke-direct/range {p0 .. p0}, Lcom/android/server/am/ActivityStarter;->setTaskFromInTask()I
 
     move-result v17
 
-    if-eqz v17, :cond_27
+    if-eqz v17, :cond_28
 
     return v17
 
-    :cond_34
+    :cond_35
     invoke-direct/range {p0 .. p0}, Lcom/android/server/am/ActivityStarter;->setTaskToCurrentTopOrCreateNewTask()V
 
     goto/16 :goto_d
 
-    :cond_35
+    :cond_36
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
@@ -7985,7 +8042,7 @@
 
     goto/16 :goto_e
 
-    :cond_36
+    :cond_37
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mTargetStack:Lcom/android/server/am/ActivityStack;
@@ -7998,14 +8055,14 @@
 
     goto/16 :goto_e
 
-    :cond_37
+    :cond_38
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mSourceStack:Lcom/android/server/am/ActivityStack;
 
-    if-nez v2, :cond_2c
+    if-nez v2, :cond_2d
 
-    if-eqz p7, :cond_2c
+    if-eqz p7, :cond_2d
 
     invoke-virtual/range {p7 .. p7}, Landroid/app/ActivityOptions;->getLaunchStackId()I
 
@@ -8013,7 +8070,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_2c
+    if-ne v2, v3, :cond_2d
 
     const-string/jumbo v2, "com.android.systemui"
 
@@ -8027,25 +8084,25 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_2d
 
     goto/16 :goto_f
 
-    :cond_38
+    :cond_39
     const-string/jumbo v2, "Home"
 
     goto/16 :goto_10
 
-    :cond_39
-    if-eqz v15, :cond_2e
+    :cond_3a
+    if-eqz v15, :cond_2f
 
-    if-eqz p2, :cond_2e
+    if-eqz p2, :cond_2f
 
     move-object/from16 v0, p2
 
     iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_2f
 
     move-object/from16 v0, p2
 
@@ -8053,7 +8110,7 @@
 
     iget-object v2, v2, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_2f
 
     move-object/from16 v0, p2
 
@@ -8067,7 +8124,7 @@
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_2e
+    if-ne v2, v3, :cond_2f
 
     move-object/from16 v0, p0
 
@@ -10892,9 +10949,9 @@
 
     iget-object v0, v4, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    move-object/from16 v28, v0
+    move-object/from16 v38, v0
 
-    new-instance v29, Landroid/content/ComponentName;
+    new-instance v39, Landroid/content/ComponentName;
 
     move-object/from16 v0, p5
 
@@ -10906,21 +10963,23 @@
 
     iget-object v5, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v39
 
     invoke-direct {v0, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v33, "activity"
+    const-string/jumbo v43, "activity"
 
-    const/16 v34, 0x0
+    const/16 v44, 0x0
 
-    move-object/from16 v30, p1
+    move-object/from16 v40, p1
 
-    move/from16 v31, p12
+    move/from16 v41, p12
 
-    move/from16 v32, p13
+    move/from16 v42, p13
 
-    invoke-virtual/range {v28 .. v34}, Lcom/android/server/am/MARsPolicyManager;->isRestrictedPackage(Landroid/content/ComponentName;Landroid/app/IApplicationThread;IILjava/lang/String;Landroid/content/Intent;)Z
+    move/from16 v45, v20
+
+    invoke-virtual/range {v38 .. v45}, Lcom/android/server/am/MARsPolicyManager;->isRestrictedPackage(Landroid/content/ComponentName;Landroid/app/IApplicationThread;IILjava/lang/String;Landroid/content/Intent;I)Z
 
     move-result v4
 

@@ -104,6 +104,9 @@
 .method public abstract getScreenCaptureMDMPolicy(I)Z
 .end method
 
+.method public abstract getVSFocusedWindow()Lcom/android/server/wm/WindowState;
+.end method
+
 .method public abstract getVSPriority(I)I
 .end method
 
@@ -146,6 +149,9 @@
 .method public abstract isKnoxDesktopModeLocked()Z
 .end method
 
+.method public abstract isMaxAspectComponentEx(Landroid/content/ComponentName;I)I
+.end method
+
 .method public abstract isMaxAspectPackage(Ljava/lang/String;I)Z
 .end method
 
@@ -171,6 +177,9 @@
 .end method
 
 .method public abstract overridePendingAppTransitionCustomScaleUp(Landroid/graphics/Rect;)V
+.end method
+
+.method public abstract prepareAddWindowLw(Lcom/android/server/wm/WindowState;)I
 .end method
 
 .method public abstract prepareDesktopTaskBar(Z)V
@@ -253,6 +262,9 @@
     .end annotation
 .end method
 
+.method public abstract setWallpaperAnimationBlocked(Z)V
+.end method
+
 .method public abstract setWmForcedDisplayLog(II)V
 .end method
 
@@ -260,9 +272,6 @@
 .end method
 
 .method public abstract showConventionalModeChangeRatioButton(IILjava/lang/String;I)V
-.end method
-
-.method public abstract showConventionalModeGuidePopup(Lcom/android/server/wm/AppWindowToken;)V
 .end method
 
 .method public abstract stopFreezingDisplayLocked(Ljava/lang/String;)V

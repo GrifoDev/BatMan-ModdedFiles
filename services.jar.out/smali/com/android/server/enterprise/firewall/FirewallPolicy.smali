@@ -3369,7 +3369,7 @@
 .end method
 
 .method private getLastUidForProxy(II)I
-    .locals 11
+    .locals 12
 
     const/4 v5, 0x0
 
@@ -3411,12 +3411,18 @@
 
     move-result-object v7
 
+    const/4 v0, -0x1
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v11
+
     :try_start_0
     invoke-interface {v7}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     const-string/jumbo v0, "adminUid"
 
@@ -3442,16 +3448,18 @@
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
     :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v10
+    move-result-object v11
 
-    :goto_0
-    if-eqz v7, :cond_0
+    :cond_0
+    if-eqz v7, :cond_1
 
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    :cond_0
+    :cond_1
+    :goto_0
     const-string/jumbo v0, "FirewallPolicy"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3464,7 +3472,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -3474,21 +3482,47 @@
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
     return v0
 
-    :cond_1
-    const/4 v0, -0x1
+    :catch_0
+    move-exception v10
 
     :try_start_1
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const-string/jumbo v0, "FirewallPolicy"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v10}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result-object v10
+    if-eqz v7, :cond_1
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     goto :goto_0
 
@@ -3607,7 +3641,7 @@
 .end method
 
 .method private getRulesFromDb(IILjava/lang/String;)Ljava/util/ArrayList;
-    .locals 16
+    .locals 18
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II",
@@ -3706,14 +3740,21 @@
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->translateToAdminLUID(II)J
 
-    move-result-wide v14
+    move-result-wide v16
 
-    invoke-static {v14, v15}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static/range {v16 .. v17}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v6, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    const/4 v10, 0x0
+
+    new-instance v12, Ljava/util/ArrayList;
+
+    invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
+
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/enterprise/firewall/FirewallPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -3730,10 +3771,6 @@
 
     const/4 v9, 0x0
 
-    new-instance v12, Ljava/util/ArrayList;
-
-    invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
-
     if-eqz v10, :cond_1
 
     invoke-interface {v10}, Landroid/database/Cursor;->moveToFirst()Z
@@ -3743,7 +3780,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
     const-string/jumbo v2, "rules"
 
@@ -3798,14 +3835,68 @@
     invoke-virtual {v12, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     invoke-interface {v10}, Landroid/database/Cursor;->moveToNext()Z
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    :cond_0
+    :catch_0
+    move-exception v14
+
+    :try_start_1
+    const-string/jumbo v2, "FirewallPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v14}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-eqz v10, :cond_0
+
     invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
-    :cond_1
+    :cond_0
+    :goto_1
     return-object v12
+
+    :cond_1
+    if-eqz v10, :cond_0
+
+    invoke-interface {v10}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v2
+
+    if-eqz v10, :cond_2
+
+    invoke-interface {v10}, Landroid/database/Cursor;->close()V
+
+    :cond_2
+    throw v2
 .end method
 
 .method private getRuletype(Ljava/lang/String;)Lcom/sec/enterprise/firewall/FirewallRule$RuleType;

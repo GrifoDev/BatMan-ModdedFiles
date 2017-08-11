@@ -17,7 +17,7 @@
     value = {
         "Ljava/lang/ThreadLocal",
         "<",
-        "Ljava/lang/Integer;",
+        "Lcom/android/server/am/ActivityManagerService$PriorityState;",
         ">;"
     }
 .end annotation
@@ -34,14 +34,14 @@
 
 
 # virtual methods
-.method protected initialValue()Ljava/lang/Integer;
-    .locals 1
+.method protected initialValue()Lcom/android/server/am/ActivityManagerService$PriorityState;
+    .locals 2
 
-    const/4 v0, 0x0
+    new-instance v0, Lcom/android/server/am/ActivityManagerService$PriorityState;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v1, 0x0
 
-    move-result-object v0
+    invoke-direct {v0, v1}, Lcom/android/server/am/ActivityManagerService$PriorityState;-><init>(Lcom/android/server/am/ActivityManagerService$PriorityState;)V
 
     return-object v0
 .end method
@@ -49,7 +49,7 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerService$1;->initialValue()Ljava/lang/Integer;
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerService$1;->initialValue()Lcom/android/server/am/ActivityManagerService$PriorityState;
 
     move-result-object v0
 

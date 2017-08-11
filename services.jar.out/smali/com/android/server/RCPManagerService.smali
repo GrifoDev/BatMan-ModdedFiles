@@ -9259,6 +9259,43 @@
     goto :goto_0
 .end method
 
+.method public registerDbObserver(Ljava/lang/String;I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/bridge/BridgeProxy;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/bridge/BridgeProxy;->registerDbObserver(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public registerExchangeData(Ljava/lang/String;Landroid/os/IRunnableCallback;I)Z
     .locals 5
 
@@ -9375,43 +9412,6 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
-.end method
-
-.method public registerObserver(Ljava/lang/String;I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/bridge/BridgeProxy;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/bridge/BridgeProxy;->registerObserver(Ljava/lang/String;)V
-
-    :cond_0
-    return-void
 .end method
 
 .method public registerProvider(Ljava/lang/String;Landroid/content/IProviderCallBack;I)V
@@ -9805,7 +9805,7 @@
     return-void
 .end method
 
-.method public unRegisterObserver(Ljava/lang/String;I)V
+.method public unRegisterDbObserver(Ljava/lang/String;I)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
@@ -9836,7 +9836,7 @@
 
     check-cast v0, Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/bridge/BridgeProxy;->unRegisterObserver(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/bridge/BridgeProxy;->unRegisterDbObserver(Ljava/lang/String;)V
 
     :cond_0
     return-void

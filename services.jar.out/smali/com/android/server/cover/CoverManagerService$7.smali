@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/cover/CoverManagerService;->sendCoverSwitchStateLocked(ZZZZ)Z
+    value = Lcom/android/server/cover/CoverManagerService;->systemReady()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,35 +35,21 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 4
+
+    const/4 v1, 0x1
 
     iget-object v0, p0, Lcom/android/server/cover/CoverManagerService$7;->this$0:Lcom/android/server/cover/CoverManagerService;
 
-    invoke-static {v0}, Lcom/android/server/cover/CoverManagerService;->-get1(Lcom/android/server/cover/CoverManagerService;)Lcom/android/server/cover/CoverHideAnimator;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/cover/CoverManagerService$7;->this$0:Lcom/android/server/cover/CoverManagerService;
-
-    invoke-static {v1}, Lcom/android/server/cover/CoverManagerService;->-get0(Lcom/android/server/cover/CoverManagerService;)Ljava/lang/Runnable;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/cover/CoverHideAnimator;->playCoverHideAnimation(Ljava/lang/Runnable;)V
+    invoke-static {v0, v1}, Lcom/android/server/cover/CoverManagerService;->-set0(Lcom/android/server/cover/CoverManagerService;Z)Z
 
     iget-object v0, p0, Lcom/android/server/cover/CoverManagerService$7;->this$0:Lcom/android/server/cover/CoverManagerService;
 
-    invoke-static {v0}, Lcom/android/server/cover/CoverManagerService;->-get6(Lcom/android/server/cover/CoverManagerService;)Lcom/android/server/cover/StateNotifier;
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-object v0
+    move-result-wide v2
 
-    iget-object v1, p0, Lcom/android/server/cover/CoverManagerService$7;->this$0:Lcom/android/server/cover/CoverManagerService;
-
-    invoke-static {v1}, Lcom/android/server/cover/CoverManagerService;->-get2(Lcom/android/server/cover/CoverManagerService;)Lcom/samsung/android/cover/CoverState;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/cover/StateNotifier;->updatePowerStateLocked(Lcom/samsung/android/cover/CoverState;)V
+    invoke-virtual {v0, v2, v3, v1}, Lcom/android/server/cover/CoverManagerService;->notifyCoverAttachStateChanged(JZ)V
 
     return-void
 .end method

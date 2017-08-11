@@ -76,7 +76,7 @@
 
     const/4 v5, 0x0
 
-    invoke-static {v3, v5, v4}, Lcom/android/server/am/ActivityManagerService;->-wrap10(Lcom/android/server/am/ActivityManagerService;ILjava/lang/String;)V
+    invoke-static {v3, v5, v4}, Lcom/android/server/am/ActivityManagerService;->-wrap9(Lcom/android/server/am/ActivityManagerService;ILjava/lang/String;)V
 
     :cond_0
     return-void

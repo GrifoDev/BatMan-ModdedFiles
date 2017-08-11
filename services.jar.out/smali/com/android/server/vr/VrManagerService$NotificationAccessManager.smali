@@ -142,15 +142,11 @@
 
     iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
 
-    invoke-static {v8, v5, v2}, Lcom/android/server/vr/VrManagerService;->-wrap12(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+    invoke-static {v8, v5, v2}, Lcom/android/server/vr/VrManagerService;->-wrap10(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
 
     iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
 
-    invoke-static {v8, v5}, Lcom/android/server/vr/VrManagerService;->-wrap13(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
-
-    iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
-
-    invoke-static {v8, v5, v2}, Lcom/android/server/vr/VrManagerService;->-wrap11(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+    invoke-static {v8, v5}, Lcom/android/server/vr/VrManagerService;->-wrap11(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
 
     iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mNotificationAccessPackageToUserId:Landroid/util/ArrayMap;
 
@@ -188,15 +184,11 @@
 
     iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
 
-    invoke-static {v8, v6, v1}, Lcom/android/server/vr/VrManagerService;->-wrap12(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+    invoke-static {v8, v6, v1}, Lcom/android/server/vr/VrManagerService;->-wrap10(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
 
     iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
 
-    invoke-static {v8, v6}, Lcom/android/server/vr/VrManagerService;->-wrap13(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
-
-    iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
-
-    invoke-static {v8, v6, v1}, Lcom/android/server/vr/VrManagerService;->-wrap11(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+    invoke-static {v8, v6}, Lcom/android/server/vr/VrManagerService;->-wrap11(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
 
     iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->mNotificationAccessPackageToUserId:Landroid/util/ArrayMap;
 
@@ -231,11 +223,7 @@
 
     iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
 
-    invoke-static {v8, v6}, Lcom/android/server/vr/VrManagerService;->-wrap9(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
-
-    iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
-
-    invoke-static {v8, v6, v1}, Lcom/android/server/vr/VrManagerService;->-wrap8(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;I)V
+    invoke-static {v8, v6}, Lcom/android/server/vr/VrManagerService;->-wrap8(Lcom/android/server/vr/VrManagerService;Ljava/lang/String;)V
 
     iget-object v8, p0, Lcom/android/server/vr/VrManagerService$NotificationAccessManager;->this$0:Lcom/android/server/vr/VrManagerService;
 

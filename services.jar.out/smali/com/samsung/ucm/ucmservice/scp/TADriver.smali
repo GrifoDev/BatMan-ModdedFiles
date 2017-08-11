@@ -459,151 +459,150 @@
 .end method
 
 .method private getTimaStatus()I
-    .locals 6
+    .locals 7
 
-    const/4 v2, -0x1
+    const/4 v3, -0x1
 
-    iget-object v3, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
+    iget-object v4, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
 
-    const-string/jumbo v4, "N/A"
+    const-string/jumbo v5, "N/A"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
     invoke-direct {p0}, Lcom/samsung/ucm/ucmservice/scp/TADriver;->updateTimaVersion()V
 
     :cond_0
     :try_start_0
-    iget-object v3, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
-
-    const-string/jumbo v4, "2.0"
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
     invoke-direct {p0}, Lcom/samsung/ucm/ucmservice/scp/TADriver;->getTimaService()Landroid/service/tima/ITimaService;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v3}, Landroid/service/tima/ITimaService;->keystoreInit()I
+    if-nez v2, :cond_1
 
-    move-result v2
+    const-string/jumbo v4, "UCM.SCP.TADriver"
 
-    invoke-direct {p0}, Lcom/samsung/ucm/ucmservice/scp/TADriver;->getTimaService()Landroid/service/tima/ITimaService;
+    const-string/jumbo v5, "getTimaStatus() - Tima Service is null"
 
-    move-result-object v3
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v3}, Landroid/service/tima/ITimaService;->keystoreShutdown()I
+    return v3
+
+    :cond_1
+    iget-object v4, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
+
+    const-string/jumbo v5, "2.0"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    invoke-interface {v2}, Landroid/service/tima/ITimaService;->keystoreInit()I
+
+    move-result v3
+
+    invoke-interface {v2}, Landroid/service/tima/ITimaService;->keystoreShutdown()I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    :cond_1
-    :goto_0
-    sget-boolean v3, Lcom/samsung/ucm/ucmservice/scp/TADriver;->DEBUG:Z
-
-    if-eqz v3, :cond_2
-
-    const-string/jumbo v3, "UCM.SCP.TADriver"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "getTimaStatus() - Tima Status : "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_2
-    return v2
+    :goto_0
+    sget-boolean v4, Lcom/samsung/ucm/ucmservice/scp/TADriver;->DEBUG:Z
+
+    if-eqz v4, :cond_3
+
+    const-string/jumbo v4, "UCM.SCP.TADriver"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "getTimaStatus() - Tima Status : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    :try_start_1
-    const-string/jumbo v4, "3.0"
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    invoke-direct {p0}, Lcom/samsung/ucm/ucmservice/scp/TADriver;->getTimaService()Landroid/service/tima/ITimaService;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Landroid/service/tima/ITimaService;->KeyStore3_init()I
-
-    move-result v2
-
-    goto :goto_0
+    return v3
 
     :cond_4
-    const-string/jumbo v4, "FIPS3.0"
+    :try_start_1
+    const-string/jumbo v5, "3.0"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    invoke-interface {v2}, Landroid/service/tima/ITimaService;->KeyStore3_init()I
 
     move-result v3
-
-    if-eqz v3, :cond_5
-
-    invoke-direct {p0}, Lcom/samsung/ucm/ucmservice/scp/TADriver;->getTimaService()Landroid/service/tima/ITimaService;
-
-    move-result-object v3
-
-    const/4 v4, 0x1
-
-    invoke-interface {v3, v4}, Landroid/service/tima/ITimaService;->FipsKeyStore3_init(Z)I
-
-    move-result v2
 
     goto :goto_0
 
     :cond_5
-    sget-boolean v3, Lcom/samsung/ucm/ucmservice/scp/TADriver;->DEBUG:Z
+    const-string/jumbo v5, "FIPS3.0"
 
-    if-eqz v3, :cond_1
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v3, "UCM.SCP.TADriver"
+    move-result v4
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    if-eqz v4, :cond_6
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v4, 0x1
 
-    const-string/jumbo v5, "getTimaStatus() - Unknown Tima Version... "
+    invoke-interface {v2, v4}, Landroid/service/tima/ITimaService;->FipsKeyStore3_init(Z)I
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v3
 
-    move-result-object v4
+    goto :goto_0
 
-    iget-object v5, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
+    :cond_6
+    sget-boolean v4, Lcom/samsung/ucm/ucmservice/scp/TADriver;->DEBUG:Z
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v4, :cond_2
 
-    move-result-object v4
+    const-string/jumbo v4, "UCM.SCP.TADriver"
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v6, "getTimaStatus() - Unknown Tima Version... "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
@@ -613,22 +612,22 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v3, "UCM.SCP.TADriver"
+    const-string/jumbo v4, "UCM.SCP.TADriver"
 
-    const-string/jumbo v4, "getTimaStatus() - Failed to access to tima service..."
+    const-string/jumbo v5, "getTimaStatus() - Failed to access to tima service..."
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :catch_1
     move-exception v1
 
-    const-string/jumbo v3, "UCM.SCP.TADriver"
+    const-string/jumbo v4, "UCM.SCP.TADriver"
 
-    const-string/jumbo v4, "getTimaStatus() - Failed due to unexpected error..."
+    const-string/jumbo v5, "getTimaStatus() - Failed due to unexpected error..."
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -673,84 +672,89 @@
 .end method
 
 .method private updateTimaVersion()V
-    .locals 5
+    .locals 6
 
-    const-string/jumbo v2, "N/A"
+    const-string/jumbo v3, "N/A"
 
-    iput-object v2, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
-
-    invoke-direct {p0}, Lcom/samsung/ucm/ucmservice/scp/TADriver;->getTimaService()Landroid/service/tima/ITimaService;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
+    iput-object v3, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
 
     :try_start_0
-    const-string/jumbo v2, "2.0"
-
     invoke-direct {p0}, Lcom/samsung/ucm/ucmservice/scp/TADriver;->getTimaService()Landroid/service/tima/ITimaService;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v3}, Landroid/service/tima/ITimaService;->getTimaVersion()Ljava/lang/String;
+    if-nez v1, :cond_0
 
-    move-result-object v3
+    const-string/jumbo v3, "UCM.SCP.TADriver"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v4, "updateTimaVersion() - Tima Service is null"
 
-    move-result v1
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v1, :cond_1
-
-    const-string/jumbo v2, "2.0"
-
-    iput-object v2, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    sget-boolean v2, Lcom/samsung/ucm/ucmservice/scp/TADriver;->DEBUG:Z
-
-    if-eqz v2, :cond_0
-
-    const-string/jumbo v2, "UCM.SCP.TADriver"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "updateTimaVersion() - Tima Version : "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     return-void
 
-    :cond_1
-    :try_start_1
-    invoke-static {}, Lcom/sec/tima/keystore/util/Utility;->isFipsTimaEnabled()Z
+    :cond_0
+    const-string/jumbo v3, "2.0"
+
+    invoke-interface {v1}, Landroid/service/tima/ITimaService;->getTimaVersion()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
     if-eqz v2, :cond_2
 
-    const-string/jumbo v2, "FIPS3.0"
+    const-string/jumbo v3, "2.0"
 
-    iput-object v2, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
+    iput-object v3, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    sget-boolean v3, Lcom/samsung/ucm/ucmservice/scp/TADriver;->DEBUG:Z
+
+    if-eqz v3, :cond_1
+
+    const-string/jumbo v3, "UCM.SCP.TADriver"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "updateTimaVersion() - Tima Version : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    return-void
+
+    :cond_2
+    :try_start_1
+    invoke-static {}, Lcom/sec/tima/keystore/util/Utility;->isFipsTimaEnabled()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    const-string/jumbo v3, "FIPS3.0"
+
+    iput-object v3, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -759,19 +763,19 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v2, "UCM.SCP.TADriver"
+    const-string/jumbo v3, "UCM.SCP.TADriver"
 
-    const-string/jumbo v3, "updateTimaVersion() : Unable to get tima version"
+    const-string/jumbo v4, "updateTimaVersion() : Unable to get tima version"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     :try_start_2
-    const-string/jumbo v2, "3.0"
+    const-string/jumbo v3, "3.0"
 
-    iput-object v2, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
+    iput-object v3, p0, Lcom/samsung/ucm/ucmservice/scp/TADriver;->mTimaVersion:Ljava/lang/String;
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 

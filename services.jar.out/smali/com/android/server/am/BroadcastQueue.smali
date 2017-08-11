@@ -7090,7 +7090,11 @@
 
     iget-object v7, v0, Lcom/android/server/am/BroadcastRecord;->intent:Landroid/content/Intent;
 
-    invoke-virtual {v4, v5, v7}, Lcom/android/server/am/MARsPolicyManager;->handleSpecialIntentActions(Ljava/lang/String;Landroid/content/Intent;)V
+    move-object/from16 v0, v49
+
+    iget v9, v0, Lcom/android/server/am/BroadcastRecord;->userId:I
+
+    invoke-virtual {v4, v5, v7, v9}, Lcom/android/server/am/MARsPolicyManager;->handleSpecialIntentActions(Ljava/lang/String;Landroid/content/Intent;I)V
 
     const/4 v6, 0x0
 
@@ -7131,9 +7135,13 @@
 
     iget-object v11, v0, Lcom/android/server/am/BroadcastQueue;->mQueueName:Ljava/lang/String;
 
+    move-object/from16 v0, v49
+
+    iget v12, v0, Lcom/android/server/am/BroadcastRecord;->userId:I
+
     move-object/from16 v5, v26
 
-    invoke-virtual/range {v4 .. v11}, Lcom/android/server/am/MARsPolicyManager;->isRestrictedPackage(Landroid/content/ComponentName;Landroid/app/IApplicationThread;IILjava/lang/String;Landroid/content/Intent;Ljava/lang/String;)Z
+    invoke-virtual/range {v4 .. v12}, Lcom/android/server/am/MARsPolicyManager;->isRestrictedPackage(Landroid/content/ComponentName;Landroid/app/IApplicationThread;IILjava/lang/String;Landroid/content/Intent;Ljava/lang/String;I)Z
     :try_end_d
     .catchall {:try_start_d .. :try_end_d} :catchall_0
 

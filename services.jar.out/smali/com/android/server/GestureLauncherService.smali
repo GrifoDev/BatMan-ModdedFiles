@@ -374,7 +374,7 @@
 
     const/4 v1, 0x0
 
-    const v3, 0x10e009e
+    const v3, 0x10e009f
 
     invoke-virtual {p0, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -535,7 +535,7 @@
 
     check-cast v2, Landroid/hardware/SensorManager;
 
-    const v4, 0x10e009e
+    const v4, 0x10e009f
 
     invoke-virtual {p1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -784,7 +784,7 @@
 
     iput-object v2, p0, Lcom/android/server/GestureLauncherService;->mEmergencyNumber:Ljava/lang/String;
 
-    const v2, 0x10e00ad
+    const v2, 0x10e00ae
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

@@ -3032,19 +3032,25 @@
     throw v5
 .end method
 
-.method public sendLockTypeChangedInfo()V
-    .locals 3
+.method public sendLockTypeChangedInfo(Z)V
+    .locals 4
 
-    iget-object v1, p0, Lcom/android/server/LockSettingsStorage;->mLockTypeCallback:Landroid/os/IRemoteCallback;
+    iget-object v2, p0, Lcom/android/server/LockSettingsStorage;->mLockTypeCallback:Landroid/os/IRemoteCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/LockSettingsStorage;->mLockTypeCallback:Landroid/os/IRemoteCallback;
+    new-instance v0, Landroid/os/Bundle;
 
-    const/4 v2, 0x0
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    invoke-interface {v1, v2}, Landroid/os/IRemoteCallback;->sendResult(Landroid/os/Bundle;)V
+    const-string/jumbo v2, "isClearLock"
+
+    invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    iget-object v2, p0, Lcom/android/server/LockSettingsStorage;->mLockTypeCallback:Landroid/os/IRemoteCallback;
+
+    invoke-interface {v2, v0}, Landroid/os/IRemoteCallback;->sendResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -3052,24 +3058,24 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const-string/jumbo v1, "LockSettingsStorage"
+    const-string/jumbo v2, "LockSettingsStorage"
 
-    const-string/jumbo v2, "sendLockTypeChangedInfo failed!!"
+    const-string/jumbo v3, "sendLockTypeChangedInfo failed!!"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 
     :cond_0
-    const-string/jumbo v1, "LockSettingsStorage"
+    const-string/jumbo v2, "LockSettingsStorage"
 
-    const-string/jumbo v2, "LockModeChangedCallback is null!!"
+    const-string/jumbo v3, "LockModeChangedCallback is null!!"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -3083,43 +3089,45 @@
 .end method
 
 .method public updateCarrierLockPlusMode()Z
-    .locals 3
+    .locals 4
+
+    const/4 v1, 0x0
 
     const/4 v0, 0x1
 
-    const-string/jumbo v1, "LockSettingsStorage"
+    const-string/jumbo v2, "LockSettingsStorage"
 
-    const-string/jumbo v2, "updateCarrierLockPlusMode!!"
+    const-string/jumbo v3, "updateCarrierLockPlusMode!!"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/server/LockSettingsStorage;->getCarrierLockPlusModeFromFile()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     iput v0, p0, Lcom/android/server/LockSettingsStorage;->mSKTLockState:I
 
     :goto_0
-    invoke-virtual {p0}, Lcom/android/server/LockSettingsStorage;->sendLockTypeChangedInfo()V
+    invoke-virtual {p0, v1}, Lcom/android/server/LockSettingsStorage;->sendLockTypeChangedInfo(Z)V
 
-    iget v1, p0, Lcom/android/server/LockSettingsStorage;->mSKTLockState:I
+    iget v2, p0, Lcom/android/server/LockSettingsStorage;->mSKTLockState:I
 
-    if-ne v1, v0, :cond_1
+    if-ne v2, v0, :cond_1
 
     :goto_1
     return v0
 
     :cond_0
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    iput v1, p0, Lcom/android/server/LockSettingsStorage;->mSKTLockState:I
+    iput v2, p0, Lcom/android/server/LockSettingsStorage;->mSKTLockState:I
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v1
 
     goto :goto_1
 .end method
@@ -3251,7 +3259,9 @@
 
     invoke-direct {p0, v0, p1}, Lcom/android/server/LockSettingsStorage;->writeFile(Ljava/lang/String;[B)V
 
-    invoke-virtual {p0}, Lcom/android/server/LockSettingsStorage;->sendLockTypeChangedInfo()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/server/LockSettingsStorage;->sendLockTypeChangedInfo(Z)V
 
     return-void
 .end method

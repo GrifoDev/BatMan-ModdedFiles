@@ -63,42 +63,32 @@
     return v0
 .end method
 
-.method public setVrMode(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
-    .locals 6
+.method public onScreenStateChanged(Z)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/vr/VrManagerService$LocalService;->this$0:Lcom/android/server/vr/VrManagerService;
 
-    const/4 v5, 0x0
-
-    move v1, p1
-
-    move-object v2, p2
-
-    move v3, p3
-
-    move-object v4, p4
-
-    invoke-static/range {v0 .. v5}, Lcom/android/server/vr/VrManagerService;->-wrap14(Lcom/android/server/vr/VrManagerService;ZLandroid/content/ComponentName;ILandroid/content/ComponentName;Z)V
+    invoke-static {v0, p1}, Lcom/android/server/vr/VrManagerService;->-wrap12(Lcom/android/server/vr/VrManagerService;Z)V
 
     return-void
 .end method
 
-.method public setVrModeImmediate(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
-    .locals 6
+.method public onSleepStateChanged(Z)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/vr/VrManagerService$LocalService;->this$0:Lcom/android/server/vr/VrManagerService;
 
-    const/4 v5, 0x1
+    invoke-static {v0, p1}, Lcom/android/server/vr/VrManagerService;->-wrap13(Lcom/android/server/vr/VrManagerService;Z)V
 
-    move v1, p1
+    return-void
+.end method
 
-    move-object v2, p2
+.method public setVrMode(ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
+    .locals 1
 
-    move v3, p3
+    iget-object v0, p0, Lcom/android/server/vr/VrManagerService$LocalService;->this$0:Lcom/android/server/vr/VrManagerService;
 
-    move-object v4, p4
-
-    invoke-static/range {v0 .. v5}, Lcom/android/server/vr/VrManagerService;->-wrap14(Lcom/android/server/vr/VrManagerService;ZLandroid/content/ComponentName;ILandroid/content/ComponentName;Z)V
+    invoke-static {v0, p1, p2, p3, p4}, Lcom/android/server/vr/VrManagerService;->-wrap14(Lcom/android/server/vr/VrManagerService;ZLandroid/content/ComponentName;ILandroid/content/ComponentName;)V
 
     return-void
 .end method

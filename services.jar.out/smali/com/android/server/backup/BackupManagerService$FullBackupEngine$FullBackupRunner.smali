@@ -30,6 +30,8 @@
 
 .field mToken:I
 
+.field mUserId:I
+
 .field mWidgetData:[B
 
 .field mWriteManifest:Z
@@ -38,7 +40,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/BackupManagerService$FullBackupEngine;Landroid/content/pm/PackageInfo;Landroid/app/IBackupAgent;Landroid/os/ParcelFileDescriptor;IZZ[BI)V
+.method constructor <init>(Lcom/android/server/backup/BackupManagerService$FullBackupEngine;Landroid/content/pm/PackageInfo;Landroid/app/IBackupAgent;Landroid/os/ParcelFileDescriptor;IZZ[BII)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -73,6 +75,8 @@
     iput-boolean p7, p0, Lcom/android/server/backup/BackupManagerService$FullBackupEngine$FullBackupRunner;->mWriteManifest:Z
 
     iput p9, p0, Lcom/android/server/backup/BackupManagerService$FullBackupEngine$FullBackupRunner;->mExtraFlag:I
+
+    iput p10, p0, Lcom/android/server/backup/BackupManagerService$FullBackupEngine$FullBackupRunner;->mUserId:I
 
     return-void
 .end method

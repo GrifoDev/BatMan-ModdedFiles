@@ -470,7 +470,7 @@
 
     iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v6, 0x10203f8
+    const v6, 0x1020401
 
     invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -548,7 +548,7 @@
 
     iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v6, 0x1020404
+    const v6, 0x102040d
 
     invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -560,7 +560,7 @@
 
     iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v6, 0x10203ff
+    const v6, 0x1020408
 
     invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -650,7 +650,7 @@
 
     iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v6, 0x10203fd
+    const v6, 0x1020406
 
     invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -689,7 +689,7 @@
 
     iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v6, 0x102040b
+    const v6, 0x1020414
 
     invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -701,7 +701,7 @@
 
     iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v6, 0x1020407
+    const v6, 0x1020410
 
     invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -962,7 +962,7 @@
 
     move-result-object v4
 
-    const v5, 0x109007a
+    const v5, 0x109007b
 
     const/4 v6, 0x0
 
@@ -976,7 +976,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203f5
+    const v5, 0x10203fe
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -988,7 +988,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203fa
+    const v5, 0x1020403
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1000,7 +1000,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203fe
+    const v5, 0x1020407
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1012,7 +1012,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x1020406
+    const v5, 0x102040f
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1024,7 +1024,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203f7
+    const v5, 0x1020400
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1036,7 +1036,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203fc
+    const v5, 0x1020405
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1048,7 +1048,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x1020403
+    const v5, 0x102040c
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1060,7 +1060,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x102040a
+    const v5, 0x1020413
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1072,7 +1072,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203f9
+    const v5, 0x1020402
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1084,7 +1084,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x1020405
+    const v5, 0x102040e
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1096,7 +1096,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x1020400
+    const v5, 0x1020409
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1108,7 +1108,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203f6
+    const v5, 0x10203ff
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1120,7 +1120,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203fb
+    const v5, 0x1020404
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1132,7 +1132,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x1020402
+    const v5, 0x102040b
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1144,7 +1144,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x1020409
+    const v5, 0x1020412
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1305,10 +1305,10 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x10203f7 -> :sswitch_0
-        0x10203fc -> :sswitch_1
-        0x1020403 -> :sswitch_0
-        0x102040a -> :sswitch_1
+        0x1020400 -> :sswitch_0
+        0x1020405 -> :sswitch_1
+        0x102040c -> :sswitch_0
+        0x1020413 -> :sswitch_1
     .end sparse-switch
 .end method
 

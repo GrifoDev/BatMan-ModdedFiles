@@ -9,13 +9,16 @@
         Lcom/android/server/GmsAlarmManager$1;,
         Lcom/android/server/GmsAlarmManager$GmsHandler;,
         Lcom/android/server/GmsAlarmManager$NetworkReceiver;,
-        Lcom/android/server/GmsAlarmManager$ScreenReceiver;
+        Lcom/android/server/GmsAlarmManager$ScreenReceiver;,
+        Lcom/android/server/GmsAlarmManager$SetupWizardCompleteOrBootCompleteReceiver;
     }
 .end annotation
 
 
 # static fields
 .field private static final ACTION_ALARM_BROADCAST:Ljava/lang/String; = "com.samsung.android.server.action_check_gms_network"
+
+.field private static final ACTION_SETUPWIZARD_COMPLETE_BROADCAST:Ljava/lang/String; = "com.sec.android.app.secsetupwizard.SETUPWIZARD_COMPLETE"
 
 .field private static final CHINA_MODE:Ljava/lang/String; = "China"
 
@@ -37,17 +40,25 @@
 
 .field private static final TIME_DELAY:J = 0x2710L
 
+.field private static final TIME_DELAY_AFTER_SETUPWIZARD_COMPLETE:J = 0x3e8L
+
 .field private static sHandlerThread:Landroid/os/HandlerThread;
 
 
 # instance fields
 .field private cm:Landroid/net/ConnectivityManager;
 
+.field deviceIdleService:Lcom/android/server/DeviceIdleController$LocalService;
+
 .field private isChinaMode:Z
 
 .field private isGmsNetWorkLimt:Z
 
+.field private isSetupWizardCompleteOrBootComplete:Z
+
 .field private mAlarmManager:Landroid/app/AlarmManager;
+
+.field private mAlarmService:Lcom/android/server/AlarmManagerService;
 
 .field private mConfigupdaterUid:I
 
@@ -77,6 +88,8 @@
 
 .field private mScreenReceiver:Lcom/android/server/GmsAlarmManager$ScreenReceiver;
 
+.field private mSetupWizardCompleteOrBootCompleteReceiver:Lcom/android/server/GmsAlarmManager$SetupWizardCompleteOrBootCompleteReceiver;
+
 .field private mVendingUid:I
 
 .field private mWaitCheckNetWork:Z
@@ -99,7 +112,15 @@
     return v0
 .end method
 
-.method static synthetic -get10(Lcom/android/server/GmsAlarmManager;)I
+.method static synthetic -get10(Lcom/android/server/GmsAlarmManager;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/GmsAlarmManager;->mScreenOn:Z
+
+    return v0
+.end method
+
+.method static synthetic -get11(Lcom/android/server/GmsAlarmManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/GmsAlarmManager;->mVendingUid:I
@@ -107,7 +128,7 @@
     return v0
 .end method
 
-.method static synthetic -get11(Lcom/android/server/GmsAlarmManager;)Z
+.method static synthetic -get12(Lcom/android/server/GmsAlarmManager;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/GmsAlarmManager;->mWaitCheckNetWork:Z
@@ -115,7 +136,15 @@
     return v0
 .end method
 
-.method static synthetic -get2(Lcom/android/server/GmsAlarmManager;)I
+.method static synthetic -get2(Lcom/android/server/GmsAlarmManager;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/GmsAlarmManager;->isSetupWizardCompleteOrBootComplete:Z
+
+    return v0
+.end method
+
+.method static synthetic -get3(Lcom/android/server/GmsAlarmManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/GmsAlarmManager;->mConfigupdaterUid:I
@@ -123,7 +152,7 @@
     return v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/GmsAlarmManager;)Landroid/content/Context;
+.method static synthetic -get4(Lcom/android/server/GmsAlarmManager;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/GmsAlarmManager;->mContext:Landroid/content/Context;
@@ -131,7 +160,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/GmsAlarmManager;)I
+.method static synthetic -get5(Lcom/android/server/GmsAlarmManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/GmsAlarmManager;->mGmsPkgUid:I
@@ -139,7 +168,7 @@
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/GmsAlarmManager;)Z
+.method static synthetic -get6(Lcom/android/server/GmsAlarmManager;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/GmsAlarmManager;->mGoogleNetWork:Z
@@ -147,7 +176,7 @@
     return v0
 .end method
 
-.method static synthetic -get6(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+.method static synthetic -get7(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/GmsAlarmManager;->mHandler:Lcom/android/server/GmsAlarmManager$GmsHandler;
@@ -155,7 +184,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/GmsAlarmManager;)Landroid/net/NetworkInfo;
+.method static synthetic -get8(Lcom/android/server/GmsAlarmManager;)Landroid/net/NetworkInfo;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/GmsAlarmManager;->mNetworkInfo:Landroid/net/NetworkInfo;
@@ -163,18 +192,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/GmsAlarmManager;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/GmsAlarmManager;->mScreenOffChange:Z
-
-    return v0
-.end method
-
 .method static synthetic -get9(Lcom/android/server/GmsAlarmManager;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/server/GmsAlarmManager;->mScreenOn:Z
+    iget-boolean v0, p0, Lcom/android/server/GmsAlarmManager;->mScreenOffChange:Z
 
     return v0
 .end method
@@ -190,12 +211,20 @@
 .method static synthetic -set1(Lcom/android/server/GmsAlarmManager;Z)Z
     .locals 0
 
+    iput-boolean p1, p0, Lcom/android/server/GmsAlarmManager;->isSetupWizardCompleteOrBootComplete:Z
+
+    return p1
+.end method
+
+.method static synthetic -set2(Lcom/android/server/GmsAlarmManager;Z)Z
+    .locals 0
+
     iput-boolean p1, p0, Lcom/android/server/GmsAlarmManager;->mGoogleNetWork:Z
 
     return p1
 .end method
 
-.method static synthetic -set2(Lcom/android/server/GmsAlarmManager;Landroid/net/NetworkInfo;)Landroid/net/NetworkInfo;
+.method static synthetic -set3(Lcom/android/server/GmsAlarmManager;Landroid/net/NetworkInfo;)Landroid/net/NetworkInfo;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/GmsAlarmManager;->mNetworkInfo:Landroid/net/NetworkInfo;
@@ -203,7 +232,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set3(Lcom/android/server/GmsAlarmManager;Z)Z
+.method static synthetic -set4(Lcom/android/server/GmsAlarmManager;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/GmsAlarmManager;->mScreenOffChange:Z
@@ -211,7 +240,7 @@
     return p1
 .end method
 
-.method static synthetic -set4(Lcom/android/server/GmsAlarmManager;Z)Z
+.method static synthetic -set5(Lcom/android/server/GmsAlarmManager;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/GmsAlarmManager;->mScreenOn:Z
@@ -219,7 +248,7 @@
     return p1
 .end method
 
-.method static synthetic -set5(Lcom/android/server/GmsAlarmManager;Z)Z
+.method static synthetic -set6(Lcom/android/server/GmsAlarmManager;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/GmsAlarmManager;->mWaitCheckNetWork:Z
@@ -265,7 +294,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap4(Lcom/android/server/GmsAlarmManager;J)V
+.method static synthetic -wrap4(Lcom/android/server/GmsAlarmManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/GmsAlarmManager;->restoreGcmAlarm()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap5(Lcom/android/server/GmsAlarmManager;J)V
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/GmsAlarmManager;->sendCheckNetWorkDelay(J)V
@@ -273,7 +310,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/android/server/GmsAlarmManager;I)V
+.method static synthetic -wrap6(Lcom/android/server/GmsAlarmManager;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/GmsAlarmManager;->setGMSLocationProviderChangeReceiverState(I)V
@@ -281,7 +318,15 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;)V
+.method static synthetic -wrap7(Lcom/android/server/GmsAlarmManager;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/GmsAlarmManager;->setGmsDozeWhiteList(Z)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/AlarmManagerService;)V
     .locals 9
 
     const/4 v3, 0x0
@@ -305,6 +350,8 @@
     iput-boolean v8, p0, Lcom/android/server/GmsAlarmManager;->mGoogleNetWork:Z
 
     iput-boolean v6, p0, Lcom/android/server/GmsAlarmManager;->isGmsNetWorkLimt:Z
+
+    iput-boolean v6, p0, Lcom/android/server/GmsAlarmManager;->isSetupWizardCompleteOrBootComplete:Z
 
     iput-boolean v6, p0, Lcom/android/server/GmsAlarmManager;->isChinaMode:Z
 
@@ -426,6 +473,8 @@
 
     iput-object v3, p0, Lcom/android/server/GmsAlarmManager;->mHandler:Lcom/android/server/GmsAlarmManager$GmsHandler;
 
+    iput-object p2, p0, Lcom/android/server/GmsAlarmManager;->mAlarmService:Lcom/android/server/AlarmManagerService;
+
     new-instance v3, Lcom/android/server/GmsAlarmManager$NetworkReceiver;
 
     invoke-direct {v3, p0}, Lcom/android/server/GmsAlarmManager$NetworkReceiver;-><init>(Lcom/android/server/GmsAlarmManager;)V
@@ -437,6 +486,22 @@
     invoke-direct {v3, p0}, Lcom/android/server/GmsAlarmManager$ScreenReceiver;-><init>(Lcom/android/server/GmsAlarmManager;)V
 
     iput-object v3, p0, Lcom/android/server/GmsAlarmManager;->mScreenReceiver:Lcom/android/server/GmsAlarmManager$ScreenReceiver;
+
+    new-instance v3, Lcom/android/server/GmsAlarmManager$SetupWizardCompleteOrBootCompleteReceiver;
+
+    invoke-direct {v3, p0}, Lcom/android/server/GmsAlarmManager$SetupWizardCompleteOrBootCompleteReceiver;-><init>(Lcom/android/server/GmsAlarmManager;)V
+
+    iput-object v3, p0, Lcom/android/server/GmsAlarmManager;->mSetupWizardCompleteOrBootCompleteReceiver:Lcom/android/server/GmsAlarmManager$SetupWizardCompleteOrBootCompleteReceiver;
+
+    const-class v3, Lcom/android/server/DeviceIdleController$LocalService;
+
+    invoke-static {v3}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/DeviceIdleController$LocalService;
+
+    iput-object v3, p0, Lcom/android/server/GmsAlarmManager;->deviceIdleService:Lcom/android/server/DeviceIdleController$LocalService;
 
     new-instance v1, Landroid/content/IntentFilter;
 
@@ -502,7 +567,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method private cancelAlarm()V
@@ -734,6 +799,29 @@
 
     :cond_3
     throw v5
+.end method
+
+.method private getDeviceIdleService()Lcom/android/server/DeviceIdleController$LocalService;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/GmsAlarmManager;->deviceIdleService:Lcom/android/server/DeviceIdleController$LocalService;
+
+    if-nez v0, :cond_0
+
+    const-class v0, Lcom/android/server/DeviceIdleController$LocalService;
+
+    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/DeviceIdleController$LocalService;
+
+    iput-object v0, p0, Lcom/android/server/GmsAlarmManager;->deviceIdleService:Lcom/android/server/DeviceIdleController$LocalService;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/GmsAlarmManager;->deviceIdleService:Lcom/android/server/DeviceIdleController$LocalService;
+
+    return-object v0
 .end method
 
 .method private getInfoFromPendingIntent(Landroid/app/PendingIntent;)Landroid/content/Intent;
@@ -1075,6 +1163,91 @@
     return v3
 .end method
 
+.method private restoreGcmAlarm()V
+    .locals 10
+
+    const-wide/16 v8, 0x2710
+
+    iget-object v3, p0, Lcom/android/server/GmsAlarmManager;->mAlarmService:Lcom/android/server/AlarmManagerService;
+
+    const-string/jumbo v6, "com.google.android.gms"
+
+    const-string/jumbo v7, "com.google.android.intent.action.GCM_RECONNECT"
+
+    invoke-virtual {v3, v6, v7}, Lcom/android/server/AlarmManagerService;->getAlarm(Ljava/lang/String;Ljava/lang/String;)Lcom/android/server/AlarmManagerService$Alarm;
+
+    move-result-object v2
+
+    if-nez v2, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v4
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iget v3, v2, Lcom/android/server/AlarmManagerService$Alarm;->type:I
+
+    const/4 v6, 0x1
+
+    if-gt v3, v6, :cond_1
+
+    add-long v6, v0, v8
+
+    iput-wide v6, v2, Lcom/android/server/AlarmManagerService$Alarm;->when:J
+
+    iput-wide v6, v2, Lcom/android/server/AlarmManagerService$Alarm;->origWhen:J
+
+    :goto_0
+    add-long v6, v4, v8
+
+    iput-wide v6, v2, Lcom/android/server/AlarmManagerService$Alarm;->whenElapsed:J
+
+    iput-wide v6, v2, Lcom/android/server/AlarmManagerService$Alarm;->maxWhenElapsed:J
+
+    const-string/jumbo v3, "GmsAlarmManager"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "restoreGcmAlarm:"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v3, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Lcom/android/server/GmsAlarmManager;->mAlarmService:Lcom/android/server/AlarmManagerService;
+
+    invoke-virtual {v3, v2}, Lcom/android/server/AlarmManagerService;->addAlarm(Lcom/android/server/AlarmManagerService$Alarm;)V
+
+    return-void
+
+    :cond_1
+    add-long v6, v4, v8
+
+    iput-wide v6, v2, Lcom/android/server/AlarmManagerService$Alarm;->when:J
+
+    iput-wide v6, v2, Lcom/android/server/AlarmManagerService$Alarm;->origWhen:J
+
+    goto :goto_0
+.end method
+
 .method private sendCheckNetWorkDelay(J)V
     .locals 5
 
@@ -1178,6 +1351,75 @@
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
+.method private setGmsDozeWhiteList(Z)V
+    .locals 4
+
+    const-string/jumbo v1, "GmsAlarmManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "setGmsDozeWhiteList = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager;->deviceIdleService:Lcom/android/server/DeviceIdleController$LocalService;
+
+    if-nez v1, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/GmsAlarmManager;->getDeviceIdleService()Lcom/android/server/DeviceIdleController$LocalService;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "GmsAlarmManager"
+
+    const-string/jumbo v2, "failed to get deviceIdleService instance"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    const-string/jumbo v1, "com.google.android.gms"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    if-nez p1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager;->deviceIdleService:Lcom/android/server/DeviceIdleController$LocalService;
+
+    invoke-virtual {v1, v0}, Lcom/android/server/DeviceIdleController$LocalService;->removeSystemPowerSaveWhiteList(Ljava/util/ArrayList;)V
+
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager;->deviceIdleService:Lcom/android/server/DeviceIdleController$LocalService;
+
+    invoke-virtual {v1, v0}, Lcom/android/server/DeviceIdleController$LocalService;->addSystemPowerSaveWhiteList(Ljava/util/ArrayList;)V
 
     goto :goto_0
 .end method
@@ -1532,6 +1774,28 @@
     iget-boolean v1, p0, Lcom/android/server/GmsAlarmManager;->mScreenOffChange:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "deviceIdle:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager;->deviceIdleService:Lcom/android/server/DeviceIdleController$LocalService;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 

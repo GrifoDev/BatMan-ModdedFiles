@@ -45,6 +45,12 @@
 .method public binderDied()V
     .locals 2
 
+    const-string/jumbo v0, "LockSettingsService"
+
+    const-string/jumbo v1, "GateKeeperService is dead"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v0, p0, Lcom/android/server/LockSettingsService$GateKeeperDiedRecipient;->this$0:Lcom/android/server/LockSettingsService;
 
     invoke-static {v0}, Lcom/android/server/LockSettingsService;->-get2(Lcom/android/server/LockSettingsService;)Landroid/service/gatekeeper/IGateKeeperService;

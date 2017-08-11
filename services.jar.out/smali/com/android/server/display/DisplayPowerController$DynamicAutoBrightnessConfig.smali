@@ -73,7 +73,17 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;Ljava/io/PrintWriter;)V
+.method static synthetic -wrap0(Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->isTablet()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap1(Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;Ljava/io/PrintWriter;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->dumpAutoBrightnessTables(Ljava/io/PrintWriter;)V
@@ -2963,11 +2973,13 @@
 .end method
 
 .method protected initializeProperties()V
-    .locals 9
+    .locals 10
 
     const/4 v8, 0x0
 
     const/high16 v7, 0x43fa0000    # 500.0f
+
+    const/high16 v9, 0x42c80000    # 100.0f
 
     const-string/jumbo v5, "DisplayPowerController"
 
@@ -2985,7 +2997,7 @@
 
     move-result-object v3
 
-    const v5, 0x10e00f7
+    const v5, 0x10e00f8
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2993,7 +3005,7 @@
 
     iput v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mValueOfVirtualZeroCandela:I
 
-    const v5, 0x10700ab
+    const v5, 0x10700ad
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3001,7 +3013,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
 
-    const v5, 0x10700ac
+    const v5, 0x10700ae
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3009,7 +3021,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
 
-    const v5, 0x10700ad
+    const v5, 0x10700af
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3017,7 +3029,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
 
-    const v5, 0x10700ae
+    const v5, 0x10700b0
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3025,7 +3037,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
 
-    const v5, 0x10700af
+    const v5, 0x10700b1
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3033,7 +3045,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
 
-    const v5, 0x10700b0
+    const v5, 0x10700b2
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3045,7 +3057,7 @@
 
     if-eqz v5, :cond_0
 
-    const v5, 0x10700b1
+    const v5, 0x10700b3
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3053,7 +3065,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
 
-    const v5, 0x10700b2
+    const v5, 0x10700b4
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3061,7 +3073,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
 
-    const v5, 0x10700b3
+    const v5, 0x10700b5
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3069,7 +3081,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
 
-    const v5, 0x10700b4
+    const v5, 0x10700b6
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3077,7 +3089,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
 
-    const v5, 0x10700b5
+    const v5, 0x10700b7
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3085,7 +3097,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
 
-    const v5, 0x10700b6
+    const v5, 0x10700b8
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3094,7 +3106,7 @@
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
 
     :cond_0
-    const v5, 0x10700aa
+    const v5, 0x10700ac
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3102,7 +3114,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mMinimumExpressiveBrightnessValues:[I
 
-    const v5, 0x10e00f5
+    const v5, 0x10e00f6
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3156,7 +3168,7 @@
     invoke-direct {p0, v2}, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->sendAutoBrightnessTablePacket([B)V
 
     :cond_3
-    const v5, 0x10e0105
+    const v5, 0x10e0106
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3191,9 +3203,7 @@
 
     int-to-float v5, v5
 
-    const/high16 v6, 0x42c80000    # 100.0f
-
-    div-float v4, v5, v6
+    div-float v4, v5, v9
 
     const/4 v5, 0x0
 
@@ -3264,6 +3274,16 @@
     const v5, 0x3da3d70a    # 0.08f
 
     add-float v0, v4, v5
+
+    mul-float v5, v9, v0
+
+    invoke-static {v5}, Ljava/lang/Math;->round(F)I
+
+    move-result v5
+
+    int-to-float v5, v5
+
+    div-float v0, v5, v9
 
     :cond_a
     iget-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I

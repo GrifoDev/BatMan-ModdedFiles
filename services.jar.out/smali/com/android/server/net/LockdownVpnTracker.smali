@@ -651,7 +651,7 @@
 
     const v18, 0x1040496
 
-    const v19, 0x1080b1f
+    const v19, 0x1080b0d
 
     invoke-virtual/range {v17 .. v19}, Lcom/android/server/connectivity/Vpn;->showNotificationForLockdown(II)V
 
@@ -744,7 +744,7 @@
 
     const v18, 0x1040494
 
-    const v19, 0x1080b1f
+    const v19, 0x1080b0d
 
     invoke-virtual/range {v17 .. v19}, Lcom/android/server/connectivity/Vpn;->showNotificationForLockdown(II)V
 
@@ -824,7 +824,7 @@
 
     const v18, 0x1040496
 
-    const v19, 0x1080b1f
+    const v19, 0x1080b0d
 
     invoke-virtual/range {v17 .. v19}, Lcom/android/server/connectivity/Vpn;->showNotificationForLockdown(II)V
 
@@ -851,7 +851,7 @@
 
     const v18, 0x1040496
 
-    const v19, 0x1080b1f
+    const v19, 0x1080b0d
 
     invoke-virtual/range {v17 .. v19}, Lcom/android/server/connectivity/Vpn;->showNotificationForLockdown(II)V
 
@@ -906,7 +906,7 @@
 
     const v18, 0x1040495
 
-    const v19, 0x1080b1e
+    const v19, 0x1080b0c
 
     invoke-virtual/range {v17 .. v19}, Lcom/android/server/connectivity/Vpn;->showNotificationForLockdown(II)V
 

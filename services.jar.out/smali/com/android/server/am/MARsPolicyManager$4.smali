@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$4;->this$0:Lcom/android/server/am/MARsPolicyManager;
 
-    invoke-static {v0}, Lcom/android/server/am/MARsPolicyManager;->-wrap3(Lcom/android/server/am/MARsPolicyManager;)V
+    invoke-static {v0}, Lcom/android/server/am/MARsPolicyManager;->-wrap5(Lcom/android/server/am/MARsPolicyManager;)V
 
     return-void
 .end method

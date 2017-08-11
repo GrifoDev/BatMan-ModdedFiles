@@ -6124,6 +6124,47 @@
     return v0
 .end method
 
+.method isFullscreenFreeformLocked()Z
+    .locals 3
+
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    iget v1, v1, Lcom/android/server/am/ActivityStack;->mStackId:I
+
+    const/4 v2, 0x2
+
+    if-ne v1, v2, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/server/am/TaskRecord;->mFullscreen:Z
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/am/TaskRecord;->mOverrideConfig:Landroid/content/res/Configuration;
+
+    sget-object v2, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Configuration;->equals(Landroid/content/res/Configuration;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
 .method isHomeItem()Z
     .locals 1
 
@@ -6914,7 +6955,21 @@
 
     if-eqz v2, :cond_0
 
-    return-void
+    iget-object v2, p0, Lcom/android/server/am/TaskRecord;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mBridge:Lcom/android/server/am/IActivityManagerServiceBridge;
+
+    invoke-interface {v2}, Lcom/android/server/am/IActivityManagerServiceBridge;->isKnoxDesktopModeLocked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/server/am/TaskRecord;->isFullscreenFreeformLocked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     :cond_0
     iget-object v2, p0, Lcom/android/server/am/TaskRecord;->mOverrideConfig:Landroid/content/res/Configuration;
@@ -6945,6 +7000,9 @@
 
     iput v3, v2, Landroid/content/res/Configuration;->fontScale:F
 
+    return-void
+
+    :cond_1
     return-void
 .end method
 

@@ -17,6 +17,12 @@
 # static fields
 .field private static final AUDIT_LOG_SERVICE:Ljava/lang/String; = "AuditLogService"
 
+.field private static final EDMAUDIT_PROPERTY:Ljava/lang/String; = "security.edmaudit"
+
+.field private static final START_EDMAUDIT_PROCESS:Ljava/lang/String; = "true"
+
+.field private static final STOP_EDMAUDIT_PROCESS:Ljava/lang/String; = "false"
+
 .field private static final TAG:Ljava/lang/String; = "AuditLogService"
 
 .field private static final UID_AUDITD:I = 0x7cf
@@ -66,7 +72,7 @@
 .method static synthetic -wrap0(Lcom/android/server/enterprise/auditlog/AuditLogService;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->updateEDMNativeHelperStatus()V
+    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->startStopEdmAuditProcess()V
 
     return-void
 .end method
@@ -1281,13 +1287,22 @@
 
     invoke-virtual {v0, v9}, Lcom/android/server/enterprise/auditlog/Admin;->setAuditLogRulesInfo(Lcom/samsung/android/knox/log/AuditLogRulesInfo;)V
 
+    iget-object v10, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
+
+    monitor-enter v10
+
+    :try_start_0
     iget-object v9, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
 
-    new-instance v10, Ljava/lang/Integer;
+    new-instance v11, Ljava/lang/Integer;
 
-    invoke-direct {v10, v8}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v11, v8}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-interface {v9, v10, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v9, v11, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v10
 
     invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->getDeviceInfo()Ljava/util/List;
 
@@ -1296,6 +1311,13 @@
     invoke-virtual {v0, v7}, Lcom/android/server/enterprise/auditlog/Admin;->setDeviceInfo(Ljava/util/List;)V
 
     goto/16 :goto_0
+
+    :catchall_0
+    move-exception v9
+
+    monitor-exit v10
+
+    throw v9
 
     :cond_4
     return-void
@@ -2309,6 +2331,116 @@
     goto :goto_0
 .end method
 
+.method private startStopEdmAuditProcess()V
+    .locals 6
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->updateEDMNativeHelperStatus()V
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->isAuditServiceRunning()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->checkKernelEnabledForAdmins()Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->checkIptablesEnabledForAdmins()Z
+
+    move-result v2
+
+    :goto_0
+    const-string/jumbo v3, "security.edmaudit"
+
+    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v2, :cond_3
+
+    const-string/jumbo v3, "true"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string/jumbo v3, "security.edmaudit"
+
+    const-string/jumbo v4, "true"
+
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v3, "false"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string/jumbo v3, "security.edmaudit"
+
+    const-string/jumbo v4, "false"
+
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v3, "AuditLogService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Error on start/stop edmaudit process: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
+.end method
+
 .method private updateEDMNativeHelperStatus()V
     .locals 1
 
@@ -2873,15 +3005,26 @@
 
     move-object/from16 v0, p0
 
+    iget-object v2, v0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
+
+    monitor-enter v2
+
+    :try_start_0
+    move-object/from16 v0, p0
+
     iget-object v1, v0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
 
-    new-instance v2, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    invoke-direct {v2, v14}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v14}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v3}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->updateEDMNativeHelperStatus()V
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->startStopEdmAuditProcess()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
 
     move-object/from16 v0, p0
 
@@ -2927,6 +3070,13 @@
 
     :cond_1
     return v13
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 
     :cond_2
     const/4 v13, 0x0
@@ -3025,9 +3175,25 @@
 
     invoke-virtual {v9, v2}, Lcom/android/server/enterprise/auditlog/Admin;->setIptablesLogging(Z)V
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->updateEDMNativeHelperStatus()V
+    iget-object v0, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->startStopEdmAuditProcess()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public declared-synchronized dumpLogFile(Lcom/samsung/android/knox/ContextInfo;JJLjava/lang/String;Landroid/os/ParcelFileDescriptor;)Z
@@ -3346,32 +3512,6 @@
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
-
-    monitor-enter v3
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :try_start_1
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
-
-    new-instance v4, Ljava/lang/Integer;
-
-    move/from16 v0, v18
-
-    invoke-direct {v4, v0}, Ljava/lang/Integer;-><init>(I)V
-
-    invoke-interface {v2, v4, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :try_start_2
-    monitor-exit v3
-
-    move-object/from16 v0, p0
-
     iget-boolean v2, v0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mIsBootCompleted:Z
 
     invoke-virtual {v11, v2}, Lcom/android/server/enterprise/auditlog/Admin;->setBootCompleted(Z)V
@@ -3392,7 +3532,33 @@
 
     invoke-virtual {v11}, Lcom/android/server/enterprise/auditlog/Admin;->createBubbleFile()V
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->updateEDMNativeHelperStatus()V
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
+
+    monitor-enter v3
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
+
+    new-instance v4, Ljava/lang/Integer;
+
+    move/from16 v0, v18
+
+    invoke-direct {v4, v0}, Ljava/lang/Integer;-><init>(I)V
+
+    invoke-interface {v2, v4, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->startStopEdmAuditProcess()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    monitor-exit v3
 
     move-object/from16 v0, p0
 
@@ -3531,7 +3697,16 @@
 
     invoke-virtual {v9, v4}, Lcom/android/server/enterprise/auditlog/Admin;->setIptablesLogging(Z)V
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->updateEDMNativeHelperStatus()V
+    iget-object v0, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->startStopEdmAuditProcess()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     :cond_1
     if-eqz v11, :cond_2
@@ -3560,6 +3735,13 @@
 
     :cond_2
     return v11
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public getAuditLogRules(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/log/AuditLogRulesInfo;
@@ -3894,7 +4076,7 @@
 .end method
 
 .method public onAdminRemoved(I)V
-    .locals 3
+    .locals 4
 
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
 
@@ -3910,26 +4092,42 @@
 
     if-eqz v0, :cond_0
 
+    iget-object v2, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
+
+    monitor-enter v2
+
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
 
-    new-instance v2, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    invoke-direct {v2, p1}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, p1}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v3}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->startStopEdmAuditProcess()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
 
     invoke-virtual {v0}, Lcom/android/server/enterprise/auditlog/Admin;->shutdown()V
 
     invoke-virtual {v0}, Lcom/android/server/enterprise/auditlog/Admin;->deleteAllFiles()V
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->updateEDMNativeHelperStatus()V
-
     :cond_0
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method public onPreAdminRemoval(I)V
-    .locals 3
+    .locals 4
 
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
 
@@ -3945,22 +4143,38 @@
 
     if-eqz v0, :cond_0
 
+    iget-object v2, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
+
+    monitor-enter v2
+
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
 
-    new-instance v2, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    invoke-direct {v2, p1}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, p1}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v3}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->startStopEdmAuditProcess()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
 
     invoke-virtual {v0}, Lcom/android/server/enterprise/auditlog/Admin;->shutdown()V
 
     invoke-virtual {v0}, Lcom/android/server/enterprise/auditlog/Admin;->deleteAllFiles()V
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->updateEDMNativeHelperStatus()V
-
     :cond_0
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method public setAuditLogRules(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/log/AuditLogRulesInfo;)Z
@@ -4170,7 +4384,18 @@
 
     invoke-virtual {v11, v0}, Lcom/android/server/enterprise/auditlog/Admin;->setAuditLogRulesInfo(Lcom/samsung/android/knox/log/AuditLogRulesInfo;)V
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->updateEDMNativeHelperStatus()V
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/auditlog/AuditLogService;->startStopEdmAuditProcess()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
 
     :cond_5
     if-eqz v15, :cond_6
@@ -4282,6 +4507,13 @@
     const-string/jumbo v2, ""
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+
+    throw v3
 .end method
 
 .method public setCriticalLogSize(Lcom/samsung/android/knox/ContextInfo;I)Z

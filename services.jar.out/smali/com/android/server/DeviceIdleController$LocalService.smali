@@ -176,6 +176,48 @@
     goto :goto_1
 .end method
 
+.method public addSystemPowerSaveWhiteList(Ljava/util/ArrayList;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_1
+
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
+
+    invoke-virtual {v2, v1}, Lcom/android/server/DeviceIdleController;->addPowerSaveApp(Ljava/lang/String;)Z
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
 .method public getNotificationWhitelistDuration()J
     .locals 2
 
@@ -288,6 +330,48 @@
     monitor-exit v4
 
     throw v3
+.end method
+
+.method public removeSystemPowerSaveWhiteList(Ljava/util/ArrayList;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_1
+
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
+
+    invoke-virtual {v2, v1}, Lcom/android/server/DeviceIdleController;->removePowerSaveApp(Ljava/lang/String;)Z
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
 .end method
 
 .method public setAlarmsActive(Z)V

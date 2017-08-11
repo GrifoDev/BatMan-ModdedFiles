@@ -48,7 +48,7 @@
 
     iget-object v0, p0, Lcom/android/server/GmsAlarmManager$1;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get6(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
 
     move-result-object v0
 

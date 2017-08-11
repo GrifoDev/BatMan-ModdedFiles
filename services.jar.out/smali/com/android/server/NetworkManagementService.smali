@@ -17242,7 +17242,7 @@
 
     check-cast v8, Landroid/app/NotificationManager;
 
-    const v6, 0x108088d
+    const v6, 0x108087b
 
     if-nez v8, :cond_1
 
@@ -17257,7 +17257,7 @@
 
     move-result-object v0
 
-    const v3, 0x1040acd
+    const v3, 0x1040ad6
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -17269,13 +17269,13 @@
 
     move-result-object v0
 
-    const v3, 0x1040ace
+    const v3, 0x1040ad7
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v0, 0x108088d
+    const v0, 0x108087b
 
     iput v0, p0, Lcom/android/server/NetworkManagementService;->mLastNotificationId:I
 
@@ -17453,7 +17453,7 @@
     aput-object p2, v4, v2
 
     :goto_0
-    if-nez p1, :cond_24
+    if-nez p1, :cond_26
 
     invoke-static {}, Landroid/net/wifi/WifiApCust;->getInstance()Landroid/net/wifi/WifiApCust;
 
@@ -17798,13 +17798,39 @@
 
     move-result-object v19
 
+    const-string/jumbo v2, "NetworkManagement"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "requirePMF..."
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget-boolean v5, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     sget-boolean v2, Lcom/android/server/NetworkManagementService;->SUPPORTMOBILEAPWPSPBC:Z
 
     if-nez v2, :cond_6
 
     sget-boolean v2, Lcom/android/server/NetworkManagementService;->SUPPORTMOBILEAPWPSPIN:Z
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_22
 
     :cond_6
     const-string/jumbo v13, "samsung"
@@ -17841,7 +17867,7 @@
 
     move-result-object v20
 
-    const/16 v2, 0x12
+    const/16 v2, 0x13
 
     new-array v4, v2, [Ljava/lang/Object;
 
@@ -17972,23 +17998,40 @@
 
     aput-object v2, v4, v3
 
-    const/16 v2, 0xd
+    move-object/from16 v0, p1
 
-    aput-object v13, v4, v2
+    iget-boolean v2, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    if-eqz v2, :cond_21
+
+    const/4 v2, 0x1
+
+    :goto_7
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/16 v3, 0xd
+
+    aput-object v2, v4, v3
 
     const/16 v2, 0xe
 
-    aput-object v16, v4, v2
+    aput-object v13, v4, v2
 
     const/16 v2, 0xf
 
-    aput-object v17, v4, v2
+    aput-object v16, v4, v2
 
     const/16 v2, 0x10
 
-    aput-object v20, v4, v2
+    aput-object v17, v4, v2
 
     const/16 v2, 0x11
+
+    aput-object v20, v4, v2
+
+    const/16 v2, 0x12
 
     aput-object v9, v4, v2
 
@@ -18137,7 +18180,7 @@
 
     const/4 v12, 0x0
 
-    :goto_7
+    :goto_8
     array-length v2, v15
 
     add-int/lit8 v2, v2, -0x1
@@ -18173,10 +18216,10 @@
     array-length v12, v15
 
     :cond_c
-    :goto_8
+    :goto_9
     add-int/lit8 v12, v12, 0x2
 
-    goto :goto_7
+    goto :goto_8
 
     :cond_d
     const-string/jumbo v2, "HSPAP"
@@ -18207,7 +18250,7 @@
 
     array-length v12, v15
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_e
     const-string/jumbo v2, "HSPA"
@@ -18238,7 +18281,7 @@
 
     array-length v12, v15
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_f
     const-string/jumbo v2, "HSDPA"
@@ -18269,7 +18312,7 @@
 
     array-length v12, v15
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_10
     const-string/jumbo v2, "HSUPA"
@@ -18300,7 +18343,7 @@
 
     array-length v12, v15
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_11
     const-string/jumbo v2, "EDGE"
@@ -18331,7 +18374,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_12
     const-string/jumbo v2, "GPRS"
@@ -18362,7 +18405,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_13
     const-string/jumbo v2, "UMTS"
@@ -18393,7 +18436,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_14
     const-string/jumbo v2, "1xRTT"
@@ -18424,7 +18467,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_15
     const-string/jumbo v2, "CDMA"
@@ -18455,7 +18498,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_16
     const-string/jumbo v2, "EVDO_0"
@@ -18486,7 +18529,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_17
     const-string/jumbo v2, "EVDO_A"
@@ -18517,7 +18560,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_18
     const-string/jumbo v2, "EVDO_B"
@@ -18548,7 +18591,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_19
     const-string/jumbo v2, "EHRPD"
@@ -18579,7 +18622,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_1a
     const-string/jumbo v2, "IDEN"
@@ -18610,7 +18653,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_1b
     const-string/jumbo v2, "OTHERS"
@@ -18637,7 +18680,7 @@
 
     array-length v12, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_1c
     move-object/from16 v0, p1
@@ -18709,9 +18752,14 @@
     goto/16 :goto_6
 
     :cond_21
+    const/4 v2, 0x0
+
+    goto/16 :goto_7
+
+    :cond_22
     sget-boolean v2, Lcom/android/server/NetworkManagementService;->DBG:Z
 
-    if-eqz v2, :cond_22
+    if-eqz v2, :cond_23
 
     const-string/jumbo v2, "NetworkManagement"
 
@@ -18739,8 +18787,8 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_22
-    const/16 v2, 0xd
+    :cond_23
+    const/16 v2, 0xe
 
     new-array v4, v2, [Ljava/lang/Object;
 
@@ -18806,11 +18854,11 @@
 
     iget-boolean v2, v0, Landroid/net/wifi/WifiConfiguration;->hiddenSSID:Z
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_24
 
     const/4 v2, 0x1
 
-    :goto_9
+    :goto_a
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -18871,14 +18919,36 @@
 
     aput-object v2, v4, v3
 
+    move-object/from16 v0, p1
+
+    iget-boolean v2, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    if-eqz v2, :cond_25
+
+    const/4 v2, 0x1
+
+    :goto_b
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/16 v3, 0xd
+
+    aput-object v2, v4, v3
+
     goto/16 :goto_0
 
-    :cond_23
+    :cond_24
     const/4 v2, 0x0
 
-    goto :goto_9
+    goto :goto_a
 
-    :cond_24
+    :cond_25
+    const/4 v2, 0x0
+
+    goto :goto_b
+
+    :cond_26
     const-string/jumbo v3, "%s: %s"
 
     const/4 v2, 0x2
@@ -18937,11 +19007,11 @@
 
     move-result-object v6
 
-    if-eqz v19, :cond_25
+    if-eqz v19, :cond_27
 
     move-object/from16 v2, v19
 
-    :goto_a
+    :goto_c
     invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -18984,11 +19054,11 @@
 
     iget-boolean v2, v0, Landroid/net/wifi/WifiConfiguration;->hiddenSSID:Z
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_28
 
     const/4 v2, 0x1
 
-    :goto_b
+    :goto_d
     invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -19007,12 +19077,31 @@
 
     move/from16 v0, v25
 
-    if-ne v2, v0, :cond_27
+    if-ne v2, v0, :cond_29
 
     const/4 v2, 0x1
 
-    :goto_c
+    :goto_e
     invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v6, " requirePMF:"
+
+    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p1
+
+    iget-boolean v2, v0, Landroid/net/wifi/WifiConfiguration;->requirePMF:Z
+
+    if-eqz v2, :cond_2a
+
+    const/4 v2, 0x1
+
+    :goto_f
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -19032,7 +19121,7 @@
 
     sget-boolean v2, Landroid/net/wifi/WifiApCust;->DBG:Z
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_2b
 
     invoke-static {}, Landroid/net/wifi/WifiApCust;->getInstance()Landroid/net/wifi/WifiApCust;
 
@@ -19076,22 +19165,27 @@
 
     goto/16 :goto_1
 
-    :cond_25
+    :cond_27
     const-string/jumbo v2, "[ ]"
 
-    goto/16 :goto_a
-
-    :cond_26
-    const/4 v2, 0x0
-
-    goto :goto_b
-
-    :cond_27
-    const/4 v2, 0x0
-
-    goto :goto_c
+    goto/16 :goto_c
 
     :cond_28
+    const/4 v2, 0x0
+
+    goto :goto_d
+
+    :cond_29
+    const/4 v2, 0x0
+
+    goto :goto_e
+
+    :cond_2a
+    const/4 v2, 0x0
+
+    goto :goto_f
+
+    :cond_2b
     invoke-static {}, Landroid/net/wifi/WifiApCust;->getInstance()Landroid/net/wifi/WifiApCust;
 
     move-result-object v2
@@ -20514,6 +20608,23 @@
 
     :cond_1
     :try_start_1
+    const-string/jumbo v2, "wps_cancel_int"
+
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string/jumbo v2, "wps_pbc_int"
+
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    :cond_2
     iget-object v2, p0, Lcom/android/server/NetworkManagementService;->mConnector:Lcom/android/server/NativeDaemonConnector;
 
     const-string/jumbo v3, "softap"
@@ -20533,6 +20644,11 @@
     move-result-object v1
 
     goto :goto_0
+
+    :cond_3
+    const/4 v2, 0x0
+
+    return-object v2
 
     :catch_0
     move-exception v0

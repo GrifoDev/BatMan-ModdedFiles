@@ -34,6 +34,8 @@
 
 
 # instance fields
+.field private curLocale:Ljava/util/Locale;
+
 .field private mAdbNotificationShown:Z
 
 .field private mConfigured:Z
@@ -94,10 +96,36 @@
 
 .field private powerReserveString:Ljava/lang/String;
 
+.field private res:Landroid/content/res/Resources;
+
 .field final synthetic this$0:Lcom/android/server/usb/UsbDeviceManager;
 
 
 # direct methods
+.method static synthetic -get0(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;)Ljava/util/Locale;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->curLocale:Ljava/util/Locale;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;)Landroid/content/res/Resources;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->res:Landroid/content/res/Resources;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;Ljava/util/Locale;)Ljava/util/Locale;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->curLocale:Ljava/util/Locale;
+
+    return-object p1
+.end method
+
 .method static synthetic -wrap0(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;)Z
     .locals 1
 
@@ -379,6 +407,26 @@
 
     move-result-object v3
 
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->res:Landroid/content/res/Resources;
+
+    iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->res:Landroid/content/res/Resources;
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v3
+
+    iget-object v3, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    iput-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->curLocale:Ljava/util/Locale;
+
+    invoke-static {p1}, Lcom/android/server/usb/UsbDeviceManager;->-get10(Lcom/android/server/usb/UsbDeviceManager;)Landroid/content/Context;
+
+    move-result-object v3
+
     iget-object v4, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mLocalechangedReceiver:Landroid/content/BroadcastReceiver;
 
     new-instance v5, Landroid/content/IntentFilter;
@@ -389,7 +437,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    invoke-static {p1}, Lcom/android/server/usb/UsbDeviceManager;->-wrap5(Lcom/android/server/usb/UsbDeviceManager;)V
+    invoke-static {p1}, Lcom/android/server/usb/UsbDeviceManager;->-wrap6(Lcom/android/server/usb/UsbDeviceManager;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2147,7 +2195,7 @@
     const-string/jumbo v0, "CD"
 
     :goto_0
-    invoke-static {v1, v0}, Lcom/android/server/usb/UsbDeviceManager;->-wrap8(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
+    invoke-static {v1, v0}, Lcom/android/server/usb/UsbDeviceManager;->-wrap9(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
 
     return-void
 
@@ -3120,6 +3168,44 @@
 
     iget-boolean v1, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mCurrentFunctionsApplied:Z
 
+    iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
+
+    invoke-static {v2, p1}, Lcom/android/server/usb/UsbDeviceManager;->-wrap4(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string/jumbo v2, "UsbDeviceManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v4, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
+
+    invoke-static {v4}, Lcom/android/server/usb/UsbDeviceManager;->-get0(Lcom/android/server/usb/UsbDeviceManager;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "setEnabledFunctions "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     const-string/jumbo v2, "charging"
 
     invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3822,7 +3908,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x10808b1
+    const v1, 0x108089f
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -4940,7 +5026,7 @@
 
     if-eqz v0, :cond_f
 
-    const v6, 0x1040a96
+    const v6, 0x1040a9f
 
     :cond_5
     :goto_0
@@ -5137,7 +5223,7 @@
 
     if-eqz v0, :cond_9
 
-    const v0, 0x1040a96
+    const v0, 0x1040a9f
 
     if-ne v6, v0, :cond_9
 
@@ -5196,7 +5282,7 @@
 
     if-eqz v0, :cond_a
 
-    const v0, 0x1040a96
+    const v0, 0x1040a9f
 
     if-eq v6, v0, :cond_a
 
@@ -5357,7 +5443,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x10808b1
+    const v1, 0x108089f
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -5547,7 +5633,7 @@
 
     if-eqz v0, :cond_14
 
-    const v6, 0x1040a90
+    const v6, 0x1040a99
 
     goto/16 :goto_0
 
@@ -5558,12 +5644,12 @@
 
     if-eqz v0, :cond_13
 
-    const v6, 0x1040a90
+    const v6, 0x1040a99
 
     goto/16 :goto_0
 
     :cond_13
-    const v6, 0x1040a92
+    const v6, 0x1040a9b
 
     goto/16 :goto_0
 
@@ -5614,7 +5700,7 @@
 
     if-eqz v0, :cond_19
 
-    const v6, 0x1040a91
+    const v6, 0x1040a9a
 
     goto/16 :goto_0
 
@@ -5625,12 +5711,12 @@
 
     if-eqz v0, :cond_18
 
-    const v6, 0x1040a91
+    const v6, 0x1040a9a
 
     goto/16 :goto_0
 
     :cond_18
-    const v6, 0x1040a93
+    const v6, 0x1040a9c
 
     goto/16 :goto_0
 
@@ -5670,7 +5756,7 @@
     goto/16 :goto_0
 
     :cond_1c
-    const v6, 0x1040a94
+    const v6, 0x1040a9d
 
     goto/16 :goto_0
 
@@ -5685,7 +5771,7 @@
 
     if-eqz v0, :cond_1e
 
-    const v6, 0x1040a8f
+    const v6, 0x1040a98
 
     goto/16 :goto_0
 
@@ -5836,7 +5922,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v6, 0x10408ab
+    const v6, 0x10408b2
 
     goto/16 :goto_0
 
@@ -5894,7 +5980,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v6, 0x10408ab
+    const v6, 0x10408b2
 
     goto/16 :goto_0
 
@@ -5927,7 +6013,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v6, 0x1040a95
+    const v6, 0x1040a9e
 
     goto/16 :goto_0
 
@@ -5941,7 +6027,7 @@
     goto/16 :goto_0
 
     :cond_27
-    const v0, 0x1040a97
+    const v0, 0x1040aa0
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -8584,7 +8670,7 @@
 
     invoke-direct {v6, v7, v11}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const v7, 0x1040a9f
+    const v7, 0x1040aa8
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8643,7 +8729,7 @@
 
     invoke-direct {v6, v7, v11}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const v7, 0x1040a9c
+    const v7, 0x1040aa5
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8664,7 +8750,7 @@
 
     invoke-direct {v6, v7, v11}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const v7, 0x1040a9a
+    const v7, 0x1040aa3
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8714,7 +8800,7 @@
 
     invoke-direct {v6, v7, v11}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const v7, 0x1040a9f
+    const v7, 0x1040aa8
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8763,7 +8849,7 @@
 
     invoke-direct {v6, v7, v11}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const v7, 0x1040a9c
+    const v7, 0x1040aa5
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8784,7 +8870,7 @@
 
     invoke-direct {v6, v7, v11}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const v7, 0x1040a9a
+    const v7, 0x1040aa3
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8855,7 +8941,7 @@
 
     invoke-direct {v6, v7, v11}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const v7, 0x1040a9b
+    const v7, 0x1040aa4
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8897,7 +8983,7 @@
 
     invoke-direct {v6, v7, v11}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const v7, 0x1040a9b
+    const v7, 0x1040aa4
 
     invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

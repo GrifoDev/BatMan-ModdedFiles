@@ -28,6 +28,8 @@
 
 .field private static final ACTION_TOUCHPAD_NOTIFICATION_PRESSED:Ljava/lang/String; = "com.android.server.desktopmode.action.TOUCHPAD_NOTIFICATION_PRESSED"
 
+.field private static final ACTION_WALLPAPER_ENGINE_SHOWN:Ljava/lang/String; = "com.samsung.android.intent.action.WALLPAPER_ENGINE_SHOWN"
+
 .field private static final ALPM_FILE_PATH:Ljava/lang/String; = "/sys/class/lcd/panel/alpm"
 
 .field private static final ALPM_MODE_HLPM_60NIT:I = 0x4
@@ -56,7 +58,7 @@
 
 .field private static final DELAY_UPDATE_STATE:I = 0x7d0
 
-.field private static final DIALOG_TYPE_DISPLAY_UNSUPPORT:I = 0x6
+.field private static final DIALOG_TYPE_DISPLAY_UNSUPPORT:I = 0x7
 
 .field private static final DIALOG_TYPE_INSTALL_LAUNCHER:I = 0x3
 
@@ -66,9 +68,11 @@
 
 .field private static final DIALOG_TYPE_NONE:I = 0x0
 
-.field private static final DIALOG_TYPE_PROMOTION:I = 0x4
+.field private static final DIALOG_TYPE_PROMOTION_DOCK:I = 0x5
 
-.field private static final DIALOG_TYPE_TOUCHPAD:I = 0x5
+.field private static final DIALOG_TYPE_PROMOTION_MOUSE:I = 0x4
+
+.field private static final DIALOG_TYPE_TOUCHPAD:I = 0x6
 
 .field private static final DISPLAYPORT_FILE_PATH:Ljava/lang/String; = "/sys/class/dp_sec/dex"
 
@@ -180,7 +184,7 @@
 
 .field private static final TAG:Ljava/lang/String;
 
-.field private static final TIMEOUT_CPU_BOOST:I = 0x1388
+.field private static final TIMEOUT_CPU_BOOST:I = 0x3a98
 
 .field private static final TIMEOUT_LOADING_SCREEN:I = 0x3a98
 
@@ -352,10 +356,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get10(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+.method static synthetic -get10(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/samsung/android/os/SemDvfsManager;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDvfsManager:Lcom/samsung/android/os/SemDvfsManager;
 
     return-object v0
 .end method
@@ -363,23 +367,23 @@
 .method static synthetic -get11(Lcom/android/server/desktopmode/DesktopModeService;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsBTmouseDeepSleep:Z
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mEntryExternalDisplayConnected:Z
 
     return v0
 .end method
 
-.method static synthetic -get12(Lcom/android/server/desktopmode/DesktopModeService;)Z
+.method static synthetic -get12(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsDesktopDockConnected:Z
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
 
-    return v0
+    return-object v0
 .end method
 
 .method static synthetic -get13(Lcom/android/server/desktopmode/DesktopModeService;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsDesktopMode:Z
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsBTmouseDeepSleep:Z
 
     return v0
 .end method
@@ -387,7 +391,7 @@
 .method static synthetic -get14(Lcom/android/server/desktopmode/DesktopModeService;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsDeveloperMode:Z
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsDesktopDockConnected:Z
 
     return v0
 .end method
@@ -395,7 +399,7 @@
 .method static synthetic -get15(Lcom/android/server/desktopmode/DesktopModeService;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsExternalDisplayConnected:Z
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsDesktopMode:Z
 
     return v0
 .end method
@@ -403,7 +407,7 @@
 .method static synthetic -get16(Lcom/android/server/desktopmode/DesktopModeService;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsKeyboardCoverEnabled:Z
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsDeveloperMode:Z
 
     return v0
 .end method
@@ -411,7 +415,7 @@
 .method static synthetic -get17(Lcom/android/server/desktopmode/DesktopModeService;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsExternalDisplayConnected:Z
 
     return v0
 .end method
@@ -419,17 +423,17 @@
 .method static synthetic -get18(Lcom/android/server/desktopmode/DesktopModeService;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsMouseConnected:Z
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsKeyboardCoverEnabled:Z
 
     return v0
 .end method
 
-.method static synthetic -get19(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/app/NotificationManager;
+.method static synthetic -get19(Lcom/android/server/desktopmode/DesktopModeService;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mNotificationManager:Landroid/app/NotificationManager;
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
 
-    return-object v0
+    return v0
 .end method
 
 .method static synthetic -get2(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/content/Context;
@@ -440,7 +444,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get20(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/os/PowerManagerInternal;
+.method static synthetic -get20(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsMouseConnected:Z
+
+    return v0
+.end method
+
+.method static synthetic -get21(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/os/PowerManagerInternal;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
@@ -448,7 +460,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get21(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/samsung/android/desktopmode/DesktopModePresentationManager;
+.method static synthetic -get22(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/samsung/android/desktopmode/DesktopModePresentationManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mPresentationManager:Lcom/samsung/android/desktopmode/DesktopModePresentationManager;
@@ -456,7 +468,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get22(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/am/IActivityManagerServiceBridge;
+.method static synthetic -get23(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/am/IActivityManagerServiceBridge;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mSamsungActivityManager:Lcom/android/server/am/IActivityManagerServiceBridge;
@@ -464,7 +476,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get23(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/wm/IWindowManagerServiceBridge;
+.method static synthetic -get24(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/wm/IWindowManagerServiceBridge;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mSamsungWindowManager:Lcom/android/server/wm/IWindowManagerServiceBridge;
@@ -472,7 +484,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get24(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/app/StatusBarManager;
+.method static synthetic -get25(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/app/StatusBarManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mStatusBarManager:Landroid/app/StatusBarManager;
@@ -480,7 +492,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get25(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/telecom/TelecomManager;
+.method static synthetic -get26(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/telecom/TelecomManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mTelecomManager:Landroid/telecom/TelecomManager;
@@ -488,7 +500,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get26(Lcom/android/server/desktopmode/DesktopModeService;)Ljava/util/List;
+.method static synthetic -get27(Lcom/android/server/desktopmode/DesktopModeService;)Ljava/util/List;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mToasts:Ljava/util/List;
@@ -496,7 +508,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get27(Lcom/android/server/desktopmode/DesktopModeService;)I
+.method static synthetic -get28(Lcom/android/server/desktopmode/DesktopModeService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mTopTaskId:I
@@ -504,18 +516,10 @@
     return v0
 .end method
 
-.method static synthetic -get28(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/content/Intent;
+.method static synthetic -get29(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/content/Intent;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mTopTaskIntent:Landroid/content/Intent;
-
-    return-object v0
-.end method
-
-.method static synthetic -get29(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/desktopmode/DesktopModeService$Enabler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mTouchScreenEnabler:Lcom/android/server/desktopmode/DesktopModeService$Enabler;
 
     return-object v0
 .end method
@@ -526,6 +530,14 @@
     iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverAttached:Z
 
     return v0
+.end method
+
+.method static synthetic -get30(Lcom/android/server/desktopmode/DesktopModeService;)Lcom/android/server/desktopmode/DesktopModeService$Enabler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mTouchScreenEnabler:Lcom/android/server/desktopmode/DesktopModeService$Enabler;
+
+    return-object v0
 .end method
 
 .method static synthetic -get4(Lcom/android/server/desktopmode/DesktopModeService;)Z
@@ -560,18 +572,18 @@
     return v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/desktopmode/DesktopModeService;)I
+.method static synthetic -get8(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/app/AlertDialog;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialog:Landroid/app/AlertDialog;
+
+    return-object v0
+.end method
+
+.method static synthetic -get9(Lcom/android/server/desktopmode/DesktopModeService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
-
-    return v0
-.end method
-
-.method static synthetic -get9(Lcom/android/server/desktopmode/DesktopModeService;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mEntryExternalDisplayConnected:Z
 
     return v0
 .end method
@@ -690,10 +702,10 @@
     return v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/server/desktopmode/DesktopModeService;)Z
+.method static synthetic -wrap1(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->isDesktopDockConnectedOrForced()Z
+    invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->isCoverSupported(Z)Z
 
     move-result v0
 
@@ -798,7 +810,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap21(Lcom/android/server/desktopmode/DesktopModeService;II)V
+.method static synthetic -wrap21(Lcom/android/server/desktopmode/DesktopModeService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->setDesktopModeOrShowLaunchConfirmationDialog()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap22(Lcom/android/server/desktopmode/DesktopModeService;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/desktopmode/DesktopModeService;->setDesktopModeState(II)V
@@ -806,7 +826,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap22(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+.method static synthetic -wrap23(Lcom/android/server/desktopmode/DesktopModeService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->setDesktopMode(Z)V
@@ -814,7 +834,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap23(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+.method static synthetic -wrap24(Lcom/android/server/desktopmode/DesktopModeService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->setDesktopTaskBar(Z)V
@@ -822,7 +842,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap24(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+.method static synthetic -wrap25(Lcom/android/server/desktopmode/DesktopModeService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->setDisplayPortState(Z)V
@@ -830,7 +850,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap25(Lcom/android/server/desktopmode/DesktopModeService;I)V
+.method static synthetic -wrap26(Lcom/android/server/desktopmode/DesktopModeService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->setDockState(I)V
@@ -838,7 +858,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap26(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+.method static synthetic -wrap27(Lcom/android/server/desktopmode/DesktopModeService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->setScreenOffTimeout(Z)V
@@ -846,7 +866,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap27(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;Z)V
+.method static synthetic -wrap28(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/desktopmode/DesktopModeService;->setServiceSettings(Ljava/lang/String;Z)V
@@ -854,7 +874,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap28(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+.method static synthetic -wrap29(Lcom/android/server/desktopmode/DesktopModeService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->setSettingsComponent(Z)V
@@ -862,7 +882,17 @@
     return-void
 .end method
 
-.method static synthetic -wrap29(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;Z)V
+.method static synthetic -wrap3(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->updateExternalDisplayStatus()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap30(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/desktopmode/DesktopModeService;->setSettings(Ljava/lang/String;Z)V
@@ -870,17 +900,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/server/desktopmode/DesktopModeService;)Z
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->isScoverTypeAvailable()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap30(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;I)V
+.method static synthetic -wrap31(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/desktopmode/DesktopModeService;->setSettings(Ljava/lang/String;I)V
@@ -888,7 +908,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap31(Lcom/android/server/desktopmode/DesktopModeService;ZI)V
+.method static synthetic -wrap32(Lcom/android/server/desktopmode/DesktopModeService;ZI)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/desktopmode/DesktopModeService;->setTouchPadScreen(ZI)V
@@ -896,7 +916,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap32(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+.method static synthetic -wrap33(Lcom/android/server/desktopmode/DesktopModeService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->setVirtualKeyboard(Z)V
@@ -904,7 +924,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap33(Lcom/android/server/desktopmode/DesktopModeService;I)V
+.method static synthetic -wrap34(Lcom/android/server/desktopmode/DesktopModeService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->showDialog(I)V
@@ -912,18 +932,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap34(Lcom/android/server/desktopmode/DesktopModeService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->showDisplayUnsupportDialogIfNeeded()V
-
-    return-void
-.end method
-
 .method static synthetic -wrap35(Lcom/android/server/desktopmode/DesktopModeService;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->showHeadsUpNotification()V
+    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->showDisplayUnsupportDialogIfNeeded()V
 
     return-void
 .end method
@@ -952,41 +964,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap39(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+.method static synthetic -wrap39(Lcom/android/server/desktopmode/DesktopModeService;ZZ)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->updateOngoingNotification(Z)V
+    invoke-direct {p0, p1, p2}, Lcom/android/server/desktopmode/DesktopModeService;->updateOngoingNotification(ZZ)V
 
     return-void
 .end method
 
 .method static synthetic -wrap4(Lcom/android/server/desktopmode/DesktopModeService;)Z
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->updateExternalDisplayStatus()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap40(Lcom/android/server/desktopmode/DesktopModeService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->updateTouchPadScreen()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap41(Lcom/android/server/desktopmode/DesktopModeService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->verifyCurrentState()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap5(Lcom/android/server/desktopmode/DesktopModeService;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->updateInputDeviceStatus()Z
@@ -996,7 +982,31 @@
     return v0
 .end method
 
-.method static synthetic -wrap6(Lcom/android/server/desktopmode/DesktopModeService;)I
+.method static synthetic -wrap40(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->updateOngoingNotification(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap41(Lcom/android/server/desktopmode/DesktopModeService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->updateTouchPadScreen()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap42(Lcom/android/server/desktopmode/DesktopModeService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->verifyCurrentState()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap5(Lcom/android/server/desktopmode/DesktopModeService;)I
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->getDockState()I
@@ -1006,7 +1016,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap7(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;I)I
+.method static synthetic -wrap6(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;I)I
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/desktopmode/DesktopModeService;->getSettings(Ljava/lang/String;I)I
@@ -1016,7 +1026,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap8(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+.method static synthetic -wrap7(Lcom/android/server/desktopmode/DesktopModeService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->blockDefaultDisplayAndTouchScreen(Z)V
@@ -1024,10 +1034,18 @@
     return-void
 .end method
 
-.method static synthetic -wrap9(Lcom/android/server/desktopmode/DesktopModeService;)V
+.method static synthetic -wrap8(Lcom/android/server/desktopmode/DesktopModeService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->closeLaunchConfirmDialog()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap9(Lcom/android/server/desktopmode/DesktopModeService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->connectToDeXHomePage()V
 
     return-void
 .end method
@@ -1309,7 +1327,7 @@
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "android.intent.action.WALLPAPER_CHANGED"
+    const-string/jumbo v0, "com.samsung.android.intent.action.WALLPAPER_ENGINE_SHOWN"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
@@ -1469,7 +1487,35 @@
     return-void
 .end method
 
-.method private createLaunchConfirmationDialog()Landroid/app/AlertDialog;
+.method private connectToDeXHomePage()V
+    .locals 3
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string/jumbo v1, "android.intent.action.VIEW"
+
+    const-string/jumbo v2, "https://www.samsung.com/samsung-dex"
+
+    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    const/high16 v1, 0x10000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
+
+    sget-object v2, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    return-void
+.end method
+
+.method private createLaunchConfirmationDialog(ZZ)Landroid/app/AlertDialog;
     .locals 4
 
     new-instance v1, Lcom/android/server/desktopmode/DesktopModeService$14;
@@ -1488,14 +1534,20 @@
 
     new-instance v2, Lcom/android/server/desktopmode/DesktopModeService$15;
 
-    invoke-direct {v2, p0}, Lcom/android/server/desktopmode/DesktopModeService$15;-><init>(Lcom/android/server/desktopmode/DesktopModeService;)V
+    invoke-direct {v2, p0, p2}, Lcom/android/server/desktopmode/DesktopModeService$15;-><init>(Lcom/android/server/desktopmode/DesktopModeService;Z)V
+
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
+
+    new-instance v2, Lcom/android/server/desktopmode/DesktopModeService$16;
+
+    invoke-direct {v2, p0, p2}, Lcom/android/server/desktopmode/DesktopModeService$16;-><init>(Lcom/android/server/desktopmode/DesktopModeService;Z)V
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     return-object v0
 .end method
 
-.method private createPromotionView()Landroid/view/View;
+.method private createPromotionView(I)Landroid/view/View;
     .locals 6
 
     const/4 v5, 0x0
@@ -1522,11 +1574,46 @@
 
     if-eqz v1, :cond_0
 
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v4, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
+
+    sget v5, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion_msg1:I
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const/4 v3, 0x5
+
+    if-ne p1, v3, :cond_2
+
     iget-object v3, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
 
-    sget v4, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion_msg1:I
+    sget v5, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion_msg2:I
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1539,16 +1626,69 @@
 
     move-result-object v0
 
+    check-cast v0, Landroid/widget/TextView;
+
     if-eqz v0, :cond_1
 
-    new-instance v3, Lcom/android/server/desktopmode/DesktopModeService$16;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3, p0}, Lcom/android/server/desktopmode/DesktopModeService$16;-><init>(Lcom/android/server/desktopmode/DesktopModeService;)V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    const-string/jumbo v4, "<u>"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
+
+    sget v5, Lcom/samsung/android/framework/res/R$string;->dex_dialog_learn_more:I
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "</u>"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-static {v3, v4}, Landroid/text/Html;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    new-instance v3, Lcom/android/server/desktopmode/DesktopModeService$17;
+
+    invoke-direct {v3, p0}, Lcom/android/server/desktopmode/DesktopModeService$17;-><init>(Lcom/android/server/desktopmode/DesktopModeService;)V
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_1
     return-object v2
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
+
+    sget v5, Lcom/samsung/android/framework/res/R$string;->dex_dialog_promotion_msg2_mouse:I
+
+    invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_0
 .end method
 
 .method private static dialogTypeToString(I)Ljava/lang/String;
@@ -1597,16 +1737,21 @@
     return-object v0
 
     :pswitch_4
-    const-string/jumbo v0, "DIALOG_TYPE_PROMOTION"
+    const-string/jumbo v0, "DIALOG_TYPE_PROMOTION_MOUSE"
 
     return-object v0
 
     :pswitch_5
-    const-string/jumbo v0, "DIALOG_TYPE_TOUCHPAD"
+    const-string/jumbo v0, "DIALOG_TYPE_PROMOTION_DOCK"
 
     return-object v0
 
     :pswitch_6
+    const-string/jumbo v0, "DIALOG_TYPE_TOUCHPAD"
+
+    return-object v0
+
+    :pswitch_7
     const-string/jumbo v0, "DIALOG_TYPE_DISPLAY_UNSUPPORT"
 
     return-object v0
@@ -1620,11 +1765,14 @@
         :pswitch_4
         :pswitch_5
         :pswitch_6
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method private dismissDialog()V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
 
@@ -1647,12 +1795,34 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    iput-object v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialog:Landroid/app/AlertDialog;
+    iput-object v3, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialog:Landroid/app/AlertDialog;
 
     :cond_1
-    const/4 v0, 0x0
+    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDesktopModeState:I
 
-    iput v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
+    const/16 v1, 0x11
+
+    if-ne v0, v1, :cond_3
+
+    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
+
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_2
+
+    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_3
+
+    :cond_2
+    const/16 v0, 0x10
+
+    invoke-direct {p0, v0, v2}, Lcom/android/server/desktopmode/DesktopModeService;->setDesktopModeState(II)V
+
+    :cond_3
+    iput v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
 
     return-void
 .end method
@@ -1709,66 +1879,6 @@
         0x6e -> :sswitch_2
         0x6f -> :sswitch_3
     .end sparse-switch
-.end method
-
-.method private enterDesktopModeByHdmiSettings()V
-    .locals 6
-
-    const/4 v5, 0x1
-
-    const-string/jumbo v1, "hdmi"
-
-    const/4 v2, -0x1
-
-    invoke-direct {p0, v1, v2}, Lcom/android/server/desktopmode/DesktopModeService;->getSettings(Ljava/lang/String;I)I
-
-    move-result v0
-
-    packed-switch v0, :pswitch_data_0
-
-    :goto_0
-    return-void
-
-    :pswitch_0
-    sget-boolean v1, Lcom/android/server/desktopmode/DesktopModeService;->DEBUG:Z
-
-    if-eqz v1, :cond_0
-
-    sget-object v1, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "enterDesktopModeByHdmiSettings   show Presentation"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
-
-    iget-object v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
-
-    const/4 v3, 0x2
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v5, v3, v4}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
-
-    :pswitch_1
-    invoke-direct {p0, v5}, Lcom/android/server/desktopmode/DesktopModeService;->setDesktopMode(Z)V
-
-    goto :goto_0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
 .end method
 
 .method private getDisplayPortState()I
@@ -2405,6 +2515,143 @@
     goto :goto_1
 .end method
 
+.method private isCoverSupported(Z)Z
+    .locals 6
+
+    const/4 v5, 0x0
+
+    const/4 v4, 0x2
+
+    const/4 v3, 0x1
+
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsKeyboardCoverEnabled:Z
+
+    if-eqz v0, :cond_1
+
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "Cover not supported. mIsKeyboardCoverEnabled=true"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz p1, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+
+    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+
+    sget v2, Lcom/samsung/android/framework/res/R$string;->dex_toast_keyboard_cover:I
+
+    invoke-virtual {v1, v4, v2, v3}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
+
+    :cond_0
+    return v5
+
+    :cond_1
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverAttached:Z
+
+    if-eqz v0, :cond_5
+
+    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
+
+    const/16 v1, 0xc
+
+    if-eq v0, v1, :cond_2
+
+    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
+
+    const/16 v1, 0x9
+
+    if-ne v0, v1, :cond_3
+
+    :cond_2
+    return v3
+
+    :cond_3
+    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
+
+    const/16 v1, 0xa
+
+    if-eq v0, v1, :cond_2
+
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Cover not supported. mCoverAttached=true, mCoverType="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz p1, :cond_4
+
+    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
+
+    packed-switch v0, :pswitch_data_0
+
+    :cond_4
+    :goto_0
+    return v5
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+
+    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+
+    sget v2, Lcom/samsung/android/framework/res/R$string;->dex_toast_scover:I
+
+    invoke-virtual {v1, v4, v2, v3}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
+
+    goto :goto_0
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+
+    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+
+    sget v2, Lcom/samsung/android/framework/res/R$string;->dex_toast_led_view_cover:I
+
+    invoke-virtual {v1, v4, v2, v3}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
+
+    goto :goto_0
+
+    :cond_5
+    return v3
+
+    :pswitch_data_0
+    .packed-switch 0x7
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+.end method
+
 .method private isDesktopDockConnectedOrForced()Z
     .locals 2
 
@@ -2441,103 +2688,67 @@
 .method private isDesktopModeReady()Z
     .locals 6
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
-    const/4 v0, 0x0
+    const/4 v4, 0x1
 
-    iget-boolean v1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsDesktopMode:Z
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsDesktopMode:Z
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_1
 
-    const-string/jumbo v1, "hdmi"
+    const-string/jumbo v0, "hdmi"
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    invoke-direct {p0, v1, v2}, Lcom/android/server/desktopmode/DesktopModeService;->getSettings(Ljava/lang/String;I)I
+    invoke-direct {p0, v0, v1}, Lcom/android/server/desktopmode/DesktopModeService;->getSettings(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v0
 
-    if-eq v5, v1, :cond_0
+    if-eq v4, v0, :cond_1
 
-    invoke-direct {p0, v5}, Lcom/android/server/desktopmode/DesktopModeService;->isSystemModeReady(Z)Z
+    invoke-direct {p0, v4}, Lcom/android/server/desktopmode/DesktopModeService;->isSystemModeReady(Z)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_1
 
-    invoke-direct {p0, v5}, Lcom/android/server/desktopmode/DesktopModeService;->isScoverAttachedAndClosed(Z)Z
+    invoke-direct {p0, v4}, Lcom/android/server/desktopmode/DesktopModeService;->isCoverSupported(Z)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
+
+    if-eqz v0, :cond_0
+
+    return v4
 
     :cond_0
-    :goto_0
-    sget-boolean v1, Lcom/android/server/desktopmode/DesktopModeService;->DEBUG:Z
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    const-string/jumbo v1, "isDesktopModeReady(), Launcher not available"
 
-    sget-object v1, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "isDesktopModeReady()="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    return v0
-
-    :cond_2
-    iget-boolean v1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
-
-    if-eqz v1, :cond_3
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    sget-boolean v1, Lcom/android/server/desktopmode/DesktopModeService;->DEBUG:Z
-
-    if-eqz v1, :cond_4
-
-    sget-object v1, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "isDesktopModeReady(), launcher not available"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
     iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
 
-    iget-object v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+    sget v2, Lcom/samsung/android/framework/res/R$string;->dex_toast_unavailable_mode:I
 
-    sget v3, Lcom/samsung/android/framework/res/R$string;->dex_toast_unavailable_mode:I
+    const/4 v3, 0x2
 
-    const/4 v4, 0x2
+    invoke-virtual {v1, v3, v2, v4}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->obtainMessage(III)Landroid/os/Message;
 
-    invoke-virtual {v2, v4, v3, v5}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->obtainMessage(III)Landroid/os/Message;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v0, v1}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
 
-    invoke-virtual {v1, v2}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
+    return v5
 
-    goto :goto_0
+    :cond_1
+    return v5
 .end method
 
 .method private isDialogTypeLaunchConfirm()Z
@@ -2871,198 +3082,6 @@
     const/4 v1, 0x0
 
     return v1
-.end method
-
-.method private isScoverAttachedAndClosed(Z)Z
-    .locals 6
-
-    const/4 v5, 0x2
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
-    sget-boolean v2, Lcom/android/server/desktopmode/DesktopModeService;->DEBUG:Z
-
-    if-eqz v2, :cond_0
-
-    sget-object v2, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "isScoverAttachedAndClosed  attach="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-boolean v4, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverAttached:Z
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "  closed="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-boolean v4, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverClosed:Z
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "  type="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget v4, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "  keyboardCover="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-boolean v4, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsKeyboardCoverEnabled:Z
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-boolean v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverAttached:Z
-
-    if-eqz v2, :cond_1
-
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->isScoverTypeAvailable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    :cond_1
-    :goto_0
-    if-eqz v0, :cond_3
-
-    if-eqz p1, :cond_3
-
-    sget-boolean v2, Lcom/android/server/desktopmode/DesktopModeService;->DEBUG:Z
-
-    if-eqz v2, :cond_2
-
-    sget-object v2, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v3, "Clear or keyboard cover is attached... show toast"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    iget v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
-
-    const/16 v3, 0x8
-
-    if-ne v2, v3, :cond_5
-
-    iget-object v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
-
-    iget-object v3, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
-
-    sget v4, Lcom/samsung/android/framework/res/R$string;->dex_toast_scover:I
-
-    invoke-virtual {v3, v5, v4, v1}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
-
-    :cond_3
-    :goto_1
-    return v0
-
-    :cond_4
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_5
-    iget-boolean v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsKeyboardCoverEnabled:Z
-
-    if-eqz v2, :cond_3
-
-    iget-object v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
-
-    iget-object v3, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
-
-    sget v4, Lcom/samsung/android/framework/res/R$string;->dex_toast_keyboard_cover:I
-
-    invoke-virtual {v3, v5, v4, v1}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_1
-.end method
-
-.method private isScoverTypeAvailable()Z
-    .locals 4
-
-    const/4 v1, 0x0
-
-    const/4 v0, 0x1
-
-    iget v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
-
-    const/16 v3, 0xc
-
-    if-eq v2, v3, :cond_0
-
-    iget-boolean v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsKeyboardCoverEnabled:Z
-
-    if-nez v2, :cond_2
-
-    iget v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
-
-    const/16 v3, 0x9
-
-    if-eq v2, v3, :cond_0
-
-    iget v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
-
-    const/16 v3, 0xa
-
-    if-ne v2, v3, :cond_1
-
-    :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_2
-    move v0, v1
-
-    goto :goto_0
 .end method
 
 .method private isSystemModeReady(Z)Z
@@ -5262,7 +5281,9 @@
 .end method
 
 .method private setDefaultDisplayPowerMode(I)V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x2
 
     sget-boolean v0, Lcom/android/server/desktopmode/DesktopModeService;->DEBUG:Z
 
@@ -5295,10 +5316,28 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    if-eq p1, v3, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/os/PowerManagerInternal;->setForcedDisplayOff(Z)V
+
+    :cond_1
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
     invoke-virtual {v0, p1}, Landroid/hardware/display/DisplayManagerInternal;->setDefaultDisplayPowerMode(I)V
 
+    if-ne p1, v3, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/os/PowerManagerInternal;->setForcedDisplayOff(Z)V
+
+    :cond_2
     return-void
 .end method
 
@@ -5369,7 +5408,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDvfsManager:Lcom/samsung/android/os/SemDvfsManager;
 
-    const/16 v1, 0x1388
+    const/16 v1, 0x3a98
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/os/SemDvfsManager;->acquire(I)V
 
@@ -5480,6 +5519,47 @@
     invoke-virtual {v0, v2, v3, v4}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
     goto :goto_1
+.end method
+
+.method private setDesktopModeOrShowLaunchConfirmationDialog()V
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    const/4 v2, -0x1
+
+    const-string/jumbo v1, "hdmi"
+
+    invoke-direct {p0, v1, v2}, Lcom/android/server/desktopmode/DesktopModeService;->getSettings(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-direct {p0, v5}, Lcom/android/server/desktopmode/DesktopModeService;->setDesktopMode(Z)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    if-ne v0, v2, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+
+    iget-object v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mHandler:Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;
+
+    const/4 v3, 0x2
+
+    invoke-virtual {v2, v5, v3, v4}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
+
+    goto :goto_0
 .end method
 
 .method private setDesktopModeState(II)V
@@ -6422,11 +6502,11 @@
 .method private showDialog(I)V
     .locals 14
 
-    const/4 v13, 0x0
+    const v13, 0x104000a
 
-    const v12, 0x104000a
+    const/4 v12, 0x1
 
-    const/4 v11, 0x1
+    const/4 v11, 0x0
 
     const/4 v10, 0x0
 
@@ -6498,7 +6578,7 @@
 
     iput-object v10, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialog:Landroid/app/AlertDialog;
 
-    iput v13, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
+    iput v11, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
 
     :cond_2
     packed-switch p1, :pswitch_data_0
@@ -6506,13 +6586,9 @@
     return-void
 
     :pswitch_0
-    iget-object v7, p0, Lcom/android/server/desktopmode/DesktopModeService;->mPresentationManager:Lcom/samsung/android/desktopmode/DesktopModePresentationManager;
+    iget-boolean v7, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsExternalDisplayConnected:Z
 
-    const/4 v8, 0x4
-
-    invoke-virtual {v7, v8}, Lcom/samsung/android/desktopmode/DesktopModePresentationManager;->showInternal(I)V
-
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->createLaunchConfirmationDialog()Landroid/app/AlertDialog;
+    invoke-direct {p0, v12, v7}, Lcom/android/server/desktopmode/DesktopModeService;->createLaunchConfirmationDialog(ZZ)Landroid/app/AlertDialog;
 
     move-result-object v1
 
@@ -6533,7 +6609,7 @@
 
     invoke-virtual {v7}, Landroid/app/AlertDialog;->show()V
 
-    const/4 v7, 0x6
+    const/4 v7, 0x7
 
     if-ne p1, v7, :cond_4
 
@@ -6585,21 +6661,30 @@
     invoke-virtual {v0, v7}, Landroid/widget/Button;->setTextSize(F)V
 
     :cond_4
-    if-ne p1, v11, :cond_5
+    iget v7, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDesktopModeState:I
 
-    const/16 v7, 0x10
+    const/16 v8, 0x11
 
-    invoke-direct {p0, v7, v11}, Lcom/android/server/desktopmode/DesktopModeService;->setDesktopModeState(II)V
+    if-eq v7, v8, :cond_6
+
+    const/4 v7, 0x2
+
+    if-eq p1, v7, :cond_5
+
+    if-ne p1, v12, :cond_6
 
     :cond_5
+    const/16 v7, 0x10
+
+    invoke-direct {p0, v7, v12}, Lcom/android/server/desktopmode/DesktopModeService;->setDesktopModeState(II)V
+
+    :cond_6
     return-void
 
     :pswitch_1
-    iget-object v7, p0, Lcom/android/server/desktopmode/DesktopModeService;->mPresentationManager:Lcom/samsung/android/desktopmode/DesktopModePresentationManager;
+    iget-boolean v7, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsExternalDisplayConnected:Z
 
-    invoke-virtual {v7, v11}, Lcom/samsung/android/desktopmode/DesktopModePresentationManager;->showExternal(I)V
-
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->createLaunchConfirmationDialog()Landroid/app/AlertDialog;
+    invoke-direct {p0, v11, v7}, Lcom/android/server/desktopmode/DesktopModeService;->createLaunchConfirmationDialog(ZZ)Landroid/app/AlertDialog;
 
     move-result-object v1
 
@@ -6649,7 +6734,7 @@
 
     invoke-direct {v7, v8, v9}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->createPromotionView()Landroid/view/View;
+    invoke-direct {p0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->createPromotionView(I)Landroid/view/View;
 
     move-result-object v8
 
@@ -6659,9 +6744,9 @@
 
     new-instance v8, Lcom/android/server/desktopmode/DesktopModeService$13;
 
-    invoke-direct {v8, p0}, Lcom/android/server/desktopmode/DesktopModeService$13;-><init>(Lcom/android/server/desktopmode/DesktopModeService;)V
+    invoke-direct {v8, p0, p1}, Lcom/android/server/desktopmode/DesktopModeService$13;-><init>(Lcom/android/server/desktopmode/DesktopModeService;I)V
 
-    invoke-virtual {v7, v12, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v7, v13, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v7
 
@@ -6692,7 +6777,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, v12, v10}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v7, v13, v10}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v7
 
@@ -6727,7 +6812,7 @@
 
     const/16 v8, 0x21
 
-    invoke-virtual {v5, v2, v13, v7, v8}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
+    invoke-virtual {v5, v2, v11, v7, v8}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
     new-instance v7, Landroid/app/AlertDialog$Builder;
 
@@ -6745,7 +6830,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, v12, v10}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v7, v13, v10}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v7
 
@@ -6762,6 +6847,7 @@
         :pswitch_0
         :pswitch_1
         :pswitch_2
+        :pswitch_3
         :pswitch_3
         :pswitch_4
         :pswitch_5
@@ -6801,7 +6887,7 @@
 
     const/4 v3, 0x1
 
-    const/4 v4, 0x6
+    const/4 v4, 0x7
 
     const/4 v5, 0x0
 
@@ -6812,157 +6898,6 @@
     invoke-virtual {v1, v2}, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->sendMessage(Landroid/os/Message;)Z
 
     :cond_0
-    return-void
-.end method
-
-.method private showHeadsUpNotification()V
-    .locals 9
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x1
-
-    sget-boolean v4, Lcom/android/server/desktopmode/DesktopModeService;->DEBUG:Z
-
-    if-eqz v4, :cond_0
-
-    sget-object v4, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "showHeadsUpNotification()"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v4, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
-
-    new-instance v5, Landroid/content/Intent;
-
-    const-string/jumbo v6, "com.android.server.desktopmode.action.NOTIFICATION_PRESSED"
-
-    invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    sget-object v6, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    invoke-static {v4, v7, v5, v7, v6}, Landroid/app/PendingIntent;->getBroadcastAsUser(Landroid/content/Context;ILandroid/content/Intent;ILandroid/os/UserHandle;)Landroid/app/PendingIntent;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
-
-    sget v5, Lcom/samsung/android/framework/res/R$string;->samsung_dex:I
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v4, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
-
-    sget v5, Lcom/samsung/android/framework/res/R$string;->dex_hun_hdmi_settings:I
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v4, Landroid/app/Notification$Builder;
-
-    iget-object v5, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
-
-    invoke-direct {v4, v5}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
-
-    sget v5, Lcom/samsung/android/framework/res/R$drawable;->stat_notify_desktop_mode:I
-
-    invoke-virtual {v4, v5}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    new-instance v5, Landroid/app/Notification$BigTextStyle;
-
-    invoke-direct {v5}, Landroid/app/Notification$BigTextStyle;-><init>()V
-
-    invoke-virtual {v5, v1}, Landroid/app/Notification$BigTextStyle;->bigText(Ljava/lang/CharSequence;)Landroid/app/Notification$BigTextStyle;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/app/Notification$Builder;->setStyle(Landroid/app/Notification$Style;)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    new-instance v5, Landroid/app/Notification$Action$Builder;
-
-    iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
-
-    const v7, 0x1040148
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    const/4 v7, 0x0
-
-    invoke-direct {v5, v7, v6, v3}, Landroid/app/Notification$Action$Builder;-><init>(Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
-
-    invoke-virtual {v5}, Landroid/app/Notification$Action$Builder;->build()Landroid/app/Notification$Action;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/app/Notification$Builder;->addAction(Landroid/app/Notification$Action;)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setOnlyAlertOnce(Z)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setPriority(I)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setAutoCancel(Z)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    sget-object v5, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Landroid/app/Notification$Builder;->setGroup(Ljava/lang/String;)Landroid/app/Notification$Builder;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/android/server/desktopmode/DesktopModeService;->overrideNotificationAppName(Landroid/app/Notification$Builder;)V
-
-    iget-object v4, p0, Lcom/android/server/desktopmode/DesktopModeService;->mNotificationManager:Landroid/app/NotificationManager;
-
-    sget-object v5, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
-
-    sget v6, Lcom/samsung/android/framework/res/R$string;->dex_hun_hdmi_settings:I
-
-    invoke-virtual {v0}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
-
-    move-result-object v7
-
-    sget-object v8, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    invoke-virtual {v4, v5, v6, v7, v8}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
-
     return-void
 .end method
 
@@ -7178,7 +7113,7 @@
 
     if-eqz v0, :cond_3
 
-    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->enterDesktopModeByHdmiSettings()V
+    invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->setDesktopModeOrShowLaunchConfirmationDialog()V
 
     goto :goto_0
 
@@ -7200,26 +7135,42 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_b
 
     invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->isDesktopDockConnectedOrForced()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_b
 
     iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsMouseConnected:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_5
 
-    invoke-direct {p0, v2}, Lcom/android/server/desktopmode/DesktopModeService;->isScoverAttachedAndClosed(Z)Z
+    invoke-direct {p0, v2}, Lcom/android/server/desktopmode/DesktopModeService;->isCoverSupported(Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_b
 
     :cond_5
-    move v0, v2
+    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
+
+    if-eqz v0, :cond_b
+
+    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
+
+    const/4 v3, 0x2
+
+    if-eq v0, v3, :cond_9
+
+    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
+
+    const/4 v3, 0x7
+
+    if-ne v0, v3, :cond_a
+
+    move v0, v1
 
     :goto_1
     if-nez v0, :cond_6
@@ -7244,11 +7195,11 @@
 
     if-eqz v0, :cond_8
 
-    invoke-direct {p0, v2}, Lcom/android/server/desktopmode/DesktopModeService;->isScoverAttachedAndClosed(Z)Z
+    invoke-direct {p0, v2}, Lcom/android/server/desktopmode/DesktopModeService;->isCoverSupported(Z)Z
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-eqz v0, :cond_8
 
     iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
 
@@ -7270,28 +7221,12 @@
     goto :goto_0
 
     :cond_9
-    iget-boolean v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
-
-    if-eqz v0, :cond_5
-
-    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
-
-    const/4 v3, 0x2
-
-    if-eq v0, v3, :cond_a
-
-    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mDialogType:I
-
-    const/4 v3, 0x6
-
-    if-ne v0, v3, :cond_b
-
     move v0, v1
 
     goto :goto_1
 
     :cond_a
-    move v0, v1
+    move v0, v2
 
     goto :goto_1
 
@@ -7724,53 +7659,124 @@
 .end method
 
 .method private updateOngoingNotification(Z)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Lcom/android/server/desktopmode/DesktopModeService;->updateOngoingNotification(ZZ)V
+
+    return-void
+.end method
+
+.method private updateOngoingNotification(ZZ)V
     .locals 11
 
-    const/4 v7, -0x1
+    const/4 v9, -0x1
 
     const/4 v10, 0x1
 
-    if-nez p1, :cond_0
+    sget-boolean v6, Lcom/android/server/desktopmode/DesktopModeService;->DEBUG:Z
+
+    if-eqz v6, :cond_0
+
+    sget-object v6, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "updateOngoingNotification(cancel="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ", welcomeDialogDismissed="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ")"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    if-nez p1, :cond_1
 
     invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->isExternalDisplayConnectedOrForced()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1
 
     invoke-direct {p0}, Lcom/android/server/desktopmode/DesktopModeService;->isDesktopDockConnectedOrForced()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1
 
     iget-boolean v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1
+
+    if-nez p2, :cond_2
 
     const-string/jumbo v6, "hdmi"
 
-    invoke-direct {p0, v6, v7}, Lcom/android/server/desktopmode/DesktopModeService;->getSettings(Ljava/lang/String;I)I
+    invoke-direct {p0, v6, v9}, Lcom/android/server/desktopmode/DesktopModeService;->getSettings(Ljava/lang/String;I)I
 
     move-result v6
 
-    if-eq v6, v7, :cond_0
+    if-ne v6, v9, :cond_2
 
-    new-instance v4, Landroid/content/Intent;
+    :cond_1
+    iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mNotificationManager:Landroid/app/NotificationManager;
 
-    const-string/jumbo v6, "android.intent.action.KNOXDESKTOP_STATE_CHANGED"
+    sget-object v7, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
 
-    invoke-direct {v4, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    sget v8, Lcom/samsung/android/framework/res/R$string;->samsung_dex:I
 
+    sget-object v9, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v6, v7, v8, v9}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
+
+    return-void
+
+    :cond_2
     iget-boolean v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsDesktopMode:Z
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_3
 
-    const-string/jumbo v6, "com.android.server.desktopmode.extra.DESKTOP_MODE_STATE"
+    new-instance v6, Landroid/content/Intent;
 
-    const/4 v7, 0x2
+    const-string/jumbo v7, "android.intent.action.KNOXDESKTOP_STATE_CHANGED"
 
-    invoke-virtual {v4, v6, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-direct {v6, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v7, "com.android.server.desktopmode.extra.DESKTOP_MODE_STATE"
+
+    const/4 v8, 0x2
+
+    invoke-virtual {v6, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    move-result-object v4
 
     iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
 
@@ -7885,8 +7891,6 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/server/desktopmode/DesktopModeService;->overrideNotificationAppName(Landroid/app/Notification$Builder;)V
-
     iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mNotificationManager:Landroid/app/NotificationManager;
 
     sget-object v7, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
@@ -7903,23 +7907,61 @@
 
     return-void
 
-    :cond_0
-    iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mNotificationManager:Landroid/app/NotificationManager;
+    :cond_3
+    if-eqz p2, :cond_4
 
-    sget-object v7, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
+    const-string/jumbo v6, "hdmi"
 
-    sget v8, Lcom/samsung/android/framework/res/R$string;->samsung_dex:I
+    invoke-direct {p0, v6, v9}, Lcom/android/server/desktopmode/DesktopModeService;->getSettings(Ljava/lang/String;I)I
 
-    sget-object v9, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    move-result v6
 
-    invoke-virtual {v6, v7, v8, v9}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
+    if-ne v6, v9, :cond_4
 
-    return-void
+    new-instance v4, Landroid/content/Intent;
 
-    :cond_1
-    const-string/jumbo v6, "com.android.server.desktopmode.extra.DESKTOP_MODE_STATE"
+    const-string/jumbo v6, "com.android.server.desktopmode.action.NOTIFICATION_PRESSED"
 
-    invoke-virtual {v4, v6, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-direct {v4, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
+
+    sget v7, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_mirroring_title:I
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
+
+    sget v7, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_dismissed_content:I
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
+
+    sget v7, Lcom/samsung/android/framework/res/R$string;->dex_ongoing_dismissed_action:I
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_4
+    new-instance v6, Landroid/content/Intent;
+
+    const-string/jumbo v7, "android.intent.action.KNOXDESKTOP_STATE_CHANGED"
+
+    invoke-direct {v6, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v7, "com.android.server.desktopmode.extra.DESKTOP_MODE_STATE"
+
+    invoke-virtual {v6, v7, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    move-result-object v4
 
     iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
 
@@ -10684,6 +10726,17 @@
     :goto_1
     invoke-direct {p0, v1}, Lcom/android/server/desktopmode/DesktopModeService;->scheduleUpdateDesktopModeState(I)V
 
+    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
+
+    if-eqz p1, :cond_2
+
+    const-string/jumbo v0, "LMTD"
+
+    :goto_2
+    const/4 v2, 0x0
+
+    invoke-static {v1, v0, v2}, Lcom/samsung/android/desktopmode/DesktopModeLogger;->logGSIM(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
     return-void
 
     :cond_0
@@ -10695,6 +10748,11 @@
     move v1, v2
 
     goto :goto_1
+
+    :cond_2
+    const-string/jumbo v0, "LDTM"
+
+    goto :goto_2
 .end method
 
 .method public setSystemService(Ljava/lang/Object;)V
