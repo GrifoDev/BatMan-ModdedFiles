@@ -61,40 +61,53 @@
 
     invoke-static {v5}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->-set1(I)I
 
+    iget v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->val$position:I
+
+    iget-object v6, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->this$1:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;
+
+    invoke-static {v6}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;->-get0(Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;)[I
+
+    move-result-object v6
+
+    array-length v6, v6
+
+    add-int/lit8 v6, v6, -0x1
+
+    if-ne v5, v6, :cond_0
+
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->this$1:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;
 
-    invoke-static {v5}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;)Landroid/content/Context;
+    iget-object v5, v5, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;
 
-    move-result-object v5
+    iget-object v6, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->this$1:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;
 
-    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v6, v6, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;
 
-    move-result-object v5
+    invoke-virtual {v6}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->getSemColorPickerDialog()Lcom/samsung/android/app/SemColorPickerDialog;
 
-    const-string/jumbo v6, "navigationbar_color"
+    move-result-object v6
 
-    iget-object v7, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->this$1:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;
+    iput-object v6, v5, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mColorPickerDialog:Lcom/samsung/android/app/SemColorPickerDialog;
 
-    invoke-static {v7}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;->-get0(Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;)[I
+    iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->this$1:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;
 
-    move-result-object v7
+    iget-object v5, v5, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;
 
-    iget v8, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->val$position:I
+    iget-object v5, v5, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->mColorPickerDialog:Lcom/samsung/android/app/SemColorPickerDialog;
 
-    aget v7, v7, v8
-
-    invoke-static {v5, v6, v7}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    const/4 v0, 0x0
+    invoke-virtual {v5}, Lcom/samsung/android/app/SemColorPickerDialog;->show()V
 
     :goto_0
+    const/4 v0, 0x0
+
+    :goto_1
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->val$parent:Landroid/view/ViewGroup;
 
     invoke-virtual {v5}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v5
 
-    if-ge v0, v5, :cond_0
+    if-ge v0, v5, :cond_1
 
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->val$parent:Landroid/view/ViewGroup;
 
@@ -132,9 +145,36 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
+    iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->this$1:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;
+
+    invoke-static {v5}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;)Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "navigationbar_color"
+
+    iget-object v7, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->this$1:Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;
+
+    invoke-static {v7}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;->-get0(Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;)[I
+
+    move-result-object v7
+
+    iget v8, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->val$position:I
+
+    aget v7, v7, v8
+
+    invoke-static {v5, v6, v7}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_0
+
+    :cond_1
     iget-object v5, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid$1;->val$selectedRing:Landroid/widget/ImageView;
 
     invoke-virtual {v5, v9}, Landroid/widget/ImageView;->setVisibility(I)V

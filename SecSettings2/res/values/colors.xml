@@ -377,7 +377,7 @@
     <color name="navigationbar_default_color_4">#fff0f0e6</color>
     <color name="navigationbar_default_color_5">#fff0e6e6</color>
     <color name="navigationbar_default_color_6">#fff0e6f0</color>
-    <color name="navigationbar_default_color_7">#fff0ebe6</color>
+    <color name="navigationbar_default_color_7">#00000000</color>
     <color name="navigationbar_icon_color_low_bound">#ffa6a6a6</color>
     <color name="navigationbar_icon_color_top_bound">#ff898989</color>
     <color name="navigationbar_icon_color_high_bound">#ff454545</color>
