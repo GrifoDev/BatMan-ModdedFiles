@@ -3,6 +3,7 @@ apkFileName: SecSettings2.apk
 compressionType: false
 doNotCompress:
 - arsc
+- META-INF/maven/com.google.zxing/core/pom.properties
 - zip
 - qmg
 - webp
