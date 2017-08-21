@@ -34150,7 +34150,7 @@
 
     move/from16 v1, p5
 
-    if-le v0, v1, :cond_4
+    if-le v0, v1, :cond_5
 
     move/from16 v12, p5
 
@@ -34170,7 +34170,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     const/4 v2, 0x1
 
@@ -34193,11 +34193,11 @@
 
     move/from16 v1, p5
 
-    if-eq v0, v1, :cond_6
+    if-eq v0, v1, :cond_7
 
     const/16 v2, 0x258
 
-    if-ge v13, v2, :cond_6
+    if-ge v13, v2, :cond_7
 
     const/4 v2, 0x1
 
@@ -34210,6 +34210,26 @@
 
     move-result v2
 
+    const-string/jumbo v10, "ro.chipname"
+
+    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v10
+
+    const-string/jumbo v3, "exynos8890"
+
+    invoke-virtual {v10, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    const/4 v2, 0x0
+
+    :goto_2
     iput-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mHasNavigationBar:Z
 
     const-string/jumbo v2, "qemu.hw.mainkeys"
@@ -34224,14 +34244,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
 
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mHasNavigationBar:Z
 
-    :cond_2
-    :goto_2
+    :cond_3
+    :goto_3
     const-string/jumbo v2, "portrait"
 
     const-string/jumbo v3, "persist.demo.hdmirotation"
@@ -34244,13 +34264,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mPortraitRotation:I
 
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mDemoHdmiRotation:I
 
-    :goto_3
+    :goto_4
     const-string/jumbo v2, "persist.demo.hdmirotationlock"
 
     const/4 v3, 0x0
@@ -34273,13 +34293,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_a
 
     iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mPortraitRotation:I
 
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mDemoRotation:I
 
-    :goto_4
+    :goto_5
     const-string/jumbo v2, "persist.demo.rotationlock"
 
     const/4 v3, 0x0
@@ -34292,11 +34312,11 @@
 
     const/16 v2, 0x3c0
 
-    if-lt v9, v2, :cond_b
+    if-lt v9, v2, :cond_c
 
     const/16 v2, 0x2d0
 
-    if-lt v13, v2, :cond_b
+    if-lt v13, v2, :cond_c
 
     const v2, 0x1120085
 
@@ -34304,7 +34324,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_c
 
     const-string/jumbo v2, "true"
 
@@ -34318,11 +34338,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
     const/4 v2, 0x0
 
-    :goto_5
+    :goto_6
     iput-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mForceDefaultOrientation:Z
 
     iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
@@ -34349,7 +34369,7 @@
 
     return-void
 
-    :cond_3
+    :cond_4
     const/4 v2, 0x3
 
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mPortraitRotation:I
@@ -34360,7 +34380,7 @@
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_5
     move/from16 v12, p4
 
     move/from16 v8, p5
@@ -34379,72 +34399,72 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     const/4 v2, 0x3
 
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
 
     const/4 v2, 0x1
-
-    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mSeascapeRotation:I
-
-    goto/16 :goto_0
-
-    :cond_5
-    const/4 v2, 0x1
-
-    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
-
-    const/4 v2, 0x3
 
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mSeascapeRotation:I
 
     goto/16 :goto_0
 
     :cond_6
+    const/4 v2, 0x1
+
+    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
+
+    const/4 v2, 0x3
+
+    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mSeascapeRotation:I
+
+    goto/16 :goto_0
+
+    :cond_7
     const/4 v2, 0x0
 
     goto/16 :goto_1
 
-    :cond_7
+    :cond_8
     const-string/jumbo v2, "0"
 
     invoke-virtual {v2, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mHasNavigationBar:Z
-
-    goto/16 :goto_2
-
-    :cond_8
-    iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
-
-    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mDemoHdmiRotation:I
 
     goto/16 :goto_3
 
     :cond_9
     iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
 
-    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mDemoRotation:I
+    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mDemoHdmiRotation:I
 
     goto/16 :goto_4
 
     :cond_a
-    const/4 v2, 0x1
+    iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
 
-    goto :goto_5
+    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mDemoRotation:I
+
+    goto/16 :goto_5
 
     :cond_b
+    const/4 v2, 0x1
+
+    goto :goto_6
+
+    :cond_c
     const/4 v2, 0x0
 
-    goto :goto_5
+    goto :goto_6
 .end method
 
 .method public setLastInputMethodWindowLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;)V
