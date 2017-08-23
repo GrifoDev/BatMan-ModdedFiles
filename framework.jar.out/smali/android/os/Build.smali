@@ -84,6 +84,8 @@
 
 .field public static final USER:Ljava/lang/String;
 
+.field public static renovateHeroDevice:Z
+
 
 # direct methods
 .method static synthetic -wrap0(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
@@ -107,12 +109,34 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 8
+    .locals 9
 
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    const-string/jumbo v1, "ro.chipname"
+
+    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v8, "exynos8890"
+
+    invoke-virtual {v1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    sput-boolean v3, Landroid/os/Build;->renovateHeroDevice:Z
+
+    goto :goto_0
+
+    :cond_0
+    sput-boolean v2, Landroid/os/Build;->renovateHeroDevice:Z
+
+    :goto_0
     const-string/jumbo v1, "ro.build.id"
 
     invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -261,24 +285,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     sget-object v0, Landroid/os/Build;->SUPPORTED_64_BIT_ABIS:[Ljava/lang/String;
 
-    :goto_0
+    :goto_1
     aget-object v1, v0, v3
 
     sput-object v1, Landroid/os/Build;->CPU_ABI:Ljava/lang/String;
 
     array-length v1, v0
 
-    if-le v1, v2, :cond_1
+    if-le v1, v2, :cond_2
 
     aget-object v1, v0, v2
 
     sput-object v1, Landroid/os/Build;->CPU_ABI2:Ljava/lang/String;
 
-    :goto_1
+    :goto_2
     const-string/jumbo v1, "ro.build.type"
 
     invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -335,11 +359,11 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_3
 
     move v1, v2
 
-    :goto_2
+    :goto_3
     sput-boolean v1, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
     const-string/jumbo v1, "ro.secure"
@@ -348,11 +372,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     move v1, v2
 
-    :goto_3
+    :goto_4
     sput-boolean v1, Landroid/os/Build;->IS_SECURE:Z
 
     const-string/jumbo v1, "persist.translation.assistant"
@@ -361,24 +385,24 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_4
+    if-ne v1, v2, :cond_5
 
     move v1, v2
 
-    :goto_4
+    :goto_5
     sput-boolean v1, Landroid/os/Build;->IS_TRANSLATION_ASSISTANT_ENABLED:Z
 
     sget-boolean v1, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     sget-boolean v1, Landroid/os/Build;->IS_SECURE:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     sget-boolean v1, Landroid/os/Build;->IS_TRANSLATION_ASSISTANT_ENABLED:Z
 
-    :goto_5
+    :goto_6
     sput-boolean v1, Landroid/os/Build;->IS_SYSTEM_SECURE:Z
 
     const-string/jumbo v1, "ro.permission_review_required"
@@ -387,27 +411,22 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_6
+    if-ne v1, v2, :cond_7
 
-    :goto_6
+    :goto_7
     sput-boolean v2, Landroid/os/Build;->PERMISSIONS_REVIEW_REQUIRED:Z
 
     return-void
 
-    :cond_0
-    sget-object v0, Landroid/os/Build;->SUPPORTED_32_BIT_ABIS:[Ljava/lang/String;
-
-    goto :goto_0
-
     :cond_1
-    const-string/jumbo v1, ""
-
-    sput-object v1, Landroid/os/Build;->CPU_ABI2:Ljava/lang/String;
+    sget-object v0, Landroid/os/Build;->SUPPORTED_32_BIT_ABIS:[Ljava/lang/String;
 
     goto :goto_1
 
     :cond_2
-    move v1, v3
+    const-string/jumbo v1, ""
+
+    sput-object v1, Landroid/os/Build;->CPU_ABI2:Ljava/lang/String;
 
     goto :goto_2
 
@@ -427,9 +446,14 @@
     goto :goto_5
 
     :cond_6
-    move v2, v3
+    move v1, v3
 
     goto :goto_6
+
+    :cond_7
+    move v2, v3
+
+    goto :goto_7
 .end method
 
 .method public constructor <init>()V

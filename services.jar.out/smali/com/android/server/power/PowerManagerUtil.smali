@@ -687,17 +687,7 @@
 
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_HALF_BRIGHTNESS_LOW_BATTERY:Z
 
-    const-string/jumbo v5, "ro.chipname"
-
-    invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v5, "exynos8890"
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
+    sget-boolean v5, Landroid/os/Build;->renovateHeroDevice:Z
 
     if-nez v5, :cond_2
 

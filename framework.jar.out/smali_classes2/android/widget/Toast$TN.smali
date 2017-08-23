@@ -638,7 +638,7 @@
     :pswitch_1
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x01030004
+    const v5, 0x1030004
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -647,7 +647,7 @@
     :pswitch_2
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x01030521
+    const v5, 0x1030521
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -656,7 +656,7 @@
     :pswitch_3
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x01030525
+    const v5, 0x1030525
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -665,7 +665,7 @@
     :pswitch_4
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x01030524
+    const v5, 0x1030524
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -674,7 +674,7 @@
     :pswitch_5
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x01030522
+    const v5, 0x1030522
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -683,7 +683,7 @@
     :pswitch_6
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x01030523
+    const v5, 0x1030523
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -692,7 +692,7 @@
     :pswitch_7
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x01030526
+    const v5, 0x1030526
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -701,7 +701,7 @@
     :pswitch_8
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x01030527
+    const v5, 0x1030527
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -710,7 +710,7 @@
     :pswitch_9
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x01030528
+    const v5, 0x1030528
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -719,7 +719,7 @@
     :pswitch_a
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x01030529
+    const v5, 0x1030529
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -728,7 +728,7 @@
     :pswitch_b
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x0103052a
+    const v5, 0x103052a
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -737,7 +737,7 @@
     :pswitch_c
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x0103052b
+    const v5, 0x103052b
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -746,7 +746,7 @@
     :pswitch_d
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x0103052c
+    const v5, 0x103052c
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -755,7 +755,7 @@
     :pswitch_e
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x0103052d
+    const v5, 0x103052d
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -764,7 +764,7 @@
     :pswitch_f
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    const v5, 0x0103052e
+    const v5, 0x103052e
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 

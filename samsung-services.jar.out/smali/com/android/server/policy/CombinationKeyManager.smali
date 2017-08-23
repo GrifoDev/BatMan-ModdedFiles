@@ -1088,9 +1088,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/server/policy/CombinationKeyManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-virtual {v2}, Lcom/android/server/policy/PhoneWindowManager;->hasNavigationBar()Z
-
-    move-result v2
+    const/4 v2, 0x1
 
     if-eqz v2, :cond_5
 
@@ -2288,9 +2286,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/CombinationKeyManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-virtual {v4}, Lcom/android/server/policy/PhoneWindowManager;->hasNavigationBar()Z
-
-    move-result v4
+    const/4 v4, 0x1
 
     if-eqz v4, :cond_a
 
@@ -2318,9 +2314,7 @@
     :cond_b
     iget-object v4, p0, Lcom/android/server/policy/CombinationKeyManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-virtual {v4}, Lcom/android/server/policy/PhoneWindowManager;->hasNavigationBar()Z
-
-    move-result v4
+    const/4 v4, 0x1
 
     if-eqz v4, :cond_c
 
@@ -2777,9 +2771,7 @@
 
     iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->hasNavigationBar()Z
-
-    move-result v0
+    const/4 v0, 0x1
 
     if-eqz v0, :cond_0
 

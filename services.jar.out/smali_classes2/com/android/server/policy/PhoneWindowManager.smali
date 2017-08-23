@@ -10799,6 +10799,26 @@
     return v0
 .end method
 
+.method public allowNavBarHeightTweak()Z
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo p0, "custom_navbar_height"
+
+    const/4 v0, 0x0
+
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public applyPostLayoutPolicyLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;Landroid/view/WindowManagerPolicy$WindowState;)V
     .locals 20
 
@@ -18456,8 +18476,28 @@
     return v0
 .end method
 
-.method public getNavigationBarHeight(II)I
+.method public getNavBarHeightTweak()I
     .locals 2
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo p0, "navbar_height"
+
+    const v0, 0x90
+
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public getNavigationBarHeight(II)I
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
 
@@ -18497,6 +18537,17 @@
 
     aget v0, v0, p1
 
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->allowNavBarHeightTweak()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->getNavBarHeightTweak()I
+
+    move-result v0
+
+    :cond_2
     return v0
 .end method
 
@@ -18735,6 +18786,26 @@
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mPersonaManagerService:Lcom/android/server/pm/PersonaManagerService;
 
     return-object v1
+.end method
+
+.method public getRotationTweak()Z
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo p0, "all_rotations"
+
+    const/4 v0, 0x0
+
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public getSamsungPolicy()Lcom/android/server/policy/SamsungWindowManagerPolicy;
@@ -32824,9 +32895,7 @@
 
     move-result-object v4
 
-    const v6, 0x1120037
-
-    invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->getRotationTweak()Z
 
     move-result v4
 
@@ -34150,7 +34219,7 @@
 
     move/from16 v1, p5
 
-    if-le v0, v1, :cond_5
+    if-le v0, v1, :cond_6
 
     move/from16 v12, p5
 
@@ -34170,7 +34239,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     const/4 v2, 0x1
 
@@ -34193,11 +34262,11 @@
 
     move/from16 v1, p5
 
-    if-eq v0, v1, :cond_7
+    if-eq v0, v1, :cond_8
 
     const/16 v2, 0x258
 
-    if-ge v13, v2, :cond_7
+    if-ge v13, v2, :cond_8
 
     const/4 v2, 0x1
 
@@ -34210,23 +34279,24 @@
 
     move-result v2
 
-    const-string/jumbo v10, "ro.chipname"
-
-    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    const-string/jumbo v3, "exynos8890"
-
-    invoke-virtual {v10, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
+    sget-boolean v3, Landroid/os/Build;->renovateHeroDevice:Z
 
     if-nez v3, :cond_2
 
     goto :goto_2
 
     :cond_2
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->showNavBar()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    const/4 v2, 0x1
+
+    goto :goto_2
+
+    :cond_3
     const/4 v2, 0x0
 
     :goto_2
@@ -34244,13 +34314,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mHasNavigationBar:Z
 
-    :cond_3
+    :cond_4
     :goto_3
     const-string/jumbo v2, "portrait"
 
@@ -34264,7 +34334,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_a
 
     iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mPortraitRotation:I
 
@@ -34293,7 +34363,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
     iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mPortraitRotation:I
 
@@ -34312,11 +34382,11 @@
 
     const/16 v2, 0x3c0
 
-    if-lt v9, v2, :cond_c
+    if-lt v9, v2, :cond_d
 
     const/16 v2, 0x2d0
 
-    if-lt v13, v2, :cond_c
+    if-lt v13, v2, :cond_d
 
     const v2, 0x1120085
 
@@ -34324,7 +34394,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_d
 
     const-string/jumbo v2, "true"
 
@@ -34338,7 +34408,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_c
 
     const/4 v2, 0x0
 
@@ -34369,7 +34439,7 @@
 
     return-void
 
-    :cond_4
+    :cond_5
     const/4 v2, 0x3
 
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mPortraitRotation:I
@@ -34380,7 +34450,7 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     move/from16 v12, p4
 
     move/from16 v8, p5
@@ -34399,42 +34469,42 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     const/4 v2, 0x3
 
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
 
     const/4 v2, 0x1
-
-    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mSeascapeRotation:I
-
-    goto/16 :goto_0
-
-    :cond_6
-    const/4 v2, 0x1
-
-    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
-
-    const/4 v2, 0x3
 
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mSeascapeRotation:I
 
     goto/16 :goto_0
 
     :cond_7
+    const/4 v2, 0x1
+
+    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
+
+    const/4 v2, 0x3
+
+    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mSeascapeRotation:I
+
+    goto/16 :goto_0
+
+    :cond_8
     const/4 v2, 0x0
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_9
     const-string/jumbo v2, "0"
 
     invoke-virtual {v2, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     const/4 v2, 0x1
 
@@ -34442,26 +34512,26 @@
 
     goto/16 :goto_3
 
-    :cond_9
+    :cond_a
     iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
 
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mDemoHdmiRotation:I
 
     goto/16 :goto_4
 
-    :cond_a
+    :cond_b
     iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLandscapeRotation:I
 
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mDemoRotation:I
 
     goto/16 :goto_5
 
-    :cond_b
+    :cond_c
     const/4 v2, 0x1
 
     goto :goto_6
 
-    :cond_c
+    :cond_d
     const/4 v2, 0x0
 
     goto :goto_6
@@ -34648,6 +34718,26 @@
 
     :cond_1
     return-void
+.end method
+
+.method public showNavBar()Z
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo p0, "show_navbar"
+
+    const/4 v0, 0x0
+
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public showRecentApps(Z)V

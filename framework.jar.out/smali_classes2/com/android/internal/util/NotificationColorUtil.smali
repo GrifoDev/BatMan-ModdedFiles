@@ -477,7 +477,7 @@
 
     move-result-object v4
 
-    const-string v5, "unlock_notification_colors"
+    const-string/jumbo v5, "unlock_notification_colors"
 
     const/4 v6, 0x0
 
@@ -491,7 +491,7 @@
 
     move-result-object v1
 
-    const-string v2, "notification_icon_color"
+    const-string/jumbo v2, "notification_icon_color"
 
     const v3, -0xa38b80
 
